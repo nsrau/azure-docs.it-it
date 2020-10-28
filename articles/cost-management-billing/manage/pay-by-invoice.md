@@ -6,19 +6,20 @@ ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
-ms.topic: conceptual
-ms.date: 08/20/2020
+ms.topic: how-to
+ms.date: 10/26/2020
 ms.author: banders
-ms.openlocfilehash: 0667e253d50ecc34acef822a928a95e49f13282e
-ms.sourcegitcommit: 3792cf7efc12e357f0e3b65638ea7673651db6e1
+ms.custom: contentperfq2
+ms.openlocfilehash: df95305d1b014579ca6294a9015ac7879d8ce0b3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/29/2020
-ms.locfileid: "91439783"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670444"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>Pagare la sottoscrizione di Azure tramite fattura
 
-Con il metodo di pagamento tramite fattura la fattura viene pagata entro 30 giorni dalla data di emissione, con assegno o bonifico bancario. Per diventare idonei al pagamento della sottoscrizione di Azure tramite fattura, inviare una richiesta al supporto tecnico di Azure. Dopo che la richiesta è stata approvata, è possibile passare al pagamento con fattura (assegno/bonifico bancario) nel [portale di Azure](https://portal.azure.com).
+Con il metodo di pagamento tramite fattura la fattura viene pagata entro 30 giorni dalla data di emissione, con assegno o bonifico bancario. Per diventare idonei al pagamento della sottoscrizione di Azure tramite fattura, inviare una richiesta al supporto tecnico di Azure. Dopo che la richiesta è stata approvata, è possibile passare al pagamento con fattura (assegno/bonifico bancario) nel portale di Azure.
 
 > [!IMPORTANT]
 > * Il pagamento tramite fattura (assegno/bonifico) è disponibile solo per i clienti che usano Azure per conto di una società.
@@ -27,21 +28,21 @@ Con il metodo di pagamento tramite fattura la fattura viene pagata entro 30 gior
 
 ## <a name="request-to-pay-by-invoice"></a>Richiedere il passaggio al pagamento con fattura
 
-1. Passare al [portale di Azure](https://portal.azure.com) per inviare una richiesta di supporto. Cercare e selezionare **Guida e supporto**.
+1. Passare al portale di Azure per inviare una richiesta di supporto. Cercare e selezionare **Guida e supporto** .
 
     ![Cercare Guida e supporto, portale di Microsoft Azure](./media/pay-by-invoice/search-for-help-and-support.png)
 
-2. Selezionare **Nuova richiesta di supporto**.
+2. Selezionare **Nuova richiesta di supporto** .
 
     ![Collegamento Nuova richiesta di supporto, schermata Guida e supporto, portale di Microsoft Azure](./media/pay-by-invoice/help-and-support.png)
 
-2. Selezionare **Fatturazione** per **Tipo di problema**. *Tipo di problema* è la categoria della richiesta di supporto. Selezionare la sottoscrizione che si vuole pagare tramite fattura, selezionare un piano di supporto e quindi scegliere **Avanti**.
+2. Selezionare **Fatturazione** per **Tipo di problema** . *Tipo di problema* è la categoria della richiesta di supporto. Selezionare la sottoscrizione che si vuole pagare tramite fattura, selezionare un piano di supporto e quindi scegliere **Avanti** .
 
-3. Selezionare **Pagamento** per **Tipo di problema**. *Tipo di problema* è la categoria della richiesta di supporto.
+3. Selezionare **Pagamento** per **Tipo di problema** . *Tipo di problema* è la categoria della richiesta di supporto.
 
-4. Selezionare **Passare al modello di pagamento con fattura** per **Sottotipo del problema**.
+4. Selezionare **Passare al modello di pagamento con fattura** per **Sottotipo del problema** .
 
-5. Immettere le informazioni seguenti nella casella **Dettagli** e quindi selezionare **Avanti**.
+5. Immettere le informazioni seguenti nella casella **Dettagli** e quindi selezionare **Avanti** .
 
      Cliente nuovo o esistente:<br>
      Se esistente, metodo di pagamento corrente:<br>
@@ -67,9 +68,9 @@ Con il metodo di pagamento tramite fattura la fattura viene pagata entro 30 gior
      Area e serie specifiche della sottoscrizione:<br>
 
     - Le voci in **Nome società** e **Indirizzo società** devono corrispondere alle informazioni fornite per l'account Azure. Per visualizzare o aggiornare le informazioni, vedere [Modificare le informazioni del profilo dell'account Azure](change-azure-account-profile.md).
-    - Aggiungere le informazioni di contatto per la fatturazione nel portale di Azure per consentire l'approvazione del limite di credito. Le informazioni di contatto devono essere correlate al reparto di contabilità fornitori o finanziario dell'azienda. Per aggiornare le informazioni di contatto per la fatturazione, passare al [portale di Azure](https://portal.azure.com).
+    - Aggiungere le informazioni di contatto per la fatturazione nel portale di Azure per consentire l'approvazione del limite di credito. Le informazioni di contatto devono essere correlate al reparto di contabilità fornitori o finanziario dell'azienda.
 
-6. Verificare le informazioni di contatto e il metodo di contatto preferito e quindi selezionare **Crea**.
+6. Verificare le informazioni di contatto e il metodo di contatto preferito e quindi selezionare **Crea** .
 
 Se occorre eseguire una verifica del credito per la quantità di credito necessario, l'utente riceverà una richiesta di verifica del credito.
 
@@ -77,19 +78,19 @@ Se occorre eseguire una verifica del credito per la quantità di credito necessa
 
 Dopo che la richiesta di pagamento tramite fattura è stata approvata, è possibile passare al metodo di pagamento con fattura (assegno/bonifico bancario) nel portale di Azure.
 
-Se si dispone di un account del programma Microsoft Online Services, è possibile passare a una sottoscrizione di Azure con pagamento tramite assegno/bonifico. Con un contratto del cliente Microsoft è possibile impostare il pagamento con assegno/bonifico nel profilo di fatturazione. Leggere le informazioni su [come controllare il tipo di account](#check-access-to-a-microsoft-customer-agreement).
+Se si dispone di un account del programma Microsoft Online Services, è possibile passare a una sottoscrizione di Azure con pagamento tramite assegno/bonifico. Con un contratto del cliente Microsoft è possibile impostare il pagamento con assegno/bonifico nel profilo di fatturazione.
 
 ### <a name="switch-azure-subscription-to-checkwire-transfer"></a>Impostare il pagamento con assegno/bonifico per la sottoscrizione di Azure
 
 Seguire questa procedura per impostare il pagamento tramite fattura (assegno/bonifico) per la sottoscrizione di Azure. *Dopo il passaggio al pagamento con fattura (assegno/bonifico), non è possibile tornare al pagamento con carta di credito.*
 
-1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account. Cercare e selezionare **Gestione dei costi e fatturazione**.
+1. Accedere al portale di Azure come amministratore account. Cercare e selezionare **Gestione dei costi e fatturazione** .
 
     ![Screenshot che illustra la ricerca di Gestione dei costi e fatturazione nel portale di Azure.](./media/pay-by-invoice/search.png)
 
 1. Selezionare la sottoscrizione per cui si vuole passare al pagamento tramite fattura.
-1. Selezionare **Metodi di pagamento**.
-1. Nella barra dei comandi selezionare il pulsante **Pagamento con fattura**.
+1. Selezionare **Metodi di pagamento** .
+1. Nella barra dei comandi selezionare il pulsante **Pagamento con fattura** .
 
     ![Pulsante Pagamento con fattura, Metodi di pagamento, portale di Microsoft Azure](./media/pay-by-invoice/pay-by-invoice.png)
 
@@ -97,13 +98,13 @@ Seguire questa procedura per impostare il pagamento tramite fattura (assegno/bon
 
 Seguire questa procedura per impostare il pagamento con assegno/bonifico nel profilo di fatturazione. Il metodo di pagamento predefinito per un profilo di fatturazione può essere cambiato solo dalla persona che ha effettuato l'iscrizione ad Azure.
 
-1. Passare al [portale di Azure](https://portal.azure.com) per visualizzare le informazioni di fatturazione. Cercare e selezionare **Gestione dei costi e fatturazione**.
-1. Nel menu scegliere **Profili di fatturazione**.
+1. Passare al portale di Azure per visualizzare le informazioni di fatturazione. Cercare e selezionare **Gestione dei costi e fatturazione** .
+1. Nel menu scegliere **Profili di fatturazione** .
 
     ![Voce di menu Profili di fatturazione, Gestione dei costi e fatturazione, portale di Microsoft Azure](./media/pay-by-invoice/billing-profile.png)
 
 1. Selezionare un profilo di fatturazione.
-1. Nel menu **Profilo di fatturazione** selezionare **Metodi di pagamento**.
+1. Nel menu **Profilo di fatturazione** selezionare **Metodi di pagamento** .
 
    ![Voce di menu Metodi di pagamento, Profili di fatturazione, Gestione dei costi, portale di Microsoft Azure](./media/pay-by-invoice/billing-profile-payment-methods.png)
 
@@ -122,10 +123,6 @@ A volte Microsoft necessita di documentazione legale se le informazioni fornite 
 
 * Differenza tra il nome dell'account e il nome della società
 * Modifica nel nome
-
-## <a name="need-help-contact-us"></a>Richiesta di assistenza Contattaci.
-
-In caso di domande o per assistenza, [creare una richiesta di supporto](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

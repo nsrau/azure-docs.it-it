@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/20/2020
-ms.openlocfilehash: b33fab7657827733b2c5e7724666a3800686c8d9
-ms.sourcegitcommit: f796e1b7b46eb9a9b5c104348a673ad41422ea97
+ms.openlocfilehash: b0f8c5806ba22708db6dc537d391c1f1b1a183ec
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91564783"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543815"
 ---
 # <a name="azure-database-for-mysql-single-server"></a>Server singolo di Database di Azure per MySQL
 
@@ -55,7 +55,7 @@ Il servizio server singolo crea automaticamente i backup del server e li archivi
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Regolare prestazioni e scalabilità in pochi secondi
 
-Il servizio server singolo è disponibile in tre livelli di SKU: piani Basic, Per utilizzo generico e Con ottimizzazione per la memoria. Il livello Basic è ideale per lo sviluppo a basso costo e per carichi di lavoro di concorrenza ridotti. Per utilizzo generico e Con ottimizzazione per la memoria sono più adatti per i carichi di lavoro di produzione che richiedono concorrenza elevata, scalabilità e prevedibilità delle prestazioni. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. Il dimensionamento dello spazio di archiviazione è online e supporta l'aumento automatico. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Verranno addebitati i costi solo per le risorse usate. Per informazioni dettagliate, vedere  [Piani tariffari](concepts-service-tiers.md).
+Il servizio server singolo è disponibile in tre livelli di SKU: piani Basic, Per utilizzo generico e Con ottimizzazione per la memoria. Il livello Basic è ideale per lo sviluppo a basso costo e per carichi di lavoro di concorrenza ridotti. Per utilizzo generico e Con ottimizzazione per la memoria sono più adatti per i carichi di lavoro di produzione che richiedono concorrenza elevata, scalabilità e prevedibilità delle prestazioni. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. Il dimensionamento dello spazio di archiviazione è online e supporta l'aumento automatico. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Verranno addebitati i costi solo per le risorse usate. Per informazioni dettagliate, vedere [Piani tariffari](./concepts-pricing-tiers.md).
 
 ## <a name="enterprise-grade-security-compliance-and-governance"></a>Sicurezza, conformità e governance di livello aziendale
 
@@ -63,7 +63,7 @@ Il servizio server singolo usa il modulo crittografico convalidato FIPS 140-2 pe
 
 Il servizio consente l'accesso privato ai server tramite [collegamento privato](concepts-data-access-security-private-link.md) e fornisce la funzionalità [Advanced Threat Protection](concepts-data-access-and-security-threat-protection.md). Advanced Threat Protection rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database.
 
-Oltre all'autenticazione nativa, il servizio server singolo supporta l'autenticazione di [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis). L'autenticazione di Azure AD è un meccanismo di connessione ai server MySQL tramite identità definite e gestite in Azure AD. Con l'autenticazione di Azure AD è possibile centralizzare la gestione delle identità degli utenti del database e di altri servizi Azure semplificando e centralizzando il controllo di accesso.
+Oltre all'autenticazione nativa, il servizio server singolo supporta l'autenticazione di [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). L'autenticazione di Azure AD è un meccanismo di connessione ai server MySQL tramite identità definite e gestite in Azure AD. Con l'autenticazione di Azure AD è possibile centralizzare la gestione delle identità degli utenti del database e di altri servizi Azure semplificando e centralizzando il controllo di accesso.
 
 La [registrazione di controllo](concepts-audit-logs.md) è disponibile per tenere traccia di tutte le attività a livello di database. 
 
@@ -79,9 +79,9 @@ Il servizio server singolo è dotato di funzionalità predefinite di monitoraggi
 
 Il servizio esegue la versione community di MySQL. Questo consente la compatibilità completa delle applicazioni e richiede un costo di refactoring minimo per eseguire la migrazione di un'applicazione esistente sviluppata sul motore MySQL a un servizio server singolo. Per eseguire la migrazione al server singolo, è possibile usare una delle opzioni seguenti:
 
-- **Dump e ripristino**: per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, l'esecuzione del dump e del ripristino usando strumenti della community come mysqldump/mydumpere può fornire una soluzione più rapida per la migrazione. Per i dettagli, vedere [Eseguire la migrazione con dump e ripristino](concepts-migrate-dump-restore.md). 
-- **Servizio Migrazione del database di Azure**: per migrazioni semplici e facilitate al server singolo con tempi di inattività minimi, è possibile sfruttare [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online). 
-- **Replica dei dati in ingresso**: per migrazioni con tempi di inattività minimi, è anche possibile sfruttare la replica dei dati in ingresso, che si basa su binlog. La replica dei dati in ingresso è la scelta consigliata per migrazioni con tempi di inattività minimi eseguite da esperti che vogliono esercitare un maggior controllo. Per informazioni dettagliate, vedere [Replica dei dati in ingresso](concepts-data-in-replication.md).
+- **Dump e ripristino** : per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, l'esecuzione del dump e del ripristino usando strumenti della community come mysqldump/mydumpere può fornire una soluzione più rapida per la migrazione. Per i dettagli, vedere [Eseguire la migrazione con dump e ripristino](concepts-migrate-dump-restore.md). 
+- **Servizio Migrazione del database di Azure** : per migrazioni semplici e facilitate al server singolo con tempi di inattività minimi, è possibile sfruttare [Servizio Migrazione del database di Azure](../dms/tutorial-mysql-azure-mysql-online.md). 
+- **Replica dei dati in ingresso** : per migrazioni con tempi di inattività minimi, è anche possibile sfruttare la replica dei dati in ingresso, che si basa su binlog. La replica dei dati in ingresso è la scelta consigliata per migrazioni con tempi di inattività minimi eseguite da esperti che vogliono esercitare un maggior controllo. Per informazioni dettagliate, vedere [Replica dei dati in ingresso](concepts-data-in-replication.md).
 
 ## <a name="contacts"></a>Contatti
 Per eventuali domande o suggerimenti sull'uso di Database di Azure per MySQL, inviare un messaggio di posta elettronica al team di Database di Azure per MySQL ([@Ask Azure DB per MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Questo indirizzo di posta elettronica non è un alias del supporto tecnico.
@@ -108,4 +108,3 @@ A questo punto, dopo aver letto un'introduzione alla modalità di distribuzione 
   - [PHP](./connect-php.md)
   - [.NET (C#)](./connect-csharp.md)
   - [Go](./connect-go.md)
-  

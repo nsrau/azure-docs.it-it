@@ -4,13 +4,13 @@ description: Informazioni su come creare rapidamente un cluster Kubernetes trami
 services: container-service
 ms.topic: quickstart
 ms.date: 09/11/2020
-ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 2695126b8ad515735907558e3c316b87ac5dfbdc
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.custom: mvc,subject-armqs, devx-track-azurecli
+ms.openlocfilehash: f0ef1c32035eed26c0717364bda030b6b7662b3e
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070742"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92740289"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes con un modello di Resource Manager
 
@@ -22,7 +22,7 @@ Il servizio Azure Kubernetes è un servizio Kubernetes gestito che permette di d
 
 Questa guida introduttiva presuppone una comprensione di base dei concetti relativi a Kubernetes. Per altre informazioni, vedere [Concetti di base relativi a Kubernetes per il servizio Azure Kubernetes][kubernetes-concepts].
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-aks%2Fazuredeploy.json)
 
@@ -38,7 +38,7 @@ Per creare un cluster del servizio Azure Kubernetes usando un modello di Resourc
 
 ### <a name="create-an-ssh-key-pair"></a>Creare una coppia di chiavi SSH
 
-Per accedere ai nodi del servizio Azure Kubernetes è necessario connettersi tramite una coppia di chiavi SSH. Usare il comando `ssh-keygen` per generare i file di chiave pubblica e privata SSH. Per impostazione predefinita, questi file vengono creati nella directory *~/.ssh*. Se nel percorso specificato è presente una coppia di chiavi SSH con lo stesso nome, questi file vengono sovrascritti.
+Per accedere ai nodi del servizio Azure Kubernetes è necessario connettersi tramite una coppia di chiavi SSH. Usare il comando `ssh-keygen` per generare i file di chiave pubblica e privata SSH. Per impostazione predefinita, questi file vengono creati nella directory *~/.ssh* . Se nel percorso specificato è presente una coppia di chiavi SSH con lo stesso nome, questi file vengono sovrascritti.
 
 Passare a [https://shell.azure.com](https://shell.azure.com) per aprire Cloud Shell nel browser.
 
@@ -70,7 +70,7 @@ L'output è simile all'esempio seguente:
 }
 ```
 
-Prendere nota di *appId* e *password*. Questi valori vengono usati nei passaggi successivi.
+Prendere nota di *appId* e *password* . Questi valori vengono usati nei passaggi successivi.
 
 ## <a name="review-the-template"></a>Rivedere il modello
 
@@ -88,22 +88,22 @@ Per altri esempi per il servizio Azure Kubernetes, vedere il sito dei [modelli d
 
 2. Selezionare o immettere i valori seguenti.
 
-    Per questo modello di avvio rapido, lasciare i valori predefiniti per *Dimensioni disco sistema operativo*, *Numero di agenti*, *Dimensioni macchina virtuale agente*, *Tipo di sistema operativo* e *Versione di Kubernetes*. Specificare i valori personalizzati per i parametri del modello seguenti:
+    Per questo modello di avvio rapido, lasciare i valori predefiniti per *Dimensioni disco sistema operativo* , *Numero di agenti* , *Dimensioni macchina virtuale agente* , *Tipo di sistema operativo* e *Versione di Kubernetes* . Specificare i valori personalizzati per i parametri del modello seguenti:
 
     * **Sottoscrizione** Selezionare una sottoscrizione di Azure.
-    * **Gruppo di risorse**: Selezionare **Crea nuovo**. Specificare un nome univoco per il gruppo di risorse, ad esempio *myResourceGroup* e quindi scegliere **OK**.
-    * **Località**: Selezionare una località, ad esempio **Stati Uniti orientali**.
-    * **Nome cluster**: Specificare un nome univoco per il cluster del servizio Azure Kubernetes, ad esempio *myAKSCluster*.
-    * **Prefisso DNS**: Specificare un prefisso DNS univoco per il cluster, ad esempio *myakscluster*.
-    * **Nome utente amministratore Linux**: Specificare il nome utente per la connessione tramite SSH, ad esempio *azureuser*.
-    * **Chiave pubblica RSA SSH**: Copiare e incollare la parte *pubblica* della coppia di chiavi SSH (per impostazione predefinita, il contenuto di *~/.ssh/id_rsa.pub*).
-    * **ID client entità servizio**: Copiare e incollare l'*appId* dell'entità servizio dal comando `az ad sp create-for-rbac`.
-    * **Segreto client entità servizio**: Copiare e incollare la *password* dell'entità servizio dal comando `az ad sp create-for-rbac`.
-    * **Accetto le condizioni riportate sopra**: selezionare questa casella per accettare.
+    * **Gruppo di risorse** : Selezionare **Crea nuovo** . Specificare un nome univoco per il gruppo di risorse, ad esempio *myResourceGroup* e quindi scegliere **OK** .
+    * **Località** : Selezionare una località, ad esempio **Stati Uniti orientali** .
+    * **Nome cluster** : Specificare un nome univoco per il cluster del servizio Azure Kubernetes, ad esempio *myAKSCluster* .
+    * **Prefisso DNS** : Specificare un prefisso DNS univoco per il cluster, ad esempio *myakscluster* .
+    * **Nome utente amministratore Linux** : Specificare il nome utente per la connessione tramite SSH, ad esempio *azureuser* .
+    * **Chiave pubblica RSA SSH** : Copiare e incollare la parte *pubblica* della coppia di chiavi SSH (per impostazione predefinita, il contenuto di *~/.ssh/id_rsa.pub* ).
+    * **ID client entità servizio** : Copiare e incollare l' *appId* dell'entità servizio dal comando `az ad sp create-for-rbac`.
+    * **Segreto client entità servizio** : Copiare e incollare la *password* dell'entità servizio dal comando `az ad sp create-for-rbac`.
+    * **Accetto le condizioni riportate sopra** : selezionare questa casella per accettare.
 
     ![Modello di Resource Manager per creare un cluster del servizio Azure Kubernetes nel portale](./media/kubernetes-walkthrough-rm-template/create-aks-cluster-using-template-portal.png)
 
-3. Selezionare **Acquisto**.
+3. Selezionare **Acquisto** .
 
 La creazione del cluster del servizio Azure Kubernetes richiede alcuni minuti. Attendere il completamento della distribuzione del cluster prima di procedere al passaggio successivo.
 
@@ -129,7 +129,7 @@ Per verificare la connessione al cluster, usare il comando [kubectl get][kubectl
 kubectl get nodes
 ```
 
-L'output di esempio seguente mostra i nodi creati nei passaggi precedenti. Assicurarsi che lo stato di tutti i nodi sia impostato su *Pronto*:
+L'output di esempio seguente mostra i nodi creati nei passaggi precedenti. Assicurarsi che lo stato di tutti i nodi sia impostato su *Pronto* :
 
 ```output
 NAME                       STATUS   ROLES   AGE     VERSION
@@ -257,7 +257,7 @@ Per monitorare lo stato, usare il comando [kubectl get service][kubectl-get] con
 kubectl get service azure-vote-front --watch
 ```
 
-*EXTERNAL-IP* per il servizio *azure-vote-front* viene inizialmente visualizzato come *pending*.
+*EXTERNAL-IP* per il servizio *azure-vote-front* viene inizialmente visualizzato come *pending* .
 
 ```output
 NAME               TYPE           CLUSTER-IP   EXTERNAL-IP   PORT(S)        AGE

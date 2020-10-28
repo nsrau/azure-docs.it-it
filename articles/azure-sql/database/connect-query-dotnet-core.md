@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 05/29/2020
-ms.openlocfilehash: f1908e243b7cb1def2eac8a1d46d5f087a25f8c6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 32ea1dd2141a8df1fb495af64848f87e9f152328
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88936402"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669725"
 ---
 # <a name="quickstart-use-net-core-c-to-query-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Avvio rapido: Usare .NET Core (C#) per eseguire query su un database nel database SQL di Azure o nell'istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "88936402"
 In questa guida di avvio rapido si userà [.NET Core](https://www.microsoft.com/net/) e il codice C# per la connessione a un database. Si eseguirà quindi un'istruzione Transact-SQL per eseguire query sui dati.
 
 > [!TIP]
-> Il modulo di Microsoft Learn gratuito seguente contiene informazioni su come [sviluppare e configurare un'applicazione ASP.NET che esegue query su un database nel database SQL di Azure](https://docs.microsoft.com/learn/modules/develop-app-that-queries-azure-sql/)
+> Il modulo di Microsoft Learn gratuito seguente contiene informazioni su come [sviluppare e configurare un'applicazione ASP.NET che esegue query su un database nel database SQL di Azure](/learn/modules/develop-app-that-queries-azure-sql/)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -51,7 +51,7 @@ Per completare l'esercitazione introduttiva, sono necessari gli elementi seguent
 - Aver installato [.NET Core per il sistema operativo](https://www.microsoft.com/net/core).
 
 > [!NOTE]
-> Questa guida introduttiva usa il database *mySampleDatabase*. Se si desidera utilizzare un database diverso, è necessario cambiare i riferimenti al database e modificare la query `SELECT` nel codice C#.
+> Questa guida introduttiva usa il database *mySampleDatabase* . Se si desidera utilizzare un database diverso, è necessario cambiare i riferimenti al database e modificare la query `SELECT` nel codice C#.
 
 ## <a name="get-server-connection-information"></a>Recuperare le informazioni di connessione del server
 
@@ -59,18 +59,18 @@ Recuperare le informazioni di connessione necessarie per connettersi al database
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Passare alla pagina **Database SQL** o **Istanze gestite di SQL**.
+2. Passare alla pagina **Database SQL** o **Istanze gestite di SQL** .
 
-3. Nella pagina **Panoramica** verificare il nome completo del server accanto a **Nome server** per il database nel database SQL di Azure o il nome del server completo (o l'indirizzo IP) accanto a **Host** per un'istanza gestita di SQL di Azure o di SQL Server in una macchina virtuale di Azure. Per copiare il nome del server o il nome host, passare il puntatore su di esso e selezionare l'icona **Copia**.
+3. Nella pagina **Panoramica** verificare il nome completo del server accanto a **Nome server** per il database nel database SQL di Azure o il nome del server completo (o l'indirizzo IP) accanto a **Host** per un'istanza gestita di SQL di Azure o di SQL Server in una macchina virtuale di Azure. Per copiare il nome del server o il nome host, passare il puntatore su di esso e selezionare l'icona **Copia** .
 
 > [!NOTE]
 > Per le informazioni di connessione per SQL Server in una macchina virtuale di Azure, vedere [Connettersi a un'istanza di SQL Server](../virtual-machines/windows/sql-vm-create-portal-quickstart.md#connect-to-sql-server).
 
 ## <a name="get-adonet-connection-information-optional---sql-database-only"></a>Ottenere le informazioni di connessione ADO.NET (facoltativo - solo database SQL)
 
-1. Passare alla pagina **mySampleDatabase** e, in **Impostazioni**, selezionare **Stringhe di connessione**.
+1. Passare alla pagina **mySampleDatabase** e, in **Impostazioni** , selezionare **Stringhe di connessione** .
 
-2. Esaminare l'intera stringa di connessione **ADO.NET**.
+2. Esaminare l'intera stringa di connessione **ADO.NET** .
 
     ![Stringa di connessione ADO.NET](./media/connect-query-dotnet-core/adonet-connection-string2.png)
 
@@ -78,13 +78,13 @@ Recuperare le informazioni di connessione necessarie per connettersi al database
   
 ## <a name="create-a-new-net-core-project"></a>Creare un nuovo progetto .NET Core
 
-1. Aprire un prompt dei comandi e creare una cartella denominata **sqltest**. Passare a questa cartella ed eseguire questo comando.
+1. Aprire un prompt dei comandi e creare una cartella denominata **sqltest** . Passare a questa cartella ed eseguire questo comando.
 
     ```cmd
     dotnet new console
     ```
 
-    Vengono creati nuovi file di progetto dell'app, inclusi un iniziale file di codice C# (**Program.cs**), un file di configurazione XML (**sqltest. csproj**) e i file binari necessari.
+    Vengono creati nuovi file di progetto dell'app, inclusi un iniziale file di codice C# ( **Program.cs** ), un file di configurazione XML ( **sqltest. csproj** ) e i file binari necessari.
 
 2. In un editor di testo, aprire **sqltest. csproj** e incollare il codice XML seguente tra i tag `<Project>`. In questo modo viene aggiunto `System.Data.SqlClient` come dipendenza.
 
@@ -207,4 +207,4 @@ namespace sqltest
 - [Introduzione all'uso di .NET Core su Windows/Linux/macOS dalla riga di comando](/dotnet/core/tutorials/using-with-xplat-cli).
 - Informazioni su come [connettersi ed eseguire query su un database SQL di Azure o un'istanza gestita di SQL di Azure usando .NET Framework e Visual Studio](connect-query-dotnet-visual-studio.md).  
 - Informazioni su come [Progettare il primo database con SSMS](design-first-database-tutorial.md) o su come [Progettare un database e connettersi con C# e ADO.NET](design-first-database-csharp-tutorial.md).
-- Per altre informazioni su .NET, vedere la [documentazione di .NET](https://docs.microsoft.com/dotnet/).
+- Per altre informazioni su .NET, vedere la [documentazione di .NET](/dotnet/).

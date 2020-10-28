@@ -6,14 +6,14 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 08/03/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, devx-track-azurecli
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 29eb99d9e009d58c44be8f9d2e5d9fa01d117092
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 173e6541b4113a5d2e71d76b3b939a69d5224b5a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092954"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735600"
 ---
 # <a name="quickstart-build-and-deploy-apps-to-azure-spring-cloud"></a>Avvio rapido: Compilare e distribuire app in Azure Spring Cloud
 
@@ -84,7 +84,7 @@ Se finora è stato usato Azure Cloud Shell, passare a un prompt dei comandi loca
    ```
 
    > [!TIP]
-   > Il file di progetto contiene il codice XML seguente per inserire i file binari in un file *ZIP* dopo averli scritti nella cartella *./publish*:
+   > Il file di progetto contiene il codice XML seguente per inserire i file binari in un file *ZIP* dopo averli scritti nella cartella *./publish* :
    >
    > ```xml
    > <Target Name="Publish-Zip" AfterTargets="Publish">
@@ -100,7 +100,7 @@ Se finora è stato usato Azure Cloud Shell, passare a un prompt dei comandi loca
    az spring-cloud app deploy -n planet-weather-provider --runtime-version NetCore_31 --main-entry Microsoft.Azure.SpringCloud.Sample.PlanetWeatherProvider.dll --artifact-path ./publish-deploy-planet.zip
    ```
 
-   L'opzione `--main-entry` specifica il percorso relativo dalla cartella radice del file *ZIP* al file *DLL* che contiene il punto di ingresso dell'applicazione. Dopo aver caricato il file*ZIP*, il servizio estrae tutti i file e le cartelle e prova a eseguire il punto di ingresso nel file *DLL* specificato.
+   L'opzione `--main-entry` specifica il percorso relativo dalla cartella radice del file *ZIP* al file *DLL* che contiene il punto di ingresso dell'applicazione. Dopo aver caricato il file *ZIP* , il servizio estrae tutti i file e le cartelle e prova a eseguire il punto di ingresso nel file *DLL* specificato.
 
    L'esecuzione di questo comando potrebbe richiedere alcuni minuti.
 
@@ -222,7 +222,7 @@ La compilazione del progetto richiede circa 5 minuti. Al termine, si dovrebbero 
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. Creare i microservizi Azure Spring Cloud usando i file JAR creati nel passaggio precedente. Verranno create tre app: **gateway**, **auth-service** e **account-service**.
+1. Creare i microservizi Azure Spring Cloud usando i file JAR creati nel passaggio precedente. Verranno create tre app: **gateway** , **auth-service** e **account-service** .
 
     ```azurecli
     az spring-cloud app create --name gateway
@@ -311,18 +311,18 @@ Per eseguire la distribuzione in Azure, è necessario accedere con l'account Azu
     ![Distribuzione in Azure 1](media/spring-cloud-intellij-howto/revision-deploy-to-azure-1.png)
 
 1. Nel campo **Name** (Nome) accodare *:gateway* al **nome** esistente.
-1. Nella casella di testo **Artifact** (Artefatto) selezionare *com.piggymetrics:gateway:1.0-SNAPSHOT*.
+1. Nella casella di testo **Artifact** (Artefatto) selezionare *com.piggymetrics:gateway:1.0-SNAPSHOT* .
 1. Nella casella di testo **Subscription** (Sottoscrizione) verificare la sottoscrizione.
 1. Nella casella di testo **Spring Cloud** selezionare l'istanza di Azure Spring Cloud creata in [Effettuare il provisioning di un'istanza di Azure Spring Cloud](./spring-cloud-quickstart-provision-service-instance.md).
 1. Impostare **Public Endpoint** (Endpoint pubblico) su *Enable* (Abilita).
 1. Nella casella di testo **App** selezionare **Create app** (Crea app).
-1. Immettere *gateway*, quindi fare clic su **OK**.
+1. Immettere *gateway* , quindi fare clic su **OK** .
 
     ![Distribuzione in Azure OK](media/spring-cloud-intellij-howto/revision-deploy-to-azure-2.png)
 
 1. Nella sezione **Before launch** (Prima dell'avvio) della finestra di dialogo fare doppio clic su *Run Maven Goal* (Esegui obiettivo Maven).
-1. Nella casella di testo **Working directory** (Directory di lavoro) passare alla cartella *piggymetrics/gateway*.
-1. Nella casella di testo **Command line** (Riga di comando) immettere *package -DskipTests*. Fare clic su **OK**.
+1. Nella casella di testo **Working directory** (Directory di lavoro) passare alla cartella *piggymetrics/gateway* .
+1. Nella casella di testo **Command line** (Riga di comando) immettere *package -DskipTests* . Fare clic su **OK** .
 1. Avviare la distribuzione facendo clic sul pulsante **Run** (Esegui) nella parte inferiore della finestra di dialogo **Deploy Azure Spring Cloud app** (Distribuisci app Azure Spring Cloud). Il plug-in eseguirà il comando `mvn package` nell'app `gateway` e distribuirà il file JAR generato dal comando `package`.
 
 ### <a name="deploy-auth-service-and-account-service-apps-to-azure-spring-cloud"></a>Distribuire le app auth-service e account-service in Azure Spring Cloud
@@ -331,7 +331,7 @@ Per eseguire la distribuzione in Azure, è necessario accedere con l'account Azu
 1. Modificare i valori di **Name** (Nome) e **Artifact** (Artefatto) per identificare l'app `auth-service`.
 1. Nella casella di testo **App** selezionare **Create app** (Crea app) per creare l'app `auth-service`.
 1. Verificare che **Public Endpoint** (Endpoint pubblico) sia impostato su *Disabled* (Disabilitato).
-1. Nella sezione **Before launch** (Prima dell'avvio) della finestra di dialogo impostare **Working directory** (Directory di lavoro) sulla cartella *piggymetrics/auth-service*.
+1. Nella sezione **Before launch** (Prima dell'avvio) della finestra di dialogo impostare **Working directory** (Directory di lavoro) sulla cartella *piggymetrics/auth-service* .
 1. Avviare la distribuzione facendo clic sul pulsante **Run** (Esegui) nella parte inferiore della finestra di dialogo **Deploy Azure Spring Cloud app** (Distribuisci app Azure Spring Cloud). 
 1. Ripetere queste procedure per configurare e distribuire l'app `account-service`.
 ---

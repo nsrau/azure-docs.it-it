@@ -3,25 +3,25 @@ title: Attivare sottoscrizioni e account di Azure
 description: Abilitare l'accesso con le API di Azure Resource Manager per gli account nuovi ed esistenti e risolvere i problemi comuni relativi agli account.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.reviewer: vitavor
 ms.custom: secdec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 52ac239369f2998a3a8eac9c400512ac845a0c49
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: b1b7ea7467be107bd1af9daf0869c77ff0b94c70
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131429"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537347"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Attivare sottoscrizioni e account di Azure con Cloudyn
 
 L'aggiunta o l'aggiornamento delle credenziali di Azure Resource Manager consente a Cloudyn di individuare tutti gli account e le sottoscrizioni nel tenant di Azure. Se nelle macchine virtuali è abilitata anche l'estensione Diagnostica di Azure, Cloudyn può raccogliere le metriche estese, come CPU e memoria. Questo articolo descrive come abilitare l'accesso con le API di Azure Resource Manager per gli account nuovi ed esistenti. Spiega anche come risolvere i problemi comuni relativi agli account.
 
-Cloudyn non può accedere alla maggior parte dei dati della sottoscrizione di Azure quando la sottoscrizione è _non attivata_. È necessario modificare gli account _non attivati_ in modo che Cloudyn possa accedervi.
+Cloudyn non può accedere alla maggior parte dei dati della sottoscrizione di Azure quando la sottoscrizione è _non attivata_ . È necessario modificare gli account _non attivati_ in modo che Cloudyn possa accedervi.
 
 [!INCLUDE [cloudyn-note](../../../includes/cloudyn-note.md)]
 
@@ -34,17 +34,17 @@ Per completare le procedure illustrate in questo articolo, sono necessarie autor
 
 Nelle sottoscrizione di Azure gli account devono avere l'accesso `Microsoft.Authorization/*/Write` per assegnare l'applicazione CloudynCollector. Questa azione è concessa tramite il ruolo [Proprietario](../../role-based-access-control/built-in-roles.md#owner) o [Amministratore accessi utente](../../role-based-access-control/built-in-roles.md#user-access-administrator).
 
-Se al proprio account è assegnato il ruolo **Collaboratore**, non è disponibile l'autorizzazione appropriata per assegnare l'applicazione. Quando si prova ad assegnare l'applicazione CloudynCollector alla sottoscrizione di Azure, viene visualizzato un errore.
+Se al proprio account è assegnato il ruolo **Collaboratore** , non è disponibile l'autorizzazione appropriata per assegnare l'applicazione. Quando si prova ad assegnare l'applicazione CloudynCollector alla sottoscrizione di Azure, viene visualizzato un errore.
 
 ### <a name="check-azure-active-directory-permissions"></a>Controllare le autorizzazioni di Azure Active Directory
 
 1. Accedere al [Portale di Azure](https://portal.azure.com).
-2. Nel portale di Azure selezionare **Azure Active Directory**.
-3. In Azure Active Directory selezionare **Impostazioni utente**.
-4. Controllare l'opzione **Registrazioni per l'app**.
-    - Se è impostata su **Sì**, gli utenti non amministratori possono registrare le app AD. Questa impostazione indica che qualsiasi utente in Azure AD può registrare un'app.  
+2. Nel portale di Azure selezionare **Azure Active Directory** .
+3. In Azure Active Directory selezionare **Impostazioni utente** .
+4. Controllare l'opzione **Registrazioni per l'app** .
+    - Se è impostata su **Sì** , gli utenti non amministratori possono registrare le app AD. Questa impostazione indica che qualsiasi utente in Azure AD può registrare un'app.  
     ![Selezionare Registrazioni per l'app nelle impostazioni utente](./media/activate-subs-accounts/app-register.png)
-    - Se l'opzione **Registrazioni per l'app** è impostata su **No**, solo gli utenti amministratori del tenant possono registrare le app Azure Active Directory. L'amministratore del tenant deve registrare l'applicazione CloudynCollector.
+    - Se l'opzione **Registrazioni per l'app** è impostata su **No** , solo gli utenti amministratori del tenant possono registrare le app Azure Active Directory. L'amministratore del tenant deve registrare l'applicazione CloudynCollector.
 
 
 ## <a name="add-an-account-or-update-a-subscription"></a>Aggiungere un account o aggiornare una sottoscrizione
@@ -53,8 +53,8 @@ Quando si aggiunge una sottoscrizione a un aggiornamento dell'account, si conced
 
 ### <a name="add-a-new-account-subscription"></a>Aggiungere un nuovo account (sottoscrizione)
 
-1. Nel portale di Cloudyn, fare clic sul simbolo a forma di ingranaggio in alto a destra e selezionare **Account Cloud**.
-2. Fare clic su **Aggiungi un nuovo account** per visualizzare la finestra di dialogo **Aggiungi un nuovo account**. Immettere le informazioni necessarie.  
+1. Nel portale di Cloudyn, fare clic sul simbolo a forma di ingranaggio in alto a destra e selezionare **Account Cloud** .
+2. Fare clic su **Aggiungi un nuovo account** per visualizzare la finestra di dialogo **Aggiungi un nuovo account** . Immettere le informazioni necessarie.  
     ![Immettere le informazioni necessarie nella casella Aggiungi nuovo account](./media/activate-subs-accounts/add-new-account.png)
 
 ### <a name="update-a-subscription"></a>Aggiornare una sottoscrizione
@@ -63,19 +63,19 @@ Quando si aggiunge una sottoscrizione a un aggiornamento dell'account, si conced
     ![Selezionare l'ID tenant nella casella Individuare di nuovo le sottoscrizioni](./media/activate-subs-accounts/existing-sub.png)
 2. Se necessario, immettere l'ID del tenant. Se non si conosce l'ID del tenant, seguire questa procedura per trovarlo:
     1. Accedere al [portale di Azure](https://portal.azure.com).
-    2. Nel portale di Azure selezionare **Azure Active Directory**.
+    2. Nel portale di Azure selezionare **Azure Active Directory** .
     3. Per ottenere l'ID tenant selezionare **Proprietà** per il tenanto di Azure AD.
     4. Copiare il GUID ID directory. Questo valore è l'ID tenant.
     Per altre informazioni, vedere [Ottenere l'ID tenant](../../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in).
 3. Se necessario, selezionare l'ID della tariffa. Se non si conosce l'ID della tariffa, seguire questa procedura per trovarlo.
-    1. In alto a destra nel portale di Azure fare clic sulle informazioni utente e quindi su **Visualizza fattura**.
-    2. In **Account di fatturazione** fare clic su **Sottoscrizioni**.
+    1. In alto a destra nel portale di Azure fare clic sulle informazioni utente e quindi su **Visualizza fattura** .
+    2. In **Account di fatturazione** fare clic su **Sottoscrizioni** .
     3. In **Sottoscrizioni personali** selezionare la sottoscrizione.
-    4. L'ID della tariffa è indicato in **ID offerta**. Copiare l'ID offerta per la sottoscrizione.
-4. Nella finestra di dialogo Aggiungi un nuovo account (o Modifica sottoscrizione) fare clic su **Salva** (o su **Avanti**). Si verrà reindirizzati al portale di Azure.
+    4. L'ID della tariffa è indicato in **ID offerta** . Copiare l'ID offerta per la sottoscrizione.
+4. Nella finestra di dialogo Aggiungi un nuovo account (o Modifica sottoscrizione) fare clic su **Salva** (o su **Avanti** ). Si verrà reindirizzati al portale di Azure.
 5. Accedere al portale. Fare clic su **Accetta** per autorizzare l'agente di raccolta Cloudyn ad accedere all'account Azure.
 
-    Si verrà reindirizzati alla pagina di gestione degli account Cloudyn e la sottoscrizione verrà aggiornata con lo stato dell'account **attivo**. Nella colonna Resource Manager verrà visualizzato un simbolo di segno di spunta verde.
+    Si verrà reindirizzati alla pagina di gestione degli account Cloudyn e la sottoscrizione verrà aggiornata con lo stato dell'account **attivo** . Nella colonna Resource Manager verrà visualizzato un simbolo di segno di spunta verde.
 
     Se non viene visualizzato un simbolo di segno di spunta verde per una o più sottoscrizioni, significa che non sono disponibili le autorizzazioni per creare l'applicazione lettore (CloudynCollector) per la sottoscrizione. Un utente con autorizzazioni più elevate per la sottoscrizione deve ripetere questo processo.
 
@@ -87,7 +87,7 @@ Guardare il video [Connessione ad Azure Resource Manager con Cloudyn](https://yo
 
 Quando si usa per la prima volta il portale di Cloudyn, vengono visualizzati i messaggi seguenti se si ha un contratto Enterprise o Provider di soluzioni cloud (CSP):
 
-- *La chiave API specificata non è una chiave di registrazione principale*, mostrato nella procedura guidata **Configurazione di Cloudyn**.
+- *La chiave API specificata non è una chiave di registrazione principale* , mostrato nella procedura guidata **Configurazione di Cloudyn** .
 - *Direct Enrollment – No* (Registrazione diretta - No), nel portale per i contratti Enterprise.
 - *No usage data was found for the last 30 days. Please contact your distributor to make sure markup was enabled for your Azure account* (Non sono stati trovati dati di utilizzo per gli ultimi 30 giorni. Contattare il distributore per verificare che per l'account Azure sia stato abilitato il markup), nel portale di Cloudyn.
 
@@ -96,7 +96,7 @@ I messaggi precedenti indicano che è stato acquistato un contratto Enterprise d
 Ecco come risolvere i problemi:
 
 1. Il rivenditore deve abilitare il _markup_ per l'account. Per le istruzioni, vedere la [guida introduttiva per i clienti indiretti](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
-2. Generare la chiave del contratto Enterprise di Azure da usare con Cloudyn. Per istruzioni, vedere [Registrare un Azure Enterprise Agreement e visualizzare i dati sui costi](./quick-register-ea.md).
+2. Generare la chiave del contratto Enterprise di Azure da usare con Cloudyn.
 
 Per poter generare la chiave API del contratto Enterprise di Azure per la configurazione di Cloudyn, abilitare prima di tutto l'API di fatturazione di Azure seguendo queste istruzioni:
 
@@ -105,7 +105,7 @@ Per poter generare la chiave API del contratto Enterprise di Azure per la config
 
 Potrebbe anche essere necessario concedere ad amministratori di reparto, proprietari di account e amministratori dell'organizzazione le autorizzazioni per _visualizzare gli addebiti_ con l'API di fatturazione.
 
-Cloudyn può essere abilitato solo da un amministratore del servizio Azure. Le autorizzazioni di coamministratore non sono sufficienti. È tuttavia possibile aggirare il requisito di amministratore. È possibile richiedere che l'amministratore di Azure Active Directory conceda l'autorizzazione per **CloudynAzureCollector** con uno script di PowerShell. Lo script seguente concede l'autorizzazione per registrare l'entità servizio di Azure Active Directory **CloudynAzureCollector**.
+Cloudyn può essere abilitato solo da un amministratore del servizio Azure. Le autorizzazioni di coamministratore non sono sufficienti. È tuttavia possibile aggirare il requisito di amministratore. È possibile richiedere che l'amministratore di Azure Active Directory conceda l'autorizzazione per **CloudynAzureCollector** con uno script di PowerShell. Lo script seguente concede l'autorizzazione per registrare l'entità servizio di Azure Active Directory **CloudynAzureCollector** .
 
 
 ```powershell

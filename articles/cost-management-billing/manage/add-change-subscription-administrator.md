@@ -9,12 +9,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 273f12765f60eb1a0d65037e30e33e58b16463bf
-ms.sourcegitcommit: 5dbea4631b46d9dde345f14a9b601d980df84897
+ms.openlocfilehash: 10956953f9ab3a9e32b9da4ab8a3501d38b0e2c3
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91372307"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369659"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Aggiungere o modificare gli amministratori delle sottoscrizioni di Azure
 
@@ -39,8 +39,8 @@ Per designare un utente come amministratore di una sottoscrizione di Azure, un a
 Se non si conosce l'amministratore account per una sottoscrizione, seguire questa procedura per individuarlo.
 
 1. Aprire la [pagina Sottoscrizioni nel portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-1. Scegliere la sottoscrizione da controllare e quindi controllare la sezione **Impostazioni**.
-1. Selezionare **Proprietà**. L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account** .
+1. Scegliere la sottoscrizione da controllare e quindi controllare la sezione **Impostazioni** .
+1. Selezionare **Proprietà** . L'amministratore account della sottoscrizione viene visualizzato nella casella **Amministratore account** .
 
 ### <a name="to-assign-a-user-as-an-administrator"></a>Per assegnare un utente come amministratore
 
@@ -54,13 +54,13 @@ Se non si conosce l'amministratore account per una sottoscrizione, seguire quest
 
     ![Screenshot che mostra le assegnazioni di ruolo](./media/add-change-subscription-administrator/role-assignments.png)
 
-1. Fare clic su **Aggiungi** > **Aggiungi un'assegnazione di ruolo** per aprire il riquadro **Aggiungi un'assegnazione di ruolo**.
+1. Fare clic su **Aggiungi** > **Aggiungi un'assegnazione di ruolo** per aprire il riquadro **Aggiungi un'assegnazione di ruolo** .
 
     Se non si dispone delle autorizzazioni per assegnare ruoli, l'opzione sarà disabilitata.
 
-1. Nell’elenco a discesa **Ruolo**, selezionare il ruolo **Proprietario.**
+1. Nell’elenco a discesa **Ruolo** , selezionare il ruolo **Proprietario.**
 
-1. Nell'elenco **Selezione**, selezionare un utente. Se nell'elenco l'utente non è visualizzato, è possibile digitare nella casella **Selezione** per cercare nella directory i nomi visualizzati e gli indirizzi e-mail.
+1. Nell'elenco **Selezione** , selezionare un utente. Se nell'elenco l'utente non è visualizzato, è possibile digitare nella casella **Selezione** per cercare nella directory i nomi visualizzati e gli indirizzi e-mail.
 
     ![Schermata che mostra il pulsante Proprietario selezionato](./media/add-change-subscription-administrator/add-role.png)
 
@@ -73,7 +73,7 @@ Se non si conosce l'amministratore account per una sottoscrizione, seguire quest
 * [Che cos'è il controllo degli accessi in base al ruolo di Azure?](../../role-based-access-control/overview.md)
 * [Comprendere i diversi ruoli in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * [Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
-* [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
+* [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../../active-directory/roles/permissions-reference.md)
 
 ## <a name="need-help-contact-support"></a>Richiesta di assistenza Contattare il supporto tecnico
 

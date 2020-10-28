@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: mvc, devcenter, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: f88960207188779949560218b298fd36d6a8f25e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f105acaa4e2801ca6dc8c33b404fdb9f9d65adc8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90985237"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633723"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Creare un'app Web Node.js in Azure
 
@@ -22,6 +22,7 @@ Per iniziare a usare il servizio app di Azure, creare un'app Node.js/Express loc
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension).
+- <a href="https://git-scm.com/" target="_blank">Installare Git</a>
 - [Node.js e npm](https://nodejs.org). Eseguire il comando `node --version` per verificare che Node.js sia installato.
 - [Visual Studio Code](https://code.visualstudio.com/).
 - [Estensione Servizio app di Azure](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azureappservice) per Visual Studio Code.
@@ -57,35 +58,35 @@ Per iniziare a usare il servizio app di Azure, creare un'app Node.js/Express loc
 
 In questa sezione si distribuisce l'app Node.js in Azure usando VS Code e l'estensione Servizio app di Azure.
 
-1. Nel terminale assicurarsi di trovarsi nella cartella *nodejs-docs-hello-world*, quindi avviare Visual Studio Code con il comando seguente:
+1. Nel terminale assicurarsi di trovarsi nella cartella *nodejs-docs-hello-world* , quindi avviare Visual Studio Code con il comando seguente:
 
     ```bash
     code .
     ```
 
-1. Sulla barra delle attività di VS Code fare clic sul logo di Azure per visualizzare Esplora risorse del **SERVIZIO APP DI AZURE**. Selezionare **Accedi ad Azure** e seguire le istruzioni. Se si verificano errori, vedere [Risoluzione dei problemi di accesso di Azure](#troubleshooting-azure-sign-in) sotto. Una volta effettuato l'accesso, lo strumento di esplorazione visualizzerà il nome della sottoscrizione di Azure.
+1. Sulla barra delle attività di VS Code fare clic sul logo di Azure per visualizzare Esplora risorse del **SERVIZIO APP DI AZURE** . Selezionare **Accedi ad Azure** e seguire le istruzioni. Se si verificano errori, vedere [Risoluzione dei problemi di accesso di Azure](#troubleshooting-azure-sign-in) sotto. Una volta effettuato l'accesso, lo strumento di esplorazione visualizzerà il nome della sottoscrizione di Azure.
 
     ![Accedere ad Azure](media/quickstart-nodejs/sign-in.png)
 
-1. In Esplora risorse del **SERVIZIO APP DI AZURE** di VS Code selezionare l'icona della freccia verso l'alto blu per distribuire l'app in Azure. È anche possibile richiamare lo stesso comando dal **riquadro comandi** (**CTRL**+**MAIUSC**+**P**) digitando 'Distribuisci nell'app Web' e scegliendo **Servizio app di Azure: Distribuisci nell'app Web**.
+1. In Esplora risorse del **SERVIZIO APP DI AZURE** di VS Code selezionare l'icona della freccia verso l'alto blu per distribuire l'app in Azure. È anche possibile richiamare lo stesso comando dal **riquadro comandi** ( **CTRL**+**MAIUSC**+**P** ) digitando 'Distribuisci nell'app Web' e scegliendo **Servizio app di Azure: Distribuisci nell'app Web** .
 
     :::image type="content" source="media/quickstart-nodejs/deploy.png" alt-text="Screenshot del servizio app di Azure in VS Code con l'icona della freccia blu selezionata.&quot;:::
         
-1. Scegliere la cartella *nodejs-docs-hello-world*.
+1. Scegliere la cartella *nodejs-docs-hello-world* .
 
 1. Scegliere un'opzione di creazione in base al sistema operativo in cui eseguire la distribuzione:
 
     - Linux: Scegliere **Crea una nuova app Web**
     - Windows: Scegliere **Crea una nuova app Web... Impostazioni avanzate**
 
-1. Digitare un nome univoco a livello globale per l'app Web e premere **INVIO**. Il nome deve essere univoco in tutte le risorse di Azure e usare solo caratteri alfanumerici (' A-Z ',' a-z ' è 0-9') e trattini ('-').
+1. Digitare un nome univoco a livello globale per l'app Web e premere **INVIO** . Il nome deve essere univoco in tutte le risorse di Azure e usare solo caratteri alfanumerici (' A-Z ',' a-z ' è 0-9') e trattini ('-').
 
-1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS**.
+1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS** .
 
 1. Se la destinazione è Windows, seguire le istruzioni aggiuntive:
-    1. Selezionare **Creare un nuovo gruppo di risorse**, quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
+    1. Selezionare **Creare un nuovo gruppo di risorse** , quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
     1. Selezionare **Windows** come sistema operativo.
-    1. Selezionare **Crea nuovo piano di servizio app**, quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito**.
+    1. Selezionare **Crea nuovo piano di servizio app** , quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito** .
     1. Scegliere **Ignora per adesso** quando viene richiesto riguardo ad Application Insights.
     1. Scegliere un'area vicina al proprio ambiente o alle risorse a cui si vuole accedere.
 
@@ -101,7 +102,7 @@ In questa sezione si distribuisce l'app Node.js in Azure usando VS Code e l'este
 
 1. Per la distribuzione in Windows, è prima necessario impostare il numero di versione di Node.js per l'app Web:
 
-    1. In VS Code espandere il nodo del nuovo servizio app, quindi fare clic con il pulsante destro del mouse su **Impostazioni applicazione** e scegliere **Aggiungi nuova impostazione**:
+    1. In VS Code espandere il nodo del nuovo servizio app, quindi fare clic con il pulsante destro del mouse su **Impostazioni applicazione** e scegliere **Aggiungi nuova impostazione** :
 
         ![Comando Aggiungi impostazione app](media/quickstart-nodejs/add-setting.png)
 
@@ -111,7 +112,7 @@ In questa sezione si distribuisce l'app Node.js in Azure usando VS Code e l'este
 
         ![Comando Riavvia servizio app](media/quickstart-nodejs/restart.png)
 
-    1. Fare clic con il pulsante destro del mouse sul nodo relativo al servizio app e scegliere **Esplora sito Web**.
+    1. Fare clic con il pulsante destro del mouse sul nodo relativo al servizio app e scegliere **Esplora sito Web** .
 
 > [!div class="nextstepaction"]
 > [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=deploy-app)
@@ -143,21 +144,21 @@ Per distribuire le modifiche nell'app, è possibile apportare le modifiche in VS
 
     :::image type="content" source="media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot del servizio app di Azure in VS Code con l'icona della freccia blu selezionata.&quot;:::
         
-1. Scegliere la cartella *nodejs-docs-hello-world*.
+1. Scegliere la cartella *nodejs-docs-hello-world* .
 
 1. Scegliere un'opzione di creazione in base al sistema operativo in cui eseguire la distribuzione:
 
     - Linux: Scegliere **Crea una nuova app Web**
     - Windows: Scegliere **Crea una nuova app Web... Impostazioni avanzate**
 
-1. Digitare un nome univoco a livello globale per l'app Web e premere **INVIO**. Il nome deve essere univoco in tutte le risorse di Azure e usare solo caratteri alfanumerici (' A-Z ',' a-z ' è 0-9') e trattini ('-').
+1. Digitare un nome univoco a livello globale per l'app Web e premere **INVIO** . Il nome deve essere univoco in tutte le risorse di Azure e usare solo caratteri alfanumerici (' A-Z ',' a-z ' è 0-9') e trattini ('-').
 
-1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS**.
+1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS** .
 
 1. Se la destinazione è Windows, seguire le istruzioni aggiuntive:
-    1. Selezionare **Creare un nuovo gruppo di risorse**, quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
+    1. Selezionare **Creare un nuovo gruppo di risorse** , quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
     1. Selezionare **Windows** come sistema operativo.
-    1. Selezionare **Crea nuovo piano di servizio app**, quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito**.
+    1. Selezionare **Crea nuovo piano di servizio app** , quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito** .
     1. Scegliere **Ignora per adesso** quando viene richiesto riguardo ad Application Insights.
     1. Scegliere un'area vicina al proprio ambiente o alle risorse a cui si vuole accedere.
 
@@ -214,7 +215,7 @@ Se non si ha un account Azure [iscriversi](https://azure.microsoft.com/free/?utm
 
 ### <a name="sign-in"></a>Accesso
 
-Una volta installata l'estensione, accedere all'account Azure. Sulla barra delle attività fare clic sul logo di Azure per visualizzare l'area **SERVIZIO APP DI AZURE**. Selezionare **Accedi ad Azure** e seguire le istruzioni.
+Una volta installata l'estensione, accedere all'account Azure. Sulla barra delle attività fare clic sul logo di Azure per visualizzare l'area **SERVIZIO APP DI AZURE** . Selezionare **Accedi ad Azure** e seguire le istruzioni.
 
 ![Accedere ad Azure](./media/quickstart-nodejs/sign-in.png)
 
@@ -233,7 +234,7 @@ Se l'impostazione delle variabili di ambiente non consente di risolvere il probl
 
 Prima di continuare, assicurarsi che tutti i prerequisiti siano installati e configurati.
 
-In VS Code dovrebbero essere visualizzati l'indirizzo di posta elettronica di Azure nella barra di stato e la sottoscrizione nello strumento di esplorazione dei **servizi app di Azure**.
+In VS Code dovrebbero essere visualizzati l'indirizzo di posta elettronica di Azure nella barra di stato e la sottoscrizione nello strumento di esplorazione dei **servizi app di Azure** .
 
 > [!div class="nextstepaction"]
 > [Si è verificato un problema](https://www.research.net/r/PWZWZ52?tutorial=node-deployment-azure-app-service&step=getting-started)
@@ -293,21 +294,21 @@ Nell'area **SERVIZIO APP DI AZURE** selezionare l'icona della freccia verso l'al
 
 :::image type="content" source="./media/quickstart-nodejs/deploy.png" alt-text="Screenshot del servizio app di Azure in VS Code con l'icona della freccia blu selezionata.&quot;:::
         
-1. Scegliere la cartella *nodejs-docs-hello-world*.
+1. Scegliere la cartella *nodejs-docs-hello-world* .
 
 1. Scegliere un'opzione di creazione in base al sistema operativo in cui eseguire la distribuzione:
 
     - Linux: Scegliere **Crea una nuova app Web**
     - Windows: Scegliere **Crea una nuova app Web... Impostazioni avanzate**
 
-1. Digitare un nome univoco a livello globale per l'app Web e premere **INVIO**. Il nome deve essere univoco in tutte le risorse di Azure e usare solo caratteri alfanumerici (' A-Z ',' a-z ' è 0-9') e trattini ('-').
+1. Digitare un nome univoco a livello globale per l'app Web e premere **INVIO** . Il nome deve essere univoco in tutte le risorse di Azure e usare solo caratteri alfanumerici (' A-Z ',' a-z ' è 0-9') e trattini ('-').
 
-1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS**.
+1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS** .
 
 1. Se la destinazione è Windows, seguire le istruzioni aggiuntive:
-    1. Selezionare **Creare un nuovo gruppo di risorse**, quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
+    1. Selezionare **Creare un nuovo gruppo di risorse** , quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
     1. Selezionare **Windows** come sistema operativo.
-    1. Selezionare **Crea nuovo piano di servizio app**, quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito**.
+    1. Selezionare **Crea nuovo piano di servizio app** , quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito** .
     1. Scegliere **Ignora per adesso** quando viene richiesto riguardo ad Application Insights.
     1. Scegliere un'area vicina al proprio ambiente o alle risorse a cui si vuole accedere.
 
@@ -321,7 +322,7 @@ Nell'area **SERVIZIO APP DI AZURE** selezionare l'icona della freccia verso l'al
 
 1. Per la distribuzione in Linux, al termine della distribuzione, selezionare **Esplora sito Web** nel messaggio per visualizzare l'app Web appena distribuita. Nel browser verrà visualizzato il testo &quot;Hello World!" e "-".
 
-1. Scegliere un'opzione per **Versione di Node.js**. Il valore consigliato è LTS.
+1. Scegliere un'opzione per **Versione di Node.js** . Il valore consigliato è LTS.
 
     Il canale di notifica mostra le risorse di Azure che vengono create per l'app.
 
@@ -329,21 +330,21 @@ Nell'area **SERVIZIO APP DI AZURE** selezionare l'icona della freccia verso l'al
 
     :::image type="content" source="./media/quickstart-nodejs/server-build.png" alt-text="Screenshot del servizio app di Azure in VS Code con l'icona della freccia blu selezionata.&quot;:::
         
-1. Scegliere la cartella *nodejs-docs-hello-world*.
+1. Scegliere la cartella *nodejs-docs-hello-world* .
 
 1. Scegliere un'opzione di creazione in base al sistema operativo in cui eseguire la distribuzione:
 
     - Linux: Scegliere **Crea una nuova app Web**
     - Windows: Scegliere **Crea una nuova app Web... Impostazioni avanzate**
 
-1. Digitare un nome univoco a livello globale per l'app Web e premere **INVIO**. Il nome deve essere univoco in tutte le risorse di Azure e usare solo caratteri alfanumerici (' A-Z ',' a-z ' è 0-9') e trattini ('-').
+1. Digitare un nome univoco a livello globale per l'app Web e premere **INVIO** . Il nome deve essere univoco in tutte le risorse di Azure e usare solo caratteri alfanumerici (' A-Z ',' a-z ' è 0-9') e trattini ('-').
 
-1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS**.
+1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS** .
 
 1. Se la destinazione è Windows, seguire le istruzioni aggiuntive:
-    1. Selezionare **Creare un nuovo gruppo di risorse**, quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
+    1. Selezionare **Creare un nuovo gruppo di risorse** , quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
     1. Selezionare **Windows** come sistema operativo.
-    1. Selezionare **Crea nuovo piano di servizio app**, quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito**.
+    1. Selezionare **Crea nuovo piano di servizio app** , quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito** .
     1. Scegliere **Ignora per adesso** quando viene richiesto riguardo ad Application Insights.
     1. Scegliere un'area vicina al proprio ambiente o alle risorse a cui si vuole accedere.
 
@@ -361,21 +362,21 @@ Nell'area **SERVIZIO APP DI AZURE** selezionare l'icona della freccia verso l'al
 
     :::image type="content" source="./media/quickstart-nodejs/save-configuration.png" alt-text="Screenshot del servizio app di Azure in VS Code con l'icona della freccia blu selezionata.&quot;:::
         
-1. Scegliere la cartella *nodejs-docs-hello-world*.
+1. Scegliere la cartella *nodejs-docs-hello-world* .
 
 1. Scegliere un'opzione di creazione in base al sistema operativo in cui eseguire la distribuzione:
 
     - Linux: Scegliere **Crea una nuova app Web**
     - Windows: Scegliere **Crea una nuova app Web... Impostazioni avanzate**
 
-1. Digitare un nome univoco a livello globale per l'app Web e premere **INVIO**. Il nome deve essere univoco in tutte le risorse di Azure e usare solo caratteri alfanumerici (' A-Z ',' a-z ' è 0-9') e trattini ('-').
+1. Digitare un nome univoco a livello globale per l'app Web e premere **INVIO** . Il nome deve essere univoco in tutte le risorse di Azure e usare solo caratteri alfanumerici (' A-Z ',' a-z ' è 0-9') e trattini ('-').
 
-1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS**.
+1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS** .
 
 1. Se la destinazione è Windows, seguire le istruzioni aggiuntive:
-    1. Selezionare **Creare un nuovo gruppo di risorse**, quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
+    1. Selezionare **Creare un nuovo gruppo di risorse** , quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
     1. Selezionare **Windows** come sistema operativo.
-    1. Selezionare **Crea nuovo piano di servizio app**, quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito**.
+    1. Selezionare **Crea nuovo piano di servizio app** , quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito** .
     1. Scegliere **Ignora per adesso** quando viene richiesto riguardo ad Application Insights.
     1. Scegliere un'area vicina al proprio ambiente o alle risorse a cui si vuole accedere.
 
@@ -411,7 +412,7 @@ Se viene visualizzato l'errore **"Non si dispone delle autorizzazioni necessarie
 
 In questa sezione si è appreso come visualizzare i log dell'app del Servizio app in esecuzione. Tutte le chiamate a `console.log` nell'app vengono visualizzate nella finestra di output in Visual Studio Code.
 
-Trovare l'app nello strumento di esplorazione dei **servizi app di Azure**, fare clic su di essa con il pulsante destro del mouse e scegliere **Visualizza log in streaming**.
+Trovare l'app nello strumento di esplorazione dei **servizi app di Azure** , fare clic su di essa con il pulsante destro del mouse e scegliere **Visualizza log in streaming** .
 
 Verrà aperta la finestra di output di VS Code con una connessione al flusso di log.
 
@@ -419,21 +420,21 @@ Verrà aperta la finestra di output di VS Code con una connessione al flusso di 
 
 :::image type="content" source="./media/quickstart-nodejs/enable-restart.png" alt-text="Screenshot del servizio app di Azure in VS Code con l'icona della freccia blu selezionata.&quot;:::
         
-1. Scegliere la cartella *nodejs-docs-hello-world*.
+1. Scegliere la cartella *nodejs-docs-hello-world* .
 
 1. Scegliere un'opzione di creazione in base al sistema operativo in cui eseguire la distribuzione:
 
     - Linux: Scegliere **Crea una nuova app Web**
     - Windows: Scegliere **Crea una nuova app Web... Impostazioni avanzate**
 
-1. Digitare un nome univoco a livello globale per l'app Web e premere **INVIO**. Il nome deve essere univoco in tutte le risorse di Azure e usare solo caratteri alfanumerici (' A-Z ',' a-z ' è 0-9') e trattini ('-').
+1. Digitare un nome univoco a livello globale per l'app Web e premere **INVIO** . Il nome deve essere univoco in tutte le risorse di Azure e usare solo caratteri alfanumerici (' A-Z ',' a-z ' è 0-9') e trattini ('-').
 
-1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS**.
+1. Se la destinazione è Linux, selezionare una versione di Node.js quando richiesto. È consigliabile usare una versione **LTS** .
 
 1. Se la destinazione è Windows, seguire le istruzioni aggiuntive:
-    1. Selezionare **Creare un nuovo gruppo di risorse**, quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
+    1. Selezionare **Creare un nuovo gruppo di risorse** , quindi immettere un nome per il gruppo di risorse, ad esempio `AppServiceQS-rg`.
     1. Selezionare **Windows** come sistema operativo.
-    1. Selezionare **Crea nuovo piano di servizio app**, quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito**.
+    1. Selezionare **Crea nuovo piano di servizio app** , quindi immettere un nome per il piano, ad esempio `AppServiceQS-plan`, quindi selezionare il piano tariffario **F1 Gratuito** .
     1. Scegliere **Ignora per adesso** quando viene richiesto riguardo ad Application Insights.
     1. Scegliere un'area vicina al proprio ambiente o alle risorse a cui si vuole accedere.
 

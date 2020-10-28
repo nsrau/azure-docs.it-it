@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 05/29/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 6dc002b0ed9e68ea15eaa58c226249837c7df32d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8a4b6998d1471a79dd789ed6528e22b07f2015c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85830860"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540976"
 ---
 # <a name="configure-your-app-service-environment-with-forced-tunneling"></a>Configurare Ambiente del servizio app con il tunneling forzato
 
@@ -73,7 +73,7 @@ Per instradare tutto il traffico in uscita dall'ambiente del servizio app, ad ec
 
 2. Abilitare gli endpoint servizio con SQL di Azure e Archiviazione di Azure con la subnet dell'ambiente del servizio app.  Dopo il completamento di questo passaggio, è possibile configurare la rete virtuale con il tunneling forzato.
 
-Per creare un ambiente del servizio app in una rete virtuale già configurata per l'indirizzamento di tutto il traffico in locale, è necessario creare l'ambiente del servizio app usando un modello di Resource Manager.  Non è possibile creare un ambiente del servizio app con il portale in una subnet già esistente.  Quando si distribuisce l'ambiente del servizio app in una rete virtuale già configurata per l'indirizzamento del traffico in uscita in locale, è necessario creare l'ambiente del servizio app usando un modello di Resource Manager che consente di specificare una subnet già esistente. Per informazioni dettagliate sulla distribuzione di un ambiente del servizio app con un modello, vedere [Creare un ambiente del servizio app usando un modello][template].
+Per informazioni dettagliate sulla distribuzione di un ambiente del servizio app con un modello, vedere [Creare un ambiente del servizio app usando un modello][template].
 
 Gli endpoint servizio consentono di limitare l'accesso ai servizi multi-tenant a un set di reti e subnet virtuali di Azure. Per altre informazioni sugli endpoint servizio, vedere la pagina [Endpoint servizio di rete virtuale][serviceendpoints]. 
 
@@ -95,7 +95,7 @@ Per il tunneling di tutto il traffico in uscita dall'ambiente del servizio app, 
 
 3. Ottenere gli indirizzi che saranno usati per tutto il traffico in uscita dall'ambiente del servizio app a Internet. Se si esegue il routing del traffico in locale, questi indirizzi corrisponderanno ai NAT o agli IP del gateway. Se si vuole instradare il traffico in uscita di Ambiente del servizio app attraverso un'appliance virtuale di rete, l'indirizzo in uscita è l'indirizzo IP pubblico dell'appliance virtuale di rete.
 
-4. _Per impostare gli indirizzi in uscita in un ambiente del servizio app esistente:_ Passare a resources.azure.com e quindi a Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Sarà possibile visualizzare il codice JSON che descrive Ambiente del servizio app. Assicurarsi che sia specificato **Lettura/Scrittura** nella parte superiore. Selezionare **Modifica**. Scorrere fino alla fine. Modificare il valore di **userWhitelistedIpRanges** da **null** a un altro valore simile al seguente. Usare gli indirizzi che si desidera impostare come intervallo degli indirizzi in uscita. 
+4. _Per impostare gli indirizzi in uscita in un ambiente del servizio app esistente:_ Passare a resources.azure.com e quindi a Subscription/\<subscription id>/resourceGroups/\<ase resource group>/providers/Microsoft.Web/hostingEnvironments/\<ase name>. Sarà possibile visualizzare il codice JSON che descrive Ambiente del servizio app. Assicurarsi che sia specificato **Lettura/Scrittura** nella parte superiore. Selezionare **Modifica** . Scorrere fino alla fine. Modificare il valore di **userWhitelistedIpRanges** da **null** a un altro valore simile al seguente. Usare gli indirizzi che si desidera impostare come intervallo degli indirizzi in uscita. 
 
     ```json
     "userWhitelistedIpRanges": ["11.22.33.44/32", "55.66.77.0/24"]
@@ -103,7 +103,7 @@ Per il tunneling di tutto il traffico in uscita dall'ambiente del servizio app, 
 
    Selezionare **PUT** nella parte superiore. Questa opzione attiva un'operazione di ridimensionamento in Ambiente del servizio app e modifica il firewall.
 
-_Per creare l'ambiente del servizio app con gli indirizzi in uscita_: seguire le indicazioni riportate in [Creare un ambiente del servizio app con un modello][template] e scaricare il modello appropriato.  Modificare la sezione "resources" nel file azuredeploy.json, ma non nel blocco "properties", e includere una riga per **userWhitelistedIpRanges** con i propri valori.
+_Per creare l'ambiente del servizio app con gli indirizzi in uscita_ : seguire le indicazioni riportate in [Creare un ambiente del servizio app con un modello][template] e scaricare il modello appropriato.  Modificare la sezione "resources" nel file azuredeploy.json, ma non nel blocco "properties", e includere una riga per **userWhitelistedIpRanges** con i propri valori.
 
 ```json
 "resources": [

@@ -3,13 +3,13 @@ title: 'Avvio rapido: Creare un gruppo di gestione con JavaScript'
 description: In questo argomento di avvio rapido si usa JavaScript per creare un gruppo di gestione con cui organizzare le risorse in una gerarchia.
 ms.date: 09/30/2020
 ms.topic: quickstart
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7a234a6619eafd650451ae5d6bce37388c824f33
-ms.sourcegitcommit: ffa7a269177ea3c9dcefd1dea18ccb6a87c03b70
+ms.custom: devx-track-js
+ms.openlocfilehash: 965e4b8f81a26cab8f6e34cab3e51d6a97f5a6a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/30/2020
-ms.locfileid: "91604555"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676231"
 ---
 # <a name="quickstart-create-a-management-group-with-javascript"></a>Avvio rapido: Creare un gruppo di gestione con JavaScript
 
@@ -90,7 +90,7 @@ Per consentire a JavaScript di eseguire query su Azure Resource Graph, è necess
    node index.js --groupID "<NEW_MG_GROUP_ID>" --displayName "<NEW_MG_FRIENDLY_NAME>"
    ```
 
-   Assicurarsi di sostituire ogni segnaposto `<>` del token rispettivamente con l'_ID del gruppo di gestione_ e il _nome descrittivo del gruppo di gestione_.
+   Assicurarsi di sostituire ogni segnaposto `<>` del token rispettivamente con l' _ID del gruppo di gestione_ e il _nome descrittivo del gruppo di gestione_ .
 
    Quando lo script tenta di eseguire l'autenticazione, nel terminale verrà visualizzato un messaggio simile al seguente:
 

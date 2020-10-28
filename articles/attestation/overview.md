@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
 ms.custom: references_regions
-ms.openlocfilehash: a84308ba06a38cea475fcb1bae022da16424a731
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 2ee906b406f5fd09fc870626f1905541a4270c66
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90032997"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92670527"
 ---
 # <a name="microsoft-azure-attestation-preview"></a>Attestazione di Microsoft Azure (anteprima)
 
@@ -73,7 +73,7 @@ Attestazione di Azure rappresenta la scelta ideale per l'attestazione di ambient
 
 ## <a name="business-continuity-and-disaster-recovery-bcdr-support"></a>Supporto di continuità aziendale e ripristino di emergenza
 
-Il servizio di [continuità aziendale e ripristino di emergenza](/azure/best-practices-availability-paired-regions) per Attestazione di Azure consente di ridurre le interruzioni dei servizi derivanti da problemi significativi di disponibilità o da eventi di emergenza in un'area.
+Il servizio di [continuità aziendale e ripristino di emergenza](../best-practices-availability-paired-regions.md) per Attestazione di Azure consente di ridurre le interruzioni dei servizi derivanti da problemi significativi di disponibilità o da eventi di emergenza in un'area.
 
 Di seguito sono riportate le aree attualmente supportate dal servizio di continuità aziendale e ripristino di emergenza
 - Stati Uniti orientali 2 = > abbinata a Stati Uniti centrali.
@@ -91,4 +91,3 @@ I cluster distribuiti in due aree operano in modo indipendente in circostanze no
 - Informazioni sui [concetti di base di Attestazione di Azure](basic-concepts.md)
 - [Come creare e firmare un criterio di attestazione](author-sign-policy.md)
 - [Configurare Attestazione di Azure con PowerShell](quickstart-powershell.md)
-

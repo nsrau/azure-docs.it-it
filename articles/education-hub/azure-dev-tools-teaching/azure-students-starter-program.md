@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 06/30/2020
 ms.service: azure-education
 ms.subservice: education-hub
-ms.openlocfilehash: c581eb79a158dcb2645bcb9fd830a4f83dba1e0d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 87f44c1529055458f341fa6c4c5285560d878d2d
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87100919"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674974"
 ---
 # <a name="azure-for-students-starter"></a>Azure for Students Starter
 
@@ -37,4 +37,4 @@ Per l'offerta Azure for Students Starter non è richiesta una carta di credito. 
 - [Ottenere supporto per gli errori di accesso](troubleshoot-login.md)
 - [Scaricare il software (Azure for Students Starter)](download-software.md)
 - [Programma Azure for Students](azure-students-program.md)
-- [Microsoft Learn: una piattaforma gratuita di formazione online](https://docs.microsoft.com/learn/)
+- [Microsoft Learn: una piattaforma gratuita di formazione online](/learn/)

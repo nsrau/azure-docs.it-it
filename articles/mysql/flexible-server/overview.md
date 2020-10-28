@@ -7,12 +7,12 @@ ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 8/21/2020
-ms.openlocfilehash: 951de77f2ef10a06ff03801872cebcef088172b7
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 200f74ee8d99c80956f1d27599769401d30c3f95
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167050"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537950"
 ---
 # <a name="azure-database-for-mysql---flexible-server-preview"></a>Database di Azure per MySQL - Server flessibile (anteprima)
 
@@ -75,7 +75,7 @@ Per la connessione al server flessibile di Database di Azure per MySQL, sono dis
    * Usare VPN o ExpressRoute per connettersi al server flessibile da risorse non di Azure
    * Nessun endpoint pubblico
 
-* **Accesso pubblico (indirizzi IP consentiti)** : è possibile distribuire il server flessibile con un endpoint pubblico. L'endpoint pubblico è un indirizzo DNS risolvibile pubblicamente. L'espressione "indirizzi IP consentiti" si riferisce a un intervallo di indirizzi IP a cui si sceglie di concedere l'autorizzazione per l'accesso al server. Queste autorizzazioni si definiscono **regole del firewall**.
+* **Accesso pubblico (indirizzi IP consentiti)** : è possibile distribuire il server flessibile con un endpoint pubblico. L'endpoint pubblico è un indirizzo DNS risolvibile pubblicamente. L'espressione "indirizzi IP consentiti" si riferisce a un intervallo di indirizzi IP a cui si sceglie di concedere l'autorizzazione per l'accesso al server. Queste autorizzazioni si definiscono **regole del firewall** .
 
 Per altre informazioni, vedere i [concetti sulla rete](concepts-networking.md).
 
@@ -99,7 +99,7 @@ Il servizio crittografa i dati in transito con il protocollo Transport Layer Sec
 
 Per altre informazioni, vedere [come usare connessioni crittografate a server flessibili](https://docs.mongodb.com/manual/tutorial/configure-ssl).
 
-I server flessibili consentono l'accesso privato completo ai server tramite l'integrazione della [rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview). I server nella rete virtuale di Azure possono essere raggiunti e connessi solo tramite indirizzi IP privati. Con l'integrazione di VNet, l'accesso pubblico viene negato e non è possibile raggiungere i server usando gli endpoint pubblici. 
+I server flessibili consentono l'accesso privato completo ai server tramite l'integrazione della [rete virtuale di Azure](../../virtual-network/virtual-networks-overview.md). I server nella rete virtuale di Azure possono essere raggiunti e connessi solo tramite indirizzi IP privati. Con l'integrazione di VNet, l'accesso pubblico viene negato e non è possibile raggiungere i server usando gli endpoint pubblici. 
 
 Per altre informazioni, vedere i [concetti sulla rete](concepts-networking.md).
 
@@ -114,8 +114,8 @@ Per altre informazioni, vedere i [concetti sul monitoraggio](concepts-monitoring
 
 Il servizio esegue la versione community di MySQL. Questo consente la compatibilità completa delle applicazioni e richiede un costo di refactoring minimo per eseguire la migrazione di un'applicazione esistente sviluppata sul motore MySQL a un servizio server singolo. Per eseguire la migrazione al server singolo, è possibile usare una delle opzioni seguenti:
 
-- **Dump e ripristino**: per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, l'esecuzione del dump e del ripristino usando strumenti della community come mysqldump/mydumpere può fornire una soluzione più rapida per la migrazione. Per i dettagli, vedere Eseguire la migrazione con dump e ripristino. 
-- **Servizio Migrazione del database di Azure**: per migrazioni semplici e facilitate al server singolo con tempi di inattività minimi, è possibile sfruttare [Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/tutorial-mysql-azure-mysql-online). 
+- **Dump e ripristino** : per le migrazioni offline, in cui gli utenti possono permettersi un certo tempo di inattività, l'esecuzione del dump e del ripristino usando strumenti della community come mysqldump/mydumpere può fornire una soluzione più rapida per la migrazione. Per i dettagli, vedere Eseguire la migrazione con dump e ripristino. 
+- **Servizio Migrazione del database di Azure** : per migrazioni semplici e facilitate al server singolo con tempi di inattività minimi, è possibile sfruttare [Servizio Migrazione del database di Azure](../../dms/tutorial-mysql-azure-mysql-online.md). 
 
 ## <a name="azure-regions"></a>Aree di Azure
 

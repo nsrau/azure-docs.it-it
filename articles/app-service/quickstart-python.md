@@ -3,14 +3,14 @@ title: "Avvio rapido: Creare un'app Python"
 description: Introduzione all'uso del Servizio app di Azure distribuendo la prima app Python in un contenitore Linux nel servizio app.
 ms.topic: quickstart
 ms.date: 09/22/2020
-ms.custom: seo-python-october2019, cli-validate, devx-track-python
+ms.custom: seo-python-october2019, cli-validate, devx-track-python, devx-track-azurecli
 zone_pivot_groups: python-frameworks-01
-ms.openlocfilehash: 8a0cce6dd68513380759319c378d15aeb0e029c3
-ms.sourcegitcommit: 5abc3919a6b99547f8077ce86a168524b2aca350
+ms.openlocfilehash: 8f48f31cdaaa555e0a8f6f0fd4756bb61a9f417d
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91813186"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741103"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>Avvio rapido: Creare un'app Python nel Servizio app di Azure in Linux
 
@@ -100,13 +100,13 @@ L'esempio contiene codice specifico del framework che il servizio app di Azure r
 ## <a name="run-the-sample"></a>Eseguire l'esempio
 
 ::: zone pivot="python-framework-flask"
-1. Assicurarsi di trovarsi nella cartella *python-docs-hello-world*. 
+1. Assicurarsi di trovarsi nella cartella *python-docs-hello-world* . 
 
 1. Creare un ambiente virtuale e installare le dipendenze:
 
     [!include [virtual environment setup](../../includes/app-service-quickstart-python-venv.md)]
 
-    Se si verifica l'errore "[Errno 2] Impossibile trovare il file o la directory: 'requirements.txt'", assicurarsi di trovarsi nella cartella *python-docs-hello-world*.
+    Se si verifica l'errore "[Errno 2] Impossibile trovare il file o la directory: 'requirements.txt'", assicurarsi di trovarsi nella cartella *python-docs-hello-world* .
 
 1. Eseguire il server di sviluppo.
 
@@ -114,7 +114,7 @@ L'esempio contiene codice specifico del framework che il servizio app di Azure r
     flask run
     ```
     
-    Per impostazione predefinita, il server presuppone che il modulo di ingresso dell'app si trovi in *app.py*, come usato nell'esempio. Se si usa un nome di modulo diverso, impostare la variabile di ambiente `FLASK_APP` su tale nome.
+    Per impostazione predefinita, il server presuppone che il modulo di ingresso dell'app si trovi in *app.py* , come usato nell'esempio. Se si usa un nome di modulo diverso, impostare la variabile di ambiente `FLASK_APP` su tale nome.
 
 1. Aprire un Web browser e passare all'app di esempio all'indirizzo `http://localhost:5000/`. L'app visualizza il messaggio **Hello World!** .
 
@@ -124,13 +124,13 @@ L'esempio contiene codice specifico del framework che il servizio app di Azure r
 ::: zone-end
 
 ::: zone pivot="python-framework-django"
-1. Assicurarsi di trovarsi nella cartella *python-docs-hello-django*. 
+1. Assicurarsi di trovarsi nella cartella *python-docs-hello-django* . 
 
 1. Creare un ambiente virtuale e installare le dipendenze:
 
     [!include [virtual environment setup](../../includes/app-service-quickstart-python-venv.md)]
 
-    Se si verifica l'errore "[Errno 2] Impossibile trovare il file o la directory: 'requirements.txt'.", assicurarsi di trovarsi nella cartella *python-docs-hello-django*.
+    Se si verifica l'errore "[Errno 2] Impossibile trovare il file o la directory: 'requirements.txt'.", assicurarsi di trovarsi nella cartella *python-docs-hello-django* .
     
 1. Eseguire il server di sviluppo.
 
@@ -149,7 +149,7 @@ L'esempio contiene codice specifico del framework che il servizio app di Azure r
 
 ## <a name="deploy-the-sample"></a>Distribuire l'esempio
 
-Distribuire il codice nella cartella locale (*python-docs-hello-world*) usando il comando `az webapp up`:
+Distribuire il codice nella cartella locale ( *python-docs-hello-world* ) usando il comando `az webapp up`:
 
 ```azurecli
 az webapp up --sku F1 --name <app-name>
@@ -157,10 +157,10 @@ az webapp up --sku F1 --name <app-name>
 
 - Se il comando `az` non viene riconosciuto, verificare di aver installato l'interfaccia della riga di comando di Azure come descritto in [Configurare l'ambiente iniziale](#set-up-your-initial-environment).
 - Se il comando `webapp` non viene riconosciuto, assicurarsi che la versione dell'interfaccia della riga di comando di Azure sia 2.0.80 o successiva. Se non lo è, [installare l'ultima versione](/cli/azure/install-azure-cli).
-- Sostituire `<app_name>` con un nome univoco nell'ambito di Azure (*i caratteri validi sono `a-z`, `0-9` e `-`* ). Un criterio valido consiste nell'usare una combinazione del nome della società e di un identificatore dell'app.
+- Sostituire `<app_name>` con un nome univoco nell'ambito di Azure ( *i caratteri validi sono `a-z`, `0-9` e `-`* ). Un criterio valido consiste nell'usare una combinazione del nome della società e di un identificatore dell'app.
 - Con l'argomento `--sku F1` l'app Web viene creata nel piano tariffario Gratuito. Omettere questo argomento per usare un livello Premium più rapido, che però comporta un costo orario.
 - Facoltativamente, è possibile includere l'argomento `--location <location-name>`, dove `<location_name>` è un'area di Azure disponibile. Per recuperare un elenco di aree consentite per l'account Azure, è possibile eseguire il comando [`az account list-locations`](/cli/azure/appservice#az-appservice-list-locations).
-- Se viene visualizzato un messaggio di errore analogo a "Non è stato possibile rilevare automaticamente lo stack di runtime dell'app", assicurarsi che il comando venga eseguito nella cartella *python-docs-hello-world* (Flask) o *python-docs-hello-django* (Django) che contiene il file *requirements.txt*. Vedere l'articolo sulla [risoluzione dei problemi di rilevamento automatico con az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).
+- Se viene visualizzato un messaggio di errore analogo a "Non è stato possibile rilevare automaticamente lo stack di runtime dell'app", assicurarsi che il comando venga eseguito nella cartella *python-docs-hello-world* (Flask) o *python-docs-hello-django* (Django) che contiene il file *requirements.txt* . Vedere l'articolo sulla [risoluzione dei problemi di rilevamento automatico con az webapp up](https://github.com/Azure/app-service-linux-docs/blob/master/AzWebAppUP/runtime_detection.md) (GitHub).
 
 Il completamento del comando può richiedere alcuni minuti. Durante l'esecuzione, vengono visualizzati messaggi sulla creazione del gruppo di risorse, sul piano di servizio app e l'app di hosting, la configurazione della registrazione e quindi la distribuzione dello ZIP. Viene quindi visualizzato il messaggio che indica che è possibile avviare l'app all'indirizzo http://&lt;nome-app&gt;.azurewebsites.net, ovvero l'URL dell'app in Azure.
 
@@ -211,7 +211,7 @@ Salvare le modifiche, quindi ridistribuire l'app usando di nuovo il comando `az 
 az webapp up
 ```
 
-Questo comando usa i valori memorizzati nella cache in locale nel file *.azure/config*, inclusi il nome dell'app, il gruppo di risorse e il piano di servizio app.
+Questo comando usa i valori memorizzati nella cache in locale nel file *.azure/config* , inclusi il nome dell'app, il gruppo di risorse e il piano di servizio app.
 
 Al termine della distribuzione, tornare alla finestra del browser aperta su `http://<app-name>.azurewebsites.net`. Aggiornare la pagina, che dovrebbe visualizzare il messaggio modificato:
 
@@ -244,7 +244,7 @@ Per interrompere lo streaming di log in qualsiasi momento, premere **CTRL**+**C*
 
 ## <a name="manage-the-azure-app"></a>Gestire l'app Azure
 
-Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app creata. Cercare e selezionare **Servizi app**.
+Accedere al <a href="https://portal.azure.com" target="_blank">portale di Azure</a> per gestire l'app creata. Cercare e selezionare **Servizi app** .
 
 ![Passare a Servizi app nel portale di Azure](./media/quickstart-python/navigate-to-app-services-in-the-azure-portal.png)
 
@@ -252,7 +252,7 @@ Selezionare il nome dell'app di Azure.
 
 ![Nel portale di Azure passare all'app Python in Servizi app](./media/quickstart-python/navigate-to-app-in-app-services-in-the-azure-portal.png)
 
-Selezionando l'app viene aperta la pagina **Panoramica**, in cui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione.
+Selezionando l'app viene aperta la pagina **Panoramica** , in cui è possibile eseguire attività di gestione di base come l'esplorazione, l'arresto, l'avvio, il riavvio e l'eliminazione.
 
 ![Gestire l'app Python nella pagina Panoramica del portale di Azure](./media/quickstart-python/manage-an-app-in-app-services-in-the-azure-portal.png)
 
@@ -270,7 +270,7 @@ Se non si prevede di usare queste risorse in futuro, eliminare i gruppi di risor
 az group delete --no-wait
 ```
 
-Il comando usa il nome del gruppo di risorse memorizzato nella cache nel file *.azure/config*.
+Il comando usa il nome del gruppo di risorse memorizzato nella cache nel file *.azure/config* .
 
 Con l'argomento `--no-wait`, il comando restituisce il risultato prima del completamento dell'operazione.
 

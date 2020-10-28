@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: 1cb35ce995a27030612499cc3147943112e1c50e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 12466f64daa699925e4e184536b2d50c5fb89847
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89662372"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547725"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Guida introduttiva: Usare Cache Redis di Azure con un'app .NET Core
 
@@ -29,7 +29,7 @@ In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app .NE
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Prendere nota del **nome host** e della chiave di accesso **primaria**. Questi valori verranno usati in un secondo momento per costruire il segreto *CacheConnection*.
+Prendere nota del **nome host** e della chiave di accesso **primaria** . Questi valori verranno usati in un secondo momento per costruire il segreto *CacheConnection* .
 
 
 
@@ -41,15 +41,15 @@ Aprire una nuova finestra di comando ed eseguire il comando seguente per creare 
 dotnet new console -o Redistest
 ```
 
-Nella finestra di comando passare alla nuova directory di progetto *Redistest*.
+Nella finestra di comando passare alla nuova directory di progetto *Redistest* .
 
 
 
 ## <a name="add-secret-manager-to-the-project"></a>Aggiungere Secret Manager al progetto
 
-In questa sezione verrà aggiunto lo [strumento Secret Manager](https://docs.microsoft.com/aspnet/core/security/app-secrets) al progetto. Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo al di fuori dell'albero del progetto. Questo approccio contribuisce a impedire la condivisione accidentale dei segreti dell'app all'interno del codice sorgente.
+In questa sezione verrà aggiunto lo [strumento Secret Manager](/aspnet/core/security/app-secrets) al progetto. Lo strumento Secret Manager archivia i dati sensibili per operazioni di sviluppo al di fuori dell'albero del progetto. Questo approccio contribuisce a impedire la condivisione accidentale dei segreti dell'app all'interno del codice sorgente.
 
-Aprire il file *Redistest.csproj*. Aggiungere un elemento `DotNetCliToolReference` per includere *Microsoft.Extensions.SecretManager.Tools*. Aggiungere anche un elemento `UserSecretsId` come illustrato di seguito e salvare il file.
+Aprire il file *Redistest.csproj* . Aggiungere un elemento `DotNetCliToolReference` per includere *Microsoft.Extensions.SecretManager.Tools* . Aggiungere anche un elemento `UserSecretsId` come illustrato di seguito e salvare il file.
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
@@ -76,19 +76,19 @@ Eseguire il comando seguente per ripristinare i pacchetti:
 dotnet restore
 ```
 
-Nella finestra di comando eseguire il comando seguente per archiviare un nuovo segreto denominato *CacheConnection*, dopo aver sostituito i segnaposto (incluse le parentesi angolari) per il nome della cache e la chiave di accesso primaria:
+Nella finestra di comando eseguire il comando seguente per archiviare un nuovo segreto denominato *CacheConnection* , dopo aver sostituito i segnaposto (incluse le parentesi angolari) per il nome della cache e la chiave di accesso primaria:
 
 ```
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,password=<primary-access-key>"
 ```
 
-Aggiungere l'istruzione `using` seguente al file *Program.cs*:
+Aggiungere l'istruzione `using` seguente al file *Program.cs* :
 
 ```csharp
 using Microsoft.Extensions.Configuration;
 ```
 
-Aggiungere i membri seguenti alla classe `Program` in *Program.cs*. Questo codice consente di inizializzare una configurazione per accedere al segreto utente per la stringa di connessione di Cache Redis di Azure.
+Aggiungere i membri seguenti alla classe `Program` in *Program.cs* . Questo codice consente di inizializzare una configurazione per accedere al segreto utente per la stringa di connessione di Cache Redis di Azure.
 
 ```csharp
 private static IConfigurationRoot Configuration { get; set; }
@@ -107,7 +107,7 @@ private static void InitializeConfiguration()
 
 In questa sezione, si configurerà l'applicazione console per usare il client [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) per .NET.
 
-Nella finestra di comando eseguire il comando seguente nella directory del progetto *Redistest*:
+Nella finestra di comando eseguire il comando seguente nella directory del progetto *Redistest* :
 
 ```
 dotnet add package StackExchange.Redis
@@ -118,7 +118,7 @@ Una volta completata l'installazione, il client della cache *StackExchange.Redis
 
 ## <a name="connect-to-the-cache"></a>Connettersi alla cache
 
-Aggiungere l'istruzione `using` seguente al file *Program.cs*:
+Aggiungere l'istruzione `using` seguente al file *Program.cs* :
 
 ```csharp
 using StackExchange.Redis;
@@ -191,7 +191,7 @@ static void Main(string[] args)
 }
 ```
 
-Salvare *Program.cs*.
+Salvare *Program.cs* .
 
 Cache Redis di Azure ha un numero configurabile di database (16 per impostazione predefinita) che è possibile usare per separare in modo logico i dati all'interno di un'istanza di Cache Redis di Azure. Il codice si connette al database predefinito, DB 0. Per altre informazioni, vedere [Informazioni sui database Redis](cache-development-faq.md#what-are-redis-databases) e [Configurazione predefinita del server Redis](cache-configure.md#default-redis-server-configuration).
 
@@ -228,13 +228,13 @@ Eseguire il comando seguente per aggiungere il pacchetto *Newtonsoft.json* all'a
 dotnet add package Newtonsoft.json
 ```
 
-Aggiungere l'istruzione `using` seguente all'inizio del file *Program.cs*:
+Aggiungere l'istruzione `using` seguente all'inizio del file *Program.cs* :
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Aggiungere la definizione di classe `Employee` seguente a *Program.cs*:
+Aggiungere la definizione di classe `Employee` seguente a *Program.cs* :
 
 ```csharp
 class Employee
@@ -293,13 +293,13 @@ In caso contrario, se si è terminato il lavoro con l'applicazione di esempio di
 > L'eliminazione di un gruppo di risorse è irreversibile e comporta l'eliminazione definitiva del gruppo di risorse e di tutte le risorse incluse nel gruppo. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se le risorse per questo esempio sono state create all'interno di un gruppo di risorse esistente che contiene anche elementi da mantenere, è possibile eliminare ogni elemento singolarmente dai rispettivi pannelli anziché eliminare il gruppo di risorse.
 >
 
-Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
+Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse** .
 
-Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources*. Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
+Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources* . Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse** .
 
 ![Delete](./media/cache-dotnet-core-quickstart/cache-delete-resource-group.png)
 
-Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina**.
+Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina** .
 
 Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
@@ -317,4 +317,4 @@ In questa guida introduttiva si è visto come usare Cache Redis di Azure da un'a
 Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
 
 > [!div class="nextstepaction"]
-> [Per iniziare, analizzare i costi con Gestione costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Per iniziare, analizzare i costi con Gestione costi](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

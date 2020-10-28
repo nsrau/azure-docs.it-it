@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: a3afb12ac831d87b03d0bb16d1b7ef553f1bb906
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c8ffdcd0615913649e80b20f6873d005f4ad4410
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90006820"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675986"
 ---
 # <a name="how-to-author-and-sign-an-attestation-policy"></a>Come creare e firmare un criterio di attestazione
 
@@ -36,7 +36,7 @@ issuancerules
  
 Un file di criteri è costituito da tre segmenti, come illustrato sopra:
 
-- **version**:  il numero di versione della grammatica seguita. 
+- **version** :  il numero di versione della grammatica seguita. 
 
     ```
     version=MajorVersion.MinorVersion   
@@ -44,9 +44,9 @@ Un file di criteri è costituito da tre segmenti, come illustrato sopra:
 
     Attualmente l'unica versione supportata è 1.0.
 
-- **authorizationrules**: una raccolta di regole di attestazione che verrà controllata per prima, per determinare se Attestazione di Azure deve procedere a **issuancerules**. Le regole di attestazione si applicano nell'ordine in cui sono definite.
+- **authorizationrules** : una raccolta di regole di attestazione che verrà controllata per prima, per determinare se Attestazione di Azure deve procedere a **issuancerules** . Le regole di attestazione si applicano nell'ordine in cui sono definite.
 
-- **issuancerules**: una raccolta di regole di attestazione che verranno valutate per aggiungere altre informazioni al risultato dell'attestazione definito nel criterio. Le regole di attestazione si applicano nell'ordine in cui sono definite e sono anche facoltative.
+- **issuancerules** : una raccolta di regole di attestazione che verranno valutate per aggiungere altre informazioni al risultato dell'attestazione definito nel criterio. Le regole di attestazione si applicano nell'ordine in cui sono definite e sono anche facoltative.
 
 Per altre informazioni, vedere [Attestazioni e regole di attestazione](claim-rule-grammar.md).
    
@@ -54,7 +54,7 @@ Per altre informazioni, vedere [Attestazioni e regole di attestazione](claim-rul
 
 1. Creare un nuovo file.
 1. Aggiungere la versione al file.
-1. Aggiungere le sezioni per **authorizationrules** e **issuancerules**.
+1. Aggiungere le sezioni per **authorizationrules** e **issuancerules** .
 
   ```
   version=1.0;
@@ -84,9 +84,9 @@ Per altre informazioni, vedere [Attestazioni e regole di attestazione](claim-rul
   };
   ```
 
-  Se il set di attestazioni in ingresso contiene un'attestazione corrispondente al tipo, al valore e all'autorità emittente, l'azione permit() indica al motore dei criteri di elaborare **issuancerules**.
+  Se il set di attestazioni in ingresso contiene un'attestazione corrispondente al tipo, al valore e all'autorità emittente, l'azione permit() indica al motore dei criteri di elaborare **issuancerules** .
   
-5. Aggiungere regole di attestazione a **issuancerules**.
+5. Aggiungere regole di attestazione a **issuancerules** .
 
   ```
   version=1.0;
@@ -128,8 +128,8 @@ Dopo aver creato un file di criteri, per caricare un criterio in formato JWS, se
      ```
 
 2. (Facoltativo) Firmare i criteri. Attestazione di Azure supporta gli algoritmi seguenti:
-     - **Nessuna**: il payload dei criteri non viene firmato.
-     - **RS256**: algoritmo supportato per la firma del payload dei criteri
+     - **Nessuna** : il payload dei criteri non viene firmato.
+     - **RS256** : algoritmo supportato per la firma del payload dei criteri
 
 3. Caricare il file JWS e convalidare il criterio.
      - Se il file di criteri è privo di errori di sintassi, viene accettato dal servizio.
@@ -172,4 +172,4 @@ print(encoded.decode('utf-8'))
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Configurare Attestazione di Azure con PowerShell](quickstart-powershell.md)
-- [Attestare un'enclave SGX con esempi di codice](https://docs.microsoft.com/samples/browse/?expanded=azure&terms=attestation)
+- [Attestare un'enclave SGX con esempi di codice](/samples/browse/?expanded=azure&terms=attestation)

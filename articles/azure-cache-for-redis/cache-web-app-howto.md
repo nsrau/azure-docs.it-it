@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 09/29/2020
 ms.author: yegu
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 963021e26036969a51f77641376c693e94ac5061
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b880762d43cd4e105b79613aadb476611228a47e
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91460341"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536607"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-an-aspnet-web-app"></a>Guida introduttiva: Usare Azure Cache for Redis con un'app Web ASP.NET 
 
@@ -21,11 +21,11 @@ In questa guida di avvio rapido si usa Visual Studio 2019 per creare un'applicaz
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/dotnet)
-- [Visual Studio 2019](https://www.visualstudio.com/downloads/) con i carichi di lavoro **Sviluppo ASP.NET e Web** e **Sviluppo di Azure**.
+- [Visual Studio 2019](https://www.visualstudio.com/downloads/) con i carichi di lavoro **Sviluppo ASP.NET e Web** e **Sviluppo di Azure** .
 
 ## <a name="create-the-visual-studio-project"></a>Creare il progetto di Visual Studio
 
-1. Aprire Visual Studio e quindi selezionare **File** >**Nuovo** > **Progetto**.
+1. Aprire Visual Studio e quindi selezionare **File** >**Nuovo** > **Progetto** .
 
 2. Nella finestra di dialogo **Nuovo progetto** seguire questa procedura:
 
@@ -33,19 +33,19 @@ In questa guida di avvio rapido si usa Visual Studio 2019 per creare un'applicaz
 
     a. Nell'elenco **Modelli** espandere il nodo **Visual C#** .
 
-    b. Selezionare **Cloud**.
+    b. Selezionare **Cloud** .
 
-    c. Selezionare **Applicazione Web ASP.NET**.
+    c. Selezionare **Applicazione Web ASP.NET** .
 
     d. Verificare che sia selezionata l'opzione **.NET Framework 4.5.2** o versione successiva.
 
-    e. Nella casella **Nome** digitare un nome per il progetto. Per questo esempio è stato usato il nome **ContosoTeamStats**.
+    e. Nella casella **Nome** digitare un nome per il progetto. Per questo esempio è stato usato il nome **ContosoTeamStats** .
 
-    f. Selezionare **OK**.
+    f. Selezionare **OK** .
    
 3. Selezionare **MVC** come tipo di progetto.
 
-4. Assicurarsi che per l'impostazione **Autenticazione** sia selezionata l'opzione **Nessuna autenticazione**. A seconda della versione di Visual Studio, il valore predefinito dell'impostazione **Autenticazione** può essere diverso. Per modificarlo, selezionare **Modifica autenticazione** e quindi **Nessuna autenticazione**.
+4. Assicurarsi che per l'impostazione **Autenticazione** sia selezionata l'opzione **Nessuna autenticazione** . A seconda della versione di Visual Studio, il valore predefinito dell'impostazione **Autenticazione** può essere diverso. Per modificarlo, selezionare **Modifica autenticazione** e quindi **Nessuna autenticazione** .
 
 5. Selezionare **OK** per creare il progetto.
 
@@ -59,9 +59,9 @@ A questo punto creare la cache per l'app.
 
 #### <a name="to-edit-the-cachesecretsconfig-file"></a>Per modificare il file *CacheSecrets.config*
 
-1. Creare un file nel computer denominato *CacheSecrets.config*. Inserirlo in una posizione in cui non verrà archiviato con il codice sorgente dell'applicazione di esempio. Per questa guida introduttiva, il file *CacheSecrets.config* si trova in *C:\AppSecrets\CacheSecrets.config*.
+1. Creare un file nel computer denominato *CacheSecrets.config* . Inserirlo in una posizione in cui non verrà archiviato con il codice sorgente dell'applicazione di esempio. Per questa guida introduttiva, il file *CacheSecrets.config* si trova in *C:\AppSecrets\CacheSecrets.config* .
 
-1. Modificare il file *CacheSecrets.config*. Aggiungere quindi il contenuto seguente:
+1. Modificare il file *CacheSecrets.config* . Aggiungere quindi il contenuto seguente:
 
     ```xml
     <appSettings>
@@ -107,7 +107,7 @@ Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'eleme
 
 ### <a name="to-configure-the-application-to-use-stackexchangeredis"></a>Per configurare l'applicazione per l'uso di StackExchange.Redis
 
-1. Per configurare l'app per usare il pacchetto NuGet [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) per Visual Studio, selezionare **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**.
+1. Per configurare l'app per usare il pacchetto NuGet [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) per Visual Studio, selezionare **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti** .
 
 2. Eseguire questo comando nella finestra `Package Manager Console`:
 
@@ -119,7 +119,7 @@ Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'eleme
 
 ### <a name="to-update-the-homecontroller-and-layout"></a>Per aggiornare la classe HomeController e il layout
 
-1. In **Esplora soluzioni** espandere la cartella **Controllers** e aprire il file *HomeController.cs*.
+1. In **Esplora soluzioni** espandere la cartella **Controllers** e aprire il file *HomeController.cs* .
 
 2. Aggiungere le due istruzioni `using` seguenti all'inizio del file per supportare le impostazioni dell'app e del client della cache.
 
@@ -189,7 +189,7 @@ Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'eleme
 
     ```
 
-4. In **Esplora soluzioni** espandere la cartella **Views** > **Shared**. Aprire quindi il file *_Layout.cshtml*.
+4. In **Esplora soluzioni** espandere la cartella **Views** > **Shared** . Aprire quindi il file *_Layout.cshtml* .
 
     Sostituire:
     
@@ -205,9 +205,9 @@ Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'eleme
 
 ### <a name="to-add-a-new-rediscache-view"></a>Per aggiungere una nuova visualizzazione RedisCache
 
-1. In **Esplora soluzioni** espandere la cartella **Views** e fare clic con il pulsante destro del mouse sula cartella **Home**. Scegliere **Aggiungi** > **Visualizza...** .
+1. In **Esplora soluzioni** espandere la cartella **Views** e fare clic con il pulsante destro del mouse sula cartella **Home** . Scegliere **Aggiungi** > **Visualizza...** .
 
-2. Nella finestra di dialogo **Aggiungi visualizzazione** immettere **RedisCache** per Nome visualizzazione. Quindi selezionare **Aggiungi**.
+2. Nella finestra di dialogo **Aggiungi visualizzazione** immettere **RedisCache** per Nome visualizzazione. Quindi selezionare **Aggiungi** .
 
 3. Sostituire il codice nel file *RedisCache.cshtml* con il codice seguente:
 
@@ -249,7 +249,7 @@ Il runtime ASP.NET unisce il contenuto del file esterno con il markup nell'eleme
 
 ## <a name="run-the-app-locally"></a>Eseguire l'app in locale
 
-Per impostazione predefinita, il progetto è configurato per ospitare l'app in locale in [IIS Express](https://docs.microsoft.com/iis/extensions/introduction-to-iis-express/iis-express-overview) per i test e il debug.
+Per impostazione predefinita, il progetto è configurato per ospitare l'app in locale in [IIS Express](/iis/extensions/introduction-to-iis-express/iis-express-overview) per i test e il debug.
 
 ### <a name="to-run-the-app-locally"></a>Per eseguire l'app in locale
 1. In Visual Studio, selezionare **Debug** > **Avvia debug** per compilare e avviare l'app in locale per i test e il debug.
@@ -266,11 +266,11 @@ Dopo avere testato correttamente l'app in locale, è possibile distribuirla in A
 
 ### <a name="to-publish-the-app-to-azure"></a>Per pubblicare l'app in Azure
 
-1. In Visual Studio fare clic con il pulsante destro del mouse sul nodo di progetto in Esplora soluzioni. Scegliere quindi **Pubblica**.
+1. In Visual Studio fare clic con il pulsante destro del mouse sul nodo di progetto in Esplora soluzioni. Scegliere quindi **Pubblica** .
 
     ![Pubblica](./media/cache-web-app-howto/cache-publish-app.png)
 
-2. Selezionare **Servizio app di Microsoft Azure**, quindi **Crea nuovo** e infine **Pubblica**.
+2. Selezionare **Servizio app di Microsoft Azure** , quindi **Crea nuovo** e infine **Pubblica** .
 
     ![Eseguire la pubblicazione nel servizio app](./media/cache-web-app-howto/cache-publish-to-app-service.png)
 
@@ -280,12 +280,12 @@ Dopo avere testato correttamente l'app in locale, è possibile distribuirla in A
     | ------- | :---------------: | ----------- |
     | **Nome app** | Usare il valore predefinito. | Il nome dell'app è il nome host per l'app quando viene distribuita in Azure. Se necessario, per rendere il nome univoco è possibile aggiungere un suffisso timestamp. |
     | **Sottoscrizione** | Scegliere la sottoscrizione di Azure. | Eventuali costi di hosting correlati vengono addebitati in questa sottoscrizione. Se si hanno più sottoscrizioni di Azure, verificare che sia selezionata la sottoscrizione desiderata.|
-    | **Gruppo di risorse** | Usare lo stesso gruppo di risorse in cui è stata creata la cache, ad esempio *TestResourceGroup*. | Il gruppo di risorse consente di gestire tutte le risorse come gruppo. Successivamente, quando si vuole eliminare l'app, è sufficiente eliminare il gruppo. |
-    | **Piano di servizio app** | Selezionare **Nuovo** e quindi creare un nuovo piano di servizio app denominato *TestingPlan*. <br />Usare lo stesso **percorso** usato durante la creazione della cache. <br />Scegliere il livello **Gratuito** per le dimensioni. | Un piano di servizio app definisce un set di risorse di calcolo per l'esecuzione di un'app Web. |
+    | **Gruppo di risorse** | Usare lo stesso gruppo di risorse in cui è stata creata la cache, ad esempio *TestResourceGroup* . | Il gruppo di risorse consente di gestire tutte le risorse come gruppo. Successivamente, quando si vuole eliminare l'app, è sufficiente eliminare il gruppo. |
+    | **Piano di servizio app** | Selezionare **Nuovo** e quindi creare un nuovo piano di servizio app denominato *TestingPlan* . <br />Usare lo stesso **percorso** usato durante la creazione della cache. <br />Scegliere il livello **Gratuito** per le dimensioni. | Un piano di servizio app definisce un set di risorse di calcolo per l'esecuzione di un'app Web. |
 
     ![Finestra di dialogo del servizio app](./media/cache-web-app-howto/cache-create-app-service-dialog.png)
 
-4. Dopo aver configurato le impostazioni di hosting del servizio app, selezionare **Crea**.
+4. Dopo aver configurato le impostazioni di hosting del servizio app, selezionare **Crea** .
 
 5. Monitorare la finestra **Output** in Visual Studio per esaminare lo stato della pubblicazione. Dopo che l'app è stata pubblicata, viene registrato il relativo URL:
 
@@ -301,7 +301,7 @@ Dopo che la nuova app è stata pubblicata, aggiungere una nuova impostazione del
 
     ![Trovare l'app](./media/cache-web-app-howto/cache-find-app-service.png)
 
-2. Aggiungere una nuova impostazione dell'app denominata **CacheConnection** per l'app da usare per connettersi alla cache. Usare lo stesso valore configurato per `CacheConnection` nel file *CacheSecrets.config*. Il valore contiene la chiave di accesso e il nome host della cache.
+2. Aggiungere una nuova impostazione dell'app denominata **CacheConnection** per l'app da usare per connettersi alla cache. Usare lo stesso valore configurato per `CacheConnection` nel file *CacheSecrets.config* . Il valore contiene la chiave di accesso e il nome host della cache.
 
     ![Aggiungere l'impostazione dell'app](./media/cache-web-app-howto/cache-add-app-setting.png)
 
@@ -324,13 +324,13 @@ In caso contrario, se si è terminato il lavoro con l'applicazione di esempio de
 
 ### <a name="to-delete-a-resource-group"></a>Per eliminare un gruppo di risorse
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Gruppi di risorse** .
 
-2. Nella casella **Filtra per nome** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources*. Nel gruppo di risorse, nell'elenco dei risultati, selezionare **...** e quindi **Elimina gruppo di risorse**.
+2. Nella casella **Filtra per nome** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources* . Nel gruppo di risorse, nell'elenco dei risultati, selezionare **...** e quindi **Elimina gruppo di risorse** .
 
     ![Delete](./media/cache-web-app-howto/cache-delete-resource-group.png)
 
-Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Digitare il nome del gruppo di risorse per confermare e quindi selezionare **Elimina**.
+Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Digitare il nome del gruppo di risorse per confermare e quindi selezionare **Elimina** .
 
 Dopo qualche istante, il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 

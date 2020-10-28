@@ -8,12 +8,12 @@ ms.devlang: azurepowershell
 ms.topic: quickstart
 ms.date: 04/28/2020
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 4444f86f094d46419d7ff4b2f80609da007c4594
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 65ac6b3252b134fa6774c075ebc7d5f2c428a809
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90906141"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545124"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-server-using-powershell"></a>Avvio rapido: Creare un database di Azure per il server MySQL tramite PowerShell
 
@@ -29,7 +29,7 @@ Se si sceglie di usare PowerShell in locale, per questo articolo è necessario i
 > Durante la fase di anteprima del modulo Az.MySql PowerShell, è necessario installarlo separatamente dal modulo Az PowerShell usando il comando seguente: `Install-Module -Name Az.MySql -AllowPrerelease`.
 > Quando il modulo Az.MySql PowerShell sarà disponibile a livello generale, diventerà parte delle future versioni del modulo Az PowerShell e disponibile in modo nativo dall'interno di Azure Cloud Shell.
 
-Se è la prima volta che si usa il servizio Database di Azure per MySQL, è necessario registrare il provider di risorse **Microsoft.DBforMySQL**.
+Se è la prima volta che si usa il servizio Database di Azure per MySQL, è necessario registrare il provider di risorse **Microsoft.DBforMySQL** .
 
 ```azurepowershell-interactive
 Register-AzResourceProvider -ProviderNamespace Microsoft.DBforMySQL
@@ -45,9 +45,9 @@ Set-AzContext -SubscriptionId 00000000-0000-0000-0000-000000000000
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) con il cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
+Creare un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) con il cmdlet [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
 
-L'esempio seguente crea un gruppo di risorse denominato **myResourceGroup** nell'area **Stati Uniti occidentali**.
+L'esempio seguente crea un gruppo di risorse denominato **myResourceGroup** nell'area **Stati Uniti occidentali** .
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name myresourcegroup -Location westus
@@ -70,7 +70,7 @@ La tabella seguente contiene un elenco di parametri e valori di esempio usati di
 | SslEnforcement             | Attivato          | Indica se abilitare SSL per questo server. Valori consentiti: Enabled, Disabled.                                                                                                                                                                                                                                                 |
 | StorageInMb                | 51200            | Capacità di archiviazione del server (l'unità è MB). Per essere valido, StorageInMb deve essere di almeno 5120 MB con aumenti in incrementi di 1024 MB. Per altre informazioni sui limiti delle dimensioni di archiviazione, vedere [Piani tariffari di Database di Azure per MySQL](./concepts-pricing-tiers.md).                                                                               |
 | Versione                    | 5.7              | La versione principale di MySQL.                                                                                                                                                                                                                                                                                                                 |
-| AdministratorUserName      | myadmin          | Nome utente per l'account di accesso dell'amministratore. Non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**'.                                                                                                                                                                                            |
+| AdministratorUserName      | myadmin          | Nome utente per l'account di accesso dell'amministratore. Non può essere **azure_superuser** , **admin** , **administrator** , **root** , **guest** o **public** '.                                                                                                                                                                                            |
 | AdministratorLoginPassword | `<securestring>` | Password dell'utente amministratore sotto forma di stringa sicura. Deve contenere tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri e caratteri non alfanumerici.                                       |
 
 Il valore del parametro **Sku** segue la convenzione **piano tariffario\_generazione calcolo\_vCore** come illustrato negli esempi seguenti.
@@ -81,7 +81,7 @@ Il valore del parametro **Sku** segue la convenzione **piano tariffario\_generaz
 
 Per informazioni sui valori di **Sku** validi per aree e livelli, vedere [Piani tariffari di Database di Azure per MySQL](./concepts-pricing-tiers.md).
 
-Nell'esempio seguente nell'area **Stati Uniti occidentali** viene creato un server MySQL denominato **mydemoserver** nel gruppo di risorse **myresourcegroup** con l'account di accesso di amministratore del server **myadmin**. Si tratta di un server di quinta generazione nel piano tariffario per utilizzo generico con 2 vCore e con i backup con ridondanza geografica abilitati. Prendere nota della password usata nella prima riga dell'esempio, perché si tratta della password per l'account amministratore del server MySQL.
+Nell'esempio seguente nell'area **Stati Uniti occidentali** viene creato un server MySQL denominato **mydemoserver** nel gruppo di risorse **myresourcegroup** con l'account di accesso di amministratore del server **myadmin** . Si tratta di un server di quinta generazione nel piano tariffario per utilizzo generico con 2 vCore e con i backup con ridondanza geografica abilitati. Prendere nota della password usata nella prima riga dell'esempio, perché si tratta della password per l'account amministratore del server MySQL.
 
 > [!TIP]
 > Il nome del server è associato a un nome DNS e deve essere univoco a livello globale.
@@ -124,7 +124,7 @@ Update-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup -SslE
 
 ## <a name="get-the-connection-information"></a>Ottenere le informazioni di connessione
 
-Per connettersi al server, è necessario specificare le informazioni sull'host e le credenziali di accesso. Usare questo esempio per determinare le informazioni di connessione. Prendere nota dei valori per **FullyQualifiedDomainName** e **AdministratorLogin**.
+Per connettersi al server, è necessario specificare le informazioni sull'host e le credenziali di accesso. Usare questo esempio per determinare le informazioni di connessione. Prendere nota dei valori per **FullyQualifiedDomainName** e **AdministratorLogin** .
 
 ```azurepowershell-interactive
 Get-AzMySqlServer -Name mydemoserver -ResourceGroupName myresourcegroup |

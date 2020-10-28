@@ -4,13 +4,13 @@ description: Informazioni su come configurare un contenitore Ruby predefinito pe
 ms.topic: quickstart
 ms.date: 06/18/2020
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18
-ms.openlocfilehash: c822dbdf9940db7b38d354fa32906c16977df0c0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.custom: mvc, seodec18, devx-track-azurecli
+ms.openlocfilehash: 038d62573b491325adc60647debf17fa87e06cfe
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88083767"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743679"
 ---
 # <a name="configure-a-linux-ruby-app-for-azure-app-service"></a>Configurare un'app Ruby in Linux per il Servizio app di Azure
 

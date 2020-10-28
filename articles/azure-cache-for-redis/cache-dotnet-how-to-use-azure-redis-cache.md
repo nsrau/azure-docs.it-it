@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc
 ms.date: 06/18/2020
-ms.openlocfilehash: b64fd82ab6050d6f4a9f0f91c2b8336ce03ab1d3
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b3c18fcc0f4ff21eaaea2cbaf664e87d0ff33d60
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88211350"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92537066"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-framework-application"></a>Guida di avvio rapido: Usare Azure Cache for Redis con un'applicazione .NET Framework
 
@@ -30,7 +30,7 @@ In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app .NE
 
 [!INCLUDE [redis-cache-access-keys](../../includes/redis-cache-access-keys.md)]
 
-Creare un file nel computer denominato *CacheSecrets.config* e inserirlo in una posizione in cui non verrà archiviato con il codice sorgente dell'applicazione di esempio. Per questo avvio rapido, il file *CacheSecrets.config* si trova nel percorso *C:\AppSecrets\CacheSecrets.config*.
+Creare un file nel computer denominato *CacheSecrets.config* e inserirlo in una posizione in cui non verrà archiviato con il codice sorgente dell'applicazione di esempio. Per questo avvio rapido, il file *CacheSecrets.config* si trova nel percorso *C:\AppSecrets\CacheSecrets.config* .
 
 Modificare il file *CacheSecrets.config* e aggiungere il contenuto seguente:
 
@@ -47,7 +47,7 @@ Sostituire `<access-key>` con la chiave primaria per la cache.
 
 ## <a name="create-a-console-app"></a>Creare un'app console
 
-In Visual Studio fare clic su **File** > **Nuovo** > **Progetto**.
+In Visual Studio fare clic su **File** > **Nuovo** > **Progetto** .
 
 Selezionare **App console (.NET Framework)** e quindi **Avanti** per configurare l'app. Digitare un **nome di progetto** e fare clic su **Crea** per creare una nuova applicazione console.
 
@@ -68,7 +68,7 @@ Una volta completata l'installazione, il client della cache *StackExchange.Redis
 
 ## <a name="connect-to-the-cache"></a>Connettersi alla cache
 
-In Visual Studio aprire il file *App.config* e aggiornarlo includendo un attributo `appSettings` `file` che fa riferimento al file *CacheSecrets.config*.
+In Visual Studio aprire il file *App.config* e aggiornarlo includendo un attributo `appSettings` `file` che fa riferimento al file *CacheSecrets.config* .
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>
@@ -81,9 +81,9 @@ In Visual Studio aprire il file *App.config* e aggiornarlo includendo un attribu
 </configuration>
 ```
 
-In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** e scegliere **Aggiungi riferimento**. Aggiungere un riferimento all'assembly **System.Configuration**.
+In Esplora soluzioni fare clic con il pulsante destro del mouse su **Riferimenti** e scegliere **Aggiungi riferimento** . Aggiungere un riferimento all'assembly **System.Configuration** .
 
-Aggiungere le istruzioni `using` seguenti a *Program.cs*:
+Aggiungere le istruzioni `using` seguenti a *Program.cs* :
 
 ```csharp
 using StackExchange.Redis;
@@ -92,7 +92,7 @@ using System.Configuration;
 
 La connessione a Cache Redis di Azure è gestita dalla classe `ConnectionMultiplexer`. Questa classe deve essere condivisa e riutilizzata in tutta l'applicazione client. Non creare una nuova connessione per ogni operazione. 
 
-Non archiviare mai le credenziali nel codice sorgente. Per semplificare questo esempio, viene usato solo un file di configurazione dei segreti esterno. Un approccio migliore potrebbe consistere nell'usare [Azure Key Vault con certificati](https://docs.microsoft.com/rest/api/keyvault/certificate-scenarios).
+Non archiviare mai le credenziali nel codice sorgente. Per semplificare questo esempio, viene usato solo un file di configurazione dei segreti esterno. Un approccio migliore potrebbe consistere nell'usare [Azure Key Vault con certificati](/rest/api/keyvault/certificate-scenarios).
 
 In *Program.cs* aggiungere i membri seguenti alla classe `Program` dell'applicazione console:
 
@@ -192,13 +192,13 @@ In Visual Studio fare clic su **Strumenti** > **Gestione pacchetti NuGet** > **C
 Install-Package Newtonsoft.Json
 ```
 
-Aggiungere l'istruzione `using` seguente all'inizio del file *Program.cs*:
+Aggiungere l'istruzione `using` seguente all'inizio del file *Program.cs* :
 
 ```csharp
 using Newtonsoft.Json;
 ```
 
-Aggiungere la definizione di classe `Employee` seguente a *Program.cs*:
+Aggiungere la definizione di classe `Employee` seguente a *Program.cs* :
 
 ```csharp
 class Employee
@@ -247,13 +247,13 @@ In caso contrario, se si è terminato il lavoro con l'applicazione di esempio di
 > L'eliminazione di un gruppo di risorse è irreversibile e comporta l'eliminazione definitiva del gruppo di risorse e di tutte le risorse incluse nel gruppo. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se le risorse per questo esempio sono state create all'interno di un gruppo di risorse esistente che contiene anche elementi da mantenere, è possibile eliminare ogni elemento singolarmente dai rispettivi pannelli anziché eliminare il gruppo di risorse.
 >
 
-Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
+Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse** .
 
-Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources*. Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse**.
+Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di risorse. Le istruzioni di questo articolo usano un gruppo di risorse denominato *TestResources* . Nel gruppo di risorse nell'elenco dei risultati fare clic su **...** quindi su **Elimina gruppo di risorse** .
 
 ![Delete](./media/cache-dotnet-how-to-use-azure-redis-cache/cache-delete-resource-group.png)
 
-Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina**.
+Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina** .
 
 Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
@@ -271,4 +271,4 @@ In questa guida di avvio rapido si è visto come usare Cache Redis di Azure da u
 Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
 
 > [!div class="nextstepaction"]
-> [Per iniziare, analizzare i costi con Gestione costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Per iniziare, analizzare i costi con Gestione costi](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

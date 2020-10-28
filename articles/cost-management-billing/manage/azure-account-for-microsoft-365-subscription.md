@@ -9,16 +9,16 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: e2561b6cfce0da2ede9cda567091f9a7e23610de
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: db9c8d18d975661edf4a120a2e82b073c884d2a9
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682995"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92369676"
 ---
 # <a name="sign-up-for-a-microsoft-365-subscription-with-your-azure-account"></a>Iscriversi a una sottoscrizione di Microsoft 365 con l'account Azure
 
-Se si è un sottoscrittore di Azure, è possibile usare l'account Azure per iscriversi a una sottoscrizione di Microsoft 365. Se si fa parte di un'organizzazione che ha una sottoscrizione di Azure, è possibile creare sottoscrizioni di Microsoft 365 per gli utenti nell'istanza esistente di Azure Active Directory (Azure AD). Iscriversi a Microsoft 365 tramite un account che ha l'autorizzazione Amministratore globale o Amministratore fatturazione nel tenant di Azure Active Directory. Per altre informazioni, vedere [Controllare le autorizzazioni dell'account in Azure AD](#RoleInAzureAD) e [Assegnazione dei ruoli di amministratore in Azure Active Directory](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
+Se si è un sottoscrittore di Azure, è possibile usare l'account Azure per iscriversi a una sottoscrizione di Microsoft 365. Se si fa parte di un'organizzazione che ha una sottoscrizione di Azure, è possibile creare sottoscrizioni di Microsoft 365 per gli utenti nell'istanza esistente di Azure Active Directory (Azure AD). Iscriversi a Microsoft 365 tramite un account che ha l'autorizzazione Amministratore globale o Amministratore fatturazione nel tenant di Azure Active Directory. Per altre informazioni, vedere [Controllare le autorizzazioni dell'account in Azure AD](#RoleInAzureAD) e [Assegnazione dei ruoli di amministratore in Azure Active Directory](../../active-directory/roles/permissions-reference.md).
 
 Se si ha già sia un account di Microsoft 365 sia una sottoscrizione di Azure, è possibile [Associare un tenant di Microsoft 365 a una sottoscrizione di Azure](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -31,17 +31,17 @@ Se si ha già sia un account di Microsoft 365 sia una sottoscrizione di Azure, �
 3. Accedere con le credenziali dell'account Azure. Se si crea un abbonamento per la propria organizzazione, usare l'account Azure membro del ruolo della directory Amministratore globale o Amministratore fatturazione nel tenant di Azure Active Directory.
 
     ![Screenshot dell'accesso a Microsoft](./media/azure-account-for-microsoft-365-subscription/13-office-365-sign-in.png)
-4. Fare clic su **Prova adesso**.
+4. Fare clic su **Prova adesso** .
 
     ![Screenshot di conferma dell'ordine per Microsoft 365.](./media/azure-account-for-microsoft-365-subscription/14-office-365-confirm-your-order.png)
-5. Nella pagina di conferma dell'ordine fare clic su **Continua**.
+5. Nella pagina di conferma dell'ordine fare clic su **Continua** .
 
     ![Screenshot di ricezione dell'ordine di Microsoft 365](./media/azure-account-for-microsoft-365-subscription/15-office-365-order-receipt.png)
 
 Le impostazioni sono state completate. Se la sottoscrizione di Microsoft 365 è stata creata per la propria organizzazione, seguire questa procedura per controllare che gli utenti di Azure AD siano ora disponibili in Microsoft 365.
 
 1. Aprire l'interfaccia di amministrazione di Microsoft 365.
-2. Espandere **UTENTI** e quindi fare clic su **Utenti attivi**.
+2. Espandere **UTENTI** e quindi fare clic su **Utenti attivi** .
 
     ![Screenshot degli utenti dell'interfaccia di amministrazione di Microsoft 365](./media/azure-account-for-microsoft-365-subscription/16-microsoft-365-admin-center-users.png)
 
@@ -49,15 +49,15 @@ Dopo avere eseguito l'iscrizione, la sottoscrizione di Microsoft 365 viene aggiu
 
 ## <a name="check-my-account-permissions-in-azure-ad"></a><a id="RoleInAzureAD"></a>Controllare le autorizzazioni dell'account Microsoft in Azure AD
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Fare clic su **Tutti i servizi** e quindi cercare **Active Directory**.
+2. Fare clic su **Tutti i servizi** e quindi cercare **Active Directory** .
 
     ![Screenshot di Active Directory nel portale di Azure](./media/azure-account-for-microsoft-365-subscription/billing-more-services-active-directory.png)
-3. Fare clic su **Utenti e gruppi** > **Tutti gli utenti**.
+3. Fare clic su **Utenti e gruppi** > **Tutti gli utenti** .
 4. Selezionare il nome utente.
 
     ![Screenshot che mostra gli utenti di Azure Active Directory](./media/azure-account-for-microsoft-365-subscription/billing-users-groups.png)
 
-5. Fare clic su **Ruolo directory**.
+5. Fare clic su **Ruolo directory** .
 
     ![Screenshot che mostra il ruolo di directory del portale di Azure](./media/azure-account-for-microsoft-365-subscription/billing-user-directory-role.png)
 6.  È necessario il ruolo **Amministratore globale** o **Amministratore con limitazioni** > **Amministratore fatturazione** per creare una sottoscrizione di Microsoft 365 per gli utenti nell'istanza di Azure Active Directory esistente.

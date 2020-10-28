@@ -7,13 +7,13 @@ ms.date: 10/05/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: mvc
-ms.openlocfilehash: d04a1eda7dc414233075f5d70e29c967c8bdfc35
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: ad5fa271e3abfaf0c7ee4884881262773a9ad485
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91946077"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92741484"
 ---
 # <a name="quickstart-interact-with-an-iot-plug-and-play-device-thats-connected-to-your-solution-python"></a>Avvio rapido: Interagire con un dispositivo Plug and Play IoT connesso alla soluzione (Python)
 
@@ -59,7 +59,7 @@ In questo argomento di avvio rapido viene usato come dispositivo Plug and Play I
     git clone https://github.com/Azure/azure-iot-sdk-python
     ```
 
-1. Questa finestra terminale viene ora usata come terminale del **dispositivo**. Passare alla cartella del repository clonato e quindi alla cartella */azure-iot-sdk-python/azure-iot-device/samples/pnp*.
+1. Questa finestra terminale viene ora usata come terminale del **dispositivo** . Passare alla cartella del repository clonato e quindi alla cartella */azure-iot-sdk-python/azure-iot-device/samples/pnp* .
 
 1. Eseguire il dispositivo termostato di esempio con il comando seguente:
 
@@ -73,23 +73,23 @@ In questo argomento di avvio rapido viene usato come dispositivo Plug and Play I
 
 In questo argomento di avvio rapido si userà una soluzione IoT di esempio in Python per interagire con il dispositivo di esempio appena configurato.
 
-1. Aprire un'altra finestra terminale da usare come terminale del **servizio**.
+1. Aprire un'altra finestra terminale da usare come terminale del **servizio** .
 
 1. Passare alla cartella */azure-iot-sdk-python/azure-iot-hub/samples* del repository dell'SDK per Python clonato.
 
 1. Aprire il file *registry_manager_pnp_sample.py* ed esaminare il codice. Questo esempio illustra come usare la classe **IoTHubRegistryManager** per interagire con il dispositivo Plug and Play IoT.
 
 > [!NOTE]
-> Questi esempi di servizio usano la classe **IoTHubRegistryManager** del **client del servizio hub IoT**. Per altre informazioni sulle API, tra cui l'API gemelli digitali, vedere la [guida per sviluppatori di servizi](concepts-developer-guide-service.md).
+> Questi esempi di servizio usano la classe **IoTHubRegistryManager** del **client del servizio hub IoT** . Per altre informazioni sulle API, tra cui l'API gemelli digitali, vedere la [guida per sviluppatori di servizi](concepts-developer-guide-service.md).
 
 ### <a name="get-the-device-twin"></a>Ottenere il dispositivo gemello
 
 In [Configurare l'ambiente per le esercitazioni e le guide di avvio rapido di Plug and Play IoT](set-up-environment.md) sono state create due variabili di ambiente per configurare l'esempio da connettere all'hub IoT e al dispositivo:
 
-* **IOTHUB_CONNECTION_STRING**: stringa di connessione dell'hub IoT annotata in precedenza.
-* **IOTHUB_DEVICE_ID**: `"my-pnp-device"`.
+* **IOTHUB_CONNECTION_STRING** : stringa di connessione dell'hub IoT annotata in precedenza.
+* **IOTHUB_DEVICE_ID** : `"my-pnp-device"`.
 
-Per eseguire l'esempio, usare il comando seguente nel terminale del **servizio**:
+Per eseguire l'esempio, usare il comando seguente nel terminale del **servizio** :
 
 ```cmd/sh
 set IOTHUB_METHOD_NAME="getMaxMinReport"
@@ -107,7 +107,7 @@ The Model ID for this device is:
 dtmi:com:example:Thermostat;1
 ```
 
-Il frammento di codice seguente mostra il codice di esempio di *registry_manager_pnp_sample.py*:
+Il frammento di codice seguente mostra il codice di esempio di *registry_manager_pnp_sample.py* :
 
 ```python
     # Create IoTHubRegistryManager

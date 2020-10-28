@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 9/21/2020
-ms.openlocfilehash: 77e4e2e1548beaa840f46953ef5bb4e94345416f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: dc6b069e3c7686ec6964dab890e503aa193cf6fe
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90944154"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545107"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql---flexible-server"></a>Avvio rapido: Usare PHP per connettersi ai dati ed eseguire query nel server flessibile di Database di Azure per MySQL
 
@@ -28,13 +28,13 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 - [Creare un server flessibile di Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-server-cli.md)
 
 ## <a name="preparing-your-client-workstation"></a>Preparazione della workstation client
-1. Se il server flessibile è stato creato con l'opzione per l'*accesso privato (integrazione rete virtuale)* , sarà necessario connettersi al server da una risorsa all'interno della stessa rete virtuale usata dal server. È possibile creare una macchina virtuale e aggiungerla alla rete virtuale creata con il server flessibile. Vedere [Creare e gestire la rete virtuale del server flessibile di Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure](./how-to-manage-virtual-network-cli.md).
+1. Se il server flessibile è stato creato con l'opzione per l' *accesso privato (integrazione rete virtuale)* , sarà necessario connettersi al server da una risorsa all'interno della stessa rete virtuale usata dal server. È possibile creare una macchina virtuale e aggiungerla alla rete virtuale creata con il server flessibile. Vedere [Creare e gestire la rete virtuale del server flessibile di Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure](./how-to-manage-virtual-network-cli.md).
 
-2. Se il server flessibile è stato creato con l'opzione per l'*accesso pubblico (indirizzi IP consentiti)* , è possibile aggiungere l'indirizzo IP locale all'elenco di regole del firewall nel server. Vedere [Creare e gestire le regole del firewall del server flessibile di Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure](./how-to-manage-firewall-cli.md).
+2. Se il server flessibile è stato creato con l'opzione per l' *accesso pubblico (indirizzi IP consentiti)* , è possibile aggiungere l'indirizzo IP locale all'elenco di regole del firewall nel server. Vedere [Creare e gestire le regole del firewall del server flessibile di Database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure](./how-to-manage-firewall-cli.md).
 
 ### <a name="install-php"></a>Installare PHP
 
-Installare PHP nel server o creare un'[app Web](https://docs.microsoft.com/azure/app-service/overview) di Azure che includa PHP.  Per informazioni su come creare regole del firewall, vedere [Creare e gestire regole del firewall](./how-to-manage-firewall-portal.md).
+Installare PHP nel server o creare un'[app Web](../../app-service/overview.md) di Azure che includa PHP.  Per informazioni su come creare regole del firewall, vedere [Creare e gestire regole del firewall](./how-to-manage-firewall-portal.md).
 
 #### <a name="macos"></a>macOS
 
@@ -56,9 +56,9 @@ Installare PHP nel server o creare un'[app Web](https://docs.microsoft.com/azure
 Ottenere le informazioni di connessione necessarie per connettersi al server flessibile di Database di Azure per MySQL. Sono necessari il nome del server completo e le credenziali di accesso.
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Dal menu a sinistra nel portale di Azure scegliere **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
+2. Dal menu a sinistra nel portale di Azure scegliere **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver** .
 3. Selezionare il nome del server.
-4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
+4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server** . Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
  <!---:::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Azure Database for MySQL Flexible Server name":::--->
 
 ## <a name="connecting-to-flexible-server-using-tlsssl-in-php"></a>Connessione al server flessibile tramite TLS/SSL in PHP
@@ -76,7 +76,7 @@ die('Failed to connect to MySQL: '.mysqli_connect_error());
 
 ## <a name="connect-and-create-a-table"></a>Connettersi e creare una tabella
 
-Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE**.
+Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE** .
 
 Il codice usa la classe di **estensioni MySQL Improved** (mysqli) inclusa in PHP. Il codice chiama i metodi [mysqli_init](https://secure.php.net/manual/mysqli.init.php) e [mysqli_real_connect](https://secure.php.net/manual/mysqli.real-connect.php) per la connessione a MySQL. Chiama quindi il metodo [mysqli_query](https://secure.php.net/manual/mysqli.query.php) per eseguire la query. Chiama infine il metodo [mysqli_close](https://secure.php.net/manual/mysqli.close.php) per chiudere la connessione.
 
@@ -116,7 +116,7 @@ mysqli_close($conn);
 
 ## <a name="insert-data"></a>Inserire i dati
 
-Usare il codice seguente per connettersi e inserire i dati usando un'istruzione SQL **INSERT**.
+Usare il codice seguente per connettersi e inserire i dati usando un'istruzione SQL **INSERT** .
 
 Il codice usa la classe di **estensioni MySQL Improved** (mysqli) inclusa in PHP. Il codice usa il metodo [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) per creare un'istruzione insert preparata, quindi associa i parametri per ogni valore di colonna inserito usando il metodo [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). Il codice esegue l'istruzione usando il metodo [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) e successivamente chiude l'istruzione usando il metodo [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
@@ -154,7 +154,7 @@ mysqli_close($conn);
 
 ## <a name="read-data"></a>Leggere i dati
 
-Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **SELECT**.  Il codice usa la classe di **estensioni MySQL Improved** (mysqli) inclusa in PHP. Il codice usa il metodo [mysqli_query](https://secure.php.net/manual/mysqli.query.php) per eseguire la query SQL e il metodo [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) per recuperare le righe risultanti.
+Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **SELECT** .  Il codice usa la classe di **estensioni MySQL Improved** (mysqli) inclusa in PHP. Il codice usa il metodo [mysqli_query](https://secure.php.net/manual/mysqli.query.php) per eseguire la query SQL e il metodo [mysqli_fetch_assoc](https://secure.php.net/manual/mysqli-result.fetch-assoc.php) per recuperare le righe risultanti.
 
 Sostituire i parametri host, username, password e db_name con i valori personalizzati.
 
@@ -186,7 +186,7 @@ mysqli_close($conn);
 
 ## <a name="update-data"></a>Aggiornare i dati
 
-Usare il codice seguente per connettersi e aggiornare i dati usando un'istruzione SQL **UPDATE**.
+Usare il codice seguente per connettersi e aggiornare i dati usando un'istruzione SQL **UPDATE** .
 
 Il codice usa la classe di **estensioni MySQL Improved** (mysqli) inclusa in PHP. Il codice usa il metodo [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) per creare un'istruzione update preparata, quindi associa i parametri per ogni valore di colonna aggiornato usando il metodo [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). Il codice esegue l'istruzione usando il metodo [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) e successivamente chiude l'istruzione usando il metodo [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 
@@ -224,7 +224,7 @@ mysqli_close($conn);
 
 
 ## <a name="delete-data"></a>Eliminare i dati
-Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **DELETE**.
+Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **DELETE** .
 
 Il codice usa la classe di **estensioni MySQL Improved** (mysqli) inclusa in PHP. Il codice usa il metodo [mysqli_prepare](https://secure.php.net/manual/mysqli.prepare.php) per creare un'istruzione delete preparata, quindi associa i parametri per la clausola where nell'istruzione usando il metodo [mysqli_stmt_bind_param](https://secure.php.net/manual/mysqli-stmt.bind-param.php). Il codice esegue l'istruzione usando il metodo [mysqli_stmt_execute](https://secure.php.net/manual/mysqli-stmt.execute.php) e successivamente chiude l'istruzione usando il metodo [mysqli_stmt_close](https://secure.php.net/manual/mysqli-stmt.close.php).
 

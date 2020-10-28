@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
 ms.date: 06/30/2020
-ms.openlocfilehash: 83ae2fdea2ffe586a626f8a45cba74a22c07ae7b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3151da4375c440bec44523711448149f51440d5c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87100870"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676541"
 ---
 # <a name="setting-up-access-for-azure-dev-tools"></a>Configurazione dell'accesso per Azure Dev Tools
 
@@ -30,7 +30,7 @@ Per richiedere l'accesso a Sottoscrizione di Visual Studio, è possibile usare i
 ## <a name="for-students-faculty-and-administrators"></a>Per studenti, docenti e amministratori
 Gli studenti accedono agli strumenti di sviluppo tramite l'[hub di Education](https://aka.ms/devtoolsforteaching).
 
-Studenti e docenti possono accedere a tutti i download di software tramite l'hub di Education. L'hub di Education è integrato nel portale di Azure e fornisce agli studenti l'accesso semplificato all'intero catalogo di software, oltre all'accesso all'intero catalogo di [Microsoft Learn](https://docs.microsoft.com/learn/).
+Studenti e docenti possono accedere a tutti i download di software tramite l'hub di Education. L'hub di Education è integrato nel portale di Azure e fornisce agli studenti l'accesso semplificato all'intero catalogo di software, oltre all'accesso all'intero catalogo di [Microsoft Learn](/learn/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Gestire gli account degli studenti](manage-students.md)

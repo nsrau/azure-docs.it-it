@@ -3,19 +3,19 @@ title: Domande frequenti per Cloudyn in Azure
 description: Informazioni su come usare il portale di Cloudyn per risolvere i problemi comuni di installazione del canale Enterprise indiretto e rispondere ad altre domande frequenti.
 author: bandersmsft
 ms.author: banders
-ms.date: 03/12/2020
+ms.date: 10/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cloudyn
 ms.reviewer: benshy
 ms.custom: seodec18
 ROBOTS: NOINDEX
-ms.openlocfilehash: 7b78d9d7bf725e3d82c88360c822455de1301ef6
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 92a62de4223d2ec6d0441840b90fdce20c656d02
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88688029"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546229"
 ---
 # <a name="frequently-asked-questions-for-cloudyn"></a>Domande frequenti su Cloudyn
 
@@ -37,7 +37,7 @@ Ecco come risolvere i problemi:
 
 1. Il rivenditore deve abilitare il _markup_ per l'account. Per le istruzioni, vedere la [guida introduttiva per i clienti indiretti](https://ea.azure.com/api/v3Help/v2IndirectCustomerOnboardingGuide).
 
-2. Generare la chiave del contratto Enterprise di Azure da usare con Cloudyn. Per le istruzioni, vedere [Adding Your Azure EA](quick-register-ea.md#register-with-cloudyn) (Aggiunta del contratto Enterprise di Azure) o [How to Find Your EA Enrollment ID and API Key](https://youtu.be/u_phLs_udig) (Come trovare l'ID registrazione e la chiave API del contratto Enterprise).
+2. Generare la chiave del contratto Enterprise di Azure da usare con Cloudyn.
 
 Cloudyn può essere abilitato solo da un amministratore del servizio Azure. Le autorizzazioni di coamministratore non sono sufficienti.
 
@@ -51,7 +51,7 @@ Potrebbe anche essere necessario concedere ad amministratori di reparto, proprie
 
 ## <a name="why-dont-i-see-optimizer-recommendations"></a>Perché non vengono visualizzate le raccomandazioni dell'utilità di ottimizzazione?
 
-Le informazioni di raccomandazione sono disponibili solo per gli account attivati. Non si vedranno informazioni di raccomandazione nelle categorie di report di **ottimizzazione**per gli account *non attivati*, tra cui:
+Le informazioni di raccomandazione sono disponibili solo per gli account attivati. Non si vedranno informazioni di raccomandazione nelle categorie di report di **ottimizzazione** per gli account *non attivati* , tra cui:
 
 - Gestione dell'ottimizzazione
 - Ottimizzazione delle dimensioni
@@ -62,11 +62,11 @@ Se non è possibile visualizzare dati di raccomandazione per l'ottimizzazione, �
 Per attivare un account:
 
 1.    Nel portale di Cloudyn, fare clic su **Impostazioni** in alto a destra e selezionare **Cloud Accounts** (Account cloud).
-2.    Nella scheda degli account di Microsoft Azure, cercare gli account con sottoscrizione **non attivata**.
+2.    Nella scheda degli account di Microsoft Azure, cercare gli account con sottoscrizione **non attivata** .
 3.    A destra di un account non attivato fare clic sul simbolo di **modifica** simile a una matita.
-4.    L'ID del tenant e l'ID della tariffa vengono rilevati automaticamente. Fare clic su **Avanti**.
+4.    L'ID del tenant e l'ID della tariffa vengono rilevati automaticamente. Fare clic su **Avanti** .
 5.    Si verrà reindirizzati al portale di Azure. Accedi al portale e autorizzare l'agente di raccolta Cloudyn all'accesso ai dati di Azure.
-6.    Si verrà quindi reindirizzati alla pagina di gestione degli account Cloudyn e la sottoscrizione verrà aggiornata con lo stato dell'account **attivo**. Viene visualizzato un simbolo di segno di spunta verde.
+6.    Si verrà quindi reindirizzati alla pagina di gestione degli account Cloudyn e la sottoscrizione verrà aggiornata con lo stato dell'account **attivo** . Viene visualizzato un simbolo di segno di spunta verde.
 7.    Se non viene visualizzato un segno di spunta verde per una o più sottoscrizioni, significa che non sono disponibili le autorizzazioni per creare un'app lettore (CloudynCollector) per la sottoscrizione. Un utente con autorizzazioni più elevate per la sottoscrizione deve ripetere i passaggi 3 e 4.  
 
 Dopo aver completato i passaggi precedenti, sarà possibile visualizzare le raccomandazioni di ottimizzazione nel giro di un paio di giorni. Tuttavia, possono essere necessari fino a cinque giorni prima che diventino disponibili i dati di ottimizzazione completi.
@@ -74,11 +74,11 @@ Dopo aver completato i passaggi precedenti, sarà possibile visualizzare le racc
 
 ## <a name="how-do-i-enable-suspended-or-locked-out-users"></a>Come si abilitano gli utenti sospesi o bloccati?
 
-Di seguito sono elencati gli scenari più comuni in cui gli account utente diventano *initiallySuspended*.
+Di seguito sono elencati gli scenari più comuni in cui gli account utente diventano *initiallySuspended* .
 
-> Admin1 potrebbe essere un utente di Microsoft Cloud Solution Provider o di Enterprise Agreement. L'organizzazione è pronta per iniziare a usare Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. Essendo la persona che registra il servizio Cloudyn e accede al portale di Cloudyn, Admin1 diventa l'*amministratore primario*. Admin1 non crea account utente. Tuttavia, usando il portale di Cloudyn, crea account Azure e configura una gerarchia di entità. Admin1 informa Admin2, un amministratore del tenant, che deve eseguire la registrazione con Cloudyn e accedere al portale di Cloudyn.
+> Admin1 potrebbe essere un utente di Microsoft Cloud Solution Provider o di Enterprise Agreement. L'organizzazione è pronta per iniziare a usare Cloudyn.  Esegue la registrazione tramite il portale di Azure e accede al portale di Cloudyn. Essendo la persona che registra il servizio Cloudyn e accede al portale di Cloudyn, Admin1 diventa l' *amministratore primario* . Admin1 non crea account utente. Tuttavia, usando il portale di Cloudyn, crea account Azure e configura una gerarchia di entità. Admin1 informa Admin2, un amministratore del tenant, che deve eseguire la registrazione con Cloudyn e accedere al portale di Cloudyn.
 >
-> Admin2 esegue la registrazione tramite il portale di Azure, ma, quando prova ad accedere al portale di Cloudyn, viene visualizzato un errore indicante che il suo account è **sospeso**. All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l'*accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
+> Admin2 esegue la registrazione tramite il portale di Azure, ma, quando prova ad accedere al portale di Cloudyn, viene visualizzato un errore indicante che il suo account è **sospeso** . All'amministratore principale, Admin1, viene notificata la sospensione dell'account. Admin1 deve attivare l'account di Admin2 e concedere l' *accesso dell'entità amministratore* per le entità appropriate, consente l'accesso per la gestione utenti e attiva l'account utente.
 
 
 Se si riceve un avviso che richiede di consentire l'accesso a un utente, è necessario attivarne l'account.
@@ -106,7 +106,7 @@ Non appena Cloudyn individua account Azure, i dati sui costi vengono immediatame
 
 Per aggiungere le credenziali di Azure per un account, nel portale di Cloudyn selezionare il simbolo di modifica a destra del nome dell'account, non della sottoscrizione.
 
-Finché le credenziali di Azure non vengono aggiunte a Cloudyn, l'account risulta _non attivato_.
+Finché le credenziali di Azure non vengono aggiunte a Cloudyn, l'account risulta _non attivato_ .
 
 ## <a name="how-do-i-add-multiple-accounts-and-entities-to-an-existing-subscription"></a>Come si aggiungono più account ed entità a una sottoscrizione esistente?
 
@@ -114,7 +114,7 @@ Le entità aggiuntive vengono usate per includere altri contratti Enterprise in 
 
 Per CSP:
 
-Per aggiungere altri account CSP a un'entità, selezionare **MSP Access** (Accesso MSP) invece di **Enterprise** durante la creazione della nuova entità. Se l'account è registrato come contratto Enterprise e si vogliono aggiungere credenziali CSP, potrebbe essere necessaria la modifica delle impostazioni dell'account da parte del personale di supporto di Cloudyn. Se si ha una sottoscrizione di Azure a pagamento, è possibile creare una nuova richiesta di supporto nel portale di Azure. Selezionare **Guida e supporto** e quindi **Nuova richiesta di supporto**.
+Per aggiungere altri account CSP a un'entità, selezionare **MSP Access** (Accesso MSP) invece di **Enterprise** durante la creazione della nuova entità. Se l'account è registrato come contratto Enterprise e si vogliono aggiungere credenziali CSP, potrebbe essere necessaria la modifica delle impostazioni dell'account da parte del personale di supporto di Cloudyn. Se si ha una sottoscrizione di Azure a pagamento, è possibile creare una nuova richiesta di supporto nel portale di Azure. Selezionare **Guida e supporto** e quindi **Nuova richiesta di supporto** .
 
 ## <a name="currency-symbols-in-cloudyn-reports"></a>Simboli di valuta nei report Cloudyn
 
@@ -128,9 +128,9 @@ Cloudyn rileva automaticamente la valuta della sottoscrizione Enterprise Agreeme
 
 Cloudyn offre le tempistiche di aggiornamento dei dati riportate di seguito.
 
-- **Iniziale**: la visualizzazione dei dati sui costi in Cloudyn dopo la configurazione può richiedere fino a 24 ore. Possono inoltre trascorrere fino a 10 giorni prima che Cloudyn raccolga dati sufficienti per visualizzare consigli sul ridimensionamento.
-- **Giornaliera**: dal giorno 10 fino alla fine di ogni mese, Cloudyn visualizzerà i dati aggiornati del giorno precedente dopo le ore UTC+3 circa del giorno successivo.
-- **Mensile**: dal giorno 1 al 10 di ogni mese, Cloudyn potrebbe visualizzare solo i dati fino alla fine del mese precedente.
+- **Iniziale** : la visualizzazione dei dati sui costi in Cloudyn dopo la configurazione può richiedere fino a 24 ore. Possono inoltre trascorrere fino a 10 giorni prima che Cloudyn raccolga dati sufficienti per visualizzare consigli sul ridimensionamento.
+- **Giornaliera** : dal giorno 10 fino alla fine di ogni mese, Cloudyn visualizzerà i dati aggiornati del giorno precedente dopo le ore UTC+3 circa del giorno successivo.
+- **Mensile** : dal giorno 1 al 10 di ogni mese, Cloudyn potrebbe visualizzare solo i dati fino alla fine del mese precedente.
 
 Cloudyn elabora i dati per il giorno precedente quando sono tutti disponibili. I dati del giorno precedente sono in genere disponibili in Cloudyn entro le ore UTC+3 circa di ogni giorno. L'elaborazione di alcuni dati, come i tag, può richiedere altre 24 ore.
 

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, subject-armqs
+ms.custom: mvc, subject-armqs, devx-track-azurecli
 ms.date: 06/30/2020
-ms.openlocfilehash: 10cc89d1a0cc975df4384e551dddde32be0a4a72
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 689582d73e29cb60cc2ee5294b568b5db2f73244
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87078131"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739325"
 ---
 # <a name="quickstart-create-and-deploy-a-logic-app-workflow-by-using-an-arm-template"></a>Avvio rapido: Creare e distribuire un flusso di lavoro di app per la logica usando un modello di Resource Manager
 
@@ -20,7 +20,7 @@ ms.locfileid: "87078131"
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-logic-app-create%2fazuredeploy.json)
 
@@ -32,7 +32,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account Azure gratuito](htt
 
 Questa guida di avvio rapido usa il modello [**Creare un'app per la logica**](https://azure.microsoft.com/resources/templates/101-logic-app-create/), disponibile nella [raccolta di modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates). Questo modello è troppo lungo per essere mostrato qui. È invece possibile esaminare il ["file azuredeploy.json"](https://github.com/Azure/azure-quickstart-templates/blob/master/101-logic-app-create/azuredeploy.json) del modello di avvio rapido nella raccolta di modelli.
 
-Il modello di avvio rapido crea un flusso di lavoro di app per la logica che usa il trigger di ricorrenza, impostato per essere eseguito ogni ora, e un'[azione *predefinita* HTTP](../connectors/apis-list.md#connector-types), che chiama un URL che restituisce lo stato di Azure. Un'azione predefinita è nativa della piattaforma di App per la logica di Azure.
+Il modello di avvio rapido crea un flusso di lavoro di app per la logica che usa il trigger di ricorrenza, impostato per essere eseguito ogni ora, e un' [azione *predefinita* HTTP](../connectors/apis-list.md#connector-types), che chiama un URL che restituisce lo stato di Azure. Un'azione predefinita è nativa della piattaforma di App per la logica di Azure.
 
 Questo modello crea la risorsa di Azure seguente:
 
@@ -78,7 +78,7 @@ Seguire l'opzione che si vuole usare per la distribuzione del modello di avvio r
 
    ![Specificare le informazioni per il modello di avvio rapido](./media/quickstart-create-deploy-azure-resource-manager-template/create-logic-app-template-portal.png)
 
-1. Al termine, selezionare **Rivedi e crea**.
+1. Al termine, selezionare **Rivedi e crea** .
 
 1. Continuare con la procedura descritta in [Esaminare le risorse distribuite](#review-deployed-resources).
 
@@ -234,7 +234,7 @@ Per visualizzare l'app per la logica, è possibile usare il portale di Azure, es
 
 1. Quando si apre la finestra Progettazione app per la logica, esaminare l'app per la logica creata dal modello di avvio rapido.
 
-1. Per testare l'app per la logica, sulla barra degli strumenti della finestra di progettazione selezionare **Esegui**.
+1. Per testare l'app per la logica, sulla barra degli strumenti della finestra di progettazione selezionare **Esegui** .
 
 ### <a name="cli"></a>[CLI](#tab/azure-cli)
 
@@ -288,7 +288,7 @@ Se si prevede di usare le guide di avvio rapido e le esercitazioni successive, �
 
 1. Nel portale di Azure trovare e selezionare il gruppo di risorse da eliminare, `Check-Azure-Status-RG` in questo esempio.
 
-1. Nel menu del gruppo di risorse scegliere **Panoramica**, se l'opzione non è già selezionata. Nella pagina Panoramica selezionare **Elimina gruppo di risorse**.
+1. Nel menu del gruppo di risorse scegliere **Panoramica** , se l'opzione non è già selezionata. Nella pagina Panoramica selezionare **Elimina gruppo di risorse** .
 
 1. Per confermare, immettere il nome del gruppo di risorse.
 
