@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d2ff176d7569f6f67c8f0dd37e0073314a07289
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: e46dabc665d383279a12fc6bd8eb67475d88a2ea
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441624"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896073"
 ---
 # <a name="add-a-custom-approval-workflow-to-self-service-sign-up"></a>Aggiungere un flusso di lavoro di approvazione personalizzato all'iscrizione self-service
 
@@ -32,25 +32,25 @@ Questo articolo fornisce un esempio di come eseguire l'integrazione con un siste
 È necessario registrare il sistema di approvazione come un'applicazione nel tenant di Azure AD in modo che sia in grado di eseguire l'autenticazione con Azure AD e di disporre dell'autorizzazione per la creazione di utenti. Altre informazioni sulle [nozioni di base sull'autenticazione e sull'autorizzazione per Microsoft Graph](/graph/auth/auth-concepts).
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore di Azure AD.
-2. In **Servizi di Azure** selezionare **Azure Active Directory**.
-3. Nel menu a sinistra selezionare **registrazioni app**, quindi selezionare **nuova registrazione**.
-4. Immettere un **nome** per l'applicazione, ad esempio le _approvazioni di iscrizione_.
+2. In **Servizi di Azure** selezionare **Azure Active Directory** .
+3. Nel menu a sinistra selezionare **registrazioni app** , quindi selezionare **nuova registrazione** .
+4. Immettere un **nome** per l'applicazione, ad esempio le _approvazioni di iscrizione_ .
 
    <!-- ![Register an application for the approval system](./self-service-sign-up-add-approvals/approvals/register-an-approvals-application.png) -->
 
-5. Selezionare **Registra**. È possibile lasciare invariati i valori predefiniti di altri campi.
+5. Selezionare **Registra** . È possibile lasciare invariati i valori predefiniti di altri campi.
 
-   ![Pagina Registra un'applicazione](media/self-service-sign-up-add-approvals/register-approvals-app.png)
+   ![Schermata che evidenzia il pulsante Registra.](media/self-service-sign-up-add-approvals/register-approvals-app.png)
 
-6. In **Gestisci** nel menu a sinistra selezionare **autorizzazioni API**e quindi selezionare **Aggiungi un'autorizzazione**.
-7. Nella pagina **autorizzazioni API richiesta** selezionare **Microsoft Graph**e quindi selezionare **Autorizzazioni applicazione**.
-8. In **Seleziona autorizzazioni**espandere **utente**e quindi selezionare la casella di controllo **User. ReadWrite. All** . Questa autorizzazione consente al sistema di approvazione di creare l'utente al momento dell'approvazione. Selezionare quindi **Aggiungi autorizzazioni**.
+6. In **Gestisci** nel menu a sinistra selezionare **autorizzazioni API** e quindi selezionare **Aggiungi un'autorizzazione** .
+7. Nella pagina **autorizzazioni API richiesta** selezionare **Microsoft Graph** e quindi selezionare **Autorizzazioni applicazione** .
+8. In **Seleziona autorizzazioni** espandere **utente** e quindi selezionare la casella di controllo **User. ReadWrite. All** . Questa autorizzazione consente al sistema di approvazione di creare l'utente al momento dell'approvazione. Selezionare quindi **Aggiungi autorizzazioni** .
 
    ![Pagina Registra un'applicazione](media/self-service-sign-up-add-approvals/request-api-permissions.png)
 
-9. Nella pagina **autorizzazioni API** selezionare **concedi il consenso dell'amministratore per (nome del tenant)**, quindi selezionare **Sì**.
-10. In **Gestisci** nel menu a sinistra selezionare **certificati & segreti**, quindi selezionare **nuovo segreto client**.
-11. Immettere una **Descrizione** per il segreto, ad esempio il _segreto client per le approvazioni_e selezionare la durata di **scadenza**del segreto client. Quindi selezionare **Aggiungi**.
+9. Nella pagina **autorizzazioni API** selezionare **concedi il consenso dell'amministratore per (nome del tenant)** , quindi selezionare **Sì** .
+10. In **Gestisci** nel menu a sinistra selezionare **certificati & segreti** , quindi selezionare **nuovo segreto client** .
+11. Immettere una **Descrizione** per il segreto, ad esempio il _segreto client per le approvazioni_ e selezionare la durata di **scadenza** del segreto client. Quindi selezionare **Aggiungi** .
 12. Copiare il valore del segreto client.
 
     ![Copiare il segreto client da usare nel sistema di approvazione](media/self-service-sign-up-add-approvals/client-secret-value-copy.png)
@@ -61,7 +61,7 @@ Questo articolo fornisce un esempio di come eseguire l'integrazione con un siste
 
 Verranno quindi [creati i connettori API](self-service-sign-up-add-api-connector.md#create-an-api-connector) per il flusso utente di iscrizione self-service. L'API del sistema di approvazione necessita di due connettori e degli endpoint corrispondenti, come negli esempi illustrati di seguito. Questi connettori API eseguono le operazioni seguenti:
 
-- **Verificare lo stato di approvazione**. Inviare una chiamata al sistema di approvazione immediatamente dopo che un utente ha effettuato l'accesso con un provider di identità per verificare se l'utente dispone di una richiesta di approvazione esistente o è già stata negata. Se il sistema di approvazione esegue solo decisioni di approvazione automatica, questo connettore API potrebbe non essere necessario. Esempio di connettore API "Verifica stato approvazione".
+- **Verificare lo stato di approvazione** . Inviare una chiamata al sistema di approvazione immediatamente dopo che un utente ha effettuato l'accesso con un provider di identità per verificare se l'utente dispone di una richiesta di approvazione esistente o è già stata negata. Se il sistema di approvazione esegue solo decisioni di approvazione automatica, questo connettore API potrebbe non essere necessario. Esempio di connettore API "Verifica stato approvazione".
 
   ![Controllare la configurazione del connettore API stato approvazione](./media/self-service-sign-up-add-approvals/check-approval-status-api-connector-config-alt.png)
 
@@ -76,17 +76,17 @@ Per creare questi connettori, seguire i passaggi descritti in [creare un connett
 A questo punto, aggiungere i connettori API a un flusso utente di iscrizione self-service con i passaggi seguenti:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) come amministratore di Azure AD.
-2. In **Servizi di Azure** selezionare **Azure Active Directory**.
-3. Nel menu a sinistra selezionare **Identità esterne**.
+2. In **Servizi di Azure** selezionare **Azure Active Directory** .
+3. Nel menu a sinistra selezionare **Identità esterne** .
 4. Selezionare **flussi utente (anteprima)** e quindi selezionare il flusso utente per il quale si vuole abilitare il connettore API.
-5. Selezionare **connettori API**e quindi selezionare gli endpoint API da richiamare nei passaggi seguenti del flusso utente:
+5. Selezionare **connettori API** e quindi selezionare gli endpoint API da richiamare nei passaggi seguenti del flusso utente:
 
-   - **Dopo aver eseguito l'accesso con un provider di identità**: selezionare il connettore dell'API stato di approvazione, ad esempio _verificare lo stato di approvazione_.
-   - **Prima di creare l'utente**: selezionare il connettore dell'API per la richiesta di approvazione, ad esempio _Richiedi approvazione_.
+   - **Dopo aver eseguito l'accesso con un provider di identità** : selezionare il connettore dell'API stato di approvazione, ad esempio _verificare lo stato di approvazione_ .
+   - **Prima di creare l'utente** : selezionare il connettore dell'API per la richiesta di approvazione, ad esempio _Richiedi approvazione_ .
 
    ![Aggiungere API al flusso utente](./media/self-service-sign-up-add-approvals/api-connectors-user-flow-api.png)
 
-6. Selezionare **Salva**.
+6. Selezionare **Salva** .
 
 ## <a name="control-the-sign-up-flow-with-api-responses"></a>Controllare il flusso di iscrizione con risposte API
 
@@ -207,7 +207,7 @@ Le attestazioni esatte inviate all'API dipendono dalle informazioni raccolte dal
 
 L'endpoint dell'API di **approvazione della richiesta** deve restituire una risposta di continuazione se:
 
-- L'utente può essere **_approvato automaticamente_**.
+- L'utente può essere **_approvato automaticamente_** .
 
 Esempio della risposta di continuazione:
 
@@ -318,7 +318,7 @@ Content-type: application/json
 }
 ```
 
-| Parametro                                           | Obbligatorio | Descrizione                                                                                                                                                            |
+| Parametro                                           | Obbligatoria | Description                                                                                                                                                            |
 | --------------------------------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | userPrincipalName                                   | Sì      | Può essere generato accettando l' `email` attestazione inviata all'API, sostituendo il `@` carattere con `_` e pre-in sospeso a `#EXT@<tenant-name>.onmicrosoft.com` . |
 | accountEnabled                                      | Sì      | Il valore deve essere impostato su `true`.                                                                                                                                                 |

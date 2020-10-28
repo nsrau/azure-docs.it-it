@@ -9,23 +9,23 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 75d2833a5b270fcfdcffa668ec0e308399edab8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c82b74ffdc8672dc3d84a98a036c6083bc6c309
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311451"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895920"
 ---
 # <a name="create-a-data-source"></a>Creare un'origine dati
 
 Azure Maps Web SDK archivia i dati nelle origini dati. L'utilizzo di origini dati ottimizza le operazioni di dati per l'esecuzione di query e il rendering. Attualmente esistono due tipi di origini dati:
 
-- **Origine GeoJSON**: gestisce i dati di posizione non elaborati in formato GeoJSON localmente. Ideale per set di dati di piccole e medie dimensioni (a partire da centinaia di migliaia di forme).
-- **Origine del riquadro vettoriale**: carica i dati formattati come riquadri vettoriali per la vista mappa corrente, in base al sistema di affiancamento mappe. Ideale per set di dati di grandi dimensioni (milioni o miliardi di forme).
+- **Origine GeoJSON** : gestisce i dati di posizione non elaborati in formato GeoJSON localmente. Ideale per set di dati di piccole e medie dimensioni (a partire da centinaia di migliaia di forme).
+- **Origine del riquadro vettoriale** : carica i dati formattati come riquadri vettoriali per la vista mappa corrente, in base al sistema di affiancamento mappe. Ideale per set di dati di grandi dimensioni (milioni o miliardi di forme).
 
 ## <a name="geojson-data-source"></a>Origine dati GeoJSON
 
-Un'origine dati basata su GeoJSON carica e archivia i dati localmente usando la `DataSource` classe. I dati GeoJSON possono essere creati o creati manualmente usando le classi helper nello spazio dei nomi [Atlas. Data](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data) . La `DataSource` classe fornisce funzioni per l'importazione di file GeoJSON locali o remoti. I file GeoJSON remoti devono essere ospitati in un endpoint abilitato per CORs. La `DataSource` classe fornisce funzionalità per i dati dei punti di clustering. E, i dati possono essere facilmente aggiunti, rimossi e aggiornati con la `DataSource` classe. Il codice seguente mostra come è possibile creare i dati GeoJSON in mappe di Azure.
+Un'origine dati basata su GeoJSON carica e archivia i dati localmente usando la `DataSource` classe. I dati GeoJSON possono essere creati o creati manualmente usando le classi helper nello spazio dei nomi [Atlas. Data](/javascript/api/azure-maps-control/atlas.data) . La `DataSource` classe fornisce funzioni per l'importazione di file GeoJSON locali o remoti. I file GeoJSON remoti devono essere ospitati in un endpoint abilitato per CORs. La `DataSource` classe fornisce funzionalità per i dati dei punti di clustering. E, i dati possono essere facilmente aggiunti, rimossi e aggiornati con la `DataSource` classe. Il codice seguente mostra come è possibile creare i dati GeoJSON in mappe di Azure.
 
 ```javascript
 //Create raw GeoJSON object.
@@ -46,7 +46,7 @@ var geoJsonClass = new atlas.data.Feature(new atlas.data.Point([-100, 45]), {
 }); 
 ```
 
-Una volta create, le origini dati possono essere aggiunte alla mappa tramite la `map.sources` proprietà, che è un [SourceManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.sourcemanager). Nel codice seguente viene illustrato come creare un oggetto `DataSource` e aggiungerlo alla mappa.
+Una volta create, le origini dati possono essere aggiunte alla mappa tramite la `map.sources` proprietà, che è un [SourceManager](/javascript/api/azure-maps-control/atlas.sourcemanager). Nel codice seguente viene illustrato come creare un oggetto `DataSource` e aggiungerlo alla mappa.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -74,7 +74,7 @@ dataSource.setShapes(geoJsonData);
 
 ## <a name="vector-tile-source"></a>Origine riquadro vettoriale
 
-Un'origine del riquadro vettoriale descrive come accedere a un livello tessera vettoriale. Usare la classe [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource) per creare un'istanza di un'origine del riquadro vettoriale. I livelli dei riquadri vettoriali sono simili ai livelli affiancati, ma non sono uguali. Un livello sezione è un'immagine raster. I livelli del riquadro vettoriale sono file compressi in formato **PBF** . Questo file compresso contiene i dati della mappa vettoriale e uno o più livelli. È possibile eseguire il rendering e lo stile del file nel client, in base allo stile di ogni livello. I dati in un riquadro vettoriale contengono funzionalità geografiche sotto forma di punti, linee e poligoni. Esistono diversi vantaggi derivanti dall'uso di livelli di tessera vettoriale invece dei livelli di riquadri raster:
+Un'origine del riquadro vettoriale descrive come accedere a un livello tessera vettoriale. Usare la classe [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource) per creare un'istanza di un'origine del riquadro vettoriale. I livelli dei riquadri vettoriali sono simili ai livelli affiancati, ma non sono uguali. Un livello sezione è un'immagine raster. I livelli del riquadro vettoriale sono file compressi in formato **PBF** . Questo file compresso contiene i dati della mappa vettoriale e uno o più livelli. È possibile eseguire il rendering e lo stile del file nel client, in base allo stile di ogni livello. I dati in un riquadro vettoriale contengono funzionalità geografiche sotto forma di punti, linee e poligoni. Esistono diversi vantaggi derivanti dall'uso di livelli di tessera vettoriale invece dei livelli di riquadri raster:
 
  - Una dimensione del file di un riquadro vettoriale è in genere molto più piccola rispetto a un riquadro raster equivalente. Di conseguenza, viene utilizzata una minore larghezza di banda. Ovvero una latenza più bassa, una mappa più veloce e un'esperienza utente migliore.
  - Poiché viene eseguito il rendering dei riquadri vettoriali nel client, si adattano alla risoluzione del dispositivo in cui vengono visualizzati. Di conseguenza, le mappe sottoposte a rendering vengono visualizzate in modo più ben definito, con etichette Clear Crystal.
@@ -83,10 +83,10 @@ Un'origine del riquadro vettoriale descrive come accedere a un livello tessera v
 
 Mappe di Azure rispetta la [specifica del riquadro vettoriale MapBox](https://github.com/mapbox/vector-tile-spec), uno standard aperto. Azure Maps fornisce i servizi dei riquadri vettoriali seguenti come parte della piattaforma:
 
-- Dettagli del [documentation](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)  |  [formato dei dati](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) della documentazione sui riquadri stradali
-- [documentation](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficincidenttile)  |  [Dettagli del formato dati](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) della documentazione sugli eventi imprevisti del traffico
-- Dettagli del [documentation](https://docs.microsoft.com/rest/api/maps/traffic/gettrafficflowtile)  |  [formato dati](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) della documentazione del flusso di traffico
-- Azure Maps Creator consente inoltre la creazione e l'accesso ai riquadri vettoriali personalizzati tramite il [rendering del riquadro Get V2](https://docs.microsoft.com/rest/api/maps/renderv2/getmaptilepreview)
+- Dettagli del [documentation](/rest/api/maps/renderv2/getmaptilepreview)  |  [formato dei dati](https://developer.tomtom.com/maps-api/maps-api-documentation-vector/tile) della documentazione sui riquadri stradali
+- [documentation](/rest/api/maps/traffic/gettrafficincidenttile)  |  [Dettagli del formato dati](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-incidents/vector-incident-tiles) della documentazione sugli eventi imprevisti del traffico
+- Dettagli del [documentation](/rest/api/maps/traffic/gettrafficflowtile)  |  [formato dati](https://developer.tomtom.com/traffic-api/traffic-api-documentation-traffic-flow/vector-flow-tiles) della documentazione del flusso di traffico
+- Azure Maps Creator consente inoltre la creazione e l'accesso ai riquadri vettoriali personalizzati tramite il [rendering del riquadro Get V2](/rest/api/maps/renderv2/getmaptilepreview)
 
 > [!TIP]
 > Quando si usano i riquadri di immagini Vector o raster del servizio di rendering di Azure Maps con SDK Web, è possibile sostituire `atlas.microsoft.com` con il segnaposto `{azMapsDomain}` . Questo segnaposto verrà sostituito con lo stesso dominio utilizzato dalla mappa e aggiungerà automaticamente anche i dettagli di autenticazione. Questo semplifica notevolmente l'autenticazione con il servizio di rendering quando si usa l'autenticazione Azure Active Directory.
@@ -213,16 +213,16 @@ map.layers.add([polygonLayer, lineLayer, bubbleLayer]);
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource)
+> [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource)
 
 > [!div class="nextstepaction"]
-> [DataSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.datasourceoptions)
+> [DataSourceOptions](/javascript/api/azure-maps-control/atlas.datasourceoptions)
 
 > [!div class="nextstepaction"]
-> [VectorTileSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.vectortilesource)
+> [VectorTileSource](/javascript/api/azure-maps-control/atlas.source.vectortilesource)
 
 > [!div class="nextstepaction"]
-> [VectorTileSourceOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.vectortilesourceoptions)
+> [VectorTileSourceOptions](/javascript/api/azure-maps-control/atlas.vectortilesourceoptions)
 
 Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguenti:
 
@@ -248,4 +248,4 @@ Per altri esempi di codice da aggiungere alle mappe, vedere gli articoli seguent
 > [Aggiungere una mappa termica](map-add-heat-map-layer.md)
 
 > [!div class="nextstepaction"]
-> [Esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Esempi di codice](/samples/browse/?products=azure-maps)

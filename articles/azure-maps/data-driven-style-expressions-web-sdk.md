@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: 539145836849bb66bcf1f12a97ea405fe84c47bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8f27f7532d074428fafe74e4a453628f5c61d2b8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311377"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895971"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basate sui dati (SDK Web)
 
@@ -41,7 +41,7 @@ Le espressioni sono rappresentate come matrici JSON. Il primo elemento di un'esp
 
 Azure Maps Web SDK supporta molti tipi di espressioni. Le espressioni possono essere utilizzate autonomamente o in combinazione con altre espressioni.
 
-| Tipo di espressioni | Descrizione |
+| Tipo di espressioni | Description |
 |---------------------|-------------|
 | [Espressione di aggregazione](#aggregate-expression) | Espressione che definisce un calcolo elaborato su un set di dati e che può essere utilizzato con l' `clusterProperties` opzione di un oggetto `DataSource` . |
 | [Espressioni booleane](#boolean-expressions) | Le espressioni booleane forniscono un set di espressioni di operatori booleani per la valutazione di confronti booleani. |
@@ -90,11 +90,11 @@ Le espressioni di dati consentono di accedere ai dati delle proprietà di una fu
 |------------|-------------|-------------|
 | `['at', number, array]` | object | Recupera un elemento da una matrice. |
 | `['geometry-type']` | string | Ottiene il tipo di geometria della funzionalità: Point, MultiPoint, LineString, MultiLineString, Polygon, MultiPolygon. |
-| `['get', string]` | value | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta è mancante. |
-| `['get', string, object]` | value | Ottiene il valore della proprietà dalle proprietà dell'oggetto specificato. Restituisce null se la proprietà richiesta è mancante. |
+| `['get', string]` | Valore | Ottiene il valore della proprietà dalle proprietà della funzionalità corrente. Restituisce null se la proprietà richiesta è mancante. |
+| `['get', string, object]` | Valore | Ottiene il valore della proprietà dalle proprietà dell'oggetto specificato. Restituisce null se la proprietà richiesta è mancante. |
 | `['has', string]` | boolean | Determina se le proprietà di una funzionalità dispongono della proprietà specificata. |
 | `['has', string, object]` | boolean | Determina se le proprietà dell'oggetto dispongono della proprietà specificata. |
-| `['id']` | value | Ottiene l'ID della funzionalità se ne è presente uno. |
+| `['id']` | Valore | Ottiene l'ID della funzionalità se ne è presente uno. |
 | `['length', string | array]` | d'acquisto | Ottiene la lunghezza di una stringa o di una matrice. |
 | `['in', boolean | string | number, array]` | boolean | Determina se un elemento esiste in una matrice |
 | `['in', substring, string]` | boolean | Determina se una sottostringa esiste in una stringa |
@@ -475,13 +475,13 @@ Le espressioni colore semplificano la creazione e la modifica dei valori dei col
 
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
-| `['rgb', number, number, number]` | color | Crea un valore di colore dai componenti *rosso*, *verde*e *blu* che devono essere compresi tra `0` e e `255` un componente alfa di `1` . Se un componente non è compreso nell'intervallo, l'espressione è un errore. |
-| `['rgba', number, number, number, number]` | color | Crea un valore di colore dai componenti *rosso*, *verde*, *blu* che devono essere compresi tra `0` e e `255` un componente alfa in un intervallo `0` di `1` e. Se un componente non è compreso nell'intervallo, l'espressione è un errore. |
-| `['to-rgba']` | \[numero, numero, numero, numero\] | Restituisce una matrice a quattro elementi contenente i componenti *rosso*, *verde*, *blu*e *alfa* del colore di input, in questo ordine. |
+| `['rgb', number, number, number]` | color | Crea un valore di colore dai componenti *rosso* , *verde* e *blu* che devono essere compresi tra `0` e e `255` un componente alfa di `1` . Se un componente non è compreso nell'intervallo, l'espressione è un errore. |
+| `['rgba', number, number, number, number]` | color | Crea un valore di colore dai componenti *rosso* , *verde* , *blu* che devono essere compresi tra `0` e e `255` un componente alfa in un intervallo `0` di `1` e. Se un componente non è compreso nell'intervallo, l'espressione è un errore. |
+| `['to-rgba']` | \[numero, numero, numero, numero\] | Restituisce una matrice a quattro elementi contenente i componenti *rosso* , *verde* , *blu* e *alfa* del colore di input, in questo ordine. |
 
 **Esempio**
 
-Nell'esempio seguente viene creato un valore di colore RGB con un valore *rosso* di `255` e i valori *verde* e *blu* calcolati moltiplicando `2.5` per il valore della `temperature` Proprietà. Con la variazione della temperatura, il colore cambierà in tonalità diverse di *rosso*.
+Nell'esempio seguente viene creato un valore di colore RGB con un valore *rosso* di `255` e i valori *verde* e *blu* calcolati moltiplicando `2.5` per il valore della `temperature` Proprietà. Con la variazione della temperatura, il colore cambierà in tonalità diverse di *rosso* .
 
 ```javascript
 var layer = new atlas.layer.BubbleLayer(datasource, null, {
@@ -647,7 +647,7 @@ Espressioni speciali che si applicano solo a livelli specifici.
 
 ### <a name="heat-map-density-expression"></a>Espressione densità mappa termica
 
-Un'espressione di densità della mappa termica Recupera il valore della densità della mappa termica per ogni pixel in un livello mappa termica e viene definito come `['heatmap-density']` . Questo valore è un numero compreso tra `0` e `1` . Viene usato in combinazione con un' `interpolation` espressione o `step` per definire la sfumatura di colore usata per colorare la mappa termica. Questa espressione può essere utilizzata solo nell' [opzione Color](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) del livello mappa termica.
+Un'espressione di densità della mappa termica Recupera il valore della densità della mappa termica per ogni pixel in un livello mappa termica e viene definito come `['heatmap-density']` . Questo valore è un numero compreso tra `0` e `1` . Viene usato in combinazione con un' `interpolation` espressione o `step` per definire la sfumatura di colore usata per colorare la mappa termica. Questa espressione può essere utilizzata solo nell' [opzione Color](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) del livello mappa termica.
 
 > [!TIP]
 > Il colore in corrispondenza dell'indice 0, in un'espressione di interpolazione o nel colore predefinito del colore di un passaggio, definisce il colore dell'area in cui non sono presenti dati. Il colore in corrispondenza dell'indice 0 può essere utilizzato per definire un colore di sfondo. Molti preferiscono impostare questo valore su un nero trasparente o semitrasparente.
@@ -954,16 +954,16 @@ Per altri esempi di codice che implementano espressioni, vedere gli articoli seg
 Altre informazioni sulle opzioni del livello che supportano le espressioni:
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
+> [BubbleLayerOptions](/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
+> [HeatMapLayerOptions](/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
+> [LineLayerOptions](/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
+> [PolygonLayerOptions](/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)
+> [SymbolLayerOptions](/javascript/api/azure-maps-control/atlas.symbollayeroptions)

@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 360fc4af688e393bb8639ee773f0bf0de603a425
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69c5b9d15c0ba3c7c8b6b01643beac1905c404ad
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83596050"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895869"
 ---
 # <a name="creator-long-running-operation-api"></a>API per le operazioni a esecuzione prolungata di autori
 
-Alcune API di Mappe di Azure usano un [criterio asincrono di richiesta/risposta](https://docs.microsoft.com/azure/architecture/patterns/async-request-reply). Questo criterio consente a Mappe di Azure di fornire servizi reattivi e a disponibilità elevata. Questo articolo illustra l'implementazione dell'elaborazione asincrona in background a esecuzione prolungata specifica per Mappe di Azure.
+Alcune API di Mappe di Azure usano un [criterio asincrono di richiesta/risposta](/azure/architecture/patterns/async-request-reply). Questo criterio consente a Mappe di Azure di fornire servizi reattivi e a disponibilità elevata. Questo articolo illustra l'implementazione dell'elaborazione asincrona in background a esecuzione prolungata specifica per Mappe di Azure.
 
 ## <a name="submitting-a-request"></a>Invio di una richiesta
 
