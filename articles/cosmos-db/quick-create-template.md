@@ -8,20 +8,20 @@ ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: 249ff87813fe23505a09db020d4c6ad0f272796d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b6aa31e816a42e9cf1344137676fbbafb0c06730
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85483296"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282182"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Avvio rapido: Creare un database Azure Cosmos DB e un contenitore con un modello di Resource Manager
 
-Azure Cosmos DB è il servizio di database di Microsoft multimodello distribuito a livello globale. È possibile usare Azure Cosmos DB per creare rapidamente database di chiavi/valori, di documenti e a grafo ed eseguire query su di essi. Questo argomento di avvio rapido illustra il processo di distribuzione di un modello di Azure Resource Manager (modello ARM) per creare un database Azure Cosmos DB e un contenitore al suo interno. Sarà quindi possibile archiviare dati in questo contenitore.
+Azure Cosmos DB è il database NoSQL veloce di Microsoft con API aperte per qualsiasi scala. È possibile usare Azure Cosmos DB per creare rapidamente database di chiavi/valori, di documenti e a grafo ed eseguire query su di essi. Questo argomento di avvio rapido illustra il processo di distribuzione di un modello di Azure Resource Manager (modello ARM) per creare un database Azure Cosmos DB e un contenitore al suo interno. Sarà quindi possibile archiviare dati in questo contenitore.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuzione in Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
@@ -61,22 +61,22 @@ Altri esempi di modelli di Azure Cosmos DB sono disponibili nella [raccolta di m
 
     Se non specificati, usare i valori predefiniti per creare le risorse di Azure Cosmos DB.
 
-    * **Sottoscrizione**: selezionare una sottoscrizione di Azure.
-    * **Gruppo di risorse**: selezionare **Crea nuovo**, immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**.
-    * **Località**: selezionare una località.  Ad esempio **Stati Uniti centrali**.
-    * **Nome account**: immettere un nome per l'account Azure Cosmos DB. Deve essere univoco a livello globale.
-    * **Località**: immettere una località in cui creare l'account Azure Cosmos DB. Può essere la stessa località in cui si trova il gruppo di risorse.
-    * **Area primaria**: area di replica primaria per l'account Azure Cosmos DB.
-    * **Area secondaria**: area di replica secondaria per l'account Azure Cosmos DB.
-    * **Livello di coerenza predefinito**: livello di coerenza predefinito dell'account Azure Cosmos.
-    * **Prefisso di decadimento massimo**: numero massimo di richieste non aggiornate. Obbligatorio per BoundedStaleness.
-    * **Intervallo massimo in secondi**: Tempo di ritardo massimo. Obbligatorio per BoundedStaleness.
-    * **Nome database**: nome del database Azure Cosmos DB.
-    * **Nome contenitore**: nome del contenitore Azure Cosmos DB.
-    * **Velocità effettiva**:  velocità effettiva del contenitore. Il valore minimo è 400 UR/sec.
-    * **Accetto le condizioni riportate sopra**: selezionare questa casella.
+    * **Sottoscrizione** : selezionare una sottoscrizione di Azure.
+    * **Gruppo di risorse** : selezionare **Crea nuovo** , immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK** .
+    * **Località** : selezionare una località.  Ad esempio **Stati Uniti centrali** .
+    * **Nome account** : immettere un nome per l'account Azure Cosmos DB. Deve essere univoco a livello globale.
+    * **Località** : immettere una località in cui creare l'account Azure Cosmos DB. Può essere la stessa località in cui si trova il gruppo di risorse.
+    * **Area primaria** : area di replica primaria per l'account Azure Cosmos DB.
+    * **Area secondaria** : area di replica secondaria per l'account Azure Cosmos DB.
+    * **Livello di coerenza predefinito** : livello di coerenza predefinito dell'account Azure Cosmos.
+    * **Prefisso di decadimento massimo** : numero massimo di richieste non aggiornate. Obbligatorio per BoundedStaleness.
+    * **Intervallo massimo in secondi** : Tempo di ritardo massimo. Obbligatorio per BoundedStaleness.
+    * **Nome database** : nome del database Azure Cosmos DB.
+    * **Nome contenitore** : nome del contenitore Azure Cosmos DB.
+    * **Velocità effettiva** :  velocità effettiva del contenitore. Il valore minimo è 400 UR/sec.
+    * **Accetto le condizioni riportate sopra** : selezionare questa casella.
 
-3. Selezionare **Acquisto**. Al termine della distribuzione dell'account Azure Cosmos DB, si riceverà una notifica:
+3. Selezionare **Acquisto** . Al termine della distribuzione dell'account Azure Cosmos DB, si riceverà una notifica:
 
    :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Distribuzione in Azure":::
 

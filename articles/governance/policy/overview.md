@@ -3,12 +3,12 @@ title: Panoramica dei criteri di Azure
 description: Criteri di Azure è un servizio disponibile in Azure che consente di creare, assegnare e gestire definizioni di criteri nell'ambiente Azure.
 ms.date: 10/05/2020
 ms.topic: overview
-ms.openlocfilehash: 54dce519bfaa8c42afa967fc5c0579f31986aefb
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 8a32e32afb544588bb033cc64ede5ecbe6e2bac2
+ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873915"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92097389"
 ---
 # <a name="what-is-azure-policy"></a>Informazioni su Criteri di Azure
 
@@ -16,9 +16,11 @@ Criteri di Azure consente di imporre standard aziendali e di valutare la conform
 
 I casi d'uso comuni per Criteri di Azure includono l'implementazione della governance per la coerenza delle risorse, la conformità alle normative, la sicurezza, i costi e la gestione. Le definizioni dei criteri per questi casi d'uso comuni sono già disponibili nell'ambiente Azure come predefinite per iniziare facilmente a usare il servizio.
 
+Tutti i dati e gli oggetti di Criteri di Azure vengono crittografati quando sono inattivi. Per altre informazioni, vedere [Crittografia di dati inattivi di Azure](../../security/fundamentals/encryption-atrest.md).
+
 ## <a name="overview"></a>Panoramica
 
-Criteri di Azure valuta le risorse in Azure confrontando le proprietà di tali risorse con le regole business. Queste regole business, descritte in [formato JSON](./concepts/definition-structure.md), sono note come [definizioni dei criteri](#policy-definition). Per semplificare la gestione, è possibile raggruppare diverse regole business per formare un'[iniziativa dei criteri](#initiative-definition) (talvolta denominata _set di criteri_). Una volta formate le regole business, la definizione dei criteri o l'iniziativa viene [assegnata](#assignments) a qualsiasi ambito di risorse supportate da Azure, ad esempio [gruppi di gestione](../management-groups/overview.md), sottoscrizioni, [gruppi di risorse](../../azure-resource-manager/management/overview.md#resource-groups) o singole risorse. L'assegnazione si applica a tutte le risorse all'interno dell'[ambito di Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) di tale assegnazione. Se necessario, è possibile escludere gli ambiti secondari. Per altre informazioni, vedere [Ambito in Criteri di Azure](./concepts/scope.md).
+Criteri di Azure valuta le risorse in Azure confrontando le proprietà di tali risorse con le regole business. Queste regole business, descritte in [formato JSON](./concepts/definition-structure.md), sono note come [definizioni dei criteri](#policy-definition). Per semplificare la gestione, è possibile raggruppare diverse regole business per formare un' [iniziativa dei criteri](#initiative-definition) (talvolta denominata _set di criteri_ ). Una volta formate le regole business, la definizione dei criteri o l'iniziativa viene [assegnata](#assignments) a qualsiasi ambito di risorse supportate da Azure, ad esempio [gruppi di gestione](../management-groups/overview.md), sottoscrizioni, [gruppi di risorse](../../azure-resource-manager/management/overview.md#resource-groups) o singole risorse. L'assegnazione si applica a tutte le risorse all'interno dell'[ambito di Resource Manager](../../azure-resource-manager/management/overview.md#understand-scope) di tale assegnazione. Se necessario, è possibile escludere gli ambiti secondari. Per altre informazioni, vedere [Ambito in Criteri di Azure](./concepts/scope.md).
 
 Criteri di Azure usa un [formato JSON](./concepts/definition-structure.md) per formare la logica usata dalla valutazione per determinare se una risorsa è conforme o meno. Le definizioni includono i metadati e la regola dei criteri. La regola definita può usare funzioni, parametri, operatori logici, condizioni e [alias](./concepts/definition-structure.md#aliases) delle proprietà per corrispondere esattamente allo scenario desiderato. La regola dei criteri determina quali risorse nell'ambito dell'assegnazione vengono valutate.
 
@@ -59,7 +61,7 @@ La panoramica di Criteri di Azure riportata di seguito è tratta da Build 2018. 
 
 ### <a name="azure-policy-and-azure-rbac"></a>Criteri di Azure e controllo degli accessi in base al ruolo di Azure
 
-Esistono alcune differenze importanti tra Criteri di Azure e il controllo degli accessi in base al ruolo di Azure. Criteri di Azure valuta lo stato esaminando le proprietà delle risorse rappresentate in Resource Manager e le proprietà di alcuni provider di risorse. Criteri di Azure non limita le azioni, denominate anche _operazioni_. Criteri di Azure garantisce che lo stato delle risorse sia conforme alle regole business senza preoccuparsi dell'utente che ha apportato la modifica o chi dispone delle autorizzazioni per apportare una modifica.
+Esistono alcune differenze importanti tra Criteri di Azure e il controllo degli accessi in base al ruolo di Azure. Criteri di Azure valuta lo stato esaminando le proprietà delle risorse rappresentate in Resource Manager e le proprietà di alcuni provider di risorse. Criteri di Azure non limita le azioni, denominate anche _operazioni_ . Criteri di Azure garantisce che lo stato delle risorse sia conforme alle regole business senza preoccuparsi dell'utente che ha apportato la modifica o chi dispone delle autorizzazioni per apportare una modifica.
 
 Il controllo degli accessi in base al ruolo di Azure è incentrato sulla gestione delle [azioni](../../role-based-access-control/resource-provider-operations.md) dell'utente in ambiti diversi. Se è necessario il controllo di un'azione, il controllo degli accessi in base al ruolo di Azure è lo strumento corretto da usare. Anche se un utente è autorizzato a eseguire un'azione, se il risultato è una risorsa non conforme Criteri di Azure blocca la creazione o l'aggiornamento.
 
@@ -72,7 +74,7 @@ Criteri di Azure dispone di diverse autorizzazioni, note come operazioni, in due
 - [Microsoft.Authorization](../../role-based-access-control/resource-provider-operations.md#microsoftauthorization)
 - [Microsoft.PolicyInsights](../../role-based-access-control/resource-provider-operations.md#microsoftpolicyinsights)
 
-Molti ruoli predefiniti concedono autorizzazioni alle risorse di Criteri di Azure. Il ruolo **Collaboratore ai criteri delle risorse** include la maggior parte delle operazioni di Criteri di Azure. **Proprietario** dispone invece di diritti completi. I ruoli **Collaboratore** e **lettore** hanno accesso a tutte le operazioni di Criteri di Azure _in lettura_. Il ruolo **Collaboratore** può attivare la correzione delle risorse, ma non _creare_ definizioni o assegnazioni. Il ruolo **Amministratore Accesso utenti** è necessario per concedere l'identità gestita nelle autorizzazioni necessarie per le assegnazioni di tipo **deployIfNotExists** o **modify**.
+Molti ruoli predefiniti concedono autorizzazioni alle risorse di Criteri di Azure. Il ruolo **Collaboratore ai criteri delle risorse** include la maggior parte delle operazioni di Criteri di Azure. **Proprietario** dispone invece di diritti completi. I ruoli **Collaboratore** e **lettore** hanno accesso a tutte le operazioni di Criteri di Azure _in lettura_ . Il ruolo **Collaboratore** può attivare la correzione delle risorse, ma non _creare_ definizioni o assegnazioni. Il ruolo **Amministratore Accesso utenti** è necessario per concedere l'identità gestita nelle autorizzazioni necessarie per le assegnazioni di tipo **deployIfNotExists** o **modify** .
 
 Se nessuno dei ruoli predefiniti dispone delle autorizzazioni necessarie, creare un [ruolo personalizzato](../../role-based-access-control/custom-roles.md).
 
@@ -92,7 +94,7 @@ Ecco alcuni consigli e suggerimenti da tenere presenti:
 - Tenere presente le gerarchie organizzative quando si creano definizioni e assegnazioni. È consigliabile creare definizioni a livelli più generici, ad esempio il gruppo di gestione o a livello di sottoscrizione. Quindi, creare l'assegnazione al livello figlio successivo. Se si crea una definizione in un gruppo di gestione, l'assegnazione può essere limitata a una sottoscrizione o un gruppo di risorse all'interno di tale gruppo.
 
 - È consigliabile creare e assegnare definizioni di iniziativa anche se si definisce un singolo criterio.
-  Ad esempio, si dispone della definizione del criterio _policyDefA_ e la si crea nella definizione di iniziativa _initiativeDefC_. Se si crea un'altra definizione di criteri in un secondo momento per _policyDefB_ con obiettivi simili a _policyDefA_, è possibile aggiungerla sotto _initiativeDefC_ e tenerne traccia congiuntamente.
+  Ad esempio, si dispone della definizione del criterio _policyDefA_ e la si crea nella definizione di iniziativa _initiativeDefC_ . Se si crea un'altra definizione di criteri in un secondo momento per _policyDefB_ con obiettivi simili a _policyDefA_ , è possibile aggiungerla sotto _initiativeDefC_ e tenerne traccia congiuntamente.
 
 - Dopo aver creato un'assegnazione di iniziativa, le definizioni di criteri aggiunte all'iniziativa diventano anch'esse parte di tale assegnazione.
 
@@ -122,7 +124,7 @@ Per altre informazioni sulle strutture delle definizioni dei criteri, vedere [St
 
 I parametri dei criteri consentono di semplificarne la gestione riducendo il numero di definizioni di criteri che è necessario creare. È possibile definire parametri mentre si crea una definizione di criteri per renderla più generica. La definizione di criteri può successivamente essere usata anche per altri scenari. È sufficiente, a tal fine, passare valori diversi durante l'assegnazione della definizione di criteri. Si può ad esempio specificare un set di località per una sottoscrizione.
 
-I parametri vengono definiti quando si crea una definizione di criteri. Quando viene definito un parametro, vengono assegnati un nome e facoltativamente un valore. È ad esempio possibile definire un parametro per i criteri denominato _location_ (posizione) e assegnargli valori diversi durante l'assegnazione dei criteri, ad esempio _EastUS_ o _WestUS_.
+I parametri vengono definiti quando si crea una definizione di criteri. Quando viene definito un parametro, vengono assegnati un nome e facoltativamente un valore. È ad esempio possibile definire un parametro per i criteri denominato _location_ (posizione) e assegnargli valori diversi durante l'assegnazione dei criteri, ad esempio _EastUS_ o _WestUS_ .
 
 Per altre informazioni sui parametri dei criteri, vedere [Struttura definizioni - Parametri](./concepts/definition-structure.md#parameters).
 
@@ -135,13 +137,13 @@ Una definizione di iniziativa è una raccolta di definizioni di criteri ottimizz
 
 In questa iniziativa saranno incluse definizioni di criteri come le seguenti:
 
-- **Monitora database SQL non crittografato nel Centro sicurezza**, per il monitoraggio dei server e dei database SQL non crittografati.
-- **Monitora vulnerabilità del sistema operativo nel Centro sicurezza**, per il monitoraggio dei server che non soddisfano la baseline configurata.
-- **Monitora Endpoint Protection mancante nel Centro sicurezza**, per il monitoraggio dei server in cui non è installato un agente di Endpoint Protection.
+- **Monitora database SQL non crittografato nel Centro sicurezza** , per il monitoraggio dei server e dei database SQL non crittografati.
+- **Monitora vulnerabilità del sistema operativo nel Centro sicurezza** , per il monitoraggio dei server che non soddisfano la baseline configurata.
+- **Monitora Endpoint Protection mancante nel Centro sicurezza** , per il monitoraggio dei server in cui non è installato un agente di Endpoint Protection.
 
 Analogamente ai parametri dei criteri, i parametri delle iniziative consentono di semplificarne la gestione riducendo la ridondanza. I parametri delle iniziative sono parametri usati dalle definizioni di criteri incluse nell'iniziativa.
 
-Si consideri ad esempio uno scenario con una definizione di iniziativa, **initiativeC**, che include le definizioni di criteri **policyA** e **policyB**, per ognuna delle quali è previsto un diverso tipo di parametro:
+Si consideri ad esempio uno scenario con una definizione di iniziativa, **initiativeC** , che include le definizioni di criteri **policyA** e **policyB** , per ognuna delle quali è previsto un diverso tipo di parametro:
 
 | Policy | Nome del parametro |Tipo di parametro  |Note |
 |---|---|---|---|
@@ -150,8 +152,8 @@ Si consideri ad esempio uno scenario con una definizione di iniziativa, **initia
 
 In questo scenario, per la definizione dei parametri dell'iniziativa **initiativeC** sono disponibili tre opzioni:
 
-- Usare i parametri delle definizioni di criteri incluse nell'iniziativa: In questo esempio _allowedLocations_ e _allowedSingleLocation_ diventano i parametri dell'iniziativa **initiativeC**.
-- Specificare valori per i parametri delle definizioni di criteri incluse nella definizione di iniziativa. In questo esempio è possibile specificare un elenco di località per il parametro **allowedLocations** di **policyA** e il parametro **allowedSingleLocation** di **policyB**. È anche possibile specificare i valori quando si assegna l'iniziativa.
+- Usare i parametri delle definizioni di criteri incluse nell'iniziativa: In questo esempio _allowedLocations_ e _allowedSingleLocation_ diventano i parametri dell'iniziativa **initiativeC** .
+- Specificare valori per i parametri delle definizioni di criteri incluse nella definizione di iniziativa. In questo esempio è possibile specificare un elenco di località per il parametro **allowedLocations** di **policyA** e il parametro **allowedSingleLocation** di **policyB** . È anche possibile specificare i valori quando si assegna l'iniziativa.
 - Specificare un elenco di opzioni di _valore_ utilizzabili durante l'assegnazione dell'iniziativa. Quando si assegna l'iniziativa, i parametri ereditati dalle definizioni di criteri incluse nell'iniziativa possono contenere solo valori presenti nell'elenco specificato.
 
 Durante la creazione di opzioni di valori in una definizione di iniziativa, non è possibile a immettere un valore diverso durante l'assegnazione dell'iniziativa perché non è incluso nell'elenco.

@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 78807db19b413bb642e8dcf61e480d6d954b6178
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: c3c1b61cb4f799b79ca00fc92ffadc2374a61c03
+ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87059565"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92132466"
 ---
 # <a name="connect-to-synapse-sql-with-azure-data-studio-preview"></a>Connettersi a Synapse SQL con Azure Data Studio (anteprima)
 
@@ -30,11 +30,11 @@ Usare [Azure Data Studio (anteprima)](/sql/azure-data-studio/download-azure-data
 
 ## <a name="connect"></a>Connessione
 
-Per connettersi a Synapse SQL, aprire Azure Data Studio e selezionare **Nuova connessione**.
+Per connettersi a Synapse SQL, aprire Azure Data Studio e selezionare **Nuova connessione** .
 
 ![Aprire Azure Data Studio](./media/get-started-azure-data-studio/1-start.png)
 
-Scegliere **Microsoft SQL Server** per **Tipo di connessione**.
+Scegliere **Microsoft SQL Server** per **Tipo di connessione** .
 
 Per la connessione sono necessari i parametri seguenti:
 
@@ -46,11 +46,11 @@ Per la connessione sono necessari i parametri seguenti:
 >
 > - `<Azure Synapse workspace name>`-ondemand.sql.azuresynapse.net.
 >
-> Se si vuole usare il **pool SQL**, l'URL dovrebbe essere simile al seguente:
+> Se si vuole usare il **pool SQL** , l'URL dovrebbe essere simile al seguente:
 >
 > - `<Azure Synapse workspace name>`.sql.azuresynapse.net
 
-Scegliere **Autenticazione di Windows**, **Azure Active Directory** o **Account di accesso SQL** per **Tipo di autenticazione**.
+Scegliere **Autenticazione di Windows** , **Azure Active Directory** o **Account di accesso SQL** per **Tipo di autenticazione** .
 
 Per usare **Account di accesso SQL** come tipo di autenticazione, aggiungere i parametri nome utente/password:
 
@@ -61,11 +61,11 @@ Per usare Azure Active Directory, è necessario scegliere il tipo di autenticazi
 
 ![Autenticazione AAD](./media/get-started-azure-data-studio/3-aad-auth.png)
 
-Lo screenshot seguente mostra l'opzione **Dettagli connessione** per **Autenticazione di Windows**:
+Lo screenshot seguente mostra l'opzione **Dettagli connessione** per **Autenticazione di Windows** :
 
 ![Autenticazione di Windows](./media/get-started-azure-data-studio/3-windows-auth.png)
 
-Lo screenshot seguente mostra l'opzione **Dettagli connessione** per **Account di accesso SQL**:
+Lo screenshot seguente mostra l'opzione **Dettagli connessione** per **Account di accesso SQL** :
 
 ![Account di accesso SQL](./media/get-started-azure-data-studio/2-database-details.png)
 
@@ -94,4 +94,5 @@ Esplorare altri modi per connettersi a Synapse SQL:
 - [Power BI](get-started-power-bi-professional.md)
 - [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
 - [sqlcmd](get-started-connect-sqlcmd.md)
- 
+
+Per altre informazioni, vedere [Usare Azure Data Studio per connettersi ed eseguire una query sui dati con un pool SQL dedicato in Azure Synapse Analytics](https://docs.microsoft.com/sql/azure-data-studio/quickstart-sql-dw). 

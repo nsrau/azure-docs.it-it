@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
 ms.date: 08/24/2020
-ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ea61ca42c345fe9df0436a193fb2adcb00ce6195
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89292980"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92150801"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Panoramica della sicurezza aziendale in Azure HDInsight
 
@@ -21,7 +21,7 @@ Azure HDInsight offre diversi metodi per soddisfare le esigenze dell'organizzazi
 
 Questo articolo esamina le soluzioni di sicurezza dividendole in base ai quattro pilastri di sicurezza tradizionali, ovvero protezione perimetrale, autenticazione, autorizzazione e crittografia.
 
-Questo articolo introduce anche il pacchetto **Enterprise Security Package di Azure HDInsight**, che supporta l'autenticazione basata su Active Directory, il supporto multiutente e il controllo degli accessi in base al ruolo per i cluster HDInsight.
+Questo articolo introduce anche il pacchetto **Enterprise Security Package di Azure HDInsight** , che supporta l'autenticazione basata su Active Directory, il supporto multiutente e il controllo degli accessi in base al ruolo per i cluster HDInsight.
 
 ## <a name="enterprise-security-pillars"></a>Pilastri della sicurezza aziendale
 
@@ -82,14 +82,16 @@ La tabella seguente include i collegamenti alle risorse per ogni tipo di soluzio
 |  | Assicurarsi che la funzionalità di [crittografia dei dati in transito](./encryption-in-transit.md) sia abilitata per l'uso di TLS e IPSec per la comunicazione intra-cluster. | Customer |
 |  | Configurare le [chiavi gestite dal cliente](../../storage/common/storage-encryption-keys-portal.md) per la crittografia di Archiviazione di Azure | Customer |
 |  | Controllare l'accesso ai dati da parte del supporto tecnico di Azure usando [Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Customer |
-| Sicurezza delle applicazioni e del middleware | Eseguire l'integrazione con Azure AD Domain Services e [configurare l'autenticazione](apache-domain-joined-configure-using-azure-adds.md) | Customer |
+| Sicurezza delle applicazioni e del middleware | Eseguire l'integrazione con AAD-DS e [configurare ESP](apache-domain-joined-configure-using-azure-adds.md) o usare [HIB per l'autenticazione OAuth](identity-broker.md)| Customer |
 |  | Configurare i criteri di [autorizzazione di Apache Ranger](apache-domain-joined-run-hive.md) | Customer |
 |  | Usare i [log di Monitoraggio di Azure](../hdinsight-hadoop-oms-log-analytics-tutorial.md) | Customer |
 | Sicurezza del sistema operativo | Creare cluster con l'immagine di base protetta più recente | Customer |
 |  | Assicurarsi di eseguire regolarmente l'[applicazione di patch del sistema operativo](../hdinsight-os-patching.md) | Customer |
+|  | Assicurarsi di eseguire la [crittografia dei dischi con chiave gestita dal cliente per le VM](../disk-encryption.md) | Customer |
 | Sicurezza di rete | Configurare una [rete virtuale](../hdinsight-plan-virtual-network-deployment.md) |
-|  | Configurare [regole in ingresso dei gruppi di sicurezza di rete](../control-network-traffic.md) | Customer |
+|  | Configurare le [regole in ingresso dei gruppi di sicurezza di rete](../control-network-traffic.md) o un [collegamento privato](../hdinsight-private-link.md) | Customer |
 |  | Configurare la [restrizione del traffico in uscita](../hdinsight-restrict-outbound-traffic.md) con Firewall | Customer |
+|  | Configurare la [crittografia IPSec in transito](encryption-in-transit.md) tra nodi del cluster | Customer |
 | Infrastruttura virtualizzata | N/D | HDInsight (provider di servizi cloud) |
 | Sicurezza dell'infrastruttura fisica | N/D | HDInsight (provider di servizi cloud) |
 

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 67a2c9537851343e8e5dad4a3654b31082e83d11
-ms.sourcegitcommit: b48e8a62a63a6ea99812e0a2279b83102e082b61
+ms.openlocfilehash: 72f40a980a2f7039d036ca14c549bae8ab45abb2
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/28/2020
-ms.locfileid: "91409613"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279847"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introduzione all'API Gremlin in Azure Cosmos DB
 
@@ -48,7 +48,7 @@ Di seguito vengono descritte le varie funzionalità offerte dall'API Gremlin di 
 
   Azure Cosmos DB elimina la necessità di gestire le risorse di database e computer. La maggior parte delle piattaforme esistenti per database a grafo è vincolata dalle limitazioni dell'infrastruttura e spesso richiede un elevato livello di manutenzione per garantire il funzionamento. 
   
-  Trattandosi di un servizio completamente gestito, con Cosmos DB non sono richieste operazioni quali la gestione di macchine virtuali, l'aggiornamento del software di runtime, la gestione del partizionamento orizzontale o della replica o di aggiornamenti complessi del livello dati. Il backup di ogni grafo viene eseguito automaticamente e ogni grafo è protetto da errori nell'area geografica specifica. Grazie a queste garanzie gli sviluppatori possono concentrarsi sugli aspetti che consentono di offrire valore con l'applicazione invece di preoccuparsi della gestione e della manutenzione dei database a grafo. 
+  Trattandosi di un servizio completamente gestito, con Cosmos DB non sono richieste operazioni quali la gestione di macchine virtuali, l'aggiornamento del software di runtime, la gestione del partizionamento orizzontale o della replica o di aggiornamenti complessi del livello dati. Il backup di ogni grafo viene eseguito automaticamente e ogni grafo è protetto da errori nell'area geografica specifica. In questo modo gli sviluppatori possono concentrarsi sugli aspetti che consentono di offrire valore con l'applicazione invece di preoccuparsi della gestione e della manutenzione dei database a grafo. 
 
 * **Indicizzazione automatica**
 
@@ -110,19 +110,19 @@ Verrà ora usato un grafo di esempio per comprendere come le query possono esser
 
 Questo grafo presenta i tipi di *vertice* seguenti (anche detti "etichetta" in Gremlin):
 
-* **Persone**: il grafo include tre persone, Robin, Thomas e Ben
-* **Interessi**: i loro interessi, in questo esempio, sono rappresentati dal gioco del football
-* **Dispositivi**: i dispositivi usati dalle persone
-* **Sistemi operativi**: i sistemi operativi eseguiti nei dispositivi
-* **Posizione**: le posizioni da cui si accede ai dispositivi
+* **Persone** : il grafo include tre persone, Robin, Thomas e Ben
+* **Interessi** : i loro interessi, in questo esempio, sono rappresentati dal gioco del football
+* **Dispositivi** : i dispositivi usati dalle persone
+* **Sistemi operativi** : i sistemi operativi eseguiti nei dispositivi
+* **Posizione** : le posizioni da cui si accede ai dispositivi
 
 Per rappresentare le relazioni tra queste entità si usano i tipi di *archi* seguenti:
 
-* **Conosce**: ad esempio, "Thomas conosce Robin"
-* **Interessato**: per rappresentare gli interessi delle persone nel nostro grafo, ad esempio, "Ben è interessato al football"
-* **RunsOS**: il portatile esegue il sistema operativo Windows
-* **Usa**: per rappresentare quale dispositivo viene usato da una persona. Ad esempio, Robin usa un telefono Motorola con numero di serie 77
-* **Posizionato**: per rappresentare la posizione da cui si accede ai dispositivi
+* **Conosce** : ad esempio, "Thomas conosce Robin"
+* **Interessato** : per rappresentare gli interessi delle persone nel nostro grafo, ad esempio, "Ben è interessato al football"
+* **RunsOS** : il portatile esegue il sistema operativo Windows
+* **Usa** : per rappresentare quale dispositivo viene usato da una persona. Ad esempio, Robin usa un telefono Motorola con numero di serie 77
+* **Posizionato** : per rappresentare la posizione da cui si accede ai dispositivi
 
 La console Gremlin è un terminale interattivo fornito da Apache TinkerPop, che si usa per interagire con i dati del grafo. Per altre informazioni, vedere la documentazione di avvio rapido su [come usare la console Gremlin](create-graph-gremlin-console.md). È anche possibile eseguire queste operazioni usando i driver Gremlin nella piattaforma di propria scelta (Java, Node.js, Python o .NET). Gli esempi seguenti illustrano come eseguire query sui dati di questo grafo usando la console Gremlin.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/07/2019
 ms.author: robb
 ms.custom: include file
-ms.openlocfilehash: e6b64b5a1a60ba3bbf93e607536eeb0379669c73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e206c12a85cfbaed3297f2a44bf0a5d694c2d170
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91642588"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92321713"
 ---
 **Conservazione e volume della raccolta dati** 
 
@@ -70,31 +70,7 @@ Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di c
 
 Quando si inviano dati a un'area di lavoro a una velocità del volume superiore all'80% della soglia configurata nell'area di lavoro, viene inviato un evento alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Quando la velocità del volume è superiore alla soglia, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Se il volume di inserimento continua a superare la soglia o se si prevede di raggiungerlo presto, è possibile richiedere un aumento aprendo una richiesta di supporto. 
 
-Per ricevere una notifiche quando il limite della velocità del volume di inserimento si avvicina o è stato raggiunto nell'area di lavoro, creare una [regola di avviso del log](../articles/azure-monitor/platform/alerts-log.md) usando la query seguente con una logica di avviso basata su un numero di risultati maggiore di zero, un periodo di valutazione di 5 minuti e una frequenza di 5 minuti.
-
-La velocità del volume di inserimento ha raggiunto la soglia
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Error"
-```
-
-La velocità del volume di inserimento ha raggiunto l'80% della soglia
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Warning"
-```
-
-La velocità del volume di inserimento ha raggiunto il 70% della soglia
-```Kusto
-Operation
-| where OperationCategory == "Ingestion"
-| where OperationKey == "Ingestion rate limit"
-| where OperationStatus == "Info"
-```
+Per creare regole di avviso in modo da ricevere notifiche proattive quando si raggiungono i limiti di inserimento dati, vedere [Monitorare l'integrità dell'area di lavoro Log Analytics in Monitoraggio di Azure](../articles/azure-monitor/platform/monitor-workspace.md).
 
 >[!NOTE]
 >A seconda di quando si è iniziato a usare Log Analytics, è possibile che si disponga dell'accesso ai piani tariffari legacy. Altre informazioni sui [piani tariffari legacy di Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#legacy-pricing-tiers). 

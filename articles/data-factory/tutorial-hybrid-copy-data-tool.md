@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 0e3c2d4fe4d9377b6f9a563825a14e10eb724637
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9bf03110fcb4f0c034c70d5e77e558b949a7825
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84660932"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148003"
 ---
 # <a name="copy-data-from-a-sql-server-database-to-azure-blob-storage-by-using-the-copy-data-tool"></a>Copiare dati da un database di SQL Server all'archiviazione BLOB di Azure con lo strumento Copia dati
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -44,20 +44,20 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ### <a name="azure-roles"></a>Ruoli di Azure
 Per creare istanze di Data Factory, all'account utente usato per accedere ad Azure deve essere assegnato un ruolo *collaboratore* o *proprietario* oppure l'account deve essere un *amministratore* della sottoscrizione di Azure.
 
-Per visualizzare le autorizzazioni disponibili nella sottoscrizione, passare al portale di Azure. Selezionare il nome utente nell'angolo superiore destro e quindi **Autorizzazioni**. Se si accede a più sottoscrizioni, selezionare quella appropriata. Per istruzioni di esempio sull'aggiunta di un utente a un ruolo, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
+Per visualizzare le autorizzazioni disponibili nella sottoscrizione, passare al portale di Azure. Selezionare il nome utente nell'angolo superiore destro e quindi **Autorizzazioni** . Se si accede a più sottoscrizioni, selezionare quella appropriata. Per istruzioni di esempio su come aggiungere un utente a un ruolo, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
-In questa esercitazione si usa un database di SQL Server come archivio dati di *origine*. La pipeline nella data factory creata in questa esercitazione copia i dati da questo database di SQL Server (origine) all'archiviazione BLOB (sink). Si crea quindi una tabella denominata **emp** nel database di SQL Server e si inseriscono alcune voci di esempio nella tabella.
+In questa esercitazione si usa un database di SQL Server come archivio dati di *origine* . La pipeline nella data factory creata in questa esercitazione copia i dati da questo database di SQL Server (origine) all'archiviazione BLOB (sink). Si crea quindi una tabella denominata **emp** nel database di SQL Server e si inseriscono alcune voci di esempio nella tabella.
 
 1. Avviare SQL Server Management Studio. Se non è già installato nel computer, passare a [Scaricare SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Connettersi all'istanza di SQL Server usando le credenziali.
 
-1. Creare un database di esempio. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse su **Database** e scegliere **Nuovo database**.
+1. Creare un database di esempio. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse su **Database** e scegliere **Nuovo database** .
 
-1. Nella finestra **Nuovo database** immettere un nome per il database e fare clic su **OK**.
+1. Nella finestra **Nuovo database** immettere un nome per il database e fare clic su **OK** .
 
-1. Per creare la tabella **emp** e inserirvi alcuni dati di esempio, eseguire questo script di query sul database. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse sul database creato e scegliere **Nuova query**.
+1. Per creare la tabella **emp** e inserirvi alcuni dati di esempio, eseguire questo script di query sul database. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse sul database creato e scegliere **Nuova query** .
 
     ```sql
     CREATE TABLE dbo.emp
@@ -81,13 +81,13 @@ In questa esercitazione si usano il nome e la chiave dell'account di archiviazio
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con nome utente e password di Azure.
 
-1. Nel riquadro sinistro selezionare **Tutti i servizi**. Usare la parola chiave **Archiviazione** come filtro e quindi selezionare **Account di archiviazione**.
+1. Nel riquadro sinistro selezionare **Tutti i servizi** . Usare la parola chiave **Archiviazione** come filtro e quindi selezionare **Account di archiviazione** .
 
     ![Ricerca dell'account di archiviazione](media/doc-common-process/search-storage-account.png)
 
 1. Nell'elenco degli account di archiviazione filtrare, se necessario, il proprio account di archiviazione. Selezionare quindi l'account di archiviazione.
 
-1. Nella finestra **Account di archiviazione** selezionare **Chiavi di accesso**.
+1. Nella finestra **Account di archiviazione** selezionare **Chiavi di accesso** .
 
 
 1. Nelle caselle **Nome account di archiviazione** e **key1** copiare i valori e incollarli nel Blocco note o in un altro editor per usarli in seguito nell'esercitazione.
@@ -95,42 +95,42 @@ In questa esercitazione si usano il nome e la chiave dell'account di archiviazio
 #### <a name="create-the-adftutorial-container"></a>Creare il contenitore adftutorial
 In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'archivio BLOB.
 
-1. Nella finestra **Account di archiviazione** passare a **Panoramica** e quindi selezionare **BLOB**.
+1. Nella finestra **Account di archiviazione** passare a **Panoramica** e quindi selezionare **BLOB** .
 
-1. Nella finestra **BLOB** selezionare **+ Contenitore**.
+1. Nella finestra **BLOB** selezionare **+ Contenitore** .
 
-1. Nella finestra **Nuovo contenitore** immettere **adftutorial** nella casella **Nome** e fare clic su **OK**.
+1. Nella finestra **Nuovo contenitore** immettere **adftutorial** nella casella **Nome** e fare clic su **OK** .
 
 1. Selezionare **adftutorial** nell'elenco di contenitori.
 
 
-1. Tenere aperta la finestra **Contenitore** per **adftutorial**. Verrà usata per verificare l'output alla fine di questa esercitazione. Data Factory crea automaticamente la cartella di output in questo contenitore, quindi non è necessario crearne uno.
+1. Tenere aperta la finestra **Contenitore** per **adftutorial** . Verrà usata per verificare l'output alla fine di questa esercitazione. Data Factory crea automaticamente la cartella di output in questo contenitore, quindi non è necessario crearne uno.
 
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel menu a sinistra selezionare **+ Crea una risorsa** > **Analisi** > **Data factory**.
+1. Nel menu a sinistra selezionare **+ Crea una risorsa** > **Analisi** > **Data factory** .
 
    ![Creazione di una nuova data factory](./media/doc-common-process/new-azure-data-factory-menu.png)
 
-1. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome**.
+1. Nella pagina **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome** .
 
-   Il nome della data factory deve essere *univoco a livello globale*. Se viene visualizzato il messaggio di errore seguente per il campo Nome, modificare il nome della data factory, ad esempio usando nomeutenteADFTutorialDataFactory. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere [Azure Data factory - Regole di denominazione](naming-rules.md).
+   Il nome della data factory deve essere *univoco a livello globale* . Se viene visualizzato il messaggio di errore seguente per il campo Nome, modificare il nome della data factory, ad esempio usando nomeutenteADFTutorialDataFactory. Per informazioni sulle regole di denominazione per gli elementi di Data factory, vedere [Azure Data factory - Regole di denominazione](naming-rules.md).
 
    ![Nome della nuova data factory](./media/doc-common-process/name-not-available-error.png)
 1. Selezionare la **sottoscrizione** di Azure in cui creare la data factory.
 1. In **Gruppo di risorse** eseguire una di queste operazioni:
 
-   - Selezionare **Usa esistente**e scegliere un gruppo di risorse esistente dall'elenco a discesa.
+   - Selezionare **Usa esistente** e scegliere un gruppo di risorse esistente dall'elenco a discesa.
 
-   - Selezionare **Crea nuovo**e immettere un nome per il gruppo di risorse. 
+   - Selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse. 
         
      Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md).
-1. In **Versione** selezionare **V2**.
+1. In **Versione** selezionare **V2** .
 1. In **Località** selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL) e le risorse di calcolo (ad esempio, Azure HDInsight) usati da Data Factory possono trovarsi in altre località/aree.
-1. Selezionare **Crea**.
+1. Selezionare **Crea** .
 
-1. Al termine della creazione verrà visualizzata la pagina **Data factory**, come illustrato nell'immagine.
+1. Al termine della creazione verrà visualizzata la pagina **Data factory** , come illustrato nell'immagine.
 
      ![Home page di Data factory](./media/doc-common-process/data-factory-home-page.png)
 1. Selezionare **Crea e monitora** per avviare l'interfaccia utente di Data Factory in una scheda separata.
@@ -141,20 +141,20 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
    ![Pagina delle attività iniziali](./media/doc-common-process/get-started-page.png)
 
-1. Nella pagina **Proprietà** dello strumento Copia dati immettere **CopyFromOnPremSqlToAzureBlobPipeline** in **Nome attività**. Fare quindi clic su **Avanti**. Lo strumento Copia dati crea una pipeline con il nome specificato per questo campo.
+1. Nella pagina **Proprietà** dello strumento Copia dati immettere **CopyFromOnPremSqlToAzureBlobPipeline** in **Nome attività** . Fare quindi clic su **Avanti** . Lo strumento Copia dati crea una pipeline con il nome specificato per questo campo.
   ![Nome attività](./media/tutorial-hybrid-copy-data-tool/properties-page.png)
 
-1. Nella pagina **Archivio dati di origine** fare clic su **Crea nuova connessione**.
+1. Nella pagina **Archivio dati di origine** fare clic su **Crea nuova connessione** .
 
-1. In **Nuovo Servizio collegato** cercare **SQL Server** e quindi selezionare **Continua**.
+1. In **Nuovo Servizio collegato** cercare **SQL Server** e quindi selezionare **Continua** .
 
-1. In **Nome** per il **nuovo servizio collegato (SQL Server)** immettere **SqlServerLinkedService**. Selezionare **+Nuovo** in **Connect via integration runtime** (Connetti tramite runtime di integrazione). È necessario creare un runtime di integrazione self-hosted, scaricarlo nel computer e registrarlo in Data Factory. Il runtime di integrazione self-hosted copia i dati tra l'ambiente locale e il cloud.
+1. In **Nome** per il **nuovo servizio collegato (SQL Server)** immettere **SqlServerLinkedService** . Selezionare **+Nuovo** in **Connect via integration runtime** (Connetti tramite runtime di integrazione). È necessario creare un runtime di integrazione self-hosted, scaricarlo nel computer e registrarlo in Data Factory. Il runtime di integrazione self-hosted copia i dati tra l'ambiente locale e il cloud.
 
-1. Nella finestra **Integration Runtime Setup** (Installazione runtime di integrazione) selezionare **Self-Hosted**. Selezionare quindi **Continua**.
+1. Nella finestra **Integration Runtime Setup** (Installazione runtime di integrazione) selezionare **Self-Hosted** . Selezionare quindi **Continua** .
 
    ![Creare il runtime di integrazione](./media/tutorial-hybrid-copy-data-tool/create-self-hosted-integration-runtime.png)
 
-1. Nella finestra di dialogo **Integration Runtime Setup** immettere **TutorialIntegrationRuntime** in **Nome**. Selezionare quindi **Crea**.
+1. Nella finestra di dialogo **Integration Runtime Setup** immettere **TutorialIntegrationRuntime** in **Nome** . Selezionare quindi **Crea** .
 
 1. Nella finestra di dialogo **Integration Runtime Setup** selezionare **Click here to launch the express setup for this computer** (Fare clic qui per avviare l'installazione rapida per il computer). Questa azione installa il runtime di integrazione nel computer e lo registra in Data Factory. In alternativa è possibile usare l'opzione di installazione manuale per scaricare il file di installazione, eseguirlo e usare la chiave per registrare il runtime di integrazione.
 
@@ -162,9 +162,9 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
     ![Stato dell'installazione rapida](./media/tutorial-hybrid-copy-data-tool/express-setup-status.png)
 
-1. Nella finestra di dialogo **New Linked Service (SQL Server)** (Nuovo servizio collegato (SQL Server)) verificare che nel campo Integration Runtime sia selezionato **TutorialIntegrationRuntime**. Seguire quindi questa procedura:
+1. Nella finestra di dialogo **New Linked Service (SQL Server)** (Nuovo servizio collegato (SQL Server)) verificare che nel campo Integration Runtime sia selezionato **TutorialIntegrationRuntime** . Seguire quindi questa procedura:
 
-    a. In **Nome** immettere **SqlServerLinkedService**.
+    a. In **Nome** immettere **SqlServerLinkedService** .
 
     b. In **Nome server** immettere il nome dell'istanza di SQL Server.
 
@@ -176,42 +176,42 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
     f. Immettere la **password** dell'utente.
 
-    g. Testare la connessione e selezionare **Fine**.
+    g. Testare la connessione e selezionare **Fine** .
 
       ![Runtime di integrazione selezionato](./media/tutorial-hybrid-copy-data-tool/integration-runtime-selected.png)
 
-1. Nella pagina **Archivio dati di origine** selezionare **Avanti**.
+1. Nella pagina **Archivio dati di origine** selezionare **Avanti** .
 
-1. Nella pagina **Select tables from which to copy the data or use a custom query** (Selezionare le tabelle dalle quali copiare i dati oppure usare una query personalizzata) selezionare la tabella **[dbo].[emp]** nell'elenco e quindi **Avanti**. È possibile selezionare qualsiasi altra tabella a seconda del database.
+1. Nella pagina **Select tables from which to copy the data or use a custom query** (Selezionare le tabelle dalle quali copiare i dati oppure usare una query personalizzata) selezionare la tabella **[dbo].[emp]** nell'elenco e quindi **Avanti** . È possibile selezionare qualsiasi altra tabella a seconda del database.
 
 1. Nella pagina **archivio dati di destinazione** selezionare **Crea nuova connessione**
 
 
-1. In **Nuovo Servizio collegato** cercare e selezionare **BLOB di Azure**, quindi **Continua**.
+1. In **Nuovo Servizio collegato** cercare e selezionare **BLOB di Azure** , quindi **Continua** .
 
    ![Selezione dell'archivio BLOB](./media/tutorial-hybrid-copy-data-tool/select-destination-data-store.png)
 
 1. Nella finestra di dialogo **Nuovo Servizio collegato (Archiviazione BLOB di Azure)** procedere come segue:
 
-   a. In **Nome** immettere **AzureStorageLinkedService**.
+   a. In **Nome** immettere **AzureStorageLinkedService** .
 
    b. In **Connect via integration runtime** (Connetti tramite runtime di integrazione) selezionare **TutorialIntegrationRuntime**
 
    c. In **Nome account di archiviazione** selezionare il proprio account di archiviazione nell'elenco a discesa.
 
-   d. Selezionare **Fine**.
+   d. Selezionare **Fine** .
 
-1. Nella finestra di dialogo **Archivio dati di destinazione** assicurarsi che sia selezionata l'opzione **Archiviazione BLOB di Azure**. Fare quindi clic su **Avanti**.
+1. Nella finestra di dialogo **Archivio dati di destinazione** assicurarsi che sia selezionata l'opzione **Archiviazione BLOB di Azure** . Fare quindi clic su **Avanti** .
 
-1. Nella finestra di dialogo **Choose the output file or folder** (Scegliere il file o la cartella di output) immettere **adftutorial/fromonprem** in **Percorso cartella**. Come parte dei prerequisiti è stato creato il contenitore **adftutorial**. Se la cartella di output (in questo caso **fromonprem**) non esiste, Data Factory la crea automaticamente. È anche possibile usare il pulsante **Sfoglia** per passare all'archivio BLOB e ai relativi contenitori/cartelle. Se non si specifica alcun valore in **Nome file**, per impostazione predefinita viene usato il nome dell'origine (in questo caso **dbo.emp**).
+1. Nella finestra di dialogo **Choose the output file or folder** (Scegliere il file o la cartella di output) immettere **adftutorial/fromonprem** in **Percorso cartella** . Come parte dei prerequisiti è stato creato il contenitore **adftutorial** . Se la cartella di output (in questo caso **fromonprem** ) non esiste, Data Factory la crea automaticamente. È anche possibile usare il pulsante **Sfoglia** per passare all'archivio BLOB e ai relativi contenitori/cartelle. Se non si specifica alcun valore in **Nome file** , per impostazione predefinita viene usato il nome dell'origine (in questo caso **dbo.emp** ).
 
    ![Scegliere il file o la cartella di output](./media/tutorial-hybrid-copy-data-tool/choose-output-file-folder.png)
 
-1. Nella finestra di dialogo **File format settings** (Impostazioni formato file) selezionare **Avanti**.
+1. Nella finestra di dialogo **File format settings** (Impostazioni formato file) selezionare **Avanti** .
 
-1. Nella finestra di dialogo **Impostazioni** selezionare **Avanti**.
+1. Nella finestra di dialogo **Impostazioni** selezionare **Avanti** .
 
-1. Nella finestra di dialogo **Riepilogo** esaminare i valori di tutte le impostazioni e selezionare **Avanti**.
+1. Nella finestra di dialogo **Riepilogo** esaminare i valori di tutte le impostazioni e selezionare **Avanti** .
 
 1. Nella pagina **Distribuzione** selezionare **Monitoraggio** per monitorare la pipeline (attività). 
 
@@ -219,9 +219,9 @@ In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'ar
 
 1. Nella pagina Esecuzioni della pipeline selezionare **Aggiorna** per aggiornare l'elenco. Fare clic sul collegamento in **NOME PIPELINE** per visualizzare i dettagli dell'esecuzione dell'attività o eseguire di nuovo la pipeline. 
 
-1. Nella pagina Esecuzioni attività selezionare il collegamento **Dettagli** (icona a forma di occhiali) nella colonna **Nome attività** per visualizzare informazioni dettagliate sull'operazione di copia. Per tornare alla visualizzazione Esecuzioni della pipeline, selezionare il collegamento **Tutte le esecuzioni della pipeline** nel menu di navigazione. Per aggiornare la visualizzazione, selezionare **Aggiorna**.
+1. Nella pagina Esecuzioni attività selezionare il collegamento **Dettagli** (icona a forma di occhiali) nella colonna **Nome attività** per visualizzare informazioni dettagliate sull'operazione di copia. Per tornare alla visualizzazione Esecuzioni della pipeline, selezionare il collegamento **Tutte le esecuzioni della pipeline** nel menu di navigazione. Per aggiornare la visualizzazione, selezionare **Aggiorna** .
 
-1. Assicurarsi che venga visualizzato il file di output nella cartella **fromonprem** del contenitore **adftutorial**.
+1. Assicurarsi che venga visualizzato il file di output nella cartella **fromonprem** del contenitore **adftutorial** .
 
 1. Selezionare la scheda **Modifica** a sinistra per passare alla modalità di modifica. Usando l'editor è possibile aggiornare i servizi collegati, i set di dati e le pipeline creati dallo strumento. Selezionare **Codice** per visualizzare il codice JSON associato all'entità aperta nell'editor. Per informazioni dettagliate sulla modifica di queste entità nell'interfaccia utente di Data Factory, vedere la [versione di questa esercitazione relativa al portale di Azure](tutorial-copy-data-portal.md).
 

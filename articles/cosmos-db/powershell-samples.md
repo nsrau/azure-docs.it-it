@@ -1,21 +1,23 @@
 ---
-title: Esempi di Azure PowerShell per Azure Cosmos DB
-description: Ottenere gli esempi di Azure PowerShell per eseguire attività comuni in Azure Cosmos DB
+title: Esempi di Azure PowerShell per l'API Core (SQL) di Azure Cosmos DB
+description: Ottenere gli esempi di Azure PowerShell per eseguire attività comuni nell'API Core (SQL) di Azure Cosmos DB
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: sample
-ms.date: 10/07/2020
+ms.date: 10/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 0c2d13ef49676917bc48dd5a2e682471558567f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 174458d9e5be24de669060ea8264f62017489c7a
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842972"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92279316"
 ---
-# <a name="azure-powershell-samples-for-azure-cosmos-db"></a>Esempi di Azure PowerShell per Azure Cosmos DB
+# <a name="azure-powershell-samples-for-azure-cosmos-db-core-sql-api"></a>Esempi di Azure PowerShell per l'API Core (SQL) di Azure Cosmos DB
 
 La tabella seguente contiene collegamenti a script di Azure PowerShell comunemente usati per Azure Cosmos DB. Usare i collegamenti a destra per passare agli esempi specifici delle API. Gli esempi comuni sono uguali per tutte le API. Per tutti i cmdlet di PowerShell per Azure Cosmos DB sono disponibili pagine di riferimento nelle [informazioni di riferimento su Azure PowerShell](/powershell/module/az.cosmosdb). Verificare regolarmente se sono disponibili aggiornamenti per `Az.CosmosDB`. È anche possibile creare una copia tramite fork di questi esempi di PowerShell per Cosmos DB dal repository GitHub, nella pagina degli [esempi di PowerShell per Cosmos DB in GitHub](https://github.com/Azure/azure-docs-powershell-samples/tree/master/cosmosdb).
+
+Per i cmdlet di PowerShell relativi ad altre API, vedere [Esempi di PowerShell per Cassandra](powershell-samples-cassandra.md), [Esempi di PowerShell per l'API MongoDB](powershell-samples-mongodb.md), [Esempi di PowerShell per Gremlin](powershell-samples-gremlin.md), [Esempi di PowerShell per Tabella](powershell-samples-table.md)
 
 ## <a name="common-samples"></a>Esempi comuni
 
@@ -39,48 +41,4 @@ La tabella seguente contiene collegamenti a script di Azure PowerShell comunemen
 |[Elencare o ottenere database o contenitori](scripts/powershell/sql/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Elencare o ottenere database o contenitori. |
 |[Operazioni di velocità effettiva](scripts/powershell/sql/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operazioni di velocità effettiva per un database o un contenitore, incluse le operazioni get, update e migrate, tra la velocità effettiva con scalabilità automatica e la velocità effettiva standard. |
 |[Bloccare le risorse per impedirne l'eliminazione](scripts/powershell/sql/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedire l'eliminazione delle risorse tramite blocchi. |
-|||
-
-## <a name="cassandra-api-samples"></a>Esempi per l'API Cassandra
-
-|Attività | Descrizione |
-|---|---|
-|[Creare un account, un keyspace e una tabella](scripts/powershell/cassandra/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un account, un keyspace e una tabella Azure Cosmos DB. |
-|[Creare un account, un keyspace e una tabella con scalabilità automatica](scripts/powershell/cassandra/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creare un account, un keyspace e una tabella con scalabilità automatica Azure Cosmos. |
-|[Elencare o ottenere keyspace o tabelle](scripts/powershell/cassandra/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Elencare o ottenere keyspace o tabelle. |
-|[Operazioni di velocità effettiva](scripts/powershell/cassandra/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operazioni di velocità effettiva per un keyspace o una tabella, incluse le operazioni get, update e migrate, tra la velocità effettiva con scalabilità automatica e la velocità effettiva standard. |
-|[Bloccare le risorse per impedirne l'eliminazione](scripts/powershell/cassandra/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedire l'eliminazione delle risorse tramite blocchi. |
-|||
-
-## <a name="mongo-db-api-samples"></a>Esempi per l'API Mongo DB
-
-|Attività | Descrizione |
-|---|---|
-|[Creare un account, un database e una raccolta](scripts/powershell/mongodb/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un account, un database e una raccolta Azure Cosmos DB. |
-|[Creare un account, un database e una raccolta con scalabilità automatica](scripts/powershell/mongodb/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creare un account, un database e una raccolta con scalabilità automatica Azure Cosmos. |
-|[Elencare o ottenere database o raccolte](scripts/powershell/mongodb/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Elencare o ottenere un database o una raccolta. |
-|[Operazioni di velocità effettiva](scripts/powershell/mongodb/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operazioni di velocità effettiva per un database o una raccolta, incluse le operazioni get, update e migrate, tra la velocità effettiva con scalabilità automatica e la velocità effettiva standard. |
-|[Bloccare le risorse per impedirne l'eliminazione](scripts/powershell/mongodb/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedire l'eliminazione delle risorse tramite blocchi. |
-|||
-
-## <a name="gremlin-api-samples"></a>Esempi per l'API Gremlin
-
-|Attività | Descrizione |
-|---|---|
-|[Creare un account, un database e un grafo](scripts/powershell/gremlin/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un account, un database e un grafo Azure Cosmos DB. |
-|[Creare un account, un database e un grafo con scalabilità automatica](scripts/powershell/gremlin/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creare un account, un database e un grafo con scalabilità automatica Azure Cosmos. |
-|[Elencare o ottenere database o grafi](scripts/powershell/gremlin/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Elencare o ottenere un database o un grafo. |
-|[Operazioni di velocità effettiva](scripts/powershell/gremlin/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operazioni di velocità effettiva per un database o un grafo, incluse le operazioni get, update e migrate, tra la velocità effettiva con scalabilità automatica e la velocità effettiva standard. |
-|[Bloccare le risorse per impedirne l'eliminazione](scripts/powershell/gremlin/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedire l'eliminazione delle risorse tramite blocchi. |
-|||
-
-## <a name="table-api-samples"></a>Esempi per l'API Tabella
-
-|Attività | Descrizione |
-|---|---|
-|[Creare un account e una tabella](scripts/powershell/table/create.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Crea un account e una tabella Azure Cosmos DB. |
-|[Creare un account e una tabella con scalabilità automatica](scripts/powershell/table/autoscale.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Creare un account e una tabella con scalabilità automatica Azure Cosmos. |
-|[Elencare o ottenere tabelle](scripts/powershell/table/list-get.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Elencare o ottenere tabelle. |
-|[Operazioni di velocità effettiva](scripts/powershell/table/throughput.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Operazioni di velocità effettiva per una tabella, incluse le operazioni get, update e migrate, tra la velocità effettiva con scalabilità automatica e la velocità effettiva standard. |
-|[Bloccare le risorse per impedirne l'eliminazione](scripts/powershell/table/lock.md?toc=%2fpowershell%2fmodule%2ftoc.json)| Impedire l'eliminazione delle risorse tramite blocchi. |
 |||

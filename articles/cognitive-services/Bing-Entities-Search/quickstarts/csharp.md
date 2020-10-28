@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
-ms.date: 05/08/2020
+ms.date: 10/19/2020
 ms.author: aahi
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 131c282ab61f04ffa94921c2816886a35ea4b7ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 99f2197732a332e860af421f46d1049c2388043c
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88936827"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92221231"
 ---
 # <a name="quickstart-send-a-search-request-to-the-bing-entity-search-rest-api-using-c"></a>Guida introduttiva: Inviare una richiesta di ricerca all'API REST Ricerca entità Bing usando C#
 
@@ -28,21 +28,20 @@ Anche se l'applicazione è scritta in C#, l'API è un servizio Web RESTful compa
 ## <a name="prerequisites"></a>Prerequisiti
 
 - Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://www.visualstudio.com/downloads/).
-
-- Il framework [Json.NET](https://www.newtonsoft.com/json), disponibile come pacchetto NuGet. Per installare il pacchetto NuGet in Visual Studio:
-
-   1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni**.
-   2. Scegliere **Gestisci pacchetti NuGet**.
-   3. Cercare e selezionare *Newtonsoft.Json*, quindi installare il pacchetto.
-
-- Se si usa Linux/MacOS, questa applicazione può essere eseguita tramite [Mono](https://www.mono-project.com/).
+- In alternativa, se si usa Linux o MacOS, è possibile seguire questa guida di avvio rapido usando [Visual Studio Code](https://code.visualstudio.com/) e [.NET Core](/dotnet/core/install/macos)
+- [Account Azure gratuito](https://azure.microsoft.com/free/dotnet)
 
 
 [!INCLUDE [cognitive-services-bing-news-search-signup-requirements](../../../../includes/cognitive-services-bing-entity-search-signup-requirements.md)]
 
 ## <a name="create-and-initialize-a-project"></a>Creare e inizializzare un progetto
 
-1. Creare una nuova soluzione di console C# in Visual Studio. Aggiungere quindi gli spazi dei nomi seguenti nel file di codice principale:
+1. Creare una nuova soluzione di console C# in Visual Studio. 
+1. Aggiungere il pacchetto NuGet [Newtonsoft.Json](https://www.nuget.org/packages/Newtonsoft.Json/).
+    1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** .
+    2. Scegliere **Gestisci pacchetti NuGet** .
+    3. Cercare e selezionare *Newtonsoft.Json* , quindi installare il pacchetto.
+1. Aggiungere quindi gli spazi dei nomi seguenti nel file di codice principale:
     
     ```csharp
     using Newtonsoft.Json;

@@ -10,26 +10,26 @@ ms.date: 10/05/2020
 ms.topic: overview
 ms.custom: references_regions
 ms.service: azure-communication-services
-ms.openlocfilehash: b25ac36bc0b424a9d6f76b37b532e52dc56e19e3
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 0420360b70485e49dc6cd06dbeb19400c0f73ef5
+ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048220"
+ms.lasthandoff: 10/15/2020
+ms.locfileid: "92070351"
 ---
 # <a name="plan-your-telephony-and-sms-solution"></a>Pianificare l'uso della soluzione di telefonia e SMS
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
 
 
-Servizi di comunicazione di Azure consente di usare i numeri di telefono per effettuare chiamate vocali e inviare messaggi SMS con la rete PSTN (Public Switched Telephone Network). In questo documento verranno esaminati i tipi di numero di telefono, i piani e la disponibilità a livello di area per pianificare la soluzione di telefonia e SMS usando Servizi di comunicazione.
+Servizi di comunicazione di Azure consente di usare i numeri di telefono per effettuare chiamate vocali e inviare messaggi SMS con la rete PSTN (Public Switched Telephone Network). In questo documento verranno esaminati i tipi di numero di telefono, le opzioni di configurazione e la disponibilità a livello di area per pianificare la soluzione di telefonia e SMS usando Servizi di comunicazione.
 
 [!INCLUDE [Emergency Calling Notice](../../includes/emergency-calling-notice-include.md)]
 
 
 ## <a name="phone-number-types-in-azure-communication-services"></a>Tipi di numeri di telefono in Servizi di comunicazione di Azure
  
-Servizi di comunicazione offre due tipi di numero di telefono, ossia **numero locale** e **numero verde**. 
+Servizi di comunicazione offre due tipi di numero di telefono, ossia **numero locale** e **numero verde** . 
 
 ### <a name="local-numbers"></a>Numeri locali
 I numeri locali (geografici) sono numeri di telefono di 10 cifre costituiti da prefissi locali degli Stati Uniti. Ad esempio, `+1 (206) XXX-XXXX` è un numero locale con prefisso `206`. Questo prefisso viene assegnato alla città di Seattle. Questi numeri di telefono vengono in genere usati da privati e aziende locali. Servizi di comunicazione di Azure offre numeri locali negli Stati Uniti. Questi numeri possono essere usati per effettuare telefonate, ma non per inviare messaggi SMS. 
@@ -48,22 +48,22 @@ La tabella seguente riepiloga i tipi di numeri di telefono disponibili:
 | Tipo di numero di telefono | Esempio                              | Paesi di disponibilità    | Funzionalità del numero di telefono |Caso d'uso comune                                                                                                     |
 | ----------------- | ------------------------------------ | ----------------------- | ------------------------|------------------------------------------------------------------------------------------------------------------- |
 | Locale (geografico)        | +1 (prefisso locale) XXX XX XX  | US                      | Chiamate (in uscita) | Assegnazione di numeri di telefono agli utenti delle applicazioni  |
-| Numero verde         | \+ 1 (*codice* area n. verde) XXX XX XX | US                      | Chiamate (in uscita), SMS (in ingresso/in uscita)| Assegnazione di numeri di telefono tramite sistemi IRV (Interactive Voice Response), bot o applicazioni di SMS                                        |
+| Numero verde         | \+ 1 ( *codice* area n. verde) XXX XX XX | US                      | Chiamate (in uscita), SMS (in ingresso/in uscita)| Assegnazione di numeri di telefono tramite sistemi IRV (Interactive Voice Response), bot o applicazioni di SMS                                        |
 
 
-## <a name="phone-number-plans-in-azure-communication-services"></a>Piani per numeri di telefono in Servizi di comunicazione di Azure 
+## <a name="phone-number-features-in-azure-communication-services"></a>Funzionalità dei numeri di telefono in Servizi di comunicazione di Azure 
 
-Per la maggior parte dei numeri di telefono, è possibile configurare un set di piani "à la carte". Alcuni sviluppatori necessitano solo di un piano per le chiamate in uscita, mentre altri potrebbero scegliere piani per chiamate e SMS in uscita. Questi piani possono essere selezionati al momento del lease dei numeri di telefono all'interno di Servizi di comunicazione di Azure.
+Per la maggior parte dei numeri di telefono, è possibile configurare un set di funzionalità "à la carte". Queste funzionalità possono essere selezionate al momento del lease dei numeri di telefono all'interno di Servizi di comunicazione di Azure.
 
-I piani disponibili variano in base al paese in cui si opera, al caso d'uso e al tipo di numero di telefono selezionato. La variazione in base al paese è dovuta a requisiti normativi. Servizi di comunicazione di Azure offre i piani seguenti:
+Le funzionalità disponibili variano in base al paese in cui si opera, al caso d'uso e al tipo di numero di telefono selezionato. La variazione in base al paese è dovuta a requisiti normativi. Servizi di comunicazione di Azure offre le funzionalità seguenti per i numeri di telefono:
 
-- **SMS in uscita unidirezionali** Questo piano consente di inviare messaggi SMS agli utenti. È utile per scenari come le notifiche e gli avvisi di autenticazione a due fattori. 
-- **SMS in ingresso e in uscita bidirezionali** Questo piano consente di inviare e ricevere messaggi dagli utenti usando i numeri di telefono. È utile per scenari di assistenza clienti.
-- **Chiamate telefoniche in uscita unidirezionali** Questo piano consente di effettuare chiamate agli utenti e di configurare l'ID chiamante per le chiamate in uscita effettuate dal servizio. È utile per scenari di assistenza clienti e notifiche vocali.
+- **SMS in uscita unidirezionali** Questa opzione consente di inviare messaggi SMS agli utenti. Può essere utile negli scenari di notifica e dell'autenticazione a due fattori. 
+- **SMS in ingresso e in uscita bidirezionali** Questa opzione consente di inviare e ricevere messaggi dagli utenti usando i numeri di telefono. Può essere utile negli scenari di assistenza clienti.
+- **Chiamate telefoniche in uscita unidirezionali** Questa opzione consente di effettuare chiamate agli utenti e di configurare l'ID chiamante per le chiamate in uscita effettuate dal servizio. Può essere utile negli scenari di assistenza clienti e notifica vocale.
 
 ## <a name="countryregion-availability"></a>Disponibilità per Paese/area geografica
 
-La tabella seguente illustra le località in cui è possibile acquisire i diversi numeri di telefono, oltre alle funzionalità per chiamate e SMS in ingresso e in uscita associate a questi tipi di numero di telefono.
+La tabella seguente illustra le località in cui è possibile acquisire i diversi numeri di telefono, oltre alle funzionalità per chiamate e SMS in ingresso e in uscita associate a questi tipi di numero.
 
 |Tipo di numero| Località di acquisizione | Per effettuare chiamate a                                        | Per ricevere chiamate da                                    |Per inviare messaggi a       | Per ricevere messaggi da |
 |-----------| ------------------ | ---------------------------------------------------  |-------------------------------------------------------|-----------------------|--------|

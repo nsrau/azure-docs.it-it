@@ -3,18 +3,18 @@ title: Gestire i costi e l'utilizzo di AWS in Gestione costi di Azure
 description: Questo articolo illustra come usare l'analisi dei costi e i budget in Gestione costi per gestire i costi e l'utilizzo di AWS.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 10/16/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 7df27a6ed288555d0f4815223fd0bb6dddff6f44
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5fed70ccdbebbd178412c416f37c2e9001a81f38
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266203"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92148968"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gestire i costi e l'utilizzo di AWS in Azure
 
@@ -22,7 +22,7 @@ Dopo aver impostato e configurato l'integrazione del report di costi e utilizzo 
 
 Se l'integrazione non è stata ancora configurata, vedere [Impostare e configurare l'integrazione del report di costi e utilizzo di AWS](aws-integration-set-up-configure.md).
 
-_Prima di iniziare_: se non si ha familiarità con l'analisi dei costi, vedere la guida di avvio rapido [Esplorare e analizzare i costi con l'analisi dei costi](quick-acm-cost-analysis.md). Se non si ha familiarità con i budget in Azure, vedere l'esercitazione [Creare e gestire budget di Azure](tutorial-acm-create-budgets.md).
+_Prima di iniziare_ : se non si ha familiarità con l'analisi dei costi, vedere la guida di avvio rapido [Esplorare e analizzare i costi con l'analisi dei costi](quick-acm-cost-analysis.md). Se non si ha familiarità con i budget in Azure, vedere l'esercitazione [Creare e gestire budget di Azure](tutorial-acm-create-budgets.md).
 
 ## <a name="view-aws-costs-in-cost-analysis"></a>Visualizzare i costi di AWS nell'analisi dei costi
 
@@ -44,7 +44,7 @@ In Analisi dei costi aprire la selezione ambiti e selezionare il gruppo di gesti
 
 Di seguito è riportato un esempio in cui sono indicati i costi del gruppo di gestione in Analisi dei costi, raggruppati per provider (Azure e AWS).
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Esempio che illustra i costi di Azure e AWS per un trimestre in Analisi dei costi" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Esempio della visualizzazione Seleziona ambito con account collegati in un gruppo di gestione" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
 
 > [!NOTE]
 > I gruppi di gestione non sono attualmente supportati per i clienti con Contratto del cliente Microsoft. I clienti con Contratto del cliente Microsoft possono creare il connettore e visualizzare i rispettivi dati di AWS. I clienti con Contratto del cliente Microsoft, tuttavia, non possono visualizzare insieme i costi di Azure e di AWS in un gruppo di gestione.
@@ -55,17 +55,17 @@ Per visualizzare i costi di un account AWS collegato, aprire la selezione ambiti
 
 Di seguito è riportato un esempio che illustra la selezione dell'ambito di un account AWS collegato.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Esempio della visualizzazione Seleziona ambito che mostra gli account collegati di AWS" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Esempio della visualizzazione Seleziona ambito con account collegati in un gruppo di gestione" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>Visualizzare i costi di un account AWS consolidato
 
 Per visualizzare i costi di un account AWS consolidato, aprire la selezione ambiti e selezionare l'account AWS consolidato. Di seguito è riportato un esempio che illustra la selezione dell'ambito di un account AWS consolidato.
 
-:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Esempio della visualizzazione Seleziona ambito con account consolidati" :::
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Esempio della visualizzazione Seleziona ambito con account collegati in un gruppo di gestione" :::
 
 Questo ambito offre una visualizzazione aggregata di tutti gli account AWS collegati associati all'account AWS consolidato. Di seguito è riportato un esempio in cui sono indicati i costi per un account AWS consolidato, raggruppati per nome di servizio.
 
-:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Esempio che illustra i costi consolidati di AWS in Analisi dei costi" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Esempio della visualizzazione Seleziona ambito con account collegati in un gruppo di gestione" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensioni disponibili per il filtraggio e il raggruppamento
 
@@ -95,7 +95,7 @@ La tabella seguente descrive le dimensioni disponibili in base alle quali raggru
 
 Usare i budget per gestire in modo proattivo i costi e promuovere la responsabilità nell'organizzazione. I budget vengono impostati negli ambiti dell'account AWS consolidato e dell'account AWS collegato. Di seguito è riportato un esempio di budget per un account AWS consolidato visualizzati in Gestione costi:
 
-:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Esempio che illustra i budget per un account AWS consolidato" :::
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Esempio della visualizzazione Seleziona ambito con account collegati in un gruppo di gestione" :::
 
 ## <a name="aws-data-collection-process"></a>Processo di raccolta dati di AWS
 
@@ -145,7 +145,7 @@ Questo errore indica che Gestione costi non riesce a chiamare l'API AssumeRole d
 - L'ID esterno corrisponde a quello nella definizione del ruolo e nella definizione del connettore.
 - Il tipo di ruolo è impostato su **Another AWS account Belonging to you or 3rd party** (Un altro account AWS appartenente all'utente o a una terza parte).
 - L'opzione **Require MFA** (Richiedi MFA) è deselezionata.
-- L'account AWS attendibile nel ruolo AWS è _432263259397_.
+- L'account AWS attendibile nel ruolo AWS è _432263259397_ .
 
 ### <a name="collection-failed-with-access-denied---cur-report-definitions"></a>Raccolta non riuscita con accesso negato - Definizioni del report di costi e utilizzo
 
@@ -176,6 +176,12 @@ Questo errore indica che Gestione costi non riesce a trovare il report di costi 
 **Codice errore:** _ReportIsNotValid_
 
 Questo errore è relativo alla definizione del report di costi e utilizzo di AWS. Per questo report sono necessarie impostazioni specifiche. Vedere i requisiti in [Creare un report di costi e utilizzo in AWS](aws-integration-set-up-configure.md#create-a-cost-and-usage-report-in-aws).
+
+### <a name="internal-error-when-creating-connector"></a>Errore interno durante la creazione del connettore
+
+**Codice errore:** _Crea connettore - Non è stato possibile creare il connettore &lt;NomeConnetore&gt;. Motivo: Errore interno. Verificare che siano state specificate le proprietà corrette di AWS._
+
+Questo errore può verificarsi quando il connettore AWS e la sottoscrizione si trovano in gruppi di gestione diversi. Il connettore AWS e la sottoscrizione devono trovarsi nello stesso gruppo di gestione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

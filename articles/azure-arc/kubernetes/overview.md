@@ -9,12 +9,12 @@ ms.author: mlearned
 description: Questo articolo offre una panoramica di Kubernetes con abilitazione di per Azure Arc.
 keywords: Kubernetes, Arc, Azure, contenitori
 ms.custom: references_regions
-ms.openlocfilehash: a4d53614a0ab6783b9adfe395fec4d79e7b62e1c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601fcb096bf2bfeb1a6120015690c9aff4b6177b
+ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/08/2020
-ms.locfileid: "91858422"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92216080"
 ---
 # <a name="what-is-azure-arc-enabled-kubernetes-preview"></a>Che cos'è Kubernetes con abilitazione di Azure Arc (anteprima)?
 
@@ -72,7 +72,7 @@ Kubernetes con abilitazione di Azure Arc è attualmente supportato in queste are
 
     No. Tutte le funzionalità di Kubernetes con abilitazione di Azure Arc, come Monitoraggio di Azure e Criteri di Azure (Gatekeeper) sono disponibili in modalità nativa nel servizio Azure Kubernetes, che include già una rappresentazione di risorse in Azure.
     
-* È necessario connettere ad Azure Arc il cluster del servizio Azure Kubernetes in Azure Stack HCI? E lo stesso vale per i cluster Kubernetes in esecuzione nell'hub di Azure Stack o nel motore di Azure Stack?
+* È necessario connettere ad Azure Arc il cluster del servizio Azure Kubernetes in Azure Stack HCI? E lo stesso vale per i cluster Kubernetes in esecuzione nell'hub di Azure Stack o in Azure Stack Edge?
 
     Sì, la connessione di questi cluster ad Azure Arc presenta dei vantaggi. Fornisce una rappresentazione delle risorse per questi cluster Kubernetes in Azure Resource Manager. Usando questa rappresentazione delle risorse, è possibile estendere a questi cluster funzionalità come la configurazione del cluster, Monitoraggio di Azure, Criteri di Azure (Gatekeeper)
 

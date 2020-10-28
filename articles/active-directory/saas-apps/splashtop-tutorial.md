@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/04/2020
 ms.author: jeedes
-ms.openlocfilehash: 72c7a24f165d48d3ba2ea0dbcc2b41c818e3f1d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 934953437c2d156f220d5b0a1847e16358e3bfb8
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524568"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92126876"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-splashtop"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Splashtop
 
@@ -48,16 +48,16 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di Splashtop in Azure AD è necessario aggiungere Splashtop dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Splashtop** nella casella di ricerca.
 1. Selezionare **Splashtop** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-splashtop"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Splashtop
 
-Configurare e testare l'accesso SSO di Azure AD con Splashtop usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Splashtop.
+Configurare e testare l'accesso SSO di Azure AD con Splashtop usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Splashtop.
 
 Per configurare e testare l'accesso SSO di Azure AD con Splashtop, completare le procedure di base seguenti:
 
@@ -72,8 +72,8 @@ Per configurare e testare l'accesso SSO di Azure AD con Splashtop, completare le
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Splashtop** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina di integrazione dell'applicazione **Splashtop** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
@@ -82,9 +82,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     Nella casella di testo **URL di accesso** digitare l'URL: `https://my.splashtop.com/login/sso`
 
-1. L'applicazione Splashtop prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione TicketManager prevede che **nameidentifier** sia associato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica**.
+1. L'applicazione Splashtop prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname** . L'applicazione TicketManager prevede che **nameidentifier** sia associato a **user.mail** , di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** .
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra il riquadro Attributi utente con l'icona di modifica selezionata.](common/edit-attribute.png)
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -98,58 +98,60 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Crea**.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+   1. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Splashtop.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Splashtop**.
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
+1. Nell'elenco delle applicazioni selezionare **Splashtop** .
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ## <a name="configure-splashtop-sso"></a>Configurare l'accesso Single Sign-On di Splashtop
 
 In questa sezione è necessario richiedere un nuovo metodo per l'accesso Single Sign-On nel [portale Web di Splashtop](https://my.splashtop.com/login).
-1. Nel portale Web di Splashtop passare alla scheda **Account info** / **Team** (Informazioni account/Team) e quindi scorrere fino alla sezione **Single Sign On**. Fare quindi clic su **Apply for new SSO method** (Richiedi nuovo metodo per l'accesso Single Sign-On).
+1. Nel portale Web di Splashtop passare alla scheda **Account info** / **Team** (Informazioni account/Team) e quindi scorrere fino alla sezione **Single Sign On** . Fare quindi clic su **Apply for new SSO method** (Richiedi nuovo metodo per l'accesso Single Sign-On).
 
-    ![image](media/splashtop-tutorial/apply-for-new-SSO-method.png)
+    ![Screenshot che mostra la pagina Single Sign-On in cui è possibile selezionare Apply for new SSO method.](media/splashtop-tutorial/apply-for-new-SSO-method.png)
 
-1. Nella finestra della richiesta assegnare un **nome all'accesso Single Sign-On**, ad esempio Nuovo Azure, quindi selezionare **Azure** come tipo IDP e inserire i valori di **Login URL** (URL di accesso) e **Azure AD Identifier** (Identificatore Azure AD) copiati dall'applicazione Splashtop nel portale di Azure.
+1. Nella finestra della richiesta assegnare un **nome all'accesso Single Sign-On** , ad esempio Nuovo Azure, quindi selezionare **Azure** come tipo IDP e inserire i valori di **Login URL** (URL di accesso) e **Azure AD Identifier** (Identificatore Azure AD) copiati dall'applicazione Splashtop nel portale di Azure.
 
-    ![image](media/splashtop-tutorial/azure-sso-1.png)
+    ![Screenshot che mostra la pagina Apply for SSO method in cui è possibile immettere un nome e altre informazioni.](media/splashtop-tutorial/azure-sso-1.png)
 
 1. Per le informazioni sul certificato, fare clic con il pulsante destro del mouse sul file di certificato scaricato dall'applicazione Splashtop nel portale di Azure, modificarlo nel Blocco note, quindi copiarne il contenuto e incollarlo nel campo **Download Certificate (Base64)** (Scarica certificato (Base64)).
 
-    ![image](media/splashtop-tutorial/cert-1.png) ![image](media/splashtop-tutorial/cert-2.png) ![image](media/splashtop-tutorial/azure-sso-2.png)
+    ![Screenshot che mostra la selezione di un file di certificato e la sua apertura con Blocco note.](media/splashtop-tutorial/cert-1.png)
+    ![Screenshot che mostra il contenuto del file di certificato.](media/splashtop-tutorial/cert-2.png)
+    ![Screenshot che mostra la casella di testo Download Certificate.](media/splashtop-tutorial/azure-sso-2.png)
 
-1. L'operazione è terminata. Fare clic su **Salva**. Si verrà contattati dal team di convalida SSO di Splashtop per le informazioni di verifica, quindi sarà possibile attivare il metodo per l'accesso Single Sign-On.
+1. L'operazione è terminata. Fare clic su **Salva** . Si verrà contattati dal team di convalida SSO di Splashtop per le informazioni di verifica, quindi sarà possibile attivare il metodo per l'accesso Single Sign-On.
 
 ### <a name="create-splashtop-test-user"></a>Creare l'utente di test di Splashtop
 
-1. Dopo l'attivazione del metodo per l'accesso Single Sign-On, selezionare il metodo appena creato per abilitarlo nella sezione **Single Sign-on**.
+1. Dopo l'attivazione del metodo per l'accesso Single Sign-On, selezionare il metodo appena creato per abilitarlo nella sezione **Single Sign-on** .
 
-    ![image](media/splashtop-tutorial/enable.png)
+    ![Screenshot che mostra la pagina Single Sign-On in cui è possibile abilitare il nuovo metodo.](media/splashtop-tutorial/enable.png)
 
 1. Invitare l'utente di test, ad esempio `B.Simon@contoso.com`, al team di Splashtop con il metodo per l'accesso Single Sign-On appena creato.
 
-    ![image](media/splashtop-tutorial/invite.png)
+    ![Screenshot che mostra la pagina Invita utenti in cui è possibile selezionare il nuovo metodo.](media/splashtop-tutorial/invite.png)
 
 1. È anche possibile modificare un account Splashtop esistente in un account SSO, come descritto in queste [istruzioni](https://support-splashtopbusiness.splashtop.com/hc/en-us/articles/360038685691-How-to-associate-SSO-method-to-existing-team-admin-member-).
 

@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 6c76fcc0fefdf8aa3ae97a4c131481f7ea6ada81
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: a9bb3ac7d3028937a422f2cd94aca4f4f4f41b58
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91288852"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92167536"
 ---
 # <a name="use-external-tables-with-synapse-sql"></a>Usare tabelle esterne con Synapse SQL
 
@@ -165,6 +165,8 @@ Creando un formato di file esterno, si specifica il layout effettivo dei dati a 
 
 ### <a name="syntax-for-create-external-file-format"></a>Sintassi per CREATE EXTERNAL FILE FORMAT
 
+#### <a name="sql-pool"></a>[Pool SQL](#tab/sql-pool)
+
 ```syntaxsql
 -- Create an external file format for PARQUET files.  
 CREATE EXTERNAL FILE FORMAT file_format_name  
@@ -193,6 +195,40 @@ WITH (
 }
 ```
 
+#### <a name="sql-on-demand"></a>[SQL su richiesta](#tab/sql-on-demand)
+
+```syntaxsql
+-- Create an external file format for PARQUET files.  
+CREATE EXTERNAL FILE FORMAT file_format_name  
+WITH (  
+    FORMAT_TYPE = PARQUET  
+    [ , DATA_COMPRESSION = {  
+        'org.apache.hadoop.io.compress.SnappyCodec'  
+      | 'org.apache.hadoop.io.compress.GzipCodec'      }  
+    ]);  
+
+--Create an external file format for DELIMITED TEXT files
+CREATE EXTERNAL FILE FORMAT file_format_name  
+WITH (  
+    FORMAT_TYPE = DELIMITEDTEXT  
+    [ , DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec' ]
+    [ , FORMAT_OPTIONS ( <format_options> [ ,...n  ] ) ]  
+    );  
+
+<format_options> ::=  
+{  
+    FIELD_TERMINATOR = field_terminator  
+    | STRING_DELIMITER = string_delimiter
+    | First_Row = integer
+    | USE_TYPE_DEFAULT = { TRUE | FALSE }
+    | Encoding = {'UTF8' | 'UTF16'}
+    | PARSER_VERSION = {'parser_version'}
+}
+```
+
+---
+
+
 ### <a name="arguments-for-create-external-file-format"></a>Argomenti per CREATE EXTERNAL FILE FORMAT
 
 file_format_name: specifica un nome per il formato di file esterno.
@@ -202,7 +238,7 @@ FORMAT_TYPE = [ PARQUET | DELIMITEDTEXT]: specifica il formato dei dati esterni.
 - PARQUET: specifica un formato Parquet.
 - DELIMITEDTEXT: specifica un formato di testo con delimitatori di colonna, detti anche caratteri di terminazione del campo.
 
-FIELD_TERMINATOR = *field_terminator*: si applica solo ai file di testo delimitato. Il carattere di terminazione del campo specifica uno o più caratteri che contrassegnano la fine di ogni campo (colonna) nel file di testo delimitato. Il valore predefinito è il carattere pipe ('|').
+FIELD_TERMINATOR = *field_terminator* : si applica solo ai file di testo delimitato. Il carattere di terminazione del campo specifica uno o più caratteri che contrassegnano la fine di ogni campo (colonna) nel file di testo delimitato. Il valore predefinito è il carattere pipe ('|').
 
 Esempi:
 
@@ -210,7 +246,7 @@ Esempi:
 - FIELD_TERMINATOR = ' '
 - FIELD_TERMINATOR = ꞌ\tꞌ
 
-STRING_DELIMITER = *string_delimiter*: specifica il carattere di terminazione del campo per i dati di tipo stringa nel file di testo delimitato. Il delimitatore di stringa è costituito da uno o più caratteri ed è racchiuso tra virgolette singole. Il valore predefinito è la stringa vuota ("").
+STRING_DELIMITER = *string_delimiter* : specifica il carattere di terminazione del campo per i dati di tipo stringa nel file di testo delimitato. Il delimitatore di stringa è costituito da uno o più caratteri ed è racchiuso tra virgolette singole. Il valore predefinito è la stringa vuota ("").
 
 Esempi:
 
@@ -218,7 +254,7 @@ Esempi:
 - STRING_DELIMITER = '*'
 - STRING_DELIMITER = ꞌ,ꞌ
 
-FIRST_ROW = *First_row_int*: specifica il numero di riga che viene letto per primo e si applica a tutti i file. Se il valore è impostato su due, la prima riga di ogni file (riga di intestazione) viene ignorata quando i dati vengono caricati. Le righe vengono ignorate in base all'esistenza di caratteri di terminazione della riga (r/n, /r, /n).
+FIRST_ROW = *First_row_int* : specifica il numero di riga che viene letto per primo e si applica a tutti i file. Se il valore è impostato su due, la prima riga di ogni file (riga di intestazione) viene ignorata quando i dati vengono caricati. Le righe vengono ignorate in base all'esistenza di caratteri di terminazione della riga (r/n, /r, /n).
 
 USE_TYPE_DEFAULT = { TRUE | **FALSE** }: specifica come gestire i valori mancanti nei file di testo delimitato durante il recupero di dati.
 
@@ -232,7 +268,7 @@ FALSE: archivia tutti i valori mancanti come NULL. Tutti i valori NULL archiviat
 
 Encoding = {'UTF8' | 'UTF16'}: SQL su richiesta può leggere file di testo delimitato con codifica UTF8 e UTF16.
 
-DATA_COMPRESSION = *data_compression_method*: questo argomento specifica il metodo di compressione per i dati esterni. 
+DATA_COMPRESSION = *data_compression_method* : questo argomento specifica il metodo di compressione per i dati esterni. 
 
 Il tipo di formato PARQUET supporta i seguenti metodi di compressione:
 
@@ -244,6 +280,8 @@ Durante la lettura dalle tabelle esterne PARQUET, questo argomento viene ignorat
 Il tipo di formato di file DELIMITEDTEXT supporta il metodo di compressione seguente:
 
 - DATA_COMPRESSION = 'org.apache.hadoop.io.compress.GzipCodec'
+
+PARSER_VERSION = 'parser_version' specifica la versione del parser da usare per la lettura dei file. Per informazioni dettagliate, vedere l'argomento PARSER_VERSION in [Argomenti di OPENROWSET](develop-openrowset.md#arguments).
 
 ### <a name="example-for-create-external-file-format"></a>Esempio di CREATE EXTERNAL FILE FORMAT
 
@@ -285,7 +323,7 @@ column_name <data_type>
 
 Nome della tabella da creare, composto da una, due o tre parti. Per una tabella esterna, SQL su richiesta archivia solo i relativi metadati. Nessun dato effettivo viene archiviato o spostato in SQL su richiesta.
 
-<column_definition>, ...*n* ]
+<column_definition>, ... *n* ]
 
 CREATE EXTERNAL TABLE supporta la possibilità di configurare il nome di colonna, il tipo di dati, il supporto dei valori Null e le regole di confronto. Non è possibile usare DEFAULT CONSTRAINT nelle tabelle esterne.
 
@@ -294,7 +332,7 @@ CREATE EXTERNAL TABLE supporta la possibilità di configurare il nome di colonna
 
 Per la lettura da file Parquet, è possibile specificare solo le colonne da leggere e ignorare il resto.
 
-LOCATION = '*folder_or_filepath*'
+LOCATION = ' *folder_or_filepath* '
 
 Specifica la cartella o il percorso e il nome del file per i dati effettivi in Archiviazione BLOB di Azure. Il percorso inizia dalla cartella radice. La cartella radice è il percorso dei dati specificato nell'origine dati esterna.
 
@@ -307,9 +345,9 @@ In questo esempio, se LOCATION='/webdata/', una query di SQL su richiesta restit
 
 ![Dati ricorsivi per tabelle esterne](./media/develop-tables-external-tables/folder-traversal.png)
 
-DATA_SOURCE = *external_data_source_name*: specifica il nome dell'origine dati esterna che contiene la posizione dei dati esterni. Per creare un'origine dati esterna, usare [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
+DATA_SOURCE = *external_data_source_name* : specifica il nome dell'origine dati esterna che contiene la posizione dei dati esterni. Per creare un'origine dati esterna, usare [CREATE EXTERNAL DATA SOURCE](#create-external-data-source).
 
-FILE_FORMAT = *external_file_format_name*: specifica il nome dell'oggetto formato di file esterno che archivia il tipo di file e il metodo di compressione per i dati esterni. Per creare un formato di file esterno, usare [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
+FILE_FORMAT = *external_file_format_name* : specifica il nome dell'oggetto formato di file esterno che archivia il tipo di file e il metodo di compressione per i dati esterni. Per creare un formato di file esterno, usare [CREATE EXTERNAL FILE FORMAT](#create-external-file-format).
 
 ### <a name="permissions-create-external-table"></a>Autorizzazioni per CREATE EXTERNAL TABLE
 
@@ -351,7 +389,7 @@ Usando le funzionalità di esplorazione di Data Lake, è ora possibile creare ed
 
 - È necessario avere almeno le [autorizzazioni per creare](/sql/t-sql/statements/create-external-table-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest#permissions-2&preserve-view=true) ed eseguire query su tabelle esterne nel pool SQL o in SQL su richiesta
 
-- Il servizio collegato associato all'account di ADLS Gen2 **deve avere accesso al file**. Se ad esempio il meccanismo di autenticazione del servizio collegato è l'identità, l'identità gestita dell'area di lavoro deve disporre almeno dell'autorizzazione di lettura per i dati dei BLOB di archiviazione nell'account di archiviazione
+- Il servizio collegato associato all'account di ADLS Gen2 **deve avere accesso al file** . Se ad esempio il meccanismo di autenticazione del servizio collegato è l'identità, l'identità gestita dell'area di lavoro deve disporre almeno dell'autorizzazione di lettura per i dati dei BLOB di archiviazione nell'account di archiviazione
 
 Nel pannello Dati selezionare il file da cui creare la tabella esterna:
 > [!div class="mx-imgBorder"]

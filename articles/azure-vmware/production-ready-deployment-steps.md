@@ -2,22 +2,23 @@
 title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
-ms.date: 10/02/2020
-ms.openlocfilehash: fe1396c8f256ba8374208febad2afe03a453e5f5
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.date: 10/16/2020
+ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92055087"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147984"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
-In questo articolo viene illustrato il processo di pianificazione per identificare e raccogliere i dati usati durante la distribuzione. [Usare l'elenco di controllo per la pre-distribuzione](pre-deployment-checklist.md) per documentare le informazioni e come riferimento utile durante la distribuzione.  
+In questo articolo viene illustrato il processo di pianificazione per identificare e raccogliere i dati usati durante la distribuzione. Nell'ambito della pianificazione della distribuzione, assicurarsi di documentare le informazioni raccolte per potervi fare riferimento facilmente durante la distribuzione.
 
 I processi di questo avvio rapido consentono di ottenere un ambiente pronto per la produzione per la creazione di macchine virtuali e la migrazione. 
 
 >[!IMPORTANT]
->Prima di creare la risorsa della soluzione Azure VMware, sarà necessario inviare un ticket di supporto per ottenere l'allocazione dei nodi. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare i nodi. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri nodi, sarà necessario seguire lo stesso processo. Per altre informazioni, vedere [Come abilitare la risorsa della soluzione Azure VMware](enable-azure-vmware-solution.md). 
+>Prima di creare la risorsa della soluzione Azure VMware, seguire l'articolo [Come abilitare la risorsa della soluzione Azure VMware](enable-azure-vmware-solution.md) per inviare un ticket di supporto per ottenere l'allocazione dei nodi. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare i nodi. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri nodi, sarà necessario seguire lo stesso processo. 
+
 
 ## <a name="subscription"></a>Subscription
 
@@ -110,8 +111,8 @@ Se si vuole connettere il circuito ExpressRoute dalla soluzione Azure VMware a u
 
 Per riepilogare, si vuole connettere la soluzione Azure VMware a un gateway ExpressRoute esistente?  
 
-* **Sì**: identificare la rete virtuale che non viene usata durante la distribuzione.
-* **No**: identificare una rete virtuale esistente o crearne una nuova durante la distribuzione.
+* **Sì** : identificare la rete virtuale che non viene usata durante la distribuzione.
+* **No** : identificare una rete virtuale esistente o crearne una nuova durante la distribuzione.
 
 In entrambi i casi, è necessario documentare le operazioni da eseguire in questo passaggio.
 

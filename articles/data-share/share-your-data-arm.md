@@ -7,12 +7,12 @@ ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88654107"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146148"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Avvio rapido: Condividere i dati usando Condivisione dati di Azure e modelli di Resource Manager
 
@@ -20,7 +20,7 @@ Informazioni su come configurare una nuova condivisione dati di Azure da un acco
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 
@@ -60,7 +60,7 @@ Questo modello viene creato a scopo di apprendimento. Nella pratica, in genere s
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-Il motivo è che la distribuzione prova a creare il set di dati prima che l'assegnazione del ruolo Controllo degli accessi in base al ruolo venga finalizzata. Nonostante il messaggio di errore, la distribuzione potrebbe riuscire.  Sarà comunque possibile completare l'attività descritta in [Esaminare le risorse distribuite](#review-deployed-resources).
+Il motivo è che la distribuzione prova a creare il set di dati prima che l'assegnazione del ruolo di Azure venga finalizzata. Nonostante il messaggio di errore, la distribuzione potrebbe riuscire.  Sarà comunque possibile completare l'attività descritta in [Esaminare le risorse distribuite](#review-deployed-resources).
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
@@ -69,15 +69,15 @@ Il motivo è che la distribuzione prova a creare il set di dati prima che l'asse
     [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 1. Selezionare o immettere i valori seguenti:
 
-    * **Sottoscrizione**: selezionare una sottoscrizione di Azure usata per creare la condivisione dati e le altre risorse.
-    * **Gruppo di risorse**: selezionare **Crea nuovo** per creare un nuovo gruppo di risorse oppure selezionarne uno esistente.
-    * **Località**: selezionare una località per il gruppo di risorse.
-    * **Nome progetto**: immettere un nome per il progetto.  Il nome del progetto viene usato per generare i nomi delle risorse.  Vedere le definizioni delle variabili nel modello precedente.
-    * **Località**: selezionare una località per le risorse.  È possibile usare la stessa località per il gruppo di risorse.
-    * **Messaggio di posta elettronica di invito**: immettere l'indirizzo di posta elettronica del destinatario della condivisione dati usato per l'accesso ad Azure.  L'alias di posta elettronica non funziona.
+    * **Sottoscrizione** : selezionare una sottoscrizione di Azure usata per creare la condivisione dati e le altre risorse.
+    * **Gruppo di risorse** : selezionare **Crea nuovo** per creare un nuovo gruppo di risorse oppure selezionarne uno esistente.
+    * **Località** : selezionare una località per il gruppo di risorse.
+    * **Nome progetto** : immettere un nome per il progetto.  Il nome del progetto viene usato per generare i nomi delle risorse.  Vedere le definizioni delle variabili nel modello precedente.
+    * **Località** : selezionare una località per le risorse.  È possibile usare la stessa località per il gruppo di risorse.
+    * **Messaggio di posta elettronica di invito** : immettere l'indirizzo di posta elettronica del destinatario della condivisione dati usato per l'accesso ad Azure.  L'alias di posta elettronica non funziona.
 
     Per le impostazioni rimanenti, usare i valori predefiniti.
-1. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista**.
+1. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista** .
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
@@ -87,7 +87,7 @@ Il motivo è che la distribuzione prova a creare il set di dati prima che l'asse
 1. Selezionare l'account di archiviazione.  In **Dettagli** verrà visualizzata l'impostazione di sincronizzazione configurata nel modello.
 
     ![Impostazioni di sincronizzazione dell'account di archiviazione di Condivisione dati di Azure](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
-1. Selezionare **Inviti** nella parte superiore. Verrà visualizzato l'indirizzo di posta elettronica specificato durante la distribuzione del modello. Lo **stato** sarà **In sospeso**.
+1. Selezionare **Inviti** nella parte superiore. Verrà visualizzato l'indirizzo di posta elettronica specificato durante la distribuzione del modello. Lo **stato** sarà **In sospeso** .
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: overview
 ms.date: 06/29/2020
 ms.author: pafarley
-ms.openlocfilehash: 019a9264beddafbd4585810967551e064592e94d
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 4fbfbd1d578eb77d50d91413efb9f9fbf28e115f
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90602524"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92146316"
 ---
 # <a name="whats-new-in-custom-vision"></a>Novità di Visione personalizzata
 
@@ -23,9 +23,9 @@ Ecco cosa c'è di nuovo nel servizio. Le novità possono essere note sulla versi
 
 ## <a name="july-2020"></a>Luglio 2020
 
-### <a name="role-based-access-control"></a>Controllo degli accessi in base al ruolo
+### <a name="azure-role-based-access-control"></a>Controllo degli accessi in base al ruolo di Azure
 
-* Visione personalizzata supporta il controllo degli accessi in base al ruolo di Azure, un sistema di autorizzazione per la gestione dei singoli accessi alle risorse di Azure. Per informazioni su come gestire l'accesso ai progetti di Visione personalizzata, vedere [Controllo degli accessi in base al ruolo](./role-based-access-control.md).
+* Visione personalizzata supporta il controllo degli accessi in base al ruolo di Azure, un sistema di autorizzazione per la gestione dei singoli accessi alle risorse di Azure. Per informazioni su come gestire l'accesso ai progetti di Visione personalizzata, vedere [Controllo degli accessi in base al ruolo di Azure](./role-based-access-control.md).
 
 ### <a name="subset-training"></a>Training su un subset
 

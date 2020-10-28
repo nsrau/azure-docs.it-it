@@ -1,18 +1,18 @@
 ---
 title: 'Esercitazione: Ospitare il dominio e il sottodominio - DNS di Azure'
-description: Questo articolo illustra come configurare DNS di Azure per ospitare le zone DNS.
+description: Questa esercitazione illustra come configurare DNS di Azure per ospitare le zone DNS.
 services: dns
 author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 207254164296d6ed3b0c412c4bf19322ca3ffc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f64ab3141459142def12a1758b0fe0a94ca432
+ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89077994"
+ms.lasthandoff: 10/20/2020
+ms.locfileid: "92282166"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Esercitazione: Ospitare il dominio in DNS di Azure
 
@@ -40,12 +40,12 @@ In questo esempio si farà riferimento al dominio padre come **contoso.net**
 
 ## <a name="create-a-dns-zone"></a>Creare una zona DNS
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) per creare una zona DNS. Cercare e selezionare **Zone DNS**.
+1. Accedere al [portale di Azure](https://portal.azure.com/) per creare una zona DNS. Cercare e selezionare **Zone DNS** .
 
    ![Zona DNS](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
-1. Selezionare **Crea zona DNS**.
-1. Nella pagina **Crea zona DNS** immettere i valori seguenti e quindi selezionare **Crea**: ad esempio, **contoso.net**
+1. Selezionare **Crea zona DNS** .
+1. Nella pagina **Crea zona DNS** immettere i valori seguenti e quindi selezionare **Crea** : ad esempio, **contoso.net**
       > [!NOTE] 
       > Se la nuova zona che si sta creando è una zona figlio (ad esempio, zona padre = contoso.net zona figlio = figlio.contoso.net), fare riferimento all'[esercitazione Creazione di una nuova zona DNS figlio](./tutorial-public-dns-zones-child.md)
 
@@ -63,9 +63,9 @@ In questo esempio si farà riferimento al dominio padre come **contoso.net**
 
 Prima di poter delegare la zona DNS a DNS di Azure, è necessario conoscere i nomi dei server dei nomi per la zona. DNS Azure alloca i server dei nomi da un pool ogni volta che viene creata una zona.
 
-1. Dopo la creazione della zona DNS, nel riquadro **Preferiti** del portale di Azure selezionare **Tutte le risorse**. Nella pagina **Tutte le risorse** selezionare la zona DNS. Se nella sottoscrizione selezionata sono già presenti diverse risorse, è possibile digitare il nome del dominio nella casella **Filtra per nome** per accedere facilmente al gateway applicazione. 
+1. Dopo la creazione della zona DNS, nel riquadro **Preferiti** del portale di Azure selezionare **Tutte le risorse** . Nella pagina **Tutte le risorse** selezionare la zona DNS. Se nella sottoscrizione selezionata sono già presenti diverse risorse, è possibile digitare il nome del dominio nella casella **Filtra per nome** per accedere facilmente al gateway applicazione. 
 
-1. Recuperare i server dei nomi dalla pagina della zona DNS. In questo esempio, alla zona contoso.net sono stati assegnati i server dei nomi *ns1-01.azure-dns.com*, *ns2-01.azure-dns.net*, *ns3-01.azure-dns.org* e *ns4-01.azure-dns.info*:
+1. Recuperare i server dei nomi dalla pagina della zona DNS. In questo esempio, alla zona contoso.net sono stati assegnati i server dei nomi *ns1-01.azure-dns.com* , *ns2-01.azure-dns.net* , *ns3-01.azure-dns.org* e *ns4-01.azure-dns.info* :
 
    ![Elenco dei nomi di server](./media/dns-delegate-domain-azure-dns/viewzonens500.png)
 
@@ -82,7 +82,7 @@ Dopo la creazione della zona DNS e il recupero dei server dei nomi, è necessari
 > [!NOTE]
 > Quando si copia ogni indirizzo di server dei nomi, assicurarsi di copiare il punto finale alla fine dell'indirizzo. Il punto finale indica la fine di un nome di dominio completo. Alcuni registrar aggiungono il punto se il nome del server dei nomi non lo contiene alla fine. Ai fini della conformità a RFC di DNS, includere il punto finale.
 
-Le deleghe che usano server dei nomi nella propria zona, definiti a volte *server dei nomi personali*, non sono attualmente supportate in DNS di Azure.
+Le deleghe che usano server dei nomi nella propria zona, definiti a volte *server dei nomi personali* , non sono attualmente supportate in DNS di Azure.
 
 ## <a name="verify-the-delegation"></a>Verificare il funzionamento della delega
 
@@ -116,7 +116,7 @@ Non è necessario specificare i server dei nomi DNS di Azure. Se la delega è co
 
 È possibile mantenere il gruppo di risorse **contosoRG** se si prevede di eseguire l'esercitazione successiva. In caso contrario, eliminare il gruppo di risorse **contosoRG** per eliminare le risorse create in questa esercitazione.
 
-- Selezionare il gruppo di risorse **contosoRG** e quindi **Elimina gruppo di risorse**. 
+- Selezionare il gruppo di risorse **contosoRG** e quindi **Elimina gruppo di risorse** . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

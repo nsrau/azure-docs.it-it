@@ -6,12 +6,12 @@ ms.author: marobert
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.service: azure-communication-services
-ms.openlocfilehash: bb0af58c9abc4fad701b1d0927f4c13e1fdcca49
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 48a3972d7b7db3f0c68866f23d6deca0bbce2e35
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91377528"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92157969"
 ---
 In questo argomento di avvio rapido si apprenderà come avviare una chiamata usando la libreria client Chiamate di Servizi di comunicazione di Azure per iOS.
 
@@ -28,7 +28,7 @@ Per completare questa esercitazione sono necessari i prerequisiti seguenti:
 
 ### <a name="creating-the-xcode-project"></a>Creazione del progetto Xcode
 
-In Xcode creare un nuovo progetto iOS e selezionare il modello **Single View Application**. Questa esercitazione usa il [framework SwiftUI](https://developer.apple.com/xcode/swiftui/), quindi è necessario impostare **Linguaggio** su **Swift** e **Interfaccia utente** su **SwiftUI**. In questo argomento di avvio rapido non verranno creati test. È possibile deselezionare **Includi test**.
+In Xcode creare un nuovo progetto iOS e selezionare il modello **Single View Application** . Questa esercitazione usa il [framework SwiftUI](https://developer.apple.com/xcode/swiftui/), quindi è necessario impostare **Linguaggio** su **Swift** e **Interfaccia utente** su **SwiftUI** . In questo argomento di avvio rapido non verranno creati test. È possibile deselezionare **Includi test** .
 
 :::image type="content" source="../media/ios/xcode-new-ios-project.png" alt-text="Screenshot che mostra la finestra relativa al nuovo progetto in Xcode.":::
 
@@ -43,8 +43,8 @@ Aggiungere la libreria client Chiamate di Servizi di comunicazione di Azure e le
 2. In Xcode fare clic sul file di progetto e selezionare la destinazione di compilazione per aprire l'editor delle impostazioni.
 3. Nella scheda **General** (Generale) scorrere fino alla sezione **Frameworks, Libraries, and Embedded Content** (Framework, librerie e contenuto incorporato) e fare clic sull'icona **"+"** .
 4. In basso a sinistra nella finestra di dialogo scegliere **Add Files** (Aggiungi file) nel menu a discesa e passare alla directory **AzureCommunicationCalling.framework** del pacchetto della libreria client decompresso.
-    1. Ripetere l'ultimo passaggio per aggiungere **AzureCore.framework** e **AzureCommunication.framework**.
-5. Aprire la scheda **Build Settings** (Impostazioni di compilazione) dell'editor di impostazioni del progetto e scorrere fino alla sezione **Search Paths** (Percorsi di ricerca). Aggiungere una nuova voce **Framework Search Paths** per la directory contenente **AzureCommunicationCalling.framework**.
+    1. Ripetere l'ultimo passaggio per aggiungere **AzureCore.framework** e **AzureCommunication.framework** .
+5. Aprire la scheda **Build Settings** (Impostazioni di compilazione) dell'editor di impostazioni del progetto e scorrere fino alla sezione **Search Paths** (Percorsi di ricerca). Aggiungere una nuova voce **Framework Search Paths** per la directory contenente **AzureCommunicationCalling.framework** .
     1. Aggiungere un'altra voce nei percorsi di ricerca di framework che punta alla cartella contenente le dipendenze.
 
 :::image type="content" source="../media/ios/xcode-framework-search-paths.png" alt-text="Screenshot che mostra la finestra relativa al nuovo progetto in Xcode.":::
@@ -125,7 +125,7 @@ Le classi e le interfacce seguenti gestiscono alcune delle principali funzionali
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-Inizializzare un'istanza di `CallAgent` con un token di accesso utente, che consentirà di effettuare e ricevere chiamate. Aggiungere il codice seguente al callback `onAppear` in **ContentView.swift**:
+Inizializzare un'istanza di `CallAgent` con un token di accesso utente, che consentirà di effettuare e ricevere chiamate. Aggiungere il codice seguente al callback `onAppear` in **ContentView.swift** :
 
 ```swift
 var userCredential: CommunicationUserCredential?

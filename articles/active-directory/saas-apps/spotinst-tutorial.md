@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: 3b8297175c24aac132fd7d83580e0889e0da4730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4028cb8d4f206a0e62dda1cb130cc55e71831c78
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88587957"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92123131"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-spotinst"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Spotinst
 
@@ -46,15 +46,15 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di Spotinst in Azure AD, è necessario aggiungere Spotinst dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Spotinst** nella casella di ricerca.
 1. Selezionare **Spotinst** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-spotinst"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Spotinst
 
-Configurare e testare l'accesso SSO di Azure AD con Spotinst usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Spotinst.
+Configurare e testare l'accesso SSO di Azure AD con Spotinst usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Spotinst.
 
 Per configurare e testare l'accesso SSO di Azure AD con Spotinst, completare le procedure di base seguenti:
 
@@ -69,8 +69,8 @@ Per configurare e testare l'accesso SSO di Azure AD con Spotinst, completare le 
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Spotinst** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina di integrazione dell'applicazione **Spotinst** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
@@ -78,10 +78,10 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 1. Nella sezione **Configurazione SAML di base** completare questa procedura se si vuole configurare l'applicazione nella modalità avviata da IDP:
 
    1. Assicurarsi che **URL di risposta** sia impostato su: https://console.spotinst.com/auth/saml.
-   1. In **Stato dell'inoltro** immettere l'ID organizzazione di Spotinst, che è possibile confermare anche nella scheda **SSO**.
+   1. In **Stato dell'inoltro** immettere l'ID organizzazione di Spotinst, che è possibile confermare anche nella scheda **SSO** .
    1. Il campo **URL di accesso** deve essere vuoto.
 
-1. Fare clic su **Salva**.
+1. Fare clic su **Salva** .
 
 1. L'applicazione Spotinst prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
@@ -107,39 +107,39 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Crea**.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+   1. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Spotinst.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco di applicazioni selezionare **Spotinst**.
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
+1. Nell'elenco di applicazioni selezionare **Spotinst** .
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ## <a name="configure-spotinst-sso"></a>Configurare l'accesso Single Sign-On di Spotinst
 
 1. In un'altra finestra del Web browser accedere a Spotinst come amministratore della sicurezza.
 
-2. Fare clic sull'**icona utente** in alto a destra nella schermata e fare clic su **Settings** (Impostazioni).
+2. Fare clic sull' **icona utente** in alto a destra nella schermata e fare clic su **Settings** (Impostazioni).
 
-    ![Impostazioni di Spotinst](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
+    ![Screenshot che mostra l'opzione Settings selezionata dall'icona dell'utente.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
 3. Fare clic sulla scheda **SECURITY** (SICUREZZA) nella parte superiore e quindi selezionare **Identity Providers** (Provider di identità) e seguire questa procedura:
 
@@ -149,35 +149,35 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     b. Fare clic su **BROWSE** (SFOGLIA) per caricare il file XML di metadati scaricato dal portale di Azure
 
-    c. Fare clic su **SALVA**.
+    c. Fare clic su **SALVA** .
 
 ### <a name="create-spotinst-test-user"></a>Creare un utente di test di Spotinst
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Spotinst.
 
-1. Se l'applicazione è stata configurata in modalità avviata da **SP**, seguire questa procedura:
+1. Se l'applicazione è stata configurata in modalità avviata da **SP** , seguire questa procedura:
 
    a. In un'altra finestra del Web browser accedere a Spotinst come amministratore della sicurezza.
 
-   b. Fare clic sull'**icona utente** in alto a destra nella schermata e fare clic su **Settings** (Impostazioni).
+   b. Fare clic sull' **icona utente** in alto a destra nella schermata e fare clic su **Settings** (Impostazioni).
 
-    ![Impostazioni di Spotinst](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
+    ![Screenshot che mostra l'opzione Settings selezionata dall'icona dell'utente.](./media/spotinst-tutorial/tutorial_spotinst_settings.png)
 
     c. Fare clic su **Users** (Utenti) e selezionare **ADD USER** (AGGIUNGI UTENTE).
 
-    ![Impostazioni di Spotinst](./media/spotinst-tutorial/adduser1.png)
+    ![Screenshot che mostra l'opzione ADD USER selezionata in Users.](./media/spotinst-tutorial/adduser1.png)
 
     d. Nella sezione Add User (Aggiungi utente) seguire questa procedura:
 
-    ![Impostazioni di Spotinst](./media/spotinst-tutorial/adduser2.png)
+    ![Screenshot che mostra la sezione Add User in cui è possibile immettere i valori descritti.](./media/spotinst-tutorial/adduser2.png)
 
-    * Nella casella di testo **Full Name** (Nome completo) immettere nome e cognome dell'utente, ad esempio **BrittaSimon**.
+    * Nella casella di testo **Full Name** (Nome completo) immettere nome e cognome dell'utente, ad esempio **BrittaSimon** .
 
     * Nella casella di testo **Email** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio `brittasimon\@contoso.com`.
 
     * Selezionare i dettagli specifici dell'organizzazione per **Organization Role, Account Role e Accounts** (Ruolo organizzazione, Ruolo account e Account).
 
-2. Se l'applicazione è stata configurata nella modalità avviata da **IDP**, non è necessario alcun intervento dell'utente in questa sezione. Spotinst supporta il provisioning JIT, che è abilitato per impostazione predefinita. Se non esiste già, un nuovo utente viene creato durante un tentativo di accesso a Spotinst.
+2. Se l'applicazione è stata configurata nella modalità avviata da **IDP** , non è necessario alcun intervento dell'utente in questa sezione. Spotinst supporta il provisioning JIT, che è abilitato per impostazione predefinita. Se non esiste già, un nuovo utente viene creato durante un tentativo di accesso a Spotinst.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

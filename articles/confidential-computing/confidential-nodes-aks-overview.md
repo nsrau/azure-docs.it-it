@@ -7,21 +7,20 @@ ms.service: container-service
 ms.topic: overview
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 2aa30f86b32005b9c85664b5bb2d0772a6e5f443
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: a009cd7763b4a4dc0c502d4c47a20d6fdffe61d7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940770"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92125442"
 ---
 # <a name="confidential-computing-nodes-on-azure-kubernetes-service-public-preview"></a>Nodi di confidential computing nel servizio Azure Kubernetes (anteprima pubblica)
 
-Il [confidential computing di Azure](overview.md) consente di proteggere i dati sensibili durante l'uso. Le infrastrutture sottostanti proteggono questi dati da altre applicazioni, amministratori e provider di servizi cloud. 
+Il [confidential computing di Azure](overview.md) consente di proteggere i dati sensibili durante l'uso. Le infrastrutture sottostanti proteggono questi dati da altre applicazioni, amministratori e provider di servizi cloud con ambienti di contenitori TEE (Trusted Execution Environment) supportati da hardware.
 
 ## <a name="overview"></a>Panoramica
 
-Il servizio Azure Kubernetes supporta l'aggiunta di [nodi di confidential computing DCsv2](confidential-computing-enclaves.md) in Intel SGX. Questi nodi eseguono carichi di lavoro sensibili in un ambiente TEE (Trusted Execution Environment) consentendo al codice a livello di utente di allocare aree di memoria private. Queste aree di memoria private sono dette enclave. Le enclave sono progettate per proteggere il codice e i dati dai processi in esecuzione con privilegi più elevati. Il modello di esecuzione SGX rimuove i livelli intermedi del sistema operativo guest e dell'hypervisor. Questo consente di eseguire applicazioni contenitore direttamente sulla CPU, mantenendo al tempo stesso il blocco speciale di memoria crittografato. 
-
+Il servizio Azure Kubernetes supporta l'aggiunta di [nodi di confidential computing DCsv2](confidential-computing-enclaves.md) con tecnologia Intel SGX. Questi nodi eseguono carichi di lavoro sensibili in un ambiente TEE (Trusted Execution Environment) basato su hardware consentendo al codice a livello di utente di allocare aree di memoria private. Queste aree di memoria private sono dette enclave. Le enclave sono progettate per proteggere il codice e i dati dai processi in esecuzione con privilegi più elevati. Il modello di esecuzione SGX rimuove i livelli intermedi del sistema operativo guest, del sistema operativo host e dell'hypervisor. Il modello di *esecuzione isolata basato su hardware per contenitore* consente l'esecuzione diretta delle applicazioni con la CPU, mantenendo al tempo stesso il blocco di memoria speciale crittografato. I nodi di confidential computing sono utili ai fini della postura generale di sicurezza delle applicazioni contenitore nel servizio Azure Kubernetes e rappresentano un'aggiunta valida alla strategia con difesa in profondità per i contenitori. 
 
 ![Panoramica dei nodi SGX](./media/confidential-nodes-aks-overview/sgxaksnode.jpg)
 
@@ -36,7 +35,7 @@ Il servizio Azure Kubernetes supporta l'aggiunta di [nodi di confidential comput
 - Supporto dell'attestazione out-of-process tramite il DaemonSet del servizio Azure Kubernetes
 - Supporto dei contenitori Linux tramite i nodi di lavoro di VM Ubuntu 18.04 Gen 2
 
-## <a name="aks-provided-daemon-sets"></a>DaemonSet forniti dal servizio Azure Kubernetes
+## <a name="aks-provided-daemon-sets-addon"></a>DaemonSet forniti dal servizio Azure Kubernetes (componente aggiuntivo)
 
 #### <a name="sgx-device-plugin"></a>Plug-in del dispositivo SGX <a id="sgx-plugin"></a>
 

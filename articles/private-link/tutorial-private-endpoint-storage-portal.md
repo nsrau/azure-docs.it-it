@@ -1,18 +1,18 @@
 ---
 title: 'Esercitazione: Connettersi a un account di archiviazione con un endpoint privato di Azure'
 titleSuffix: Azure Private Link
-description: Introduzione all'endpoint privato di Azure, che consente di connettersi privatamente a un account di archiviazione.
+description: Questa esercitazione illustra come usare l'endpoint privato di Azure per connettersi privatamente a un account di archiviazione.
 author: asudbring
 ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 9/25/2020
-ms.openlocfilehash: 69bee753c2134b6eebe9c5df0a554c965208ad7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64856d0c9a06f57eb25a0cbc9279d1c09992f0d3
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91366211"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147596"
 ---
 # <a name="tutorial-connect-to-a-storage-account-using-an-azure-private-endpoint"></a>Esercitazione: Connettersi a un account di archiviazione con un endpoint privato di Azure
 
@@ -28,6 +28,10 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
+## <a name="prerequisites"></a>Prerequisiti
+
+* Una sottoscrizione di Azure
+
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al [portale di Azure](https://portal.azure.com).
@@ -40,7 +44,7 @@ L'host bastion verrà usato per connettersi in modo sicuro alla macchina virtual
 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Rete virtuale** o cercare **Rete virtuale** nella casella di ricerca.
 
-2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
+2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale** :
 
     | **Impostazione**          | **Valore**                                                           |
     |------------------|-----------------------------------------------------------------|
@@ -49,7 +53,7 @@ L'host bastion verrà usato per connettersi in modo sicuro alla macchina virtual
     | Gruppo di risorse   | Selezionare **MyResourceGroup** |
     | **Dettagli istanza** |                                                                 |
     | Nome             | Immettere **myVNet**                                    |
-    | Region           | Selezionare **Stati Uniti orientali**. |
+    | Region           | Selezionare **Stati Uniti orientali** . |
 
 3. Selezionare la scheda **Indirizzi IP** oppure il pulsante **Avanti: Indirizzi IP** nella parte inferiore della pagina.
 
@@ -59,7 +63,7 @@ L'host bastion verrà usato per connettersi in modo sicuro alla macchina virtual
     |--------------------|----------------------------|
     | Spazio indirizzi IPv4 | Immettere **10.1.0.0/16** |
 
-5. In **Nome subnet** selezionare la parola **predefinito**.
+5. In **Nome subnet** selezionare la parola **predefinito** .
 
 6. In **Modifica subnet** immettere queste informazioni:
 
@@ -68,20 +72,20 @@ L'host bastion verrà usato per connettersi in modo sicuro alla macchina virtual
     | Nome della subnet | Immettere **mySubnet** |
     | Intervallo di indirizzi subnet | Immettere **10.1.0.0/24** |
 
-7. Selezionare **Salva**.
+7. Selezionare **Salva** .
 
-8. Selezionare la scheda **Sicurezza**.
+8. Selezionare la scheda **Sicurezza** .
 
-9. In **BastionHost** selezionare **Abilita**. Immettere le informazioni seguenti:
+9. In **BastionHost** selezionare **Abilita** . Immettere le informazioni seguenti:
 
     | Impostazione            | valore                      |
     |--------------------|----------------------------|
     | Nome bastion | Immettere **myBastionHost** |
     | Spazio indirizzi della subnet AzureBastionSubnet | Immettere **10.1.1.0/24** |
-    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. </br> Per **Nome** immettere **myBastionIP**. </br> Selezionare **OK**. |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo** . </br> Per **Nome** immettere **myBastionIP** . </br> Selezionare **OK** . |
 
 
-8. Selezionare la scheda **Rivedi e crea** oppure il pulsante **Rivedi e crea**.
+8. Selezionare la scheda **Rivedi e crea** oppure il pulsante **Rivedi e crea** .
 
 9. Selezionare **Create** (Crea).
 
@@ -92,7 +96,7 @@ In questa sezione si creerà una macchina virtuale che verrà usata per testare 
 
 1. Nell'angolo in alto a sinistra del portale selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale** oppure cercare **Macchina virtuale** nella casella di ricerca.
    
-2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
+2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base** :
 
     | Impostazione | Valore                                          |
     |-----------------------|----------------------------------|
@@ -101,7 +105,7 @@ In questa sezione si creerà una macchina virtuale che verrà usata per testare 
     | Gruppo di risorse | Selezionare **MyResourceGroup** |
     | **Dettagli istanza** |  |
     | Nome macchina virtuale | Immettere **myVM** |
-    | Area | Selezionare **Stati Uniti orientali**. |
+    | Area | Selezionare **Stati Uniti orientali** . |
     | Opzioni di disponibilità | Selezionare **La ridondanza dell'infrastruttura non è richiesta** |
     | Immagine | Selezionare **Windows Server 2019 Datacenter - Gen1** |
     | Istanza Spot di Azure | Selezionare **No** |
@@ -111,7 +115,7 @@ In questa sezione si creerà una macchina virtuale che verrà usata per testare 
     | Password | Immettere una password |
     | Conferma password | Reimmettere la password |
 
-3. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**.
+3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete** .
   
 4. Nella scheda Rete selezionare o immettere:
 
@@ -120,13 +124,13 @@ In questa sezione si creerà una macchina virtuale che verrà usata per testare 
     | **Interfaccia di rete** |  |
     | Rete virtuale | **myVNet** |
     | Subnet | **mySubnet** |
-    | IP pubblico | Selezionare **Nessuno**. |
+    | IP pubblico | Selezionare **Nessuno** . |
     | Gruppo di sicurezza di rete della scheda di interfaccia di rete | **Base**|
-    | Porte in ingresso pubbliche | Selezionare **Nessuno**. |
+    | Porte in ingresso pubbliche | Selezionare **Nessuno** . |
    
-5. Selezionare **Rivedi e crea**. 
+5. Selezionare **Rivedi e crea** . 
   
-6. Rivedere le impostazioni e quindi selezionare **Crea**.
+6. Rivedere le impostazioni e quindi selezionare **Crea** .
 
 ## <a name="create-storage-account-with-a-private-endpoint"></a>Creare un account di archiviazione con un endpoint privato
 
@@ -142,17 +146,17 @@ In questa sezione si creerà un account di archiviazione e si configurerà l'end
     | Subscription | Selezionare la sottoscrizione ad Azure |
     | Gruppo di risorse | Selezionare **MyResourceGroup** |
     | **Dettagli istanza** |  |
-    | Nome account di archiviazione | Immettere **mystorageaccount**. Se il nome non è disponibile, immetterne un altro univoco. |
-    | Location | Selezionare **Stati Uniti orientali**. |
+    | Nome account di archiviazione | Immettere **mystorageaccount** . Se il nome non è disponibile, immetterne un altro univoco. |
+    | Location | Selezionare **Stati Uniti orientali** . |
     | Prestazioni | Lasciare l'impostazione predefinita **Standard** |
     | Tipologia account | Lasciare l'impostazione predefinita **Archiviazione (utilizzo generico v2)** |
     | Replica| Lasciare l'impostazione predefinita **Archiviazione con ridondanza geografica e accesso in lettura** |
    
-3. Selezionare la scheda **Rete** oppure il pulsante **Avanti: Rete**.
+3. Selezionare la scheda **Rete** oppure il pulsante **Avanti: Rete** .
 
-4. Nella scheda **Rete** selezionare **Endpoint privato** in **Metodo di connettività**.
+4. Nella scheda **Rete** selezionare **Endpoint privato** in **Metodo di connettività** .
 
-5. In **Endpoint privato** selezionare **+ Aggiungi**.
+5. In **Endpoint privato** selezionare **+ Aggiungi** .
 
 6. In **Crea endpoint privato** immettere o selezionare le informazioni seguenti:
 
@@ -160,7 +164,7 @@ In questa sezione si creerà un account di archiviazione e si configurerà l'end
     |-----------------------|----------------------------------|
     | Subscription | Selezionare la sottoscrizione ad Azure |
     | Gruppo di risorse | Selezionare **MyResourceGroup** |
-    | Location | Selezionare **Stati Uniti orientali**. |
+    | Location | Selezionare **Stati Uniti orientali** . |
     | Nome | Immettere **myPrivateEndpoint** |
     | Sottorisorsa di archiviazione | Lasciare l'impostazione predefinita **BLOB** |
     | **Rete** |  |
@@ -170,21 +174,21 @@ In questa sezione si creerà un account di archiviazione e si configurerà l'end
     | Integra con la zona DNS privato | Lasciare l'impostazione predefinita **Sì** |
     | Zona DNS privato | Lasciare l'impostazione predefinita (Nuovo) privatelink.blob.core.windows.net |
 
-7. Selezionare **OK**.
+7. Selezionare **OK** .
 
-8. Selezionare **Rivedi e crea**.
+8. Selezionare **Rivedi e crea** .
 
 9. Selezionare **Create** (Crea).
 
 10. Selezionare **Gruppi di risorse** nel riquadro di spostamento sinistro.
 
-11. Selezionare **myResourceGroup**.
+11. Selezionare **myResourceGroup** .
 
 12. Selezionare l'account di archiviazione creato nei passaggi precedenti.
 
-13. Nella sezione **Impostazioni** dell'account di archiviazione selezionare **Chiavi di accesso**.
+13. Nella sezione **Impostazioni** dell'account di archiviazione selezionare **Chiavi di accesso** .
 
-14. Selezionare Copia in **Stringa di connessione** per **key1**.
+14. Selezionare Copia in **Stringa di connessione** per **key1** .
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testare la connettività con l'endpoint privato
 
@@ -192,13 +196,13 @@ In questa sezione si userà la macchina virtuale creata nel passaggio precedente
 
 1. Selezionare **Gruppi di risorse** nel riquadro di spostamento sinistro.
 
-2. Selezionare **myResourceGroup**.
+2. Selezionare **myResourceGroup** .
 
-3. Selezionare **myVM**.
+3. Selezionare **myVM** .
 
-4. Nella pagina di panoramica di **myVM** selezionare **Connetti** e quindi **Bastion**.
+4. Nella pagina di panoramica di **myVM** selezionare **Connetti** e quindi **Bastion** .
 
-5. Selezionare il pulsante blu **Usa Bastion**.
+5. Selezionare il pulsante blu **Usa Bastion** .
 
 6. Immettere il nome utente e la password specificati durante la creazione della macchina virtuale.
 
@@ -216,41 +220,41 @@ In questa sezione si userà la macchina virtuale creata nel passaggio precedente
     Aliases:  mystorageaccount8675.blob.core.windows.net
     ```
 
-    Per il nome dell'account di archiviazione viene restituito l'indirizzo IP privato **10.1.0.5**.  Questo indirizzo si trova nella subnet della rete virtuale creata in precedenza.
+    Per il nome dell'account di archiviazione viene restituito l'indirizzo IP privato **10.1.0.5** .  Questo indirizzo si trova nella subnet della rete virtuale creata in precedenza.
 
 9. Installare [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=windows) nella macchina virtuale.
 
-10. Selezionare **Fine** dopo aver installato **Microsoft Azure Storage Explorer**.  Lasciare selezionata la casella per aprire l'applicazione.
+10. Selezionare **Fine** dopo aver installato **Microsoft Azure Storage Explorer** .  Lasciare selezionata la casella per aprire l'applicazione.
 
-11. Nella schermata **Connetti ad Archiviazione di Azure** selezionare **Usa una stringa di connessione**.
+11. Nella schermata **Connetti ad Archiviazione di Azure** selezionare **Usa una stringa di connessione** .
 
-12. Selezionare **Avanti**.
+12. Selezionare **Avanti** .
 
-13. Immettere il nome dell'account di archiviazione dei passaggi precedenti **Nome visualizzato**.
+13. Immettere il nome dell'account di archiviazione dei passaggi precedenti **Nome visualizzato** .
 
 14. Nella casella sotto **Stringa di connessione** incollare la stringa di connessione dell'account di archiviazione copiata nei passaggi precedenti.
 
-15. Selezionare **Avanti**.
+15. Selezionare **Avanti** .
 
-16. Verificare se le impostazioni sono corrette in **Riepilogo connessione**.  
+16. Verificare se le impostazioni sono corrette in **Riepilogo connessione** .  
 
-17. Selezionare **Connetti**.
+17. Selezionare **Connetti** .
 
-18. Chiudere la connessione a **myVM**.
+18. Chiudere la connessione a **myVM** .
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se non si intende continuare a usare questa applicazione, eliminare la rete virtuale, la macchina virtuale e l'account di archiviazione seguendo questa procedura:
 
-1. Nel menu a sinistra selezionare **Gruppi di risorse**.
+1. Nel menu a sinistra selezionare **Gruppi di risorse** .
 
-2. Selezionare **myResourceGroup**.
+2. Selezionare **myResourceGroup** .
 
-3. Selezionare **Elimina gruppo di risorse**.
+3. Selezionare **Elimina gruppo di risorse** .
 
-4. In **DIGITARE IL NOME DEL GRUPPO DI RISORSE** immettere **myResourceGroup**.
+4. In **DIGITARE IL NOME DEL GRUPPO DI RISORSE** immettere **myResourceGroup** .
 
-5. Selezionare **Elimina**.
+5. Selezionare **Elimina** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

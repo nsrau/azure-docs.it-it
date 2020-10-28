@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
-ms.openlocfilehash: d9ef069291f010db510d626ceda959a0342c39e2
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 2e5c588db6f372a50b2a80afd8a2a023ece34502
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91305784"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92203621"
 ---
 # <a name="quickstart-set-up-saml-based-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare l'accesso Single Sign-On (SSO) basato su SAML per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -43,7 +43,7 @@ Una volta completata l'aggiunta di un'applicazione al tenant di Azure AD, viene 
 
 Per configurare l'accesso Single Sign-On per un'applicazione:
 
-1. Nel portale di Azure AD selezionare **Applicazioni aziendali**. Quindi trovare e selezionare l'applicazione da configurare per l'accesso Single Sign-On.
+1. Nel portale di Azure AD selezionare **Applicazioni aziendali** . Quindi trovare e selezionare l'applicazione da configurare per l'accesso Single Sign-On.
 1. Nella sezione **Gestisci** selezionare **Single Sign-On** per aprire il riquadro **Single Sign-On** per la modifica.
 
     > [!IMPORTANT]
@@ -68,7 +68,7 @@ Per configurare l'accesso Single Sign-On per un'applicazione:
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine di questa serie di argomenti di avvio rapido, è consigliabile eliminare l'app per pulire il tenant di test. La procedura di eliminazione dell'app è illustrata nell'ultimo argomento di avvio rapido di questa serie. Vedere [Eliminare un'app](delete-application-portal.md).
+Al termine di questa serie di guide di avvio rapido, è consigliabile eliminare l'app per pulire il tenant di test. La procedura di eliminazione dell'app è illustrata nell'ultimo argomento di avvio rapido di questa serie. Vedere [Eliminare un'app](delete-application-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: c8c64dadebb092d7f376fd2b6590b26f4dde0ee0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 9343d3fa82302711311d8db3672713fa80fab1f7
+ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90998478"
+ms.lasthandoff: 10/16/2020
+ms.locfileid: "92122178"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes con nodi di confidential computing tramite l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -75,7 +75,7 @@ az provider register --namespace Microsoft.ContainerService
 
 Se si ha già un cluster del servizio Azure Kubernetes che soddisfa i requisiti elencati sopra, [passare alla sezione relativa al cluster esistente](#existing-cluster) per aggiungere un nuovo pool di nodi di confidential computing.
 
-Creare prima di tutto un gruppo di risorse per il cluster usando il comando az group create. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *westus2*:
+Creare prima di tutto un gruppo di risorse per il cluster usando il comando az group create. L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nell'area *westus2* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location westus2
@@ -118,6 +118,8 @@ Passare alla sezione [Hello World da un'applicazione enclave isolata](#hello-wor
 ```azurecli-interactive
 az aks update --enable-addons confcom --resource-group myResourceGroup --name myAKSCluster
 ```
+
+![Creazione di un cluster del servizio Azure Kubernetes DCSv2](./media/confidential-nodes-aks-overview/CLIAKSProvisioning.gif)
 
 ## <a name="adding-confidential-computing-node-to-existing-aks-cluster"></a>Aggiunta di nodi di confidential computing al cluster del servizio Azure Kubernetes esistente<a id="existing-cluster"></a>
 

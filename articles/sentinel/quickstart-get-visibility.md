@@ -1,6 +1,6 @@
 ---
 title: 'Avvio rapido: Introduzione ad Azure Sentinel'
-description: Questa guida di avvio rapido illustra come usare Azure Sentinel per visualizzare e monitorare rapidamente gli eventi che si verificano nell'ambiente. 
+description: Questa guida di avvio rapido illustra come usare Azure Sentinel per visualizzare e monitorare rapidamente gli eventi che si verificano nell'ambiente.
 services: sentinel
 author: yelevin
 manager: rkarlin
@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90889128"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92208227"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Avvio rapido: Introduzione ad Azure Sentinel
 
@@ -44,7 +44,7 @@ Il corpo principale della pagina di panoramica offre informazioni dettagliate a 
 
    ![Mappa del traffico dannoso](./media/qs-get-visibility/map.png)
 
-- **Eventi imprevisti recenti**: per visualizzare gli eventi imprevisti recenti, la relativa gravità e il numero di avvisi associati all'evento imprevisto. La comparsa di un picco improvviso di un tipo specifico di avviso potrebbe indicare un attacco attivo in corso. Ad esempio, se è visibile un picco improvviso di 20 eventi Pass-the-Hash da Microsoft Defender for Identity (in precedenza Azure ATP), l'organizzazione potrebbe essere sotto attacco.
+- **Eventi imprevisti recenti** : per visualizzare gli eventi imprevisti recenti, la relativa gravità e il numero di avvisi associati all'evento imprevisto. La comparsa di un picco improvviso di un tipo specifico di avviso potrebbe indicare un attacco attivo in corso. Ad esempio, se è visibile un picco improvviso di 20 eventi Pass-the-Hash da Microsoft Defender for Identity (in precedenza Azure ATP), l'organizzazione potrebbe essere sotto attacco.
 
 - **Data source anomalies** (Anomalie dell'origine dati): gli analisti di dati di Microsoft hanno creato modelli che cercano continuamente anomalie nei dati provenienti dalle origini dati. Se non sono presenti anomalie, non compare nulla. Se vengono rilevate anomalie, è necessario approfondire per capire cosa è successo. Ad esempio, fare clic sul picco nelle attività di Azure. È possibile fare clic su **Chart** (Grafico) per vedere quando si è verificato il picco e quindi filtrare le attività che si sono verificate in quel periodo di tempo per vedere cosa ha causato il picco.
 
@@ -54,10 +54,10 @@ Il corpo principale della pagina di panoramica offre informazioni dettagliate a 
 
 Le cartelle di lavoro predefinite offrono dati integrati provenienti dalle origini dati connesse e consentono quindi di esaminare in modo approfondito gli eventi generati in tali servizi. Sono disponibili cartelle di lavoro predefinite per Azure AD, eventi relativi ad attività di Azure ed eventi locali, che possono essere dati di eventi di Windows provenienti da server, avvisi proprietari, eventuali terze parti, inclusi i log del traffico firewall, Office 365 e protocolli non sicuri basati su eventi di Windows. Le cartelle di lavoro sono basate sulle cartelle di lavoro di Monitoraggio di Azure per offrire una maggiore personalizzazione e flessibilità durante la progettazione di una cartella di lavoro personalizzata. Per altre informazioni, vedere l'articolo sulle [cartelle di lavoro](../azure-monitor/platform/workbooks-overview.md).
 
-1. In **Impostazioni** selezionare **Cartelle di lavoro**. In **Installate** è possibile visualizzare tutte le cartelle di lavoro installate. In **Tutte** è possibile visualizzare l'intera raccolta di cartelle di lavoro predefinite disponibili per l'installazione. 
+1. In **Impostazioni** selezionare **Cartelle di lavoro** . In **Installate** è possibile visualizzare tutte le cartelle di lavoro installate. In **Tutte** è possibile visualizzare l'intera raccolta di cartelle di lavoro predefinite disponibili per l'installazione. 
 2. Cercare una cartella di lavoro specifica per visualizzare l'elenco completo e una descrizione delle caratteristiche di ognuna. 
 3. Supponendo che si usi Azure AD, per iniziare a usare Azure Sentinel è consigliabile installare almeno le cartelle di lavoro seguenti:
-   - **Azure AD**: usare uno dei seguenti o entrambi:
+   - **Azure AD** : usare uno dei seguenti o entrambi:
        - **Azure AD sign-ins** (Accessi ad Azure AD) analizza gli accessi nel tempo per verificare se esistono anomalie. Questa cartella di lavoro segnala i tentativi di accesso non riusciti da parte di applicazioni, dispositivi e posizioni in modo, permettendo di notare immediatamente eventuali attività insolite. Prestare attenzione alla presenza di più accessi non riusciti. 
        - **Azure AD audit logs** (Log di controllo di Azure AD) analizza le attività di amministrazione, ad esempio modifiche agli utenti, come aggiunte rimozioni e così via, creazione di gruppi e modifiche.  
 
@@ -66,7 +66,7 @@ Le cartelle di lavoro predefinite offrono dati integrati provenienti dalle origi
       ![Dashboard Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-È possibile personalizzare le cartelle di lavoro modificando la query principale ![pulsante di modifica query](./media/qs-get-visibility/edit-query-button.png). È possibile fare clic sul pulsante ![pulsante Log Analytics](./media/qs-get-visibility/go-to-la-button.png) per passare a [Log Analytics e modificarvi la query](../azure-monitor/log-query/get-started-portal.md) ed è possibile selezionare i puntini di sospensione (...) e quindi **Personalizza dati riquadro**, che consente di modificare il filtro temporale principale o rimuovere i riquadri specifici dalla cartella di lavoro.
+È possibile personalizzare le cartelle di lavoro modificando la query principale ![pulsante di modifica query](./media/qs-get-visibility/edit-query-button.png). È possibile fare clic sul pulsante ![pulsante Log Analytics](./media/qs-get-visibility/go-to-la-button.png) per passare a [Log Analytics e modificarvi la query](../azure-monitor/log-query/get-started-portal.md) ed è possibile selezionare i puntini di sospensione (...) e quindi **Personalizza dati riquadro** , che consente di modificare il filtro temporale principale o rimuovere i riquadri specifici dalla cartella di lavoro.
 
 Per altre informazioni sull'uso delle query, vedere [Esercitazione: Visualizzare i dati in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 
@@ -79,9 +79,9 @@ Se si vuole aggiungere un nuovo riquadro, è possibile aggiungerlo a una cartell
 ## <a name="create-new-workbooks"></a>Creare nuove cartelle di lavoro
 È possibile creare una nuova cartella di lavoro da zero o usarne una predefinita come base per la nuova cartella di lavoro.
 
-1. Per creare una nuova cartella di lavoro da zero, selezionare **Cartelle di lavoro** e quindi **+Nuova cartella di lavoro**.
+1. Per creare una nuova cartella di lavoro da zero, selezionare **Cartelle di lavoro** e quindi **+Nuova cartella di lavoro** .
 2. Selezionare la sottoscrizione in cui creare la cartella di lavoro e assegnargli un nome descrittivo. Ogni cartella di lavoro è una normale risorsa di Azure, ed è possibile assegnargli ruoli (controllo degli accessi in base al ruolo) per definire e limitare gli accessi. 
-3. Per fare in modo che sia visualizzata tra le cartelle di lavoro disponibili e potervi aggiungere visualizzazioni, è necessario condividerla. Fare clic su **Condividi** e quindi su **Gestisci utenti**. 
+3. Per fare in modo che sia visualizzata tra le cartelle di lavoro disponibili e potervi aggiungere visualizzazioni, è necessario condividerla. Fare clic su **Condividi** e quindi su **Gestisci utenti** . 
  
 1. Usare **Verifica l'accesso** e le **Assegnazioni di ruolo** come si farebbe per qualsiasi altra risorsa di Azure. Per altre informazioni, vedere [Condividere le cartelle di lavoro di Azure tramite il Controllo degli accessi in base al ruolo](../azure-portal/azure-portal-dashboard-share-access.md).
 

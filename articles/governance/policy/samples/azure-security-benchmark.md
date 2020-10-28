@@ -1,23 +1,23 @@
 ---
 title: Dettagli sulla conformità con le normative per Azure Security Benchmark
 description: Dettagli dell'iniziativa incorporata di conformità con le normative per Azure Security Benchmark. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 10/07/2020
+ms.date: 10/20/2020
 ms.topic: sample
 ms.custom: generated
-ms.openlocfilehash: 0ac37714aa18806d3eddbb5cf03c922754483f85
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: c4f009b24889f3c855e9cb612fed7bdc1342e313
+ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91932176"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92311467"
 ---
 # <a name="details-of-the-azure-security-benchmark-regulatory-compliance-built-in-initiative"></a>Dettagli dell'iniziativa incorporata di conformità con le normative per Azure Security Benchmark
 
 L'articolo seguente definisce il mapping dell'iniziativa predefinita di conformità alle normative di Criteri di Azure ai **domini di conformità** e ai **controlli** di Azure Security Benchmark.
-Per altre informazioni su questo standard di conformità, vedere [Azure Security Benchmark](../../../security/benchmarks/overview.md). Per informazioni sulla _Proprietà_, vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
+Per altre informazioni su questo standard di conformità, vedere [Azure Security Benchmark](../../../security/benchmarks/overview.md). Per informazioni sulla _Proprietà_ , vedere [Struttura delle definizioni di criteri in Criteri di Azure](../concepts/definition-structure.md#type) e [Responsabilità condivisa nel cloud](../../../security/fundamentals/shared-responsibility.md).
 
-I mapping seguenti sono relativi ai controlli di **Azure Security Benchmark**. Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**.
-Quindi, trovare e selezionare la definizione dell'iniziativa predefinita di conformità alle normative per **Azure Security Benchmark**.
+I mapping seguenti sono relativi ai controlli di **Azure Security Benchmark** . Usare la barra di spostamento a destra per passare direttamente a un **dominio di conformità** specifico. Molti controlli vengono implementati con una definizione dell'iniziativa [Criteri di Azure](../overview.md). Per esaminare la definizione dell'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni** .
+Quindi, trovare e selezionare la definizione dell'iniziativa predefinita di conformità alle normative per **Azure Security Benchmark** .
 
 Questa iniziativa predefinita viene distribuita come parte dell'[esempio di progetto Azure Security Benchmark](../../blueprints/samples/azure-security-benchmark.md).
 
@@ -29,7 +29,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="protect-resources-using-network-security-groups-or-azure-firewall-on-your-virtual-network"></a>Proteggere le risorse usando i gruppi di sicurezza di rete o il firewall di Azure nella rete virtuale
 
-**ID**: Azure Security Benchmark 1.1 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 1.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -58,7 +58,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>Monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e schede di interfaccia di rete
 
-**ID**: Azure Security Benchmark 1.2 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 1.2 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -66,7 +66,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="protect-critical-web-applications"></a>Proteggere le applicazioni Web critiche
 
-**ID**: Azure Security Benchmark 1.3 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 1.3 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -80,7 +80,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="deny-communications-with-known-malicious-ip-addresses"></a>Negare le comunicazioni con indirizzi IP dannosi noti
 
-**ID**: Azure Security Benchmark 1.4 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 1.4 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -91,7 +91,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="record-network-packets-and-flow-logs"></a>Registrare i pacchetti di rete e i log dei flussi
 
-**ID**: Azure Security Benchmark 1.5 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 1.5 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -99,7 +99,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>Usare strumenti automatizzati per monitorare le configurazioni delle risorse di rete e rilevare le modifiche
 
-**ID**: Azure Security Benchmark 1.11 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 1.11 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -115,7 +115,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="configure-central-security-log-management"></a>Configurare la gestione dei log di sicurezza centralizzata
 
-**ID**: Azure Security Benchmark 2.2 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 2.2 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -128,7 +128,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="enable-audit-logging-for-azure-resources"></a>Abilitare la registrazione di controllo per le risorse di Azure
 
-**ID**: Azure Security Benchmark 2.3 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 2.3 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -150,7 +150,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="collect-security-logs-from-operating-systems"></a>Raccogliere i log di sicurezza dai sistemi operativi
 
-**ID**: Azure Security Benchmark 2.4 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 2.4 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -161,7 +161,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="configure-security-log-storage-retention"></a>Configurare la conservazione dell'archiviazione dei log di sicurezza
 
-**ID**: Azure Security Benchmark 2.5 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 2.5 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -169,7 +169,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="enable-alerts-for-anomalous-activity"></a>Abilitare gli avvisi per le attività anomale
 
-**ID**: Azure Security Benchmark 2.7 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 2.7 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -178,7 +178,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="centralize-anti-malware-logging"></a>Centralizzare la registrazione antimalware
 
-**ID**: Azure Security Benchmark 2.8 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 2.8 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -190,7 +190,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="maintain-an-inventory-of-administrative-accounts"></a>Mantenere un inventario degli account amministrativi
 
-**ID**: Azure Security Benchmark 3.1 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 3.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -201,7 +201,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="use-dedicated-administrative-accounts"></a>Usare account amministrativi dedicati
 
-**ID**: Azure Security Benchmark 3.3 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 3.3 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -213,7 +213,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>Usare l'autenticazione a più fattori per tutti gli accessi basati su Azure Active Directory
 
-**ID**: Azure Security Benchmark 3.5 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 3.5 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -223,7 +223,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="use-azure-active-directory"></a>Usare Azure Active Directory
 
-**ID**: Azure Security Benchmark 3.9 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 3.9 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -232,7 +232,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="regularly-review-and-reconcile-user-access"></a>Controllare e riconciliare con regolarità l'accesso degli utenti
 
-**ID**: Azure Security Benchmark 3.10 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 3.10 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -246,7 +246,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="maintain-an-inventory-of-sensitive-information"></a>Mantenere un inventario delle informazioni riservate
 
-**ID**: Azure Security Benchmark 4.1 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 4.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -254,7 +254,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="encrypt-all-sensitive-information-in-transit"></a>Crittografare tutte le informazioni riservate in transito
 
-**ID**: Azure Security Benchmark 4.4 **Proprietà**: Condiviso
+**ID** : Azure Security Benchmark 4.4 **Proprietà** : Condiviso
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -274,7 +274,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="use-an-active-discovery-tool-to-identify-sensitive-data"></a>Usare uno strumento di individuazione attivo per identificare i dati sensibili
 
-**ID**: Azure Security Benchmark 4.5 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 4.5 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -284,7 +284,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="use-azure-rbac-to-control-access-to-resources"></a>Usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**ID**: Azure Security Benchmark 4.6 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 4.6 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -293,7 +293,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="encrypt-sensitive-information-at-rest"></a>Crittografare le informazioni riservate inattive
 
-**ID**: Azure Security Benchmark 4.8 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 4.8 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -307,7 +307,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="log-and-alert-on-changes-to-critical-azure-resources"></a>Registrare e inviare avvisi per le modifiche apportate alle risorse di Azure critiche
 
-**ID**: Azure Security Benchmark 4.9 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 4.9 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -317,7 +317,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="run-automated-vulnerability-scanning-tools"></a>Eseguire strumenti di analisi della vulnerabilità automatizzati
 
-**ID**: Azure Security Benchmark 5.1 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 5.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -327,7 +327,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="deploy-automated-operating-system-patch-management-solution"></a>Distribuire una soluzione di gestione delle patch automatizzata per il sistema operativo
 
-**ID**: Azure Security Benchmark 5.2 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 5.2 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -336,23 +336,23 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="deploy-automated-third-party-software-patch-management-solution"></a>Distribuire una soluzione di gestione delle patch automatizzata per il software di terze parti
 
-**ID**: Azure Security Benchmark 5.3 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 5.3 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
-|[Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |Periodicamente, per Java vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app per le API per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
-|[Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le funzioni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |Periodicamente, per il software Java vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Java più recente per le app per le funzioni per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.1](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
-|[Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |Periodicamente, per il software Java vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Java più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
-|[Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |Periodicamente, per il software PHP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di PHP più recente per le app per le API per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
-|[Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |Periodicamente, per il software PHP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di PHP più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
-|[Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |Periodicamente, per il software Python vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app per le API per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
-|[Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le funzioni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, per il software Python vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app per le funzioni per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
-|[Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, per il software Python vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. |AuditIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
+|[Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F88999f4c-376a-45c8-bcb3-4058f713cf39) |Periodicamente, per Java vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app per le API per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_java_Latest.json) |
+|[Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app per le funzioni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F9d0b6ea4-93e2-4578-bf2f-6bb17d22b4bc) |Periodicamente, per il software Java vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Java più recente per le app per le funzioni per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_java_Latest.json) |
+|[Assicurarsi che la 'versione di Java' sia la più recente, se usata come parte dell'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F496223c3-ad65-4ecd-878a-bae78737e9ed) |Periodicamente, per il software Java vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Java più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_java_Latest.json) |
+|[Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1bc1795e-d44a-4d48-9b3b-6fff0fd5f9ba) |Periodicamente, per il software PHP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di PHP più recente per le app per le API per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_PHP_Latest.json) |
+|[Assicurarsi che la 'versione di PHP' sia la più recente, se usata come parte dell'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7261b898-8a84-4db8-9e04-18527132abb3) |Periodicamente, per il software PHP vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di PHP più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_Webapp_Audit_PHP_Latest.json) |
+|[Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le API](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F74c3584d-afae-46f7-a20a-6f8adba71a16) |Periodicamente, per il software Python vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app per le API per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_ApiApp_Audit_python_Latest.json) |
+|[Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app per le funzioni](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7238174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, per il software Python vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app per le funzioni per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_FunctionApp_Audit_python_Latest.json) |
+|[Assicurarsi che la 'versione di Python' sia la più recente, se usata come parte dell'app Web](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F7008174a-fd10-4ef0-817e-fc820a951d73) |Periodicamente, per il software Python vengono rilasciate versioni più recenti, sia a causa di difetti di sicurezza o per includere funzionalità aggiuntive. È consigliabile usare la versione di Python più recente per le app Web per poter sfruttare le eventuali correzioni per la sicurezza e/o le nuove funzionalità dell'ultima versione. Attualmente, questo criterio si applica solo alle app Web Linux. |AuditIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/App%20Service/AppService_WebApp_Audit_python_Latest.json) |
 |[I servizi Kubernetes devono essere aggiornati a una versione di Kubernetes non vulnerabile](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ffb893a29-21bb-418c-a157-e99480ec364c) |Aggiornare il cluster del servizio Kubernetes a una versione più recente di Kubernetes per proteggersi dalle vulnerabilità note nella versione corrente di Kubernetes. È stata applicata una patch per la vulnerabilità CVE-2019-9946 nelle versioni di Kubernetes 1.11.9+, 1.12.7+, 1.13.5+ e 1.14.0+ |Audit, Disabled |[1.0.2](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Security%20Center/ASC_UpgradeVersion_KubernetesService_Audit.json) |
 
 ### <a name="use-a-risk-rating-process-to-prioritize-the-remediation-of-discovered-vulnerabilities"></a>Usare un processo di classificazione dei rischi per classificare in ordine di priorità la correzione delle vulnerabilità individuate
 
-**ID**: Azure Security Benchmark 5.5 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 5.5 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -366,7 +366,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="use-only-approved-applications"></a>Usare solo applicazioni approvate
 
-**ID**: Azure Security Benchmark 6.8 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 6.8 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -374,7 +374,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="use-only-approved-azure-services"></a>Usare solo servizi di Azure approvati
 
-**ID**: Azure Security Benchmark 6.9 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 6.9 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -383,7 +383,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="implement-approved-application-list"></a>Implementare l'elenco di applicazioni approvate
 
-**ID**: Azure Security Benchmark 6.10 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 6.10 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -393,7 +393,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="maintain-secure-operating-system-configurations"></a>Garantire la sicurezza delle configurazioni del sistema operativo
 
-**ID**: Azure Security Benchmark 7.4 **Proprietà**: Condiviso
+**ID** : Azure Security Benchmark 7.4 **Proprietà** : Condiviso
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -403,7 +403,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="implement-automated-configuration-monitoring-for-operating-systems"></a>Implementare il monitoraggio automatizzato della configurazione per i sistemi operativi
 
-**ID**: Azure Security Benchmark 7.10 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 7.10 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -413,7 +413,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="manage-azure-secrets-securely"></a>Gestire i segreti di Azure in modo sicuro
 
-**ID**: Azure Security Benchmark 7.11 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 7.11 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -421,7 +421,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="manage-identities-securely-and-automatically"></a>Gestire le identità in modo sicuro e automatico 
 
-**ID**: Azure Security Benchmark 7.12 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 7.12 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -433,7 +433,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="use-centrally-managed-anti-malware-software"></a>Usare software antimalware gestito in modo centralizzato
 
-**ID**: Azure Security Benchmark 8.1 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 8.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -442,7 +442,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-anti-malware-software-and-signatures-are-updated"></a>Verificare che le firme e il software antimalware siano aggiornati
 
-**ID**: Azure Security Benchmark 8.3 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 8.3 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -452,7 +452,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-regular-automated-back-ups"></a>Garantire l'esecuzione regolare di backup automatizzati
 
-**ID**: Azure Security Benchmark 9.1 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 9.1 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -464,7 +464,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="perform-complete-system-backups-and-backup-any-customer-managed-keys"></a>Eseguire backup completi del sistema e il backup di tutte le chiavi gestite dal cliente
 
-**ID**: Azure Security Benchmark 9.2 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 9.2 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -476,7 +476,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="ensure-protection-of-backups-and-customer-managed-keys"></a>Garantire la protezione dei backup e delle chiavi gestite dal cliente
 
-**ID**: Azure Security Benchmark 9.4 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 9.4 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -486,7 +486,7 @@ Questa iniziativa predefinita viene distribuita come parte dell'[esempio di prog
 
 ### <a name="provide-security-incident-contact-details-and-configure-alert-notifications-for-security-incidents"></a>Specificare i dettagli di contatto e configurare le notifiche di avviso per gli eventi imprevisti della sicurezza
 
-**ID**: Azure Security Benchmark 10.4 **Proprietà**: Customer
+**ID** : Azure Security Benchmark 10.4 **Proprietà** : Customer
 
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|

@@ -14,12 +14,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 664686511df8f310295a9f6ed6bc689b3a999544
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a654454c1ef3d5ea1ff7e6eb525bb153f7875c1
+ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75430742"
+ms.lasthandoff: 10/18/2020
+ms.locfileid: "92168206"
 ---
 # <a name="customize-the-style-of-the-developer-portal-pages"></a>Personalizzare lo stile delle pagine del portale per sviluppatori
 
@@ -31,7 +31,7 @@ Per personalizzare il portale per sviluppatori in Gestione API di Azure è possi
 
 Questo articolo illustra come personalizzare lo stile degli elementi nelle pagine del portale per **sviluppatori** legacy e visualizzare le modifiche.
 
-![personalizzare lo stile](./media/modify-developer-portal-style/developer_portal.png)
+![Screenshot che mostra dove è possibile modificare le impostazioni nel portale per sviluppatori legacy.](./media/modify-developer-portal-style/developer_portal.png)
 
 [!INCLUDE [api-management-portal-legacy.md](../../includes/api-management-portal-legacy.md)]
 
@@ -45,21 +45,21 @@ Questo articolo illustra come personalizzare lo stile degli elementi nelle pagin
 
 ## <a name="customize-the-developer-portal"></a>Personalizzare il portale per sviluppatori
 
-1. Selezionare **Panoramica**.
+1. Selezionare **Panoramica** .
 2. Nella parte superiore della finestra **Panoramica** fare clic sul pulsante **Portale per sviluppatori (legacy)** .
 3. In alto a sinistra della schermata è disponibile un'icona costituita da due pennelli. Passare il cursore del mouse sull'icona per aprire il menu di personalizzazione del portale.
 
-    ![personalizzare lo stile](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
+    ![Screenshot che evidenzia l'icona con due pennelli.](./media/modify-developer-portal-style/modify-developer-portal-style01.png)
 4. Selezionare **Stili** dal menu per aprire il riquadro di personalizzazione dello stile.
 
     Nella pagina vengono visualizzati tutti gli elementi che è possibile personalizzare con gli **stili**
 5. Immettere "headings-color" nel campo **Change variable values to customize developer portal appearance:** (Modificare i valori delle variabili per personalizzare l'aspetto del portale per sviluppatori).
 
-    Nella pagina viene visualizzato l'elemento **\@headings-color**. Questa variabile controlla il colore del testo.
+    Nella pagina viene visualizzato l'elemento **\@headings-color** . Questa variabile controlla il colore del testo.
 
     ![personalizzare lo stile](./media/modify-developer-portal-style/modify-developer-portal-style02.png)
     
-6. Fare clic sul campo per la variabile **\@headings-color**. 
+6. Fare clic sul campo per la variabile **\@headings-color** . 
     
     Viene aperto il menu a discesa Selezione colori.
 7. Nel menu a discesa Selezione colori selezionare un colore nuovo.

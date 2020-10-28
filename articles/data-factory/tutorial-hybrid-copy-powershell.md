@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: d148bc81e81c4afa32682fa1462ecfbf5427f164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3db7112516941e53c07e1521f15140a8b9c28e47
+ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079230"
+ms.lasthandoff: 10/17/2020
+ms.locfileid: "92147973"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Esercitazione: Copiare dati da un database di SQL Server all'archiviazione BLOB di Azure
 
@@ -45,20 +45,20 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 ### <a name="azure-roles"></a>Ruoli di Azure
 Per creare istanze di Data Factory, all'account utente usato per accedere ad Azure deve essere assegnato un ruolo *collaboratore* o *proprietario* oppure l'account utente deve essere un *amministratore* della sottoscrizione di Azure.
 
-Per visualizzare le autorizzazioni disponibili nella sottoscrizione, passare al portale di Azure, selezionare il nome utente nell'angolo in alto a destra e quindi **Autorizzazioni**. Se si accede a più sottoscrizioni, selezionare quella appropriata. Per istruzioni di esempio sull'aggiunta di un utente a un ruolo, vedere l'articolo [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
+Per visualizzare le autorizzazioni disponibili nella sottoscrizione, passare al portale di Azure, selezionare il nome utente nell'angolo in alto a destra e quindi **Autorizzazioni** . Se si accede a più sottoscrizioni, selezionare quella appropriata. Per istruzioni di esempio sull'aggiunta di un utente a un ruolo, vedere l'articolo [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
-In questa esercitazione si usa un database di SQL Server come archivio dati di *origine*. La pipeline nella data factory creata in questa esercitazione copia i dati da questo database di SQL Server (origine) all'archiviazione BLOB di Azure (sink). Si crea quindi una tabella denominata **emp** nel database di SQL Server e inserire una coppia di voci di esempio nella tabella.
+In questa esercitazione si usa un database di SQL Server come archivio dati di *origine* . La pipeline nella data factory creata in questa esercitazione copia i dati da questo database di SQL Server (origine) all'archiviazione BLOB di Azure (sink). Si crea quindi una tabella denominata **emp** nel database di SQL Server e inserire una coppia di voci di esempio nella tabella.
 
 1. Avviare SQL Server Management Studio. Se non è già installato nel computer, passare a [Scaricare SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Connettersi all'istanza di SQL Server usando le credenziali.
 
-1. Creare un database di esempio. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse su **Database** e scegliere **Nuovo database**.
+1. Creare un database di esempio. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse su **Database** e scegliere **Nuovo database** .
 
-1. Nella finestra **Nuovo database** immettere un nome per il database e fare clic su **OK**.
+1. Nella finestra **Nuovo database** immettere un nome per il database e fare clic su **OK** .
 
-1. Per creare la tabella **emp** e inserirvi alcuni dati di esempio, eseguire questo script di query sul database. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse sul database creato e scegliere **Nuova query**.
+1. Per creare la tabella **emp** e inserirvi alcuni dati di esempio, eseguire questo script di query sul database. Nella visualizzazione struttura ad albero fare clic con il pulsante destro del mouse sul database creato e scegliere **Nuova query** .
 
     ```sql
     CREATE TABLE dbo.emp
@@ -83,26 +83,26 @@ In questa esercitazione si usano il nome e la chiave dell'account di archiviazio
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con nome utente e password.
 
-1. Nel riquadro a sinistra selezionare **Altri servizi**, usare la parola chiave **Archiviazione** come filtro e selezionare **Account di archiviazione**.
+1. Nel riquadro a sinistra selezionare **Altri servizi** , usare la parola chiave **Archiviazione** come filtro e selezionare **Account di archiviazione** .
 
     ![Cercare l'account di archiviazione](media/doc-common-process/search-storage-account.png)
 
 1. Nell'elenco degli account di archiviazione filtrare, se necessario, e quindi selezionare il proprio account di archiviazione.
 
-1. Nella finestra **Account di archiviazione** selezionare **Chiavi di accesso**.
+1. Nella finestra **Account di archiviazione** selezionare **Chiavi di accesso** .
 
 1. Nelle caselle **Nome account di archiviazione** e **key1** copiare i valori e incollarli nel Blocco note o in un altro editor per usarli in seguito nell'esercitazione.
 
 #### <a name="create-the-adftutorial-container"></a>Creare il contenitore adftutorial
 In questa sezione si crea un contenitore BLOB denominato **adftutorial** nell'archivio BLOB di Azure.
 
-1. Nella finestra **Account di archiviazione** passare a **Panoramica** e quindi selezionare **BLOB**.
+1. Nella finestra **Account di archiviazione** passare a **Panoramica** e quindi selezionare **BLOB** .
 
     ![Selezionare l'opzione BLOB](media/tutorial-hybrid-copy-powershell/select-blobs.png)
 
-1. Nella finestra **Servizio BLOB** selezionare **Contenitore**.
+1. Nella finestra **Servizio BLOB** selezionare **Contenitore** .
 
-1. Nella finestra di dialogo **Nuovo contenitore** immettere **adftutorial** nella casella **Nome** e fare clic su **OK**.
+1. Nella finestra di dialogo **Nuovo contenitore** immettere **adftutorial** nella casella **Nome** e fare clic su **OK** .
 
     ![Immettere il nome del contenitore](media/tutorial-hybrid-copy-powershell/new-container-dialog.png)
 
@@ -179,7 +179,7 @@ Installare la versione più recente di Azure PowerShell, se non è già presente
 >    The specified data factory name 'ADFv2TutorialDataFactory' is already in use. Data factory names must be globally unique.
 >    ```
 > * Per creare istanze di Data Factory, all'account utente usato per accedere ad Azure deve essere assegnato un ruolo *collaboratore* o *proprietario* oppure l'account deve essere un *amministratore* della sottoscrizione di Azure.
-> * Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (Azure HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
+> * Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory** : [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (Archiviazione di Azure, database SQL di Azure e così via) e le risorse di calcolo (Azure HDInsight e così via) usati dalla data factory possono trovarsi in altre aree.
 >
 >
 
@@ -257,21 +257,21 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 ## <a name="install-the-integration-runtime"></a>Installare il runtime di integrazione
 1. Scaricare [Azure Data Factory Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717) in un computer Windows locale, quindi eseguire l'installazione.
 
-1. Nella pagina iniziale dell'**installazione guidata di Microsoft Integration Runtime** fare clic su **Avanti**.  
+1. Nella pagina iniziale dell' **installazione guidata di Microsoft Integration Runtime** fare clic su **Avanti** .  
 
-1. Nella finestra **Contratto di licenza con l'utente finale** accettare le condizioni e fare clic su **Avanti**.
+1. Nella finestra **Contratto di licenza con l'utente finale** accettare le condizioni e fare clic su **Avanti** .
 
-1. Nella finestra **Cartella di destinazione** fare clic su **Avanti**.
+1. Nella finestra **Cartella di destinazione** fare clic su **Avanti** .
 
-1. Nella pagina **Pronto per l'installazione** fare clic su **Installa**.
+1. Nella pagina **Pronto per l'installazione** fare clic su **Installa** .
 
-1. Nella pagina **Installazione di Microsoft Integration Runtime completata** fare clic su **Fine**.
+1. Nella pagina **Installazione di Microsoft Integration Runtime completata** fare clic su **Fine** .
 
-1. Nella finestra **Registra Runtime di integrazione (self-hosted)** incollare la chiave salvata nella sezione precedente e fare clic su **Registra**.
+1. Nella finestra **Registra Runtime di integrazione (self-hosted)** incollare la chiave salvata nella sezione precedente e fare clic su **Registra** .
 
     ![Registrare il runtime di integrazione](media/tutorial-hybrid-copy-powershell/register-integration-runtime.png)
 
-1. Nella finestra **Nuovo nodo di Runtime di integrazione (self-hosted)** fare clic su **Fine**.
+1. Nella finestra **Nuovo nodo di Runtime di integrazione (self-hosted)** fare clic su **Fine** .
 
     ![Finestra Nuovo nodo di Runtime di integrazione](media/tutorial-hybrid-copy-powershell/new-integration-runtime-node-page.png)
 
@@ -279,7 +279,7 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 
     ![Registrazione completata](media/tutorial-hybrid-copy-powershell/registered-successfully.png)
 
-1. Nella finestra **Registra Runtime di integrazione (self-hosted)** fare clic su **Avvia Configuration Manager**.
+1. Nella finestra **Registra Runtime di integrazione (self-hosted)** fare clic su **Avvia Configuration Manager** .
 
 1. Quando il nodo viene connesso al servizio cloud, viene visualizzato il messaggio seguente:
 
@@ -287,9 +287,9 @@ In questa sezione si crea un runtime di integrazione self-hosted e lo si associa
 
 1. Testare la connettività al database di SQL Server nel modo seguente:
 
-    a. Nella finestra **Configuration Manager** passare alla scheda **Diagnostica**.
+    a. Nella finestra **Configuration Manager** passare alla scheda **Diagnostica** .
 
-    b. Selezionare **SqlServer** in **Tipo di origine dati**.
+    b. Selezionare **SqlServer** in **Tipo di origine dati** .
 
     c. Immettere il nome del server.
 
@@ -314,7 +314,7 @@ Creare servizi collegati nella data factory per collegare gli archivi dati e i s
 ### <a name="create-an-azure-storage-linked-service-destinationsink"></a>Creare un servizio collegato Archiviazione di Azure (destinazione/sink)
 In questo passaggio, l'account di archiviazione di Azure viene collegato alla data factory.
 
-1. Creare un file JSON denominato *AzureStorageLinkedService.json* nella cartella *C:\ADFv2Tutorial* con il codice seguente. Creare la cartella *ADFv2Tutorial*, se non esiste già.  
+1. Creare un file JSON denominato *AzureStorageLinkedService.json* nella cartella *C:\ADFv2Tutorial* con il codice seguente. Creare la cartella *ADFv2Tutorial* , se non esiste già.  
 
     > [!IMPORTANT]
     > Prima di salvare il file, sostituire \<accountName> e \<accountKey> con il nome e la chiave dell'account di archiviazione di Azure. Questi valori sono stati annotati nella sezione [Prerequisiti](#get-storage-account-name-and-account-key).
@@ -332,7 +332,7 @@ In questo passaggio, l'account di archiviazione di Azure viene collegato alla da
     }
    ```
 
-1. In PowerShell passare alla cartella *C:\ADFv2Tutorial*.
+1. In PowerShell passare alla cartella *C:\ADFv2Tutorial* .
    ```powershell
    Set-Location 'C:\ADFv2Tutorial'    
    ```
@@ -352,7 +352,7 @@ In questo passaggio, l'account di archiviazione di Azure viene collegato alla da
     Properties        : Microsoft.Azure.Management.DataFactory.Models.AzureBlobStorageLinkedService
     ```
 
-    Se viene visualizzato un errore di tipo "File non trovato", verificare che il file esista eseguendo il comando `dir`. Se il nome del file ha estensione *txt*, ad esempio AzureStorageLinkedService.json.txt, rimuovere l'estensione ed eseguire di nuovo il comando di PowerShell.
+    Se viene visualizzato un errore di tipo "File non trovato", verificare che il file esista eseguendo il comando `dir`. Se il nome del file ha estensione *txt* , ad esempio AzureStorageLinkedService.json.txt, rimuovere l'estensione ed eseguire di nuovo il comando di PowerShell.
 
 ### <a name="create-and-encrypt-a-sql-server-linked-service-source"></a>Creare e crittografare un servizio collegato SQL Server (origine)
 In questo passaggio si collega l'istanza di SQL Server alla data factory.
@@ -415,10 +415,10 @@ In questo passaggio si collega l'istanza di SQL Server alla data factory.
     > - Selezionare la sezione in base all'autenticazione usata per connettersi all'istanza di SQL Server.
     > - Sostituire **\<integration runtime name>** con il nome del runtime di integrazione.
     > - Prima di salvare il file, sostituire **\<servername>** , **\<databasename>** , **\<username>** e **\<password>** con i valori dell'istanza di SQL Server.
-    > - Se è necessario usare una barra rovesciata (\\) nell'account utente o nel nome del server, farla precedere dal carattere di escape (\\). Ad esempio, usare *mydomain\\\\myuser*.
+    > - Se è necessario usare una barra rovesciata (\\) nell'account utente o nel nome del server, farla precedere dal carattere di escape (\\). Ad esempio, usare *mydomain\\\\myuser* .
 
 1. Per crittografare i dati sensibili (nome utente, password e così via), eseguire il cmdlet `New-AzDataFactoryV2LinkedServiceEncryptedCredential`.  
-    Con questa crittografia, le credenziali vengono crittografate con Data Protection API (DPAPI). Le credenziali crittografate vengono archiviate in locale (computer locale) nel nodo del runtime di integrazione self-hosted. Il payload di output può essere reindirizzato a un altro file JSON (in questo caso *encryptedLinkedService.json*) che contiene le credenziali crittografate.
+    Con questa crittografia, le credenziali vengono crittografate con Data Protection API (DPAPI). Le credenziali crittografate vengono archiviate in locale (computer locale) nel nodo del runtime di integrazione self-hosted. Il payload di output può essere reindirizzato a un altro file JSON (in questo caso *encryptedLinkedService.json* ) che contiene le credenziali crittografate.
 
    ```powershell
    New-AzDataFactoryV2LinkedServiceEncryptedCredential -DataFactoryName $dataFactoryName -ResourceGroupName $ResourceGroupName -IntegrationRuntimeName $integrationRuntimeName -File ".\SQLServerLinkedService.json" > encryptedSQLServerLinkedService.json
@@ -531,7 +531,7 @@ Il servizio collegato ha le informazioni di connessione usate da Data Factory in
     ```
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
-In questa esercitazione viene creata una pipeline con un'attività di copia. L'attività di copia usa SqlServerDataset come set di dati di input e AzureBlobDataset come set di dati di output. Il tipo di origine è impostato su *SqlSource* e il tipo di sink è impostato su *BlobSink*.
+In questa esercitazione viene creata una pipeline con un'attività di copia. L'attività di copia usa SqlServerDataset come set di dati di input e AzureBlobDataset come set di dati di output. Il tipo di origine è impostato su *SqlSource* e il tipo di sink è impostato su *BlobSink* .
 
 1. Creare un file JSON denominato *SqlServerToBlobPipeline.json* nella cartella *C:\ADFv2Tutorial* con il codice seguente:
 
@@ -707,7 +707,7 @@ $runId = Invoke-AzDataFactoryV2Pipeline -DataFactoryName $dataFactoryName -Resou
     ```
 
 ## <a name="verify-the-output"></a>Verificare l'output
-La pipeline crea automaticamente la cartella di output denominata *fromonprem* nel contenitore BLOB `adftutorial`. Assicurarsi che nella cartella di output sia presente il file *dbo.emp.txt*.
+La pipeline crea automaticamente la cartella di output denominata *fromonprem* nel contenitore BLOB `adftutorial`. Assicurarsi che nella cartella di output sia presente il file *dbo.emp.txt* .
 
 1. Nella finestra del contenitore **adftutorial** del portale di Azure fare clic su **Aggiorna** per visualizzare la cartella di output.
 1. Selezionare `fromonprem` nell'elenco di cartelle.

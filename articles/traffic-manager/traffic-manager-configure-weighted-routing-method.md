@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/2017
+ms.date: 10/19/2020
 ms.author: duau
-ms.openlocfilehash: dff7d4ec02c5a17b51d73b9d81f93984b95a7d22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: abcfce43b90c7371d5b38aa5b7a6d478e9d6a0dd
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89401351"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92207840"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>Esercitazione: Configurare il metodo di routing del traffico Ponderato in Gestione traffico
 
@@ -25,31 +25,62 @@ Un modello comune di metodo di routing del traffico consiste nel fornire un set 
 > [!NOTE]
 > L'app Web di Azure offre già funzionalità di bilanciamento del carico round robin per i siti Web che si trovano all'interno di un'area di Azure (la quale può contenere più data center). Gestione traffico consente di distribuire il traffico tra i siti Web in diversi data center.
 
-## <a name="to-configure-the-weighted-traffic-routing-method"></a>Per configurare il metodo di routing del traffico Ponderato
+In questa esercitazione verranno illustrate le procedure per:
+> [!div class="checklist"]
+> - Creare un profilo di Gestione traffico con routing ponderato.
+> - Usare il profilo di Gestione traffico.
+> - Eliminare il profilo di Gestione traffico.
 
-1. Da un browser accedere al [portale di Azure](https://portal.azure.com). Se non si ha già di un account, è possibile iscriversi per ottenere una [versione di valutazione gratuita della durata di un mese](https://azure.microsoft.com/free/). 
-2. Nella barra di ricerca del portale cercare i **profili di Gestione traffico** e quindi fare clic sul nome di profilo per cui si vuole configurare il metodo.
-3. Nel pannello **Profilo di Gestione traffico** verificare che siano presenti sia i servizi cloud che i siti Web che si intende includere nella configurazione.
-4. Nella sezione **Impostazioni** fare clic su **Configurazione** e nel pannello **Configurazione** procedere come indicato di seguito:
-    1. In **Metodo di routing del traffico** verificare che il metodo di routing del traffico sia impostato su **Ponderato**. In caso contrario, fare clic su **Ponderato** nell'elenco a discesa.
-    2. Specificare le stesse le stesse **impostazioni di monitoraggio degli endpoint** per tutti gli endpoint in questo profilo come indicato di seguito:
-        1. Selezionare il **protocollo** appropriato e specificare il numero di **porta**. 
-        2. In **Percorso** immettere una barra */* . Per monitorare gli endpoint, è necessario specificare un percorso e un nome file. Una barra ("/") è una voce valida per il percorso relativo e implica che il file si trovi nella directory radice (impostazione predefinita).
-        3. Nella parte superiore della pagina fare clic su **Salva**.
-5. Verificare le modifiche apportate alla configurazione come indicato di seguito:
-    1.  Nella barra di ricerca del portale cercare il nome del profilo di Gestione traffico e fare clic su tale profilo nei risultati visualizzati.
-    2.  Nel pannello **Profilo di Gestione traffico** fare clic su **Informazioni generali**.
-    3.  Il pannello **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Questo nome può essere usato da qualsiasi client (ad esempio raggiungendolo tramite un Web browser) che deve essere indirizzato all'endpoint corretto in base al tipo di routing. In questo caso tutte le richieste vengono instradate a ogni endpoint secondo il metodo Round robin.
-6. Dopo aver verificato il funzionamento del profilo di Gestione traffico, modificare il record DNS sul server DNS autorevole per fare in modo che il nome del dominio aziendale punti al nome di dominio di Gestione traffico.
+## <a name="prerequisites"></a>Prerequisiti
 
-![Configurare il metodo di routing del traffico Ponderato in Gestione traffico][1]
+* Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/).
+
+## <a name="configure-the-weighted-traffic-routing-method"></a>Configurare il metodo di routing del traffico ponderato
+
+1. Da un browser accedere al [portale di Azure](https://portal.azure.com).
+
+1. Nella barra di ricerca del portale cercare il nome del **profilo di Gestione traffico** creato nella sezione precedente e selezionarlo nei risultati visualizzati.
+
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/search-traffic-manager-weighted-profile.png" alt-text="Cercare il profilo di Gestione traffico":::
+
+1. Selezionare **Configurazione** , quindi selezionare o immettere le impostazioni seguenti:
+
+    | Impostazione         | Valore                                              |
+    | ---             | ---                                                |
+    | Metodo di routing            | Selezionare **Ponderato** . |    
+    | Durata (TTL) DNS | Questo valore controlla la frequenza con cui il server dei nomi della cache locale del client esegue query sul sistema di Gestione traffico per ottenere voci DNS aggiornate. In questo periodo di tempo eventuali modifiche apportate in Gestione traffico, ad esempio al metodo di routing del traffico o alla disponibilità degli endpoint aggiunti, verranno aggiornate nell'intero sistema globale dei server DNS. |
+    | Protocollo    | Selezionare un protocollo per il monitoraggio degli endpoint. *Opzioni: HTTP, HTTPS e TCP* |
+    | Porta | Specificare il numero della porta. |
+    | Percorso | Per monitorare gli endpoint, è necessario specificare un percorso e un nome file. Una barra ("/") è una voce valida per il percorso relativo e implica che il file si trovi nella directory radice (impostazione predefinita). |
+    | Impostazioni intestazione personalizzata | Configurare le intestazioni personalizzate in formato host:contoso.com,newheader:newvalue. Il valore massimo supportato per la coppia è 8. Applicabili per i protocolli HTTP e HTTPS. Applicabili per tutti gli endpoint nel profilo |
+    | Intervalli di codici di stato previsti (valore predefinito: 200) | Configurare gli intervalli di codici di stato nel formato 200-299,301-301. Il valore massimo supportato per l'intervallo è 8. Applicabili per i protocolli HTTP e HTTPS. Applicabili per tutti gli endpoint nel profilo |
+    | Intervallo sondaggio | Configurare l'intervallo di tempo tra i probe di integrità degli endpoint. È possibile scegliere 10 o 30 secondi. |
+    | Tollerare il numero di errori | Configurare il numero di errori dei probe di integrità tollerati prima che venga attivato un errore dell'endpoint. Immettere un numero compreso tra 0 e 9. | 
+    | Timeout del probe | Configurare il tempo necessario prima del timeout del probe di integrità di un endpoint. Questo valore deve essere almeno 5 e minore del valore dell'intervallo dei probe. |
+
+1. Selezionare **Salva** per completare la configurazione.
+
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-configuration.png" alt-text="Cercare il profilo di Gestione traffico"::: 
+
+1. Selezionare **Endpoint** e configurare il peso di ogni endpoint. Il peso può essere compreso tra 1 e 1000. Maggiore è il peso, maggiore è la priorità.  
+
+    :::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-configure-endpoints-weighted.png" alt-text="Cercare il profilo di Gestione traffico"::: 
+
+## <a name="use-the-traffic-manager-profile"></a>Usare il profilo di Gestione traffico
+
+Il **Profilo di Gestione traffico** visualizza il nome DNS del profilo di Gestione traffico appena creato. Il nome può essere usato da qualsiasi client (ad esempio raggiungendolo tramite un Web browser) per essere instradato all'endpoint corretto in base al tipo di routing. In questo caso tutte le richieste vengono instradate a ogni endpoint secondo il metodo round-robin.
+
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-overview.png" alt-text="Cercare il profilo di Gestione traffico"::: 
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se il profilo di Gestione traffico non è più necessario, individuarlo e selezionare **Elimina profilo** .
+
+:::image type="content" source="./media/traffic-manager-weighted-routing-method/delete-traffic-manager-weighted-profile.png" alt-text="Cercare il profilo di Gestione traffico":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [metodo di routing del traffico Priorità](traffic-manager-configure-priority-routing-method.md).
-- Informazioni sul [metodo di routing del traffico Prestazioni](traffic-manager-configure-performance-routing-method.md).
-- Informazioni sul [metodo di routing Geografico](traffic-manager-configure-geographic-routing-method.md).
-- Informazioni su come [testare le impostazioni di Gestione traffico](traffic-manager-testing-settings.md).
+Per altre informazioni sul metodo di routing ponderato, vedere:
 
-<!--Image references-->
-[1]: ./media/traffic-manager-weighted-routing-method/traffic-manager-weighted-routing-method.png
+> [!div class="nextstepaction"]
+> [Metodo di routing ponderato del traffico](traffic-manager-routing-methods.md#weighted)

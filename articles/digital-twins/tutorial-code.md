@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 8e7ad721eba103679f55886053e8ba9e888573c0
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 19ce74046dd86885a01ad5e8dcc4bfda950dd884
+ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057485"
+ms.lasthandoff: 10/19/2020
+ms.locfileid: "92201350"
 ---
 # <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Esercitazione: Scrivere codice con le API di Gemelli digitali di Azure
 
@@ -39,7 +39,7 @@ Per iniziare, è necessario avere:
 
 Quando si è pronti ad accedere all'istanza di Gemelli digitali di Azure, iniziare a configurare il progetto dell'app client. 
 
-Aprire un prompt dei comandi o un'altra finestra della console nel computer e creare una directory di progetto vuota in cui archiviare il lavoro durante questa esercitazione. Assegnare alla directory un nome a scelta, ad esempio *DigitalTwinsCodeTutorial*.
+Aprire un prompt dei comandi o un'altra finestra della console nel computer e creare una directory di progetto vuota in cui archiviare il lavoro durante questa esercitazione. Assegnare alla directory un nome a scelta, ad esempio *DigitalTwinsCodeTutorial* .
 
 Passare alla nuova directory.
 
@@ -104,40 +104,21 @@ In seguito verrà aggiunto codice in questo file per inserire alcune funzionalit
 
 La prima operazione che dovrà essere eseguita dall'app è l'autenticazione per il servizio Gemelli digitali di Azure. Quindi, è possibile creare una classe client del servizio per accedere alle funzioni dell'SDK.
 
-Per eseguire l'autenticazione, sono necessarie tre informazioni:
-* L'*ID directory (tenant)* per la sottoscrizione
-* L'*ID applicazione (client)* creato in precedenza quando è stata creata l'istanza di Gemelli digitali di Azure
-* Il *nome host* dell'istanza di Gemelli digitali di Azure
+Per eseguire l'autenticazione, è necessario il *nome host* dell'istanza di Gemelli digitali di Azure.
 
->[!TIP]
-> Se non si conosce l'*ID directory (tenant)* , è possibile ottenerlo eseguendo questo comando in [Azure Cloud Shell](https://shell.azure.com):
-> 
-> ```azurecli
-> az account show --query tenantId
-> ```
-
-In *Program.cs* incollare il codice seguente sotto la riga "Hello, World!" nel metodo `Main`. Impostare il valore di `adtInstanceUrl` su *hostName* dell'istanza di Gemelli digitali di Azure, `clientId` sull'*ID applicazione* e `tenantId` sull'*ID directory*.
+In *Program.cs* incollare il codice seguente sotto la riga "Hello, World!" nel metodo `Main`. Impostare il valore di `adtInstanceUrl` sul *nome host* dell'istanza di Gemelli digitali di Azure.
 
 ```csharp
-string clientId = "<your-application-ID>";
-string tenantId = "<your-directory-ID>";
-string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+var credential = new DefaultAzureCredential();
+DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
 Console.WriteLine($"Service client created – ready to go");
 ```
 
 Salvare il file. 
 
-Si noti che in questo esempio vengono usate le credenziali interattive di un browser:
-```csharp
-var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-```
-
-Questo tipo di credenziali genererà l'apertura di una finestra del browser, in cui si chiede di specificare le credenziali di Azure. 
-
 >[!NOTE]
-> Per informazioni su altri tipi di credenziali, vedere la documentazione relativa alle [librerie di autenticazione di Microsoft Identity Platform](../active-directory/develop/reference-v2-libraries.md).
+> Questo esempio usa `DefaultAzureCredential` per l'autenticazione. Per informazioni su altri tipi di credenziali, vedere la documentazione relativa alle [librerie di autenticazione di Microsoft Identity Platform](../active-directory/develop/reference-v2-libraries.md) o l'articolo di Gemelli digitali di Azure relativo all'[autenticazione delle applicazioni client](how-to-authenticate-client.md).
 
 Nella finestra di comando eseguire il codice con questo comando: 
 
@@ -151,11 +132,11 @@ Le dipendenze verranno ripristinate alla prima esecuzione, quindi verrà eseguit
 
 ### <a name="upload-a-model"></a>Caricare un modello
 
-Gemelli digitali di Azure non include un vocabolario di dominio intrinseco. I tipi di elementi dell'ambiente che è possibile rappresentare in Gemelli digitali di Azure vengono definiti dall'utente usando i **modelli**. I [modelli](concepts-models.md) sono simili alle classi nei linguaggi di programmazione orientati a oggetti. Forniscono modelli definiti dall'utente per i [gemelli digitali](concepts-twins-graph.md) da seguire e di cui creare istanze in seguito. Sono scritti in un linguaggio simile a JSON, **DTDL (Digital Twin Definition Language)** .
+Gemelli digitali di Azure non include un vocabolario di dominio intrinseco. I tipi di elementi dell'ambiente che è possibile rappresentare in Gemelli digitali di Azure vengono definiti dall'utente usando i **modelli** . I [modelli](concepts-models.md) sono simili alle classi nei linguaggi di programmazione orientati a oggetti. Forniscono modelli definiti dall'utente per i [gemelli digitali](concepts-twins-graph.md) da seguire e di cui creare istanze in seguito. Sono scritti in un linguaggio simile a JSON, **DTDL (Digital Twin Definition Language)** .
 
 Il primo passaggio per la creazione di una soluzione di Gemelli digitali di Azure consiste nel definire almeno un modello in un file DTDL.
 
-Nella directory in cui è stato creato il progetto creare un nuovo file con estensione *json* denominato *SampleModel.json*. Incollare il corpo del file seguente: 
+Nella directory in cui è stato creato il progetto creare un nuovo file con estensione *json* denominato *SampleModel.json* . Incollare il corpo del file seguente: 
 
 ```json
 {
@@ -178,7 +159,7 @@ Nella directory in cui è stato creato il progetto creare un nuovo file con este
 ```
 
 > [!TIP]
-> Se per questa esercitazione si usa Visual Studio, è possibile selezionare il nuovo file JSON e impostare la proprietà *Copia nella directory di output* di Controllo proprietà su *Copia se è più recente* o su *Copia sempre*. In questo modo Visual Studio troverà il file JSON con il percorso predefinito quando si eseguirà il programma con **F5** durante il resto dell'esercitazione.
+> Se per questa esercitazione si usa Visual Studio, è possibile selezionare il nuovo file JSON e impostare la proprietà *Copia nella directory di output* di Controllo proprietà su *Copia se è più recente* o su *Copia sempre* . In questo modo Visual Studio troverà il file JSON con il percorso predefinito quando si eseguirà il programma con **F5** durante il resto dell'esercitazione.
 
 > [!TIP] 
 > È disponibile un [esempio di validator DTDL](/samples/azure-samples/dtdl-validator/dtdl-validator) indipendente dal linguaggio che è possibile usare per controllare i documenti del modello e verificare che il file DTDL sia valido. È basato sulla libreria di parser DTDL, descritta in maggior dettaglio in [*Procedura: Analizzare e convalidare modelli*](how-to-parse-models.md).
@@ -283,7 +264,7 @@ Da questo punto in poi, nell'esercitazione verrà eseguito il wrapping di tutte 
 
 ### <a name="create-digital-twins"></a>Creare i gemelli digitali
 
-Dopo aver caricato un modello in Gemelli digitali di Azure, è possibile usare la relativa definizione per creare i **gemelli digitali**. I [gemelli digitali](concepts-twins-graph.md) sono istanze di un modello e rappresentano le entità all'interno dell'ambiente aziendale, ad esempio i sensori di un'azienda agricola, le stanze di un edificio o i fari di un'auto. Questa sezione crea alcuni gemelli digitali basati sul modello caricato in precedenza.
+Dopo aver caricato un modello in Gemelli digitali di Azure, è possibile usare la relativa definizione per creare i **gemelli digitali** . I [gemelli digitali](concepts-twins-graph.md) sono istanze di un modello e rappresentano le entità all'interno dell'ambiente aziendale, ad esempio i sensori di un'azienda agricola, le stanze di un edificio o i fari di un'auto. Questa sezione crea alcuni gemelli digitali basati sul modello caricato in precedenza.
 
 Aggiungere una nuova istruzione `using` all'inizio, perché sarà necessario il serializzatore JSON .NET incorporato in `System.Text.Json`:
 
@@ -314,19 +295,26 @@ for(int i=0; i<3; i++) {
 
 Nella finestra di comando eseguire il programma con `dotnet run`. Ripetere quindi questo comando per eseguire di nuovo il programma. 
 
-Si noti che non viene generato alcun errore quando i gemelli vengono creati per la seconda volta, anche se esistono già dopo la prima esecuzione. A differenza della creazione del modello, la creazione di un gemello è, a livello REST, una chiamata *PUT* con semantica *upsert*. Questo significa che se un gemello esiste già, il tentativo di crearlo di nuovo non farà altro che sostituirlo. Non vengono generati errori.
+Si noti che non viene generato alcun errore quando i gemelli vengono creati per la seconda volta, anche se esistono già dopo la prima esecuzione. A differenza della creazione del modello, la creazione di un gemello è, a livello REST, una chiamata *PUT* con semantica *upsert* . Questo significa che se un gemello esiste già, il tentativo di crearlo di nuovo non farà altro che sostituirlo. Non vengono generati errori.
 
 ### <a name="create-relationships"></a>Creare relazioni
 
-Successivamente, è possibile creare **relazioni** tra i gemelli creati, per connetterli in un **grafo dei gemelli**. I [grafi dei gemelli](concepts-twins-graph.md) vengono usati per rappresentare l'intero ambiente.
+Successivamente, è possibile creare **relazioni** tra i gemelli creati, per connetterli in un **grafo dei gemelli** . I [grafi dei gemelli](concepts-twins-graph.md) vengono usati per rappresentare l'intero ambiente.
 
-Per poter creare relazioni, è necessario lo spazio dei nomi `Azure.DigitalTwins.Core.Serialization`, aggiunto al progetto in precedenza con l'istruzione `using`:
+Per facilitare la creazione di relazioni, questo esempio di codice usa lo spazio dei nomi `Azure.DigitalTwins.Core.Serialization`, aggiunto al progetto in precedenza con l'istruzione `using`:
 
 ```csharp
 using Azure.DigitalTwins.Core.Serialization;
 ```
 
+>[!NOTE]
+>`Azure.DigitalTwins.Core.Serialization` non è obbligatorio per l'uso di gemelli digitali e relazioni. È uno spazio dei nomi facoltativo che aiuta ad assegnare ai dati il formato corretto. Esistono alcune alternative all'uso di questo spazio dei nomi, tra cui:
+>* Concatenazione di stringhe per formare un oggetto JSON
+>* Uso di un parser JSON come `System.Text.Json` per creare un oggetto JSON in modo dinamico
+>* Modellazione dei tipi personalizzati in C#, creazione delle relative istanze e serializzazione in stringhe
+
 Aggiungere un nuovo metodo statico alla classe `Program`, sotto il metodo `Main`:
+
 ```csharp
 public async static Task CreateRelationship(DigitalTwinsClient client, string srcId, string targetId)
 {
@@ -348,7 +336,8 @@ public async static Task CreateRelationship(DigitalTwinsClient client, string sr
 }
 ```
 
-Aggiungere quindi il codice seguente alla fine del metodo `Main` per chiamare il codice `CreateRelationship`:
+Aggiungere quindi il codice seguente alla fine del metodo `Main` per chiamare il metodo `CreateRelationship` e usare il codice appena scritto:
+
 ```csharp
 // Connect the twins with relationships
 await CreateRelationship(client, "sampleTwin-0", "sampleTwin-1");
@@ -434,7 +423,7 @@ Nella finestra di comando eseguire il programma con `dotnet run`. Nell'output ve
 
 ## <a name="complete-code-example"></a>Esempio di codice completo
 
-A questo punto dell'esercitazione si avrà un'app client completa, in grado di eseguire azioni di base con Gemelli digitali di Azure. Per riferimento, di seguito è riportato il codice completo del programma nel file *Program.cs*:
+A questo punto dell'esercitazione si avrà un'app client completa, in grado di eseguire azioni di base con Gemelli digitali di Azure. Per riferimento, di seguito è riportato il codice completo del programma nel file *Program.cs* :
 
 ```csharp
 using System;
@@ -455,11 +444,10 @@ namespace minimal
         {
             Console.WriteLine("Hello World!");
             
-            string clientId = "<your-application-ID>";
-            string tenantId = "<your-directory-ID>";
-            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>";
-            var credentials = new InteractiveBrowserCredential(tenantId, clientId);
-            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credentials);
+            string adtInstanceUrl = "https://<your-Azure-Digital-Twins-instance-hostName>"; 
+            
+            var credential = new DefaultAzureCredential();
+            DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), credential);
             Console.WriteLine($"Service client created – ready to go");
 
             Console.WriteLine();
