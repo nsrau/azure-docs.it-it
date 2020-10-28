@@ -9,11 +9,13 @@
       href: whats-new-docs.md
     - name: Servizi cognitivi e Machine Learning
       href: cognitive-services-and-machine-learning.md
+    - name: Opzioni di sviluppo per Servizi cognitivi
+      href: cognitive-services-development-options.md
     - name: Sottodomini personalizzati per Servizi cognitivi
       href: cognitive-services-custom-subdomains.md
     - name: Lingue supportate
       href: language-support.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Creare una nuova risorsa con il portale di Azure
       href: cognitive-services-apis-create-account.md

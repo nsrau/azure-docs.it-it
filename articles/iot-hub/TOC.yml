@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è l'hub IoT di Azure?
       href: about-iot-hub.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Inviare dati di telemetria
@@ -317,16 +317,10 @@
               href: iot-hub-configure-file-upload-powershell.md
             - name: Utilizzare l'interfaccia della riga di comando di Azure
               href: iot-hub-configure-file-upload-cli.md
-        - name: Metriche in Monitoraggio di Azure
-          href: iot-hub-metrics.md
-        - name: Configurare i log di diagnostica
-          href: iot-hub-monitor-resource-health.md
         - name: Proteggere l'hub con un certificato X.509
           href: iot-hub-security-x509-get-started.md
         - name: Aggiornare un hub IoT
           href: iot-hub-upgrade.md
-        - name: Abilitare la traccia dei messaggi
-          href: iot-hub-distributed-tracing.md
         - name: Configurare il filtro IP
           href: iot-hub-ip-filtering.md
         - name: Gestire l'accesso della rete pubblica
@@ -339,6 +333,16 @@
               href: iot-hub-automatic-device-management-cli.md
         - name: Importazione ed esportazione di dispositivi IoT in blocco
           href: iot-hub-bulk-identity-mgmt.md
+    - name: Monitorare
+      items:
+        - name: Monitorare l'hub IoT
+          href: monitor-iot-hub.md
+        - name: Informazioni di riferimento sui dati di monitoraggio
+          href: monitor-iot-hub-reference.md
+        - name: Abilitare la traccia dei messaggi
+          href: iot-hub-distributed-tracing.md
+        - name: Integrità delle risorse e del servizio hub IoT
+          href: iot-hub-azure-service-health-integration.md
     - name: Usare dispositivi reali
       items:
         - name: Usare un simulatore online

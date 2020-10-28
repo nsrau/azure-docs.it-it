@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: be6d508da15b7c403259bd66c86c3b3e72ff2f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 647a8fc25f27ef7f441ed7459ecd543d4f35581e
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90089274"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895274"
 ---
 # <a name="show-search-results-on-the-map"></a>Visualizzare i risultati della ricerca sulla mappa
 
 Questo articolo illustra come cercare la posizione di interesse e visualizzare i risultati della ricerca sulla mappa.
 
-Esistono due modi per eseguire la ricerca di una posizione di interesse. Uno consiste nell'usare un modulo del servizio per effettuare una richiesta di ricerca. L'altro consiste nell'eseguire una richiesta di ricerca all'[API di ricerca fuzzy di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) tramite l'[API di recupero](https://fetch.spec.whatwg.org/). Entrambe le modalità vengono descritte di seguito.
+Esistono due modi per eseguire la ricerca di una posizione di interesse. Uno consiste nell'usare un modulo del servizio per effettuare una richiesta di ricerca. L'altro consiste nell'eseguire una richiesta di ricerca all'[API di ricerca fuzzy di Mappe di Azure](/rest/api/maps/search/getsearchfuzzy) tramite l'[API di recupero](https://fetch.spec.whatwg.org/). Entrambe le modalità vengono descritte di seguito.
 
 ## <a name="make-a-search-request-via-service-module"></a>Effettuare una richiesta di ricerca tramite il modulo del servizio
 
@@ -29,15 +29,15 @@ Esistono due modi per eseguire la ricerca di una posizione di interesse. Uno con
 
 Nel codice precedente il primo blocco costruisce un oggetto mappa e imposta il meccanismo di autenticazione per l'uso del token di accesso. Per le istruzioni è possibile vedere [Creare una mappa](./map-create.md).
 
-Il secondo blocco di codice crea un oggetto `TokenCredential` per autenticare le richieste HTTP a Mappe di Azure con il token di accesso. Passa quindi `TokenCredential` a `atlas.service.MapsURL.newPipeline()` e crea un'istanza di [Pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline). `searchURL` rappresenta un URL per le operazioni di [ricerca](https://docs.microsoft.com/rest/api/maps/search) di Mappe di Azure.
+Il secondo blocco di codice crea un oggetto `TokenCredential` per autenticare le richieste HTTP a Mappe di Azure con il token di accesso. Passa quindi `TokenCredential` a `atlas.service.MapsURL.newPipeline()` e crea un'istanza di [Pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline). `searchURL` rappresenta un URL per le operazioni di [ricerca](/rest/api/maps/search) di Mappe di Azure.
 
-Il terzo blocco di codice crea un oggetto origine dati usando la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) e aggiunge i risultati della ricerca in tale oggetto. Un [livello simbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) usa testo o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) come simboli sulla mappa.  Viene quindi creato un livello simbolo. L'origine dati viene aggiunta al livello simbolo, che viene quindi aggiunto alla mappa.
+Il terzo blocco di codice crea un oggetto origine dati usando la classe [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) e aggiunge i risultati della ricerca in tale oggetto. Un [livello simbolo](/javascript/api/azure-maps-control/atlas.layer.symbollayer) usa testo o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) come simboli sulla mappa.  Viene quindi creato un livello simbolo. L'origine dati viene aggiunta al livello simbolo, che viene quindi aggiunto alla mappa.
 
-Il quarto blocco di codice usa il metodo [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) nel [modulo del servizio](how-to-use-services-module.md). Consente di eseguire una ricerca di testo in formato libero tramite l'[API REST GET di ricerca fuzzy](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) per cercare un punto di interesse. Le richieste GET all'API di ricerca fuzzy possono gestire qualsiasi combinazione di input fuzzy. Dalla risposta viene quindi estratta con il metodo `geojson.getFeatures()` una raccolta di caratteristiche GeoJSON che viene aggiunta all'origine dati determinando così automaticamente il rendering dei dati nella mappa tramite il livello simboli.
+Il quarto blocco di codice usa il metodo [SearchFuzzy](/javascript/api/azure-maps-rest/atlas.service.models.searchgetsearchfuzzyoptionalparams) nel [modulo del servizio](how-to-use-services-module.md). Consente di eseguire una ricerca di testo in formato libero tramite l'[API REST GET di ricerca fuzzy](/rest/api/maps/search/getsearchfuzzy) per cercare un punto di interesse. Le richieste GET all'API di ricerca fuzzy possono gestire qualsiasi combinazione di input fuzzy. Dalla risposta viene quindi estratta con il metodo `geojson.getFeatures()` una raccolta di caratteristiche GeoJSON che viene aggiunta all'origine dati determinando così automaticamente il rendering dei dati nella mappa tramite il livello simboli.
 
-L'ultimo blocco di codice regola i limiti della fotocamera per la mappa usando la proprietà [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa.
+L'ultimo blocco di codice regola i limiti della fotocamera per la mappa usando la proprietà [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa.
 
-La richiesta di ricerca, l'origine dati, il livello simbolo e i limiti della fotocamera si trovano all'interno del [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) della mappa. È necessario assicurarsi che i risultati vengano visualizzati dopo il caricamento completo della mappa.
+La richiesta di ricerca, l'origine dati, il livello simbolo e i limiti della fotocamera si trovano all'interno del [listener di eventi](/javascript/api/azure-maps-control/atlas.map#events) della mappa. È necessario assicurarsi che i risultati vengano visualizzati dopo il caricamento completo della mappa.
 
 
 ## <a name="make-a-search-request-via-fetch-api"></a>Effettuare una richiesta di ricerca con l'API di recupero
@@ -49,28 +49,28 @@ Nel codice precedente il primo blocco di codice costruisce un oggetto mappa. Imp
 
 Il secondo blocco di codice crea un URL per eseguire una richiesta di ricerca. Crea anche due matrici per archiviare i limiti e i segnaposto dei risultati della ricerca.
 
-Il terzo blocco di codice usa l'[API di recupero](https://fetch.spec.whatwg.org/). L'[API di recupero](https://fetch.spec.whatwg.org/) viene usata per effettuare una richiesta all'[API di ricerca fuzzy di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) per cercare i punti di interesse. L'API di ricerca fuzzy può gestire qualsiasi combinazione di input fuzzy. Gestisce e analizza quindi la risposta alla ricerca e aggiunge i segnaposto dei risultati alla matrice searchPins.
+Il terzo blocco di codice usa l'[API di recupero](https://fetch.spec.whatwg.org/). L'[API di recupero](https://fetch.spec.whatwg.org/) viene usata per effettuare una richiesta all'[API di ricerca fuzzy di Mappe di Azure](/rest/api/maps/search/getsearchfuzzy) per cercare i punti di interesse. L'API di ricerca fuzzy può gestire qualsiasi combinazione di input fuzzy. Gestisce e analizza quindi la risposta alla ricerca e aggiunge i segnaposto dei risultati alla matrice searchPins.
 
-Il quarto blocco di codice crea un oggetto di origine dati usando la classe [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource). Nel codice i risultati della ricerca vengono aggiunti all'oggetto di origine. Un [livello simbolo](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.symbollayer) usa testo o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.source.datasource) come simboli sulla mappa. Viene quindi creato un livello simbolo. L'origine dati viene aggiunta al livello simbolo, che viene quindi aggiunto alla mappa.
+Il quarto blocco di codice crea un oggetto di origine dati usando la classe [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource). Nel codice i risultati della ricerca vengono aggiunti all'oggetto di origine. Un [livello simbolo](/javascript/api/azure-maps-control/atlas.layer.symbollayer) usa testo o icone per il rendering dei dati basati su punti di cui viene eseguito il wrapping in [DataSource](/javascript/api/azure-maps-control/atlas.source.datasource) come simboli sulla mappa. Viene quindi creato un livello simbolo. L'origine dati viene aggiunta al livello simbolo, che viene quindi aggiunto alla mappa.
 
-L'ultimo blocco di codice crea un oggetto [BoundingBox](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.boundingbox). Usa la matrice di risultati e quindi regola i limiti della fotocamera per la mappa usando la proprietà [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa. Esegue quindi il rendering dei segnaposto dei risultati.
+L'ultimo blocco di codice crea un oggetto [BoundingBox](/javascript/api/azure-maps-control/atlas.data.boundingbox). Usa la matrice di risultati e quindi regola i limiti della fotocamera per la mappa usando la proprietà [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa. Esegue quindi il rendering dei segnaposto dei risultati.
 
-La richiesta di ricerca, l'origine dati, il livello simbolo e i limiti della fotocamera vengono impostati all'interno del [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) della mappa per garantire che i risultati vengano visualizzati dopo il caricamento completo della mappa.
+La richiesta di ricerca, l'origine dati, il livello simbolo e i limiti della fotocamera vengono impostati all'interno del [listener di eventi](/javascript/api/azure-maps-control/atlas.map#events) della mappa per garantire che i risultati vengano visualizzati dopo il caricamento completo della mappa.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
 > [Procedure consigliate per l'uso del servizio di ricerca](how-to-use-best-practices-for-search.md)
 
-Ulteriori informazioni sulla **ricerca fuzzy**:
+Ulteriori informazioni sulla **ricerca fuzzy** :
 
 > [!div class="nextstepaction"]
-> [Azure Maps Fuzzy Search API (API di ricerca fuzzy di Mappe di Azure)](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+> [Azure Maps Fuzzy Search API (API di ricerca fuzzy di Mappe di Azure)](/rest/api/maps/search/getsearchfuzzy)
 
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
+> [Mappa](/javascript/api/azure-maps-control/atlas.map)
 
 Per esempi di codice completi, vedere gli articoli seguenti:
 

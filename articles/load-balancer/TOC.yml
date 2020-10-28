@@ -110,7 +110,7 @@
         - name: Modello di Azure Resource Manager
           href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-configure-standard-load-balancer-template-json'
           displayName: ARM
-    - name: Configurare il timeout di inattività TCP per il servizio di bilanciamento del carico
+    - name: Configurare la reimpostazione e il timeout di inattività di TCP
       href: load-balancer-tcp-idle-timeout.md
     - name: Configurare la modalità di distribuzione per Load Balancer
       href: load-balancer-distribution-mode.md

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/08/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 8bcea36b99ae51da256d6b4fc49a4e3965a8c82c
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 9f72d54fda8f66c2fce35f0520b51406aa276bb0
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279181"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892754"
 ---
 # <a name="metered-billing-for-saas-using-the-commercial-marketplace-metering-service"></a>Fatturazione a consumo per SaaS tramite il servizio di misurazione del Marketplace commerciale
 
@@ -37,7 +37,7 @@ Conoscere la gerarchia dell'offerta è importante, quando si tratta di definire 
 
 - Ogni offerta SaaS è configurata in modo da essere venduta tramite Microsoft o meno.  Dopo la pubblicazione di un'offerta, questa opzione non può essere modificata.
 - Ogni offerta SaaS, configurata per la vendita tramite Microsoft, può includere uno o più piani.  Un utente sottoscrive l'offerta SaaS, ma viene acquistata tramite Microsoft entro il contesto di un piano.
-- A ogni piano è associato un modello di determinazione dei prezzi: **Tariffa** fissa o **per utente**. Tutti i piani in un'offerta devono essere associati allo stesso modello di determinazione prezzi. Non è ad esempio possibile che esista un'offerta con piani per un modello tariffario forfettario e un altro modello di determinazione prezzi per utente.
+- A ogni piano è associato un modello di determinazione dei prezzi: **Tariffa** fissa o **per utente** . Tutti i piani in un'offerta devono essere associati allo stesso modello di determinazione prezzi. Non è ad esempio possibile che esista un'offerta con piani per un modello tariffario forfettario e un altro modello di determinazione prezzi per utente.
 - All'interno di ogni piano configurato per un modello di fatturazione a tariffa fissa, è inclusa almeno una tariffa ricorrente (che può essere $0):
     - Tariffa **mensile** ricorrente: tariffa mensile flat prepagata in caso di ricorrenza mensile quando l'utente effettua l'acquisto del piano.
     - Tariffa **annuale** ricorrente: tariffa fissa annuale prepagata in caso di ricorrenza annuale quando l'utente acquista il piano.
@@ -73,12 +73,12 @@ In base al piano selezionato, una sottoscrizione di acquisto di un cliente di Az
 
 Ogni dimensione di fatturazione definisce un'unità personalizzata in base alla quale gli ISV possono generare eventi di utilizzo.  Le dimensioni di fatturazione vengono usate anche per comunicare con il cliente su come verranno fatturate per l'uso del software.  Sono definiti come segue:
 
-- **ID**: l'identificatore di dimensione non modificabile a cui si fa riferimento durante la creazione di eventi di utilizzo.
-- **Nome visualizzato**: il nome visualizzato associato alla dimensione, ad esempio "SMS inviati".
-- **Unità di misura**: la descrizione dell'unità di fatturazione, ad esempio "per messaggio di testo" o "per ogni 100 di messaggi di posta elettronica".
-- **Prezzo per unità in USD**: prezzo di un'unità della dimensione.  Può essere 0. 
-- **Quantità mensile inclusa in base**: quantità di dimensione inclusa al mese per i clienti che pagano la tariffa mensile ricorrente, deve essere un numero intero. Può essere 0 o Unlimited.
-- **Quantità annua inclusa in base**: la quantità di dimensione inclusa per ogni anno per i clienti che pagano la tariffa annuale ricorrente, deve essere un numero intero. Può essere 0 o illimitato.
+- **ID** : l'identificatore di dimensione non modificabile a cui si fa riferimento durante la creazione di eventi di utilizzo.
+- **Nome visualizzato** : il nome visualizzato associato alla dimensione, ad esempio "SMS inviati".
+- **Unità di misura** : la descrizione dell'unità di fatturazione, ad esempio "per messaggio di testo" o "per ogni 100 di messaggi di posta elettronica".
+- **Prezzo per unità in USD** : prezzo di un'unità della dimensione.  Può essere 0. 
+- **Quantità mensile inclusa in base** : quantità di dimensione inclusa al mese per i clienti che pagano la tariffa mensile ricorrente, deve essere un numero intero. Può essere 0 o Unlimited.
+- **Quantità annua inclusa in base** : la quantità di dimensione inclusa per ogni anno per i clienti che pagano la tariffa annuale ricorrente, deve essere un numero intero. Può essere 0 o illimitato.
 
 Le dimensioni di fatturazione vengono condivise tra tutti i piani per un'offerta.  Alcuni attributi si applicano alla dimensione in tutti i piani e altri attributi sono specifici del piano.
 
@@ -143,9 +143,9 @@ Una volta pubblicato un piano, non è più possibile modificare i dettagli a liv
 
 ### <a name="upper-limits"></a>Limiti superiori
 
-Il numero massimo di dimensioni che possono essere configurate per una singola offerta è 18 dimensioni univoche.
+Il numero massimo di dimensioni che possono essere configurate per una singola offerta è 30 dimensioni univoche.
 
-## <a name="get-support"></a>Ottenere supporto
+## <a name="get-support"></a>Supporto
 
 Se si verifica uno dei problemi seguenti, è possibile aprire un ticket di supporto.
 

@@ -10,22 +10,18 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: mbullwin
-ms.openlocfilehash: 6b5292ca7e1220b60b1b2a2501b3150550da8db9
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131684"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893578"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Domande frequenti su Metrics Advisor
 
 ### <a name="what-is-the-cost-of-my-instance"></a>Qual è il costo dell'istanza?
 
 Attualmente non è previsto alcun costo per l'uso dell'istanza durante l'anteprima.
-
-### <a name="why-is-the-demo-website-readonly"></a>Perché il sito Web demo è ReadOnly?
-
-Il [sito Web demo](https://anomaly-detector.azurewebsites.net/) è disponibile pubblicamente. Questa istanza viene resa di sola lettura per evitare il caricamento accidentale di dati.
 
 ### <a name="why-cant-i-create-the-resource-the-pricing-tier-is-unavailable-and-it-says-you-have-already-created-1-s0-for-this-subscription"></a>Perché non è possibile creare la risorsa? Il "piano tariffario" non è disponibile e indica che è già stato creato 1 S0 per questa sottoscrizione.
 
@@ -115,7 +111,7 @@ Per informazioni dettagliate, vedere [configurazioni di rilevamento anomalie](ho
 
 Una metrica può essere suddivisa in più serie temporali in base alle dimensioni. Ad esempio, la metrica `Response latency` viene monitorata per tutti i servizi di proprietà del team. La `Service` categoria può essere utilizzata come dimensione per arricchire la metrica, in modo che venga `Response latency` divisa per `Service1` , `Service2` e così via. Ogni servizio può essere distribuito in computer diversi in più data center, quindi la metrica potrebbe essere ulteriormente divisa da `Machine` e `Data center` .
 
-|Service| Data center| Computer  | 
+|Servizio| Data center| Computer  | 
 |----|------|----------------   |
 | S1 |  DC1 |   M1 |
 | S1 |  DC1 |   M2 |
@@ -145,5 +141,4 @@ Quando si verifica un'anomalia, ad esempio, `Service = S2 | Data Center = DC2 | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Panoramica di Advisor metriche](overview.md)
-- [Prova il sito demo](quickstarts/explore-demo.md)
 - [Usare il portale Web](quickstarts/web-portal.md)

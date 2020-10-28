@@ -6,13 +6,13 @@ ms.author: daperlov
 manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 03/10/2020
-ms.openlocfilehash: 0442c701f39fd3e84361ad0201aaf8d1840d8851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: 6fe85db6612a16099f61cb52fe9c5864882f35b3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81606275"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892928"
 ---
 # <a name="mapping-data-flow-transformation-overview"></a>Panoramica sulla trasformazione del flusso di dati
 
@@ -33,6 +33,7 @@ Di seguito è riportato un elenco delle trasformazioni attualmente supportate ne
 | [Ricerca](data-flow-lookup.md) | Input/output multipli | Dati di riferimento da un'altra origine. |
 | [Nuovo ramo](data-flow-new-branch.md) | Input/output multipli | Applicare più set di operazioni e trasformazioni a fronte dello stesso flusso di dati. |
 | [Pivot](data-flow-pivot.md) | Modificatore schema | Aggregazione in cui una o più colonne di raggruppamento presentano valori di riga distinti trasformati in singole colonne. |
+| [Classifica](data-flow-rank.md) | Modificatore schema | Genera una classificazione ordinata in base alle condizioni di ordinamento |
 | [Select](data-flow-select.md) | Modificatore schema | Colonne alias e nomi di flusso, colonne drop o riordina |
 | [Sink](data-flow-sink.md) | - | Una destinazione finale per i dati |
 | [Sort](data-flow-sort.md) | Modificatore di riga | Ordina righe in ingresso nel flusso di dati corrente |

@@ -59,13 +59,13 @@
         - name: Controllo degli accessi in base al ruolo
           displayName: rbac
           href: role-based-access-control.md
+        - name: Supporto di Criteri di gruppo
+          href: policy.md
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
         - name: Baseline di sicurezza
           href: security-baseline.md
-        - name: Supporto di Criteri di gruppo
-          href: policy.md
     - name: Analisi con Collegamento ad Azure Synapse
       items:
         - name: Collegamento a Synapse di Azure per Cosmos DB
@@ -202,11 +202,14 @@
           href: templates-samples-sql.md
     - name: Concetti
       items:
-        - name: Modellare i dati del documento
-          displayName: document
-          href: modeling-data.md
-        - name: Partizionamento
+        - name: Modellazione e partizionamento
           items:
+            - name: Modellare i dati del documento
+              displayName: document
+              href: modeling-data.md
+            - name: 'Modellazione e partizionamento: esempio reale'
+              displayName: 'model, partition, example'
+              href: how-to-model-partition-example.md
             - name: Chiave di partizione sintetica
               href: synthetic-partition-keys.md
         - name: query SQL
@@ -631,13 +634,13 @@
           items:
             - name: Velocità effettiva con provisioning
               items:
-                - name: Effettuare il provisioning della velocità effettiva standard (manuale) in un contenitore
+                - name: Effettuare il provisioning della velocità effettiva standard (manuale) - Contenitore
                   displayName: 'request units, RUs, RU, collection level'
                   href: how-to-provision-container-throughput.md
-                - name: Effettuare il provisioning della velocità effettiva standard (manuale) in un database
+                - name: Effettuare il provisioning della velocità effettiva standard (manuale) - Database
                   displayName: 'request units, RUs, RU, shared throughput, database level'
                   href: how-to-provision-database-throughput.md
-                - name: Effettuare il provisioning della velocità effettiva con scalabilità automatica in un database o un contenitore
+                - name: Effettuare il provisioning della velocità effettiva con scalabilità automatica - Database o contenitore
                   displayName: 'request units, RUs, RU, shared throughput, database level, collection level, autoscale'
                   href: how-to-provision-autoscale-throughput.md
                 - name: Stimare il valore RU/sec con Cosmos Capacity Planner
@@ -657,9 +660,6 @@
               href: large-partition-keys.md
             - name: Eseguire query su un contenitore
               href: how-to-query-container.md
-            - name: 'Modellazione e partizionamento dei dati: un esempio reale'
-              displayName: 'model, partition, example'
-              href: how-to-model-partition-example.md
             - name: Eseguire la migrazione a contenitori partizionati
               href: migrate-containers-partitioned-to-nonpartitioned.md
             - name: Configurare la durata (TTL)
@@ -1179,8 +1179,6 @@
       items:
         - name: Intestazioni della risposta
           href: gremlin-headers.md
-        - name: Limiti
-          href: gremlin-limits.md
         - name: Provider di risorse REST
           href: /rest/api/cosmos-db-resource-provider/2020-04-01/gremlinresources
         - name: Modello di Resource Manager

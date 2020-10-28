@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: 34f9d480234ecaef0d581cfecd68e2cdd1cf6fdc
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6c461983053a145dfda58b9e3d26b39db0c339e5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046775"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893421"
 ---
 # <a name="metrics-advisor-glossary-of-common-vocabulary-and-concepts"></a>Glossario del vocabolario e dei concetti comuni di Advisor per le metriche
 
@@ -33,9 +33,9 @@ Un feed di dati è quello che le metriche vengono inserite dall'origine dati, ad
 
 ## <a name="metric"></a>Metrica
 
-Una metrica è una misura quantificabile utilizzata per monitorare e valutare lo stato di un processo di business specifico. Può essere una combinazione di più valori della serie temporale divisi in dimensioni. Una metrica di *integrità Web* , ad esempio, può contenere dimensioni per il *numero di utenti* e il *mercato en-US*.
+Una metrica è una misura quantificabile utilizzata per monitorare e valutare lo stato di un processo di business specifico. Può essere una combinazione di più valori della serie temporale divisi in dimensioni. Una metrica di *integrità Web* , ad esempio, può contenere dimensioni per il *numero di utenti* e il *mercato en-US* .
 
-## <a name="dimension"></a>Dimensione
+## <a name="dimension"></a>Dimension
 
 Una dimensione è uno o più valori categorici. La combinazione di questi valori identifica una particolare serie temporale univariata, ad esempio: paese, lingua, tenant e così via.
 
@@ -60,7 +60,7 @@ In questo esempio la *categoria* e il *mercato* sono dimensioni. *Ricavi* è l'i
 
 Si supponga di avere dati relativi al numero di errori registrati in un'applicazione. I dati della serie temporale potrebbero avere un aspetto simile al seguente:
 
-| Timestamp | Componente dell'applicazione | Region | Totale errori |
+| Timestamp | Componente dell'applicazione | Area | Totale errori |
 | ----------|----------|--------|----- |
 | 2020-6-1 | Database Employee | EUROPA OCCIDENTALE | 9000 |
 | 2020-6-1 | Coda messaggi | STATI UNITI ORIENTALI | 1000 |
@@ -139,29 +139,29 @@ Metrica Advisor fornisce diversi [metodi di rilevamento](how-tos/configure-metri
 
 Rilevamento di anomalie usando più algoritmi di machine learning.
 
-**Sensitivity**: valore numerico per regolare la tolleranza del rilevamento delle anomalie. Visivamente, maggiore è il valore, più ristretto è il limite superiore e inferiore attorno alla serie temporale.
+**Sensitivity** : valore numerico per regolare la tolleranza del rilevamento delle anomalie. Visivamente, maggiore è il valore, più ristretto è il limite superiore e inferiore attorno alla serie temporale.
 
 ### <a name="hard-threshold"></a>Soglia rigida
 
 I valori al di fuori dei limiti superiore o inferiore sono le anomalie.
 
-**Min**: limite inferiore
+**Min** : limite inferiore
 
-**Max**: limite superiore
+**Max** : limite superiore
 
 ### <a name="change-threshold"></a>Modifica soglia
 
 Usare il valore del punto precedente per determinare se questo punto è un'anomalia.
 
-**Percentuale di modifica**: rispetto al punto precedente, il punto corrente è un'anomalia se la percentuale di modifica è maggiore di questo parametro.
+**Percentuale di modifica** : rispetto al punto precedente, il punto corrente è un'anomalia se la percentuale di modifica è maggiore di questo parametro.
 
-**Modificare i punti**: il numero di punti da analizzare.
+**Modificare i punti** : il numero di punti da analizzare.
 
 ### <a name="common-parameters"></a>Parametri comuni
 
-**Direction**: un punto è un'anomalia solo quando la deviazione si verifica nella direzione verso l' *alto*, verso il *basso*o *entrambi*.
+**Direction** : un punto è un'anomalia solo quando la deviazione si verifica nella direzione verso l' *alto* , verso il *basso* o *entrambi* .
 
-L' **anomalia non è valida fino a quando**: un punto dati è solo un'anomalia se una percentuale specificata di punti precedenti è anche un'anomalia.
+L' **anomalia non è valida fino a quando** : un punto dati è solo un'anomalia se una percentuale specificata di punti precedenti è anche un'anomalia.
 
 ## <a name="alert-settings"></a>Impostazione avviso
 
@@ -173,17 +173,17 @@ Le impostazioni degli avvisi determinano quali anomalie devono attivare un avvis
 
 Ambito avviso si riferisce all'ambito a cui si applica l'avviso. Sono disponibili quattro opzioni:
 
-**Anomalie di tutte le serie**: gli avvisi verranno attivati per le anomalie in tutte le serie all'interno della metrica.
+**Anomalie di tutte le serie** : gli avvisi verranno attivati per le anomalie in tutte le serie all'interno della metrica.
 
-**Anomalie nel gruppo serie**: gli avvisi verranno attivati solo per le anomalie in dimensioni specifiche del gruppo di serie. Il numero di dimensioni specificate deve essere minore delle dimensioni totali del numero.
+**Anomalie nel gruppo serie** : gli avvisi verranno attivati solo per le anomalie in dimensioni specifiche del gruppo di serie. Il numero di dimensioni specificate deve essere minore delle dimensioni totali del numero.
 
-**Anomalie nella serie preferiti**: gli avvisi verranno attivati solo per le anomalie che vengono aggiunte come preferiti. È possibile scegliere un gruppo di serie come preferito per ogni configurazione di rilevamento.
+**Anomalie nella serie preferiti** : gli avvisi verranno attivati solo per le anomalie che vengono aggiunte come preferiti. È possibile scegliere un gruppo di serie come preferito per ogni configurazione di rilevamento.
 
-**Anomalie nelle prime n di tutte le serie**: gli avvisi verranno attivati solo per le anomalie nelle prime n serie. È possibile impostare i parametri per specificare il numero di timestamp da tenere in considerazione e quante anomalie devono essere presenti per inviare l'avviso.
+**Anomalie nelle prime n di tutte le serie** : gli avvisi verranno attivati solo per le anomalie nelle prime n serie. È possibile impostare i parametri per specificare il numero di timestamp da tenere in considerazione e quante anomalie devono essere presenti per inviare l'avviso.
 
 ### <a name="severity"></a>Gravità
 
-Il livello di gravità è un livello che l'Advisor di metrica usa per descrivere la gravità dell'evento imprevisto, tra cui *alto*, *medio*e *basso*.
+Il livello di gravità è un livello che l'Advisor di metrica usa per descrivere la gravità dell'evento imprevisto, tra cui *alto* , *medio* e *basso* .
 
 Attualmente, per misurare la gravità dell'avviso, in Advisor vengono utilizzati i fattori seguenti:
 1. La proporzione del valore e la percentuale di anomalie nella metrica.
@@ -200,7 +200,7 @@ Il comportamento di snooze può essere impostato a livello di metrica o di serie
 
 ### <a name="ingestion-time-offset"></a>Offset tempo di inserimento
 
-Per impostazione predefinita, i dati vengono inseriti in base alla granularità (ad esempio, *ogni giorno*). Utilizzando un numero intero positivo, è possibile ritardare l'inserimento dei dati in base al valore specificato. Utilizzando un numero negativo, è possibile avanzare l'inserimento in base al valore specificato.
+Per impostazione predefinita, i dati vengono inseriti in base alla granularità (ad esempio, *ogni giorno* ). Utilizzando un numero intero positivo, è possibile ritardare l'inserimento dei dati in base al valore specificato. Utilizzando un numero negativo, è possibile avanzare l'inserimento in base al valore specificato.
 
 ### <a name="max-ingestion-per-minute"></a>Inserimento massimo al minuto
 
@@ -238,7 +238,7 @@ Quando questa opzione è impostata su zero, ogni timestamp con *non disponibile*
 
 ## <a name="data-feed-permissions"></a>Autorizzazioni feed di dati
 
-Per gestire le autorizzazioni per i feed di dati sono disponibili due ruoli: *Administrator*e *Viewer*. 
+Per gestire le autorizzazioni per i feed di dati sono disponibili due ruoli: *Administrator* e *Viewer* . 
 
 * Un *amministratore* ha il controllo completo del feed di dati e delle metriche al suo interno. Possono attivare, sospendere, eliminare il feed di dati e apportare aggiornamenti ai feed e alle configurazioni. Un *amministratore* è in genere il proprietario della metrica.
 
@@ -246,5 +246,4 @@ Per gestire le autorizzazioni per i feed di dati sono disponibili due ruoli: *Ad
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Panoramica di Advisor metriche](overview.md)
-- [Prova il sito demo](quickstarts/explore-demo.md)
 - [Usare il portale Web](quickstarts/web-portal.md)

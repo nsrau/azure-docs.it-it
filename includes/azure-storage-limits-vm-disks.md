@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 03/18/2019
 ms.author: rogarana
-ms.openlocfilehash: e89676505bc211d01a4327f8816a048218e579fe
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 10599b47d55a0b4ea1eb79cda3c31a2479efb7c0
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91829009"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755489"
 ---
 È possibile collegare diversi dischi dati a una macchina virtuale di Azure. In base agli obiettivi di scalabilità e prestazioni per i dischi dati di una macchina virtuale, è possibile determinare il numero e il tipo di disco necessari per soddisfare i requisiti di prestazioni e capacità.
 
@@ -18,7 +18,7 @@ ms.locfileid: "91829009"
 
 **Per Azure Managed Disks:**
 
-La tabella seguente illustra i limiti predefiniti e massimi del numero di risorse per area per sottoscrizione. Non esiste alcun limite per il numero di Managed Disks, snapshot e immagini per gruppo di risorse.  
+La tabella seguente illustra i limiti predefiniti e massimi del numero di risorse per area per sottoscrizione. I limiti rimangono invariati indipendentemente dal fatto che i dischi vengano crittografati con chiavi gestite dalla piattaforma o chiavi gestite dal cliente. Non esiste alcun limite per il numero di Managed Disks, snapshot e immagini per gruppo di risorse.  
 
 > | Risorsa | Limite |
 > | --- | --- |

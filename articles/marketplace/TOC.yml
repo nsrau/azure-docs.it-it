@@ -140,13 +140,15 @@
     - name: Servizi di consulenza
       items:
         - name: Pianificare un'offerta di servizi di consulenza
-          href: consulting-services.md
-        - name: Creare e pubblicare un'offerta di servizi di consulenza
-          items:
-            - name: Prerequisiti
-              href: partner-center-portal/consulting-service-prerequisites.md
-            - name: Creare un'offerta di un servizio di consulenza
-              href: partner-center-portal/create-consulting-service-offer.md
+          href: plan-consulting-service-offer.md
+        - name: Creare un'offerta di un servizio di consulenza
+          href: create-consulting-service-offer.md
+        - name: Configurare le proprietà di un servizio di consulenza
+          href: create-consulting-service-offer-properties.md
+        - name: Configurare l'inserzione di un servizio di consulenza
+          href: create-consulting-service-offer-listing.md
+        - name: Configurare prezzi e disponibilità
+          href: create-consulting-service-pricing-availability.md
     - name: Offerte Dynamics 365
       items:
         - name: Pianificare un'offerta Dynamics 365

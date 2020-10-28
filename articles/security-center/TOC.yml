@@ -14,9 +14,17 @@
           href: security-center-services.md
         - name: Copertura delle funzionalità per le risorse PaaS di Azure
           href: features-paas.md
-    - name: Novità di Centro sicurezza
-      displayName: release notes
-      href: release-notes.md
+    - name: Novità
+      items:
+        - name: Note sulla versione
+          displayName: changelog
+          href: release-notes.md
+        - name: Importanti modifiche imminenti
+          displayName: 'release notes, changelog'
+          href: upcoming-changes.md
+        - name: Note sulla versione archiviate (antecedenti a sei mesi)
+          displayName: changelog
+          href: release-notes-archive.md
     - name: Concetti fondamentali su Centro sicurezza
       items:
         - name: Pagina di panoramica di Centro sicurezza
@@ -217,8 +225,13 @@
         - name: Personalizzare i criteri di protezione delle informazioni
           href: security-center-info-protection-policy.md
     - name: Usare Azure Defender per registri contenitori
-      displayName: 'ACR, registry, images'
-      href: defender-for-container-registries-usage.md
+      items:
+        - name: Analizzare le immagini del registro per individuare vulnerabilità
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md
+        - name: Disabilitare specifici risultati sulle vulnerabilità delle immagini
+          displayName: 'ACR, registry, images, qualys'
+          href: defender-for-container-registries-usage.md#disable-specific-findings-preview
     - name: Esportare avvisi e raccomandazioni
       items:
         - name: 'Eseguire l''esportazione in una soluzione SIEM, SOAR o ITSM'
@@ -272,8 +285,6 @@
           href: faq-vms.md
         - name: Utenti esistenti di Azure Log Analytics
           href: faq-azure-monitor-logs.md
-    - name: Archivio delle novità di Centro sicurezza
-      href: release-notes-archive.md
     - name: Blog della roadmap per Azure
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: Valutazione e consigli per la protezione degli endpoint

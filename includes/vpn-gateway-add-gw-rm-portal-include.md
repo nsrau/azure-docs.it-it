@@ -8,24 +8,25 @@ ms.topic: include
 ms.date: 10/19/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 2069d56b6bc0507478714eda575ab38fec41b8a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fe95481e977d2e35c2f652b6c99b9e69ae89e2f8
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92207622"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92479576"
 ---
-1. Nel menu del [portale di Azure](https://portal.azure.com) selezionare **Crea una risorsa** .
+1. Nel [portale di Azure](https://portal.azure.com), in **Cerca risorse, servizi e documentazione (G+/)** digitare **gateway di rete virtuale** . Individuare e selezionare **Gateway di rete virtuale** nei risultati della ricerca.
 
-   ![Creare una risorsa nel portale di Azure](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
-1. Nel campo **Ceca nel Marketplace** digitare 'Gateway di rete virtuale'. Individuare **Gateway di rete virtuale** nei risultati della ricerca e selezionare la voce. Nella pagina **Gateway di rete virtuale** selezionare **Crea** . Verrà visualizzata la pagina **Crea gateway di rete virtuale** .
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/search.png" alt-text="Campo di ricerca" lightbox="./media/vpn-gateway-add-gw-rm-portal-include/search-expand.png":::
+
+1. Nella pagina **Gateway di rete virtuale** selezionare **+ Aggiungi** . Verrà visualizzata la pagina **Crea gateway di rete virtuale** .
+
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/add.png" alt-text="Campo di ricerca":::
 1. Nella scheda **Informazioni di base** inserire i valori per il gateway di rete virtuale.
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Campi del gateway":::
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway.png" alt-text="Campo di ricerca":::
 
-   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Campi del gateway":::
-
-   **Dettagli del progetto**
+   :::image type="content" source="./media/vpn-gateway-add-gw-rm-portal-include/gateway-vnet.png" alt-text="Campo di ricerca":::
 
    * **Sottoscrizione** Selezionare la sottoscrizione da usare nell'elenco a discesa.
    * **Gruppo di risorse** : questa impostazione viene compilata automaticamente quando si seleziona la rete virtuale in questa pagina.
@@ -48,10 +49,8 @@ ms.locfileid: "92207622"
      * **Indirizzo IP pubblico** : Lasciare **Crea nuovo** selezionato.
      * **Nome indirizzo IP pubblico** : digitare un nome per l'istanza dell'indirizzo IP pubblico nella casella di testo.
      * **Assegnazione** : il gateway VPN supporta solo l'assegnazione dinamica.
-
-   **Modalità attiva-attiva** : Selezionare **Abilita modalità attiva-attiva** solo se si sta creando una configurazione gateway attiva-attiva, In caso contrario, lasciare l'impostazione **Disabilitata** .
-
-   Lasciare l'opzione **Configura ASN BGP** impostata su **Disabilitata** , a meno che la configurazione non richieda specificamente questa opzione. Se è un'impostazione necessaria, il numero ASN predefinito è 65515, anche se può essere modificato.
+     * **Abilita modalità attiva-attiva** : Selezionare **Abilita modalità attiva-attiva** solo se si sta creando una configurazione gateway attiva-attiva, In caso contrario, lasciare l'impostazione **Disabilitata** .
+     * Lasciare l'opzione **Configura BGP** impostata su **Disabilitato** , a meno che la configurazione non richieda specificamente questa opzione. Se è un'impostazione necessaria, il numero ASN predefinito è 65515, anche se può essere modificato.
 1. Selezionare **Rivedi e crea** per eseguire la convalida.
 1. Una volta superata la convalida, selezionare **Crea** per distribuire il gateway VPN. La creazione completa e la distribuzione di un gateway possono richiedere fino a 45 minuti. È possibile visualizzare lo stato della distribuzione nella pagina Panoramica per il gateway.
 

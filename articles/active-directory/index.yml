@@ -11,13 +11,13 @@ metadata:
   author: mtillman
   ms.author: mtillman
   manager: daveba
-  ms.date: 05/29/2020
-  ms.openlocfilehash: 33bba82d473d6c9c39e78e2e3587fc4f886fd1ba
-  ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+  ms.date: 10/22/2020
+  ms.openlocfilehash: 6b7ed9160cc256d2b52bd69730017db08ca479fa
+  ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/22/2020
-  ms.locfileid: "92359544"
+  ms.lasthandoff: 10/27/2020
+  ms.locfileid: "92670469"
 highlightedContent:
   items:
   - title: Informazioni su Azure AD
@@ -40,6 +40,17 @@ highlightedContent:
     url: ./fundamentals/active-directory-how-subscriptions-associated-directory.md
 conceptualContent:
   items:
+  - title: Supporto delle applicazioni dei partner
+    links:
+    - url: ./saas-apps/tutorial-list.md
+      itemType: tutorial
+      text: Seguire queste esercitazioni per integrare le app SaaS abilitate per il cloud con Azure AD
+    - url: https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx
+      itemType: get-started
+      text: Inviare la richiesta per integrare l'app nella raccolta di Azure AD
+    footerLink:
+      url: ./manage-apps/index.yml
+      text: Altre informazioni
   - title: Gestione delle applicazioni
     links:
     - url: ./manage-apps/what-is-application-management.md

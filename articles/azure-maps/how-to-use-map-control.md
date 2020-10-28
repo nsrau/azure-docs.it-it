@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 19db4fb0d75369a0f272eef1180e86f47d45d284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 21fd5f5c94b56f2f63d0e90d9982edd60a2d95d6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335331"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895444"
 ---
 # <a name="use-the-azure-maps-map-control"></a>Usare il controllo mappa di Mappe di Azure
 
@@ -26,7 +26,7 @@ Per utilizzare il controllo mappa in una pagina Web, è necessario disporre di u
 
 * [Creare un account Azure Maps](quick-demo-map-app.md#create-an-azure-maps-account) e [ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione.
 
-* Ottenere le credenziali di Azure Active Directory (AAD) con le [Opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions).
+* Ottenere le credenziali di Azure Active Directory (AAD) con le [Opzioni di autenticazione](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
 ## <a name="create-a-new-map-in-a-web-page"></a>Creare una nuova mappa in una pagina Web
 
@@ -75,7 +75,7 @@ Per utilizzare il controllo mappa in una pagina Web, è necessario disporre di u
     </style>
    ```
 
-4. Nel corpo della pagina aggiungere un elemento `<div>` e assegnargli un `id`**myMap**.
+4. Nel corpo della pagina aggiungere un elemento `<div>` e assegnargli un `id`**myMap** .
 
    ```HTML
     <body onload="InitMap()">
@@ -83,7 +83,7 @@ Per utilizzare il controllo mappa in una pagina Web, è necessario disporre di u
     </body>
    ```
 
-5. A questo punto, verrà inizializzato il controllo mappa. Per autenticare il controllo, è necessario essere proprietari di una chiave di sottoscrizione di Azure Maps o usare le credenziali Azure Active Directory (AAD) con le [Opzioni di autenticazione](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.authenticationoptions).
+5. A questo punto, verrà inizializzato il controllo mappa. Per autenticare il controllo, è necessario essere proprietari di una chiave di sottoscrizione di Azure Maps o usare le credenziali Azure Active Directory (AAD) con le [Opzioni di autenticazione](/javascript/api/azure-maps-control/atlas.authenticationoptions).
 
     Se si usa una chiave di sottoscrizione per l'autenticazione, copiare e incollare il seguente elemento script all'interno dell' `<head>` elemento e sotto il primo `<script>` elemento. Sostituire `<Your Azure Maps Key>` con la chiave di sottoscrizione primaria di Azure maps.
 
@@ -279,7 +279,7 @@ Per aggiungere altri dati alla mappa:
 > [Creare una mappa](map-create.md)
 
 > [!div class="nextstepaction"]
-> [Esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-maps)
+> [Esempi di codice](/samples/browse/?products=azure-maps)
 
 Per un elenco di esempi che illustrano come integrare Azure Active Directory (AAD) con mappe di Azure, vedere:
 

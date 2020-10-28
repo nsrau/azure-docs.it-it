@@ -13,7 +13,7 @@
       href: invite-users.md
 - name: Esercitazioni
   items:
-    - name: Connettersi ad Azure
+    - name: Creare un nuovo account connesso ad Azure
       href: connect-to-azure.md
     - name: Usare l'API Video Indexer
       href: video-indexer-use-apis.md

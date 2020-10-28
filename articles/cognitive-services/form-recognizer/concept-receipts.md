@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 0382c7c7f7d068ea227397ae7accf4bc410de04a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761448"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893687"
 ---
 # <a name="receipt-concepts"></a>Concetti relativi alle ricevute
 
@@ -437,7 +437,7 @@ I dati estratti con l'API di ricezione possono essere usati per eseguire varie a
 
 L'archiviazione delle spese aziendali comporta spesso un tempo di spesa per l'immissione manuale dei dati dalle immagini delle ricevute. Con l'API di ricezione, è possibile usare i campi estratti per automatizzare parzialmente questo processo e analizzare rapidamente le ricevute.  
 
-Poiché l'API di ricezione ha un semplice output JSON, è possibile usare i valori dei campi estratti in diversi modi. Eseguire l'integrazione con le applicazioni di spesa interne per popolare i report spese. Per ulteriori informazioni su questo scenario, vedere la pagina relativa alla modalità di utilizzo dell'API di ricezione da Acumatica per [la segnalazione di un processo meno doloroso](https://customers.microsoft.com/en-us/story/762684-acumatica-partner-professional-services-azure).  
+Poiché l'API di ricezione ha un semplice output JSON, è possibile usare i valori dei campi estratti in diversi modi. Eseguire l'integrazione con le applicazioni di spesa interne per popolare i report spese. Per ulteriori informazioni su questo scenario, vedere la pagina relativa alla modalità di utilizzo dell'API di ricezione da Acumatica per [la segnalazione di un processo meno doloroso](https://customers.microsoft.com/story/762684-acumatica-partner-professional-services-azure).  
 
 ### <a name="auditing-and-accounting"></a>Controllo e contabilità 
 

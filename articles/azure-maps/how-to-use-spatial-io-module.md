@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-js
-ms.openlocfilehash: 61ea102d0e020f7890da1ae86cdfbb5c3db8f51b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e64df21b31d686b72b210d2c62956745350891f5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335297"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895393"
 ---
 # <a name="how-to-use-the-azure-maps-spatial-io-module"></a>Come usare il modulo di i/o spaziale di Maps di Azure
 
-Azure Maps Web SDK fornisce il modulo di i/o **spaziale**, che integra i dati spaziali con Azure Maps Web SDK usando JavaScript o typescript. Le funzionalità affidabili di questo modulo consentono agli sviluppatori di:
+Azure Maps Web SDK fornisce il modulo di i/o **spaziale** , che integra i dati spaziali con Azure Maps Web SDK usando JavaScript o typescript. Le funzionalità affidabili di questo modulo consentono agli sviluppatori di:
 
 - [Leggere e scrivere file di dati spaziali comuni](spatial-io-read-write-spatial-data.md). I formati di file supportati sono i file KML, KMZ, GPX, GeoRSS, GML, GeoJSON e CSV contenenti colonne con informazioni spaziali. Supporta anche Well-Known testo (WKT).
 - [Connettersi ai servizi di Open Geospatial Consortium (OGC) ed eseguire l'integrazione con Azure Maps Web SDK. Sovrapposizione dei servizi di Web Map Services (WMS) e delle tessere mappa Web (WMTS) come livelli sulla mappa](spatial-io-add-ogc-map-layer.md).
@@ -40,7 +40,7 @@ Questo video offre una panoramica del modulo di i/o spaziale in Azure Maps Web S
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter usare il modulo di i/o spaziale, è necessario [creare un account Azure Maps](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#create-an-azure-maps-account) e [ottenere la chiave di sottoscrizione primaria per l'account](https://docs.microsoft.com/azure/azure-maps/quick-demo-map-app#get-the-primary-key-for-your-account).
+Prima di poter usare il modulo di i/o spaziale, è necessario [creare un account Azure Maps](./quick-demo-map-app.md#create-an-azure-maps-account) e [ottenere la chiave di sottoscrizione primaria per l'account](./quick-demo-map-app.md#get-the-primary-key-for-your-account).
 
 ## <a name="installing-the-spatial-io-module"></a>Installazione del modulo IO spaziale
 
@@ -68,7 +68,7 @@ Prima di poter usare il modulo di i/o spaziale, è necessario [creare un account
 
 1. Creare un nuovo file HTML.
 
-2. Caricare Azure Maps Web SDK e inizializzare il controllo mappa. Per informazioni dettagliate, vedere la Guida di [controllo mappa di Azure Maps](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) . Al termine di questo passaggio, il file HTML dovrebbe essere simile al seguente:
+2. Caricare Azure Maps Web SDK e inizializzare il controllo mappa. Per informazioni dettagliate, vedere la Guida di [controllo mappa di Azure Maps](./how-to-use-map-control.md) . Al termine di questo passaggio, il file HTML dovrebbe essere simile al seguente:
 
     ```html
     <!DOCTYPE html>
@@ -256,4 +256,4 @@ La funzionalità illustrata di seguito è solo una delle numerose funzionalità 
 Vedere la documentazione relativa ai i/o spaziali di Azure Maps:
 
 > [!div class="nextstepaction"]
-> [Pacchetto di i/o spaziale di mappe di Azure](https://docs.microsoft.com/javascript/api/azure-maps-spatial-io/)
+> [Pacchetto di i/o spaziale di mappe di Azure](/javascript/api/azure-maps-spatial-io/)

@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: a96a62d7bb93f0ede6b16008dc844ad7f1a8c8d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9ce0d0770c7e6c4579469cc16d8c76c309a33d1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86517298"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895376"
 ---
 # <a name="implement-dynamic-styling-for-creator-indoor-maps"></a>Implementare stili dinamici per le piante di interni
 
-Il [servizio di stato della funzionalità](https://docs.microsoft.com/rest/api/maps/featurestate) di Creator per Mappe di Azure consente di applicare stili in base alle proprietà dinamiche delle funzionalità di dati di piante di interni.  È, ad esempio, possibile eseguire il rendering delle sale riunioni con un colore specifico in modo che indichino se sono o meno occupate. Questo articolo illustra come eseguire dinamicamente il rendering delle funzionalità di piante di interni con il [servizio di stato della funzionalità](https://docs.microsoft.com/rest/api/maps/featurestate) e il [modulo Web per piante di interni](how-to-use-indoor-module.md).
+Il [servizio di stato della funzionalità](/rest/api/maps/featurestate) di Creator per Mappe di Azure consente di applicare stili in base alle proprietà dinamiche delle funzionalità di dati di piante di interni.  È, ad esempio, possibile eseguire il rendering delle sale riunioni con un colore specifico in modo che indichino se sono o meno occupate. Questo articolo illustra come eseguire dinamicamente il rendering delle funzionalità di piante di interni con il [servizio di stato della funzionalità](/rest/api/maps/featurestate) e il [modulo Web per piante di interni](how-to-use-indoor-module.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -68,7 +68,7 @@ Nella sezione successiva lo *stato* di occupazione dell'ufficio `UNIT26` verrà 
 
 1. Nell'applicazione Postman selezionare **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un valore in **Request name** (Nome richiesta) e selezionare una raccolta. Fare clic su **Save** (Salva).
 
-2. Per aggiornare lo stato, usare l'[API degli stati di aggiornamento delle funzionalità](https://docs.microsoft.com/rest/api/maps/featurestate/updatestatespreview). Passare l'ID stateset e `UNIT26` per una delle due unità. Accodare la chiave di sottoscrizione di Mappe di Azure. Ecco l'URL di una richiesta **POST** per l'aggiornamento dello stato:
+2. Per aggiornare lo stato, usare l'[API degli stati di aggiornamento delle funzionalità](/rest/api/maps/featurestate/updatestatespreview). Passare l'ID stateset e `UNIT26` per una delle due unità. Accodare la chiave di sottoscrizione di Mappe di Azure. Ecco l'URL di una richiesta **POST** per l'aggiornamento dello stato:
 
     ```http
     https://atlas.microsoft.com/featureState/state?api-version=1.0&statesetID={statesetId}&featureID=UNIT26&subscription-key={Azure-Maps-Primary-Subscription-key}
@@ -134,4 +134,3 @@ Vedere i riferimenti per le API menzionate in questo articolo:
 
 > [!div class="nextstepaction"]
 > [Servizio WFS](creator-indoor-maps.md#web-feature-service-api)
-

@@ -8,18 +8,18 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 8e62734e039d0f6ceff836947519ef71ee9b8497
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9934a2660d18fdcbada1cda86f957345b2d1a8c8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311054"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895733"
 ---
 # <a name="manage-the-pricing-tier-of-your-azure-maps-account"></a>Gestire il piano tariffario dell'account Mappe di Azure
 
 È possibile gestire il piano tariffario dell'account Mappe di Azure tramite il portale di Azure. È anche possibile visualizzare o modificare il piano tariffario dell'account dopo aver creato un [account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-Per altre informazioni, vedere [Scegliere il piano tariffario corretto in Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier).
+Per altre informazioni, vedere [Scegliere il piano tariffario corretto in Mappe di Azure](./choose-pricing-tier.md).
 
 ## <a name="view-your-pricing-tier"></a>Visualizzare il piano tariffario
 

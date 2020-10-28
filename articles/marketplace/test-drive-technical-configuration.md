@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 08/13/2019
 author: keferna
 ms.author: keferna
-ms.openlocfilehash: 7d22226721d4fc09b4f5affc15047b6799ed0d19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1772a61f45d88e0b63346c41d557cfddf35ab4a7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409477"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892622"
 ---
 # <a name="test-drive-technical-configuration"></a>Configurazione tecnica del test drive
 
@@ -22,19 +22,19 @@ Se non si desidera più fornire un test drive per l'offerta, tornare alla pagina
 
 ## <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
-Questa è l'unica opzione test drive per le offerte di macchine virtuali o app di Azure e richiede anche un'installazione abbastanza dettagliata. Leggere le sezioni seguenti per [i dettagli della sottoscrizione di distribuzione](#deployment-subscription-details) e gli [elenchi di test drive](#test-drive-listings), quindi continuare con l'argomento separato per la [configurazione di Azure Resource Manager Test Drive](azure-resource-manager-test-drive.md).
+Questa è l'unica opzione test drive per le offerte di macchine virtuali o app di Azure e richiede una configurazione piuttosto dettagliata. Leggere le sezioni seguenti per [i dettagli della sottoscrizione di distribuzione](#deployment-subscription-details) e gli [elenchi di test drive](#test-drive-listings), quindi continuare con l'argomento separato per la [configurazione di Azure Resource Manager Test Drive](azure-resource-manager-test-drive.md).
 
 ## <a name="hosted-test-drive"></a>test drive ospitata
 
-Microsoft può rimuovere gli elementi di complessità della configurazione di un test drive ospitando e gestendo il provisioning e la distribuzione del servizio con questo tipo di test drive. La configurazione di questo tipo di test drive ospitato è la stessa, indipendentemente dal fatto che la test drive sia destinata a un pubblico di Dynamics 365 business Central, Dynamics 365 Customer Engagement o a Dynamics 365 Operations.
+Microsoft può rimuovere la complessità della configurazione di un test drive ospitando e gestendo il provisioning e il deprovisioning del servizio. La configurazione di questo tipo di test drive è la stessa, indipendentemente dal fatto che la test drive sia destinata a un gruppo di destinatari di Dynamics 365 Customer Engagement o Dynamics 365 Operations.
 
 - **Max test drive simultanee** (obbligatorio): impostare il numero massimo di clienti per volta che possono usare il test drive. Ogni utente simultaneo utilizzerà una licenza Dynamics 365 mentre il test drive è attivo, quindi assicurarsi di disporre di un numero sufficiente di licenze disponibili per supportare il limite massimo impostato. Il valore consigliato è 3-5.
 
-- **Durata test drive** (obbligatorio): immettere il numero di ore per cui il test drive resterà attivo (almeno un'ora). Dopo questo periodo, la sessione terminerà e non utilizzerà più una delle licenze. È consigliabile immettere un valore di 2-24 ore, a seconda della complessità dell'offerta. La durata può essere impostata solo in periodi di ore intere (ad esempio, "2" è un valore valido, a differenza di "1,5"). L'utente può richiedere una nuova sessione se esaurisce il tempo e vuole accedere di nuovo al test drive.
+- **Durata test drive** (obbligatorio): immettere il numero di ore per cui il test drive resterà attivo per ogni cliente. Dopo questo periodo, la sessione verrà terminata e non verrà più utilizzata una delle licenze. È consigliabile immettere un valore di 2-24 ore, a seconda della complessità dell'offerta. Questa durata può essere impostata solo in ore intere (ad esempio, "2 ore" è valida; "1,5 ore" non è). Se l'utente esaurisce il tempo e vuole accedere di nuovo al test drive, può richiedere una nuova sessione.
 
 - **URL istanza** (obbligatorio): l'URL in cui il cliente avvierà un test drive. È in genere l'URL dell'istanza di Dynamics 365 che esegue l'app con i dati di esempio installati, ad esempio `https://testdrive.crm.dynamics.com`.
 
-- **URL dell'API Web dell'istanza** (obbligatorio): recuperare l'URL dell'API Web per l'istanza di Dynamics 365 accedendo all'account Microsoft 365 e passando a **Impostazioni**  >  **personalizzazione**  >  **risorse per sviluppatori**  >  **istanza Web API (URL radice del servizio)**, copiare l'URL trovato qui (ad esempio, `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
+- **URL dell'API Web dell'istanza** (obbligatorio): recuperare l'URL dell'API Web per l'istanza di Dynamics 365 accedendo all'account Microsoft 365 e passando a **Impostazioni**  >  **personalizzazione**  >  **risorse per sviluppatori**  >  **istanza Web API (URL radice del servizio)** , copiare l'URL trovato qui (ad esempio, `https://testdrive.crm.dynamics.com/api/data/v9.0` ).
 
 - **Nome ruolo** (obbligatorio): specificare il nome del ruolo di sicurezza definito nel test drive di Dynamics 365 personalizzato, che verrà assegnato all'utente durante il test drive (ad esempio, test-drive-role).
 
@@ -48,7 +48,7 @@ Questo tipo di test drive non è ospitato da Microsoft. È possibile usarlo per 
 
 - **Max test drive simultanee** (obbligatorio): impostare il numero massimo di clienti per volta che possono usare il test drive. Questi test drive sono già distribuiti e consentono ai clienti di accedervi istantaneamente senza attendere una distribuzione.
 
-- **Durata test drive** (obbligatorio): immettere il numero di ore per cui il test drive resterà attivo (almeno un'ora). Il test drive termina automaticamente alla fine di questo periodo di tempo.
+- **Durata test drive** (obbligatorio): immettere il periodo di tempo per cui il test drive resterà attivo, in numero di ore. Il test drive termina automaticamente alla fine di questo periodo di tempo.
 
 - **Nome del gruppo di risorse di Azure** (obbligatorio): immettere il nome del [gruppo di risorse di Azure](../azure-resource-manager/resource-group-overview.md#resource-groups)in cui viene salvata l'App per la logica test drive.
 
@@ -72,9 +72,9 @@ Per consentire a Microsoft di distribuire il test automaticamente, creare e spec
 
 - **Nome tenant di Azure AD** (obbligatorio per Dynamics 365): immettere il nome di Azure Active Directory (AD). Per trovare questo nome, accedere al [portale di Azure](https://portal.azure.com/): nell'angolo in alto a destra il nome del tenant verrà elencato sotto il nome dell'account.
 
-- **Azure ad ID app** (obbligatorio): immettere l' [id applicazione](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)di Azure Active Directory (ad). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **registrazioni app**, quindi cercare il numero di **ID dell'applicazione** elencato (ad esempio `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **Azure ad ID app** (obbligatorio): immettere l' [id applicazione](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in)di Azure Active Directory (ad). Per trovare questo ID, accedere al [portale di Azure](https://portal.azure.com/), selezionare la scheda Active Directory nel menu a sinistra, selezionare **registrazioni app** , quindi cercare il numero di **ID dell'applicazione** elencato (ad esempio `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Azure ad segreto client App** (obbligatorio): immettere il [segreto client](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)dell'applicazione Azure ad. Per trovare questo valore, accedere al [portale di Azure](https://portal.azure.com/). Selezionare la scheda **Azure Active Directory** nel menu a sinistra, selezionare **Registrazioni app** e quindi selezionare l'app test drive. Selezionare **Certificati e segreti** e **Nuovo segreto client**, immettere una descrizione, selezionare **Mai** in **Scade** e quindi scegliere **Aggiungi**. Assicurarsi di copiare il valore. Non uscire dalla pagina prima di copiare il valore.
+- **Azure ad segreto client App** (obbligatorio): immettere il [segreto client](../active-directory/develop/howto-create-service-principal-portal.md#option-2-create-a-new-application-secret)dell'applicazione Azure ad. Per trovare questo valore, accedere al [portale di Azure](https://portal.azure.com/). Selezionare la scheda **Azure Active Directory** nel menu a sinistra, selezionare **registrazioni app** e selezionare l'app test drive. Selezionare quindi **certificati e segreti** , selezionare **nuovo segreto client** , immettere una descrizione, selezionare **mai** in **scadenza** e scegliere **Aggiungi** . Assicurarsi di copiare il valore. Non uscire dalla pagina prima di copiare il valore.
 
 ## <a name="test-drive-listings"></a>Elenchi di test drive
 
@@ -93,6 +93,14 @@ L'opzione per gli **elenchi di test drive** disponibile nella scheda **test driv
 
 Se si sta creando il test drive nel centro per i partner, selezionare **Salva bozza** prima di continuare.
 
-## <a name="next-step"></a>Passaggio successivo
+## <a name="next-steps"></a>Passaggi successivi
 
+- [Procedure consigliate per test drive](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
+- [Panoramica](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)(PDF; assicurarsi che il blocco popup sia disattivato)
 - [Aggiornare un'offerta esistente nel marketplace commerciale](partner-center-portal/update-existing-offer.md)
+
+## <a name="additional-resources"></a>Risorse aggiuntive
+
+## <a name="feedback"></a>Commenti e suggerimenti
+
+Inviare e visualizzare il feedback per [questo prodotto](https://feedback.azure.com/forums/216369-azure-marketplace)

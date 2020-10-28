@@ -11,12 +11,12 @@ ms.workload: infrastructure-services
 ms.date: 08/17/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017, devx-track-azurecli
-ms.openlocfilehash: a0347e76a39be8bada9ec59eb8accef17e784951
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: ea53eda3863ea5164142fa0d37fff7be365a4d5c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92738126"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894101"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Guida alla pianificazione e all'implementazione di macchine virtuali di Azure per SAP NetWeaver
 
@@ -1832,7 +1832,7 @@ Azure Managed disks viene inserito automaticamente nel dominio di errore della m
 
 Un'architettura di esempio di un sistema SAP NetWeaver che usa la disponibilità elevata dell'infrastruttura di Azure e gli account di archiviazione potrebbe avere un aspetto simile al seguente:
 
-![Uso della disponibilità elevata dell'infrastruttura di Azure per ottenere una disponibilità più elevata delle applicazioni SAP][planning-guide-figure-2900]
+![Diagramma che illustra un sistema SAP NetWeaver che usa la disponibilità elevata e gli account di archiviazione dell'infrastruttura di Azure.][planning-guide-figure-2900]
 
 Un'architettura di esempio di un sistema SAP NetWeaver che usa la disponibilità elevata dell'infrastruttura di Azure e i Managed Disks potrebbe avere un aspetto simile al seguente:
 
@@ -1892,7 +1892,7 @@ Solo dischi non gestiti: I concetti illustrati di seguito potrebbero richiedere 
 
 ##### <a name="windows-logologo_windows-ha-on-windows"></a>![Logo Windows.][Logo_Windows] Disponibilità elevata in Windows
 
-![Architettura a disponibilità elevata dell'applicazione SAP NetWeaver con SQL Server in IaaS di Azure][planning-guide-figure-3200]
+![Diagramma che illustra l'architettura a disponibilità elevata dell'applicazione SAP NetWeaver con SQL Server in Azure IaaS.][planning-guide-figure-3200]
 
 I costrutti di Azure seguenti vengono usati per il sistema SAP NetWeaver, allo scopo di ridurre al minimo l'impatto esercitato dai problemi dell'infrastruttura e dall'applicazione di patch agli host:
 

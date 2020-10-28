@@ -16,12 +16,12 @@ ms.date: 04/17/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 29a1a991ab79c38dad1a89533091d80406615d35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: edb326c889a76eedd82c8918c705bdb5bbe5d195
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90969473"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893609"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-the-azure-cli"></a>Creare, elencare ed eliminare un'identità gestita assegnata dall'utente mediante l'interfaccia della riga di comando di Azure
 
@@ -30,15 +30,15 @@ Le identità gestite per le risorse di Azure offrono servizi di Azure con un'ide
 
 Questo articolo illustra come creare, elencare ed eliminare un'identità gestita assegnata dall'utente usando l'interfaccia della riga di comando di Azure.
 
+Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
-- Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire gli script di esempio, sono disponibili due opzioni:
-    - Usare [Azure Cloud Shell](../../cloud-shell/overview.md), che è possibile aprire con il pulsante **Prova** nell'angolo in alto a destra dei blocchi di codice.
-    - Eseguire gli script in locale installando l'ultima versione dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli), quindi accedere ad Azure usando [az login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure in cui creare le risorse.   
+- Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere informazioni [sulle identità gestite per le risorse di Azure](overview.md). Per informazioni sui tipi di identità gestiti assegnati dal sistema e dall'utente, vedere [tipi di identità gestiti](overview.md#managed-identity-types).
 
-> [!NOTE]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../../includes/azure-cli-prepare-your-environment-no-header.md)]
+
+> [!NOTE]   
 > Per modificare le autorizzazioni utente quando si usa un'entità servizio app usando l'interfaccia della riga di comando, è necessario fornire all'entità servizio autorizzazioni aggiuntive in Azure AD API Graph come parti dell'interfaccia della riga di comando eseguono richieste GET rispetto al API Graph. In caso contrario, è possibile che si riceva un messaggio "privilegi insufficienti per completare l'operazione". A tale scopo, è necessario passare alla registrazione dell'app in Azure Active Directory, selezionare l'app, fare clic su autorizzazioni API, scorrere verso il basso e selezionare Azure Active Directory grafico. Da qui selezionare autorizzazioni applicazione, quindi aggiungere le autorizzazioni appropriate. 
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Creare un'identità gestita assegnata dall'utente 

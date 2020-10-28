@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: a01f5d2d000ef6e177000828500ef2ab0e26c4ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448185"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893404"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log
 
@@ -39,6 +39,9 @@ Questa estensione funziona con entrambi i modelli di distribuzione di Azure.
 ## <a name="installing-the-extension-in-your-vm"></a>Installazione dell'estensione nella macchina virtuale
 
 È possibile abilitare questa estensione usando i cmdlet di Azure PowerShell, gli script dell'interfaccia della riga di comando di Azure, i modelli ARM o il portale di Azure. Per altre informazioni, vedere [Funzionalità delle estensioni](features-linux.md).
+
+>[!NOTE]
+>Alcuni componenti dell'estensione della macchina virtuale di diagnostica vengono inoltre forniti nell' [estensione della macchina virtuale log Analytics](./oms-linux.md). A causa di questa architettura, possono verificarsi conflitti se viene creata un'istanza di entrambe le estensioni nello stesso modello ARM. Per evitare questi conflitti in fase di installazione, utilizzare la [ `dependsOn` direttiva](../../azure-resource-manager/templates/define-resource-dependency.md#dependson) per assicurarsi che le estensioni siano installate in sequenza. Le estensioni possono essere installate in qualsiasi ordine.
 
 Le istruzioni di installazione e la [configurazione di esempio scaricabile](https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json) configurano LAD 3.0 per:
 
@@ -67,8 +70,8 @@ Distribuzioni e versioni supportate:
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* **Agente Linux di Azure 2.2.0 o versione successiva**. La maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.2.7 o successive. Eseguire `/usr/sbin/waagent -version` per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente dell'agente guest, seguire [queste istruzioni](./update-linux-agent.md) per aggiornarla.
-* **Interfaccia della riga di comando di Azure**. [Configurare l'ambiente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nella macchina virtuale.
+* **Agente Linux di Azure 2.2.0 o versione successiva** . La maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.2.7 o successive. Eseguire `/usr/sbin/waagent -version` per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente dell'agente guest, seguire [queste istruzioni](./update-linux-agent.md) per aggiornarla.
+* **Interfaccia della riga di comando di Azure** . [Configurare l'ambiente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nella macchina virtuale.
 * Il comando wget, se non è già disponibile: Eseguire `sudo apt-get install wget`.
 * Una sottoscrizione di Azure esistente e un account di archiviazione per utilizzo generico esistente in cui archiviare i dati.  Gli account di archiviazione per utilizzo generico supportano l'archiviazione tabelle, richiesta.  Un account di archiviazione BLOB non funzionerà.
 
@@ -172,7 +175,7 @@ Dopo aver modificato le impostazioni pubbliche o protette, è necessario distrib
 
 ### <a name="migration-from-previous-versions-of-the-extension"></a>Migrazione dalle versioni precedenti dell'estensione
 
-La versione più recente dell'estensione è **3.0**. **Le versioni precedenti (2.x) sono deprecate e la loro pubblicazione potrebbe essere annullata a partire dal 31 luglio 2018**.
+La versione più recente dell'estensione è **3.0** . **Le versioni precedenti (2.x) sono deprecate e la loro pubblicazione potrebbe essere annullata a partire dal 31 luglio 2018** .
 
 > [!IMPORTANT]
 > Questa estensione introduce importanti modifiche alla configurazione dell'estensione. Tale modifica è stata apportata per migliorare la sicurezza dell'estensione. Di conseguenza, la compatibilità con versioni precedenti alla versione 2.x potrebbe non essere mantenuta. In aggiunta, il server di pubblicazione per questa estensione è diverso dal server di pubblicazione per le versioni 2.x.
@@ -210,7 +213,7 @@ storageAccountSasToken | Un [token SAS dell'account](https://azure.microsoft.com
 mdsdHttpProxy | (facoltativo) Informazioni sul proxy HTTP necessarie per abilitare l'estensione affinché si connetta all'account di archiviazione e all'endpoint specificati.
 sinksConfig | (facoltativo) Informazioni sulle destinazioni alternative a cui possono essere inviati le metriche e gli eventi. Nelle sezioni che seguono vengono illustrati i dettagli specifici di ogni sink di dati supportato dall'estensione.
 
-Per ottenere un token di firma di accesso condiviso in un modello di Resource Manager, usare la funzione **listAccountSas**. Per un modello di esempio, vedere l'[esempio di funzione list](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
+Per ottenere un token di firma di accesso condiviso in un modello di Resource Manager, usare la funzione **listAccountSas** . Per un modello di esempio, vedere l'[esempio di funzione list](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 È possibile costruire con facilità il token SAS richiesto tramite il portale di Azure.
 
@@ -578,7 +581,7 @@ TransfersPerSecond | Operazioni di lettura o scrittura per secondo
 
 È possibile ottenere i valori aggregati in tutti i file System impostando `"condition": "IsAggregate=True"`. È possibile ottenere i valori per un determinato file system montato, ad esempio "/mnt", può essere ottenuto impostando `"condition": 'Name="/mnt"'`. 
 
-**NOTA**: Se si usa il portale di Azure anziché JSON, il formato del campo condizione corretto è Name='/mnt'
+**NOTA** : Se si usa il portale di Azure anziché JSON, il formato del campo condizione corretto è Name='/mnt'
 
 ### <a name="builtin-metrics-for-the-disk-class"></a>Metriche Builtin per la classe Disco
 

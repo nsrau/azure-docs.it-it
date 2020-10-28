@@ -12,14 +12,14 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 07/21/2020
-ms.openlocfilehash: 0513b12c7ec9174c9a458400cd5682904d9ffb3b
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 85b42c6a3c3c59bd8c22bcdc8954b8dd3399c454
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313155"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460972"
 ---
-# <a name="tutorial-migrate-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Esercitazione: Eseguire la migrazione online di un database di un server singolo di Database di Azure per PostgreSQL a un server singolo di Database di Azure per PostgreSQL con il Servizio Migrazione del database tramite il portale di Azure
+# <a name="tutorial-migrateupgrade-azure-db-for-postgresql---single-server-to-azure-db-for-postgresql---single-server--online-using-dms-via-the-azure-portal"></a>Esercitazione: Eseguire la migrazione o l'aggiornamento online di Database di Azure per PostgreSQL - Server singolo a Database di Azure per PostgreSQL - Server singolo con il Servizio Migrazione del database tramite il portale di Azure
 
 È possibile usare il Servizio Migrazione del database di Azure per eseguire la migrazione dei database da un'istanza di [Database di Azure per PostgreSQL - Server singolo](https://docs.microsoft.com/azure/postgresql/overview#azure-database-for-postgresql---single-server) alla stessa versione o a una diversa di un'istanza di Database di Azure per PostgreSQL - Server singolo o di Database di Azure per PostgreSQL - Server flessibile con tempi di inattività minimi. In questa esercitazione si esegue la migrazione del database di esempio **DVD Rental** da Database di Azure per PostgreSQL v10 a Database di Azure per PostgreSQL - Server singolo usando l'attività di migrazione online del Servizio Migrazione del database di Azure.
 
@@ -47,7 +47,7 @@ In questa esercitazione verranno illustrate le procedure per:
 Per completare questa esercitazione, è necessario:
 
 * Controllare lo [stato degli scenari di migrazione supportati dal Servizio Migrazione del database di Azure](https://docs.microsoft.com/azure/dms/resource-scenario-status) per le combinazioni di migrazione e versione supportate. 
-* Un'istanza di [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) versione 10 e successive con il database **DVD Rental** . Il Servizio Migrazione del database di Azure non supporta la migrazione dal database di Azure per PostgreSQL 9.5 o 9.6.
+* Un'istanza di [Database di Azure per PostgreSQL](https://docs.microsoft.com/azure/postgresql/) versione 10 e successive con il database **DVD Rental** . 
 
     Si noti anche che la versione del database di Azure per PostgreSQL di destinazione deve essere uguale o successiva alla versione locale di PostgreSQL. Ad esempio, per PostgreSQL 10 è possibile eseguire la migrazione al Database di Azure per PostgreSQL 10 o 11 ma non al Database di Azure per PostgreSQL 9.6.
 

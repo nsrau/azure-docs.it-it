@@ -4,12 +4,12 @@ ms.service: app-service
 ms.topic: include
 ms.date: 03/04/2020
 ms.author: jroth
-ms.openlocfilehash: 557e20dcafabb2db0bc66c9dfda4977aca50de50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 800dc50f82fa47228f1a88a143c5b515168812a6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91745698"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755564"
 ---
 | Risorsa | Gratuito | Condiviso | Basic | Standard | Premium (v3) | Isolato </th> |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -32,6 +32,7 @@ ms.locfileid: "91745698"
 | Connessioni ibride | | | 5 per piano | 25 per piano | 200 per app | 200 per app |
 | [Integrazione della rete virtuale](../articles/app-service/web-sites-integrate-with-vnet.md) | | |   |  X |  X  |  X  |
 | Bilanciamento del carico integrato | |X |X |X |X |X<sup>10</sup> |
+| [Restrizioni di accesso](../articles/app-service/networking-features.md#access-restrictions) | 512 regole per app | 512 regole per app | 512 regole per app | 512 regole per app | 512 regole per app | 512 regole per app |
 | [Always On](../articles/app-service/configure-common.md) | | |X |X |X |X |
 | [Backup pianificati](../articles/app-service/manage-backup.md) | | | | Backup pianificati ogni 2 ore, massimo 12 backup al giorno (manuali e pianificati) | Backup pianificati ogni ora, massimo 50 backup al giorno (manuali e pianificati) | Backup pianificati ogni ora, massimo 50 backup al giorno (manuali e pianificati) |
 | [Autoscale](../articles/app-service/manage-scale-up.md) | | | |X |X |X |

@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: 203ba2988d817e3e396fd8aec3db00eba9832041
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 4b04558077f6b59d0fef613308a6ab96680d7ff8
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92323249"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470728"
 ---
 ## <a name="download-and-install"></a>Download e installazione
 
@@ -107,7 +107,8 @@ Ad esempio, in Windows questo comando configura la chiave:
 
 ## <a name="create-subscription-config"></a>Creare la configurazione della sottoscrizione
 
-Per iniziare a usare l'interfaccia della riga di comando di Voce, è necessario innanzitutto immettere le informazioni sull’area e la chiave di sottoscrizione a Voce. Per trovare l'identificatore di area, vedere la pagina del [supporto a livello di area](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk). Dopo aver ottenuto l’identificatore dell’area e della chiave di sottoscrizione (ad esempio, `eastus`, `westus`), eseguire i comandi seguenti.
+Per iniziare a usare l'interfaccia della riga di comando di Voce, è necessario immettere la chiave della sottoscrizione e l'identificatore di area del servizio Voce. Per ottenere queste credenziali, seguire la procedura descritta in [Provare il servizio Voce gratuitamente](../overview.md#try-the-speech-service-for-free).
+Dopo aver ottenuto l’identificatore dell’area e della chiave di sottoscrizione (ad esempio, `eastus`, `westus`), eseguire i comandi seguenti.
 
 ```shell
 spx config @key --set SUBSCRIPTION-KEY

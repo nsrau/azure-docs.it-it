@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ec62461e5a12f0c566becdfc7d9a1464433ee656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88afb380f1aabf0c91e9d5abb0430972743eb6c2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91311020"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895750"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>Eseguire il rendering di dati personalizzati in una mappa raster
 
-Questo articolo illustra come usare il [servizio immagini statiche](https://docs.microsoft.com/rest/api/maps/render/getmapimage), con la funzionalità di composizione delle immagini, per consentire le sovrimpressioni sopra una mappa raster. La composizione dell'immagine include la possibilità di ottenere un riquadro raster, con dati aggiuntivi come puntine da disegno personalizzati, etichette e sovrapposizioni di geometria.
+Questo articolo illustra come usare il [servizio immagini statiche](/rest/api/maps/render/getmapimage), con la funzionalità di composizione delle immagini, per consentire le sovrimpressioni sopra una mappa raster. La composizione dell'immagine include la possibilità di ottenere un riquadro raster, con dati aggiuntivi come puntine da disegno personalizzati, etichette e sovrapposizioni di geometria.
 
-Per eseguire il rendering di puntine da disegno, etichette e sovrapposizioni di geometria personalizzati, è possibile usare l'applicazione post. È possibile usare le [API del servizio dati](https://docs.microsoft.com/rest/api/maps/data) di Azure Maps per archiviare ed eseguire il rendering di sovrimpressioni.
+Per eseguire il rendering di puntine da disegno, etichette e sovrapposizioni di geometria personalizzati, è possibile usare l'applicazione post. È possibile usare le [API del servizio dati](/rest/api/maps/data) di Azure Maps per archiviare ed eseguire il rendering di sovrimpressioni.
 
 > [!Tip]
 > Spesso è molto più conveniente usare Azure Maps Web SDK per mostrare una semplice mappa in una pagina Web rispetto all'uso del servizio immagini statiche. L'SDK Web usa le tessere mappa e, a meno che l'utente non riquadri e ingrandisce la mappa, genererà spesso solo una frazione di una transazione per carico mappa. Si noti che Azure Maps Web SDK include opzioni per disabilitare la panoramica e lo zoom. Azure Maps Web SDK offre inoltre un set più completo di opzioni di visualizzazione dei dati rispetto a un servizio Web mappa statica.  
@@ -41,9 +41,9 @@ Il livello S0 dell'account mappe di Azure supporta solo una singola istanza del 
 
 Per eseguire il rendering di puntine da disegno con etichette e un'immagine personalizzata, completare i passaggi seguenti:
 
-1. Creare una raccolta in cui archiviare le richieste. Nell'app post, selezionare **nuovo**. Nella finestra **Create New** (Crea nuovo) selezionare **Collection** (Raccolta). Assegnare un nome alla raccolta e selezionare **Create** (Crea). 
+1. Creare una raccolta in cui archiviare le richieste. Nell'app post, selezionare **nuovo** . Nella finestra **Create New** (Crea nuovo) selezionare **Collection** (Raccolta). Assegnare un nome alla raccolta e selezionare **Create** (Crea). 
 
-2. Per creare la richiesta, selezionare nuovamente **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **nome di richiesta** per il puntine da disegno. Selezionare la raccolta creata nel passaggio precedente, come percorso in cui salvare la richiesta. Selezionare quindi **Salva**.
+2. Per creare la richiesta, selezionare nuovamente **New** (Nuovo). Nella finestra **Create New** (Crea nuovo) selezionare **Request** (Richiesta). Immettere un **nome di richiesta** per il puntine da disegno. Selezionare la raccolta creata nel passaggio precedente, come percorso in cui salvare la richiesta. Selezionare quindi **Salva** .
     
     ![Creare una richiesta in post](./media/how-to-render-custom-data/postman-new.png)
 
@@ -62,7 +62,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
 > [!Note]
 > Per la procedura descritta in questa sezione è necessario un account Azure Maps nel piano tariffario S1.
 
-È anche possibile ottenere il percorso e aggiungere le informazioni sul percorso usando l' [API di caricamento dei dati](https://docs.microsoft.com/rest/api/maps/data/uploadpreview). Seguire questa procedura per caricare i dati di percorso e puntine da disegno.
+È anche possibile ottenere il percorso e aggiungere le informazioni sul percorso usando l' [API di caricamento dei dati](/rest/api/maps/data/uploadpreview). Seguire questa procedura per caricare i dati di percorso e puntine da disegno.
 
 1. Nell'app post, aprire una nuova scheda nell'insieme creato nella sezione precedente. Selezionare il metodo HTTP POST nella scheda generatore e immettere l'URL seguente per effettuare una richiesta POST:
 
@@ -172,7 +172,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
 > Per la procedura descritta in questa sezione è necessario un account Azure Maps nel piano tariffario S1.
 
 
-È possibile modificare l'aspetto di un poligono usando i modificatori di stile con il [parametro path](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+È possibile modificare l'aspetto di un poligono usando i modificatori di stile con il [parametro path](/rest/api/maps/render/getmapimage#uri-parameters).
 
 1. Nell'app post, aprire una nuova scheda nella raccolta creata in precedenza. Selezionare il metodo GET HTTP nella scheda generatore e immettere l'URL seguente per configurare una richiesta GET per eseguire il rendering di un poligono con colore e opacità:
     
@@ -192,7 +192,7 @@ Per eseguire il rendering di puntine da disegno con etichette e un'immagine pers
 > Per la procedura descritta in questa sezione è necessario un account Azure Maps nel piano tariffario S1.
 
 
-È possibile modificare l'aspetto dei pin aggiungendo i modificatori di stile. Ad esempio, per fare in modo che puntine da disegno e le relative etichette siano maggiori o minori, usare il `sc` modificatore "Ridimensiona stile". Questo modificatore accetta un valore maggiore di zero. Un valore pari a 1 è la scala standard. I valori maggiori di 1 renderanno le puntine da disegno più grandi e i valori inferiori a 1 le renderanno più piccole. Per altre informazioni sui modificatori di stile, vedere [parametri del percorso del servizio immagini statiche](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters).
+È possibile modificare l'aspetto dei pin aggiungendo i modificatori di stile. Ad esempio, per fare in modo che puntine da disegno e le relative etichette siano maggiori o minori, usare il `sc` modificatore "Ridimensiona stile". Questo modificatore accetta un valore maggiore di zero. Un valore pari a 1 è la scala standard. I valori maggiori di 1 renderanno le puntine da disegno più grandi e i valori inferiori a 1 le renderanno più piccole. Per altre informazioni sui modificatori di stile, vedere [parametri del percorso del servizio immagini statiche](/rest/api/maps/render/getmapimage#uri-parameters).
 
 
 Seguire questa procedura per eseguire il rendering di un cerchio e puntine da disegno con etichette personalizzate:
@@ -222,6 +222,5 @@ Analogamente, è possibile modificare, aggiungere e rimuovere altri modificatori
 ## <a name="next-steps"></a>Passaggi successivi
 
 
-* Esplorare la documentazione dell'[API per il recupero dell'immagine della mappa di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/render/getmapimage).
-* Per ulteriori informazioni sul servizio dati di Azure Maps, vedere la [documentazione del servizio](https://docs.microsoft.com/rest/api/maps/data).
-
+* Esplorare la documentazione dell'[API per il recupero dell'immagine della mappa di Mappe di Azure](/rest/api/maps/render/getmapimage).
+* Per ulteriori informazioni sul servizio dati di Azure Maps, vedere la [documentazione del servizio](/rest/api/maps/data).

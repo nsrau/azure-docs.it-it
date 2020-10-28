@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 93cabb566db02de7ef991fe9cdd293f8c399c3a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bc37f2b3f603262f67a46746187df6e4b5a494b5
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272957"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895529"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Mostra i dati sul traffico sulla mappa usando le mappe di Azure Android SDK
 
@@ -21,7 +21,7 @@ I dati di flusso e gli eventi imprevisti sono i due tipi di dati di traffico che
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di poter visualizzare il traffico sulla mappa, è necessario [creare un account Azure](quick-demo-map-app.md#create-an-azure-maps-account)e [ottenere una chiave di sottoscrizione](quick-demo-map-app.md#get-the-primary-key-for-your-account). Quindi, è necessario installare le [mappe di Azure Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) e caricare una mappa.
+Prima di poter visualizzare il traffico sulla mappa, è necessario [creare un account Azure](quick-demo-map-app.md#create-an-azure-maps-account)e [ottenere una chiave di sottoscrizione](quick-demo-map-app.md#get-the-primary-key-for-your-account). Quindi, è necessario installare le [mappe di Azure Android SDK](./how-to-use-android-map-control-library.md) e caricare una mappa.
 
 ## <a name="incidents-traffic-data"></a>Dati traffico eventi imprevisti
 
@@ -53,7 +53,7 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 
 Usare il frammento di codice seguente per impostare i dati del flusso di traffico. Analogamente al codice della sezione precedente, il valore restituito del metodo viene passato `flow` al `setTraffic` metodo. Sono disponibili quattro valori che è possibile passare a `flow` e ogni valore attiverà `flow` per restituire il rispettivo valore. Il valore restituito di `flow` verrà quindi passato come argomento a `setTraffic` . Vedere la tabella seguente per questi quattro valori:
 
-|Valore del flusso | Descrizione|
+|Valore del flusso | Description|
 | :-- | :-- |
 | TrafficFlow. NONE | Non Visualizza i dati sul traffico sulla mappa |
 | TrafficFlow. relativa | Mostra i dati sul traffico relativi alla velocità del flusso libero della strada |
@@ -73,7 +73,7 @@ protected void onCreate(Bundle savedInstanceState) {
 
 Per ottenere gli eventi imprevisti per una funzionalità specifica, è possibile usare il codice seguente. Quando si fa clic su una funzionalità, la logica del codice verifica la presenza di eventi imprevisti e compila un messaggio sull'evento imprevisto. Viene visualizzato un messaggio nella parte inferiore della schermata con i dettagli.
 
-1. Prima di tutto, è necessario modificare il **layout res > > activity_main.xml**, in modo che appaia come quello riportato di seguito. È possibile sostituire `mapcontrol_centerLat` , `mapcontrol_centerLng` e con i `mapcontrol_zoom` valori desiderati. Si ricordi che il livello di zoom è un valore compreso tra 0 e 22. Al livello di zoom 0, l'intero mondo si adatta a un singolo riquadro.
+1. Prima di tutto, è necessario modificare il **layout res > > activity_main.xml** , in modo che appaia come quello riportato di seguito. È possibile sostituire `mapcontrol_centerLat` , `mapcontrol_centerLng` e con i `mapcontrol_zoom` valori desiderati. Si ricordi che il livello di zoom è un valore compreso tra 0 e 22. Al livello di zoom 0, l'intero mondo si adatta a un singolo riquadro.
 
    ```XML
    <?xml version="1.0" encoding="utf-8"?>

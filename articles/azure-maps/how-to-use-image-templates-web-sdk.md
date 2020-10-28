@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-js
-ms.openlocfilehash: f43c0086cfd6e51e0fbcd5d30911aa6c8e9a6518
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5f455a1132a0f63e1ba3eb5d2a57a1f9bfa9a867
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335552"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895682"
 ---
 # <a name="how-to-use-image-templates"></a>Come usare i modelli di immagine
 
@@ -24,7 +24,7 @@ Le immagini possono essere usate con marcatori HTML e diversi livelli all'intern
  - È possibile eseguire il rendering dei livelli poligono con un'immagine del modello di riempimento. 
  - I marcatori HTML possono eseguire il rendering dei punti usando immagini e altri elementi HTML.
 
-Per garantire prestazioni ottimali con i livelli, caricare le immagini nella risorsa sprite dell'immagine della mappa prima del rendering. Per impostazione predefinita, [IconOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.iconoptions), di SymbolLayer, consente di precaricare un paio di immagini del marcatore in pochi colori nello sprite dell'immagine della mappa. Queste immagini del marcatore e altro ancora sono disponibili come modelli SVG. Possono essere usati per creare immagini con scale personalizzate o usate come colore primario e secondario del cliente. In totale sono disponibili modelli di immagine 42:27 icone dei simboli e 15 modelli di riempimento poligono.
+Per garantire prestazioni ottimali con i livelli, caricare le immagini nella risorsa sprite dell'immagine della mappa prima del rendering. Per impostazione predefinita, [IconOptions](/javascript/api/azure-maps-control/atlas.iconoptions), di SymbolLayer, consente di precaricare un paio di immagini del marcatore in pochi colori nello sprite dell'immagine della mappa. Queste immagini del marcatore e altro ancora sono disponibili come modelli SVG. Possono essere usati per creare immagini con scale personalizzate o usate come colore primario e secondario del cliente. In totale sono disponibili modelli di immagine 42:27 icone dei simboli e 15 modelli di riempimento poligono.
 
 I modelli di immagine possono essere aggiunti alle risorse sprite dell'immagine della mappa utilizzando la `map.imageSprite.createFromTemplate` funzione. Questa funzione consente di passare fino a cinque parametri;
 
@@ -106,7 +106,7 @@ Vedere il <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcatore HTML penn
 
 
 > [!TIP]
-> È anche possibile usare i modelli di immagine all'esterno della mappa. Il funciton getImageTemplate restituisce una stringa SVG con segnaposto; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Sostituire i valori segnaposto per creare una stringa SVG valida. È quindi possibile aggiungere la stringa SVG direttamente al DOM HTML oppure convertirla in un URI di dati e inserirla in un tag di immagine. Ad esempio:
+> È anche possibile usare i modelli di immagine all'esterno della mappa. Il funciton getImageTemplate restituisce una stringa SVG con segnaposto; `{color}`, `{secondaryColor}`, `{scale}`, `{text}`. Sostituire i valori segnaposto per creare una stringa SVG valida. È quindi possibile aggiungere la stringa SVG direttamente al DOM HTML oppure convertirla in un URI di dati e inserirla in un tag di immagine. Esempio:
 > ```JavaScript
 > //Retrieve an SVG template and replace the placeholder values.
 > var svg = atlas.getImageTemplate('marker').replace(/{color}/, 'red').replace(/{secondaryColor}/, 'white').replace(/{text}/, '').replace(/{scale}/, 1);
@@ -119,7 +119,7 @@ Vedere il <a href='https://codepen.io/azuremaps/pen/EqQvzq/'>marcatore HTML penn
 
 Se l'applicazione usa la stessa icona con icone diverse o se si sta creando un modulo che aggiunge modelli di immagine aggiuntivi, è possibile aggiungere e recuperare facilmente queste icone da Azure Maps Web SDK. Usare le funzioni statiche seguenti nello `atlas` spazio dei nomi.
 
-| Nome | Tipo restituito | Descrizione | 
+| Nome | Tipo restituito | Description | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Aggiunge un modello di immagine SVG personalizzato allo spazio dei nomi dell'Atlante. |
 |  `getImageTemplate(templateName: string, scale?: number)`| string | Recupera un modello SVG in base al nome. |
@@ -514,10 +514,10 @@ Vedere le <a href='https://codepen.io/azuremaps/pen/NQyaaO/'>Opzioni del modello
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [ImageSpriteManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.imagespritemanager)
+> [ImageSpriteManager](/javascript/api/azure-maps-control/atlas.imagespritemanager)
 
 > [!div class="nextstepaction"]
-> [spazio dei nomi Atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas#functions
+> [spazio dei nomi Atlas](/javascript/api/azure-maps-control/atlas#functions
 )
 
 Vedere gli articoli seguenti per altri esempi di codice in cui è possibile usare i modelli di immagine:

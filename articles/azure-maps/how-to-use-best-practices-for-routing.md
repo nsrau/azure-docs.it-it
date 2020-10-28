@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 13c7178b4a0866066dc74e409f8f4bfcd21a23f4
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 743710ea0d40eb31375236d4e59b0b138a217518
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91874595"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895546"
 ---
 # <a name="best-practices-for-azure-maps-route-service"></a>Procedure consigliate per il servizio Route di Azure Maps
 
-È possibile usare le direzioni Route e le API della matrice di route in Azure Maps [servizio di pianificazione percorso](https://docs.microsoft.com/rest/api/maps/route) per calcolare i tempi di arrivo stimati (ETAs) per ogni route richiesta. Le API Route considerano fattori quali le informazioni sul traffico in tempo reale e i dati cronologici del traffico, ad esempio le velocità tipiche della strada, il giorno della settimana e l'ora del giorno richiesti. Le API restituiscono i percorsi più brevi o più veloci disponibili per più destinazioni alla volta in sequenza o in ordine ottimizzato, in base al tempo o alla distanza. Gli utenti possono anche richiedere Route specializzate e dettagli per le escursioni, i ciclisti e i veicoli commerciali, ad esempio i furgoni. In questo articolo verranno illustrate le procedure consigliate per chiamare Azure Maps [servizio di pianificazione percorso](https://docs.microsoft.com/rest/api/maps/route)e si apprenderà come:
+È possibile usare le direzioni Route e le API della matrice di route in Azure Maps [servizio di pianificazione percorso](/rest/api/maps/route) per calcolare i tempi di arrivo stimati (ETAs) per ogni route richiesta. Le API Route considerano fattori quali le informazioni sul traffico in tempo reale e i dati cronologici del traffico, ad esempio le velocità tipiche della strada, il giorno della settimana e l'ora del giorno richiesti. Le API restituiscono i percorsi più brevi o più veloci disponibili per più destinazioni alla volta in sequenza o in ordine ottimizzato, in base al tempo o alla distanza. Gli utenti possono anche richiedere Route specializzate e dettagli per le escursioni, i ciclisti e i veicoli commerciali, ad esempio i furgoni. In questo articolo verranno illustrate le procedure consigliate per chiamare Azure Maps [servizio di pianificazione percorso](/rest/api/maps/route)e si apprenderà come:
 
  * Scegliere tra le API Route directions e l'API routing Matrix
  * Richiedere tempi di viaggio stimati e cronologici, in base ai dati di traffico in tempo reale e storici
@@ -27,7 +27,7 @@ ms.locfileid: "91874595"
  * Richiedere una route costituita da una o più interruzioni (waypoint)
  * Ottimizzare una route di una o più interruzioni per ottenere l'ordine migliore per visitare ogni punto di interruzione (waypoint)
  * Ottimizzare le route alternative usando punti di supporto. Ad esempio, offrire route alternative che passano una stazione di ricarica del veicolo elettrico.
- * Usare il [servizio di pianificazione percorso](https://docs.microsoft.com/rest/api/maps/route) con Azure Maps Web SDK
+ * Usare il [servizio di pianificazione percorso](/rest/api/maps/route) con Azure Maps Web SDK
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -113,7 +113,7 @@ Nel secondo esempio, abbiamo una richiesta di routing in tempo reale, in cui ora
 https://atlas.microsoft.com/route/directions/json?subscription-key=<Your-Azure-Maps-Primary-Subscription-Key>&api-version=1.0&query=47.6422356,-122.1389797:47.6641142,-122.3011268&travelMode=car&traffic=true&computeTravelTimeFor=all
 ```
 
-La risposta contiene un riepilogo, come illustrato di seguito. A causa delle congestioni, il valore di **trafficDelaysInSeconds** è maggiore di zero. È anche maggiore di **historicTrafficTravelTimeInSeconds**.
+La risposta contiene un riepilogo, come illustrato di seguito. A causa delle congestioni, il valore di **trafficDelaysInSeconds** è maggiore di zero. È anche maggiore di **historicTrafficTravelTimeInSeconds** .
 
 ```json
 "summary": {
@@ -140,7 +140,7 @@ Espandere l' `point` elemento per visualizzare l'elenco di coordinate per il per
 
 ![Elemento punti espanso](media/how-to-use-best-practices-for-routing/points-list-img.png)
 
-Le API Route directions supportano formati diversi di istruzioni che possono essere usate specificando il parametro **instructionsType** . Per formattare le istruzioni per l'elaborazione di Easy computer, usare **instructionsType = coded**. Usare **instructionsType = Tagged** per visualizzare le istruzioni come testo per l'utente. Inoltre, le istruzioni possono essere formattate come testo in cui alcuni elementi delle istruzioni sono contrassegnati e l'istruzione viene visualizzata con una formattazione speciale. Per ulteriori informazioni, vedere l' [elenco dei tipi di istruzioni supportati](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routeinstructionstype).
+Le API Route directions supportano formati diversi di istruzioni che possono essere usate specificando il parametro **instructionsType** . Per formattare le istruzioni per l'elaborazione di Easy computer, usare **instructionsType = coded** . Usare **instructionsType = Tagged** per visualizzare le istruzioni come testo per l'utente. Inoltre, le istruzioni possono essere formattate come testo in cui alcuni elementi delle istruzioni sono contrassegnati e l'istruzione viene visualizzata con una formattazione speciale. Per ulteriori informazioni, vedere l' [elenco dei tipi di istruzioni supportati](/rest/api/maps/route/postroutedirections#routeinstructionstype).
 
 Quando vengono richieste istruzioni, la risposta restituisce un nuovo elemento denominato `guidance` . L' `guidance` elemento contiene due tipi di informazioni: direzioni per turni e istruzioni riepilogate.
 
@@ -186,7 +186,7 @@ La risposta riportata di seguito è destinata a un camion che trasporta un mater
 
 ## <a name="request-traffic-information-along-a-route"></a>Richiedere informazioni sul traffico lungo una route
 
-Con le API Direction route di Azure Maps, gli sviluppatori possono richiedere dettagli per ogni tipo di sezione includendo il `sectionType` parametro nella richiesta. Ad esempio, è possibile richiedere le informazioni sulla velocità per ogni segmento di ingorgo del traffico. Per informazioni sui vari dettagli che è possibile richiedere, vedere l' [elenco di valori per la chiave sectionType](https://docs.microsoft.com/rest/api/maps/route/getroutedirections#sectiontype) .
+Con le API Direction route di Azure Maps, gli sviluppatori possono richiedere dettagli per ogni tipo di sezione includendo il `sectionType` parametro nella richiesta. Ad esempio, è possibile richiedere le informazioni sulla velocità per ogni segmento di ingorgo del traffico. Per informazioni sui vari dettagli che è possibile richiedere, vedere l' [elenco di valori per la chiave sectionType](/rest/api/maps/route/getroutedirections#sectiontype) .
 
 ### <a name="sample-query"></a>Query di esempio
 
@@ -208,13 +208,13 @@ Questa opzione può essere usata per colorare le sezioni durante il rendering de
 
 Azure Maps fornisce attualmente due forme di ottimizzazione delle route:
 
-* Ottimizzazioni basate sul tipo di route richiesto, senza modificare l'ordine dei waypoint. Qui è possibile trovare i [tipi di route supportati](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#routetype)
+* Ottimizzazioni basate sul tipo di route richiesto, senza modificare l'ordine dei waypoint. Qui è possibile trovare i [tipi di route supportati](/rest/api/maps/route/postroutedirections#routetype)
 
 * Ottimizzazione del commesso viaggiatore, che modifica l'ordine dei waypoint per ottenere l'ordine migliore per visitare ogni punto di interruzione
 
 Per il routing con più interruzioni, è possibile specificare fino a 150 waypoint in una singola richiesta di route. I percorsi delle coordinate iniziali e finali possono essere uguali, come nel caso di un round trip. Tuttavia è necessario fornire almeno un waypoint aggiuntivo per eseguire il calcolo della route. I waypoint possono essere aggiunti alla query tra le coordinate di origine e di destinazione.
 
-Se si vuole ottimizzare l'ordine migliore per visitare i waypoint specificati, è necessario specificare **computeBestOrder = true**. Questo scenario è noto anche come problema di ottimizzazione del commesso viaggiatore.
+Se si vuole ottimizzare l'ordine migliore per visitare i waypoint specificati, è necessario specificare **computeBestOrder = true** . Questo scenario è noto anche come problema di ottimizzazione del commesso viaggiatore.
 
 ### <a name="sample-query"></a>Query di esempio
 
@@ -262,11 +262,11 @@ La route ottimale presenta l'ordine dei waypoint seguente: 0, 5, 1, 2, 4, 3 e 6.
 Potrebbero essere presenti situazioni in cui si vuole ricostruire una route per calcolare zero o più route alternative per una route di riferimento. È possibile, ad esempio, mostrare ai clienti route alternative che passano il negozio al dettaglio. In questo caso, è necessario predisporre un percorso usando punti di supporto. Ecco i passaggi per compensare un percorso:
 
 1. Calcolare una route così com'è e ottenere il percorso dalla risposta Route
-2. Usare il percorso della route per individuare le località desiderate insieme o vicino al percorso della route. Ad esempio, è possibile usare Azure Maps [API Point of interest](https://docs.microsoft.com/rest/api/maps/search/getsearchpoi) o eseguire query sui dati nel database.  
+2. Usare il percorso della route per individuare le località desiderate insieme o vicino al percorso della route. Ad esempio, è possibile usare Azure Maps [API Point of interest](/rest/api/maps/search/getsearchpoi) o eseguire query sui dati nel database.  
 3. Ordinare i percorsi in base alla distanza dall'inizio della route
-4. Aggiungere questi percorsi come punti di supporto in una nuova richiesta di route all'API per le [direzioni post Route](https://docs.microsoft.com/rest/api/maps/route/postroutedirections). Per ulteriori informazioni sui punti di supporto, vedere la [documentazione dell'API directions Route](https://docs.microsoft.com/rest/api/maps/route/postroutedirections#supportingpoints). 
+4. Aggiungere questi percorsi come punti di supporto in una nuova richiesta di route all'API per le [direzioni post Route](/rest/api/maps/route/postroutedirections). Per ulteriori informazioni sui punti di supporto, vedere la [documentazione dell'API directions Route](/rest/api/maps/route/postroutedirections#supportingpoints). 
 
-Quando si chiama l' [API delle direzioni post Route](https://docs.microsoft.com/rest/api/maps/route/postroutedirections), è possibile impostare il tempo minimo di deviazione o i vincoli di distanza, insieme ai punti di supporto. Usare questi parametri se si vogliono offrire route alternative, ma si vuole anche limitare il tempo di viaggio. Quando si usano questi vincoli, le route alternative seguiranno la route di riferimento dal punto di origine per il tempo o la distanza specificata. In altre parole, le altre route divergeranno dalla route di riferimento in base ai vincoli specificati.
+Quando si chiama l' [API delle direzioni post Route](/rest/api/maps/route/postroutedirections), è possibile impostare il tempo minimo di deviazione o i vincoli di distanza, insieme ai punti di supporto. Usare questi parametri se si vogliono offrire route alternative, ma si vuole anche limitare il tempo di viaggio. Quando si usano questi vincoli, le route alternative seguiranno la route di riferimento dal punto di origine per il tempo o la distanza specificata. In altre parole, le altre route divergeranno dalla route di riferimento in base ai vincoli specificati.
 
 L'immagine seguente è un esempio di rendering di route alternative con limiti di deviazione specificati per l'ora e la distanza.
 
@@ -274,20 +274,20 @@ L'immagine seguente è un esempio di rendering di route alternative con limiti d
 
 ## <a name="use-the-routing-service-in-a-web-app"></a>Usare il servizio di routing in un'app Web
 
-Azure Maps Web SDK fornisce un [modulo del servizio](https://docs.microsoft.com/javascript/api/azure-maps-rest/). Questo modulo è una libreria helper che semplifica l'uso delle API REST di Maps di Azure nelle applicazioni Web o Node.js, usando JavaScript o TypeScript. Il modulo del servizio può essere usato per eseguire il rendering delle route restituite sulla mappa. Il modulo determina automaticamente l'API da usare con le richieste GET e POST.
+Azure Maps Web SDK fornisce un [modulo del servizio](/javascript/api/azure-maps-rest/). Questo modulo è una libreria helper che semplifica l'uso delle API REST di Maps di Azure nelle applicazioni Web o Node.js, usando JavaScript o TypeScript. Il modulo del servizio può essere usato per eseguire il rendering delle route restituite sulla mappa. Il modulo determina automaticamente l'API da usare con le richieste GET e POST.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per ulteriori informazioni, vedere:
 
 > [!div class="nextstepaction"]
-> [Servizio di pianificazione percorso di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/route)
+> [Servizio di pianificazione percorso di Mappe di Azure](/rest/api/maps/route)
 
 > [!div class="nextstepaction"]
-> [Come usare il modulo del servizio](https://docs.microsoft.com/azure/azure-maps/how-to-use-services-module)
+> [Come usare il modulo del servizio](./how-to-use-services-module.md)
 
 > [!div class="nextstepaction"]
-> [Mostra route sulla mappa](https://docs.microsoft.com/azure/azure-maps/map-route)
+> [Mostra route sulla mappa](./map-route.md)
 
 > [!div class="nextstepaction"]
 > [Pacchetto NPM di Azure Maps](https://www.npmjs.com/package/azure-maps-rest  )

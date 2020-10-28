@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: e62a5c984afb434b8c47b5ee8c5c66c61485dbfc
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 3833cbfd0802f334e482203d269984eb0e299797
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92090438"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895631"
 ---
 # <a name="secure-an-input-constrained-device-with-azure-ad-and-azure-maps-rest-apis"></a>Proteggere un dispositivo vincolato di input con Azure AD e le API REST di Azure Maps
 
@@ -25,42 +25,42 @@ Questa guida illustra come proteggere le applicazioni pubbliche o i dispositivi 
 ## <a name="create-an-application-registration-in-azure-ad"></a>Creare una registrazione dell'applicazione in Azure AD
 
 > [!NOTE]
-> * **Lettura dei prerequisiti:** [scenario: app desktop che chiama le API Web](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-overview)
+> * **Lettura dei prerequisiti:** [scenario: app desktop che chiama le API Web](../active-directory/develop/scenario-desktop-overview.md)
 > * Lo scenario seguente usa il flusso del codice del dispositivo, che non prevede l'acquisizione di un token da parte di un Web browser.
 
 Creare l'applicazione basata su dispositivo in Azure AD per abilitare Azure AD l'accesso. A questa applicazione verrà concesso l'accesso alle API REST di Azure maps.
 
-1. Nell'elenco dei servizi di Azure portale di Azure selezionare **Azure Active Directory**  >  **registrazioni app**  >  **nuova registrazione**.  
+1. Nell'elenco dei servizi di Azure portale di Azure selezionare **Azure Active Directory**  >  **registrazioni app**  >  **nuova registrazione** .  
 
     > [!div class="mx-imgBorder"]
     > ![Registrazione delle app](./media/how-to-manage-authentication/app-registration.png)
 
-2. Immettere un **nome**e scegliere **account in questa directory aziendale solo** come **tipo di account supportato**. In **URI di reindirizzamento**specificare **client pubblico/nativo (mobile & desktop)** e quindi aggiungere `https://login.microsoftonline.com/common/oauth2/nativeclient` al valore. Per altri dettagli, vedere Azure AD [app desktop che chiama le API Web: registrazione dell'app](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration). Quindi **registrare** l'applicazione.
+2. Immettere un **nome** e scegliere **account in questa directory aziendale solo** come **tipo di account supportato** . In **URI di reindirizzamento** specificare **client pubblico/nativo (mobile & desktop)** e quindi aggiungere `https://login.microsoftonline.com/common/oauth2/nativeclient` al valore. Per altri dettagli, vedere Azure AD [app desktop che chiama le API Web: registrazione dell'app](../active-directory/develop/scenario-desktop-app-registration.md). Quindi **registrare** l'applicazione.
 
     > [!div class="mx-imgBorder"]
     > ![Aggiungere i dettagli di registrazione dell'app per il nome e l'URI di Reindirizzamento](./media/azure-maps-authentication/devicecode-app-registration.png)
 
-3. Passare a **autenticazione** e abilitare **considera applicazione come client pubblico**. In questo modo verrà abilitata l'autenticazione del codice dispositivo con Azure AD.
+3. Passare a **autenticazione** e abilitare **considera applicazione come client pubblico** . In questo modo verrà abilitata l'autenticazione del codice dispositivo con Azure AD.
     
     > [!div class="mx-imgBorder"]
     > ![Abilitare la registrazione dell'app come client pubblico](./media/azure-maps-authentication/devicecode-public-client.png)
 
-4.  Per assegnare le autorizzazioni per le API delegate a mappe di Azure, passare all'applicazione. Quindi selezionare **autorizzazioni API**  >  **Aggiungi un'autorizzazione**. In **API l'organizzazione USA**, cercare e selezionare **mappe di Azure**.
+4.  Per assegnare le autorizzazioni per le API delegate a mappe di Azure, passare all'applicazione. Quindi selezionare **autorizzazioni API**  >  **Aggiungi un'autorizzazione** . In **API l'organizzazione USA** , cercare e selezionare **mappe di Azure** .
 
     > [!div class="mx-imgBorder"]
     > ![Aggiungi autorizzazioni API app](./media/how-to-manage-authentication/app-permissions.png)
 
-5. Selezionare la casella di controllo accanto a **Accedi a mappe di Azure**e quindi selezionare **Aggiungi autorizzazioni**.
+5. Selezionare la casella di controllo accanto a **Accedi a mappe di Azure** e quindi selezionare **Aggiungi autorizzazioni** .
 
     > [!div class="mx-imgBorder"]
     > ![Selezionare le autorizzazioni dell'API per le app](./media/how-to-manage-authentication/select-app-permissions.png)
 
 6. Configurare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per utenti o gruppi. Vedere [concedere l'accesso basato sui ruoli per gli utenti ad Azure Maps](#grant-role-based-access-for-users-to-azure-maps).
 
-7. Aggiungere il codice per l'acquisizione del flusso di token nell'applicazione. per informazioni dettagliate sull'implementazione, vedere [flusso del codice del dispositivo](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-acquire-token#device-code-flow). Quando si acquisiscono i token, fare riferimento all'ambito: `user_impersonation` selezionato nei passaggi precedenti.
+7. Aggiungere il codice per l'acquisizione del flusso di token nell'applicazione. per informazioni dettagliate sull'implementazione, vedere [flusso del codice del dispositivo](../active-directory/develop/scenario-desktop-acquire-token.md#device-code-flow). Quando si acquisiscono i token, fare riferimento all'ambito: `user_impersonation` selezionato nei passaggi precedenti.
 
 > [!Tip]
-> Usare Microsoft Authentication Library (MSAL) per acquisire i token di accesso. Vedere le raccomandazioni sull' [app desktop che chiama le API Web: configurazione del codice](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-configuration)
+> Usare Microsoft Authentication Library (MSAL) per acquisire i token di accesso. Vedere le raccomandazioni sull' [app desktop che chiama le API Web: configurazione del codice](../active-directory/develop/scenario-desktop-app-configuration.md)
 
 8. Comporre la richiesta HTTP con il token acquisito da Azure AD e inviare la richiesta con un client HTTP valido.
 

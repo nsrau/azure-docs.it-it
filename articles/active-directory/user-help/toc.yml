@@ -70,6 +70,8 @@
       href: my-account-portal-sign-ins-page.md
     - name: Modificare le impostazioni del portale
       href: my-account-portal-settings.md
+    - name: Cambiare organizzazione
+      href: cross-tenant-switcher.md
 - name: Guida relativa alle informazioni di sicurezza
   items:
     - name: Aggiungere informazioni di sicurezza durante l'accesso

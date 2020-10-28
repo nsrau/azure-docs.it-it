@@ -11,12 +11,12 @@ metadata:
   manager: eliotgra
   ms.date: 03/23/2020
   ms.custom: amqp
-  ms.openlocfilehash: 91e3ff9dc19fdc33699fc6237cb5b6e51dbb9b52
-  ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+  ms.openlocfilehash: 5459129d5d49324839bfe36e2031d5be8d1e0521
+  ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/17/2020
-  ms.locfileid: "92148889"
+  ms.lasthandoff: 10/26/2020
+  ms.locfileid: "92545379"
 landingContent:
 - title: Introduzione
   linkLists:
@@ -40,10 +40,10 @@ landingContent:
     links:
     - text: Uso dei dispositivi gemelli con Node.js
       url: iot-hub-node-node-twin-getstarted.md
-    - text: Informazioni sulle metriche di IoT
-      url: iot-hub-metrics.md
-    - text: Registrazione diagnostica
-      url: iot-hub-monitor-resource-health.md
+    - text: Monitorare l'hub IoT
+      url: monitor-iot-hub.md
+    - text: Informazioni di riferimento sul monitoraggio dei dati dell'hub IoT
+      url: monitor-iot-hub-reference.md
     - text: Monitorare, diagnosticare e risolvere i problemi di disconnessione con IoT
       url: iot-hub-troubleshoot-connectivity.md
 - title: Ridimensionare una soluzione

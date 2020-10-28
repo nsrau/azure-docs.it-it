@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 579294388dbcf9f785ef41e06505c14b6767565f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e6d8a2bfe20d0e7b52dcd60127b3666f0c21a792
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83677963"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895801"
 ---
 # <a name="manage-azure-maps-creator"></a>Gestire Creator di Mappe di Azure
 
@@ -25,19 +25,19 @@ Questo articolo illustra i passaggi per creare ed eliminare una risorsa Creator 
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
 
-2. Selezionare il proprio account di Mappe di Azure. Se non è possibile visualizzare il proprio account di Mappe di Azure in **Risorse recenti**, passare al menu del portale di Azure. Selezionare **Tutte le risorse**. Individuare e selezionare il proprio account di Mappe di Azure.
+2. Selezionare il proprio account di Mappe di Azure. Se non è possibile visualizzare il proprio account di Mappe di Azure in **Risorse recenti** , passare al menu del portale di Azure. Selezionare **Tutte le risorse** . Individuare e selezionare il proprio account di Mappe di Azure.
 
     ![Home page del portale di Mappe di Azure](./media/how-to-manage-creator/select-maps-account.png)
 
-3. Quando si è nella pagina dell'account di Mappe di Azure, passare all'opzione **Panoramica** in **Creator**. Fare clic su **Crea** per creare una risorsa Creator di Mappe di Azure.
+3. Quando si è nella pagina dell'account di Mappe di Azure, passare all'opzione **Panoramica** in **Creator** . Fare clic su **Crea** per creare una risorsa Creator di Mappe di Azure.
 
     ![Pagina per creare Creator di Mappe di Azure](./media/how-to-manage-creator/creator-blade-settings.png)
 
-4. Immettere il nome e la posizione per la risorsa Creator. Attualmente, Creator è supportato solo negli Stati Uniti. Fare clic su **Rivedi e crea**.
+4. Immettere il nome e la posizione per la risorsa Creator. Attualmente, Creator è supportato solo negli Stati Uniti. Fare clic su **Rivedi e crea** .
 
    ![Pagina per immettere le informazioni sull'account Creator](./media/how-to-manage-creator/creator-creation-dialog.png)
 
-5. Rivedere le impostazioni e fare clic su **Crea**.
+5. Rivedere le impostazioni e fare clic su **Crea** .
 
     ![Pagina per confermare le impostazioni dell'account Creator](./media/how-to-manage-creator/creator-create-dialog.png)
 
@@ -45,7 +45,7 @@ Questo articolo illustra i passaggi per creare ed eliminare una risorsa Creator 
 
    ![Pagina dello stato di distribuzione delle risorse](./media/how-to-manage-creator/creator-resource-created.png)
 
-7. Fare clic su **Vai alla risorsa**. La pagina di visualizzazione delle risorse Creator mostra lo stato della risorsa Creator e l'area geografica scelta.
+7. Fare clic su **Vai alla risorsa** . La pagina di visualizzazione delle risorse Creator mostra lo stato della risorsa Creator e l'area geografica scelta.
 
     ![Pagina relativa allo stato di Creator](./media/how-to-manage-creator/creator-resource-view.png)
 
@@ -54,7 +54,7 @@ Questo articolo illustra i passaggi per creare ed eliminare una risorsa Creator 
 
 ## <a name="delete-creator-resource"></a>Eliminare una risorsa Creator
 
-Per eliminare la risorsa Creator, passare all'account di Mappe di Azure. Selezionare **Panoramica** in **Creator**. Fare clic sul pulsante **Elimina**.
+Per eliminare la risorsa Creator, passare all'account di Mappe di Azure. Selezionare **Panoramica** in **Creator** . Fare clic sul pulsante **Elimina** .
 
 >[!WARNING]
 >Quando si elimina la risorsa Creator dell'account di Mappe di Azure, si eliminano anche i set di dati, i set di tessere e i set di stati della funzionalità creati con i servizi Creator.
@@ -69,7 +69,7 @@ Fare clic sul pulsante **Elimina** e digitare il nome Creator per confermare l'e
 
 Creator eredita le impostazioni di controllo di accesso (IAM) di Mappe di Azure. Tutte le chiamate API per l'accesso ai dati devono essere inviate con regole di autenticazione e autorizzazione.
 
-I dati di utilizzo di Creator sono incorporati nei grafici di utilizzo e nei log attività di Mappe di Azure.  Per altre informazioni, vedere [Gestire l'autenticazione in Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication).
+I dati di utilizzo di Creator sono incorporati nei grafici di utilizzo e nei log attività di Mappe di Azure.  Per altre informazioni, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
 ## <a name="access-to-creator-services"></a>Accesso ai servizi Creator
 

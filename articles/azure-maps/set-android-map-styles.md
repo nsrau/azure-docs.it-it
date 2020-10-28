@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4e37ae82b46ce06162d0a67d74af54cddaf3f6eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15dbe7d30652d0ace78bca4dc053757d57361c1a
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88030946"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895308"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Impostare lo stile della mappa usando le mappe di Azure Android SDK
 
@@ -22,12 +22,12 @@ Questo articolo illustra due modi per impostare gli stili della mappa usando le 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare il processo in questo articolo, è necessario installare [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) per caricare una mappa.
+Per completare il processo in questo articolo, è necessario installare [Azure Maps Android SDK](./how-to-use-android-map-control-library.md) per caricare una mappa.
 
 
 ## <a name="set-map-style-in-the-layout"></a>Impostare lo stile della mappa nel layout
 
-È possibile impostare uno stile mappa nel file di layout per la classe Activity. Modificare il **layout res > > activity_main.xml**, quindi è simile a quello riportato di seguito:
+È possibile impostare uno stile mappa nel file di layout per la classe Activity. Modificare il **layout res > > activity_main.xml** , quindi è simile a quello riportato di seguito:
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -51,7 +51,7 @@ Per completare il processo in questo articolo, è necessario installare [Azure M
 </FrameLayout>
 ```
 
-L' `mapcontrol_style` attributo precedente imposta lo stile della mappa su **grayscale_dark**. 
+L' `mapcontrol_style` attributo precedente imposta lo stile della mappa su **grayscale_dark** . 
 
 <center>
 
@@ -59,7 +59,7 @@ L' `mapcontrol_style` attributo precedente imposta lo stile della mappa su **gra
 
 ## <a name="set-map-style-in-the-activity-class"></a>Impostare lo stile della mappa nella classe Activity
 
-Lo stile della mappa può essere impostato nella classe Activity. Copiare il frammento di codice seguente nel metodo **OnCreate ()** della `MainActivity.java` classe. Questo codice consente di impostare lo stile della mappa su **satellite_road_labels**.
+Lo stile della mappa può essere impostato nella classe Activity. Copiare il frammento di codice seguente nel metodo **OnCreate ()** della `MainActivity.java` classe. Questo codice consente di impostare lo stile della mappa su **satellite_road_labels** .
 
 ```Java
 mapControl.onReady(map -> {

@@ -161,6 +161,8 @@
       href: ../../service-bus-messaging/security-baseline.md
     - name: Baseline di Service Fabric
       href: ../../service-fabric/security-baseline.md
+    - name: Baseline di Site Recovery
+      href: ../../site-recovery/security-baseline.md
     - name: Baseline di Analisi di flusso
       href: ../../stream-analytics/security-baseline.md
     - name: Baseline di sicurezza di Synapse Analytics

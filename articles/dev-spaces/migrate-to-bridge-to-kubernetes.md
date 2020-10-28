@@ -5,21 +5,21 @@ ms.date: 10/21/2020
 ms.topic: conceptual
 description: Descrive il processo di migrazione da Azure Dev Spaces a Bridge per Kubernetes
 keywords: Azure Dev Spaces, spazi di sviluppo, Docker, Kubernetes, Azure, AKS, servizio Kubernetes di Azure, contenitori, Bridge per Kubernetes
-ms.openlocfilehash: 6a6fe2367fca3d2068bb7d9a8e1a157fd2e5ca9b
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 7a7642d986d8490c5d0dc3c413e658b21b010798
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329799"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895257"
 ---
 # <a name="migrating-to-bridge-to-kubernetes"></a>Migrazione a Bridge per Kubernetes
 
 > [!IMPORTANT]
-> Azure Dev Spaces verrà ritirato il 31 ottobre 2023. Gli sviluppatori devono passare a usare Bridge per Kubernetes, uno strumento di sviluppo client.
+> Azure Dev Spaces verrà ritirato il 31 ottobre 2023. I clienti devono passare a usare Bridge per Kubernetes, uno strumento di sviluppo client.
 >
-> Lo scopo di Azure Dev Spaces è stato quello di semplificare lo sviluppo degli sviluppatori in Kubernetes. Un compromesso significativo nell'approccio di Azure Dev Spaces è stato quello di rendere più difficile per gli sviluppatori comprendere le configurazioni di Docker e Kubernetes, nonché i concetti di distribuzione di Kubernetes. Nel corso del tempo, è stato anche chiaro che l'approccio di Azure Dev Spaces non ha ridotto efficacemente la velocità dello sviluppo del ciclo interno in Kubernetes. Bridge to Kubernetes consente di ridurre in modo efficace la velocità dello sviluppo di cicli interni evitando inutili oneri sugli sviluppatori.
+> Lo scopo di Azure Dev Spaces è stato quello di semplificare lo sviluppo di utenti in Kubernetes. Un compromesso significativo nell'approccio di Azure Dev Spaces è stato la necessità di un carico aggiuntivo per comprendere le configurazioni di Docker e Kubernetes, nonché i concetti di distribuzione di Kubernetes. Nel corso del tempo, è stato anche chiaro che l'approccio di Azure Dev Spaces non ha ridotto efficacemente la velocità dello sviluppo del ciclo interno in Kubernetes. Bridge to Kubernetes consente di ridurre in modo efficace la velocità dello sviluppo di cicli interni ed evita inutili oneri sugli utenti.
 >
-> La mission principale rimane invariata: creare le esperienze di sviluppo migliori per sviluppare, testare ed eseguire il debug del codice del microservizio nel contesto dell'applicazione più grande.
+> La mission principale rimane invariata: creare le esperienze migliori per sviluppare, testare ed eseguire il debug del codice del microservizio nel contesto dell'applicazione più grande.
 
 Bridge to Kubernetes offre un'alternativa più semplice a molti degli scenari di sviluppo che funzionano con Azure Dev Spaces. Bridge to Kubernetes è un'esperienza solo sul lato client che usa le estensioni in [Visual Studio][vs]   e [Visual Studio Code][vsc].  
 
@@ -44,7 +44,7 @@ Azure Dev Spaces e Bridge per Kubernetes hanno funzionalità simili, ma si diffe
 | Requisito  | Azure Dev Spaces  | Bridge per Kubernetes  |
 |---------------|-------------------|--------------------------------|
 | Servizio Azure Kubernetes | In 15 aree di Azure | Qualsiasi area del servizio AKS    |
-| **Security** |
+| **Sicurezza** |
 | Accesso di sicurezza necessario per il cluster  | Collaboratore cluster AKS  | Kubernetes RBAC-aggiornamento della distribuzione   |
 | Accesso di sicurezza necessario nel computer di sviluppo  | N/D  | Amministrazione locale/sudo   |
 | **Usabilità** |
@@ -85,7 +85,7 @@ Il Bridge per Kubernetes offre la flessibilità necessaria per lavorare con le a
 1. Se si usa Visual Studio, aggiornare l'IDE di Visual Studio alla versione 16,7 o successiva e installare l'estensione Bridge per Kubernetes dalla [Visual Studio Marketplace][vs-marketplace]. Se si usa Visual Studio Code, installare il [Bridge per l'estensione Kubernetes][vsc-marketplace].
 1. Disabilitare il controller di Azure Dev Spaces usando il portale di Azure o l'interfaccia della riga di comando [Azure Dev Spaces][azds-delete].
 1. Usare [Azure cloud Shell](https://shell.azure.com). In alternativa, in Mac, Linux o Windows con bash installato aprire un prompt della shell bash. Assicurarsi che gli strumenti seguenti siano disponibili nell'ambiente della riga di comando: interfaccia della riga di comando di Azure, Docker, kubectl, CURL, tar e gunzip.
-1. Creare un registro contenitori o utilizzarne uno esistente. È possibile creare un registro contenitori in Azure usando [azure container Registry](../container-registry/index.yml) o usando [Docker Hub](https://hub.docker.com/).
+1. Creare un registro contenitori o utilizzarne uno esistente. È possibile creare un registro contenitori in Azure usando [azure container Registry](../container-registry/index.yml) o usando [Docker Hub](https://hub.docker.com/). Quando si usa Azure Cloud Shell, è disponibile solo Container Registry di Azure per l'hosting di immagini docker.
 1. Eseguire lo script di migrazione per convertire gli asset Azure Dev Spaces in Bridge per gli asset Kubernetes. Lo script compila una nuova immagine compatibile con Bridge per Kubernetes, la carica nel registro di sistema designato e quindi usa [Helm](https://helm.sh) per aggiornare il cluster con l'immagine. È necessario specificare il gruppo di risorse, il nome del cluster AKS e un registro contenitori. Sono disponibili altre opzioni della riga di comando, come illustrato di seguito:
 
    ```azure-cli
@@ -102,6 +102,7 @@ Il Bridge per Kubernetes offre la flessibilità necessaria per lavorare con le a
     -r Path to root of the project that needs to be migrated (default = current working directory)
     -t Image name & tag in format 'name:tag' (default is 'projectName:stable')
     -i Enable a public endpoint to access your service over internet. (default is false)
+    -c Docker build context path. (default = project root path passed to '-r' option)
     -y Doesn't prompt for non-tty terminals
     -d Helm Debug switch
    ```
@@ -116,7 +117,7 @@ Il Bridge per Kubernetes offre la flessibilità necessaria per lavorare con le a
 
 È anche possibile usare il routing specifico per gli sviluppatori con Bridge per Kubernetes. Lo scenario di sviluppo del team Azure Dev Spaces usa più spazi dei nomi Kubernetes per isolare un servizio dal resto dell'applicazione usando il concetto di spazi dei nomi padre e figlio. Bridge to Kubernetes offre la stessa funzionalità, ma con caratteristiche di prestazioni migliorate e nello stesso spazio dei nomi dell'applicazione.
 
-Sia Bridge a Kubernetes che Azure Dev Spaces richiedono che le intestazioni HTTP siano presenti e propagate nell'intera applicazione. Se l'applicazione è già stata configurata per gestire la propagazione dell'intestazione per Azure Dev Spaces, è necessario aggiornare l'intestazione. Per eseguire la transizione da Bridge a Kubernetes da Azure Dev Spaces, aggiornare l'intestazione configurata da *azds-route-As* a *Kubernetes-route-As*.
+Sia Bridge a Kubernetes che Azure Dev Spaces richiedono che le intestazioni HTTP siano presenti e propagate nell'intera applicazione. Se l'applicazione è già stata configurata per gestire la propagazione dell'intestazione per Azure Dev Spaces, è necessario aggiornare l'intestazione. Per eseguire la transizione da Bridge a Kubernetes da Azure Dev Spaces, aggiornare l'intestazione configurata da *azds-route-As* a *Kubernetes-route-As* .
 
 ## <a name="evaluate-bridge-to-kubernetes"></a>Valutare Bridge per Kubernetes
 
@@ -146,9 +147,9 @@ Altre informazioni sul funzionamento di Bridge to Kubernetes.
 
 [azds-delete]: how-to/install-dev-spaces.md#remove-azure-dev-spaces-using-the-cli
 [kubernetes-extension]: https://marketplace.visualstudio.com/items?itemName=ms-kubernetes-tools.vscode-kubernetes-tools
-[btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes?view=vs-2019#install-the-sample-application
+[btk-sample-app]: /visualstudio/containers/bridge-to-kubernetes#install-the-sample-application
 [how-it-works-bridge-to-kubernetes]: /visualstudio/containers/overview-bridge-to-kubernetes
-[use-btk-vs]: /visualstudio/containers/bridge-to-kubernetes?view=vs-2019#connect-to-your-cluster-and-debug-a-service
+[use-btk-vs]: /visualstudio/containers/bridge-to-kubernetes#connect-to-your-cluster-and-debug-a-service
 [use-btk-vsc]: https://code.visualstudio.com/docs/containers/bridge-to-kubernetes
 [vs]: https://visualstudio.microsoft.com/
 [vsc-marketplace]: https://marketplace.visualstudio.com/items?itemName=mindaro.mindaro
