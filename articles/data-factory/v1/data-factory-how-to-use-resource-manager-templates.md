@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: e94445a6cb16eacb496daedbec21379928a4dafd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5df2f9cd0a47e5a89d7ff2eb12aefe593cae7a8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84194451"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631479"
 ---
 # <a name="use-templates-to-create-azure-data-factory-entities"></a>Usare modelli per creare entità di Azure Data Factory
 > [!NOTE]
@@ -228,12 +228,12 @@ Per informazioni dettagliate sulle proprietà JSON per la definizione di attivit
 }
 ```
 ## <a name="parameterizing-data-factory-template"></a>Uso di parametri nel modello di Data Factory
-Per le procedure consigliate sull'uso dei parametri, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](../../azure-resource-manager/resource-manager-template-best-practices.md). In generale l'utilizzo dei parametri deve essere ridotto al minimo, soprattutto se è possibile usare variabili anziché parametri. Specificare i parametri solo negli scenari seguenti:
+Per le procedure consigliate sull'uso dei parametri, vedere [Procedure consigliate per la creazione di modelli di Azure Resource Manager](../../azure-resource-manager/templates/template-best-practices.md). In generale l'utilizzo dei parametri deve essere ridotto al minimo, soprattutto se è possibile usare variabili anziché parametri. Specificare i parametri solo negli scenari seguenti:
 
 * Le impostazioni variano a seconda dell'ambiente, ad esempio di sviluppo, test e produzione
 * Segreti (password)
 
-Se è necessario eseguire il pull di segreti dall'[Insieme di credenziali delle chiavi di Azure](../../key-vault/general/overview.md) quando si distribuiscono entità di Azure Data Factory tramite modelli, specificare l'**insieme di credenziali delle chiavi** e il **nome del segreto** come illustrato nell'esempio seguente:
+Se è necessario eseguire il pull di segreti dall' [Insieme di credenziali delle chiavi di Azure](../../key-vault/general/overview.md) quando si distribuiscono entità di Azure Data Factory tramite modelli, specificare l' **insieme di credenziali delle chiavi** e il **nome del segreto** come illustrato nell'esempio seguente:
 
 ```JSON
 "parameters": {

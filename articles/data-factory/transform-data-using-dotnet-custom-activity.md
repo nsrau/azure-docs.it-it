@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 11/26/2018
-ms.openlocfilehash: 0332b9aab0db456ed4517c09e541bee1b9884d04
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e84f7a2ee8c2f7a57ce1734ad3392a217d6de5fe
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92368996"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632108"
 ---
 # <a name="use-custom-activities-in-an-azure-data-factory-pipeline"></a>Usare attività personalizzate in una pipeline di Azure Data Factory
 
@@ -29,14 +29,14 @@ In una pipeline di Azure Data Factory è possibile usare due tipi di attività.
 - [Attività di spostamento dei dati](copy-activity-overview.md) per spostare dati tra [archivi dati supportati di origine e sink](copy-activity-overview.md#supported-data-stores-and-formats).
 - [Attività di trasformazione dei dati](transform-data.md) per trasformare i dati usando servizi di calcolo come Azure HDInsight, Azure Batch e Azure Machine Learning.
 
-Per spostare dati da o verso un archivio dati non supportato da Data Factory oppure per trasformare o elaborare dati in un modo non supportato da Data Factory, è possibile creare un'**attività personalizzata** contenente la logica di spostamento o trasformazione dei dati necessaria e usare tale attività in una pipeline. L'attività personalizzata esegue la logica del codice personalizzata in un pool di **Azure Batch** di macchine virtuali.
+Per spostare dati da o verso un archivio dati non supportato da Data Factory oppure per trasformare o elaborare dati in un modo non supportato da Data Factory, è possibile creare un' **attività personalizzata** contenente la logica di spostamento o trasformazione dei dati necessaria e usare tale attività in una pipeline. L'attività personalizzata esegue la logica del codice personalizzata in un pool di **Azure Batch** di macchine virtuali.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 Vedere gli articoli seguenti se non si ha familiarità con il servizio Azure Batch:
 
 * [Nozioni di base di Azure Batch](../batch/batch-technical-overview.md) per una panoramica del servizio Azure Batch.
-* Cmdlet [New-AzureBatchAccount](/powershell/module/az.batch/New-azBatchAccount) per creare un account di Azure Batch oppure [portale di Azure](../batch/batch-account-create-portal.md) per creare l'account di Azure Batch usando il portale di Azure. Per istruzioni dettagliate sull'uso del cmdlet, vedere l'articolo [Uso di Azure PowerShell per gestire l'account di Azure Batch](https://blogs.technet.com/b/windowshpc/archive/2014/10/28/using-azure-powershell-to-manage-azure-batch-account.aspx).
+* Cmdlet [New-AzureBatchAccount](/powershell/module/az.batch/New-azBatchAccount) per creare un account di Azure Batch oppure [portale di Azure](../batch/batch-account-create-portal.md) per creare l'account di Azure Batch usando il portale di Azure. Per istruzioni dettagliate sull'uso del cmdlet, vedere l'articolo [Uso di Azure PowerShell per gestire l'account di Azure Batch](/archive/blogs/windowshpc/using-azure-powershell-to-manage-azure-batch-account).
 * Cmdlet [New AzureBatchPool](/powershell/module/az.batch/New-AzBatchPool) per creare un pool di Azure Batch.
 
 ## <a name="azure-batch-linked-service"></a>Servizio collegato Azure Batch
@@ -104,11 +104,11 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 | :-------------------- | :--------------------------------------- | :------- |
 | name                  | Nome dell'attività nella pipeline     | Sì      |
 | description           | Testo che descrive l'attività.  | No       |
-| type                  | Per l'attività personalizzata, il tipo corrisponde a **Custom**. | Sì      |
+| type                  | Per l'attività personalizzata, il tipo corrisponde a **Custom** . | Sì      |
 | linkedServiceName     | Servizio collegato ad Azure Batch. Per informazioni su questo servizio collegato, vedere l'articolo [Servizi collegati di calcolo](compute-linked-services.md).  | Sì      |
 | .               | Comando dell'applicazione personalizzata da eseguire. Se l'applicazione è già disponibile nel nodo del pool di Azure Batch, è possibile ignorare resourceLinkedService e folderPath. È ad esempio possibile specificare come comando `cmd /c dir`, supportato in modo nativo dal nodo del pool di batch di Windows. | Sì      |
 | resourceLinkedService | Servizio di Archiviazione di Azure collegato all'account di archiviazione in cui è archiviata l'applicazione personalizzata | No &#42;       |
-| folderPath            | Percorso della cartella dell'applicazione personalizzata e di tutte le relative dipendenze<br/><br/>Se sono presenti dipendenze archiviate nelle sottocartelle, vale a dire, in una struttura di cartelle gerarchiche in *folderPath*, la struttura di cartelle è attualmente di tipo flat quando i file vengono copiati in Azure Batch. Vale a dire, tutti i file vengono copiati in un'unica cartella senza sottocartelle. Per risolvere questo comportamento, è possibile comprimere i file, copiare il file compresso e quindi decomprimerlo con codice personalizzato nel percorso desiderato. | No &#42;       |
+| folderPath            | Percorso della cartella dell'applicazione personalizzata e di tutte le relative dipendenze<br/><br/>Se sono presenti dipendenze archiviate nelle sottocartelle, vale a dire, in una struttura di cartelle gerarchiche in *folderPath* , la struttura di cartelle è attualmente di tipo flat quando i file vengono copiati in Azure Batch. Vale a dire, tutti i file vengono copiati in un'unica cartella senza sottocartelle. Per risolvere questo comportamento, è possibile comprimere i file, copiare il file compresso e quindi decomprimerlo con codice personalizzato nel percorso desiderato. | No &#42;       |
 | referenceObjects      | Matrice di servizi collegati e set di dati esistenti. I servizi collegati e i set di dati a cui si fa riferimento vengono passati all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a risorse di Data Factory | No       |
 | extendedProperties    | Proprietà definite dall'utente che possono essere passate all'applicazione personalizzata in formato JSON. Il codice personalizzato può quindi fare riferimento a proprietà aggiuntive | No       |
 | retentionTimeInDays | Tempo di conservazione per i file inviati per l'attività personalizzata. Il valore predefinito è 30 giorni. | No |
@@ -120,7 +120,7 @@ Nella tabella seguente vengono descritti i nomi e le descrizioni delle propriet�
 
 ## <a name="custom-activity-permissions"></a>Autorizzazioni per le attività personalizzate
 
-L'attività personalizzata imposta l'account utente automatico di Azure Batch sull'*accesso senza privilegi di amministratore con ambito di attività* (specifica di utente automatico predefinito). Non è possibile modificare il livello di autorizzazione dell'account utente automatico. Per altre informazioni, vedere [Eseguire attività con account utente in Batch | Account utente automatici](../batch/batch-user-accounts.md#auto-user-accounts).
+L'attività personalizzata imposta l'account utente automatico di Azure Batch sull' *accesso senza privilegi di amministratore con ambito di attività* (specifica di utente automatico predefinito). Non è possibile modificare il livello di autorizzazione dell'account utente automatico. Per altre informazioni, vedere [Eseguire attività con account utente in Batch | Account utente automatici](../batch/batch-user-accounts.md#auto-user-accounts).
 
 ## <a name="executing-commands"></a>Esecuzione di comandi
 
@@ -310,7 +310,7 @@ Se si desidera usare il contenuto di stdout.txt nelle attività downstream, è p
 
 ## <a name="retrieve-securestring-outputs"></a>Recuperare gli output SecureString
 
-I valori delle proprietà sensibili designati come tipo *SecureString*, come illustrato in alcuni degli esempi in questo articolo, vengono mascherati nella scheda Monitoraggio nell'interfaccia utente di Data Factory.  Nell'esecuzione effettiva della pipeline, tuttavia, una proprietà *SecureString* viene serializzata come JSON all'interno del `activity.json` file come testo normale. Esempio:
+I valori delle proprietà sensibili designati come tipo *SecureString* , come illustrato in alcuni degli esempi in questo articolo, vengono mascherati nella scheda Monitoraggio nell'interfaccia utente di Data Factory.  Nell'esecuzione effettiva della pipeline, tuttavia, una proprietà *SecureString* viene serializzata come JSON all'interno del `activity.json` file come testo normale. Ad esempio:
 
 ```json
 "extendedProperties": {
@@ -356,7 +356,7 @@ Se si dispone di codice .NET esistente scritto per un'attività DotNet della ver
   - Il pacchetto NuGet Microsoft.Azure.Management.DataFactories non è più necessario.
   - Compilare il codice, caricare il file eseguibile e le relative dipendenze in Archiviazione di Azure e definire il percorso nella proprietà `folderPath`.
 
-Per un'illustrazione completa di come l'esempio end-to-end di DLL e pipeline, descritto nell'articolo relativo a Data Factory versione 1 [Usare attività personalizzate in una pipeline di Azure Data Factory](https://docs.microsoft.com/azure/data-factory/v1/data-factory-use-custom-activities), può essere riscritto come attività personalizzata di Data Factory, vedere l'[esempio di attività personalizzata di Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
+Per un'illustrazione completa di come l'esempio end-to-end di DLL e pipeline, descritto nell'articolo relativo a Data Factory versione 1 [Usare attività personalizzate in una pipeline di Azure Data Factory](./v1/data-factory-use-custom-activities.md), può essere riscritto come attività personalizzata di Data Factory, vedere l'[esempio di attività personalizzata di Data Factory](https://github.com/Azure/Azure-DataFactory/tree/master/SamplesV1/ADFv2CustomActivitySample).
 
 ## <a name="auto-scaling-of-azure-batch"></a>Scalabilità automatica di Azure Batch
 
@@ -376,7 +376,7 @@ $TargetDedicated=min(maxNumberofVMs,pendingTaskSamples);
 
 Per i dettagli, vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](../batch/batch-automatic-scaling.md) .
 
-Se il pool usa il valore predefinito [autoScaleEvaluationInterval](https://msdn.microsoft.com/library/azure/dn820173.aspx), possono essere necessari 15-30 minuti perché il servizio Batch prepari la VM prima di eseguire l'attività personalizzata. Se il pool usa un valore autoScaleEvaluationInterval diverso, il servizio Batch può richiedere un valore autoScaleEvaluationInterval + 10 minuti.
+Se il pool usa il valore predefinito [autoScaleEvaluationInterval](/rest/api/batchservice/pool/enableautoscale), possono essere necessari 15-30 minuti perché il servizio Batch prepari la VM prima di eseguire l'attività personalizzata. Se il pool usa un valore autoScaleEvaluationInterval diverso, il servizio Batch può richiedere un valore autoScaleEvaluationInterval + 10 minuti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti, che illustrano altre modalità di trasformazione dei dati:

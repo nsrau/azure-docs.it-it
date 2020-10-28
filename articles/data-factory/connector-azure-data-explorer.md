@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/18/2020
-ms.openlocfilehash: ba8c35fc1802f7ef3ac54c693c8106bbc40cc185
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa8219db0e11694b6f70547d5f75bd892fbfa1f8
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82560168"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633162"
 ---
 # <a name="copy-data-to-or-from-azure-data-explorer-by-using-azure-data-factory"></a>Copiare dati da o verso Azure Esplora dati usando Azure Data Factory
 
@@ -42,7 +42,7 @@ Questo connettore di Azure Esplora dati è supportato per le attività seguenti:
 
 Con il connettore Azure Esplora dati è possibile eseguire le operazioni seguenti:
 
-* Copia di dati tramite autenticazione token dell'applicazione Azure Active Directory (Azure AD) con **entità servizio**.
+* Copia di dati tramite autenticazione token dell'applicazione Azure Active Directory (Azure AD) con **entità servizio** .
 * Come origine, recupero di dati tramite una query KQL (Kusto).
 * Come sink, accodamento di dati a una tabella di destinazione.
 
@@ -67,8 +67,8 @@ Il connettore Azure Esplora dati usa l'autenticazione basata su entità servizio
 
 2. Concedere all'entità servizio le autorizzazioni corrette in Azure Esplora dati. Per informazioni dettagliate sui ruoli e sulle autorizzazioni e sulla gestione delle autorizzazioni, vedere gestire le autorizzazioni del [database di Azure Esplora dati](/azure/data-explorer/manage-database-permissions) . In generale, è necessario:
 
-    - **Come origine**, concedere almeno il ruolo **Visualizzatore database** al database
-    - **Come sink**, concedere almeno il ruolo di inserimento del **database** al database
+    - **Come origine** , concedere almeno il ruolo **Visualizzatore database** al database
+    - **Come sink** , concedere almeno il ruolo di inserimento del **database** al database
 
 >[!NOTE]
 >Quando si usa l'interfaccia utente di Data Factory per creare, l'account utente di accesso viene usato per elencare i cluster, i database e le tabelle di Azure Esplora dati. Immettere manualmente il nome se non si dispone dell'autorizzazione per queste operazioni.
@@ -77,12 +77,12 @@ Per il servizio collegato di Azure Esplora dati sono supportate le proprietà se
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** deve essere impostata su **AzureDataExplorer**. | Sì |
+| type | La proprietà **Type** deve essere impostata su **AzureDataExplorer** . | Sì |
 | endpoint | URL dell'endpoint del cluster di Esplora dati di Azure con il formato `https://<clusterName>.<regionName>.kusto.windows.net`. | Sì |
 | database | Nome del database. | Sì |
-| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Questa operazione è nota come "ID autorità" nella [stringa di connessione kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recuperarlo posizionando il puntatore del mouse nell'angolo superiore destro del portale di Azure. | Sì |
-| servicePrincipalId | Specificare l'ID client dell'applicazione. Questa operazione è nota come "ID client dell'applicazione AAD" nella [stringa di connessione kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sì |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Questa operazione è nota come "chiave dell'applicazione AAD" nella [stringa di connessione kusto](https://docs.microsoft.com/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in data factory o [fare riferimento a dati protetti archiviati nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Questa operazione è nota come "ID autorità" nella [stringa di connessione kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Recuperarlo posizionando il puntatore del mouse nell'angolo superiore destro del portale di Azure. | Sì |
+| servicePrincipalId | Specificare l'ID client dell'applicazione. Questa operazione è nota come "ID client dell'applicazione AAD" nella [stringa di connessione kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). | Sì |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Questa operazione è nota come "chiave dell'applicazione AAD" nella [stringa di connessione kusto](/azure/kusto/api/connection-strings/kusto#application-authentication-properties). Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in data factory o [fare riferimento a dati protetti archiviati nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 
 **Esempio di proprietà del servizio collegato:**
 
@@ -109,13 +109,13 @@ Per il servizio collegato di Azure Esplora dati sono supportate le proprietà se
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione dei set di impostazioni, vedere [DataSets in Azure Data Factory](concepts-datasets-linked-services.md). Questa sezione elenca le proprietà supportate dal set di dati di Azure Esplora dati.
 
-Per copiare dati in Esplora dati di Azure, impostare la proprietà type del set di dati su **AzureDataExplorerTable**.
+Per copiare dati in Esplora dati di Azure, impostare la proprietà type del set di dati su **AzureDataExplorerTable** .
 
 Sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** deve essere impostata su **AzureDataExplorerTable**. | Sì |
+| type | La proprietà **Type** deve essere impostata su **AzureDataExplorerTable** . | Sì |
 | tabella | Nome della tabella a cui fa riferimento il servizio collegato. | Sì per il sink, no per l'origine |
 
 **Esempio di proprietà del set di dati:**
@@ -143,7 +143,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="azure-data-explorer-as-source"></a>Esplora dati di Azure come origine
 
-Per copiare dati da Esplora dati di Azure, impostare la proprietà **type** nell'origine dell'attività di copia su **AzureDataExplorerSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da Esplora dati di Azure, impostare la proprietà **type** nell'origine dell'attività di copia su **AzureDataExplorerSource** . Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -153,7 +153,7 @@ Per copiare dati da Esplora dati di Azure, impostare la proprietà **type** nell
 | notroncamento | Indica se troncare il set di risultati restituito. Per impostazione predefinita, il risultato viene troncato dopo 500.000 record o 64 megabyte (MB). Il troncamento è fortemente consigliato per garantire il comportamento corretto dell'attività. |No |
 
 >[!NOTE]
->Per impostazione predefinita, Azure Esplora dati Source ha un limite di dimensioni pari a 500.000 record o 64 MB. Per recuperare tutti i record senza troncamento, è possibile specificare `set notruncation;` all'inizio della query. Per altre informazioni, vedere [limiti delle query](https://docs.microsoft.com/azure/kusto/concepts/querylimits).
+>Per impostazione predefinita, Azure Esplora dati Source ha un limite di dimensioni pari a 500.000 record o 64 MB. Per recuperare tutti i record senza troncamento, è possibile specificare `set notruncation;` all'inizio della query. Per altre informazioni, vedere [limiti delle query](/azure/kusto/concepts/querylimits).
 
 **Esempio:**
 
@@ -190,13 +190,13 @@ Per copiare dati da Esplora dati di Azure, impostare la proprietà **type** nell
 
 ### <a name="azure-data-explorer-as-sink"></a>Esplora dati di Azure come sink
 
-Per copiare dati in Esplora dati di Azure, impostare la proprietà type nel sink dell'attività di copia su **AzureDataExplorerSink**. Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati in Esplora dati di Azure, impostare la proprietà type nel sink dell'attività di copia su **AzureDataExplorerSink** . Nella sezione **sink** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
-| type | La proprietà **Type** del sink dell'attività di copia deve essere impostata su: **AzureDataExplorerSink**. | Sì |
+| type | La proprietà **Type** del sink dell'attività di copia deve essere impostata su: **AzureDataExplorerSink** . | Sì |
 | ingestionMappingName | Nome di un [mapping](/azure/kusto/management/mappings#csv-mapping) creato in precedenza in una tabella kusto. Per eseguire il mapping delle colonne dall'origine ad Azure Esplora dati (che si applica a [tutti i formati e archivi di origine supportati](copy-activity-overview.md#supported-data-stores-and-formats), inclusi i formati CSV/JSON/Avro), è possibile usare il [mapping delle colonne](copy-activity-schema-and-type-mapping.md) dell'attività di copia (in modo implicito in base al nome o in modo esplicito come configurato) e/o i mapping di Esplora dati di Azure. | No |
-| additionalProperties | Elenco delle proprietà che può essere usato per specificare le proprietà di inserimento che non sono già state impostate dal sink di Azure Esplora dati. In particolare, può essere utile per specificare i tag di inserimento. Scopri di più sulla documentazione di inserimento [dati in Azure Data Explorer](https://docs.microsoft.com/azure/data-explorer/ingestion-properties). | No |
+| additionalProperties | Elenco delle proprietà che può essere usato per specificare le proprietà di inserimento che non sono già state impostate dal sink di Azure Esplora dati. In particolare, può essere utile per specificare i tag di inserimento. Scopri di più sulla documentazione di inserimento [dati in Azure Data Explorer](/azure/data-explorer/ingestion-properties). | No |
 
 **Esempio:**
 

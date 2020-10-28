@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 1978cfe6ea117a0d30df938c9e4ba1aeb48314fc
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057842"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631046"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -28,14 +28,14 @@ Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Ge
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+* Una **sottoscrizione di Azure** . Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
 * Per usare un modello da un'interfaccia della riga di comando, è necessario [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 * Per alcuni scenari è necessario aprire un ticket di supporto. Questi scenari sono:
 
     * __Area di lavoro con collegamento privato abilitato con una chiave gestita dal cliente (CMK)__
-    * __Container Registry di Azure per l'area di lavoro dietro la rete virtuale__
+    * __Registro Azure Container per l'area di lavoro dietro alla rete virtuale__
 
     Per altre informazioni, vedere [gestire e aumentare le quote](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
 
@@ -59,7 +59,7 @@ Il modello di esempio include due parametri **obbligatori** :
 
     Il modello utilizzerà la posizione selezionata per la maggior parte delle risorse. L'eccezione è il servizio Application Insights, che non è disponibile in tutte le posizioni in cui sono situati gli altri servizi. Se si seleziona una posizione in cui non è disponibile, il servizio verrà creato nella posizione Stati Uniti centro-meridionali.
 
-* **WorkspaceName**, ovvero il nome descrittivo dell'area di lavoro Azure Machine Learning.
+* **WorkspaceName** , ovvero il nome descrittivo dell'area di lavoro Azure Machine Learning.
 
     > [!NOTE]
     > Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
@@ -161,9 +161,11 @@ New-AzResourceGroupDeployment `
 
 Il modello di esempio seguente mostra come creare un'area di lavoro con tre impostazioni:
 
-* Abilitare le impostazioni di riservatezza elevata per l'area di lavoro
-* Abilitare la crittografia per l'area di lavoro
-* Usare insiemi delle credenziali delle chiavi esistenti per recuperare le chiavi gestite dal cliente
+* Abilitare le impostazioni di riservatezza elevata per l'area di lavoro. Viene creata una nuova istanza di Cosmos DB.
+* Abilitare la crittografia per l'area di lavoro.
+* Usa un Azure Key Vault esistente per recuperare le chiavi gestite dal cliente. Le chiavi gestite dal cliente vengono usate per creare una nuova istanza di Cosmos DB per l'area di lavoro.
+
+    [!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
 
 > [!IMPORTANT]
 > Dopo aver creato un'area di lavoro, non è possibile modificare le impostazioni relative ai dati riservati, la crittografia, l'ID dell'insieme di credenziali delle chiavi o gli identificatori di chiave. Per modificare questi valori, è necessario creare una nuova area di lavoro usando altri valori.
@@ -217,7 +219,7 @@ __Per ottenere i valori__ per i parametri `cmk_keyvault` (ID dell’insieme di c
 
 Per abilitare l'utilizzo delle chiavi gestite dal cliente, impostare i parametri seguenti durante la distribuzione del modello:
 
-* **Encryption_status** **abilitata**.
+* **Encryption_status** **abilitata** .
 * **cmk_keyvault** al `cmk_keyvault` valore ottenuto nei passaggi precedenti.
 * **resource_cmk_uri** al `resource_cmk_uri` valore ottenuto nei passaggi precedenti.
 
@@ -252,7 +254,7 @@ New-AzResourceGroupDeployment `
 
 Quando si usa una chiave gestita dal cliente, Azure Machine Learning crea un gruppo di risorse secondario che contiene l'istanza di Cosmos DB. Per ulteriori informazioni, vedere [crittografia](concept-enterprise-security.md#encryption-at-rest)dei dati inattivi Cosmos DB.
 
-Una configurazione aggiuntiva che è possibile fornire ai dati consiste nell'impostare il parametro **confidential_data** su **true**. In questo modo, effettua le seguenti operazioni:
+Una configurazione aggiuntiva che è possibile fornire ai dati consiste nell'impostare il parametro **confidential_data** su **true** . In questo modo, effettua le seguenti operazioni:
 
 * Avvia la crittografia del disco scratch locale per Azure Machine Learning cluster di calcolo, a condizione che non siano stati creati cluster precedenti nella sottoscrizione. Se in precedenza è stato creato un cluster nella sottoscrizione, aprire un ticket di supporto per avere la crittografia del disco scratch abilitato per i cluster di elaborazione.
 * Pulisce il disco scratch locale tra le esecuzioni.
@@ -547,8 +549,8 @@ New-AzResourceGroupDeployment `
    * Area: selezionare l'area di Azure in cui verranno create le risorse.
    * Nome dell'area di lavoro: Il nome da utilizzare per l'area di lavoro Azure Machine Learning che verrà creato. Il nome dell'area di lavoro deve avere una lunghezza compresa tra 3 e 33 caratteri. Può contenere solo caratteri alfanumerici e '-'.
    * Percorso: Selezionare la posizione in cui verranno create le risorse.
-1. Selezionare __Rivedi e crea__.
-1. Nella schermata __Verifica e crea__ accettare i termini e le condizioni elencati e selezionare __Crea__.
+1. Selezionare __Rivedi e crea__ .
+1. Nella schermata __Verifica e crea__ accettare i termini e le condizioni elencati e selezionare __Crea__ .
 
 Per altre informazioni, vedere [Distribuire risorse da un modello personalizzato](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -653,7 +655,7 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
 
 ### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Rete virtuale non collegata alla zona DNS privata
 
-Quando si crea un'area di lavoro con un endpoint privato, il modello crea una zona DNS privato denominata __privatelink.API.azureml.ms__. Un __collegamento di rete virtuale__ viene aggiunto automaticamente a questa zona DNS privata. Il collegamento viene aggiunto solo per la prima area di lavoro e l'endpoint privato creato in un gruppo di risorse. Se si crea un'altra rete virtuale e un'area di lavoro con un endpoint privato nello stesso gruppo di risorse, è possibile che la seconda rete virtuale non venga aggiunta alla zona DNS privata.
+Quando si crea un'area di lavoro con un endpoint privato, il modello crea una zona DNS privato denominata __privatelink.API.azureml.ms__ . Un __collegamento di rete virtuale__ viene aggiunto automaticamente a questa zona DNS privata. Il collegamento viene aggiunto solo per la prima area di lavoro e l'endpoint privato creato in un gruppo di risorse. Se si crea un'altra rete virtuale e un'area di lavoro con un endpoint privato nello stesso gruppo di risorse, è possibile che la seconda rete virtuale non venga aggiunta alla zona DNS privata.
 
 Per visualizzare i collegamenti alla rete virtuale già esistenti per la zona DNS privata, usare il comando dell'interfaccia della riga di comando di Azure seguente:
 

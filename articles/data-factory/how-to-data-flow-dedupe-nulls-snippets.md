@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/30/2020
 ms.author: makromer
-ms.openlocfilehash: 1c630cdd66fa4f8e609524feb9c3f0bcad9711a0
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cdb522cc4be83eadd2c60c91c7fee33e7ccc039b
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92458167"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632448"
 ---
 # <a name="dedupe-rows-and-find-nulls-by-using-data-flow-snippets"></a>Deduplicare le righe e individuare i valori null usando frammenti del flusso di dati
 
@@ -25,7 +25,7 @@ Utilizzando i frammenti di codice nel mapping di flussi di dati, è possibile es
 
 ## <a name="create-a-pipeline"></a>Creare una pipeline
 
-1. Selezionare **nuova pipeline**.
+1. Selezionare **nuova pipeline** .
 
 1. Aggiungere un'attività flusso di dati.
 
@@ -35,9 +35,9 @@ Utilizzando i frammenti di codice nel mapping di flussi di dati, è possibile es
 
     I frammenti di codice deduplicati e di controllo null utilizzano modelli generici che sfruttano i vantaggi della deriva dello schema del flusso di dati. I frammenti di codice funzionano con qualsiasi schema del set di dati oppure con i set di dati che non dispongono di uno schema predefinito.
 
-1. Nella sezione "DISTINCT row using all Columns" dello [script del flusso di dati (DFS)](https://docs.microsoft.com/azure/data-factory/data-flow-script#distinct-row-using-all-columns)copiare il frammento di codice per DistinctRows.
+1. Nella sezione "DISTINCT row using all Columns" dello [script del flusso di dati (DFS)](./data-flow-script.md#distinct-row-using-all-columns)copiare il frammento di codice per DistinctRows.
 
-1. Nell'interfaccia utente della finestra di progettazione del flusso di dati, selezionare il pulsante **script** in alto a destra per aprire l'editor di script dietro il grafico del flusso di dati.
+1. [Passare alla pagina della documentazione dello script del flusso di dati e copiare il frammento di codice per le righe distinte.](./data-flow-script.md#distinct-row-using-all-columns)
 
     ![Screenshot di un frammento di codice sorgente.](media/data-flow/snippet-adf-3.png)
 
@@ -53,9 +53,9 @@ Utilizzando i frammenti di codice nel mapping di flussi di dati, è possibile es
 
    A questo punto, il flusso di dati rimuoverà le righe duplicate dall'origine utilizzando la trasformazione aggregazione, che raggruppa per tutte le righe utilizzando un hash generale in tutti i valori di colonna.
     
-1. Aggiungere un frammento di codice per suddividere i dati in un flusso che contiene righe con valori null e un altro flusso senza valori null. A tale scopo, procedere come indicato di seguito:
+1. Aggiungere un frammento di codice per suddividere i dati in un flusso che contiene righe con valori null e un altro flusso senza valori null. A tale scopo, procedere nel seguente modo:
 
-   a. Tornare alla libreria dei [frammenti](https://docs.microsoft.com/azure/data-factory/data-flow-script#check-for-nulls-in-all-columns), quindi copiare il codice per i controlli null.
+1. [Tornare alla libreria dei frammenti. questa volta copiare il codice per i controlli NULL.](./data-flow-script.md#check-for-nulls-in-all-columns)
 
    b. Nella finestra di progettazione del flusso di dati selezionare di nuovo **script** , quindi incollare questo nuovo codice di trasformazione in basso. Questa azione connette lo script alla trasformazione precedente inserendo il nome della trasformazione prima del frammento incollato.
 

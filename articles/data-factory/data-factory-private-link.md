@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: a6faac66edaaf047f5ba025e94a1522c2313f9ed
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c21b4d746d763f41f4360cf93f67939bcd6dc49f
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92546671"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632686"
 ---
 # <a name="azure-private-link-for-azure-data-factory"></a>Collegamento privato di Azure per Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-xxx-md.md)]
 
-Con il collegamento privato di Azure è possibile connettersi a varie distribuzioni di piattaforma distribuita come servizio (PaaS) in Azure tramite un endpoint privato. Un endpoint privato è un indirizzo IP privato all'interno di una rete virtuale e una subnet specifiche. Per un elenco delle distribuzioni PaaS che supportano la funzionalità di collegamento privato, vedere la [documentazione del collegamento privato](https://docs.microsoft.com/azure/private-link/). 
+Con il collegamento privato di Azure è possibile connettersi a varie distribuzioni di piattaforma distribuita come servizio (PaaS) in Azure tramite un endpoint privato. Un endpoint privato è un indirizzo IP privato all'interno di una rete virtuale e una subnet specifiche. Per un elenco delle distribuzioni PaaS che supportano la funzionalità di collegamento privato, vedere la [documentazione del collegamento privato](../private-link/index.yml). 
 
 ## <a name="secure-communication-between-customer-networks-and-azure-data-factory"></a>Comunicazione sicura tra le reti dei clienti e Azure Data Factory 
 È possibile configurare una rete virtuale di Azure come rappresentazione logica della rete nel cloud. Questa operazione offre i vantaggi seguenti:
@@ -67,7 +67,7 @@ L'abilitazione del servizio di collegamento privato per ognuno dei canali di com
 > Quando si crea un servizio collegato, assicurarsi che le credenziali siano archiviate in Azure Key Vault. In caso contrario, le credenziali non funzioneranno quando si Abilita il collegamento privato in Azure Data Factory.
 
 ## <a name="set-up-private-link-for-azure-data-factory"></a>Configurare il collegamento privato per Azure Data Factory
-È possibile creare endpoint privati usando [il portale di Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal).
+È possibile creare endpoint privati usando [il portale di Azure](../private-link/create-private-endpoint-portal.md).
 
 È anche possibile passare al data factory di Azure nella portale di Azure e creare un endpoint privato, come illustrato di seguito:
 
@@ -89,4 +89,3 @@ Se si vuole bloccare l'accesso pubblico al data factory di Azure e consentire l'
 - [Creare una data factory usando l'interfaccia utente di Azure Data Factory](quickstart-create-data-factory-portal.md)
 - [Introduzione al servizio Azure Data Factory](introduction.md)
 - [Creazione di oggetti visivi in Azure Data Factory](author-visually.md)
-

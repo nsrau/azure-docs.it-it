@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 07/06/2020
 ms.author: jingwang
-ms.openlocfilehash: 6b79b2722438403e29851d3a87929ddc67eef727
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 117b0db4f04c3fd631f6692d288945019507f5c6
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123750"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632805"
 ---
 # <a name="managed-identity-for-data-factory"></a>Identità gestita per Data Factory
 
@@ -39,9 +39,9 @@ L'identità gestita per Data Factory avvantaggia le funzionalità seguenti:
 
 L'identità gestita per Data Factory viene generata come segue:
 
-- Quando si crea data factory tramite **portale di Azure o PowerShell**, l'identità gestita viene sempre creata automaticamente.
-- Quando si crea data factory tramite **SDK**, l'identità gestita viene creata solo se si specifica "Identity = New FactoryIdentity ()" nell'oggetto factory per la creazione. Vedere l'esempio nella [guida introduttiva di .NET per la creazione di una data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
-- Quando si crea data factory tramite l' **API REST**, l'identità gestita viene creata solo se si specifica la sezione "Identity" nel corpo della richiesta. Vedere l'esempio nella [guida introduttiva di REST per la creazione di una data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
+- Quando si crea data factory tramite **portale di Azure o PowerShell** , l'identità gestita viene sempre creata automaticamente.
+- Quando si crea data factory tramite **SDK** , l'identità gestita viene creata solo se si specifica "Identity = New FactoryIdentity ()" nell'oggetto factory per la creazione. Vedere l'esempio nella [guida introduttiva di .NET per la creazione di una data factory](quickstart-create-data-factory-dot-net.md#create-a-data-factory).
+- Quando si crea data factory tramite l' **API REST** , l'identità gestita viene creata solo se si specifica la sezione "Identity" nel corpo della richiesta. Vedere l'esempio nella [guida introduttiva di REST per la creazione di una data factory](quickstart-create-data-factory-rest-api.md#create-a-data-factory).
 
 Se la data factory non dispone di un'identità gestita associata al recupero dell'istruzione di [identità gestita](#retrieve-managed-identity) , è possibile generarne una in modo esplicito aggiornando il data factory con l'iniziatore di identità a livello di codice:
 
@@ -79,7 +79,7 @@ Chiamare l'API seguente con la sezione "identity" nel corpo della richiesta:
 PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<data factory name>?api-version=2018-06-01
 ```
 
-**Corpo della richiesta**: aggiungere "identity": { "type": "SystemAssigned" }.
+**Corpo della richiesta** : aggiungere "identity": { "type": "SystemAssigned" }.
 
 ```json
 {
@@ -92,7 +92,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 }
 ```
 
-**Risposta**: l'identità gestita viene creata automaticamente e la sezione "Identity" viene popolata di conseguenza.
+**Risposta** : l'identità gestita viene creata automaticamente e la sezione "Identity" viene popolata di conseguenza.
 
 ```json
 {
@@ -117,7 +117,7 @@ PATCH https://management.azure.com/subscriptions/<subsID>/resourceGroups/<resour
 
 ### <a name="generate-managed-identity-using-an-azure-resource-manager-template"></a>Generare un'identità gestita usando un modello di Azure Resource Manager
 
-**Modello**: aggiungere "identity": { "type": "SystemAssigned" }.
+**Modello** : aggiungere "identity": { "type": "SystemAssigned" }.
 
 ```json
 {
@@ -201,7 +201,7 @@ Chiamare l'API seguente nella richiesta:
 GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}?api-version=2018-06-01
 ```
 
-**Risposta**: si otterrà una risposta simile a quella illustrata nell'esempio seguente. La sezione "Identity" viene popolata di conseguenza.
+**Risposta** : si otterrà una risposta simile a quella illustrata nell'esempio seguente. La sezione "Identity" viene popolata di conseguenza.
 
 ```json
 {
@@ -252,4 +252,4 @@ Vedere gli argomenti seguenti che introducono quando e come usare data factory i
 - [Archiviare le credenziali in Azure Key Vault](store-credentials-in-key-vault.md)
 - [Copiare dati da e verso Azure Data Lake Store usando identità gestite per l'autenticazione di risorse di Azure](connector-azure-data-lake-store.md)
 
-Vedere [Panoramica delle identità gestite per le risorse di Azure](/azure/active-directory/managed-identities-azure-resources/overview) per altre informazioni di base sulle identità gestite per le risorse di Azure, che data factory identità gestita è basata su. 
+Vedere [Panoramica delle identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md) per altre informazioni di base sulle identità gestite per le risorse di Azure, che data factory identità gestita è basata su.

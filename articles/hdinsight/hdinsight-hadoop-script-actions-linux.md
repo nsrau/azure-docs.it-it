@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/28/2019
-ms.openlocfilehash: c392ad7a098116a8f2224d6844d38dc40e01d753
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f7959b639b75d912d44670c8b00a7327cb7857d6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92545991"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629443"
 ---
 # <a name="script-action-development-with-hdinsight"></a>Sviluppo di azioni script con HDInsight
 
@@ -161,13 +161,13 @@ HDInsight registra l'output dello script scritto in STDOUT e STDERR. È possibil
 > [!NOTE]  
 > Apache Ambari è disponibile solo se il cluster viene creato correttamente. Se si utilizza un'azione script durante la creazione del cluster e la creazione non riesce, vedere [risolvere i problemi relativi alle azioni script](./troubleshoot-script-action.md) per altre modalità di accesso alle informazioni registrate.
 
-Sebbene la maggior parte delle utilità e dei pacchetti di installazione scriva già le informazioni in STDOUT e STDERR, è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. ad esempio:
+Sebbene la maggior parte delle utilità e dei pacchetti di installazione scriva già le informazioni in STDOUT e STDERR, è possibile aggiungere altre opzioni di registrazione. Per inviare testo a STDOUT, usare `echo`. Ad esempio:
 
 ```bash
 echo "Getting ready to install Foo"
 ```
 
-Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. ad esempio:
+Per impostazione predefinita, `echo` invia la stringa a STDOUT. Per indirizzarla a STDERR, aggiungere `>&2` prima di `echo`. Ad esempio:
 
 ```bash
 >&2 echo "An error occurred installing Foo"
@@ -239,7 +239,7 @@ In uno script personalizzato possono essere usati gli helper seguenti:
 | --- | --- |
 | `download_file SOURCEURL DESTFILEPATH [OVERWRITE]` |Scarica un file dall'URI di origine al percorso file specificato. Per impostazione predefinita, non sovrascrive un file esistente. |
 | `untar_file TARFILE DESTDIR` |Estrae un file TAR (usando `-xf`) nella directory di destinazione. |
-| `test_is_headnode` |Se viene eseguito su un nodo head del cluster restituisce 1; in caso contrario, 0. |
+| `test_is_headnode` |Se lo script è stato eseguito in un nodo head del cluster, restituisce 1; in caso contrario, 0. |
 | `test_is_datanode` |Se il nodo corrente è un nodo dati (di lavoro) restituisce 1; in caso contrario, 0. |
 | `test_is_first_datanode` |Se il nodo corrente è il primo nodo dati (di lavoro), denominato workernode0, restituisce 1; in caso contrario, 0. |
 | `get_headnodes` |Restituisce il nome di dominio completo dei nodi head nel cluster. I nomi sono delimitati da virgole. In caso di errore, viene restituita una stringa vuota. |
@@ -268,7 +268,7 @@ L'impostazione di una variabile di ambiente viene eseguita con l'istruzione segu
 VARIABLENAME=value
 ```
 
-Dove VARIABLENAME è il nome della variabile. Per accedere alla variabile, usare `$VARIABLENAME`. Per assegnare un valore fornito da un parametro posizionale come variabile di ambiente denominata PASSWORD, ad esempio, usare l'istruzione seguente:
+Nell'esempio precedente `VARIABLENAME` è il nome della variabile. Per accedere alla variabile, usare `$VARIABLENAME`. Per assegnare un valore fornito da un parametro posizionale come variabile di ambiente denominata PASSWORD, ad esempio, usare l'istruzione seguente:
 
 ```bash
 PASSWORD=$1

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: duau
-ms.openlocfilehash: 70acacb9bacddaf403b79e11b460333c67641aae
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: f4bddf1746a9d680897428f1aa0afdb35d93e470
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92202209"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92631275"
 ---
 # <a name="expressroute-faq"></a>Domande frequenti su ExpressRoute
 
@@ -40,9 +40,10 @@ Per informazioni sui prezzi, vedere [Dettagli prezzi](https://azure.microsoft.co
 
 No. È possibile acquistare una connessione VPN di qualsiasi velocità dal provider di servizi. Tuttavia, la connessione ad Azure è limitata alla larghezza di banda del circuito ExpressRoute acquistato.
 
-### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-burst-up-to-higher-speeds-if-necessary"></a>Se si paga per un circuito ExpressRoute di una determinata larghezza di banda, si ha la possibilità di potenziarlo fino a velocità più elevate, se necessario?
+### <a name="if-i-pay-for-an-expressroute-circuit-of-a-given-bandwidth-do-i-have-the-ability-to-use-more-than-my-procured-bandwidth"></a>Se si paga per un circuito ExpressRoute di una determinata larghezza di banda, è possibile usare più della larghezza di banda acquistata?
 
-Sì. I circuiti ExpressRoute sono configurati per consentire di potenziare fino al doppio il limite di larghezza di banda acquistato, senza alcun costo aggiuntivo. Contattare il provider di servizi per vedere se supporta questa funzionalità. Non è destinata a un periodo di tempo prolungato e non è garantita.  Se il traffico viene trasmesso attraverso un gateway ExpressRoute, la larghezza di banda per lo SKU è fissa e non consente il burst.
+Sì, è possibile usare fino a due volte il limite di larghezza di banda acquistato usando la larghezza di banda disponibile nella connessione secondaria del circuito ExpressRoute. La ridondanza predefinita del circuito viene configurata con le connessioni primarie e secondarie, ognuna della larghezza di banda acquistata, a due router perimetrali Microsoft Enterprise (MSEE). Se necessario, è possibile usare la larghezza di banda disponibile tramite la connessione secondaria per ulteriore traffico. Poiché la connessione secondaria è destinata alla ridondanza, tuttavia, non è garantita e non deve essere usata per il traffico aggiuntivo per un periodo di tempo prolungato. Per altre informazioni su come usare entrambi Connnections per trasmettere il traffico, vedere [qui](https://docs.microsoft.com/azure/expressroute/expressroute-optimize-routing#solution-use-as-path-prepending).
+Se si prevede di usare solo la connessione primaria per trasmettere il traffico, la larghezza di banda per la connessione è fissa e il tentativo di eseguire l'oversubscription comporterà un aumento delle perdite di pacchetti. Se il traffico viene trasmesso attraverso un gateway ExpressRoute, la larghezza di banda per lo SKU è fissa e non può essere scaricata.
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Si possono usare contemporaneamente la stessa connessione di rete privata con la rete virtuale e altri servizi di Azure?
 

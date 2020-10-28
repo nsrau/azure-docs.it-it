@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/07/2020
-ms.openlocfilehash: 4189aadb6e37fc70bcaeecca2110d6fcc3959dd3
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 5fb82c6098352076307f71eee022074a247e3cd9
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91939869"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629341"
 ---
 # <a name="overview-of-business-continuity-with-azure-database-for-postgresql---single-server"></a>Panoramica della continuità aziendale con database di Azure per PostgreSQL-server singolo
 
@@ -25,13 +25,13 @@ Database di Azure per PostgreSQL offre funzionalità di continuità aziendale ch
 
 Nella tabella seguente vengono confrontati RTO e RPO in uno scenario tipico:
 
-| **Funzionalità** | **Base** | **Utilizzo generico** | **Ottimizzate per la memoria** |
+| **Capacità** | **Base** | **Utilizzo generico** | **Ottimizzate per la memoria** |
 | :------------: | :-------: | :-----------------: | :------------------: |
 | Ripristino temporizzato dal backup | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione | Qualsiasi punto di ripristino compreso nel periodo di conservazione |
 | Ripristino geografico dai backup con replica geografica | Non supportato | RTO-varia <br/>RPO < 1 ora | RTO-varia <br/>RPO < 1 ora |
-| Repliche in lettura | RTO-minuti <br/>RPO < 5 min * | RTO-minuti <br/>RPO < 5 min *| RTO-minuti <br/>RPO < 5 min *|
+| Repliche in lettura | RTO minuti * <br/>RPO < 5 min * | RTO minuti * <br/>RPO < 5 min *| RTO minuti * <br/>RPO < 5 min *|
 
-\* In alcuni casi, RPO può essere più elevato a seconda dei diversi fattori, tra cui il carico di lavoro del database primario e la latenza tra le aree 
+\* RTO e RPO possono essere molto più elevati in alcuni casi, a seconda dei diversi fattori, tra cui il carico di lavoro del database primario e la latenza tra le aree. 
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Ripristinare un server in seguito a errore di un'applicazione o di un utente
 

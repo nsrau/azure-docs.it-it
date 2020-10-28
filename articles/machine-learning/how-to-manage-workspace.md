@@ -10,12 +10,12 @@ author: sdgilley
 ms.date: 09/30/2020
 ms.topic: conceptual
 ms.custom: how-to, fasttrack-edit
-ms.openlocfilehash: fd1a25e3fae49feb731cd1b472c99da679eee4f4
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 733a5c899e72809d979dfeeb60e4157c0d587bcf
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495663"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633706"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces"></a>Creare e gestire aree di lavoro Azure Machine Learning 
 
@@ -80,13 +80,13 @@ Per ulteriori informazioni, vedere informazioni di [riferimento sull'SDK dell'ar
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) usando le credenziali della sottoscrizione di Azure. 
 
-1. Nell'angolo in alto a sinistra del portale di Azure selezionare **+ Crea una risorsa**.
+1. Nell'angolo in alto a sinistra del portale di Azure selezionare **+ Crea una risorsa** .
 
       ![Creare una nuova risorsa](./media/how-to-manage-workspace/create-workspace.gif)
 
-1. Usare la barra di ricerca per trovare **Machine Learning**.
+1. Usare la barra di ricerca per trovare **Machine Learning** .
 
-1. Selezionare **Machine Learning**.
+1. Selezionare **Machine Learning** .
 
 1. Nel riquadro **Machine Learning** selezionare **Crea** per iniziare.
 
@@ -94,23 +94,23 @@ Per ulteriori informazioni, vedere informazioni di [riferimento sull'SDK dell'ar
 
    Campo|Descrizione 
    ---|---
-   Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti. Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
+   Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws** . I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti. Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
    Subscription |Selezionare la sottoscrizione di Azure da usare.
-   Gruppo di risorse | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
-   Region | Per creare l'area di lavoro, selezionare l'area di Azure più vicina agli utenti e alle risorse di dati.
+   Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml** . Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
+   Area | Per creare l'area di lavoro, selezionare l'area di Azure più vicina agli utenti e alle risorse di dati.
 
     ![Configurare l'area di lavoro](./media/how-to-manage-workspace/create-workspace-form.png)
 
-1. Al termine della configurazione dell'area di lavoro, selezionare **Verifica + crea**. Facoltativamente, usare le sezioni [rete](#networking) e [Avanzate](#advanced) per configurare altre impostazioni per l'area di lavoro.
+1. Al termine della configurazione dell'area di lavoro, selezionare **Verifica + crea** . Facoltativamente, usare le sezioni [rete](#networking) e [Avanzate](#advanced) per configurare altre impostazioni per l'area di lavoro.
 
-1. Rivedere le impostazioni e apportare eventuali modifiche o correzioni aggiuntive. Quando si è soddisfatti delle impostazioni, selezionare **Crea**.
+1. Rivedere le impostazioni e apportare eventuali modifiche o correzioni aggiuntive. Quando si è soddisfatti delle impostazioni, selezionare **Crea** .
 
    > [!Warning] 
    > La creazione dell'area di lavoro nel cloud può richiedere diversi minuti.
 
    Al termine del processo verrà visualizzato un messaggio di conferma del completamento della distribuzione, 
  
- 1. Per visualizzare la nuova area di lavoro, selezionare **Vai alla risorsa**.
+ 1. Per visualizzare la nuova area di lavoro, selezionare **Vai alla risorsa** .
  
 ---
 
@@ -126,7 +126,7 @@ Il Azure Machine Learning Python SDK fornisce la classe [PrivateEndpointConfig](
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. La configurazione di rete predefinita prevede l'uso di un __endpoint pubblico__accessibile dalla rete Internet pubblica. Per limitare l'accesso all'area di lavoro a una rete virtuale di Azure creata, è invece possibile selezionare __endpoint privato__ (anteprima) come __metodo di connettività__e quindi usare __+ Aggiungi__ per configurare l'endpoint.   
+1. La configurazione di rete predefinita prevede l'uso di un __endpoint pubblico__ accessibile dalla rete Internet pubblica. Per limitare l'accesso all'area di lavoro a una rete virtuale di Azure creata, è invece possibile selezionare __endpoint privato__ (anteprima) come __metodo di connettività__ e quindi usare __+ Aggiungi__ per configurare l'endpoint.   
 
    :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Selezione endpoint privato":::  
 
@@ -134,7 +134,7 @@ Il Azure Machine Learning Python SDK fornisce la classe [PrivateEndpointConfig](
 
    :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Selezione endpoint privato":::   
 
-1. Al termine della configurazione della rete, è possibile selezionare __Verifica + crea__o passare alla configurazione __avanzata__ facoltativa.
+1. Al termine della configurazione della rete, è possibile selezionare __Verifica + crea__ o passare alla configurazione __avanzata__ facoltativa.
 
 ---
 
@@ -147,8 +147,8 @@ Il Azure Machine Learning Python SDK fornisce la classe [PrivateEndpointConfig](
 Quando si crea un endpoint privato, viene creata una nuova zona DNS privato denominata __privatelink.API.azureml.ms__ . Contiene un collegamento alla rete virtuale. Se si creano più aree di lavoro con endpoint privati nello stesso gruppo di risorse, è possibile aggiungere solo la rete virtuale per il primo endpoint privato alla zona DNS. Per aggiungere voci per le reti virtuali usate dalle aree di lavoro o dagli endpoint privati aggiuntivi, seguire questa procedura:
 
 1. Nella [portale di Azure](https://portal.azure.com)selezionare il gruppo di risorse che contiene l'area di lavoro. Selezionare quindi la risorsa di zona DNS privato denominata __privatelink.API.azureml.ms__
-2. In __Impostazioni__selezionare collegamenti alla __rete virtuale__.
-3. Selezionare __Aggiungi__. Nella pagina __Aggiungi collegamento rete virtuale__ specificare un nome univoco per il __collegamento__, quindi selezionare la __rete virtuale__ da aggiungere. Selezionare __OK__ per aggiungere il collegamento di rete.
+2. In __Impostazioni__ selezionare collegamenti alla __rete virtuale__ .
+3. Selezionare __Aggiungi__ . Nella pagina __Aggiungi collegamento rete virtuale__ specificare un nome univoco per il __collegamento__ , quindi selezionare la __rete virtuale__ da aggiungere. Selezionare __OK__ per aggiungere il collegamento di rete.
 
 Per altre informazioni, vedere [configurazione DNS dell'endpoint privato di Azure](/azure/private-link/private-endpoint-dns).
 
@@ -156,7 +156,7 @@ Per altre informazioni, vedere [configurazione DNS dell'endpoint privato di Azur
 
 Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. È consigliabile consentire al centro sicurezza di Azure di analizzare le risorse e seguire le indicazioni. Per altre informazioni, vedere  [azure container Registry Image Scan by Security Center](https://docs.microsoft.com/azure/security-center/azure-container-registry-integration) and [Azure Kubernetes Services Integration with Security Center](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
 
-### <a name="advanced"></a>Avanzato
+### <a name="advanced"></a>Avanzate
 
 Per impostazione predefinita, le metriche e i metadati per l'area di lavoro vengono archiviati in un'istanza di Azure Cosmos DB gestita da Microsoft. Questi dati vengono crittografati tramite chiavi gestite da Microsoft.
 
@@ -167,7 +167,11 @@ Per limitare i dati raccolti da Microsoft nell'area di lavoro, selezionare __are
 
 #### <a name="use-your-own-key"></a>Usare la propria chiave
 
-È possibile fornire la propria chiave per la crittografia dei dati. In questo modo viene creata l'istanza Azure Cosmos DB che archivia le metriche e i metadati nella sottoscrizione di Azure. Per fornire la propria chiave, attenersi alla procedura seguente:
+È possibile fornire la propria chiave per la crittografia dei dati. In questo modo viene creata l'istanza Azure Cosmos DB che archivia le metriche e i metadati nella sottoscrizione di Azure.
+
+[!INCLUDE [machine-learning-customer-managed-keys.md](../../includes/machine-learning-customer-managed-keys.md)]
+
+Per fornire la propria chiave, attenersi alla procedura seguente:
 
 > [!IMPORTANT]  
 > Prima di seguire questa procedura, è necessario eseguire le azioni seguenti:   
@@ -201,7 +205,7 @@ from azureml.core import Workspace
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-1. Selezionare __chiavi gestite dal cliente__, quindi selezionare __fare clic per selezionare la chiave__.
+1. Selezionare __chiavi gestite dal cliente__ , quindi selezionare __fare clic per selezionare la chiave__ .
 
     :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Selezione endpoint privato":::
 
@@ -252,9 +256,9 @@ Workspace.list('<subscription-id>')
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Nel campo di ricerca superiore digitare **Machine Learning**.  
+1. Nel campo di ricerca superiore digitare **Machine Learning** .  
 
-1. Selezionare **Machine Learning**.
+1. Selezionare **Machine Learning** .
 
    ![Cerca area di lavoro Azure Machine Learning](./media/how-to-manage-workspace/find-workspaces.png)
 

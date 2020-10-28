@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: a4d8d7eaed40b876adecb82f339be4a4c434325f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 785381e0a42f2b502e4ea7054753d5f3fb67f385
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91616857"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632771"
 ---
 # <a name="data-access-strategies"></a>Strategie di accesso ai dati
 
@@ -28,7 +28,7 @@ In genere, un archivio dati cloud controlla l'accesso mediante i meccanismi segu
 * Meccanismi di autorizzazione che limitano l'accesso degli utenti ad azioni e dati specifici
 
 > [!TIP]
-> Con l'[introduzione di un intervallo di indirizzi IP statici](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses), è ora possibile specificare un elenco di indirizzi IP consentiti per una determinata area Azure Integration Runtime, in modo da non dover consentire tutti gli indirizzi IP di Azure nei propri archivi dati cloud, ma limitarne l'accesso solo agli indirizzi IP autorizzati.
+> Con l'[introduzione di un intervallo di indirizzi IP statici](./azure-integration-runtime-ip-addresses.md), è ora possibile specificare un elenco di indirizzi IP consentiti per una determinata area Azure Integration Runtime, in modo da non dover consentire tutti gli indirizzi IP di Azure nei propri archivi dati cloud, ma limitarne l'accesso solo agli indirizzi IP autorizzati.
 
 > [!NOTE] 
 > Gli intervalli di indirizzi IP sono bloccati per Azure Integration Runtime e attualmente vengono usati solo per lo spostamento dei dati, la pipeline e le attività esterne. I flussi di data e Azure Integration Runtime che abilitano la rete virtuale gestita ora non usano questi intervalli IP. 
@@ -37,12 +37,12 @@ In questo modo dovrebbe essere coperta la maggior parte degli scenari e, sebbene
 
 ## <a name="data-access-strategies-through-azure-data-factory"></a>Strategie di accesso ai dati tramite Azure Data Factory
 
-* **[Collegamento privato](https://docs.microsoft.com/azure/private-link/private-link-overview)** : è possibile creare un Azure Integration Runtime all'interno di Azure Data Factory rete virtuale gestita e sfruttare gli endpoint privati per connettersi in modo sicuro agli archivi dati supportati. Il traffico tra la rete virtuale gestita e le origini dati attraversa la rete dorsale Microsoft e non è esposta alla rete pubblica.
-* **[Servizio attendibile](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)** : Archiviazione di Azure (BLOB, ADLS Gen2) supporta la configurazione del firewall, che consente di selezionare servizi della piattaforma Azure attendibili per accedere in modo sicuro all'account di archiviazione. Servizi attendibili impone l'autenticazione dell'identità gestita, che garantisce che nessun'altra data factory possa connettersi a questa risorsa di archiviazione, a meno che non sia stata approvata usando l'identità gestita. Per informazioni più dettagliate, vedere **[questo blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Questa strategia, quindi, è estremamente sicura ed è consigliata. 
-* **IP statico univoco**: è necessario configurare un runtime di integrazione self-hosted per ottenere un indirizzo IP statico per i connettori di Data Factory. Questo meccanismo offre la possibilità di bloccare l'accesso da qualsiasi altro indirizzo IP. 
-* **[Intervallo IP statico](https://docs.microsoft.com/azure/data-factory/azure-integration-runtime-ip-addresses)** : è possibile usare gli indirizzi IP di Azure Integration Runtime per aggiungerli come elenco di IP consentiti nella risorsa di archiviazione (ad esempio, S3, Salesforce e così via). Questa strategia non solo limita il numero di indirizzi IP che possono connettersi agli archivi dati, ma si basa anche sulle regole di autenticazione/autorizzazione.
-* **[Tag di servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview)** : un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure, ad esempio Azure Data Factory. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. È utile quando si filtra l'accesso ai dati negli archivi dati ospitati in IaaS nella rete virtuale.
-* **Consenti Servizi di Azure**: alcuni servizi offrono la possibilità di autorizzare tutti i servizi di Azure a connettersi (scegliendo questa opzione). 
+* **[Collegamento privato](../private-link/private-link-overview.md)** : è possibile creare un Azure Integration Runtime all'interno di Azure Data Factory rete virtuale gestita e sfruttare gli endpoint privati per connettersi in modo sicuro agli archivi dati supportati. Il traffico tra la rete virtuale gestita e le origini dati attraversa la rete dorsale Microsoft e non è esposta alla rete pubblica.
+* **[Servizio attendibile](../storage/common/storage-network-security.md#exceptions)** : Archiviazione di Azure (BLOB, ADLS Gen2) supporta la configurazione del firewall, che consente di selezionare servizi della piattaforma Azure attendibili per accedere in modo sicuro all'account di archiviazione. Servizi attendibili impone l'autenticazione dell'identità gestita, che garantisce che nessun'altra data factory possa connettersi a questa risorsa di archiviazione, a meno che non sia stata approvata usando l'identità gestita. Per informazioni più dettagliate, vedere **[questo blog](https://techcommunity.microsoft.com/t5/azure-data-factory/data-factory-is-now-a-trusted-service-in-azure-storage-and-azure/ba-p/964993)** . Questa strategia, quindi, è estremamente sicura ed è consigliata. 
+* **IP statico univoco** : è necessario configurare un runtime di integrazione self-hosted per ottenere un indirizzo IP statico per i connettori di Data Factory. Questo meccanismo offre la possibilità di bloccare l'accesso da qualsiasi altro indirizzo IP. 
+* **[Intervallo IP statico](./azure-integration-runtime-ip-addresses.md)** : è possibile usare gli indirizzi IP di Azure Integration Runtime per aggiungerli come elenco di IP consentiti nella risorsa di archiviazione (ad esempio, S3, Salesforce e così via). Questa strategia non solo limita il numero di indirizzi IP che possono connettersi agli archivi dati, ma si basa anche sulle regole di autenticazione/autorizzazione.
+* **[Tag di servizio](../virtual-network/service-tags-overview.md)** : un tag di servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure, ad esempio Azure Data Factory. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. È utile quando si filtra l'accesso ai dati negli archivi dati ospitati in IaaS nella rete virtuale.
+* **Consenti Servizi di Azure** : alcuni servizi offrono la possibilità di autorizzare tutti i servizi di Azure a connettersi (scegliendo questa opzione). 
 
 Per ulteriori informazioni sui meccanismi di sicurezza di rete supportati negli archivi dati in Azure Integration Runtime e Integration Runtime indipendenti, vedere sotto due tabelle.  
 * **Azure Integration Runtime**
@@ -56,7 +56,7 @@ Per ulteriori informazioni sui meccanismi di sicurezza di rete supportati negli 
     |                              | Archiviazione file di Azure                                  | Sì              | -                   | Sì             | -            | .                    |
     |                              | Archiviazione di Azure (BLOB, ADLS Gen2)                     | Sì              | Sì (solo autenticazione MSI) | Sì             | -            | .                    |
     |                              | DATABASE SQL di Azure, Azure sinapsi Analytics), SQL ml  | Sì (solo database SQL di Azure/DW)        | -                   | Sì             | -            | Sì                  |
-    |                              | Azure Key Vault (per il recupero di segreti/stringa di connessione) | sì      | Sì                 | Sì             | -            | -                    |
+    |                              | Azure Key Vault (per il recupero di segreti/stringa di connessione) | yes      | Sì                 | Sì             | -            | -                    |
     | Altri archivi dati PaaS/SaaS | AWS   S3, SalesForce, Google Cloud Storage, ecc.    | -                | -                   | Sì             | -            | -                    |
     | laaS Azure                   | SQL Server, Oracle, ecc.                          | -                | -                   | Sì             | Sì          | -                    |
     | laaS locale              | SQL Server, Oracle, ecc.                          | -                | -                   | Sì             | -            | -                    |
@@ -82,7 +82,7 @@ Per ulteriori informazioni sui meccanismi di sicurezza di rete supportati negli 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere gli articoli correlati seguenti:
-* [Archivi dati supportati](https://docs.microsoft.com/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)
-* [Servizi attendibili di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview-vnet-service-endpoints#trusted-services)
-* [Servizi Microsoft attendibili di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security#trusted-microsoft-services)
-* [Identità gestita per Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity)
+* [Archivi dati supportati](./copy-activity-overview.md#supported-data-stores-and-formats)
+* [Servizi attendibili di Azure Key Vault](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services)
+* [Servizi Microsoft attendibili di Archiviazione di Azure](../storage/common/storage-network-security.md#trusted-microsoft-services)
+* [Identità gestita per Data Factory](./data-factory-service-identity.md)
