@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/04/2018
-ms.openlocfilehash: 02ec24677519902c299babb72e089f75dcf8b34b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71aad7699c5af6ce2a1b9d82a340138200cfb5e1
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443033"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792073"
 ---
 # <a name="deploy-a-split-merge-service-to-move-data-between-sharded-databases"></a>Distribuire un servizio di divisione e unione per spostare i dati tra database partizionati
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,13 +35,13 @@ Lo strumento di divisione e unione sposta i dati tra database partizionati. Vede
    nuget install Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge
    ```  
 
-I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** dove *x.x.xxx.x* rappresenta il numero di versione. I file del servizio di divisione e unione si trovano nella sottodirectory **contenuto\splitmerge\servizio** e gli script di PowerShell di divisione e unione, compresi i file DLL client necessari, si trovano nella sottodirectory **contenuto\splitmerge\powershell**.
+I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** dove *x.x.xxx.x* rappresenta il numero di versione. I file del servizio di divisione e unione si trovano nella sottodirectory **contenuto\splitmerge\servizio** e gli script di PowerShell di divisione e unione, compresi i file DLL client necessari, si trovano nella sottodirectory **contenuto\splitmerge\powershell** .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-1. Creare un database di database SQL di Azure che verrà usato come database di stato di suddivisione-Unione. Accedere al [portale di Azure](https://portal.azure.com). Creazione personalizzata di un nuovo **database SQL**. Assegnare un nome al database e creare un nuovo amministratore e una password. Assicurarsi di prendere nota del nome e della password per l'uso successivo.
+1. Creare un database di database SQL di Azure che verrà usato come database di stato di suddivisione-Unione. Accedere al [portale di Azure](https://portal.azure.com). Creazione personalizzata di un nuovo **database SQL** . Assegnare un nome al database e creare un nuovo amministratore e una password. Assicurarsi di prendere nota del nome e della password per l'uso successivo.
 
-1. Verificare che il server consenta la connessione dei servizi di Azure. Nel portale accedere a **Impostazioni firewall** e assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **attiva**. Fare clic sull'icona "Salva".
+1. Verificare che il server consenta la connessione dei servizi di Azure. Nel portale accedere a **Impostazioni firewall** e assicurarsi che l'impostazione **Consenti l'accesso a Servizi di Azure** sia **attiva** . Fare clic sull'icona "Salva".
 
 1. Creare un account di archiviazione di Azure per l'output di diagnostica.
 
@@ -51,14 +51,14 @@ I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabas
 
 ### <a name="split-merge-service-configuration"></a>Configurazione del servizio di divisione e unione
 
-1. Nella cartella in cui sono stati scaricati gli assembly necessari di divisione e unione creare una copia del file *ServiceConfiguration.Template.cscfg* inviato con *SplitMergeService.cspkg* e rinominarlo *ServiceConfiguration.cscfg*.
+1. Nella cartella in cui sono stati scaricati gli assembly necessari di divisione e unione creare una copia del file *ServiceConfiguration.Template.cscfg* inviato con *SplitMergeService.cspkg* e rinominarlo *ServiceConfiguration.cscfg* .
 
 1. Aprire *ServiceConfiguration.cscfg* in un editor di testo, ad esempio Visual Studio, che convalida input come il formato delle identificazioni personali del certificato.
 
 1. Creare un nuovo database o scegliere un database esistente da usare come database per lo stato delle operazioni di divisione e unione, quindi recuperare la stringa di connessione del database.
 
    > [!IMPORTANT]
-   > A questo punto, il database dello stato deve usare le regole di confronto Latin (SQL\_Latin1\_General\_CP1\_CI\_AS). Per altre informazioni, vedere [Windows_collation_name (Transact-SQL)](https://msdn.microsoft.com/library/ms188046.aspx).
+   > A questo punto, il database dello stato deve usare le regole di confronto Latin (SQL\_Latin1\_General\_CP1\_CI\_AS). Per altre informazioni, vedere [Windows_collation_name (Transact-SQL)](/sql/t-sql/statements/windows-collation-name-transact-sql).
 
    Con il database SQL di Azure, la stringa di connessione è in genere nel formato seguente:
 
@@ -66,7 +66,7 @@ I file vengono inseriti in una directory denominata **Microsoft.Azure.SqlDatabas
 
 1. Immettere questa stringa di connessione nel file con *estensione cscfg* nelle sezioni del ruolo **SplitMergeWeb** e **SplitMergeWorker** nell'impostazione ElasticScaleMetadata.
 
-1. Per il ruolo **SplitMergeWorker**, immettere una stringa di connessione valida nell'archiviazione di Azure per l'impostazione **WorkerRoleSynchronizationStorageAccountConnectionString**.
+1. Per il ruolo **SplitMergeWorker** , immettere una stringa di connessione valida nell'archiviazione di Azure per l'impostazione **WorkerRoleSynchronizationStorageAccountConnectionString** .
 
 ### <a name="configure-security"></a>Configurare la sicurezza
 
@@ -76,7 +76,7 @@ Ai fini di una semplice distribuzione di prova per questa esercitazione, verrà 
 
 ### <a name="create-a-self-signed-certificate"></a>Creare un certificato autofirmato
 
-Creare una nuova directory e, da questa, eseguire il seguente comando usando una finestra del [prompt dei comandi per gli sviluppatori per Visual Studio](https://msdn.microsoft.com/library/ms229859.aspx) :
+Creare una nuova directory e, da questa, eseguire il seguente comando usando una finestra del [prompt dei comandi per gli sviluppatori per Visual Studio](/dotnet/framework/tools/developer-command-prompt-for-vs) :
 
    ```cmd
    makecert ^
@@ -99,17 +99,17 @@ Eseguire il seguente comando dalla stessa finestra in cui è stato eseguito make
 
 ### <a name="import-the-client-certificate-into-the-personal-store"></a>Importare il certificato client nell'archivio personale
 
-1. In Esplora risorse fare doppio clic su *MyCert.pfx*.
-2. Nell'**Importazione guidata certificati** selezionare **Utente corrente** e fare clic su **Avanti**.
-3. Confermare il percorso del file e fare clic su **Avanti**.
-4. Digitare la password, lasciare selezionata l'opzione **Includi tutte le proprietà estese** e fare clic su **Avanti**.
-5. Lasciare selezionata l'opzione **Seleziona automaticamente l'archivio certificati […]** e fare clic su **Avanti**.
-6. Fare clic su **Fine**, quindi su **OK**.
+1. In Esplora risorse fare doppio clic su *MyCert.pfx* .
+2. Nell' **Importazione guidata certificati** selezionare **Utente corrente** e fare clic su **Avanti** .
+3. Confermare il percorso del file e fare clic su **Avanti** .
+4. Digitare la password, lasciare selezionata l'opzione **Includi tutte le proprietà estese** e fare clic su **Avanti** .
+5. Lasciare selezionata l'opzione **Seleziona automaticamente l'archivio certificati […]** e fare clic su **Avanti** .
+6. Fare clic su **Fine** , quindi su **OK** .
 
 ### <a name="upload-the-pfx-file-to-the-cloud-service"></a>Caricare il file PFX nel servizio cloud
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Selezionare **Servizi cloud**.
+2. Selezionare **Servizi cloud** .
 3. Selezionare il servizio cloud creato precedentemente per il servizio di divisione e unione.
 4. Scegliere **Certificati** dal menu in alto.
 5. Fare clic su **Carica** nella barra inferiore.
@@ -143,8 +143,8 @@ Si noti che per distribuzioni destinate alla produzione è necessario usare cert
 
 1. Accedere al [portale di Azure](https://portal.azure.com)
 2. Selezionare il servizio cloud creato in precedenza.
-3. Fare clic su **Panoramica**.
-4. Scegliere l'ambiente di gestione temporanea, quindi fare clic su **Carica**.
+3. Fare clic su **Panoramica** .
+4. Scegliere l'ambiente di gestione temporanea, quindi fare clic su **Carica** .
 5. Nella finestra di dialogo immettere un'etichetta per la distribuzione. Per "Pacchetto" e "Configurazione" fare clic su "From Local" (Da locale), scegliere il file *SplitMergeService.cspkg* e il file con estensione CSCFG configurato in precedenza.
 6. Assicurarsi che la casella di controllo **Distribuire anche se uno o più ruoli contengono una singola istanza** sia selezionata.
 7. Fare clic sul pulsante con il segno di spunta in basso a destra per avviare la distribuzione. Per il completamento dell'operazione sarà necessario attendere alcuni minuti.
@@ -161,7 +161,7 @@ Se la messa online del proprio ruolo di lavoro non riesce, ma riesce quella del 
 
    `Server=<serverName>.database.windows.net; Database=<databaseName>;User ID=<user>; Password=<password>; Encrypt=True; Connection Timeout=30`
 
-- Assicurarsi che il nome del server non inizi con **https://**.
+- Assicurarsi che il nome del server non inizi con **https://** .
 - Verificare che il server consenta la connessione dei servizi di Azure. A tale scopo, aprire il database nel portale e verificare che l'impostazione **Consenti l'accesso a Servizi di Azure** sia attiva.
 
 ## <a name="test-the-service-deployment"></a>Testare la distribuzione del servizio
@@ -181,7 +181,7 @@ I file di script inclusi sono i seguenti:
 
 1. *SetupSampleSplitMergeEnvironment.ps1* : consente di impostare un livello di dati di test per divisione e unione (per una descrizione dettagliata, vedere la tabella sottostante).
 2. *ExecuteSampleSplitMerge.ps1* : consente di eseguire le operazioni di test sul livello di dati di test (per una descrizione dettagliata, vedere la tabella sottostante).
-3. *GetMappings.ps1*: script di esempio di primo livello che visualizza lo stato corrente dei mapping di partizione.
+3. *GetMappings.ps1* : script di esempio di primo livello che visualizza lo stato corrente dei mapping di partizione.
 4. *ShardManagement. psm1*  -script helper che include l'API ShardManagement
 5. *SqlDatabaseHelpers. psm1* -script helper per la creazione e la gestione di database nel database SQL
 
@@ -324,8 +324,8 @@ Per eseguire un'operazione di divisione e unione, è necessario dichiarare le ta
 1. Per ogni tabella partizionata, creare un oggetto **ShardedTableInfo** che descriva il nome dello schema padre della tabella (facoltativo, il valore predefinito è "dbo"), il nome della tabella e il nome della colonna della tabella che contiene la chiave di partizionamento orizzontale.
 2. Per ogni tabella di riferimento, creare un oggetto **ReferenceTableInfo** che descriva il nome dello schema padre della tabella (facoltativo, il valore predefinito è "dbo") e il nome della tabella.
 3. Aggiungere gli oggetti TableInfo precedenti a un nuovo oggetto **SchemaInfo** .
-4. Ottenere un riferimento all'oggetto **ShardMapManager**, quindi chiamare **GetSchemaInfoCollection**.
-5. Aggiungere **SchemaInfo** a **SchemaInfoCollection**, fornendo il nome della mappa partizioni.
+4. Ottenere un riferimento all'oggetto **ShardMapManager** , quindi chiamare **GetSchemaInfoCollection** .
+5. Aggiungere **SchemaInfo** a **SchemaInfoCollection** , fornendo il nome della mappa partizioni.
 
 È possibile consultare un esempio nello script SetupSampleSplitMergeEnvironment.ps1.
 
@@ -343,7 +343,7 @@ Se non è possibile inviare richieste, potrebbe essere visualizzato il seguente 
 
    `[Exception] System.Data.SqlClient.SqlException (0x80131904): Could not find stored procedure 'dbo.InsertRequest'.`
 
-In questo caso, controllare il file di configurazione, in particolare l'impostazione per **WorkerRoleSynchronizationStorageAccountConnectionString**. In genere, questo errore indica che il ruolo di lavoro non è riuscito a inizializzare in modo corretto il database dei metadati al primo utilizzo.
+In questo caso, controllare il file di configurazione, in particolare l'impostazione per **WorkerRoleSynchronizationStorageAccountConnectionString** . In genere, questo errore indica che il ruolo di lavoro non è riuscito a inizializzare in modo corretto il database dei metadati al primo utilizzo.
 
 [!INCLUDE [elastic-scale-include](../../../includes/elastic-scale-include.md)]
 

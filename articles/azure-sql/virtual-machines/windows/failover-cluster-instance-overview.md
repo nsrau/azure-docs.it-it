@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 29ab7def6209483ee891dc0d26bf8163cdc39a23
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165238"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792481"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Istanze del cluster di failover con SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -30,8 +30,8 @@ SQL Server in macchine virtuali di Azure usa funzionalità WSFC (Windows Server 
 
 Il resto dell'articolo è incentrato sulle differenze per le istanze del cluster di failover quando vengono usate con SQL Server in macchine virtuali di Azure. Per altre informazioni sulla tecnologia del clustering di failover, vedere: 
 
-- [Tecnologie cluster di Windows](https://docs.microsoft.com/windows-server/failover-clustering/failover-clustering-overview)
-- [Istanze del cluster di failover di SQL Server](https://docs.microsoft.com/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
+- [Tecnologie cluster di Windows](/windows-server/failover-clustering/failover-clustering-overview)
+- [Istanze del cluster di failover di SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
 
 ## <a name="quorum"></a>Quorum
 
@@ -60,8 +60,8 @@ Il resto di questa sezione illustra i vantaggi e le limitazioni di ogni opzione 
 
 I [dischi condivisi di Azure](../../../virtual-machines/windows/disks-shared.md) sono una funzionalità di [Azure Managed Disks](../../../virtual-machines/managed-disks-overview.md). WSFC (Windows Server Failover Clustering) supporta l'uso di dischi condivisi di Azure con un'istanza del cluster di failover. 
 
-**Sistemi operativi supportati**: Tutti   
-**Versione di SQL supportata**: Tutti     
+**Sistemi operativi supportati** : Tutti   
+**Versione di SQL supportata** : Tutti     
 
 **Vantaggi:** 
 - Utili per applicazioni di cui eseguire la migrazione ad Azure mantenendone inalterata l'architettura di disponibilità elevata e ripristino di emergenza. 
@@ -71,7 +71,7 @@ I [dischi condivisi di Azure](../../../virtual-machines/windows/disks-shared.md)
 - Supportano FileStream.
 
 
-**Limitazioni**: 
+**Limitazioni** : 
 - Le macchine virtuali devono essere inserite nello stesso set di disponibilità e nello stesso gruppo di posizionamento di prossimità.
 - Le zone di disponibilità non sono supportate.
 - La memorizzazione nella cache di dischi SSD Premium non è supportata.
@@ -82,8 +82,8 @@ Per iniziare, vedere [Istanza del cluster di failover di SQL Server con dischi c
 
 [Spazi di archiviazione diretta](/windows-server/storage/storage-spaces/storage-spaces-direct-overview) è una funzionalità di Windows Server supportata con il clustering di failover in macchine virtuali di Azure. Fornisce una rete di archiviazione SAN virtuale basata su software.
 
-**Sistemi operativi supportati**: Windows Server 2016 e versioni successive   
-**Versione di SQL supportata**: SQL Server 2016 e versioni successive   
+**Sistemi operativi supportati** : Windows Server 2016 e versioni successive   
+**Versione di SQL supportata** : SQL Server 2016 e versioni successive   
 
 
 **Vantaggi:** 
@@ -104,8 +104,8 @@ Per iniziare, vedere [Istanza del cluster di failover di SQL Server con Spazi di
 
 Le [condivisioni file Premium](../../../storage/files/storage-how-to-create-premium-fileshare.md) sono una funzionalità di [File di Azure](../../../storage/files/index.yml). Sono supportate da SSD e offrono una latenza costantemente bassa. Sono pienamente supportate per l'uso con istanze del cluster di failover per SQL Server 2012 o versione successiva in Windows Server 2012 o versione successiva. Le condivisioni file Premium offrono una maggiore flessibilità, perché è possibile ridimensionarle senza tempi di inattività.
 
-**Sistemi operativi supportati**: Windows Server 2012 e versioni successive   
-**Versione di SQL supportata**: SQL Server 2012 e versioni successive   
+**Sistemi operativi supportati** : Windows Server 2012 e versioni successive   
+**Versione di SQL supportata** : SQL Server 2012 e versioni successive   
 
 **Vantaggi:** 
 - Un'unica soluzione di archiviazione condivisa per le macchine virtuali distribuite in più zone di disponibilità. 
@@ -122,8 +122,8 @@ Per iniziare, vedere [Istanza del cluster di failover di SQL Server con condivis
 
 Sono disponibili soluzioni di clustering dei partner con archiviazione supportata. 
 
-**Sistemi operativi supportati**: Tutti   
-**Versione di SQL supportata**: Tutti   
+**Sistemi operativi supportati** : Tutti   
+**Versione di SQL supportata** : Tutti   
 
 Un unico esempio usa SIOS DataKeeper come risorsa di archiviazione. Per altre informazioni, vedere il post di blog su [clustering di failover e SIOS DataKeeper](https://azure.microsoft.com/blog/high-availability-for-a-file-share-using-wsfc-ilb-and-3rd-party-software-sios-datakeeper/).
 
@@ -131,8 +131,8 @@ Un unico esempio usa SIOS DataKeeper come risorsa di archiviazione. Per altre in
 
 È anche possibile esporre una risorsa di archiviazione a blocchi condivisa con destinazione iSCSI tramite Azure ExpressRoute. 
 
-**Sistemi operativi supportati**: Tutti   
-**Versione di SQL supportata**: Tutti   
+**Sistemi operativi supportati** : Tutti   
+**Versione di SQL supportata** : Tutti   
 
 Ad esempio, NetApp Private Storage (NPS) espone una destinazione iSCSI tramite ExpressRoute con Equinix a macchine virtuali di Azure.
 
@@ -155,7 +155,7 @@ L'estensione completa supporta funzionalità quali backup automatizzato, applica
 
 ### <a name="msdtc"></a>MSDTC 
 
-Le macchine virtuali di Azure supportano Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019, con archiviazione in volumi condivisi del cluster e [Azure Load Balancer Standard](../../../load-balancer/load-balancer-standard-overview.md), oppure nelle VM di SQL Server che usano dischi condivisi di Azure. 
+Le macchine virtuali di Azure supportano Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019, con archiviazione in volumi condivisi del cluster e [Azure Load Balancer Standard](../../../load-balancer/load-balancer-overview.md), oppure nelle VM di SQL Server che usano dischi condivisi di Azure. 
 
 Nelle macchine virtuali di Azure, MSDTC non è supportato in Windows Server 2016 o versione precedente con volumi condivisi del cluster per i motivi seguenti:
 
@@ -171,4 +171,3 @@ Per altre informazioni, vedere:
 
 - [Tecnologie cluster di Windows](/windows-server/failover-clustering/failover-clustering-overview)   
 - [Istanze del cluster di failover di SQL Server](/sql/sql-server/failover-clusters/windows/always-on-failover-cluster-instances-sql-server)
-

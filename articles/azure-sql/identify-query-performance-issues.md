@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: jrasnick, sstein
 ms.date: 03/10/2020
-ms.openlocfilehash: afc142ec9de0e275d505276d959cfac3e652c55d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce5bf86073b2c478108e264010bb3c213c214368
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619764"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791750"
 ---
 # <a name="detectable-types-of-query-performance-bottlenecks-in-azure-sql-database"></a>Tipi rilevabili di colli di bottiglia delle prestazioni delle query nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -27,8 +27,8 @@ Quando si tenta di risolvere un collo di bottiglia delle prestazioni, iniziare d
 
 ![Stati del carico di lavoro](./media/identify-query-performance-issues/workload-states.png)
 
-**Problemi relativi all'esecuzione**: i problemi correlati all'esecuzione sono in genere correlati a problemi di compilazione, causando un piano di query non ottimale o problemi di esecuzione correlati a risorse insufficienti o sovrautilizzate.
-**Problemi relativi all'attesa**: i problemi correlati all'attesa sono in genere correlati a:
+**Problemi relativi all'esecuzione** : i problemi correlati all'esecuzione sono in genere correlati a problemi di compilazione, causando un piano di query non ottimale o problemi di esecuzione correlati a risorse insufficienti o sovrautilizzate.
+**Problemi relativi all'attesa** : i problemi correlati all'attesa sono in genere correlati a:
 
 - Blocchi (blocco)
 - I/O
@@ -44,15 +44,15 @@ Un piano non ottimale generato da Query Optimizer di SQL può essere causato da 
   - Usare [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#missing-index).
   - [Advisor per database](database/database-advisor-implement-performance-recommendations.md) per database singoli e in pool.
   - DMV. Questo esempio illustra l'effetto di un indice mancante, come rilevare gli [indici mancanti](database/performance-guidance.md#identifying-and-adding-missing-indexes) usando DMV e l'effetto dell'implementazione della raccomandazione per gli indici mancanti.
-- Provare ad applicare gli hint per la [query](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query), [aggiornare le statistiche](https://docs.microsoft.com/sql/t-sql/statements/update-statistics-transact-sql)o [ricompilare gli indici](https://docs.microsoft.com/sql/relational-databases/indexes/reorganize-and-rebuild-indexes) per ottenere il piano migliore. Abilitare la [correzione automatica dei piani](../azure-sql/database/automatic-tuning-overview.md) nel database SQL di Azure per attenuare automaticamente questi problemi.
+- Provare ad applicare gli hint per la [query](/sql/t-sql/queries/hints-transact-sql-query), [aggiornare le statistiche](/sql/t-sql/statements/update-statistics-transact-sql)o [ricompilare gli indici](/sql/relational-databases/indexes/reorganize-and-rebuild-indexes) per ottenere il piano migliore. Abilitare la [correzione automatica dei piani](../azure-sql/database/automatic-tuning-overview.md) nel database SQL di Azure per attenuare automaticamente questi problemi.
 
   Questo [esempio](database/performance-guidance.md#query-tuning-and-hinting) illustra l'effetto di un piano di query non ottimale a causa di una query con parametri, come rilevare questa condizione e come usare un hint per la query per la risoluzione.
 
-- Provare a modificare il livello di compatibilità del database e a implementare l'elaborazione intelligente delle query. SQL Query Optimizer può generare un piano di query diverso a seconda del livello di compatibilità del database. I livelli di compatibilità più elevati offrono [funzionalità di elaborazione delle query più intelligenti](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing).
+- Provare a modificare il livello di compatibilità del database e a implementare l'elaborazione intelligente delle query. SQL Query Optimizer può generare un piano di query diverso a seconda del livello di compatibilità del database. I livelli di compatibilità più elevati offrono [funzionalità di elaborazione delle query più intelligenti](/sql/relational-databases/performance/intelligent-query-processing).
 
-  - Per ulteriori informazioni sull'elaborazione di query, vedere [Guida all'architettura di elaborazione delle query](https://docs.microsoft.com/sql/relational-databases/query-processing-architecture-guide).
-  - Per modificare i livelli di compatibilità del database e leggere altre informazioni sulle differenze tra i livelli di compatibilità, vedere [ALTER database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
-  - Per altre informazioni sulla stima della cardinalità, vedere [stima della cardinalità](https://docs.microsoft.com/sql/relational-databases/performance/cardinality-estimation-sql-server) .
+  - Per ulteriori informazioni sull'elaborazione di query, vedere [Guida all'architettura di elaborazione delle query](/sql/relational-databases/query-processing-architecture-guide).
+  - Per modificare i livelli di compatibilità del database e leggere altre informazioni sulle differenze tra i livelli di compatibilità, vedere [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-compatibility-level).
+  - Per altre informazioni sulla stima della cardinalità, vedere [stima della cardinalità](/sql/relational-databases/performance/cardinality-estimation-sql-server) .
 
 ## <a name="resolving-queries-with-suboptimal-query-execution-plans"></a>Risoluzione di query con piani di esecuzione di query non ottimali
 
@@ -66,19 +66,19 @@ Per ulteriori informazioni sull'analisi dei parametri e sull'elaborazione di que
 
 Diverse soluzioni alternative possono mitigare i problemi relativi a PSP. Per ogni soluzione alternativa sono stati associati compromessi e svantaggi:
 
-- Usare l'hint per la query [RECOMPILE](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) a ogni esecuzione di query. Questa soluzione alternativa offre tempi di compilazione ridotti e una maggiore quantità di CPU per una migliore qualità del piano. L' `RECOMPILE` opzione non è spesso possibile per i carichi di lavoro che richiedono una velocità effettiva elevata.
-- Utilizzare l'hint per la query [Option (Optimize for...)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) per eseguire l'override del valore del parametro effettivo con un valore di parametro tipico che produce un piano sufficientemente adatto per la maggior parte delle possibilità di valore del parametro. Questa opzione richiede una buona conoscenza dei valori di parametro ottimali e delle caratteristiche del piano associate.
-- Utilizzare l'hint per la query [Option (Optimize for Unknown)](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) per eseguire l'override del valore del parametro effettivo e utilizzare invece la media del vettore di densità. È anche possibile eseguire questa operazione acquisendo i valori dei parametri in ingresso nelle variabili locali e quindi usando le variabili locali all'interno dei predicati invece di usare i parametri stessi. Per questa correzione, la densità media deve essere *sufficientemente adeguata*.
-- Disabilitare interamente lo sniffing dei parametri utilizzando l'hint per la query [DISABLE_PARAMETER_SNIFFING](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) .
-- Utilizzare l'hint per la query [KEEPFIXEDPLAN](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) per impedire ricompilazioni nella cache. Questa soluzione si basa sul presupposto che il piano comune sufficientemente valido sia quello nella cache. È anche possibile disabilitare gli aggiornamenti automatici delle statistiche per ridurre le probabilità che venga eliminato il piano valido e che verrà compilato un nuovo piano non valido.
-- Forzare il piano in modo esplicito utilizzando l'hint per la query [use Plan](https://docs.microsoft.com/sql/t-sql/queries/hints-transact-sql-query) riscrivendo la query e aggiungendo l'hint nel testo della query. In alternativa, impostare un piano specifico utilizzando Query Store o abilitando l' [ottimizzazione automatica](../azure-sql/database/automatic-tuning-overview.md).
+- Usare l'hint per la query [RECOMPILE](/sql/t-sql/queries/hints-transact-sql-query) a ogni esecuzione di query. Questa soluzione alternativa offre tempi di compilazione ridotti e una maggiore quantità di CPU per una migliore qualità del piano. L' `RECOMPILE` opzione non è spesso possibile per i carichi di lavoro che richiedono una velocità effettiva elevata.
+- Utilizzare l'hint per la query [Option (Optimize for...)](/sql/t-sql/queries/hints-transact-sql-query) per eseguire l'override del valore del parametro effettivo con un valore di parametro tipico che produce un piano sufficientemente adatto per la maggior parte delle possibilità di valore del parametro. Questa opzione richiede una buona conoscenza dei valori di parametro ottimali e delle caratteristiche del piano associate.
+- Utilizzare l'hint per la query [Option (Optimize for Unknown)](/sql/t-sql/queries/hints-transact-sql-query) per eseguire l'override del valore del parametro effettivo e utilizzare invece la media del vettore di densità. È anche possibile eseguire questa operazione acquisendo i valori dei parametri in ingresso nelle variabili locali e quindi usando le variabili locali all'interno dei predicati invece di usare i parametri stessi. Per questa correzione, la densità media deve essere *sufficientemente adeguata* .
+- Disabilitare interamente lo sniffing dei parametri utilizzando l'hint per la query [DISABLE_PARAMETER_SNIFFING](/sql/t-sql/queries/hints-transact-sql-query) .
+- Utilizzare l'hint per la query [KEEPFIXEDPLAN](/sql/t-sql/queries/hints-transact-sql-query) per impedire ricompilazioni nella cache. Questa soluzione si basa sul presupposto che il piano comune sufficientemente valido sia quello nella cache. È anche possibile disabilitare gli aggiornamenti automatici delle statistiche per ridurre le probabilità che venga eliminato il piano valido e che verrà compilato un nuovo piano non valido.
+- Forzare il piano in modo esplicito utilizzando l'hint per la query [use Plan](/sql/t-sql/queries/hints-transact-sql-query) riscrivendo la query e aggiungendo l'hint nel testo della query. In alternativa, impostare un piano specifico utilizzando Query Store o abilitando l' [ottimizzazione automatica](../azure-sql/database/automatic-tuning-overview.md).
 - Sostituire la procedura singola con un set annidato di procedure, ognuna delle quali può essere usata in base alla logica condizionale e ai valori dei parametri associati.
 - Creare alternative basate sull'esecuzione di stringhe dinamiche per una definizione di procedura statica.
 
 Per ulteriori informazioni sulla risoluzione dei problemi relativi a PSP, vedere i post di Blog seguenti:
 
-- [Odore di un parametro](https://docs.microsoft.com/archive/blogs/queryoptteam/i-smell-a-parameter)
-- [Conor rispetto a SQL dinamico e procedure rispetto alla qualità del piano per le query con parametri](https://blogs.msdn.microsoft.com/conor_cunningham_msft/2009/06/03/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries/)
+- [Odore di un parametro](/archive/blogs/queryoptteam/i-smell-a-parameter)
+- [Conor rispetto a SQL dinamico e procedure rispetto alla qualità del piano per le query con parametri](/archive/blogs/conor_cunningham_msft/conor-vs-dynamic-sql-vs-procedures-vs-plan-quality-for-parameterized-queries)
 - [Tecniche di ottimizzazione delle query SQL in SQL Server: sniffing dei parametri](https://www.sqlshack.com/query-optimization-techniques-in-sql-server-parameter-sniffing/)
 
 ### <a name="compile-activity-caused-by-improper-parameterization"></a>Attività di compilazione causata dalla parametrizzazione non corretta
@@ -137,13 +137,13 @@ Se si usa un hint RECOMPILE, un piano non verrà memorizzato nella cache.
 
 Una ricompilazione (o una nuova compilazione dopo la rimozione della cache) può comunque comportare la generazione di un piano di esecuzione della query identico all'originale. Quando il piano viene modificato rispetto al piano precedente o originale, è probabile che queste spiegazioni siano:
 
-- **Progettazione fisica modificata**: ad esempio, gli indici appena creati coprono in modo più efficace i requisiti di una query. I nuovi indici possono essere utilizzati in una nuova compilazione se il Query Optimizer decide che l'utilizzo di tale nuovo indice è più ottimale rispetto all'utilizzo della struttura di dati selezionata originariamente per la prima versione dell'esecuzione della query. Eventuali modifiche fisiche apportate agli oggetti a cui si fa riferimento possono comportare una nuova scelta del piano in fase di compilazione.
+- **Progettazione fisica modificata** : ad esempio, gli indici appena creati coprono in modo più efficace i requisiti di una query. I nuovi indici possono essere utilizzati in una nuova compilazione se il Query Optimizer decide che l'utilizzo di tale nuovo indice è più ottimale rispetto all'utilizzo della struttura di dati selezionata originariamente per la prima versione dell'esecuzione della query. Eventuali modifiche fisiche apportate agli oggetti a cui si fa riferimento possono comportare una nuova scelta del piano in fase di compilazione.
 
-- **Differenze**tra le risorse del server: quando un piano in un sistema differisce dal piano in un altro sistema, la disponibilità delle risorse, ad esempio il numero di processori disponibili, può influenzare il piano generato. Ad esempio, se un sistema dispone di più processori, è possibile che venga scelto un piano parallelo.
+- **Differenze** tra le risorse del server: quando un piano in un sistema differisce dal piano in un altro sistema, la disponibilità delle risorse, ad esempio il numero di processori disponibili, può influenzare il piano generato. Ad esempio, se un sistema dispone di più processori, è possibile che venga scelto un piano parallelo.
 
-- **Statistiche diverse**: le statistiche associate agli oggetti a cui si fa riferimento potrebbero essere state modificate o potrebbero essere materialmente diverse dalle statistiche del sistema originale. Se le statistiche cambiano e viene eseguita una ricompilazione, il Query Optimizer utilizza le statistiche a partire da quando sono state modificate. Le frequenze e le distribuzioni dei dati delle statistiche rivedute potrebbero essere diverse da quelle della compilazione originale. Queste modifiche vengono usate per creare stime della cardinalità. (Le*stime della cardinalità* sono il numero di righe che dovrebbero essere propagate attraverso l'albero delle query logiche). Le modifiche alle stime della cardinalità possono comportare la scelta di operatori fisici diversi e gli ordini di operazioni associati. Anche le modifiche minime alle statistiche possono generare un piano di esecuzione delle query modificato.
+- **Statistiche diverse** : le statistiche associate agli oggetti a cui si fa riferimento potrebbero essere state modificate o potrebbero essere materialmente diverse dalle statistiche del sistema originale. Se le statistiche cambiano e viene eseguita una ricompilazione, il Query Optimizer utilizza le statistiche a partire da quando sono state modificate. Le frequenze e le distribuzioni dei dati delle statistiche rivedute potrebbero essere diverse da quelle della compilazione originale. Queste modifiche vengono usate per creare stime della cardinalità. (Le *stime della cardinalità* sono il numero di righe che dovrebbero essere propagate attraverso l'albero delle query logiche). Le modifiche alle stime della cardinalità possono comportare la scelta di operatori fisici diversi e gli ordini di operazioni associati. Anche le modifiche minime alle statistiche possono generare un piano di esecuzione delle query modificato.
 
-- Modifica del **livello di compatibilità del database o della versione di stima della cardinalità**: le modifiche apportate al livello di compatibilità del database possono consentire nuove strategie e funzionalità che potrebbero generare un piano di esecuzione di query diverso. Oltre al livello di compatibilità del database, un flag di traccia disabilitato o abilitato 4199 o uno stato modificato della configurazione con ambito database QUERY_OPTIMIZER_HOTFIXES possono anche influenzare le scelte del piano di esecuzione delle query in fase di compilazione. I flag di traccia 9481 (Force legacy CE) e 2312 (Force default CE) influiscono anche sul piano.
+- Modifica del **livello di compatibilità del database o della versione di stima della cardinalità** : le modifiche apportate al livello di compatibilità del database possono consentire nuove strategie e funzionalità che potrebbero generare un piano di esecuzione di query diverso. Oltre al livello di compatibilità del database, un flag di traccia disabilitato o abilitato 4199 o uno stato modificato della configurazione con ambito database QUERY_OPTIMIZER_HOTFIXES possono anche influenzare le scelte del piano di esecuzione delle query in fase di compilazione. I flag di traccia 9481 (Force legacy CE) e 2312 (Force default CE) influiscono anche sul piano.
 
 ## <a name="resource-limits-issues"></a>Problemi relativi ai limiti delle risorse
 
@@ -155,7 +155,7 @@ Le prestazioni delle query lente non correlate ai piani di query non ottimali e 
 
   - La DMV [sys.dm_db_resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) restituisce CPU, i/O e utilizzo di memoria per il database. È presente una riga per ogni intervallo di 15 secondi, anche se non è presente alcuna attività nel database. I dati cronologici vengono mantenuti per un'ora.
   - La DMV [sys.resource_stats](database/monitoring-with-dmvs.md#monitor-resource-use) restituisce i dati di archiviazione e di utilizzo della CPU per il database SQL di Azure. I dati vengono raccolti e aggregati in intervalli di cinque minuti.
-  - [Numerose singole query hanno un utilizzo cumulativo elevato della CPU](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
+  - [Molte query singole che utilizzano cumulativamente una CPU elevata](database/monitoring-with-dmvs.md#many-individual-queries-that-cumulatively-consume-high-cpu)
 
 Se si identifica il problema come risorsa insufficiente, è possibile aggiornare le risorse per aumentare la capacità del database in modo da assorbire i requisiti della CPU. Per altre informazioni, vedere [ridimensionare le risorse di database singolo nel database SQL di Azure](database/single-database-scale.md) e [ridimensionare le risorse del pool elastico nel database SQL di Azure](database/elastic-pool-scale.md). Per informazioni sul ridimensionamento di un'istanza gestita, vedere [limiti delle risorse del livello di servizio](managed-instance/resource-limits.md#service-tier-characteristics)
 
@@ -173,11 +173,11 @@ In breve, se il piano di esecuzione della query non viene eseguito in modo diver
 
 Non è sempre facile identificare una modifica del volume del carico di lavoro che determina un problema di CPU. Tenere presente questi fattori:
 
-- **Modifica dell'utilizzo delle risorse**: si consideri, ad esempio, uno scenario in cui l'utilizzo della CPU è aumentato fino al 80% per un lungo periodo di tempo. Solo utilizzo CPU non significa che il volume del carico di lavoro è stato modificato. Anche le regressioni nel piano di esecuzione della query e le modifiche nella distribuzione dei dati possono contribuire a un utilizzo più delle risorse anche se l'applicazione esegue lo stesso carico di lavoro.
+- **Modifica dell'utilizzo delle risorse** : si consideri, ad esempio, uno scenario in cui l'utilizzo della CPU è aumentato fino al 80% per un lungo periodo di tempo. Solo utilizzo CPU non significa che il volume del carico di lavoro è stato modificato. Anche le regressioni nel piano di esecuzione della query e le modifiche nella distribuzione dei dati possono contribuire a un utilizzo più delle risorse anche se l'applicazione esegue lo stesso carico di lavoro.
 
-- **L'aspetto di una nuova query**: un'applicazione può guidare un nuovo set di query in momenti diversi.
+- **L'aspetto di una nuova query** : un'applicazione può guidare un nuovo set di query in momenti diversi.
 
-- **Aumento o riduzione del numero di richieste**: questo scenario è la misura più ovvia di un carico di lavoro. Il numero di query non corrisponde sempre a un maggiore utilizzo delle risorse. Tuttavia, questa metrica è ancora un segnale significativo, supponendo che altri fattori siano invariati.
+- **Aumento o riduzione del numero di richieste** : questo scenario è la misura più ovvia di un carico di lavoro. Il numero di query non corrisponde sempre a un maggiore utilizzo delle risorse. Tuttavia, questa metrica è ancora un segnale significativo, supponendo che altri fattori siano invariati.
 
 Usare Intelligent Insights per rilevare gli [aumenti del carico di lavoro](database/intelligent-insights-troubleshoot-performance.md#workload-increase) e pianificare le [regressioni](database/intelligent-insights-troubleshoot-performance.md#plan-regression).
 
@@ -185,7 +185,7 @@ Usare Intelligent Insights per rilevare gli [aumenti del carico di lavoro](datab
 
 Una volta eliminato un piano non ottimale e i problemi *correlati all'attesa* correlati ai problemi di esecuzione, il problema di prestazioni è in genere che le query sono in attesa di una risorsa. I problemi relativi alle attese potrebbero essere causati da:
 
-- **Blocco**:
+- **Blocco** :
 
   Una query può mantenere il blocco sugli oggetti nel database mentre altri tentano di accedere agli stessi oggetti. È possibile identificare le query di blocco usando [DMV](database/monitoring-with-dmvs.md#monitoring-blocked-queries) o [Intelligent Insights](database/intelligent-insights-troubleshoot-performance.md#locking).
 - **Problemi di IO**
@@ -203,16 +203,16 @@ Una volta eliminato un piano non ottimale e i problemi *correlati all'attesa* co
 Questi metodi vengono comunemente usati per mostrare le categorie principali dei tipi di attesa:
 
 - Usare Intelligent Insights per identificare le query con un calo delle prestazioni a causa di [attese aumentate](database/intelligent-insights-troubleshoot-performance.md#increased-wait-statistic)
-- Usare [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) per trovare le statistiche di attesa per ogni query nel tempo. In Query Store, i pi di attesa vengono combinati in categorie di attesa. È possibile trovare il mapping delle categorie di attesa ai tipi di attesa in [sys.query_store_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
-- Utilizzare [sys.dm_db_wait_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) per restituire informazioni su tutte le attese rilevate dai thread eseguiti durante un'operazione di query. È possibile usare questa visualizzazione aggregata per diagnosticare problemi di prestazioni con il database SQL di Azure e anche con query e batch specifici. Le query possono essere in attesa di risorse, attese di accodamento o attese esterne.
-- Utilizzare [sys.dm_os_waiting_tasks](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) per restituire informazioni sulla coda di attività in attesa di una risorsa.
+- Usare [query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) per trovare le statistiche di attesa per ogni query nel tempo. In Query Store, i pi di attesa vengono combinati in categorie di attesa. È possibile trovare il mapping delle categorie di attesa ai tipi di attesa in [sys.query_store_wait_stats](/sql/relational-databases/system-catalog-views/sys-query-store-wait-stats-transact-sql#wait-categories-mapping-table).
+- Utilizzare [sys.dm_db_wait_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-wait-stats-azure-sql-database) per restituire informazioni su tutte le attese rilevate dai thread eseguiti durante un'operazione di query. È possibile usare questa visualizzazione aggregata per diagnosticare problemi di prestazioni con il database SQL di Azure e anche con query e batch specifici. Le query possono essere in attesa di risorse, attese di accodamento o attese esterne.
+- Utilizzare [sys.dm_os_waiting_tasks](/sql/relational-databases/system-dynamic-management-views/sys-dm-os-waiting-tasks-transact-sql) per restituire informazioni sulla coda di attività in attesa di una risorsa.
 
 Negli scenari con CPU elevata, Query Store e le statistiche di attesa potrebbero non riflettere l'utilizzo della CPU se:
 
 - Le query con utilizzo elevato di CPU sono ancora in esecuzione.
 - Le query con utilizzo elevato della CPU venivano eseguite quando si verificava un failover.
 
-DMV che tengono traccia delle statistiche di attesa e Query Store visualizzano i risultati solo per le query completate correttamente e scadute. Non visualizzano i dati per le istruzioni attualmente in esecuzione fino al completamento delle istruzioni. Utilizzare la vista a gestione dinamica [sys.dm_exec_requests](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per tenere traccia delle query attualmente in esecuzione e del tempo di lavoro associato.
+DMV che tengono traccia delle statistiche di attesa e Query Store visualizzano i risultati solo per le query completate correttamente e scadute. Non visualizzano i dati per le istruzioni attualmente in esecuzione fino al completamento delle istruzioni. Utilizzare la vista a gestione dinamica [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) per tenere traccia delle query attualmente in esecuzione e del tempo di lavoro associato.
 
 > [!TIP]
 > Strumenti aggiuntivi:

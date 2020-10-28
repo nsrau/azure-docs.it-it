@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: fa471c201965096c4a0f022ab1199d4853128319
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272022"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793076"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -46,19 +46,19 @@ Quando si esegue il provisioning di una VM di Azure usando un'immagine della rac
 
 ![Configurazione dell'archiviazione per le VM di SQL Server durante il provisioning](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
-Selezionare il tipo di carico di lavoro per cui si distribuisce SQL Server in **Ottimizzazione dell'archiviazione**. Con l'opzione di ottimizzazione **Generale**, per impostazione predefinita si otterrà un solo disco dati con max 5000 operazioni di I/O al secondo e si userà la stessa unità per i dati, il log delle transazioni e l'archiviazione TempDB. Se si seleziona **Elaborazione transazionale** o **Data warehousing**, viene creato un disco separato per i dati, un disco separato per il log delle transazioni e viene usata l'unità SSD locale per TempDB. Non esistono differenze in termini di archiviazione tra l'**elaborazione transazionale** e il **data warehousing**, ma cambiano la [configurazione di striping e i flag di traccia](#workload-optimization-settings). Se si sceglie l'archiviazione Premium, la memorizzazione nella cache viene impostata su *ReadOnly* per l'unità dati e su *None* per l'unità log in base alle [procedure consigliate per le prestazioni delle VM di SQL Server](performance-guidelines-best-practices.md). 
+Selezionare il tipo di carico di lavoro per cui si distribuisce SQL Server in **Ottimizzazione dell'archiviazione** . Con l'opzione di ottimizzazione **Generale** , per impostazione predefinita si otterrà un solo disco dati con max 5000 operazioni di I/O al secondo e si userà la stessa unità per i dati, il log delle transazioni e l'archiviazione TempDB. Se si seleziona **Elaborazione transazionale** o **Data warehousing** , viene creato un disco separato per i dati, un disco separato per il log delle transazioni e viene usata l'unità SSD locale per TempDB. Non esistono differenze in termini di archiviazione tra l' **elaborazione transazionale** e il **data warehousing** , ma cambiano la [configurazione di striping e i flag di traccia](#workload-optimization-settings). Se si sceglie l'archiviazione Premium, la memorizzazione nella cache viene impostata su *ReadOnly* per l'unità dati e su *None* per l'unità log in base alle [procedure consigliate per le prestazioni delle VM di SQL Server](performance-guidelines-best-practices.md). 
 
 ![Configurazione dell'archiviazione per le VM di SQL Server durante il provisioning](./media/storage-configuration/sql-vm-storage-configuration.png)
 
-La configurazione del disco è completamente personalizzabile, in modo che sia possibile configurare la topologia di archiviazione, il tipo di disco e le operazioni di I/O al secondo necessari per il carico di lavoro della VM di SQL Server. È anche possibile usare UltraSSD (anteprima) come opzione per il **tipo di disco** se la VM di SQL Server si trova in una delle aree supportate (Stati Uniti orientali 2, Asia sudorientale ed Europa settentrionale) e sono stati abilitati [dischi Ultra per la sottoscrizione](/azure/virtual-machines/windows/disks-enable-ultra-ssd).  
+La configurazione del disco è completamente personalizzabile, in modo che sia possibile configurare la topologia di archiviazione, il tipo di disco e le operazioni di I/O al secondo necessari per il carico di lavoro della VM di SQL Server. È anche possibile usare UltraSSD (anteprima) come opzione per il **tipo di disco** se la VM di SQL Server si trova in una delle aree supportate (Stati Uniti orientali 2, Asia sudorientale ed Europa settentrionale) e sono stati abilitati [dischi Ultra per la sottoscrizione](../../../virtual-machines/disks-enable-ultra-ssd.md).  
 
-Inoltre, è possibile impostare la memorizzazione nella cache per i dischi. Le macchine virtuali di Azure hanno una tecnologia di memorizzazione nella cache a più livelli denominata [cache di dati BLOB](/azure/virtual-machines/windows/premium-storage-performance#disk-caching) se usate con [dischi Premium](/azure/virtual-machines/windows/disks-types#premium-ssd). La cache di dati BLOB usa una combinazione della RAM della macchina virtuale e dell'unità SSD locale per la memorizzazione nella cache. 
+Inoltre, è possibile impostare la memorizzazione nella cache per i dischi. Le macchine virtuali di Azure hanno una tecnologia di memorizzazione nella cache a più livelli denominata [cache di dati BLOB](../../../virtual-machines/premium-storage-performance.md#disk-caching) se usate con [dischi Premium](../../../virtual-machines/disks-types.md#premium-ssd). La cache di dati BLOB usa una combinazione della RAM della macchina virtuale e dell'unità SSD locale per la memorizzazione nella cache. 
 
-La memorizzazione nella cache del disco per SSD Premium può essere *ReadOnly*, *ReadWrite* o *None*. 
+La memorizzazione nella cache del disco per SSD Premium può essere *ReadOnly* , *ReadWrite* o *None* . 
 
 - La memorizzazione nella cache *ReadOnly* è molto utile per i file di dati di SQL Server archiviati in Archiviazione Premium. Il tipo *ReadOnly* implica una bassa latenza di lettura e valori elevati per le operazioni di I/O al secondo e la velocità effettiva di lettura, poiché le letture vengono eseguite dalla cache, che si trova all'interno della memoria della VM e dell'unità SSD locale. Queste letture sono molto più veloci delle letture dal disco dati, ovvero dall'archiviazione BLOB di Azure. L'archiviazione Premium non include le operazioni di lettura servite dalla cache nel calcolo dei valori di operazioni di I/O al secondo e velocità effettiva del disco. Si è quindi in grado di ottenere valori totali di operazioni di I/O al secondo e velocità effettiva più elevati. 
-- La configurazione della cache *None* deve essere usata per i dischi che ospitano il file di log di SQL Server, poiché tale file viene scritto in sequenza e non sfrutta la memorizzazione nella cache di tipo *ReadOnly*. 
-- La memorizzazione nella cache *ReadWrite* non deve essere usata per ospitare i file di SQL Server perché SQL Server non supporta la coerenza dei dati con la cache *ReadWrite*. Le scritture sprecano la capacità della cache BLOB *ReadOnly* e le latenze aumentano leggermente se le scritture passano attraverso i livelli della cache BLOB *ReadOnly*. 
+- La configurazione della cache *None* deve essere usata per i dischi che ospitano il file di log di SQL Server, poiché tale file viene scritto in sequenza e non sfrutta la memorizzazione nella cache di tipo *ReadOnly* . 
+- La memorizzazione nella cache *ReadWrite* non deve essere usata per ospitare i file di SQL Server perché SQL Server non supporta la coerenza dei dati con la cache *ReadWrite* . Le scritture sprecano la capacità della cache BLOB *ReadOnly* e le latenze aumentano leggermente se le scritture passano attraverso i livelli della cache BLOB *ReadOnly* . 
 
 
    > [!TIP]
@@ -94,14 +94,14 @@ Se si usano i modelli di Resource Manager seguenti, vengono collegati per impost
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-Per le VM di SQL Server esistenti, è possibile modificare alcune impostazioni di archiviazione nel portale di Azure. Aprire la [risorsa della macchina virtuale SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) e selezionare **Panoramica**. La pagina Panoramica di SQL Server illustra l'utilizzo corrente dell'archiviazione della VM. In questo grafico vengono visualizzate tutte le unità esistenti nella VM. Per ogni unità, lo spazio di archiviazione viene visualizzato in quattro sezioni:
+Per le VM di SQL Server esistenti, è possibile modificare alcune impostazioni di archiviazione nel portale di Azure. Aprire la [risorsa della macchina virtuale SQL](manage-sql-vm-portal.md#access-the-sql-virtual-machines-resource) e selezionare **Panoramica** . La pagina Panoramica di SQL Server illustra l'utilizzo corrente dell'archiviazione della VM. In questo grafico vengono visualizzate tutte le unità esistenti nella VM. Per ogni unità, lo spazio di archiviazione viene visualizzato in quattro sezioni:
 
 * SQL data
 * Log SQL
 * Altro (archiviazione non SQL)
 * Disponibile
 
-Per modificare le impostazioni di archiviazione, selezionare **Configura** in **Impostazioni**. 
+Per modificare le impostazioni di archiviazione, selezionare **Configura** in **Impostazioni** . 
 
 ![Configurare l'archiviazione per le VM di SQL Server esistenti](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 

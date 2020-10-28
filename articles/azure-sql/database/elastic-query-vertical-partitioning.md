@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: daa1bbbace55281f81e04c4639b083b3e934b9f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c507a4c618713ba83d25b9defa918092db1a3c8e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443092"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792090"
 ---
 # <a name="query-across-cloud-databases-with-different-schemas-preview"></a>Eseguire query in database cloud con schemi diversi (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -36,10 +36,10 @@ I database con partizionamento verticale usano set di tabelle diversi su databas
 > A differenza del partizionamento orizzontale, queste istruzioni DDL non dipendono dalla definizione di un livello dati con una mappa partizioni tramite la libreria client del database elastico.
 >
 
-1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [CREATE MASTER KEY](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="create-database-scoped-master-key-and-credentials"></a>Creare la chiave master e le credenziali con ambito database
 
@@ -63,7 +63,7 @@ Sintassi:
     CREDENTIAL = <credential_name>) [;]
 
 > [!IMPORTANT]
-> Il parametro TYPE deve essere impostato su **RDBMS**.
+> Il parametro TYPE deve essere impostato su **RDBMS** .
 
 ### <a name="example"></a>Esempio
 
@@ -120,8 +120,8 @@ select * from sys.external_tables;
 
 La query elastica estende la sintassi esistente della tabella esterna per definire le tabelle esterne che usano origini dati esterne di tipo RDBMS. Una definizione di tabella esterna per il partizionamento verticale comprende gli aspetti seguenti:
 
-* **Schema**: il DDL della tabella esterna definisce uno schema che può essere usato dalle query. Lo schema fornito nella definizione della tabella esterna deve corrispondere allo schema delle tabelle nel database remoto in cui sono archiviati i dati effettivi.
-* **Riferimento al database remoto**: il DDL della tabella esterna fa riferimento a un'origine dati esterna. L'origine dati esterna specifica il nome del server e il nome del database remoto in cui sono archiviati i dati della tabella effettivi.
+* **Schema** : il DDL della tabella esterna definisce uno schema che può essere usato dalle query. Lo schema fornito nella definizione della tabella esterna deve corrispondere allo schema delle tabelle nel database remoto in cui sono archiviati i dati effettivi.
+* **Riferimento al database remoto** : il DDL della tabella esterna fa riferimento a un'origine dati esterna. L'origine dati esterna specifica il nome del server e il nome del database remoto in cui sono archiviati i dati della tabella effettivi.
 
 Se si usa un'origine dati esterna, come illustrato nella sezione precedente, la sintassi per la creazione di tabelle esterne è la seguente:
 
@@ -135,7 +135,7 @@ L'istruzione DDL seguente elimina una definizione di tabella esterna esistente d
 DROP EXTERNAL TABLE [ [ schema_name ] . | schema_name. ] table_name[;]  
 ```
 
-**Autorizzazioni per CREATE/DROP EXTERNAL TABLE**: le autorizzazioni di tipo ALTER ANY EXTERNAL DATA SOURCE sono necessarie per il DDL di tabelle esterne, che è richiesto anche per fare riferimento all'origine dati sottostante.  
+**Autorizzazioni per CREATE/DROP EXTERNAL TABLE** : le autorizzazioni di tipo ALTER ANY EXTERNAL DATA SOURCE sono necessarie per il DDL di tabelle esterne, che è richiesto anche per fare riferimento all'origine dati sottostante.  
 
 ## <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
@@ -163,7 +163,7 @@ La query seguente esegue un join a tre vie tra le due tabelle locali per gli ord
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Stored procedure per l'esecuzione remota di T-SQL: sp\_execute_remote
 
-La query elastica introduce anche una stored procedure che offre l'accesso diretto al database remoto. La stored procedure è denominata [sp\_execute\_remote](https://msdn.microsoft.com/library/mt703714) e può essere usata per eseguire stored procedure remote o il codice T-SQL nel database remoto. È necessario specificare i seguenti parametri:
+La query elastica introduce anche una stored procedure che offre l'accesso diretto al database remoto. La stored procedure è denominata [sp\_execute\_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) e può essere usata per eseguire stored procedure remote o il codice T-SQL nel database remoto. È necessario specificare i seguenti parametri:
 
 * Nome dell'origine dati (nvarchar): il nome dell'origine dati esterna di tipo RDBMS.
 * Query (nvarchar): la query T-SQL da eseguire nel database remoto.
@@ -195,7 +195,7 @@ Esempio:
 * Per un'esercitazione sul partizionamento verticale, vedere [Introduzione alle query tra database (partizionamento verticale)](elastic-query-getting-started-vertical.md).
 * Per un'esercitazione sul partizionamento orizzontale, vedere la [guida introduttiva alle query elastiche per il partizionamento orizzontale](elastic-query-getting-started.md).
 * Per le query di esempio e sintassi per i dati con partizionamento orizzontale, vedere [Eseguire query su dati con partizionamento orizzontale](elastic-query-horizontal-partitioning.md)
-* Vedere [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) per una stored procedure che esegue un'istruzione Transact-SQL su un singolo database SQL di Azure remoto o un set di database che fungono da partizioni in uno schema di partizionamento orizzontale.
+* Vedere [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) per una stored procedure che esegue un'istruzione Transact-SQL su un singolo database SQL di Azure remoto o un set di database che fungono da partizioni in uno schema di partizionamento orizzontale.
 
 <!--Image references-->
 [1]: ./media/elastic-query-vertical-partitioning/verticalpartitioning.png

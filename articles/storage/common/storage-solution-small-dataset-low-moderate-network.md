@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 12/05/2018
 ms.author: alkohli
-ms.openlocfilehash: a95361dda74c145e435a7e122339fb5945fed0f6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f59d1e297ba4d7607d7abd07a78da4784f55d20f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491224"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792906"
 ---
 # <a name="data-transfer-for-small-datasets-with-low-to-moderate-network-bandwidth"></a>Trasferimento dei dati per set di dati di piccole dimensioni con larghezza di banda di rete da bassa a moderata
  
@@ -32,37 +32,36 @@ Con set di dati di piccole dimensioni si intendono dati di dimensioni nell'ordin
 
 Le opzioni consigliate in questo scenario sono:
 
-- **Strumenti dell'interfaccia grafica**, ad esempio Azure Storage Explorer e Archiviazione di Azure nel portale di Azure, che consentono di visualizzare facilmente i dati e di trasferire rapidamente pochi file.
+- **Strumenti dell'interfaccia grafica** , ad esempio Azure Storage Explorer e Archiviazione di Azure nel portale di Azure, che consentono di visualizzare facilmente i dati e di trasferire rapidamente pochi file.
 
-    - **Azure Storage Explorer**: questo strumento multipiattaforma consente di gestire il contenuto degli account di archiviazione di Azure. Con questo strumento è possibile caricare, scaricare e gestire BLOB, file, code, tabelle ed entità di Azure Cosmos DB. Usarlo con l'archiviazione BLOB per gestire BLOB e cartelle e anche per caricare e scaricare BLOB tra il file system locale e l'archiviazione BLOB o tra gli account di archiviazione.
-    - **Portale di Azure**: Archiviazione di Azure nel portale di Azure fornisce un'interfaccia basata sul Web per esplorare i file e caricare i nuovi file uno alla volta. Si tratta di un'ottima scelta se non si vogliono installare strumenti o eseguire comandi per esplorare rapidamente i file o caricare contemporaneamente un certo numero di nuovi file.
+    - **Azure Storage Explorer** : questo strumento multipiattaforma consente di gestire il contenuto degli account di archiviazione di Azure. Con questo strumento è possibile caricare, scaricare e gestire BLOB, file, code, tabelle ed entità di Azure Cosmos DB. Usarlo con l'archiviazione BLOB per gestire BLOB e cartelle e anche per caricare e scaricare BLOB tra il file system locale e l'archiviazione BLOB o tra gli account di archiviazione.
+    - **Portale di Azure** : Archiviazione di Azure nel portale di Azure fornisce un'interfaccia basata sul Web per esplorare i file e caricare i nuovi file uno alla volta. Si tratta di un'ottima scelta se non si vogliono installare strumenti o eseguire comandi per esplorare rapidamente i file o caricare contemporaneamente un certo numero di nuovi file.
 
-- **Strumenti di scripting/programmatici**, ad esempio AzCopy/PowerShell/interfaccia della riga di comando di Azure e API REST di Archiviazione di Azure.
+- **Strumenti di scripting/programmatici** , ad esempio AzCopy/PowerShell/interfaccia della riga di comando di Azure e API REST di Archiviazione di Azure.
 
-    - **AzCopy**: usare questo strumento da riga di comando per copiare facilmente i dati da e verso l'archivio BLOB, file e tabelle di Azure con prestazioni ottimali. AzCopy supporta la concorrenza e il parallelismo e consente di riprendere le operazioni di copia in caso di interruzione.
-    - **Azure PowerShell**: gli utenti che conoscono l'amministrazione del sistema possono usare il modulo Archiviazione di Azure in Azure PowerShell per trasferire i dati.
-    - **Interfaccia della riga di comando di Azure**: usare questo strumento multipiattaforma per gestire i servizi di Azure e caricare i dati in Archiviazione di Azure.
-    - **API REST/SDK di Archiviazione di Azure**: quando si compila un'applicazione, è possibile sviluppare l'applicazione tramite le API REST o gli SDK di Archiviazione di Azure e usare le librerie client di Azure disponibili in più linguaggi.
+    - **AzCopy** : usare questo strumento da riga di comando per copiare facilmente i dati da e verso l'archivio BLOB, file e tabelle di Azure con prestazioni ottimali. AzCopy supporta la concorrenza e il parallelismo e consente di riprendere le operazioni di copia in caso di interruzione.
+    - **Azure PowerShell** : gli utenti che conoscono l'amministrazione del sistema possono usare il modulo Archiviazione di Azure in Azure PowerShell per trasferire i dati.
+    - **Interfaccia della riga di comando di Azure** : usare questo strumento multipiattaforma per gestire i servizi di Azure e caricare i dati in Archiviazione di Azure.
+    - **API REST/SDK di Archiviazione di Azure** : quando si compila un'applicazione, è possibile sviluppare l'applicazione tramite le API REST o gli SDK di Archiviazione di Azure e usare le librerie client di Azure disponibili in più linguaggi.
 
 
 ## <a name="comparison-of-key-capabilities"></a>Confronto delle funzionalità chiave
 
 La tabella seguente contiene un riepilogo delle differenze principali in termini di funzionalità.
 
-| Funzionalità | Esplora archivi Azure | Portale di Azure | AzCopy<br>Azure PowerShell<br>Interfaccia della riga di comando di Azure | API REST o SDK di Archiviazione di Azure |
+| Funzionalità | Azure Storage Explorer | Portale di Azure | AzCopy<br>Azure PowerShell<br>Interfaccia della riga di comando di Azure | API REST o SDK di Archiviazione di Azure |
 |---------|------------------------|--------------|-----------------------------------------|---------------------------------|
-| Disponibilità | Scaricare e installare <br>Strumento autonomo | Strumenti di esplorazione basati sul Web nel portale di Azure | Strumento da riga di comando |Interfacce programmabili in .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
+| Disponibilità | Download e installazione <br>Strumento autonomo | Strumenti di esplorazione basati sul Web nel portale di Azure | Strumento da riga di comando |Interfacce programmabili in .NET, Java, Python, JavaScript, C++, Go, Ruby e PHP |
 | Interfaccia grafica | Sì | Sì | No | No |
 | Piattaforme supportate | Windows, Mac, Linux | Basate sul Web |Windows, Mac, Linux |Tutte le piattaforme |
-| Operazioni di archiviazione BLOB consentite<br>per BLOB e cartelle | Caricamento<br>Scarica<br>Gestione | Caricamento<br>Scarica<br>Gestione |Caricamento<br>Scarica<br>Gestione | Sì, personalizzabili |
-| Operazioni di archiviazione di Data Lake Gen1<br>consentite per file e cartelle | Caricamento<br>Scarica<br>Gestione | No |Caricamento<br>Scarica<br>Gestione                   | No |
-| Operazioni di archiviazione file consentite<br>per file e directory | Caricamento<br>Scarica<br>Gestione | Caricamento<br>Scarica<br>Gestione   |Caricamento<br>Scarica<br>Gestione | Sì, personalizzabili |
+| Operazioni di archiviazione BLOB consentite<br>per BLOB e cartelle | Caricamento<br>Download<br>Gestione | Caricamento<br>Download<br>Gestione |Caricamento<br>Download<br>Gestione | Sì, personalizzabili |
+| Operazioni di archiviazione di Data Lake Gen1<br>consentite per file e cartelle | Caricamento<br>Download<br>Gestione | No |Caricamento<br>Download<br>Gestione                   | No |
+| Operazioni di archiviazione file consentite<br>per file e directory | Caricamento<br>Download<br>Gestione | Caricamento<br>Download<br>Gestione   |Caricamento<br>Download<br>Gestione | Sì, personalizzabili |
 | Operazioni di archiviazione tabelle consentite<br>per le tabelle |Gestione | No |Supporto delle tabelle in AzCopy v7 |Sì, personalizzabili|
 | Archiviazione code consentita | Gestione | No  |No | Sì, personalizzabile|
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [trasferire dati con Azure Storage Explorer](/azure/machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer).
-- [Trasferire dati con AzCopy](/azure/storage/common/storage-use-azcopy-v10)
-
+- Informazioni su come [trasferire dati con Azure Storage Explorer](../../machine-learning/team-data-science-process/move-data-to-azure-blob-using-azure-storage-explorer.md).
+- [Trasferire dati con AzCopy](./storage-use-azcopy-v10.md)

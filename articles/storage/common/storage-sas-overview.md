@@ -10,12 +10,12 @@ ms.date: 08/17/2020
 ms.author: tamram
 ms.reviewer: dineshm
 ms.subservice: common
-ms.openlocfilehash: 218946fcfbf2268ff3b06eab839d69e6b370e891
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6c6ac3e6ab6a27e0aca1aa2bebecb86cc1eb3f87
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367908"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792974"
 ---
 # <a name="grant-limited-access-to-azure-storage-resources-using-shared-access-signatures-sas"></a>Concedere accesso limitato alle risorse di archiviazione di Azure tramite firme di accesso condiviso (SAS)
 
@@ -127,7 +127,7 @@ Per mitigare questi rischi, è consigliabile attenersi ai consigli seguenti rela
 - **Tenere presente che l'account verrà fatturato per qualsiasi utilizzo, inclusa la firma di accesso condiviso.** Se si fornisce l'accesso in scrittura a un BLOB, un utente può scegliere di caricare un BLOB di 200 GB. Se si offre anche l'accesso in lettura, l'utente potrebbe scegliere di scaricarlo 10 volte e ciò potrebbe comportare 2 TB di costi in uscita. Anche in questo caso, fornire autorizzazioni limitate per ridurre l'impatto potenziale delle azioni di utenti malintenzionati. Per ridurre questa minaccia, usare firme di accesso condiviso di breve durata, prestando però attenzione allo sfasamento di orario per la scadenza.
 - **Convalida i dati scritti con una firma di accesso condiviso.**  Quando un'applicazione client scrive i dati nell'account di archiviazione, tenere presente che tali dati potrebbero causare problemi. Se l'applicazione richiede che i dati siano convalidati o autorizzati prima dell'uso, è necessario eseguire la convalida dopo la scrittura dei dati e prima che vengano usati dall'applicazione. Questa procedura consente inoltre di evitare la scrittura di dati danneggiati o dannosi nell'account da parte da un utente che ha acquisito correttamente la firma di accesso condiviso o di un utente che sfrutta una firma diffusa per errore.
 - **Verificare quando non usare una firma di accesso condiviso.** A volte i rischi associati a una determinata operazione sull'account di archiviazione superano i vantaggi derivanti dall'uso di una firma di accesso condiviso. Per tali operazioni creare un servizio di livello intermedio che effettui operazioni di scrittura nell'account di archiviazione dopo autenticazione, controllo e convalida di regole di business. Talvolta è inoltre più semplice gestire l'accesso in modi diversi. Se ad esempio si vogliono rendere pubblicamente leggibili tutti i BLOB di un contenitore, è possibile rendere pubblico il contenitore anziché fornire una firma di accesso condiviso a ogni client per l'accesso.
-- **Usare monitoraggio di Azure e i log di archiviazione di Azure per monitorare l'applicazione.** È possibile usare monitoraggio di Azure e la registrazione di analisi archiviazione per osservare eventuali picchi di errori di autorizzazione causati da un'interruzione del servizio del provider SAS o dalla rimozione accidentale di criteri di accesso archiviati. Per altre informazioni, vedere [metriche di archiviazione di Azure in monitoraggio di Azure](monitor-storage.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) e [analisi archiviazione di Azure registrazione](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+- **Usare monitoraggio di Azure e i log di archiviazione di Azure per monitorare l'applicazione.** È possibile usare monitoraggio di Azure e la registrazione di analisi archiviazione per osservare eventuali picchi di errori di autorizzazione causati da un'interruzione del servizio del provider SAS o dalla rimozione accidentale di criteri di accesso archiviati. Per altre informazioni, vedere [metriche di archiviazione di Azure in monitoraggio di Azure](../blobs/monitor-blob-storage.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) e [analisi archiviazione di Azure registrazione](storage-analytics-logging.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
 
 ## <a name="get-started-with-sas"></a>Introduzione a SAS
 

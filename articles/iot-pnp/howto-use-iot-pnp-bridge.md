@@ -7,12 +7,12 @@ ms.date: 09/22/2020
 ms.topic: how-to
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 6670f654685f8d5cdcaf55d2b1679738a57ecab4
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 958402e61f6dc81a3e6618dbcd4df4c8dd6b9ced
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042797"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793059"
 ---
 # <a name="how-to-connect-an--iot-plug-and-play-bridge-sample-running-on-linux-or-windows-to-iot-hub"></a>Come connettere un esempio Plug and Play Bridge in esecuzione in Linux o Windows all'hub Internet
 
@@ -30,14 +30,14 @@ Questa guida di avvio rapido presuppone l'uso di Ubuntu Linux. I passaggi in que
 
 Per completare questo argomento di avvio rapido, installare il software seguente nell'ambiente Linux locale:
 
-Installare **GCC**, **Git**, **cmake** e tutte le dipendenze necessarie usando il comando `apt-get`:
+Installare **GCC** , **Git** , **cmake** e tutte le dipendenze necessarie usando il comando `apt-get`:
 
 ```sh
 sudo apt-get update
 sudo apt-get install -y git cmake build-essential curl libcurl4-openssl-dev libssl-dev uuid-dev
 ```
 
-Verificare che la versione di `cmake` sia superiore alla **2.8.12** e che la versione di **GCC** sia superiore alla **4.4.7**.
+Verificare che la versione di `cmake` sia superiore alla **2.8.12** e che la versione di **GCC** sia superiore alla **4.4.7** .
 
 ```sh
 cmake --version
@@ -54,7 +54,7 @@ Per completare questo argomento di avvio rapido in Windows, installare il softwa
 
 ### <a name="azure-iot-explorer"></a>Azure IoT Explorer
 
-Per interagire con il dispositivo di esempio nella seconda parte di questo argomento di avvio rapido, usare lo strumento**Azure IoT Explorer**. [Scaricare e installare la versione di Azure IoT Explorer più recente](./howto-use-iot-explorer.md) per il sistema operativo in uso.
+Per interagire con il dispositivo di esempio nella seconda parte di questo argomento di avvio rapido, usare lo strumento **Azure IoT Explorer** . [Scaricare e installare la versione di Azure IoT Explorer più recente](./howto-use-iot-explorer.md) per il sistema operativo in uso.
 
 [!INCLUDE [iot-pnp-prepare-iot-hub.md](../../includes/iot-pnp-prepare-iot-hub.md)]
 
@@ -79,7 +79,7 @@ Azure Internet Explorer verrà usato nei passaggi successivi per visualizzare il
 
 Quando si Scarica il codice nel passaggio seguente, vengono inclusi i file del modello di esempio nella `pnpbridge/docs/schema` cartella. Per preparare Azure Internet Explorer:
 
-1. Nel computer locale creare una cartella denominata *models*.
+1. Nel computer locale creare una cartella denominata *models* .
 1. Visualizza [EnvironmentalSensor.js](https://aka.ms/iot-pnp-bridge-env-model) e salva il file JSON nella cartella *Models*
 1. Visualizzare [RootBridgeSampleDevice.js](https://aka.ms/iot-pnp-bridge-root-model) e salvare il file JSON nella cartella *Models* .
 
@@ -107,9 +107,13 @@ Il completamento di questa operazione richiederà alcuni minuti.
 
 Dopo la clonazione del repository Plug and Play Bridge nel computer, passare alla `pnpbridge/docs/schema` directory del repository clonato in cui è possibile trovare il file JSON di [configurazione](https://aka.ms/iot-pnp-bridge-env-config) o `config.json` per l'esempio di sensore ambientale del Bridge. Per ulteriori informazioni sui file di configurazione, vedere il documento relativo ai [concetti relativi a plug and Play Bridge](concepts-iot-pnp-bridge.md).
 
-Per il `root-_interface_model_id` campo è necessario copiare il plug and Play ID modello che identifica il modello per il dispositivo. In questo esempio si tratta di `dtmi:com:example:SampleDevice;1`. Modificare i seguenti parametri sotto **pnp_bridge_parameters** nodo del `config.json` file in ':
+Per il `root-_interface_model_id` campo è necessario copiare il plug and Play ID modello che identifica il modello per il dispositivo. In questo esempio si tratta di `dtmi:com:example:SampleDevice;1`. Modificare i seguenti parametri in **pnp_bridge_parameters** nodo del `config.json` file:
 
-  Uso della stringa di connessione (Nota: il symmetric_key deve corrispondere alla chiave SAS nella stringa di connessione):
+* connection_string 
+* symmetric_key 
+
+>[!NOTE]
+> Il symmetric_key deve corrispondere alla chiave SAS nella stringa di connessione.
 
   ```JSON
     {

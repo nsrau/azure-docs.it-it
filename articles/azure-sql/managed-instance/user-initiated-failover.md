@@ -10,12 +10,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: douglas, sstein
 ms.date: 08/31/2020
-ms.openlocfilehash: 3be0695c20eafb71564211d1168bc59813f8800a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebf36c99e6c4dd636c41086d4c72fd6761f6d5ca
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617758"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791631"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manuale avviato dall'utente in SQL Istanza gestita
 
@@ -46,7 +46,7 @@ Per avviare un failover, l'utente deve avere uno dei ruoli RBAC seguenti:
 - Ruolo personalizzato con l'autorizzazione seguente:
   - `Microsoft.Sql/managedInstances/failover/action`
 
-### <a name="using-powershell"></a>Utilizzo di PowerShell
+### <a name="using-powershell"></a>Uso di PowerShell
 
 La versione minima di AZ. SQL deve essere [v 2.9.0](https://www.powershellgallery.com/packages/Az.Sql/2.9.0). Si consiglia di usare [Azure cloud Shell](../../cloud-shell/overview.md) dal portale di Azure in cui è sempre disponibile la versione più recente di PowerShell. 
 
@@ -62,7 +62,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId $subscription
 ```
 
-Usare il comando PowerShell [Invoke-AzSqlInstanceFailover](https://docs.microsoft.com/powershell/module/az.sql/invoke-azsqlinstancefailover) con l'esempio seguente per avviare il failover del nodo primario, applicabile al livello di servizio BC e GP.
+Usare il comando PowerShell [Invoke-AzSqlInstanceFailover](/powershell/module/az.sql/invoke-azsqlinstancefailover) con l'esempio seguente per avviare il failover del nodo primario, applicabile al livello di servizio BC e GP.
 
 ```powershell
 $ResourceGroup = 'enter resource group of your MI'
@@ -96,7 +96,7 @@ az sql mi failover -g myresourcegroup -n myinstancename --replica-type ReadableS
 
 ### <a name="using-rest-api"></a>Uso dell'API REST
 
-Per gli utenti avanzati che potrebbero avere l'esigenza di automatizzare i failover delle istanze di SQL gestite per l'implementazione di una pipeline di testing continuo o di mitigatori delle prestazioni automatizzati, questa funzione può essere eseguita tramite l'avvio del failover tramite una chiamata API. per informazioni dettagliate, vedere [istanze gestite: API REST di failover](https://docs.microsoft.com/rest/api/sql/managed%20instances%20-%20failover/failover) .
+Per gli utenti avanzati che potrebbero avere l'esigenza di automatizzare i failover delle istanze di SQL gestite per l'implementazione di una pipeline di testing continuo o di mitigatori delle prestazioni automatizzati, questa funzione può essere eseguita tramite l'avvio del failover tramite una chiamata API. per informazioni dettagliate, vedere [istanze gestite: API REST di failover](/rest/api/sql/managed%20instances%20-%20failover/failover) .
 
 Per avviare il failover usando la chiamata all'API REST, generare prima il token di autenticazione usando il client API scelto. Il token di autenticazione generato viene usato come proprietà di autorizzazione nell'intestazione della richiesta API ed è obbligatorio.
 
@@ -140,7 +140,7 @@ Non sarà possibile visualizzare lo stesso output con il livello di servizio di 
 
 > [!IMPORTANT]
 > Limitazioni funzionali del failover manuale avviato dall'utente:
-> - Potrebbe essere stato avviato un failover (1) nella stessa Istanza gestita ogni **30 minuti**.
+> - Potrebbe essere stato avviato un failover (1) nella stessa Istanza gestita ogni **30 minuti** .
 > - Per le istanze BC è necessario che esista il quorum delle repliche affinché venga accettata la richiesta di failover.
 > - Per le istanze BC non è possibile specificare la replica secondaria leggibile su cui avviare il failover.
 

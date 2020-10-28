@@ -8,12 +8,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 09498587ad65a8de0935a3a4455bb3b66ed6c3ec
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a0efc6f6f6d4ae6355fbb42fbc7e13ad7c078cf3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491258"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792889"
 ---
 # <a name="solutions-for-periodic-data-transfer"></a>Soluzioni per il trasferimento dei dati periodico
  
@@ -25,14 +25,14 @@ Per una panoramica di tutte le opzioni di trasferimento dei dati disponibili, ve
 
 Le opzioni consigliate per il trasferimento dei dati periodico rientrano in due categorie a seconda che il trasferimento dei dati sia ricorrente o continuo.
 
-- **Strumenti con script/programmatici**: per il trasferimento dei dati che si verifica a intervalli regolari, usare gli strumenti con script e programmatici, ad esempio AzCopy e le API REST di Archiviazione di Azure. Questi strumenti sono destinati a professionisti IT e sviluppatori.
+- **Strumenti con script/programmatici** : per il trasferimento dei dati che si verifica a intervalli regolari, usare gli strumenti con script e programmatici, ad esempio AzCopy e le API REST di Archiviazione di Azure. Questi strumenti sono destinati a professionisti IT e sviluppatori.
 
-    - **AzCopy**: usare questo strumento da riga di comando per copiare facilmente i dati da e verso l'archivio BLOB, file e tabelle di Azure con prestazioni ottimali. AzCopy supporta la concorrenza e il parallelismo e consente di riprendere le operazioni di copia in caso di interruzione.
-    - **API REST/SDK di Archiviazione di Azure**: quando si compila un'applicazione, è possibile sviluppare l'applicazione tramite le API REST di Archiviazione di Azure e usare gli SDK di Azure disponibili in più linguaggi. Le API REST possono anche sfruttare la libreria per lo spostamento dei dati di Archiviazione di Azure progettata appositamente per la copia a prestazioni elevate di dati da e verso Azure.
+    - **AzCopy** : usare questo strumento da riga di comando per copiare facilmente i dati da e verso l'archivio BLOB, file e tabelle di Azure con prestazioni ottimali. AzCopy supporta la concorrenza e il parallelismo e consente di riprendere le operazioni di copia in caso di interruzione.
+    - **API REST/SDK di Archiviazione di Azure** : quando si compila un'applicazione, è possibile sviluppare l'applicazione tramite le API REST di Archiviazione di Azure e usare gli SDK di Azure disponibili in più linguaggi. Le API REST possono anche sfruttare la libreria per lo spostamento dei dati di Archiviazione di Azure progettata appositamente per la copia a prestazioni elevate di dati da e verso Azure.
 
-- **Strumenti di inserimento dati continuo**: per l'inserimento dati continuo, è possibile scegliere tra il dispositivo di trasferimento online Data Box e Azure Data Factory. Questi strumenti vengono configurati dai professionisti IT e possono automatizzare in modo trasparente il trasferimento dei dati.
+- **Strumenti di inserimento dati continuo** : per l'inserimento dati continuo, è possibile scegliere tra il dispositivo di trasferimento online Data Box e Azure Data Factory. Questi strumenti vengono configurati dai professionisti IT e possono automatizzare in modo trasparente il trasferimento dei dati.
 
-    - **Azure Data Factory**: Data Factory deve essere usato per ampliare un'operazione di trasferimento e se sono necessarie funzionalità di orchestrazione e monitoraggio a livello aziendale. Usare Azure Data Factory per configurare una pipeline cloud che trasferisce regolarmente i file tra diversi servizi di Azure, l'ambiente locale o una combinazione dei due. Azure Data Factory consente di orchestrare flussi di lavoro basati sui dati che inseriscono dati provenienti da archivi diversi e automatizzano lo spostamento dati e la trasformazione dei dati.
+    - **Azure Data Factory** : Data Factory deve essere usato per ampliare un'operazione di trasferimento e se sono necessarie funzionalità di orchestrazione e monitoraggio a livello aziendale. Usare Azure Data Factory per configurare una pipeline cloud che trasferisce regolarmente i file tra diversi servizi di Azure, l'ambiente locale o una combinazione dei due. Azure Data Factory consente di orchestrare flussi di lavoro basati sui dati che inseriscono dati provenienti da archivi diversi e automatizzano lo spostamento dati e la trasformazione dei dati.
     - **Azure Data Box famiglia per i trasferimenti online** : Data Box Edge e data box gateway sono dispositivi di rete online che possono spostare dati in e da Azure. Data Box Edge usa il calcolo Edge abilitato per l'intelligenza artificiale per pre-elaborare i dati prima del caricamento. Data Box Gateway è una versione virtuale del dispositivo con le stesse capacità di trasferimento dati.
 
 
@@ -57,7 +57,7 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 | Fattore di forma                                   | Dispositivo virtuale             | Dispositivo fisico          | Servizio nel portale di Azure, agente in locale                                                            |
 | Hardware                                      | Hypervisor dell'utente            | Fornito da Microsoft    | ND                                                            |
 | Lavoro richiesto per la configurazione iniziale                          | Basso (<30 min.)            | Moderato (~due ore) | Elevato (alcuni giorni)                                                 |
-| Formato dati                                   | BLOB di Azure, file di Azure   | BLOB di Azure, file di Azure | [Supporta più di 70 connettori dati per archivi e formati dati](/azure/data-factory/copy-activity-overview#supported-data-stores-and-formats)|
+| Formato dati                                   | BLOB di Azure, file di Azure   | BLOB di Azure, file di Azure | [Supporta più di 70 connettori dati per archivi e formati dati](../../data-factory/copy-activity-overview.md#supported-data-stores-and-formats)|
 | Pre-elaborazione dei dati                           | No                         | Sì, tramite il calcolo Edge    | Sì                                                           |
 | Cache locale<br>(per archiviare i dati locali)    | Sì                        | Sì                      | No                                                            |
 | Trasferimento da altri cloud                    | No                         | No                       | Sì                                                           |
@@ -65,9 +65,9 @@ La tabella seguente contiene un riepilogo delle differenze principali in termini
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Trasferire i dati con AzCopy](/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json).
+- [Trasferire i dati con AzCopy](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252ftables%252ftoc.json).
 - [Altre informazioni sul trasferimento dei dati con le API REST di Archiviazione](/dotnet/api/overview/azure/storage).
 - Informazioni su come:
-    - [Trasferire dati con Data Box Gateway](/azure/databox-online/data-box-gateway-deploy-add-shares).
-    - [Trasformare i dati con Data Box Edge prima dell'invio ad Azure](/azure/databox-online/data-box-edge-deploy-configure-compute).
-- [Informazioni su come trasferire dati con Azure Data Factory](/azure/data-factory/tutorial-bulk-copy-portal).
+    - [Trasferire dati con Data Box Gateway](../../databox-online/data-box-gateway-deploy-add-shares.md).
+    - [Trasformare i dati con Data Box Edge prima dell'invio ad Azure](../../databox-online/azure-stack-edge-deploy-configure-compute.md).
+- [Informazioni su come trasferire dati con Azure Data Factory](../../data-factory/tutorial-bulk-copy-portal.md).

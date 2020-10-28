@@ -8,12 +8,12 @@ ms.date: 07/27/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 24c850b9a5302fd0ac684df6e6f1cc319118a75d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 294adce3dc312003d72336bd0752ba3aba5eaace
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488521"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792855"
 ---
 # <a name="transfer-data-with-azcopy-and-blob-storage"></a>Trasferire i dati con AzCopy e l'archiviazione BLOB
 
@@ -363,7 +363,7 @@ Il comando di [sincronizzazione](storage-ref-azcopy-sync.md) Confronta i nomi di
 Se si imposta il `--delete-destination` flag su `true` AzCopy Elimina i file senza fornire un messaggio di richiesta. Se si desidera che venga visualizzata una richiesta prima che AzCopy elimini un file, impostare il `--delete-destination` flag su `prompt` .
 
 > [!NOTE]
-> Per evitare eliminazioni accidentali, assicurarsi di abilitare la funzionalità di [eliminazione](/azure/storage/blobs/storage-blob-soft-delete) temporanea prima di usare il `--delete-destination=prompt|true` flag.
+> Per evitare eliminazioni accidentali, assicurarsi di abilitare la funzionalità di [eliminazione](../blobs/soft-delete-blob-overview.md) temporanea prima di usare il `--delete-destination=prompt|true` flag.
 
 > [!TIP]
 > È possibile modificare l'operazione di sincronizzazione usando i flag facoltativi. Ecco alcuni esempi.

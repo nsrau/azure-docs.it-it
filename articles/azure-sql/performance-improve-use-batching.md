@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 487b668d9a3d934220fecf5c0896f7ef492c6775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07334d62cee94be8b5b8dd6188c1d6354c4d584b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840490"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792600"
 ---
 # <a name="how-to-use-batching-to-improve-azure-sql-database-and-azure-sql-managed-instance-application-performance"></a>Come usare l'invio in batch per migliorare le prestazioni delle applicazioni del database SQL di Azure e di Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -42,7 +42,7 @@ La prima parte di questo articolo esamina le varie tecniche di invio in batch pe
 ### <a name="note-about-timing-results-in-this-article"></a>Nota sui risultati della tempistica in questo articolo
 
 > [!NOTE]
-> I risultati non sono benchmark ma servono per indicare le **prestazioni relative**. Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati con un database antecedente a V12 e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere in un database V12 usando i nuovi [livelli di servizio DTU](database/service-tiers-dtu.md) o [livelli di servizio vCore](database/service-tiers-vcore.md). Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
+> I risultati non sono benchmark ma servono per indicare le **prestazioni relative** . Le tempistiche si basano su una media di almeno 10 esecuzioni del test. Le operazioni sono inserimenti in una tabella vuota. Questi test sono stati misurati con un database antecedente a V12 e non corrispondono necessariamente alla velocità effettiva che si potrebbe ottenere in un database V12 usando i nuovi [livelli di servizio DTU](database/service-tiers-dtu.md) o [livelli di servizio vCore](database/service-tiers-vcore.md). Il vantaggio relativo della tecnica di invio in batch dovrebbe essere simile.
 
 ### <a name="transactions"></a>Transazioni
 
@@ -93,11 +93,11 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Le transazioni vengono in effetti usate in entrambi questi esempi. Nel primo ogni singola chiamata rappresenta una transazione implicita. Nel secondo esempio viene eseguito il wrapping di tutte le chiamate in una transazione esplicita. Secondo la documentazione relativa al [log delle transazioni write-ahead](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), i record del log vengono scaricati su disco al momento del commit della transazione. Si conseguenza, se si includono più chiamate in una transazione, la scrittura nel log delle transazioni può essere ritardata finché non viene eseguito il commit della transazione stessa. In effetti, si abilita l'invio in batch per le operazioni di scrittura nel log delle transazioni del server.
+Le transazioni vengono in effetti usate in entrambi questi esempi. Nel primo ogni singola chiamata rappresenta una transazione implicita. Nel secondo esempio viene eseguito il wrapping di tutte le chiamate in una transazione esplicita. Secondo la documentazione relativa al [log delle transazioni write-ahead](/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL), i record del log vengono scaricati su disco al momento del commit della transazione. Si conseguenza, se si includono più chiamate in una transazione, la scrittura nel log delle transazioni può essere ritardata finché non viene eseguito il commit della transazione stessa. In effetti, si abilita l'invio in batch per le operazioni di scrittura nel log delle transazioni del server.
 
 Nella tabella seguente vengono illustrati alcuni risultati di test ad hoc. I test eseguono le medesime operazioni sequenziali di inserimento con e senza transazioni. Per maggiore chiarezza, il primo set di test è stato eseguito in remoto da un portatile al database in Microsoft Azure. Il secondo set di test è stato eseguito da un servizio cloud e un database entrambi residenti nello stesso data center di Microsoft Azure (Stati Uniti occidentali). La tabella seguente mostra la durata in millisecondi delle operazioni di inserimento sequenziali con e senza transazioni.
 
-**Da locale ad Azure**:
+**Da locale ad Azure** :
 
 | Operazioni | Nessuna transazione (MS) | Con transazione (ms) |
 | --- | --- | --- |
@@ -106,7 +106,7 @@ Nella tabella seguente vengono illustrati alcuni risultati di test ad hoc. I tes
 | 100 |12662 |10395 |
 | 1000 |128852 |102917 |
 
-**Da Azure ad Azure (stesso data center)**:
+**Da Azure ad Azure (stesso data center)** :
 
 | Operazioni | Nessuna transazione (MS) | Con transazione (ms) |
 | --- | --- | --- |
@@ -120,7 +120,7 @@ Nella tabella seguente vengono illustrati alcuni risultati di test ad hoc. I tes
 
 In base ai risultati di test precedenti, il wrapping di una singola operazione in una transazione riduce in effetti le prestazioni. Tuttavia, maggiore è il numero di operazioni in una singola transazione, più evidente risulta il miglioramento delle prestazioni. La differenza nelle prestazioni è anche più significativa se tutte le operazioni vengono eseguite nello stesso data center di Microsoft Azure. L'aumento della latenza dell'uso del database SQL di Azure o di Azure SQL Istanza gestita dall'esterno del Data Center di Microsoft Azure, oltre a sovraombreggiare il miglioramento delle prestazioni dell'uso delle transazioni.
 
-Sebbene l'utilizzo delle transazioni possa migliorare le prestazioni, continuare a [osservare le procedure consigliate per transazioni e connessioni](https://docs.microsoft.com/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Usare transazioni più brevi possibile e chiudere la connessione al database al termine delle operazioni. L'istruzione using nell'esempio precedente assicura la chiusura della connessione al termine del blocco di codice successivo.
+Sebbene l'utilizzo delle transazioni possa migliorare le prestazioni, continuare a [osservare le procedure consigliate per transazioni e connessioni](/previous-versions/sql/sql-server-2008-r2/ms187484(v=sql.105)). Usare transazioni più brevi possibile e chiudere la connessione al database al termine delle operazioni. L'istruzione using nell'esempio precedente assicura la chiusura della connessione al termine del blocco di codice successivo.
 
 L'esempio precedente illustra che è possibile aggiungere una transazione locale al codice ADO.NET con due righe. Le transazioni rappresentano un modo rapido per migliorare le prestazioni del codice usato per le operazioni sequenziali di inserimento, aggiornamento ed eliminazione. Per prestazioni ottimali, provare tuttavia a modificare ulteriormente il codice per sfruttare l'invio in batch sul lato client, ad esempio i parametri con valori di tabella.
 
@@ -128,7 +128,7 @@ Per altre informazioni sulle transazioni in ADO.NET, vedere [Transazioni locali 
 
 ### <a name="table-valued-parameters"></a>Parametri con valori di tabella
 
-I parametri con valori di tabella supportano tipi di tabella definiti dall'utente come parametri nelle funzioni, nelle stored procedure e nelle istruzioni Transact-SQL. Questa tecnica di invio in batch sul lato client consente di inviare più righe di dati nel parametro con valori di tabella. Per usare parametri con valori di tabella, definire prima di tutto un tipo di tabella. L'istruzione Transact-SQL seguente crea un tipo di tabella denominato **MyTableType**.
+I parametri con valori di tabella supportano tipi di tabella definiti dall'utente come parametri nelle funzioni, nelle stored procedure e nelle istruzioni Transact-SQL. Questa tecnica di invio in batch sul lato client consente di inviare più righe di dati nel parametro con valori di tabella. Per usare parametri con valori di tabella, definire prima di tutto un tipo di tabella. L'istruzione Transact-SQL seguente crea un tipo di tabella denominato **MyTableType** .
 
 ```sql
     CREATE TYPE MyTableType AS TABLE
@@ -169,7 +169,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-Nell'esempio precedente, l'oggetto **SqlCommand** inserisce righe da un parametro con valori di tabella, ** \@ TestTvp**. L'oggetto **DataTable** creato in precedenza viene assegnato a questo parametro con il metodo **SqlCommand.Parameters.Add**. L'invio in batch delle operazioni di inserimento in una singola chiamata migliora sensibilmente le prestazioni rispetto alle operazioni di inserimento sequenziali.
+Nell'esempio precedente, l'oggetto **SqlCommand** inserisce righe da un parametro con valori di tabella, **\@ TestTvp** . L'oggetto **DataTable** creato in precedenza viene assegnato a questo parametro con il metodo **SqlCommand.Parameters.Add** . L'invio in batch delle operazioni di inserimento in una singola chiamata migliora sensibilmente le prestazioni rispetto alle operazioni di inserimento sequenziali.
 
 Per migliorare ulteriormente l'esempio precedente, usare una stored procedure anziché un comando basato su testo. Il comando Transact-SQL seguente crea una stored procedure che accetta il parametro con valori di tabella **SimpleTestTableType** .
 
@@ -212,7 +212,7 @@ Per altre informazioni sui parametri con valori di tabella, vedere [Usare parame
 
 ### <a name="sql-bulk-copy"></a>Copia bulk di SQL
 
-La copia bulk di SQL è un altro modo per inserire una grande quantità di dati in un database di destinazione. Le applicazioni .NET possono usare la classe **SqlBulkCopy** per eseguire le operazioni di inserimento bulk. In termini di funzionamento, la classe **SqlBulkCopy** è analoga allo strumento da riga di comando **Bcp.exe** o all'istruzione Transact-SQL **BULK INSERT**. Nell'esempio di codice riportato di seguito viene illustrato come eseguire una copia bulk delle righe nella tabella di origine **DataTable**, nella tabella di destinazione, MyTable.
+La copia bulk di SQL è un altro modo per inserire una grande quantità di dati in un database di destinazione. Le applicazioni .NET possono usare la classe **SqlBulkCopy** per eseguire le operazioni di inserimento bulk. In termini di funzionamento, la classe **SqlBulkCopy** è analoga allo strumento da riga di comando **Bcp.exe** o all'istruzione Transact-SQL **BULK INSERT** . Nell'esempio di codice riportato di seguito viene illustrato come eseguire una copia bulk delle righe nella tabella di origine **DataTable** , nella tabella di destinazione, MyTable.
 
 ```csharp
 using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.GetSetting("Sql.ConnectionString")))
@@ -293,7 +293,7 @@ La classe **DataAdapter** consente di modificare un oggetto **DataSet** e di inv
 
 ### <a name="entity-framework"></a>Entity Framework
 
-[Entity Framework Core](https://docs.microsoft.com/ef/efcore-and-ef6/#saving-data) supporta la suddivisione in batch.
+[Entity Framework Core](/ef/efcore-and-ef6/#saving-data) supporta la suddivisione in batch.
 
 ### <a name="xml"></a>XML
 
@@ -380,7 +380,7 @@ Sebbene alcuni scenari siano particolarmente adatti all'invio in batch, ne esist
 
 Si consideri ad esempio un'applicazione Web che tiene traccia della cronologia di navigazione di ogni utente. Per ogni richiesta di pagina, l'applicazione potrebbe eseguire una chiamata al database per registrare la visualizzazione della pagina da parte dell'utente. Tuttavia è possibile conseguire livelli maggiori di prestazioni e scalabilità mediante il buffering delle attività di navigazione dell'utente e quindi inviando i dati al database in batch. È possibile attivare l'aggiornamento del database in base al tempo trascorso e/o alle dimensioni del buffer. Ad esempio, una regola potrebbe indicare che il batch deve essere elaborato dopo 20 secondi o quando il buffer raggiunge i 1000 elementi.
 
-L'esempio di codice seguente usa [Reactive Extensions - Rx](https://docs.microsoft.com/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) per elaborare eventi memorizzati nel buffer generati da una classe di monitoraggio. Quando il buffer si riempie o si raggiunge un timeout, il batch di dati utente viene inviato al database con un parametro con valori di tabella.
+L'esempio di codice seguente usa [Reactive Extensions - Rx](/previous-versions/dotnet/reactive-extensions/hh242985(v=vs.103)) per elaborare eventi memorizzati nel buffer generati da una classe di monitoraggio. Quando il buffer si riempie o si raggiunge un timeout, il batch di dati utente viene inviato al database con un parametro con valori di tabella.
 
 La classe NavHistoryData seguente modella i dettagli di navigazione dell'utente. Contiene informazioni di base quali l'identificatore utente, l'URL a cui si accede e l'ora di accesso.
 

@@ -11,17 +11,17 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 06/12/2020
-ms.openlocfilehash: 5fd0f14f4bbc919efd5b3c236b13654574d456d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 488d10906039327d830bfb6bcffc3163d65ad01e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334974"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792039"
 ---
 # <a name="use-the-intelligent-insights-performance-diagnostics-log-of-azure-sql-database-and-azure-sql-managed-instance-performance-issues"></a>Usare il log di diagnostica delle prestazioni Intelligent Insights dei problemi di prestazioni del database SQL di Azure e di Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Questa pagina contiene informazioni su come usare il log di diagnostica delle prestazioni generato da [Intelligent Insights](intelligent-insights-overview.md) del database SQL di Azure e di azure SQL istanza gestita problemi di prestazioni, il formato e i dati in esso contenuti per le esigenze di sviluppo personalizzate. È possibile inviare questo log di diagnostica a [log di monitoraggio di Azure](../../azure-monitor/insights/azure-sql.md), [Hub eventi di Azure](../../azure-monitor/platform/resource-logs-stream-event-hubs.md), archiviazione di [Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)o una soluzione di terze parti per le funzionalità di avviso e creazione di report di DevOps personalizzate.
+Questa pagina contiene informazioni su come usare il log di diagnostica delle prestazioni generato da [Intelligent Insights](intelligent-insights-overview.md) del database SQL di Azure e di azure SQL istanza gestita problemi di prestazioni, il formato e i dati in esso contenuti per le esigenze di sviluppo personalizzate. È possibile inviare questo log di diagnostica a [log di monitoraggio di Azure](../../azure-monitor/insights/azure-sql.md), [Hub eventi di Azure](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs), archiviazione di [Azure](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#stream-into-azure-storage)o una soluzione di terze parti per le funzionalità di avviso e creazione di report di DevOps personalizzate.
 
 > [!NOTE]
 > Intelligent Insights è una funzionalità di anteprima, non disponibile nelle aree geografiche seguenti: Europa occidentale, Europa settentrionale, Stati Uniti occidentali 1 e Stati Uniti orientali 1.
@@ -144,5 +144,5 @@ L'ultima parte del log delle prestazioni di Intelligent Insights riguarda l'anal
 
 - Informazioni sui concetti di [Intelligent Insights](intelligent-insights-overview.md).
 - Informazioni su come [risolvere i problemi relativi alle prestazioni con Intelligent Insights](intelligent-insights-troubleshoot-performance.md).
-- Informazioni su come [monitorare i problemi di prestazioni usando analisi SQL di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Informazioni su come [monitorare i problemi di prestazioni usando analisi SQL di Azure](../../azure-monitor/insights/azure-sql.md).
+- Informazioni su come [raccogliere e usare i dati dei log dalle risorse di Azure](../../azure-monitor/platform/platform-logs-overview.md).

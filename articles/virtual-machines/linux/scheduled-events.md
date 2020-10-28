@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.date: 06/01/2020
 ms.author: ericrad
 ms.reviewer: mimckitt
-ms.openlocfilehash: 265b99fb985602604eefee27d722b4dc8d7593a8
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 99528d1575056917b68bcb38f41a24d065822827
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970385"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792804"
 ---
 # <a name="azure-metadata-service-scheduled-events-for-linux-vms"></a>Servizio metadati di Azure: Eventi pianificati per macchine virtuali Linux
 
@@ -154,6 +154,10 @@ Ogni evento è pianificato con un ritardo minimo che dipende dal tipo di evento.
 
 > [!NOTE] 
 > In alcuni casi, Azure è in grado di stimare gli errori dell'host dovuti ad hardware danneggiato e tenterà di attenuare le interruzioni del servizio tramite la pianificazione di una migrazione. Le macchine virtuali interessate riceveranno un evento pianificato con un elemento `NotBefore` che in genere equivale a pochi giorni in futuro. Il tempo effettivo varia a seconda della valutazione del rischio di errore stimato. Quando possibile, Azure prova a fornire un preavviso di 7 giorni, ma il tempo effettivo varia e potrebbe essere inferiore se la stima indica che potrebbe verificarsi un problema di hardware imminente. Per ridurre al minimo i rischi per il servizio qualora l'hardware presenti un guasto prima della migrazione avviata dal sistema, è consigliabile eseguire la ridistribuzione automatica della macchina virtuale appena possibile.
+
+### <a name="polling-frequency"></a>Frequenza di polling
+
+È possibile eseguire il polling dell'endpoint per la disponibilità di aggiornamenti con la frequenza desiderata. Tuttavia, maggiore è il tempo tra le richieste, più tempo si perde potenzialmente per rispondere a un evento imminente. La maggior parte degli eventi ha un preavviso compreso tra 5 e 15 minuti, sebbene in alcuni casi il preavviso potrebbe essere minimo di 30 secondi. Per assicurarsi che il tempo necessario per eseguire le azioni di mitigazione sia il più possibile, è consigliabile eseguire il polling del servizio una volta al secondo.
 
 ### <a name="start-an-event"></a>Avviare un evento 
 

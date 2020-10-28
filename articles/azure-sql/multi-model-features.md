@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: ''
 ms.date: 12/17/2018
-ms.openlocfilehash: 59a709a206eb29b875272674ee19e414023cc37f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d5a067272caf9b072117ba57b7b16f8d78a8b456
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87073310"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791648"
 ---
 # <a name="multi-model-capabilities-of-azure-sql-database--sql-managed-instance"></a>Funzionalità multimodello del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
@@ -44,7 +44,7 @@ La famiglia di prodotti SQL di Azure offre le seguenti funzionalità multimodell
 - Le [coppie chiave-valore](#key-value-pairs) non sono supportate in modo esplicito come funzionalità speciali perché le coppie chiave-valore possono essere modellate in modo nativo come tabelle a due colonne.
 
   > [!Note]
-  > È possibile usare espressioni di percorso JSON, espressioni XQuery o XPath, funzioni spaziali ed espressioni query-grafo nella stessa query Transact-SQL per accedere ai dati archiviati nel database. Inoltre, qualsiasi strumento o linguaggio di programmazione in grado di eseguire query Transact-SQL può usare quell'interfaccia di query per accedere ai dati multimodello. Questa è la differenza principale rispetto ai database multimodello, come ad esempio [Azure Cosmos DB](/azure/cosmos-db/) che fornisce API specializzate per diversi modelli di dati.
+  > È possibile usare espressioni di percorso JSON, espressioni XQuery o XPath, funzioni spaziali ed espressioni query-grafo nella stessa query Transact-SQL per accedere ai dati archiviati nel database. Inoltre, qualsiasi strumento o linguaggio di programmazione in grado di eseguire query Transact-SQL può usare quell'interfaccia di query per accedere ai dati multimodello. Questa è la differenza principale rispetto ai database multimodello, come ad esempio [Azure Cosmos DB](../cosmos-db/index.yml) che fornisce API specializzate per diversi modelli di dati.
 
 Nelle sezioni seguenti sono disponibili informazioni sulle più importanti funzionalità multimodello della famiglia di prodotti SQL di Azure.
 
@@ -142,7 +142,7 @@ CREATE TABLE Collection (
 
 È possibile personalizzare questa struttura chiave-valore per soddisfare le esigenze senza alcun vincolo. Ad esempio, il valore può essere documento XML anziché tipo `nvarchar(max)`, se il valore è documento JSON, è possibile inserire il vincolo `CHECK` che verifica la validità del contenuto JSON. È possibile inserire un numero qualsiasi di valori correlati a una chiave nelle colonne aggiuntive, aggiungere colonne calcolate e indici per semplificare e ottimizzare l'accesso ai dati, definire la tabella come tabella solo schema ottimizzata per la memoria per ottenere prestazioni migliori e così via.
 
-Vedere [come BWin sta usando OLTP in memoria per ottenere prestazioni e ridimensionamento senza precedenti](https://blogs.msdn.microsoft.com/sqlcat/20../../how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale/) per la soluzione di memorizzazione nella cache ASP.NET che ha raggiunto 1.200.000 batch al secondo, per un esempio di come il modello relazionale può essere usato in modo efficace nella pratica come soluzione per coppia chiave-valore.
+Vedere [come BWin sta usando OLTP in memoria per ottenere prestazioni e ridimensionamento senza precedenti](/archive/blogs/sqlcat/how-bwin-is-using-sql-server-2016-in-memory-oltp-to-achieve-unprecedented-performance-and-scale) per la soluzione di memorizzazione nella cache ASP.NET che ha raggiunto 1.200.000 batch al secondo, per un esempio di come il modello relazionale può essere usato in modo efficace nella pratica come soluzione per coppia chiave-valore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake
 ms.date: 09/30/2020
-ms.openlocfilehash: 44dafd1b0043c2daa7065069f571f13529303a73
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4473ea304176615c35205494f342922869b71ea
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91614428"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793144"
 ---
 # <a name="vcore-model-overview---azure-sql-database-and-azure-sql-managed-instance"></a>Panoramica del modello vCore: database SQL di Azure e Istanza gestita SQL di Azure 
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -34,8 +34,8 @@ Le opzioni del livello di servizio nel modello vCore includono per utilizzo gene
 |-|**Utilizzo generico**|**Business Critical**|**Hyperscale**|
 |---|---|---|---|
 |Ideale per|La maggior parte dei carichi di lavoro aziendali. Offre opzioni di calcolo e archiviazione orientate al budget, bilanciate e scalabili. |Offre alle applicazioni aziendali la massima resilienza agli errori usando diverse repliche isolate e fornisce le massime prestazioni di I/O per ogni replica di database.|La maggior parte dei carichi di lavoro aziendali con requisiti di archiviazione e scalabilità a scalabilità elevata.  Offre una maggiore resilienza agli errori consentendo la configurazione di più di una replica di database isolata. |
-|Archiviazione|Usa l'archiviazione remota.<br/>**Calcolo con provisioning del database SQL**:<br/>5 GB - 4 TB<br/>**Calcolo senza server**:<br/>5 GB-3 TB<br/>**Istanza gestita SQL**: 32 GB-8 TB |Usa l'archiviazione SSD locale.<br/>**Calcolo con provisioning del database SQL**:<br/>5 GB - 4 TB<br/>**Istanza gestita SQL**:<br/>32 GB - 4 TB |Aumento automatico delle dimensioni dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di spazio di archiviazione. Usa l'archiviazione SSD locale per la cache locale del pool di buffer e l'archiviazione dei dati locali. Usa l'archiviazione remota di Azure come archivio dati finale a lungo termine. |
-|IOPS e velocità effettiva (approssimativa)|**Database SQL**: vedere i limiti delle risorse per i [database singoli](resource-limits-vcore-single-databases.md) e i [pool elastici](resource-limits-vcore-elastic-pools.md).<br/>**Istanza gestita SQL**: vedere [Panoramica dei limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md#service-tier-characteristics).|Vedere limiti delle risorse per [database singoli](resource-limits-vcore-single-databases.md) e [pool elastici](resource-limits-vcore-elastic-pools.md).|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. I IOPS e la velocità effettiva effettivi dipendono dal carico di lavoro.|
+|Archiviazione|Usa l'archiviazione remota.<br/>**Calcolo con provisioning del database SQL** :<br/>5 GB - 4 TB<br/>**Calcolo senza server** :<br/>5 GB-3 TB<br/>**Istanza gestita SQL** : 32 GB-8 TB |Usa l'archiviazione SSD locale.<br/>**Calcolo con provisioning del database SQL** :<br/>5 GB - 4 TB<br/>**Istanza gestita SQL** :<br/>32 GB - 4 TB |Aumento automatico delle dimensioni dello spazio di archiviazione in base alle esigenze. Supporta fino a 100 TB di spazio di archiviazione. Usa l'archiviazione SSD locale per la cache locale del pool di buffer e l'archiviazione dei dati locali. Usa l'archiviazione remota di Azure come archivio dati finale a lungo termine. |
+|IOPS e velocità effettiva (approssimativa)|**Database SQL** : vedere i limiti delle risorse per i [database singoli](resource-limits-vcore-single-databases.md) e i [pool elastici](resource-limits-vcore-elastic-pools.md).<br/>**Istanza gestita SQL** : vedere [Panoramica dei limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md#service-tier-characteristics).|Vedere limiti delle risorse per [database singoli](resource-limits-vcore-single-databases.md) e [pool elastici](resource-limits-vcore-elastic-pools.md).|La funzionalità iperscalabile è un'architettura a più livelli con memorizzazione nella cache a più livelli. I IOPS e la velocità effettiva effettivi dipendono dal carico di lavoro.|
 |Disponibilità|1 replica, nessuna replica con scalabilità in lettura|3 repliche, 1 [replica scalabilità in lettura](read-scale-out.md),<br/>disponibilità elevata con ridondanza della zona (HA)|1 replica di lettura/scrittura, più 0-4 [repliche con scalabilità in lettura](read-scale-out.md)|
 |Backup|[Archiviazione con ridondanza geografica e accesso in lettura (RA-GRS)](../../storage/common/geo-redundant-design.md), 7-35 giorni (7 giorni per impostazione predefinita)|[RA-GRS](../..//storage/common/geo-redundant-design.md), 7-35 giorni (7 giorni per impostazione predefinita)|Backup basati su snapshot nell'archiviazione remota di Azure. Questi snapshot vengono usati per il ripristino rapido. I backup sono istantanei e non influiscano sulle prestazioni di I/O di calcolo. I ripristini sono veloci e non sono un'operazione di dimensioni dei dati (che richiede minuti anziché ore o giorni).|
 |In memoria|Non supportato|Supportato|Non supportato|
@@ -111,7 +111,7 @@ To enable M-series hardware for a subscription and region, a support request mus
 |Serie Fsv2     |-Processori Intel® 8168 (Skylake)<br>-Con una velocità massima di clock core a 3,4 GHz e una velocità massima di clock singolo core di 3,7 GHz.<br>-Provisioning fino a 72 Vcore (1 vCore = 1 Hyper-thread)|-1,9 GB per vCore<br>-Effettuare il provisioning fino a 136 GB|
 |Serie M     |-Intel® E7-8890 V3 2,5 GHz e processori Intel® 8280M 2,7 GHz (Cascade Lake)<br>-Provisioning fino a 128 Vcore (1 vCore = 1 Hyper-thread)|-29 GB per vCore<br>-Effettuare il provisioning fino a 3,7 TB|
 
-\* Nella vista a gestione dinamica [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) la generazione di hardware per i database che usano processori Intel® SP-8160 (Skylake) viene visualizzata come Gen6, mentre la generazione hardware per i database che usano Intel® 8272CL (Cascade Lake) viene visualizzata come GEN7. I limiti delle risorse per tutti i database quinta generazione sono gli stessi indipendentemente dal tipo di processore (Broadwell, Skylake o Cascade Lake).
+\* Nella vista a gestione dinamica [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) la generazione di hardware per i database che usano processori Intel® SP-8160 (Skylake) viene visualizzata come Gen6, mentre la generazione hardware per i database che usano Intel® 8272CL (Cascade Lake) viene visualizzata come GEN7. I limiti delle risorse per tutti i database quinta generazione sono gli stessi indipendentemente dal tipo di processore (Broadwell, Skylake o Cascade Lake).
 
 Per altre informazioni sui limiti delle risorse, vedere [limiti delle risorse per i database singoli (vCore)](resource-limits-vcore-single-databases.md)o [limiti delle risorse per i pool elastici (vCore)](resource-limits-vcore-elastic-pools.md).
 
@@ -138,7 +138,7 @@ Per un database, nella pagina Panoramica selezionare il collegamento piano **tar
 
   ![modifica dell'hardware](./media/service-tiers-vcore/change-hardware.png)
 
-Per un pool, nella pagina Overview (panoramica) selezionare **Configure (Configura**).
+Per un pool, nella pagina Overview (panoramica) selezionare **Configure (Configura** ).
 
 Seguire i passaggi per modificare la configurazione e selezionare la generazione hardware come descritto nei passaggi precedenti.
 
@@ -168,7 +168,7 @@ Usare lo script di PowerShell seguente:
 Set-AzSqlInstance -Name "managedinstance1" -ResourceGroupName "ResourceGroup01" -ComputeGeneration Gen5
 ```
 
-Per ulteriori informazioni, vedere il comando [set-AzSqlInstance](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlinstance) .
+Per ulteriori informazioni, vedere il comando [set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) .
 
 # <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -178,7 +178,7 @@ Usare il comando dell'interfaccia della riga di comando seguente:
 az sql mi update -g mygroup -n myinstance --family Gen5
 ```
 
-Per altri dettagli, vedere comando [AZ SQL mi Update](https://docs.microsoft.com/cli/azure/sql/mi#az-sql-mi-update) .
+Per altri dettagli, vedere comando [AZ SQL mi Update](/cli/azure/sql/mi#az-sql-mi-update) .
 
 ---
 
@@ -238,5 +238,4 @@ Per informazioni dettagliate sulle dimensioni di calcolo e archiviazione specifi
 
 - [limiti delle risorse basate su vCore per il database SQL di Azure](resource-limits-vcore-single-databases.md).
 - [limiti delle risorse basate su vCore per il database SQL di Azure in pool](resource-limits-vcore-elastic-pools.md).
-- [limiti delle risorse basate su vCore per istanza gestita SQL di Azure](../managed-instance/resource-limits.md). 
-
+- [limiti delle risorse basate su vCore per istanza gestita SQL di Azure](../managed-instance/resource-limits.md).

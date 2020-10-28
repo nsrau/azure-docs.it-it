@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein
 ms.date: 09/05/2019
-ms.openlocfilehash: 5798220ad92a99f32f757ffa20f9233b8c79151b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 732a9bab018103321a9a3a759b31495bd67a209e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617435"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793110"
 ---
 # <a name="deploy-azure-sql-managed-instance-to-an-instance-pool"></a>Distribuire Istanza gestita SQL di Azure in un pool di istanze
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -41,7 +41,7 @@ La tabella seguente illustra le operazioni disponibili correlate ai pool di ista
 |Creare un database nell'istanza nel pool|Sì|Sì|
 |Eliminare un database da SQL Istanza gestita|Sì|Sì|
 
-[Comandi di PowerShell](https://docs.microsoft.com/powershell/module/az.sql/)disponibili:
+[Comandi di PowerShell](/powershell/module/az.sql/)disponibili:
 
 |Cmdlet |Descrizione |
 |:---|:---|
@@ -52,7 +52,7 @@ La tabella seguente illustra le operazioni disponibili correlate ai pool di ista
 |[Get-AzSqlInstancePoolUsage](/powershell/module/az.sql/get-azsqlinstancepoolusage/) | Restituisce informazioni sull'utilizzo del pool di SQL Istanza gestita. |
 
 
-Per usare PowerShell, [installare la versione più recente di PowerShell Core](https://docs.microsoft.com/powershell/scripting/install/installing-powershell#powershell) e seguire le istruzioni per [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+Per usare PowerShell, [installare la versione più recente di PowerShell Core](/powershell/scripting/install/installing-powershell#powershell) e seguire le istruzioni per [installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 
 Per le operazioni correlate alle istanze sia all'interno di pool che singole, usare i [comandi per istanze gestite](api-references-create-manage-instance.md#powershell-create-and-configure-managed-instances) standard. La proprietà *instance pool name* deve essere popolata quando si usano questi comandi per un'istanza in un pool.
 

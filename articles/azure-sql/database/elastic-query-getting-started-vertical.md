@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: 089cc8f22248a2b7152afaf951f6028a05682648
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd8a30c60c81ef2761d5dc051d2dfeb300e1bac4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443319"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792124"
 ---
 # <a name="get-started-with-cross-database-queries-vertical-partitioning-preview"></a>Introduzione alle query tra database (partizionamento verticale) (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -33,7 +33,7 @@ L'autorizzazione ALTER ANY EXTERNAL DATA SOURCE è obbligatoria. Questa autorizz
 
 ## <a name="create-the-sample-databases"></a>Creare i database di esempio
 
-Per iniziare, creare due database, **Customers** e **Orders**, nello stesso server o in server diversi.
+Per iniziare, creare due database, **Customers** e **Orders** , nello stesso server o in server diversi.
 
 Eseguire le query seguenti sul database **Orders** per creare la tabella **OrderInformation** e inserire i dati di esempio.
 
@@ -117,7 +117,7 @@ INNER JOIN CustomerInformation
 ON CustomerInformation.CustomerID = OrderInformation.CustomerID
 ```
 
-## <a name="cost"></a>Cost
+## <a name="cost"></a>Costi
 
 Attualmente, la funzionalità di query del database elastico è compresa nel costo del database SQL di Azure.  
 
@@ -129,4 +129,4 @@ Per informazioni sui prezzi, vedere [prezzi del database SQL](https://azure.micr
 * Per le query di esempio e sintassi per i dati con partizionamento verticale, vedere [Eseguire query su dati con partizionamento verticale](elastic-query-vertical-partitioning.md)
 * Per un'esercitazione sul partizionamento orizzontale, vedere la [guida introduttiva alle query elastiche per il partizionamento orizzontale](elastic-query-getting-started.md).
 * Per le query di esempio e sintassi per i dati con partizionamento orizzontale, vedere [Eseguire query su dati con partizionamento orizzontale](elastic-query-horizontal-partitioning.md)
-* Vedere [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) per una stored procedure che esegue un'istruzione Transact-SQL su un singolo database SQL di Azure remoto o un set di database che fungono da partizioni in uno schema di partizionamento orizzontale.
+* Vedere [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) per una stored procedure che esegue un'istruzione Transact-SQL su un singolo database SQL di Azure remoto o un set di database che fungono da partizioni in uno schema di partizionamento orizzontale.

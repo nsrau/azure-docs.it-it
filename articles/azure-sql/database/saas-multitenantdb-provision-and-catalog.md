@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: 0b381e2dbdbfd30d10f37637b30bcdfbab8ed99a
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: eddb0c8339069025f0742e9bcbc371efbef094ee
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331941"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793331"
 ---
 # <a name="provision-and-catalog-new-tenants-in-a-saas-application-using-a-sharded-multi-tenant-azure-sql-database"></a>Effettuare il provisioning di nuovi tenant e catalogarli in un'applicazione SaaS con un database SQL di Azure partizionato multi-tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -127,9 +127,9 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
-- Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
+- Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](/powershell/azure/get-started-azureps)
 
-- È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](../../sql-database/saas-multitenantdb-get-started-deploy.md)
+- È stata distribuita l'app SaaS di database multi-tenant Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](./saas-multitenantdb-get-started-deploy.md)
 
 - Ottenere gli script e il codice sorgente di Wingtip:
     - Gli script e il codice sorgente dell'applicazione SaaS di database multi-tenant Wingtip Tickets sono disponibili nel repository [WingtipTicketsSaaS-MultiTenantDB](https://github.com/microsoft/WingtipTicketsSaaS-MultiTenantDB) di GitHub.
@@ -173,7 +173,7 @@ Per comprendere in che modo l'app Wingtip implementi il nuovo provisioning di te
 
 5. Tenere traccia dell'esecuzione dello script usando le opzioni del menu **Debug****F10** e **F11** per eseguire le istruzioni delle funzioni chiamate.
 
-Per altre informazioni sul debug degli script di PowerShell, vedere [Suggerimenti per l'utilizzo e il debug degli script di PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+Per altre informazioni sul debug degli script di PowerShell, vedere [Suggerimenti per l'utilizzo e il debug degli script di PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 ## <a name="provision-a-tenant-in-its-own-database"></a>Effettuare il provisioning di un tenant in un database *autonomo*
 
@@ -263,9 +263,9 @@ Questo tipo di servizio automatizzato può essere semplice o complesso. Ad esemp
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-<!-- - Additional [tutorials that build upon the Wingtip SaaS application](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
+<!-- - Additional [tutorials that build upon the Wingtip SaaS application](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials)-->
 - [Libreria client dei database elastici](elastic-database-client-library.md)
-- [Modalità di esecuzione del debug degli script in Windows PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
+- [Modalità di esecuzione del debug degli script in Windows PowerShell ISE](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise)
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -277,5 +277,4 @@ In questa esercitazione si è appreso come:
 > * Effettuare il provisioning di un batch di altri tenant
 > * Eseguire in dettaglio le procedure per il provisioning dei tenant e la relativa registrazione nel catalogo
 
-Provare l'[Esercitazione sul monitoraggio delle prestazioni](../../sql-database/saas-multitenantdb-performance-monitoring.md).
-
+Provare l'[Esercitazione sul monitoraggio delle prestazioni](./saas-multitenantdb-performance-monitoring.md).

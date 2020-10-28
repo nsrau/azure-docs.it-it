@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/27/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae00703805bef6f5e9758bafcb781eda91cd93f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60f781ddfa5717bbe5bcbb05ec8c236c8594c587
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272158"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793093"
 ---
 # <a name="what-is-sql-server-on-azure-virtual-machines-windows"></a>Cos'è SQL Server in macchine virtuali di Azure (Windows)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "91272158"
 
 [SQL Server in macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/) consente di usare le versioni complete di SQL Server nel cloud senza la necessità di gestire hardware in locale. Le VM di SQL Server semplificano inoltre i costi delle licenze si sceglie il modello con pagamento in base al consumo.
 
-Le macchine virtuali di Azure vengono eseguite in diverse [aree geografiche](https://azure.microsoft.com/regions/) in tutto il mondo. Offrono anche un'ampia gamma di [dimensioni](../../../virtual-machines/windows/sizes.md). La raccolta di immagini di macchine virtuali consente di creare una VM di SQL Server con la versione, l'edizione e il sistema operativo appropriati. Le macchine virtuali rappresentano quindi un'opzione valida per molti carichi di lavoro diversi di SQL Server.
+Le macchine virtuali di Azure vengono eseguite in diverse [aree geografiche](https://azure.microsoft.com/regions/) in tutto il mondo. Offrono anche un'ampia gamma di [dimensioni](../../../virtual-machines/sizes.md). La raccolta di immagini di macchine virtuali consente di creare una VM di SQL Server con la versione, l'edizione e il sistema operativo appropriati. Le macchine virtuali rappresentano quindi un'opzione valida per molti carichi di lavoro diversi di SQL Server.
 
 Se non si ha familiarità con SQL Server in macchine virtuali di Azure, vedere il video *Panoramica di SQL Server in macchine virtuali di Azure* della [serie di video approfonditi su Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner):
 > [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/SQL-Server-on-Azure-VM-Overview-4-of-61/player]
@@ -42,7 +42,7 @@ SQL Server in macchine virtuali di Azure può usare l'[applicazione automatica d
 
 SQL Server in macchine virtuali di Azure può sfruttare il [backup automatico](automated-backup.md), che crea periodicamente backup del database nell'archiviazione BLOB. È anche possibile usare questa tecnica manualmente. Per altre informazioni, vedere [Usare Archiviazione di Azure per il backup e il ripristino di SQL Server](azure-storage-sql-server-backup-restore-use.md).
 
-Azure offre anche una soluzione di backup di livello aziendale per SQL Server in esecuzione in macchine virtuali di Azure. Si tratta di una soluzione di backup completamente gestita che supporta gruppi di disponibilità Always On, conservazione a lungo termine, recupero temporizzato e gestione e monitoraggio centralizzati. Per altre informazioni, vedere [Backup di Azure per SQL Server in macchine virtuali di Azure](https://docs.microsoft.com/azure/backup/backup-azure-sql-database).
+Azure offre anche una soluzione di backup di livello aziendale per SQL Server in esecuzione in macchine virtuali di Azure. Si tratta di una soluzione di backup completamente gestita che supporta gruppi di disponibilità Always On, conservazione a lungo termine, recupero temporizzato e gestione e monitoraggio centralizzati. Per altre informazioni, vedere [Backup di Azure per SQL Server in macchine virtuali di Azure](../../../backup/backup-azure-sql-database.md).
   
 
 ## <a name="high-availability"></a>Disponibilità elevata
@@ -109,18 +109,18 @@ Se esiste già un database, è possibile spostarlo nella nuova VM di SQL Server 
 
 Il portale di Azure offre un'unica pagina in cui è possibile gestire [tutte le risorse SQL di Azure](https://portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Sql%2Fazuresql), incluse le macchine virtuali SQL.
 
-Per accedere alla pagina delle **risorse SQL di Azure**, selezionare **SQL di Azure** nel menu del portale di Azure oppure cercare e selezionare **SQL di Azure** da qualsiasi pagina.
+Per accedere alla pagina delle **risorse SQL di Azure** , selezionare **SQL di Azure** nel menu del portale di Azure oppure cercare e selezionare **SQL di Azure** da qualsiasi pagina.
 
 ![Ricerca di SQL di Azure](./media/sql-server-on-azure-vm-iaas-what-is-overview/search-for-azure-sql.png)
 
 > [!NOTE]
 > SQL di Azure offre un modo semplice e rapido per accedere a tutti i database SQL, i pool elastici, i server logici, le istanze gestite e le macchine virtuali di Azure. SQL di Azure non è un servizio o una risorsa. 
 
-Per gestire le risorse esistenti, selezionare un elemento nell'elenco. Per creare nuove risorse SQL di Azure, selezionare **+ Aggiungi**. 
+Per gestire le risorse esistenti, selezionare un elemento nell'elenco. Per creare nuove risorse SQL di Azure, selezionare **+ Aggiungi** . 
 
 ![Creare una risorsa SQL di Azure](./media/sql-server-on-azure-vm-iaas-what-is-overview/create-azure-sql-resource.png)
 
-Dopo aver selezionato **+ Aggiungi**, per visualizzare informazioni aggiuntive sulle diverse opzioni, selezionare **Mostra dettagli** in qualsiasi riquadro.
+Dopo aver selezionato **+ Aggiungi** , per visualizzare informazioni aggiuntive sulle diverse opzioni, selezionare **Mostra dettagli** in qualsiasi riquadro.
 
 ![Dettagli riquadro database](./media/sql-server-on-azure-vm-iaas-what-is-overview/sql-vm-details.png)
 
@@ -135,7 +135,7 @@ Per informazioni dettagliate, vedere:
 Azure gestisce una sola immagine di macchina virtuale per ogni combinazione supportata di sistema operativo, versione ed edizione. Ciò significa che le immagini vengono aggiornate nel tempo e quelle meno recenti vengono rimosse. Per altre informazioni, vedere la sezione **Immagini** delle [domande frequenti sulle macchine virtuali SQL Server](frequently-asked-questions-faq.md#images).
 
 ## <a name="customer-experience-improvement-program-ceip"></a>Analisi utilizzo software
-Il programma Analisi utilizzo software è abilitato per impostazione predefinita. Invia periodicamente report a Microsoft per contribuire a migliorare SQL Server. Non sono necessarie attività di gestione per il programma Analisi utilizzo software, a meno che non lo si voglia disabilitare dopo il provisioning. È possibile personalizzare o disabilitare Analisi utilizzo software connettendosi alla VM con Desktop remoto. Eseguire quindi l'utilità **Segnalazione errori e utilizzo funzionalità di SQL Server** . Seguire le istruzioni per disabilitare il reporting. Per altre informazioni sulla raccolta di dati, vedere l'[informativa sulla privacy di SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-privacy).
+Il programma Analisi utilizzo software è abilitato per impostazione predefinita. Invia periodicamente report a Microsoft per contribuire a migliorare SQL Server. Non sono necessarie attività di gestione per il programma Analisi utilizzo software, a meno che non lo si voglia disabilitare dopo il provisioning. È possibile personalizzare o disabilitare Analisi utilizzo software connettendosi alla VM con Desktop remoto. Eseguire quindi l'utilità **Segnalazione errori e utilizzo funzionalità di SQL Server** . Seguire le istruzioni per disabilitare il reporting. Per altre informazioni sulla raccolta di dati, vedere l'[informativa sulla privacy di SQL Server](/sql/sql-server/sql-server-privacy).
 
 ## <a name="related-products-and-services"></a>Prodotti e servizi correlati
 ### <a name="windows-virtual-machines"></a>Macchine virtuali Windows
@@ -150,7 +150,7 @@ Il programma Analisi utilizzo software è abilitato per impostazione predefinita
 * [Creare un nome di dominio completo nel portale di Azure](../../../virtual-machines/linux/portal-create-fqdn.md)
 
 ### <a name="sql"></a>SQL
-* [Documentazione di SQL Server](https://docs.microsoft.com/sql/index)
+* [Documentazione di SQL Server](/sql/index)
 * [Confronto con il database SQL di Azure](../../azure-sql-iaas-vs-paas-what-is-overview.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -165,5 +165,5 @@ Risposte alle domande comuni sulle VM di SQL Server:
 
 Visualizzare le architetture di riferimento per l'esecuzione di applicazioni a più livelli in SQL Server in IaaS
 
-* [Applicazione a più livelli Windows in Azure con SQL Server](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
-* [Eseguire un'applicazione a più livelli in più aree di Azure per una disponibilità elevata](https://docs.microsoft.com/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)
+* [Applicazione a più livelli Windows in Azure con SQL Server](/azure/architecture/reference-architectures/n-tier/n-tier-sql-server)
+* [Eseguire un'applicazione a più livelli in più aree di Azure per una disponibilità elevata](/azure/architecture/reference-architectures/n-tier/multi-region-sql-server)

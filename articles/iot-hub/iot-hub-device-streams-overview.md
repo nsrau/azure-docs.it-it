@@ -11,12 +11,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - 'Role: Technical Support'
-ms.openlocfilehash: 8194f520abf5c8d4e47fa279f6cf82013024e9ec
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: bdd9d5fd878094326331e60fc1a639eef08b7ea3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152170"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792464"
 ---
 # <a name="iot-hub-device-streams-preview"></a>Device Streams di Hub IoT (anteprima)
 
@@ -56,7 +57,7 @@ La creazione a livello di codice di un flusso dispositivo tramite SDK include i 
 
 1. L'applicazione del dispositivo registra anticipatamente un callback di cui ricevere notifica quando viene avviato un nuovo flusso dispositivo nel dispositivo. In genere questo passaggio si verifica quando il dispositivo viene avviato e si connette all'hub IoT.
 
-2. Il programma del lato servizio avvia un flusso dispositivo quando necessario fornendo l'ID dispositivo (_non_ l'indirizzo IP).
+2. Il programma del lato servizio avvia un flusso dispositivo quando necessario fornendo l'ID dispositivo ( _non_ l'indirizzo IP).
 
 3. L'hub IoT informa il programma del lato dispositivo richiamando il callback registrato nel passaggio 1. Il dispositivo può accettare o rifiutare la richiesta di avvio flusso. Questa logica può essere specifica per lo scenario dell'applicazione. Se la richiesta di streaming viene rifiutata dal dispositivo, l'hub IoT informa il servizio di conseguenza; in caso contrario, attenersi alla procedura seguente.
 
@@ -103,7 +104,7 @@ L'output è un oggetto JSON di tutti gli endpoint a cui il servizio e il disposi
 ```
 
 > [!NOTE]
-> Verificare che sia installata l'interfaccia della riga di comando di Azure versione 2.0.57 o successiva. È possibile scaricare la versione più recente dalla pagina di [installazione dell'interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure.
+> Verificare che sia installata l'interfaccia della riga di comando di Azure versione 2.0.57 o successiva. È possibile scaricare la versione più recente dalla pagina di [installazione dell'interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure.
 >
 
 ## <a name="allow-outbound-connectivity-to-the-device-streaming-endpoints"></a>Consenti la connettività in uscita agli endpoint di streaming del dispositivo
@@ -119,34 +120,34 @@ az iot hub devicestream show --name <YourIoTHubName>
 ```
 
 > [!NOTE]
-> Verificare che sia installata l'interfaccia della riga di comando di Azure versione 2.0.57 o successiva. È possibile scaricare la versione più recente dalla pagina di [installazione dell'interfaccia](/cli/azure/install-azure-cli?view=azure-cli-latest) della riga di comando di Azure.
+> Verificare che sia installata l'interfaccia della riga di comando di Azure versione 2.0.57 o successiva. È possibile scaricare la versione più recente dalla pagina di [installazione dell'interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure.
 >
 
-## <a name="troubleshoot-via-device-streams-activity-logs"></a>Risolvere i problemi tramite i log attività di Device Streams
+## <a name="troubleshoot-via-device-streams-resource-logs"></a>Risolvere i problemi tramite i log delle risorse dei flussi del dispositivo
 
-È possibile configurare i log di monitoraggio di Azure per raccogliere il log attività dei flussi del dispositivo nell'hub Internet delle cose. Ciò può essere molto utile in scenari di risoluzione dei problemi.
+È possibile configurare monitoraggio di Azure per raccogliere i [log delle risorse per i flussi del dispositivo](monitor-iot-hub-reference.md#device-streams-preview) emessi dall'hub Internet delle cose. Ciò può essere molto utile in scenari di risoluzione dei problemi.
 
-Attenersi alla procedura seguente per configurare i log di monitoraggio di Azure per le attività del flusso di dispositivi dell'hub.
+Attenersi alla procedura seguente per creare un'impostazione di diagnostica per inviare i log dei flussi del dispositivo per l'hub di Internet delle cose ai log di monitoraggio di Azure:
 
-1. Passare alla scheda *Impostazioni di diagnostica* nell'hub IoT e fare clic sul collegamento *Attiva diagnostica*.
+1. In portale di Azure passare all'hub Internet. Nel riquadro sinistro, in **monitoraggio** , selezionare **impostazioni di diagnostica** . Quindi selezionare **Aggiungi impostazioni di diagnostica** .
 
-   !["Abilitazione dei log di diagnostica"](./media/iot-hub-device-streams-overview/device-streams-diagnostics-settings-pane.png)
+2. Specificare un nome per l'impostazione di diagnostica e selezionare **DeviceStreams** nell'elenco dei log. Selezionare quindi **Invia a log Analytics** . Verrà richiesto di scegliere un'area di lavoro Log Analytics esistente o crearne una nuova.
 
-2. Specificare un nome per le impostazioni di diagnostica e scegliere l'opzione *Invia a Log Analytics*. Verrà richiesto di scegliere una risorsa dell'area di lavoro Log Analytics esistente o di crearne una nuova. Inoltre, controllare *DeviceStreams* nell'elenco.
+    :::image type="content" source="media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png" alt-text="Abilitare i log dei flussi del dispositivo":::
 
-    !["Abilitare i log dei flussi del dispositivo"](./media/iot-hub-device-streams-overview/device-streams-configure-diagnostics.png)
-
-3. È ora possibile accedere ai log di flussi dispositivo nella scheda*Log* del portale dell'hub IoT. I log attività di flusso dispositivo verranno visualizzati nella tabella `AzureDiagnostics` e avranno `Category=DeviceStreams`.
+3. Dopo aver creato un'impostazione di diagnostica per inviare i log dei flussi del dispositivo a un'area di lavoro di Log Analytics, è possibile accedere ai log selezionando i **log** sotto **monitoraggio** nel riquadro sinistro dell'hub Internet in portale di Azure. I log dei flussi del dispositivo verranno visualizzati nella `AzureDiagnostics` tabella e avranno `Category=DeviceStreams` . Tenere presente che potrebbero essere necessari alcuni minuti dopo un'operazione per la visualizzazione dei log nella tabella.
 
    Come illustrato di seguito, l'identità del dispositivo di destinazione e il risultato dell'operazione sono disponibili anche nei log.
 
    !["Accedi ai log del flusso di dispositivi"](./media/iot-hub-device-streams-overview/device-streams-view-logs.png)
 
+Per altre informazioni sull'uso di monitoraggio di Azure con l'hub Internet, vedere [monitorare l'hub](monitor-iot-hub.md). Per informazioni su tutti i log delle risorse, le metriche e le tabelle disponibili per l'hub Internet delle cose, vedere [monitoraggio del riferimento ai dati dell'hub Azure](monitor-iot-hub-reference.md).
+
 ## <a name="regional-availability"></a>Disponibilità a livello di area
 
 Durante l'anteprima pubblica, i flussi di dispositivi dell'hub Internet sono disponibili nelle aree Stati Uniti centrali, Stati Uniti centrali EUAP, Europa settentrionale e Asia sudorientale. Assicurarsi quindi che l'hub venga creato in una di queste aree.
 
-## <a name="sdk-availability"></a>Disponibilità di SDK
+## <a name="sdk-availability"></a>Disponibilità SDK
 
 I due lati di ogni flusso (lato servizio e lato dispositivo) usano l'SDK dell'hub IoT per stabilire il tunnel. Durante l'anteprima pubblica, i clienti possono scegliere i linguaggi SDK seguenti:
 
@@ -164,7 +165,7 @@ Sono disponibili due [esempi di avvio rapido](./index.yml) nella pagina dell'hub
 
 Questi esempi sono descritti in modo dettagliato nelle sezioni seguenti.
 
-### <a name="echo-sample"></a>Esempio echo
+### <a name="echo-sample"></a>Esempio Echo
 
 L'esempio echo illustra l'uso a livello di codice dei flussi dispositivo per inviare e ricevere byte tra le applicazioni di servizio e di dispositivo. Si noti che è possibile usare programmi di servizi e dispositivi in linguaggi diversi. Ad esempio, è possibile usare il programma C Device con il programma del servizio C#.
 
@@ -182,7 +183,7 @@ L'esempio relativo al proxy locale illustra un modo per abilitare il tunneling d
 
 Questa sezione descrive l'uso di flussi dispositivo per abilitare l'utente per SSH in un dispositivo tramite flussi dispositivo (nel caso di RDP o di altre applicazioni client/server la procedura è simile usando la porta corrispondente del protocollo).
 
-La configurazione si basa su due programmi di*proxy locale* mostrati nella figura seguente, ovvero il *proxy locale per dispositivi* e il*proxy locale per servizi*. I programmi proxy locali sono tenuti a eseguire l'[handshake di avvio del flusso dispositivo](#device-stream-creation-flow) con l'hub IoT e a interagire con client SSH e daemon SSH usando normali socket client/server.
+La configurazione si basa su due programmi di *proxy locale* mostrati nella figura seguente, ovvero il *proxy locale per dispositivi* e il *proxy locale per servizi* . I programmi proxy locali sono tenuti a eseguire l'[handshake di avvio del flusso dispositivo](#device-stream-creation-flow) con l'hub IoT e a interagire con client SSH e daemon SSH usando normali socket client/server.
 
 !["Configurazione del proxy di flusso del dispositivo per SSH/RDP"](./media/iot-hub-device-streams-overview/iot-hub-device-streams-ssh.png)
 

@@ -7,12 +7,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 06/30/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 58c5fdcfef5e866d0c69d65412582c0ed649f7c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2396aac67a17352987d9d6e3b49535c19ffe8917
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86230826"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792379"
 ---
 # <a name="key-vault-versions"></a>Versioni di Key Vault
 
@@ -33,7 +33,7 @@ Gli endpoint privati sono ora disponibili in anteprima. Il servizio Collegamento
 ## <a name="2019"></a>2019
 
 - Rilascio della nuova generazione di Azure Key Vault SDK. Per esempi relativi all'uso, vedere gli argomenti di avvio rapido sui segreti di Azure Key Vault per [Python](../secrets/quick-create-python.md), [.NET](../secrets/quick-create-net.md), [Java](../secrets/quick-create-java.md) e [Node.js](../secrets/quick-create-node.md)
-- Nuovi criteri di Azure per gestire i certificati degli insiemi di credenziali delle chiavi. Vedere [Definizioni predefinite di Criteri di Azure per Key Vault](../policy-samples.md).
+- Nuovi criteri di Azure per gestire i certificati degli insiemi di credenziali delle chiavi. Vedere [Definizioni predefinite di Criteri di Azure per Key Vault](../policy-reference.md).
 - Estensione macchina virtuale di Azure Key Vault ora disponibile a livello generale.  Vedere [Estensione macchina virtuale di Key Vault per Linux](../../virtual-machines/extensions/key-vault-linux.md) e [Estensione macchina virtuale di Key Vault per Windows](../../virtual-machines/extensions/key-vault-windows.md).
 - Gestione dei segreti basati su eventi per Azure Key Vault ora disponibile in Griglia di eventi di Azure. Per altre informazioni, vedere [lo schema di Griglia di eventi per eventi in Azure Key Vault](../../event-grid/event-schema-key-vault.md] e l'articolo [Ricevere e rispondere alle notifiche di Key Vault con Griglia di eventi di Azure](event-grid-tutorial.md).
 
@@ -49,8 +49,8 @@ Nuove funzionalità e integrazioni rilasciate quest'anno:
 
 Nuove funzionalità rilasciate quest'anno:
 
-- Chiavi gestite di account di archiviazione. La funzionalità delle chiavi di account di archiviazione si integra ancora più facilmente con Archiviazione di Azure. Per altre informazioni, vedere l'argomento introduttivo [Chiavi dell'account di archiviazione Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-storage-keys).
-- Eliminazione temporanea. La funzionalità di eliminazione temporanea migliora la protezione dei dati degli insiemi di credenziali delle chiavi e dei relativi oggetti. Per altre informazioni, vedere l'argomento introduttivo [Panoramica di eliminazione temporanea di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-ovw-soft-delete).
+- Chiavi gestite di account di archiviazione. La funzionalità delle chiavi di account di archiviazione si integra ancora più facilmente con Archiviazione di Azure. Per altre informazioni, vedere l'argomento introduttivo [Chiavi dell'account di archiviazione Key Vault](../secrets/overview-storage-keys.md).
+- Eliminazione temporanea. La funzionalità di eliminazione temporanea migliora la protezione dei dati degli insiemi di credenziali delle chiavi e dei relativi oggetti. Per altre informazioni, vedere l'argomento introduttivo [Panoramica di eliminazione temporanea di Azure Key Vault](./soft-delete-overview.md).
 
 ## <a name="2015"></a>2015
 
@@ -64,7 +64,7 @@ La disponibilità generale (versione 2015-06-01) è stata annunciata il 24 giugn
 - Ripristino di una chiave: campo "use" rimosso.     
 - Sostituzione di "RSA_OAEP" con "RSA-OAEP" per gli algoritmi RSA. Vedere [Informazioni su chiavi, segreti e certificati](about-keys-secrets-certificates.md).    
  
-La seconda versione di anteprima (2015-02-01-preview) è stata annunciata il 20 aprile 2015. Per altre informazioni, vedere il post di blog [REST API Update](https://docs.microsoft.com/archive/blogs/kv/rest-api-update) (Aggiornamento API REST). Sono state aggiornate le attività seguenti:
+La seconda versione di anteprima (2015-02-01-preview) è stata annunciata il 20 aprile 2015. Per altre informazioni, vedere il post di blog [REST API Update](/archive/blogs/kv/rest-api-update) (Aggiornamento API REST). Sono state aggiornate le attività seguenti:
  
 - Elencare le chiavi in un insieme di credenziali - aggiunta del supporto per la paginazione all'operazione.
 - Elencare le versioni di una chiave - aggiunta dell'operazione per elencare le versioni di una chiave.  

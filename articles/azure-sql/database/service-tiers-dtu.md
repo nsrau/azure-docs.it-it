@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.date: 10/15/2020
 ms.reviewer: ''
-ms.openlocfilehash: 9ae5d5e488a7bbe0e80f5a8960be27fd3de8489a
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 19178359d1eeb935499a01828f7c53b123e17571
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92103000"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793178"
 ---
 # <a name="service-tiers-in-the-dtu-based-purchase-model"></a>Livelli di servizio nel modello di acquisto basato su DTU
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -54,7 +54,7 @@ La scelta di un livello di servizio dipende soprattutto dai requisiti in termini
 >
 
 > [!TIP]
-> Per visualizzare i limiti effettivi di [governance delle risorse](resource-limits-logical-server.md#resource-governance) per un database o un pool elastico, eseguire una query sulla vista [sys.dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) .
+> Per visualizzare i limiti effettivi di [governance delle risorse](resource-limits-logical-server.md#resource-governance) per un database o un pool elastico, eseguire una query sulla vista [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) .
 
 > [!NOTE]
 > È possibile ottenere un database gratuito nel database SQL di Azure al livello di servizio Basic insieme a un account Azure gratuito per esplorare Azure. Per informazioni, vedere [Crea un database cloud gestito con il tuo account Azure gratuito](https://azure.microsoft.com/free/services/sql-database/).
@@ -114,7 +114,7 @@ Le dimensioni del database si basano su un "fattore di scala" (SF), che determin
 
 Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato nella tabella riportata di seguito. Ogni transazione è progettata per evidenziare un insieme specifico di caratteristiche di sistema nel motore di database e nell'hardware del sistema, con un contrasto elevato rispetto alle altre transazioni. Questo approccio consente di valutare l'impatto dei diversi componenti sulle prestazioni globali. La transazione "Operazioni lettura intense" ad esempio produce un numero significativo di operazioni di lettura dal disco.
 
-| Tipo di transazione | Description |
+| Tipo di transazione | Descrizione |
 | --- | --- |
 | Operazioni lettura leggere |SELECT, in memoria, sola lettura |
 | Operazioni lettura medie |SELECT, principalmente in memoria, sola lettura |
@@ -123,7 +123,7 @@ Il carico di lavoro è costituito da nove tipi di transazioni, come illustrato n
 | Operazioni aggiornamento intense |UPDATE, principalmente non in memoria, lettura/scrittura |
 | Operazioni inserimento leggere |INSERT, in memoria, lettura/scrittura |
 | Operazioni inserimento intense |INSERT, principalmente non in memoria, lettura/scrittura |
-| Delete |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
+| Elimina |DELETE, combinazione in memoria e non in memoria, lettura/scrittura |
 | Operazioni CPU intense |SELECT, in memoria, carico CPU relativamente pesante, sola lettura |
 
 ### <a name="workload-mix"></a>Combinazione di carichi di lavoro
@@ -139,7 +139,7 @@ Le transazioni vengono selezionate casualmente da una distribuzione ponderata co
 | Operazioni aggiornamento intense |3 |
 | Operazioni inserimento leggere |3 |
 | Operazioni inserimento intense |2 |
-| Delete |2 |
+| Elimina |2 |
 | Operazioni CPU intense |10 |
 
 ### <a name="users-and-pacing"></a>Utenti e velocità

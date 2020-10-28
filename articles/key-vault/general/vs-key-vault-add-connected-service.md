@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: addccf337f82b1695c76ae975c4a33f44ba50f8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c62534acdbfbff7fd4e718bad1f07a92c641626
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448134"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792396"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Aggiungere Key Vault all'applicazione Web usando Servizi connessi di Visual Studio
 
@@ -24,7 +24,7 @@ Per i dettagli sulle modifiche apportate da Servizi connessi al progetto per abi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- **Una sottoscrizione di Azure**. Se non si ha una sottoscrizione, iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
+- **Una sottoscrizione di Azure** . Se non si ha una sottoscrizione, iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/pricing/free-trial/).
 - **Visual Studio 2019 versione 16,3** o successiva [scaricarlo ora](https://aka.ms/vsdownload?utm_source=mscom&utm_campaign=msdocs).
 
 
@@ -32,13 +32,13 @@ Per i dettagli sulle modifiche apportate da Servizi connessi al progetto per abi
 
 Prima di iniziare, verificare di avere eseguito l'accesso a Visual Studio. Accedere con lo stesso account usato per la sottoscrizione di Azure. Aprire quindi un progetto Web ASP.NET 4.7.1 o versione successiva o ASP.NET Core 2,0 e seguire questa procedura:
 
-1. In **Esplora soluzioni**fare clic con il pulsante destro del mouse sul progetto a cui si desidera aggiungere il supporto Key Vault e scegliere **Aggiungi**  >  **servizio connesso**  >  **Aggiungi**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto a cui si desidera aggiungere il supporto Key Vault e scegliere **Aggiungi**  >  **servizio connesso**  >  **Aggiungi** .
    Nella pagina Servizio connesso visualizzata sono elencati i servizi che è possibile aggiungere al progetto.
-1. Nel menu dei servizi disponibili scegliere **Azure Key Vault** e fare clic su **Avanti**.
+1. Nel menu dei servizi disponibili scegliere **Azure Key Vault** e fare clic su **Avanti** .
 
    ![Scegliere "Azure Key Vault"](../media/vs-key-vault-add-connected-service/key-vault-connected-service.png)
 
-1. Selezionare la sottoscrizione che si vuole usare, quindi scegliere una Key Vault esistente e fare clic su **fine**. 
+1. Selezionare la sottoscrizione che si vuole usare, quindi scegliere una Key Vault esistente e fare clic su **fine** . 
 
    ![Selezionare la propria sottoscrizione](../media/vs-key-vault-add-connected-service/key-vault-connected-service-select-vault.png)
 
@@ -115,7 +115,7 @@ A questo punto, viene stabilita la connessione al Key Vault ed è possibile acce
          <add key="<secretNameInYourKeyVault>" value="dummy"/>
         ```
 
-1. Modificare il `About` metodo in *HomeController.cs*per visualizzare il valore per la conferma.
+1. Modificare il `About` metodo in *HomeController.cs* per visualizzare il valore per la conferma.
 
    ```csharp
    public ActionResult About()
@@ -131,12 +131,12 @@ Se il Key Vault è in esecuzione in un account Microsoft diverso da quello con c
 
 1. Passare alla [portale di Azure](https://portal.azure.com) e aprire il Key Vault.
 
-1. Scegliere **criteri di accesso**, quindi **Aggiungi criteri di accesso**e scegliere l'account con cui si è connessi come entità.
+1. Scegliere **criteri di accesso** , quindi **Aggiungi criteri di accesso** e scegliere l'account con cui si è connessi come entità.
 
-1. In Visual Studio scegliere **file**  >  **Impostazioni account**.
+1. In Visual Studio scegliere **file**  >  **Impostazioni account** .
 Selezionare **Aggiungi un account** dalla sezione **tutti gli account** . Accedere con l'account scelto come principale dei criteri di accesso.
 
-1. Scegliere **strumenti**  >  **Opzioni**e cercare autenticazione dei **servizi di Azure**. Selezionare quindi l'account appena aggiunto a Visual Studio.
+1. Scegliere **strumenti**  >  **Opzioni** e cercare autenticazione dei **servizi di Azure** . Selezionare quindi l'account appena aggiunto a Visual Studio.
 
 A questo punto, quando si esegue il debug dell'applicazione, Visual Studio si connette all'account in cui si trova il Key Vault.
 
@@ -204,6 +204,6 @@ Influiscono sul file di progetto .NET References e `packages.config` (riferiment
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se è stata seguita questa esercitazione, le autorizzazioni Key Vault sono configurate per l'esecuzione con la propria sottoscrizione di Azure, ma ciò potrebbe non essere auspicabile per uno scenario di produzione. È possibile creare un'identità gestita per gestire l'accesso Key Vault per l'app. Vedere [come eseguire l'autenticazione a Key Vault](/azure/key-vault/general/authentication) e [assegnare un criterio di accesso key Vault](/azure/key-vault/general/assign-access-policy-portal).
+Se è stata seguita questa esercitazione, le autorizzazioni Key Vault sono configurate per l'esecuzione con la propria sottoscrizione di Azure, ma ciò potrebbe non essere auspicabile per uno scenario di produzione. È possibile creare un'identità gestita per gestire l'accesso Key Vault per l'app. Vedere [come eseguire l'autenticazione a Key Vault](./authentication.md) e [assegnare un criterio di accesso key Vault](./assign-access-policy-portal.md).
 
 Per ulteriori informazioni sullo sviluppo Key Vault, vedere la guida per gli [sviluppatori di Key Vault](developers-guide.md).

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: b6d46dfc348cc518daf2e6af4d5b9677148c3911
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503216"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792022"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -36,7 +36,7 @@ Vedere gli altri articoli di questa serie:
 
 
 > [!IMPORTANT]
-> Se l'area di lavoro si trova in un __cloud sovrano__, ad esempio Azure per enti pubblici o Azure Cina 21ViaNet, i notebook integrati _non_ supportano l'uso dell'archiviazione che si trova in una rete virtuale. È invece possibile usare i notebook di Jupyter da un'istanza di calcolo. Per altre informazioni, vedere la sezione [accedere ai dati in un notebook dell'istanza di calcolo](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
+> Se l'area di lavoro si trova in un __cloud sovrano__ , ad esempio Azure per enti pubblici o Azure Cina 21ViaNet, i notebook integrati _non_ supportano l'uso dell'archiviazione che si trova in una rete virtuale. È invece possibile usare i notebook di Jupyter da un'istanza di calcolo. Per altre informazioni, vedere la sezione [accedere ai dati in un notebook dell'istanza di calcolo](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -53,7 +53,7 @@ Vedere gli altri articoli di questa serie:
 
 Se si accede a Studio da una risorsa all'interno di una rete virtuale, ad esempio un'istanza di calcolo o una macchina virtuale, è necessario consentire il traffico in uscita dalla rete virtuale a Studio. 
 
-Ad esempio, se si usano gruppi di sicurezza di rete (NSG) per limitare il traffico in uscita, aggiungere una regola a una destinazione di __tag del servizio__ di __AzureFrontDoor. frontend__.
+Ad esempio, se si usano gruppi di sicurezza di rete (NSG) per limitare il traffico in uscita, aggiungere una regola a una destinazione di __tag del servizio__ di __AzureFrontDoor. frontend__ .
 
 ## <a name="access-data-using-the-studio"></a>Accedere ai dati tramite studio
 
@@ -66,9 +66,6 @@ Se non si Abilita l'identità gestita, verrà visualizzato questo errore, `Error
 * Inviare un esperimento AutoML.
 * Avviare un progetto di assegnazione di etichette.
 
-> [!NOTE]
-> L' [etichettatura dei dati assistiti da ml](how-to-create-labeling-projects.md#use-ml-assisted-labeling) non supporta gli account di archiviazione predefiniti protetti dietro una rete virtuale. È necessario usare un account di archiviazione non predefinito per l'etichettatura dei dati assistita da ML. L'account di archiviazione non predefinito può essere protetto tramite la rete virtuale. 
-
 Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una rete virtuale:
 
 * BLOB Azure
@@ -76,17 +73,21 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * Azure Data Lake Storage Gen2
 * database SQL di Azure
 
-### <a name="configure-datastores-to-use-managed-identity"></a>Configurare gli archivi dati per usare l'identità gestita
+### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Concessione dell'accesso al __lettore__ di identità gestito dell'area di lavoro al collegamento privato di archiviazione
+
+Questo passaggio è necessario solo se l'account di archiviazione di Azure è stato aggiunto alla rete virtuale con un [endpoint privato](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts-with-private-endpoints). Per ulteriori informazioni, vedere ruolo predefinito [Reader](../role-based-access-control/built-in-roles.md#reader) .
+
+### <a name="configure-datastores-to-use-workspace-managed-identity"></a>Configurare gli archivi dati per usare l'identità gestita dell'area di lavoro
 
 Azure Machine Learning usa gli [archivi dati](concept-data.md#datastores) per connettersi agli account di archiviazione. Usare la procedura seguente per configurare gli archivi dati in modo da usare l'identità gestita. 
 
-1. In Studio selezionare __datastores__.
+1. In Studio selezionare __datastores__ .
 
-1. Per creare un nuovo archivio dati, selezionare __+ nuovo archivio dati__.
+1. Per creare un nuovo archivio dati, selezionare __+ nuovo archivio dati__ .
 
-    Per aggiornare un archivio dati esistente, selezionare l'archivio dati e selezionare __Aggiorna credenziali__.
+    Per aggiornare un archivio dati esistente, selezionare l'archivio dati e selezionare __Aggiorna credenziali__ .
 
-1. Nelle impostazioni dell'archivio dati selezionare __Sì__ per  __Consenti Azure Machine Learning servizio di accedere allo spazio di archiviazione usando l'identità gestita dall'area di lavoro__.
+1. Nelle impostazioni dell'archivio dati selezionare __Sì__ per  __Consenti Azure Machine Learning servizio di accedere allo spazio di archiviazione usando l'identità gestita dall'area di lavoro__ .
 
 
 Questa procedura consente di aggiungere l'identità gestita dall'area di lavoro come __lettore__ al servizio di archiviazione usando il controllo degli accessi in base alle risorse di Azure (RBAC di Azure). Accesso in __lettura__ consente all'area di lavoro di recuperare le impostazioni del firewall e assicurarsi che i dati non lascino la rete virtuale.
@@ -100,7 +101,7 @@ L'uso dell'identità gestita per accedere ai servizi di archiviazione influisca 
 
 ### <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
 
-Per l' __archiviazione BLOB di Azure__, l'identità gestita dall'area di lavoro viene aggiunta anche come [lettore di dati BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) in modo che possa leggere i dati dall'archivio BLOB.
+Per l' __archiviazione BLOB di Azure__ , l'identità gestita dall'area di lavoro viene aggiunta anche come [lettore di dati BLOB](../role-based-access-control/built-in-roles.md#storage-blob-data-reader) in modo che possa leggere i dati dall'archivio BLOB.
 
 ### <a name="azure-data-lake-storage-gen2-access-control"></a>Controllo di accesso Azure Data Lake Storage Gen2
 
@@ -127,15 +128,15 @@ La finestra di progettazione USA l'account di archiviazione collegato all'area d
 Per impostare una nuova risorsa di archiviazione predefinita per una pipeline:
 
 1. In una bozza di pipeline selezionare l' **icona dell'ingranaggio impostazioni** accanto al titolo della pipeline.
-1. Selezionare l' **archivio dati predefinito**.
+1. Selezionare l' **archivio dati predefinito** .
 1. Consente di specificare un nuovo archivio dati.
 
 È anche possibile eseguire l'override dell'archivio dati predefinito in base al modulo. Questo consente di controllare il percorso di archiviazione per ogni singolo modulo.
 
 1. Selezionare il modulo di cui si desidera specificare l'output.
 1. Espandere la sezione **impostazioni di output** .
-1. Selezionare **Sostituisci impostazioni di output predefinite**.
-1. Selezionare **imposta impostazioni di output**.
+1. Selezionare **Sostituisci impostazioni di output predefinite** .
+1. Selezionare **imposta impostazioni di output** .
 1. Consente di specificare un nuovo archivio dati.
 
 ## <a name="next-steps"></a>Passaggi successivi

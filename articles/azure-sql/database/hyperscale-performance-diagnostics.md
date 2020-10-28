@@ -10,12 +10,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: sstein
 ms.date: 10/18/2019
-ms.openlocfilehash: 7bd2b404627e21a80fc41a4561300d7252d1519c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed31ff5d77b258d141a77fc174c2d5452adf7d01
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84324394"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791716"
 ---
 # <a name="sql-hyperscale-performance-troubleshooting-diagnostics"></a>Diagnostica per la risoluzione dei problemi delle prestazioni di scalabilità SQL
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -97,7 +97,7 @@ Un rapporto tra le letture eseguite su RBPEX e le letture aggregate eseguite su 
 
 ## <a name="data-io-in-resource-utilization-statistics"></a>IO dati nelle statistiche di utilizzo delle risorse
 
-In un database non iperscalato, le operazioni di i/o in lettura e scrittura combinate sui file di dati, rispetto al limite di IOPS dei dati di [governance delle risorse](/azure/sql-database/sql-database-resource-limits-database-server#resource-governance) , vengono segnalate in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) viste nella `avg_data_io_percent` colonna. Lo stesso valore viene segnalato nel portale di Azure come percentuale di i/o _dati_.
+In un database non iperscalato, le operazioni di i/o in lettura e scrittura combinate sui file di dati, rispetto al limite di IOPS dei dati di [governance delle risorse](./resource-limits-logical-server.md#resource-governance) , vengono segnalate in [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) e [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) viste nella `avg_data_io_percent` colonna. Lo stesso valore viene segnalato nel portale di Azure come percentuale di i/o _dati_ .
 
 In un database con iperscalabilità, in questa colonna viene segnalato l'utilizzo di IOPS dei dati rispetto al limite per l'archiviazione locale solo per la replica di calcolo, in particolare IO in RBPEX e `tempdb` . Un valore 100% in questa colonna indica che la governance delle risorse limita gli IOPS di archiviazione locale. Se questo è correlato a un problema di prestazioni, ottimizzare il carico di lavoro per generare un minor tempo di i/o o aumentare l'obiettivo di servizio del database per aumentare il [limite](resource-limits-vcore-single-databases.md) _massimo di IOPS_ per la governance delle risorse Per la governance delle risorse delle letture e scritture di RBPEX, il sistema conta singoli IOs da 8 KB, anziché IOs di dimensioni maggiori che possono essere rilasciati dal motore di database SQL Server.
 

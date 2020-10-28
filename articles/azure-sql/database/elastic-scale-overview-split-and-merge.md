@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 9303d84b2862b556a9ccc286ffa118bf1e52b715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a646ffe1d306d7ea13da002715d5bd9b907107b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84034652"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793467"
 ---
 # <a name="moving-data-between-scaled-out-cloud-databases"></a>Spostamento di dati tra database cloud con scalabilità orizzontale
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -49,7 +49,7 @@ Lo strumento di suddivisione-unione viene eseguito come servizio Web di Azure. U
 
 - **Dividere per crescere**
 
-  Per aumentare la capacità complessiva in modo da gestire una crescita straordinaria, creare capacità aggiuntiva tramite il partizionamento orizzontale e la distribuzione dei dati in un numero sempre crescente di database, fino a soddisfare le esigenze di capacità. Questo è un ottimo esempio della funzionalità di **suddivisione**.
+  Per aumentare la capacità complessiva in modo da gestire una crescita straordinaria, creare capacità aggiuntiva tramite il partizionamento orizzontale e la distribuzione dei dati in un numero sempre crescente di database, fino a soddisfare le esigenze di capacità. Questo è un ottimo esempio della funzionalità di **suddivisione** .
 
 - **Unire per ridurre**
 
@@ -207,7 +207,7 @@ Il servizio di suddivisione-unione fornisce la tabella **RequestStatus** nel dat
 
   Stima della percentuale di completamento dell'operazione. Un valore pari a 50 indica che la percentuale di completamento dell'operazione è pari a circa il 50%.
 
-- **Dettagli**
+- **Informazioni dettagliate**
 
   Valore XML che fornisce un report di stato più dettagliato. Il report di stato viene aggiornato periodicamente durante la copia di set di righe dall'origine alla destinazione. In caso di errori o eccezioni, questa colonna include anche informazioni più dettagliate sull'errore.
 
@@ -220,7 +220,7 @@ Il servizio di suddivisione-unione utilizza la diagnostica Azure basata su Azure
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 > [!IMPORTANT]
-> Il modulo Azure Resource Manager di PowerShell è ancora supportato, ma tutto lo sviluppo futuro riguarda il modulo AZ. SQL. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
+> Il modulo Azure Resource Manager di PowerShell è ancora supportato, ma tutto lo sviluppo futuro riguarda il modulo AZ. SQL. Per informazioni su questi cmdlet, vedere [AzureRM.Sql](/powershell/module/AzureRM.Sql/). Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici.
 
 Per abilitare il monitoraggio e la diagnostica utilizzando la configurazione della diagnostica per i ruoli Web e di lavoro forniti dal pacchetto NuGet, eseguire i seguenti comandi utilizzando Azure PowerShell:
 
@@ -244,7 +244,7 @@ Altre informazioni su come configurare e distribuire le impostazioni di diagnost
 
 ## <a name="retrieve-diagnostics"></a>Recuperare la diagnostica
 
-È possibile accedere con facilità alla diagnostica da Esplora server di Visual Studio, nella sezione dedicata ad Azure della struttura ad albero della finestra di esplorazione. Aprire un'istanza di Visual Studio e nella barra dei menu fare clic su Visualizza, quindi su Esplora server. Fare clic sull'icona di Azure per connettersi alla sottoscrizione Azure. Passare ad Azure -> Archiviazione -> `<your storage account>` -> Tabelle -> WADLogsTable. Per altre informazioni, vedere [Esplora server](https://msdn.microsoft.com/library/x603htbk.aspx).
+È possibile accedere con facilità alla diagnostica da Esplora server di Visual Studio, nella sezione dedicata ad Azure della struttura ad albero della finestra di esplorazione. Aprire un'istanza di Visual Studio e nella barra dei menu fare clic su Visualizza, quindi su Esplora server. Fare clic sull'icona di Azure per connettersi alla sottoscrizione Azure. Passare ad Azure -> Archiviazione -> `<your storage account>` -> Tabelle -> WADLogsTable. Per altre informazioni, vedere [Esplora server](/previous-versions/x603htbk(v=vs.140)).
 
 ![WADLogsTable][2]
 

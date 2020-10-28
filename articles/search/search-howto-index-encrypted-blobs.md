@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
-ms.openlocfilehash: 3330b4d5df366a5e886157e875f40d7e370c7442
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a4dcec2b50a13a256c82e4a5ec54c9b22aa973f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91543034"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791988"
 ---
 # <a name="how-to-index-encrypted-blobs-using-blob-indexers-and-skillsets-in-azure-cognitive-search"></a>Come indicizzare i BLOB crittografati usando gli indicizzatori BLOB e skillsets in Azure ricerca cognitiva
 
@@ -56,7 +56,7 @@ A livello operativo, l'abilità DecryptBlobFile accetta l'URL e il token di firm
 
 1. Selezionare **la sottoscrizione in cui si trova l'istanza di Azure Key Vault** (questa guida non funzionerà se si seleziona una sottoscrizione diversa) e selezionare un gruppo di risorse esistente o crearne uno nuovo (se ne viene creato uno nuovo, sarà necessario anche selezionare un'area in cui eseguire la distribuzione).
 
-1. Selezionare **Verifica + crea**, assicurarsi di accettare le condizioni e quindi selezionare **Crea** per distribuire la funzione di Azure.
+1. Selezionare **Verifica + crea** , assicurarsi di accettare le condizioni e quindi selezionare **Crea** per distribuire la funzione di Azure.
 
     ![Modello ARM nel portale](media/indexing-encrypted-blob-files/arm-template.jpg "Modello ARM nel portale")
 
@@ -64,13 +64,13 @@ A livello operativo, l'abilità DecryptBlobFile accetta l'URL e il token di firm
 
 1. Passare all'istanza di Azure Key Vault nel portale. [Creare un criterio di accesso](../key-vault/general/assign-access-policy-portal.md) nel Azure Key Vault per concedere l'accesso alla chiave per l'abilità personalizzata.
  
-    1. In **Impostazioni**selezionare **criteri di accesso**e quindi selezionare **Aggiungi criteri di accesso** .
+    1. In **Impostazioni** selezionare **criteri di accesso** e quindi selezionare **Aggiungi criteri di accesso** .
      
        ![Aggiunta dei criteri di accesso all'insieme di credenziali delle credenziali](media/indexing-encrypted-blob-files/keyvault-access-policies.jpg "Criteri di accesso dell'insieme di credenziali delle credenziali")
 
-    1. In **Configura da modello**selezionare **Azure Data Lake storage o archiviazione di Azure**.
+    1. In **Configura da modello** selezionare **Azure Data Lake storage o archiviazione di Azure** .
 
-    1. Per l'entità di protezione, selezionare l'istanza della funzione di Azure distribuita. È possibile eseguire la ricerca usando il prefisso di risorsa usato per crearlo nel passaggio 2, che ha un valore predefinito di prefisso **psdbf-Function-app**.
+    1. Per l'entità di protezione, selezionare l'istanza della funzione di Azure distribuita. È possibile eseguire la ricerca usando il prefisso di risorsa usato per crearlo nel passaggio 2, che ha un valore predefinito di prefisso **psdbf-Function-app** .
 
     1. Non selezionare alcun elemento per l'opzione applicazione autorizzata.
      
@@ -86,7 +86,7 @@ A livello operativo, l'abilità DecryptBlobFile accetta l'URL e il token di firm
     
         ![URL funzione](media/indexing-encrypted-blob-files/function-uri.jpg "Dove trovare l'URL della funzione di Azure")
 
-    1. Il codice della chiave host, che è possibile trovare passando alle **chiavi dell'app**, facendo clic per visualizzare la chiave **predefinita** e copiando il valore.
+    1. Il codice della chiave host, che è possibile trovare passando alle **chiavi dell'app** , facendo clic per visualizzare la chiave **predefinita** e copiando il valore.
      
         ![Codice chiave host funzione](media/indexing-encrypted-blob-files/function-host-key.jpg "Dove trovare il codice chiave host della funzione di Azure")
 
@@ -104,11 +104,11 @@ Come per la funzione di Azure, raccogliere la chiave amministratore. Più avanti
 
 ### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Ottenere un URL e una chiave API di amministrazione per Ricerca cognitiva di Azure
 
-1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere il nome del servizio di ricerca nella relativa pagina **Panoramica**. È possibile verificare il nome del servizio esaminando l'URL dell'endpoint. Se l'URL dell'endpoint fosse `https://mydemo.search.windows.net`, il nome del servizio sarebbe `mydemo`.
+1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere il nome del servizio di ricerca nella relativa pagina **Panoramica** . È possibile verificare il nome del servizio esaminando l'URL dell'endpoint. Se l'URL dell'endpoint fosse `https://mydemo.search.windows.net`, il nome del servizio sarebbe `mydemo`.
 
 2. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
-   ![Ottenere il nome del servizio e le chiavi amministratore e di query](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Ottenere il nome del servizio e le chiavi amministratore e di query](media/search-get-started-javascript/service-name-and-keys.png)
 
 Nell'intestazione di ogni richiesta inviata al servizio è necessario specificare una chiave API (api-key). La presenza di una chiave valida stabilisce una relazione di trust, in base a singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -121,7 +121,7 @@ Installare e configurare Postman.
 1. Scaricare il [codice sorgente della raccolta Postman](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json).
 1. Selezionare **File** > **Importa** per importare il codice sorgente in Postman.
 1. Selezionare la scheda **Collections** (Raccolte), quindi selezionare il pulsante **...** (puntini di sospensione).
-1. Selezionare **Modifica**. 
+1. Selezionare **Modifica** . 
    
    ![App Postman che mostra le opzioni di spostamento](media/indexing-encrypted-blob-files/postman-edit-menu.jpg "Passare al menu Modifica in Postman")
 1. Nella finestra di dialogo **Edit** (Modifica) selezionare la scheda **Variables** (Variabili). 
@@ -137,24 +137,24 @@ Per ottenere il valore per `admin-key` , usare la chiave API di amministrazione 
 |-------------|-----------------|
 | `admin-key` | Nella pagina **Chiavi** del servizio Ricerca cognitiva di Azure.  |
 | `search-service-name` | Nome del servizio Ricerca cognitiva di Azure. L'URL è `https://{{search-service-name}}.search.windows.net`. | 
-| `storage-connection-string` | Nell'account di archiviazione, selezionare la scheda **Chiavi di accesso**, selezionare **key1** > **Stringa di connessione**. | 
+| `storage-connection-string` | Nell'account di archiviazione, selezionare la scheda **Chiavi di accesso** , selezionare **key1** > **Stringa di connessione** . | 
 | `storage-container-name` | Nome del contenitore BLOB con i file crittografati da indicizzare. | 
 | `function-uri` |  Nella funzione di Azure in **Essentials** nella pagina principale. | 
-| `function-code` | Nella funzione di Azure passare a **chiavi app**, fare clic per visualizzare la chiave **predefinita** e copiare il valore. | 
-| `api-version` | Lasciare **2020-06-30**. |
-| `datasource-name` | Lasciare come **Encrypted-Blobs-DS**. | 
-| `index-name` | Lascia come **Encrypted-Blobs-idx**. | 
-| `skillset-name` | Lascia come **Encrypted-Blobs-SS**. | 
-| `indexer-name` | Lasciare come **Encrypted-Blobs-IXR**. | 
+| `function-code` | Nella funzione di Azure passare a **chiavi app** , fare clic per visualizzare la chiave **predefinita** e copiare il valore. | 
+| `api-version` | Lasciare **2020-06-30** . |
+| `datasource-name` | Lasciare come **Encrypted-Blobs-DS** . | 
+| `index-name` | Lascia come **Encrypted-Blobs-idx** . | 
+| `skillset-name` | Lascia come **Encrypted-Blobs-SS** . | 
+| `indexer-name` | Lasciare come **Encrypted-Blobs-IXR** . | 
 
 ### <a name="review-the-request-collection-in-postman"></a>Esaminare la raccolta di richieste in Postman
 
 Quando si esegue questa guida, è necessario emettere quattro richieste HTTP: 
 
-- **Richiesta PUT per creare l'indice**: Questo indice contiene i dati usati e restituiti da Ricerca cognitiva di Azure.
-- **Inviare una richiesta per creare l'origine dati**: questa origine dati connette il servizio ricerca cognitiva di Azure all'account di archiviazione e quindi i file BLOB crittografati. 
-- **Put request to create the skills**: il skillt specifica la definizione di abilità personalizzata per la funzione di Azure che determinerà i dati del file BLOB e un [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) per estrarre il testo da ogni documento dopo che è stato decrittografato.
-- **Richiesta PUT per creare l'indicizzatore**: L'esecuzione dell'indicizzatore legge i dati, applica il set di competenze e archivia i risultati. È necessario eseguire questa richiesta per ultima.
+- **Richiesta PUT per creare l'indice** : Questo indice contiene i dati usati e restituiti da Ricerca cognitiva di Azure.
+- **Inviare una richiesta per creare l'origine dati** : questa origine dati connette il servizio ricerca cognitiva di Azure all'account di archiviazione e quindi i file BLOB crittografati. 
+- **Put request to create the skills** : il skillt specifica la definizione di abilità personalizzata per la funzione di Azure che determinerà i dati del file BLOB e un [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md) per estrarre il testo da ogni documento dopo che è stato decrittografato.
+- **Richiesta PUT per creare l'indicizzatore** : L'esecuzione dell'indicizzatore legge i dati, applica il set di competenze e archivia i risultati. È necessario eseguire questa richiesta per ultima.
 
 Il [codice sorgente](https://github.com/Azure-Samples/azure-search-postman-samples/blob/master/index-encrypted-blobs/Index%20encrypted%20Blob%20files.postman_collection.json) contiene una raccolta di post che include le quattro richieste, oltre ad alcune richieste di completamento utili. Per eseguire le richieste, in subordinate selezionare la scheda relativa alle richieste e selezionare **Send** per ciascuna di esse.
 

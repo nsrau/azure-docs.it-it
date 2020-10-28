@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 10/15/2020
-ms.openlocfilehash: 421763769ff0bd7ffe2b06eb48e1ac5ecbbb545e
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.date: 10/26/2020
+ms.openlocfilehash: c66845a801b93db4ba718bc0aba5c39eabdd24b4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537967"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791971"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql"></a>Repliche in lettura in Database di Azure per MySQL
 
@@ -36,9 +36,6 @@ Uno scenario comune consiste nel fare in modo che i carichi di lavoro BI e anali
 Poiché le repliche sono di sola lettura, non riducono direttamente gli oneri per la capacità di scrittura sul master. Questa funzionalità non è destinata a carichi di lavoro con utilizzo elevato di scrittura.
 
 Questa funzionalità di replica in lettura si avvale della replica asincrona di MySQL. La funzionalità non è concepita per scenari di replica sincrona. Si verifica un ritardo misurabile tra l'origine e la replica. I dati nella replica diventano alla fine coerenti con i dati nel master. Usare questa funzionalità per i carichi di lavoro in grado di sostenere questo ritardo.
-
-> [!IMPORTANT]
-> Database di Azure per MySQL usa la registrazione binaria basata su **ROW** . Se nella tabella manca una chiave primaria, verranno analizzate tutte le righe della tabella per le operazioni DML. Ciò causa una maggiore latenza di replica. Per assicurarsi che la replica rimanga al passo con le modifiche nell'origine, in genere è consigliabile aggiungere una chiave primaria nelle tabelle nel server di origine prima di creare il server di replica o ricreare il server di replica se ne è già presente uno.
 
 ## <a name="cross-region-replication"></a>Replica tra più aree
 È possibile creare una replica di lettura in un'area diversa dal server di origine. La replica tra più aree può essere utile per scenari come la pianificazione del ripristino di emergenza o per avvicinare i dati agli utenti.
@@ -95,7 +92,7 @@ Quando richiesto, immettere la password per l'account dell'utente.
 
 Database di Azure per MySQL offre la metrica **Replication lag in seconds** (Intervallo di replica in secondi) in Monitoraggio di Azure. Questa metrica è disponibile per solo le repliche. Questa metrica viene calcolata usando la metrica `seconds_behind_master` disponibile nel comando `SHOW SLAVE STATUS` di MySQL. Impostare un avviso per essere informati quando l'intervallo di replica raggiunge un valore non accettabile per il carico di lavoro.
 
-Se viene visualizzato un ritardo di replica maggiore, vedere [risolvere i problemi di latenza di replica](howto-troubleshoot-replication-latency.md) per risolvere i problemi e comprendere le possibili cause
+Se viene visualizzato un ritardo di replica maggiore, vedere [risoluzione dei problemi relativi alla latenza di replica](howto-troubleshoot-replication-latency.md) per risolvere i problemi e comprendere le possibili cause.
 
 ## <a name="stop-replication"></a>Arrestare la replica
 

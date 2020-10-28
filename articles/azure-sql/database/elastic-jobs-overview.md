@@ -11,12 +11,12 @@ author: srinia
 ms.author: srinia
 ms.reviewer: sstein
 ms.date: 12/18/2018
-ms.openlocfilehash: 2aa2c0c8cbd8b826444dc5420685aaa9731cddab
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f9a026ed47d662b80ef01e505bfbcf8f32d20b04
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409587"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792175"
 ---
 # <a name="create-configure-and-manage-elastic-jobs-preview"></a>Creare, configurare e gestire processi elastici (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -50,11 +50,11 @@ I processi usano [credenziali con ambito database](/sql/t-sql/statements/create-
 
 La configurazione delle credenziali corrette per l'esecuzione di un processo può essere poco chiara, quindi tenere a mente i punti seguenti:
 
-- È necessario creare le credenziali con ambito database nel *database dei processi*.
-- Per completare correttamente il processo, **tutti i database di destinazione devono avere un account di accesso con [autorizzazioni sufficienti](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)** (`jobuser` nello schema seguente).
+- È necessario creare le credenziali con ambito database nel *database dei processi* .
+- Per completare correttamente il processo, **tutti i database di destinazione devono avere un account di accesso con [autorizzazioni sufficienti](/sql/relational-databases/security/permissions-database-engine)** (`jobuser` nello schema seguente).
 - Le credenziali possono essere riutilizzate in tutti i processi e le password delle credenziali vengono crittografate e protette dagli utenti che hanno accesso in sola lettura agli oggetti del processo.
 
-L'immagine seguente semplifica la comprensione e la configurazione delle credenziali di processo corrette. **Ricordarsi di creare l'utente in ogni database (tutti i *database utente di destinazione*) in cui è necessario eseguire il processo**.
+L'immagine seguente semplifica la comprensione e la configurazione delle credenziali di processo corrette. **Ricordarsi di creare l'utente in ogni database (tutti i *database utente di destinazione* ) in cui è necessario eseguire il processo** .
 
 ![Credenziali dei processi elastici](./media/elastic-jobs-overview/job-credentials.png)
 
@@ -63,14 +63,14 @@ L'immagine seguente semplifica la comprensione e la configurazione delle credenz
 Alcune considerazioni sulle procedure consigliate per l'uso dei processi elastici:
 
 - Limitare l'utilizzo delle API a utenti attendibili.
-- Le credenziali devono avere i privilegi minimi necessari per eseguire il passaggio del processo. Per ulteriori informazioni, vedere autorizzazioni [e autorizzazioni](https://docs.microsoft.com/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
+- Le credenziali devono avere i privilegi minimi necessari per eseguire il passaggio del processo. Per ulteriori informazioni, vedere autorizzazioni [e autorizzazioni](/dotnet/framework/data/adonet/sql/authorization-and-permissions-in-sql-server).
 - Quando si usa un server e/o un membro del gruppo di destinazione del pool, è consigliabile creare una credenziale separata con diritti per il database master per visualizzare/elencare i database, usata per espandere gli elenchi dei database dei server e/o dei pool prima dell'esecuzione del processo.
 
 ## <a name="agent-performance-capacity-and-limitations"></a>Prestazioni, capacità e limitazioni degli agenti
 
 I processi elastici usano risorse di calcolo minime in attesa del completamento di processi di lunga durata.
 
-A seconda delle dimensioni del gruppo di database di destinazione e del tempo di esecuzione desiderato per un processo (numero di processi simultanei), l'agente richiede prestazioni e risorse di calcolo differenti per il *database di processo*: maggiore è il numero di destinazioni e di processi, maggiore sarà la quantità di risorse di calcolo necessarie.
+A seconda delle dimensioni del gruppo di database di destinazione e del tempo di esecuzione desiderato per un processo (numero di processi simultanei), l'agente richiede prestazioni e risorse di calcolo differenti per il *database di processo* : maggiore è il numero di destinazioni e di processi, maggiore sarà la quantità di risorse di calcolo necessarie.
 
 Attualmente, l'anteprima è limitata a 100 processi simultanei.
 

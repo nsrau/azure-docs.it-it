@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/20/2018
-ms.openlocfilehash: fd9bc17db3eccc64f35d7295d57dc120364481dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59e28e4a3d630aac0954802e8777058c00261006
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91332985"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791444"
 ---
 # <a name="best-practices-for-azure-sql-data-sync"></a>Procedure consigliate per la sincronizzazione dati SQL di Azure 
 
@@ -41,11 +41,11 @@ Per una panoramica della sincronizzazione dati SQL, vedere [Sincronizzare i dati
 
 ### <a name="database-accounts-with-least-required-privileges"></a>Account di database con privilegi minimi
 
--   **Per la configurazione della sincronizzazione**. Create/Alter Table; Alter Database; Create Procedure; Select/ Alter Schema; Create User-Defined Type.
+-   **Per la configurazione della sincronizzazione** . Create/Alter Table; Alter Database; Create Procedure; Select/ Alter Schema; Create User-Defined Type.
 
--   **Per la sincronizzazione continua**. SELECT/INSERT/UPDATE/DELETE per le tabelle selezionate per la sincronizzazione e su tabelle di rilevamento e metadati di sincronizzazione; Autorizzazione Execute per le stored procedure create dal servizio. Autorizzazione Execute per i tipi di tabella definiti dall'utente.
+-   **Per la sincronizzazione continua** . SELECT/INSERT/UPDATE/DELETE per le tabelle selezionate per la sincronizzazione e su tabelle di rilevamento e metadati di sincronizzazione; Autorizzazione Execute per le stored procedure create dal servizio. Autorizzazione Execute per i tipi di tabella definiti dall'utente.
 
--   **Per il deprovisioning**. Alter su tabelle che fanno parte della sincronizzazione; Select/Delete su tabelle di metadati di sincronizzazione; Control su tabelle di rilevamento della sincronizzazione, stored procedure e tipi di tabelle definiti dall'utente.
+-   **Per il deprovisioning** . Alter su tabelle che fanno parte della sincronizzazione; Select/Delete su tabelle di metadati di sincronizzazione; Control su tabelle di rilevamento della sincronizzazione, stored procedure e tipi di tabelle definiti dall'utente.
 
 Il database SQL di Azure supporta un solo set di credenziali. Per eseguire queste operazioni nei limiti di questo vincolo, considerare le opzioni seguenti:
 
@@ -168,7 +168,7 @@ Monitorare regolarmente l'integrità del database e del gruppo di sincronizzazio
 
 ### <a name="avoid-out-of-date-databases-and-sync-groups"></a><a name="avoid-out-of-date-databases-and-sync-groups"></a>Evitare database e gruppi di sincronizzazione non aggiornati
 
-È possibile che un gruppo di sincronizzazione o un database all'interno di un gruppo di sincronizzazione non sia più aggiornato. Quando lo stato di un gruppo di sincronizzazione è **obsoleto**, smette di funzionare. Quando lo stato di un database è **Out-of-date** (Non aggiornato), può verificarsi una perdita di dati. È consigliabile evitare questo scenario anziché provare a risolvere il problema.
+È possibile che un gruppo di sincronizzazione o un database all'interno di un gruppo di sincronizzazione non sia più aggiornato. Quando lo stato di un gruppo di sincronizzazione è **obsoleto** , smette di funzionare. Quando lo stato di un database è **Out-of-date** (Non aggiornato), può verificarsi una perdita di dati. È consigliabile evitare questo scenario anziché provare a risolvere il problema.
 
 #### <a name="avoid-out-of-date-databases"></a>Evitare database e gruppi di sincronizzazione non aggiornati
 
@@ -238,7 +238,7 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
         -  [Usare PowerShell per sincronizzare più database nel database SQL di Azure](scripts/sql-data-sync-sync-data-between-sql-databases.md)
         -  [Usare PowerShell per la sincronizzazione tra un database nel database SQL e un database in un'istanza di SQL Server](scripts/sql-data-sync-sync-data-between-azure-onprem.md)
 -   Agente di sincronizzazione dei dati: [Agente di sincronizzazione dei dati per la sincronizzazione dati SQL di Azure](sql-data-sync-agent-overview.md)
--   Monitoraggio: [Monitorare la sincronizzazione dati SQL con i log di Monitoraggio di Azure](sql-data-sync-monitor-sync.md)
+-   Monitoraggio: [Monitorare la sincronizzazione dati SQL con i log di Monitoraggio di Azure](./monitor-tune-overview.md)
 -   Risoluzione dei problemi: [Risolvere i problemi della sincronizzazione dati SQL di Azure](sql-data-sync-troubleshoot.md)
 -   Aggiornare lo schema di sincronizzazione
     -   Con Transact-SQL: [Automatizzare la replica delle modifiche dello schema nella sincronizzazione dati SQL di Azure](sql-data-sync-update-sync-schema.md)
@@ -247,4 +247,4 @@ Per altre informazioni sulla sincronizzazione dati SQL, vedere:
 Per altre informazioni sul database SQL, vedere:
 
 -   [Panoramica del database SQL](sql-database-paas-overview.md)
--   [Gestione del ciclo di vita del database](https://msdn.microsoft.com/library/jj907294.aspx)
+-   [Gestione del ciclo di vita del database](/previous-versions/sql/sql-server-guides/jj907294(v=sql.110))

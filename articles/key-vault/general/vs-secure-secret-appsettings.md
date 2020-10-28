@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: cawa
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 96b6b262765a361befeadd9b5a42d37ca5e66497
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 57cda5104551f8b62d157e443a42c5e3c75e4ddf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372056"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792413"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>Salvataggio sicuro delle impostazioni applicazione segrete per un'applicazione Web
 
@@ -30,7 +30,7 @@ Per assicurarsi che il processo di sviluppo sia sicuro, gli strumenti e le libre
 ## <a name="aspnet-and-net-core-applications"></a>Applicazioni ASP.NET e .NET Core
 
 ### <a name="save-secret-settings-in-user-secret-store-that-is-outside-of-source-control-folder"></a>Salvare le impostazioni segrete nell'archivio User Secret che si trova fuori dalla cartella di controllo del codice sorgente
-Se si sta eseguendo un prototipo rapido o non si ha accesso a Internet, iniziare spostando le impostazioni segrete fuori dalla cartella di controllo del codice sorgente all'archivio User Secret. L'archivio User Secret è un file salvato nella cartella del profilo utente, in modo che i segreti non vengano archiviati nel controllo del codice sorgente. Il diagramma seguente dimostra come funziona [User Secret](https://docs.microsoft.com/aspnet/core/security/app-secrets?tabs=visual-studio).
+Se si sta eseguendo un prototipo rapido o non si ha accesso a Internet, iniziare spostando le impostazioni segrete fuori dalla cartella di controllo del codice sorgente all'archivio User Secret. L'archivio User Secret è un file salvato nella cartella del profilo utente, in modo che i segreti non vengano archiviati nel controllo del codice sorgente. Il diagramma seguente dimostra come funziona [User Secret](/aspnet/core/security/app-secrets?tabs=visual-studio).
 
 ![User Secret mantiene le impostazioni segrete fuori dal controllo del codice sorgente](../media/vs-secure-secret-appsettings/aspnetcore-usersecret.PNG)
 
@@ -43,7 +43,7 @@ Se si sviluppa un progetto ed è necessario condividere il codice sorgente in mo
 
     ![Creare un Azure Key Vault](../media/vs-secure-secret-appsettings/create-keyvault.PNG)
 
-2. Concedere l'accesso al Key Vault a tutti i membri del team. Se il team è grande, è possibile creare un [gruppo di Azure Active Directory](../../active-directory/active-directory-groups-create-azure-portal.md) e aggiungere l'accesso di quel gruppo di sicurezza al Key Vault. Nel menu a discesa *Autorizzazioni segrete* selezionare *Ottieni* ed *Elenca* sotto *Operazioni di gestione dei segreti*.
+2. Concedere l'accesso al Key Vault a tutti i membri del team. Se il team è grande, è possibile creare un [gruppo di Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md) e aggiungere l'accesso di quel gruppo di sicurezza al Key Vault. Nel menu a discesa *Autorizzazioni segrete* selezionare *Ottieni* ed *Elenca* sotto *Operazioni di gestione dei segreti* .
 Se l'app Web è già stata creata, concedere all'app Web l'accesso all'Key Vault in modo che possa accedere all'insieme di credenziali delle chiavi senza archiviare la configurazione segreta nelle impostazioni o nei file dell'app. Cercare l'app Web in base al nome e aggiungerla nello stesso modo in cui si concede l'accesso agli utenti.
 
     ![Aggiungere criteri di accesso del Key Vault](../media/vs-secure-secret-appsettings/add-keyvault-access-policy.png)
@@ -103,7 +103,7 @@ Per procedere, [scaricare .NET 4.7.1](https://www.microsoft.com/download/details
 ### <a name="save-secret-settings-in-a-secret-file-that-is-outside-of-source-control-folder"></a>Salvare le impostazioni segrete in un file del segreto fuori dalla cartella di controllo del codice sorgente
 Se si sta scrivendo un prototipo veloce e non si desidera eseguire il provisioning di risorse di Azure, procedere con questa opzione.
 
-1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci segreti utente**. Verrà installato un pacchetto NuGet **Microsoft.Configuration.ConfigurationBuilders. UserSecrets** , verrà creato un file per salvare le impostazioni segrete al di fuori del file di web.config e aggiungere una sezione **ConfigBuilders** nel file web.config.
+1. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Gestisci segreti utente** . Verrà installato un pacchetto NuGet **Microsoft.Configuration.ConfigurationBuilders. UserSecrets** , verrà creato un file per salvare le impostazioni segrete al di fuori del file di web.config e aggiungere una sezione **ConfigBuilders** nel file web.config.
 
 2. Inserire le impostazioni segrete nell'elemento radice. di seguito è riportato un esempio
 

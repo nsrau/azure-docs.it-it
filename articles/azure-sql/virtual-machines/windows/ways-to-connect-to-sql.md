@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 26052441d19abb6a0c423a3b3d6f6c2d21478814
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8bee990074debf09cc9bfd19f96470a029b50c9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91272056"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793127"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Connettersi a una macchina virtuale di SQL Server in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -33,7 +33,7 @@ Per una procedura dettagliata completa del provisioning e della connettività, v
 
 Il modo in cui un client si connette a una macchina virtuale di SQL Server varia a seconda della posizione del client e della configurazione di rete.
 
-Se si esegue il provisioning di una VM di SQL Server nel portale di Azure, è possibile specificare il tipo di **connettività SQL**.
+Se si esegue il provisioning di una VM di SQL Server nel portale di Azure, è possibile specificare il tipo di **connettività SQL** .
 
 ![Opzione di connettività SQL pubblica durante il provisioning](./media/ways-to-connect-to-sql/sql-vm-portal-connectivity.png)
 
@@ -76,7 +76,7 @@ Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User 
 
 ## <a name="connect-to-sql-server-within-a-virtual-network"></a>Connettersi a SQL Server all'interno di una rete virtuale
 
-Se nel portale si sceglie **Privata** in **Connettività SQL**, Azure configura la maggior parte delle impostazioni in modo identico rispetto a **Pubblica**. L'unica differenza è l'assenza di una regola del gruppo di sicurezza di rete che consente il traffico esterno sulla porta di SQL Server (valore predefinito 1433).
+Se nel portale si sceglie **Privata** in **Connettività SQL** , Azure configura la maggior parte delle impostazioni in modo identico rispetto a **Pubblica** . L'unica differenza è l'assenza di una regola del gruppo di sicurezza di rete che consente il traffico esterno sulla porta di SQL Server (valore predefinito 1433).
 
 > [!IMPORTANT]
 > Le immagini delle macchine virtuali per SQL Server Express Edition e SQL Server Developer Edition non abilitano automaticamente il protocollo TCP/IP. Per Developer Edition ed Express Edition è necessario usare Gestione configurazione SQL Server per [abilitare manualmente il protocollo TCP/IP](#manualtcp) dopo avere creato la VM.
@@ -97,11 +97,11 @@ Server=mysqlvm;Integrated Security=true
 
 È possibile modificare le impostazioni di connettività per la macchina virtuale di SQL Server nel portale di Azure.
 
-1. Nel portale di Azure selezionare **Macchine virtuali SQL**.
+1. Nel portale di Azure selezionare **Macchine virtuali SQL** .
 
 2. Selezionare la VM di SQL Server.
 
-3. In **Impostazioni** selezionare **Protezione**.
+3. In **Impostazioni** selezionare **Protezione** .
 
 4. Modificare il valore di **Livello di connettività SQL** sull'impostazione necessaria. Facoltativamente, è possibile usare quest'area per modificare la porta di SQL Server o le impostazioni di autenticazione SQL.
 
@@ -119,7 +119,7 @@ Connettersi prima alla macchina virtuale di SQL Server tramite desktop remoto.
 
 [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-remote-desktop-connect.md)]
 
-Abilitare quindi il protocollo TCP/IP con **Gestione configurazione SQL Server**.
+Abilitare quindi il protocollo TCP/IP con **Gestione configurazione SQL Server** .
 
 [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
@@ -138,9 +138,9 @@ La tabella seguente elenca i requisiti per la connessione a SQL Server in una ma
 | Requisito | Descrizione |
 |---|---|
 | [Abilitare la modalità di autenticazione di SQL Server](/sql/database-engine/configure-windows/change-server-authentication-mode#use-ssms) | L'autenticazione di SQL Server è necessaria per connettersi alla macchina virtuale in remoto, a meno che non sia stato configurato Active Directory in una rete virtuale. |
-| [Creare un account di accesso SQL](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | Se si usa l'autenticazione SQL, è necessario un account di accesso SQL con un nome utente e una password che abbia anche le autorizzazioni per il database di destinazione. |
+| [Creare un account di accesso SQL](/sql/relational-databases/security/authentication-access/create-a-login) | Se si usa l'autenticazione SQL, è necessario un account di accesso SQL con un nome utente e una password che abbia anche le autorizzazioni per il database di destinazione. |
 | [Abilitare il protocollo TCP/IP](#manualtcp) | SQL Server deve consentire le connessioni tramite TCP. |
-| [Abilitare una regola del firewall per la porta di SQL Server](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Il firewall nella macchina virtuale deve consentire il traffico in ingresso sulla porta di SQL Server (porta predefinita: 1433). |
+| [Abilitare una regola del firewall per la porta di SQL Server](/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | Il firewall nella macchina virtuale deve consentire il traffico in ingresso sulla porta di SQL Server (porta predefinita: 1433). |
 | [Creare una regola del gruppo di sicurezza di rete per la porta TCP 1433](../../../virtual-network/manage-network-security-group.md#create-a-security-rule) | È necessario consentire alla macchina virtuale di ricevere il traffico sulla porta di SQL Server (porta predefinita: 1433) se si vuole connettersi tramite Internet. Le connessioni solo a reti virtuali non richiedono questo passaggio. Questo è l'unico passaggio necessario nel portale di Azure. |
 
 > [!TIP]

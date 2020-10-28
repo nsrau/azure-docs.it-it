@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 10/21/2020
 ms.author: inhenkel
-ms.openlocfilehash: 4a741834637900ec0c78105790bac2453d759e2f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: d825a30cf43b3e7f9017638138df91d5145d280e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514487"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791597"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
 
@@ -46,6 +46,16 @@ Il set di impostazioni di analisi audio include ora un piano tariffario in modal
 I clienti che usano Indexer V1 e Indexer V2 devono eseguire la migrazione al set di impostazioni di base di analisi audio.
 
 Per ulteriori informazioni sulla modalità di base dell'analizzatore audio, vedere [analisi dei file audio e video](analyzing-video-audio-files-concept.md).  Per informazioni sull'uso della modalità di base dell'analizzatore audio con l'API REST, vedere [come creare una trasformazione audio di base](how-to-create-basic-audio-transform.md).
+
+## <a name="live-events"></a>Eventi live
+
+Gli aggiornamenti alla maggior parte delle proprietà sono ora consentiti quando gli eventi live vengono arrestati. Inoltre, gli utenti possono specificare un prefisso per il nome host statico per gli URL di input e di anteprima dell'evento Live. VanityUrl viene ora chiamato `useStaticHostName` per riflettere meglio lo scopo della proprietà.
+
+Gli eventi Live hanno ora uno stato StandBy.  Vedere [eventi live e output Live in servizi multimediali](https://docs.microsoft.com/azure/media-services/latest/live-events-outputs-concept).
+
+Un evento Live supporta la ricezione di diverse proporzioni di input. La modalità Stretch consente ai clienti di specificare il comportamento di adattamento per l'output.
+
+La codifica live ora aggiunge la funzionalità di output dei frammenti di intervallo di fotogrammi chiave fissi tra 0,5 e 20 secondi.
 
 ## <a name="august-2020"></a>Agosto 2020
 
@@ -99,7 +109,7 @@ Servizi multimediali di Azure è ora disponibile a livello generale nelle aree s
 
 ### <a name="azure-government-cloud-updates"></a>Aggiornamenti al cloud di Azure per enti pubblici
 
-Disponibilità generale di Servizi multimediali nelle aree di Azure per enti pubblici seguenti: *USGov Arizona* e *USGov Texas*.
+Disponibilità generale di Servizi multimediali nelle aree di Azure per enti pubblici seguenti: *USGov Arizona* e *USGov Texas* .
 
 ## <a name="december-2019"></a>Dicembre 2019
 
@@ -163,7 +173,7 @@ Media Services V3 annuncia l'anteprima di 24 ore per 365 giorni della codifica l
 
 #### <a name="deprecation-of-media-processors"></a>Deprecazione dei processori di contenuti multimediali
 
-Si annuncia la deprecazione di *Azure Media Indexer* e *Anteprima di Azure Media Indexer 2*. Per le date di ritiro, vedere l'articolo relativo ai  [componenti legacy](../previous/legacy-components.md) . [Video Indexer di Servizi multimediali di Azure](../video-indexer/index.yml) sostituisce questi processori di contenuti multimediali legacy.
+Si annuncia la deprecazione di *Azure Media Indexer* e *Anteprima di Azure Media Indexer 2* . Per le date di ritiro, vedere l'articolo relativo ai  [componenti legacy](../previous/legacy-components.md) . [Video Indexer di Servizi multimediali di Azure](../video-indexer/index.yml) sostituisce questi processori di contenuti multimediali legacy.
 
 Per altre informazioni, vedere l'articolo [Eseguire la migrazione da Azure Media Indexer e Azure Media Indexer 2 a Video Indexer di Servizi multimediali di Azure](../previous/migrate-indexer-v1-v2.md).
 
@@ -265,10 +275,10 @@ Non è consigliabile modificare o rimuovere il file MPI né creare dipendenze ne
 
 Gli aggiornamenti dalla versione disponibile a livello generale dell'API V3 includono:
        
-* Le proprietà **PresentationTimeRange** non sono più "obbligatorie" per i **filtri degli asset** e i **filtri degli account**. 
+* Le proprietà **PresentationTimeRange** non sono più "obbligatorie" per i **filtri degli asset** e i **filtri degli account** . 
 * Sono state rimosse le opzioni di query $top e $skip per **Processi** e **Trasformazioni** ed è stata aggiunta $orderby. Come parte dell'aggiunta della nuova funzionalità di ordinamento, è stato rilevato che le opzioni $top e $skip sono state accidentalmente esposte in precedenza anche se non sono implementate.
 * L'estendibilità di enumerazione è stata riabilitata. Questa funzionalità è stata abilitata nelle versioni di anteprima di SDK ed è stata disattivata accidentalmente nella versione disponibile a livello generale.
-* Due criteri di streaming predefiniti sono stati rinominati. **SecureStreaming** è ora **MultiDrmCencStreaming**. **SecureStreamingWithFairPlay** è ora **Predefined_MultiDrmStreaming**.
+* Due criteri di streaming predefiniti sono stati rinominati. **SecureStreaming** è ora **MultiDrmCencStreaming** . **SecureStreamingWithFairPlay** è ora **Predefined_MultiDrmStreaming** .
 
 ## <a name="november-2018"></a>Novembre 2018
 

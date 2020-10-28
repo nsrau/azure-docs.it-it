@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 3a0b40b91aad388cb42222ead8da4f2bd91947ee
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 848f3cd2d5719d62e39f46c166d51e09ec89bd4c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165243"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792515"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creare un'istanza FCI con Spazi di archiviazione diretta (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Il diagramma seguente illustra la soluzione completa, che usa Spazi di archiviaz
 
 Il diagramma precedente mostra le risorse seguenti nello stesso gruppo di risorse:
 
-- Due macchine virtuali in un cluster di failover di Windows Server. Una macchina virtuale in un cluster di failover è detta anche *nodo del cluster* o *nodo*.
+- Due macchine virtuali in un cluster di failover di Windows Server. Una macchina virtuale in un cluster di failover è detta anche *nodo del cluster* o *nodo* .
 - Ogni macchina virtuale ha due o più dischi dati.
 - Spazi di archiviazione diretta sincronizza i dati nei dischi dati e presenta le risorse di archiviazione sincronizzate sotto forma di pool di archiviazione.
 - Il pool di archiviazione presenta un volume condiviso cluster per il cluster di failover.
@@ -68,10 +68,10 @@ Prima di completare le istruzioni riportate in questo articolo, è necessario av
 
    Per installare il clustering di failover dall'interfaccia utente, eseguire le operazioni seguenti in entrambe le macchine virtuali:
 
-   1. In **Server Manager** selezionare **Gestione** e quindi **Aggiungi ruoli e funzionalità**.
-   1. Nell' **Aggiunta guidata ruoli e funzionalità** selezionare **Avanti** fino a quando non si ottengono le **funzionalità selezionate**.
-   1. In **Seleziona funzionalità** selezionare **Clustering di failover**. Includere tutte le funzionalità necessarie e gli strumenti di gestione. 
-   1. Selezionare **Aggiungi funzionalità**.
+   1. In **Server Manager** selezionare **Gestione** e quindi **Aggiungi ruoli e funzionalità** .
+   1. Nell' **Aggiunta guidata ruoli e funzionalità** selezionare **Avanti** fino a quando non si ottengono le **funzionalità selezionate** .
+   1. In **Seleziona funzionalità** selezionare **Clustering di failover** . Includere tutte le funzionalità necessarie e gli strumenti di gestione. 
+   1. Selezionare **Aggiungi funzionalità** .
    1. Selezionare **Avanti** e quindi selezionare **Fine** per installare le funzionalità.
 
    Per installare il clustering di failover tramite PowerShell, eseguire lo script seguente da una sessione di PowerShell amministratore in una delle macchine virtuali:
@@ -81,7 +81,7 @@ Prima di completare le istruzioni riportate in questo articolo, è necessario av
    Invoke-Command  $nodes {Install-WindowsFeature Failover-Clustering -IncludeAllSubFeature -IncludeManagementTools}
    ```
 
-Per ulteriori informazioni sui passaggi successivi, vedere le istruzioni riportate nella sezione "Step 3: Configure Spazi di archiviazione diretta" della [soluzione iperconvergente con spazi di archiviazione diretta in Windows Server 2016](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-3-configure-storage-spaces-direct).
+Per ulteriori informazioni sui passaggi successivi, vedere le istruzioni riportate nella sezione "Step 3: Configure Spazi di archiviazione diretta" della [soluzione iperconvergente con spazi di archiviazione diretta in Windows Server 2016](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-3-configure-storage-spaces-direct).
 
 
 ## <a name="validate-the-cluster"></a>Convalidare il cluster
@@ -90,18 +90,18 @@ Convalidare il cluster nell'interfaccia utente o usando PowerShell.
 
 Per convalidare il cluster usando l'interfaccia utente, eseguire le operazioni seguenti in una delle macchine virtuali:
 
-1. In **Server Manager** selezionare **Strumenti** e quindi selezionare **Gestione cluster di failover**.
-1. In **Gestione cluster di failover** selezionare **Azione** e quindi selezionare **Convalida configurazione**.
-1. Selezionare **Avanti**.
+1. In **Server Manager** selezionare **Strumenti** e quindi selezionare **Gestione cluster di failover** .
+1. In **Gestione cluster di failover** selezionare **Azione** e quindi selezionare **Convalida configurazione** .
+1. Selezionare **Avanti** .
 1. In **Selezione di server o di un cluster** immettere i nomi di entrambe le macchine virtuali.
-1. In **Opzioni di testing** selezionare **Esegui solo test selezionati**. 
-1. Selezionare **Avanti**.
-1. In **Selezione dei test** selezionare tutti i test tranne **Archiviazione**, come illustrato di seguito:
+1. In **Opzioni di testing** selezionare **Esegui solo test selezionati** . 
+1. Selezionare **Avanti** .
+1. In **Selezione dei test** selezionare tutti i test tranne **Archiviazione** , come illustrato di seguito:
 
    ![Selezionare i test di convalida del cluster](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
-1. Selezionare **Avanti**.
-1. In **Conferma** selezionare **Avanti**.
+1. Selezionare **Avanti** .
+1. In **Conferma** selezionare **Avanti** .
 
     La convalida guidata **configurazione** esegue i test di convalida.
 
@@ -150,9 +150,9 @@ Configurare la soluzione quorum più adatta alle proprie esigenze aziendali. È 
 
 ## <a name="add-storage"></a>Aggiungere le risorse di archiviazione
 
-I dischi per Spazi di archiviazione diretta devono essere vuoti. Non possono contenere partizioni o altri dati. Per pulire i dischi, seguire le istruzioni riportate in [Deploy spazi di archiviazione diretta](https://docs.microsoft.com/windows-server/storage/storage-spaces/deploy-storage-spaces-direct?redirectedfrom=MSDN#step-31-clean-drives).
+I dischi per Spazi di archiviazione diretta devono essere vuoti. Non possono contenere partizioni o altri dati. Per pulire i dischi, seguire le istruzioni riportate in [Deploy spazi di archiviazione diretta](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-31-clean-drives).
 
-1. [Abilitare spazi di archiviazione diretta](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-35-enable-storage-spaces-direct).
+1. [Abilitare spazi di archiviazione diretta](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-35-enable-storage-spaces-direct).
 
    Lo script di PowerShell seguente abilita Spazi di archiviazione diretta:  
 
@@ -162,7 +162,7 @@ I dischi per Spazi di archiviazione diretta devono essere vuoti. Non possono con
 
    In **Gestione cluster di failover** verrà ora visualizzato il pool di archiviazione.
 
-1. [Creare un volume](https://technet.microsoft.com/windows-server-docs/storage/storage-spaces/hyper-converged-solution-using-storage-spaces-direct#step-36-create-volumes).
+1. [Creare un volume](/windows-server/storage/storage-spaces/deploy-storage-spaces-direct#step-36-create-volumes).
 
    Spazi di archiviazione diretta crea automaticamente un pool di archiviazione al momento dell'abilitazione. È ora possibile creare un volume. Il cmdlet di PowerShell `New-Volume` automatizza il processo di creazione del volume. Questo processo include la formattazione, l'aggiunta del volume al cluster e la creazione di un volume CSV. Questo esempio Mostra come creare un file CSV da 800 Gigabyte (GB):
 
@@ -180,7 +180,7 @@ I dischi per Spazi di archiviazione diretta devono essere vuoti. Non possono con
 
 ## <a name="test-cluster-failover"></a>Test del failover del cluster
 
-Testare il failover del cluster. In **Gestione cluster di failover**fare clic con il pulsante destro del mouse sul cluster, scegliere **altre azioni**  >  **Sposta Core Cluster Resource**  >  **selezionare nodo**, quindi selezionare l'altro nodo del cluster. Spostare le risorse principali del cluster in ogni nodo del cluster, quindi spostarle di nuovo nel nodo primario. Se lo spostamento del cluster in ogni nodo avviene in modo corretto, è possibile installare SQL Server.  
+Testare il failover del cluster. In **Gestione cluster di failover** fare clic con il pulsante destro del mouse sul cluster, scegliere **altre azioni**  >  **Sposta Core Cluster Resource**  >  **selezionare nodo** , quindi selezionare l'altro nodo del cluster. Spostare le risorse principali del cluster in ogni nodo del cluster, quindi spostarle di nuovo nel nodo primario. Se lo spostamento del cluster in ogni nodo avviene in modo corretto, è possibile installare SQL Server.  
 
 :::image type="content" source="media/failover-cluster-instance-premium-file-share-manually-configure/test-cluster-failover.png" alt-text="Testare il failover del cluster spostando le risorse principali negli altri nodi":::
 
@@ -190,13 +190,13 @@ Dopo aver configurato il cluster di failover e tutti i componenti del cluster, i
 
 1. Connettersi alla prima macchina virtuale con RDP.
 
-1. In **Gestione cluster di failover**assicurarsi che tutte le risorse del cluster di base si trovino nella prima macchina virtuale. Se necessario, spostare tutte le risorse in tale macchina virtuale.
+1. In **Gestione cluster di failover** assicurarsi che tutte le risorse del cluster di base si trovino nella prima macchina virtuale. Se necessario, spostare tutte le risorse in tale macchina virtuale.
 
-1. Individuare i supporti di installazione. Se la macchina virtuale usa una delle immagini di Azure Marketplace, i supporti si trovano in `C:\SQLServer_<version number>_Full`. Selezionare **Imposta**.
+1. Individuare i supporti di installazione. Se la macchina virtuale usa una delle immagini di Azure Marketplace, i supporti si trovano in `C:\SQLServer_<version number>_Full`. Selezionare **Imposta** .
 
-1. In **Centro installazione SQL Server** selezionare **Installazione**.
+1. In **Centro installazione SQL Server** selezionare **Installazione** .
 
-1. Selezionare **Installazione di un nuovo cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare l'istanza del cluster di failover di SQL Server.
+1. Selezionare **Installazione di un nuovo cluster di failover di SQL Server** . Seguire le istruzioni della procedura guidata per installare l'istanza del cluster di failover di SQL Server.
 
    Le directory di dati dell'istanza del cluster di failover devono trovarsi nelle risorse di archiviazione del cluster. Con Spazi di archiviazione diretta, non si tratta di un disco condiviso, ma di un punto di montaggio su un volume in ogni server. Spazi di archiviazione diretta sincronizza il volume tra i due nodi. Il volume viene presentato al cluster come un volume CSV. Usare il punto di montaggio del volume condiviso cluster per le directory di dati.
 
@@ -206,12 +206,12 @@ Dopo aver configurato il cluster di failover e tutti i componenti del cluster, i
 
 1. Al termine dell'installazione dell'istanza del cluster di failover nel primo nodo, connettersi al secondo nodo usando RDP.
 
-1. Aprire il **Centro installazione SQL Server**. Selezionare **Installazione**.
+1. Aprire il **Centro installazione SQL Server** . Selezionare **Installazione** .
 
-1. Selezionare **Aggiungi nodo a cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere il server all'istanza del cluster di failover.
+1. Selezionare **Aggiungi nodo a cluster di failover di SQL Server** . Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere il server all'istanza del cluster di failover.
 
    >[!NOTE]
-   >Se è stata usata un'immagine della raccolta di Azure Marketplace che contiene SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Per altre informazioni, vedere [Scaricare SQL Server Management Studio (SSMS)](https://msdn.microsoft.com/library/mt238290.aspx).
+   >Se è stata usata un'immagine della raccolta di Azure Marketplace che contiene SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Per altre informazioni, vedere [Scaricare SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
    >
 
 
@@ -237,7 +237,7 @@ Per instradare il traffico in modo appropriato al nodo primario corrente, config
 
 ## <a name="limitations"></a>Limitazioni
 
-- Le macchine virtuali di Azure supportano Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019 con archiviazione su CSVs e un servizio di [bilanciamento del carico standard](../../../load-balancer/load-balancer-standard-overview.md).
+- Le macchine virtuali di Azure supportano Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019 con archiviazione su CSVs e un servizio di [bilanciamento del carico standard](../../../load-balancer/load-balancer-overview.md).
 - I dischi che sono stati collegati come dischi formattati NTFS possono essere usati con Spazi di archiviazione diretta solo se l'opzione di idoneità del disco è deselezionata o cancellata quando è in corso l'aggiunta dell'archiviazione al cluster. 
 - È supportata solo la registrazione con il provider di risorse VM SQL in [modalità di gestione semplice](sql-vm-resource-provider-register.md#management-modes) .
 

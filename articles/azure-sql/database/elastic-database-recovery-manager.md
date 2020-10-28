@@ -11,17 +11,17 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/03/2019
-ms.openlocfilehash: fdd5f7d291d9c56361c17547628795b378091109
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91bcd998849c619a328a198c97bb8c977b9d8232
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443451"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792226"
 ---
 # <a name="using-the-recoverymanager-class-to-fix-shard-map-problems"></a>Uso della classe RecoveryManager per correggere i problemi delle mappe partizioni
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-La classe [RecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) offre alle applicazioni ADO.NET la possibilità di rilevare e correggere facilmente eventuali incoerenze tra la mappa globale partizioni (GSM) e la mappa partizioni locale (LSM) in un ambiente di database partizionato.
+La classe [RecoveryManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager) offre alle applicazioni ADO.NET la possibilità di rilevare e correggere facilmente eventuali incoerenze tra la mappa globale partizioni (GSM) e la mappa partizioni locale (LSM) in un ambiente di database partizionato.
 
 La mappa globale partizioni e la mappa locale partizioni tengono traccia del mapping di ogni database in un ambiente partizionato. Si verifica a volte un'interruzione tra la mappa globale partizioni e la mappa locale partizioni. In tal caso usare la classe RecoveryManager per rilevare e correggere l'interruzione.
 
@@ -33,11 +33,11 @@ Per le definizioni dei termini, vedere il [glossario degli strumenti del databas
 
 ## <a name="why-use-the-recovery-manager"></a>Perché usare Gestione ripristino
 
-In un ambiente di database partizionato c'è un unico tenant per database e ci sono molti database per server. Nell'ambiente possono anche esserci molti server. Ogni database è mappato nella mappa partizioni, quindi le chiamate possono essere instradate correttamente al server e al database appropriati. I database vengono rilevati in base a una **chiave di partizionamento orizzontale** e a ogni partizione viene assegnato un **intervallo di valori di chiave**. Ad esempio, una chiave di partizionamento orizzontale può rappresentare i nomi dei clienti da "D" a "F." Il mapping di tutte le partizioni (note anche come database) e i relativi intervalli di mapping sono contenuti nella **mappa partizioni globale (GSM)**. Ogni database include anche una mappa degli intervalli presenti nella partizione, ovvero la **mappa locale partizioni**. Quando un'app si connette a una partizione, il mapping viene memorizzato nella cache insieme all'app per consentire un recupero rapido. La mappa locale partizioni si usa per convalidare i dati memorizzati nella cache.
+In un ambiente di database partizionato c'è un unico tenant per database e ci sono molti database per server. Nell'ambiente possono anche esserci molti server. Ogni database è mappato nella mappa partizioni, quindi le chiamate possono essere instradate correttamente al server e al database appropriati. I database vengono rilevati in base a una **chiave di partizionamento orizzontale** e a ogni partizione viene assegnato un **intervallo di valori di chiave** . Ad esempio, una chiave di partizionamento orizzontale può rappresentare i nomi dei clienti da "D" a "F." Il mapping di tutte le partizioni (note anche come database) e i relativi intervalli di mapping sono contenuti nella **mappa partizioni globale (GSM)** . Ogni database include anche una mappa degli intervalli presenti nella partizione, ovvero la **mappa locale partizioni** . Quando un'app si connette a una partizione, il mapping viene memorizzato nella cache insieme all'app per consentire un recupero rapido. La mappa locale partizioni si usa per convalidare i dati memorizzati nella cache.
 
 La mappa globale e locale delle partizioni potrebbero perdere la sincronizzazione per i motivi seguenti:
 
-1. L'eliminazione di una partizione con un intervallo che si ritiene non più usato o la ridenominazione della partizione. Eliminazione dei risultati di una partizione in un **mapping di partizione orfana**. Analogamente, anche un database rinominato può causare un mapping di partizione orfana. A seconda della finalità della modifica, potrebbe essere necessario rimuovere la partizione o aggiornarne il percorso. Per ripristinare un database eliminato, vedere [Ripristinare un database SQL di Azure con il portale di Azure](recovery-using-backups.md).
+1. L'eliminazione di una partizione con un intervallo che si ritiene non più usato o la ridenominazione della partizione. Eliminazione dei risultati di una partizione in un **mapping di partizione orfana** . Analogamente, anche un database rinominato può causare un mapping di partizione orfana. A seconda della finalità della modifica, potrebbe essere necessario rimuovere la partizione o aggiornarne il percorso. Per ripristinare un database eliminato, vedere [Ripristinare un database SQL di Azure con il portale di Azure](recovery-using-backups.md).
 2. Si verifica un evento di failover geografico. Per continuare, è necessario aggiornare il nome del server e il nome del database del gestore delle mappe partizioni nell'applicazione e quindi aggiornare i dettagli del mapping delle partizioni per tutte le partizioni in una mappa partizioni. In caso di failover geografico, è necessario che la logica di ripristino sia automatizzata nel flusso di lavoro di failover. L'automazione delle azioni di ripristino rende possibile la gestibilità senza problemi dei database abilitati per la replica geografica, evitando interventi manuali. Per informazioni sulle opzioni per il ripristino di un database in caso di interruzione del data center, vedere [continuità aziendale](business-continuity-high-availability-disaster-recover-hadr-overview.md) e [ripristino di emergenza](disaster-recovery-guidance.md).
 3. Una partizione o un database ShardMapManager viene ripristinato a una condizione precedente. Per informazioni sul recupero temporizzato tramite i backup, vedere l'articolo sul [ripristino mediante backup](recovery-using-backups.md).
 
@@ -49,7 +49,7 @@ Per altre informazioni sugli strumenti di database elastici per i database SQL d
 
 ## <a name="retrieving-recoverymanager-from-a-shardmapmanager"></a>Ripristino di RecoveryManager da un oggetto ShardMapManager
 
-Il primo passaggio consiste nel creare un'istanza di RecoveryManager. Il [metodo GetRecoveryManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) restituisce la funzionalità di Gestione ripristino per l'istanza corrente di [ShardMapManager](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager). Per risolvere eventuali incoerenze in una mappa partizioni, è necessario ripristinare prima di tutto RecoveryManager per una mappa partizioni specifica.
+Il primo passaggio consiste nel creare un'istanza di RecoveryManager. Il [metodo GetRecoveryManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager.getrecoverymanager) restituisce la funzionalità di Gestione ripristino per l'istanza corrente di [ShardMapManager](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager). Per risolvere eventuali incoerenze in una mappa partizioni, è necessario ripristinare prima di tutto RecoveryManager per una mappa partizioni specifica.
 
    ```java
     ShardMapManager smm = ShardMapManagerFactory.GetSqlShardMapManager(smmConnectionString,  
@@ -63,10 +63,10 @@ Poiché questo codice dell'applicazione manipola la mappa partizioni stessa, le 
 
 ## <a name="removing-a-shard-from-the-shardmap-after-a-shard-is-deleted"></a>Rimozione di una partizione da ShardMap dopo l'eliminazione di una partizione
 
-Il [metodo DetachShard](https://docs.microsoft.com/previous-versions/azure/dn842083(v=azure.100)) scollega la partizione specificata dalla mappa partizioni ed elimina i mapping associati alla partizione.  
+Il [metodo DetachShard](/previous-versions/azure/dn842083(v=azure.100)) scollega la partizione specificata dalla mappa partizioni ed elimina i mapping associati alla partizione.  
 
 * Il parametro location corrisponde al percorso della partizione, cioè il nome del server e il nome del database, della partizione che viene scollegata.
-* Il parametro shardMapName è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativa.
+* Il parametro shardMapName è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. facoltativo.
 
 > [!IMPORTANT]
 > usare questa tecnica solo se si è certi che l'intervallo per il mapping aggiornato sia vuoto. Poiché i metodi descritti precedentemente non controllano i dati dell'intervallo da spostare, è consigliabile includere i controlli nel codice.
@@ -83,37 +83,37 @@ Presupponendo che l'eliminazione del database sia stata intenzionale, l'azione d
 
 ## <a name="to-detect-mapping-differences"></a>Per rilevare le differenze nei mapping
 
-Il [metodo DetectMappingDifferences](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) seleziona e restituisce una della mappe partizioni, locale o globale, come origine di dati reali e riconcilia i mapping in entrambi i tipi di mappa partizioni, globale e locale.
+Il [metodo DetectMappingDifferences](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.detectmappingdifferences) seleziona e restituisce una della mappe partizioni, locale o globale, come origine di dati reali e riconcilia i mapping in entrambi i tipi di mappa partizioni, globale e locale.
 
    ```java
    rm.DetectMappingDifferences(location, shardMapName);
    ```
 
 * Il *percorso* specifica il nome del server e il nome del database.
-* Il parametro *shardMapName* è il nome della mappa partizioni. È richiesto solo se più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativa.
+* Il parametro *shardMapName* è il nome della mappa partizioni. È richiesto solo se più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. facoltativo.
 
 ## <a name="to-resolve-mapping-differences"></a>Per risolvere le differenze nei mapping
 
-Il [metodo ResolveMappingDifferences](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) seleziona una delle mappe partizioni, locale o globale, come origine di dati reali e riconcilia i mapping in entrambi i tipi di mappa partizioni, globale e locale.
+Il [metodo ResolveMappingDifferences](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.resolvemappingdifferences) seleziona una delle mappe partizioni, locale o globale, come origine di dati reali e riconcilia i mapping in entrambi i tipi di mappa partizioni, globale e locale.
 
    ```java
    ResolveMappingDifferences (RecoveryToken, MappingDifferenceResolution.KeepShardMapping);
    ```
 
 * Il parametro *RecoveryToken* enumera le differenze nei mapping tra la mappa globale di partizioni e la mappa locale di partizioni per la partizione specifica.
-* L' [enumerazione MappingDifferenceResolution](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) viene usata per indicare il metodo per risolvere la differenza tra i mapping di partizione.
+* L' [enumerazione MappingDifferenceResolution](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.mappingdifferenceresolution) viene usata per indicare il metodo per risolvere la differenza tra i mapping di partizione.
 * È consigliabile usare **MappingDifferenceResolution.KeepShardMapping** qualora la mappa locale partizioni contenga il mapping corretto e quindi si dovrà usare il mapping presente nella partizione. Questo si verifica in genere nel caso di un failover, dove la partizione ora risiede in un nuovo server. Poiché la partizione deve essere prima rimossa dalla mappa globale partizioni, tramite il metodo RecoveryManager.DetachShard, non esiste più un mapping nella mappa globale partizioni. Per ristabilire il mapping della partizione è quindi necessario usare la mappa locale partizioni.
 
 ## <a name="attach-a-shard-to-the-shardmap-after-a-shard-is-restored"></a>Collegare una partizione a ShardMap dopo il ripristino di una partizione
 
-Il [metodo AttachShard](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) collega la partizione specificata alla mappa partizioni. Rileva quindi eventuali incoerenze nella mappa partizioni e aggiorna i mapping in modo che la partizione corrisponda al punto di ripristino della partizione. Si presuppone che venga rinominato anche il database per riflettere il nome del database originale, precedente al ripristino della partizione, perché per impostazione predefinita il ripristino temporizzato usa un nuovo database a cui aggiunge il timestamp.
+Il [metodo AttachShard](/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.recovery.recoverymanager.attachshard) collega la partizione specificata alla mappa partizioni. Rileva quindi eventuali incoerenze nella mappa partizioni e aggiorna i mapping in modo che la partizione corrisponda al punto di ripristino della partizione. Si presuppone che venga rinominato anche il database per riflettere il nome del database originale, precedente al ripristino della partizione, perché per impostazione predefinita il ripristino temporizzato usa un nuovo database a cui aggiunge il timestamp.
 
    ```java
    rm.AttachShard(location, shardMapName)
    ```
 
 * Il parametro *location* corrisponde al nome del server e al nome del database della partizione che viene collegata.
-* Il parametro *shardMapName* è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. Facoltativa.
+* Il parametro *shardMapName* è il nome della mappa partizioni. È richiesto solo quando più mappe partizioni sono gestite dallo stesso gestore delle mappe partizioni. facoltativo.
 
 Questo esempio aggiunge una partizione alla mappa partizioni ripristinata di recente da una condizione precedente. Poiché la partizione, ovvero il mapping per la partizione nella mappa locale partizioni, è stata ripristinata, è potenzialmente incoerenze con la voce della partizione nella mappa globale partizioni. Esternamente a questo codice di esempio, la partizione è stata ripristinata e rinominata con il nome originale del database. Essendo stata ripristinata, si presuppone che il mapping nella mappa locale partizioni sia quello attendibile.
 

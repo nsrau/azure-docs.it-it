@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: fc12d1359ab7b6f664326cd3be448b79809c53e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 2343800f8801105ca75f285972b441ecb027d1a0
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332196"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793246"
 ---
 # <a name="provision-and-catalog-new-tenants-using-the--application-per-tenant-saas-pattern"></a>Effettuare il provisioning di nuovi tenant e catalogarli usando il modello SaaS di un'applicazione per ogni tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -29,7 +29,7 @@ L'articolo presenta due parti principali:
 
 ## <a name="standalone-application-per-tenant-pattern"></a>Modello di applicazione autonoma per ogni tenant
 
-Il modello di app autonoma per ogni tenant è uno dei diversi modelli per le applicazioni SaaS multi-tenant.  In questo modello viene effettuato il provisioning di un'app autonoma per ogni tenant. L'applicazione è costituita da componenti a livello di applicazione e da un database SQL di Azure.  Ogni app del tenant può essere distribuita nella sottoscrizione del fornitore.  In alternativa, Azure offre un [programma di applicazioni gestite](https://docs.microsoft.com/azure/managed-applications/overview), in base a cui un'app può essere distribuita nella sottoscrizione di un tenant e gestita dal fornitore per conto del tenant.
+Il modello di app autonoma per ogni tenant è uno dei diversi modelli per le applicazioni SaaS multi-tenant.  In questo modello viene effettuato il provisioning di un'app autonoma per ogni tenant. L'applicazione è costituita da componenti a livello di applicazione e da un database SQL di Azure.  Ogni app del tenant può essere distribuita nella sottoscrizione del fornitore.  In alternativa, Azure offre un [programma di applicazioni gestite](../../azure-resource-manager/managed-applications/overview.md), in base a cui un'app può essere distribuita nella sottoscrizione di un tenant e gestita dal fornitore per conto del tenant.
 
    ![modello di applicazione per ogni tenant](./media/saas-standaloneapp-provision-and-catalog/standalone-app-pattern.png)
 
@@ -72,8 +72,8 @@ Al termine di questa esercitazione si disporrà di un set di applicazioni autono
 
 Per completare questa esercitazione, verificare che i prerequisiti seguenti siano completati:
 
-* Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](https://docs.microsoft.com/powershell/azure/get-started-azureps)
-* Le tre app di tenant di esempio sono state distribuite. Per distribuire queste app in meno di cinque minuti, vedere [Distribuire ed esplorare il modello di applicazione SaaS autonoma Wingtip Tickets](../../sql-database/saas-standaloneapp-get-started-deploy.md).
+* Azure PowerShell è installato. Per informazioni dettagliate, vedere [Introduzione ad Azure PowerShell](/powershell/azure/get-started-azureps)
+* Le tre app di tenant di esempio sono state distribuite. Per distribuire queste app in meno di cinque minuti, vedere [Distribuire ed esplorare il modello di applicazione SaaS autonoma Wingtip Tickets](./saas-standaloneapp-get-started-deploy.md).
 
 ## <a name="provision-the-catalog"></a>Effettuare il provisioning del catalogo
 
@@ -92,7 +92,7 @@ In questa attività si apprenderà come effettuare il provisioning del catalogo 
 1. Eseguire lo script premendo **F5** .
 1.  Quando l'esecuzione dello script si arresta in corrispondenza del punto di interruzione, premere **F11** per eseguire l'istruzione nello script New-Catalog.ps1.
 1.  Analizzare l'esecuzione dello script usando le opzioni F10 e F11 del menu Debug per eseguire un'istruzione alla volta o singolarmente le varie funzioni chiamate.
-    *   Per altre informazioni sul debug degli script di PowerShell, vedere [Suggerimenti per l'utilizzo e il debug degli script di PowerShell](https://docs.microsoft.com/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
+    *   Per altre informazioni sul debug degli script di PowerShell, vedere [Suggerimenti per l'utilizzo e il debug degli script di PowerShell](/powershell/scripting/components/ise/how-to-debug-scripts-in-windows-powershell-ise).
 
 Al completamento dello script il catalogo sarà disponibile e saranno stati registrati tutti i tenant di esempio.
 
@@ -156,4 +156,4 @@ In questa esercitazione si è appreso:
 > * Informazioni su server e database che costituiscono l'app
 > * Come eliminare le risorse di esempio per interrompere la fatturazione correlata
 
-È possibile esplorare la modalità di utilizzo del catalogo per supportare i diversi scenari tra i tenant usando la versione con un database per ogni tenant dell'[applicazione SaaS Wingtip Tickets](../../sql-database/saas-dbpertenant-wingtip-app-overview.md).
+È possibile esplorare la modalità di utilizzo del catalogo per supportare i diversi scenari tra i tenant usando la versione con un database per ogni tenant dell'[applicazione SaaS Wingtip Tickets](./saas-dbpertenant-wingtip-app-overview.md).

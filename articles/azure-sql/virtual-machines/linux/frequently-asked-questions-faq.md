@@ -11,12 +11,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/13/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: afd36eb079b6e5f29fa664050cded3c5ddd17d8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad991974df30060e552d21a44d5796cd2ba165e2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84669461"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792549"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-linux-virtual-machines"></a>Domande frequenti per SQL Server in Linux macchine virtuali
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -61,7 +61,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **Come si installa una copia di SQL Server con licenza in una VM di Azure?**
 
-   Creare prima di tutto una macchina virtuale con il solo sistema operativo Linux. Eseguire quindi i [passaggi di installazione di SQL Server](https://docs.microsoft.com/sql/linux/sql-server-linux-setup#platforms) per la distribuzione Linux. Se non si installa una delle edizioni con licenza gratuita di SQL Server, sono necessarie anche una licenza di SQL Server e la [mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/).
+   Creare prima di tutto una macchina virtuale con il solo sistema operativo Linux. Eseguire quindi i [passaggi di installazione di SQL Server](/sql/linux/sql-server-linux-setup#platforms) per la distribuzione Linux. Se non si installa una delle edizioni con licenza gratuita di SQL Server, sono necessarie anche una licenza di SQL Server e la [mobilità delle licenze tramite Software Assurance in Azure](https://azure.microsoft.com/pricing/license-mobility/).
 
 1. **Sono disponibili immagini di macchine virtuali Linux BYOL (Bring Your Own License) per SQL Server?**
 
@@ -75,7 +75,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **È possibile gestire una macchina virtuale Linux che esegue SQL Server con SQL Server Management Studio (SSMS)?**
 
-   Sì, ma lo strumento SSMS è attualmente disponibile solo su Windows. È necessario connettersi in remoto da un computer Windows per usare SSMS con macchine virtuali Linux che eseguono SQL Server. Su Linux in locale il nuovo strumento [mssql-conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf) può eseguire molte attività amministrative. Per uno strumento di gestione database multipiattaforma, vedere [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/what-is).
+   Sì, ma lo strumento SSMS è attualmente disponibile solo su Windows. È necessario connettersi in remoto da un computer Windows per usare SSMS con macchine virtuali Linux che eseguono SQL Server. Su Linux in locale il nuovo strumento [mssql-conf](/sql/linux/sql-server-linux-configure-mssql-conf) può eseguire molte attività amministrative. Per uno strumento di gestione database multipiattaforma, vedere [Azure Data Studio](/sql/azure-data-studio/what-is).
 
 1. **Posso rimuovere completamente SQL Server da una macchina virtuale di SQL Server?**
 
@@ -85,7 +85,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **Come si esegue l'aggiornamento a una nuova versione o a una nuova edizione di SQL Server in una VM di Azure?**
 
-   Attualmente non è disponibile alcun aggiornamento sul posto per SQL Server in esecuzione in una VM di Azure. Creare una nuova macchina virtuale di Azure con la versione o l'edizione di SQL Server voluta, quindi eseguire la migrazione dei database nel nuovo server tramite [tecniche di migrazione dati](https://docs.microsoft.com/sql/linux/sql-server-linux-migrate-overview) standard.
+   Attualmente non è disponibile alcun aggiornamento sul posto per SQL Server in esecuzione in una VM di Azure. Creare una nuova macchina virtuale di Azure con la versione o l'edizione di SQL Server voluta, quindi eseguire la migrazione dei database nel nuovo server tramite [tecniche di migrazione dati](/sql/linux/sql-server-linux-migrate-overview) standard.
 
 ## <a name="general"></a>Generale
 
@@ -95,13 +95,13 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 ## <a name="resources"></a>Risorse
 
-**Macchine virtuali Linux**:
+**Macchine virtuali Linux** :
 
 * [Panoramica di SQL Server in una macchina virtuale Linux](sql-server-on-linux-vm-what-is-iaas-overview.md)
 * [Effettuare il provisioning di SQL Server in una VM Linux](sql-vm-create-portal-quickstart.md)
-* [Documentazione di SQL Server in Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-overview)
+* [Documentazione di SQL Server in Linux](/sql/linux/sql-server-linux-overview)
 
-**Macchine virtuali Windows**:
+**Macchine virtuali Windows** :
 
 * [Panoramica di SQL Server in una macchina virtuale Windows](../windows/sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Effettuare il provisioning di SQL Server in una macchina virtuale Windows](../windows/sql-vm-create-portal-quickstart.md)

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/26/2020
 ms.author: victorh
 ms.custom: references_regions
-ms.openlocfilehash: 11b41f4dcffad2c98ea5d1f70346ba150fd18c17
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 492041e39cf3e7be256bc783afc82fc756e17bf4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278635"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791546"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Domande frequenti sul gateway applicazione di Azure
 
@@ -69,7 +69,7 @@ Vedere l'[ordine di elaborazione del listener](https://docs.microsoft.com/azure/
 
 Se si usa un indirizzo IP pubblico come endpoint, le informazioni sull'indirizzo IP e sul DNS sono disponibili nella risorsa indirizzo IP pubblico. In alternativa, è disponibile nel portale nella pagina di panoramica per il gateway applicazione. Se si usano indirizzi IP interni, le informazioni sono disponibili nella pagina di panoramica.
 
-Per lo SKU v2, aprire la risorsa IP pubblico e selezionare **Configurazione**. Il campo **Etichetta del nome DNS (facoltativa)** è disponibile per configurare il nome DNS.
+Per lo SKU v2, aprire la risorsa IP pubblico e selezionare **Configurazione** . Il campo **Etichetta del nome DNS (facoltativa)** è disponibile per configurare il nome DNS.
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Quali sono le impostazioni per il timeout keep-alive e il timeout di inattività TCP?
 
@@ -138,7 +138,7 @@ No. Il gateway applicazione v2 non supporta ancora il proxying delle richieste c
 ### <a name="does-application-gateway-affinity-cookie-support-samesite-attribute"></a>Il cookie di affinità del gateway applicazione supporta l'attributo SameSite?
 Sì, l'[aggiornamento V80](https://chromiumdash.appspot.com/schedule) del [browser Chromium](https://www.chromium.org/Home) ha introdotto un mandato sui cookie HTTP senza attributo SameSite affinché vengano trattati come SameSite=Lax. Ciò significa che il cookie di affinità del gateway applicazione non verrà inviato dal browser in un contesto di terze parti. 
 
-Per supportare questo scenario, il gateway applicazione inserisce un altro cookie denominato *ApplicationGatewayAffinityCORS* in aggiunta al cookie esistente *ApplicationGatewayAffinity*.  Questi cookie sono simili, ma al cookie *ApplicationGatewayAffinityCORS* sono stati aggiunti altri due attributi: *SameSite=None; Secure*. Questi attributi gestiscono sessioni permanenti anche per le richieste tra origini. Per altre informazioni, vedere la [sezione relativa all'affinità basata su cookie](configuration-http-settings.md#cookie-based-affinity).
+Per supportare questo scenario, il gateway applicazione inserisce un altro cookie denominato *ApplicationGatewayAffinityCORS* in aggiunta al cookie esistente *ApplicationGatewayAffinity* .  Questi cookie sono simili, ma al cookie *ApplicationGatewayAffinityCORS* sono stati aggiunti altri due attributi: *SameSite=None; Secure* . Questi attributi gestiscono sessioni permanenti anche per le richieste tra origini. Per altre informazioni, vedere la [sezione relativa all'affinità basata su cookie](configuration-http-settings.md#cookie-based-affinity).
 
 ## <a name="performance"></a>Prestazioni
 
@@ -249,11 +249,11 @@ Tuttavia, se si vuole usare il gateway applicazione v2 con solo IP privato, è p
 2. Non creare listener per l'indirizzo IP front-end pubblico. Il gateway applicazione non sarà in ascolto di alcun traffico sull'indirizzo IP pubblico se non viene creato alcun listener.
 3. Creare e associare un [gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview) per la subnet del gateway applicazione con la configurazione seguente in ordine di priorità:
     
-    a. Consentire il traffico dall'origine come tag di servizio **GatewayManager**, la destinazione come **Any** e la porta di destinazione come **65200-65535**. Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) tramite l'autenticazione del certificato. Le entità esterne, inclusi gli amministratori utenti del gateway, non possono avviare modifiche sugli endpoint senza certificati appropriati
+    a. Consentire il traffico dall'origine come tag di servizio **GatewayManager** , la destinazione come **Any** e la porta di destinazione come **65200-65535** . Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) tramite l'autenticazione del certificato. Le entità esterne, inclusi gli amministratori utenti del gateway, non possono avviare modifiche sugli endpoint senza certificati appropriati
     
     b. Consentire il traffico dall'origine come tag di servizio **GatewayManager** e la destinazione e la porta di destinazione come **Any**
     
-    c. Negare tutto il traffico in ingresso dall'origine come tag di servizio **Internet** e la destinazione e la porta di destinazione come **Any**. Assegnare a questa regola la *priorità minima* nelle regole in ingresso
+    c. Negare tutto il traffico in ingresso dall'origine come tag di servizio **Internet** e la destinazione e la porta di destinazione come **Any** . Assegnare a questa regola la *priorità minima* nelle regole in ingresso
     
     d. Mantenere le regole predefinite come consentire VirtualNetwork in ingresso in modo che l'accesso all'indirizzo IP privato non venga bloccato
     
@@ -350,7 +350,7 @@ I membri del browser dell'autorità di certificazione (CA) hanno pubblicato di r
 * [Bug 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
 * [Bug 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
 
-In base ai requisiti di conformità del settore, i fornitori di autorità di certificazione hanno iniziato a revocare le CA non conformi e a emettere CA conformi che richiedono la riemissione dei certificati da parte dei clienti.Microsoft collabora a stretto contatto con questi fornitori per ridurre al minimo il potenziale impatto sui servizi di Azure, tuttavia i certificati autocertificati **o i certificati utilizzati negli scenari "Bring your own certificate" (BYOC) sono ancora a rischio di essere revocati in modo imprevisto**.
+In base ai requisiti di conformità del settore, i fornitori di autorità di certificazione hanno iniziato a revocare le CA non conformi e a emettere CA conformi che richiedono la riemissione dei certificati da parte dei clienti.Microsoft collabora a stretto contatto con questi fornitori per ridurre al minimo il potenziale impatto sui servizi di Azure, tuttavia i certificati autocertificati **o i certificati utilizzati negli scenari "Bring your own certificate" (BYOC) sono ancora a rischio di essere revocati in modo imprevisto** .
 
 Per verificare se i certificati utilizzati dall'applicazione sono stati revocati, fare riferimento all' [annuncio di DigiCert](https://knowledge.digicert.com/alerts/DigiCert-ICA-Replacement) e allo strumento di [rilevamento delle revoche di certificati](https://misissued.com/#revoked). Se i certificati sono stati revocati o verranno revocati, sarà necessario richiedere nuovi certificati al fornitore della CA utilizzato nelle applicazioni. Per evitare che la disponibilità dell'applicazione venga interrotta a causa di un arresto imprevisto dei certificati o per aggiornare un certificato revocato, fare riferimento al post degli aggiornamenti di Azure per i collegamenti correttivi dei vari servizi di Azure che supportano BYOC: https://azure.microsoft.com/updates/certificateauthorityrevocation/
 
@@ -434,9 +434,9 @@ No, il componente aggiuntivo AGIC è un servizio gestito che significa che Micro
 
 Il gateway applicazione offre tre log: 
 
-* **ApplicationGatewayAccessLog**: il log di accesso contiene ogni richiesta inviata al front-end del gateway applicazione. I dati includono IP del chiamante, URL richiesto, latenza della risposta, codice restituito e byte in ingresso e in uscita. Il log contiene un record per ogni gateway applicazione.
-* **ApplicationGatewayPerformanceLog**: il log delle prestazioni acquisisce le informazioni sulle prestazioni per ogni gateway applicazione. Le informazioni includono la velocità effettiva in byte, le richieste totali gestite, il numero di richieste non riuscite e il numero di istanze back-end integre e non integre.
-* **ApplicationGatewayFirewallLog**: per i gateway applicazione configurati con WAF, il log del firewall contiene le richieste registrate tramite la modalità di rilevamento o la modalità di prevenzione.
+* **ApplicationGatewayAccessLog** : il log di accesso contiene ogni richiesta inviata al front-end del gateway applicazione. I dati includono IP del chiamante, URL richiesto, latenza della risposta, codice restituito e byte in ingresso e in uscita. Il log contiene un record per ogni gateway applicazione.
+* **ApplicationGatewayPerformanceLog** : il log delle prestazioni acquisisce le informazioni sulle prestazioni per ogni gateway applicazione. Le informazioni includono la velocità effettiva in byte, le richieste totali gestite, il numero di richieste non riuscite e il numero di istanze back-end integre e non integre.
+* **ApplicationGatewayFirewallLog** : per i gateway applicazione configurati con WAF, il log del firewall contiene le richieste registrate tramite la modalità di rilevamento o la modalità di prevenzione.
 
 Tutti i log vengono raccolti ogni 60 secondi. Per altre informazioni, vedere [Integrità back-end, log di diagnostica e metriche per il gateway applicazione](application-gateway-diagnostics.md).
 
@@ -472,6 +472,10 @@ Sì. Se la configurazione corrisponde allo scenario seguente, non verrà visuali
 - È stato distribuito il gateway applicazione v2
 - È presente un gruppo di sicurezza di rete nella subnet del gateway applicazione
 - Sono stati abilitati i log del flusso del gruppo di sicurezza di rete nel gruppo di sicurezza
+
+### <a name="does-application-gateway-store-customer-data"></a>Il gateway applicazione archivia i dati dei clienti?
+
+No, il gateway applicazione non archivia i dati dei clienti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

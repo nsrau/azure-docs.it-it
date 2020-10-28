@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: c372dafdbfa5e9cafb208673128038dc23b30f5a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b70beb90fae794eb5512cb8b466524169c4c7b53
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488827"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792991"
 ---
 # <a name="move-an-azure-storage-account-to-another-region"></a>Spostare un account di archiviazione di Azure in un'altra area
 
@@ -55,7 +55,7 @@ Per esportare un modello con il portale di Azure:
 
 2. Selezionare **tutte le risorse** e quindi selezionare l'account di archiviazione.
 
-3. Selezionare > **Impostazioni**  >  **Esporta modello**.
+3. Selezionare > **Impostazioni**  >  **Esporta modello** .
 
 4. Scegliere **Scarica** nel pannello **Esporta modello** .
 
@@ -101,19 +101,19 @@ Modificare il modello cambiando il nome e l'area dell'account di archiviazione.
 
 Per distribuire il modello utilizzando portale di Azure:
 
-1. Nella portale di Azure selezionare **Crea una risorsa**.
+1. Nella portale di Azure selezionare **Crea una risorsa** .
 
-2. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
+2. In **Cerca nel Marketplace** Digitare **distribuzione modello** , quindi premere **invio** .
 
-3. Selezionare **distribuzione modelli**.
+3. Selezionare **distribuzione modelli** .
 
     ![Raccolta di modelli di Azure Resource Manager](./media/storage-account-move/azure-resource-manager-template-library.png)
 
-4. Selezionare **Crea**.
+4. Selezionare **Crea** .
 
-5. Selezionare **Creare un modello personalizzato nell'editor**.
+5. Selezionare **Creare un modello personalizzato nell'editor** .
 
-6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
+6. Selezionare **Carica file** e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 
 7. Nel **template.js** file assegnare un nome all'account di archiviazione di destinazione impostando il valore predefinito del nome dell'account di archiviazione. Questo esempio Mostra come impostare il valore predefinito del nome dell'account di archiviazione su `mytargetaccount` .
     
@@ -137,7 +137,7 @@ Per distribuire il modello utilizzando portale di Azure:
          "location": "centralus"
          }]          
     ```
-    Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti**centrali  =  **centralus**.
+    Per ottenere i codici di posizione dell'area, vedere [località di Azure](https://azure.microsoft.com/global-infrastructure/locations/).  Il codice per un'area è il nome dell'area senza spazi, Central **Stati Uniti** centrali  =  **centralus** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -176,7 +176,7 @@ Per distribuire il modello usando PowerShell:
 
 <a id="move"></a>
 
-## <a name="move"></a>Sposta
+## <a name="move"></a>Spostamento
 
 Distribuire un modello per creare un nuovo account di archiviazione nell'area di destinazione. 
 
@@ -188,9 +188,9 @@ Distribuire un modello per creare un nuovo account di archiviazione nell'area di
 
 - **Sottoscrizione** Selezionare una sottoscrizione di Azure.
 
-- **Gruppo di risorse**: selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
+- **Gruppo di risorse** : selezionare **Crea nuovo** e assegnare un nome al gruppo di risorse.
 
-- **Località**: selezionare una località di Azure.
+- **Località** : selezionare una località di Azure.
 
 3. Fare clic sulla casella di controllo Accetto **i termini e le condizioni indicati in precedenza** , quindi fare clic sul pulsante **Seleziona acquisto** .
 
@@ -255,9 +255,9 @@ Per rimuovere un account di archiviazione usando il portale di Azure:
 
 1. Nel portale di Azure espandere il menu a sinistra per aprire il menu dei servizi e scegliere **account di archiviazione** per visualizzare l'elenco degli account di archiviazione.
 
-2. Individuare l'account di archiviazione di destinazione da eliminare e fare clic con il pulsante destro del mouse sul pulsante **altro** (**...**) sul lato destro dell'inserzione.
+2. Individuare l'account di archiviazione di destinazione da eliminare e fare clic con il pulsante destro del mouse sul pulsante **altro** ( **...** ) sul lato destro dell'inserzione.
 
-3. Selezionare **Elimina**e confermare.
+3. Selezionare **Elimina** e confermare.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -273,5 +273,5 @@ Remove-AzStorageAccount -ResourceGroupName  $resourceGroup -AccountName $storage
 In questa esercitazione è stato spostato un account di archiviazione di Azure da un'area a un'altra ed è stata eseguita la pulizia delle risorse di origine.  Per altre informazioni sullo spostamento di risorse tra aree e sul ripristino di emergenza in Azure, vedere:
 
 
-- [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](/azure/azure-resource-manager/resource-group-move-resources)
-- [Spostare macchine virtuali di Azure in un'altra area](/azure/site-recovery/azure-to-azure-tutorial-migrate)
+- [Spostare le risorse in un altro gruppo di risorse o un'altra sottoscrizione](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Spostare macchine virtuali di Azure in un'altra area](../../site-recovery/azure-to-azure-tutorial-migrate.md)

@@ -11,14 +11,14 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, sstein
 ms.date: 05/04/2020
-ms.openlocfilehash: dbf5c06adcddb5b3dfa3cdf2e0127f8a36c59885
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5a2336728d4507544fa621961c2f346746c2bb9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620104"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792651"
 ---
-# <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Creare avvisi per Istanza gestita SQL di Azure usando il portale di Azure
+# <a name="create-alerts-for-azure-sql-managed-instance-using-the-azure-portal"></a>Creare avvisi per Istanza gestita di SQL di Azure usando il portale di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Questo articolo illustra come configurare gli avvisi per i database nel database SQL di Azure Istanza gestita usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica, chiamare un webhook, eseguire Funzioni di Azure, Runbook, chiamare un sistema di ticket compatibile con gestione dei servizi IT esterna, chiamare il telefono o inviare un SMS all'utente quando alcune metriche, ad esempio le dimensioni di archiviazione dell'istanza o l'utilizzo della CPU, raggiungono una soglia predefinita. Questo articolo include anche le procedure consigliate per impostare i periodi di avviso.
@@ -145,5 +145,5 @@ Per visualizzare, sospendere, attivare, modificare ed eliminare gli avvisi esist
 * Per informazioni sul sistema di avvisi di monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
 * Per altre informazioni sugli avvisi delle metriche, vedere informazioni sul [funzionamento degli avvisi delle metriche in monitoraggio di Azure](../../azure-monitor/platform/alerts-metric-overview.md)
 * Per informazioni sulla configurazione di un webhook negli avvisi, vedere [chiamare un webhook con un avviso di metrica classico](../../azure-monitor/platform/alerts-webhooks.md)
-* Per informazioni sulla configurazione e la gestione degli avvisi con PowerShell, vedere [regole di azione](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)
-* Per informazioni sulla configurazione e la gestione degli avvisi, vedere informazioni di [riferimento sull'API REST di monitoraggio di Azure](https://docs.microsoft.com/rest/api/monitor/) 
+* Per informazioni sulla configurazione e la gestione degli avvisi con PowerShell, vedere [regole di azione](/powershell/module/az.monitor/add-azmetricalertrulev2)
+* Per informazioni sulla configurazione e la gestione degli avvisi, vedere informazioni di [riferimento sull'API REST di monitoraggio di Azure](/rest/api/monitor/)

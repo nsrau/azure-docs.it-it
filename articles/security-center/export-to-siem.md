@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/06/2020
 ms.author: memildin
-ms.openlocfilehash: b4458a2b37a3da83591e101344d08c3090868696
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 6ffb6ced6fc828733dd627943a3d4b54e8293ad2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341805"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791903"
 ---
 # <a name="stream-alerts-to-a-siem-soar-or-it-service-management-solution"></a>Trasmettere avvisi a una soluzione SIEM, SOAR o IT Service Management
 
@@ -63,14 +63,14 @@ Il Centro sicurezza offre integrazione predefinita con Microsoft Graph API di si
 - **Power bi**  -  [Connettersi all'API di sicurezza Microsoft Graph in Power bi desktop](/power-bi/connect-data/desktop-connect-graph-security)
 - **ServiceNow**  -  [Seguire le istruzioni per installare e configurare l'applicazione API di sicurezza Microsoft Graph dall'archivio ServiceNow](https://docs.servicenow.com/bundle/orlando-security-management/page/product/secops-integration-sir/secops-integration-ms-graph/task/ms-graph-install.html)
 - **QRadar**  -  [Modulo di supporto dei dispositivi IBM per il Centro sicurezza di Azure tramite Microsoft Graph API](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/com.ibm.dsm.doc/c_dsm_guide_ms_azure_security_center_overview.html) 
-- **Palo Alto Networks**, **anomali**, **Lookout**, **inspark**e altre [Microsoft Graph API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji) per la sicurezza
+- **Palo Alto Networks** , **anomali** , **Lookout** , **inspark** e altre [Microsoft Graph API](https://www.microsoft.com/security/business/graph-security-api#office-MultiFeatureCarousel-09jr2ji) per la sicurezza
 
 [Altre informazioni su Microsoft Graph API di sicurezza](https://www.microsoft.com/security/business/graph-security-api).
 
 
 ## <a name="stream-alerts-with-azure-monitor"></a>Trasmettere avvisi con monitoraggio di Azure 
 
-Per eseguire lo streaming di avvisi in **ArcSight**, **Splunk**, **SumoLogic**, server syslog, **LogRhythm**, **LOGZ.io piattaforma di osservazione cloud**e altre soluzioni di monitoraggio. connettere il Centro sicurezza con monitoraggio di Azure tramite hub eventi di Azure:
+Per eseguire lo streaming di avvisi in **ArcSight** , **Splunk** , **SumoLogic** , server syslog, **LogRhythm** , **LOGZ.io piattaforma di osservazione cloud** e altre soluzioni di monitoraggio. connettere il Centro sicurezza con monitoraggio di Azure tramite hub eventi di Azure:
 
 1. Abilitare l' [esportazione continua](continuous-export.md) per trasmettere gli avvisi del Centro sicurezza in un hub eventi di Azure dedicato a livello di sottoscrizione. 
     > [!TIP]
@@ -90,4 +90,4 @@ Questa pagina ha illustrato come verificare che i dati di avviso del Centro sicu
 
 - [Che cos'è Azure Sentinel?](../sentinel/overview.md)
 - [Convalida degli avvisi nel centro sicurezza di Azure](security-center-alert-validation.md) : verificare che gli avvisi siano configurati correttamente
-- [Esporta continuamente avvisi e raccomandazioni sulla sicurezza](continuous-export.md)
+- [Esporta continuamente i dati del Centro sicurezza](continuous-export.md)

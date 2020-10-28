@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2018
-ms.openlocfilehash: 30f6bf7629152050bc1249a1e22aff0aa30642de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e836a175b45c6fca46f9c76760e1cbaef305a47
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209531"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792583"
 ---
 # <a name="public-data-sets-for-testing-and-prototyping"></a>Set di dati pubblici per test e prototipi
 [!INCLUDE[appliesto-asf](includes/appliesto-asf.md)]
@@ -45,7 +45,7 @@ In questo elenco di set di dati pubblici è possibile trovare dati da usare per 
 | [Dati di Open Science Data Cloud](https://www.opensciencedatacloud.org/projects/) | "Open Science Data Cloud offre alla comunità scientifica risorse per l'archiviazione, la condivisione e l'analisi di set di dati scientifici a livello di terabyte e petabyte".| I set di dati sono disponibili in vari formati. |
 | [Dati sul clima globale: WorldClim](https://worldclim.org/) | "WorldClim è un set di livelli di dati sul clima globale a griglia con risoluzione spaziale di circa 1 km2. Questi dati possono essere usati per la mappatura e la modellazione spaziale". | I file contengono dati geospaziali. Per altre informazioni, vedere [Data format](https://worldclim.org/formats1) (Formato dei dati). |
 | [Dati sulla società umana: The GDELT Project](https://www.gdeltproject.org/data.html) | "The GDELT Project è il database aperto relativo alla società umana più grande e completo e con la risoluzione più elevata che sia mai stato creato". | I file di dati non elaborati sono disponibili in formato CSV. |
-| [Dati di stima dei clic per annunci pubblicitari per l'apprendimento automatico di Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "Il più grande set di dati per l'apprendimento automatico mai rilasciato al pubblico". Per altre informazioni, vedere [Criteo's 1 TB Click Prediction Dataset](https://blogs.technet.microsoft.com/machinelearning/20../../now-available-on-azure-ml-criteos-1tb-click-prediction-dataset/) (Set di dati di stima dei clic di 1 TB di Criteo). | |
+| [Dati di stima dei clic per annunci pubblicitari per l'apprendimento automatico di Criteo](https://labs.criteo.com/2013/12/download-terabyte-click-logs/) | "Il più grande set di dati per l'apprendimento automatico mai rilasciato al pubblico". Per altre informazioni, vedere [Criteo's 1 TB Click Prediction Dataset](/archive/blogs/machinelearning/now-available-on-azure-ml-criteos-1tb-click-prediction-dataset) (Set di dati di stima dei clic di 1 TB di Criteo). | |
 | [Set di dati di text mining ClueWeb09 di Lemur Project](https://www.lemurproject.org/clueweb09.php/) | "Il set di dati ClueWeb09 è stato creato per supportare la ricerca sul recupero informazioni e le tecnologie per il linguaggio umano correlate. È costituito da circa 1 miliardo di pagine Web in 10 lingue raccolte nei mesi di gennaio e febbraio 2009". | Vedere [Dataset Information](https://www.lemurproject.org/clueweb09/datasetInformation.php) (Informazioni sul set di dati).|
 
 ## <a name="online-service-data"></a>Dati di servizi online

@@ -8,12 +8,13 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: b667254ece93c083de95728abe0ddecd5cfed197
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 18bf8d865a5bb4d96fb55199137b38ec30861dbe
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91612371"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793042"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-azure-powershell"></a>Gestire le chiavi degli account di archiviazione con Key Vault e Azure PowerShell
 
@@ -30,7 +31,7 @@ Quando si usa la funzionalità di chiave dell'account di archiviazione gestita, 
 
 È consigliabile usare l'integrazione di Archiviazione di Azure con Azure Active Directory (Azure AD), il servizio Microsoft basato sul cloud per la gestione delle identità e dell'accesso. L'integrazione con Azure AD è disponibile per [BLOB e code di Azure](../../storage/common/storage-auth-aad.md) e offre l'accesso basato su token OAuth2 ad Archiviazione di Azure, analogamente ad Azure Key Vault.
 
-Azure AD consente di autenticare l'applicazione client con un'identità di applicazione o utente, anziché con le credenziali dell'account di archiviazione. È possibile usare un'[identità gestita di Azure AD](/azure/active-directory/managed-identities-azure-resources/) per l'esecuzione in Azure. Le identità gestite eliminano la necessità di eseguire l'autenticazione dei client e di archiviare le credenziali nell'applicazione.
+Azure AD consente di autenticare l'applicazione client con un'identità di applicazione o utente, anziché con le credenziali dell'account di archiviazione. È possibile usare un'[identità gestita di Azure AD](../../active-directory/managed-identities-azure-resources/index.yml) per l'esecuzione in Azure. Le identità gestite eliminano la necessità di eseguire l'autenticazione dei client e di archiviare le credenziali nell'applicazione.
 
 Azure AD usa il controllo degli accessi in base al ruolo per gestire l'autorizzazione e questo approccio è supportato anche da Key Vault.
 
@@ -38,7 +39,7 @@ Azure AD usa il controllo degli accessi in base al ruolo per gestire l'autorizza
 
 ## <a name="service-principal-application-id"></a>ID applicazione dell'entità servizio
 
-Un tenant di Azure AD assegna a ogni applicazione registrata un'[entità servizio](/azure/active-directory/develop/developer-glossary#service-principal-object). L'entità servizio fornisce l'ID applicazione, che viene usato durante la configurazione dell'autorizzazione per l'accesso ad altre risorse di Azure tramite il controllo degli accessi in base al ruolo.
+Un tenant di Azure AD assegna a ogni applicazione registrata un'[entità servizio](../../active-directory/develop/developer-glossary.md#service-principal-object). L'entità servizio fornisce l'ID applicazione, che viene usato durante la configurazione dell'autorizzazione per l'accesso ad altre risorse di Azure tramite il controllo degli accessi in base al ruolo.
 
 Key Vault è un'applicazione Microsoft già registrata in tutti i tenant di Azure AD. Key Vault è registrato con lo stesso ID applicazione in ogni cloud di Azure.
 
@@ -52,21 +53,21 @@ Key Vault è un'applicazione Microsoft già registrata in tutti i tenant di Azur
 
 Per completare questa guida, è necessario eseguire prima di tutto queste operazioni:
 
-- [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps?view=azps-2.6.0).
+- [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps).
 - [Creare un insieme di credenziali delle chiavi](quick-create-powershell.md)
 - [Creare un account di Archiviazione di Azure](../../storage/common/storage-account-create.md?tabs=azure-powershell). Il nome dell'account di archiviazione deve usare solo lettere minuscole e numeri. Il nome deve avere una lunghezza compresa tra 3 e 24 caratteri.
-      
+
 
 ## <a name="manage-storage-account-keys"></a>Gestire le chiavi dell'account di archiviazione
 
 ### <a name="connect-to-your-azure-account"></a>Connettersi all'account di Azure
 
-Autenticare la sessione di PowerShell usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount?view=azps-2.5.0). 
+Autenticare la sessione di PowerShell usando il cmdlet [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount).
 
 ```azurepowershell-interactive
 Connect-AzAccount
 ```
-Se sono presenti più sottoscrizioni di Azure, è possibile elencarle mediante il cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription?view=azps-2.5.0) e quindi specificare la sottoscrizione da usare con il cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext?view=azps-2.5.0). 
+Se sono presenti più sottoscrizioni di Azure, è possibile elencarle mediante il cmdlet [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) e quindi specificare la sottoscrizione da usare con il cmdlet [Set-AzContext](/powershell/module/az.accounts/set-azcontext).
 
 ```azurepowershell-interactive
 Set-AzContext -SubscriptionId <subscriptionId>
@@ -76,7 +77,7 @@ Set-AzContext -SubscriptionId <subscriptionId>
 
 Impostare prima di tutto le variabili che devono essere usate dai cmdlet di PowerShell nei passaggi seguenti. Assicurarsi di aggiornare i segnaposto "YourResourceGroupName", "YourStorageAccountName" e "YourKeyVaultName" e di impostare $keyVaultSpAppId su `cfa8b339-82a2-471a-a3c9-0fc0be7a4093`, come specificato in precedenza in [ID applicazione dell'entità servizio](#service-principal-application-id).
 
-Verranno usati anche i cmdlet [Get-AzContext](/powershell/module/az.accounts/get-azcontext?view=azps-2.6.0) e [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount?view=azps-2.6.0) di Azure PowerShell per ottenere l'ID utente e il contesto dell'account di archiviazione di Azure.
+Verranno usati anche i cmdlet [Get-AzContext](/powershell/module/az.accounts/get-azcontext) e [Get-AzStorageAccount](/powershell/module/az.storage/get-azstorageaccount) di Azure PowerShell per ottenere l'ID utente e il contesto dell'account di archiviazione di Azure.
 
 ```azurepowershell-interactive
 $resourceGroupName = <YourResourceGroupName>
@@ -98,12 +99,12 @@ $storageAccount = Get-AzStorageAccount -ResourceGroupName $resourceGroupName -St
 
 ### <a name="give-key-vault-access-to-your-storage-account"></a>Autenticare l'accesso di Key Vault all'account di archiviazione
 
-Prima che Key Vault possa accedere e gestire le chiavi dell'account di archiviazione, è necessario autorizzarlo ad accedere all'account di archiviazione. L'applicazione Key Vault richiede inoltre apposite autorizzazioni per *elencare* e *rigenerare* le chiavi di un account di archiviazione. Queste autorizzazioni vengono abilitate tramite il ruolo predefinito [Ruolo del servizio dell'operatore della chiave dell'account di archiviazione](/azure/role-based-access-control/built-in-roles#storage-account-key-operator-service-role) di Azure. 
+Prima che Key Vault possa accedere e gestire le chiavi dell'account di archiviazione, è necessario autorizzarlo ad accedere all'account di archiviazione. L'applicazione Key Vault richiede inoltre apposite autorizzazioni per *elencare* e *rigenerare* le chiavi di un account di archiviazione. Queste autorizzazioni vengono abilitate tramite il ruolo predefinito [Ruolo del servizio dell'operatore della chiave dell'account di archiviazione](../../role-based-access-control/built-in-roles.md#storage-account-key-operator-service-role) di Azure.
 
-Assegnare questo ruolo all'entità servizio di Key Vault, limitandone l'ambito al proprio account di archiviazione, usando il cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment?view=azps-2.6.0) di Azure PowerShell.
+Assegnare questo ruolo all'entità servizio di Key Vault, limitandone l'ambito al proprio account di archiviazione, usando il cmdlet [New-AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) di Azure PowerShell.
 
 ```azurepowershell-interactive
-# Assign Azure role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role." 
+# Assign Azure role "Storage Account Key Operator Service Role" to Key Vault, limiting the access scope to your storage account. For a classic storage account, use "Classic Storage Account Key Operator Service Role."
 New-AzRoleAssignment -ApplicationId $keyVaultSpAppId -RoleDefinitionName 'Storage Account Key Operator Service Role' -Scope $storageAccount.Id
 ```
 
@@ -121,11 +122,11 @@ ObjectType         : ServicePrincipal
 CanDelegate        : False
 ```
 
-Se Key Vault era già stato aggiunto a questo ruolo nel proprio account di archiviazione, si riceverà l'errore *"L'assegnazione di ruolo esiste già"* errore. È possibile anche verificare l'assegnazione del ruolo consultando la pagina "Controllo di accesso (IAM)" dell'account di archiviazione nel portale di Azure.  
+Se Key Vault era già stato aggiunto a questo ruolo nel proprio account di archiviazione, si riceverà l'errore *"L'assegnazione di ruolo esiste già"* errore. È possibile anche verificare l'assegnazione del ruolo consultando la pagina "Controllo di accesso (IAM)" dell'account di archiviazione nel portale di Azure.
 
 ### <a name="give-your-user-account-permission-to-managed-storage-accounts"></a>Concedere all'account utente l'autorizzazione per gli account di archiviazione gestiti
 
-Usare il cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy?view=azps-2.6.0) di Azure PowerShell per aggiornare i criteri di accesso di Key Vault e concedere le autorizzazioni dell'account di archiviazione all'account utente.
+Usare il cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/set-azkeyvaultaccesspolicy) di Azure PowerShell per aggiornare i criteri di accesso di Key Vault e concedere le autorizzazioni dell'account di archiviazione all'account utente.
 
 ```azurepowershell-interactive
 # Give your user principal access to all storage account permissions, on your Key Vault instance
@@ -137,7 +138,7 @@ Tenere presente che le autorizzazioni per gli account di archiviazione non sono 
 
 ### <a name="add-a-managed-storage-account-to-your-key-vault-instance"></a>Aggiungere un account di archiviazione gestito all'istanza di Key Vault
 
-Usare il cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) di Azure PowerShell per creare un account di archiviazione gestito nell'istanza di Key Vault. L'opzione `-DisableAutoRegenerateKey` specifica di NON rigenerare le chiavi dell'account di archiviazione.
+Usare il cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount) di Azure PowerShell per creare un account di archiviazione gestito nell'istanza di Key Vault. L'opzione `-DisableAutoRegenerateKey` specifica di NON rigenerare le chiavi dell'account di archiviazione.
 
 ```azurepowershell-interactive
 # Add your storage account to your Key Vault's managed storage accounts
@@ -158,12 +159,12 @@ Regeneration Period : 90.00:00:00
 Enabled             : True
 Created             : 11/19/2018 11:54:47 PM
 Updated             : 11/19/2018 11:54:47 PM
-Tags                : 
+Tags                :
 ```
 
 ### <a name="enable-key-regeneration"></a>Abilitare la rigenerazione delle chiavi
 
-Se si vuole che Key Vault rigeneri periodicamente le chiavi dell'account di archiviazione, è possibile usare il cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount?view=azps-2.6.0) di Azure PowerShell per configurare un periodo di rigenerazione. In questo esempio viene impostato un periodo di rigenerazione di tre giorni. Quando è il momento di eseguire la rotazione, Key Vault rigenera la chiave che non è attiva e quindi imposta la chiave appena creata come attiva. Solo una delle chiavi viene usata per rilasciare token di firma di accesso condiviso in un momento specifico. Si tratta della chiave attiva.
+Se si vuole che Key Vault rigeneri periodicamente le chiavi dell'account di archiviazione, è possibile usare il cmdlet [Add-AzKeyVaultManagedStorageAccount](/powershell/module/az.keyvault/add-azkeyvaultmanagedstorageaccount) di Azure PowerShell per configurare un periodo di rigenerazione. In questo esempio viene impostato un periodo di rigenerazione di tre giorni. Quando è il momento di eseguire la rotazione, Key Vault rigenera la chiave che non è attiva e quindi imposta la chiave appena creata come attiva. Solo una delle chiavi viene usata per rilasciare token di firma di accesso condiviso in un momento specifico. Si tratta della chiave attiva.
 
 ```azurepowershell-interactive
 $regenPeriod = [System.Timespan]::FromDays(3)
@@ -184,7 +185,7 @@ Regeneration Period : 3.00:00:00
 Enabled             : True
 Created             : 11/19/2018 11:54:47 PM
 Updated             : 11/19/2018 11:54:47 PM
-Tags                : 
+Tags                :
 ```
 
 ## <a name="shared-access-signature-tokens"></a>Token di firma di accesso condiviso
@@ -193,16 +194,16 @@ Tags                :
 
 I comandi in questa sezione consentono di completare le azioni seguenti:
 
-- Configurare una definizione di firma di accesso condiviso dell'account. 
+- Configurare una definizione di firma di accesso condiviso dell'account.
 - Creare un token di firma di accesso condiviso per i servizi BLOB, file, tabella e coda. Il token viene creato per le risorse di tipo servizio, contenitore e oggetto. Il token viene creato con tutte le autorizzazioni su https e con le date di inizio e di fine specificate.
 - Configurare una definizione di firma di accesso condiviso della risorsa di archiviazione gestita di Key Vault nell'insieme di credenziali. La definizione include l'URI del modello del token di firma di accesso condiviso creato. La definizione ha una firma di accesso condiviso di tipo `account` ed è valida per N giorni.
 - Verificare che la firma di accesso condiviso sia stata salvata nell'insieme di credenziali delle chiavi come segreto.
-- 
+-
 ### <a name="set-variables"></a>Impostare variabili
 
 Impostare prima di tutto le variabili che devono essere usate dai cmdlet di PowerShell nei passaggi seguenti. Assicurarsi di aggiornare i segnaposto <YourStorageAccountName> e <YourKeyVaultName>.
 
-Verranno usati anche i cmdlet [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext?view=azps-2.6.0) di Azure PowerShell per ottenere il contesto dell'account di archiviazione di Azure.
+Verranno usati anche i cmdlet [New-AzStorageContext](/powershell/module/az.storage/new-azstoragecontext) di Azure PowerShell per ottenere il contesto dell'account di archiviazione di Azure.
 
 ```azurepowershell-interactive
 $storageAccountName = <YourStorageAccountName>
@@ -213,8 +214,8 @@ $storageContext = New-AzStorageContext -StorageAccountName $storageAccountName -
 
 ### <a name="create-a-shared-access-signature-token"></a>Creare un token di firma di accesso condiviso
 
-Creare una definizione di firma di accesso condiviso usando i cmdlet [New-AzStorageAccountSASToken](/powershell/module/az.storage/new-azstorageaccountsastoken?view=azps-2.6.0) di Azure PowerShell.
- 
+Creare una definizione di firma di accesso condiviso usando i cmdlet [New-AzStorageAccountSASToken](/powershell/module/az.storage/new-azstorageaccountsastoken) di Azure PowerShell.
+
 ```azurepowershell-interactive
 $start = [System.DateTime]::Now.AddDays(-1)
 $end = [System.DateTime]::Now.AddMonths(1)
@@ -229,7 +230,7 @@ Il valore di $sasToken sarà analogo al seguente.
 
 ### <a name="generate-a-shared-access-signature-definition"></a>Generare una definizione di firma di accesso condiviso
 
-Usare il cmdlet [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition?view=azps-2.6.0) di Azure PowerShell per creare una definizione di firma di accesso condiviso.  È possibile specificare il nome che si preferisce per il parametro `-Name`.
+Usare il cmdlet [Set-AzKeyVaultManagedStorageSasDefinition](/powershell/module/az.keyvault/set-azkeyvaultmanagedstoragesasdefinition) di Azure PowerShell per creare una definizione di firma di accesso condiviso.  È possibile specificare il nome che si preferisce per il parametro `-Name`.
 
 ```azurepowershell-interactive
 Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -VaultName $keyVaultName -Name <YourSASDefinitionName> -TemplateUri $sasToken -SasType 'account' -ValidityPeriod ([System.Timespan]::FromDays(30))
@@ -237,7 +238,7 @@ Set-AzKeyVaultManagedStorageSasDefinition -AccountName $storageAccountName -Vaul
 
 ### <a name="verify-the-shared-access-signature-definition"></a>Verificare la definizione di firma di accesso condiviso
 
-È possibile verificare che la definizione di firma di accesso condiviso sia stata archiviata nell'insieme di credenziali delle chiavi usando il cmdlet [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret?view=azps-2.6.0) di Azure PowerShell.
+È possibile verificare che la definizione di firma di accesso condiviso sia stata archiviata nell'insieme di credenziali delle chiavi usando il cmdlet [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) di Azure PowerShell.
 
 Trovare prima di tutto la definizione di firma di accesso condiviso nell'insieme di credenziali delle chiavi.
 
@@ -255,12 +256,10 @@ Content Type : application/vnd.ms-sastoken-storage
 Tags         :
 ```
 
-È ora possibile usare il cmdlet [Get-AzKeyVaultSecret](/cli/azure/keyvault/secret?view=azure-cli-latest#az-keyvault-secret-show) e la proprietà `Name` del segreto per visualizzare il contenuto di tale segreto.
+È ora possibile usare il cmdlet [Get-AzKeyVaultSecret](/powershell/module/az.keyvault/get-azkeyvaultsecret) e la proprietà `Name` del segreto per visualizzare il contenuto di tale segreto.
 
 ```azurepowershell-interactive
-$secret = Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>
-
-Write-Host $secret.SecretValueText
+Write-Host (Get-AzKeyVaultSecret -VaultName <YourKeyVaultName> -Name <SecretName>).SecretValue | ConvertFrom-SecureString -AsPlainText
 ```
 
 L'output di questo comando mostrerà la stringa della definizione di firma di accesso condiviso.
@@ -269,4 +268,4 @@ L'output di questo comando mostrerà la stringa della definizione di firma di ac
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Esempi di chiavi di account di archiviazione gestiti](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
-- [Azure Key Vault PowerShell reference](/powershell/module/az.keyvault/?view=azps-1.2.0#key_vault) (Documentazione su PowerShell per Azure Key Vault)
+- [Azure Key Vault PowerShell reference](/powershell/module/az.keyvault/#key_vault) (Documentazione su PowerShell per Azure Key Vault)

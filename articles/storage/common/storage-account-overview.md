@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 429883a1bd9bc4df270e6a9f2965087fa3fba2dc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: fc44b7a49785a24460ea11f07e5248b266f5dfad
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488861"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793008"
 ---
 # <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
@@ -60,7 +60,7 @@ Nella maggior parte dei casi è consigliabile usare account di utilizzo generico
 
 - Le applicazioni sono a elevato utilizzo di transazioni o usano una larghezza di banda di replica geografica significativa, ma non richiedono una capacità elevata. In questo caso, un account per utilizzo generico v1 può essere la scelta più economica.
 
-- Si usa una versione dell' [API REST dei servizi di archiviazione](https://msdn.microsoft.com/library/azure/dd894041.aspx) precedente alla 2014-02-14 o una libreria client con una versione precedente alla 4. x. Non è possibile aggiornare l'applicazione.
+- Si usa una versione dell' [API REST dei servizi di archiviazione](/rest/api/storageservices/Versioning-for-the-Azure-Storage-Services) precedente alla 2014-02-14 o una libreria client con una versione precedente alla 4. x. Non è possibile aggiornare l'applicazione.
 
 ### <a name="blockblobstorage-accounts"></a>Account BlockBlobStorage
 
@@ -108,7 +108,7 @@ I livelli di accesso disponibili sono i seguenti:
 
 - Livello **di accesso** frequente. Questo livello è ottimizzato per l'accesso frequente agli oggetti nell'account di archiviazione. L'accesso ai dati nel livello critico è più conveniente, mentre i costi di archiviazione sono maggiori. I nuovi account di archiviazione vengono creati nel livello ad accesso frequente per impostazione predefinita.
 - Livello **di accesso** sporadico. Questo livello è ottimizzato per l'archiviazione di grandi quantità di dati a cui si accede raramente e che vengono archiviati per almeno 30 giorni. L'archiviazione dei dati nel livello ad accesso sporadico è più conveniente, ma l'accesso a tali dati può risultare più costoso rispetto all'accesso ai dati nel livello critico.
-- Il livello di **accesso archivio**. Questo livello è disponibile solo per i singoli BLOB in blocchi. Il livello archivio è ottimizzato per i dati che possono tollerare diverse ore di latenza di recupero e che rimarranno nel livello di archiviazione per almeno 180 giorni. Il livello archivio è l'opzione più conveniente per l'archiviazione dei dati. Tuttavia, l'accesso a tali dati è più costoso rispetto all'accesso ai dati nei livelli ad accesso frequente o sporadico.
+- Il livello di **accesso archivio** . Questo livello è disponibile solo per i singoli BLOB in blocchi. Il livello archivio è ottimizzato per i dati che possono tollerare diverse ore di latenza di recupero e che rimarranno nel livello di archiviazione per almeno 180 giorni. Il livello archivio è l'opzione più conveniente per l'archiviazione dei dati. Tuttavia, l'accesso a tali dati è più costoso rispetto all'accesso ai dati nei livelli ad accesso frequente o sporadico.
 
 Se viene apportata una modifica al modello di utilizzo dei dati, è possibile passare da un livello di accesso all'altro in qualsiasi momento. Per altre informazioni sui livelli di accesso, vedere [archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md).
 
@@ -127,18 +127,18 @@ Tutti i dati nell'account di archiviazione vengono crittografati sul lato del se
 
 Un account di archiviazione offre uno spazio dei nomi univoco in Azure per i dati. Tutti gli oggetti archiviati in Archiviazione di Azure hanno un indirizzo che include il nome univoco dell'account. La combinazione del nome dell'account e dell'endpoint di servizio di Archiviazione di Azure costituisce gli endpoint per l'account di archiviazione.
 
-Ad esempio, se l'account di archiviazione per utilizzo generico si chiama *mystorageaccount*, gli endpoint predefiniti per tale account sono:
+Ad esempio, se l'account di archiviazione per utilizzo generico si chiama *mystorageaccount* , gli endpoint predefiniti per tale account sono:
 
 - Archiviazione BLOB: `https://*mystorageaccount*.blob.core.windows.net`
 - Archivio tabelle: `https://*mystorageaccount*.table.core.windows.net`
 - Archiviazione code: `https://*mystorageaccount*.queue.core.windows.net`
 - File di Azure: `https://*mystorageaccount*.file.core.windows.net`
-- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (USA il [driver ABFS ottimizzato in modo specifico per Big Data](/azure/storage/blobs/data-lake-storage-introduction#key-features-of-data-lake-storage-gen2)).
+- Azure Data Lake Storage Gen2: `https://*mystorageaccount*.dfs.core.windows.net` (USA il [driver ABFS ottimizzato in modo specifico per Big Data](../blobs/data-lake-storage-introduction.md#key-features-of-data-lake-storage-gen2)).
 
 > [!NOTE]
 > Gli account di archiviazione BLOB e BLOB in blocchi espongono solo l'endpoint del servizio BLOB.
 
-Costruire l'URL per accedere a un oggetto in un account di archiviazione accodando la posizione dell'oggetto nell'account di archiviazione all'endpoint. Ad esempio, il formato di un indirizzo è simile al seguente: http://*mystorageaccount*.blob.core.windows.net/*mycontainer*/*myblob*.
+Costruire l'URL per accedere a un oggetto in un account di archiviazione accodando la posizione dell'oggetto nell'account di archiviazione all'endpoint. Ad esempio, il formato di un indirizzo è simile al seguente: http:// *mystorageaccount* .blob.core.windows.net/ *mycontainer*/*myblob* .
 
 È anche possibile configurare l'account di archiviazione per l'uso di un dominio personalizzato per i BLOB. Per altre informazioni, vedere [Configurare un nome di dominio personalizzato per l'account di Archiviazione di Azure](../blobs/storage-custom-domain-name.md).  
 
@@ -167,7 +167,7 @@ Quando effettua l'aggiornamento a un account per utilizzo generico v2 da un acco
 
 ### <a name="azcopy"></a>AzCopy
 
-AzCopy è un'utilità da riga di comando Windows progettata per offrire prestazioni elevate di copia dei dati da e verso Archiviazione di Azure. È possibile usare AzCopy per copiare i dati in un account di archiviazione BLOB da un account di archiviazione per utilizzo generico esistente o per caricare i dati da dispositivi di archiviazione locali. Per altre informazioni, vedere [trasferire dati con l'utilità AzCopy Command-Line](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json).
+AzCopy è un'utilità da riga di comando Windows progettata per offrire prestazioni elevate di copia dei dati da e verso Archiviazione di Azure. È possibile usare AzCopy per copiare i dati in un account di archiviazione BLOB da un account di archiviazione per utilizzo generico esistente o per caricare i dati da dispositivi di archiviazione locali. Per altre informazioni, vedere [trasferire dati con l'utilità AzCopy Command-Line](./storage-use-azcopy-v10.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json).
 
 ### <a name="data-movement-library"></a>Libreria di spostamento dei dati
 

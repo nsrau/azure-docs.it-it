@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: 2742a08d97d537e8a5e0670c40f0ab69b34a4d9f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 917839b0963477de21062290515d36fd21163a93
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619594"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92793314"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analisi su più tenant con dati estratti in un'app multi-tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -70,15 +70,15 @@ Comprendendo quanto viene usato il servizio da ogni tenant è possibile creare p
 
 Per completare questa esercitazione, verificare che siano soddisfatti i prerequisiti seguenti:
 
-- Viene distribuita l'applicazione del database multi-tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](../../sql-database/saas-multitenantdb-get-started-deploy.md)
+- Viene distribuita l'applicazione del database multi-tenant SaaS Wingtip Tickets. Per eseguire la distribuzione in meno di cinque minuti, vedere [Distribuire ed esplorare l'applicazione SaaS di database multi-tenant Wingtip Tickets](./saas-multitenantdb-get-started-deploy.md)
 - Gli script e il [codice sorgente](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDB) dell'applicazione SaaS Wingtip vengono scaricati da GitHub. Assicurarsi di *sbloccare il file ZIP* prima di estrarne il contenuto. Leggere le [linee guida generali](saas-tenancy-wingtip-app-guidance-tips.md) per i passaggi da seguire per scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets.
 - Power BI Desktop è installato. [Scarica Power BI Desktop](https://powerbi.microsoft.com/downloads/)
-- È stato effettuato il provisioning del batch di tenant aggiuntivi. Vedere l'[**esercitazione sul provisioning di tenant**](../../sql-database/saas-multitenantdb-provision-and-catalog.md).
-- Sono stati creati un agente processo e un database agenti processo. Vedere la procedura appropriata nell'[**esercitazione sulla gestione dello schema**](../../sql-database/saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
+- È stato effettuato il provisioning del batch di tenant aggiuntivi. Vedere l' [**esercitazione sul provisioning di tenant**](./saas-multitenantdb-provision-and-catalog.md).
+- Sono stati creati un agente processo e un database agenti processo. Vedere la procedura appropriata nell' [**esercitazione sulla gestione dello schema**](./saas-multitenantdb-schema-management.md#create-a-job-agent-database-and-new-job-agent).
 
 ### <a name="create-data-for-the-demo"></a>Creare dati per la dimostrazione
 
-In questa esercitazione viene eseguita un'analisi sui dati relativi alle vendite di biglietti. In questo passaggio si generano i dati relativi ai biglietti per tutti i tenant.  Successivamente, questi dati verranno estratti per l'analisi. *Assicurarsi di aver effettuato il provisioning del batch di tenant come descritto in precedenza, per avere una quantità significativa di dati*. Una quantità sufficientemente elevata di dati può esporre vari modelli diversi di acquisto dei biglietti.
+In questa esercitazione viene eseguita un'analisi sui dati relativi alle vendite di biglietti. In questo passaggio si generano i dati relativi ai biglietti per tutti i tenant.  Successivamente, questi dati verranno estratti per l'analisi. *Assicurarsi di aver effettuato il provisioning del batch di tenant come descritto in precedenza, per avere una quantità significativa di dati* . Una quantità sufficientemente elevata di dati può esporre vari modelli diversi di acquisto dei biglietti.
 
 1. In **PowerShell ISE** aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* e impostare il valore seguente:
     - **$DemoScenario** = **1** (acquisto di biglietti per gli eventi in tutte le sedi)
@@ -87,14 +87,14 @@ In questa esercitazione viene eseguita un'analisi sui dati relativi alle vendite
 ### <a name="deploy-the-analytics-store"></a>Distribuire l'archivio di analisi
 Spesso tutti i dati dei tenant sono contenuti in numerosi database partizionati transazionali. È necessario aggregare i dati dei tenant dei database partizionati in un archivio di analisi. L'aggregazione consente di eseguire query efficienti sui dati. In questa esercitazione, per archiviare i dati aggregati viene usato un database SQL di Azure.
 
-Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tenantanalytics**, e le tabelle predefinite che verranno popolate più avanti nell'esercitazione:
-1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1*. 
+Nei passaggi seguenti si distribuiscono l'archivio di analisi, denominato **tenantanalytics** , e le tabelle predefinite che verranno popolate più avanti nell'esercitazione:
+1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\Demo-TenantAnalytics.ps1* . 
 2. Impostare la variabile $DemoScenario nello script in base all'archivio di analisi scelto. Ai fini dell'apprendimento, è consigliabile usare un database senza columnstore.
     - Per usare un database SQL senza columnstore, impostare **$DemoScenario** = **2**
     - Per usare un database SQL con columnstore, impostare **$DemoScenario** = **3**  
 3. Premere **F5** per eseguire lo script dimostrativo che chiama lo script *Deploy-TenantAnalytics\<XX>.ps1* e crea l'archivio di analisi dei tenant. 
 
-Dopo aver distribuito l'applicazione e avervi inserito i dati dei tenant a cui si è interessati, usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-mt-\<User\>** e **catalog-mt-\<User\>** con l'account di accesso *developer* e la password *P\@ssword1*.
+Dopo aver distribuito l'applicazione e avervi inserito i dati dei tenant a cui si è interessati, usare [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server **tenants1-mt-\<User\>** e **catalog-mt-\<User\>** con l'account di accesso *developer* e la password *P\@ssword1* .
 
 ![architectureOverView](./media/saas-multitenantdb-tenant-analytics/ssmsSignIn.png)
 
@@ -107,8 +107,8 @@ In Esplora oggetti seguire questa procedura:
 
 Visualizzare gli elementi di database seguenti in Esplora oggetti di SSMS espandendo il nodo dell'archivio di analisi:
 
-- Le tabelle **TicketsRawData** ed **EventsRawData**, contenenti dati non elaborati estratti dai database dei tenant.
-- Le tabelle dello schema star, ossia **fact_Tickets**, **dim_Customers**, **dim_Venues**, **dim_Events** e **dim_Dates**.
+- Le tabelle **TicketsRawData** ed **EventsRawData** , contenenti dati non elaborati estratti dai database dei tenant.
+- Le tabelle dello schema star, ossia **fact_Tickets** , **dim_Customers** , **dim_Venues** , **dim_Events** e **dim_Dates** .
 - La stored procedure **sp_ShredRawExtractedData** è usata per popolare le tabelle dello schema star dalle tabelle dei dati non elaborati.
 
 ![Lo screenshot mostra Esplora oggetti di SSMS per il nodo dell'archivio di analisi, incluse le tabelle, le visualizzazioni e i nodi.](./media/saas-multitenantdb-tenant-analytics/tenantAnalytics.png)
@@ -117,16 +117,16 @@ Visualizzare gli elementi di database seguenti in Esplora oggetti di SSMS espand
 
 ### <a name="create-target-groups"></a>Creare i gruppi di destinazione 
 
-Prima di procedere, assicurarsi di aver distribuito l'account per i processi e il database jobaccount. Nel successivo set di passaggi verranno usati processi elastici per estrarre dati dal database dei tenant partizionati e archiviarli nell'archivio di analisi. Il secondo processo suddividerà quindi i dati e li archivierà nelle tabelle dello schema star. Questi due processi vengono eseguiti su due diversi gruppi di destinazione: **TenantGroup** e **AnalyticsGroup**. Il processo di estrazione viene eseguito su TenantGroup, che contiene tutti i database dei tenant. Il processo di suddivisione viene eseguito su AnalyticsGroup, che contiene solo l'archivio di analisi. Creare i gruppi di destinazione seguendo questa procedura:
+Prima di procedere, assicurarsi di aver distribuito l'account per i processi e il database jobaccount. Nel successivo set di passaggi verranno usati processi elastici per estrarre dati dal database dei tenant partizionati e archiviarli nell'archivio di analisi. Il secondo processo suddividerà quindi i dati e li archivierà nelle tabelle dello schema star. Questi due processi vengono eseguiti su due diversi gruppi di destinazione: **TenantGroup** e **AnalyticsGroup** . Il processo di estrazione viene eseguito su TenantGroup, che contiene tutti i database dei tenant. Il processo di suddivisione viene eseguito su AnalyticsGroup, che contiene solo l'archivio di analisi. Creare i gruppi di destinazione seguendo questa procedura:
 
 1. In SSMS connettersi al database **jobaccount** in catalog-mt-\<User\>.
-2. In SSMS aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql*. 
+2. In SSMS aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\ TargetGroups.sql* . 
 3. Modificare la variabile @User all'inizio dello script, sostituendo `<User>` con il valore dell'utente usato per la distribuzione dell'applicazione di database multi-tenant SaaS Wingtip Tickets.
 4. Premere **F5** per eseguire lo script che crea i due gruppi di destinazione.
 
 ### <a name="extract-raw-data-from-all-tenants"></a>Estrarre dati non elaborati da tutti i tenant
 
-Le transazioni potrebbero verificarsi con maggiore frequenza per i dati relativi a *biglietti e clienti* rispetto ai dati relativi a *eventi e sedi*. Di conseguenza, valutare la possibilità di estrarre i dati relativi a biglietti e clienti separatamente e con maggiore frequenza rispetto ai dati relativi a eventi e sedi. In questa sezione si definiscono e si pianificano due processi separati:
+Le transazioni potrebbero verificarsi con maggiore frequenza per i dati relativi a *biglietti e clienti* rispetto ai dati relativi a *eventi e sedi* . Di conseguenza, valutare la possibilità di estrarre i dati relativi a biglietti e clienti separatamente e con maggiore frequenza rispetto ai dati relativi a eventi e sedi. In questa sezione si definiscono e si pianificano due processi separati:
 
 - Estrazione dei dati relativi a biglietti e clienti.
 - Estrazione dei dati relativi a eventi e sedi.
@@ -134,7 +134,7 @@ Le transazioni potrebbero verificarsi con maggiore frequenza per i dati relativi
 Ogni processo estrae i rispettivi dati e li inserisce nell'archivio di analisi. A questo punto, un processo separato suddivide i dati estratti nello schema star dell'analisi.
 
 1. In SSMS connettersi al database **jobaccount** nel server catalog-mt-\<User\>.
-2. In SSMS aprire *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql*.
+2. In SSMS aprire *...\Learning Modules\Operational Analytics\Tenant Analytics\ExtractTickets.sql* .
 3. Modificare @User all'inizio dello script e sostituire `<User>` con il nome utente usato per la distribuzione dell'applicazione di database multi-tenant SaaS Wingtip Tickets. 
 4. Premere **F5** per eseguire lo script che crea ed esegue il processo che estrae i dati relativi ai biglietti e ai clienti dal database di ogni tenant. Il processo salva i dati nell'archivio di analisi.
 5. Eseguire una query sulla tabella TicketsRawData del database tenantanalytics per verificare che la tabella sia stata popolata con le informazioni sui biglietti di tutti i tenant.
@@ -154,10 +154,10 @@ Il passaggio successivo consiste nella suddivisione dei dati non elaborati estra
 In questa sezione dell'esercitazione si definisce e si esegue un processo che unisce i dati non elaborati estratti ai dati delle tabelle dello schema star. Al termine del processo di unione, i dati non elaborati verranno eliminati in modo da lasciare le tabelle pronte per essere popolate dal successivo processo di estrazione dei dati dei tenant.
 
 1. In SSMS connettersi al database **jobaccount** in catalog-mt-\<User\>.
-2. In SSMS aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql*.
+2. In SSMS aprire *…\Learning Modules\Operational Analytics\Tenant Analytics\ShredRawExtractedData.sql* .
 3. Premere **F5** per eseguire lo script e definire così un processo che chiama la stored procedure sp_ShredRawExtractedData nell'archivio di analisi.
 4. Attendere il tempo sufficiente per il completamento del processo.
-    - Controllare lo stato del processo nella colonna **Lifecycle** della tabella jobs.jobs_execution. Prima di procedere, verificare che lo stato del processo sia **Succeeded**. Al completamento dell'esecuzione verranno visualizzati dati simili all'immagine seguente:
+    - Controllare lo stato del processo nella colonna **Lifecycle** della tabella jobs.jobs_execution. Prima di procedere, verificare che lo stato del processo sia **Succeeded** . Al completamento dell'esecuzione verranno visualizzati dati simili all'immagine seguente:
 
 ![Lo screenshot mostra il risultato positivo dell'esecuzione della procedura sp_ShredRawExtractedData.](./media/saas-multitenantdb-tenant-analytics/shreddingJob.PNG)
 
@@ -176,11 +176,11 @@ Seguire questa procedura per connettersi a Power BI e importare le viste create 
 
     ![Lo screenshot mostra la finestra di dialogo Database di SQL Server in cui è possibile immettere il server e il database.](./media/saas-multitenantdb-tenant-analytics/powerBISignIn.PNG)
 
-5. Selezionare **Database** nel riquadro sinistro e quindi immettere il nome utente *developer* e la password *P\@ssword1*. Fare clic su **Connetti**.  
+5. Selezionare **Database** nel riquadro sinistro e quindi immettere il nome utente *developer* e la password *P\@ssword1* . Fare clic su **Connetti** .  
 
     ![Lo screenshot mostra la finestra di dialogo Database di SQL Server in cui è possibile immettere un nome utente e una password.](./media/saas-multitenantdb-tenant-analytics/databaseSignIn.PNG)
 
-6. Nel riquadro **Strumento di navigazione** selezionare le tabelle dello schema star fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates nel database di analisi. Selezionare quindi **Carica**. 
+6. Nel riquadro **Strumento di navigazione** selezionare le tabelle dello schema star fact_Tickets, dim_Events, dim_Venues, dim_Customers e dim_Dates nel database di analisi. Selezionare quindi **Carica** . 
 
 Congratulazioni! Il caricamento dei dati in Power BI è stato completato. È ora possibile iniziare a esplorare visualizzazioni interessanti per ottenere informazioni dettagliate sui tenant. Successivamente verrà illustrato in dettaglio come l'analisi consenta al team aziendale di Wingtip Tickets di offrire raccomandazioni basate sui dati che saranno utili per ottimizzare il modello aziendale e l'esperienza dei clienti.
 
@@ -210,7 +210,7 @@ Il tracciato precedente per Contoso Concert Hall mostra che la corsa all'acquist
 
 Le informazioni dettagliate sui modelli di vendita dei biglietti potrebbero consentire a Wingtip Tickets di ottimizzare il modello aziendale. Invece di applicare lo stesso addebito a tutti i tenant, Wingtip potrebbe introdurre livelli di servizio con diverse dimensioni di calcolo. Alle sedi più grandi che devono vendere un maggior numero di biglietti al giorno potrà essere offerto un livello più elevato con un contratto di servizio superiore. I database di tali sedi potranno essere inseriti in pool con limiti di risorse per database superiori. Ogni livello di servizio potrà avere un'allocazione di vendite per ogni ora, con addebito di tariffe aggiuntive in caso di superamento dell'allocazione. Le sedi più grandi con picchi periodici di vendite trarranno vantaggio dai livelli superiori e Wingtip Tickets potrà monetizzare il servizio in modo più efficiente.
 
-Nel frattempo, alcuni clienti di Wingtip Tickets segnalano di avere difficoltà a vendere un numero di biglietti sufficiente a giustificare il costo del servizio. Queste informazioni dettagliate potrebbero offrire l'opportunità di incrementare le vendite di biglietti per le sedi con prestazioni inferiori. Vendite superiori aumenteranno il valore percepito del servizio. Fare clic con il pulsante destro del mouse su fact_Tickets e scegliere **Nuova misura**. Immettere l'espressione seguente per la nuova misura denominata **AverageTicketsSold**:
+Nel frattempo, alcuni clienti di Wingtip Tickets segnalano di avere difficoltà a vendere un numero di biglietti sufficiente a giustificare il costo del servizio. Queste informazioni dettagliate potrebbero offrire l'opportunità di incrementare le vendite di biglietti per le sedi con prestazioni inferiori. Vendite superiori aumenteranno il valore percepito del servizio. Fare clic con il pulsante destro del mouse su fact_Tickets e scegliere **Nuova misura** . Immettere l'espressione seguente per la nuova misura denominata **AverageTicketsSold** :
 
 ```
 AverageTicketsSold = DIVIDE(DIVIDE(COUNTROWS(fact_Tickets),DISTINCT(dim_Venues[VenueCapacity]))*100, COUNTROWS(dim_Events))
@@ -241,6 +241,6 @@ Congratulazioni!
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-Altre [esercitazioni basate sull'applicazione SaaS Wingtip](../../sql-database/saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
-- [Processi elastici](../../sql-database/elastic-jobs-overview.md).
-- [Analisi su più tenant con dati estratti in un'app a singolo tenant](saas-tenancy-tenant-analytics.md) 
+Altre [esercitazioni basate sull'applicazione SaaS Wingtip](./saas-dbpertenant-wingtip-app-overview.md#sql-database-wingtip-saas-tutorials). 
+- [Processi elastici](./elastic-jobs-overview.md).
+- [Analisi su più tenant con dati estratti in un'app a singolo tenant](saas-tenancy-tenant-analytics.md)

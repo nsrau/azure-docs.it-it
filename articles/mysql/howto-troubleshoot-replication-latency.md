@@ -6,15 +6,17 @@ author: savjani
 ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
-ms.date: 10/08/2020
-ms.openlocfilehash: cb02b29c100da7b8d63f214acc78906a757344c0
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.date: 10/25/2020
+ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92096097"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791580"
 ---
-# <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Risolvere i problemi di latenza di replica nel database di Azure per MySQL
+# <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Risolvere i problemi di latenza di replica in Database di Azure per MySQL
+
+[!INCLUDE[applies-to-single-flexible-server](./includes/applies-to-single-flexible-server.md)]
 
 La funzionalità di [lettura della replica](concepts-read-replicas.md) consente di replicare i dati da un database di Azure per il server MySQL a un server di replica di sola lettura. È possibile scalare in orizzontale i carichi di lavoro eseguendo il routing delle query di lettura e Reporting dall'applicazione ai server di replica. Questa configurazione riduce la pressione del server di origine. Migliora inoltre le prestazioni complessive e la latenza dell'applicazione in modo scalabile. 
 
@@ -31,9 +33,9 @@ Questo articolo illustra come risolvere i problemi relativi alla latenza di repl
 
 ## <a name="replication-concepts"></a>Concetti relativi alla replica
 
-Quando un log binario è abilitato, il server di origine scrive le transazioni di cui è stato eseguito il commit nel log binario. Il log binario viene utilizzato per la replica. È attivato per impostazione predefinita per tutti i server di cui è stato effettuato il provisioning fino a 16 TB di spazio di archiviazione. Nei server di replica vengono eseguiti due thread in ogni server di replica. Un thread è il thread di *io*e l'altro è il *thread SQL*:
+Quando un log binario è abilitato, il server di origine scrive le transazioni di cui è stato eseguito il commit nel log binario. Il log binario viene utilizzato per la replica. È attivato per impostazione predefinita per tutti i server di cui è stato effettuato il provisioning fino a 16 TB di spazio di archiviazione. Nei server di replica vengono eseguiti due thread in ogni server di replica. Un thread è il thread di *io* e l'altro è il *thread SQL* :
 
-- Il thread IO si connette al server di origine e richiede log binari aggiornati. Questo thread riceve gli aggiornamenti del log binario. Questi aggiornamenti vengono salvati in un server di replica, in un log locale denominato *relay log*.
+- Il thread IO si connette al server di origine e richiede log binari aggiornati. Questo thread riceve gli aggiornamenti del log binario. Questi aggiornamenti vengono salvati in un server di replica, in un log locale denominato *relay log* .
 - Il thread SQL legge il log di inoltro e quindi applica le modifiche ai dati nei server di replica.
 
 ## <a name="monitoring-replication-latency"></a>Monitoraggio della latenza di replica

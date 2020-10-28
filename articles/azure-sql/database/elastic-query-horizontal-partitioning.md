@@ -11,12 +11,12 @@ author: MladjoA
 ms.author: mlandzic
 ms.reviewer: sstein
 ms.date: 01/03/2019
-ms.openlocfilehash: ced546f8f4375433d9fcd59f7ce46f9604f72921
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 148c4828309738a18dbda5fd35ea634e8384bfde
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91443121"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792107"
 ---
 # <a name="reporting-across-scaled-out-cloud-databases-preview"></a>Creazione di report tra database cloud con scalabilità orizzontale (anteprima)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,10 +40,10 @@ Per i database non partizionati, vedere [Eseguire query in database cloud con sc
 
 Queste istruzioni creano la rappresentazione dei metadati del livello dati con partizionamento orizzontale nel database elastico sottoposto a query.
 
-1. [CREATE MASTER KEY](https://msdn.microsoft.com/library/ms174382.aspx)
-2. [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
-3. [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
-4. [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
+1. [CREATE MASTER KEY](/sql/t-sql/statements/create-master-key-transact-sql)
+2. [CREATE DATABASE SCOPED CREDENTIAL](/sql/t-sql/statements/create-database-scoped-credential-transact-sql)
+3. [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql)
+4. [CREATE EXTERNAL TABLE](/sql/t-sql/statements/create-external-table-transact-sql)
 
 ## <a name="11-create-database-scoped-master-key-and-credentials"></a>1.1 Creare la chiave master e le credenziali con ambito database
 
@@ -159,11 +159,11 @@ Le clausole SCHEMA\_NAME e OBJECT\_NAME eseguono il mapping della definizione de
 
 La clausola DISTRIBUTION specifica la distribuzione dei dati usata per questa tabella. Query Processor utilizza le informazioni fornite nella clausola DISTRIBUTION per generare i piani di query più efficienti.
 
-1. **Partizionato significa che** i dati vengono partizionati orizzontalmente tra i database. La chiave di partizionamento per la distribuzione dei dati è il parametro **<sharding_column_name>**.
+1. **Partizionato significa che** i dati vengono partizionati orizzontalmente tra i database. La chiave di partizionamento per la distribuzione dei dati è il parametro **<sharding_column_name>** .
 2. **Replicated** significa che in ogni database sono presenti copie identiche della tabella. Sarà quindi necessario assicurarsi che le repliche siano identiche in tutti i database.
 3. **Arrotonda \_ ROBIN** indica che la tabella è partizionata orizzontalmente usando un metodo di distribuzione dipendente dall'applicazione.
 
-**Riferimento al livello dati**: il DDL della tabella esterna fa riferimento a un'origine dati esterna. L'origine dati esterna specifica una mappa partizioni che fornisce alla tabella esterna le informazioni necessarie per individuare tutti i database nel livello dati.
+**Riferimento al livello dati** : il DDL della tabella esterna fa riferimento a un'origine dati esterna. L'origine dati esterna specifica una mappa partizioni che fornisce alla tabella esterna le informazioni necessarie per individuare tutti i database nel livello dati.
 
 ### <a name="security-considerations"></a>Considerazioni relative alla sicurezza
 
@@ -194,7 +194,7 @@ La query seguente esegue un join a tre vie tra i magazzini, gli ordini e le righ
 
 ## <a name="stored-procedure-for-remote-t-sql-execution-sp_execute_remote"></a>Stored procedure per l'esecuzione remota di T-SQL: sp\_execute_remote
 
-La query elastica introduce anche una stored procedure che fornisce l'accesso diretto alle partizioni. La stored procedure è denominata [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) e può essere usata per eseguire stored procedure remote o codice T-SQL sui database remoti. È necessario specificare i seguenti parametri:
+La query elastica introduce anche una stored procedure che fornisce l'accesso diretto alle partizioni. La stored procedure è denominata [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) e può essere usata per eseguire stored procedure remote o codice T-SQL sui database remoti. È necessario specificare i seguenti parametri:
 
 * Nome dell'origine dati (nvarchar): il nome dell'origine dati esterna di tipo RDBMS.
 * Query (nvarchar): la query T-SQL da eseguire in ogni partizione.
@@ -228,7 +228,7 @@ Usare le normali stringhe di connessione di SQL Server per connettere l'applicaz
 * Per un'esercitazione sul partizionamento verticale, vedere [Introduzione alle query tra database (partizionamento verticale)](elastic-query-getting-started-vertical.md).
 * Per le query di esempio e sintassi per i dati con partizionamento verticale, vedere [Eseguire query su dati con partizionamento verticale](elastic-query-vertical-partitioning.md)
 * Per un'esercitazione sul partizionamento orizzontale, vedere la [guida introduttiva alle query elastiche per il partizionamento orizzontale](elastic-query-getting-started.md).
-* Vedere [sp\_execute \_remote](https://msdn.microsoft.com/library/mt703714) per una stored procedure che esegue un'istruzione Transact-SQL su un singolo database SQL di Azure remoto o un set di database che fungono da partizioni in uno schema di partizionamento orizzontale.
+* Vedere [sp\_execute \_remote](/sql/relational-databases/system-stored-procedures/sp-execute-remote-azure-sql-database) per una stored procedure che esegue un'istruzione Transact-SQL su un singolo database SQL di Azure remoto o un set di database che fungono da partizioni in uno schema di partizionamento orizzontale.
 
 <!--Image references-->
 [1]: ./media/elastic-query-horizontal-partitioning/horizontalpartitioning.png
