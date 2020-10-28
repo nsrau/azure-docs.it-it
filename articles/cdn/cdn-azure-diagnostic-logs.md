@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: allensu
-ms.openlocfilehash: 164560fff27adc2d4e63cc8471a26d1d710b89a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e5d84616e70d2a28abf3937b485f4fcf5258c43e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191287"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779408"
 ---
 # <a name="diagnostic-logs---azure-content-delivery-network"></a>Log di diagnostica-rete per la distribuzione di contenuti di Azure
 
@@ -59,11 +59,11 @@ Seguire questa procedura per abilitare la registrazione per l'endpoint della ret
 Per usare un account di archiviazione per archiviare i log, seguire questa procedura:
 
  >[!NOTE] 
- >Per completare questa procedura, è necessario un account di archiviazione. Per altre informazioni, vedere **[creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)** .
+ >Per completare questa procedura, è necessario un account di archiviazione. Per altre informazioni, vedere **[creare un account di archiviazione di Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%252fazure%252fstorage%252fblobs%252ftoc.json)** .
     
-1. Per **nome dell'impostazione di diagnostica**, immettere un nome per le impostazioni del log di diagnostica.
+1. Per **nome dell'impostazione di diagnostica** , immettere un nome per le impostazioni del log di diagnostica.
  
-2. Selezionare **Archivia in un account di archiviazione** e quindi selezionare **CoreAnalytics**. 
+2. Selezionare **Archivia in un account di archiviazione** e quindi selezionare **CoreAnalytics** . 
 
 3. In **Conservazione (giorni)** scegliere il numero di giorni di conservazione. Se il valore di conservazione è zero giorni, i log vengono conservati all'infinito. 
 
@@ -71,41 +71,41 @@ Per usare un account di archiviazione per archiviare i log, seguire questa proce
 
     :::image type="content" source="./media/cdn-diagnostics-log/04_diagnostics-logs-storage.png" alt-text="Selezionare endpoint rete CDN." border="true":::
 
-3. Selezionare **Salva**.
+3. Selezionare **Salva** .
 
 ### <a name="send-to-log-analytics"></a>Invia a Log Analytics
 
 Per usare Log Analytics per i log, seguire questa procedura:
 
 >[!NOTE] 
->Per completare questa procedura, è necessaria un'area di lavoro di log Analytics. Per ulteriori informazioni, fare riferimento a: **[creare un'area di lavoro log Analytics nel portale di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)** .
+>Per completare questa procedura, è necessaria un'area di lavoro di log Analytics. Per ulteriori informazioni, fare riferimento a: **[creare un'area di lavoro log Analytics nel portale di Azure](../azure-monitor/learn/quick-create-workspace.md)** .
     
-1. Per **nome dell'impostazione di diagnostica**, immettere un nome per le impostazioni del log di diagnostica.
+1. Per **nome dell'impostazione di diagnostica** , immettere un nome per le impostazioni del log di diagnostica.
 
-2. Selezionare **Invia a log Analytics**, quindi selezionare **CoreAnalytics**. 
+2. Selezionare **Invia a log Analytics** , quindi selezionare **CoreAnalytics** . 
 
 3. Selezionare la sottoscrizione e l'area di lavoro Log Analytics per i log.
 
    :::image type="content" source="./media/cdn-diagnostics-log/05-la-workspace.png" alt-text="Selezionare endpoint rete CDN." border="true":::
 
-4. Selezionare **Salva**.
+4. Selezionare **Salva** .
 
 ### <a name="stream-to-an-event-hub"></a>Streaming in un hub eventi
 
 Per usare un hub eventi per i log, seguire questa procedura:
 
 >[!NOTE] 
->Per completare questa procedura, è necessario un hub eventi. Per ulteriori informazioni, fare riferimento a: **[Guida introduttiva: creare un hub eventi usando portale di Azure](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)** .
+>Per completare questa procedura, è necessario un hub eventi. Per ulteriori informazioni, fare riferimento a: **[Guida introduttiva: creare un hub eventi usando portale di Azure](../event-hubs/event-hubs-create.md)** .
     
-1. Per **nome dell'impostazione di diagnostica**, immettere un nome per le impostazioni del log di diagnostica.
+1. Per **nome dell'impostazione di diagnostica** , immettere un nome per le impostazioni del log di diagnostica.
 
-2. Selezionare **flusso a hub eventi**e quindi selezionare **CoreAnalytics**. 
+2. Selezionare **flusso a hub eventi** e quindi selezionare **CoreAnalytics** . 
 
 3. Selezionare la sottoscrizione e lo spazio dei nomi dell'hub eventi per i log.
 
    :::image type="content" source="./media/cdn-diagnostics-log/06-eventhub-namespace.png" alt-text="Selezionare endpoint rete CDN." border="true":::
 
-4. Selezionare **Salva**.
+4. Selezionare **Salva** .
 
 
 ## <a name="enable-logging-with-powershell"></a>Abilitare la registrazione con PowerShell
@@ -190,8 +190,8 @@ Per scaricare lo strumento, vedere [Azure Storage Explorer](https://storageexplo
 1.  Apri **Microsoft Azure Storage Explorer**
 2.  Individuare l'account di archiviazione
 3.  Espandere il nodo **Contenitori BLOB** in questo account di archiviazione.
-4.  Selezionare il contenitore denominato *insights-logs-coreanalytics*.
-5.  I risultati vengono visualizzati nel riquadro di destra, a partire dal primo livello, come *"resourceId="*. Continuare selezionando ogni livello fino a quando non si trova il file *PT1H.json*. Per una spiegazione del percorso, vedere [Formato del percorso BLOB](cdn-azure-diagnostic-logs.md#blob-path-format).
+4.  Selezionare il contenitore denominato *insights-logs-coreanalytics* .
+5.  I risultati vengono visualizzati nel riquadro di destra, a partire dal primo livello, come *"resourceId="* . Continuare selezionando ogni livello fino a quando non si trova il file *PT1H.json* . Per una spiegazione del percorso, vedere [Formato del percorso BLOB](cdn-azure-diagnostic-logs.md#blob-path-format).
 6.  Il file *PT1H.json* di ogni BLOB rappresenta i log di analisi per un'ora per un endpoint della rete CDN specifico o per il relativo dominio personalizzato.
 7.  Lo schema del contenuto di questo file JSON è descritto nella sezione dello schema dei log dell'analisi principale.
 
@@ -204,7 +204,7 @@ I log dell'analisi principale vengono generati ogni ora e i dati vengono raccolt
 
 **Descrizione dei campi:**
 
-|Valore|Description|
+|valore|Descrizione|
 |-------|---------|
 |ID sottoscrizione    |ID della sottoscrizione di Azure nel formato GUID.|
 |Nome gruppo di risorse |Nome del gruppo di risorse cui appartengono le risorse della rete CDN.|
@@ -229,7 +229,7 @@ Di seguito è illustrato come è possibile usare lo strumento:
 
 ## <a name="log-data-delays"></a>Ritardi dei dati di log
 
-La tabella seguente mostra i ritardi dei dati di log per la **rete CDN Standard di Azure con tecnologia Microsoft**, la **rete CDN Standard di Azure con tecnologia Akamai** e la **rete CDN Standard/Premium di Azure con tecnologia Verizon**.
+La tabella seguente mostra i ritardi dei dati di log per la **rete CDN Standard di Azure con tecnologia Microsoft** , la **rete CDN Standard di Azure con tecnologia Akamai** e la **rete CDN Standard/Premium di Azure con tecnologia Verizon** .
 
 Ritardi dei dati di log di Microsoft | Ritardi dei dati di log di Verizon | Ritardi dei dati di log di Akamai
 --- | --- | ---
@@ -242,8 +242,8 @@ Microsoft offre attualmente solo i log di analisi principale, contenenti metrich
 ### <a name="core-analytics-metrics-details"></a>Dettagli delle metriche dell'analisi principale
 La tabella seguente mostra un elenco di metriche disponibili nei log di analisi principale per:
 
-* **Rete CDN standard di Azure di Microsoft**
-* **Rete CDN standard di Azure di Akamai**
+* **Rete CDN Standard di Azure offerta da Microsoft**
+* **Rete CDN Standard di Azure offerta da Akamai**
 * **Rete CDN standard/Premium di Azure da Verizon**
 
 Non tutte le metriche sono disponibili da tutti i provider, sebbene le differenze siano minime. La tabella mostra anche se una determinata metrica può essere indicata da un provider. Le metriche sono disponibili solo per gli endpoint della rete CDN in cui vi è traffico.
@@ -369,14 +369,7 @@ Proprietà di esempio:
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Log di diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Analisi principale tramite il portale supplementare della rete CDN di Azure](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
-* [Log di Monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [API REST di Azure Log Analytics](https://docs.microsoft.com/rest/api/loganalytics)
-
-
-
-
-
-
-
+* [Log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md)
+* [Analisi principale tramite il portale supplementare della rete CDN di Azure](./cdn-analyze-usage-patterns.md)
+* [Log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)
+* [API REST di Azure Log Analytics](/rest/api/loganalytics)

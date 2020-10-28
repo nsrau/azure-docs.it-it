@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2017
 ms.author: ril
-ms.openlocfilehash: 698b1c7734882ea7f11114476b5e9a7f36a23a0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4ed04185da251d9042f6b54a192d0e49ef20ede
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192619"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778541"
 ---
 # <a name="http2-support-in-azure-cdn"></a>Supporto HTTP/2 nella rete CDN di Azure
 
@@ -67,4 +67,4 @@ Per altre informazioni su HTTP/2, vedere le risorse seguenti:
 *   [Domande frequenti su HTTP/2](https://http2.github.io/faq/)
 *   [Informazioni su HTTP/2 di Akamai](https://http2.akamai.com/)
 
-Per altre informazioni sulle funzionalità disponibili della rete CDN di Azure, vedere [Panoramica della rete CDN di Azure](https://azure.microsoft.com/documentation/articles/cdn-overview/).
+Per altre informazioni sulle funzionalità disponibili della rete CDN di Azure, vedere [Panoramica della rete CDN di Azure](./cdn-overview.md).

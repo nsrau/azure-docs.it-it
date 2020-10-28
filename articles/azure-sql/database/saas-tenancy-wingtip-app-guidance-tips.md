@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: 4c3a141525f650d6e254f79ce9e3396f2c35a95f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa9215fa001fb117000eb6a68867ddd46fac9b92
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84040882"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780326"
 ---
 # <a name="general-guidance-for-working-with-wingtip-tickets-sample-saas-apps"></a>Linee guida generali per l'uso delle app SaaS di esempio Wingtip Tickets
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -25,17 +25,17 @@ Questo articolo contiene indicazioni generali per l'esecuzione di applicazioni S
 
 ## <a name="download-and-unblock-the-wingtip-tickets-saas-scripts"></a>Scaricare e sbloccare gli script dell'app SaaS Wingtip Tickets
 
-I contenuti eseguibili (script, DLL) possono essere bloccati da Windows quando si scaricano e si estraggono i file ZIP da un'origine esterna. Quando si estraggono gli script da un file ZIP, **seguire questa procedura per sbloccare il file ZIP prima di estrarlo**. In questo modo sarà possibile eseguire gli script.
+I contenuti eseguibili (script, DLL) possono essere bloccati da Windows quando si scaricano e si estraggono i file ZIP da un'origine esterna. Quando si estraggono gli script da un file ZIP, **seguire questa procedura per sbloccare il file ZIP prima di estrarlo** . In questo modo sarà possibile eseguire gli script.
 
 1. Passare al repository GitHub SaaS Wingtip Tickets per il modello di tenancy del database che si desidera esplorare:
     - [WingtipTicketsSaaS-StandaloneApp](https://github.com/Microsoft/WingtipTicketsSaaS-StandaloneApp)
     - [WingtipTicketsSaaS-DbPerTenant](https://github.com/Microsoft/WingtipTicketsSaaS-DbPerTenant)
     - [WingtipTicketsSaaS-MultiTenantDb](https://github.com/Microsoft/WingtipTicketsSaaS-MultiTenantDb)
-2. Fare clic su **Clona o scarica**.
+2. Fare clic su **Clona o scarica** .
 3. Fare clic su **Scarica zip** e salvare il file.
-4. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare **Proprietà**. Il nome del file ZIP corrisponderà al nome del repository. Ad esempio _WingtipTicketsSaaS-DbPerTenant-master.zip_
-5. Nella scheda **Generale** selezionare **Annulla blocco**.
-6. Fare clic su **OK**.
+4. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare **Proprietà** . Il nome del file ZIP corrisponderà al nome del repository. Ad esempio _WingtipTicketsSaaS-DbPerTenant-master.zip_
+5. Nella scheda **Generale** selezionare **Annulla blocco** .
+6. Fare clic su **OK** .
 7. Estrarre i file.
 
 Gli script si trovano nella *.. \\ Cartella Learning Modules* .
@@ -43,7 +43,7 @@ Gli script si trovano nella *.. \\ Cartella Learning Modules* .
 
 ## <a name="working-with-the-wingtip-tickets-powershell-scripts"></a>Uso degli script di PowerShell per Wingtip Tickets
 
-Per ottenere il massimo dall'esempio, è necessario esplorare gli script forniti. Usare i punti di interruzione, scorrere gli script in esecuzione ed esaminare come vengono implementati i diversi modelli SaaS. Per scorrere facilmente gli script e i moduli forniti e comprenderli a fondo, è consigliabile usare [PowerShell ISE](https://docs.microsoft.com/powershell/scripting/components/ise/introducing-the-windows-powershell-ise).
+Per ottenere il massimo dall'esempio, è necessario esplorare gli script forniti. Usare i punti di interruzione, scorrere gli script in esecuzione ed esaminare come vengono implementati i diversi modelli SaaS. Per scorrere facilmente gli script e i moduli forniti e comprenderli a fondo, è consigliabile usare [PowerShell ISE](/powershell/scripting/components/ise/introducing-the-windows-powershell-ise).
 
 ### <a name="update-the-configuration-file-for-your-deployment"></a>Aggiornare il file di configurazione per la distribuzione
 
@@ -57,7 +57,7 @@ Impostando qui questi valori specifici della distribuzione, non sarà necessario
 
 ### <a name="execute-the-scripts-by-pressing-f5"></a>Eseguire gli script premendo F5
 
-Vari script usano *$PSScriptRoot* per esplorare le cartelle e *$PSScriptRoot* viene valutato solo quando gli script vengono eseguiti premendo **F5**.L'evidenziazione e l'esecuzione di una selezione (**F8**) può causare errori, quindi premere **F5** per l'esecuzione di script.
+Vari script usano *$PSScriptRoot* per esplorare le cartelle e *$PSScriptRoot* viene valutato solo quando gli script vengono eseguiti premendo **F5** .  L'evidenziazione e l'esecuzione di una selezione ( **F8** ) può causare errori, quindi premere **F5** per l'esecuzione di script.
 
 ### <a name="step-through-the-scripts-to-examine-the-implementation"></a>Eseguire gli script un'istruzione alla volta per esaminare l'implementazione
 
@@ -66,37 +66,37 @@ Il modo migliore di comprendere gli script è di scorrerli per capirne la funzio
 Suggerimenti per esplorare e scorrere gli script PowerShell:
 
 - Aprire gli script **Demo-** in PowerShell ISE.
-- Eseguire o continuare con **F5**. Non è consigliabile usare **F8** perché la variabile *$PSScriptRoot* non viene valutata durante l'esecuzione di selezioni di uno script.
-- Aggiungere punti di interruzione facendo clic o selezionando una riga e premendo **F9**.
+- Eseguire o continuare con **F5** . Non è consigliabile usare **F8** perché la variabile *$PSScriptRoot* non viene valutata durante l'esecuzione di selezioni di uno script.
+- Aggiungere punti di interruzione facendo clic o selezionando una riga e premendo **F9** .
 - Eseguire una funzione o una chiamata dello script in blocco con **F10** (comando Esegui istruzione/routine).
-- Eseguire una funzione o una chiamata dello script un'istruzione alla volta con **F11**.
-- Uscire dalla funzione o dalla chiamata dello script corrente con **MAIUSC+F11**.
+- Eseguire una funzione o una chiamata dello script un'istruzione alla volta con **F11** .
+- Uscire dalla funzione o dalla chiamata dello script corrente con **MAIUSC+F11** .
 
 
 ## <a name="explore-database-schema-and-execute-sql-queries-using-ssms"></a>Esplorare lo schema del database ed eseguire query SQL tramite SSMS
 
-Usare [SQL Server Management Studio (SSMS)](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server e ai database dell'applicazione e per esplorarli.
+Usare [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) per connettersi ai server e ai database dell'applicazione e per esplorarli.
 
 La distribuzione ha inizialmente i tenant e i server di catalogo a cui connettersi. La denominazione dei server varia a seconda del modello tenancy di database (vedere di seguito per le specifiche).
 
-   - **Applicazione autonoma:** server per ogni tenant (ad esempio, server *contosoconcerthall-&lt;Utente&gt;*) e *catalog-sa-&lt;Utente&gt;*
-   - **Database per tenant: server ** *tenants1-dpt-&lt;Utente&gt;* e *catalog-dpt-&lt;Utente&gt;*
-   - **Database multi-tenant: server ** *tenants1-mt-&lt;Utente&gt;* e *catalog-mt-&lt;Utente&gt;*
+   - **Applicazione autonoma:** server per ogni tenant (ad esempio, server *contosoconcerthall-&lt;Utente&gt;* ) e *catalog-sa-&lt;Utente&gt;*
+   - **Database per tenant: server** *tenants1-dpt-&lt;Utente&gt;* e *catalog-dpt-&lt;Utente&gt;*
+   - **Database multi-tenant: server** *tenants1-mt-&lt;Utente&gt;* e *catalog-mt-&lt;Utente&gt;*
 
 Per assicurare una connessione demo corretta, tutti i server hanno una [regola del firewall](firewall-configure.md) che consente tutti gli IP.
 
 
 1. Aprire *SSMS* e connettersi ai tenant. Il nome del server varia a seconda del modello tenancy del database selezionato (vedere di seguito per le specifiche):
-    - **Applicazione autonoma:** server di singoli tenant (ad esempio *contosoconcerthall-&lt;Utente&gt;.database.windows.net*)
+    - **Applicazione autonoma:** server di singoli tenant (ad esempio *contosoconcerthall-&lt;Utente&gt;.database.windows.net* )
     - **Database per tenant:** *tenants1-dpt-&lt;Utente&gt;.database.windows.net*
     - **Database multi-tenant:** *tenants1-mt-&lt;Utente&gt;.database.windows.net*
-2. Fare clic su **Connetti**  >  **motore di database...**:
+2. Fare clic su **Connetti**  >  **motore di database...** :
 
    ![server di catalogo](./media/saas-tenancy-wingtip-app-guidance-tips/connect.png)
 
-3. Credenziali demo: login = *Developer*, password = *P \@ ssword1*
+3. Credenziali demo: login = *Developer* , password = *P \@ ssword1*
 
-    L'immagine seguente illustra l'accesso per il modello *Database per tenant*.
+    L'immagine seguente illustra l'accesso per il modello *Database per tenant* .
     ![connection](./media/saas-tenancy-wingtip-app-guidance-tips/tenants1-connect.png)
 
 
@@ -109,14 +109,13 @@ Per assicurare una connessione demo corretta, tutti i server hanno una [regola d
 
 Dopo avere stabilito correttamente la connessione dovrebbero essere visibili tutti i server. L'elenco dei propri database potrebbe variare a seconda dei tenant di cui si è effettuato il provisioning.
 
-L'immagine seguente illustra l'accesso per il modello *Database per tenant*.
+L'immagine seguente illustra l'accesso per il modello *Database per tenant* .
 
 ![esplora oggetti](./media/saas-tenancy-wingtip-app-guidance-tips/object-explorer.png)
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Distribuire l'applicazione SaaS autonoma Wingtip Tickets](../../sql-database/saas-standaloneapp-get-started-deploy.md)
-- [Distribuire l'applicazione SaaS di database per tenant Wingtip Tickets](../../sql-database/saas-dbpertenant-get-started-deploy.md)
-- [Distribuire l'applicazione SaaS di database multi-tenant Wingtip Tickets](../../sql-database/saas-multitenantdb-get-started-deploy.md)
-
+- [Distribuire l'applicazione SaaS autonoma Wingtip Tickets](./saas-standaloneapp-get-started-deploy.md)
+- [Distribuire l'applicazione SaaS di database per tenant Wingtip Tickets](./saas-dbpertenant-get-started-deploy.md)
+- [Distribuire l'applicazione SaaS di database multi-tenant Wingtip Tickets](./saas-multitenantdb-get-started-deploy.md)

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 02/12/2018
 ms.author: allensu
-ms.openlocfilehash: 2f0968af5cb52904f6044e130adba8b0ba9a6cd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7fb414680b8ff64d057f9f68d7b97380baeaa551
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88192578"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778206"
 ---
 # <a name="pre-load-assets-on-an-azure-cdn-endpoint"></a>Precaricamento di risorse in un endpoint della rete CDN di Azure
 [!INCLUDE [cdn-verizon-only](../../includes/cdn-verizon-only.md)]
@@ -37,17 +37,17 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
 1. Nel [portale di Azure](https://portal.azure.com) passare al profilo di rete CDN contenente l'endpoint che si vuole precaricare. Viene visualizzato il riquadro del profilo.
     
 2. Fare clic sull'endpoint nell'elenco. Viene visualizzato il riquadro dell'endpoint.
-3. Nel riquadro dell'endpoint di rete CDN selezionare **Carica**.
+3. Nel riquadro dell'endpoint di rete CDN selezionare **Carica** .
    
     ![Nome endpoint di rete CDN](./media/cdn-preload-endpoint/cdn-endpoint-blade.png)
    
-    Viene visualizzato il riquadro **Carica**.
+    Viene visualizzato il riquadro **Carica** .
    
     ![Riquadro di caricamento della rete CDN](./media/cdn-preload-endpoint/cdn-load-blade.png)
 4. In **Percorso contenuto** immettere il percorso completo di ogni asset da caricare, ad esempio `/pictures/kitten.png`.
    
    > [!TIP]
-   > Nel momento in cui si inizia a immettere il testo vengono visualizzate altre caselle di testo **Percorso contenuto**, che consentono di compilare un elenco di più asset. Per eliminare gli asset dall'elenco, selezionare il pulsante con i puntini di sospensione (...) e quindi scegliere **Elimina**.
+   > Nel momento in cui si inizia a immettere il testo vengono visualizzate altre caselle di testo **Percorso contenuto** , che consentono di compilare un elenco di più asset. Per eliminare gli asset dall'elenco, selezionare il pulsante con i puntini di sospensione (...) e quindi scegliere **Elimina** .
    > 
    > Ogni percorso di contenuto deve essere un URL relativo che soddisfa le [espressioni regolari](/dotnet/standard/base-types/regular-expression-language-quick-reference) seguenti:  
    > - Caricare un singolo percorso di file `^(?:\/[a-zA-Z0-9-_.%=\u0020]+)+$`  
@@ -58,7 +58,7 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
    > 
    
     ![Pulsante Carica](./media/cdn-preload-endpoint/cdn-load-paths.png)
-5. Dopo avere immesso tutti i percorsi di contenuto, selezionare **Carica**.
+5. Dopo avere immesso tutti i percorsi di contenuto, selezionare **Carica** .
    
 
 > [!NOTE]
@@ -68,6 +68,5 @@ Questa esercitazione illustra in modo dettagliato il precaricamento di contenuto
 
 ## <a name="see-also"></a>Vedere anche
 * [Ripulire un endpoint della rete CDN di Azure](cdn-purge-endpoint.md)
-* [Azure CDN REST API reference: Pre-load content on an endpoint](https://docs.microsoft.com/rest/api/cdn/endpoints/loadcontent) (Riferimento API REST della rete CDN di Azure: Precacaricare contenuto su un endpoint)
-* [Azure CDN REST API reference: Pre-load content on an endpoint](https://docs.microsoft.com/rest/api/cdn/endpoints/purgecontent) (Riferimento API REST della rete CDN di Azure: Ripulire contenuto da un endpoint)
-
+* [Azure CDN REST API reference: Pre-load content on an endpoint](/rest/api/cdn/endpoints/loadcontent) (Riferimento API REST della rete CDN di Azure: Precacaricare contenuto su un endpoint)
+* [Azure CDN REST API reference: Pre-load content on an endpoint](/rest/api/cdn/endpoints/purgecontent) (Riferimento API REST della rete CDN di Azure: Ripulire contenuto da un endpoint)

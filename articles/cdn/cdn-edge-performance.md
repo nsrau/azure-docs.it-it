@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: dc1599fc0c2f8c55c709ab674c10dd53c8d8dc04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d8119c56c26ed32db136064d93775d21a71f238f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887710"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778656"
 ---
 # <a name="analyze-edge-node-performance-in-microsoft-azure-cdn"></a>Analizzare le prestazioni del nodo perimetrale nella rete CDN di Microsoft Azure
 [!INCLUDE [cdn-premium-feature](../../includes/cdn-premium-feature.md)]
@@ -55,7 +55,7 @@ Il dashboard è costituito da:
     ![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Si aprirà il portale di gestione della rete CDN.
-2. Passare il puntatore sulla scheda **Analisi** e quindi sul riquadro a comparsa **Analisi delle prestazioni del server perimetrale**.  Fare clic su **Dashboard**.
+2. Passare il puntatore sulla scheda **Analisi** e quindi sul riquadro a comparsa **Analisi delle prestazioni del server perimetrale** .  Fare clic su **Dashboard** .
    
     Verrà visualizzato il dashboard per le analisi relative al nodo perimetrale.
 
@@ -117,7 +117,7 @@ Lo scopo di queste metriche consiste nel tenere traccia delle prestazioni comple
 | Campo | Descrizione |
 | --- | --- |
 | Velocità di trasferimento |Indica la velocità media del trasferimento del contenuto dalla rete CDN a un richiedente. |
-| Duration |Indica il tempo medio, in millisecondi, necessario per distribuire un asset a un richiedente (ad esempio un Web browser). |
+| Durata |Indica il tempo medio, in millisecondi, necessario per distribuire un asset a un richiedente (ad esempio un Web browser). |
 | Velocità richieste con compressione |Indica la percentuale di riscontri distribuiti dalla rete CDN (server perimetrali) al richiedente (ad esempio un Web browser) in formato compresso. |
 | Frequenza degli errori 4xx |Indica la percentuale di riscontri che hanno generato un codice di stato 4xx. |
 | Frequenza degli errori 5xx |Indica la percentuale di riscontri che hanno generato un codice di stato 5xx. |
@@ -143,7 +143,7 @@ Ogni report in questo modulo contiene un grafico e statistiche relative a larghe
     ![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-edge-performance/cdn-manage-btn.png)
    
     Si aprirà il portale di gestione della rete CDN.
-2. Passare il puntatore sulla scheda **Analisi** e quindi sul riquadro a comparsa **Analisi delle prestazioni del server perimetrale**.  Fare clic su **Oggetto di grandi dimensioni HTTP**.
+2. Passare il puntatore sulla scheda **Analisi** e quindi sul riquadro a comparsa **Analisi delle prestazioni del server perimetrale** .  Fare clic su **Oggetto di grandi dimensioni HTTP** .
    
     Verrà visualizzata la schermata dei report sulle analisi relative al nodo perimetrale.
 
@@ -186,6 +186,5 @@ Ogni report in questo modulo contiene un grafico e statistiche relative a larghe
 ## <a name="see-also"></a>Vedere anche
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
-* [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)
+* [Override del comportamento HTTP predefinito mediante il motore regole](./cdn-verizon-premium-rules-engine.md)
 * [Report HTTP avanzati](cdn-advanced-http-reports.md)
-

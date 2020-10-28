@@ -5,19 +5,19 @@ description: Informazioni su come configurare un database SQL di Azure e Azure s
 services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
-ms.custom: seo-lt-2019 sqldbrb=1
+ms.custom: seo-lt-2019 sqldbrb=1, devx-track-azurecli
 ms.devlang: ''
 ms.topic: how-to
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: e2cdf7d5213f1667b0b588cc5bfa9f105245b6b3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 38be8b97b3255e4e63301e693d2a5f295e8d801b
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91619118"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779969"
 ---
 # <a name="powershell-and-the-azure-cli-enable-transparent-data-encryption-with-customer-managed-key-from-azure-key-vault"></a>PowerShell e l'interfaccia della riga di comando di Azure: abilitare Transparent Data Encryption con chiave gestita dal cliente da Azure Key Vault
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -36,11 +36,11 @@ Questo articolo illustra come usare una chiave da Azure Key Vault per Transparen
 - La chiave deve avere i seguenti attributi per essere usata per TDE:
   - Nessuna data di scadenza
   - Non disabilitato
-  - In grado di eseguire le operazioni *Ottieni*, *Esegui il wrapping della chiave*, *Annulla il wrapping della chiave*
+  - In grado di eseguire le operazioni *Ottieni* , *Esegui il wrapping della chiave* , *Annulla il wrapping della chiave*
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Per istruzioni sull'installazione del modulo Az, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps). Per i cmdlet specifici, vedere [AzureRM. SQL](https://docs.microsoft.com/powershell/module/AzureRM.Sql/).
+Per istruzioni sull'installazione del modulo Az, vedere [Installare Azure PowerShell](/powershell/azure/install-az-ps). Per i cmdlet specifici, vedere [AzureRM. SQL](/powershell/module/AzureRM.Sql/).
 
 Per informazioni specifiche su Key Vault, vedere [istruzioni di PowerShell da Key Vault](../../key-vault/secrets/quick-create-powershell.md) e [come usare Key Vault soft-delete con PowerShell](../../key-vault/general/soft-delete-powershell.md).
 
@@ -123,7 +123,7 @@ Get-AzSqlDatabaseTransparentDataEncryptionActivity -ResourceGroupName <SQLDataba
 
 # <a name="the-azure-cli"></a>[L’interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per installare la versione richiesta dell'interfaccia della riga di comando di Azure (versione 2,0 o successiva) e connettersi alla sottoscrizione di Azure, vedere [installare e configurare l'interfaccia di Command-Line multipiattaforma di azure 2,0](https://docs.microsoft.com/cli/azure/install-azure-cli).
+Per installare la versione richiesta dell'interfaccia della riga di comando di Azure (versione 2,0 o successiva) e connettersi alla sottoscrizione di Azure, vedere [installare e configurare l'interfaccia di Command-Line multipiattaforma di azure 2,0](/cli/azure/install-azure-cli).
 
 Per informazioni specifiche su Key Vault, vedere [gestire Key Vault usando l'interfaccia della riga](../../key-vault/general/manage-with-cli2.md) di comando 2,0 e [come usare Key Vault soft-delete con l'interfaccia della](../../key-vault/general/soft-delete-cli.md)riga di comando.
 
@@ -239,7 +239,7 @@ Se si verifica un problema, controllare quanto segue:
 
 - Se non è possibile aggiungere la nuova chiave al server o la nuova chiave non può essere aggiornata come protezione TDE, verificare quanto segue:
    - La chiave non deve avere una data di scadenza
-   - La chiave deve avere le operazioni *Ottieni*, *Esegui il wrapping della chiave*, *Annulla il wrapping della chiave*.
+   - La chiave deve avere le operazioni *Ottieni* , *Esegui il wrapping della chiave* , *Annulla il wrapping della chiave* .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

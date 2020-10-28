@@ -16,12 +16,12 @@ ms.date: 08/30/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: df3e2ae2737aa8bfedd0e8d7daa9d42771f1937b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad1b68242e7cb8eba885c78ab62572d257198d01
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570346"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779714"
 ---
 # <a name="automate-management-tasks-on-azure-virtual-machines-by-using-the-sql-server-iaas-agent-extension"></a>Automatizzare le attività di gestione in macchine virtuali di Azure usando l'estensione SQL Server IaaS Agent
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -31,7 +31,7 @@ L'estensione SQL Server IaaS Agent (SQLIaaSExtension) viene eseguita su macchine
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-Per visualizzare la versione classica di questo articolo, vedere l'argomento relativo all'[estensione SQL Server IaaS Agent per le macchine virtuali di SQL Server (distribuzione classica)](../../../virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension.md).
+Per visualizzare la versione classica di questo articolo, vedere l'argomento relativo all'[estensione SQL Server IaaS Agent per le macchine virtuali di SQL Server (distribuzione classica)](/previous-versions/azure/virtual-machines/windows/sqlclassic/virtual-machines-windows-classic-sql-server-agent-extension).
 
 
 ## <a name="supported-services"></a>Servizi supportati
@@ -51,15 +51,15 @@ Dopo l'installazione e l'esecuzione dell'estensione SQL Server IaaS Agent, le fu
 ## <a name="prerequisites"></a>Prerequisiti
 Di seguito sono riportati i requisiti per l'uso dell'estensione SQL Server Iaas Agent nella VM:
 
-**Sistema operativo**:
+**Sistema operativo** :
 
 * Windows Server 2008 R2
 * Windows Server 2012
-* R2 per Windows Server 2012
+* Windows Server 2012 R2
 * Windows Server 2016
 * Windows Server 2019 
 
-**Versione di SQL Server**:
+**Versione di SQL Server** :
 
 * SQL Server 2008 
 * SQL Server 2008 R2
@@ -69,7 +69,7 @@ Di seguito sono riportati i requisiti per l'uso dell'estensione SQL Server Iaas 
 * SQL Server 2017
 * SQL Server 2019
 
-**Azure PowerShell**:
+**Azure PowerShell** :
 
 * [Scaricare e configurare i comandi di Azure PowerShell più recenti](/powershell/azure/)
 
@@ -101,7 +101,7 @@ Per usare un'istanza denominata di SQL Server, attenersi alla seguente procedura
 
 
 ## <a name="get-the-status-of-the-sql-server-iaas-extension"></a>Ottenere lo stato dell'estensione SQL Server IaaS
-Un modo per verificare che l'estensione sia installata consiste nel visualizzare lo stato dell'agente nel portale di Azure. Selezionare **Tutte le impostazioni** nella finestra della macchina virtuale e quindi selezionare **Estensioni**. L'estensione **SQLIaaSExtension** dovrebbe essere visualizzata nell'elenco.
+Un modo per verificare che l'estensione sia installata consiste nel visualizzare lo stato dell'agente nel portale di Azure. Selezionare **Tutte le impostazioni** nella finestra della macchina virtuale e quindi selezionare **Estensioni** . L'estensione **SQLIaaSExtension** dovrebbe essere visualizzata nell'elenco.
 
 ![Stato dell'estensione SQL Server IaaS Agent nel portale di Azure](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-portal.png)
 
@@ -120,7 +120,7 @@ Il comando precedente verifica se l'agente è installato e visualizza informazio
    ```
 
 ## <a name="removal"></a>Rimozione
-Nel portale di Azure è possibile disinstallare l'estensione selezionando i puntini di sospensione nella finestra **Estensioni** delle proprietà della macchina virtuale. Selezionare **Elimina**.
+Nel portale di Azure è possibile disinstallare l'estensione selezionando i puntini di sospensione nella finestra **Estensioni** delle proprietà della macchina virtuale. Selezionare **Elimina** .
 
 ![Disinstallazione dell'estensione SQL Server IaaS Agent nel portale di Azure](./media/sql-server-iaas-agent-extension-automate-management/azure-rm-sql-server-iaas-agent-uninstall.png)
 

@@ -3,17 +3,17 @@ title: Esempi di codice di Archiviazione di Azure | Microsoft Docs
 description: Visualizzare, scaricare ed eseguire codici di esempio e applicazioni per l'Archiviazione di Azure. Individuare esempi introduttivi per BLOB, code, tabelle e file usando le librerie client di archiviazione .NET, Java, Python, Node.js, interfaccia della riga di comando di Azure e C++.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/06/2019
+ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: edf30d628a73c879ce81f68bda7cd2d7daa6cde3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cf1b643caef515411842d6aaf668708e873e96d
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503651"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367891"
 ---
 # <a name="azure-storage-samples"></a>Esempi di archiviazione di Azure
 
@@ -49,11 +49,11 @@ Per esplorare gli esempi di Node. js, scaricare la [libreria client di archiviaz
 
 ## <a name="c-samples"></a>Esempi C++.
 
-Per esplorare gli esempi di C++, scaricare la [libreria client di archiviazione di C++](https://www.nuget.org/packages/wastorage/) da NuGet.
+Per esplorare gli esempi in C++, scaricare la [libreria client di Archiviazione di Azure per C++](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage) da GitHub.
 
-* [Introduzione ai BLOB](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/BlobsGettingStarted.cpp)
-* [Introduzione alle tabelle](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/TablesGettingStarted.cpp)
-* [Introduzione alle code](https://github.com/Azure/azure-storage-cpp/tree/master/Microsoft.WindowsAzure.Storage/samples/QueuesGettingStarted.cpp)
+* [Introduzione a BLOB di Azure](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-blobs/sample/blob_getting_started.cpp)
+* [Introduzione ad Azure Data Lake](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-datalake/sample/datalake_getting_started.cpp)
+* [Introduzione a File di Azure](https://github.com/Azure/azure-sdk-for-cpp/blob/master/sdk/storage/azure-storage-files-shares/sample/file_share_getting_started.cpp)
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
@@ -71,7 +71,7 @@ Per esplorare gli esempi dell'interfaccia della riga di comando di Azure, è pri
 | Java | [Informazioni di riferimento sulla libreria client Java](https://docs.microsoft.com/java/api/overview/azure/storage) | [Codice sorgente per la libreria client di archiviazione Java](https://github.com/azure/azure-storage-java) |
 | Python | [Informazioni di riferimento sulla libreria client Python](https://azure-storage.readthedocs.io/) | [Codice sorgente per la libreria client di archiviazione Python](https://github.com/Azure/azure-storage-python) |
 | Node.js | [Informazioni di riferimento sulla libreria client Node.js](https://azure.github.io/azure-storage-node) | [Codice sorgente per la libreria client di archiviazione Node. js](https://github.com/Azure/azure-storage-node) |
-| C++ | [Informazioni di riferimento sulla libreria client C++](https://azure.github.io/azure-storage-cpp/) | [Codice sorgente per la libreria client di archiviazione C++](https://github.com/Azure/azure-storage-cpp)|
+| C++ | [Informazioni di riferimento sulla libreria client C++](https://azure.github.io/azure-sdk-for-cpp/) | [Codice sorgente per la libreria client di archiviazione C++](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage)|
 | Interfaccia della riga di comando di Azure | [Informazioni di riferimento sulla libreria dell'interfaccia della riga di comando di Azure](/cli/azure/storage) | [Codice sorgente per la libreria client di archiviazione dell'interfaccia della riga di comando di Azure](https://github.com/Azure-Samples/azure-cli-samples/tree/master/storage)
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -82,4 +82,5 @@ Gli articoli seguenti indicizzano ciascuno degli esempi per servizio (BLOB, file
 * [Esempi di Archiviazione di Azure che usano Java](storage-samples-java.md)
 * [Esempi di Archiviazione di Azure che usano JavaScript](storage-samples-javascript.md)
 * [Esempi di Archiviazione di Azure che usano Python](storage-samples-python.md)
+* [Esempi di Archiviazione di Azure che usano C++](storage-samples-c-plus-plus.md)
 * [Esempi di Archiviazione di Azure che usano l'interfaccia della riga di comando di Azure](/azure/storage/blobs/storage-samples-blobs-cli)

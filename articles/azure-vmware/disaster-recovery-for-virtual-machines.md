@@ -1,22 +1,22 @@
 ---
-title: Completare un ripristino di emergenza di macchine virtuali
-description: Questo articolo illustra come completare un ripristino di emergenza di macchine virtuali usando la soluzione VMware di Azure
+title: Completa il ripristino di emergenza delle macchine virtuali
+description: Questo articolo illustra come completare il ripristino di emergenza delle macchine virtuali tramite la soluzione VMware di Azure
 ms.topic: how-to
 ms.date: 09/22/2020
-ms.openlocfilehash: 3608243600eb5d00dcfe10db5bc6b907ecb9aee8
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 688d91bc181e1479f5090a10af4b3b262d7ddb7f
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92508435"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779612"
 ---
-# <a name="complete-a-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Completare un ripristino di emergenza di macchine virtuali con la soluzione VMware di Azure
+# <a name="complete-disaster-recovery-of-virtual-machines-using-azure-vmware-solution"></a>Completare il ripristino di emergenza di macchine virtuali con la soluzione VMware di Azure
 
-Questo articolo contiene il processo per completare un ripristino di emergenza delle macchine virtuali (VM) con la soluzione VMware HCX e l'uso di un cloud privato della soluzione VMware di Azure come sito di ripristino o di destinazione.
+Questo articolo contiene il processo per completare il ripristino di emergenza delle macchine virtuali (VM) con la soluzione VMware HCX e l'uso di un cloud privato della soluzione VMware di Azure come sito di ripristino o di destinazione.
 
 VMware HCX fornisce varie operazioni che forniscono controllo e granularità precisi nei criteri di replica. Le operazioni disponibili includono:
 
-- **Reverse** : dopo un'emergenza. Reverse consente di rendere il sito B il sito di origine e il sito A in cui si trova la VM protetta.
+- **Reverse** : dopo un'emergenza. Reverse consente di rendere il sito B il sito di origine e il sito A, in cui si trova ora la VM protetta.
 
 - **Pausa** : sospende i criteri di replica correnti associati alla macchina virtuale selezionata.
 
@@ -26,7 +26,7 @@ VMware HCX fornisce varie operazioni che forniscono controllo e granularità pre
 
 - **Sincronizza ora** : la macchina virtuale di origine della sincronizzazione non è associata alla VM protetta.
 
-In questa guida vengono descritti gli scenari di replica seguenti:
+In questa guida vengono illustrati gli scenari di replica seguenti:
 
 - Proteggere una macchina virtuale o un gruppo di macchine virtuali.
 
@@ -38,11 +38,11 @@ In questa guida vengono descritti gli scenari di replica seguenti:
 
 ## <a name="protect-vms"></a>Proteggere le macchine virtuali
 
-1. Accedere a **vSphere client** nel sito di origine e accedere al plug-in **HCX**.
+1. Accedere a **vSphere client** nel sito di origine e accedere al plug-in **HCX** .
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/hcx-vsphere.png" alt-text="Opzione HCX in vSphere" border="true":::
 
-1. Immettere l'area **ripristino di emergenza** e selezionare **Proteggi VM**.
+1. Immettere l'area **ripristino di emergenza** e selezionare **Proteggi VM** .
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png" alt-text="Opzione HCX in vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/protect-virtual-machine.png":::
 
@@ -56,13 +56,13 @@ In questa guida vengono descritti gli scenari di replica seguenti:
 
    - **Abilita quiescenza:** Sospende la macchina virtuale per garantire che una copia coerente venga sincronizzata con il sito remoto.
 
-   - **Archiviazione di destinazione:** Archivio dati remoto per le macchine virtuali protette e in un cloud privato della soluzione VMware di Azure deve essere l'archivio dati rete VSAN.
+   - **Archiviazione di destinazione:** Archivio dati remoto per le macchine virtuali protette e in un cloud privato della soluzione VMware di Azure, che deve essere l'archivio dati rete VSAN.
 
    - **Contenitore di calcolo:** Cluster vSphere remoto o pool di risorse.
 
-   - **Cartella di destinazione:** Cartella di destinazione remota, che è facoltativa e se non è selezionata alcuna cartella, le macchine virtuali verranno posizionate direttamente nel cluster selezionato.
+   - **Cartella di destinazione:** La cartella di destinazione remota, che è facoltativa e se non è selezionata alcuna cartella, le macchine virtuali vengono posizionate direttamente nel cluster selezionato.
 
-   - **RPO:** L'intervallo di sincronizzazione tra la macchina virtuale di origine e la macchina virtuale protetta e può essere compreso tra 5 minuti e 24 ore.
+   - **RPO:** Intervallo di sincronizzazione tra la macchina virtuale di origine e la macchina virtuale protetta. Può essere compreso tra 5 minuti e 24 ore.
 
    - **Intervallo snapshot:** Intervallo tra gli snapshot.
 
@@ -84,14 +84,14 @@ In questa guida vengono descritti gli scenari di replica seguenti:
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/list-of-snapshots.png" alt-text="Opzione HCX in vSphere" border="true" lightbox="./media/disaster-recovery-virtual-machines/list-of-snapshots.png":::
 
-   Il triangolo giallo indica che gli snapshot e il virtuale non sono stati testati in un'operazione di ripristino di test.
+   Il triangolo giallo indica che gli snapshot e le macchine virtuali non sono stati testati in un'operazione di ripristino di test.
 
-   Esistono differenze principali tra una macchina virtuale spenta e una che è accesa. L'immagine mostra il processo di sincronizzazione per una VM accesa. Avvia il processo di sincronizzazione fino a quando non termina il primo snapshot, ovvero una copia completa della macchina virtuale, quindi completa quelli successivi nell'intervallo configurato. Per una macchina virtuale spenta, sincronizza una copia, quindi la macchina virtuale viene visualizzata come inattiva e l'operazione di protezione viene visualizzata come completata.  Quando la macchina virtuale è accesa, avvia il processo di sincronizzazione nel sito remoto.
+   Esistono differenze principali tra una macchina virtuale spenta e una accesa. L'immagine mostra il processo di sincronizzazione per una VM accesa. Avvia il processo di sincronizzazione fino a quando non termina il primo snapshot, ovvero una copia completa della macchina virtuale, quindi completa quelli successivi nell'intervallo configurato. Sincronizza una copia per una VM spenta, quindi la macchina virtuale viene visualizzata come inattiva e l'operazione di protezione viene visualizzata come completata.  Quando la macchina virtuale è accesa, avvia il processo di sincronizzazione nel sito remoto.
 
 ## <a name="complete-a-test-recover-of-vms"></a>Completare un ripristino di test delle macchine virtuali
 
 1. Accedere a **vSphere client** nel sito remoto, che è il cloud privato della soluzione VMware di Azure. 
-1. Nel plug-in **HCX**, nell'area ripristino di emergenza selezionare i puntini di sospensione verticali in una macchina virtuale per visualizzare il menu operazioni e quindi selezionare **Verifica ripristino macchina virtuale**.
+1. Nel plug-in **HCX** , nell'area ripristino di emergenza selezionare i puntini di sospensione verticali in una macchina virtuale per visualizzare il menu operazioni e quindi selezionare **Verifica ripristino macchina virtuale** .
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/test-recover-virtual-machine.png" alt-text="Opzione HCX in vSphere" border="true":::
 
@@ -99,7 +99,7 @@ In questa guida vengono descritti gli scenari di replica seguenti:
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/choose-snapshot.png" alt-text="Opzione HCX in vSphere" border="true":::
 
-1. Dopo aver selezionato **test**, viene avviata l'operazione di ripristino.
+1. Dopo aver selezionato **test** , viene avviata l'operazione di ripristino.
 
 1. Al termine, è possibile controllare la nuova macchina virtuale nel cloud privato della soluzione VMware di Azure.
 
@@ -111,11 +111,11 @@ In questa guida vengono descritti gli scenari di replica seguenti:
 
 ## <a name="recover-vms"></a>Ripristinare le macchine virtuali
 
-1. Accedere a **vSphere client** nel sito remoto, che è il cloud privato della soluzione VMware di Azure, e accedere al plug-in **HCX**.
+1. Accedere a **vSphere client** nel sito remoto, che è il cloud privato della soluzione VMware di Azure, e accedere al plug-in **HCX** .
 
    Per lo scenario di ripristino, un gruppo di macchine virtuali usate per questo esempio.
 
-1. Selezionare la macchina virtuale da ripristinare nell'elenco, aprire il menu **azioni** e selezionare **Ripristina macchine virtuali**.
+1. Selezionare la macchina virtuale da ripristinare nell'elenco, aprire il menu **azioni** e selezionare **Ripristina macchine virtuali** .
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/recover-virtual-machines.png" alt-text="Opzione HCX in vSphere" border="true":::
 
@@ -127,12 +127,12 @@ In questa guida vengono descritti gli scenari di replica seguenti:
 
 ## <a name="complete-a-reverse-replication-on-vms"></a>Completare una replica inversa nelle VM
 
-1. Accedere a **vSphere client** nel cloud privato della soluzione VMware di Azure e accedere al plug-in **HCX**.
+1. Accedere a **vSphere client** nel cloud privato della soluzione VMware di Azure e accedere al plug-in **HCX** .
    
    >[!NOTE]
-   >Verificare che le macchine virtuali originali nel sito di origine siano spente prima di avviare la replica inversa. L'operazione ha esito negativo se le macchine virtuali non sono spente.
+   > Verificare che le macchine virtuali originali nel sito di origine siano spente prima di avviare la replica inversa. L'operazione ha esito negativo se le macchine virtuali non sono spente.
 
-1. Nell'elenco selezionare le VM da replicare nel sito di origine, aprire il menu **azioni** e selezionare **inverso**. 
+1. Nell'elenco selezionare le VM da replicare nel sito di origine, aprire il menu **azioni** e selezionare **inverso** . 
 1. Selezionare **Inverti** per avviare la replica.
 
    :::image type="content" source="./media/disaster-recovery-virtual-machines/reverse-operation-virtual-machines.png" alt-text="Opzione HCX in vSphere" border="true":::
@@ -145,7 +145,7 @@ In questa guida vengono descritti gli scenari di replica seguenti:
 
 VMware HCX attualmente non dispone di un meccanismo incorporato per creare e automatizzare un piano di ripristino di emergenza. Tuttavia, VMware HCX fornisce un set di API REST, incluse le API per l'operazione di ripristino di emergenza. È possibile accedere alla specifica API all'interno di VMware HCX Manager nell'URL.
 
-Le seguenti operazioni nel ripristino di emergenza sono coperte da queste API.
+Queste API coprono le operazioni seguenti nel ripristino di emergenza.
 
 - Proteggere
 
@@ -241,4 +241,4 @@ Di seguito è riportato un esempio di payload di un'operazione di ripristino in 
 ]
 ```
 
-Usando queste API, un cliente può creare un meccanismo personalizzato per automatizzare la creazione e l'esecuzione di un piano di ripristino di emergenza.
+Con queste API, è possibile creare un meccanismo personalizzato per automatizzare la creazione e l'esecuzione di un piano di ripristino di emergenza.

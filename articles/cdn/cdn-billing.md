@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/13/2019
 ms.author: allensu
-ms.openlocfilehash: bd6b4831b29a99ed6694f75e64202f339385b7ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa2f00a732a3978524fc017481285859c9535387
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88191161"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779170"
 ---
 # <a name="understanding-azure-cdn-billing"></a>Informazioni sulla fatturazione per la rete CDN di Azure
 
@@ -38,7 +38,7 @@ Un'area di fatturazione è un'area geografica usata per determinare la frequenza
 
 - Zona 5: India
 
-Per informazioni sulle aree point-of-presence (POP), vedere [Località POP della rete CDN per area](https://docs.microsoft.com/azure/cdn/cdn-pop-locations). Ad esempio, una località POP situata in Messico si trova nell'area dell'America del Nord e pertanto è inclusa nella zona 1. 
+Per informazioni sulle aree point-of-presence (POP), vedere [Località POP della rete CDN per area](./cdn-pop-locations.md). Ad esempio, una località POP situata in Messico si trova nell'area dell'America del Nord e pertanto è inclusa nella zona 1. 
 
 Per informazioni sui prezzi della rete CDN di Azure, vedere [Prezzi della rete per la distribuzione di contenuti](https://azure.microsoft.com/pricing/details/cdn/).
 
@@ -48,7 +48,7 @@ L'area di fatturazione della rete CDN di Azure è basata sulla posizione del ser
 Ad esempio, se un utente in Messico emette una richiesta che viene servita da un server situato in una località POP negli Stati Uniti a causa delle condizioni di traffico o peering, l'area di fatturazione sarà quella degli Stati Uniti.
 
 ## <a name="what-is-a-billable-azure-cdn-transaction"></a>Che cos'è una transazione fatturabile sulla rete CDN di Azure?
-Tutte le richieste HTTP(S) che terminano sulla rete CDN sono un evento fatturabile, che include tutti i tipi di risposta: esito positivo, negativo o altro. Tuttavia, diverse risposte possono generare quantità di traffico differenti. Ad esempio, *304 Not Modified* e altre risposte di sola intestazione generano un traffico ridotto perché sono risposte di entità ridotta; in modo analogo, le risposte di errore, come ad esempio *404 Not Found*, sono fatturabili ma implicano un costo minimo dato il payload di risposta ridotto.
+Tutte le richieste HTTP(S) che terminano sulla rete CDN sono un evento fatturabile, che include tutti i tipi di risposta: esito positivo, negativo o altro. Tuttavia, diverse risposte possono generare quantità di traffico differenti. Ad esempio, *304 Not Modified* e altre risposte di sola intestazione generano un traffico ridotto perché sono risposte di entità ridotta; in modo analogo, le risposte di errore, come ad esempio *404 Not Found* , sono fatturabili ma implicano un costo minimo dato il payload di risposta ridotto.
 
 ## <a name="what-other-azure-costs-are-associated-with-azure-cdn-use"></a>Quali altri costi di Azure sono associati all'uso della rete CDN di Azure?
 L'uso della rete CDN di Azure comporta anche alcuni addebiti di utilizzo sui servizi usati come origine per gli oggetti. Tali costi rappresentano in genere una percentuale esigua del costo di utilizzo complessivo della rete CDN.
@@ -66,7 +66,7 @@ Quando si usa l'archiviazione BLOB di Azure come origine per il contenuto, è ne
 
 Per altre informazioni sulla fatturazione di Archiviazione di Azure, vedere [Informazioni sulla fatturazione di archiviazione di Azure (larghezza di banda, transazioni e capacità)](https://blogs.msdn.microsoft.com/windowsazurestorage/2010/07/08/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity/).
 
-Quando si usa una *consegna tramite servizio ospitato*, è necessario includere anche le spese seguenti:
+Quando si usa una *consegna tramite servizio ospitato* , è necessario includere anche le spese seguenti:
 
 - Tempo di calcolo di Azure: istanze di calcolo che fungono da origine.
 
@@ -119,4 +119,4 @@ Se si usa uno dei servizi di Azure seguenti come origine della rete CDN, non ver
 - Cache Redis di Azure
 
 ## <a name="how-do-i-manage-my-costs-most-effectively"></a>Ricerca per categorie su come gestire più efficacemente i costi
-Impostare la durata TTL massima possibile per il contenuto. 
+Impostare la durata TTL massima possibile per il contenuto.

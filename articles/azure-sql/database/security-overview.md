@@ -12,23 +12,23 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, emlisa
 ms.date: 10/26/2020
-ms.openlocfilehash: bb9e17a4befcdcf1a322734c6cc5d75d653f23e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1485f06af2bb3c4912df3e34cb23c409b7db3dc2
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676147"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780360"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Panoramica delle funzionalità di sicurezza del database SQL di Azure e di SQL Istanza gestita
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+[!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Questo articolo illustra le nozioni di base per la protezione del livello dati di un'applicazione tramite il [database SQL di Azure](sql-database-paas-overview.md) e [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md). La strategia di sicurezza descritta segue l'approccio a più livelli di difesa avanzata come illustrato nell'immagine seguente e si sposta dall'esterno in:
+Questo articolo illustra le nozioni di base per la protezione del livello dati di un'applicazione tramite il [database SQL](sql-database-paas-overview.md)di Azure, [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md)e [Azure sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). La strategia di sicurezza descritta segue l'approccio a più livelli di difesa avanzata come illustrato nell'immagine seguente e si sposta dall'esterno in:
 
 ![Diagramma della difesa in profondità a più livelli. I dati dei clienti sono racchiusi in livelli di sicurezza di rete, gestione dell'accesso e protezione delle minacce e delle informazioni.](./media/security-overview/sql-security-layer.png)
 
 ## <a name="network-security"></a>Sicurezza di rete
 
-Database SQL di Microsoft Azure e SQL Istanza gestita forniscono un servizio di database relazionale per le applicazioni cloud e aziendali. Per proteggere i dati dei clienti, i firewall impediscono l'accesso alla rete al server fino a quando l'accesso non viene concesso in modo esplicito in base all'indirizzo IP o al traffico di rete virtuale di Azure.
+Database SQL di Microsoft Azure, SQL Istanza gestita e Azure sinapsi Analytics forniscono un servizio di database relazionale per le applicazioni cloud e aziendali. Per proteggere i dati dei clienti, i firewall impediscono l'accesso alla rete al server fino a quando l'accesso non viene concesso in modo esplicito in base all'indirizzo IP o al traffico di rete virtuale di Azure.
 
 ### <a name="ip-firewall-rules"></a>Regole del firewall IP
 
@@ -36,7 +36,7 @@ Le regole del firewall IP concedono l'accesso ai database in base all'indirizzo 
 
 ### <a name="virtual-network-firewall-rules"></a>Regole del firewall della rete virtuale
 
-Gli [endpoint di servizio della rete](../../virtual-network/virtual-network-service-endpoints-overview.md) virtuale estendono la connettività della rete virtuale tramite la backbone di Azure e consentono al database SQL di Azure di identificare la subnet della rete virtuale da cui ha origine il traffico. Per consentire al traffico di raggiungere il database SQL di Azure, usare i [tag di servizio](../../virtual-network/security-overview.md) SQL per consentire il traffico in uscita tramite gruppi di sicurezza di rete.
+Gli [endpoint di servizio della rete](../../virtual-network/virtual-network-service-endpoints-overview.md) virtuale estendono la connettività della rete virtuale tramite la backbone di Azure e consentono al database SQL di Azure di identificare la subnet della rete virtuale da cui ha origine il traffico. Per consentire al traffico di raggiungere il database SQL di Azure, usare i [tag di servizio](../../virtual-network/network-security-groups-overview.md) SQL per consentire il traffico in uscita tramite gruppi di sicurezza di rete.
 
 Le [regole di rete virtuale](vnet-service-endpoint-rule-overview.md) consentono al database SQL di Azure di accettare solo le comunicazioni inviate da subnet specifiche all'interno di una rete virtuale.
 
@@ -99,7 +99,7 @@ Advanced Threat Protection sta analizzando i log per rilevare comportamenti inso
 
 Il database SQL, SQL Istanza gestita e Azure sinapsi Analytics proteggono i dati dei clienti crittografando i dati in movimento con [Transport Layer Security (TLS)](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server).
 
-Il database SQL, il Istanza gestita SQL e la sinapsi di Azure applicano sempre la crittografia (SSL/TLS) per tutte le connessioni. Ciò garantisce che tutti i dati siano crittografati in transito tra il client e il server indipendentemente dall'impostazione di **Encrypt** o **TrustServerCertificate** nella stringa di connessione.
+Il database SQL, SQL Istanza gestita e Azure sinapsi Analytics applicano sempre la crittografia (SSL/TLS) per tutte le connessioni. Ciò garantisce che tutti i dati siano crittografati in transito tra il client e il server indipendentemente dall'impostazione di **Encrypt** o **TrustServerCertificate** nella stringa di connessione.
 
 Come procedura consigliata, nella stringa di connessione usata dall'applicazione è consigliabile specificare una connessione crittografata e _**non**_ considerare attendibile il certificato del server. In questo modo, l'applicazione deve verificare il certificato del server e quindi impedire che l'applicazione venga vulnerabile agli attacchi di tipo intermedio.
 

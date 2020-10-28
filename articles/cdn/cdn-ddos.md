@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: allensu
-ms.openlocfilehash: dc7af555bcaf8654ecdb27d804cbef0c2cedb284
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: befd0658c79ac6b395b82b65b935a7bc4c735c2d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81253816"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778674"
 ---
 # <a name="azure-cdn-ddos-protection"></a>Protezione DDoS della rete CDN di Azure
 
@@ -27,7 +27,7 @@ Una rete per la distribuzione di contenuti offre protezione DDoS da progettazion
 
 ## <a name="azure-cdn-from-microsoft"></a>Rete CDN di Azure di Microsoft
 
-La rete CDN di Azure di Microsoft è protetta da un [DDoS di base di Azure](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview). È integrato nella rete CDN di Azure dalla piattaforma Microsoft per impostazione predefinita e senza costi aggiuntivi. La scalabilità e la capacità complete della rete CDN di Azure dalla rete distribuita a livello globale di Microsoft offre una difesa contro gli attacchi comuni a livello di rete tramite il monitoraggio del traffico always on e la mitigazione in tempo reale. La protezione DDoS di base difende inoltre i flussi di query DNS di livello 7 più comuni e di livello 3 e 4 che fanno riferimento agli endpoint della rete CDN. Questo servizio ha anche un tracking collaudato nella protezione dei servizi aziendali e consumer di Microsoft da attacchi su larga scala.
+La rete CDN di Azure di Microsoft è protetta da un [DDoS di base di Azure](../virtual-network/ddos-protection-overview.md). È integrato nella rete CDN di Azure dalla piattaforma Microsoft per impostazione predefinita e senza costi aggiuntivi. La scalabilità e la capacità complete della rete CDN di Azure dalla rete distribuita a livello globale di Microsoft offre una difesa contro gli attacchi comuni a livello di rete tramite il monitoraggio del traffico always on e la mitigazione in tempo reale. La protezione DDoS di base difende inoltre i flussi di query DNS di livello 7 più comuni e di livello 3 e 4 che fanno riferimento agli endpoint della rete CDN. Questo servizio ha anche un tracking collaudato nella protezione dei servizi aziendali e consumer di Microsoft da attacchi su larga scala.
 
 ## <a name="azure-cdn-from-verizon"></a>Rete CDN di Azure di Verizon
 
@@ -39,4 +39,4 @@ La rete CDN di Azure di Akamai è protetta dalla piattaforma di mitigazione DDoS
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più su [DDoS di Azure](https://docs.microsoft.com/azure/virtual-network/ddos-protection-overview). 
+Scopri di più su [DDoS di Azure](../virtual-network/ddos-protection-overview.md).

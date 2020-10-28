@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 09/21/2020
-ms.openlocfilehash: fedbcf00512e2eb671656ca1c585df83560a8c02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b217e77310224779ea3ea840e613e28da6c86a3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627619"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779867"
 ---
 # <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -82,7 +82,7 @@ Per le funzionalità nuove e in anteprima, vedere [Note sulla versione](../datab
 
 **Come è possibile effettuare il provisioning di Istanza gestita SQL?**
 
-È possibile effettuare il provisioning di un'istanza di da [portale di Azure](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) e [modelli ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
+È possibile effettuare il provisioning di un'istanza di da [portale di Azure](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) e [modelli ARM](/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
 
 **È possibile eseguire il provisioning di istanze gestite in una sottoscrizione esistente?**
 
@@ -94,7 +94,7 @@ Si tratta di una limitazione corrente per il componente sottostante che verifica
 
 **Come è possibile ridimensionare l'istanza gestita?**
 
-È possibile ridimensionare l'istanza gestita da [portale di Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) o i [modelli ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+È possibile ridimensionare l'istanza gestita da [portale di Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), l'interfaccia della riga di comando di [Azure](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update&preserve-view=true) o i [modelli ARM](/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **È possibile spostare il Istanza gestita da un'area a un'altra?**
 
@@ -102,7 +102,7 @@ Sì, è possibile. Per istruzioni, vedere [spostare le risorse tra le aree](../d
 
 **Come è possibile eliminare la Istanza gestita?**
 
-È possibile eliminare le istanze gestite tramite portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0&preserve-view=true), l' [interfaccia](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) della riga di comando di Azure o le [API REST di gestione risorse](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+È possibile eliminare le istanze gestite tramite portale di Azure, [PowerShell](/powershell/module/az.sql/remove-azsqlinstance?preserve-view=true&view=azps-4.3.0), l' [interfaccia](/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete&preserve-view=true) della riga di comando di Azure o le [API REST di gestione risorse](/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo è necessario per creare o aggiornare un'istanza o per ripristinare un database?**
 
@@ -118,7 +118,7 @@ La modifica di un nome di istanza gestita non è supportata.
 
 Sì, Istanza gestita zona DNS predefinita *. database.Windows.NET* può essere modificata. 
 
-Per usare un'altra zona DNS anziché quella predefinita, ad esempio, *. contoso.com*: 
+Per usare un'altra zona DNS anziché quella predefinita, ad esempio, *. contoso.com* : 
 - Usare CliConfig per definire un alias. Lo strumento è semplicemente un wrapper di impostazioni del registro di sistema, pertanto può essere eseguito anche tramite criteri di gruppo o uno script.
 - Usare *CNAME* con l'opzione *TrustServerCertificate = true* .
 
@@ -137,7 +137,7 @@ Un'opzione consiste nell' [esportare un database in BacPac](../database/database
 
 La [replica transazionale](replication-two-instances-and-sql-server-configure-tutorial.md?view=sql-server-2017&preserve-view=true) può essere utilizzata se tutte le tabelle del database includono chiavi *primarie* e nel database non sono presenti oggetti OLTP in memoria.
 
-Non è possibile ripristinare i backup nativi di COPY_ONLY eseguiti dall'istanza gestita per SQL Server perché l'istanza gestita ha una versione del database superiore rispetto a SQL Server. Per informazioni dettagliate, vedere [backup di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true).
+Non è possibile ripristinare i backup nativi di COPY_ONLY eseguiti dall'istanza gestita per SQL Server perché l'istanza gestita ha una versione del database superiore rispetto a SQL Server. Per informazioni dettagliate, vedere [backup di sola copia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15).
 
 **Come è possibile eseguire la migrazione dell'istanza di SQL Server a SQL Istanza gestita?**
 
@@ -180,15 +180,15 @@ Se il carico di lavoro è costituito da molte piccole transazioni, provare [a ca
 
 **Quali sono le opzioni per il monitoraggio e gli avvisi per l'istanza gestita?**
 
-Per tutte le opzioni possibili per il monitoraggio e l'avviso sull'utilizzo e sulle prestazioni di SQL Istanza gestita, vedere il [post di Blog sulle opzioni di monitoraggio di sql istanza gestita di Azure](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Per il monitoraggio delle prestazioni in tempo reale per SQL MI, vedere [monitoraggio delle prestazioni in tempo reale per il database SQL di Azure istanza gestita](https://docs.microsoft.com/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
+Per tutte le opzioni possibili per il monitoraggio e l'avviso sull'utilizzo e sulle prestazioni di SQL Istanza gestita, vedere il [post di Blog sulle opzioni di monitoraggio di sql istanza gestita di Azure](https://techcommunity.microsoft.com/t5/azure-sql-database/monitoring-options-available-for-azure-sql-managed-instance/ba-p/1065416). Per il monitoraggio delle prestazioni in tempo reale per SQL MI, vedere [monitoraggio delle prestazioni in tempo reale per il database SQL di Azure istanza gestita](/archive/blogs/sqlcat/real-time-performance-monitoring-for-azure-sql-database-managed-instance).
 
 **È possibile utilizzare SQL Profiler per il rilevamento delle prestazioni?**
 
-Sì, SQL Profiler è supportato o SQL Istanza gestita. Per ulteriori informazioni, vedere [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true).
+Sì, SQL Profiler è supportato o SQL Istanza gestita. Per ulteriori informazioni, vedere [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15).
 
 **Advisor per database e Informazioni dettagliate prestazioni query sono supportati per i database Istanza gestita?**
 
-No, non sono supportate. È possibile usare [DMV](../database/monitoring-with-dmvs.md) e [query Store](https://docs.microsoft.com/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?view=sql-server-ver15&preserve-view=true) insieme a [SQL Profiler](https://docs.microsoft.com/sql/tools/sql-server-profiler/sql-server-profiler?view=sql-server-ver15&preserve-view=true) e [XEvent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events?view=sql-server-ver15&preserve-view=true) per monitorare i database.
+No, non sono supportate. È possibile usare [DMV](../database/monitoring-with-dmvs.md) e [query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store?preserve-view=true&view=sql-server-ver15) insieme a [SQL Profiler](/sql/tools/sql-server-profiler/sql-server-profiler?preserve-view=true&view=sql-server-ver15) e [XEvent](/sql/relational-databases/extended-events/extended-events?preserve-view=true&view=sql-server-ver15) per monitorare i database.
 
 **È possibile creare avvisi sulle metriche in SQL Istanza gestita?**
 
@@ -228,11 +228,11 @@ Per tenere traccia del momento in cui sono stati eseguiti i backup automatici in
 
 **Il backup su richiesta è supportato?**
 
-Sì, è possibile creare un backup completo di sola copia nell'archiviazione BLOB di Azure, ma sarà ripristinabile solo in Istanza gestita. Per informazioni dettagliate, vedere [backup di sola copia](https://docs.microsoft.com/sql/relational-databases/backup-restore/copy-only-backups-sql-server?view=sql-server-ver15&preserve-view=true). Il backup di sola copia, tuttavia, non è possibile se il database è crittografato da Transparent Service Management perché il certificato usato per la crittografia non è accessibile. In tal caso, utilizzare la funzionalità di ripristino temporizzato per spostare il database in un altro Istanza gestita SQL oppure passare alla chiave gestita dal cliente.
+Sì, è possibile creare un backup completo di sola copia nell'archiviazione BLOB di Azure, ma sarà ripristinabile solo in Istanza gestita. Per informazioni dettagliate, vedere [backup di sola copia](/sql/relational-databases/backup-restore/copy-only-backups-sql-server?preserve-view=true&view=sql-server-ver15). Il backup di sola copia, tuttavia, non è possibile se il database è crittografato da Transparent Service Management perché il certificato usato per la crittografia non è accessibile. In tal caso, utilizzare la funzionalità di ripristino temporizzato per spostare il database in un altro Istanza gestita SQL oppure passare alla chiave gestita dal cliente.
 
 **Il ripristino nativo (da file con estensione bak) a Istanza gestita supportato?**
 
-Sì, è supportato e disponibile per SQL Server versione 2005 +.  Per usare il ripristino nativo, caricare il file con estensione bak nell'archivio BLOB di Azure ed eseguire i comandi T-SQL. Per altri dettagli, vedere [ripristino nativo da URL](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate#native-restore-from-url).
+Sì, è supportato e disponibile per SQL Server versione 2005 +.  Per usare il ripristino nativo, caricare il file con estensione bak nell'archivio BLOB di Azure ed eseguire i comandi T-SQL. Per altri dettagli, vedere [ripristino nativo da URL](./migrate-to-instance-from-sql-server.md#native-restore-from-url).
 
 ## <a name="business-continuity"></a>Continuità aziendale
 
@@ -254,7 +254,7 @@ Ciò consente di garantire un flusso ininterrotto del traffico di gestione per s
 
 **È possibile ottenere gli intervalli IP di origine usati per il traffico di gestione in ingresso?**
 
-Sì. È possibile analizzare il traffico proveniente dal gruppo di sicurezza di rete [configurando Network Watcher log dei flussi](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview#analyze-traffic-to-or-from-a-network-security-group).
+Sì. È possibile analizzare il traffico proveniente dal gruppo di sicurezza di rete [configurando Network Watcher log dei flussi](../../network-watcher/network-watcher-monitoring-overview.md#analyze-traffic-to-or-from-a-network-security-group).
 
 **È possibile impostare NSG per controllare l'accesso all'endpoint dati (porta 1433)?**
 
@@ -273,7 +273,7 @@ Sì. Il modo più semplice per ottenere questo risultato consiste nell'aggiunger
  
 **Quanti indirizzi IP sono necessari per una Istanza gestita?**
 
-La subnet deve avere un numero sufficiente di [indirizzi IP](connectivity-architecture-overview.md#network-requirements)disponibili. Per determinare le dimensioni della subnet VNet per SQL Istanza gestita, vedere [determinare le dimensioni e l'intervallo di subnet richiesti per istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-determine-size-vnet-subnet). 
+La subnet deve avere un numero sufficiente di [indirizzi IP](connectivity-architecture-overview.md#network-requirements)disponibili. Per determinare le dimensioni della subnet VNet per SQL Istanza gestita, vedere [determinare le dimensioni e l'intervallo di subnet richiesti per istanza gestita](./vnet-subnet-determine-size.md). 
 
 **Cosa accade se non sono disponibili indirizzi IP sufficienti per eseguire l'operazione di aggiornamento dell'istanza?**
 
@@ -285,7 +285,7 @@ No. È possibile usare una subnet vuota o una subnet che contiene già Istanza g
 
 **È possibile modificare l'intervallo di indirizzi della subnet?**
 
-Non se sono presenti istanze gestite all'interno di. Si tratta di una limitazione dell'infrastruttura di rete di Azure. È possibile [aggiungere ulteriore spazio degli indirizzi a una subnet vuota](https://docs.microsoft.com/azure/virtual-network/virtual-network-manage-subnet#change-subnet-settings). 
+Non se sono presenti istanze gestite all'interno di. Si tratta di una limitazione dell'infrastruttura di rete di Azure. È possibile [aggiungere ulteriore spazio degli indirizzi a una subnet vuota](../../virtual-network/virtual-network-manage-subnet.md#change-subnet-settings). 
 
 **È possibile spostare l'istanza gestita in un'altra subnet?**
 
@@ -293,7 +293,7 @@ No. Si tratta di una limitazione di progettazione Istanza gestita corrente. Tutt
 
 **È necessaria una rete virtuale vuota per creare un Istanza gestita?**
 
-Questa operazione non è obbligatoria. È possibile [creare una rete virtuale per istanza gestita SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-create-vnet-subnet) o [configurare una rete virtuale esistente per istanza gestita SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vnet-subnet).
+Questa operazione non è obbligatoria. È possibile [creare una rete virtuale per istanza gestita SQL di Azure](./virtual-network-subnet-create-arm-template.md) o [configurare una rete virtuale esistente per istanza gestita SQL di Azure](./vnet-existing-add-subnet.md).
 
 **È possibile inserire un Istanza gestita con altri servizi in una subnet?**
 
@@ -316,13 +316,13 @@ Per questo motivo, è fortemente sconsigliabile basarsi sull'immutabilità dell'
 
 **Istanza gestita dispone di un endpoint pubblico?**
 
-Sì. Istanza gestita dispone di un endpoint pubblico che viene usato per impostazione predefinita solo per la gestione dei servizi, ma un cliente può abilitarlo anche per l'accesso ai dati. Per informazioni dettagliate, vedere [usare istanza gestita SQL con endpoint pubblici](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-securely). Per configurare l'endpoint pubblico, passare a [Configura endpoint pubblico in SQL istanza gestita](public-endpoint-configure.md).
+Sì. Istanza gestita dispone di un endpoint pubblico che viene usato per impostazione predefinita solo per la gestione dei servizi, ma un cliente può abilitarlo anche per l'accesso ai dati. Per informazioni dettagliate, vedere [usare istanza gestita SQL con endpoint pubblici](./public-endpoint-overview.md). Per configurare l'endpoint pubblico, passare a [Configura endpoint pubblico in SQL istanza gestita](public-endpoint-configure.md).
 
 **In che modo Istanza gestita controlla l'accesso all'endpoint pubblico?**
 
 Istanza gestita controlla l'accesso all'endpoint pubblico a livello di rete e di applicazione.
 
-I servizi di gestione e distribuzione si connettono a un'istanza gestita usando un [endpoint di gestione](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#management-endpoint) mappato a un servizio di bilanciamento del carico esterno. Il traffico viene indirizzato ai nodi solo se viene ricevuto su un set di porte predefinite usate esclusivamente dai componenti di gestione dell'istanza gestita. Per consentire il traffico solo da intervalli IP specifici di Microsoft, viene inoltre configurato un firewall incorporato nei nodi. Tutte le comunicazioni tra i componenti di gestione e il piano di gestione vengono autenticate reciprocamente tramite i certificati. Per ulteriori informazioni, vedere [architettura di connettività per SQL istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-connectivity-architecture#virtual-cluster-connectivity-architecture).
+I servizi di gestione e distribuzione si connettono a un'istanza gestita usando un [endpoint di gestione](./connectivity-architecture-overview.md#management-endpoint) mappato a un servizio di bilanciamento del carico esterno. Il traffico viene indirizzato ai nodi solo se viene ricevuto su un set di porte predefinite usate esclusivamente dai componenti di gestione dell'istanza gestita. Per consentire il traffico solo da intervalli IP specifici di Microsoft, viene inoltre configurato un firewall incorporato nei nodi. Tutte le comunicazioni tra i componenti di gestione e il piano di gestione vengono autenticate reciprocamente tramite i certificati. Per ulteriori informazioni, vedere [architettura di connettività per SQL istanza gestita](./connectivity-architecture-overview.md#virtual-cluster-connectivity-architecture).
 
 **È possibile usare l'endpoint pubblico per accedere ai dati in Istanza gestita database?**
 
@@ -337,9 +337,9 @@ No, questa opzione non è disponibile.  Per l'endpoint di dati privati, Istanza 
 Il peering del circuito Express route è il modo migliore per eseguire questa operazione. Il peering di rete virtuale globale è supportato con la limitazione descritta nella nota riportata di seguito.  
 
 > [!IMPORTANT]
-> [Il 9/22/2020 abbiamo annunciato il peering di rete virtuale globale per i cluster virtuali appena creati](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Ciò significa che il peering di rete virtuale globale è supportato per le istanze gestite di SQL create in subnet vuote dopo la data di annuncio, nonché per tutte le istanze gestite successive create in tali subnet. Per tutte le altre istanze di SQL gestito, il supporto del peering è limitato alle reti nella stessa area a causa dei [vincoli del peering di rete virtuale globale](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Per altri dettagli, vedere anche la sezione pertinente dell'articolo [domande frequenti sulle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
+> [Il 9/22/2020 abbiamo annunciato il peering di rete virtuale globale per i cluster virtuali appena creati](https://azure.microsoft.com/en-us/updates/global-virtual-network-peering-support-for-azure-sql-managed-instance-now-available/). Ciò significa che il peering di rete virtuale globale è supportato per le istanze gestite di SQL create in subnet vuote dopo la data di annuncio, nonché per tutte le istanze gestite successive create in tali subnet. Per tutte le altre istanze di SQL gestito, il supporto del peering è limitato alle reti nella stessa area a causa dei [vincoli del peering di rete virtuale globale](../../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints). Per altri dettagli, vedere anche la sezione pertinente dell'articolo [domande frequenti sulle reti virtuali di Azure](../../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers) . 
 
-Se il peering del circuito Express Route e il peering di rete virtuale globale non sono possibili, l'unica altra opzione consiste nel creare una connessione VPN da sito a sito ([portale di Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal), [PowerShell](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli)).
+Se il peering del circuito Express Route e il peering di rete virtuale globale non sono possibili, l'unica altra opzione consiste nel creare una connessione VPN da sito a sito ([portale di Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md), [PowerShell](../../vpn-gateway/vpn-gateway-create-site-to-site-rm-powershell.md), l'interfaccia della riga di comando di [Azure](../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-cli.md)).
 
 ## <a name="mitigate-data-exfiltration-risks"></a>Attenuazione dei rischi exfiltration  
 
@@ -347,19 +347,19 @@ Se il peering del circuito Express Route e il peering di rete virtuale globale n
 
 Per attenuare i rischi exfiltration di dati, è consigliabile applicare un set di impostazioni e controlli di sicurezza:
 
-- Attivare Transparent Data Encryption (Transparent Data [Encryption)](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql) in tutti i database.
+- Attivare Transparent Data Encryption (Transparent Data [Encryption)](../database/transparent-data-encryption-tde-overview.md) in tutti i database.
 - Disattivare Common Language Runtime (CLR). Questa operazione è consigliata anche in locale.
 - Usare solo l'autenticazione Azure Active Directory (Azure AD).
 - Accedere all'istanza con un account DBA con privilegi limitati.
 - Configurare l'accesso JumpBox JIT per l'account sysadmin.
-- Attivare il [controllo SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)e integrarlo con i meccanismi di avviso.
-- Attivare il [rilevamento delle minacce](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) da [Azure Defender per SQL](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql) suite.
+- Attivare il [controllo SQL](/sql/relational-databases/security/auditing/sql-server-audit-database-engine)e integrarlo con i meccanismi di avviso.
+- Attivare il [rilevamento delle minacce](../database/threat-detection-configure.md) da [Azure Defender per SQL](../database/azure-defender-for-sql.md) suite.
 
 ## <a name="dns"></a>DNS
 
 **È possibile configurare un DNS personalizzato per SQL Istanza gestita?**
 
-Sì. Vedere [come configurare un DNS personalizzato per istanza gestita SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-custom-dns).
+Sì. Vedere [come configurare un DNS personalizzato per istanza gestita SQL di Azure](./custom-dns-configure.md).
 
 **È possibile eseguire l'aggiornamento DNS?**
 
@@ -378,22 +378,22 @@ Per risolvere il problema, eseguire il downgrade di SQL Istanza gestita a 4 Vcor
 
 La configurazione del fuso orario può essere impostata quando viene eseguito il provisioning di un'istanza gestita per la prima volta. La modifica del fuso orario di un'istanza gestita esistente non è supportata. Per informazioni dettagliate, vedere [limitazioni del fuso orario](timezones-overview.md#limitations).
 
-Le soluzioni alternative includono la creazione di una nuova istanza gestita con il fuso orario appropriato e quindi l'esecuzione di un backup manuale e il ripristino o quello che si consiglia di eseguire un [ripristino temporizzato tra istanze](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/07/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/).
+Le soluzioni alternative includono la creazione di una nuova istanza gestita con il fuso orario appropriato e quindi l'esecuzione di un backup manuale e il ripristino o quello che si consiglia di eseguire un [ripristino temporizzato tra istanze](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance).
 
 
 ## <a name="security-and-database-encryption"></a>Sicurezza e crittografia del database
 
 **Il ruolo del server sysadmin è disponibile per Istanza gestita SQL?**
 
-Sì, i clienti possono creare account di accesso membri del ruolo sysadmin.  I clienti che presumono il privilegio sysadmin si assumono anche la responsabilità di gestire l'istanza, che può influire negativamente sull'impegno del contratto di servizio. Per aggiungere l'account di accesso al ruolo del server sysadmin, vedere [autenticazione Azure ad](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-aad-security-tutorial#azure-ad-authentication).
+Sì, i clienti possono creare account di accesso membri del ruolo sysadmin.  I clienti che presumono il privilegio sysadmin si assumono anche la responsabilità di gestire l'istanza, che può influire negativamente sull'impegno del contratto di servizio. Per aggiungere l'account di accesso al ruolo del server sysadmin, vedere [autenticazione Azure ad](./aad-security-configure-tutorial.md#azure-ad-authentication).
 
 **Transparent Data Encryption è supportato per SQL Istanza gestita?**
 
-Sì, Transparent Data Encryption è supportato per SQL Istanza gestita. Per informazioni dettagliate, vedere [Transparent Data Encryption per SQL istanza gestita](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?tabs=azure-portal).
+Sì, Transparent Data Encryption è supportato per SQL Istanza gestita. Per informazioni dettagliate, vedere [Transparent Data Encryption per SQL istanza gestita](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal).
 
 **È possibile sfruttare il modello "Bring your own key" per Transparent Data Encryption?**
 
-Sì, Azure Key Vault scenario per BYOK è disponibile per Istanza gestita SQL di Azure. Per informazioni dettagliate, vedere [Transparent Data Encryption con chiave gestita dal cliente](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql?view=sql-server-ver15&tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key&preserve-view=true).
+Sì, Azure Key Vault scenario per BYOK è disponibile per Istanza gestita SQL di Azure. Per informazioni dettagliate, vedere [Transparent Data Encryption con chiave gestita dal cliente](../database/transparent-data-encryption-tde-overview.md?tabs=azure-portal#customer-managed-transparent-data-encryption---bring-your-own-key).
 
 **È possibile eseguire la migrazione di un database SQL Server crittografato?**
 
@@ -409,8 +409,8 @@ Sì, è possibile. Per eseguire la migrazione di un database SQL Server crittogr
 
 Sì, non è necessario decrittografare il database per ripristinarlo in SQL Istanza gestita. Per poter leggere i dati dal file di backup crittografato, è necessario fornire un certificato o una chiave usati come protezione con chiave di crittografia nel sistema di origine a SQL Istanza gestita. È possibile procedere in due modi:
 
-- *Caricare la protezione da certificato a SQL istanza gestita*. Questa operazione può essere eseguita solo tramite PowerShell. Lo [script di esempio](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-migrate-tde-certificate) descrive l'intero processo.
-- *Caricare la protezione con chiave asimmetrica per Azure Key Vault e puntare SQL istanza gestita*. Questo approccio è simile al caso di utilizzo di Transparent Data Encryption (BYOK) che usa anche l'integrazione Key Vault per archiviare la chiave di crittografia. Se non si vuole usare la chiave come protezione con chiave di crittografia e si vuole solo rendere disponibile la chiave per SQL Istanza gestita per ripristinare i database crittografati, seguire le istruzioni per la [configurazione di BYOK](https://docs.microsoft.com/azure/sql-database/transparent-data-encryption-azure-sql#manage-transparent-data-encryption)Transparent Data Encryption e non selezionare la casella di controllo imposta la **chiave selezionata come protezione**Transparent Data Encryption.
+- *Caricare la protezione da certificato a SQL istanza gestita* . Questa operazione può essere eseguita solo tramite PowerShell. Lo [script di esempio](./tde-certificate-migrate.md) descrive l'intero processo.
+- *Caricare la protezione con chiave asimmetrica per Azure Key Vault e puntare SQL istanza gestita* . Questo approccio è simile al caso di utilizzo di Transparent Data Encryption (BYOK) che usa anche l'integrazione Key Vault per archiviare la chiave di crittografia. Se non si vuole usare la chiave come protezione con chiave di crittografia e si vuole solo rendere disponibile la chiave per SQL Istanza gestita per ripristinare i database crittografati, seguire le istruzioni per la [configurazione di BYOK](../database/transparent-data-encryption-tde-overview.md#manage-transparent-data-encryption)Transparent Data Encryption e non selezionare la casella di controllo imposta la **chiave selezionata come protezione** Transparent Data Encryption.
 
 Dopo aver reso disponibile la protezione della crittografia per SQL Istanza gestita, è possibile procedere con la procedura di ripristino del database standard.
 
@@ -423,17 +423,17 @@ SQL Istanza gestita offre un [modello di acquisto basato su vCore](sql-managed-i
 **Quali vantaggi in termini di costi sono disponibili per Istanza gestita SQL?**
 
 È possibile risparmiare sui costi con i vantaggi SQL di Azure nei modi seguenti:
--   Ottimizza gli investimenti esistenti in licenze locali e Risparmia fino al 55% con [vantaggio Azure Hybrid](https://docs.microsoft.com/azure/azure-sql/azure-hybrid-benefit?tabs=azure-powershell). 
--   Esegui il commit di una prenotazione per le risorse di calcolo e Risparmia fino al 33% con il [vantaggio dell'istanza riservata](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). Combina questo vantaggio con il vantaggio Azure Hybrid per risparmiare fino al 82%. 
+-   Ottimizza gli investimenti esistenti in licenze locali e Risparmia fino al 55% con [vantaggio Azure Hybrid](../azure-hybrid-benefit.md?tabs=azure-powershell). 
+-   Esegui il commit di una prenotazione per le risorse di calcolo e Risparmia fino al 33% con il [vantaggio dell'istanza riservata](../database/reserved-capacity-overview.md). Combina questo vantaggio con il vantaggio Azure Hybrid per risparmiare fino al 82%. 
 -   Risparmia fino al 55% rispetto ai prezzi di listino con il [vantaggio prezzi di sviluppo/test di Azure](https://azure.microsoft.com/pricing/dev-test/) che offre tariffe scontate per i tuoi carichi di lavoro di sviluppo e test in corso.
 
 **Chi è idoneo per il vantaggio dell'istanza riservata?**
 
-Per essere idoneo per il vantaggio dell'istanza riservata, il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Per altre informazioni sulle prenotazioni, vedere [vantaggio dell'istanza riservata](https://docs.microsoft.com/azure/sql-database/sql-database-reserved-capacity). 
+Per essere idoneo per il vantaggio dell'istanza riservata, il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numeri di offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Per altre informazioni sulle prenotazioni, vedere [vantaggio dell'istanza riservata](../database/reserved-capacity-overview.md). 
 
 **È possibile annullare, scambiare o rimborsare le prenotazioni?**
 
-È possibile annullare, scambiare o rimborsare prenotazioni con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](https://docs.microsoft.com/azure/cost-management-billing/reservations/exchange-and-refund-azure-reservations).
+È possibile annullare, scambiare o rimborsare prenotazioni con determinate limitazioni. Per altre informazioni, vedere [Scambi e rimborsi self-service per le prenotazioni di Azure](../../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
 ## <a name="billing-for-managed-instance-and-backup-storage"></a>Fatturazione per la Istanza gestita e l'archiviazione di backup
 
@@ -443,7 +443,7 @@ Per esplorare Istanza gestita opzioni di prezzo, vedere la [pagina dei prezzi](h
 
 **Come è possibile tenere traccia dei costi di fatturazione per l'istanza gestita?**
 
-Questa operazione può essere eseguita usando la [soluzione Gestione costi di Azure](https://docs.microsoft.com/azure/cost-management-billing/). Passare a **sottoscrizioni** nella [portale di Azure](https://portal.azure.com) e selezionare **analisi dei costi**. 
+Questa operazione può essere eseguita usando la [soluzione Gestione costi di Azure](../../cost-management-billing/index.yml). Passare a **sottoscrizioni** nella [portale di Azure](https://portal.azure.com) e selezionare **analisi dei costi** . 
 
 Usare l'opzione **costi accumulati** , quindi filtrare in base al **tipo di risorsa** `microsoft.sql/managedinstances` .
 
@@ -453,7 +453,7 @@ Si ottiene la stessa quantità di spazio di archiviazione di backup libero come 
 
 **Come è possibile monitorare I costi di fatturazione per il consumo di risorse di archiviazione di backup?**
 
-È possibile monitorare i costi per l'archiviazione di backup tramite portale di Azure. Per istruzioni, vedere [monitorare i costi per i backup automatici](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+È possibile monitorare i costi per l'archiviazione di backup tramite portale di Azure. Per istruzioni, vedere [monitorare i costi per i backup automatici](../database/automated-backups-overview.md?tabs=managed-instance#monitor-costs). 
 
 **Come è possibile ottimizzare i costi di archiviazione di backup nell'istanza gestita?**
 
@@ -515,11 +515,11 @@ ALTER LOGIN <login_name> WITH CHECK_EXPIRATION = OFF;
 
 **Qual è la modifica della CA radice per il database SQL di Azure & SQL Istanza gestita?**
 
-Vedere [rotazione del certificato per il database SQL di Azure & sql istanza gestita](https://docs.microsoft.com/azure/azure-sql/updates/ssl-root-certificate-expiring). 
+Vedere [rotazione del certificato per il database SQL di Azure & sql istanza gestita](../updates/ssl-root-certificate-expiring.md). 
 
 **Che cos'è un evento di manutenzione pianificata per SQL Istanza gestita?**
 
-Vedere [pianificare gli eventi di manutenzione di Azure in SQL istanza gestita](https://docs.microsoft.com/azure/azure-sql/database/planned-maintenance). 
+Vedere [pianificare gli eventi di manutenzione di Azure in SQL istanza gestita](../database/planned-maintenance.md). 
 
 
 ## <a name="azure-feedback-and-support"></a>Feedback e supporto di Azure
@@ -530,5 +530,4 @@ Puoi votare per una nuova funzionalità di Istanza gestita o inserire una nuova 
 
 **Come è possibile creare una richiesta di supporto di Azure?**
 
-Per informazioni su come creare una richiesta di supporto di Azure, vedere [come creare una richiesta di supporto di Azure](https://docs.microsoft.com/azure/azure-supportability/how-to-create-azure-support-request).
-
+Per informazioni su come creare una richiesta di supporto di Azure, vedere [come creare una richiesta di supporto di Azure](../../azure-portal/supportability/how-to-create-azure-support-request.md).

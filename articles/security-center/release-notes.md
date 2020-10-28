@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/22/2020
 ms.author: memildin
-ms.openlocfilehash: eb5e5cc97b13d8eb8e671501e9b16479ba59642a
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: ed4bd97dfe64a85785cf7805da2cf7f942baecd4
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999293"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92367543"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -28,6 +28,120 @@ Questa pagina viene aggiornata regolarmente, quindi è consigliabile consultarla
 > [!TIP]
 > Se si cercano informazioni precedenti agli ultimi sei mesi, è possibile trovarle in [Archive for What's new in Azure Security Center](release-notes-archive.md) (Archivio per le novità nel Centro sicurezza di Azure).
 
+
+## <a name="october-2020"></a>Ottobre 2020
+
+- [Valutazione delle vulnerabilità per computer locali e multicloud (anteprima)](#vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview)
+- [Aggiunta una raccomandazione per Firewall di Azure (anteprima)](#azure-firewall-recommendation-added-preview)
+- [Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes - Aggiornata la raccomandazione con una correzione rapida](#authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix)
+- [Rimossa la tabella Microsoft.Security/securityStatuses da Azure Resource Graph (ARG)](#microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg)
+
+### <a name="vulnerability-assessment-for-on-premise-and-multi-cloud-machines-preview"></a>Valutazione delle vulnerabilità per computer locali e multicloud (anteprima)
+
+Lo strumento di analisi integrato per la valutazione delle vulnerabilità di [Azure Defender per i server](defender-for-servers-introduction.md) (con tecnologia Qualys) ora analizza i server con abilitazione di Azure Arc.
+
+Quando Azure Arc viene abilitato in computer non di Azure, il Centro sicurezza offre la possibilità di distribuirvi lo strumento integrato di analisi delle vulnerabilità, manualmente e su larga scala.
+
+Con questo aggiornamento, è possibile sfruttare la potenza di **Azure Defender per i server** per consolidare il programma di gestione delle vulnerabilità in tutti gli asset di Azure e non di Azure.
+
+Funzionalità principali:
+
+- Monitoraggio dello stato di provisioning dello strumento di analisi per la valutazione delle vulnerabilità nei computer Azure Arc
+- Provisioning dell'agente di valutazione delle vulnerabilità nei computer Azure Arc Windows e Linux non protetti (manualmente e su larga scala)
+- Ricezione e analisi delle vulnerabilità rilevate dagli agenti distribuiti (manualmente e su larga scala)
+- Esperienza unificata per macchine virtuali di Azure e computer Azure Arc
+
+[Altre informazioni sulla distribuzione dello strumento di analisi delle vulnerabilità integrato nei computer ibridi](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-scanner-to-your-azure-and-hybrid-machines).
+
+[Altre informazioni sui server con abilitazione di Azure Arc](https://docs.microsoft.com/azure/azure-arc/servers/).
+
+
+### <a name="azure-firewall-recommendation-added-preview"></a>Aggiunta una raccomandazione per Firewall di Azure (anteprima)
+
+È stata aggiunta una nuova raccomandazione per proteggere tutte le reti virtuali con Firewall di Azure.
+
+La raccomandazione **È consigliabile che le reti virtuali siano protette da Firewall di Azure** consiglia di limitare l'accesso alle reti virtuali ed evitare potenziali minacce tramite Firewall di Azure.
+
+Altre informazioni su [Firewall di Azure](https://azure.microsoft.com/services/azure-firewall/).
+
+
+### <a name="authorized-ip-ranges-should-be-defined-on-kubernetes-services-recommendation-updated-with-quick-fix"></a>Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes - Aggiornata la raccomandazione con una correzione rapida
+
+La raccomandazione **Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes** include ora un'opzione per la correzione rapida.
+
+Per altri dettagli su questa raccomandazione e su tutte le altre raccomandazioni del Centro sicurezza, vedere [Raccomandazioni sulla sicurezza: una guida di riferimento](recommendations-reference.md).
+
+:::image type="content" source="./media/release-notes/authorized-ip-ranges-recommendation.png" alt-text="La raccomandazione Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes con l'opzione per la correzione rapida":::
+
+
+### <a name="microsoftsecuritysecuritystatuses-table-removed-from-azure-resource-graph-arg"></a>Rimossa la tabella Microsoft.Security/securityStatuses da Azure Resource Graph (ARG)
+
+Azure Resource Graph è un servizio di Azure progettato per offrire un'esplorazione efficiente delle risorse con la possibilità di eseguire query su larga scala in un determinato set di sottoscrizioni in modo da poter controllare l'ambiente efficacemente. 
+
+Per il Centro sicurezza di Azure, è possibile usare Azure Resource Graph e il [linguaggio di query Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query/) per eseguire query su un'ampia gamma di dati relativi alla postura di sicurezza. Esempio:
+
+- L'inventario degli asset utilizza Azure Resource Graph
+- È stata documentata una query di esempio di Azure Resource Graph che illustra come [identificare gli account senza l'opzione Multi-Factor Authentication (MFA) abilitata](security-center-identity-access.md#identify-accounts-without-multi-factor-authentication-mfa-enabled)
+
+Azure Resource Graph include tabelle di dati da usare nelle query.
+
+:::image type="content" source="./media/release-notes/azure-resource-graph-tables.png" alt-text="La raccomandazione Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes con l'opzione per la correzione rapida"
+}
+```
+Mentre Microsoft.Security/Assessments contiene un record per ognuna di queste valutazioni dei criteri, come segue:
+
+```
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft. Network/virtualNetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/e3delcce-f4dd-3b34-e496-8b5381ba2d70",
+name: "e3deicce-f4dd-3b34-e496-8b5381ba2d70",
+properties:  {
+    resourceDetails: {Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourceGroups/mico-rg/providers/Microsoft.Network/virtualNetworks/mico-rg-vnet"...},
+    displayName: "Azure DDOS Protection Standard should be enabled",
+    status: (code: "NotApplicable", cause: "VnetHasNOAppGateways", description: "There are no Application Gateway resources attached to this Virtual Network"...}
+}
+
+{
+type: "Microsoft.Security/assessments",
+id:  "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet/providers/Microsoft.Security/assessments/80fac66a-1ec5-be63-a824-eb28671dc527",
+name: "8efac66a-1ec5-be63-a824-eb28671dc527",
+properties: {
+    resourceDetails: (Source: "Azure", Id: "/subscriptions/449bc1dd-3470-4804-ab56-2752595f01ab/resourcegroups/mico-rg/providers/microsoft.network/virtualnetworks/mico-rg-vnet"...),
+    displayName: "Audit diagnostic setting",
+    status:  {code: "Unhealthy"}
+}
+```
+
+**Esempio di conversione di una query di Azure Resource Graph esistente usando securityStatuses per usare la tabella Assessments:**
+
+Query che fa riferimento a SecurityStatuses:
+
+```kusto
+SecurityResources 
+| where type == 'microsoft.security/securitystatuses' and properties.type == 'virtualMachine'
+| where name in ({vmnames}) 
+| project name, resourceGroup, policyAssesments = properties.policyAssessments, resourceRegion = location, id, resourceDetails = properties.resourceDetails
+```
+
+Query di sostituzione per la tabella Assessments:
+
+```kusto
+securityresources
+| where type == "microsoft.security/assessments" and id contains "virtualMachine"
+| extend resourceName = extract(@"(?i)/([^/]*)/providers/Microsoft.Security/assessments", 1, id)
+| extend source = tostring(properties.resourceDetails.Source)
+| extend resourceId = trim(" ", tolower(tostring(case(source =~ "azure", properties.resourceDetails.Id,
+source =~ "aws", properties.additionalData.AzureResourceId,
+source =~ "gcp", properties.additionalData.AzureResourceId,
+extract("^(.+)/providers/Microsoft.Security/assessments/.+$",1,id)))))
+| extend resourceGroup = tolower(tostring(split(resourceId, "/")[4]))
+| where resourceName in ({vmnames}) 
+| project resourceName, resourceGroup, resourceRegion = location, id, resourceDetails = properties.additionalData
+```
+
+Per altre informazioni, vedere i collegamenti seguenti:
+- [Come creare query con Azure Resource Graph Explorer](../governance/resource-graph/first-query-portal.md)
+- [Linguaggio di query Kusto (KQL)](https://docs.microsoft.com/azure/data-explorer/kusto/query/)
 
 
 ## <a name="september-2020"></a>Settembre 2020
@@ -42,7 +156,6 @@ Gli aggiornamenti del mese di settembre includono quanto segue:
 - [Esentare una risorsa da una raccomandazione](#exempt-a-resource-from-a-recommendation)
 - [Esperienza per più cloud grazie ai connettori AWS e GCP nel Centro sicurezza](#aws-and-gcp-connectors-in-security-center-bring-a-multi-cloud-experience)
 - [Aggregazione di raccomandazioni sulla protezione dei carichi di lavoro Kubernetes](#kubernetes-workload-protection-recommendation-bundle)
-- [Miglioramenti alla protezione dalle minacce IoT in Azure Defender per IoT](#iot-threat-protection-enhancements-in-azure-defender-for-iot)
 - [Possibilità di esportazione continua dei risultati delle valutazioni delle vulnerabilità](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
 - [Possibilità di impedire errori di configurazione della sicurezza tramite l'applicazione di raccomandazioni durante la creazione di nuove risorse](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
 - [Miglioramento alle raccomandazioni per i gruppi di sicurezza di rete](#network-security-group-recommendations-improved)
@@ -71,7 +184,6 @@ Quando si abilita Azure Defender dall'area **Prezzi e impostazioni** del Centro 
 - [Azure Defender per il servizio app](defender-for-app-service-introduction.md)
 - [Azure Defender per Archiviazione](defender-for-storage-introduction.md)
 - [Azure Defender per SQL](defender-for-sql-introduction.md)
-- [Azure Defender per IoT](defender-for-iot-introduction.md)
 - [Azure Defender per Key Vault](defender-for-key-vault-introduction.md)
 - [Azure Defender per Kubernetes](defender-for-kubernetes-introduction.md)
 - [Azure Defender per registri contenitori](defender-for-container-registries-introduction.md)
@@ -90,7 +202,7 @@ Azure Key Vault è un servizio cloud che protegge le chiavi di crittografia e i 
 
 Il piano facoltativo è ora disponibile a livello generale. Questa funzionalità era disponibile in anteprima come "Advanced Threat Protection per Azure Key Vault".
 
-Le pagine di Key Vault nel portale di Azure includono ora inoltre una pagina **Sicurezza** dedicata per le raccomandazioni e gli avvisi del **Centro sicurezza**.
+Le pagine di Key Vault nel portale di Azure includono ora inoltre una pagina **Sicurezza** dedicata per le raccomandazioni e gli avvisi del **Centro sicurezza** .
 
 Per altre informazioni, vedere [Azure Defender per Key Vault](defender-for-key-vault-introduction.md).
 
@@ -99,7 +211,7 @@ Per altre informazioni, vedere [Azure Defender per Key Vault](defender-for-key-v
 
 **Azure Defender per Archiviazione** rileva le attività potenzialmente dannose negli account di archiviazione di Azure. I dati possono essere protetti indipendentemente dal fatto che siano archiviati come contenitori BLOB, condivisioni file o data lake.
 
-È ora disponibile a livello generale il supporto per [File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction) e [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction).
+È ora disponibile a livello generale il supporto per [File di Azure](../storage/files/storage-files-introduction.md) e [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md).
 
 A partire dal 1° ottobre 2020 verranno applicati addebiti per la protezione delle risorse in questi servizi.
 
@@ -165,22 +277,15 @@ Dopo l'installazione del componente aggiuntivo di Criteri di Azure per Kubernete
 Per altre informazioni, vedere [Procedure consigliate per la protezione dei carichi di lavoro con il controllo ammissione di Kubernetes](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
 
 
-### <a name="iot-threat-protection-enhancements-in-azure-defender-for-iot"></a>Miglioramenti alla protezione dalle minacce IoT in Azure Defender per IoT
-
-Azure Defender per IoT offre più funzionalità di protezione dalle minacce grazie all'inclusione di CyberX Agentless Technology, che fornisce protezioni per i dispositivi brownfield non gestiti usati in ambienti di tecnologia operativa, ad esempio nel settore produttivo, nei sistemi di gestione degli edifici, nelle scienze biologiche, nei servizi pubblici relativi a energia elettrica e acqua, nel settore petrolifero e del gas e nella logistica.
-
-Per altre informazioni, vedere [Introduzione ad Azure Defender per IoT](defender-for-iot-introduction.md).
-
-
 ### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>Possibilità di esportazione continua dei risultati delle valutazioni delle vulnerabilità
 
 È possibile usare l'esportazione continua per eseguire lo streaming di avvisi e raccomandazioni in tempo reale in Hub eventi di Azure, aree di lavoro Log Analytics o Monitoraggio di Azure. È quindi possibile integrare questi dati con soluzioni di informazioni di sicurezza e gestione degli eventi, tra cui Azure Sentinel, Power BI, Esplora dati di Azure e altre ancora.
 
 Gli strumenti integrati di valutazione delle vulnerabilità del Centro sicurezza restituiscono risultati sulle risorse sotto forma di raccomandazioni di utilità pratica con una raccomandazione "padre", ad esempio "È consigliabile correggere le vulnerabilità nelle macchine virtuali". 
 
-I risultati di sicurezza sono ora disponibili per l'esportazione tramite l'esportazione continua quando si selezionano le raccomandazioni e si abilita l'opzione **Includi i risultati per la sicurezza**.
+I risultati di sicurezza sono ora disponibili per l'esportazione tramite l'esportazione continua quando si selezionano le raccomandazioni e si abilita l'opzione **Includi i risultati per la sicurezza** .
 
-:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua" :::
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="La raccomandazione Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes con l'opzione per la correzione rapida" :::
 
 Pagine correlate:
 
@@ -216,7 +321,7 @@ Le raccomandazioni di sicurezza seguenti correlate ai gruppi di sicurezza di ret
 
 ### <a name="deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services"></a>Deprecazione della raccomandazione in anteprima "I criteri di sicurezza pod devono essere definiti nei servizi Kubernetes" del servizio Azure Kubernetes
 
-La raccomandazione in anteprima "I criteri di sicurezza pod devono essere definiti nei servizi Kubernetes" verrà deprecata come illustrato nella documentazione del [servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/use-pod-security-policies).
+La raccomandazione in anteprima "I criteri di sicurezza pod devono essere definiti nei servizi Kubernetes" verrà deprecata come illustrato nella documentazione del [servizio Azure Kubernetes](../aks/use-pod-security-policies.md).
 
 La funzionalità Criteri di sicurezza dei pod (anteprima) è configurata per la deprecazione e non sarà più disponibile dopo il 15 ottobre 2020. Verrà sostituita da Criteri di Azure per il servizio Azure Kubernetes.
 
@@ -245,7 +350,7 @@ Le raccomandazioni di tipo **Anteprima** non contrassegnano inoltre una risorsa 
 
 Esempio di una raccomandazione in anteprima:
 
-:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua":::
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="La raccomandazione Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes con l'opzione per la correzione rapida":::
 
 [Altre informazioni sul punteggio di sicurezza](secure-score-security-controls.md).
 
@@ -254,7 +359,7 @@ Esempio di una raccomandazione in anteprima:
 
 La pagina dei dettagli per le raccomandazioni include ora un indicatore dell'intervallo di aggiornamento, se rilevante, e un'indicazione chiara della gravità della raccomandazione.
 
-:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua":::
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="La raccomandazione Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes con l'opzione per la correzione rapida":::
 
 
 
@@ -282,7 +387,7 @@ Altre informazioni sull'[inventario delle risorse](asset-inventory.md).
 
 ### <a name="added-support-for-azure-active-directory-security-defaults-for-multi-factor-authentication"></a>Aggiunta di supporto per le impostazioni predefinite per la sicurezza di Azure Active Directory per l'autenticazione a più fattori
 
-Il Centro sicurezza ha aggiunto il supporto completo per le [impostazioni predefinite per la sicurezza](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults), ovvero le protezione gratuite di Microsoft per la sicurezza delle identità.
+Il Centro sicurezza ha aggiunto il supporto completo per le [impostazioni predefinite per la sicurezza](../active-directory/fundamentals/concept-fundamentals-security-defaults.md), ovvero le protezione gratuite di Microsoft per la sicurezza delle identità.
 
 Le impostazioni predefinite per la sicurezza offrono impostazioni preconfigurate per la sicurezza delle identità per proteggere l'organizzazione da attacchi comuni correlati alle identità. Le impostazioni predefinite per la sicurezza proteggono già più di 5 milioni di tenant complessivamente. 50.000 tenant sono protetti anche dal Centro sicurezza.
 
@@ -290,7 +395,7 @@ Il Centro sicurezza fornisce ora una raccomandazione sulla sicurezza ogni volta 
 
 L'obiettivo consiste nell'invitare più clienti a proteggere gli ambienti cloud tramite autenticazione a più fattori e attenuare uno dei rischi più elevati e con impatto più significativo sul [punteggio di sicurezza](secure-score-security-controls.md).
 
-Altre informazioni sulle [impostazioni predefinite per la sicurezza](https://docs.microsoft.com/azure/active-directory/fundamentals/concept-fundamentals-security-defaults).
+Altre informazioni sulle [impostazioni predefinite per la sicurezza](../active-directory/fundamentals/concept-fundamentals-security-defaults.md).
 
 
 ### <a name="service-principals-recommendation-added"></a>Aggiunta di una raccomandazione per le entità servizio
@@ -299,7 +404,7 @@ Altre informazioni sulle [impostazioni predefinite per la sicurezza](https://doc
 
 La raccomandazione **Per proteggere le sottoscrizioni è consigliabile usare le entità servizio invece dei certificati di gestione** consiglia di usare le entità servizio o Azure Resource Manager per migliorare la sicurezza della gestione delle sottoscrizioni. 
 
-Altre informazioni su [Oggetti applicazione ed entità servizio in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals#service-principal-object).
+Altre informazioni su [Oggetti applicazione ed entità servizio in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object).
 
 
 ### <a name="vulnerability-assessment-on-vms---recommendations-and-policies-consolidated"></a>Valutazione delle vulnerabilità nelle VM: consolidamento di raccomandazioni e criteri
@@ -364,8 +469,8 @@ La fase iniziale di questo progetto include un'anteprima privata e l'aggiunta di
 
 È possibile ignorare questi criteri, senza impatto sull'ambiente. Se si vogliono abilitare i criteri, iscriversi all'anteprima in https://aka.ms/SecurityPrP e selezionare una delle opzioni seguenti:
 
-1. **Anteprima singola**: per partecipare solo a questa anteprima privata. Indicare esplicitamente "Analisi continua del Centro sicurezza di Azure" come anteprima a cui si vuole partecipare.
-1. **Programma in corso**: per partecipare a questa anteprima privata e alle anteprime private future. Sarà necessario completare un profilo e accettare un contratto sulla privacy.
+1. **Anteprima singola** : per partecipare solo a questa anteprima privata. Indicare esplicitamente "Analisi continua del Centro sicurezza di Azure" come anteprima a cui si vuole partecipare.
+1. **Programma in corso** : per partecipare a questa anteprima privata e alle anteprime private future. Sarà necessario completare un profilo e accettare un contratto sulla privacy.
 
 
 ## <a name="july-2020"></a>Luglio 2020
@@ -418,7 +523,7 @@ Di seguito sono elencate le nuove raccomandazioni:
 - **La soluzione Advanced Threat Protection deve essere abilitata negli account di archiviazione di Azure**
 - **È consigliabile abilitare Advanced Threat Protection nelle macchine virtuali**
 
-Queste nuove raccomandazioni appartengono al controllo di sicurezza **Abilita Advanced Threat Protection**.
+Queste nuove raccomandazioni appartengono al controllo di sicurezza **Abilita Advanced Threat Protection** .
 
 Le raccomandazioni includono anche la capacità di correzione rapida. 
 
@@ -456,7 +561,7 @@ Per altre informazioni sulla sicurezza dei contenitori del Centro sicurezza, ved
 
 Sono stati apportati due aggiornamenti significativi alla funzionalità Controlli applicazioni adattivi:
 
-* Una nuova raccomandazione identifica un comportamento potenzialmente legittimo che non era consentito in precedenza. La nuova raccomandazione, **Le regole dell'elenco Consentiti dei criteri dei controlli applicazioni adattivi devono essere aggiornate**, richiede l'aggiunta di nuove regole al criterio esistente per ridurre il numero di falsi positivi negli avvisi di violazione dei controlli applicazioni adattivi.
+* Una nuova raccomandazione identifica un comportamento potenzialmente legittimo che non era consentito in precedenza. La nuova raccomandazione, **Le regole dell'elenco Consentiti dei criteri dei controlli applicazioni adattivi devono essere aggiornate** , richiede l'aggiunta di nuove regole al criterio esistente per ridurre il numero di falsi positivi negli avvisi di violazione dei controlli applicazioni adattivi.
 
 * Le regole di percorso supportano ora i caratteri jolly. A partire da questo aggiornamento, è possibile configurare le regole di percorso consentite usando i caratteri jolly. Sono supportati due scenari:
 
@@ -480,7 +585,7 @@ Verranno deprecati sei criteri correlati alla sicurezza dei dati avanzata per i 
 - Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata dell'istanza gestita di SQL
 - Le notifiche tramite posta elettronica agli amministratori e ai proprietari della sottoscrizione devono essere abilitate nelle impostazioni di Sicurezza dei dati avanzata del server SQL
 
-Altre informazioni sui [criteri predefiniti](security-center-policy-definitions.md).
+Altre informazioni sui [criteri predefiniti](./policy-reference.md).
 
 
 
@@ -500,7 +605,7 @@ Gli aggiornamenti del mese di giugno includono quanto segue:
 
 ### <a name="secure-score-api-preview"></a>API Secure Score (anteprima)
 
-È ora possibile accedere al punteggio tramite l'[API Secure Score](https://docs.microsoft.com/rest/api/securitycenter/securescores/), attualmente disponibile in anteprima. I metodi dell'API offrono la flessibilità necessaria per eseguire query nei dati e creare un meccanismo personalizzato per la creazione di report sui punteggi di sicurezza nel tempo. È ad esempio possibile usare l'API **Secure Score** per ottenere il punteggio per una sottoscrizione specifica. È anche possibile usare l'API **Secure Score Controls** per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni.
+È ora possibile accedere al punteggio tramite l'[API Secure Score](/rest/api/securitycenter/securescores/), attualmente disponibile in anteprima. I metodi dell'API offrono la flessibilità necessaria per eseguire query nei dati e creare un meccanismo personalizzato per la creazione di report sui punteggi di sicurezza nel tempo. È ad esempio possibile usare l'API **Secure Score** per ottenere il punteggio per una sottoscrizione specifica. È anche possibile usare l'API **Secure Score Controls** per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni.
 
 Per esempi di strumenti esterni consentiti dall'API Secure Score, vedere l'[area relativa a Secure Score della community di GitHub](https://github.com/Azure/Azure-Security-Center/tree/master/Secure%20Score).
 
@@ -526,12 +631,12 @@ Altre informazioni sulla [sicurezza dei dati avanzata per computer SQL](defender
 
 ### <a name="two-new-recommendations-to-deploy-the-log-analytics-agent-to-azure-arc-machines-preview"></a>Due nuove raccomandazioni per distribuire l'agente di Log Analytics in computer Azure Arc (anteprima)
 
-Sono state aggiunte due nuove raccomandazioni per semplificare la distribuzione dell'[Agente di Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent) nei computer Azure Arc e per assicurare che siano protetti dal Centro sicurezza di Azure:
+Sono state aggiunte due nuove raccomandazioni per semplificare la distribuzione dell'[Agente di Log Analytics](../azure-monitor/platform/log-analytics-agent.md) nei computer Azure Arc e per assicurare che siano protetti dal Centro sicurezza di Azure:
 
 - **L'agente di Log Analytics deve essere installato nelle macchine virtuali Azure Arc basate su Windows (anteprima)**
 - **L'agente di Log Analytics deve essere installato nelle macchine virtuali Azure Arc basate su Linux (anteprima)**
 
-Queste nuove raccomandazioni verranno visualizzate negli stessi quattro controlli di sicurezza che includono la raccomandazione esistente correlata, **È consigliabile installare l'agente di monitoraggio nei computer**: Correggi le configurazioni di sicurezza, Applica il controllo applicazioni adattivo, Applica gli aggiornamenti del sistema e Abilita Endpoint Protection.
+Queste nuove raccomandazioni verranno visualizzate negli stessi quattro controlli di sicurezza che includono la raccomandazione esistente correlata, **È consigliabile installare l'agente di monitoraggio nei computer** : Correggi le configurazioni di sicurezza, Applica il controllo applicazioni adattivo, Applica gli aggiornamenti del sistema e Abilita Endpoint Protection.
 
 Le raccomandazioni includono anche la funzionalità di correzione rapida per accelerare il processo di distribuzione. 
 
@@ -570,7 +675,7 @@ Il controllo di sicurezza "Implementa le procedure consigliate per la sicurezza"
 
 - **Le macchine virtuali senza connessione Internet devono essere protette con i gruppi di sicurezza di rete**
 
-Una raccomandazione esistente, **Le macchine virtuali con connessione Internet devono essere protette con i gruppi di sicurezza di rete**, non distingueva tra le macchine virtuali connesse a Internet e non connesse a Internet. Veniva generata per entrambi i tipi di VM una raccomandazione con gravità alta se una VM non era assegnata a un gruppo di sicurezza di rete. Questa nuova raccomandazione separa le macchine virtuali non connesse a Internet per ridurre i falsi positivi ed evitare avvisi con gravità elevata non necessari.
+Una raccomandazione esistente, **Le macchine virtuali con connessione Internet devono essere protette con i gruppi di sicurezza di rete** , non distingueva tra le macchine virtuali connesse a Internet e non connesse a Internet. Veniva generata per entrambi i tipi di VM una raccomandazione con gravità alta se una VM non era assegnata a un gruppo di sicurezza di rete. Questa nuova raccomandazione separa le macchine virtuali non connesse a Internet per ridurre i falsi positivi ed evitare avvisi con gravità elevata non necessari.
 
 Per altre informazioni, vedere la tabella [Raccomandazioni sulla rete](recommendations-reference.md#recs-network).
 
@@ -678,7 +783,7 @@ I controlli di sicurezza, e questo interruttore, fanno parte della nuova esperie
 
 Altre informazioni sui controlli di sicurezza sono disponibili in [Enhanced secure score (preview) in Azure Security Center](secure-score-security-controls.md) (Punteggio di sicurezza migliorato (anteprima) nel Centro sicurezza di Azure).
 
-:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua":::
+:::image type="content" source="./media/secure-score-security-controls/recommendations-group-by-toggle.gif" alt-text="La raccomandazione Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes con l'opzione per la correzione rapida":::
 
 ### <a name="expanded-security-control-implement-security-best-practices"></a>Controllo di sicurezza espanso "Implement security best practices" (Implementa procedure consigliate per la sicurezza) 
 
@@ -696,11 +801,11 @@ Le tre raccomandazioni spostate sono:
 
 Le due nuove raccomandazioni aggiunte al controllo sono:
 
-- **È consigliabile installare l'estensione Configurazione guest nelle macchine virtuali Windows (anteprima)** : l'uso di [Configurazione guest di Criteri di Azure](https://docs.microsoft.com/azure/governance/policy/concepts/guest-configuration) fornisce la visibilità all'interno delle macchine virtuali per le impostazioni di server e applicazioni (solo Windows).
+- **È consigliabile installare l'estensione Configurazione guest nelle macchine virtuali Windows (anteprima)** : l'uso di [Configurazione guest di Criteri di Azure](../governance/policy/concepts/guest-configuration.md) fornisce la visibilità all'interno delle macchine virtuali per le impostazioni di server e applicazioni (solo Windows).
 
 - **È consigliabile abilitare Windows Defender Exploit Guard nei computer (anteprima)** - Windows Defender Exploit Guard sfrutta i vantaggi di Configurazione guest di Criteri di Azure. Exploit Guard include quattro componenti progettati per bloccare i dispositivi da un'ampia gamma di vettori di attacco e comportamenti di blocco usati comunemente negli attacchi malware, consentendo al contempo alle aziende di bilanciare i requisiti di rischi per la sicurezza e produttività (solo Windows).
 
-Per altre informazioni su Windows Defender Exploit Guard, vedere [Creare e distribuire criteri di Exploit Guard](https://docs.microsoft.com/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
+Per altre informazioni su Windows Defender Exploit Guard, vedere [Creare e distribuire criteri di Exploit Guard](/mem/configmgr/protect/deploy-use/create-deploy-exploit-guard-policy).
 
 Per altre informazioni sui controlli di sicurezza, vedere [Punteggio di sicurezza migliorato (anteprima)](secure-score-security-controls.md).
 
@@ -724,54 +829,10 @@ Le funzionalità di rilevamento delle analisi dei dump di arresto anomalo di Win
 
 Alcuni vantaggi di questa transizione:
 
-- **Rilevamento proattivo e tempestivo di malware**: l'approccio di analisi dei dump di arresto anomalo prevedeva l'attesa che si verificasse un arresto anomalo e quindi l'esecuzione dell'analisi per individuare gli artefatti dannosi. L'uso del rilevamento di attacchi senza file consente di identificare in modo proattivo le minacce in memoria durante l'esecuzione. 
+- **Rilevamento proattivo e tempestivo di malware** : l'approccio di analisi dei dump di arresto anomalo prevedeva l'attesa che si verificasse un arresto anomalo e quindi l'esecuzione dell'analisi per individuare gli artefatti dannosi. L'uso del rilevamento di attacchi senza file consente di identificare in modo proattivo le minacce in memoria durante l'esecuzione. 
 
-- **Avvisi avanzati**: gli avvisi di sicurezza dal rilevamento di attacchi senza file includono miglioramenti non disponibili con l'analisi dei dump di arresto anomalo, come le informazioni sulle connessioni di rete attive. 
+- **Avvisi avanzati** : gli avvisi di sicurezza dal rilevamento di attacchi senza file includono miglioramenti non disponibili con l'analisi dei dump di arresto anomalo, come le informazioni sulle connessioni di rete attive. 
 
-- **Aggregazione di avvisi**: quando l'analisi dei dump di arresto anomalo rilevava più schemi di attacco in un singolo evento di arresto, attivava più avvisi di sicurezza. Il rilevamento di attacchi senza file combina tutti gli schemi di attacco identificati dallo stesso processo in un singolo avviso, eliminando la necessità di correlare più avvisi.
+- **Aggregazione di avvisi** : quando l'analisi dei dump di arresto anomalo rilevava più schemi di attacco in un singolo evento di arresto, attivava più avvisi di sicurezza. Il rilevamento di attacchi senza file combina tutti gli schemi di attacco identificati dallo stesso processo in un singolo avviso, eliminando la necessità di correlare più avvisi.
 
-- **Riduzione dei requisiti nell'area di lavoro Log Analytics**: i dump di arresto anomalo contenenti dati potenzialmente sensibili non verranno più caricati nell'area di lavoro Log Analytics.
-
-
-
-## <a name="april-2020"></a>Aprile 2020
-
-Gli aggiornamenti del mese di aprile includono quanto segue:
-- [I pacchetti di conformità dinamici sono ora disponibili a livello generale](#dynamic-compliance-packages-are-now-generally-available)
-- [Raccomandazioni per l'identità ora incluse nel livello gratuito del Centro sicurezza di Azure](#identity-recommendations-now-included-in-azure-security-center-free-tier)
-
-
-### <a name="dynamic-compliance-packages-are-now-generally-available"></a>I pacchetti di conformità dinamici sono ora disponibili a livello generale
-
-Il dashboard di conformità alle normative del Centro sicurezza di Azure include ora **pacchetti di conformità dinamici** (ora disponibili a livello generale) per tenere traccia di altri standard di settore e normativi.
-
-È possibile aggiungere pacchetti di conformità dinamici alla sottoscrizione o al gruppo di gestione dalla pagina dei criteri di sicurezza del Centro sicurezza. Quando viene caricato uno standard o un benchmark, viene visualizzato nel dashboard di conformità alle normative insieme ai dati di conformità associati mappati come valutazioni. È anche possibile scaricare un report di riepilogo per gli standard caricati.
-
-Ora è possibile aggiungere standard come:
-
-- **NIST SP 800-53 R4**
-- **SWIFT CSP CSCF-v2020**
-- **UK Official e UK NHS**
-- **Canada Federal PBMM**
-- **Azure CIS 1.1.0 (novità)** (una rappresentazione più completa di Azure CIS 1.1.0)
-
-Inoltre, è stato aggiunto di recente **Azure Security Benchmark**, le linee guida specifiche di Azure, create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. Nel dashboard verranno supportati altri standard non appena saranno disponibili.  
- 
-Sono disponibili altre informazioni sulla [personalizzazione del set di standard nel dashboard di conformità alle normative](update-regulatory-compliance-packages.md).
-
-
-### <a name="identity-recommendations-now-included-in-azure-security-center-free-tier"></a>Raccomandazioni per l'identità ora incluse nel livello gratuito del Centro sicurezza di Azure
-
-Sono ora disponibili a livello generale raccomandazioni di sicurezza relative a identità e accesso nel livello gratuito del Centro sicurezza di Azure. Questa operazione rientra nell'impegno volto a rendere gratuite le funzionalità CSPM (Cloud Security Posture Management). Fino ad ora, queste raccomandazioni erano disponibili solo nel piano tariffario standard.
-
-Esempi di raccomandazioni relative a identità e accesso includono:
-
-- "La funzionalità MFA deve essere abilitata per gli account con autorizzazioni di proprietario per la sottoscrizione".
-- "Deve essere designato un massimo di 3 proprietari per la sottoscrizione".
-- "Gli account deprecati devono essere rimossi dalla sottoscrizione".
-
-Se si hanno sottoscrizioni nel piano tariffario gratuito, il punteggio di sicurezza corrispondente sarà influenzato da questa modifica, in quanto non sono state precedentemente valutate in termini di sicurezza dell'accesso e delle identità.
-
-Sono disponibili altre informazioni sulle [raccomandazioni relative a identità e accesso](recommendations-reference.md#recs-identity).
-
-Sono disponibili altre informazioni sul [monitoraggio di identità e accesso](security-center-identity-access.md).
+- **Riduzione dei requisiti nell'area di lavoro Log Analytics** : i dump di arresto anomalo contenenti dati potenzialmente sensibili non verranno più caricati nell'area di lavoro Log Analytics.

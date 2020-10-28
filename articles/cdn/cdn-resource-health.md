@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: integration
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 65b3d5a29028214a52e6b26430472394c91c6f27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81c92b6ef5bdf89391364bc238f55200eb3679f6
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84887070"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92778164"
 ---
 # <a name="monitor-the-health-of-azure-cdn-resources"></a>Monitorare l'integrità delle risorse della rete CDN di Azure
   
-L'integrità delle risorse della rete CDN di Azure costituisce un sottoinsieme di [Integrità risorse di Azure](../resource-health/resource-health-overview.md).  È possibile usare Integrità risorse di Azure per monitorare l'integrità delle risorse della rete CDN e ricevere indicazioni pratiche per risolvere i problemi.
+L'integrità delle risorse della rete CDN di Azure costituisce un sottoinsieme di [Integrità risorse di Azure](../service-health/resource-health-overview.md).  È possibile usare Integrità risorse di Azure per monitorare l'integrità delle risorse della rete CDN e ricevere indicazioni pratiche per risolvere i problemi.
 
 >[!IMPORTANT] 
 >L'integrità delle risorse della rete CDN di Azure attualmente riguarda solo l'integrità delle funzionalità API e di distribuzione della rete CDN globale.  Non vengono verificati i singoli endpoint della rete CDN.
@@ -38,12 +38,12 @@ L'integrità delle risorse della rete CDN di Azure costituisce un sottoinsieme d
 
     ![Pulsante Impostazioni](./media/cdn-resource-health/cdn-profile-settings.png)
 
-3. In *Supporto e risoluzione dei problemi* fare clic su **Integrità risorsa**.
+3. In *Supporto e risoluzione dei problemi* fare clic su **Integrità risorsa** .
 
     ![Integrità delle risorse della rete CDN](./media/cdn-resource-health/cdn-resource-health3.png)
 
 >[!TIP] 
->Le risorse della rete CDN sono elencate anche nel riquadro *Integrità risorsa* del pannello *Guida e supporto*.  È possibile accedere rapidamente a *Guida e supporto* facendo clic sul punto interrogativo (**?**) cerchiato nell'angolo superiore destro del portale.
+>Le risorse della rete CDN sono elencate anche nel riquadro *Integrità risorsa* del pannello *Guida e supporto* .  È possibile accedere rapidamente a *Guida e supporto* facendo clic sul punto interrogativo ( **?** ) cerchiato nell'angolo superiore destro del portale.
 >
 > ![Guida e supporto](./media/cdn-resource-health/cdn-help-support.png)
 
@@ -51,7 +51,7 @@ L'integrità delle risorse della rete CDN di Azure costituisce un sottoinsieme d
 
 Di seguito sono riportati gli stati correlati all'integrità delle risorse della rete CDN di Azure.
 
-|Message | Azione consigliata |
+|Message | Azione consigliata |
 |---|---|
 |Uno o più endpoint di rete CDN potrebbero essere stati arrestati, rimossi o configurati in modo non corretto | Uno o più endpoint di rete CDN potrebbero essere stati arrestati, rimossi o configurati in modo non corretto.|
 |Il servizio di gestione della rete CDN non è attualmente disponibile | Visualizzare di nuovo questa pagina per eventuali aggiornamenti dello stato. Se il problema persiste anche dopo l'ora di risoluzione prevista, contattare il supporto tecnico.|
@@ -62,6 +62,6 @@ Sono stati riscontrati problemi con alcuni provider di servizi di rete CDN | Vis
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica su Integrità risorse di Azure](../resource-health/resource-health-overview.md)
+- [Panoramica su Integrità risorse di Azure](../service-health/resource-health-overview.md)
 - [Risolvere i problemi di compressione della rete CDN](./cdn-troubleshoot-compression.md)
 - [Risolvere i problemi relativi a errori 404](./cdn-troubleshoot-endpoint.md)

@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 400dd66827e82c1ede496526c49977e6f5383487
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488967"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92780190"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Domande frequenti sull'iperscalabilità del database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Il livello di servizio Hyperscale è disponibile solo per i database singoli che
 
 I livelli di servizio basati su vCore sono differenziati in base alla disponibilità del database e al tipo di archiviazione, alle prestazioni e alle dimensioni massime, come descritto nella tabella seguente.
 
-| | Tipo di risorsa | Utilizzo generico |  Hyperscale | Business critical |
+| | Tipo di risorsa | Utilizzo generico |  Hyperscale | Business Critical |
 |:---:|:---:|:---:|:---:|:---:|
 | **Ideale per** |Tutti|Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti.|La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale rapida del calcolo, ripristino rapido del database.|Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
 |  **Tipo di risorsa** ||Database SQL/SQL Istanza gestita | Database singolo | Database SQL/SQL Istanza gestita |
@@ -136,7 +136,7 @@ No.
 
 ### <a name="how-many-read-scale-out-replicas-are-supported"></a>Il numero di repliche con scalabilità orizzontale in lettura supportate
 
-Per impostazione predefinita, i database con iperscalabilità vengono creati con una replica con scalabilità orizzontale in lettura (due repliche, inclusa quella primaria). È possibile ridimensionare il numero di repliche di sola lettura tra 0 e 4 usando [portale di Azure](https://portal.azure.com) o l' [API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Per impostazione predefinita, i database con iperscalabilità vengono creati con una replica con scalabilità orizzontale in lettura (due repliche, inclusa quella primaria). È possibile ridimensionare il numero di repliche di sola lettura tra 0 e 4 usando [portale di Azure](https://portal.azure.com) o l' [API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="for-high-availability-do-i-need-to-provision-additional-compute-replicas"></a>Per la disponibilità elevata, è necessario eseguire il provisioning di repliche di calcolo aggiuntive
 
@@ -198,7 +198,7 @@ Sì, tra cui la compressione di riga, pagina e columnstore.
 
 ### <a name="if-i-have-a-huge-table-does-my-table-data-get-spread-out-across-multiple-data-files"></a>In presenza di una tabella di grandi dimensioni, i dati della tabella vengono distribuiti in più file di dati
 
-Sì. Le pagine di dati associate a una determinata tabella possono venire distribuite in più file di dati, che fanno tutti parte dello stesso filegroup. SQL Server usa la [strategia di riempimento proporzionale](https://docs.microsoft.com/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) per distribuire i dati nei file di dati.
+Sì. Le pagine di dati associate a una determinata tabella possono venire distribuite in più file di dati, che fanno tutti parte dello stesso filegroup. SQL Server usa la [strategia di riempimento proporzionale](/sql/relational-databases/databases/database-files-and-filegroups#file-and-filegroup-fill-strategy) per distribuire i dati nei file di dati.
 
 ## <a name="data-migration-questions"></a>Domande sulla migrazione dei dati
 
@@ -231,9 +231,9 @@ L'iperscalabilità è in grado di utilizzare 100 MB/s di dati nuovi o modificati
 
 ### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>È possibile leggere i dati dall'archivio BLOB e eseguire un caricamento rapido (ad esempio, la polibase in Azure sinapsi Analytics)
 
-È possibile fare in modo che un'applicazione client legga i dati da archiviazione di Azure e carichi i dati in un database con iperscalabilità (analogamente a qualsiasi altro database nel database SQL di Azure). La polibase non è attualmente supportata nel database SQL di Azure. Come alternativa per fornire un carico rapido, è possibile usare [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)o usare un processo spark in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) con il [connettore Spark per SQL](spark-connector.md). Il connettore Spark per SQL supporta l'inserimento bulk.
+È possibile fare in modo che un'applicazione client legga i dati da archiviazione di Azure e carichi i dati in un database con iperscalabilità (analogamente a qualsiasi altro database nel database SQL di Azure). La polibase non è attualmente supportata nel database SQL di Azure. Come alternativa per fornire un carico rapido, è possibile usare [Azure Data Factory](../../data-factory/index.yml)o usare un processo spark in [Azure Databricks](/azure/azure-databricks/) con il [connettore Spark per SQL](spark-connector.md). Il connettore Spark per SQL supporta l'inserimento bulk.
 
-È anche possibile eseguire la lettura bulk dei dati dall'archivio BLOB di Azure usando BULK INSERT o OPENROWSET: [esempi di accesso bulk ai dati nell'archivio BLOB di Azure](https://docs.microsoft.com/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
+È anche possibile eseguire la lettura bulk dei dati dall'archivio BLOB di Azure usando BULK INSERT o OPENROWSET: [esempi di accesso bulk ai dati nell'archivio BLOB di Azure](/sql/relational-databases/import-export/examples-of-bulk-access-to-data-in-azure-blob-storage?view=sql-server-2017#accessing-data-in-a-csv-file-referencing-an-azure-blob-storage-location).
 
 Il modello di recupero con registrazione minima o con registrazione bulk non è supportato nel livello Hyperscale. Per fornire disponibilità elevata e ripristino temporizzato, è necessario il modello di recupero con esecuzione completa. Tuttavia, l'architettura di log con iperscalabilità offre una migliore velocità di inserimento dei dati rispetto agli altri livelli di servizio del database SQL di Azure.
 
@@ -277,7 +277,7 @@ No. I backup vengono gestiti dal sottosistema di archiviazione e sfruttano gli s
 
 ### <a name="can-i-perform-geo-restore-with-a-hyperscale-database"></a>È possibile eseguire il ripristino geografico con un database con iperscalabilità
 
-Sì. Il ripristino geografico è completamente supportato. A differenza del ripristino temporizzato, il ripristino geografico richiede un'operazione di dimensione dei dati. Poiché i file di dati vengono copiati in parallelo, la durata di questa operazione dipende principalmente dalle dimensioni del file più grande nel database, invece che dalle dimensioni totali del database. Il tempo di ripristino geografico sarà significativamente più breve se il database viene ripristinato nell'area di Azure [associata all'](https://docs.microsoft.com/azure/best-practices-availability-paired-regions) area del database di origine.
+Sì. Il ripristino geografico è completamente supportato. A differenza del ripristino temporizzato, il ripristino geografico richiede un'operazione di dimensione dei dati. Poiché i file di dati vengono copiati in parallelo, la durata di questa operazione dipende principalmente dalle dimensioni del file più grande nel database, invece che dalle dimensioni totali del database. Il tempo di ripristino geografico sarà significativamente più breve se il database viene ripristinato nell'area di Azure [associata all'](../../best-practices-availability-paired-regions.md) area del database di origine.
 
 ### <a name="can-i-set-up-geo-replication-with-hyperscale-database"></a>È possibile configurare la replica geografica con un database con iperscalabilità
 
@@ -357,7 +357,7 @@ No. Solo la replica primaria di calcolo accetta richieste di lettura/scrittura. 
 
 ### <a name="how-many-secondary-compute-replicas-can-i-provision"></a>Numero di repliche di calcolo secondarie di cui è possibile eseguire il provisioning
 
-Per impostazione predefinita, viene creata una replica secondaria per i database con iperscalabilità. Se si vuole modificare il numero di repliche, è possibile usare [portale di Azure](https://portal.azure.com) o l' [API REST](https://docs.microsoft.com/rest/api/sql/databases/createorupdate).
+Per impostazione predefinita, viene creata una replica secondaria per i database con iperscalabilità. Se si vuole modificare il numero di repliche, è possibile usare [portale di Azure](https://portal.azure.com) o l' [API REST](/rest/api/sql/databases/createorupdate).
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Ricerca per categorie connettersi alle repliche di calcolo secondarie
 

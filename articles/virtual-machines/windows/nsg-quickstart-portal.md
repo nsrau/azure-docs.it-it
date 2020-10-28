@@ -1,18 +1,18 @@
 ---
 title: Aprire porte in una macchina virtuale usando il portale di Azure
-description: Informazioni su come aprire una porta o creare un endpoint nella macchina virtuale Windows usando il portale di Azure
+description: Informazioni su come aprire una porta o creare un endpoint per la macchina virtuale usando il portale di Azure
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 05/27/2020
 ms.author: cynthn
-ms.openlocfilehash: 06f682bc697f93d436e2cd71b161c01e1360944a
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 1c3c39dd8c907f780876f97f9703857653d4e359
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91973989"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777759"
 ---
 # <a name="how-to-open-ports-to-a-virtual-machine-with-the-azure-portal"></a>Come aprire le porte in una macchina virtuale con il portale di Azure
 [!INCLUDE [virtual-machines-common-nsg-quickstart](../../../includes/virtual-machines-common-nsg-quickstart.md)]
@@ -23,11 +23,11 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-network-security-group"></a>Creare un gruppo di sicurezza di rete
 
-1. Cercare e selezionare un gruppo di risorse per la macchina virtuale, scegliere **Aggiungi**, quindi cercare e selezionare **Gruppo di sicurezza di rete**.
+1. Cercare e selezionare un gruppo di risorse per la macchina virtuale, scegliere **Aggiungi** , quindi cercare e selezionare **Gruppo di sicurezza di rete** .
 
-1. Selezionare **Crea**.
+1. Selezionare **Crea** .
 
-    Viene visualizzata la finestra **Crea gruppo di sicurezza di rete**.
+    Viene visualizzata la finestra **Crea gruppo di sicurezza di rete** .
 
     ![Creare un gruppo di sicurezza di rete](./media/nsg-quickstart-portal/create-nsg.png)
 
@@ -41,15 +41,15 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 1. Selezionare il nuovo gruppo di sicurezza di rete. 
 
-1. Selezionare **Regole di sicurezza in ingresso** nel menu a sinistra, quindi selezionare **Aggiungi**.
+1. Selezionare **Regole di sicurezza in ingresso** nel menu a sinistra, quindi selezionare **Aggiungi** .
 
     ![Passare alla pagina Avanzate](./media/nsg-quickstart-portal/advanced.png)
 
-1. Nella parte superiore della pagina **Aggiungi regola di sicurezza in ingresso** passare ad **Avanzate** da **Base**. 
+1. Nella parte superiore della pagina **Aggiungi regola di sicurezza in ingresso** passare ad **Avanzate** da **Base** . 
 
-1. Scegliere un **servizio** comune dal menu a discesa, ad esempio **HTTP**. È possibile anche selezionare l'opzione **Personalizzata** per indicare una porta specifica da usare. 
+1. Scegliere un **servizio** comune dal menu a discesa, ad esempio **HTTP** . È possibile anche selezionare l'opzione **Personalizzata** per indicare una porta specifica da usare. 
 
-1. Facoltativamente, modificare il valore di **Priorità** o **Nome**. La priorità determina l'ordine in cui vengono applicate le regole: più basso è il valore numerico, prima viene applicata la regola.
+1. Facoltativamente, modificare il valore di **Priorità** o **Nome** . La priorità determina l'ordine in cui vengono applicate le regole: più basso è il valore numerico, prima viene applicata la regola.
 
 1. Selezionare **Aggiungi** per creare la regola.
 
@@ -57,13 +57,13 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 Il passaggio finale consiste nell'associare il gruppo di sicurezza di rete a una subnet o un'interfaccia di rete specifica. Per questo esempio, si assocerà il gruppo di sicurezza di rete a una subnet. 
 
-1. Selezionare **Subnet** dal menu a sinistra, quindi selezionare **Associa**.
+1. Selezionare **Subnet** dal menu a sinistra, quindi selezionare **Associa** .
 
 1. Selezionare la rete virtuale, quindi selezionare la subnet appropriata.
 
     ![Associazione di un gruppo di sicurezza di rete a una rete virtuale](./media/nsg-quickstart-portal/select-vnet-subnet.png)
 
-1. Al termine, selezionare **OK**.
+1. Al termine, selezionare **OK** .
 
 ## <a name="additional-information"></a>Informazioni aggiuntive
 

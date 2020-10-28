@@ -12,12 +12,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein
 ms.date: 04/16/2019
-ms.openlocfilehash: 208793d3ba8c3463abe892b368beb41d4b79f214
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7f2f060f32cf3bf92660a2e8b75a45b7ec76b82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91617452"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779765"
 ---
 # <a name="azure-sql-managed-instance-content-reference"></a>Informazioni di riferimento sul contenuto del Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -64,7 +64,7 @@ In questo articolo è possibile trovare un riferimento al contenuto per diverse 
 
 - [Ottimizzazione manuale](../database/performance-guidance.md)
 - [Usare le viste a gestione dinamica per monitorare le prestazioni](../database/monitoring-with-dmvs.md)
-- [Usare Query Store per monitorare le prestazioni](https://docs.microsoft.com/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
+- [Usare Query Store per monitorare le prestazioni](/sql/relational-databases/performance/best-practice-with-the-query-store#Insight)
 - [Risolvere i problemi delle prestazioni con Intelligent Insights](../database/intelligent-insights-troubleshoot-performance.md)
 - [Usare il log di diagnostica Intelligent Insights](../database/intelligent-insights-use-diagnostics-log.md)
 - [Monitorare In-Memory spazio OLTP](../in-memory-oltp-monitor-space.md)

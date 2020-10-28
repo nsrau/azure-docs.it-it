@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: c06af1cc7f068070954669fc4ec269c9e679f278
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2ef1367cbbb1fb71159c4520c3d1481904c1769
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84886068"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779323"
 ---
 # <a name="analyze-usage-statistics-with-azure-cdn-advanced-http-reports"></a>Analizzare le statistiche di utilizzo con i report HTTP avanzati della rete CDN di Azure
 ## <a name="overview"></a>Panoramica
@@ -33,7 +33,7 @@ Questo documento illustra la creazione di report HTTP avanzati nella rete CDN di
     ![Pulsante Gestisci pannello del profilo di rete CDN](./media/cdn-advanced-http-reports/cdn-manage-btn.png)
    
     Si aprirà il portale di gestione della rete CDN.
-2. Passare il puntatore sulla scheda **Analisi** e quindi sul riquadro a comparsa **Report HTTP avanzati**.  Fare clic su **Piattaforma HTTP grande**.
+2. Passare il puntatore sulla scheda **Analisi** e quindi sul riquadro a comparsa **Report HTTP avanzati** .  Fare clic su **Piattaforma HTTP grande** .
    
     ![Portale di gestione della rete CDN, menu Report avanzati](./media/cdn-advanced-http-reports/cdn-advanced-reports.png)
    
@@ -202,6 +202,5 @@ Proprio sotto il grafico a barre verranno elencate le informazioni seguenti per 
 ## <a name="see-also"></a>Vedere anche
 * [Panoramica della rete CDN di Azure](cdn-overview.md)
 * [Statistiche in tempo reale nella rete CDN di Microsoft Azure](cdn-real-time-stats.md)
-* [Override del comportamento HTTP predefinito mediante il motore regole](cdn-rules-engine.md)
+* [Override del comportamento HTTP predefinito mediante il motore regole](./cdn-verizon-premium-rules-engine.md)
 * [Analizzare delle prestazioni edge](cdn-edge-performance.md)
-
