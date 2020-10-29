@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/13/2019
 ms.author: jeedes
-ms.openlocfilehash: 73eb6938f4b43c204ab8bc91217e4828454e222d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: de02e8ea995482b815734565f839c4cb1c348782
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91944224"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92445631"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-citrix-netscaler-header-based-authentication"></a>Esercitazione: Integrazione dell'accesso Single Sign-On di Azure Active Directory con Citrix NetScaler (autenticazione basata su intestazione)
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Citrix NetScaler con Azure Active D
 * Abilitare gli utenti per l'accesso automatico a Citrix NetScaler con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -53,11 +53,11 @@ Per integrare Citrix NetScaler con Azure AD, innanzitutto aggiungere Citrix NetS
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 
-1. Nel menu a sinistra, selezionare **Azure Active Directory**.
+1. Nel menu a sinistra, selezionare **Azure Active Directory** .
 
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
 
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
 
 1. Nella sezione **Aggiungi dalla raccolta** immettere **Citrix NetScaler** nella casella di ricerca.
 
@@ -65,7 +65,7 @@ Per integrare Citrix NetScaler con Azure AD, innanzitutto aggiungere Citrix NetS
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-citrix-netscaler"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Citrix NetScaler
 
-Configurare e testare l'accesso SSO di Azure AD con Citrix NetScaler usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Citrix NetScaler.
+Configurare e testare l'accesso SSO di Azure AD con Citrix NetScaler usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Citrix NetScaler.
 
 Per configurare e testare l'accesso SSO di Azure AD con Citrix NetScaler, completare le procedure di base seguenti:
 
@@ -85,21 +85,21 @@ Per configurare e testare l'accesso SSO di Azure AD con Citrix NetScaler, comple
 
 Per abilitare l'accesso Single Sign-On di Azure AD usando il portale di Azure, completare questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Citrix NetScaler** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** in **Gestione**.
+1. Nella pagina di integrazione dell'applicazione **Citrix NetScaler** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** in **Gestione** .
 
-1. Nel riquadro **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nel riquadro **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
 
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** per configurare l'applicazione nella modalità **avviata da IDP**:
+1. Nella sezione **Configurazione SAML di base** per configurare l'applicazione nella modalità **avviata da IDP** :
 
     1. Nella casella di testo **Identificatore** immettere un URL nel formato seguente: `https://<Your FQDN>`
 
     1. Nella casella di testo **URL di risposta** immettere un URL nel formato seguente: `https://<Your FQDN>/CitrixAuthService/AuthService.asmx`
 
-1. Per configurare l'applicazione in modalità **avviata da SP**, selezionare **Imposta URL aggiuntivi** e completare il passaggio seguente:
+1. Per configurare l'applicazione in modalità **avviata da SP** , selezionare **Imposta URL aggiuntivi** e completare il passaggio seguente:
 
     * Nella casella di testo **URL di accesso** immettere un URL nel formato seguente: `https://<Your FQDN>/CitrixAuthService/AuthService.asmx`.
 
@@ -107,7 +107,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD usando il portale di Azure, c
     > * Gli URL usati in questa sezione non sono valori reali. Aggiornarli con i valori effettivi di identificatore, URL di risposta e URL di accesso. Per ottenere questi valori, contattare il [team di supporto clienti di Citrix NetScaler](https://www.citrix.com/contact/technical-support.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
     > * Per configurare l'accesso SSO, gli URL devono essere accessibili da siti Web pubblici. È necessario abilitare il firewall o altre impostazioni di sicurezza sul lato Citrix NetScaler per consentire ad Azure AD di pubblicare il token all'URL configurato.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare l'**URL dei metadati di federazione dell'app**, quindi copiarlo e salvarlo nel Blocco note.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare l' **URL dei metadati di federazione dell'app** , quindi copiarlo e salvarlo nel Blocco note.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -121,19 +121,19 @@ Per abilitare l'accesso Single Sign-On di Azure AD usando il portale di Azure, c
     | ---------------| --------------- |
     | mySecretID  | user.userprincipalname |
     
-    1. Selezionare **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
+    1. Selezionare **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente** .
 
     1. Nella casella di testo **Nome** immettere il nome dell'attributo indicato per la riga.
 
-    1. Lasciare vuota la casella **Spazio dei nomi**.
+    1. Lasciare vuota la casella **Spazio dei nomi** .
 
-    1. Per **Attributo** selezionare **Origine**.
+    1. Per **Attributo** selezionare **Origine** .
 
     1. Nell'elenco **Attributo di origine** immettere il valore dell'attributo indicato per la riga.
 
-    1. Selezionare **OK**.
+    1. Selezionare **OK** .
 
-    1. Selezionare **Salva**.
+    1. Selezionare **Salva** .
 
 1. Nella sezione **Configura Citrix NetScaler** copiare gli URL pertinenti in base alle esigenze.
 
@@ -143,7 +143,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD usando il portale di Azure, c
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel menu di sinistra del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel menu di sinistra del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 
 1. Selezionare **Nuovo utente** nella parte superiore del riquadro.
 
@@ -153,7 +153,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
    1. Per **Nome utente** immettere _username@companydomain.extension_ . Ad esempio: `B.Simon@contoso.com`.
 
-   1. Selezionare la casella di controllo **Mostra password** e quindi annotare o copiare il valore visualizzato in **Password**.
+   1. Selezionare la casella di controllo **Mostra password** e quindi annotare o copiare il valore visualizzato in **Password** .
 
    1. Selezionare **Create** (Crea).
 
@@ -161,23 +161,23 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 In questa sezione si abilita l'utente B.Simon all'uso dell'accesso SSO di Azure concedendole l'accesso a Citrix NetScaler.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
 
-1. Nell'elenco delle applicazioni selezionare **Citrix NetScaler**.
+1. Nell'elenco delle applicazioni selezionare **Citrix NetScaler** .
 
-1. Nella panoramica dell'app fare clic su **Utenti e gruppi** in **Gestisci**.
+1. Nella panoramica dell'app fare clic su **Utenti e gruppi** in **Gestisci** .
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente**. Nella finestra di dialogo **Aggiungi assegnazione** selezionare quindi **Utenti e gruppi**.
+1. Selezionare **Aggiungi utente** . Nella finestra di dialogo **Aggiungi assegnazione** selezionare quindi **Utenti e gruppi** .
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
-1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** nell'elenco **Utenti**. Scegliere **Seleziona**.
+1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** nell'elenco **Utenti** . Scegliere **Seleziona** .
 
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo pertinente per l'utente dall'elenco e quindi scegliere **Seleziona**.
+1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo pertinente per l'utente dall'elenco e quindi scegliere **Seleziona** .
 
-1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
 
 ## <a name="configure-citrix-netscaler-sso"></a>Configurare l'accesso Single Sign-On di Citrix NetScaler
 
@@ -193,7 +193,7 @@ Per creare un server virtuale:
 
 1. Selezionare **Traffic Management** > **Load Balancing** > **Services** (Gestione traffico > Bilanciamento del carico > Servizi).
     
-1. Selezionare **Aggiungi**.
+1. Selezionare **Aggiungi** .
 
     ![Configurazione di Citrix NetScaler - Riquadro Services](./media/header-citrix-netscaler-tutorial/web01.png)
 
@@ -212,7 +212,7 @@ Per configurare il servizio di bilanciamento del carico:
 
 1. Passare a **Traffic Management** > **Load Balancing** > **Virtual Servers** (Gestione traffico > Bilanciamento del carico > Server virtuali).
 
-1. Selezionare **Aggiungi**.
+1. Selezionare **Aggiungi** .
 
 1. Impostare i valori seguenti come descritto nello screenshot:
 
@@ -221,7 +221,7 @@ Per configurare il servizio di bilanciamento del carico:
     * **Indirizzo IP**
     * **Porta**
 
-1. Selezionare **OK**.
+1. Selezionare **OK** .
 
     ![Configurazione di Citrix NetScaler - Riquadro Basic Settings](./media/header-citrix-netscaler-tutorial/load01.png)
 
@@ -259,13 +259,13 @@ Per creare un criterio di autenticazione:
 
 1. Passare a **Security** > **AAA – Application Traffic** > **Policies** > **Authentication** > **Authentication Policies** (Sicurezza > AAA - Traffico applicazione > Criteri > Autenticazione > Criteri di autenticazione).
 
-1. Selezionare **Aggiungi**.
+1. Selezionare **Aggiungi** .
 
 1. Nel riquadro **Create Authentication Policy** (Crea criterio di autenticazione) immettere o selezionare i valori seguenti:
 
-    * **Name**: immettere un nome per il criterio di autenticazione.
-    * **Azione**: immettere **SAML** e quindi selezionare **Add** (Aggiungi).
-    * **Expression** (Espressione):  immettere **true**.     
+    * **Name** : immettere un nome per il criterio di autenticazione.
+    * **Azione** : immettere **SAML** e quindi selezionare **Add** (Aggiungi).
+    * **Expression** (Espressione):  immettere **true** .     
     
     ![Configurazione di Citrix NetScaler - Riquadro Create Authentication Policy](./media/header-citrix-netscaler-tutorial/policy01.png)
 
@@ -301,9 +301,9 @@ Per creare un server virtuale di autenticazione:
 
     1. Selezionare la casella di controllo **Non-Addressable** (Non indirizzabile).
 
-    1. Per **Protocol** (Protocollo) selezionare **SSL**.
+    1. Per **Protocol** (Protocollo) selezionare **SSL** .
 
-    1. Selezionare **OK**.
+    1. Selezionare **OK** .
 
     ![Configurazione di Citrix NetScaler - Riquadro Authentication Virtual Server](./media/header-citrix-netscaler-tutorial/server02.png)
     
@@ -354,9 +354,9 @@ Per configurare Citrix ADC per l'autenticazione basata su intestazione, completa
 
     1. Per **Name** (Nome) immettere un nome per l'azione di riscrittura.
 
-    1. Per **Type** (Tipo) immettere **INSERT_HTTP_HEADER**.
+    1. Per **Type** (Tipo) immettere **INSERT_HTTP_HEADER** .
 
-    1. Per **Header Name** (Nome intestazione) immettere un nome di intestazione; in questo esempio verrà usato _SecretID_.
+    1. Per **Header Name** (Nome intestazione) immettere un nome di intestazione; in questo esempio verrà usato _SecretID_ .
 
     1. Per **Expression** (Espressione) immettere **aaa.USER.ATTRIBUTE("mySecretID")** , dove **mySecretID** è l'attestazione SAML di Azure AD inviata a Citrix ADC.
 
@@ -376,7 +376,7 @@ Per configurare Citrix ADC per l'autenticazione basata su intestazione, completa
 
     1. Per **Action** (Azione) selezionare l'azione di riscrittura creata nella sezione precedente.
 
-    1. Per **Expression** (Espressione) immettere **true**.
+    1. Per **Expression** (Espressione) immettere **true** .
 
     1. Selezionare **Create** (Crea).
 
@@ -408,7 +408,7 @@ Per associare un criterio di riscrittura a un server virtuale usando l'interfacc
 
     ![Configurazione di Citrix NetScaler - Finestra di dialogo Policies](./media/header-citrix-netscaler-tutorial/header07.png)
 
-1.  Selezionare **OK**. Un messaggio visualizzato nella barra di stato informa che il criterio è stato configurato correttamente.
+1.  Selezionare **OK** . Un messaggio visualizzato nella barra di stato informa che il criterio è stato configurato correttamente.
 
 ### <a name="modify-the-saml-server-to-extract-attributes-from-a-claim"></a>Modificare il server SAML per estrarre attributi da un'attestazione
 
@@ -437,15 +437,15 @@ In questa sezione viene creato un utente di nome B.Simon in Citrix NetScaler. Ci
 
 In questa sezione viene testata la configurazione dell'accesso SSO di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di Citrix NetScaler nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Citrix NetScaler per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Citrix NetScaler nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Citrix NetScaler per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Citrix NetScaler con Azure AD](https://aad.portal.azure.com/)
 
