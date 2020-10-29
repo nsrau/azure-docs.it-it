@@ -2,19 +2,18 @@
 title: Usare il profilo di esecuzione per valutare le query in Azure Cosmos DB API Gremlin
 description: Informazioni su come risolvere i problemi e migliorare le query Gremlin usando il passaggio del profilo di esecuzione.
 services: cosmos-db
-author: jasonwhowell
-manager: kfile
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 03/27/2019
-ms.author: jasonh
-ms.openlocfilehash: 2d34c91cab157fcd51d58521d739fcb081fe03ea
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.author: chrande
+ms.openlocfilehash: ff49889977bc4e5d9097d81ea7b05387900bedd4
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490595"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926377"
 ---
 # <a name="how-to-use-the-execution-profile-step-to-evaluate-your-gremlin-queries"></a>Come usare il passaggio del profilo di esecuzione per valutare le query Gremlin
 
@@ -22,7 +21,7 @@ Questo articolo fornisce una panoramica dell'utilizzo del passaggio del profilo 
 
 Per usare questo passaggio, è sufficiente aggiungere la `executionProfile()` chiamata di funzione alla fine della query Gremlin. La **query Gremlin verrà eseguita** e il risultato dell'operazione restituirà un oggetto risposta JSON con il profilo di esecuzione della query.
 
-Ad esempio:
+Esempio:
 
 ```java
     // Basic traversal
@@ -139,12 +138,12 @@ Di seguito è riportato un esempio annotato dell'output che verrà restituito:
 ## <a name="execution-profile-response-objects"></a>Oggetti di risposta del profilo di esecuzione
 
 La risposta di una funzione executionProfile () produrrà una gerarchia di oggetti JSON con la struttura seguente:
-  - **Oggetto dell'operazione Gremlin**: rappresenta l'intera operazione Gremlin eseguita. Contiene le proprietà seguenti.
+  - **Oggetto dell'operazione Gremlin** : rappresenta l'intera operazione Gremlin eseguita. Contiene le proprietà seguenti.
     - `gremlin`: Istruzione Gremlin esplicita che è stata eseguita.
     - `totalTime`: Tempo, in millisecondi, durante il quale è stata ricorreta l'esecuzione del passaggio. 
     - `metrics`: Matrice che contiene tutti gli operatori di runtime Cosmos DB eseguiti per completare la query. Questo elenco è ordinato in ordine di esecuzione.
     
-  - **Cosmos DB operatori di runtime**: rappresenta tutti i componenti dell'intera operazione Gremlin. Questo elenco è ordinato in ordine di esecuzione. Ogni oggetto contiene le proprietà seguenti:
+  - **Cosmos DB operatori di runtime** : rappresenta tutti i componenti dell'intera operazione Gremlin. Questo elenco è ordinato in ordine di esecuzione. Ogni oggetto contiene le proprietà seguenti:
     - `name`: Nome dell'operatore. Si tratta del tipo di passaggio valutato ed eseguito. Per altre informazioni, vedere la tabella seguente.
     - `time`: Periodo di tempo, in millisecondi, impiegato da un determinato operatore.
     - `annotations`: Contiene informazioni aggiuntive, specifiche dell'operatore che è stato eseguito.
@@ -177,7 +176,7 @@ Di seguito sono riportati alcuni esempi di ottimizzazioni comuni che è possibil
 
 ### <a name="blind-fan-out-query-patterns"></a>Modelli di query con ventola cieca
 
-Si supponga che la risposta del profilo di esecuzione seguente da un **grafo partizionato**:
+Si supponga che la risposta del profilo di esecuzione seguente da un **grafo partizionato** :
 
 ```json
 [
@@ -220,7 +219,7 @@ Si supponga che la risposta del profilo di esecuzione seguente da un **grafo par
 
 È possibile effettuare le seguenti conclusioni:
 - La query è una singola ricerca ID, perché l'istruzione Gremlin segue il modello `g.V('id')` .
-- A giudicare dalla `time` metrica, la latenza di questa query sembra essere elevata perché è [più di 10 ms per una singola operazione di lettura del punto](./introduction.md#guaranteed-low-latency-at-99th-percentile-worldwide).
+- A giudicare dalla `time` metrica, la latenza di questa query sembra essere elevata perché è [più di 10 ms per una singola operazione di lettura del punto](./introduction.md#guaranteed-speed-at-any-scale).
 - Se esaminiamo l' `storeOps` oggetto, possiamo notare che `fanoutFactor` è `5` , il che significa che l'operazione ha avuto accesso a [5 partizioni](./partitioning-overview.md) .
 
 Come conclusione di questa analisi, è possibile determinare che la prima query accede a più partizioni del necessario. È possibile risolvere il problema specificando la chiave di partizionamento nella query come predicato. In questo modo si otterrà una minore latenza e un costo minore per ogni query. Per altre informazioni, vedere l'articolo sul [partizionamento di grafi](graph-partitioning.md). Una query più ottimale è `g.V('tt0093640').has('partitionKey', 't1001')` .

@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 16d90aea8edc47750dfb7e64de7b50885971f632
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 5125fff0ef8987d313c6611e4d5de08d090f2263
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893687"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913195"
 ---
 # <a name="receipt-concepts"></a>Concetti relativi alle ricevute
 
@@ -449,7 +449,7 @@ L'output della ricevuta è utile anche per la contabilità generale per l'uso az
 
 Le ricevute contengono dati utili che è possibile usare per analizzare il comportamento degli utenti e le tendenze degli acquisti.
 
-L'API di ricezione consente inoltre di alimentare la [funzionalità di elaborazione della ricezione di AIBuilder](https://docs.microsoft.com/ai-builder/prebuilt-receipt-processing).
+L'API di ricezione consente inoltre di alimentare la [funzionalità di elaborazione della ricezione di AIBuilder](/ai-builder/prebuilt-receipt-processing).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -459,4 +459,4 @@ L'API di ricezione consente inoltre di alimentare la [funzionalità di elaborazi
 ## <a name="see-also"></a>Vedere anche
 
 * [Informazioni su Riconoscimento modulo](./overview.md)
-* [Documentazione di riferimento per l'API REST](https://docs.microsoft.com/azure/cognitive-services/form-recognizer)
+* [Documentazione di riferimento per l'API REST](./index.yml)

@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 5e2f5e067f0a1d5c13179b3d6175b3aebf6a43fd
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a8f9c46487422deb4513768dff04f559af952f7b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548553"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926258"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitoraggio dell'hub Azure
 
@@ -54,11 +54,14 @@ Le metriche della piattaforma e il log attività vengono raccolti e archiviati a
 
 I log delle risorse non vengono raccolti e archiviati fino a quando non si crea un'impostazione di diagnostica e la si instrada a una o più posizioni.
 
-Le metriche e i log possono essere indirizzati a un'area di lavoro Log Analytics, dove possono essere analizzati usando i log di monitoraggio di Azure. per archiviazione di Azure per l'archiviazione e l'analisi offline; o a un endpoint di hub eventi in cui possono essere letti da applicazioni esterne, ad esempio strumenti SIEM di terze parti.
+Le metriche e i log possono essere indirizzati a diverse posizioni, tra cui:
+- L'archivio dei log di monitoraggio di Azure viene archiviato tramite un'area di lavoro Log Analytics associata. È possibile analizzarli con Log Analytics.
+- Archiviazione di Azure per l'archiviazione e l'analisi offline 
+- Un endpoint di hub eventi in cui possono essere letti da applicazioni esterne, ad esempio strumenti SIEM di terze parti.
 
 In portale di Azure, è possibile selezionare **le impostazioni di diagnostica** in **monitoraggio** nel riquadro sinistro dell'hub Internet e quindi aggiungere l' **impostazione di diagnostica** per creare le impostazioni di diagnostica con ambito per i log e le metriche della piattaforma emessi dall'hub Internet delle cose.
 
-Lo screenshot seguente mostra un'impostazione di diagnostica per il routing delle operazioni di connessione nei log delle risorse e tutte le metriche della piattaforma in un'area di lavoro Log Analytics.
+Lo screenshot seguente mostra un'impostazione di diagnostica per il routing delle *operazioni di connessione* del tipo di log delle risorse e di tutte le metriche della piattaforma a un'area di lavoro log Analytics.
 
 :::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Grafici metrici predefiniti nella pagina Panoramica dell'hub Internet.":::
 
@@ -86,7 +89,7 @@ Alcune metriche dell'hub, come le [metriche di routing](monitor-iot-hub-referenc
 
 ## <a name="analyzing-logs"></a>Analisi dei log
 
-I dati nei log di monitoraggio di Azure vengono archiviati in tabelle in cui ogni tabella dispone di un proprio set di proprietà univoche. Per altre informazioni sui log di monitoraggio di Azure, vedere [Panoramica dei log di monitoraggio](/azure/azure-monitor/platform/data-platform-logs) di Azure nella documentazione di monitoraggio di Azure. 
+I dati nei log di monitoraggio di Azure vengono archiviati in tabelle in cui ogni tabella dispone di un proprio set di proprietà univoche. I dati di queste tabelle sono associati a un'area di lavoro di Log Analytics e possono essere sottoposti a query in Log Analytics. Per altre informazioni sui log di monitoraggio di Azure, vedere [Panoramica dei log di monitoraggio](/azure/azure-monitor/platform/data-platform-logs) di Azure nella documentazione di monitoraggio di Azure. 
 
 Per indirizzare i dati ai log di monitoraggio di Azure, è necessario creare un'impostazione di diagnostica per inviare i log delle risorse o le metriche della piattaforma a un'area di lavoro Log Analytics. Per altre informazioni, vedere [raccolta e routing](#collection-and-routing).
 

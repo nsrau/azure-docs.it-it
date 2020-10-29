@@ -8,12 +8,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 01/15/2019
-ms.openlocfilehash: 780ddc614feef492dafa54862abbea9552496274
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b0afdd90f2a1413c7f8364fc4518c4d1116454a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87539816"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913586"
 ---
 # <a name="threat-modeling-tool-ga-release-71509112---9122018"></a>Threat Modeling Tool GA versione 7.1.50911.2 - 12/09/2018
 
@@ -65,13 +65,13 @@ L'utente può fare clic sul testo della mitigazione e usare il controllo zoom di
 
 La funzionalità "Open From OneDrive" (Apri da OneDrive) della versione di anteprima è stata rimossa. Gli utenti con "Recently Opened Models" (Modelli aperti di recente) salvati in OneDrive riceveranno l'errore seguente.
 
-![Funzionalità di OneDrive rimossa](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
+![Screenshots Mostra un errore: errore durante l'apertura del riferimento all'oggetto file non impostato su un'istanza di un oggetto.](./media/threat-modeling-tool-releases-71509112/tmt_save_error-300x131.png)
 
 #### <a name="workaround"></a>Soluzione alternativa
 
 Gli utenti di OneDrive sono invitati a usare il client Microsoft [OneDrive per Windows](https://onedrive.live.com/about/en-us/download/) per accedere ai file archiviati in OneDrive tramite la finestra di dialogo standard "Open a model" (Apri modello).
 
-![Funzionalità di OneDrive rimossa](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
+![Screenshot mostra OneDrive selezionato nella finestra di dialogo Apri modello.](./media/threat-modeling-tool-releases-71509112/tmt_save_onedrive-300x149.png)
 
 ### <a name="my-organization-uses-the-2016-version-of-the-tool-can-i-use-the-azure-stencil-set"></a>L'organizzazione usa la versione 2016 dello strumento, è possibile usare il set di stencil di Azure?
 

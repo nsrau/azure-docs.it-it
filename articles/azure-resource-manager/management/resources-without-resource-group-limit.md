@@ -2,13 +2,13 @@
 title: Risorse senza limite di 800 conteggi
 description: Elenca i tipi di risorse di Azure che possono avere più di 800 istanze in un gruppo di risorse.
 ms.topic: conceptual
-ms.date: 09/21/2020
-ms.openlocfilehash: e7a15607b144f1d7916f310948f15dc28d76a205
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: cec7ea87bbe81d3bfcca37f3133ac650e66f849f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330758"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913501"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>Risorse non limitate a 800 di istanze per gruppo di risorse
 
@@ -81,6 +81,7 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 ## <a name="microsoftdevtestlab"></a>Microsoft.DevTestLab
 
+* Labs/virtualMachines: per impostazione predefinita, limitato a 800 istanze. Il limite può essere aumentato contattando il supporto tecnico.
 * schedules
 
 ## <a name="microsoftenterpriseknowledgegraph"></a>Microsoft.EnterpriseKnowledgeGraph
@@ -173,6 +174,10 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 * workspaceCollections: per impostazione predefinita, limitato a 800 istanze. Il limite può essere aumentato contattando il supporto tecnico.
 
+## <a name="microsoftpowerbidedicated"></a>Microsoft.PowerBIDedicated
+
+* capacità: per impostazione predefinita, limitata a 800 istanze. Il limite può essere aumentato contattando il supporto tecnico.
+
 ## <a name="microsoftrelay"></a>Microsoft.Relay
 
 * spazi dei nomi
@@ -185,18 +190,21 @@ Per alcuni tipi di risorse, è necessario contattare il supporto tecnico per rim
 
 * spazi dei nomi
 
-## <a name="microsoftservicefabricmesh"></a>Microsoft.ServiceFabricMesh
+## <a name="microsoftsingularity"></a>Microsoft. Singularity
 
-* scala Web
-* containerGroups
-* gateways
-* networks
-* chiavi private
-* volumes
+* account
+* account/accountQuotaPolicies
+* account/groupPolicies
+* account/processi
+* account/storageContainers
 
 ## <a name="microsoftstorage"></a>Microsoft.Storage
 
 * storageAccounts
+
+## <a name="microsoftsql"></a>Microsoft.Sql
+
+* servers/databases
 
 ## <a name="microsoftweb"></a>Microsoft.Web
 

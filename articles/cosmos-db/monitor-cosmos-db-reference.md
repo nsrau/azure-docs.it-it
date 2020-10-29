@@ -5,15 +5,15 @@ author: bwren
 services: cosmos-db
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 07/17/2020
+ms.date: 10/28/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: 43a059354c70c792592ba46aa3d5b63677bda4eb
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c17d660c75fdfd6f1eb429db3a8b55f3e3db1b2d
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488351"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925952"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Informazioni di riferimento sui dati di monitoraggio di Azure Cosmos DB
 
@@ -27,7 +27,7 @@ La tabella seguente elenca le proprietà dei log delle risorse in Azure Cosmos D
 | --- | --- | --- |
 | **time** | **TimeGenerated** | Data e ora (UTC) in cui si è verificata l'operazione. |
 | **resourceId** | **Risorsa** | Account Azure Cosmos DB per cui vengono abilitati i log.|
-| **category** | **Categoria** | Per Azure Cosmos DB, **DataPlaneRequests**, **MongoRequests**, **QueryRuntimeStatistics**, **PartitionKeyStatistics**, **PartitionKeyRUConsumption**, **ControlPlaneRequests** sono i tipi di log disponibili. |
+| **category** | **Categoria** | Per Azure Cosmos DB, **DataPlaneRequests** , **MongoRequests** , **QueryRuntimeStatistics** , **PartitionKeyStatistics** , **PartitionKeyRUConsumption** , **ControlPlaneRequests** sono i tipi di log disponibili. |
 | **operationName** | **NomeOperazione** | Nome dell'operazione. Il nome dell'operazione può essere  `Create` ,, `Update` `Read` , `ReadFeed` , `Delete` , `Replace` , `Execute` , `SqlQuery` , `Query` , `JSQuery` , `Head` , `HeadFeed` o `Upsert` .   |
 | **properties** | n/d | Il contenuto di questo campo è descritto nelle righe seguenti. |
 | **activityId** | **activityId_g** | GUID univoco per l'operazione registrata. |
@@ -41,13 +41,15 @@ La tabella seguente elenca le proprietà dei log delle risorse in Azure Cosmos D
 | **duration** | **duration_d** | Durata dell'operazione, in millisecondi. |
 | **requestLength** | **requestLength_s** | Lunghezza della richiesta in byte. |
 | **responseLength** | **responseLength_s** | Lunghezza della risposta in byte.|
+| **resourceTokenPermissionId** | **resourceTokenPermissionId_s** | Questa proprietà indica l'ID di autorizzazione del token di risorsa specificato. Per altre informazioni sulle autorizzazioni, vedere l'articolo [proteggere l'accesso ai dati](./secure-access-to-data.md#permissions) . |
+| **resourceTokenPermissionMode** | **resourceTokenPermissionMode_s** | Questa proprietà indica la modalità di autorizzazione impostata durante la creazione del token della risorsa. La modalità di autorizzazione può avere valori quali "All" o "Read". Per altre informazioni sulle autorizzazioni, vedere l'articolo [proteggere l'accesso ai dati](./secure-access-to-data.md#permissions) . |
 | **resourceTokenUserRid** | **resourceTokenUserRid_s** | Questo valore è non vuoto quando vengono usati [token di risorsa](./secure-access-to-data.md#resource-tokens) per l'autenticazione. Il valore punta all'ID risorsa dell'utente. |
 | **responseLength** | **responseLength_s** | Lunghezza della risposta in byte.|
 
 Per un elenco di tutte le categorie di log di monitoraggio di Azure e i collegamenti agli schemi associati, vedere [categorie e schemi dei log di monitoraggio di Azure](../azure-monitor/platform/resource-logs-schema.md). 
 
 ## <a name="metrics"></a>Metriche
-Le tabelle seguenti elencano le metriche della piattaforma raccolte per Azure CosmOS DB. Tutte le metriche vengono archiviate nello spazio dei nomi **Cosmos DB metriche standard**.
+Le tabelle seguenti elencano le metriche della piattaforma raccolte per Azure CosmOS DB. Tutte le metriche vengono archiviate nello spazio dei nomi **Cosmos DB metriche standard** .
 
 Per un elenco di tutte le metriche di supporto di monitoraggio di Azure (incluse Azure Cosmos DB), vedere [metriche supportate di monitoraggio di Azure](../azure-monitor/platform/metrics-supported.md). 
 

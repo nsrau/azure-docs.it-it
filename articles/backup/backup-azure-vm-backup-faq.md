@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande comuni 
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: f318d785fdfa5b72050bdd805ecfe801d307b9a7
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 74e2facfd9fd6073acc1f939c3d2ba922e3ac931
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92172836"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925578"
 ---
 # <a name="frequently-asked-questions-back-up-azure-vms"></a>Domande frequenti-eseguire il backup di macchine virtuali di Azure
 
@@ -76,6 +76,10 @@ Sì. È possibile annullare il processo di backup in uno stato **snapshot in cor
 Se si blocca il gruppo di risorse creato dal servizio backup di Azure, i backup inizieranno ad avere esito negativo perché è previsto un limite massimo di 18 punti di ripristino.
 
 Rimuovere il blocco e deselezionare la raccolta di punti di ripristino dal gruppo di risorse per fare in modo che i backup futuri abbiano esito positivo. Per rimuovere la raccolta di punti di ripristino, [attenersi alla seguente procedura](backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md#clean-up-restore-point-collection-from-azure-portal) .
+
+### <a name="i-have-a-lock-at-the-resource-group-level-that-contains-all-the-resources-related-to-my-virtual-machine-will-my-backup-work"></a>Ho un blocco a livello di gruppo di risorse che contiene tutte le risorse correlate alla macchina virtuale. Il backup funzionerà?
+
+Backup di Azure crea un gruppo di risorse distinto nel formato `AzureBackupRG_<geo>_<number>` per archiviare gli oggetti ResourcePointCollections. Poiché il gruppo di risorse è di proprietà del servizio, il blocco provocherà l'esito negativo dei backup. I blocchi possono essere applicati solo ai gruppi di risorse creati dal cliente.
 
 ### <a name="does-azure-backup-support-standard-ssd-managed-disks"></a>Backup di Azure supporta dischi standard gestiti da unità SSD?
 
@@ -145,7 +149,7 @@ Sì. Anche se si elimina la macchina virtuale, è possibile passare all'elemento
 
 ### <a name="how-do-i-restore-a-vm-to-the-same-availability-sets"></a>Ricerca per categorie ripristinare una macchina virtuale negli stessi set di disponibilità?
 
-Per le macchine virtuali di Azure con dischi gestiti, il ripristino dei set di disponibilità viene abilitato fornendo un'opzione nel modello durante il ripristino come Managed Disks. Il parametro di input di questo modello è denominato **Set di disponibilità**.
+Per le macchine virtuali di Azure con dischi gestiti, il ripristino dei set di disponibilità viene abilitato fornendo un'opzione nel modello durante il ripristino come Managed Disks. Il parametro di input di questo modello è denominato **Set di disponibilità** .
 
 ### <a name="how-do-we-get-faster-restore-performances"></a>In che modo si ottengono migliori prestazioni di ripristino?
 
@@ -181,7 +185,7 @@ Il backup della macchina virtuale viene eseguito usando le impostazioni di conse
 
    1. Trovare il percorso della macchina virtuale.
    2. Trovare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<location of your VM>_1` . Ad esempio, *AzureBackupRG_westus2_1*
-   3. Nella portale di Azure selezionare **Mostra tipi nascosti**.
+   3. Nella portale di Azure selezionare **Mostra tipi nascosti** .
    4. Trovare la risorsa con il tipo **Microsoft. Compute/restorePointCollections** con il modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
    6. Al termine dell'operazione di eliminazione, è possibile spostare la macchina virtuale.
@@ -199,7 +203,7 @@ Dopo aver spostato la macchina virtuale in un nuovo gruppo di risorse, è possib
 
 Se necessario, i punti di ripristino della macchina virtuale precedente saranno disponibili per il ripristino. Se questi dati di backup non sono necessari, è possibile arrestare la protezione della macchina virtuale precedente con l'eliminazione dei dati.
 
-### <a name="is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy"></a>Esiste un limite al numero di macchine virtuali che possono essere associate allo stesso criterio di backup?
+### <a name="is-there-a-limit-on-number-of-vms-that-can-be-associated-with-the-same-backup-policy"></a>Esiste un limite al numero di macchine virtuali che possono essere associate allo stesso criterio di backup?
 
 Sì, è previsto un limite di 100 VM che possono essere associate agli stessi criteri di backup dal portale. Per più di 100 macchine virtuali, è consigliabile creare più criteri di backup con la stessa pianificazione o una pianificazione diversa.
 

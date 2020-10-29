@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 04/14/2020
 ms.author: pafarley
-ms.openlocfilehash: c7c4e1cc854fdd2fbf03d2274992bbc4a3bb93af
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df800938d568af0b94cfb1d368ef32e9b085b6eb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88717898"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913110"
 ---
 # <a name="deploy-the-sample-labeling-tool"></a>Distribuire lo strumento di etichettatura di esempio
 
@@ -42,8 +42,8 @@ Prima di iniziare, è importante tenere presente che esistono due modi per distr
 Seguire questa procedura per creare una nuova risorsa usando il portale di Azure: 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/signin/index/).
-2. Selezionare **Crea una risorsa**. 
-3. Quindi selezionare **app Web**. 
+2. Selezionare **Crea una risorsa** . 
+3. Quindi selezionare **app Web** . 
 
    > [!div class="mx-imgBorder"]
    > ![Selezionare l'app Web](./media/quickstarts/formre-create-web-app.png)
@@ -95,14 +95,14 @@ Seguire questa procedura per creare una nuova risorsa usando il portale di Azure
    > [!div class="mx-imgBorder"]
    > ![Configurare Docker](./media/quickstarts/formre-configure-docker.png)
 
-7. È tutto. Selezionare quindi **Verifica + crea**e quindi **Crea** per distribuire l'app Web. Al termine, è possibile accedere all'app Web nell'URL fornito nella **Panoramica** della risorsa.
+7. È tutto. Selezionare quindi **Verifica + crea** e quindi **Crea** per distribuire l'app Web. Al termine, è possibile accedere all'app Web nell'URL fornito nella **Panoramica** della risorsa.
 
 > [!NOTE]
 > Quando si crea l'app Web, è anche possibile configurare l'autorizzazione/autenticazione. Questa operazione non è necessaria per iniziare. 
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-In alternativa all'uso del portale di Azure, è possibile creare una risorsa usando l'interfaccia della riga di comando di Azure. Prima di continuare, è necessario installare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). È possibile ignorare questo passaggio se si sta già lavorando con l'interfaccia della riga di comando di Azure. 
+In alternativa all'uso del portale di Azure, è possibile creare una risorsa usando l'interfaccia della riga di comando di Azure. Prima di continuare, è necessario installare l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli). È possibile ignorare questo passaggio se si sta già lavorando con l'interfaccia della riga di comando di Azure. 
 
 È necessario conoscere alcuni aspetti di questo comando:
 
@@ -149,7 +149,7 @@ az container create \
 
 ### <a name="connect-to-azure-ad-for-authorization"></a>Connetti a Azure AD per l'autorizzazione
 
-È consigliabile connettere l'app Web a Azure Active Directory. In questo modo si garantisce che solo gli utenti con credenziali valide possano accedere e usare l'app Web. Seguire le istruzioni riportate in [configurare l'app del servizio app](https://docs.microsoft.com/azure/app-service/configure-authentication-provider-aad) per connettersi a Azure Active Directory.
+È consigliabile connettere l'app Web a Azure Active Directory. In questo modo si garantisce che solo gli utenti con credenziali valide possano accedere e usare l'app Web. Seguire le istruzioni riportate in [configurare l'app del servizio app](../../app-service/configure-authentication-provider-aad.md) per connettersi a Azure Active Directory.
 
 ## <a name="open-source-on-github"></a>Open Source su GitHub
 

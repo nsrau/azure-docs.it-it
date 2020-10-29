@@ -9,12 +9,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 10/06/2020
 ms.author: kgremban
-ms.openlocfilehash: b1aa12bd73772b5d6332a36d749ec4d7d10d4026
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: abb3aa9ca7c9697fef1cf456964154249f0d69f3
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048186"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913977"
 ---
 # <a name="set-up-an-azure-iot-edge-device-with-x509-certificate-authentication"></a>Configurare un dispositivo di Azure IoT Edge con l'autenticazione del certificato X. 509
 
@@ -26,11 +26,11 @@ La procedura illustrata in questo articolo descrive un processo denominato provi
 
 Per il provisioning manuale, sono disponibili due opzioni per l'autenticazione dei dispositivi IoT Edge:
 
-* **Chiave simmetrica**: quando si crea una nuova identità del dispositivo nell'hub Internet, il servizio crea due chiavi. Si inserisce una delle chiavi nel dispositivo e viene visualizzata la chiave nell'hub Internet durante l'autenticazione.
+* **Chiave simmetrica** : quando si crea una nuova identità del dispositivo nell'hub Internet, il servizio crea due chiavi. Si inserisce una delle chiavi nel dispositivo e viene visualizzata la chiave nell'hub Internet durante l'autenticazione.
 
   Questo metodo di autenticazione è più veloce per iniziare, ma non come protetto.
 
-* **X. 509 autofirmato**: si creano due certificati di identità x. 509 e li si inserisce nel dispositivo. Quando si crea una nuova identità del dispositivo nell'hub Internet, è necessario fornire le identificazioni personali di entrambi i certificati. Quando il dispositivo esegue l'autenticazione nell'hub Internet, presenta i certificati e l'hub delle cose può verificare che corrispondano alle identificazioni personali.
+* **X. 509 autofirmato** : si creano due certificati di identità x. 509 e li si inserisce nel dispositivo. Quando si crea una nuova identità del dispositivo nell'hub Internet, è necessario fornire le identificazioni personali di entrambi i certificati. Quando il dispositivo esegue l'autenticazione nell'hub Internet, presenta i certificati e l'hub delle cose può verificare che corrispondano alle identificazioni personali.
 
   Questo metodo di autenticazione è più sicuro e consigliato per gli scenari di produzione.
 
@@ -44,9 +44,24 @@ Il provisioning manuale con certificati X. 509 richiede IoT Edge versione 1.0.10
 
 ## <a name="create-certificates-and-thumbprints"></a>Creare certificati e identificazioni personali
 
+Il certificato di identità del dispositivo è un certificato foglia che si connette tramite una catena di certificati di trust al certificato dell'autorità di certificazione X. 509 principale (CA). Il certificato di identità del dispositivo deve avere il nome comune (CN) impostato sull'ID del dispositivo che si vuole che il dispositivo abbia nell'hub Internet.
 
+I certificati di identità del dispositivo vengono usati solo per il provisioning del dispositivo IoT Edge e per l'autenticazione del dispositivo con l'hub Azure. Non firmano certificati, a differenza dei certificati della CA che il dispositivo IoT Edge presenta ai moduli o ai dispositivi foglia per la verifica. Per ulteriori informazioni, vedere [Azure IOT Edge dettagli sull'utilizzo del certificato](iot-edge-certs.md).
 
-<!-- TODO -->
+Dopo aver creato il certificato di identità del dispositivo, è necessario disporre di due file: un file con estensione cer o PEM che contiene la parte pubblica del certificato e un file con estensione cer o PEM con la chiave privata del certificato.
+
+Sono necessari i file seguenti per il provisioning manuale con X. 509:
+
+* Due set di certificati di identità del dispositivo e certificati di chiave privata. Un set di file di certificato/chiave viene fornito al runtime IoT Edge.
+* Identificazioni personali ottenute da entrambi i certificati di identità del dispositivo. I valori di identificazione personale sono 40 caratteri esadecimali per gli hash SHA-1 o i caratteri esadecimali 64 per gli hash SHA-256. Entrambe le identificazioni personali vengono fornite all'hub delle cose al momento della registrazione del dispositivo.
+
+Se non sono disponibili certificati, è possibile [creare certificati demo per testare le funzionalità del dispositivo IOT Edge](how-to-create-test-certificates.md). Seguire le istruzioni riportate in questo articolo per configurare gli script di creazione del certificato, creare un certificato CA radice e quindi creare due IoT Edge certificati di identità del dispositivo.
+
+Un modo per recuperare l'identificazione personale da un certificato è con il comando OpenSSL seguente:
+
+```cmd
+openssl x509 -in <certificate filename>.pem -text -fingerprint
+```
 
 ## <a name="register-a-new-device"></a>Registrare un nuovo dispositivo
 
@@ -54,7 +69,7 @@ Ogni dispositivo che si connette a un hub Internet ha un ID dispositivo usato pe
 
 Per l'autenticazione del certificato X. 509, queste informazioni vengono fornite sotto forma di *identificazione personale* ottenuta dai certificati di identità del dispositivo. Queste identificazioni personali vengono assegnate all'hub delle cose al momento della registrazione del dispositivo, in modo che il servizio possa riconoscere il dispositivo quando si connette.
 
-È possibile usare diversi strumenti per registrare un nuovo dispositivo IoT Edge nell'hub Internet e caricare le relative identificazioni personali del certificato. 
+È possibile usare diversi strumenti per registrare un nuovo dispositivo IoT Edge nell'hub Internet e caricare le relative identificazioni personali del certificato.
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -68,7 +83,7 @@ Nell'hub IoT sul portale di Azure, i dispositivi IoT Edge vengono creati e gesti
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'hub IoT.
 
-1. Nel riquadro sinistro selezionare **IOT Edge** dal menu e quindi selezionare **aggiungi un dispositivo IOT Edge**.
+1. Nel riquadro sinistro selezionare **IOT Edge** dal menu e quindi selezionare **aggiungi un dispositivo IOT Edge** .
 
    ![Aggiungere un dispositivo IoT Edge dalla portale di Azure](./media/how-to-manual-provision-symmetric-key/portal-add-iot-edge-device.png)
 
@@ -78,11 +93,11 @@ Nell'hub IoT sul portale di Azure, i dispositivi IoT Edge vengono creati e gesti
    * Selezionare **X.509 autofirmato** come tipo di autenticazione.
    * Fornire le identificazioni personali del certificato di identità primaria e secondaria. I valori di identificazione personale sono 40 caratteri esadecimali per gli hash SHA-1 o i caratteri esadecimali 64 per gli hash SHA-256.
 
-1. Selezionare **Salva**.
+1. Selezionare **Salva** .
 
 ### <a name="view-iot-edge-devices-in-the-azure-portal"></a>Visualizzare i dispositivi IoT Edge nel portale di Azure
 
-Tutti i dispositivi abilitati per Edge che si connettono all'hub IoT sono elencati nella pagina **IoT Edge**.
+Tutti i dispositivi abilitati per Edge che si connettono all'hub IoT sono elencati nella pagina **IoT Edge** .
 
 ![Visualizzare tutti i dispositivi IoT Edge nell'hub IoT](./media/how-to-manual-provision-symmetric-key/portal-view-devices.png)
 
@@ -121,7 +136,7 @@ Usare il comando [az iot hub device-identity list](/cli/azure/ext/azure-iot/iot/
 
 Aggiungere il flag `--edge-enabled` o `--ee` per elencare solo i dispositivi IOT Edge nell'hub.
 
-Per qualsiasi dispositivo registrato come dispositivo IoT Edge, la proprietà **capabilities.iotEdge** sarà impostata su **true**.
+Per qualsiasi dispositivo registrato come dispositivo IoT Edge, la proprietà **capabilities.iotEdge** sarà impostata su **true** .
 
 --- 
 
@@ -160,10 +175,10 @@ In un dispositivo Linux è possibile fornire queste informazioni modificando un 
 
 1. Aggiornare i campi seguenti:
 
-   * **iothub_hostname**: nome host dell'hub Internet delle cose a cui si connetterà il dispositivo. Ad esempio, `{IoT hub name}.azure-devices.net`
-   * **DEVICE_ID**: ID specificato durante la registrazione del dispositivo.
-   * **identity_cert**: URI di un certificato di identità nel dispositivo. Ad esempio, `file:///path/identity_certificate.pem`
-   * **identity_pk**: URI del file di chiave privata per il certificato di identità fornito. Ad esempio, `file:///path/identity_key.pem`
+   * **iothub_hostname** : nome host dell'hub Internet delle cose a cui si connetterà il dispositivo. Ad esempio `{IoT hub name}.azure-devices.net`.
+   * **DEVICE_ID** : ID specificato durante la registrazione del dispositivo.
+   * **identity_cert** : URI di un certificato di identità nel dispositivo. Ad esempio `file:///path/identity_certificate.pem`.
+   * **identity_pk** : URI del file di chiave privata per il certificato di identità fornito. Ad esempio `file:///path/identity_key.pem`.
 
 1. Salvare e chiudere il file.
 
@@ -202,10 +217,10 @@ In un dispositivo Linux è possibile fornire queste informazioni modificando un 
 
 3. Quando richiesto, specificare le informazioni seguenti:
 
-   * **IotHubHostName**: nome host dell'hub Internet delle cose a cui si connetterà il dispositivo. Ad esempio, `{IoT hub name}.azure-devices.net`
-   * **DeviceID**: ID specificato durante la registrazione del dispositivo.
-   * **X509IdentityCertificate**: percorso assoluto di un certificato di identità nel dispositivo. Ad esempio, `C:\path\identity_certificate.pem`
-   * **X509IdentityPrivateKey**: percorso assoluto del file di chiave privata per il certificato di identità fornito. Ad esempio, `C:\path\identity_key.pem`
+   * **IotHubHostName** : nome host dell'hub Internet delle cose a cui si connetterà il dispositivo. Ad esempio `{IoT hub name}.azure-devices.net`.
+   * **DeviceID** : ID specificato durante la registrazione del dispositivo.
+   * **X509IdentityCertificate** : percorso assoluto di un certificato di identità nel dispositivo. Ad esempio `C:\path\identity_certificate.pem`.
+   * **X509IdentityPrivateKey** : percorso assoluto del file di chiave privata per il certificato di identità fornito. Ad esempio `C:\path\identity_key.pem`.
 
 Quando si esegue il provisioning di un dispositivo manualmente, è possibile usare parametri aggiuntivi per modificare il processo, tra cui:
 

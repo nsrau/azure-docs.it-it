@@ -1,6 +1,6 @@
 ---
 title: Connettere i dati di Fortinet ad Azure Sentinel | Microsoft Docs
-description: Connettere il dispositivo Fortinet ad Azure Sentinel per visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi. 
+description: Connettere il dispositivo Fortinet ad Azure Sentinel per visualizzare i dashboard, creare avvisi personalizzati e migliorare l'analisi.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
 ms.author: yelevin
-ms.openlocfilehash: 8aa8599cbaab6af00d7b4122b94c9e24870881f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 60be22f439547d006f54e489833b63171e617e3e
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86511331"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913994"
 ---
 # <a name="connect-fortinet-to-azure-sentinel"></a>Connettere Fortinet ad Azure Sentinel
 
@@ -38,19 +38,19 @@ Configurare Fortinet per l'invio dei messaggi syslog in formato CEF all'area di 
 
     ```console
     config log syslogd setting
+    set status enable
     set format cef
     set port 514
     set server <ip_address_of_Receiver>
-    set status enable
     end
     ```
 
     - Sostituire l' **indirizzo IP** del server con l'indirizzo IP dell'agente.
     - Impostare la **porta syslog** su **514** o la porta impostata sull'agente.
-    - Per abilitare il formato CEF nelle prime versioni di FortiOS, potrebbe essere necessario eseguire il set di comandi **Disable CSV**.
+    - Per abilitare il formato CEF nelle prime versioni di FortiOS, potrebbe essere necessario eseguire il set di comandi **Disable CSV** .
  
    > [!NOTE] 
-   > Per ulteriori informazioni, visitare la [raccolta documenti Fortinet](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Selezionare la versione in uso e usare il **manuale** e il **riferimento ai messaggi di log**.
+   > Per ulteriori informazioni, visitare la [raccolta documenti Fortinet](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary). Selezionare la versione in uso e usare il **manuale** e il **riferimento ai messaggi di log** .
 
 1. Per usare lo schema pertinente in monitoraggio di Azure Log Analytics per gli eventi Fortinet, cercare `CommonSecurityLog` .
 

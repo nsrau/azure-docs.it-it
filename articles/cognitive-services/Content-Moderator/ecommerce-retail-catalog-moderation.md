@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/23/2020
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9aae410d320713650704e175006a6593b30f52a7
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 6d105528404c99f7273687fcdea6972b4212fcf1
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92504157"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913688"
 ---
 # <a name="tutorial-moderate-e-commerce-product-images-with-azure-content-moderator"></a>Esercitazione: Moderare immagini di prodotti per l'e-commerce con Azure Content Moderator
 
@@ -37,7 +37,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una chiave di sottoscrizione di Content Moderator. Seguire le istruzioni in [Creare un account Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) per sottoscrivere il servizio Content Moderator e ottenere la chiave.
+- Una chiave di sottoscrizione di Content Moderator. Seguire le istruzioni in [Creare un account Servizi cognitivi](../cognitive-services-apis-create-account.md) per sottoscrivere il servizio Content Moderator e ottenere la chiave.
 - Una chiave di sottoscrizione di Visione artificiale (seguire le istruzioni sopra).
 - Qualsiasi edizione di [Visual Studio 2015 o 2017](https://www.visualstudio.com/downloads/).
 - Un set di immagini per ogni etichetta che verrà usata dal classificatore di Visione personalizzata, in questo caso giocattoli, penne e bandiere degli Stati Uniti.
@@ -48,7 +48,7 @@ Fare riferimento all'argomento di avvio rapido [Provare Content Moderator sul We
 
 ## <a name="create-custom-moderation-tags"></a>Creare tag di moderazione personalizzati
 
-Creare ora tag personalizzati nello strumento di revisione. Vedere l'articolo [Informazioni sui tag](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/tags) per istruzioni su questo processo. In questo caso, si aggiungeranno i tag seguenti: **celebrità** , **Stati Uniti** , **bandiera** , **giocattoli** e **penna** . Non occorre che tutti i tag siano categorie rilevabili in Visione artificiale (ad esempio **celebrità** ). È possibile aggiungere tag personalizzati, purché si esegua il training del classificatore di Visione personalizzata per rilevarli in un secondo momento.
+Creare ora tag personalizzati nello strumento di revisione. Vedere l'articolo [Informazioni sui tag](./review-tool-user-guide/configure.md#tags) per istruzioni su questo processo. In questo caso, si aggiungeranno i tag seguenti: **celebrità** , **Stati Uniti** , **bandiera** , **giocattoli** e **penna** . Non occorre che tutti i tag siano categorie rilevabili in Visione artificiale (ad esempio **celebrità** ). È possibile aggiungere tag personalizzati, purché si esegua il training del classificatore di Visione personalizzata per rilevarli in un secondo momento.
 
 ![Configurare i tag personalizzati](images/tutorial-ecommerce-tags2.PNG)
 
@@ -90,11 +90,11 @@ Il metodo successivo accetta un URL di immagine e le informazioni sulla sottoscr
 
 ## <a name="evaluatecustomvisiontags-method"></a>Metodo EvaluateCustomVisionTags
 
-Successivamente, vedere il metodo **EvaluateCustomVisionTags** , che classifica gli effettivi prodotti, in questo caso bandiere, giocattoli e penne. Seguire le istruzioni nella guida [Come creare un classificatore](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/getting-started-build-a-classifier) per compilare un classificatore di immagini personalizzato per rilevare la presenza di bandiere, giocattoli e penne (o qualunque cosa si scelga per i tag personalizzati) nelle immagini. È possibile usare le immagini incluse nella cartella **sample-images** del [repository GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) per eseguire rapidamente il training di alcune categorie di questo esempio.
+Successivamente, vedere il metodo **EvaluateCustomVisionTags** , che classifica gli effettivi prodotti, in questo caso bandiere, giocattoli e penne. Seguire le istruzioni nella guida [Come creare un classificatore](../custom-vision-service/getting-started-build-a-classifier.md) per compilare un classificatore di immagini personalizzato per rilevare la presenza di bandiere, giocattoli e penne (o qualunque cosa si scelga per i tag personalizzati) nelle immagini. È possibile usare le immagini incluse nella cartella **sample-images** del [repository GitHub](https://github.com/MicrosoftContentModerator/samples-eCommerceCatalogModeration) per eseguire rapidamente il training di alcune categorie di questo esempio.
 
 ![Pagina web di Visione personalizzata con immagini di training di penne, giocattoli e bandiere](images/tutorial-ecommerce-custom-vision.PNG)
 
-Dopo aver eseguito il training del classificatore, ottenere la chiave di stima e l'URL dell'endpoint di stima (per istruzioni su come recuperarli, vedere [Ottenere l'URL e la chiave di stima](https://docs.microsoft.com/azure/cognitive-services/custom-vision-service/use-prediction-api#get-the-url-and-prediction-key)) e assegnare questi valori rispettivamente ai campi `CustomVisionKey` e `CustomVisionUri`. Il metodo usa questi valori per eseguire query sul classificatore. Se il classificatore rileva uno o più tag personalizzati nell'immagine, questo metodo imposta i valori corrispondenti nella matrice **ReviewTags** su **True** .
+Dopo aver eseguito il training del classificatore, ottenere la chiave di stima e l'URL dell'endpoint di stima (per istruzioni su come recuperarli, vedere [Ottenere l'URL e la chiave di stima](../custom-vision-service/use-prediction-api.md#get-the-url-and-prediction-key)) e assegnare questi valori rispettivamente ai campi `CustomVisionKey` e `CustomVisionUri`. Il metodo usa questi valori per eseguire query sul classificatore. Se il classificatore rileva uno o più tag personalizzati nell'immagine, questo metodo imposta i valori corrispondenti nella matrice **ReviewTags** su **True** .
 
 [!code-csharp[define EvaluateCustomVisionTags method](~/samples-eCommerceCatalogModeration/Fusion/Program.cs?range=148-171)]
 

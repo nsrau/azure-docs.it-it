@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 10/05/2019
 ms.author: allensu
-ms.openlocfilehash: 91823ff0d324cd30566948fecd86cc441342f14e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6ee6d88b5247209d5628c7f85f1985507d53811d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757045"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913722"
 ---
 # <a name="azure-private-link-frequently-asked-questions-faq"></a>Domande frequenti sul collegamento privato di Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "91757045"
 ### <a name="what-is-azure-private-endpoint-and-azure-private-link-service"></a>Che cos'è l'endpoint privato di Azure e il servizio di collegamento privato di Azure?
 
 - **[Endpoint privato](private-endpoint-overview.md)** di Azure: l'endpoint privato di Azure è un'interfaccia di rete che si connette privatamente e in modo sicuro a un servizio basato su collegamento privato di Azure. È possibile usare endpoint privati per connettersi a un servizio Azure PaaS che supporta il collegamento privato o al servizio di collegamento privato.
-- **[Servizio di collegamento privato di Azure](private-link-service-overview.md)**: il servizio di collegamento privato di Azure è un servizio creato da un provider di servizi. Attualmente, un servizio di collegamento privato può essere collegato alla configurazione IP front-end di un Load Balancer Standard. 
+- **[Servizio di collegamento privato di Azure](private-link-service-overview.md)** : il servizio di collegamento privato di Azure è un servizio creato da un provider di servizi. Attualmente, un servizio di collegamento privato può essere collegato alla configurazione IP front-end di un Load Balancer Standard. 
 
 ### <a name="how-is-traffic-being-sent-when-using-private-link"></a>Come viene inviato il traffico quando si usa un collegamento privato?
 Il traffico viene inviato privatamente usando la backbone Microsoft. Non attraversa Internet. Il collegamento privato di Azure non archivia i dati dei clienti.
@@ -48,6 +48,9 @@ Sì. Gli endpoint privati possono connettersi a servizi di collegamento privato 
  
 ### <a name="can-private-endpoint-connect-to-azure-paas-resources-across-azure-regions"></a>L'endpoint privato può connettersi alle risorse PaaS di Azure tra aree di Azure?
 Sì. Gli endpoint privati possono connettersi alle risorse PaaS di Azure tra aree di Azure.
+
+### <a name="can-i-modify-my-private-endpoint-network-interface-nic-"></a>È possibile modificare l'interfaccia di rete (NIC) dell'endpoint privato?
+Quando viene creato un endpoint privato, viene assegnata una scheda di interfaccia di rete di sola lettura. Questa operazione non può essere modificata e rimarrà per il ciclo di vita dell'endpoint privato.
 
 ## <a name="private-link-service"></a>Servizio Collegamento privato
  

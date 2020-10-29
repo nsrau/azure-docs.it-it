@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 6dfee84c44643823a4ec76c32e750febc6646be5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9405eb01dbe2d7ea9d4a9e64bf7dd79ca356e9f5
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908063"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926989"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
@@ -34,13 +34,21 @@ Usare questo modulo per misurare l'accuratezza di un modello sottoposto a traini
 
 
 ## <a name="how-to-use-evaluate-model"></a>Come usare Evaluate Model
-1. Connettere l'output **Scored dataset** del modulo [Score Model](./score-model.md) o l'output Result dataset del modulo [Assign Data to Clusters](./assign-data-to-clusters.md) alla porta di input sinistra di **Evaluate Model**. 
+1. Connettere l'output **Scored dataset** del modulo [Score Model](./score-model.md) o l'output Result dataset del modulo [Assign Data to Clusters](./assign-data-to-clusters.md) alla porta di input sinistra di **Evaluate Model** . 
     > [!NOTE] 
     > Se si usano moduli come "Select Columns in Dataset" per selezionare parte del set di dati di input, assicurarsi che la colonna Actual label (usata nel training), la colonna 'Scored Probabilities' e la colonna 'Scored labels' esistano per calcolare metriche come l'area sotto la curva e l'accuratezza per la classificazione binaria e il rilevamento anomalie.
     > La colonna Actual label e la colonna 'Scored Labels' consentono di calcolare le metriche per la classificazione/regressione multiclasse.
     > La colonna 'Assignments' e le colonne 'DistancesToClusterCenter no.X' (X è l'indice del centroide, che varia da 0 a numero di centroidi-1) consentono di calcolare le metriche per il clustering.
 
-2. [Facoltativo] Connettere l'output **Scored dataset** del modulo [Score Model](./score-model.md) o l'output Result dataset del modulo Assign Data to Clusters per il secondo modello alla porta di input **destra** di **Evaluate Model**. È possibile confrontare facilmente i risultati di due modelli diversi sugli stessi dati. I due algoritmi di input devono essere dello stesso tipo. In alternativa, è possibile confrontare i punteggi di due esecuzioni diverse sugli stessi dati con parametri diversi.
+    > [!IMPORTANT]
+    > + Per valutare i risultati, il set di dati di output deve contenere nomi di colonna di Punteggio specifici, che soddisfano i requisiti del modulo Evaluate Model.
+    > + La `Labels` colonna verrà considerata come etichette effettive.
+    > + Per l'attività di regressione, il set di dati da valutare deve avere una colonna, denominata `Regression Scored Labels` , che rappresenta le etichette con punteggio.
+    > + Per l'attività di classificazione binaria, il set di dati da valutare deve avere due colonne, denominate, `Binary Class Scored Labels` `Binary Class Scored Probabilities` , che rappresentano le etichette con punteggio e le probabilità rispettivamente.
+    > + Per l'attività di classificazione multiclassificazione, il set di dati da valutare deve avere una colonna, denominata `Multi Class Scored Labels` , che rappresenta le etichette con punteggio.
+    > Se gli output del modulo upstream non hanno queste colonne, è necessario modificarle in base ai requisiti indicati sopra.
+
+2. [Facoltativo] Connettere l'output **Scored dataset** del modulo [Score Model](./score-model.md) o l'output Result dataset del modulo Assign Data to Clusters per il secondo modello alla porta di input **destra** di **Evaluate Model** . È possibile confrontare facilmente i risultati di due modelli diversi sugli stessi dati. I due algoritmi di input devono essere dello stesso tipo. In alternativa, è possibile confrontare i punteggi di due esecuzioni diverse sugli stessi dati con parametri diversi.
 
     > [!NOTE]
     > Il tipo di algoritmo fa riferimento a 'classificazione a due classi', 'classificazione multiclasse', 'regressione', 'clustering' negli algoritmi di Machine Learning. 
@@ -49,14 +57,14 @@ Usare questo modulo per misurare l'accuratezza di un modello sottoposto a traini
 
 ## <a name="results"></a>Risultati
 
-Dopo aver eseguito il modulo **Evaluate Model** selezionarlo per aprire il riquadro di spostamento **Evaluate Model** a destra.  Quindi, scegliere la scheda **Outputs + logs**, in cui la sezione **Data Outputs** contiene diverse icone. L'icona **Visualize** presenta un'icona a forma di grafico a barre, che rappresenta il primo modo per vedere i risultati.
+Dopo aver eseguito il modulo **Evaluate Model** selezionarlo per aprire il riquadro di spostamento **Evaluate Model** a destra.  Quindi, scegliere la scheda **Outputs + logs** , in cui la sezione **Data Outputs** contiene diverse icone. L'icona **Visualize** presenta un'icona a forma di grafico a barre, che rappresenta il primo modo per vedere i risultati.
 
 Per la classificazione binaria, dopo aver fatto clic sull'icona **Visualizza** è possibile visualizzare la matrice di confusione binaria.
 Per la classificazione a più livelli, è possibile trovare il file del tracciato della matrice di confusione nella scheda **output + log** , come indicato di seguito:
 > [!div class="mx-imgBorder"]
 > ![Anteprima dell'immagine caricata](media/module/multi-class-confusion-matrix.png)
 
-Se si connettono i set di dati a entrambi gli input di **Evaluate Model**, i risultati conterranno le metriche per entrambi i set di dati o per entrambi i modelli.
+Se si connettono i set di dati a entrambi gli input di **Evaluate Model** , i risultati conterranno le metriche per entrambi i set di dati o per entrambi i modelli.
 Il modello o i dati collegati alla porta sinistra vengono presentati prima nel report, poi nelle metriche per il set di dati o il modello collegato alla porta destra.  
 
 Ad esempio, l'immagine seguente rappresenta un confronto dei risultati di due modelli di clustering basati sugli stessi dati, ma con parametri diversi.  
@@ -67,7 +75,7 @@ Poiché si tratta di un modello di clustering, i risultati della valutazione son
 
 ## <a name="metrics"></a>Metriche
 
-Questa sezione descrive le metriche restituite per i tipi specifici di modelli supportati per l'uso con **Evaluate Model**:
+Questa sezione descrive le metriche restituite per i tipi specifici di modelli supportati per l'uso con **Evaluate Model** :
 
 + [Modelli di classificazione](#metrics-for-classification-models)
 + [Modelli di regressione](#metrics-for-regression-models)
@@ -78,15 +86,15 @@ Questa sezione descrive le metriche restituite per i tipi specifici di modelli s
 
 Quando si valutano i modelli di classificazione binaria, vengono restituite le metriche seguenti.
   
--   **Accuratezza**: misura la validità di un modello di classificazione come percentuale dei risultati effettivi rispetto al numero totale di casi.  
+-   **Accuratezza** : misura la validità di un modello di classificazione come percentuale dei risultati effettivi rispetto al numero totale di casi.  
   
--   **Precisione**: rappresenta la percentuale di risultati effettivi rispetto a tutti i risultati positivi. Precisione = TP/(TP + FP)  
+-   **Precisione** : rappresenta la percentuale di risultati effettivi rispetto a tutti i risultati positivi. Precisione = TP/(TP + FP)  
   
 -   **Richiama** è la frazione della quantità totale di istanze rilevanti effettivamente recuperate. Richiamo = TP/(TP + FN)  
   
 -   Il **Punteggio F1** viene calcolato come media ponderata della precisione e richiama tra 0 e 1, dove il valore del Punteggio F1 ideale è 1.  
   
--   **Area sotto la curva**: misura l'area sotto la curva tracciata con i veri positivi sull'asse Y e i falsi positivi sull'asse X. Questa metrica è utile perché fornisce un singolo numero che consente di confrontare modelli di tipi diversi.  
+-   **Area sotto la curva** : misura l'area sotto la curva tracciata con i veri positivi sull'asse Y e i falsi positivi sull'asse X. Questa metrica è utile perché fornisce un singolo numero che consente di confrontare modelli di tipi diversi.  
 
 
 ### <a name="metrics-for-regression-models"></a>Metriche per i modelli di regressione
@@ -105,7 +113,7 @@ Le metriche restituite per i modelli di regressione sono progettate per stimare 
   
 
   
-- **Coefficiente di determinazione**: spesso definito R<sup>2</sup>, rappresenta la potenza predittiva del modello come valore compreso tra 0 e 1. Zero indica che il modello è casuale (non spiega niente); 1 indica una soluzione perfetta. Tuttavia, è consigliabile interpretare con cautela i valori di R<sup>2</sup>, in quanto i valori bassi possono essere perfettamente normali e i valori alti possono essere sospetti.
+- **Coefficiente di determinazione** : spesso definito R <sup>2</sup>, rappresenta la potenza predittiva del modello come valore compreso tra 0 e 1. Zero indica che il modello è casuale (non spiega niente); 1 indica una soluzione perfetta. Tuttavia, è consigliabile interpretare con cautela i valori di R<sup>2</sup>, in quanto i valori bassi possono essere perfettamente normali e i valori alti possono essere sospetti.
 
 ###  <a name="metrics-for-clustering-models"></a>Metriche per i modelli di clustering
 
@@ -125,9 +133,9 @@ Per la valutazione dei modelli di clustering, vengono segnalate le metriche segu
   
      Se il numero di punti dati assegnati ai cluster è minore del numero totale di punti dati disponibili, significa che a un cluster non è stato possibile assegnare punti dati.  
   
--   I punteggi nella colonna, **distanza massima da cluster Center**, rappresentano il numero massimo di distanze tra ogni punto e il baricentro del cluster del punto.  
+-   I punteggi nella colonna, **distanza massima da cluster Center** , rappresentano il numero massimo di distanze tra ogni punto e il baricentro del cluster del punto.  
   
-     Se questo numero è elevato, può indicare che il cluster è ampiamente distribuito. Per determinare la distribuzione del cluster, è necessario esaminare questa statistica insieme al punteggio **Average Distance to Cluster Center**.   
+     Se questo numero è elevato, può indicare che il cluster è ampiamente distribuito. Per determinare la distribuzione del cluster, è necessario esaminare questa statistica insieme al punteggio **Average Distance to Cluster Center** .   
 
 -   Il punteggio **Combined Evaluation** alla fine di ogni sezione di risultati indica i punteggi medi dei cluster creati in quel particolare modello.  
   

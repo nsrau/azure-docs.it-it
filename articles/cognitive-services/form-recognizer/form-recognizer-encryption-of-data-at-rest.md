@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: c959231826125349ecd6a62afe529248f7ac2eec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7a8b331c1295ed19afa64e95318bfa14414e6d9f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326797"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913059"
 ---
 # <a name="form-recognizer-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi per il riconoscimento moduli
 
@@ -30,4 +30,4 @@ Il riconoscitore di form di Azure crittografa automaticamente i dati in modo per
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Form di richiesta della chiave Customer-Managed riconoscimento form](https://aka.ms/cogsvc-cmk)
-* [Altre informazioni su Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Altre informazioni su Azure Key Vault](../../key-vault/general/overview.md)

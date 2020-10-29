@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 7dd23f481409eb3498893c1c7f9c0fd8311b9af2
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 0a06bbeb4946f03b9cb6e5b1400521a0abffdd7f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92901597"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913535"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando Azure Data Factory
 
@@ -42,7 +42,7 @@ Per l'attività di copia, questo connettore di Azure Synapse Analytics supporta 
 
 - La copia di dati tramite l'autenticazione SQL e l'autenticazione token dell'applicazione Azure Active Directory (Azure AD) con entità servizio o identità gestite per le risorse di Azure.
 - Come origine, il recupero di dati tramite query SQL o stored procedure. Per informazioni dettagliate, è anche possibile scegliere di eseguire la copia parallela da un'origine di analisi [sinapsi di Azure](#parallel-copy-from-synapse-analytics) .
-- Come sink, il caricamento di dati tramite [PolyBase](#use-polybase-to-load-data-into-azure-synapse-analytics), un'[istruzione COPY](#use-copy-statement) (anteprima) o un inserimento bulk. Per migliorare le prestazioni di copia, è consigliabile usare PolyBase o l'istruzione COPY (anteprima). Il connettore supporta inoltre la creazione automatica della tabella di destinazione se non esiste in base allo schema di origine.
+- Come sink, caricare i dati utilizzando l'istruzione di [base](#use-polybase-to-load-data-into-azure-synapse-analytics) o di [copia](#use-copy-statement) o BULK INSERT. Per migliorare le prestazioni di copia, è consigliabile usare l'istruzione di base o di copia. Il connettore supporta inoltre la creazione automatica della tabella di destinazione se non esiste in base allo schema di origine.
 
 > [!IMPORTANT]
 > Se si copiano i dati usando Azure Data Factory Integration Runtime, configurare una [regola del firewall a livello di server](../azure-sql/database/firewall-configure.md) in modo che i servizi di Azure possano accedere al [server SQL logico](../azure-sql/database/logical-servers.md).
@@ -51,7 +51,7 @@ Per l'attività di copia, questo connettore di Azure Synapse Analytics supporta 
 ## <a name="get-started"></a>Introduzione
 
 > [!TIP]
-> Per ottenere prestazioni ottimali, usare PolyBase per caricare i dati in Azure Synapse Analytics. Per i dettagli, vedere la sezione [Usare PolyBase per caricare dati in Azure Synapse Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics). Per una procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure Synapse Analytics in meno di 15 minuti con Azure Data Factory](load-azure-sql-data-warehouse.md).
+> Per ottenere prestazioni ottimali, usare l'istruzione di base o di copia per caricare i dati in Azure sinapsi Analytics. L' [uso della polibase per caricare i dati in Azure sinapsi Analytics](#use-polybase-to-load-data-into-azure-synapse-analytics) e [usare l'istruzione Copy per caricare i dati nelle sezioni di analisi di sinapsi di Azure](#use-copy-statement) contiene informazioni dettagliate. Per una procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure Synapse Analytics in meno di 15 minuti con Azure Data Factory](load-azure-sql-data-warehouse.md).
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -478,7 +478,7 @@ Se la tabella contiene una partizione fisica, verrà visualizzato "HasPartition"
 - Se l'archivio e il formato dei dati di origine non sono supportati in origine da PolyBase, usare la funzionalità **[copia di staging tramite PolyBase](#staged-copy-by-using-polybase)** . La funzionalità copia di staging assicura inoltre una migliore velocità effettiva, Converte automaticamente i dati in un formato compatibile con polibase, archivia i dati nell'archiviazione BLOB di Azure e quindi chiama la polibase per caricare i dati in Azure sinapsi Analytics.
 
 > [!TIP]
-> Per altre informazioni, vedere [Procedure consigliate per l'uso di PolyBase](#best-practices-for-using-polybase). Quando si usa la polibase con Azure Integration Runtime, DIUs (Data Integration Unit) valido è sempre 2. L'ottimizzazione del DIU non influisca sulle prestazioni, perché il caricamento dei dati dall'archiviazione è basato sul motore sinapsi.
+> Per altre informazioni, vedere [Procedure consigliate per l'uso di PolyBase](#best-practices-for-using-polybase). Quando si usa la polibase con Azure Integration Runtime, le [unità di integrazione dati](copy-activity-performance-features.md#data-integration-units) effettive per l'archiviazione diretta o temporanea a sinapsi sono sempre 2. L'ottimizzazione del DIU non influisca sulle prestazioni, perché il caricamento dei dati dall'archiviazione è basato sul motore sinapsi.
 
 Le impostazioni di PolyBase seguenti sono supportate in `polyBaseSettings` nell'attività di copia:
 
@@ -507,7 +507,8 @@ Se i requisiti non vengono soddisfatti, Azure Data Factory controlla le impostaz
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | Autenticazione della chiave dell'account, autenticazione tramite identità gestita |
 
     >[!IMPORTANT]
-    >Se l'archiviazione di Azure è configurata con l'endpoint del servizio VNet, è necessario usare l'autenticazione tramite identità gestita. Vedere [Impatto dell'uso degli endpoint di servizio di rete virtuale con Archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Per informazioni sulle configurazioni necessarie in Data Factory, vedere rispettivamente le sezioni [Archiviazione BLOB di Azure - autenticazione dell'identità gestita](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2 - autenticazione dell'identità gestita](connector-azure-data-lake-storage.md#managed-identity).
+    >- Quando si usa l'autenticazione dell'identità gestita per il servizio collegato di archiviazione, è possibile acquisire informazioni sulle configurazioni necessarie per i [BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity) rispettivamente.
+    >- Se l'archiviazione di Azure è configurata con l'endpoint di servizio di VNet, è necessario usare l'autenticazione di identità gestita con l'abilitazione del servizio Microsoft attendibile nell'account di archiviazione, per vedere l' [effetto dell'uso degli endpoint di servizio VNet con archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 2. Il **formato dei dati di origine** è **Parquet** , **ORC** o **Testo delimitato** , con le configurazioni seguenti:
 
@@ -567,7 +568,8 @@ Quando i dati di origine non sono compatibili in modo nativo con la polibase, ab
 Per usare questa funzionalità, creare un [servizio collegato di archiviazione BLOB di Azure](connector-azure-blob-storage.md#linked-service-properties) o [Azure Data Lake storage Gen2 servizio collegato](connector-azure-data-lake-storage.md#linked-service-properties) con la **chiave dell'account o l'autenticazione dell'identità gestita** che fa riferimento all'account di archiviazione di Azure come archivio provvisorio.
 
 >[!IMPORTANT]
->Se l'istanza di staging di Archiviazione di Azure è configurata con l'endpoint del servizio VNet, è necessario usare l'autenticazione tramite identità gestita. Vedere [Impatto dell'uso degli endpoint di servizio di rete virtuale con Archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Informazioni sulle configurazioni richieste in Data Factory dall'autenticazione di [identità gestita da BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e dall' [autenticazione di identità gestita da Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity).
+>- Quando si usa l'autenticazione dell'identità gestita per il servizio collegato di gestione temporanea, informazioni sulle configurazioni necessarie per il [BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity) rispettivamente.
+>- Se l'archiviazione di Azure di gestione temporanea è configurata con l'endpoint del servizio VNet, è necessario usare l'autenticazione di identità gestita con l'abilitazione del servizio Microsoft attendibile nell'account di archiviazione. vedere l' [effetto dell'uso degli endpoint di servizio VNet con archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). 
 
 ```json
 "activities":[
@@ -673,7 +675,7 @@ L' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql) (anteprima) d
 >Attualmente Data Factory supporta la copia solo dalle origini compatibili con l'istruzione COPY indicate di seguito.
 
 >[!TIP]
->Quando si usa un'istruzione COPY con Azure Integration Runtime, DIUs (Data Integration Unit) è sempre 2. L'ottimizzazione del DIU non influisca sulle prestazioni, perché il caricamento dei dati dall'archiviazione è basato sul motore sinapsi.
+>Quando si usa l'istruzione COPY con Azure Integration Runtime, [Data Integration Unit (DIU)](copy-activity-performance-features.md#data-integration-units) efficace è sempre 2. L'ottimizzazione del DIU non influisca sulle prestazioni, perché il caricamento dei dati dall'archiviazione è basato sul motore sinapsi.
 
 L'uso dell'istruzione COPY supporta la configurazione seguente:
 
@@ -687,7 +689,8 @@ L'uso dell'istruzione COPY supporta la configurazione seguente:
     | [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | [Testo delimitato](format-delimited-text.md)<br/>[Parquet](format-parquet.md)<br/>[ORC](format-orc.md) | Autenticazione della chiave dell'account, autenticazione basata su entità servizio, autenticazione tramite identità gestita |
 
     >[!IMPORTANT]
-    >Se l'archiviazione di Azure è configurata con l'endpoint del servizio VNet, è necessario usare l'autenticazione tramite identità gestita. Vedere [Impatto dell'uso degli endpoint di servizio di rete virtuale con Archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Per informazioni sulle configurazioni necessarie in Data Factory, vedere rispettivamente le sezioni [Archiviazione BLOB di Azure - autenticazione dell'identità gestita](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake Storage Gen2 - autenticazione dell'identità gestita](connector-azure-data-lake-storage.md#managed-identity).
+    >- Quando si usa l'autenticazione dell'identità gestita per il servizio collegato di archiviazione, è possibile acquisire informazioni sulle configurazioni necessarie per i [BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity) rispettivamente.
+    >- Se l'archiviazione di Azure è configurata con l'endpoint di servizio di VNet, è necessario usare l'autenticazione di identità gestita con l'abilitazione del servizio Microsoft attendibile nell'account di archiviazione, per vedere l' [effetto dell'uso degli endpoint di servizio VNet con archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 2. Le impostazioni del formato sono le seguenti:
 
@@ -769,7 +772,10 @@ Le impostazioni specifiche di Azure Synapse Analytics sono disponibili nella sch
 
 **Input** di Consente di specificare se puntare l'origine a una tabella (equivalente a ```Select * from <table-name>``` ) o immettere una query SQL personalizzata.
 
-**Abilita gestione temporanea** Si consiglia di usare questa opzione nei carichi di lavoro di produzione con origini sinapsi DW. Quando si esegue un'attività del flusso di dati con origini Synapase da una pipeline, ADF richiede un account di archiviazione del percorso di gestione temporanea che verrà usato per il caricamento di dati di staging. Si tratta del meccanismo più veloce per caricare i dati da sinapsi DW.
+**Abilita gestione temporanea** Si consiglia vivamente di usare questa opzione nei carichi di lavoro di produzione con le origini di analisi di sinapsi di Azure. Quando si esegue un' [attività del flusso di dati](control-flow-execute-data-flow-activity.md) con origini di Azure sinapsi Analytics da una pipeline, ADF richiede un account di archiviazione del percorso di gestione temporanea che verrà usato per il caricamento di dati di staging. Si tratta del meccanismo più veloce per caricare i dati da Azure sinapsi Analytics.
+
+- Quando si usa l'autenticazione dell'identità gestita per il servizio collegato di archiviazione, è possibile acquisire informazioni sulle configurazioni necessarie per i [BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity) rispettivamente.
+- Se l'archiviazione di Azure è configurata con l'endpoint di servizio di VNet, è necessario usare l'autenticazione di identità gestita con l'abilitazione del servizio Microsoft attendibile nell'account di archiviazione, per vedere l' [effetto dell'uso degli endpoint di servizio VNet con archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 **Query** : se si seleziona Query nel campo di input, immettere una query SQL per l'origine. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati. Le clausole **Order By** non sono supportate, ma è possibile impostare un'istruzione SELECT FROM completa. È possibile usare anche funzioni di tabella definite dall'utente. **select * from udfGetData()** è un UDF in SQL che restituisce una tabella. Questa query produrrà una tabella di origine che può essere usata nel flusso di dati. L'uso di query è anche un ottimo modo per ridurre le righe per i test o le ricerche.
 
@@ -798,7 +804,10 @@ Le impostazioni specifiche di Azure Synapse Analytics sono disponibili nella sch
 - Recreate table (Ricrea tabella): la tabella verrà eliminata e ricreata. Questa opzione è obbligatoria se si crea una nuova tabella in modo dinamico.
 - Truncate table (Tronca tabella): verranno rimosse tutte le righe della tabella di destinazione.
 
-**Enable staging** (Abilita staging): determina se usare o meno [PolyBase](/sql/relational-databases/polybase/polybase-guide) per la scrittura in Azure Synapse Analytics.
+**Abilita staging:** Determina se usare o meno la [polibase](/sql/relational-databases/polybase/polybase-guide) durante la scrittura in Azure sinapsi Analytics. L'archiviazione di gestione temporanea è configurata nell' [attività Esegui flusso di dati](control-flow-execute-data-flow-activity.md). 
+
+- Quando si usa l'autenticazione dell'identità gestita per il servizio collegato di archiviazione, è possibile acquisire informazioni sulle configurazioni necessarie per i [BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity) rispettivamente.
+- Se l'archiviazione di Azure è configurata con l'endpoint di servizio di VNet, è necessario usare l'autenticazione di identità gestita con l'abilitazione del servizio Microsoft attendibile nell'account di archiviazione, per vedere l' [effetto dell'uso degli endpoint di servizio VNet con archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage).
 
 **Dimensioni batch** : controlla il numero di righe scritte in ogni bucket. Dimensioni batch più grandi migliorano l'ottimizzazione della compressione e della memoria, ma rischiano di causare eccezioni di memoria insufficiente durante la memorizzazione nella cache dei dati.
 

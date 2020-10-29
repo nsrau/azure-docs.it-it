@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 68a393865038722f2fd7fa5e42334f8d5e760951
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3de5a449e90452307f3c9b02c725050df6fdd873
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "70078859"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925680"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Disponibilità di SAP HANA tra aree di Azure
 
@@ -74,7 +74,7 @@ Una possibile architettura con replica con più destinazioni può essere simile 
 
 Se l'organizzazione prevede requisiti di conformità per disponibilità elevata nella seconda area di Azure (ripristino di emergenza), l'architettura sarà simile alla seguente:
 
-![Diagramma di tre macchine virtuali su due aree con più destinazioni](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
+![Diagramma che mostra un'organizzazione con requisiti per la disponibilità elevata nella seconda area di Azure (DR).](./media/sap-hana-availability-two-region/saphanaavailability_hana_system_2region_HA_and_DR_multitarget_4VMs.PNG)
 
 
 Con la modalità operativa logreplay, questa configurazione offre un RPO=0, con un basso RTO, all'interno dell'area primaria. La configurazione fornisce anche un RPO accettabile se si verifica uno spostamento nella seconda area. I tempi di RTO nella seconda area dipendono dal fatto che si precarichino o meno i dati. Molti clienti usano la macchina virtuale nell'area secondaria per eseguire un sistema di test. In tale caso d'uso i dati non possono essere precaricati.

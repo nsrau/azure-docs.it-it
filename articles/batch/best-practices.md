@@ -3,12 +3,12 @@ title: Procedure consigliate
 description: Procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0663d1910e2b67b8302e41a96509bdd84cd1a3a0
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: dff6668050e45d9179cd985aa10670b56afe5377
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92102779"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913229"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -20,7 +20,7 @@ I [pool](nodes-and-pools.md#pools) sono le risorse di calcolo per l'esecuzione d
 
 ### <a name="pool-configuration-and-naming"></a>Configurazione e denominazione del pool
 
-- **Modalità di allocazione pool** Quando si crea un account Batch, è possibile scegliere tra due modalità di allocazione pool: **servizio Batch** o **sottoscrizione utente**. Nella maggior parte dei casi si userà la modalità predefinita del servizio Batch, in cui i pool vengono allocati dietro le quinte nelle sottoscrizioni gestite da Batch. Nella modalità sottoscrizione utente alternativa, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione in fase di creazione di un pool. Gli account di sottoscrizione utente vengono usati principalmente per rendere possibile un sottoinsieme di scenari, piccolo ma importante. Per altre informazioni sulla modalità di sottoscrizione utente, vedere [Configurazione aggiuntiva per la modalità di sottoscrizione utente](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
+- **Modalità di allocazione pool** Quando si crea un account Batch, è possibile scegliere tra due modalità di allocazione pool: **servizio Batch** o **sottoscrizione utente** . Nella maggior parte dei casi si userà la modalità predefinita del servizio Batch, in cui i pool vengono allocati dietro le quinte nelle sottoscrizioni gestite da Batch. Nella modalità sottoscrizione utente alternativa, le macchine virtuali e le altre risorse di Batch vengono create direttamente nella sottoscrizione in fase di creazione di un pool. Gli account di sottoscrizione utente vengono usati principalmente per rendere possibile un sottoinsieme di scenari, piccolo ma importante. Per altre informazioni sulla modalità di sottoscrizione utente, vedere [Configurazione aggiuntiva per la modalità di sottoscrizione utente](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
 
 - **Considerare il tempo di esecuzione di processi e attività per determinare il mapping tra processi e pool.**
     Se i processi sono costituiti prevalentemente da attività di breve durata e il numero totale previsto di attività è ridotto, per cui il tempo di esecuzione complessivo previsto per il processo non è molto lungo, non allocare un nuovo pool per ogni processo. Il tempo di allocazione dei nodi ridurrà il tempo di esecuzione del processo.
@@ -41,7 +41,7 @@ I [pool](nodes-and-pools.md#pools) sono le risorse di calcolo per l'esecuzione d
 La durata del pool può variare a seconda del metodo di allocazione e delle opzioni applicate alla relativa configurazione. I pool possono avere una durata arbitraria e un numero variabile di nodi di calcolo in qualsiasi momento. È responsabilità dell'utente gestire i nodi di calcolo nel pool in modo esplicito o tramite le funzionalità fornite dal servizio (scalabilità automatica o pool automatici).
 
 - **Mantenere i pool aggiornati.**
-    È consigliabile ridimensionare i pool a zero ogni pochi mesi per assicurarsi di ottenere gli aggiornamenti più recenti degli agenti dei nodi e le correzioni di bug. Il pool non riceverà gli aggiornamenti degli agenti dei nodi a meno che non venga ricreato o ridimensionato a 0 nodi di calcolo. Prima di ricreare o ridimensionare il pool, è consigliabile scaricare tutti i log degli agenti dei nodi a scopo di debug, come descritto nella sezione [Nodi](#nodes).
+    È necessario ridimensionare i pool a zero ogni pochi mesi per assicurarsi di ottenere gli [aggiornamenti più recenti dell'agente del nodo e le correzioni di bug](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md). Il pool non riceverà gli aggiornamenti degli agenti dei nodi a meno che non venga ricreato o ridimensionato a 0 nodi di calcolo. Prima di ricreare o ridimensionare il pool, è consigliabile scaricare tutti i log degli agenti dei nodi a scopo di debug, come descritto nella sezione [Nodi](#nodes).
 
 - **Ricreazione del pool** Analogamente, non è consigliabile eliminare e ricreare i pool su base giornaliera. Creare invece un nuovo pool e aggiornare i processi esistenti in modo che puntino a questo pool. Una volta spostate tutte le attività nel nuovo pool, eliminare quello precedente.
 
@@ -67,7 +67,7 @@ I pool possono essere creati usando immagini di terze parti pubblicate in Azure 
 
 ### <a name="azure-region-dependency"></a>Dipendenza dall'area di Azure
 
-Nel caso di carichi di lavoro di produzione o dipendenti dal tempo, è consigliabile evitare di dipendere da una singola area di Azure. Anche se rari, esistono problemi che possono influire su un'intera area. Se ad esempio l'elaborazione deve essere avviata a un'ora specifica, è consigliabile aumentare il pool nell'area primaria *con molto anticipo rispetto all'ora di inizio*. Se l'aumento del pool non riesce in quell'area, è possibile eseguirne il fallback in una o più aree di backup. I pool distribuiti tra più account in aree diverse forniscono un backup pronto e facilmente accessibile se si verificano problemi in un altro pool. Per altre informazioni, vedere [Progettare l'applicazione per la disponibilità elevata](high-availability-disaster-recovery.md).
+Nel caso di carichi di lavoro di produzione o dipendenti dal tempo, è consigliabile evitare di dipendere da una singola area di Azure. Anche se rari, esistono problemi che possono influire su un'intera area. Se ad esempio l'elaborazione deve essere avviata a un'ora specifica, è consigliabile aumentare il pool nell'area primaria *con molto anticipo rispetto all'ora di inizio* . Se l'aumento del pool non riesce in quell'area, è possibile eseguirne il fallback in una o più aree di backup. I pool distribuiti tra più account in aree diverse forniscono un backup pronto e facilmente accessibile se si verificano problemi in un altro pool. Per altre informazioni, vedere [Progettare l'applicazione per la disponibilità elevata](high-availability-disaster-recovery.md).
 
 ## <a name="jobs"></a>Processi
 

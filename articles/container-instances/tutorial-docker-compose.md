@@ -2,14 +2,14 @@
 title: Esercitazione - Usare Docker Compose per distribuire un gruppo multi-contenitore
 description: Usare Docker Compose per compilare ed eseguire un'applicazione multi-contenitore e quindi visualizzare l'applicazione in Istanze di Azure Container
 ms.topic: tutorial
-ms.date: 09/14/2020
+ms.date: 10/28/2020
 ms.custom: ''
-ms.openlocfilehash: 1e8a5cd856358a0dc3e9c356cb3a55f75db29c86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a71ff438feaef555a85c33d818c287c64621d40d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708273"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913841"
 ---
 # <a name="tutorial-deploy-a-multi-container-group-using-docker-compose"></a>Esercitazione: Distribuire un gruppo multi-contenitore usando Docker Compose 
 
@@ -35,9 +35,9 @@ In questo articolo si apprenderà come:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Interfaccia della riga di comando di Azure**: è necessario che nel computer locale sia installata l'interfaccia della riga di comando di Azure. È consigliabile usare la versione 2.10.1 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* **Interfaccia della riga di comando di Azure** : è necessario che nel computer locale sia installata l'interfaccia della riga di comando di Azure. È consigliabile usare la versione 2.10.1 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-* **Docker Desktop**: è necessario usare Docker Desktop versione 2.3.0.5 o successiva, disponibile per [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) o [macOS](https://desktop.docker.com/mac/edge/Docker.dmg) oppure installare l'[interfaccia della riga di comando di integrazione fra Docker e Istanze di Azure Container per Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux).
+* **Docker Desktop** : è necessario usare Docker Desktop versione 2.3.0.5 o successiva, disponibile per [Windows](https://desktop.docker.com/win/edge/Docker%20Desktop%20Installer.exe) o [macOS](https://desktop.docker.com/mac/edge/Docker.dmg) oppure installare l'[interfaccia della riga di comando di integrazione fra Docker e Istanze di Azure Container per Linux](https://docs.docker.com/engine/context/aci-integration/#install-the-docker-aci-integration-cli-on-linux).
 
 [!INCLUDE [container-instances-create-registry](../../includes/container-instances-create-registry.md)]
 
@@ -67,14 +67,16 @@ Aprire docker-compose.yaml in un editor di testo. Il file configura i servizi `a
 version: '3'
 services:
   azure-vote-back:
-    image: redis
+    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
     container_name: azure-vote-back
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
     ports:
         - "6379:6379"
 
   azure-vote-front:
     build: ./azure-vote
-    image: azure-vote-front
+    image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
     container_name: azure-vote-front
     environment:
       REDIS: azure-vote-back
@@ -84,7 +86,7 @@ services:
 
 Nella configurazione di `azure-vote-front`, apportare le due modifiche seguenti:
 
-1. Aggiornare la proprietà `image` nel servizio `azure-vote-front`. Aggiungere al nome dell'immagine un prefisso costituito dal nome del server di accesso del registro contenitori di Azure, \<acrName\>.azurecr.io. Se ad esempio il registro è denominato *myregistry*, il nome del server di accesso è *myregistry.azurecr.io* (tutto minuscolo) e la proprietà image è quindi `myregistry.azurecr.io/azure-vote-front`.
+1. Aggiornare la proprietà `image` nel servizio `azure-vote-front`. Aggiungere al nome dell'immagine un prefisso costituito dal nome del server di accesso del registro contenitori di Azure, \<acrName\>.azurecr.io. Se ad esempio il registro è denominato *myregistry* , il nome del server di accesso è *myregistry.azurecr.io* (tutto minuscolo) e la proprietà image è quindi `myregistry.azurecr.io/azure-vote-front`.
 1. Impostare il mapping di `ports` su `80:80`. Salvare il file.
 
 Il file aggiornato dovrebbe essere simile al seguente:
@@ -93,8 +95,10 @@ Il file aggiornato dovrebbe essere simile al seguente:
 version: '3'
 services:
   azure-vote-back:
-    image: redis
+    image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
     container_name: azure-vote-back
+    environment:
+      ALLOW_EMPTY_PASSWORD: "yes"
     ports:
         - "6379:6379"
 
@@ -128,7 +132,7 @@ $ docker images
 
 REPOSITORY                                TAG        IMAGE ID            CREATED             SIZE
 myregistry.azurecr.io/azure-vote-front    latest     9cc914e25834        40 seconds ago      944MB
-redis                                     latest     a1b99da73d05        7 days ago          104MB
+mcr.microsoft.com/oss/bitnami/redis       6.0.8      3a54a920bb6c        4 weeks ago          103MB
 tiangolo/uwsgi-nginx-flask                python3.6  788ca94b2313        9 months ago        9444MB
 ```
 
@@ -137,9 +141,9 @@ Eseguire il comando [docker ps](https://docs.docker.com/engine/reference/command
 ```
 $ docker ps
 
-CONTAINER ID        IMAGE                                   COMMAND                  CREATED             STATUS              PORTS                           NAMES
-82411933e8f9        myregistry.azurecr.io/azure-vote-front  "/entrypoint.sh /sta…"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:80->80/tcp   azure-vote-front
-b68fed4b66b6        redis                                   "docker-entrypoint.s…"   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
+CONTAINER ID        IMAGE                                      COMMAND                  CREATED             STATUS              PORTS                           NAMES
+82411933e8f9        myregistry.azurecr.io/azure-vote-front     "/entrypoint.sh /sta…"   57 seconds ago      Up 30 seconds       443/tcp, 0.0.0.0:80->80/tcp   azure-vote-front
+b62b47a7d313        mcr.microsoft.com/oss/bitnami/redis:6.0.8  "/opt/bitnami/script…"   57 seconds ago      Up 30 seconds       0.0.0.0:6379->6379/tcp          azure-vote-back
 ```
 
 Per vedere l'applicazione in esecuzione, immettere `http://localhost:80` in un Web browser locale. L'applicazione di esempio viene caricata, come illustrato nell'esempio seguente:
@@ -205,9 +209,9 @@ docker ps
 Output di esempio:
 
 ```
-CONTAINER ID                           IMAGE                                    COMMAND             STATUS              PORTS
-azurevotingappredis_azure-vote-back    redis                                                        Running             52.179.23.131:6379->6379/tcp
-azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                       Running             52.179.23.131:80->80/tcp
+CONTAINER ID                           IMAGE                                         COMMAND             STATUS              PORTS
+azurevotingappredis_azure-vote-back    mcr.microsoft.com/oss/bitnami/redis:6.0.8                         Running             52.179.23.131:6379->6379/tcp
+azurevotingappredis_azure-vote-front   myregistry.azurecr.io/azure-vote-front                            Running             52.179.23.131:80->80/tcp
 ```
 
 Per vedere l'applicazione in esecuzione nel cloud, immettere l'indirizzo IP visualizzato in un Web browser locale. In questo esempio immettere `52.179.23.131`. L'applicazione di esempio viene caricata, come illustrato nell'esempio seguente:

@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/12/2020
-ms.openlocfilehash: af03dde724b4f1ec75c9505bb2f9311ad09f5fd0
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/28/2020
+ms.openlocfilehash: 5969c449afe203ec9a014d2da78b56eeeb837590
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635916"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913365"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati in archiviazione BLOB di Azure con Azure Data Factory
 
@@ -48,9 +48,6 @@ Per l'attività di copia, questo connettore di archiviazione BLOB supporta:
 - La copia di BLOB così come sono o l'analisi o la generazione di BLOB con [formati di file e codec di compressione supportati](supported-file-formats-and-compression-codecs.md).
 - [Mantenimento dei metadati del file durante la copia](#preserving-metadata-during-copy).
 
->[!IMPORTANT]
->Se si Abilita l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** nelle impostazioni del firewall di archiviazione di Azure e si vuole usare il runtime di integrazione di Azure per connettersi all'archiviazione BLOB, è necessario usare l'autenticazione dell' [identità gestita](#managed-identity).
-
 ## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
@@ -67,7 +64,8 @@ Questo connettore di archiviazione BLOB supporta i tipi di autenticazione seguen
 - [Identità gestite per l'autenticazione delle risorse di Azure](#managed-identity)
 
 >[!NOTE]
->Quando si usa la polibase per caricare i dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse), se l'archiviazione BLOB di origine o di gestione temporanea è configurata con un endpoint di rete virtuale di Azure, è necessario usare l'autenticazione di identità gestita come richiesto da polibase. È anche necessario usare il runtime di integrazione self-hosted con la versione 3,18 o successiva. Per ulteriori prerequisiti di configurazione, vedere la sezione [autenticazione identità gestita](#managed-identity) .
+>- Se si vuole usare il runtime di integrazione di Azure pubblico per connettersi all'archiviazione BLOB sfruttando l'opzione **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** abilitata nel firewall di archiviazione di Azure, è necessario usare l'autenticazione di [identità gestita](#managed-identity).
+>- Quando si usa l'istruzione di base o di copia per caricare i dati in Azure sinapsi Analytics, se l'archiviazione BLOB di origine o di gestione temporanea è configurata con un endpoint di rete virtuale di Azure, è necessario usare l'autenticazione dell'identità gestita come richiesto da sinapsi. Per ulteriori prerequisiti di configurazione, vedere la sezione [autenticazione identità gestita](#managed-identity) .
 
 >[!NOTE]
 >Azure HDInsight e le attività Azure Machine Learning supportano solo l'autenticazione che usa le chiavi dell'account di archiviazione BLOB di Azure.
@@ -286,7 +284,7 @@ Per informazioni generali sull'autenticazione di archiviazione di Azure, vedere 
     - **Come sink** , in **controllo di accesso (IAM)** concedere almeno il ruolo di **collaboratore dati BLOB di archiviazione** .
 
 >[!IMPORTANT]
->Se si usa la polibase per caricare dati dall'archivio BLOB (come origine o come gestione temporanea) in Azure sinapsi Analytics (in precedenza SQL Data Warehouse), quando si usa l'autenticazione dell'identità gestita per l'archiviazione BLOB, assicurarsi di seguire anche i passaggi 1 e 2 in [questa guida](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Questa procedura consente di registrare il server con Azure AD e assegnare il ruolo di collaboratore dati BLOB di archiviazione al server. Data Factory gestisce il resto. Se l'archiviazione BLOB è stata configurata con un endpoint di rete virtuale di Azure, per usare la polibase per caricare i dati, è necessario usare l'autenticazione di identità gestita come richiesto da polibase.
+>Se si usa l'istruzione di base o di copia per caricare dati dall'archivio BLOB (come origine o come gestione temporanea) in Azure sinapsi Analytics, quando si usa l'autenticazione dell'identità gestita per l'archiviazione BLOB, assicurarsi di seguire anche i passaggi da 1 a 3 in [questa guida](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Questa procedura consente di registrare il server con Azure AD e assegnare il ruolo di collaboratore dati BLOB di archiviazione al server. Data Factory gestisce il resto. Se si configura l'archiviazione BLOB con un endpoint di rete virtuale di Azure, è anche necessario **consentire ai servizi Microsoft attendibili di accedere a questo account di archiviazione** attivato in firewall account di archiviazione di Azure e nel menu impostazioni **reti virtuali** come richiesto da sinapsi.
 
 Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste proprietà:
 

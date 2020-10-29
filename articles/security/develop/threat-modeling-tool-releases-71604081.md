@@ -8,12 +8,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 8d24eb868a13e7b2d9ff3d2b625302c1c1fcb908
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 69dd2c6cdba41779849b4eb6b889cde9b1d6e5c9
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318008"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913569"
 ---
 # <a name="threat-modeling-tool-update-release-71604081---492019"></a>Versione di aggiornamento Threat Modeling Tool 7.1.60408.1-4/9/2019
 
@@ -28,7 +28,7 @@ La versione 7.1.60408.1 del Microsoft Threat Modeling Tool (TMT) è stata rilasc
 
 ### <a name="new-stencils-for-azure-key-vault-and-azure-traffic-manager"></a>Nuovi stencil per Azure Key Vault e gestione traffico di Azure
 
-![Stencil Azure Key Vault](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
+![Screenshot mostra le icone per Azure Key Vault e gestione traffico di Azure.](./media/threat-modeling-tool-releases-71604081/tmt_keyvault_trafficmanager.PNG)
 
 Al set di stencil di Azure sono stati aggiunti nuovi stencil e minacce per Azure Key Vault e gestione traffico di Azure. Quando si aprono modelli basati sul set di stencil di Azure, agli utenti verrà richiesto di aggiornare il modello associato al modello. L'aggiornamento di un modello basato sul set di stencil di Azure può anche essere avviato manualmente usando il comando "Applica modello" nel menu "file" e riapplicando il file TB7 di servizi cloud di Azure più recente.
 
@@ -36,7 +36,7 @@ Al set di stencil di Azure sono stati aggiunti nuovi stencil e minacce per Azure
 
 La versione client del Threat Modeling Tool viene ora visualizzata nella schermata iniziale dell'applicazione di per semplificare l'accesso.
 
-![Stencil Azure Key Vault](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
+![Screenshot mostra il Microsoft Threat Modeling Tool con il numero di versione del client.](./media/threat-modeling-tool-releases-71604081/tmt_version.PNG)
 
 ### <a name="support-links-have-been-updated"></a>Sono stati aggiornati i collegamenti di supporto
 

@@ -15,20 +15,20 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90cd9605a166a00412ed77caf3727ffb3ad3e1fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba5bca9b0d5907d9900741d0fe2c319f141f810b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89262116"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913637"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Sviluppare le Funzioni di Azure con Servizi multimediali
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-In questo articolo viene illustrato come iniziare a creare le Funzioni di Azure che usano i Servizi multimediali. La funzione di Azure definita in questo articolo consente di monitorare un contenitore di account di archiviazione denominato **input** per i nuovi file MP4. Una volta rilasciato un file nel contenitore di archiviazione, il trigger BLOB esegue la funzione. Per le funzioni di Azure, vedere [Panoramica](../../azure-functions/functions-overview.md) e altri argomenti della sezione **Funzioni di Azure**.
+In questo articolo viene illustrato come iniziare a creare le Funzioni di Azure che usano i Servizi multimediali. La funzione di Azure definita in questo articolo consente di monitorare un contenitore di account di archiviazione denominato **input** per i nuovi file MP4. Una volta rilasciato un file nel contenitore di archiviazione, il trigger BLOB esegue la funzione. Per le funzioni di Azure, vedere [Panoramica](../../azure-functions/functions-overview.md) e altri argomenti della sezione **Funzioni di Azure** .
 
-Se si vuole esplorare e distribuire le Funzioni di Azure esistenti che usano i Servizi multimediali di Azure, estrarre [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) (Funzioni di Azure di Servizi multimediali). Questo repository contiene esempi che usano Servizi multimediali per visualizzare i flussi di lavoro correlati all'inserimento di contenuto direttamente dall'archiviazione BLOB, alla codifica e alla scrittura del contenuto nell'archiviazione BLOB. Include inoltre esempi su come monitorare le notifiche dei processi tramite i webhook e le code di Azure. È inoltre possibile sviluppare le funzioni in base agli esempi nel repository [Funzioni di Azure dei Servizi multimediali](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Per distribuire le funzioni, premere il pulsante **Distribuisci in Azure**.
+Se si vuole esplorare e distribuire le Funzioni di Azure esistenti che usano i Servizi multimediali di Azure, estrarre [Media Services Azure Functions](https://github.com/Azure-Samples/media-services-dotnet-functions-integration) (Funzioni di Azure di Servizi multimediali). Questo repository contiene esempi che usano Servizi multimediali per visualizzare i flussi di lavoro correlati all'inserimento di contenuto direttamente dall'archiviazione BLOB, alla codifica e alla scrittura del contenuto nell'archiviazione BLOB. Include inoltre esempi su come monitorare le notifiche dei processi tramite i webhook e le code di Azure. È inoltre possibile sviluppare le funzioni in base agli esempi nel repository [Funzioni di Azure dei Servizi multimediali](https://github.com/Azure-Samples/media-services-dotnet-functions-integration). Per distribuire le funzioni, premere il pulsante **Distribuisci in Azure** .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -49,37 +49,37 @@ Quando si sviluppano le funzioni di Servizi multimediali, è utile aggiungere va
 
 Per la funzione definita in questo articolo si presuppongono le seguenti variabili di ambiente nelle impostazioni dell'app:
 
-**AMSAADTenantDomain**: endpoint tenant di Azure AD. Per altre informazioni sulla connessione alle API di Servizi multimediali di Azure, vedere [questo](media-services-use-aad-auth-to-access-ams-api.md) articolo.
+**AMSAADTenantDomain** : endpoint tenant di Azure AD. Per altre informazioni sulla connessione alle API di Servizi multimediali di Azure, vedere [questo](media-services-use-aad-auth-to-access-ams-api.md) articolo.
 
-**AMSRESTAPIEndpoint**:  URI che rappresenta l'endpoint dell'API REST. 
+**AMSRESTAPIEndpoint** :  URI che rappresenta l'endpoint dell'API REST. 
 
-**AMSClientId**: ID client dell'applicazione Azure AD.
+**AMSClientId** : ID client dell'applicazione Azure AD.
 
-**AMSClientSecret**: segreto client dell'applicazione Azure AD.
+**AMSClientSecret** : segreto client dell'applicazione Azure AD.
 
-**StorageConnection**: connessione di archiviazione dell'account associato all'account di Servizi multimediali. Questo valore è usato nei file **function.json** e **run.csx** (descritti di seguito).
+**StorageConnection** : connessione di archiviazione dell'account associato all'account di Servizi multimediali. Questo valore è usato nei file **function.json** e **run.csx** (descritti di seguito).
 
 ## <a name="create-a-function"></a>Creare una funzione
 
-In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizzata tra le Funzioni di Azure dei **Servizi app**.
+In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizzata tra le Funzioni di Azure dei **Servizi app** .
 
-1. Selezionare l'app per le funzioni e fare clic su **Nuova funzione**.
-2. Scegliere il linguaggio **C#** e lo scenario **Elaborazione dati**.
-3. Scegliere il modello **BlobTrigger**. Questa funzione è attivata ogni volta che viene caricato un BLOB nel contenitore di **input**. Il nome **input** è specificato nel **percorso**, nel passaggio successivo.
+1. Selezionare l'app per le funzioni e fare clic su **Nuova funzione** .
+2. Scegliere il linguaggio **C#** e lo scenario **Elaborazione dati** .
+3. Scegliere il modello **BlobTrigger** . Questa funzione è attivata ogni volta che viene caricato un BLOB nel contenitore di **input** . Il nome **input** è specificato nel **percorso** , nel passaggio successivo.
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions004.png)
+    ![Screenshot mostra la finestra di dialogo Scegli un modello con BlobTrigger selezionato.](./media/media-services-azure-functions/media-services-azure-functions004.png)
 
-4. Dopo aver selezionato **BlobTrigger**, altri controlli verranno visualizzati nella pagina.
+4. Dopo aver selezionato **BlobTrigger** , altri controlli verranno visualizzati nella pagina.
 
-    ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
+    ![Screenshot mostra la finestra di dialogo Nome funzione.](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Fare clic su **Crea**. 
+4. Fare clic su **Crea** . 
 
 ## <a name="files"></a>File
 
-La funzione di Azure è associata al file del codice e ad altri file descritti in questa sezione. Quando si usa il portale di Azure per creare una funzione, **function.json** e **run.csx** vengono creati automaticamente. Sarà necessario aggiungere o caricare un file **project.json**. Il resto di questa sezione fornisce una breve spiegazione di ogni file e mostra le relative definizioni.
+La funzione di Azure è associata al file del codice e ad altri file descritti in questa sezione. Quando si usa il portale di Azure per creare una funzione, **function.json** e **run.csx** vengono creati automaticamente. Sarà necessario aggiungere o caricare un file **project.json** . Il resto di questa sezione fornisce una breve spiegazione di ogni file e mostra le relative definizioni.
 
-![files](./media/media-services-azure-functions/media-services-azure-functions003.png)
+![Screenshot mostra i file JSON nel progetto.](./media/media-services-azure-functions/media-services-azure-functions003.png)
 
 ### <a name="functionjson"></a>function.json
 
@@ -138,7 +138,7 @@ L'esempio viene definito in questa sezione illustra
 
 Nello scenario reale, è probabile che l'utente desideri tenere traccia dello stato dei processi e quindi pubblicare l'asset codificato. Per altre informazioni, vedere [Usare i webhook di Azure per monitorare le notifiche dei processi di Servizi multimediali con .NET](media-services-dotnet-check-job-progress-with-webhooks.md). Per altri esempi, vedere [Funzioni di Azure dei Servizi multimediali](https://github.com/Azure-Samples/media-services-dotnet-functions-integration).  
 
-Sostituire il contenuto del file run.csx esistente con il codice seguente: Al termine dell'operazione di definizione della funzione fare clic su **Salva ed esegui**.
+Sostituire il contenuto del file run.csx esistente con il codice seguente: Al termine dell'operazione di definizione della funzione fare clic su **Salva ed esegui** .
 
 ```csharp
 #r "Microsoft.WindowsAzure.Storage"
@@ -335,9 +335,9 @@ public static async Task<IAsset> CreateAssetFromBlobAsync(CloudBlockBlob blob, s
 
 Per testare la funzione, è necessario caricare un file MP4 nel contenitore **input** dell'account di archiviazione specificato nella stringa di connessione.  
 
-1. Selezionare l'account di archiviazione specificato nella variabile di ambiente **StorageConnection**.
-2. Fare clic su **BLOB**.
-3. Fare clic su **+ Contenitore**. Denominare il contenitore **input**.
+1. Selezionare l'account di archiviazione specificato nella variabile di ambiente **StorageConnection** .
+2. Fare clic su **BLOB** .
+3. Fare clic su **+ Contenitore** . Denominare il contenitore **input** .
 4. Premere **Carica** e passare al file MP4 che si desidera caricare.
 
 >[!NOTE]

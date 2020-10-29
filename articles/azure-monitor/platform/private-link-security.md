@@ -6,12 +6,12 @@ ms.author: nikiest
 ms.topic: conceptual
 ms.date: 10/05/2020
 ms.subservice: ''
-ms.openlocfilehash: 42419247de537f9a166c3cdca2fd5a832ade6a5f
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 61073ce7e8d3abc43d1db031608da72e6d3e0791
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461431"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926802"
 ---
 # <a name="use-azure-private-link-to-securely-connect-networks-to-azure-monitor"></a>Usare il collegamento privato di Azure per connettere in modo sicuro le reti a Monitoraggio di Azure
 
@@ -90,18 +90,18 @@ Nella topologia seguente:
 
 Per iniziare, creare una risorsa ambito collegamento privato di Monitoraggio di Azure.
 
-1. Andare a **Crea una risorsa** nel portale di Azure e cercare **Ambito collegamento privato di Monitoraggio di Azure**.
+1. Andare a **Crea una risorsa** nel portale di Azure e cercare **Ambito collegamento privato di Monitoraggio di Azure** .
 
    ![Trova ambito collegamento privato di monitoraggio di Azure](./media/private-link-security/ampls-find-1c.png)
 
 2. Fare clic su **Create** (Crea).
 3. Selezionare un gruppo di sottoscrizioni e risorse.
 4. Assegnare un nome alla risorsa AMPLS. È preferibile usare un nome che indichi chiaramente lo scopo e il limite di sicurezza per cui verrà usato l'ambito, in modo che qualcuno non interrompa accidentalmente i limiti di sicurezza della rete. Ad esempio, "AppServerProdTelem".
-5. Fare clic su **Rivedi e crea**. 
+5. Fare clic su **Rivedi e crea** . 
 
    ![Creare un ambito di collegamento privato di monitoraggio di Azure](./media/private-link-security/ampls-create-1d.png)
 
-6. Superare la convalida, quindi fare clic su **Crea**.
+6. Superare la convalida, quindi fare clic su **Crea** .
 
 ## <a name="connect-azure-monitor-resources"></a>Connettere le risorse di Monitoraggio di Azure
 
@@ -112,23 +112,26 @@ Per iniziare, creare una risorsa ambito collegamento privato di Monitoraggio di 
 
     ![Screenshot di selezione dell’esperienza utente di ambito](./media/private-link-security/ampls-select-2.png)
 
+> [!NOTE]
+> Per eliminare le risorse di monitoraggio di Azure, è necessario prima disconnetterle da qualsiasi oggetto AMPLS a cui sono connesse. Non è possibile eliminare le risorse connesse a un AMPLS.
+
 ### <a name="connect-to-a-private-endpoint"></a>Connettersi a un endpoint privato
 
 Ora che sono disponibili delle risorse connesse alla risorsa AMPLS, creare un endpoint privato per connettere la rete. È possibile eseguire questa attività nel [Centro collegamento privato del portale di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Network/PrivateLinkCenterBlade/privateendpoints) o all'interno dell'ambito collegamento privato di Monitoraggio di Azure, come in questo esempio.
 
-1. Nella risorsa ambito fare clic su **Connessioni a endpoint privati** nel menu delle risorse a sinistra. Fare clic su **Endpoint privato** per avviare il processo di creazione dell'endpoint. È anche possibile approvare le connessioni avviate nel Centro collegamento privato selezionandole e facendo clic su **Approva**.
+1. Nella risorsa ambito fare clic su **Connessioni a endpoint privati** nel menu delle risorse a sinistra. Fare clic su **Endpoint privato** per avviare il processo di creazione dell'endpoint. È anche possibile approvare le connessioni avviate nel Centro collegamento privato selezionandole e facendo clic su **Approva** .
 
     ![Screenshot dell’esperienza utente di connessioni all'endpoint privato](./media/private-link-security/ampls-select-private-endpoint-connect-3.png)
 
 2. Selezionare la sottoscrizione, il gruppo di risorse, il nome dell'endpoint e l'area in cui deve risiedere. L'area deve essere la stessa area della rete virtuale a cui verrà connesso.
 
-3. Fare clic su **Avanti: Risorsa**. 
+3. Fare clic su **Avanti: Risorsa** . 
 
 4. Nella schermata Risorsa,
 
    a. Selezionare la **Sottoscrizione** che contiene la risorsa ambito privato di Monitoraggio di Azure. 
 
-   b. Per il **tipo di risorsa**, scegliere **Microsoft.insights/privateLinkScopes**. 
+   b. Per il **tipo di risorsa** , scegliere **Microsoft.insights/privateLinkScopes** . 
 
    c. Dal menu a discesa **Risorsa** scegliere l’ambito collegamento privato creato in precedenza. 
 
@@ -140,12 +143,14 @@ Ora che sono disponibili delle risorse connesse alla risorsa AMPLS, creare un en
    a.    Scegliere la **rete virtuale** e la **subnet** da connettere alle risorse di Monitoraggio di Azure. 
  
    b.    Scegliere **Sì** per **Integra con la zona DNS privato** e consentire la creazione automatica di una nuova zona DNS privato. Le zone DNS effettive potrebbero essere diverse da quelle illustrate nella schermata seguente. 
+   > [!NOTE]
+   > Se si sceglie **No** e si preferisce gestire i record DNS manualmente, completare prima di tutto la configurazione del collegamento privato, inclusi questo endpoint privato e la configurazione AMPLS. Configurare quindi il DNS seguendo le istruzioni riportate in [configurazione DNS dell'endpoint privato di Azure](https://docs.microsoft.com/azure/private-link/private-endpoint-dns). Assicurarsi di non creare record vuoti come preparazione per la configurazione del collegamento privato. I record DNS creati possono sostituire le impostazioni esistenti e influiscano sulla connettività con monitoraggio di Azure.
  
-   c.    Fare clic su **Rivedi e crea**.
+   c.    Fare clic su **Rivedi e crea** .
  
    d.    Superare la convalida. 
  
-   e.    Fare clic su **Crea**. 
+   e.    Fare clic su **Crea** . 
 
     ![Screenshot di selezione di Crea endpoint privato 2](./media/private-link-security/ampls-select-private-endpoint-create-5.png)
 
@@ -159,7 +164,7 @@ Accedere al portale di Azure. Nella risorsa dell'area di lavoro Log Analytics è
 
 Innanzitutto, è possibile connettere questa risorsa Log Analytics a qualsiasi ambito collegamento privato di Monitoraggio di Azure a cui si ha accesso. Fare clic su **Aggiungi** e selezionare l'ambito collegamento privato di Monitoraggio di Azure.  Fare clic su **Applica** per connetterlo. Tutti gli ambiti connessi vengono visualizzati in questa schermata. Se si effettua questa connessione, il traffico di rete nelle reti virtuali connesse raggiungerà questa area di lavoro. Questa connessione ha lo stesso effetto della connessione dall'ambito effettuata in [Connessione delle risorse di Monitoraggio di Azure](#connect-azure-monitor-resources).  
 
-In secondo luogo, è possibile controllare il modo in cui questa risorsa può essere raggiunta dall'esterno degli ambiti collegamento privato elencati in precedenza. Se si imposta **Consenti l'accesso alla rete pubblica per l’inserimento** su **No**, i computer esterni agli ambiti connessi non possono caricare dati in questa area di lavoro. Se si imposta **Consenti l'accesso alla rete pubblica per le query** su **No**, i computer esterni agli ambiti non possono accedere ai dati in questa area di lavoro. Questi dati includono l'accesso a cartelle di lavoro, dashboard, esperienze client basate su API di query, informazioni dettagliate nel portale di Azure e altro ancora. Le esperienze in esecuzione al di fuori dell'portale di Azure e la query Log Analytics dati devono essere in esecuzione anche all'interno di VNET collegati a privati.
+In secondo luogo, è possibile controllare il modo in cui questa risorsa può essere raggiunta dall'esterno degli ambiti collegamento privato elencati in precedenza. Se si imposta **Consenti l'accesso alla rete pubblica per l’inserimento** su **No** , i computer esterni agli ambiti connessi non possono caricare dati in questa area di lavoro. Se si imposta **Consenti l'accesso alla rete pubblica per le query** su **No** , i computer esterni agli ambiti non possono accedere ai dati in questa area di lavoro. Questi dati includono l'accesso a cartelle di lavoro, dashboard, esperienze client basate su API di query, informazioni dettagliate nel portale di Azure e altro ancora. Le esperienze in esecuzione al di fuori dell'portale di Azure e la query Log Analytics dati devono essere in esecuzione anche all'interno di VNET collegati a privati.
 
 La limitazione dell'accesso in questo modo non si applica al Azure Resource Manager e pertanto presenta le limitazioni seguenti:
 * Accesso ai dati: quando si bloccano le query dalle reti pubbliche si applicano alla maggior parte dei Log Analytics esperienze, alcune esperienze eseguono query sui dati tramite Azure Resource Manager e pertanto non saranno in grado di eseguire query sui dati, a meno che non vengano applicate anche le impostazioni di collegamento privato alla Gestione risorse (la funzionalità sarà presto disponibile). Sono incluse, ad esempio, le soluzioni di monitoraggio di Azure, le cartelle di lavoro e le informazioni dettagliate e il connettore LogicApp.
@@ -185,9 +190,9 @@ Accedere al portale di Azure. Nella risorsa componente di Application Insights d
 
 ![Isolamento rete intelligenza artificiale](./media/private-link-security/ampls-application-insights-lan-network-isolation-6.png)
 
-Innanzitutto, è possibile connettere questa risorsa Application Insights agli ambiti collegamento privato di Monitoraggio di Azure a cui si ha accesso. Fare clic su **Aggiungi** e selezionare l'**ambito collegamento privato di Monitoraggio di Azure**. Fare clic su Applica per connetterlo. Tutti gli ambiti connessi vengono visualizzati in questa schermata. Se si effettua questa connessione, il traffico di rete nelle reti virtuali connesse raggiungerà questo componente. Questa connessione ha lo stesso effetto della connessione dall'ambito effettuata in [Connessione delle risorse di Monitoraggio di Azure](#connect-azure-monitor-resources). 
+Innanzitutto, è possibile connettere questa risorsa Application Insights agli ambiti collegamento privato di Monitoraggio di Azure a cui si ha accesso. Fare clic su **Aggiungi** e selezionare l' **ambito collegamento privato di Monitoraggio di Azure** . Fare clic su Applica per connetterlo. Tutti gli ambiti connessi vengono visualizzati in questa schermata. Se si effettua questa connessione, il traffico di rete nelle reti virtuali connesse raggiungerà questo componente. Questa connessione ha lo stesso effetto della connessione dall'ambito effettuata in [Connessione delle risorse di Monitoraggio di Azure](#connect-azure-monitor-resources). 
 
-In secondo luogo, è possibile controllare il modo in cui questa risorsa può essere raggiunta dall'esterno degli ambiti collegamento privato elencati in precedenza. Se si imposta **Consenti l'accesso alla rete pubblica per l’inserimento** su **No**, i computer o gli SDK esterni agli ambiti connessi non possono caricare dati in questo componente. Se si imposta **Consenti l'accesso alla rete pubblica per le query** su **No**, i computer esterni agli ambiti non possono accedere ai dati in questa risorsa Application Insights. Questi dati includono l'accesso ai log APM, alle metriche e al flusso metriche attive, oltre a esperienze integrate come cartelle di lavoro, dashboard, esperienze client basate su API di query, informazioni dettagliate nel portale di Azure e altro ancora. 
+In secondo luogo, è possibile controllare il modo in cui questa risorsa può essere raggiunta dall'esterno degli ambiti collegamento privato elencati in precedenza. Se si imposta **Consenti l'accesso alla rete pubblica per l’inserimento** su **No** , i computer o gli SDK esterni agli ambiti connessi non possono caricare dati in questo componente. Se si imposta **Consenti l'accesso alla rete pubblica per le query** su **No** , i computer esterni agli ambiti non possono accedere ai dati in questa risorsa Application Insights. Questi dati includono l'accesso ai log APM, alle metriche e al flusso metriche attive, oltre a esperienze integrate come cartelle di lavoro, dashboard, esperienze client basate su API di query, informazioni dettagliate nel portale di Azure e altro ancora. 
 
 Si noti che le esperienze di utilizzo esterne al portale devono essere eseguite anche all'interno della rete virtuale con collegamento privato che include i carichi di lavoro monitorati. 
 
@@ -235,7 +240,7 @@ $ sudo /opt/microsoft/omsagent/bin/omsadmin.sh -w <workspace id> -s <workspace k
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-Per usare le esperienze del portale di Monitoraggio di Azure, ad esempio Application Insights e Log Analytics, è necessario consentire l'accesso alle estensioni del portale di Azure e di Monitoraggio di Azure nelle reti private. Aggiungere i [tag del servizio](../../firewall/service-tags.md) **AzureActiveDirectory**, **AzureResourceManager**, **AzureFrontDoor. FirstParty**e **AzureFrontDoor. frontend** al gruppo di sicurezza di rete.
+Per usare le esperienze del portale di Monitoraggio di Azure, ad esempio Application Insights e Log Analytics, è necessario consentire l'accesso alle estensioni del portale di Azure e di Monitoraggio di Azure nelle reti private. Aggiungere i [tag del servizio](../../firewall/service-tags.md) **AzureActiveDirectory** , **AzureResourceManager** , **AzureFrontDoor. FirstParty** e **AzureFrontDoor. frontend** al gruppo di sicurezza di rete.
 
 ### <a name="programmatic-access"></a>Accesso a livello di codice
 

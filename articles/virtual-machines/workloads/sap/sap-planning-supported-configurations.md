@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/11/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ad1567a3a6cba2c2fbc519ffe5d384aba25ab51d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec29b6489712eeb67783aef03261a3606a390125
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88648990"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926615"
 ---
 # <a name="sap-workload-on-azure-virtual-machine-supported-scenarios"></a>Carico di lavoro SAP negli scenari supportati da macchine virtuali di Azure
 La progettazione di un'architettura di sistemi SAP NetWeaver, Business One `Hybris` o S/4HANA in Azure offre molte opportunità diverse per diverse architetture e strumenti da usare per ottenere una distribuzione scalabile, efficiente e a disponibilità elevata. Tuttavia, a seconda del sistema operativo o del sistema DBMS utilizzato, esistono restrizioni. Inoltre, non tutti gli scenari supportati in locale sono supportati nello stesso modo in Azure. In questo documento vengono illustrate le configurazioni di disponibilità elevata e le configurazioni a disponibilità elevata supportate e le architetture con le macchine virtuali di Azure in modo esclusivo. Per gli scenari supportati con le [istanze large di Hana](./hana-overview-architecture.md), vedere l'articolo [scenari supportati per le istanze large di Hana](./hana-supported-scenario.md). 
@@ -46,7 +46,7 @@ In queste configurazioni è possibile separare il livello dell'applicazione SAP 
 
 La rappresentazione grafica ha un aspetto simile al seguente:
 
-![Semplice configurazione a 2 livelli](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
+![Diagramma che illustra una semplice configurazione a tre livelli.](./media/sap-planning-supported-configurations/three-tier-simple-configuration.png)
 
 Questo tipo di configurazione è supportato in Windows, Red Hat, SUSE e Oracle Linux per i sistemi DBMS di SQL Server, Oracle, DB2, SAP HANA, maxDB e SAP ASE per i casi di produzione e non di produzione. Questa è la configurazione di distribuzione predefinita per le [istanze large di Azure Hana](./hana-overview-architecture.md). Per semplificare, non è stata fatta alcuna distinzione tra i servizi SAP Central e le istanze della finestra di dialogo SAP nel livello applicazione SAP. In questa semplice configurazione a tre livelli, non sarà disponibile una protezione a disponibilità elevata per i servizi SAP Central.
 
@@ -83,7 +83,7 @@ In molti casi, più istanze della finestra di dialogo sono state distribuite su 
 
 Alla configurazione a 3 livelli in cui vengono eseguite più istanze di finestra di dialogo SAP nelle VM di Azure può essere simile a:
 
-![Più istanze di DBMS in un'unità](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
+![Diagramma che illustra una configurazione a 3 livelli in cui vengono eseguite più istanze di finestra di dialogo SAP nelle VM di Azure.](./media/sap-planning-supported-configurations/multiple-dialog-instances.png)
 
 Per semplificare, non è stata fatta alcuna distinzione tra i servizi SAP Central e le istanze della finestra di dialogo SAP nel livello applicazione SAP. In questa semplice configurazione a tre livelli, non sarà disponibile una protezione a disponibilità elevata per i servizi SAP Central. Per i sistemi di produzione, non è consigliabile lasciare non protetti i servizi SAP Central. Per informazioni specifiche su, denominate configurazioni a più SID per le istanze di SAP Central e disponibilità elevata di tali configurazioni a più SID, vedere le sezioni successive di questo documento.
 
@@ -208,7 +208,7 @@ La configurazione è documentata in [disponibilità elevata per SAP NetWeaver in
 
 Un cluster a più SID con server di replica di accodamento è schematicamente simile a
 
-![Configurazione della disponibilità elevata DBMS e ASC](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
+![Diagramma che mostra un cluster a più SID con server di replica di Accodamento.](./media/sap-planning-supported-configurations/high-available-multi-system-configuration.png)
 
 
 ## <a name="sap-hana-scale-out-scenarios"></a>Scenari di scalabilità orizzontale SAP HANA

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 52ecc1f7de2afb83d3f37ddae6b1b618a8a8e34d
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 1ad9d72d69e23e4029de163ded1a71ae4dfb82fb
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636018"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913773"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -63,10 +63,12 @@ Per usare le API del piano dati:
    - è possibile trovare l'origine SDK in GitHub: [libreria client di dispositivi digitali gemelli di Azure per Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
    - è possibile visualizzare la [documentazione di riferimento dell'SDK](/java/api/overview/azure/digitaltwins/client?preserve-view=true&view=azure-java-preview)
 * È possibile usare **JavaScript** SDK. Per utilizzare JavaScript SDK...
-   - è possibile visualizzare e installare il pacchetto da NPM: [libreria client di Azure Digital gemelli di Azure per JavaScript](https://www.npmjs.com/package/@azure/digital-twins).
+   - è possibile visualizzare e installare il pacchetto da NPM: [libreria client di Azure Digital gemelli di Azure per JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).
    - è possibile visualizzare la [documentazione di riferimento dell'SDK](/javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest).
+   - è possibile trovare l'origine SDK in GitHub: [libreria client di Azure Digital Twins core per JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * È possibile usare **Python** SDK. Per usare Python SDK...
    - è possibile visualizzare e installare il pacchetto: [libreria client di base di Azure Digital gemelli di Azure per Python](https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/).
+   - è possibile trovare l'origine SDK in GitHub: [libreria client di Azure Digital Twins core per Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * È possibile generare un SDK per un altro linguaggio con autorest. Seguire le istruzioni in [*procedura: creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest*](how-to-create-custom-sdks.md).
 
 È anche possibile esercitare le API del piano dati interagendo con i dispositivi gemelli digitali di Azure tramite l' [interfaccia](how-to-use-cli.md)della riga di comando.

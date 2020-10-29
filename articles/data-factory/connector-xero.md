@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/22/2020
+ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 89ac5645ccbb9c926bc5ff70605dd1e5de14e823
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 342d0aabe2222393f33aa4ce93646da9f29cf1fb
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427620"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926462"
 ---
 # <a name="copy-data-from-xero-using-azure-data-factory"></a>Copiare dati da Xero usando Azure Data Factory
 
@@ -55,13 +55,13 @@ Per il servizio collegato Xero sono supportate le proprietà seguenti:
 |:--- |:--- |:--- |
 | type | La proprietà type deve essere impostata su **Xero** | Sì |
 | connectionProperties | Gruppo di proprietà che definisce la modalità di connessione a Xero. | Sì |
-| **_In `connectionProperties` :_*_ | | |
+| **_In `connectionProperties` :_* _ | | |
 | host | Endpoint del server Xero (`api.xero.com`).  | Sì |
 | authenticationType | I valori consentiti sono `OAuth_2.0` e `OAuth_1.0` . | Sì |
 | consumerKey | Chiave utente associata all'applicazione Xero. Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
-| privateKey | Chiave privata dal file con estensione pem generato per l'applicazione Xero privata; vedere [Create a public/private key pair](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key) (Creare una coppia di chiavi pubblica/privata). Nota: _*genera PrivateKey. pem con numbits 512** using `openssl genrsa -out privatekey.pem 512` , 1024 non è supportato. Includere tutto il testo dal file con estensione pem, incluse le terminazioni riga Unix (\n): vedere l'esempio seguente.<br/>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| privateKey | Chiave privata dal file con estensione pem generato per l'applicazione Xero privata; vedere [Create a public/private key pair](https://developer.xero.com/documentation/auth-and-limits/create-publicprivate-key) (Creare una coppia di chiavi pubblica/privata). Nota: _ *genera PrivateKey. pem con numbits 512* * using `openssl genrsa -out privatekey.pem 512` , 1024 non è supportato. Includere tutto il testo dal file con estensione pem, incluse le terminazioni riga Unix (\n): vedere l'esempio seguente.<br/>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | TenantId | ID tenant associato all'applicazione Xero. Applicabile per l'autenticazione OAuth 2,0.<br>Informazioni su come ottenere l'ID tenant da [controllare la sezione tenant a cui si è autorizzati ad accedere](https://developer.xero.com/documentation/oauth2/auth-flow). | Sì per l'autenticazione OAuth 2,0 |
-| refreshToken | Applicabile per l'autenticazione OAuth 2,0.<br/>Il token di aggiornamento OAuth 2,0 è associato all'applicazione Xero e viene usato per aggiornare il token di accesso. il token di accesso scade dopo 30 minuti. Informazioni sul funzionamento del flusso di autorizzazione di Xero e su come ottenere il token di aggiornamento da [questo articolo](https://developer.xero.com/documentation/oauth2/auth-flow). Per ottenere un token di aggiornamento, è necessario richiedere l' [ambito offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Limite noto**: Nota Xero Reimposta il token di aggiornamento dopo che è stato usato per l'aggiornamento del token di accesso. Per il carico di lavoro operativo, prima dell'esecuzione di ogni attività di copia è necessario impostare un token di aggiornamento valido per l'uso di ADF.<br/>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì per l'autenticazione OAuth 2,0 |
+| refreshToken | Applicabile per l'autenticazione OAuth 2,0.<br/>Il token di aggiornamento OAuth 2,0 è associato all'applicazione Xero e viene usato per aggiornare il token di accesso. il token di accesso scade dopo 30 minuti. Informazioni sul funzionamento del flusso di autorizzazione di Xero e su come ottenere il token di aggiornamento da [questo articolo](https://developer.xero.com/documentation/oauth2/auth-flow). Per ottenere un token di aggiornamento, è necessario richiedere l' [ambito offline_access](https://developer.xero.com/documentation/oauth2/scopes). <br/>**Limite noto** : Nota Xero Reimposta il token di aggiornamento dopo che è stato usato per l'aggiornamento del token di accesso. Per il carico di lavoro operativo, prima dell'esecuzione di ogni attività di copia è necessario impostare un token di aggiornamento valido per l'uso di ADF.<br/>Contrassegnare questo campo come SecureString per archiviarlo in modo sicuro in Azure Data Factory oppure [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì per l'autenticazione OAuth 2,0 |
 | useEncryptedEndpoints | Specifica se gli endpoint dell'origine dati vengono crittografati tramite HTTPS. Il valore predefinito è true.  | No |
 | useHostVerification | Specifica se il nome host è necessario nel certificato del server in modo che corrisponda al nome host del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
 | usePeerVerification | Specifica se verificare l'identità del server durante la connessione tramite TLS. Il valore predefinito è true.  | No |
@@ -139,7 +139,7 @@ Includere tutto il testo dal file con estensione pem, incluse le terminazioni ri
 
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione di set di dati, vedere l'articolo sui [set di dati](concepts-datasets-linked-services.md). Questa sezione presenta un elenco delle proprietà supportate dal set di dati Xero.
 
-Per copiare dati da Xero, impostare la proprietà type del set di dati su **XeroObject**. Sono supportate le proprietà seguenti:
+Per copiare dati da Xero, impostare la proprietà type del set di dati su **XeroObject** . Sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -169,7 +169,7 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 
 ### <a name="xero-as-source"></a>Xero come origine
 
-Per copiare dati da Xero, impostare il tipo di origine nell'attività di copia su **XeroSource**. Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
+Per copiare dati da Xero, impostare il tipo di origine nell'attività di copia su **XeroSource** . Nella sezione **origine** dell'attività di copia sono supportate le proprietà seguenti:
 
 | Proprietà | Descrizione | Obbligatoria |
 |:--- |:--- |:--- |
@@ -210,9 +210,9 @@ Per copiare dati da Xero, impostare il tipo di origine nell'attività di copia s
 
 Notare quanto segue quando si specifica la query Xero:
 
-- Le tabelle con elementi complessi verranno suddivise in più tabelle. Ad esempio, le transazioni Bank hanno una struttura di dati complessa "LineItems", quindi i dati della transazione Bank vengono mappati alla tabella `Bank_Transaction` e `Bank_Transaction_Line_Items` , con `Bank_Transaction_ID` come chiave esterna per collegarli insieme.
+- Le tabelle con elementi complessi verranno suddivise in più tabelle. Le transazioni bancarie, ad esempio, hanno una struttura di dati complessa "LineItems" e i dati delle transazioni vengono quindi mappati alla tabella `Bank_Transaction` e a `Bank_Transaction_Line_Items`, con `Bank_Transaction_ID` come chiave esterna per collegarli tra loro.
 
-- I dati Xero sono disponibili tramite due schemi: `Minimal` (impostazione predefinita) e `Complete`. Lo schema completo contiene le tabelle di chiamata dei prerequisiti, che richiedono dati aggiuntivi, ad esempio la colonna ID, prima di eseguire la query desiderata.
+- I dati Xero sono disponibili tramite due schemi: `Minimal` (impostazione predefinita) e `Complete`. Lo schema Complete contiene tabelle di chiamate obbligatorie che richiedono dati aggiuntivi (ad esempio, la colonna ID) per poter eseguire la query desiderata.
 
 Le tabelle seguenti contengono le stesse informazioni degli schemi Minimal e Complete. Per ridurre il numero di chiamate API, usare uno schema Minimal (impostazione predefinita).
 

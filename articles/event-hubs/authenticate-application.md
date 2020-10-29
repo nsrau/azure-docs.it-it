@@ -3,15 +3,15 @@ title: Autenticare un'applicazione per accedere alle risorse di hub eventi di Az
 description: Questo articolo fornisce informazioni sull'autenticazione di un'applicazione con Azure Active Directory per accedere alle risorse di hub eventi di Azure
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 6eac2ef362705ecb68212166f8b691ac969a40ff
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 25ec5f11ca7b5e801e18155f1a3da6474c8e66e2
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359935"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913314"
 ---
 # <a name="authenticate-an-application-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticare un'applicazione con Azure Active Directory per accedere alle risorse di hub eventi
-Microsoft Azure offre la gestione integrata del controllo di accesso per le risorse e le applicazioni basata su Azure Active Directory (Azure AD). Un vantaggio fondamentale dell'uso di Azure AD con hub eventi di Azure consiste nel fatto che non è più necessario archiviare le credenziali nel codice. È invece possibile richiedere un token di accesso OAuth 2,0 dalla piattaforma di identità Microsoft. Il nome della risorsa per richiedere un token è `https://eventhubs.azure.net/` (per i client Kafka la risorsa per la richiesta di un token è `https://<namespace>.servicebus.windows.net` ). Azure AD autentica l'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD restituisce un token di accesso all'applicazione e l'applicazione può quindi usare il token di accesso per autorizzare la richiesta alle risorse di hub eventi di Azure.
+Microsoft Azure offre la gestione integrata del controllo di accesso per le risorse e le applicazioni basata su Azure Active Directory (Azure AD). Un vantaggio fondamentale dell'uso di Azure AD con hub eventi di Azure consiste nel fatto che non è più necessario archiviare le credenziali nel codice. È invece possibile richiedere un token di accesso OAuth 2,0 dalla piattaforma di identità Microsoft. Il nome della risorsa per richiedere un token è `https://eventhubs.azure.net/` ed è lo stesso per tutti i cloud/tenant (per i client Kafka la risorsa per la richiesta di un token è `https://<namespace>.servicebus.windows.net` ). Azure AD autentica l'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD restituisce un token di accesso all'applicazione e l'applicazione può quindi usare il token di accesso per autorizzare la richiesta alle risorse di hub eventi di Azure.
 
 Quando un ruolo viene assegnato a un'entità di sicurezza Azure AD, Azure concede l'accesso a tali risorse per l'entità di sicurezza. L'ambito di accesso può essere limitato al livello di sottoscrizione, al gruppo di risorse, allo spazio dei nomi di hub eventi o a qualsiasi risorsa sottostante. Un Azure AD sicurezza può assegnare ruoli a un utente, a un gruppo, a un'entità servizio dell'applicazione o a un' [identità gestita per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). 
 
@@ -48,7 +48,7 @@ Nelle immagini seguenti vengono illustrati i passaggi per la registrazione di un
 > [!Note]
 > Se si registra l'applicazione come applicazione nativa, è possibile specificare qualsiasi URI valido per l'URI di reindirizzamento. Per le applicazioni native, questo valore non deve essere un URL reale. Per le applicazioni Web, l'URI di reindirizzamento deve essere un URI valido perché specifica l'URL a cui vengono forniti i token.
 
-Dopo aver registrato l'applicazione, l' **ID applicazione (client)** verrà visualizzato in **Impostazioni**:
+Dopo aver registrato l'applicazione, l' **ID applicazione (client)** verrà visualizzato in **Impostazioni** :
 
 ![ID applicazione dell'applicazione registrata](./media/authenticate-application/application-id.png)
 
@@ -60,7 +60,7 @@ L'applicazione richiede un segreto client per dimostrare la propria identità qu
 
 1. Passare alla registrazione dell'app nel portale di Azure.
 1. Selezionare l'impostazione **certificati & segreti** .
-1. In **segreti client**selezionare **nuovo segreto client** per creare un nuovo segreto.
+1. In **segreti client** selezionare **nuovo segreto client** per creare un nuovo segreto.
 1. Specificare una descrizione per il segreto e scegliere l'intervallo di scadenza desiderato.
 1. Copiare immediatamente il valore del nuovo segreto in una posizione sicura. Il valore di riempimento viene visualizzato una sola volta.
 
@@ -75,7 +75,7 @@ Dopo aver registrato l'applicazione, assegnare l'entità servizio dell'applicazi
 
     ![Selezionare l'hub eventi](./media/authenticate-application/select-event-hub.png)
 1. Selezionare **controllo di accesso (IAM)** per visualizzare le impostazioni di controllo di accesso per l'hub eventi. 
-1. Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo. Selezionare il pulsante **Aggiungi** sulla barra degli strumenti e quindi selezionare **Aggiungi assegnazione ruolo**. 
+1. Selezionare la scheda **Assegnazioni di ruolo** per visualizzare l'elenco di assegnazioni di ruolo. Selezionare il pulsante **Aggiungi** sulla barra degli strumenti e quindi selezionare **Aggiungi assegnazione ruolo** . 
 
     ![Pulsante Aggiungi sulla barra degli strumenti](./media/authenticate-application/role-assignments-add-button.png)
 1. Nella pagina **Aggiungi assegnazione ruolo** eseguire le operazioni seguenti:

@@ -3,16 +3,16 @@ title: Nodi e pool in Azure Batch
 description: Informazioni sui nodi di calcolo, sui pool e sul modo in cui vengono usati in un flusso di lavoro di Azure Batch dal punto di vista dello sviluppo.
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: a6422976f5362e9ff32cd41cc167a00441ab7aec
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: c85c50d0b30e30563390d2ffb05942f199047d67
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371444"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913807"
 ---
 # <a name="nodes-and-pools-in-azure-batch"></a>Nodi e pool in Azure Batch
 
-In un flusso di lavoro Azure Batch un *nodo di calcolo* (o *nodo*) è una macchina virtuale per l'elaborazione di una parte del carico di lavoro dell'applicazione. Un *pool* è una raccolta di questi nodi in cui viene eseguita l'applicazione. Questo articolo illustra in modo più approfondito nodi e pool, insieme alle considerazioni relative alla creazione e all'uso in un flusso di lavoro in Azure Batch.
+In un flusso di lavoro Azure Batch un *nodo di calcolo* (o *nodo* ) è una macchina virtuale per l'elaborazione di una parte del carico di lavoro dell'applicazione. Un *pool* è una raccolta di questi nodi in cui viene eseguita l'applicazione. Questo articolo illustra in modo più approfondito nodi e pool, insieme alle considerazioni relative alla creazione e all'uso in un flusso di lavoro in Azure Batch.
 
 ## <a name="nodes"></a>Nodi
 
@@ -66,21 +66,21 @@ Esistono due tipi di configurazioni pool disponibili in Batch.
 
 ### <a name="virtual-machine-configuration"></a>Configurazione macchina virtuale
 
-La **Configurazione macchina virtuale**, specifica che il pool è composto da macchine virtuali di Azure. È possibile creare queste VM da immagini Linux o Windows.
+La **Configurazione macchina virtuale** , specifica che il pool è composto da macchine virtuali di Azure. È possibile creare queste VM da immagini Linux o Windows.
 
-Quando si crea un pool basato su Configurazione macchina virtuale, è necessario specificare non solo le dimensioni dei nodi e l'origine delle immagini usate per crearli, ma anche il **riferimento a un'immagine della macchina virtuale** e lo **SKU dell'agente del nodo** Batch da installare nei nodi. Per altre informazioni sulla specifica di queste proprietà del pool, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md). È anche possibile collegare uno o più dischi di dati vuoti a VM in pool create da immagini del Marketplace oppure includere i dischi di dati nelle immagini personalizzate usate per creare le macchine virtuali. Quando si includono dischi dati è necessario montare e formattare i dischi all'interno di una macchina virtuale per poterli usare.
+L' [agente del nodo batch](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) è un programma che viene eseguito in ogni nodo del pool e fornisce l'interfaccia di comando e controllo tra il nodo e il servizio batch. Sono disponibili diverse implementazioni dell'agente del nodo, definite SKU, per sistemi operativi diversi. Quando si crea un pool basato su Configurazione macchina virtuale, è necessario specificare non solo le dimensioni dei nodi e l'origine delle immagini usate per crearli, ma anche il **riferimento a un'immagine della macchina virtuale** e lo **SKU dell'agente del nodo** Batch da installare nei nodi. Per altre informazioni sulla specifica di queste proprietà del pool, vedere [Effettuare il provisioning di nodi di calcolo Linux nei pool di Azure Batch](batch-linux-nodes.md). È anche possibile collegare uno o più dischi di dati vuoti a VM in pool create da immagini del Marketplace oppure includere i dischi di dati nelle immagini personalizzate usate per creare le macchine virtuali. Quando si includono dischi dati è necessario montare e formattare i dischi all'interno di una macchina virtuale per poterli usare.
 
 ### <a name="cloud-services-configuration"></a>Configurazione di Servizi cloud
 
-La **configurazione di Servizi cloud**, specifica che il pool è composto da nodi di Servizi cloud di Azure. Servizi cloud fornisce *solo* nodi di calcolo di Windows.
+La **configurazione di Servizi cloud** , specifica che il pool è composto da nodi di Servizi cloud di Azure. Servizi cloud fornisce *solo* nodi di calcolo di Windows.
 
 I sistemi operativi disponibili per i pool Configurazione servizi cloud sono elencati in [Rilasci del sistema operativo guest Azure e matrice di compatibilità dell'SDK](../cloud-services/cloud-services-guestos-update-matrix.md). Quando si crea un pool contenente nodi di Servizi cloud, è necessario specificare dimensioni dei nodi e *Famiglia del sistema operativo* (che stabilisce quali versioni di .NET sono state installate con il sistema operativo). La distribuzione di Servizi cloud in Azure è più veloce rispetto alle macchine virtuali che eseguono Windows. Se si vuole disporre di pool di nodi di calcolo di Windows, le prestazioni di Servizi cloud in termini di tempo di distribuzione potrebbero essere migliori.
 
-Analogamente ai ruoli di lavoro nei servizi cloud, è possibile specificare una *Versione sistema operativo*. Per altre informazioni sui ruoli di lavoro, vedere la [Panoramica dei Servizi cloud](../cloud-services/cloud-services-choose-me.md). È consigliabile specificare `Latest (*)` per la *Versione sistema operativo*, in modo che i nodi vengano aggiornati automaticamente senza doversi occupare delle nuove versioni rilasciate. Il caso d'uso principale per la selezione di una versione specifica del sistema operativo consiste nell'assicurare la compatibilità delle applicazioni, che permette l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la *Versione sistema operativo* per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione vengono interrotte e accodate di nuovo.
+Analogamente ai ruoli di lavoro nei servizi cloud, è possibile specificare una *Versione sistema operativo* . Per altre informazioni sui ruoli di lavoro, vedere la [Panoramica dei Servizi cloud](../cloud-services/cloud-services-choose-me.md). È consigliabile specificare `Latest (*)` per la *Versione sistema operativo* , in modo che i nodi vengano aggiornati automaticamente senza doversi occupare delle nuove versioni rilasciate. Il caso d'uso principale per la selezione di una versione specifica del sistema operativo consiste nell'assicurare la compatibilità delle applicazioni, che permette l'esecuzione del test di compatibilità con le versioni precedenti prima di consentire l'aggiornamento della versione. Dopo la convalida, la *Versione sistema operativo* per il pool può essere aggiornata ed è possibile installare la nuova immagine del sistema operativo. Eventuali attività in esecuzione vengono interrotte e accodate di nuovo.
 
 ### <a name="node-agent-skus"></a>SKU dell'agente nodo
 
-Quando si crea un pool, è necessario selezionare il valore appropriato di **nodeAgentSkuId**, a seconda del sistema operativo dell'immagine di base del disco rigido virtuale. È possibile ottenere un mapping tra gli ID SKU dell'agente del nodo e i relativi riferimenti all'immagine del sistema operativo, chiamando l'operazione di [elenco degli SKU degli agenti nodo supportati](/rest/api/batchservice/list-supported-node-agent-skus).
+Quando si crea un pool, è necessario selezionare il valore appropriato di **nodeAgentSkuId** , a seconda del sistema operativo dell'immagine di base del disco rigido virtuale. È possibile ottenere un mapping tra gli ID SKU dell'agente del nodo e i relativi riferimenti all'immagine del sistema operativo, chiamando l'operazione di [elenco degli SKU degli agenti nodo supportati](/rest/api/batchservice/list-supported-node-agent-skus).
 
 ### <a name="custom-images-for-virtual-machine-pools"></a>Immagini personalizzate per pool di macchine virtuali
 
@@ -105,7 +105,7 @@ Può verificarsi il superamento dei nodi con priorità bassa quando Azure ha cap
 
 Lo stesso pool può includere nodi di calcolo con priorità bassa e nodi di calcolo dedicati. Ogni tipo di nodo ha un'impostazione di destinazione propria, per cui è possibile specificare il numero desiderato di nodi.
 
-Il numero di nodi di calcolo viene definito *numero di destinazione*, perché in alcuni casi il pool può non raggiungere il numero desiderato di nodi. Ad esempio, un pool potrebbe non realizzare la destinazione se prima raggiunge la [quota core](batch-quota-limit.md) per l'account Batch. Il pool potrebbe non realizzare la destinazione, inoltre, se al pool è stata applicata una formula di ridimensionamento automatico che limita il numero massimo di nodi.
+Il numero di nodi di calcolo viene definito *numero di destinazione* , perché in alcuni casi il pool può non raggiungere il numero desiderato di nodi. Ad esempio, un pool potrebbe non realizzare la destinazione se prima raggiunge la [quota core](batch-quota-limit.md) per l'account Batch. Il pool potrebbe non realizzare la destinazione, inoltre, se al pool è stata applicata una formula di ridimensionamento automatico che limita il numero massimo di nodi.
 
 Per informazioni sui prezzi per i nodi dedicati e con priorità bassa, vedere [Prezzi di Batch](https://azure.microsoft.com/pricing/details/batch/).
 
@@ -125,11 +125,11 @@ Ad esempio, un processo richiede l'invio di un numero elevato di attività da es
 
 Una formula può essere basata sulle metriche seguenti:
 
-- **Metriche temporali**: basate sulle statistiche raccolte ogni cinque minuti nel numero di ore specificato.
-- **Metriche delle risorse**: basate su utilizzo di CPU, larghezza di banda, memoria e numero di nodi.
-- **Metriche delle attività**: basate sullo stato delle attività, ad esempio *Attiva* (in coda), *In esecuzione* o *Completata*.
+- **Metriche temporali** : basate sulle statistiche raccolte ogni cinque minuti nel numero di ore specificato.
+- **Metriche delle risorse** : basate su utilizzo di CPU, larghezza di banda, memoria e numero di nodi.
+- **Metriche delle attività** : basate sullo stato delle attività, ad esempio *Attiva* (in coda), *In esecuzione* o *Completata* .
 
-Quando il ridimensionamento automatico riduce il numero di nodi di calcolo in un pool, è necessario considerare come gestire le attività in esecuzione al momento dell'operazione di riduzione. A questo scopo, il servizio Batch offre un'[*opzione di deallocazione dei nodi*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) che è possibile includere nelle formule. Ad esempio, è possibile specificare che le attività in esecuzione devono essere arrestate immediatamente e quindi riaccodate per l'esecuzione in un altro nodo o che ne deve essere consentita la fine prima della rimozione del nodo dal pool. Si noti che l'impostazione dell'opzione di deallocazione del nodo come `taskcompletion` o `retaineddata` impedisce le operazioni di ridimensionamento del pool fino al completamento di tutte le attività o fino a che tutti i periodi di memorizzazione delle attività siano scaduti, rispettivamente.
+Quando il ridimensionamento automatico riduce il numero di nodi di calcolo in un pool, è necessario considerare come gestire le attività in esecuzione al momento dell'operazione di riduzione. A questo scopo, il servizio Batch offre un' [*opzione di deallocazione dei nodi*](/rest/api/batchservice/pool/removenodes#computenodedeallocationoption) che è possibile includere nelle formule. Ad esempio, è possibile specificare che le attività in esecuzione devono essere arrestate immediatamente e quindi riaccodate per l'esecuzione in un altro nodo o che ne deve essere consentita la fine prima della rimozione del nodo dal pool. Si noti che l'impostazione dell'opzione di deallocazione del nodo come `taskcompletion` o `retaineddata` impedisce le operazioni di ridimensionamento del pool fino al completamento di tutte le attività o fino a che tutti i periodi di memorizzazione delle attività siano scaduti, rispettivamente.
 
 Per altre informazioni sulla scalabilità automatica di un'applicazione, vedere [Ridimensionare automaticamente i nodi di calcolo in un pool di Azure Batch](batch-automatic-scaling.md).
 

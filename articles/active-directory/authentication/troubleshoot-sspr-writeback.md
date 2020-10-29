@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94b8d744c964b07c1ed6a4d7e8b89bca2258c1bc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c9664518a7e8ec505a2823cdd5f17d6fa8a7db8b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963959"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925799"
 ---
 # <a name="troubleshoot-self-service-password-reset-writeback-in-azure-active-directory"></a>Risolvere i problemi di writeback della reimpostazione della password self-service in Azure Active Directory
 
@@ -51,10 +51,10 @@ Per ulteriori informazioni, vedere i [prerequisiti di connettività per Azure ad
 
 Per risolvere i problemi di connettività o altri problemi temporanei del servizio, completare i passaggi seguenti per riavviare il servizio di sincronizzazione Azure AD Connect:
 
-1. In qualità di amministratore del server che esegue Azure AD Connect, selezionare **Avvia**.
-1. Immettere *services.msc* nel campo di ricerca e premere **INVIO**.
-1. Cercare la voce *Microsoft Azure AD Sync*.
-1. Fare clic con il pulsante destro del mouse sulla voce del servizio, scegliere **Riavvia**e attendere il completamento dell'operazione.
+1. In qualità di amministratore del server che esegue Azure AD Connect, selezionare **Avvia** .
+1. Immettere *services.msc* nel campo di ricerca e premere **INVIO** .
+1. Cercare la voce *Microsoft Azure AD Sync* .
+1. Fare clic con il pulsante destro del mouse sulla voce del servizio, scegliere **Riavvia** e attendere il completamento dell'operazione.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/service-restart.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica" border="false":::
 
@@ -66,15 +66,15 @@ Se il riavvio del servizio Azure AD Connect Sync non risolve il problema, provar
 
 Per continuare a risolvere i problemi, attenersi alla procedura seguente per disabilitare e riabilitare la funzionalità di writeback delle password:
 
-1. In qualità di amministratore del server che esegue Azure AD Connect, aprire la **Configurazione guidata Azure ad Connect**.
+1. In qualità di amministratore del server che esegue Azure AD Connect, aprire la **Configurazione guidata Azure ad Connect** .
 1. In **Connessione ad Azure AD** immettere le credenziali di amministratore globale di Azure AD.
-1. In **Connetti a servizi di dominio Active Directory**immettere le credenziali di amministratore Active Directory Domain Services locali.
-1. In **Identificazione univoca per gli utenti** fare clic su **Avanti**.
-1. In **Funzionalità facoltative** deselezionare la casella di controllo **Writeback password**.
-1. Fare clic su **Avanti** nelle pagine rimanenti senza apportare alcuna modifica fino a quando non viene visualizzata la pagina **Pronto per la configurazione**.
-1. Verificare che nella **pagina pronto per la configurazione** venga visualizzata l'opzione *writeback password* come *disabilitata*. Selezionare il pulsante verde **Configura** per eseguire il commit delle modifiche.
+1. In **Connetti a servizi di dominio Active Directory** immettere le credenziali di amministratore Active Directory Domain Services locali.
+1. In **Identificazione univoca per gli utenti** fare clic su **Avanti** .
+1. In **Funzionalità facoltative** deselezionare la casella di controllo **Writeback password** .
+1. Fare clic su **Avanti** nelle pagine rimanenti senza apportare alcuna modifica fino a quando non viene visualizzata la pagina **Pronto per la configurazione** .
+1. Verificare che nella **pagina pronto per la configurazione** venga visualizzata l'opzione *writeback password* come *disabilitata* . Selezionare il pulsante verde **Configura** per eseguire il commit delle modifiche.
 1. In **Operazione completata** deselezionare l'opzione **Sincronizza adesso** e quindi fare clic su **Fine** per chiudere la procedura guidata.
-1. Riaprire la **Configurazione guidata Azure ad Connect**.
+1. Riaprire la **Configurazione guidata Azure ad Connect** .
 1. Ripetere i passaggi 2-8, questa volta selezionando l'opzione *writeback password* nella pagina **funzionalità facoltative** per riabilitare il servizio.
 
 Questi passaggi ristabiliscono la connessione con Azure AD e devono risolvere i problemi di connettività.
@@ -101,30 +101,30 @@ Se l'installazione della versione più recente di Azure AD Connect Server non ri
 
 Azure AD Connect richiede l'autorizzazione **Reimposta password** di servizi di dominio Active Directory per eseguire il writeback delle password. Per verificare se Azure AD Connect dispone dell'autorizzazione necessaria per un determinato account utente di Active Directory Domain Services locale, utilizzare la funzionalità di **autorizzazione valida di Windows** :
 
-1. Accedere al server Azure AD Connect e avviare **Synchronization Service Manager** selezionando **Start** > **Synchronization Service**.
-1. Nella scheda **Connettori** selezionare il connettore **Active Directory Domain Services** locale e quindi selezionare **Proprietà**.
+1. Accedere al server Azure AD Connect e avviare **Synchronization Service Manager** selezionando **Start** > **Synchronization Service** .
+1. Nella scheda **Connettori** selezionare il connettore **Active Directory Domain Services** locale e quindi selezionare **Proprietà** .
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica" border="false":::
   
-1. Nella finestra popup selezionare **Connetti a foresta Active Directory** e annotare la proprietà **Nome utente**. Questa proprietà corrisponde all'account di Active Directory Domain Services usato da Azure AD Connect per eseguire la sincronizzazione della directory.
+1. Nella finestra popup selezionare **Connetti a foresta Active Directory** e annotare la proprietà **Nome utente** . Questa proprietà corrisponde all'account di Active Directory Domain Services usato da Azure AD Connect per eseguire la sincronizzazione della directory.
 
     Per consentire ad Azure AD Connect di eseguire il writeback delle password l'account di Active Directory Domain Services deve avere l'autorizzazione di reimpostazione della password. Si controllano le autorizzazioni per questo account utente nei passaggi seguenti.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/synchronization-service-manager-properties.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica" border="false":::
   
-1. Accedere a un controller di dominio locale e avviare l'applicazione **Utenti e computer di Active Directory**.
+1. Accedere a un controller di dominio locale e avviare l'applicazione **Utenti e computer di Active Directory** .
 1. Selezionare **Visualizza** e verificare che l'opzione **Funzionalità avanzate** sia abilitata.  
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-advanced-features.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica" border="false":::
   
-1. Cercare l'account utente di servizi di dominio Active Directory che si desidera verificare. Fare clic con il pulsante destro del mouse sull'account e scegliere **Proprietà**.  
-1. Nella finestra popup passare alla scheda **Sicurezza** e selezionare **Avanzate**.  
-1. Nella finestra popup **Advanced Security Settings for Administrator** (Impostazioni di sicurezza avanzate per l'amministratore) passare alla scheda **Accesso valido**.
-1. Scegliere **Seleziona un utente**, selezionare l'account Active Directory Domain Services usato da Azure ad Connect, quindi selezionare **Visualizza accesso valido**.
+1. Cercare l'account utente di servizi di dominio Active Directory che si desidera verificare. Fare clic con il pulsante destro del mouse sull'account e scegliere **Proprietà** .  
+1. Nella finestra popup passare alla scheda **Sicurezza** e selezionare **Avanzate** .  
+1. Nella finestra popup **Advanced Security Settings for Administrator** (Impostazioni di sicurezza avanzate per l'amministratore) passare alla scheda **Accesso valido** .
+1. Scegliere **Seleziona un utente** , selezionare l'account Active Directory Domain Services usato da Azure ad Connect, quindi selezionare **Visualizza accesso valido** .
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-effective-access.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica" border="false":::
   
-1. Scorrere verso il basso e cercare **Reimposta password**. Se la voce è selezionata, significa che l'account di Active Directory Domain Services ha l'autorizzazione per reimpostare la password dell'account utente di Active Directory selezionato.  
+1. Scorrere verso il basso e cercare **Reimposta password** . Se la voce è selezionata, significa che l'account di Active Directory Domain Services ha l'autorizzazione per reimpostare la password dell'account utente di Active Directory selezionato.  
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/check-permissions.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica" border="false":::
 
@@ -135,7 +135,7 @@ Con il writeback delle password possono verificarsi i seguenti problemi più spe
 | Errore | Soluzione |
 | --- | --- |
 | Il servizio di reimpostazione della password non viene avviato in locale. L'errore 6800 viene visualizzato nel registro eventi dell'applicazione del computer Azure AD Connect. <br> <br> Dopo l'onboarding, gli utenti federati, con autenticazione pass-through o con sincronizzazione dell'hash delle password non possono reimpostare le password. | Quando il writeback delle password è abilitato, il motore di sincronizzazione chiama la libreria di writeback per eseguire la configurazione, ovvero l'onboarding, comunicando con il servizio di onboarding cloud. Gli eventuali errori che si verificano durante l'onboarding o durante l'avvio dell'endpoint Windows Communication Foundation (WCF) per il writeback delle password si riflettono nel log eventi del computer che esegue Azure AD Connect. <br> <br> Se è stato configurato il writeback, durante il riavvio del servizio Azure AD Sync (ADSync) viene avviato l'endpoint WCF. Tuttavia, se l'avvio dell'endpoint ha esito negativo, si registra l'evento 6800 e si consente l'avvio del servizio di sincronizzazione. La presenza di questo evento indica che l'endpoint di writeback della password non è stato avviato. I dettagli del log per questo evento 6800 insieme alle voci del log eventi generate dal componente PasswordResetService indicano i motivi per cui non è possibile avviare l'endpoint. Esaminare questi errori nel registro eventi e provare a riavviare il Azure AD Connect se il writeback delle password non funziona ancora. Se il problema persiste, provare a disabilitare e quindi riabilitare il writeback delle password.
-| Quando un utente prova a reimpostare una password o a sbloccare un account con il writeback delle password abilitato, l'operazione non riesce. <br> <br> Viene inoltre visualizzato un evento nel registro eventi Azure AD Connect che contiene: "il motore di sincronizzazione ha restituito un errore HR = 800700CE, Message = il nome file o l'estensione è troppo lungo" dopo l'operazione di sblocco. | Trovare l'account Active Directory per Azure AD Connect e reimpostare la password in modo che non contenga più di 256 caratteri. Aprire quindi il **servizio di sincronizzazione** dal menu **Start** . Passare a **Connettori** e trovare **Active Directory Connector**. Selezionare il connettore e quindi **Proprietà**. Passare alla pagina **Credenziali** e immettere la nuova password. Fare clic su **OK** per chiudere la pagina. |
+| Quando un utente prova a reimpostare una password o a sbloccare un account con il writeback delle password abilitato, l'operazione non riesce. <br> <br> Viene inoltre visualizzato un evento nel registro eventi Azure AD Connect che contiene: "il motore di sincronizzazione ha restituito un errore HR = 800700CE, Message = il nome file o l'estensione è troppo lungo" dopo l'operazione di sblocco. | Trovare l'account Active Directory per Azure AD Connect e reimpostare la password in modo che non contenga più di 256 caratteri. Aprire quindi il **servizio di sincronizzazione** dal menu **Start** . Passare a **Connettori** e trovare **Active Directory Connector** . Selezionare il connettore e quindi **Proprietà** . Passare alla pagina **Credenziali** e immettere la nuova password. Fare clic su **OK** per chiudere la pagina. |
 | Nell'ultimo passaggio del processo di installazione di Azure AD Connect viene visualizzato un errore che indica che non è stato possibile configurare il writeback delle password. <br> <br> Il registro eventi dell'applicazione Azure AD Connect contiene l'errore 32009 con il testo "errore durante il recupero del token di autenticazione". | Questo errore si verifica nei due casi seguenti: <br><ul><li>È stata specificata una password non corretta per l'account amministratore globale fornito all'inizio del processo di installazione di Azure AD Connect.</li><li>Si è tentato di usare un utente federato per l'account amministratore globale specificato all'inizio del processo di installazione di Azure AD Connect.</li></ul> Per risolvere il problema, assicurarsi che non si stia usando un account federato per l'amministratore globale specificato all'inizio del processo di installazione e che la password specificata sia corretta. |
 | Il log eventi del computer che esegue Azure AD Connect contiene l'errore 32002 generato eseguendo PasswordResetService. <br> <br> Errore di lettura: "errore durante la connessione a ServiceBus. Il provider di token non è stato in grado di fornire un token di sicurezza. " | L'ambiente locale non è in grado di connettersi all'endpoint del bus di servizio di Azure nel cloud. Questo errore è in genere causato da una regola del firewall che blocca la connessione in uscita a una porta o a un indirizzo Web specifico. Per altre informazioni, vedere i [prerequisiti di connettività](../hybrid/how-to-connect-install-prerequisites.md). Dopo avere aggiornato queste regole, riavviare il Azure AD Connect Server e il writeback delle password dovrebbe iniziare a funzionare di nuovo. |
 | Dopo un certo periodo di tempo, gli utenti federati, con autenticazione pass-through o con sincronizzazione dell'hash delle password non possono reimpostare le password. | In rari casi è possibile che il servizio di writeback delle password non venga riavviato quando si riavvia Azure AD Connect. In questi casi, controllare innanzitutto se il writeback delle password è abilitato in locale. È possibile controllare usando la procedura guidata Azure AD Connect o PowerShell. Se la funzionalità appare abilitata, provare ad abilitare o disabilitare di nuovo la funzionalità. Se il passaggio per la risoluzione dei problemi non funziona, provare a disinstallare e reinstallare completamente Azure AD Connect. |
@@ -178,6 +178,7 @@ Una procedura consigliata per la risoluzione dei problemi relativi al writeback 
 | 31016| WriteBackServiceStopped| Questo evento indica che il servizio di writeback delle password è stato arrestato. Eventuali richieste di gestione delle password dal cloud non riusciranno.|
 | 31017| AuthTokenSuccess| Questo evento indica l'operazione di recupero di un token di autorizzazione per l'amministratore globale specificato durante l'installazione di Azure AD Connect per avviare il processo di scaricamento o caricamento è stata eseguita correttamente.|
 | 31018| KeyPairCreationSuccess| Questo evento indica che la chiave di crittografia delle password è stata creata correttamente. La chiave verrà usata per crittografare le password cloud da inviare all'ambiente locale.|
+| 31034| ServiceBusListenerError| Questo evento indica che si è verificato un errore durante la connessione al listener del bus di servizio del tenant. Se il messaggio di errore include "il certificato remoto non è valido", verificare che il server Azure AD Connect disponga di tutte le CA radice richieste come descritto in [modifiche ai certificati TLS di Azure](../../security/fundamentals/tls-certificate-changes.md). |
 | 32000| UnknownError| Questo evento indica che si è verificato un errore sconosciuto durante un'operazione di gestione delle password. Per altri dettagli, fare riferimento al testo dell'eccezione. In caso di problemi, provare a disabilitare e quindi riabilitare il writeback delle password. Se questa operazione non è utile, includere una copia del registro eventi insieme all'ID di traccia specificato quando si apre una richiesta di supporto.|
 | 32001| ServiceError| Questo evento indica che si è verificato un errore di connessione al servizio cloud di reimpostazione delle password. L'errore si verifica in genere quando il servizio locale non è riuscito a connettersi al servizio Web di reimpostazione della password.|
 | 32002| ServiceBusError| Questo evento indica che si è verificato un errore durante la connessione all'istanza del bus di servizio del tenant. Ciò può verificarsi se le connessioni in uscita nell'ambiente locale sono bloccate. Verificare che nel firewall siano consentite le connessioni su TCP 443 e verso https://ssprdedicatedsbprodncu.servicebus.windows.net e riprovare. Se il problema persiste, provare a disabilitare e quindi riabilitare il writeback delle password.|
@@ -212,22 +213,22 @@ Se non si riesce a trovare la risposta a un problema, i team di supporto Microso
 
 Per garantire un supporto adeguato, verrà richiesto il maggior numero di dettagli possibile al momento dell'apertura di un caso. Questi dettagli includono quanto segue:
 
-* **Descrizione generale dell'errore**: indicare il tipo di errore, il comportamento notato, e le modalità in cui è possibile riprodurre l'errore. Fornire il maggior numero di dettagli possibili.
-* **Pagina**: indicare la pagina che si stava consultando quando è stato visualizzato l'errore. Includere l'URL, se possibile, e uno screenshot della pagina.
-* **Codice di supporto**: indicare il codice di supporto generato quando è stato visualizzato l'errore.
+* **Descrizione generale dell'errore** : indicare il tipo di errore, il comportamento notato, e le modalità in cui è possibile riprodurre l'errore. Fornire il maggior numero di dettagli possibili.
+* **Pagina** : indicare la pagina che si stava consultando quando è stato visualizzato l'errore. Includere l'URL, se possibile, e uno screenshot della pagina.
+* **Codice di supporto** : indicare il codice di supporto generato quando è stato visualizzato l'errore.
    * Per trovare questo codice, riprodurre l'errore, quindi fare clic sul collegamento **Codice di supporto** nella parte inferiore della schermo e inviare al personale del supporto tecnico il GUID risultante.
 
     :::image type="content" source="./media/troubleshoot-sspr-writeback/view-support-code.png" alt-text="Riavviare il servizio Azure AD Sync con l'interfaccia utente grafica":::
 
   * Se è visualizzata una pagina senza un codice di supporto nella parte inferiore, premere F12 ed eseguire una ricerca di SID e CID, quindi inviare i due risultati al personale del supporto tecnico.
-* **Data, ora e fuso orario**: includere la data e l'ora precise *con il fuso orario* di quando si è verificato l'errore.
-* **ID utente**: indicare l'ID dell'utente che ha visualizzato l'errore. Ad esempio, *utente\@contoso.com*.
+* **Data, ora e fuso orario** : includere la data e l'ora precise *con il fuso orario* di quando si è verificato l'errore.
+* **ID utente** : indicare l'ID dell'utente che ha visualizzato l'errore. Ad esempio, *utente\@contoso.com* .
    * Indicare se si tratta di un utente federato,
    * Si tratta di un utente con autenticazione pass-through?
    * Si tratta di un utente con sincronizzazione di hash della password?
    * Si tratta di un utente solo cloud?
-* **Licenze**: all'utente è stata assegnata una licenza di Azure AD?
-* **Log eventi dell'applicazione**: se si usa il writeback delle password e l'errore si verifica nell'infrastruttura locale, includere una copia compressa del log eventi dell'applicazione del server Azure AD Connect.
+* **Licenze** : all'utente è stata assegnata una licenza di Azure AD?
+* **Log eventi dell'applicazione** : se si usa il writeback delle password e l'errore si verifica nell'infrastruttura locale, includere una copia compressa del log eventi dell'applicazione del server Azure AD Connect.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

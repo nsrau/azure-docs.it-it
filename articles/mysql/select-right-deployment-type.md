@@ -6,12 +6,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: e89a7d9bc71d48be1b7d7ea40246b2394c95e84b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 000de084cf9375347704cc4d3905ca36bdd77ff8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92543781"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92926190"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Scegliere l'opzione del server MySQL corretta in Azure
 
@@ -46,16 +46,16 @@ Le differenze principali tra queste opzioni sono elencate nella tabella seguente
 | Supporto della versione di MySQL | 5,6, 5,7 & 8,0| 5.7 | Qualsiasi versione|
 | Ridimensionamento delle risorse di calcolo | Supportato (il ridimensionamento da e verso il livello Basic non è supportato)| Supportato | Supportato|
 | Dimensioni dello spazio di archiviazione | da 5 GiB a 16 TiB| da 5 GiB a 16 TiB | 32 GiB a 32.767 GiB|
-| Scalabilità dell'archiviazione online | Supportato| Supportato| Non supportato|
-| Ridimensionamento automatico dell'archiviazione | Supportato| Non supportato nella versione di anteprima| Non supportato|
+| Scalabilità dell'archiviazione online | Supportato| Supportato| Non supportate|
+| Ridimensionamento automatico dell'archiviazione | Supportato| Non supportato nella versione di anteprima| Non supportate|
 | Connettività di rete | -Endpoint pubblici con firewall del server.<br/> -Accesso privato con supporto del collegamento privato.|-Endpoint pubblici con firewall del server.<br/> -Accesso privato con l'integrazione della rete virtuale.| -Endpoint pubblici con firewall del server.<br/> -Accesso privato con supporto del collegamento privato.|
 | Contratto di servizio | CONTRATTO di disponibilità del 99,99% |Nessun contratto di contratto in anteprima| 99,99% con zone di disponibilità|
 | Applicazione di patch al sistema operativo| Automatico  | Automatico con controllo finestra di manutenzione personalizzata | Gestito dagli utenti finali |
 | Patch di MySQL     | Automatico  | Automatico con controllo finestra di manutenzione personalizzata | Gestito dagli utenti finali |
 | Disponibilità elevata | Disponibilità elevata incorporata all'interno di una singola zona di disponibilità| Disponibilità elevata incorporata all'interno e tra le zone di disponibilità | Gestione personalizzata mediante clustering, replica e così via.|
-| Ridondanza della zona | Non supportato | Supportato | Supportato|
+| Ridondanza della zona | Non supportate | Supportato | Supportato|
 | Scenari ibridi | Supportato con [replica dei dati in ingresso](./concepts-data-in-replication.md)| Non disponibile in anteprima | Gestito dagli utenti finali |
-| Repliche in lettura | Supportato| Supportato | Gestito dagli utenti finali |
+| Repliche in lettura | Supportato (fino a 5 repliche)| Supportato (fino a 10 repliche)| Gestito dagli utenti finali |
 | Backup | Automatizzato con conservazione di 7-35 giorni | Automatizzato con conservazione di 1-35 giorni | Gestito dagli utenti finali |
 | Monitoraggio delle operazioni del database | Supportato | Supportato | Gestito dagli utenti finali |
 | Ripristino di emergenza | Supportato con archiviazione di backup con ridondanza geografica e repliche di lettura tra più aree | Non supportato nella versione di anteprima| Gestione personalizzata con tecnologie di replica |

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: jomore
 ms.custom: fasttrack-new
-ms.openlocfilehash: fa4828d8b2752168d5f66a4f80c00611f80f0176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc8e7314c941035207ecf809a9d85ef46bd58379
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91306634"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913756"
 ---
 # <a name="use-private-link-in-virtual-wan"></a>USA collegamento privato nella rete WAN virtuale
 
@@ -72,7 +72,7 @@ $ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 10.1.3.75
 ```
 
-Come si può notare, viene usata una speciale query SQL che fornisce l'indirizzo IP di origine visualizzato da SQL Server dal client. In questo caso il server vede il client con l'indirizzo IP privato ( `10.1.3.75` ), il che significa che il traffico non passa attraverso la rete Internet pubblica, ma passa direttamente all'endpoint privato.
+Come si può notare, viene usata una speciale query SQL che fornisce l'indirizzo IP di origine visualizzato da SQL Server dal client. In questo caso il server vede il client con l'indirizzo IP privato ( `10.1.3.75` ), il che significa che il traffico passa dalla VNet direttamente all'endpoint privato.
 
 Si noti che è necessario impostare le variabili `username` e `password` per trovare la corrispondenza con le credenziali definite nel database SQL di Azure per fare in modo che gli esempi di questa guida funzionino.
 
