@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: ab4b4e0ab7d0474dc4fe7692cfe3c46835095f45
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 0045520849ea20d3e53a30101e6db0f5d495ab15
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91873745"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897008"
 ---
 # <a name="tutorial---migrate-from-bing-maps-to-azure-maps"></a>Esercitazione- Eseguire la migrazione da Bing Maps a Mappe di Azure
 
@@ -69,7 +69,7 @@ Ecco alcune risorse legate alle licenze di Mappe di Azure:
 -   [Pagina dei prezzi di Mappe di Azure](https://azure.microsoft.com/pricing/details/azure-maps/)
 -   [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/?service=azure-maps)
 -   [Condizioni per l'utilizzo di Mappe di Azure](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=31) (incluse nelle condizioni per l'utilizzo di Microsoft Online Services)
--   [Scegliere il piano tariffario corretto in Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/choose-pricing-tier)
+-   [Scegliere il piano tariffario corretto in Mappe di Azure](./choose-pricing-tier.md)
 
 ## <a name="suggested-migration-plan"></a>Piano di migrazione suggerito
 
@@ -77,7 +77,7 @@ Di seguito è descritto un piano di migrazione generale.
 
 1.  Fare un inventario degli SDK e dei servizi di Bing Maps usati dall'applicazione e verificare che Mappe di Azure fornisca SDK e servizi alternativi a cui eseguire la migrazione.
 2.  Creare una sottoscrizione di Azure (se non se ne ha già una) all'indirizzo <https://azure.com>
-3.  Creare un account di Mappe di Azure ([documentazione](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys)) e una chiave di autenticazione per Azure Active Directory ([documentazione](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication)).
+3.  Creare un account di Mappe di Azure ([documentazione](./how-to-manage-account-keys.md)) e una chiave di autenticazione per Azure Active Directory ([documentazione](./how-to-manage-authentication.md)).
 4.  Eseguire la migrazione del codice dell'applicazione.
 5.  Testare l'applicazione dopo la migrazione.
 6.  Distribuire l'applicazione di cui è stata eseguita la migrazione in ambiente di produzione.
@@ -88,8 +88,8 @@ Per creare un account Mappe di Azure e ottenere l'accesso alla piattaforma Mappe
 
 1. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 2. Accedere al [portale di Azure](https://portal.azure.com/).
-3. Creare un [account Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/how-to-manage-account-keys). 
-4. [Ottenere la chiave della sottoscrizione di Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/how-to-manage-authentication#view-authentication-details) o configurare l'autenticazione di Azure Active Directory per una maggiore sicurezza.
+3. Creare un [account Mappe di Azure](./how-to-manage-account-keys.md). 
+4. [Ottenere la chiave della sottoscrizione di Mappe di Azure](./how-to-manage-authentication.md#view-authentication-details) o configurare l'autenticazione di Azure Active Directory per una maggiore sicurezza.
 
 ## <a name="azure-maps-technical-resources"></a>Risorse tecniche di Mappe di Azure
 
@@ -105,7 +105,7 @@ Ecco un elenco di risorse tecniche utili per Mappe di Azure.
 
 ## <a name="migration-support"></a>Supporto per la migrazione
 
-Gli sviluppatori possono richiedere supporto per la migrazione nei [forum](https://aka.ms/AzureMapsForums) o tramite una delle numerose opzioni di supporto di Azure: <https://azure.microsoft.com/support/options/>
+Gli sviluppatori possono richiedere supporto per la migrazione nei [forum](/answers/topics/azure-maps.html) o tramite una delle numerose opzioni di supporto di Azure: <https://azure.microsoft.com/support/options/>
 
 ## <a name="new-terminology"></a>Nuova terminologia 
 

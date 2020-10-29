@@ -9,22 +9,22 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 3cb9bee65ab7fa2c29185c40ecb48fd531192187
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0004a250173ce6707462b852016d205782479717
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91321714"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896681"
 ---
 # <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Esercitazione: Come visualizzare le indicazioni stradali usando il servizio di pianificazione percorso e il controllo mappa di Mappe di Azure
 
-Questa esercitazione illustra come usare l'[API del servizio di pianificazione percorso](https://docs.microsoft.com/rest/api/maps/route) e il [controllo mappa](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) di Mappe di Azure per visualizzare le indicazioni stradali da un punto di partenza a un punto di arrivo. In questa esercitazione si apprenderà come:
+Questa esercitazione illustra come usare l'[API del servizio di pianificazione percorso](/rest/api/maps/route) e il [controllo mappa](./how-to-use-map-control.md) di Mappe di Azure per visualizzare le indicazioni stradali da un punto di partenza a un punto di arrivo. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
 > * Creare e visualizzare il controllo mappa in una pagina Web. 
 > * Definire il rendering della visualizzazione del percorso definendo [livelli simbolo](map-add-pin.md) e [livelli linea](map-add-line-layer.md).
 > * Creare e aggiungere oggetti GeoJSON alla mappa per rappresentare i punti di partenza e di arrivo.
-> * Ottenere le indicazioni stradali dal punto di partenza a quello di arrivo usando l'[API Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+> * Ottenere le indicazioni stradali dal punto di partenza a quello di arrivo usando l'[API Get Route Directions](/rest/api/maps/route/getroutedirections).
 
 È possibile ottenere il codice sorgente completo per l'esempio [qui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Un esempio eseguibile è disponibile [qui](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
@@ -39,7 +39,7 @@ Questa esercitazione illustra come usare l'[API del servizio di pianificazione p
 
 La procedura seguente illustra come creare e visualizzare il controllo mappa in una pagina Web.
 
-1. Nel computer locale creare un nuovo file con il nome **MapRoute.html**.
+1. Nel computer locale creare un nuovo file con il nome **MapRoute.html** .
 2. Copiare e incollare il markup HTML seguente nel file.
 
     ```HTML
@@ -170,7 +170,7 @@ In questa esercitazione verrà eseguito il rendering del percorso usando un live
 
     Questo codice crea due [oggetti punto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) per rappresentare i punti di partenza e di arrivo, che vengono quindi aggiunti all'origine dati. 
 
-    L'ultimo blocco di codice imposta la visualizzazione della fotocamera tramite le informazioni di latitudine e longitudine del punto di partenza e di arrivo. I punti di partenza e di arrivo vengono aggiunti all'origine dati. Per il calcolo del rettangolo di selezione viene usata la funzione `atlas.data.BoundingBox.fromData`. Questo rettangolo di selezione viene usato per impostare la visualizzazione delle videocamere della mappa sull'intero percorso con la funzione `map.setCamera`. Per compensare le dimensioni in pixel delle icone di simbolo, viene aggiunta una spaziatura interna. Per altre informazioni sulla proprietà setCamera del controllo mappa, vedere [setCamera(CameraOptions | CameraBoundsOptions e AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
+    L'ultimo blocco di codice imposta la visualizzazione della fotocamera tramite le informazioni di latitudine e longitudine del punto di partenza e di arrivo. I punti di partenza e di arrivo vengono aggiunti all'origine dati. Per il calcolo del rettangolo di selezione viene usata la funzione `atlas.data.BoundingBox.fromData`. Questo rettangolo di selezione viene usato per impostare la visualizzazione delle videocamere della mappa sull'intero percorso con la funzione `map.setCamera`. Per compensare le dimensioni in pixel delle icone di simbolo, viene aggiunta una spaziatura interna. Per altre informazioni sulla proprietà setCamera del controllo mappa, vedere [setCamera(CameraOptions | CameraBoundsOptions e AnimationOptions)](/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-&preserve-view=false).
 
 3. Salvare **MapRoute.html** e aggiornare il browser. La mappa è ora centrata sulla città di Seattle. L'indicatore blu a goccia contrassegna il punto di partenza. L'indicatore rotondo a goccia contrassegna il punto di arrivo.
 
@@ -183,7 +183,7 @@ In questa esercitazione verrà eseguito il rendering del percorso usando un live
 Questa sezione illustra come usare l'API di indicazioni stradali di Mappe di Azure per ottenere indicazioni stradali e il tempo previsto di arrivo da un punto a un altro.
 
 >[!TIP]
->I servizi di pianificazione percorso offrono API per pianificare più tipi di percorso, ad esempio *più veloce*, *più breve*, *più ecologico* o *più entusiasmante*, in base alla distanza, alle condizioni del traffico e alla modalità di trasporto usata. Il servizio consente anche di pianificare percorsi futuri in base alle condizioni storiche del traffico. Gli utenti possono visualizzare la durata stimata del percorso per qualsiasi ora specificata. Per altre informazioni, vedere [API Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+>I servizi di pianificazione percorso offrono API per pianificare più tipi di percorso, ad esempio *più veloce* , *più breve* , *più ecologico* o *più entusiasmante* , in base alla distanza, alle condizioni del traffico e alla modalità di trasporto usata. Il servizio consente anche di pianificare percorsi futuri in base alle condizioni storiche del traffico. Gli utenti possono visualizzare la durata stimata del percorso per qualsiasi ora specificata. Per altre informazioni, vedere [API Get Route Directions](/rest/api/maps/route/getroutedirections).
 
 1. Nella funzione `GetMap`, all'interno del gestore dell'evento `ready` del controllo, aggiungere quanto segue al codice JavaScript.
 
@@ -198,7 +198,7 @@ Questa sezione illustra come usare l'API di indicazioni stradali di Mappe di Azu
     var routeURL = new atlas.service.RouteURL(pipeline);
     ```
 
-   `SubscriptionKeyCredential` crea un elemento `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP in Mappe di Azure con la chiave di sottoscrizione. `atlas.service.MapsURL.newPipeline()` acquisisce il criterio `SubscriptionKeyCredential` e crea un'istanza [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline). `routeURL` rappresenta un URL per le operazioni di [pianificazione del percorso](https://docs.microsoft.com/rest/api/maps/route) di Mappe di Azure.
+   `SubscriptionKeyCredential` crea un elemento `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP in Mappe di Azure con la chiave di sottoscrizione. `atlas.service.MapsURL.newPipeline()` acquisisce il criterio `SubscriptionKeyCredential` e crea un'istanza [pipeline](/javascript/api/azure-maps-rest/atlas.service.pipeline). `routeURL` rappresenta un URL per le operazioni di [pianificazione del percorso](/rest/api/maps/route) di Mappe di Azure.
 
 2. Dopo aver impostato le credenziali e l'URL, aggiungere il codice seguente nel gestore dell'evento `ready` del controllo. Questo codice costruisce il percorso dal punto di partenza a quello di arrivo. `routeURL` richiede all'API del servizio di pianificazione percorso di Mappe di Azure di calcolare le indicazioni stradali. Dalla risposta viene estratta una raccolta di funzionalità GeoJSON con il metodo `geojson.getFeatures()` e viene aggiunta all'origine dati.
 

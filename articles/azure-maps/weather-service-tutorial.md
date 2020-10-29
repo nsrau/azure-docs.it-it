@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc, devx-track-python
-ms.openlocfilehash: 717cb600f1bdae228f45409cb271ab04d1d51a19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f020f3d9e23b9f834fd203f6d030656581fb4416
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91310102"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896600"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>Esercitazione: Unire i dati dei sensori con i dati delle previsioni meteo usando Azure Notebooks (Python)
 
@@ -23,11 +23,11 @@ L'energia eolica è una delle fonti energetiche alternative ai combustibili foss
 In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Usare file di dati in [Azure Notebooks](https://docs.microsoft.com/azure/notebooks) nel cloud.
+> * Usare file di dati in [Azure Notebooks](../notebooks/index.yml) nel cloud.
 > * Caricare i dati demo da un file.
 > * Chiamare le API REST di Mappe di Azure in Python.
 > * Eseguire il rendering dei dati della posizione sulla mappa.
-> * Arricchire i dati demo con i dati delle [previsioni meteo giornaliere](https://aka.ms/AzureMapsWeatherDailyForecast) di Mappe di Azure.
+> * Arricchire i dati demo con i dati delle [previsioni meteo giornaliere](/rest/api/maps/weather/getdailyforecastpreview) di Mappe di Azure.
 > * Tracciare i dati delle previsioni sui grafici.
 
 
@@ -41,7 +41,7 @@ Per completare questa esercitazione, è necessario prima di tutto:
 
 Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](./how-to-manage-authentication.md).
 
-Per acquisire familiarità con Azure Notebooks e per informazioni introduttive, seguire le istruzioni riportate in [Creare un notebook di Azure](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing#create-an-azure-notebook).
+Per acquisire familiarità con Azure Notebooks e per informazioni introduttive, seguire le istruzioni riportate in [Creare un notebook di Azure](./tutorial-ev-routing.md#create-an-azure-notebooks-project).
 
 > [!Note]
 > Il file di Jupyter Notebook per questo progetto può essere scaricato dal [repository di notebook di Jupyter per mappe meteo](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data).
@@ -68,7 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>Richiedere i dati delle previsioni giornaliere
 
-In questo scenario verranno richieste le previsioni giornaliere per ogni posizione dei sensori. Lo script seguente chiama l'[API delle previsioni giornaliere](https://aka.ms/AzureMapsWeatherDailyForecast) del servizio meteorologico di Mappe di Azure. Questa API restituisce le previsioni meteorologiche per ogni turbina eolica per i 15 giorni successivi dalla data corrente.
+In questo scenario verranno richieste le previsioni giornaliere per ogni posizione dei sensori. Lo script seguente chiama l'[API delle previsioni giornaliere](/rest/api/maps/weather/getdailyforecastpreview) del servizio meteorologico di Mappe di Azure. Questa API restituisce le previsioni meteorologiche per ogni turbina eolica per i 15 giorni successivi dalla data corrente.
 
 
 ```python
@@ -107,7 +107,7 @@ for i in range(0, len(coords), 2):
 await session.close()
 ```
 
-Lo script seguente esegue il rendering delle posizioni delle turbine sulla mappa chiamando il [servizio Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage) di Mappe di Azure.
+Lo script seguente esegue il rendering delle posizioni delle turbine sulla mappa chiamando il [servizio Get Map Image](/rest/api/maps/render/getmapimage) di Mappe di Azure.
 
 ```python
 # Render the turbine locations on the map by calling the Azure Maps Get Map Image service
@@ -184,18 +184,18 @@ I grafici seguenti visualizzano i dati di previsione. Per le variazioni della ve
 
 In questa esercitazione si è appreso come chiamare le API REST di Mappe di Azure per ottenere i dati delle previsioni meteo e visualizzarli su grafici.
 
-Per altre informazioni su come chiamare le API REST di Mappe di Azure all'interno di Azure Notebooks, vedere [Pianificare itinerari per veicoli elettrici con Azure Notebooks](https://docs.microsoft.com/azure/azure-maps/tutorial-ev-routing).
+Per altre informazioni su come chiamare le API REST di Mappe di Azure all'interno di Azure Notebooks, vedere [Pianificare itinerari per veicoli elettrici con Azure Notebooks](./tutorial-ev-routing.md).
 
 Per esplorare le API di Mappe di Azure usate in questa esercitazione, vedere:
 
-* [Previsioni giornaliere](https://aka.ms/AzureMapsWeatherDailyForecast)
-* [Render - Get Map Image](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
+* [Previsioni giornaliere](/rest/api/maps/weather/getdailyforecastpreview)
+* [Render - Get Map Image](/rest/api/maps/render/getmapimage)
 
-Per un elenco completo delle API REST di Mappe di Azure, vedere: [API REST di Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/consumption-model).
+Per un elenco completo delle API REST di Mappe di Azure, vedere: [API REST di Mappe di Azure](./consumption-model.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni su Azure Notebooks, vedere
 
 > [!div class="nextstepaction"]
-> [Azure Notebooks](https://docs.microsoft.com/azure/notebooks)
+> [Azure Notebooks](../notebooks/index.yml)

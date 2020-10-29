@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-js
-ms.openlocfilehash: 9c2160a241243b59ca7adda99fe2100d416c55be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 981697211cf8ee0aff1ac0e3d0db6000c1089c00
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91335263"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896850"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -76,7 +76,7 @@ Prima di sviluppare un'applicazione di tipo localizzatore di punti vendita, è n
 
 Esaminando lo screenshot dei dati è possibile fare le osservazioni seguenti:
 
-* Le informazioni sulla posizione sono archiviate mediante le colonne **AddressLine**, **City**, **Municipality** (comune), **AdminDivision** (stato/provincia), **PostCode** (codice postale) e **Country**.  
+* Le informazioni sulla posizione sono archiviate mediante le colonne **AddressLine** , **City** , **Municipality** (comune), **AdminDivision** (stato/provincia), **PostCode** (codice postale) e **Country** .  
 * Le colonne **Latitude** e **Longitude** contengono le coordinate per ogni posizione dei bar Contoso Coffee. Se non sono disponibili informazioni sulle coordinate, è possibile usare i servizi di ricerca in Mappe di Azure per determinare le coordinate relative alle posizioni.
 * Alcune colonne aggiuntive contengono metadati correlati ai bar, ovvero numero di telefono, colonne booleane e orari di apertura e chiusura del bar nel formato 24 ore. Le colonne booleane contengono i dati per la disponibilità del Wi-Fi e l'accessibilità per disabili. È possibile creare colonne personalizzate contenenti i metadati più pertinenti per i dati di posizione specifici.
 
@@ -87,7 +87,7 @@ Esaminando lo screenshot dei dati è possibile fare le osservazioni seguenti:
 
 Un altro approccio consiste nel convertire questo set di dati in un file flat di testo che può essere analizzato con facilità dal browser. Il file stesso può essere ospitato insieme al resto dell'applicazione. Questa opzione consente di semplificare le procedure, ma è ideale solo per set di dati più piccoli perché l'utente scarica tutti i dati. Per questo set di dati viene usato il file flat di testo perché le dimensioni del file di dati sono inferiori a 1 MB.  
 
-Per convertire la cartella di lavoro in un file flat di testo, salvare la cartella di lavoro come file con valori delimitati da tabulazioni. Ogni colonna è delimitata da un carattere di tabulazione e le colonne risultano quindi facili da analizzare nel codice. È possibile usare il formato con valori delimitati da virgole (CSV), ma questa opzione richiede una quantità maggiore di logica di analisi. Qualsiasi campo delimitato da una virgola verrebbe racchiuso tra virgolette. Per esportare questi dati come file con valori delimitati da tabulazioni in Excel, selezionare **Salva con nome**. Nell'elenco a discesa **Salva come** selezionare **Testo (delimitato da tabulazione)(*.txt)** . Specificare il nome *ContosoCoffee.txt* per il file.
+Per convertire la cartella di lavoro in un file flat di testo, salvare la cartella di lavoro come file con valori delimitati da tabulazioni. Ogni colonna è delimitata da un carattere di tabulazione e le colonne risultano quindi facili da analizzare nel codice. È possibile usare il formato con valori delimitati da virgole (CSV), ma questa opzione richiede una quantità maggiore di logica di analisi. Qualsiasi campo delimitato da una virgola verrebbe racchiuso tra virgolette. Per esportare questi dati come file con valori delimitati da tabulazioni in Excel, selezionare **Salva con nome** . Nell'elenco a discesa **Salva come** selezionare **Testo (delimitato da tabulazione)(*.txt)** . Specificare il nome *ContosoCoffee.txt* per il file.
 
 ![Screenshot della finestra di dialogo con Tipo file](./media/tutorial-create-store-locator/SaveStoreDataAsTab.png)
 
@@ -97,15 +97,15 @@ Se si apre il file di testo in Blocco note, avrà un aspetto simile alla figura 
 
 ## <a name="set-up-the-project"></a>Configurare il progetto
 
-Per creare un progetto, è possibile usare [Visual Studio](https://visualstudio.microsoft.com) o l'editor di codice che si preferisce. Nella cartella del progetto creare tre file: *index.html*, *index.css* e *index.js*. Questi file definiscono il layout, lo stile e la logica per l'applicazione. Creare una cartella denominata *data* e aggiungere il file *ContosoCoffee.txt* alla cartella. Creare un'altra cartella denominata *images*. In questa applicazione vengono usate 10 immagini per icone, pulsanti e indicatori sulla mappa. È possibile [scaricare queste immagini](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). La cartella del progetto dovrebbe avere ora un aspetto simile alla figura seguente:
+Per creare un progetto, è possibile usare [Visual Studio](https://visualstudio.microsoft.com) o l'editor di codice che si preferisce. Nella cartella del progetto creare tre file: *index.html* , *index.css* e *index.js* . Questi file definiscono il layout, lo stile e la logica per l'applicazione. Creare una cartella denominata *data* e aggiungere il file *ContosoCoffee.txt* alla cartella. Creare un'altra cartella denominata *images* . In questa applicazione vengono usate 10 immagini per icone, pulsanti e indicatori sulla mappa. È possibile [scaricare queste immagini](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator/data). La cartella del progetto dovrebbe avere ora un aspetto simile alla figura seguente:
 
 ![Screenshot della cartella del progetto Simple Store Locator](./media/tutorial-create-store-locator/StoreLocatorVSProject.png)
 
 ## <a name="create-the-user-interface"></a>Creare l'interfaccia utente
 
-Per creare l'interfaccia utente, aggiungere codice a *index.html*:
+Per creare l'interfaccia utente, aggiungere codice a *index.html* :
 
-1. Aggiungere i tag `meta` seguenti a `head` di *index.html*. Il tag `charset` definisce il set di caratteri (UTF-8). Il valore di `http-equiv` indica a Internet Explorer e Microsoft Edge di usare le versioni più recenti del browser. Inoltre, l'ultimo tag `meta` specifica un riquadro di visualizzazione che funziona in modo ottimale per i layout reattivi.
+1. Aggiungere i tag `meta` seguenti a `head` di *index.html* . Il tag `charset` definisce il set di caratteri (UTF-8). Il valore di `http-equiv` indica a Internet Explorer e Microsoft Edge di usare le versioni più recenti del browser. Inoltre, l'ultimo tag `meta` specifica un riquadro di visualizzazione che funziona in modo ottimale per i layout reattivi.
 
     ```HTML
     <meta charset="utf-8">
@@ -126,7 +126,7 @@ Per creare l'interfaccia utente, aggiungere codice a *index.html*:
     <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
     ```
 
-1. Aggiungere riferimenti ai file *index.js* e *index.css*:
+1. Aggiungere riferimenti ai file *index.js* e *index.css* :
 
     ```HTML
     <link rel="stylesheet" href="index.css" type="text/css">
@@ -385,7 +385,7 @@ A questo punto l'interfaccia utente è stata configurata. È ancora necessario a
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Aggiungere codice al file *index.js*. Il codice seguente inizializza la mappa. È stato aggiunto un [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) per l'attesa del completamento del caricamento della pagina. Sono stati quindi associati gli eventi per monitorare il caricamento della mappa e sono state fornite le funzionalità al pulsante Cerca e al pulsante My Location.
+1. Aggiungere codice al file *index.js* . Il codice seguente inizializza la mappa. È stato aggiunto un [listener di eventi](/javascript/api/azure-maps-control/atlas.map#events) per l'attesa del completamento del caricamento della pagina. Sono stati quindi associati gli eventi per monitorare il caricamento della mappa e sono state fornite le funzionalità al pulsante Cerca e al pulsante My Location.
 
    Quando l'utente seleziona il pulsante di ricerca o quando l'utente preme INVIO dopo avere immesso una posizione nella casella di ricerca, viene avviata una ricerca fuzzy in base alla query dell'utente. Passare una matrice di valori ISO 2 relativi ai paesi/aree geografiche all'opzione `countrySet` per limitare i risultati della ricerca a tali paesi/aree geografiche. La limitazione dei paesi/aree geografiche in cui eseguire la ricerca consente di migliorare la precisione dei risultati restituiti. 
   
@@ -931,8 +931,8 @@ In questa esercitazione è stato illustrato come creare un localizzatore di punt
  * Consentire all'utente di [filtrare le posizioni lungo un tragitto](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Data%20Along%20Route). 
  * Aggiungere la possibilità di [impostare filtri](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
  * Aggiungere il supporto per specificare un valore di ricerca iniziale mediante una stringa di query. Quando si include questa opzione nel localizzatore di punti vendita, gli utenti possono aggiungere ai segnalibri e condividere le ricerche. Questa opzione consente anche di passare con facilità le ricerche a questa pagina da un'altra pagina.  
- * Distribuire il localizzatore di punti vendita come [app Web del Servizio app di Azure](https://docs.microsoft.com/azure/app-service/quickstart-html). 
- * Archiviare i dati in un database e cercare le posizioni nelle vicinanze. Per altre informazioni, vedere la [Panoramica dei tipi di dati spaziali di SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017&preserve-view=true) e [Query dei dati spaziali per Nearest Neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017&preserve-view=true).
+ * Distribuire il localizzatore di punti vendita come [app Web del Servizio app di Azure](../app-service/quickstart-html.md). 
+ * Archiviare i dati in un database e cercare le posizioni nelle vicinanze. Per altre informazioni, vedere la [Panoramica dei tipi di dati spaziali di SQL Server](/sql/relational-databases/spatial/spatial-data-types-overview?preserve-view=true&view=sql-server-2017) e [Query dei dati spaziali per Nearest Neighbor](/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?preserve-view=true&view=sql-server-2017).
 
 Per [visualizzare il codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator), [visualizzare l'esempio in esecuzione](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Simple%20Store%20Locator) e ottenere altre informazioni su copertura e funzionalità di Mappe di Azure, usare [Livelli di zoom e griglia riquadri](zoom-levels-and-tile-grid.md). È possibile anche [usare espressioni di stile basate sui dati](data-driven-style-expressions-web-sdk.md) da applicare alla logica di business.
 

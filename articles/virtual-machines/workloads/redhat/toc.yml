@@ -1,5 +1,9 @@
 - name: Panoramica
   href: overview.md
+- name: Guide di avvio rapido su Red Hat
+  items: null
+- name: Guida di avvio rapido - WildFly in CentOS
+  href: wildfly-on-centos.md
 - name: Immagini di Red Hat Enterprise Linux
   items:
     - name: Panoramica delle immagini di Red Hat Enterprise Linux

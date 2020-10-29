@@ -10,7 +10,7 @@
       href: functions-compare-logic-apps-ms-flow-webjobs.md
     - name: Opzioni del piano di hosting
       href: functions-scale.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare una funzione
@@ -79,7 +79,33 @@
         - name: TypeScript
           href: /samples/browse/?products=azure-functions&languages=typescript
     - name: Interfaccia della riga di comando di Azure
-      href: functions-cli-samples.md
+      items:
+        - name: Indice degli esempi dell'interfaccia della riga di comando
+          href: functions-cli-samples.md
+        - name: Creare un'app per le funzioni
+          items:
+            - name: App per le funzioni serverless
+              href: ./scripts/functions-cli-create-serverless.md
+            - name: App Python serverless
+              href: ./scripts/functions-cli-create-serverless-python.md
+            - name: App in un piano Premium scalabile
+              href: ./scripts/functions-cli-create-premium-plan.md
+            - name: App in un piano di servizio app dedicato
+              href: ./scripts/functions-cli-create-app-service-plan.md
+        - name: Integrare servizi
+          items:
+            - name: Connect Azure Storage
+              href: ./scripts/functions-cli-create-function-app-connect-to-storage-account.md
+            - name: Connettere Azure Cosmos DB
+              href: ./scripts/functions-cli-create-function-app-connect-to-cosmos-db.md
+            - name: Montare una condivisione file in Python
+              href: ./scripts/functions-cli-mount-files-storage-linux.md
+        - name: Distribuzione continua
+          items:
+            - name: Distribuzione GitHub
+              href: ./scripts/functions-cli-create-function-app-github-continuous.md
+            - name: Distribuzione DevOps
+              href: ./scripts/functions-cli-create-function-app-vsts-continuous.md
 - name: Concetti
   items:
     - name: Confronto tra versioni di runtime
