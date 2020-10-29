@@ -7,26 +7,28 @@ ms.topic: article
 ms.date: 09/23/2020
 ms.author: rezar
 ms.reviewer: cynthn
-ms.openlocfilehash: 32f5ae0e06c38f610ae9751d81b7bf77a0ebc050
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d8639214773a4444876b2a89dda5dd831b8c36ce
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92149294"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927291"
 ---
 # <a name="what-are-solutions-for-running-oracle-weblogic-server-on-azure-virtual-machines"></a>Quali sono le soluzioni per eseguire Oracle WebLogic Server in Macchine virtuali di Microsoft Azure?
 
 Questa pagina descrive le soluzioni per l'esecuzione di Oracle WebLogic Server (WLS) in macchine virtuali di Azure. Queste soluzioni sono sviluppate e supportate congiuntamente da Oracle e Microsoft.
 
+È anche possibile eseguire WLS nel servizio Azure Kubernetes. Le soluzioni da eseguire sono descritte in [questo articolo Microsoft](/azure/virtual-machines/workloads/oracle/weblogic-aks).
+
 WLS è un server applicazioni Java leader che esegue alcune delle applicazioni Java aziendali più cruciali in tutto il mondo. WLS costituisce la base middleware per Oracle software suite. Oracle e Microsoft si impegnano per consentire ai clienti di WLS la scelta e la flessibilità di eseguire carichi di lavoro in Azure come piattaforma cloud leader.
 
-Le soluzioni WLS di Azure hanno lo scopo di semplificare il più possibile il trasferimento delle applicazioni Java EE in macchine virtuali di Azure tramite l'automazione della maggior parte delle operazioni standard. Le soluzioni eseguono automaticamente il provisioning di risorse di rete virtuale, archiviazione, Java e Linux. Con il minimo sforzo, WebLogic Server è installato. Le soluzioni possono configurare la sicurezza con un gruppo di sicurezza di rete, il bilanciamento del carico con app Azure gateway e l'autenticazione con Azure Active Directory. È anche possibile connettersi automaticamente al database esistente, tra cui Azure PostgreSQL, Azure SQL e Oracle DB nel cloud Oracle o in Azure. La mappa stradale per le soluzioni include la possibilità di abilitare la registrazione distribuita e la memorizzazione nella cache distribuita tramite la coerenza Oracle. Microsoft e Oracle sono partner per abilitare funzionalità simili a WebLogic e al servizio Azure Kubernetes (AKS).
+Le soluzioni WLS di Azure hanno lo scopo di semplificare il più possibile il trasferimento delle applicazioni Java EE in macchine virtuali di Azure tramite l'automazione della maggior parte delle operazioni standard. Le soluzioni eseguono automaticamente il provisioning di risorse di rete virtuale, archiviazione, Java e Linux. Con il minimo sforzo, WebLogic Server è installato. Le soluzioni possono configurare la sicurezza con un gruppo di sicurezza di rete, il bilanciamento del carico con app Azure gateway e l'autenticazione con Azure Active Directory. È anche possibile connettersi automaticamente al database esistente, tra cui Azure PostgreSQL, Azure SQL e Oracle DB nel cloud Oracle o in Azure. La mappa stradale per le soluzioni include la possibilità di abilitare la registrazione distribuita e la memorizzazione nella cache distribuita tramite la coerenza Oracle.  
 
 :::image type="content" source="media/oracle-weblogic/wls-on-azure.gif" alt-text="È possibile usare la portale di Azure per distribuire WebLogic Server in Azure":::
 
 Sono disponibili quattro offerte per soddisfare diversi scenari, ovvero [un singolo nodo senza un server di amministrazione](https://portal.azure.com/#create/oracle.20191001-arm-oraclelinux-wls20191001-arm-oraclelinux-wls), un [singolo nodo con un server di amministrazione, un](https://portal.azure.com/#create/oracle.20191009-arm-oraclelinux-wls-admin20191009-arm-oraclelinux-wls-admin) [cluster](https://portal.azure.com/#create/oracle.20191007-arm-oraclelinux-wls-cluster20191007-arm-oraclelinux-wls-cluster)e un [cluster dinamico](https://portal.azure.com/#create/oracle.20191021-arm-oraclelinux-wls-dynamic-cluster20191021-arm-oraclelinux-wls-dynamic-cluster). Le offerte sono disponibili gratuitamente. Queste offerte sono descritte e collegate di seguito.
 
-_Le offerte si basano sul modello Bring Your Own License_. Si presuppone che l'utente abbia già ottenuto le licenze appropriate con Oracle e che disponga di una licenza corretta per l'esecuzione di offerte in Azure.
+_Le offerte si basano sul modello Bring Your Own License_ . Si presuppone che l'utente abbia già ottenuto le licenze appropriate con Oracle e che disponga di una licenza corretta per l'esecuzione di offerte in Azure.
 
 Le offerte supportano una gamma di versioni del sistema operativo, Java e WLS tramite immagini di base, ad esempio WebLogic Server 14 e JDK 11 in Oracle Linux 7,6). Queste immagini di base sono disponibili anche in Azure autonomamente. Le immagini di base sono adatte per i clienti che necessitano di distribuzioni di Azure complesse e personalizzate. Il set corrente di immagini di base è disponibile [qui](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=WebLogic%20Server%20Base%20Image&page=1).
 
