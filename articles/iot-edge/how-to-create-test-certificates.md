@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 66c8f72c82e04bafe9582c4a5dc6967e5470d3ea
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: c5af77da0ed2c579a478c8ebaaa924882d9a15c6
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147875"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927703"
 ---
 # <a name="create-demo-certificates-to-test-iot-edge-device-features"></a>Creare certificati demo per testare le funzionalità del dispositivo IoT Edge
 
@@ -163,7 +163,7 @@ Prima di procedere con i passaggi descritti in questa sezione, seguire i passagg
    New-CACertsCertChain rsa
    ```
 
-   Questo comando script crea diversi file di certificato e di chiave, ma quando gli articoli richiedono il **certificato CA radice**, usare il file seguente:
+   Questo comando script crea diversi file di certificato e di chiave, ma quando gli articoli richiedono il **certificato CA radice** , usare il file seguente:
 
    * `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
@@ -177,7 +177,7 @@ Prima di procedere con i passaggi descritti in questa sezione, seguire i passagg
    ./certGen.sh create_root_and_intermediate
    ```
 
-   Questo comando script crea diversi file di certificato e di chiave, ma quando gli articoli richiedono il **certificato CA radice**, usare il file seguente:
+   Questo comando script crea diversi file di certificato e di chiave, ma quando gli articoli richiedono il **certificato CA radice** , usare il file seguente:
 
    * `<WRKDIR>/certs/azure-iot-test-only.root.ca.cert.pem`  
 
@@ -255,7 +255,7 @@ Il nome passato al comando **New-CACertsEdgeDevice** non deve corrispondere al p
 2. Creare il certificato della CA del dispositivo IoT Edge e la chiave privata con il comando seguente. Specificare un nome per il certificato della CA.
 
    ```bash
-   ./certGen.sh create_edge_device_certificate "<CA cert name>"
+   ./certGen.sh create_edge_device_ca_certificate "<CA cert name>"
    ```
 
    Questo comando script crea diversi file di certificato e chiave. Il certificato e la coppia di chiavi seguenti devono essere copiati in un dispositivo IoT Edge e a cui viene fatto riferimento nel file config. YAML:
@@ -263,7 +263,7 @@ Il nome passato al comando **New-CACertsEdgeDevice** non deve corrispondere al p
    * `<WRKDIR>/certs/iot-edge-device-<CA cert name>-full-chain.cert.pem`
    * `<WRKDIR>/private/iot-edge-device-<CA cert name>.key.pem`
 
-Il nome passato al comando **create_edge_device_certificate** non deve corrispondere al parametro hostname in config. YAML o all'ID del dispositivo nell'hub Internet.
+Il nome passato al comando **create_edge_device_ca_certificate** non deve corrispondere al parametro hostname in config. YAML o all'ID del dispositivo nell'hub Internet.
 
 ## <a name="create-downstream-device-certificates"></a>Creare certificati downstream per i dispositivi
 
@@ -289,7 +289,7 @@ Il dispositivo Internet delle cose necessita anche di una copia dei certificati 
 
 1. Passare alla directory di lavoro con gli script di generazione del certificato e il certificato CA radice.
 
-2. Creare due certificati (primario e secondario) per il dispositivo downstream. Una convenzione di denominazione semplice da usare consiste nel creare i certificati con il nome del dispositivo Internet delle cose e quindi con l'etichetta primaria o secondaria. Ad esempio:
+2. Creare due certificati (primario e secondario) per il dispositivo downstream. Una convenzione di denominazione semplice da usare consiste nel creare i certificati con il nome del dispositivo Internet delle cose e quindi con l'etichetta primaria o secondaria. Esempio:
 
    ```PowerShell
    New-CACertsDevice "<device name>-primary"
@@ -319,7 +319,7 @@ Il dispositivo Internet delle cose necessita anche di una copia dei certificati 
 
 1. Passare alla directory di lavoro con gli script di generazione del certificato e il certificato CA radice.
 
-2. Creare due certificati (primario e secondario) per il dispositivo downstream. Una convenzione di denominazione semplice da usare consiste nel creare i certificati con il nome del dispositivo Internet delle cose e quindi con l'etichetta primaria o secondaria. Ad esempio:
+2. Creare due certificati (primario e secondario) per il dispositivo downstream. Una convenzione di denominazione semplice da usare consiste nel creare i certificati con il nome del dispositivo Internet delle cose e quindi con l'etichetta primaria o secondaria. Esempio:
 
    ```bash
    ./certGen.sh create_device_certificate "<device name>-primary"

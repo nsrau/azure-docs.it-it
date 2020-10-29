@@ -8,16 +8,16 @@ ms.service: virtual-machines
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: sttsinar
-ms.openlocfilehash: 506336ad80c1f30b937bc71724ca39cee24bb2fd
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dc6706d4ec9090c59d4dd668d2ae1dd3ce7d188a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968923"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928043"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>Dimensioni delle macchine virtuali della serie B con supporto per burst
 
-Le macchine virtuali della serie B sono ideali per i carichi di lavoro che non necessitano continuamente delle prestazioni complete della CPU, ad esempio server Web, modelli di verifica, database di piccole dimensioni e ambienti di compilazione di sviluppo. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. La serie B offre la possibilità di acquistare una dimensione di VM con prestazioni baseline e l'istanza della VM accumula crediti quando il relativo utilizzo è inferiore alla baseline. Quando la VM ha accumulato crediti, può eseguire il burst rispetto alla baseline, usando fino al 100% della vCPU quando l'applicazione richiede prestazioni superiori per la CPU.
+Le macchine virtuali della serie B sono ideali per i carichi di lavoro che non necessitano continuamente delle prestazioni complete della CPU, ad esempio server Web, modelli di verifica, database di piccole dimensioni e ambienti di compilazione di sviluppo. Questi carichi di lavoro hanno in genere requisiti relativi alle prestazioni che prevedono burst. La serie B offre la possibilità di acquistare una macchina virtuale di dimensioni con prestazioni di base che consentono di creare crediti in caso di utilizzo inferiore rispetto alla baseline. Quando la VM ha accumulato crediti, la macchina virtuale può superare la linea di base usando fino al 100% del vCPU quando l'applicazione richiede prestazioni superiori della CPU.
 
 La serie B è dotata delle dimensioni seguenti per le macchine virtuali:
 
@@ -93,25 +93,24 @@ Per un D16s_v3 con 16 vCPU e 64 GiB di memoria la tariffa oraria è $0,936 all'o
 
 ## <a name="q--a"></a>Domande e risposte
 
-### <a name="q-what-happens-if-the-credits-run-out"></a>D: cosa accade se i crediti si esauriscono?
-**R**: quando i crediti sono esauriti, la macchina virtuale Torna alle prestazioni di base.
+### <a name="q-what-happens-when-my-credits-run-out"></a>D: cosa accade quando si esauriscono i crediti?
+**R** : quando i crediti sono esauriti, la macchina virtuale Torna alle prestazioni di base.
 
 ### <a name="q-how-do-you-get-135-baseline-performance-from-a-vm"></a>D: Come si ottengono prestazioni baseline del 135% da una VM?
 
-**R**: La quantità pari al 135% è condivisa tra 8 vCPU che costituiscono le dimensioni della VM. Se, ad esempio, l'applicazione usa 4 degli 8 core dedicati all'elaborazione batch e ognuna di queste 4 vCPU è in esecuzione con un livello di utilizzo pari al 30%, la quantità totale di prestazioni della CPU della VM equivale al 120%.  La macchina virtuale, quindi, accumula tempo di credito in base al differenziale del 15% rispetto alle prestazioni baseline.  Quando sono disponibili crediti, la stessa VM può quindi usare il 100% di tutte le 8 vCPU, ottenendo un livello massimo di prestazioni della CPU pari all'800%.
-
+**R** : La quantità pari al 135% è condivisa tra 8 vCPU che costituiscono le dimensioni della VM. Se, ad esempio, l'applicazione usa 4 degli 8 core dedicati all'elaborazione batch e ognuna di queste 4 vCPU è in esecuzione con un livello di utilizzo pari al 30%, la quantità totale di prestazioni della CPU della VM equivale al 120%.  La macchina virtuale, quindi, accumula tempo di credito in base al differenziale del 15% rispetto alle prestazioni baseline.  Quando sono disponibili crediti, la stessa VM può quindi usare il 100% di tutte le 8 vCPU, ottenendo un livello massimo di prestazioni della CPU pari all'800%.
 
 ### <a name="q-how-can-i-monitor-my-credit-balance-and-consumption"></a>D: come è possibile monitorare il saldo del credito e il consumo?
 
-**R**: Nelle prossime settimane verranno introdotte 2 nuove metriche, ovvero la metrica **Credit** che consentirò di visualizzare la quantità di crediti accumulati dalla VM e la metrica **ConsumedCredit** che mostrerà la quantità di crediti di CPU utilizzata dalla VM rispetto alla quantità accumulata.    Sarà possibile visualizzare queste metriche dal riquadro delle metriche nel portale o a livello di programmazione tramite le API di Monitoraggio di Azure.
+**R** : la metrica di **credito** consente di visualizzare il numero di crediti che la macchina virtuale è stata Sottoponi a Banking e la metrica **ConsumedCredit** indicherà il numero di crediti di CPU usati dalla macchina virtuale dalla banca.    Sarà possibile visualizzare queste metriche dal riquadro delle metriche nel portale o a livello di programmazione tramite le API di Monitoraggio di Azure.
 
 Per altre informazioni su come accedere ai dati delle metriche per Azure, vedere [Panoramica delle metriche in Microsoft Azure](../azure-monitor/platform/data-platform.md).
 
 ### <a name="q-how-are-credits-accumulated-and-consumed"></a>D: come vengono accumulati e utilizzati i crediti?
 
-**R**: La velocità di accumulo e di utilizzo delle VM viene impostata in modo che una VM in esecuzione esattamente al rispettivo livello di prestazioni di base non avrà alcun accumulo netto o alcun utilizzo di crediti di burst.  Una VM presenterà un incremento netto in crediti in caso di esecuzione a un livello inferiore al rispettivo livello di prestazioni di base e presenterà una riduzione netta in crediti in caso di utilizzo della CPU da parte della VM a un livello superiore rispetto al rispettivo livello di prestazioni di base.
+**R** : La velocità di accumulo e di utilizzo delle VM viene impostata in modo che una VM in esecuzione esattamente al rispettivo livello di prestazioni di base non avrà alcun accumulo netto o alcun utilizzo di crediti di burst.  Una VM presenterà un incremento netto in crediti in caso di esecuzione a un livello inferiore al rispettivo livello di prestazioni di base e presenterà una riduzione netta in crediti in caso di utilizzo della CPU da parte della VM a un livello superiore rispetto al rispettivo livello di prestazioni di base.
 
-**Esempio**: Si distribuisce una VM usando le dimensioni B1ms per una piccola applicazione di database relativa a orari e presenze. Queste dimensioni consentono all'applicazione di usare fino al 20% di una vCPU come baseline, che corrisponde a 0,2 crediti al minuto che si possono usare o accumulare.
+**Esempio** : Si distribuisce una VM usando le dimensioni B1ms per una piccola applicazione di database relativa a orari e presenze. Queste dimensioni consentono all'applicazione di usare fino al 20% di una vCPU come baseline, che corrisponde a 0,2 crediti al minuto che si possono usare o accumulare.
 
 L'applicazione è occupata all'inizio o alla fine della giornata lavorativa dei dipendenti, tra le 7:00-9:00 e le 16:00-18:00. Durante le altre 20 ore della giornata l'applicazione è solitamente inattiva e usa solo il 10% della vCPU. Per gli orari non di picco, si accumulano 0,2 crediti al minuto ma si usano solo 0,0 l crediti al minuto, pertanto la VM accumulerà 0,1 x 60 = 6 crediti all'ora.  Per le 20 ore non di picco, si accumuleranno 120 crediti.  
 
@@ -121,7 +120,7 @@ Se si considerano i 120 crediti accumulati negli orari non di picco e si sottrag
 
 ### <a name="q-how-can-i-calculate-credits-accumulated-and-used"></a>D: come è possibile calcolare I crediti accumulati e usati?
 
-**R**: è possibile utilizzare la formula seguente:
+**R** : è possibile utilizzare la formula seguente:
 
 (Prestazioni CPU di base della macchina virtuale-utilizzo CPU)/100 = crediti banca o uso al minuto
 
@@ -129,11 +128,11 @@ ad esempio, nell'istanza precedente la linea di base è il 20% e se si usa il 10
 
 ### <a name="q-does-the-b-series-support-premium-storage-data-disks"></a>D: La serie B supporta i dischi dati di Archiviazione Premium?
 
-**R**: Sì, tutte le dimensioni della serie B supportano dischi dati di Archiviazione Premium.
+**R** : Sì, tutte le dimensioni della serie B supportano dischi dati di Archiviazione Premium.
 
 ### <a name="q-why-is-my-remaining-credit-set-to-0-after-a-redeploy-or-a-stopstart"></a>D: Perché il credito rimanente è impostato su 0 dopo una ridistribuzione o un arresto/avvio?
 
-**R**: quando una VM viene "RIDISTRIBUITA" e viene spostata in un altro nodo, il credito accumulato viene perso. Se la VM viene arrestata o avviata, ma resta nello stesso nodo, mantiene il credito accumulato. Ogni volta che la VM viene avviata per la prima volta in un nodo, ottiene un credito iniziale, che per Standard_B8ms è di 240 minuti.
+**R** : quando una VM viene "RIDISTRIBUITA" e viene spostata in un altro nodo, il credito accumulato viene perso. Se la VM viene arrestata o avviata, ma resta nello stesso nodo, mantiene il credito accumulato. Ogni volta che la macchina virtuale viene avviata in un nodo, ottiene un credito iniziale, per Standard_B8ms è 240.
 
 ### <a name="q-what-happens-if-i-deploy-an-unsupported-os-image-on-b1ls"></a>D: cosa accade se si distribuisce un'immagine del sistema operativo non supportata in B1ls?
 

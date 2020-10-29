@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 920f6cc7eaef6d25fa700e2f8ca8277efee671d1
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0bc8b4f7bd2bf02d4d034ebacc0fc45b17cd3e15
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425352"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928094"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Punteggio di sicurezza nel Centro sicurezza di Azure
 
@@ -29,7 +29,7 @@ Il Centro sicurezza di Azure ha due obiettivi principali:
 - per semplificare la comprensione della situazione di sicurezza corrente
 - per contribuire a migliorare in modo efficiente e efficace la sicurezza
 
-La funzionalità centrale del Centro sicurezza che consente di raggiungere questi obiettivi è un **Punteggio sicuro**.
+La funzionalità centrale del Centro sicurezza che consente di raggiungere questi obiettivi è un **Punteggio sicuro** .
 
 Il Centro sicurezza valuta continuamente risorse, sottoscrizioni e organizzazione per rilevare problemi di sicurezza. Aggrega quindi tutti i risultati in un singolo punteggio, in modo da poter indicare, a colpo d'occhio, lo stato di sicurezza attuale: maggiore è il punteggio, minore è il livello di rischio identificato.
 
@@ -39,7 +39,7 @@ Il Punteggio sicuro viene visualizzato nelle pagine portale di Azure come valore
 
 Per aumentare la sicurezza, vedere la pagina raccomandazioni del Centro sicurezza per le azioni in attesa necessarie per aumentare il punteggio. Ogni raccomandazione include istruzioni che consentono di correggere il problema specifico.
 
-I consigli sono raggruppati in **controlli di sicurezza**. Ogni controllo è un gruppo logico di raccomandazioni sulla sicurezza correlate e riflette le superfici di attacco vulnerabili. Il punteggio viene migliorato solo quando si correggono *tutte* le raccomandazioni relative a una singola risorsa all'interno di un controllo. Per verificare in che modo l'organizzazione protegga ogni singola superficie di attacco, esaminare i punteggi per ogni controllo di sicurezza.
+I consigli sono raggruppati in **controlli di sicurezza** . Ogni controllo è un gruppo logico di raccomandazioni sulla sicurezza correlate e riflette le superfici di attacco vulnerabili. Il punteggio viene migliorato solo quando si correggono *tutte* le raccomandazioni relative a una singola risorsa all'interno di un controllo. Per verificare in che modo l'organizzazione protegga ogni singola superficie di attacco, esaminare i punteggi per ogni controllo di sicurezza.
 
 Per altre informazioni, vedere [come viene calcolato il Punteggio sicuro](secure-score-security-controls.md#how-your-secure-score-is-calculated) di seguito. 
 
@@ -88,7 +88,7 @@ Azure Resource Graph fornisce l'accesso immediato alle informazioni sulle risors
 
 Per accedere al Punteggio sicuro per più sottoscrizioni con ARG:
 
-1. Dal portale di Azure aprire **Esplora grafico risorse di Azure**.
+1. Dal portale di Azure aprire **Esplora grafico risorse di Azure** .
 
     :::image type="content" source="./media/security-center-identity-access/opening-resource-graph-explorer.png" alt-text="Punteggio sicuro complessivo come illustrato nel portale" :::
 
@@ -112,7 +112,7 @@ Per accedere al Punteggio sicuro per più sottoscrizioni con ARG:
         | project SecureControl , unhealthy, currentscore, maxscore
         ```
 
-1. Selezionare **Esegui query**.
+1. Selezionare **Esegui query** .
 
 ## <a name="how-your-secure-score-is-calculated"></a>Calcolo del Punteggio sicuro 
 
@@ -130,7 +130,7 @@ Il punteggio massimo per il controllo Applica gli aggiornamenti del sistema, è 
 
 * **Incremento potenziale** (0,12 x 8 risorse non integre = 0,96): punti rimanenti disponibili nel controllo. Se si aggiornano tutte le raccomandazioni in questo controllo, il punteggio aumenterà del 2% (in questo caso, 0,96 punti arrotondati per eccesso a 1 punto). 
 * **Punteggio corrente** (0,12 x 42 risorse integre = 5,04): punteggio corrente per il controllo. Ogni controllo contribuisce a raggiungere il punteggio totale. In questo esempio, il controllo contribuisce con 5,04 punti al punteggio di sicurezza totale corrente.
-* **Punteggio massimo**: numero massimo di punti che è possibile ottenere completando tutte le raccomandazioni in un controllo. Il punteggio massimo per un controllo indica il significato relativo del controllo. Usare i valori del punteggio massimo per valutare i problemi da risolvere per primi. 
+* **Punteggio massimo** : numero massimo di punti che è possibile ottenere completando tutte le raccomandazioni in un controllo. Il punteggio massimo per un controllo indica il significato relativo del controllo. Usare i valori del punteggio massimo per valutare i problemi da risolvere per primi. 
 
 
 ### <a name="calculations---understanding-your-score"></a>Calcoli: comprensione del punteggio
@@ -162,6 +162,14 @@ Un altro modo per migliorare il punteggio e assicurarsi che gli utenti non crein
 
 La tabella seguente elenca i controlli di sicurezza nel Centro sicurezza di Azure. Per ogni controllo è possibile visualizzare il numero massimo di punti da aggiungere al punteggio di sicurezza, se si correggono *tutte* le raccomandazioni elencate nel controllo per *tutte* le risorse. 
 
+Il set di raccomandazioni sulla sicurezza fornito con il Centro sicurezza è adattato alle risorse disponibili nell'ambiente di ogni organizzazione. Le raccomandazioni possono essere ulteriormente personalizzate [disabilitando i criteri](tutorial-security-policy.md#disable-security-policies-and-disable-recommendations) ed [escludendo le risorse specifiche da un'indicazione](exempt-resource.md). 
+ 
+È consigliabile esaminare con attenzione le iniziative di criteri di Azure assegnate a ogni organizzazione. 
+
+> [!TIP]
+> Per informazioni dettagliate sulla revisione e la modifica delle iniziative, vedere [utilizzo dei criteri di sicurezza](tutorial-security-policy.md). 
+
+Anche se l'iniziativa di sicurezza predefinita del Centro sicurezza è basata su standard e procedure consigliate per il settore, esistono scenari in cui i consigli predefiniti elencati di seguito potrebbero non essere completamente idonei per l'organizzazione. Di conseguenza, talvolta è necessario modificare l'iniziativa predefinita, senza compromettere la sicurezza, per garantire che sia allineata ai criteri dell'organizzazione. standard del settore, standard normativi e benchmark che è necessario soddisfare.<br><br>
 <div class="foo">
 
 <style type="text/css"> .tg  {border-collapse:collapse;border-spacing:0;} .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px; overflow:hidden;padding:10px 5px;word-break:normal;} .tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:18px; font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;} .tg .tg-cly1{text-align:left;vertical-align:middle} .tg .tg-lboi{border-color:inherit;text-align:left;vertical-align:middle} </style>

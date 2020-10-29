@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: kumud
-ms.openlocfilehash: e4b85c609c53c46cfab71f37b8427eb1cee29f1a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 7ab9b5166aab07e0629cdd280f8cdccbd0702c99
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92518008"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927720"
 ---
 # <a name="azure-virtual-network-frequently-asked-questions-faq"></a>Domande frequenti sulla rete virtuale di Azure
 
@@ -123,8 +123,8 @@ No. Una rete virtuale è limitata a una singola area. Tuttavia, una rete virtual
 
 ### <a name="can-i-connect-a-vnet-to-another-vnet-in-azure"></a>È possibile connettere una rete virtuale a un'altra rete virtuale in Azure?
 Sì. È possibile connettere una rete virtuale a un'altra usando:
-- **Peering di rete virtuale**: per informazioni dettagliate, vedere [Panoramica del peering di rete virtuale](virtual-network-peering-overview.md).
-- **Gateway VPN di Azure**: per informazioni dettagliate, vedere [Configurare una connessione da rete virtuale a rete virtuale](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
+- **Peering di rete virtuale** : per informazioni dettagliate, vedere [Panoramica del peering di rete virtuale](virtual-network-peering-overview.md).
+- **Gateway VPN di Azure** : per informazioni dettagliate, vedere [Configurare una connessione da rete virtuale a rete virtuale](../vpn-gateway/vpn-gateway-howto-vnet-vnet-resource-manager-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json). 
 
 ## <a name="name-resolution-dns"></a>Risoluzione del nome (DNS)
 
@@ -159,10 +159,10 @@ Sì. Tutte le scheda di interfaccia di rete collegate a una macchina virtuale di
 ### <a name="what-are-the-different-types-of-ip-addresses-i-can-assign-to-vms"></a>Quali tipi di indirizzi IP è possibile assegnare alle macchine virtuali?
 * **Privato:** assegnato a ogni scheda di interfaccia di rete all'interno di ogni macchina virtuale. L'indirizzo viene assegnato con il metodo statico o dinamico. Gli indirizzi IP privati vengono assegnati dall'intervallo specificato nelle impostazioni della subnet della rete virtuale. Alle risorse distribuite con il modello di distribuzione classica vengono assegnati indirizzi IP privati, anche se non sono connesse a una rete virtuale. Il comportamento del metodo di allocazione è diverso a seconda del fatto che una risorsa sia stata distribuita con il modello di distribuzione Resource Manager o classica: 
 
-  - **Resource Manager**: un indirizzo IP privato assegnato con il metodo dinamico o statico rimane assegnato a una macchina virtuale (Resource Manager) finché la risorsa non viene eliminata. La differenza consiste nel fatto che quando si usa il metodo statico si seleziona l'indirizzo da assegnare, mentre quando si usa quello dinamico sceglie Azure. 
-  - **Classica**: un indirizzo IP privato assegnato con il metodo dinamico può cambiare quando una macchina virtuale (classica) viene riavviata dopo essere stata arrestata (deallocata). Se è necessario assicurarsi che l'indirizzo IP privato per una risorsa distribuita tramite il modello di distribuzione classica non cambi mai, assegnare un indirizzo IP privato con il metodo statico.
+  - **Resource Manager** : un indirizzo IP privato assegnato con il metodo dinamico o statico rimane assegnato a una macchina virtuale (Resource Manager) finché la risorsa non viene eliminata. La differenza consiste nel fatto che quando si usa il metodo statico si seleziona l'indirizzo da assegnare, mentre quando si usa quello dinamico sceglie Azure. 
+  - **Classica** : un indirizzo IP privato assegnato con il metodo dinamico può cambiare quando una macchina virtuale (classica) viene riavviata dopo essere stata arrestata (deallocata). Se è necessario assicurarsi che l'indirizzo IP privato per una risorsa distribuita tramite il modello di distribuzione classica non cambi mai, assegnare un indirizzo IP privato con il metodo statico.
 
-* **Pubblico:** assegnato facoltativamente alle schede di interfaccia di rete collegate a macchine virtuali distribuite con il modello di distribuzione Azure Resource Manager. L'indirizzo può essere assegnato con il metodo di allocazione statica o dinamica. Tutte le macchine virtuali e le istanze del ruolo dei servizi cloud distribuite con il modello di distribuzione classica esistono all'interno di un servizio cloud, a cui viene assegnato un indirizzo IP virtuale (VIP) pubblico *dinamico*. Facoltativamente, è possibile assegnare un indirizzo IP pubblico *statico*, detto [indirizzo IP riservato](virtual-networks-reserved-public-ip.md), come indirizzo VIP. Gli indirizzi IP pubblici possono essere assegnati a singole macchine virtuali o istanze del ruolo dei servizi cloud distribuite con il modello di distribuzione classica. Questi sono detti [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md) e possono essere assegnati in modo dinamico.
+* **Pubblico:** assegnato facoltativamente alle schede di interfaccia di rete collegate a macchine virtuali distribuite con il modello di distribuzione Azure Resource Manager. L'indirizzo può essere assegnato con il metodo di allocazione statica o dinamica. Tutte le macchine virtuali e le istanze del ruolo dei servizi cloud distribuite con il modello di distribuzione classica esistono all'interno di un servizio cloud, a cui viene assegnato un indirizzo IP virtuale (VIP) pubblico *dinamico* . Facoltativamente, è possibile assegnare un indirizzo IP pubblico *statico* , detto [indirizzo IP riservato](virtual-networks-reserved-public-ip.md), come indirizzo VIP. Gli indirizzi IP pubblici possono essere assegnati a singole macchine virtuali o istanze del ruolo dei servizi cloud distribuite con il modello di distribuzione classica. Questi sono detti [indirizzi IP pubblici a livello di istanza (ILPIP)](virtual-networks-instance-level-public-ip.md) e possono essere assegnati in modo dinamico.
 
 ### <a name="can-i-reserve-a-private-ip-address-for-a-vm-that-i-will-create-at-a-later-time"></a>È possibile riservare un indirizzo IP privato per una macchina virtuale che verrà creata in un secondo momento?
 No. Non è possibile riservare un indirizzo IP privato. Se un indirizzo IP privato è disponibile, viene assegnato a una macchina virtuale o a un'istanza del ruolo dal server DHCP, indipendentemente dal fatto che la macchina virtuale sia o meno quella a cui si vuole assegnare l'indirizzo IP privato. È possibile tuttavia cambiare l'indirizzo IP privato di una macchina virtuale già creata con qualsiasi indirizzo IP privato disponibile.
@@ -228,6 +228,9 @@ Sì. È possibile distribuire [appliance virtuali di rete](https://azure.microso
 ### <a name="is-there-information-available-about-securing-vnets"></a>Sono disponibili informazioni sulla protezione di reti virtuali?
 Sì. Per informazioni dettagliate, vedere [Panoramica della sicurezza di rete di Azure](../security/fundamentals/network-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
+### <a name="do-virtual-networks-store-customer-data"></a>Le reti virtuali archiviano i dati dei clienti?
+No. Le reti virtuali non archiviano i dati dei clienti. 
+
 ## <a name="apis-schemas-and-tools"></a>API, schemi e strumenti
 
 ### <a name="can-i-manage-vnets-from-code"></a>È possibile gestire le reti virtuali dal codice?
@@ -267,10 +270,10 @@ Le risorse seguenti possono usare i bilanciamenti del carico di base, che signif
 ### <a name="can-i-enable-vnet-peering-if-my-virtual-networks-belong-to-subscriptions-within-different-azure-active-directory-tenants"></a>È possibile abilitare il peering reti virtuali se le reti virtuali appartengono a sottoscrizioni all'interno di diversi tenant di Azure Active Directory?
 Sì. È possibile stabilire il peering reti virtuali (sia locale che globale) se le sottoscrizioni appartengono a tenant di Azure Active Directory diversi. Questa operazione può essere eseguita tramite il portale, PowerShell o l'interfaccia della riga di comando.
 
-### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>La connessione al peering rete virtuale è nello stato *Avviato*, per quale motivo non è possibile connettersi?
-Se la connessione di peering è in uno stato *avviato* , significa che è stato creato un solo collegamento. È necessario creare un collegamento bidirezionale per stabilire una connessione. Ad esempio, per eseguire il peering di rete virtuale A a rete virtuale B, un collegamento deve essere creato da rete virtuale A a rete virtuale B e da rete virtuale B a rete virtuale A. La creazione di entrambi i collegamenti comporterà la modifica dello stato su *Connected*.
+### <a name="my-vnet-peering-connection-is-in-initiated-state-why-cant-i-connect"></a>La connessione al peering rete virtuale è nello stato *Avviato* , per quale motivo non è possibile connettersi?
+Se la connessione di peering è in uno stato *avviato* , significa che è stato creato un solo collegamento. È necessario creare un collegamento bidirezionale per stabilire una connessione. Ad esempio, per eseguire il peering di rete virtuale A a rete virtuale B, un collegamento deve essere creato da rete virtuale A a rete virtuale B e da rete virtuale B a rete virtuale A. La creazione di entrambi i collegamenti comporterà la modifica dello stato su *Connected* .
 
-### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>La connessione di peering di reti virtuali è in stato *Disconnesso*. Per quale motivo non è possibile connettersi?
+### <a name="my-vnet-peering-connection-is-in-disconnected-state-why-cant-i-create-a-peering-connection"></a>La connessione di peering di reti virtuali è in stato *Disconnesso* . Per quale motivo non è possibile connettersi?
 Se la connessione di peering di VNet è in uno stato *disconnesso* , significa che uno dei collegamenti creati è stato eliminato. Per ristabilire una connessione peering, sarà necessario eliminare il collegamento e ricrearlo.
 
 ### <a name="can-i-peer-my-vnet-with-a-vnet-in-a-different-subscription"></a>È possibile eseguire il peering di rete virtuale con una rete virtuale in una sottoscrizione diversa?
@@ -331,7 +334,7 @@ Il primo passaggio è un'operazione sul lato rete e il secondo passaggio è un'o
 >[!NOTE]
 > Entrambe le operazioni descritte in precedenza devono essere completate prima di poter limitare l'accesso al servizio di Azure alla rete virtuale e alla subnet consentite. Se si attivano esclusivamente gli endpoint di servizio per il servizio di Azure sul lato rete, non è possibile limitare l'accesso. È inoltre necessario configurare elenchi di controllo di accesso di rete virtuale sul lato servizio di Azure.
 
-Alcuni servizi, ad esempio SQL e CosmosDB, consentono eccezioni alla sequenza precedente tramite il flag **IgnoreMissingVnetServiceEndpoint** . Quando il flag è impostato su **true**, gli ACL VNet possono essere impostati sul lato servizio di Azure prima di configurare gli endpoint del servizio sul lato rete. I servizi di Azure forniscono questo flag per aiutare i clienti nei casi in cui sono configurati firewall IP specifici nei servizi di Azure e l'attivazione degli endpoint di servizio sul lato rete può causare una perdita di connettività perché l'indirizzo IP di origine cambia passando da indirizzo IPv4 pubblico a indirizzo privato. La configurazione di elenchi di controllo di accesso di rete virtuale sul lato servizio di Azure prima dell'impostazione degli endpoint di servizio sul lato rete può aiutare a evitare la perdita di connettività.
+Alcuni servizi, ad esempio SQL e CosmosDB, consentono eccezioni alla sequenza precedente tramite il flag **IgnoreMissingVnetServiceEndpoint** . Quando il flag è impostato su **true** , gli ACL VNet possono essere impostati sul lato servizio di Azure prima di configurare gli endpoint del servizio sul lato rete. I servizi di Azure forniscono questo flag per aiutare i clienti nei casi in cui sono configurati firewall IP specifici nei servizi di Azure e l'attivazione degli endpoint di servizio sul lato rete può causare una perdita di connettività perché l'indirizzo IP di origine cambia passando da indirizzo IPv4 pubblico a indirizzo privato. La configurazione di elenchi di controllo di accesso di rete virtuale sul lato servizio di Azure prima dell'impostazione degli endpoint di servizio sul lato rete può aiutare a evitare la perdita di connettività.
 
 ### <a name="do-all-azure-services-reside-in-the-azure-virtual-network-provided-by-the-customer-how-does-vnet-service-endpoint-work-with-azure-services"></a>Tutti i servizi di Azure si trovano nella rete virtuale di Azure fornita dal cliente? Come funzionano gli endpoint di servizio di rete virtuale con i servizi di Azure?
 

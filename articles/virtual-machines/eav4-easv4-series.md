@@ -7,12 +7,12 @@ ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: jushiman
-ms.openlocfilehash: e9341ff9a2ee0a6bfc79d94eea99bfb9aebceadf
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ea746d67b23422243685347d1fe7a7fbaf03a4fe
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637038"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927958"
 ---
 # <a name="eav4-and-easv4-series"></a>Serie Eav4 e Easv4
 
@@ -25,7 +25,7 @@ Le serie Eav4 e Easv4 usano il processore AMD 2.35 GHz EPYC<sup>TM</sup> 7452 in
 [Caching archiviazione Premium](premium-storage-performance.md): non supportato<br>
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
-[Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
+[Supporto](generation-2.md)per la generazione di VM: generazioni 1 e 2<br>
 <br>
 
 Le dimensioni della serie Eav4 sono basate sul processore 2.35 GHz AMD EPYC<sup>TM</sup> 7452 che può ottenere una frequenza massima con boosting di 3.35 GHz e usare l'unità SSD Premium. Le dimensioni della serie Eav4 sono ideali per applicazioni aziendali a uso intensivo di memoria. L'archiviazione su disco dati viene fatturata separatamente dalle macchine virtuali. Per usare l'unità SSD Premium, usare le dimensioni della serie Easv4. I prezzi e i contatori di fatturazione per le dimensioni Easv4 sono uguali a quelli della serie Eav3.
@@ -49,7 +49,7 @@ Le dimensioni della serie Eav4 sono basate sul processore 2.35 GHz AMD EPYC<sup>
 [Caching archiviazione Premium](premium-storage-performance.md): supportato<br>
 [Live Migration](maintenance-and-updates.md): supportato<br>
 [Aggiornamenti con mantenimento della memoria](maintenance-and-updates.md): supportati<br>
-[Supporto](generation-2.md)per la generazione di VM: generazione 1<br>
+[Supporto](generation-2.md)per la generazione di VM: generazioni 1 e 2<br>
 <br>
 
 Le dimensioni della serie Easv4 sono basate sul processore 2.35 GHz AMD EPYC<sup>TM</sup> 7452 che può ottenere una frequenza massima con boosting di 3.35 GHz e usare l'unità SSD Premium. Le dimensioni della serie Easv4 sono ideali per applicazioni aziendali a uso intensivo di memoria.

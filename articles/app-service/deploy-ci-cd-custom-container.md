@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b73c7e62c6b621d3ac86cfb99b10b567460534f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a51fbcb7b7504b9a16e8d0025856c2b007070a9
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88961857"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928009"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Distribuzione continua con l'app Web per contenitori
 
@@ -35,7 +35,7 @@ In questa esercitazione verrà configurata la distribuzione continua per un'imma
 
 Quando la distribuzione continua viene abilitata, è possibile visualizzare il webhook appena creato nella pagina dei webhook di Registro Azure Container.
 
-![Screenshot del webhook di Registro Azure Container](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
+![Screenshot che mostra dove è possibile visualizzare il webhook appena creato nella pagina dei webhook di Azure Container Registry.](./media/deploy-ci-cd-custom-container/ci-cd-acr-03.png)
 
 Nel Registro contenitori fare clic su Webhook per visualizzare i webhook correnti.
 

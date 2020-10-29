@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/23/2020
+ms.date: 10/29/2020
 ms.author: jingwang
-ms.openlocfilehash: 2ca13ef3c6fa5bbd40ee239c50a023beee85a977
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 0e34ee7ae47358c7de95298dd245e77690bb15cf
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637174"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928077"
 ---
 # <a name="xml-format-in-azure-data-factory"></a>Formato XML in Azure Data Factory
 
@@ -35,8 +35,8 @@ Per un elenco completo delle sezioni e delle proprietà disponibili per la defin
 | encodingName     | Tipo di codifica utilizzato per leggere/scrivere file di test. <br>I valori consentiti sono i seguenti: "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "US-ASCII", "UTF-7", "BIG5", "EUC-JP", "EUC-KR", "GB2312", "GB18030", "JOHAB", "SHIFT-JIS", "CP875", "CP866", "IBM00858", "IBM037", "IBM273", "IBM437", "IBM500", "IBM737", "IBM775", "IBM850", "IBM852", "IBM855", "IBM857", "IBM860", "IBM861", "IBM863", "IBM864", "IBM865", "IBM869", "IBM870", "IBM01140", "IBM01141", "IBM01142", "IBM01143", "IBM01144", "IBM01145", "IBM01146", "IBM01147", "IBM01148", "IBM01149", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-3", "ISO-8859-4", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "ISO-8859-13" , "ISO-8859-15", "WINDOWS-874", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255", "WINDOWS-1256", "WINDOWS-1257", "WINDOWS-1258".| No       |
 | nullValue | Specifica la rappresentazione di stringa del valore null.<br/>Il valore predefinito è una **stringa vuota** . | No |
 | compressione | Gruppo di proprietà per configurare la compressione dei file. Configurare questa sezione quando si desidera eseguire la compressione/decompressione durante l'esecuzione dell'attività. | No |
-| type<br>( *in `compression`* ) | Codec di compressione utilizzato per leggere/scrivere file XML. <br>I valori consentiti sono **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **Snapper** o **LZ4** . Il valore predefinito non è compresso.<br>**Nota** attualmente l'attività di copia non supporta "blocco" & "LZ4" e il flusso di dati di mapping non supporta "ZipDeflate".<br>**Nota** quando si usa l'attività di copia per decomprimere i file TarGzip di **ZipDeflate** / **TarGzip** e scrivere nell'archivio dati sink basato su file, per impostazione predefinita i file vengono estratti nella cartella: `<path specified in dataset>/<folder named as source compressed file>/` , usare `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` nell' [origine dell'attività di copia](#xml-as-source) per controllare se mantenere il nome dei file compressi come struttura di cartelle. | No.  |
-| livello<br/>( *in `compression`* ) | Rapporto di compressione. <br>I valori consentiti sono **ottimali** o più **veloci** .<br>- Più **veloce:** L'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non è compresso in modo ottimale.<br>- **Ottimale** : l'operazione di compressione deve essere compressa in modo ottimale, anche se il completamento dell'operazione richiede più tempo. Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](/dotnet/api/system.io.compression.compressionlevel) . | No       |
+| type<br>( *in `compression`* ) | Codec di compressione utilizzato per leggere/scrivere file XML. <br>I valori consentiti sono **bzip2** , **gzip** , **deflate** , **ZipDeflate** , **TarGzip** , **tar** , **Snapper** o **LZ4** . Il valore predefinito non è compresso.<br>**Nota** attualmente l'attività di copia non supporta "blocco" & "LZ4" e il flusso di dati di mapping non supporta "ZipDeflate", "TarGzip" e "tar".<br>**Nota** quando si usa l'attività di **ZipDeflate** copia per decomprimere i / **TarGzip** / file **tar** ZipDeflate TarGzip e scrivere nell'archivio dati sink basato su file, per impostazione predefinita i file vengono estratti nella cartella: `<path specified in dataset>/<folder named as source compressed file>/` , usare `preserveZipFileNameAsFolder` / `preserveCompressionFileNameAsFolder` nell' [origine dell'attività di copia](#xml-as-source) per controllare se mantenere il nome dei file compressi come struttura di cartelle. | No.  |
+| livello<br/>( *in `compression`* ) | Rapporto di compressione. <br>I valori consentiti sono **ottimali** o più **veloci** .<br>- Più **veloce:** L'operazione di compressione deve essere completata il più rapidamente possibile, anche se il file risultante non è compresso in modo ottimale.<br>- **Ottimale** : l'operazione di compressione deve essere compressa in modo ottimale, anche se il completamento dell'operazione richiede più tempo. Per maggiori informazioni, vedere l'argomento relativo al [livello di compressione](https://msdn.microsoft.com/library/system.io.compression.compressionlevel.aspx) . | No       |
 
 Di seguito è riportato un esempio di set di dati XML nell'archivio BLOB di Azure:
 
@@ -90,7 +90,7 @@ Nella sezione attività di copia **_ \_ source \*** * sono supportate le proprie
 | detectDataType | Indica se rilevare i tipi di dati Integer, Double e Boolean. I valori consentiti sono: **true** (predefinito), **false** .| No |
 | compressionProperties | Gruppo di proprietà su come decomprimere i dati per un determinato codec di compressione. | No       |
 | preserveZipFileNameAsFolder<br>( *in `compressionProperties` -> `type` As `ZipDeflateReadSettings`* )  | Si applica quando il set di dati di input viene configurato con la compressione **ZipDeflate** . Indica se mantenere il nome del file zip di origine come struttura di cartelle durante la copia.<br>-Se impostato su **true (impostazione predefinita)** , Data Factory scrive file decompressi in `<path specified in dataset>/<folder named as source zip file>/` .<br>-Se impostato su **false** , Data Factory scrive i file decompressi direttamente in `<path specified in dataset>` . Assicurarsi che non siano presenti nomi di file duplicati in file zip di origine diversi per evitare la competizione o un comportamento imprevisto.  | No |
-| preserveCompressionFileNameAsFolder<br>( *in `compressionProperties` -> `type` As `TarGZipReadSettings`* ) | Si applica quando il set di dati di input viene configurato con la compressione **TarGzip** . Indica se mantenere il nome file compresso di origine come struttura di cartelle durante la copia.<br>-Se impostato su **true (impostazione predefinita)** , Data Factory scrive i file decompressi in `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Se impostato su **false** , Data Factory scrive i file decompressi direttamente in `<path specified in dataset>` . Assicurarsi che non siano presenti nomi di file duplicati in file di origine diversi per evitare la competizione o un comportamento imprevisto. | No |
+| preserveCompressionFileNameAsFolder<br>( *in `compressionProperties` -> `type` come `TarGZipReadSettings` o `TarReadSettings`* ) | Si applica quando il set di dati di input viene configurato con la compressione **TarGzip** / **tar** . Indica se mantenere il nome file compresso di origine come struttura di cartelle durante la copia.<br>-Se impostato su **true (impostazione predefinita)** , Data Factory scrive i file decompressi in `<path specified in dataset>/<folder named as source compressed file>/` . <br>-Se impostato su **false** , Data Factory scrive i file decompressi direttamente in `<path specified in dataset>` . Assicurarsi che non siano presenti nomi di file duplicati in file di origine diversi per evitare la competizione o un comportamento imprevisto. | No |
 
 ## <a name="mapping-data-flow-properties"></a>Proprietà del flusso di dati per mapping
 

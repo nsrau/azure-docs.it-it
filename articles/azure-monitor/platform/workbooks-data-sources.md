@@ -8,12 +8,12 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 06/29/2020
-ms.openlocfilehash: a0349a3fe21bdc0b73252bce1207c9f3b53dc15f
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: d41629dd9a56272af89a06cb55e9bd88b604baee
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92143741"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927907"
 ---
 # <a name="azure-monitor-workbooks-data-sources"></a>Origini dati delle cartelle di lavoro di monitoraggio di Azure
 
@@ -77,7 +77,7 @@ Le cartelle di lavoro supportano l'ottenimento di integrità delle risorse di Az
 
 Per fare in modo che un controllo query usi questa origine dati, usare l'elenco a discesa **tipo di query** per scegliere integrità di Azure e selezionare le risorse di destinazione. Usare gli elenchi a discesa del filtro di integrità per selezionare un subset interessante di problemi di risorse in base alle esigenze analitiche.
 
-![Screenshot della query degli avvisi](./media/workbooks-overview/resource-health.png)
+![Screenshot della query degli avvisi che Mostra gli elenchi dei filtri di integrità.](./media/workbooks-overview/resource-health.png)
 
 ## <a name="json"></a>JSON
 
@@ -100,7 +100,7 @@ Per fare in modo che un controllo query usi questa origine dati, usare l'elenco 
 
 Le cartelle di lavoro supportano il recupero di dati da qualsiasi origine esterna. Se i dati si trovano all'esterno di Azure, è possibile portarli nelle cartelle di lavoro usando questo tipo di origine dati.
 
-Per fare in modo che un controllo query usi questa origine dati, usare l'elenco a discesa _origine dati_ per scegliere _endpoint personalizzato_. Fornire i parametri appropriati, ad esempio `Http method` ,, `url` `headers` `url parameters` e/o `body` . Verificare che l'origine dati supporti [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in caso contrario, la richiesta avrà esito negativo.
+Per fare in modo che un controllo query usi questa origine dati, usare l'elenco a discesa _origine dati_ per scegliere _endpoint personalizzato_ . Fornire i parametri appropriati, ad esempio `Http method` ,, `url` `headers` `url parameters` e/o `body` . Verificare che l'origine dati supporti [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) in caso contrario, la richiesta avrà esito negativo.
 
 Per evitare di effettuare automaticamente chiamate a host non attendibili quando si usano i modelli, l'utente deve contrassegnare gli host usati come attendibili. A tale scopo, è possibile fare clic sul pulsante _Aggiungi come attendibile_ oppure aggiungerlo come host attendibile nelle impostazioni della cartella di lavoro. Queste impostazioni verranno salvate nei browser che supportano IndexDb con i Web Worker. [qui](https://caniuse.com/#feat=indexeddb)sono disponibili altre informazioni.
 

@@ -4,12 +4,12 @@ description: Informazioni sul backup di database di Azure per PostgreSQL con con
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: references_regions
-ms.openlocfilehash: 3c326ff197f18333812438719908daced2b268bb
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: edbfdb6ea741cdb344a121acdbee3b8bd4bc743c
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173574"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927890"
 ---
 # <a name="azure-database-for-postgresql-backup-with-long-term-retention-preview"></a>Backup del database di Azure per PostgreSQL con conservazione a lungo termine (anteprima)
 
@@ -32,7 +32,7 @@ Oltre alla conservazione a lungo termine, la soluzione presenta anche molte altr
 |Supporto  |Dettagli  |
 |---------|---------|
 |Distribuzioni supportate   |  Server singolo autonomo per database di Azure per PostgreSQL     |
-|Aree di Azure supportate |  Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centro-meridionali, Stati Uniti occidentali |
+|Aree di Azure supportate |  Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Stati Uniti centro-meridionali, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centro-occidentali, Brasile meridionale, Canada centrale, Europa settentrionale, Europa occidentale, Regno Unito meridionale, Regno Unito occidentale, Germania centro-occidentale, Svizzera settentrionale, Svizzera occidentale, Asia orientale, Asia orientale sud, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale, Australia centrale  |
 |Versioni supportate di Azure PostgreSQL    |   9,5, 9,6, 10, 11      |
 
 ## <a name="feature-considerations-and-limitations"></a>Considerazioni sulle funzionalità e limitazioni
@@ -55,7 +55,7 @@ Oltre alla conservazione a lungo termine, la soluzione presenta anche molte altr
   
 5. Quando si attiva la configurazione della protezione nei database selezionati, il servizio di backup configura il coordinatore con le pianificazioni di backup e altri dettagli relativi ai criteri.
 
-6. All'ora pianificata, il coordinatore comunica con il plug-in e inizia a trasmettere i dati di backup dal server Postgres usando **pg_dump**.
+6. All'ora pianificata, il coordinatore comunica con il plug-in e inizia a trasmettere i dati di backup dal server Postgres usando **pg_dump** .
 
 7. Il plug-in Invia i dati direttamente all'insieme di credenziali per il backup, eliminando la necessità di un percorso di gestione temporanea. I dati vengono crittografati usando chiavi gestite da Microsoft e archiviati dal servizio backup di Azure negli account di archiviazione.
 
@@ -71,25 +71,25 @@ Le istruzioni seguenti sono una guida dettagliata alla configurazione del backup
 
 1. Esistono due modi per avviare il processo:
 
-    1. Passare a [Backup Center](backup-center-overview.md)  ->  **Panoramica**  ->  **backup**.
+    1. Passare a [Backup Center](backup-center-overview.md)  ->  **Panoramica**  ->  **backup** .
 
         ![Vai a backup Center](./media/backup-azure-database-postgresql/backup-center.png)
 
-        In **Avvia: configurare il backup**selezionare il **tipo di origine** dati come **database di Azure per PostgreSQL**.
+        In **Avvia: configurare il backup** selezionare il **tipo di origine** dati come **database di Azure per PostgreSQL** .
 
         ![In avvio: Configura backup selezionare tipo di origine dati](./media/backup-azure-database-postgresql/initiate-configure-backup.png)
 
-    1. In alternativa, è possibile passare direttamente al backup degli insiemi di credenziali di [backup](backup-vault-overview.md)  ->  **Backup**.
+    1. In alternativa, è possibile passare direttamente al backup degli insiemi di credenziali di [backup](backup-vault-overview.md)  ->  **Backup** .
 
         ![Passa a insiemi di credenziali di backup](./media/backup-azure-database-postgresql/backup-vaults.png)
 
         ![Selezionare backup nell'insieme di credenziali di backup](./media/backup-azure-database-postgresql/backup-backup-vault.png)
 
-1. In **Configura backup**selezionare l'insieme di credenziali per il **backup** in cui si vuole eseguire il backup dei database postgres. Queste informazioni sono precompilate se si è già nel contesto dell'insieme di credenziali.
+1. In **Configura backup** selezionare l'insieme di credenziali per il **backup** in cui si vuole eseguire il backup dei database postgres. Queste informazioni sono precompilate se si è già nel contesto dell'insieme di credenziali.
 
     ![Selezionare l'insieme di credenziali per il backup in Configura backup](./media/backup-azure-database-postgresql/configure-backup.png)
 
-1. Selezionare o creare un **criterio di backup**.
+1. Selezionare o creare un **criterio di backup** .
 
     ![Scegliere i criteri di backup](./media/backup-azure-database-postgresql/backup-policy.png)
 
@@ -121,7 +121,7 @@ Le istruzioni seguenti sono una guida dettagliata alla configurazione del backup
 
 ## <a name="create-backup-policy"></a>Creare criteri di backup
 
-1. Passare a **Backup Center**  ->  **backup criteri**  ->  **Aggiungi**. In alternativa, è possibile passare a **backup**dell'insieme di credenziali di backup  ->  **Backup policy**  ->  **Aggiungi**.
+1. Passare a **Backup Center**  ->  **backup criteri**  ->  **Aggiungi** . In alternativa, è possibile passare a **backup** dell'insieme di credenziali di backup  ->  **Backup policy**  ->  **Aggiungi** .
 
     ![Aggiungi criteri di backup](./media/backup-azure-database-postgresql/add-backup-policy.png)
 
@@ -142,8 +142,8 @@ Le istruzioni seguenti sono una guida dettagliata alla configurazione del backup
 
 1. La **regola di conservazione predefinita** viene applicata in assenza di altre regole di conservazione e ha un valore predefinito di tre mesi.
 
-    - La durata della conservazione è compresa tra sette giorni e 10 anni nell' **archivio dati di backup**.
-    - La durata della conservazione è compresa tra sei mesi e 10 anni nell'archivio **dati di archiviazione**.
+    - La durata della conservazione è compresa tra sette giorni e 10 anni nell' **archivio dati di backup** .
+    - La durata della conservazione è compresa tra sei mesi e 10 anni nell'archivio **dati di archiviazione** .
 
     ![Modifica Durata conservazione](./media/backup-azure-database-postgresql/edit-retention.png)
 
@@ -157,15 +157,15 @@ Le istruzioni seguenti sono una guida dettagliata alla configurazione del backup
 Seguire questa guida dettagliata per attivare un ripristino:
 
 1. Esistono due modi per avviare il processo di ripristino:
-    1. Passare a [Backup Center](backup-center-overview.md)  ->  **Panoramica**  ->  **ripristino**.
+    1. Passare a [Backup Center](backup-center-overview.md)  ->  **Panoramica**  ->  **ripristino** .
 
     ![Selezionare Ripristina in centro backup](./media/backup-azure-database-postgresql/backup-center-restore.png)
 
-    In **Avvia: ripristino**selezionare il tipo di **origine** dati come **database di Azure per PostgreSQL**. Selezionare l' **istanza di backup**.
+    In **Avvia: ripristino** selezionare il tipo di **origine** dati come **database di Azure per PostgreSQL** . Selezionare l' **istanza di backup** .
 
     ![Selezionare il tipo di origine dati in avvio: ripristino](./media/backup-azure-database-postgresql/initiate-restore.png)
 
-    1. In alternativa, è possibile passare direttamente alle istanze di backup dell'insieme di credenziali di **backup**  ->  **Backup Instances**. Selezionare l' **istanza di backup** corrispondente al database che si desidera ripristinare.
+    1. In alternativa, è possibile passare direttamente alle istanze di backup dell'insieme di credenziali di **backup**  ->  **Backup Instances** . Selezionare l' **istanza di backup** corrispondente al database che si desidera ripristinare.
 
     ![Istanze di backup per il ripristino](./media/backup-azure-database-postgresql/backup-instances-restore.png)
 
@@ -179,25 +179,25 @@ Seguire questa guida dettagliata per attivare un ripristino:
 
     ![Elenco dei punti di ripristino](./media/backup-azure-database-postgresql/list-recovery-points.png)
 
-1. **Parametri di ripristino**dell'input. A questo punto, è possibile scegliere tra due tipi di ripristino: **Restore As database** and **Restore As files**.
+1. **Parametri di ripristino** dell'input. A questo punto, è possibile scegliere tra due tipi di ripristino: **Restore As database** and **Restore As files** .
 
-1. **Restore As database**: ripristinare i dati di backup per creare un nuovo database nel server PostgreSQL di destinazione.
+1. **Restore As database** : ripristinare i dati di backup per creare un nuovo database nel server PostgreSQL di destinazione.
 
     - Il server di destinazione può essere uguale al server di origine. Tuttavia, la sovrascrittura del database originale non è supportata.
     - È possibile scegliere dal server tra tutte le sottoscrizioni, ma nella stessa area dell'insieme di credenziali.
-    - Selezionare **revisione e ripristino**. Verrà attivata la convalida per verificare se il servizio dispone delle autorizzazioni di ripristino appropriate per il server di destinazione.
+    - Selezionare **revisione e ripristino** . Verrà attivata la convalida per verificare se il servizio dispone delle autorizzazioni di ripristino appropriate per il server di destinazione.
 
     ![Ripristina come database](./media/backup-azure-database-postgresql/restore-as-database.png)
 
-1. **Ripristina come file**: consente di eseguire il dump dei file di backup nell'account di archiviazione di destinazione (BLOB).
+1. **Ripristina come file** : consente di eseguire il dump dei file di backup nell'account di archiviazione di destinazione (BLOB).
 
     - È possibile scegliere tra gli account di archiviazione in tutte le sottoscrizioni, ma nella stessa area dell'insieme di credenziali.
     - Selezionare il contenitore di destinazione dall'elenco dei contenitori filtrato per l'account di archiviazione selezionato.
-    - Selezionare **revisione e ripristino**. Verrà attivata la convalida per verificare se il servizio dispone delle autorizzazioni di ripristino appropriate per il server di destinazione.
+    - Selezionare **revisione e ripristino** . Verrà attivata la convalida per verificare se il servizio dispone delle autorizzazioni di ripristino appropriate per il server di destinazione.
 
     ![Ripristinare come file](./media/backup-azure-database-postgresql/restore-as-files.png)
 
-1. Esaminare le informazioni e selezionare **Ripristina**. Verrà attivato un processo di ripristino corrispondente di cui è possibile tenere traccia nei **processi di backup**.
+1. Esaminare le informazioni e selezionare **Ripristina** . Verrà attivato un processo di ripristino corrispondente di cui è possibile tenere traccia nei **processi di backup** .
 
 ## <a name="prerequisite-permissions-for-configure-backup-and-restore"></a>Autorizzazioni prerequisiti per la configurazione di backup e ripristino
 
@@ -207,11 +207,11 @@ Backup di Azure segue rigide linee guida sulla sicurezza. Anche se si tratta di 
 
 ## <a name="manage-the-backed-up-azure-postgresql-databases"></a>Gestire i database PostgreSQL di Azure di cui è stato eseguito il backup
 
-Di seguito sono riportate le operazioni di gestione che è possibile eseguire sulle **istanze di backup**:
+Di seguito sono riportate le operazioni di gestione che è possibile eseguire sulle **istanze di backup** :
 
 ### <a name="on-demand-backup"></a>Backup su richiesta
 
-Per attivare un backup non nella pianificazione specificata nel criterio, passare a backup **istanze**  ->  **Backup Now**.
+Per attivare un backup non nella pianificazione specificata nel criterio, passare a backup **istanze**  ->  **Backup Now** .
 Scegliere dall'elenco delle regole di conservazione definite nei criteri di backup associati.
 
 ![Attiva ora backup](./media/backup-azure-database-postgresql/backup-now.png)
@@ -228,7 +228,7 @@ Scegliere dall'elenco delle regole di conservazione definite nei criteri di back
 
 È possibile modificare il criterio associato con un'istanza di backup.
 
-1. Selezionare i criteri di modifica dell' **istanza di backup**  ->  **Change Policy**.
+1. Selezionare i criteri di modifica dell' **istanza di backup**  ->  **Change Policy** .
 
     ![Modificare i criteri](./media/backup-azure-database-postgresql/change-policy.png)
 
@@ -254,7 +254,7 @@ Passaggi:
 
     ![Riquadro di controllo di accesso](./media/backup-azure-database-postgresql/access-control-pane.png)
 
-1. Selezionare **Aggiungi un'assegnazione di ruolo**.
+1. Selezionare **Aggiungi un'assegnazione di ruolo** .
 
     ![Aggiungi un'assegnazione di ruolo](./media/backup-azure-database-postgresql/add-role-assignment.png)
 
@@ -280,7 +280,7 @@ Passaggi:
 
 Aggiungere un amministratore Active Directory al server OSS:
 
-Questo passaggio è necessario per connettersi al database tramite un utente che può eseguire l'autenticazione con Azure Active Directory anziché una password. L'utente amministratore di Azure AD nel database di Azure per PostgreSQL avrà il ruolo **azure_ad_admin**. Solo un ruolo **azure_ad_admin** può creare nuovi utenti del database in grado di eseguire l'autenticazione con Azure ad.
+Questo passaggio è necessario per connettersi al database tramite un utente che può eseguire l'autenticazione con Azure Active Directory anziché una password. L'utente amministratore di Azure AD nel database di Azure per PostgreSQL avrà il ruolo **azure_ad_admin** . Solo un ruolo **azure_ad_admin** può creare nuovi utenti del database in grado di eseguire l'autenticazione con Azure ad.
 
 1. Passare alla scheda amministratore Active Directory nel riquadro di spostamento a sinistra della visualizzazione server e aggiungere se stessi (o un altro utente) come amministratore Active Directory.
 
@@ -294,7 +294,7 @@ Fare riferimento a [questo documento](https://download.microsoft.com/download/7/
 
 ### <a name="usererrormissingnetworksecuritypermissions"></a>UserErrorMissingNetworkSecurityPermissions
 
-Stabilire la linea di rete abilitando il flag **Consenti l'accesso a servizi di Azure** nella visualizzazione server. Nella visualizzazione server, nel riquadro **sicurezza connessione** , impostare il flag **Consenti l'accesso a servizi di Azure** su **Sì**.
+Stabilire la linea di rete abilitando il flag **Consenti l'accesso a servizi di Azure** nella visualizzazione server. Nella visualizzazione server, nel riquadro **sicurezza connessione** , impostare il flag **Consenti l'accesso a servizi di Azure** su **Sì** .
 
 ![Consentire l'accesso ai servizi di Azure](./media/backup-azure-database-postgresql/allow-access-to-azure-services.png)
 
@@ -303,7 +303,7 @@ Stabilire la linea di rete abilitando il flag **Consenti l'accesso a servizi di 
 #### <a name="permission-to-restore-to-a-storage-account-container-when-restoring-as-files"></a>Autorizzazione per eseguire il ripristino in un contenitore dell'account di archiviazione durante il ripristino come file
 
 1. Assegnare all'insieme di credenziali per il backup l'autorizzazione per accedere ai contenitori dell'account di archiviazione usando il portale di Azure.
-    1. Passare a controllo di accesso dell' **account di archiviazione**  ->  **Access Control**  ->  **Aggiungi assegnazione di ruolo**.
+    1. Passare a controllo di accesso dell' **account di archiviazione**  ->  **Access Control**  ->  **Aggiungi assegnazione di ruolo** .
     1. Assegnare il ruolo di **collaboratore dati BLOB di archiviazione** all'insieme di credenziali per il backup MSI.
 
     ![Assegnare il ruolo di collaboratore dati BLOB di archiviazione](./media/backup-azure-database-postgresql/assign-storage-blog-data-contributor-role.png)
@@ -315,7 +315,7 @@ Stabilire la linea di rete abilitando il flag **Consenti l'accesso a servizi di 
     ```
 
     1. Sostituire il parametro assegnatario con l' **ID applicazione** del file MSI dell'insieme di credenziali e il parametro scope per fare riferimento al contenitore specifico.
-    1. Per ottenere l' **ID applicazione** dell'MSI dell'insieme di credenziali, selezionare **tutte le applicazioni** in **tipo di applicazione**:
+    1. Per ottenere l' **ID applicazione** dell'MSI dell'insieme di credenziali, selezionare **tutte le applicazioni** in **tipo di applicazione** :
 
         ![Seleziona tutte le applicazioni](./media/backup-azure-database-postgresql/select-all-applications.png)
 

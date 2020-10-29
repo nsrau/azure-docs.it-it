@@ -2,17 +2,17 @@
 title: Risolvere i problemi relativi al runtime di integrazione self-hosted in Azure Data Factory
 description: Informazioni su come risolvere i problemi relativi al runtime di integrazione self-hosted in Azure Data Factory.
 services: data-factory
-author: lrtoyou1223
+author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 10/26/2020
+ms.date: 10/29/2020
 ms.author: lle
-ms.openlocfilehash: 3598db409e5493737753a8a1b03de168af5c664b
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: ca8d359638d97f77377f02d47d824fa216acdcc8
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637191"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92928111"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -62,7 +62,7 @@ Nel caso presente, l'utente sta usando il certificato con "microsoft.com" come u
 
 Questo è un problema noto in WCF: La verifica TLS/SSL di WCF controlla solo l'ultimo DNSName in SAN. 
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 Il certificato con carattere jolly è supportato dal runtime di integrazione self-hosted Azure Data Factory v2. Questo problema avviene generalmente a causa di un certificato SSL errato. È necessario che l'ultimo DNSName in SAN sia valido. Seguire i passaggi seguenti per verificarlo. 
 1.  Aprire Management Console, controllare il nome del *soggetto* e il *nome alternativo del soggetto* dai dettagli del certificato. Nel caso precedente, ad esempio, l'ultimo elemento nel *nome alternativo del soggetto* , ovvero "DNS Name = Microsoft.com.com", non è legittimo.
@@ -98,7 +98,7 @@ Il nodo di lavoro del runtime di integrazione self-hosted ha rilevato l'errore s
 
 Quando vengono gestiti casi relativi all'handshake SSL/TLS, è possibile riscontrare problemi relativi alla verifica della catena di certificati. 
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 - Ecco un modo rapido e intuitivo per risolvere gli errori di compilazione della catena di certificati X. 509.
  
@@ -152,7 +152,7 @@ Quando vengono gestiti casi relativi all'handshake SSL/TLS, è possibile riscont
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-Ad esempio: 
+Esempio: 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -169,7 +169,7 @@ Se si esegue monitoraggio processi, è possibile visualizzare i risultati seguen
 
 ![Configurare i filtri](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 È possibile scoprire che la **System.ValueTuple.dll** si trova nella cartella *c:\Programmi\Microsoft Integration Runtime\4.0\Gateway\DataScan* Copiare il **System.ValueTuple.dll** nella cartella C:\Programmi\Microsoft *Integration Runtime\4.0\Gateway* per risolvere il problema.
 
@@ -199,7 +199,7 @@ Il runtime di integrazione self-hosted passa improvvisamente alla modalità offl
 - Il nodo di runtime di integrazione self-hosted o il nodo di runtime di integrazione self-hosted logico nel portale sono stati eliminati.
 - È stata eseguita una disinstallazione corretta.
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 Se nessuna delle cause precedenti si applica, è possibile passare alla cartella: *%ProgramData%\Microsoft\Data Transfer\DataManagementGateway* e verificare se il file denominato **configurazioni** è stato eliminato. Se viene eliminato, seguire le istruzioni riportate [qui](https://www.netwrix.com/how_to_detect_who_deleted_file.html) per controllare chi elimina il file.
 
@@ -218,7 +218,7 @@ Il runtime di integrazione self-hosted è progettato come un nodo centrale di un
  
 Nel caso soprastante, è necessario creare il servizio collegato per ogni archivio dati con lo stesso runtime di integrazione e il runtime di integrazione deve essere in grado di accedere a entrambi gli archivi dati attraverso la rete. Indipendentemente dal fatto che il runtime di integrazione sia installato con l'archivio dati di origine, con l'archivio dati di destinazione o in un terzo computer, se vengono creati due servizi collegati con runtime di integrazione diversi, ma usati nella stessa attività di copia, verrà usato il runtime di integrazione di destinazione e i driver per entrambi gli archivi dati dovranno essere installati nel computer di runtime di integrazione di destinazione.
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 Installare i driver sia per l'origine che per la destinazione nel runtime di integrazione di destinazione e assicurarsi che sia in grado di accedere all'archivio dati di origine.
  
@@ -235,7 +235,7 @@ Le credenziali "XXXXXXXXXX" dell'origine dati sono state eliminate dal nodo corr
 
 Il runtime di integrazione self-hosted è compilato in modalità a disponibilità elevata con due nodi, ma non si trovano nello stato di sincronizzazione delle credenziali, il che significa che le credenziali archiviate nel nodo dispatcher non vengono sincronizzate con altri nodi di lavoro. Se si verifica un failover dal nodo dispatcher al nodo di lavoro ma le credenziali erano presenti solo nel nodo dispatcher precedente, se si tenta di accedere alle credenziali, l'accesso sarà negato e si verificherà l'errore soprastante.
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 L'unico modo per evitare questo problema consiste nel verificare che due nodi si trovino nello stato di sincronizzazione delle credenziali. In caso contrario, è necessario reinserire le credenziali per il nuovo dispatcher.
 
@@ -254,7 +254,7 @@ L'unico modo per evitare questo problema consiste nel verificare che due nodi si
 - L'account utente ha autorizzazione limitata e non può accedere alla chiave privata.
 - Il certificato è stato generato come firma ma non come scambio di chiave.
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 1.  Usare un account con autorizzazione alla chiave privata per il funzionamento dell'interfaccia utente.
 2.  Eseguire il comando seguente per importare il certificato:
@@ -282,7 +282,7 @@ Dopo aver modificato l'account del servizio nel pannello del servizio, è possib
 
 Sono disponibili molte risorse che vengono concesse solo all'account del servizio. Quando si modifica l'account del servizio in un altro account, l'autorizzazione di tutte le risorse dipendenti rimane invariata.
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 Per verificare l'errore, passare al registro eventi Integration Runtime.
 
@@ -353,7 +353,7 @@ Non è stato possibile trovare il pulsante **Register** nell'interfaccia utente 
 
 Dal rilascio del *Integration Runtime 3,0* , il pulsante **registra** in un nodo Integration Runtime esistente è stato rimosso per consentire un ambiente più pulito e sicuro. Se un nodo è stato registrato in alcuni Integration Runtime (online o meno), per registrarlo di nuovo in un altro Integration Runtime è necessario disinstallare il nodo precedente, quindi installare e registrare il nodo.
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 1. Passare al pannello di controllo per disinstallare il Integration Runtime esistente.
 
@@ -382,7 +382,7 @@ Si è verificato un errore irreversibile durante la ricerca nel database.
 
 Il problema si verifica in genere durante la risoluzione del localhost.
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 Usare localhost 127.0.0.1 per ospitare il file e risolvere il problema.
 

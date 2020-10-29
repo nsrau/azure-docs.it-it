@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/22/2020
 ms.author: Zhchia
-ms.openlocfilehash: 400e82780abd08e0db4f49d72b352e290ea1f212
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 9445004170fb06a3d563982da51f89535464e328
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900294"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927992"
 ---
 # <a name="tutorial-configure-global-relay-identity-sync-for-automatic-user-provisioning"></a>Esercitazione: configurare la sincronizzazione dell'identità di inoltro globale per il provisioning utenti automatico
 
@@ -33,6 +33,10 @@ Questa esercitazione descrive i passaggi da eseguire sia nella sincronizzazione 
 > * Rimuovere gli utenti nella sincronizzazione dell'identità dell'inoltro globale quando non richiedono più l'accesso
 > * Mantieni gli attributi utente sincronizzati tra Azure AD e sincronizzazione identità inoltro globale
 > * Effettuare il provisioning di gruppi e appartenenze a gruppi in Global Relay Identity Sync
+
+
+> [!NOTE]
+> Il connettore di provisioning di sincronizzazione identità globale di inoltro usa un metodo di autorizzazione SCIM che non è più supportato a causa di problemi di sicurezza. Gli sforzi sono in corso con l'inoltro globale per passare a un metodo di autorizzazione più sicuro.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

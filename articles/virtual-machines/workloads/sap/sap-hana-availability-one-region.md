@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8c706ba6847334648fade1e8983e00433d3fa618
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: dcabd01cfbda8cd892c82b391bf649b2b464d6fb
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978204"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927771"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>Disponibilità di SAP HANA in un'area di Azure
 Questo articolo descrive diversi scenari di disponibilità in un'area di Azure. Azure ha molte aree, distribuite in tutto il mondo. Per l'elenco delle aree di Azure, vedere [Aree di Azure](https://azure.microsoft.com/regions/). Per la distribuzione di SAP HANA in macchine virtuali in un'area di Azure, Microsoft offre la possibilità di distribuire una singola macchina virtuale con un'istanza di HANA. Per una maggiore disponibilità, è possibile distribuire due macchine virtuali con due istanze di HANA in un [set di disponibilità di Azure](../../windows/tutorial-availability-sets.md) che usa la replica di sistema HANA per la disponibilità. 
@@ -78,7 +78,7 @@ Una delle configurazioni più elementari consiste nell'usare i backup. In partic
 
 L'architettura è simile a quanto segue:
 
-![Diagramma di due macchine virtuali con replica di archiviazione](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
+![Diagramma che illustra l'architettura di due macchine virtuali con replica di archiviazione.](./media/sap-hana-availability-one-region/two_vm_storage_replication.PNG) 
 
 Questa configurazione non è adatta per ottenere tempi di obiettivo del punto di ripristino (RPO) e obiettivo del tempo di ripristino (RTO) ottimali. In particolare i tempi di RTO ne risentirebbero a causa della necessità di ripristinare interamente il database completo usando i backup copiati. Tuttavia, questa configurazione è utile per il recupero in caso di eliminazione accidentale dei dati nelle istanze principali. Con questa configurazione, in qualsiasi momento, è possibile eseguire il ripristino fino a un determinato punto nel tempo, estrarre i dati e importare i dati eliminati nell'istanza principale. Di conseguenza, potrebbe risultare vantaggioso usare un metodo di copia di backup in combinazione con altre funzionalità per la disponibilità elevata. 
 
