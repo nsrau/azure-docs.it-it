@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/12/2019
-ms.openlocfilehash: cd1342ae5912a9a91f1bd8d1bdacecdb5a2bbdb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eaf36cc2690b3c0f8922c05432b3197b4ff30d9a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81416519"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026055"
 ---
 # <a name="create-azure-data-factory-data-flow"></a>Creare un flusso di dati di Azure Data Factory
 
@@ -22,15 +22,15 @@ I flussi di dati di mapping in Azure Data Factory consentono di trasformare i da
 
 Per iniziare, creare prima di tutto una nuova versione V2 Data Factory dalla portale di Azure. Dopo aver creato la nuova factory, fare clic sul riquadro "Author & Monitor" (Crea e monitora) per avviare l'interfaccia utente di Data Factory.
 
-![Opzioni flusso di dati](media/data-flow/v2portal.png "creazione flusso di dati")
+![Screenshot mostra il nuovo riquadro data factory con V2 selezionato per la versione.](media/data-flow/v2portal.png "creazione flusso di dati")
 
 Nell'interfaccia utente di Data Factory è possibile usare flussi di dati di esempio. Gli esempi sono disponibili dalla raccolta di modelli di Azure Data Factory. In Azure Data Factory creare una pipeline da modello ("Pipeline from Template") e selezionare la categoria del flusso di dati dalla raccolta di modelli.
 
-![Opzioni flusso di dati](media/data-flow/template.png "creazione flusso di dati")
+![Screenshot mostra la scheda flusso di dati con trasformazione dati utilizzando il flusso di dati selezionato.](media/data-flow/template.png "creazione flusso di dati")
 
 Verrà richiesto di immettere le informazioni sull'account di Archiviazione BLOB di Azure.
 
-![Opzioni flusso di dati](media/data-flow/template2.png "creazione flusso di dati 2")
+![Screenshot mostra i dati di trasformazione utilizzando il riquadro flusso di dati in cui è possibile immettere gli input utente.](media/data-flow/template2.png "creazione flusso di dati 2")
 
 [I dati usati per questi esempi sono disponibili qui](https://github.com/kromerm/adfdataflowdocs/tree/master/sampledata). Scaricare i dati di esempio e archiviare i file negli account di Archiviazione BLOB di Azure in modo che sia possibile eseguire gli esempi.
 
@@ -38,7 +38,7 @@ Verrà richiesto di immettere le informazioni sull'account di Archiviazione BLOB
 
 Usare il pulsante Crea risorsa "segno più" nell'interfaccia utente di ADF per creare flussi di dati.
 
-![Opzioni flusso di dati](media/data-flow/newresource.png "Nuova risorsa")
+![Screenshot mostra il flusso di dati selezionato dal menu delle risorse della factory.](media/data-flow/newresource.png "Nuova risorsa")
 
 ## <a name="next-steps"></a>Passaggi successivi
 

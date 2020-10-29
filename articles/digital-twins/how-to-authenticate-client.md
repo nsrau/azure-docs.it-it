@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 84cb7e7e98e81e242ec1cac554fe073370e45645
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 7f5ca063bcc784498dddf87f34f0f7974b95ecaf
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495785"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027314"
 ---
 # <a name="write-client-app-authentication-code"></a>Scrivere il codice di autenticazione dell'app client
 
@@ -24,7 +24,7 @@ Questo articolo descrive come ottenere le credenziali usando la `Azure.Identity`
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per prima cosa, completare la procedura di configurazione in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). In questo modo si avrà a disposizione un'istanza di Azure Digital gemelli, l'utente dispone delle autorizzazioni di accesso e sono state configurate le autorizzazioni per le applicazioni client. Dopo questa configurazione, è possibile scrivere il codice dell'app client.
+Per prima cosa, completare la procedura di configurazione in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). In questo modo sarà possibile disporre di un'istanza di dispositivi gemelli digitali di Azure e che l'utente disponga delle autorizzazioni di accesso. Dopo questa configurazione, è possibile scrivere il codice dell'app client.
 
 Per continuare, sarà necessario un progetto di app client in cui si scrive il codice. Se non è già stato configurato un progetto di app client, creare un progetto di base nella lingua preferita da usare con questa esercitazione.
 
@@ -37,7 +37,7 @@ Per continuare, sarà necessario un progetto di app client in cui si scrive il c
 * [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 Tre metodi comuni di recupero delle credenziali in `Azure.Identity` sono:
-* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale**. È anche possibile abilitare per provare gli altri due metodi consigliati in questo articolo. esegue il wrapping `ManagedIdentityCredential` e può accedere `InteractiveBrowserCredential` con una variabile di configurazione.
+* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale** . È anche possibile abilitare per provare gli altri due metodi consigliati in questo articolo. esegue il wrapping `ManagedIdentityCredential` e può accedere `InteractiveBrowserCredential` con una variabile di configurazione.
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) funziona benissimo nei casi in cui sono necessarie [identità gestite (MSI)](../active-directory/managed-identities-azure-resources/overview.md)ed è un buon candidato per l'uso di funzioni di Azure e la distribuzione nei servizi di Azure.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) è destinato alle applicazioni interattive e può essere usato per creare un client SDK autenticato
 
@@ -60,7 +60,7 @@ Aggiungere quindi il codice per ottenere le credenziali utilizzando uno dei meto
 
 ### <a name="defaultazurecredential-method"></a>Metodo DefaultAzureCredential
 
-[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale**.
+[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale** .
 
 Per usare le credenziali di Azure predefinite, è necessario l'URL dell'istanza di Azure Digital Twins ([istruzioni per la ricerca](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
@@ -110,8 +110,8 @@ client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
 Il metodo [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) è destinato alle applicazioni interattive e consente di visualizzare un browser Web per l'autenticazione. È possibile usarlo anziché `DefaultAzureCredential` nei casi in cui è necessaria l'autenticazione interattiva.
 
 Per usare le credenziali del browser interattivo, è necessaria una **registrazione dell'app** con le autorizzazioni per le API dei dispositivi gemelli digitali di Azure. Per i passaggi su come configurare questa registrazione per l'app, vedere [*procedura: creare una registrazione dell'*](how-to-create-app-registration.md)app. Una volta configurata la registrazione dell'app, sarà necessario...
-* *ID dell'applicazione (client)* di registrazione dell'app ([istruzioni da trovare](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
-* *ID directory (tenant)* della registrazione dell'app ([istruzioni da trovare](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* *ID dell'applicazione (client)* di registrazione dell'app ( [istruzioni da trovare](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
+* *ID directory (tenant)* della registrazione dell'app ( [istruzioni da trovare](how-to-create-app-registration.md#collect-client-id-and-tenant-id))
 * URL dell'istanza di Azure Digital Twins ([istruzioni da trovare](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
 
 Di seguito è riportato un esempio di codice per la creazione di un client SDK autenticato usando `InteractiveBrowserCredential` .

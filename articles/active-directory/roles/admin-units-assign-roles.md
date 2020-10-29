@@ -1,6 +1,6 @@
 ---
 title: Assegnare ed elencare i ruoli con ambito unità amministrativa-Azure Active Directory | Microsoft Docs
-description: Utilizzo di unità amministrative per limitare l'ambito delle assegnazioni di ruolo in Azure Active Directory
+description: Usare unità amministrative per limitare l'ambito delle assegnazioni di ruolo in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,20 +14,20 @@ ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 66a4810b3a84cac55a49744025b6ac71c3f1c0a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: dfae813f01d3e7a08e18cde76e5c26ca253a371f
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377946"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026599"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Assegnare ruoli con ambito a un'unità amministrativa
 
-In Azure Active Directory (Azure AD), è possibile assegnare utenti a un ruolo Azure AD con un ambito limitato a una o più unità amministrative (AUs) per un controllo amministrativo più granulare.
+In Azure Active Directory (Azure AD), per un controllo amministrativo più granulare, è possibile assegnare utenti a un ruolo di Azure AD con un ambito limitato a una o più unità amministrative.
 
-Per i passaggi necessari per preparare l'uso di PowerShell e Microsoft Graph per la gestione delle unità amministrative, vedere [Introduzione](admin-units-manage.md#get-started).
+Per preparare l'uso di PowerShell e Microsoft Graph per la gestione delle unità amministrative, vedere [Introduzione](admin-units-manage.md#get-started).
 
-## <a name="roles-available"></a>Ruoli disponibili
+## <a name="available-roles"></a>Ruoli disponibili
 
 Ruolo  |  Descrizione
 ----- |  -----------
@@ -43,26 +43,33 @@ Amministratore utenti  |  Può gestire tutti gli aspetti di utenti e gruppi, inc
 Le seguenti entità di sicurezza possono essere assegnate a un ruolo con un ambito di unità amministrativa:
 
 * Utenti
-* Gruppi di cloud assegnabili con ruolo (anteprima)
+* Gruppi di cloud assegnabili al ruolo (anteprima)
 * Nome dell'entità servizio (SPN)
 
 ## <a name="assign-a-scoped-role"></a>Assegnare un ruolo con ambito
 
-### <a name="azure-portal"></a>Portale di Azure
+È possibile assegnare un ruolo con ambito usando il portale di Azure, PowerShell o Microsoft Graph.
 
-Andare ad **Azure AD > Unità amministrative** nel portale. Selezionare l'unità amministrativa a cui si desidera assegnare il ruolo a un utente. Nel riquadro sinistro selezionare ruoli e amministratori per elencare tutti i ruoli disponibili.
+### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-![Selezionare un'unità amministrativa per modificare l'ambito del ruolo](./media/admin-units-assign-roles/select-role-to-scope.png)
+1. Nella portale di Azure passare a **Azure ad** .
 
-Selezionare il ruolo da assegnare e quindi selezionare **Aggiungi assegnazioni**. Verrà visualizzato un pannello a destra in cui è possibile selezionare uno o più utenti da assegnare al ruolo.
+1. Selezionare **unità amministrative** , quindi selezionare l'unità amministrativa a cui si desidera assegnare un ambito del ruolo utente. 
 
-![Selezionare il ruolo da definire come ambito, quindi selezionare Aggiungi assegnazioni](./media/admin-units-assign-roles/select-add-assignment.png)
+1. Nel riquadro sinistro selezionare **ruoli e amministratori** per elencare tutti i ruoli disponibili.
+
+   ![Screenshot del riquadro "ruolo e amministratori" per la selezione di un'unità amministrativa di cui si desidera assegnare l'ambito del ruolo.](./media/admin-units-assign-roles/select-role-to-scope.png)
+
+1. Selezionare il ruolo da assegnare e quindi selezionare **Aggiungi assegnazioni** . 
+
+1. Nel riquadro **Aggiungi assegnazioni** selezionare uno o più utenti da assegnare al ruolo.
+
+   ![Selezionare il ruolo da definire come ambito, quindi selezionare Aggiungi assegnazioni](./media/admin-units-assign-roles/select-add-assignment.png)
 
 > [!Note]
->
-> Per assegnare un ruolo a un'unità amministrativa usando PIM, seguire [questa procedura.](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope)
+> Per assegnare un ruolo a un'unità amministrativa usando Azure AD Privileged Identity Management (PIM), vedere [assegnare Azure ad ruoli in PIM](../privileged-identity-management/pim-how-to-add-role-to-user.md?tabs=new#assign-a-role-with-restricted-scope).
 
-### <a name="powershell"></a>PowerShell
+### <a name="use-powershell"></a>Usare PowerShell
 
 ```powershell
 $AdminUser = Get-AzureADUser -ObjectId "Use the user's UPN, who would be an admin on this unit"
@@ -73,9 +80,9 @@ $RoleMember.ObjectId = $AdminUser.ObjectId
 Add-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId -RoleObjectId $Role.ObjectId -RoleMemberInfo $RoleMember
 ```
 
-La sezione evidenziata può essere modificata in base alle esigenze dell'ambiente specifico.
+È possibile modificare la sezione evidenziata come richiesto per l'ambiente specifico.
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>USA Microsoft Graph
 
 ```http
 Http request
@@ -90,22 +97,30 @@ Request body
 }
 ```
 
-## <a name="list-the-scoped-admins-on-an-au"></a>Elencare gli amministratori con ambito in un AU
+## <a name="view-a-list-of-the-scoped-admins-in-an-administrative-unit"></a>Visualizzare un elenco degli amministratori con ambito in un'unità amministrativa
 
-### <a name="azure-portal"></a>Portale di Azure
+È possibile visualizzare un elenco di amministratori con ambito usando il portale di Azure, PowerShell o Microsoft Graph.
 
-Tutte le assegnazioni di ruolo eseguite con un ambito di unità amministrativa possono essere visualizzate nella [sezione unità amministrative del Azure ad](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). Andare ad **Azure AD > Unità amministrative** nel portale. Selezionare l'unità amministrativa per le assegnazioni di ruolo che si desidera elencare. Selezionare **ruoli e amministratori** e aprire un ruolo per visualizzare le assegnazioni nell'unità amministrativa.
+### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-### <a name="powershell"></a>PowerShell
+È possibile visualizzare tutte le assegnazioni di ruolo create con un ambito di unità amministrativa nella [sezione unità amministrative del Azure ad](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
+
+1. Nella portale di Azure passare a **Azure ad** .
+
+1. Nel riquadro sinistro selezionare **unità amministrative** , quindi selezionare l'unità amministrativa per l'elenco di assegnazioni di ruolo che si desidera visualizzare. 
+
+1. Selezionare **ruoli e amministratori** , quindi aprire un ruolo per visualizzare le assegnazioni nell'unità amministrativa.
+
+### <a name="use-powershell"></a>Usare PowerShell
 
 ```powershell
 $administrativeUnit = Get-AzureADMSAdministrativeUnit -Filter "displayname eq 'The display name of the unit'"
 Get-AzureADMSScopedRoleMembership -ObjectId $administrativeUnit.ObjectId | fl *
 ```
 
-La sezione evidenziata può essere modificata in base alle esigenze dell'ambiente specifico.
+È possibile modificare la sezione evidenziata come richiesto per l'ambiente specifico.
 
-### <a name="microsoft-graph"></a>Microsoft Graph
+### <a name="use-microsoft-graph"></a>USA Microsoft Graph
 
 ```http
 Http request
@@ -116,5 +131,5 @@ Request body
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare i gruppi di cloud per gestire le assegnazioni di ruolo](groups-concept.md)
-- [Risoluzione dei problemi correlati ai ruoli assegnati ai gruppi cloud](groups-faq-troubleshooting.md)
+- [Usare i gruppi cloud per gestire le assegnazioni di ruoli](groups-concept.md)
+- [Risolvere i problemi relativi ai ruoli assegnati ai gruppi cloud](groups-faq-troubleshooting.md)

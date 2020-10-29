@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/15/2020
-ms.openlocfilehash: 5edea4b3d3834d8f99159546c0279394ec3986f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11ddb2f40ee56b51c5ecbae11465093abb8e4feb
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324349"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027483"
 ---
 # <a name="schema-drift-in-mapping-data-flow"></a>Spostamento dello schema nel flusso di dati del mapping
 
@@ -43,7 +43,7 @@ In una trasformazione origine la deriva dello schema è definita come la lettura
 
 ![Origine della deriva dello schema](media/data-flow/schemadrift001.png "Origine della deriva dello schema")
 
-Quando lo spostamento dello schema è abilitato, tutti i campi in ingresso vengono letti dall'origine durante l'esecuzione e passati attraverso l'intero flusso al sink. Per impostazione predefinita, tutte le colonne rilevate di recente, note come *colonne*trascinate, arrivano come tipo di dati stringa. Se si desidera che il flusso di dati deduca automaticamente i tipi di dati delle colonne di cui è stato possibile eseguire il drifting, controllare **dedurre i tipi di colonna** in base alle impostazioni di origine
+Quando lo spostamento dello schema è abilitato, tutti i campi in ingresso vengono letti dall'origine durante l'esecuzione e passati attraverso l'intero flusso al sink. Per impostazione predefinita, tutte le colonne rilevate di recente, note come *colonne* trascinate, arrivano come tipo di dati stringa. Se si desidera che il flusso di dati deduca automaticamente i tipi di dati delle colonne di cui è stato possibile eseguire il drifting, controllare **dedurre i tipi di colonna** in base alle impostazioni di origine
 
 ## <a name="schema-drift-in-sink"></a>Spostamento dello schema nel sink
 
@@ -69,11 +69,11 @@ Per ulteriori informazioni su come implementare i modelli di colonna, vedere [mo
 
 Per fare riferimento in modo esplicito alle colonne derivate, è possibile generare rapidamente i mapping per queste colonne tramite un'azione rapida di anteprima dei dati. Una volta impostata la [modalità di debug](concepts-data-flow-debug-mode.md) , passare alla scheda Anteprima dati e fare clic su **Aggiorna** per recuperare un'anteprima dei dati. Se data factory rileva che sono presenti colonne spostate, è possibile fare clic su **mappa** e generare una colonna derivata che consente di fare riferimento a tutte le colonne spostate nelle viste dello schema downstream.
 
-![Mappa con deviazione](media/data-flow/mapdrifted1.png "Mappa con deviazione")
+![Screenshot mostra la scheda Anteprima dati con una mappa richiamata.](media/data-flow/mapdrifted1.png "Mappa con deviazione")
 
 Nella trasformazione colonna derivata generata, viene eseguito il mapping di ogni colonna spostata al nome e al tipo di dati rilevati. Nell'anteprima dei dati sopra riportata, la colonna "movieId" viene rilevata come numero intero. Dopo aver fatto clic su **mapping** , movieId viene definito nella colonna derivata come `toInteger(byName('movieId'))` e incluso nelle viste dello schema nelle trasformazioni downstream.
 
-![Mappa con deviazione](media/data-flow/mapdrifted2.png "Mappa con deviazione")
+![Screenshot mostra la scheda Impostazioni della colonna derivata.](media/data-flow/mapdrifted2.png "Mappa con deviazione")
 
 ## <a name="next-steps"></a>Passaggi successivi
 Nel [linguaggio delle espressioni del flusso di dati](data-flow-expression-functions.md)sono disponibili ulteriori funzionalità per i modelli di colonna e la deriva dello schema, tra cui "byName" e "byPosition".

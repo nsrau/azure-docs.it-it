@@ -12,12 +12,12 @@ ms.date: 10/29/2019
 ms.author: kenwith
 ms.reviewer: luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e4871af354d68a8d6dcaf3170271959146f57cba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cde5afe01c90b68567f411bcf26063f02ca5a34a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84763619"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027245"
 ---
 # <a name="configure-the-admin-consent-workflow-preview"></a>Configurare il flusso di lavoro di consenso dell'amministratore (anteprima)
 
@@ -34,22 +34,22 @@ Per approvare le richieste, un revisore deve essere un amministratore globale, u
 Per abilitare il flusso di lavoro di consenso dell'amministratore e scegliere i revisori:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore globale.
-2. Fare clic su **Tutti i servizi** nella parte superiore del menu di spostamento a sinistra. Aprire l'estensione **Azure Active Directory**.
-3. Nella casella di ricerca filtro digitare "**Azure Active Directory**" e selezionare **l'elemento Azure Active Directory** .
+2. Fare clic su **Tutti i servizi** nella parte superiore del menu di spostamento a sinistra. Aprire l'estensione **Azure Active Directory** .
+3. Nella casella di ricerca filtro digitare " **Azure Active Directory** " e selezionare **l'elemento Azure Active Directory** .
 4. Scegliere **Applicazioni aziendali** dal menu di spostamento. 
-5. In **Gestisci**selezionare **impostazioni utente**.
-6. In **richieste di consenso dell'amministratore (anteprima)**, impostare **gli utenti possono richiedere il consenso dell'amministratore alle app a cui non sono in grado** di fornire il consenso **.**
+5. In **Gestisci** selezionare **impostazioni utente** .
+6. In **richieste di consenso dell'amministratore (anteprima)** , impostare **gli utenti possono richiedere il consenso dell'amministratore alle app a cui non sono in grado** di fornire il consenso **.**
 
    ![Configurare le impostazioni del flusso di lavoro di consenso dell'amministratore](media/configure-admin-consent-workflow/admin-consent-requests-settings.png)
  
 6. Configurare le seguenti impostazioni:
 
-   * **Selezionare gli utenti per esaminare le richieste di consenso dell'amministratore**. Selezionare revisori per questo flusso di lavoro da un set di utenti che dispongono dei ruoli amministratore globale, amministratore applicazione cloud e amministratore applicazione.
-   * **Gli utenti selezionati riceveranno le notifiche tramite posta elettronica per le richieste**. Consente di abilitare o disabilitare le notifiche tramite posta elettronica ai revisori quando viene effettuata una richiesta.  
-   * **Gli utenti selezionati riceveranno promemoria**per la scadenza delle richieste. Abilitare o disabilitare le notifiche di posta elettronica di promemoria ai revisori quando una richiesta sta per scadere.  
-   * La **richiesta di consenso scade dopo (giorni)**. Specificare per quanto tempo le richieste resteranno valide.
+   * **Selezionare gli utenti per esaminare le richieste di consenso dell'amministratore** . Selezionare revisori per questo flusso di lavoro da un set di utenti che dispongono dei ruoli amministratore globale, amministratore applicazione cloud e amministratore applicazione.
+   * **Gli utenti selezionati riceveranno le notifiche tramite posta elettronica per le richieste** . Consente di abilitare o disabilitare le notifiche tramite posta elettronica ai revisori quando viene effettuata una richiesta.  
+   * **Gli utenti selezionati riceveranno promemoria** per la scadenza delle richieste. Abilitare o disabilitare le notifiche di posta elettronica di promemoria ai revisori quando una richiesta sta per scadere.  
+   * La **richiesta di consenso scade dopo (giorni)** . Specificare per quanto tempo le richieste resteranno valide.
 
-7. Selezionare **Salva**. Potrebbe essere necessaria fino a un'ora prima che la funzionalità venga abilitata.
+7. Selezionare **Salva** . Potrebbe essere necessaria fino a un'ora prima che la funzionalità venga abilitata.
 
 > [!NOTE]
 > È possibile aggiungere o rimuovere revisori per questo flusso di lavoro modificando l'elenco **selezionare i revisori delle richieste di consenso dell'amministratore** . Si noti che una limitazione attuale di questa funzionalità è che i revisori possono mantenere la possibilità di rivedere le richieste effettuate durante la designazione come revisore.
@@ -60,13 +60,13 @@ Dopo l'abilitazione del flusso di lavoro di consenso dell'amministratore, gli ut
 
 1. L'utente tenta di accedere all'applicazione.
 
-2. Viene visualizzato il messaggio **approvazione richiesta** . L'utente digita una giustificazione per la necessità di accedere all'app e quindi seleziona **Richiedi approvazione**.
+2. Viene visualizzato il messaggio **approvazione richiesta** . L'utente digita una giustificazione per la necessità di accedere all'app e quindi seleziona **Richiedi approvazione** .
 
-   ![Richiesta e giustificazione dell'utente di consenso dell'amministratore](media/configure-admin-consent-workflow/end-user-justification.png)
+   ![Screenshot mostra una finestra di dialogo di approvazione obbligatoria in cui è possibile richiedere l'approvazione.](media/configure-admin-consent-workflow/end-user-justification.png)
 
 3. Un messaggio di **richiesta inviata** conferma che la richiesta è stata inviata all'amministratore. Se l'utente invia diverse richieste, solo la prima richiesta viene inviata all'amministratore.
 
-   ![Richiesta e giustificazione dell'utente di consenso dell'amministratore](media/configure-admin-consent-workflow/end-user-sent-request.png)
+   ![Screenshot mostra la conferma della richiesta inviata.](media/configure-admin-consent-workflow/end-user-sent-request.png)
 
  4. L'utente riceve una notifica di posta elettronica quando la richiesta viene approvata, negata o bloccata. 
 
@@ -75,10 +75,10 @@ Dopo l'abilitazione del flusso di lavoro di consenso dell'amministratore, gli ut
 Per esaminare le richieste di consenso dell'amministratore e intraprendere l'azione:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come uno dei revisori registrati del flusso di lavoro di consenso dell'amministratore.
-2. Selezionare **tutti i servizi** nella parte superiore del menu di spostamento a sinistra. Aprire l'estensione **Azure Active Directory**.
-3. Nella casella di ricerca filtro digitare "**Azure Active Directory**" e selezionare l'elemento **Azure Active Directory** .
+2. Selezionare **tutti i servizi** nella parte superiore del menu di spostamento a sinistra. Aprire l'estensione **Azure Active Directory** .
+3. Nella casella di ricerca filtro digitare " **Azure Active Directory** " e selezionare l'elemento **Azure Active Directory** .
 4. Scegliere **Applicazioni aziendali** dal menu di spostamento.
-5. In **attività**selezionare **richieste di consenso dell'amministratore (anteprima)**.
+5. In **attività** selezionare **richieste di consenso dell'amministratore (anteprima)** .
 
    > [!NOTE]
    > I revisori vedranno solo le richieste di amministratore create dopo essere state designate come revisore.
@@ -87,13 +87,13 @@ Per esaminare le richieste di consenso dell'amministratore e intraprendere l'azi
 2. Esaminare i dettagli relativi alla richiesta:  
 
    * Per visualizzare chi richiede l'accesso e perché selezionare la scheda **richiesto da** .
-   * Per visualizzare le autorizzazioni richieste dall'applicazione, selezionare **Verifica autorizzazioni e consenso**.
+   * Per visualizzare le autorizzazioni richieste dall'applicazione, selezionare **Verifica autorizzazioni e consenso** .
 
 8. Valutare la richiesta e intraprendere l'azione appropriata:
 
-   * **Approva la richiesta**. Per approvare una richiesta, concedere il consenso dell'amministratore all'applicazione. Una volta approvata una richiesta, a tutti i richiedenti viene notificato che è stato concesso l'accesso.  
-   * **Negare la richiesta**. Per negare una richiesta, è necessario fornire una giustificazione che verrà fornita a tutti i richiedenti. Una volta negata una richiesta, a tutti i richiedenti viene notificato che è stato negato l'accesso all'applicazione. La negazione di una richiesta non impedisce agli utenti di richiedere il consenso dell'amministratore per l'app in futuro.  
-   * **Blocca la richiesta**. Per bloccare una richiesta, è necessario fornire una giustificazione che verrà fornita a tutti i richiedenti. Una volta bloccata una richiesta, a tutti i richiedenti viene notificato che è stato negato l'accesso all'applicazione. Bloccando una richiesta viene creato un oggetto entità servizio per l'applicazione nel tenant con stato disabilitato. Gli utenti non saranno in grado di richiedere il consenso dell'amministratore per l'applicazione in futuro.
+   * **Approva la richiesta** . Per approvare una richiesta, concedere il consenso dell'amministratore all'applicazione. Una volta approvata una richiesta, a tutti i richiedenti viene notificato che è stato concesso l'accesso.  
+   * **Negare la richiesta** . Per negare una richiesta, è necessario fornire una giustificazione che verrà fornita a tutti i richiedenti. Una volta negata una richiesta, a tutti i richiedenti viene notificato che è stato negato l'accesso all'applicazione. La negazione di una richiesta non impedisce agli utenti di richiedere il consenso dell'amministratore per l'app in futuro.  
+   * **Blocca la richiesta** . Per bloccare una richiesta, è necessario fornire una giustificazione che verrà fornita a tutti i richiedenti. Una volta bloccata una richiesta, a tutti i richiedenti viene notificato che è stato negato l'accesso all'applicazione. Bloccando una richiesta viene creato un oggetto entità servizio per l'applicazione nel tenant con stato disabilitato. Gli utenti non saranno in grado di richiedere il consenso dell'amministratore per l'applicazione in futuro.
  
 ## <a name="email-notifications"></a>Notifiche di posta elettronica
  
@@ -123,7 +123,7 @@ La tabella seguente descrive gli scenari e i valori di controllo disponibili per
 |Amministratore che Abilita il flusso di lavoro della richiesta di consenso        |Verifiche di accesso           |UserManagement           |Crea modello di criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente            |
 |Amministratore che disabilita il flusso di lavoro della richiesta di consenso       |Verifiche di accesso           |UserManagement           |Elimina modello criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
 |Amministratore che aggiorna le configurazioni del flusso di lavoro di consenso        |Verifiche di accesso           |UserManagement           |Aggiornare il modello di criteri di governance          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
-|Creazione di una richiesta di consenso dell'amministratore per un'app da parte dell'utente finale       |Verifiche di accesso           |Policy         |Crea richiesta           |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
+|Creazione di una richiesta di consenso dell'amministratore per un'app da parte dell'utente finale       |Verifiche di accesso           |Criteri         |Crea richiesta           |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente           |
 |Revisori che approvano una richiesta di consenso dell'amministratore       |Verifiche di accesso           |UserManagement           |Approva tutte le richieste nel flusso aziendale          |Contesto dell'app            |Attualmente non è possibile trovare il contesto utente o l'ID app a cui è stato concesso il consenso dell'amministratore.           |
 |Revisori che negano una richiesta di consenso dell'amministratore       |Verifiche di accesso           |UserManagement           |Approva tutte le richieste nel flusso aziendale          |Contesto dell'app            | Attualmente non è possibile trovare il contesto utente dell'attore che ha negato una richiesta di consenso dell'amministratore          |
 

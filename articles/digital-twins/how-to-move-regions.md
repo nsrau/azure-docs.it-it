@@ -8,16 +8,16 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: 3c7f9ed9558adc9d129d1df767a05aff1fa4c66c
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: e586e9acc9510dc1aaae511fa51e5a0c3255bd8f
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047387"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026497"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Spostare un'istanza di Azure Digital Twins in un'altra area di Azure
 
-Se è necessario spostare l'istanza di Azure Digital Twins da un'area a un'altra, il processo corrente consiste nel **ricreare le risorse nella nuova area**e quindi eliminare le risorse originali. Al termine di questo processo, si lavorerà con una nuova istanza di Azure Digital Twins identica alla prima, ad eccezione del percorso aggiornato.
+Se è necessario spostare l'istanza di Azure Digital Twins da un'area a un'altra, il processo corrente consiste nel **ricreare le risorse nella nuova area** e quindi eliminare le risorse originali. Al termine di questo processo, si lavorerà con una nuova istanza di Azure Digital Twins identica alla prima, ad eccezione del percorso aggiornato.
 
 Questo articolo fornisce indicazioni su come eseguire uno spostamento completo, copiando tutti gli elementi necessari per fare in modo che la nuova istanza corrisponda a quella originale.
 
@@ -40,7 +40,7 @@ Di seguito sono riportate alcune domande che è possibile prendere in consideraz
 * Qual è la forma generale del **grafico** nell'istanza? Quante relazioni sono disponibili?
 * Quali **endpoint** sono disponibili nell'istanza?
 * Quali **Route** sono disponibili nell'istanza? I filtri sono disponibili?
-* Dove l'istanza **si connette ad altri servizi di Azure**? Alcuni punti di integrazione comuni includono...
+* Dove l'istanza **si connette ad altri servizi di Azure** ? Alcuni punti di integrazione comuni includono...
     - Griglia di eventi, Hub eventi o bus di servizio
     - Funzioni di Azure
     - App per la logica
@@ -76,11 +76,13 @@ Se l'esempio non è in grado di gestire le dimensioni del grafo, è possibile es
 
 Per procedere con ADT Explorer, scaricare prima di tutto il codice dell'applicazione di esempio e configurarlo per l'esecuzione nel computer. 
 
-Passare all'esempio qui: [Esplora risorse di Azure Digital gemelli (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selezionare il pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio con il nome _**ADT_Explorer.zip**_. Decomprimere i file.
+Passare all'esempio qui: [Esplora risorse di Azure Digital gemelli (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selezionare il pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio con il nome _**Azure_Digital_Twins__ADT__explorer.zip**_ . Decomprimere i file.
 
-Configurare quindi le autorizzazioni per l'esecuzione di ADT Explorer nel computer. A tale scopo, seguire la procedura descritta nella sezione [*set ADT Explorer Permissions*](quickstart-adt-explorer.md#set-adt-explorer-permissions) della Guida introduttiva a Azure Digital gemelli.
-
-Infine, eseguire e configurare ADT Explorer per connettersi all'istanza originale di Azure Digital gemelli. Seguire i passaggi nella sezione [*Run and Configure ADT Explorer*](quickstart-adt-explorer.md#run-and-configure-adt-explorer) della Guida introduttiva.
+Successivamente, configurare e configurare le autorizzazioni per ADT Explorer. A tale scopo, seguire le istruzioni riportate nella sezione [*set up Azure Digital gemells and ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) della Guida introduttiva a dispositivi digitali gemelli di Azure. Questa sezione illustra i passaggi seguenti:
+1. Configurare un'istanza di dispositivi gemelli digitali di Azure (è possibile ignorare questa parte perché è già presente un'istanza)
+2. Configurare una **registrazione dell'app Azure ad** per fornire l'accesso all'istanza
+3. Configurare le autorizzazioni per l'esecuzione di ADT Explorer nel computer
+4. Eseguire ADT Explorer e configurarlo per la connessione all'istanza di. Si userà il **nome host** dell'istanza di Azure Digital Twins originale che si sta muovendo e l'ID **client** e l' **ID tenant** dalla registrazione dell'app.
 
 A questo punto è necessario che l'app di esempio ADT Explorer sia in esecuzione in un browser nel computer. L'esempio deve essere connesso all'istanza originale di Azure Digital gemelli.
 
@@ -102,10 +104,10 @@ Quindi, fare clic sull'icona *Esporta grafico* nella casella di *visualizzazione
 
 :::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/export-graph.png":::
 
-In questo modo verrà abilitato un collegamento di *download* nella *visualizzazione grafico*. Selezionarlo per scaricare una rappresentazione basata su JSON del risultato della query, inclusi i modelli, i gemelli e le relazioni. Questa operazione dovrebbe scaricare un file con *estensione JSON* nel computer.
+In questo modo verrà abilitato un collegamento di *download* nella *visualizzazione grafico* . Selezionarlo per scaricare una rappresentazione basata su JSON del risultato della query, inclusi i modelli, i gemelli e le relazioni. Questa operazione dovrebbe scaricare un file con *estensione JSON* nel computer.
 
 >[!NOTE]
->Se il file scaricato sembra avere un'estensione di file diversa, provare a modificare l'estensione direttamente e a modificarla in *JSON*.
+>Se il file scaricato sembra avere un'estensione di file diversa, provare a modificare l'estensione direttamente e a modificarla in *JSON* .
 
 ## <a name="move"></a>Spostamento
 
@@ -113,12 +115,9 @@ Successivamente, si completerà lo "spostamento" dell'istanza creando una nuova 
 
 ### <a name="create-a-new-instance"></a>Crea una nuova istanza
 
-Per prima cosa, **creare una nuova istanza di Azure Digital gemelli nell'area di destinazione**. A tale scopo, seguire la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md), tenendo conto di questi puntatori:
+Per prima cosa, **creare una nuova istanza di Azure Digital gemelli nell'area di destinazione** . A tale scopo, seguire la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md), tenendo conto di questi puntatori:
 * **Se** si trova in un gruppo di risorse diverso, è possibile usare lo stesso nome per la nuova istanza. Se è necessario usare lo stesso gruppo di risorse che contiene l'istanza originale, la nuova istanza dovrà avere un proprio nome distinto.
 * Quando viene richiesta una località, immettere la nuova area di destinazione.
-* Non è **necessario** ricreare la registrazione dell'app. La nuova istanza può riusare la stessa registrazione dell'app già presente.
-    - Se si usa l'articolo di installazione tramite [script](how-to-set-up-instance-scripted.md) , è possibile immettere nuovamente i dettagli della registrazione dell'app esistente anziché immettere un nuovo nome quando richiesto.
-    - Se si usa il [portale](how-to-set-up-instance-portal.md) manuale o gli articoli di installazione dell' [interfaccia](how-to-set-up-instance-cli.md) della riga di comando, è possibile arrestare dopo l' *istanza di creare i dispositivi gemelli digitali di Azure* e configurare le autorizzazioni di *accesso utente* . Non è necessario continuare con la *configurazione delle autorizzazioni di accesso per le applicazioni client*.
 
 Al termine di questa operazione, sarà necessario il **nome host** della nuova istanza per continuare a impostarla con i dati. Se questa operazione non è stata annotata durante l'installazione, è possibile seguire [queste istruzioni](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values) per ottenere ora dal portale di Azure.
 
@@ -138,19 +137,19 @@ Attualmente, ADT Explorer è connesso all'istanza originale di Azure Digital gem
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Poiché si sta riutilizzando la registrazione dell'app, è sufficiente sostituire l' *URL ADT*. Modificare questo valore in modo che legga *https://{new instance hostname}*.
+È possibile riutilizzare la stessa registrazione dell'app, quindi è sufficiente sostituire l' *URL ADT* per riflettere la nuova istanza. Modificare questo valore in modo che legga *https://{new instance hostname}* .
 
-Premere *Connetti*. Potrebbe essere richiesto di eseguire di nuovo l'accesso con le credenziali di Azure e/o concedere il consenso dell'applicazione per l'istanza.
+Premere *Connetti* . Potrebbe essere richiesto di eseguire di nuovo l'accesso con le credenziali di Azure e/o concedere il consenso dell'applicazione per l'istanza.
 
 ##### <a name="upload-models-twins-and-graph"></a>Caricare modelli, gemelli e Graph
 
 Caricare quindi i componenti della soluzione scaricati in precedenza nella nuova istanza.
 
-Per caricare i **modelli, i dispositivi gemelli e il grafo**, fare clic sull'icona *Importa grafico* nella casella di *visualizzazione grafico* . Questa opzione consente di caricare contemporaneamente tutti e tre i componenti (anche quelli non attualmente in uso nel grafico).
+Per caricare i **modelli, i dispositivi gemelli e il grafo** , fare clic sull'icona *Importa grafico* nella casella di *visualizzazione grafico* . Questa opzione consente di caricare contemporaneamente tutti e tre i componenti (anche quelli non attualmente in uso nel grafico).
 
 :::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/import-graph.png":::
 
-Nella casella Selettore file passare al grafico scaricato. Selezionare il file Graph *. JSON* e fare clic su *Apri*.
+Nella casella Selettore file passare al grafico scaricato. Selezionare il file Graph *. JSON* e fare clic su *Apri* .
 
 Dopo alcuni secondi ADT Explorer aprirà una visualizzazione *Import* che mostra un'anteprima del grafo che verrà caricato.
 
@@ -176,7 +175,7 @@ ADT Explorer caricherà ora i modelli e il grafo (inclusi i gemelli e le relazio
     :::column-end:::
 :::row-end:::
 
-Per verificare che tutto sia stato caricato correttamente, fare clic sul pulsante *Esegui query* nella casella *Esplora grafico* per eseguire la query predefinita che Visualizza tutti i dispositivi gemelli e le relazioni nel grafico. Verrà inoltre aggiornato l'elenco dei modelli nella *vista modello*.
+Per verificare che tutto sia stato caricato correttamente, fare clic sul pulsante *Esegui query* nella casella *Esplora grafico* per eseguire la query predefinita che Visualizza tutti i dispositivi gemelli e le relazioni nel grafico. Verrà inoltre aggiornato l'elenco dei modelli nella *vista modello* .
 
 :::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/run-query.png":::
 
@@ -191,8 +190,8 @@ In questo modo viene confermato che i modelli, i dispositivi gemelli e i grafici
 Se si dispone di **endpoint e/o route** nell'istanza originale, è necessario ricrearli nella nuova istanza. Se non sono presenti endpoint o route nell'istanza originale o non si vuole spostarli nella nuova istanza, è possibile passare alla [sezione successiva](#re-link-connected-resources).
 
 In caso contrario, procedere, attenersi alla procedura descritta in [*How-to: Manage Endpoints and routes*](how-to-manage-routes-portal.md) using the new instance, tenendo conto di questi puntatori: 
-* Non è **necessario** ricreare la griglia di eventi, l'hub eventi o la risorsa del bus di servizio che si sta usando per l'endpoint (sezioni dei*prerequisiti* nelle istruzioni dell'endpoint). È sufficiente creare nuovamente l'endpoint nell'istanza di Azure Digital Twins.
-* È possibile riutilizzare gli endpoint e **i nomi**di route, perché hanno come ambito un'istanza diversa.
+* Non è **necessario** ricreare la griglia di eventi, l'hub eventi o la risorsa del bus di servizio che si sta usando per l'endpoint (sezioni dei *prerequisiti* nelle istruzioni dell'endpoint). È sufficiente creare nuovamente l'endpoint nell'istanza di Azure Digital Twins.
+* È possibile riutilizzare gli endpoint e **i nomi** di route, perché hanno come ambito un'istanza diversa.
 * Ricordarsi di aggiungere tutti i **filtri** necessari alle route create.
 
 #### <a name="re-link-connected-resources"></a>Collega di nuovo le risorse connesse
@@ -201,7 +200,7 @@ Se si dispone di altre app o risorse di Azure connesse all'istanza originale di 
 
 Se non sono presenti altre risorse connesse all'istanza originale o non si vuole spostarle nella nuova istanza, è possibile passare alla [sezione successiva](#verify).
 
-In caso contrario, per continuare, prendere in considerazione le risorse connesse nello scenario. Non è necessario eliminare e ricreare le risorse connesse. al contrario, è sufficiente modificare i punti in cui si connettono a un'istanza di Azure Digital Twins tramite il **nome host**e aggiornarli in modo da usare il nome host della nuova istanza anziché l'originale.
+In caso contrario, per continuare, prendere in considerazione le risorse connesse nello scenario. Non è necessario eliminare e ricreare le risorse connesse. al contrario, è sufficiente modificare i punti in cui si connettono a un'istanza di Azure Digital Twins tramite il **nome host** e aggiornarli in modo da usare il nome host della nuova istanza anziché l'originale.
 
 Le risorse esatte che è necessario modificare dipendono dallo scenario, ma di seguito sono riportati alcuni punti di integrazione comuni:
 * Funzioni di Azure. Se si dispone di una funzione di Azure il cui codice include il nome host dell'istanza originale, è necessario aggiornare questo valore al nome host della nuova istanza e pubblicare nuovamente la funzione.
@@ -226,7 +225,7 @@ Per verificare che la nuova istanza sia stata configurata correttamente, è poss
 
 ## <a name="clean-up-source-resources"></a>Pulire le risorse di origine
 
-Ora che la nuova istanza è configurata nell'area di destinazione con una copia dei dati e delle connessioni dell'istanza originale, è possibile **eliminare l'istanza originale**.
+Ora che la nuova istanza è configurata nell'area di destinazione con una copia dei dati e delle connessioni dell'istanza originale, è possibile **eliminare l'istanza originale** .
 
 Questa operazione può essere eseguita nel [portale di Azure](https://portal.azure.com), con l' [interfaccia](how-to-use-cli.md)della riga di comando o con le [API del piano di controllo](how-to-use-apis-sdks.md#overview-control-plane-apis).
 

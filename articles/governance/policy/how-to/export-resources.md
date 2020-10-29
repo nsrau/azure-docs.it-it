@@ -1,15 +1,15 @@
 ---
 title: Esportare risorse di Criteri di Azure
 description: Informazioni su come esportare le risorse di criteri di Azure in GitHub, ad esempio le definizioni dei criteri e le assegnazioni dei criteri.
-ms.date: 09/30/2020
+ms.date: 10/29/2020
 ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 691e0a026c5f4f1a0a68c744ee81b1da8da9e70b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c16ceed755cab3228b8f9e401f486a0629f3a60d
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91777089"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025715"
 ---
 # <a name="export-azure-policy-resources"></a>Esportare risorse di Criteri di Azure
 
@@ -17,37 +17,37 @@ Questo articolo fornisce informazioni su come esportare le risorse di criteri di
 
 ## <a name="export-with-azure-portal"></a>Esporta con portale di Azure
 
-Per esportare una definizione dei criteri da portale di Azure, attenersi alla procedura seguente:
+Per esportare una definizione di criteri dal portale di Azure, seguire questa procedura:
 
-1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
+1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri** .
 
-1. Selezionare **definizioni** sul lato sinistro della pagina Criteri di Azure.
+1. Selezionare **Definizioni** a sinistra nella pagina Criteri di Azure.
 
-1. Usare il pulsante **Esporta definizioni** oppure selezionare i puntini di sospensione nella riga di una definizione dei criteri e quindi selezionare **Esporta definizione**.
+1. Usare il pulsante **Esporta definizioni** oppure selezionare i puntini di sospensione nella riga di una definizione di criteri, quindi selezionare **Esporta definizione** .
 
-1. Selezionare il pulsante **Accedi con GitHub** . Se non è ancora stata eseguita l'autenticazione con GitHub per autorizzare i criteri di Azure all'esportazione della risorsa, verificare le esigenze di accesso alle [azioni GitHub](https://github.com/features/actions) nella nuova finestra visualizzata e selezionare **autorizzare AzureGitHubActions** per continuare con il processo di esportazione. Una volta completata l'operazione, la nuova finestra viene chiusa autonomamente.
+1. Selezionare il pulsante **Accedi con GitHub** . Se non è ancora stata eseguita l'autenticazione con GitHub per autorizzare Criteri di Azure a esportare la risorsa, verificare di quale accesso ha bisogno l' [azione GitHub](https://github.com/features/actions) nella nuova finestra visualizzata e selezionare **Autorizza AzureGitHubActions** per continuare con il processo di esportazione. Al termine, la nuova finestra si chiude automaticamente.
 
-1. Nella scheda **nozioni di base** impostare le opzioni seguenti, quindi selezionare la scheda **criteri** o **Avanti: pulsante criteri** nella parte inferiore della pagina.
+1. Nella scheda **Informazioni di base** impostare le opzioni seguenti, quindi selezionare la scheda **Criteri** o il pulsante **Avanti: Criteri** nella parte inferiore della pagina.
 
-   - **Filtro repository**: impostare su repository _personali_ per visualizzare solo i repository di cui si è proprietari o _tutti_ i repository per visualizzare tutti i repository a cui è stato concesso l'accesso all'azione github.
-   - **Repository**: impostare sul repository in cui si vogliono esportare le risorse di criteri di Azure.
-   - **Branch**: impostare il ramo nel repository. L'uso di un ramo diverso da quello predefinito è un modo efficace per convalidare gli aggiornamenti prima di unirli ulteriormente nel codice sorgente.
-   - **Directory**: _cartella a livello radice_ in cui esportare le risorse di criteri di Azure. Le sottocartelle in questa directory vengono create in base alle risorse esportate.
+   - **Filtro per repository** : impostare su _Repository personali_ per visualizzare solo i repository di cui si è proprietari o su _Tutti i repository_ per visualizzare tutti i repository a cui è stato concesso l'accesso all'azione GitHub.
+   - **Repository** : impostare sul repository in cui si vogliono esportare le risorse di Criteri di Azure.
+   - **Ramo** : impostare il ramo nel repository. L'uso di un ramo diverso da quello predefinito è un modo efficace per convalidare gli aggiornamenti prima di eseguire ulteriori unioni nel codice sorgente.
+   - **Directory** : _cartella di livello radice_ in cui esportare le risorse di Criteri di Azure. Le sottocartelle di questa directory vengono create in base alle risorse esportate.
 
-1. Nella scheda **criteri** impostare l'ambito per la ricerca selezionando i puntini di sospensione e selezionando una combinazione di gruppi di gestione, sottoscrizioni o gruppi di risorse.
+1. Nella scheda **Criteri** impostare l'ambito per la ricerca selezionando i puntini di sospensione e scegliendo una combinazione di gruppi di gestione, sottoscrizioni o gruppi di risorse.
    
-1. Usare il pulsante **Aggiungi definizioni criteri** per cercare nell'ambito gli oggetti da esportare. Nella finestra laterale visualizzata selezionare ogni oggetto da esportare. Filtrare la selezione in base alla casella di ricerca o al tipo. Dopo aver selezionato tutti gli oggetti da esportare, usare il pulsante **Aggiungi** nella parte inferiore della pagina.
+1. Usare il pulsante **Aggiungi definizione/i dei criteri** per cercare nell'ambito gli oggetti da esportare. Nella finestra che si aprirà a lato selezionare ogni oggetto da esportare. Filtrare la selezione in base alla casella di ricerca o al tipo. Dopo aver selezionato tutti gli oggetti da esportare, usare il pulsante **Aggiungi** in fondo alla pagina.
 
-1. Per ogni oggetto selezionato selezionare le opzioni di esportazione desiderate, ad esempio la _definizione o la definizione_ _e le assegnazioni_ per una definizione di criteri. Selezionare quindi la scheda **Verifica + Esporta** o **Avanti: pulsante Verifica + Esporta** nella parte inferiore della pagina.
+1. Per ogni oggetto selezionato selezionare le opzioni di esportazione desiderate, ad esempio _Solo definizione_ o _Definizione e assegnazione/i_ , per una definizione di criteri. Selezionare quindi la scheda **Rivedi ed esporta** o il pulsante **Avanti: Rivedi ed esporta** nella parte inferiore della pagina.
 
    > [!NOTE]
-   > Se si sceglie la definizione dell'opzione _e le assegnazioni_ , verranno esportate solo le assegnazioni dei criteri all'interno dell'ambito impostato dal filtro al momento dell'aggiunta della definizione dei criteri.
+   > Se si sceglie l'opzione _Definizione e assegnazione/i_ , vengono esportate solo le assegnazioni dei criteri all'interno dell'ambito impostato dal filtro al momento dell'aggiunta della definizione di criteri.
 
-1. Nella scheda verifica **+ Esporta** , controllare la corrispondenza dei dettagli e quindi usare il pulsante **Esporta** nella parte inferiore della pagina.
+1. Nella scheda **Rivedi ed esporta** controllare che i dettagli corrispondano e quindi usare il pulsante **Esporta** nella parte inferiore della pagina.
 
-1. Verificare la cartella del repository GitHub, del ramo e del _livello radice_ per verificare che le risorse selezionate siano ora esportate nel controllo del codice sorgente.
+1. Controllare il repository GitHub, il ramo e la _cartella di livello radice_ per verificare che le risorse selezionate siano state esportate nel controllo del codice sorgente.
 
-Le risorse di criteri di Azure vengono esportate nella struttura seguente all'interno del repository GitHub e della _cartella del livello radice_selezionati:
+Le risorse di Criteri di Azure vengono esportate nella struttura seguente all'interno del repository GitHub selezionato e della _cartella di livello radice_ :
 
 ```text
 |
@@ -67,7 +67,7 @@ Le definizioni, le iniziative e le assegnazioni di criteri di Azure possono esse
 - Iniziativa- [AZ Policy set-Definition Show](/cli/azure/policy/set-definition#az-policy-set-definition-show)
 - Assegnazione- [AZ Policy Assignment Show](/cli/azure/policy/assignment#az-policy-assignment-show)
 
-Di seguito è riportato un esempio di recupero di JSON per una definizione di criteri con il **nome** _VirtualMachineStorage_:
+Di seguito è riportato un esempio di recupero di JSON per una definizione di criteri con il **nome** _VirtualMachineStorage_ :
 
 ```azurecli-interactive
 az policy definition show --name 'VirtualMachineStorage'
@@ -81,10 +81,10 @@ Le definizioni, le iniziative e le assegnazioni di criteri di Azure possono esse
 - Initiative- [Get-AzPolicySetDefinition](/powershell/module/az.resources/get-azpolicysetdefinition)
 - Assegnazione- [Get-AzPolicyAssignment](/powershell/module/az.resources/get-azpolicyassignment)
 
-Di seguito è riportato un esempio di recupero di JSON per una definizione di criteri con il **nome** _VirtualMachineStorage_:
+Di seguito è riportato un esempio di recupero di JSON per una definizione di criteri con il **nome** _VirtualMachineStorage_ :
 
 ```azurepowershell-interactive
-Get-AzPolicyDefinition -Name 'VirtualMachineStorage'
+Get-AzPolicyDefinition -Name 'VirtualMachineStorage' | ConvertTo-Json -Depth 10
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

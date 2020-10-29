@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 54a96d1f3227cd4a66e344b63b2ecb337df31aba
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9ea85449d3980f46e88eddc7e06e4a5384b8cea3
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461074"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027551"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Eseguire l'integrazione con app per la logica usando un connettore personalizzato
 
@@ -40,21 +40,21 @@ Accedere al [portale di Azure](https://portal.azure.com) con questo account.
 
 Per connettere un'istanza di Azure Digital Twins alle app per la logica in questo articolo, è necessario che l' **istanza di Azure Digital Twins** sia già configurata. 
 
-Prima di tutto, **configurare un'istanza di Azure Digital Twins** e l'autenticazione necessaria per poterla usare. A tale scopo, seguire le istruzioni in [*Procedura: Configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). A seconda dell'esperienza preferita, l'articolo relativo alla configurazione è disponibile per il [portale di Azure](how-to-set-up-instance-portal.md), l'[interfaccia della riga di comando](how-to-set-up-instance-cli.md) o un [esempio di script di distribuzione automatizzato di Cloud Shell](how-to-set-up-instance-scripted.md). Tutte le versioni delle istruzioni contengono anche le operazioni da eseguire per verificare che ogni passaggio sia stato completato correttamente e sia quindi possibile passare all'uso della nuova istanza.
-* Dopo aver configurato l'istanza di Azure Digital gemelli, sarà necessario il **_nome host_** dell'istanza ([trovare nella portale di Azure](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
+Prima di tutto, **configurare un'istanza di Gemelli digitali di Azure** e l'autenticazione necessaria per poterla usare. A tale scopo, seguire le istruzioni in [*Procedura: Configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md).
+* Dopo aver configurato l'istanza di Azure Digital gemelli, sarà necessario il **_nome host_** dell'istanza ( [trovare nella portale di Azure](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 
-Per autenticare il connettore, è necessario anche configurare una **registrazione dell'app**. Per configurare questa procedura, seguire le istruzioni in [*How-to: Create a app Registration*](how-to-create-app-registration.md) . 
-* Una volta eseguita la registrazione di un'app, sono necessari l'ID dell' **_applicazione (client)_** di registrazione e l' **_ID della directory (tenant)_** ([trovare nella portale di Azure](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
+Per autenticare il connettore, è necessario anche configurare una **registrazione dell'app** . Seguire le istruzioni in [*Procedura dettagliata: Creare una registrazione dell'app*](how-to-create-app-registration.md) per configurare questa impostazione. 
+* Una volta eseguita la registrazione di un'app, sono necessari l'ID dell' **_applicazione (client)_** di registrazione e l' **_ID della directory (tenant)_** ( [trovare nella portale di Azure](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
 
 ### <a name="get-app-registration-client-secret"></a>Ottenere il segreto client di registrazione dell'app
 
 Sarà inoltre necessario creare un **_segreto client_** per la registrazione dell'app Azure ad. A tale scopo, passare alla pagina [registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nella portale di Azure (è possibile usare questo collegamento o cercarla nella barra di ricerca del portale). Selezionare la registrazione creata nella sezione precedente dall'elenco per aprirne i dettagli. 
 
-Premere i *certificati e i segreti* dal menu della registrazione e selezionare *+ nuovo segreto client*.
+Premere i *certificati e i segreti* dal menu della registrazione e selezionare *+ nuovo segreto client* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
 
-Immettere i valori desiderati per la descrizione e la scadenza, quindi fare clic su *Aggiungi*.
+Immettere i valori desiderati per la descrizione e la scadenza, quindi fare clic su *Aggiungi* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
 
@@ -74,11 +74,11 @@ Questo articolo usa app per la logica per aggiornare un dispositivo gemello nell
 
 In questo passaggio verrà creato un [connettore personalizzato](../logic-apps/custom-connector-overview.md) per le app per la logica per le API dei dispositivi gemelli digitali di Azure. Al termine di questa operazione, sarà possibile associare i dispositivi gemelli digitali di Azure durante la creazione di un'app per la logica nella sezione successiva.
 
-Passare alla pagina del [connettore personalizzato app](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) per la logica nel portale di Azure (è possibile usare questo collegamento o cercarlo nella barra di ricerca del portale). Premere *+ Aggiungi*.
+Passare alla pagina del [connettore personalizzato app](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) per la logica nel portale di Azure (è possibile usare questo collegamento o cercarlo nella barra di ricerca del portale). Premere *+ Aggiungi* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
 
-Nella pagina *Crea connettore personalizzato app* per la logica che segue selezionare la sottoscrizione e il gruppo di risorse e un nome e un percorso di distribuzione per il nuovo connettore. Hit *Review + crea*. 
+Nella pagina *Crea connettore personalizzato app* per la logica che segue selezionare la sottoscrizione e il gruppo di risorse e un nome e un percorso di distribuzione per il nuovo connettore. Hit *Review + crea* . 
 
 :::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
 
@@ -94,12 +94,12 @@ Successivamente, verrà configurato il connettore creato per raggiungere i dispo
 
 Prima di tutto, scaricare un'app personalizzata dei gemelli digitali di Azure che è stata modificata per lavorare con le app per la logica. Scaricare l'esempio **personalizzato di Azure Digital gemelli (connettore app per la logica)** da [**questo collegamento**](/samples/azure-samples/digital-twins-custom-swaggers/azure-digital-twins-custom-swaggers/) facendo clic sul pulsante *Scarica zip* . Passare alla cartella *Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_.zip* scaricata e decomprimerla. 
 
-Il spavalderia personalizzato per questa esercitazione si trova nella cartella _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_\LogicApps **_. Questa cartella contiene sottocartelle denominate *stable* e *Preview*, entrambe che contengono versioni diverse della spavalderia organizzata per data. La cartella con la data più recente conterrà la copia più recente della spavalderia. Indipendentemente dalla versione selezionata, il file di spavalderia è denominato _** digitaltwins.json * * _.
+Il spavalderia personalizzato per questa esercitazione si trova nella cartella _* * Azure_Digital_Twins_custom_Swaggers__Logic_Apps_connector_ \LogicApps **_. Questa cartella contiene sottocartelle denominate *stable* e *Preview* , entrambe che contengono versioni diverse della spavalderia organizzata per data. La cartella con la data più recente conterrà la copia più recente della spavalderia. Indipendentemente dalla versione selezionata, il file di spavalderia è denominato _** digitaltwins.json * * _.
 
 > [!NOTE]
 > A meno che non si stia lavorando a una funzionalità di anteprima, è in genere consigliabile usare la versione *stabile* più recente di spavalderia. Sono comunque supportate anche le versioni precedenti e le versioni di anteprima della spavalderia. 
 
-Passare quindi alla pagina Panoramica del connettore nel [portale di Azure](https://portal.azure.com) e premere *modifica*.
+Passare quindi alla pagina Panoramica del connettore nel [portale di Azure](https://portal.azure.com) e premere *modifica* .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client" per il colore.
     - Descrizione: specificare tutti i valori desiderati.
@@ -112,8 +112,8 @@ Quindi, fare clic sul pulsante *sicurezza* nella parte inferiore della finestra 
 :::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
 
 Nel passaggio sicurezza, fare clic su *modifica* e configurare queste informazioni:
-* **Tipo di autenticazione**: OAuth 2,0
-* **OAuth 2,0**:
+* **Tipo di autenticazione** : OAuth 2,0
+* **OAuth 2,0** :
     - Provider di identità: Azure Active Directory
     - ID client: l' *ID dell'applicazione (client)* per la registrazione dell'app Azure ad
     - Segreto client: il *segreto client* creato in [*prerequisiti*](#prerequisites) per la registrazione dell'app Azure ad
@@ -123,7 +123,7 @@ Nel passaggio sicurezza, fare clic su *modifica* e configurare queste informazio
     - Ambito: directory. AccessAsUser. All
     - URL di reindirizzamento: (lasciare l'impostazione predefinita per ora)
 
-Si noti che il campo URL di reindirizzamento dice *Salva il connettore personalizzato per generare l'URL di reindirizzamento*. A tale scopo, premere *Aggiorna connettore* nella parte superiore del riquadro per confermare le impostazioni del connettore.
+Si noti che il campo URL di reindirizzamento dice *Salva il connettore personalizzato per generare l'URL di reindirizzamento* . A tale scopo, premere *Aggiorna connettore* nella parte superiore del riquadro per confermare le impostazioni del connettore.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
 
@@ -136,7 +136,7 @@ Tornare al campo URL di reindirizzamento e copiare il valore che è stato genera
 Si tratta di tutte le informazioni necessarie per creare il connettore (non è necessario continuare la protezione per la fase di definizione). È possibile chiudere il riquadro *modifica app per la logica del connettore personalizzato* .
 
 >[!NOTE]
->Tornare alla pagina Panoramica del connettore in cui è stata avviata l'operazione *Edit (modifica*). si noti che se si preme nuovamente *Edit (modifica* ) viene riavviato l'intero processo di immissione delle scelte I valori non vengono popolati dall'ultima volta in cui si è passati, quindi se si desidera salvare una configurazione aggiornata con i valori modificati, è necessario immettere nuovamente anche tutti gli altri valori per evitare che vengano sovrascritti dalle impostazioni predefinite.
+>Tornare alla pagina Panoramica del connettore in cui è stata avviata l'operazione *Edit (modifica* ). si noti che se si preme nuovamente *Edit (modifica* ) viene riavviato l'intero processo di immissione delle scelte I valori non vengono popolati dall'ultima volta in cui si è passati, quindi se si desidera salvare una configurazione aggiornata con i valori modificati, è necessario immettere nuovamente anche tutti gli altri valori per evitare che vengano sovrascritti dalle impostazioni predefinite.
 
 ### <a name="grant-connector-permissions-in-the-azure-ad-app"></a>Concedere le autorizzazioni del connettore nell'app Azure AD
 
@@ -168,30 +168,30 @@ Premere il pulsante _Verifica + crea_ .
 
 Verrà visualizzata la scheda *Verifica + crea* , in cui è possibile esaminare i dettagli e fare clic su *Crea* nella parte inferiore per creare la risorsa.
 
-Si passerà alla pagina di distribuzione per l'app per la logica. Al termine della distribuzione, fare clic sul pulsante *Vai a risorsa* per passare alla *finestra di progettazione delle app*per la logica, in cui verrà compilata la logica del flusso di lavoro.
+Si passerà alla pagina di distribuzione per l'app per la logica. Al termine della distribuzione, fare clic sul pulsante *Vai a risorsa* per passare alla *finestra di progettazione delle app* per la logica, in cui verrà compilata la logica del flusso di lavoro.
 
 ### <a name="design-workflow"></a>Flusso di lavoro di progettazione
 
-In *progettazione app*per la logica, in *inizia con un trigger comune*Selezionare _**ricorrenza**_.
+In *progettazione app* per la logica, in *inizia con un trigger comune* Selezionare _**ricorrenza**_ .
 
 :::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
 
-Nella pagina della *finestra di progettazione di app* per la logica che segue, modificare la frequenza di **ricorrenza** in *secondo*, in modo che l'evento venga attivato ogni 3 secondi. In questo modo sarà più semplice visualizzare i risultati in un secondo momento senza dover attendere molto tempo.
+Nella pagina della *finestra di progettazione di app* per la logica che segue, modificare la frequenza di **ricorrenza** in *secondo* , in modo che l'evento venga attivato ogni 3 secondi. In questo modo sarà più semplice visualizzare i risultati in un secondo momento senza dover attendere molto tempo.
 
-Premere *+ nuovo passaggio*.
+Premere *+ nuovo passaggio* .
 
 Verrà visualizzata una casella *scegliere un'azione* . Passare alla scheda *personalizzata* . Il connettore personalizzato verrà visualizzato in precedenza nella casella superiore.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/custom-action.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
 
-Selezionarlo per visualizzare l'elenco delle API contenute in tale connettore. Usare la barra di ricerca o scorrere l'elenco per selezionare **DigitalTwins_Add**. Questa è l'API usata in questo articolo, ma è anche possibile selezionare qualsiasi altra API come scelta valida per una connessione di app per la logica.
+Selezionarlo per visualizzare l'elenco delle API contenute in tale connettore. Usare la barra di ricerca o scorrere l'elenco per selezionare **DigitalTwins_Add** . Questa è l'API usata in questo articolo, ma è anche possibile selezionare qualsiasi altra API come scelta valida per una connessione di app per la logica.
 
 È possibile che venga richiesto di accedere con le credenziali di Azure per connettersi al connettore. Se si riceve una finestra di dialogo per le *autorizzazioni richieste* , seguire le istruzioni per concedere il consenso per l'app e accettarle.
 
 Nella casella nuovo *DigitalTwinsAdd* compilare i campi come indicato di seguito:
-* _ID_: inserire l' *ID* del dispositivo gemello digitale nell'istanza che si vuole aggiornare all'app per la logica.
-* _gemello_: questo campo consente di immettere il corpo richiesto dalla richiesta API scelta. Per *DigitalTwinsUpdate*, questo corpo è sotto forma di codice patch JSON. Per altre informazioni sulla strutturazione di una patch JSON per l'aggiornamento del dispositivo gemello, vedere la sezione relativa all' [aggiornamento di un dispositivo gemello digitale](how-to-manage-twin.md#update-a-digital-twin) di *How-to: Manage Digital gemells*.
-* _API-Version_: versione più recente dell'API. Attualmente, questo valore è *2020-10-31*.
+* _ID_ : inserire l' *ID* del dispositivo gemello digitale nell'istanza che si vuole aggiornare all'app per la logica.
+* _gemello_ : questo campo consente di immettere il corpo richiesto dalla richiesta API scelta. Per *DigitalTwinsUpdate* , questo corpo è sotto forma di codice patch JSON. Per altre informazioni sulla strutturazione di una patch JSON per l'aggiornamento del dispositivo gemello, vedere la sezione relativa all' [aggiornamento di un dispositivo gemello digitale](how-to-manage-twin.md#update-a-digital-twin) di *How-to: Manage Digital gemells* .
+* _API-Version_ : versione più recente dell'API. Attualmente, questo valore è *2020-10-31* .
 
 Fare clic su *Salva* nella finestra di progettazione di app per la logica.
 

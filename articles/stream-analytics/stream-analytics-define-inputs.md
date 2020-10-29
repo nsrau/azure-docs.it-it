@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: 445cd7c55de58b6e5266f76a06d2cbabc75c18b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: fb5aca1739fbb4a77cbcb7eed6b9dce1b3ccc182
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907168"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027585"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Trasmettere dati come input in Analisi di flusso
 
@@ -55,7 +55,7 @@ La tabella seguente descrive le proprietà disponibili nella pagina **Nuovo inpu
 | **Nome hub eventi** | Nome dell'hub eventi da usare come input. |
 | **Nome criteri hub eventi** | Criteri di accesso condiviso che consentono di accedere all'hub eventi. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. Il valore di questa opzione viene inserito automaticamente, a meno che non si selezioni l'opzione per specificare le impostazioni dell'hub eventi manualmente.|
 | **Gruppo di consumer dell'hub eventi** (consigliata) | È vivamente consigliato usare un gruppo di consumer distinto per ogni processo di Analisi di flusso. Questa stringa identifica il gruppo di consumer da usare per l'inserimento di dati dall'hub eventi. Se non è specificato alcun gruppo di consumer, il processo di Analisi di flusso usa il gruppo di consumer $Default.  |
-| **Chiave di partizione** | Se l'input è partizionato da una proprietà, è possibile aggiungere il nome di questa proprietà. Le chiavi di partizione sono facoltative e vengono usate per migliorare le prestazioni della query se include una clausola PARTITION BY o GROUP BY in questa proprietà. |
+| **Chiave di partizione** | Si tratta di un campo facoltativo disponibile solo se il processo è configurato per l'uso del [livello di compatibilità](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 o superiore. Se l'input è partizionato da una proprietà, è possibile aggiungere il nome di questa proprietà qui. Viene usato per migliorare le prestazioni della query se include una clausola PARTITION BY o GROUP BY in questa proprietà. Se questo processo usa il livello di compatibilità 1,2 o versione successiva, il valore predefinito di questo campo è "PartitionId". |
 | **Formato di serializzazione eventi** | Il formato di serializzazione (JSON, CSV, Avro o [altro (Protobuf, XML, proprietario...)](custom-deserializer.md)) del flusso di dati in ingresso.  Assicurarsi che il formato JSON sia allineato alla specifica e non includa uno 0 iniziale per i numeri decimali. |
 | **Encoding** | L'unico formato di codifica attualmente supportato è UTF-8. |
 | **Tipo di compressione eventi** | Il tipo di compressione usato per leggere il flusso dei dati in ingresso, ad esempio Nessuno (predefinito), GZip o Deflate. |
@@ -105,7 +105,7 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nella p
 | **Nome criteri di accesso condiviso** | Criteri di accesso condiviso che consentono di accedere all'hub IoT. Tutti i criteri di accesso condiviso dispongono di un nome e di autorizzazioni impostati, nonché di chiavi di accesso. |
 | **Chiave criteri di accesso condiviso** | Chiave di accesso condiviso usata per autorizzare l'accesso all'hub IoT.  Il valore di questa opzione viene inserito automaticamente, a meno che non si selezioni l'opzione per specificare le impostazioni dell'hub IoT manualmente. |
 | **Gruppo di consumer** | È vivamente consigliato usare un gruppo di consumer differente per ogni processo di Analisi di flusso. Il gruppo di consumer viene usato per inserire dati dall'hub IoT. Analisi di flusso usa il gruppo di consumer $Default se non diversamente specificato.  |
-| **Chiave di partizione** | Se l'input è partizionato da una proprietà, è possibile aggiungere il nome di questa proprietà. Le chiavi di partizione sono facoltative e vengono usate per migliorare le prestazioni della query se include una clausola PARTITION BY o GROUP BY in questa proprietà. |
+| **Chiave di partizione** | Si tratta di un campo facoltativo disponibile solo se il processo è configurato per l'uso del [livello di compatibilità](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 o superiore. Se l'input è partizionato da una proprietà, è possibile aggiungere il nome di questa proprietà qui. Viene usato per migliorare le prestazioni della query se include una clausola PARTITION BY o GROUP BY in questa proprietà. Se questo processo usa il livello di compatibilità 1,2 o versione successiva, il valore predefinito di questo campo è "PartitionId". |
 | **Formato di serializzazione eventi** | Il formato di serializzazione (JSON, CSV, Avro o [altro (Protobuf, XML, proprietario...)](custom-deserializer.md)) del flusso di dati in ingresso.  Assicurarsi che il formato JSON sia allineato alla specifica e non includa uno 0 iniziale per i numeri decimali. |
 | **Encoding** | L'unico formato di codifica attualmente supportato è UTF-8. |
 | **Tipo di compressione eventi** | Il tipo di compressione usato per leggere il flusso dei dati in ingresso, ad esempio Nessuno (predefinito), GZip o Deflate. |
@@ -159,7 +159,8 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nella p
 | **Modello percorso** (facoltativa) | Percorso del file usato per trovare gli oggetti BLOB nel contenitore specificato. Se si desidera leggere i BLOB dalla radice del contenitore, non impostare un modello di percorso. All'interno del percorso è possibile specificare una o più istanze delle tre variabili seguenti: `{date}`, `{time}` o `{partition}`<br/><br/>Esempio 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Esempio 2: `cluster1/logs/{date}`<br/><br/>Il carattere `*` non è un valore consentito per il prefisso del percorso. Sono consentiti solo <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Caratteri BLOB di Azure</a> validi. Non includere i nomi di contenitori o di file. |
 | **Formato data** (facoltativa) | Formato della data in base al quale vengono organizzati i file, se si usa la variabile date nel percorso. Esempio: `YYYY/MM/DD` <br/><br/> Quando l'input del BLOB ha `{date}` o `{time}` nel percorso, le cartelle vengono esaminate in ordine di tempo crescente.|
 | **Formato ora** (facoltativa) |  Formato dell'ora in base al quale vengono organizzati i file, se si usa la variabile time nel percorso. Al momento, l'unico valore supportato è `HH` per le ore. |
-| **Chiave di partizione** | Se l'input è partizionato da una proprietà, è possibile aggiungere il nome di questa proprietà. Le chiavi di partizione sono facoltative e vengono usate per migliorare le prestazioni della query se include una clausola PARTITION BY o GROUP BY in questa proprietà. |
+| **Chiave di partizione** | Si tratta di un campo facoltativo disponibile solo se il processo è configurato per l'uso del [livello di compatibilità](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 1,2 o superiore. Se l'input è partizionato da una proprietà, è possibile aggiungere il nome di questa proprietà qui. Viene usato per migliorare le prestazioni della query se include una clausola PARTITION BY o GROUP BY in questa proprietà. Se questo processo usa il livello di compatibilità 1,2 o versione successiva, il valore predefinito di questo campo è "PartitionId". |
+| **Conteggio delle partizioni di input** | Questo campo è presente solo quando {Partition} è presente nel modello di percorso. Il valore di questa proprietà è un numero intero >= 1. Laddove {Partition} viene visualizzato in pathPattern, viene usato un numero compreso tra 0 e il valore di questo campo-1. |
 | **Formato di serializzazione eventi** | Il formato di serializzazione (JSON, CSV, Avro o [altro (Protobuf, XML, proprietario...)](custom-deserializer.md)) del flusso di dati in ingresso.  Assicurarsi che il formato JSON sia allineato alla specifica e non includa uno 0 iniziale per i numeri decimali. |
 | **Encoding** | Per CSV e JSON, l'unico formato di codifica attualmente supportato è UTF-8. |
 | **Compressione** | Il tipo di compressione usato per leggere il flusso dei dati in ingresso, ad esempio Nessuno (predefinito), GZip o Deflate. |

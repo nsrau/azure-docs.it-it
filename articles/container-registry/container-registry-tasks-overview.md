@@ -3,12 +3,12 @@ title: Panoramica delle Attività del Registro Azure Container
 description: Introduzione alle attività di ACR, una suite di funzionalità in Azure Container Registry che fornisce la compilazione, la gestione e l'applicazione di patch di immagini del contenitore sicure e automatizzate nel cloud.
 ms.topic: article
 ms.date: 08/12/2020
-ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14758e363e74450a10f1a2cbfc889f3e24782771
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488644"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027667"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -70,7 +70,7 @@ Per informazioni su come attivare compilazioni in caso di commit del codice sorg
 
 ## <a name="automate-os-and-framework-patching"></a>Automatizzare l'applicazione di patch al sistema operativo e al framework
 
-La potenza delle attività ACR per migliorare realmente il flusso di lavoro di compilazione del contenitore deriva dalla capacità di rilevare un aggiornamento a un' *immagine di base*. Una funzionalità della maggior parte delle immagini del contenitore, un'immagine di base è un'immagine padre su cui si basano una o più immagini dell'applicazione. Le immagini di base contengono in genere il sistema operativo e, talvolta, i Framework applicazione. 
+La potenza delle attività ACR per migliorare realmente il flusso di lavoro di compilazione del contenitore deriva dalla capacità di rilevare un aggiornamento a un' *immagine di base* . Una funzionalità della maggior parte delle immagini del contenitore, un'immagine di base è un'immagine padre su cui si basano una o più immagini dell'applicazione. Le immagini di base contengono in genere il sistema operativo e, talvolta, i Framework applicazione. 
 
 È possibile configurare un'attività ACR per tenere traccia di una dipendenza da un'immagine di base durante la compilazione di un'immagine dell'applicazione. Quando viene effettuato il push dell'immagine di base aggiornata nel registro di sistema o un'immagine di base viene aggiornata in un repository pubblico, ad esempio in Docker Hub, le attività di ACR possono compilare automaticamente eventuali immagini dell'applicazione basate su di esso.
 Grazie al rilevamento e alla ricompilazione automatici, ACR Tasks consente di risparmiare il tempo e il lavoro normalmente necessari per monitorare e aggiornare manualmente ogni immagine di applicazione che fa riferimento all'immagine di base aggiornata.
@@ -138,10 +138,6 @@ Quando si è pronti per automatizzare le compilazioni e la manutenzione delle im
 Installare eventualmente l'[estensione Docker per Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) e l'estensione [Account Azure](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) per l'uso dei registri contenitori di Azure. Eseguire il pull e il push delle immagini in un registro contenitori di Azure o eseguire Attività del Registro Azure Container, il tutto all'interno di Visual Studio Code.
 
 <!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 

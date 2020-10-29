@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b6dbcaf317efb8589a92275527f992029b7eb8a6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 0c82114f697227b96e3548fff24314d4774455b9
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494751"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026446"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gestire automaticamente i dispositivi nei dispositivi gemelli digitali di Azure usando il servizio Device provisioning (DPS)
 
@@ -20,7 +20,7 @@ Questo articolo illustra come integrare i dispositivi gemelli digitali di Azure 
 
 La soluzione descritta in questo articolo consente di automatizzare il processo di **_provisioning_** e **_ritiro_** dei dispositivi dell'hub Internet in Azure Digital Twins, usando il servizio Device provisioning. 
 
-Per altre informazioni sulle fasi di _provisioning_ e _ritiro_ e per comprendere meglio il set di fasi di gestione dei dispositivi generali comuni a tutti i progetti dell'intero aziendale, vedere la [ *sezione ciclo* ](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) di vita dei dispositivi della documentazione di gestione dei dispositivi dell'hub.
+Per altre informazioni sulle fasi di _provisioning_ e _ritiro_ e per comprendere meglio il set di fasi di gestione dei dispositivi generali comuni a tutti i progetti dell'intero aziendale, vedere la [ *sezione ciclo*](../iot-hub/iot-hub-device-management-overview.md#device-lifecycle) di vita dei dispositivi della documentazione di gestione dei dispositivi dell'hub.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,12 +29,12 @@ Prima di poter configurare il provisioning, è necessario avere un'istanza di **
 Se questa operazione non è già stata configurata, è possibile crearla seguendo l'esercitazione sui dispositivi gemelli di Azure Digital [*: connettere una soluzione end-to-end*](tutorial-end-to-end.md). Questa esercitazione illustra la configurazione di un'istanza di dispositivi gemelli digitali di Azure con modelli e dispositivi gemelli, un [Hub](../iot-hub/about-iot-hub.md)di Azure per le cose connesse e diverse [funzioni di Azure](../azure-functions/functions-overview.md) per propagare il flusso di dati.
 
 I valori seguenti sono necessari più avanti in questo articolo quando si configura l'istanza. Se è necessario raccogliere nuovamente questi valori, usare i collegamenti seguenti per le istruzioni.
-* **_Nome host_** dell'istanza di Gemelli digitali di Azure ([trova nel portale](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
-* **_Stringa_** di connessione della stringa di connessione di hub eventi di Azure ([trova nel portale](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
+* **_Nome host_** dell'istanza di Gemelli digitali di Azure ( [trova nel portale](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values))
+* **_Stringa_** di connessione della stringa di connessione di hub eventi di Azure ( [trova nel portale](../event-hubs/event-hubs-get-connection-string.md#get-connection-string-from-the-portal))
 
 Questo esempio usa anche un **simulatore di dispositivi** che include il provisioning usando il servizio Device provisioning. Il simulatore di dispositivi è disponibile qui: [esempio di integrazione di Azure Digital gemells e dell'hub](/samples/azure-samples/digital-twins-iothub-integration/adt-iothub-provision-sample/)Internet. Ottenere il progetto di esempio nel computer passando al collegamento di esempio e selezionando il pulsante *Scarica zip* sotto il titolo. Decomprimere la cartella scaricata.
 
-Il simulatore del dispositivo si basa su **Node.js**, versione 10.0. x o successiva. [*Preparare l'ambiente di sviluppo*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) descrive come installare Node.js per questa esercitazione in Windows o Linux.
+Il simulatore del dispositivo si basa su **Node.js** , versione 10.0. x o successiva. [*Preparare l'ambiente di sviluppo*](https://github.com/Azure/azure-iot-sdk-node/blob/master/doc/node-devbox-setup.md) descrive come installare Node.js per questa esercitazione in Windows o Linux.
 
 ## <a name="solution-architecture"></a>Architettura della soluzione
 
@@ -77,7 +77,7 @@ az iot dps create --name <Device Provisioning Service name> --resource-group <re
 
 ### <a name="create-an-azure-function"></a>Creare una funzione di Azure
 
-Si creerà quindi una funzione attivata da una richiesta HTTP all'interno di un'app per le funzioni. È possibile usare l'app per le funzioni creata nell'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)) o personalizzata.
+Si creerà quindi una funzione attivata da una richiesta HTTP all'interno di un'app per le funzioni. È possibile usare l'app per le funzioni creata nell'esercitazione end-to-end ( [*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)) o personalizzata.
 
 Questa funzione verrà usata dal servizio Device provisioning in un criterio di [allocazione personalizzato](../iot-dps/how-to-use-custom-allocation-policies.md) per eseguire il provisioning di un nuovo dispositivo. Per altre informazioni sull'uso di richieste HTTP con funzioni di Azure, vedere [*trigger di richiesta HTTP di Azure per funzioni di Azure*](../azure-functions/functions-bindings-http-webhook-trigger.md).
 
@@ -233,7 +233,7 @@ Salvare il file e quindi pubblicare di nuovo l'app per le funzioni. Per istruzio
 
 ### <a name="configure-your-function"></a>Configurare la funzione
 
-A questo punto, è necessario impostare le variabili di ambiente nell'app per le funzioni precedente, contenente il riferimento all'istanza di Azure Digital Twins creata. Se è stata usata l'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)), l'impostazione sarà già configurata.
+A questo punto, è necessario impostare le variabili di ambiente nell'app per le funzioni precedente, contenente il riferimento all'istanza di Azure Digital Twins creata. Se è stata usata l'esercitazione end-to-end ( [*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)), l'impostazione sarà già configurata.
 
 Aggiungere l'impostazione con questo comando dell'interfaccia della riga di comando di Azure:
 
@@ -243,18 +243,11 @@ az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure
 
 Assicurarsi che le autorizzazioni e l'assegnazione di ruolo identità gestita siano configurate correttamente per l'app per le funzioni, come descritto nella sezione [*assegnare le autorizzazioni all'app per le funzioni*](tutorial-end-to-end.md#assign-permissions-to-the-function-app) nell'esercitazione end-to-end.
 
-<!-- 
-* Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
-
-```azurecli-interactive
-az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
-``` -->
-
 ### <a name="create-device-provisioning-enrollment"></a>Creare la registrazione del provisioning dei dispositivi
 
-Successivamente, sarà necessario creare una registrazione nel servizio Device provisioning usando una **funzione di allocazione personalizzata**. Seguire le istruzioni riportate nelle sezioni [*creare le*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) chiavi di registrazione e [*derivazione di chiavi univoche*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) del dispositivo dei servizi Device provisioning sui criteri di allocazione personalizzati.
+Successivamente, sarà necessario creare una registrazione nel servizio Device provisioning usando una **funzione di allocazione personalizzata** . Seguire le istruzioni riportate nelle sezioni [*creare le*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) chiavi di registrazione e [*derivazione di chiavi univoche*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) del dispositivo dei servizi Device provisioning sui criteri di allocazione personalizzati.
 
-Durante l'esecuzione di tale flusso, si collegherà la registrazione alla funzione appena creata selezionando la funzione durante il passaggio per **selezionare come assegnare i dispositivi agli hub**. Dopo la creazione della registrazione, il nome della registrazione e la chiave di firma di accesso condiviso primaria o secondaria verranno usati in un secondo momento per configurare il simulatore di dispositivi per questo articolo.
+Durante l'esecuzione di tale flusso, si collegherà la registrazione alla funzione appena creata selezionando la funzione durante il passaggio per **selezionare come assegnare i dispositivi agli hub** . Dopo la creazione della registrazione, il nome della registrazione e la chiave di firma di accesso condiviso primaria o secondaria verranno usati in un secondo momento per configurare il simulatore di dispositivi per questo articolo.
 
 ### <a name="set-up-the-device-simulator"></a>Configurare il simulatore di dispositivi
 
@@ -266,7 +259,7 @@ Aprire una finestra di comando e passare alla cartella scaricata, quindi alla di
 npm install
 ```
 
-Copiare quindi il file *. env. template* in un nuovo file denominato *. env*e compilare le impostazioni seguenti:
+Copiare quindi il file *. env. template* in un nuovo file denominato *. env* e compilare le impostazioni seguenti:
 
 ```cmd
 PROVISIONING_HOST = "global.azure-devices-provisioning.net"
@@ -318,18 +311,18 @@ Le sezioni seguenti illustrano i passaggi per configurare questo flusso di dispo
 A questo punto è necessario creare un [Hub eventi](../event-hubs/event-hubs-about.md)di Azure, che verrà usato per ricevere gli eventi del ciclo di vita dell'hub. 
 
 Eseguire i passaggi descritti nella Guida introduttiva per [*creare un hub eventi*](../event-hubs/event-hubs-create.md) usando le informazioni seguenti:
-* Se si sta usando l'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)), è possibile riusare il gruppo di risorse creato per l'esercitazione end-to-end.
-* Denominare il *lifecycleevents*dell'hub eventi o un altro elemento desiderato e ricordare lo spazio dei nomi creato. Questi elementi vengono usati quando si configura la funzione del ciclo di vita e la route dell'hub Internet nelle sezioni successive.
+* Se si sta usando l'esercitazione end-to-end ( [*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)), è possibile riusare il gruppo di risorse creato per l'esercitazione end-to-end.
+* Denominare il *lifecycleevents* dell'hub eventi o un altro elemento desiderato e ricordare lo spazio dei nomi creato. Questi elementi vengono usati quando si configura la funzione del ciclo di vita e la route dell'hub Internet nelle sezioni successive.
 
 ### <a name="create-an-azure-function"></a>Creare una funzione di Azure
 
-Successivamente, verrà creata una funzione attivata da Hub eventi all'interno di un'app per le funzioni. È possibile usare l'app per le funzioni creata nell'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)) o personalizzata. 
+Successivamente, verrà creata una funzione attivata da Hub eventi all'interno di un'app per le funzioni. È possibile usare l'app per le funzioni creata nell'esercitazione end-to-end ( [*esercitazione: connettere una soluzione end-to-end*](tutorial-end-to-end.md)) o personalizzata. 
 
-Denominare il trigger dell'hub eventi *lifecycleevents*e connettere il trigger dell'hub eventi all'hub eventi creato nel passaggio precedente. Se è stato usato un nome di hub eventi diverso, modificarlo in modo che corrisponda al nome del trigger riportato di seguito.
+Denominare il trigger dell'hub eventi *lifecycleevents* e connettere il trigger dell'hub eventi all'hub eventi creato nel passaggio precedente. Se è stato usato un nome di hub eventi diverso, modificarlo in modo che corrisponda al nome del trigger riportato di seguito.
 
 Questa funzione userà l'evento ciclo di vita del dispositivo hub Internet per ritirare un dispositivo esistente. Per altre informazioni sugli eventi del ciclo di vita, vedere [*eventi di non telemetria dell'hub*](../iot-hub/iot-hub-devguide-messages-d2c.md#non-telemetry-events)Internet. Per altre informazioni sull'uso di hub eventi con funzioni di Azure, vedere [*trigger di hub eventi di Azure per funzioni di Azure*](../azure-functions/functions-bindings-event-hubs-trigger.md).
 
-All'interno dell'app per le funzioni pubblicata aggiungere una nuova classe di funzione di tipo *trigger Hub eventi*e incollare il codice seguente.
+All'interno dell'app per le funzioni pubblicata aggiungere una nuova classe di funzione di tipo *trigger Hub eventi* e incollare il codice seguente.
 
 ```C#
 using System;
@@ -445,7 +438,7 @@ Salvare il progetto, quindi pubblicare di nuovo l'app per le funzioni. Per istru
 
 ### <a name="configure-your-function"></a>Configurare la funzione
 
-A questo punto, è necessario impostare le variabili di ambiente nell'app per le funzioni precedente, contenente il riferimento all'istanza di Azure Digital Twins creata e all'hub eventi. Se è stata usata l'esercitazione end-to-end ([*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)), la prima impostazione sarà già configurata.
+A questo punto, è necessario impostare le variabili di ambiente nell'app per le funzioni precedente, contenente il riferimento all'istanza di Azure Digital Twins creata e all'hub eventi. Se è stata usata l'esercitazione end-to-end ( [*esercitazione: connettere una soluzione end-to-end*](./tutorial-end-to-end.md)), la prima impostazione sarà già configurata.
 
 Aggiungere l'impostazione con questo comando dell'interfaccia della riga di comando di Azure. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true)l'interfaccia della riga di comando di Azure.
 

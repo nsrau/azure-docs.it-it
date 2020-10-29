@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/19/2020
-ms.openlocfilehash: 77dda42b27aa6f5fb505fe65667876523cb3f5d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9636e7227671cd5a8ed31904e6bc27782d3bd6a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88650894"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025834"
 ---
 # <a name="monitor-data-flows"></a>Monitorare i flussi di dati
 
@@ -23,15 +23,15 @@ Al termine della compilazione e del debug del flusso di dati è necessario defin
 
 Quando si esegue la pipeline, è possibile monitorarla insieme a tutte le attività che contiene, inclusa l'attività Flusso di dati. Fare clic sull'icona di monitoraggio nel pannello dell'interfaccia utente di Azure Data Factory. Verrà visualizzata una schermata simile alla seguente. Le icone evidenziate consentono di esaminare più in dettaglio le attività nella pipeline, tra cui l'attività Flusso di dati.
 
-![Monitoraggio dei flussi di dati](media/data-flow/mon001.png "Monitoraggio dei flussi di dati")
+![Screenshot mostra le icone da selezionare per le pipeline.](media/data-flow/mon001.png "Monitoraggio dei flussi di dati")
 
 A questo livello vengono visualizzate anche le statistiche, insieme alle tempistiche e allo stato di esecuzione. L'ID esecuzione a livello di attività è diverso da quello a livello di pipeline. L'ID esecuzione al livello precedente è per la pipeline. La selezione del simbolo a forma di occhiali consente la visualizzazione di ulteriori dettagli sull'esecuzione del flusso di dati.
 
-![Monitoraggio dei flussi di dati](media/data-flow/monitoring-details.png "Monitoraggio dei flussi di dati")
+![Screenshot mostra l'icona degli occhiali per visualizzare i dettagli dell'esecuzione del flusso di dati.](media/data-flow/monitoring-details.png "Monitoraggio dei flussi di dati")
 
 Durante la visualizzazione grafica di monitoraggio dei nodi, è possibile osservare una versione semplificata di tipo solo visualizzazione del grafico del flusso di dati.
 
-![Monitoraggio dei flussi di dati](media/data-flow/mon003.png "Monitoraggio dei flussi di dati")
+![Screenshot mostra la versione di sola visualizzazione del grafico.](media/data-flow/mon003.png "Monitoraggio dei flussi di dati")
 
 Ecco un video informativo sul monitoraggio delle prestazioni dei flussi di dati dalla schermata di monitoraggio di ADF:
 
@@ -41,7 +41,7 @@ Ecco un video informativo sul monitoraggio delle prestazioni dei flussi di dati 
 
 Quando il Flusso di dati viene eseguito in Spark, Azure Data Factory determina i percorsi del codice ottimali in base all'interezza del flusso di dati. Inoltre, i percorsi di esecuzione possono verificarsi in nodi con scalabilità orizzontale e partizioni di dati diversi. Di conseguenza, il grafico di monitoraggio rappresenta la progettazione del flusso, tenendo conto del percorso di esecuzione delle trasformazioni. La selezione di singoli nodi genera la visualizzazione di "raggruppamenti" che rappresentano il codice che è stato eseguito contemporaneamente nel cluster. Le tempistiche e i conteggi visualizzati rappresentano i gruppi invece dei singoli passaggi nella progettazione.
 
-![Monitoraggio dei flussi di dati](media/data-flow/mon004.png "Monitoraggio dei flussi di dati")
+![Screenshot mostra la pagina per un flusso di dati.](media/data-flow/mon004.png "Monitoraggio dei flussi di dati")
 
 * Quando si seleziona l'area aperta nella finestra di monitoraggio, le statistiche nel riquadro inferiore mostrano le tempistiche e i numeri di righe per ogni sink e le trasformazioni che hanno generato i dati sink per la derivazione della trasformazione.
 
@@ -56,7 +56,7 @@ Quando il Flusso di dati viene eseguito in Spark, Azure Data Factory determina i
   * Tempo di avvio del cluster: periodo di tempo per l'acquisizione dell'ambiente di calcolo di Spark JIT per l'esecuzione del flusso di dati
   * Numero delle trasformazioni: il numero di passaggi di trasformazione eseguiti nel flusso
   
-![Monitoraggio dei flussi di dati](media/data-flow/monitornew.png "Monitoraggio dei flussi di dati nuovo")
+![Screenshot che mostra l'opzione di aggiornamento.](media/data-flow/monitornew.png "Monitoraggio dei flussi di dati nuovo")
 
 ## <a name="total-sink-processing-time-vs-transformation-processing-time"></a>Tempo di elaborazione del sink totale rispetto al tempo di elaborazione della trasformazione
 
@@ -85,6 +85,6 @@ Quando si seleziona un'icona di trasformazione del sink nella mappa, il pannello
 
 Questa icona indica che i dati della trasformazione sono già stati memorizzati nella cache del cluster e di conseguenza le tempistiche e il percorso di esecuzione sono già stati presi in considerazione:
 
-![Monitoraggio dei flussi di dati](media/data-flow/mon005.png "Monitoraggio dei flussi di dati")
+![Screenshot che mostra l'icona del disco.](media/data-flow/mon005.png "Monitoraggio dei flussi di dati")
 
 Nella trasformazione vengono anche visualizzate alcune icone a forma di cerchio verde. Questa rappresentano un conteggio del numero di sink in cui vengono trasmessi i dati.

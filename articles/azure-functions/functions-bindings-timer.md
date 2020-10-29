@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 69ba8d1735d16791d62b6b04e49c0d2fb7484959
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6423ec481c65155b511e398885b4954522bbb376
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91325794"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025902"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure
 
@@ -56,7 +56,7 @@ public static void Run([TimerTrigger("0 */5 * * * *")]TimerInfo myTimer, ILogger
 
 L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. L' [`TimerInfo`](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions/Extensions/Timers/TimerInfo.cs) oggetto viene passato nella funzione.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 ```json
 {
@@ -99,7 +99,7 @@ public void keepAlive(
 
 L'esempio seguente mostra un'associazione di trigger timer in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione scrive un log che indica se la chiamata di funzione è dovuta un'occorrenza di pianificazione mancante. Un [oggetto timer](#usage) viene passato nella funzione.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 ```json
 {
@@ -163,9 +163,9 @@ Un'istanza dell' [oggetto timer](#usage) viene passata come primo argomento alla
 
 # <a name="python"></a>[Python](#tab/python)
 
-Nell'esempio seguente viene utilizzata un'associazione di trigger timer la cui configurazione è descritta nel *function.jssu* file. La [funzione Python](functions-reference-python.md) effettiva che usa l'associazione è descritta nel file * __init__. py* . L'oggetto passato nella funzione è di tipo [Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logica della funzione scrive nei log che indicano se la chiamata corrente è dovuta a un'occorrenza di pianificazione mancante.
+Nell'esempio seguente viene utilizzata un'associazione di trigger timer la cui configurazione è descritta nel *function.jssu* file. La [funzione Python](functions-reference-python.md) effettiva che usa l'associazione è descritta nel file *__init__ . py* . L'oggetto passato nella funzione è di tipo [Azure. Functions. TimerRequest](/python/api/azure-functions/azure.functions.timerrequest). La logica della funzione scrive nei log che indicano se la chiamata corrente è dovuta a un'occorrenza di pianificazione mancante.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 ```json
 {
@@ -276,18 +276,18 @@ Quando viene richiamata una funzione di trigger del timer, nella funzione viene 
 
 ```json
 {
-    "Schedule":{
+    "schedule":{
     },
-    "ScheduleStatus": {
-        "Last":"2016-10-04T10:15:00+00:00",
-        "LastUpdated":"2016-10-04T10:16:00+00:00",
-        "Next":"2016-10-04T10:20:00+00:00"
+    "scheduleStatus": {
+        "last":"2016-10-04T10:15:00+00:00",
+        "lastUpdated":"2016-10-04T10:16:00+00:00",
+        "next":"2016-10-04T10:20:00+00:00"
     },
-    "IsPastDue":false
+    "isPastDue":false
 }
 ```
 
-La proprietà `IsPastDue` è `true` quando la chiamata della funzione corrente avviene successivamente al momento pianificato. Ad esempio, un riavvio dell'app per le funzioni può causare la mancata riuscita di una chiamata.
+La proprietà `isPastDue` è `true` quando la chiamata della funzione corrente avviene successivamente al momento pianificato. Ad esempio, un riavvio dell'app per le funzioni può causare la mancata riuscita di una chiamata.
 
 ## <a name="ncrontab-expressions"></a>Espressioni NCRONTAB
 

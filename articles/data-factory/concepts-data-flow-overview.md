@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
 ms.date: 09/02/2020
-ms.openlocfilehash: 7d73d832f96d087964c46c6c735c0385832c08db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32f1602c91d17ef2ad3283d4bc03d00d432641aa
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91370913"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027602"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapping di flussi di dati in Azure Data Factory
 
@@ -25,9 +25,9 @@ I flussi di dati di mapping sono le trasformazioni di dati progettate visivament
 
 I flussi di dati di mapping forniscono un'esperienza visiva completamente senza necessità di scrivere codice. I flussi di dati vengono eseguiti in cluster di esecuzione gestiti da ADF per l'elaborazione dei dati con scalabilità orizzontale. Azure Data Factory gestisce tutta la conversione del codice, l'ottimizzazione del percorso e l'esecuzione dei processi del flusso di dati.
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
-I flussi di dati vengono creati dal riquadro risorse Factory, ad esempio pipeline e set di dati. Per creare un flusso di dati, selezionare il segno più accanto a **risorse Factory**, quindi selezionare **flusso di dati**. 
+I flussi di dati vengono creati dal riquadro risorse Factory, ad esempio pipeline e set di dati. Per creare un flusso di dati, selezionare il segno più accanto a **risorse Factory** , quindi selezionare **flusso di dati** . 
 
 ![Nuovo flusso di dati](media/data-flow/new-data-flow.png "nuovo flusso di dati")
 
@@ -37,13 +37,13 @@ Questa azione consente di passare all'area di disegno del flusso di dati, in cui
 
 Il mapping di un flusso di dati dispone di un'area di disegno univoca progettata per semplificare la creazione della logica di trasformazione. L'area di disegno del flusso di dati è suddivisa in tre parti: la barra superiore, il grafico e il pannello di configurazione. 
 
-![Canvas](media/data-flow/canvas1.png "Canvas")
+![Screenshot mostra l'area di disegno del flusso di dati con la barra superiore, il grafico e il pannello di configurazione con etichetta.](media/data-flow/canvas1.png "Canvas")
 
 ### <a name="graph"></a>Grafico
 
-Il grafico mostra il flusso di trasformazione. Mostra la derivazione dei dati di origine durante il flusso in uno o più sink. Per aggiungere una nuova origine, selezionare **Aggiungi origine**. Per aggiungere una nuova trasformazione, selezionare il segno più in basso a destra di una trasformazione esistente. Altre informazioni su come [gestire il grafico del flusso di dati](concepts-data-flow-manage-graph.md).
+Il grafico mostra il flusso di trasformazione. Mostra la derivazione dei dati di origine durante il flusso in uno o più sink. Per aggiungere una nuova origine, selezionare **Aggiungi origine** . Per aggiungere una nuova trasformazione, selezionare il segno più in basso a destra di una trasformazione esistente. Altre informazioni su come [gestire il grafico del flusso di dati](concepts-data-flow-manage-graph.md).
 
-![Canvas](media/data-flow/canvas2.png "Canvas")
+![Screenshot mostra la parte del grafico dell'area di disegno con una casella di testo di ricerca.](media/data-flow/canvas2.png "Canvas")
 
 ### <a name="configuration-panel"></a>Pannello di configurazione
 
@@ -109,7 +109,7 @@ I flussi di dati di mapping sono disponibili nelle aree geografiche seguenti:
 | Australia sud-orientale   | ✓ | ✓ |
 | Brasile meridionale  | ✓ |  |
 | Canada centrale | ✓ |  |
-| Central India | ✓ |   ✓ |
+| India centrale | ✓ |   ✓ |
 | Stati Uniti centrali    | ✓ |   ✓ |
 | Cina orientale |      | ✓ |
 | Cina orientale 2  |   |    |
@@ -154,7 +154,7 @@ I flussi di dati di mapping sono disponibili nelle aree geografiche seguenti:
 | Stati Uniti centro-occidentali |     | ✓ |
 | Europa occidentale   | ✓ |   ✓ |
 | India occidentale | | |
-| Stati Uniti Occidentali   | ✓ |   |
+| Stati Uniti occidentali   | ✓ |   |
 | West US 2 | ✓ |   ✓ | 
 
 ## <a name="next-steps"></a>Passaggi successivi

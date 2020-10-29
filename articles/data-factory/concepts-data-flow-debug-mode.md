@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cfd498f73646b0021d5fbb3e982dc82871ef35c
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90085094"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026990"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapping della modalità di debug del flusso di dati
 
@@ -77,15 +77,15 @@ Quando si esegue il testing unità join, esiste o trasforma ricerca, assicurarsi
 
 Una volta visualizzata l'anteprima dei dati, è possibile generare una trasformazione rapida per typecast, rimuovere o apportare modifiche a una colonna. Fare clic sull'intestazione di colonna e quindi selezionare una delle opzioni dalla barra degli strumenti Anteprima dati.
 
-![Azioni rapide](media/data-flow/quick-actions1.png "Azioni rapide")
+![Screenshot mostra la barra degli strumenti Anteprima dati con opzioni: typecast, modifica, statistiche e Rimuovi.](media/data-flow/quick-actions1.png "Azioni rapide")
 
 Dopo aver selezionato una modifica, l'anteprima dei dati viene aggiornata immediatamente. Fare clic su **conferma** nell'angolo superiore destro per generare una nuova trasformazione.
 
-![Azioni rapide](media/data-flow/quick-actions2.png "Azioni rapide")
+![Screenshot che mostra il pulsante conferma.](media/data-flow/quick-actions2.png "Azioni rapide")
 
 **Typecast** e **Modify** genereranno una trasformazione colonna derivata e **Remove** genererà una trasformazione Select.
 
-![Azioni rapide](media/data-flow/quick-actions3.png "Azioni rapide")
+![Screenshot mostra le impostazioni della colonna derivata.](media/data-flow/quick-actions3.png "Azioni rapide")
 
 > [!NOTE]
 > Se si modifica il flusso di dati, è necessario recuperare nuovamente l'anteprima dei dati prima di aggiungere una trasformazione rapida.

@@ -6,12 +6,12 @@ author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: f7bfa15b12618715bf0d911e4b4927a1fa327107
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b93ac774dffb837d93853353e83b8da4ab4d8d4
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91539130"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027160"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Metriche basate su log e metriche preaggregate in Azure Application Insights
 
@@ -40,6 +40,28 @@ Gli SDK più recenti ([Application Insights 2,7](https://www.nuget.org/packages/
 Per gli SDK che non implementano la pre-aggregazione (ovvero le versioni precedenti di Application Insights SDK o per la strumentazione del browser), il Application Insights back-end compila ancora le nuove metriche aggregando gli eventi ricevuti dall'endpoint della raccolta di eventi Application Insights. Ciò significa che anche se non è possibile trarre vantaggio dal volume ridotto dei dati trasmessi in rete, è comunque possibile usare le metriche pre-aggregate e provare a migliorare le prestazioni e il supporto degli avvisi dimensionali quasi in tempo reale con SDK che non preaggregano le metriche durante la raccolta.
 
 Vale la pena sottolineare che l'endpoint di raccolta preaggrega gli eventi prima del campionamento per inserimento e di conseguenza il [campionamento per inserimento](./sampling.md) non ha mai impatto sull'accuratezza delle metriche preaggregate, indipendentemente dalla versione dell'SDK usata con l'applicazione.  
+
+### <a name="sdk-supported-pre-aggregated-metrics-table"></a>Tabella delle metriche pre-aggregate supportate da SDK
+
+| SDK di produzione correnti | Metriche standard (pre-aggregazione SDK) | Metriche personalizzate (senza pre-aggregazione SDK) | Metriche personalizzate (con pre-aggregazione SDK)|
+|------------------------------|-----------------------------------|----------------------------------------------|---------------------------------------|
+| .NET Core e .NET Framework | Supportato (V 2.13.1 +)| Supportato tramite [TrackMetric](api-custom-events-metrics.md#trackmetric)| Supportato (V 2.7.2 +) tramite [Getmetric](get-metric.md) |
+| Java                         | Non supportato       | Supportato tramite [TrackMetric](api-custom-events-metrics.md#trackmetric)| Non supportato                           |
+| Node.js                      | Non supportato       | Supportato tramite  [TrackMetric](api-custom-events-metrics.md#trackmetric)| Non supportato                           |
+| Python                       | Non supportato       | Supportato                                 | Supportato tramite [OpenCensus. stats](opencensus-python.md#metrics) |  
+
+
+### <a name="codeless-supported-pre-aggregated-metrics-table"></a>Tabella delle metriche pre-aggregate supportate non codificate
+
+| SDK di produzione correnti | Metriche standard (pre-aggregazione SDK) | Metriche personalizzate (senza pre-aggregazione SDK) | Metriche personalizzate (con pre-aggregazione SDK)|
+|-------------------------|--------------------------|-------------------------------------------|-----------------------------------------|
+| ASP.NET                 | Supportato <sup> 1<sup>    | Non supportato                             | Non supportato                           |
+| ASP.NET Core            | Supportato <sup> 2<sup>    | Non supportato                             | Non supportato                           |
+| Java                    | Non supportato            | Non supportato                             | [Supportato](java-in-process-agent.md#metrics) |
+| Node.js                 | Non supportato            | Non supportato                             | Non supportato                           |
+
+1. Il tipo di connessione ASP.NET non codificato nel servizio app emette solo metriche in modalità di monitoraggio "completo". La connessione senza codice ASP.NET nel servizio app, nella VM/VMSS e in locale genera metriche standard senza dimensioni. SDK è necessario per tutte le dimensioni.
+2. ASP.NET Core connessione senza codice nel servizio app genera metriche standard senza dimensioni. SDK è necessario per tutte le dimensioni.
 
 ## <a name="using-pre-aggregation-with-application-insights-custom-metrics"></a>Uso della preaggregazione con metriche personalizzate di Application Insights
 

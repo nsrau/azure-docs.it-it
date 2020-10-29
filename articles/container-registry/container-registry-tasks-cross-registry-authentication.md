@@ -3,12 +3,12 @@ title: Autenticazione tra più registri da un'attività del Registro Azure Conta
 description: Configurare un'attività del Registro Azure Container per accedere a un altro registro contenitori di Azure privato usando un'identità gestita per le risorse di Azure
 ms.topic: article
 ms.date: 07/06/2020
-ms.openlocfilehash: 8b961a2ff6a795f03798cc6f6a7d303391036ef8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9a460102eafa5c1eda2f37330887d985387d5df5
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86057357"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026259"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Autenticazione tra più registri in un'attività del Registro Azure Container usando un'identità gestita da Azure 
 
@@ -30,8 +30,8 @@ In uno scenario reale un'organizzazione potrebbe mantenere un set di immagini di
 
 Per questo articolo sono necessari due registri contenitori di Azure:
 
-* Il primo registro si usa per creare ed eseguire attività del Registro Azure Container. In questo articolo questo registro è denominato *myregistry*. 
-* Il secondo registro ospita un'immagine di base usata per l'attività di compilazione di un'immagine. In questo articolo il secondo registro di sistema è denominato *mybaseregistry*. 
+* Il primo registro si usa per creare ed eseguire attività del Registro Azure Container. In questo articolo questo registro è denominato *myregistry* . 
+* Il secondo registro ospita un'immagine di base usata per l'attività di compilazione di un'immagine. In questo articolo il secondo registro di sistema è denominato *mybaseregistry* . 
 
 Sostituire i nomi dei registri con i propri valori nei passaggi successivi.
 
@@ -39,16 +39,12 @@ Se i registri contenitori di Azure necessari non sono disponibili, vedere [Avvio
 
 ## <a name="prepare-base-registry"></a>Preparare il registro di base
 
-Creare prima di tutto una directory di lavoro e quindi un file denominato Dockerfile con il contenuto seguente. Questo semplice esempio compila un'immagine di base Node.js da un'immagine pubblica in Docker Hub.
-    
-```bash
-echo FROM node:9-alpine > Dockerfile
-```
+A scopo dimostrativo, come operazione monouso, eseguire [AZ ACR Import] [AZ-ACR-Import] per importare un'immagine di Node.js pubblica dall'hub Docker nel registro di sistema di base. In pratica, un altro team o processo nell'organizzazione potrebbe mantenere le immagini nel registro di sistema di base.
 
-Nella directory corrente eseguire il comando [az acr build][az-acr-build] per compilare ed eseguire il push dell'immagine di base nel registro di base. Nella pratica, un altro team o processo nell'organizzazione potrebbe gestire il registro di base.
-    
 ```azurecli
-az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file Dockerfile .
+az acr import --name mybaseregistry \
+  --source docker.io/library/node:9-alpine \
+  --image baseimages/node:9-alpine 
 ```
 
 ## <a name="define-task-steps-in-yaml-file"></a>Definire i passaggi dell'attività nel file YAML
@@ -88,7 +84,7 @@ az acr task create \
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Assegnare all'identità le autorizzazioni per eseguire il pull dal registro di base
 
-In questa sezione concedere all'identità gestita le autorizzazioni per eseguire il pull dal registro di base, *mybaseregistry*.
+In questa sezione concedere all'identità gestita le autorizzazioni per eseguire il pull dal registro di base, *mybaseregistry* .
 
 Usare il comando [az acr show][az-acr-show] per ottenere l'ID risorsa del registro di base e archiviarlo in una variabile:
 
@@ -127,7 +123,7 @@ az acr task create \
 
 ### <a name="give-identity-pull-permissions-to-the-base-registry"></a>Assegnare all'identità le autorizzazioni per eseguire il pull dal registro di base
 
-In questa sezione concedere all'identità gestita le autorizzazioni per eseguire il pull dal registro di base, *mybaseregistry*.
+In questa sezione concedere all'identità gestita le autorizzazioni per eseguire il pull dal registro di base, *mybaseregistry* .
 
 Usare il comando [az acr show][az-acr-show] per ottenere l'ID risorsa del registro di base e archiviarlo in una variabile:
 
@@ -223,7 +219,7 @@ The push refers to repository [myregistry.azurecr.io/hello-world]
 Run ID: cf10 was successful after 32s
 ```
 
-Eseguire il comando [az acr repository show-tags][az-acr-repository-show-tags] per verificare che l'immagine sia stata compilata e che ne sia stato eseguito il push in *myregistry*:
+Eseguire il comando [az acr repository show-tags][az-acr-repository-show-tags] per verificare che l'immagine sia stata compilata e che ne sia stato eseguito il push in *myregistry* :
 
 ```azurecli
 az acr repository show-tags --name myregistry --repository hello-world --output tsv

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: a706ced5c65b9de3cb3bfdb623d810bb1ea43623
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 879ea141a4621fac9e1774df64a63e9e56549012
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707983"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026956"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Domande comuni sul Marketplace commerciale Microsoft
 
@@ -20,7 +20,7 @@ Questo articolo contiene le risposte alle domande frequenti sul marketplace comm
 
 ## <a name="general"></a>Generale
 
-### <a name="what-is-the-microsoft-commercial-marketplace"></a>Che cos'è il Marketplace commerciale Microsoft?
+### <a name="what-is-the-microsoft-commercial-marketplace"></a>Che cos'è il marketplace commerciale Microsoft?
 
 Il marketplace commerciale mette in contatto aziende e agenzie governative con le soluzioni create dai partner. I nostri partner creano e gestiscono le offerte nel centro per i partner e i clienti possono individuare e acquistare soluzioni tramite esperienze nel prodotto, ad esempio Microsoft AppSource, Azure Marketplace, rivenditori nel programma Cloud Solution Provider e i nostri team di vendita tramite il programma di co-selling.
 
@@ -58,10 +58,10 @@ Per iscriversi come editori del marketplace commerciale, passare al [Centro per 
 
 Il modo in cui i clienti interagiscono con le offerte nel marketplace commerciale dipende da come tali offerte sono state create.
 
-- Per le soluzioni che vengono fornite automaticamente, che siano a pagamento, di tipo Bring Your Own License (BYOL) o gratuite, i clienti visualizzano l'azione *Scarica ora*.
-- Per le offerte che supportano una demo (test drive) viene richiesto al cliente di eseguire il comando *Test Drive*. 
-- Offerte SaaS (software as a Service) che forniscono una versione di valutazione all'esterno del Marketplace commerciale, ad esempio *versione di valutazione gratuita*.
-- Per le inserzioni semplici il cliente può selezionare il pulsante *Desidero essere contattato*.
+- Per le soluzioni che vengono fornite automaticamente, che siano a pagamento, di tipo Bring Your Own License (BYOL) o gratuite, i clienti visualizzano l'azione *Scarica ora* .
+- Per le offerte che supportano una demo (test drive) viene richiesto al cliente di eseguire il comando *Test Drive* . 
+- Offerte SaaS (software as a Service) che forniscono una versione di valutazione all'esterno del Marketplace commerciale, ad esempio *versione di valutazione gratuita* .
+- Per le inserzioni semplici il cliente può selezionare il pulsante *Desidero essere contattato* .
 
 ### <a name="how-do-i-create-offers-for-the-commercial-marketplace"></a>In che modo è possibile creare offerte per il marketplace commerciale?
 
@@ -99,10 +99,10 @@ Sì, il marketplace di Azure per enti pubblici è disponibile nelle aree di Azur
 
 Sono quattro i ruoli pertinenti che regolano l'accesso al Centro per i partner.
 
-- *Supervisore*: fornisce le autorizzazioni per la gestione degli utenti del Centro per i partner nella directory e per la creazione e l'aggiornamento delle offerte.
-- *Sviluppatore*: consente agli utenti di creare e aggiornare le offerte.
-- *Collaboratore finanziario*: fornisce le autorizzazioni per la visualizzazione dei report di pagamento.
-- *Proprietario*: consente di configurare l'account proventi e il profilo fiscale. Per impostazione predefinita, l'utente che ha accettato il Contratto per gli editori diventa il proprietario.
+- *Supervisore* : fornisce le autorizzazioni per la gestione degli utenti del Centro per i partner nella directory e per la creazione e l'aggiornamento delle offerte.
+- *Sviluppatore* : consente agli utenti di creare e aggiornare le offerte.
+- *Collaboratore finanziario* : fornisce le autorizzazioni per la visualizzazione dei report di pagamento.
+- *Proprietario* : consente di configurare l'account proventi e il profilo fiscale. Per impostazione predefinita, l'utente che ha accettato il Contratto per gli editori diventa il proprietario.
 
 Le autorizzazioni di *Amministratore globale* di Azure Active Directory (Azure AD) sono necessarie per la creazione di nuovi account utente o per invitare account guest nella directory sottostante. Il Centro per i partner applica Azure AD al modello di identità e l'istanza di Azure AD di un'organizzazione viene spesso gestita e controllata dai team IT o della sicurezza.
 
@@ -140,7 +140,7 @@ Le offerte vengono presentate ai clienti attraverso esperienze incluse nel prodo
 
 ### <a name="can-my-offer-appear-in-both-microsoft-appsource-and-azure-marketplace"></a>Un'offerta può essere visualizzata sia in Microsoft AppSource sia in Azure Marketplace?
 
-Microsoft AppSource è la destinazione delle soluzioni aziendali e di settore, mentre Azure Marketplace è progettato per le soluzioni IT e per gli sviluppatori. Le offerte sono disponibili in ogni negozio online in base alle categorie e ai settori selezionati durante la creazione dell'offerta. Nel raro caso in cui l'offerta sia pertinente per gli utenti di entrambi gli archivi online, può essere visualizzata in entrambi.
+Microsoft AppSource è la destinazione delle soluzioni aziendali e di settore, mentre Azure Marketplace è progettato per le soluzioni IT e per gli sviluppatori. Le offerte sono disponibili in ogni negozio online in base alle categorie e ai settori selezionati durante la creazione dell'offerta. Nel raro caso in cui l'offerta sia pertinente per gli utenti di entrambi gli store online, può essere visualizzata in entrambi.
 
 ### <a name="what-is-the-cloud-solution-provider-program"></a>Che cos'è il programma Cloud Solution Provider?
 
@@ -303,7 +303,7 @@ Per altre informazioni, vedere [configurare l'account di pagamento e i moduli fi
 
 ### <a name="are-returns-and-refunds-supported-with-the-commercial-marketplace"></a>Resi e rimborsi sono supportati nel marketplace commerciale?
 
-Per ricevere il rimborso, i clienti possono annullare le proprie sottoscrizioni entro un periodo di tempo specificato. Per le sottoscrizioni mensili, tale intervallo è di 24 ore, mentre per le sottoscrizioni annuali è di 14 giorni. Le offerte fatturate in base all'utilizzo non sono idonee per i rimborsi dopo l'uso di una soluzione.
+I rimborsi sono disponibili per i clienti in determinate condizioni e per determinati addebiti. Le richieste di rimborsi di addebiti ricorrenti fatturate mensilmente devono essere ricevute entro 24 ore dall'acquisto o dal rinnovo. Analogamente, le richieste di rimborsi di addebiti ricorrenti fatturate annualmente devono essere ricevute entro 14 giorni dall'acquisto o dal rinnovo. Questo tipo di rimborsi non si applica ai costi derivanti dall'utilizzo (dalle offerte della macchina virtuale o dalla fatturazione a consumo).
 
 ## <a name="resources"></a>Risorse
 
@@ -311,7 +311,7 @@ Per ricevere il rimborso, i clienti possono annullare le proprie sottoscrizioni 
 
 Di seguito sono riportate alcune risorse per iniziare:
 
-- [Che cos'è il Marketplace commerciale Microsoft?](overview.md)
+- [Che cos'è il marketplace commerciale Microsoft?](overview.md)
 - [Hub partner del marketplace commerciale di Microsoft](https://partner.microsoft.com/asset/collection/commercial-marketplace#/)
 
 ### <a name="how-can-i-engage-with-microsoft-and-other-partners"></a>In che modo è possibile creare engagement con Microsoft e altri partner?

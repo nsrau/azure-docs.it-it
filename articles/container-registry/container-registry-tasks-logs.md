@@ -3,12 +3,12 @@ title: Visualizzare i log di esecuzione dell'attività-attività
 description: Come visualizzare e gestire i log di esecuzione generati dalle attività ACR.
 ms.topic: article
 ms.date: 03/09/2020
-ms.openlocfilehash: f7098f470a3f8a0cdac019f4bf8eb8fe14330337
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b2a10d4a3a2746acf38445673af994c6317c77de
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91871933"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93027177"
 ---
 # <a name="view-and-manage-task-run-logs"></a>Visualizzare e gestire i log di esecuzione delle attività
 
@@ -65,14 +65,14 @@ Se un'attività viene attivata automaticamente, ad esempio tramite un aggiorname
 Per visualizzare i log di esecuzione nel portale:
 
 1. Passare al registro contenitori.
-1. In **Servizi**selezionare **Tasks**  >  **esecuzioni**attività.
+1. In **Servizi** selezionare **Tasks**  >  **esecuzioni** attività.
 1. Selezionare un **ID di esecuzione** per visualizzare lo stato di esecuzione ed eseguire i log. Il log contiene le stesse informazioni di un log trasmesso, se ne viene generato uno.
 
 ![Visualizzare il portale di accesso per l'esecuzione di attività](./media/container-registry-tasks-logs/portal-task-run-logs.png)
 
 Per visualizzare un log usando l'interfaccia della riga di comando di Azure, eseguire il comando [AZ ACR Task logs](/cli/azure/acr/task#az-acr-task-logs) e specificare un ID esecuzione, un nome di attività o un'immagine specifica creata da un'attività di compilazione. Se viene specificato un nome di attività, il comando Mostra il log per l'ultima esecuzione creata.
 
-Nell'esempio seguente viene restituito il log per l'esecuzione con ID *CF4*:
+Nell'esempio seguente viene restituito il log per l'esecuzione con ID *CF4* :
 
 ```azurecli
 az acr task logs --registry mycontainerregistry1220 \
@@ -94,18 +94,10 @@ az acr task logs --registry mycontainerregistry1220 \
 
 È anche possibile salvare i file di log locali in archiviazione di Azure. Ad esempio, usare l' [interfaccia](../storage/blobs/storage-quickstart-blobs-cli.md)della riga di comando di Azure, il [portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md)o altri metodi per caricare file in un account di archiviazione.
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sulle [attività di Azure container Registry](container-registry-tasks-overview.md)
 
-<!-- LINKS - External -->
-[base-alpine]: https://hub.docker.com/_/alpine/
-[base-dotnet]: https://hub.docker.com/r/microsoft/dotnet/
-[base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
-[sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
-[terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 
 <!-- LINKS - Internal -->
 [azure-cli]: /cli/azure/install-azure-cli

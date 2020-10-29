@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: d2c2673e6863725e064f3ad8561ab77eb1b051eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb5984ba5d5764ee2ffa3f28e2d95612c14f7e27
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91371525"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93025936"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Esercitazione: caricare il set di dati del taxi di New York
 
@@ -52,7 +52,7 @@ Per creare un database vuoto, seguire questa procedura.
 
 2. Selezionare **database** nella pagina **nuovo** e selezionare **Azure sinapsi Analytics** in in **primo piano** nella pagina **nuova** .
 
-    ![creare un data warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
+    ![Screenshot mostra SQL Data Warehouse selezionati da database nel portale di Azure.](./media/load-data-from-azure-blob-storage-using-polybase/create-empty-data-warehouse.png)
 
 3. Compilare il modulo con le informazioni seguenti:
 
@@ -63,7 +63,7 @@ Per creare un database vuoto, seguire questa procedura.
    | **Gruppo di risorse** | myResourceGroup       | Per i nomi di gruppi di risorse validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). |
    | **Seleziona origine**  | Database vuoto        | Specificare che venga creato un database vuoto. Si noti che un data warehouse è un tipo di database. |
 
-    ![creare un data warehouse](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
+    ![Screenshot mostra il riquadro SQL Data Warehouse in cui è possibile immettere questi valori.](./media/load-data-from-azure-blob-storage-using-polybase/create-data-warehouse.png)
 
 4. Selezionare **Server** per creare e configurare un nuovo server per il nuovo database. Compilare il **modulo del nuovo server** con le informazioni seguenti:
 
@@ -76,15 +76,15 @@ Per creare un database vuoto, seguire questa procedura.
 
     ![Crea server](./media/load-data-from-azure-blob-storage-using-polybase/create-database-server.png)
 
-5. Scegliere **Seleziona**.
+5. Scegliere **Seleziona** .
 
 6. Selezionare **livello di prestazioni** per specificare se il data warehouse è Gen1 o Gen2 e il numero di unità di data warehouse.
 
-7. Per questa esercitazione, selezionare Pool SQL **Gen2**. Il dispositivo di scorrimento è impostato su **compreso dw1000c** per impostazione predefinita.  Provare a spostarlo verso l'alto o il basso per vedere come funziona.
+7. Per questa esercitazione, selezionare Pool SQL **Gen2** . Il dispositivo di scorrimento è impostato su **compreso dw1000c** per impostazione predefinita.  Provare a spostarlo verso l'alto o il basso per vedere come funziona.
 
     ![configurare le prestazioni](./media/load-data-from-azure-blob-storage-using-polybase/configure-performance.png)
 
-8. Selezionare **Applica**.
+8. Selezionare **Applica** .
 9. Nel pannello provisioning selezionare le regole di **confronto** per il database vuoto. Per questa esercitazione usare il valore predefinito. Per altre informazioni sulle regole di confronto, vedere [Collations](/sql/t-sql/statements/collations?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (Regole di confronto)
 
 10. Ora che è stato completato il modulo, selezionare **Crea** per eseguire il provisioning del database. Il provisioning richiede alcuni minuti.
@@ -100,7 +100,7 @@ Un firewall a livello di server che impedisce alle applicazioni e agli strumenti
 > [!NOTE]
 > Azure sinapsi Analytics comunica sulla porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server a meno che il reparto IT non apra la porta 1433.
 
-1. Al termine della distribuzione, selezionare **database SQL** dal menu a sinistra e quindi selezionare **mySampleDatabase** nella pagina **database SQL** . Viene visualizzata la pagina di panoramica per il database che mostra il nome completo del server, ad esempio **mynewserver-20180430.database.windows.net**, e offre altre opzioni per la configurazione.
+1. Al termine della distribuzione, selezionare **database SQL** dal menu a sinistra e quindi selezionare **mySampleDatabase** nella pagina **database SQL** . Viene visualizzata la pagina di panoramica per il database che mostra il nome completo del server, ad esempio **mynewserver-20180430.database.windows.net** , e offre altre opzioni per la configurazione.
 
 2. Copiare il nome completo del server per connettersi al server e ai relativi database nelle guide introduttive successive. Quindi selezionare il nome del server per aprire Impostazioni server.
 
@@ -110,13 +110,13 @@ Un firewall a livello di server che impedisce alle applicazioni e agli strumenti
 
     ![impostazioni del server](./media/load-data-from-azure-blob-storage-using-polybase/server-settings.png)
 
-4. Selezionare **Mostra impostazioni firewall**. Verrà visualizzata la pagina **Impostazioni del firewall** per il server.
+4. Selezionare **Mostra impostazioni firewall** . Verrà visualizzata la pagina **Impostazioni del firewall** per il server.
 
     ![Regola del firewall del server](./media/load-data-from-azure-blob-storage-using-polybase/server-firewall-rule.png)
 
 5. Selezionare **Aggiungi IP client** sulla barra degli strumenti per aggiungere l'indirizzo IP corrente a una nuova regola del firewall. Una regola del firewall può aprire la porta 1433 per un indirizzo IP singolo o un intervallo di indirizzi IP.
 
-6. Selezionare **Salva**. Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server.
+6. Selezionare **Salva** . Viene creata una regola del firewall a livello di server per l'indirizzo IP corrente, che apre la porta 1433 nel server.
 
 7. Selezionare **OK** e quindi chiudere la pagina **impostazioni del firewall** .
 
@@ -131,7 +131,7 @@ Ottenere il nome completo del server nel portale di Azure. In seguitò si userà
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
 2. Selezionare **Azure sinapsi Analytics** dal menu a sinistra e selezionare il database nella pagina **Azure sinapsi Analytics** .
-3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database individuare e quindi copiare il **Nome server**. In questo esempio il nome completo è mynewserver-20180430.database.windows.net.
+3. Nel riquadro **Informazioni di base** della pagina del portale di Azure per il database individuare e quindi copiare il **Nome server** . In questo esempio il nome completo è mynewserver-20180430.database.windows.net.
 
     ![informazioni di connessione](././media/load-data-from-azure-blob-storage-using-polybase/find-server-name.png)  
 
@@ -141,21 +141,21 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
 
 1. Aprire SQL Server Management Studio.
 
-2. Immettere le informazioni seguenti nella finestra di dialogo **Connetti al server**:
+2. Immettere le informazioni seguenti nella finestra di dialogo **Connetti al server** :
 
     | Impostazione        | Valore consigliato                            | Descrizione                                                  |
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
     | Tipo di server    | Motore di database                            | Questo valore è obbligatorio                                       |
-    | Nome server    | Nome completo del server            | Il nome sarà simile a: **mynewserver-20180430.database.windows.net**. |
+    | Nome server    | Nome completo del server            | Il nome sarà simile a: **mynewserver-20180430.database.windows.net** . |
     | Authentication | Autenticazione di SQL Server                  | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
     | Login          | Account amministratore del server                   | Si tratta dell'account specificato al momento della creazione del server. |
     | Password       | Password per l'account amministratore del server | Si tratta della password specificata al momento della creazione del server. |
 
     ![Connetti al server](./media/load-data-from-azure-blob-storage-using-polybase/connect-to-server.png)
 
-3. Selezionare **Connetti**. In SSMS si apre la finestra Esplora oggetti.
+3. Selezionare **Connetti** . In SSMS si apre la finestra Esplora oggetti.
 
-4. In Esplora oggetti espandere **Database**. Espandere quindi **Database di sistema** e **master** per visualizzare gli oggetti nel database master.  Espandere **mySampleDatabase** per visualizzare gli oggetti nel nuovo database.
+4. In Esplora oggetti espandere **Database** . Espandere quindi **Database di sistema** e **master** per visualizzare gli oggetti nel database master.  Espandere **mySampleDatabase** per visualizzare gli oggetti nel nuovo database.
 
     ![oggetti di database](./media/load-data-from-azure-blob-storage-using-polybase/connected.png)
 
@@ -165,9 +165,9 @@ L'account amministratore del server ha la funzione di eseguire operazioni di ges
 
 È consigliabile creare un account di accesso e un utente dedicato per il caricamento dei dati. Quindi aggiungere l'utente con il compito di caricare i dati a una [classe di risorse](resource-classes-for-workload-management.md) che consente un'allocazione di memoria massima appropriata.
 
-Poiché l'accesso è stato eseguito come amministratore del server, è possibile creare account di accesso e utenti. Usare questa procedura per creare un account di accesso e un utente denominato **LoaderRC20**. Quindi assegnare l'utente alla classe di risorse **staticrc20**.
+Poiché l'accesso è stato eseguito come amministratore del server, è possibile creare account di accesso e utenti. Usare questa procedura per creare un account di accesso e un utente denominato **LoaderRC20** . Quindi assegnare l'utente alla classe di risorse **staticrc20** .
 
-1. In SSMS, fare clic con il pulsante destro del mouse su **Master** per visualizzare un menu a discesa e scegliere **nuova query**. Viene visualizzata una nuova finestra di query.
+1. In SSMS, fare clic con il pulsante destro del mouse su **Master** per visualizzare un menu a discesa e scegliere **nuova query** . Viene visualizzata una nuova finestra di query.
 
     ![Nuova query nel master](./media/load-data-from-azure-blob-storage-using-polybase/create-loader-login.png)
 
@@ -178,9 +178,9 @@ Poiché l'accesso è stato eseguito come amministratore del server, è possibile
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. Scegliere **Execute**(Esegui).
+3. Selezionare **Esegui** .
 
-4. Fare clic con il pulsante destro del mouse su **mySampleDataWarehouse** e scegliere **Nuova query**. Viene visualizzata una nuova finestra della query.  
+4. Fare clic con il pulsante destro del mouse su **mySampleDataWarehouse** e scegliere **Nuova query** . Viene visualizzata una nuova finestra della query.  
 
     ![Nuova query nel data warehouse di esempio](./media/load-data-from-azure-blob-storage-using-polybase/create-loading-user.png)
 
@@ -192,19 +192,19 @@ Poiché l'accesso è stato eseguito come amministratore del server, è possibile
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. Scegliere **Execute**(Esegui).
+6. Selezionare **Esegui** .
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>Connettersi al server come utente addetto al caricamento
 
 Il primo passo per caricare dati è eseguire l'accesso come LoaderRC20.  
 
-1. In Esplora oggetti selezionare il menu a discesa **Connetti** e selezionare **motore di database**. Viene visualizzata la finestra di dialogo **Connetti al server** .
+1. In Esplora oggetti selezionare il menu a discesa **Connetti** e selezionare **motore di database** . Viene visualizzata la finestra di dialogo **Connetti al server** .
 
     ![Connettersi con il nuovo account](./media/load-data-from-azure-blob-storage-using-polybase/connect-as-loading-user.png)
 
 2. Immettere il nome completo del server e **LoaderRC20** come account di accesso.  Immettere la password per LoaderRC20.
 
-3. Selezionare **Connetti**.
+3. Selezionare **Connetti** .
 
 4. Quando la connessione è pronta, si vedranno due connessioni server in Esplora oggetti. Una connessione ServerAdmin e una connessione MedRCLogin.
 
@@ -216,7 +216,7 @@ Ora è possibile iniziare il processo di caricamento dei dati nel nuovo data war
 
 Eseguire gli script SQL seguenti e specificare le informazioni sui dati che si desidera caricare. Queste informazioni includono la posizione dei dati, il formato del contenuto dei dati e la definizione della tabella per i dati.
 
-1. Nella sezione precedente è stato eseguito l'accesso al data warehouse come LoaderRC20. In SSMS fare clic con il pulsante destro del mouse sulla connessione LoaderRC20 e selezionare **Nuova query**.  Verrà visualizzata una nuova finestra di query,
+1. Nella sezione precedente è stato eseguito l'accesso al data warehouse come LoaderRC20. In SSMS fare clic con il pulsante destro del mouse sulla connessione LoaderRC20 e selezionare **Nuova query** .  Verrà visualizzata una nuova finestra di query,
 
     ![Finestra della nuova query di caricamento](./media/load-data-from-azure-blob-storage-using-polybase/new-loading-query.png)
 
@@ -505,13 +505,13 @@ Seguire questa procedura per pulire le risorse nel modo desiderato.
 
     ![Pulire le risorse](./media/load-data-from-azure-blob-storage-using-polybase/clean-up-resources.png)
 
-2. Per sospendere il calcolo, selezionare il pulsante **Pausa**. Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia**.  Per riprendere il calcolo, selezionare **Avvia**.
+2. Per sospendere il calcolo, selezionare il pulsante **Pausa** . Quando si sospende il data warehouse, viene visualizzato il pulsante **Avvia** .  Per riprendere il calcolo, selezionare **Avvia** .
 
-3. Per rimuovere il data warehouse in modo che non venga addebitato il calcolo o l'archiviazione, selezionare **Elimina**.
+3. Per rimuovere il data warehouse in modo che non venga addebitato il calcolo o l'archiviazione, selezionare **Elimina** .
 
-4. Per rimuovere il server creato, selezionare **MyNewServer-20180430.database.Windows.NET** nell'immagine precedente e quindi selezionare **Elimina**.  Prestare attenzione con questa operazione perché eliminando il server saranno eliminati tutti i database assegnati al server.
+4. Per rimuovere il server creato, selezionare **MyNewServer-20180430.database.Windows.NET** nell'immagine precedente e quindi selezionare **Elimina** .  Prestare attenzione con questa operazione perché eliminando il server saranno eliminati tutti i database assegnati al server.
 
-5. Per rimuovere il gruppo di risorse, selezionare **myResourceGroup** e quindi **Elimina gruppo di risorse**.
+5. Per rimuovere il gruppo di risorse, selezionare **myResourceGroup** e quindi **Elimina gruppo di risorse** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

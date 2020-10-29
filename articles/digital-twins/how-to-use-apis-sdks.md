@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1ad9d72d69e23e4029de163ded1a71ae4dfb82fb
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 89fb0e8435bd1804193db5b0f8c0596733a7e674
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913773"
+ms.locfileid: "93026140"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -306,7 +306,7 @@ Da qui è possibile visualizzare le metriche per l'istanza e creare visualizzazi
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere come usare le API per configurare un'istanza di dispositivi gemelli digitali di Azure e l'autenticazione:
-* [*Procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md)
+* [*Procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-cli.md)
 
 In alternativa, esaminare i passaggi per creare un'app client come quella usata in questa procedura:
 * [*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md)

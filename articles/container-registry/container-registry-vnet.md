@@ -3,12 +3,12 @@ title: Limitare l'accesso con un endpoint di servizio
 description: Limitare l'accesso a un registro contenitori di Azure usando un endpoint di servizio in una rete virtuale di Azure. L'accesso agli endpoint di servizio è una funzionalità del livello di servizio Premium.
 ms.topic: article
 ms.date: 05/04/2020
-ms.openlocfilehash: 3472549827781c6ed2f6be0417866747c81edd93
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 5f9bc7c9a6c8f2061765510a6396611502fd4a2a
+ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215502"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "93026225"
 ---
 # <a name="restrict-access-to-a-container-registry-using-a-service-endpoint-in-an-azure-virtual-network"></a>Limitare l'accesso a un registro contenitori usando un endpoint di servizio in una rete virtuale di Azure
 
@@ -19,7 +19,7 @@ Questo articolo illustra come configurare un endpoint di servizio del registro c
 > [!IMPORTANT]
 > Registro Azure Container supporta ora il [collegamento privato di Azure](container-registry-private-link.md), consentendo l'inserimento di endpoint privati da una rete virtuale in un registro. Gli endpoint privati sono accessibili dall'interno della rete virtuale, mediante indirizzi IP privati. Nella maggior parte degli scenari di rete è consigliabile usare endpoint privati anziché endpoint di servizio.
 
-La configurazione di un endpoint di servizio del registro è disponibile nel livello di servizio del registro contenitori **Premium**. Per informazioni sui livelli di servizio e sui limiti del registro contenitori, vedere [Livelli di servizio del Registro Azure Container](container-registry-skus.md).
+La configurazione di un endpoint di servizio del registro è disponibile nel livello di servizio del registro contenitori **Premium** . Per informazioni sui livelli di servizio e sui limiti del registro contenitori, vedere [Livelli di servizio del Registro Azure Container](container-registry-skus.md).
 
 ## <a name="preview-limitations"></a>Limiti di anteprima
 
@@ -53,7 +53,7 @@ In questa sezione, si vedrà come configurare il registro contenitori per consen
 
 ### <a name="add-a-service-endpoint-to-a-subnet"></a>Aggiungere un endpoint di servizio a una subnet
 
-Quando si crea una macchina virtuale, per impostazione predefinita Azure crea una rete virtuale nello stesso gruppo di risorse. Il nome della rete virtuale si basa sul nome della macchina virtuale. Se, ad esempio, si rinomina la macchina virtuale in *myDockerVM*, il nome della rete virtuale predefinito sarà *myDockerVMVNET*, con una subnet denominata *myDockerVMSubnet*. Per verificare questa operazione, usare il comando [AZ Network VNET list][az-network-vnet-list] :
+Quando si crea una macchina virtuale, per impostazione predefinita Azure crea una rete virtuale nello stesso gruppo di risorse. Il nome della rete virtuale si basa sul nome della macchina virtuale. Se, ad esempio, si rinomina la macchina virtuale in *myDockerVM* , il nome della rete virtuale predefinito sarà *myDockerVMVNET* , con una subnet denominata *myDockerVMSubnet* . Per verificare questa operazione, usare il comando [AZ Network VNET list][az-network-vnet-list] :
 
 ```azurecli
 az network vnet list \
@@ -189,7 +189,6 @@ az group delete --name myResourceGroup
 
 
 <!-- LINKS - External -->
-[aci-helloworld]: https://hub.docker.com/r/microsoft/aci-helloworld/
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 [kubectl]: https://kubernetes.io/docs/user-guide/kubectl/
 [docker-linux]: https://docs.docker.com/engine/installation/#supported-platforms
