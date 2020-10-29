@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/28/2020
 ms.author: jeedes
-ms.openlocfilehash: f5a01d74d22d6ea010d80ef1ef8ce1a53fbd4422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 649a26e474c7c4d6b4f51a035b3f8f9da35b9dd1
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548814"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92511155"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-raketa"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Raketa
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Raketa con Azure Active Directory (
 * Abilitare gli utenti per l'accesso automatico a Raketa con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,8 +39,8 @@ Per iniziare, sono necessari gli elementi seguenti:
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Raketa supporta l'accesso SSO avviato dal **provider di servizi**.
-* Dopo aver configurato Raketa, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Raketa supporta l'accesso SSO avviato dal **provider di servizi** .
+* Dopo aver configurato Raketa, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-raketa-from-the-gallery"></a>Aggiunta di Raketa dalla raccolta
 
@@ -66,7 +66,7 @@ Per configurare l'integrazione di Raketa in Azure AD, è necessario aggiungere R
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-raketa"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Raketa
 
-Configurare e testare l'accesso SSO di Azure AD con Raketa usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Raketa.
+Configurare e testare l'accesso SSO di Azure AD con Raketa usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Raketa.
 
 Per configurare e testare l'accesso SSO di Azure AD con Raketa, completare le procedure di base seguenti:
 
@@ -152,7 +152,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![rkt_11](./media/raketa-tutorial/users-groups.png)
 
-1. Selezionare **Aggiungi utente** [29] e quindi **Utenti e gruppi** [30] nella finestra di dialogo **Aggiungi assegnazione**.
+1. Selezionare **Aggiungi utente** [29] e quindi **Utenti e gruppi** [30] nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![rkt_12](./media/raketa-tutorial/add-user-raketa.png)
 
@@ -166,7 +166,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-raketa-sso"></a>Configura l'accesso Single Sign-On di Raketa
 
-Per configurare l'accesso Single Sign-On sul lato **Raketa**, è necessario inviare il **certificato (Base64)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Raketa](mailto:help@raketa.travel). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Raketa** , è necessario inviare il **certificato (Base64)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Raketa](mailto:help@raketa.travel). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-raketa-test-user"></a>Creare l'utente di test di Raketa
 
@@ -176,18 +176,18 @@ In questa sezione viene creato un utente di nome B.Simon in Raketa. Collaborare 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Raketa nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Raketa per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Raketa nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Raketa per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Raketa con Azure AD](https://aad.portal.azure.com/)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
 
-- [Come proteggere Raketa con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Come proteggere Raketa con visibilità e controlli avanzati](/cloud-app-security/proxy-intro-aad)

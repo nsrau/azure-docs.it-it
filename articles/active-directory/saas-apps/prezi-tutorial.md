@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: 2f3e540174643f20c87396b8568f6e5b0a1ab16d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ff8196ff4e30aa6ed036cabe00a72bfa8a5c51f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658928"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92515322"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-integration-with-prezi"></a>Esercitazione: Integrazione dell'accesso Single Sign-On di Azure Active Directory con Prezi
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Prezi con Azure Active Directory (A
 * Abilitare gli utenti per l'accesso automatico a Prezi con gli account Azure AD personali.
 * Gestire gli account nel portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,7 +41,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Prezi supporta l'accesso SSO avviato da SP e IDP.
 * Prezi supporta il provisioning utenti JIT.
-* Dopo aver configurato Prezi, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. Per altre informazioni, vedere [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Dopo aver configurato Prezi, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. Per altre informazioni, vedere [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
@@ -51,9 +51,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di Prezi in Azure AD, è necessario aggiungere Prezi dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro all'estrema sinistra selezionare **Azure Active Directory**.
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nel riquadro all'estrema sinistra selezionare **Azure Active Directory** .
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
 1. Nella sezione **Aggiungi dalla raccolta** immettere **Prezi** nella casella di ricerca.
 1. Selezionare **Prezi** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
@@ -74,19 +74,19 @@ Per configurare e testare l'accesso SSO di Azure AD con Prezi, completare le pro
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure:
 
-1. Nella pagina di integrazione dell'applicazione **Prezi** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per modificare le impostazioni in **Configurazione SAML di base**.
+1. Nella pagina di integrazione dell'applicazione **Prezi** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per modificare le impostazioni in **Configurazione SAML di base** .
 
    ![Modificare le impostazioni di Configurazione SAML di base](common/edit-urls.png)
 
 1. Nella sezione **Configurazione SAML di base** l'utente non deve eseguire alcuna operazione perché l'app è già preintegrata in Azure.
 
-1. Selezionare **Impostare URL aggiuntivi** e quindi seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Selezionare **Impostare URL aggiuntivi** e quindi seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     Nella casella **URL di accesso** immettere l'URL `https://prezi.com/login/sso/`.
 
-1. Selezionare **Salva**.
+1. Selezionare **Salva** .
 
 1. L'applicazione Prezi prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti.
 
@@ -111,31 +111,31 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure:
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel portale di Azure selezionare **Azure Active Directory** nel riquadro all'estrema sinistra. Passare a **Utenti** e quindi selezionare **Tutti gli utenti**.
+1. Nel portale di Azure selezionare **Azure Active Directory** nel riquadro all'estrema sinistra. Passare a **Utenti** e quindi selezionare **Tutti gli utenti** .
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. Nelle proprietà utente seguire questa procedura:
-   1. Nella casella **Nome** immettere **B.Simon**.
+   1. Nella casella **Nome** immettere **B.Simon** .
    1. Nella casella **Nome utente** immettere un valore per `username@companydomain.extension`, ad esempio `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password**. Prendere quindi nota del valore visualizzato nella casella **Password**.
+   1. Selezionare la casella di controllo **Mostra password** . Prendere quindi nota del valore visualizzato nella casella **Password** .
    1. Selezionare **Create** (Crea).
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso SSO di Azure concedendole l'accesso a Prezi.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Prezi**.
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** .
+1. Nell'elenco delle applicazioni selezionare **Prezi** .
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
 
    ![Collegamento Utenti e gruppi](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic su **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic su **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
 
 ## <a name="configure-prezi-sso"></a>Configurare l'accesso Single Sign-On di Prezi
 
@@ -169,14 +169,13 @@ In questa sezione viene creato un utente di nome Britta Simon in Prezi. Prezi su
 
 In questa sezione viene testata la configurazione dell'accesso SSO di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di Prezi nel pannello di accesso, si dovrebbe accedere automaticamente all'account Prezi per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Prezi nel pannello di accesso, si dovrebbe accedere automaticamente all'account Prezi per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 - [Provare Prezi con Azure AD](https://aad.portal.azure.com/)
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-- [Come proteggere Prezi con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
+- [Come proteggere Prezi con visibilità e controlli avanzati](/cloud-app-security/proxy-intro-aad)

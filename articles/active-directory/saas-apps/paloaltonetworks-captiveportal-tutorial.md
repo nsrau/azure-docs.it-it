@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1096437fc1d77042a9db4dc359d51cd6d9d22960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66e363b43bf9028e3075efa0f5a1f54e6bda190d
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91304390"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92512689"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks-captive-portal"></a>Esercitazione: Integrazione di Azure Active Directory con Palo Alto Networks Captive Portal
 
@@ -46,15 +46,15 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di Palo Alto Networks Captive Portal in Azure AD, è necessario aggiungere Palo Alto Networks Captive Portal dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Palo Alto Networks Captive Portal** nella casella di ricerca.
 1. Selezionare **Palo Alto Networks Captive Portal** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurare e testare l'accesso SSO di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Palo Alto Networks Captive Portal usando un utente di test di nome **B.Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Palo Alto Networks Captive Portal usando un utente di test di nome **B.Simon** .
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Palo Alto Networks Captive Portal.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Palo Alto Networks Captive Portal, seguire questa procedura:
@@ -70,8 +70,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Palo Alto Net
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Palo Alto Networks Captive Portal** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On**.
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina di integrazione dell'applicazione **Palo Alto Networks Captive Portal** del portale di Azure individuare la sezione **Gestione** e selezionare **Single Sign-On** .
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
@@ -85,7 +85,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
       > [!NOTE]
       > Aggiornare i valori dei segnaposto in questo passaggio con i valori effettivi di identificatore e URL di risposta. Per ottenere i valori effettivi, contattare il [team di supporto clienti di Palo Alto Networks Captive Portal](https://support.paloaltonetworks.com/support).
 
-5. Nella sezione **Certificato di firma SAML** selezionare **Scarica** accanto a **XML metadati federazione**. Salvare il file scaricato nel computer.
+5. Nella sezione **Certificato di firma SAML** selezionare **Scarica** accanto a **XML metadati federazione** . Salvare il file scaricato nel computer.
 
     ![Collegamento per il download del file XML dei metadati federazione](common/metadataxml.png)
 
@@ -93,25 +93,25 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Crea**.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+   1. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Palo Alto Networks Captive Portal.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Palo Alto Networks Captive Portal**.
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
+1. Nell'elenco delle applicazioni selezionare **Palo Alto Networks Captive Portal** .
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo** . Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ## <a name="configure-palo-alto-networks-captive-portal-sso"></a>Configurare l'accesso Single Sign-On di Palo Alto Networks Captive Portal
 
@@ -131,11 +131,11 @@ A questo punto configurare l'accesso Single Sing-On in Palo Alto Networks Captiv
 
     ![Configurare l'accesso Single Sign-On per Palo Alto Networks](./media/paloaltonetworks-captiveportal-tutorial/tutorial_paloaltoadmin_admin3.png)
 
-    1. In **Profile Name** (Nome profilo) immettere un nome, ad esempio **AzureAD-CaptivePortal**.
+    1. In **Profile Name** (Nome profilo) immettere un nome, ad esempio **AzureAD-CaptivePortal** .
     
     2. Accanto a **Identity Provider Metadata** (Metadati provider di identità) selezionare **Browse** (Sfoglia). Selezionare il file metadata.xml scaricato nel portale di Azure.
     
-    3. Selezionare **OK**.
+    3. Selezionare **OK** .
 
 ### <a name="create-a-palo-alto-networks-captive-portal-test-user"></a>Creare l'utente di test di Palo Alto Networks Captive Portal
 
@@ -150,8 +150,8 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 Dopo aver fatto clic su Test this application (Testa questa applicazione) nel portale di Azure, si dovrebbe accedere automaticamente all'istanza di Palo Alto Networks Captive Portal per cui si è configurato l'accesso SSO
 
-È possibile usare il Pannello di accesso Microsoft. Quando si fa clic sul riquadro Palo Alto Networks Captive Portal nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Palo Alto Networks Captive Portal per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+È possibile usare il Pannello di accesso Microsoft. Quando si fa clic sul riquadro Palo Alto Networks Captive Portal nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Palo Alto Networks Captive Portal per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato Palo Alto Networks Captive Portal, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato Palo Alto Networks Captive Portal, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
