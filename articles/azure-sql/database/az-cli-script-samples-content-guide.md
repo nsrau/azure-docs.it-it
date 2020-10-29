@@ -12,12 +12,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 02/03/2019
-ms.openlocfilehash: 893ea607b322c2f9b2d8a4e8b5b087e21c476d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f28d8f82796f54002312514b1a34e3dd8b666a3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87497172"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675250"
 ---
 # <a name="azure-cli-samples-for-azure-sql-database-and-sql-managed-instance"></a>Esempi dell'interfaccia della riga di comando di Azure per Database SQL di Azure e Istanza gestita di SQL 
  
@@ -73,7 +73,7 @@ La tabella seguente contiene collegamenti a esempi di script dell'interfaccia de
 | [Configurare un gruppo di failover per l'istanza gestita di SQL](../../sql-database/scripts/sql-database-add-managed-instance-to-failover-group-cli.md) | Crea due istanze gestite di SQL, le aggiunge a un gruppo di failover e quindi testa il failover dall'istanza gestita di SQL primaria all'istanza gestita di SQL secondaria. |
 |||
 
-Per altri esempi relativi alle istanze gestite di SQL, vedere gli esempi di script per [creazione](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../create-azure-sql-managed-instance-using-azure-cli/), [aggiornamento](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../modify-azure-sql-database-managed-instance-using-azure-cli/), [spostamento di un database](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance/) e [utilizzo](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
+Per altri esempi relativi alle istanze gestite di SQL, vedere gli esempi di script per [creazione](/archive/blogs/sqlserverstorageengine/create-azure-sql-managed-instance-using-azure-cli), [aggiornamento](/archive/blogs/sqlserverstorageengine/modify-azure-sql-database-managed-instance-using-azure-cli), [spostamento di un database](/archive/blogs/sqlserverstorageengine/cross-instance-point-in-time-restore-in-azure-sql-database-managed-instance) e [utilizzo](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44).
 
 Altre informazioni sull'[API dell'interfaccia della riga di comando di Azure per l'istanza gestita di SQL](../managed-instance/api-references-create-manage-instance.md#azure-cli-create-and-configure-managed-instances).
 

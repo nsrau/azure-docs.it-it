@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019, devx-track-azurepowershell
 ms.date: 01/22/2018
-ms.openlocfilehash: 3db7112516941e53c07e1521f15140a8b9c28e47
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 9562c9fd590ea1234fb2378f03861141e58432ff
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147973"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637531"
 ---
 # <a name="tutorial-copy-data-from-a-sql-server-database-to-azure-blob-storage"></a>Esercitazione: Copiare dati da un database di SQL Server all'archiviazione BLOB di Azure
 
@@ -50,7 +50,7 @@ Per visualizzare le autorizzazioni disponibili nella sottoscrizione, passare al 
 ### <a name="sql-server-2014-2016-and-2017"></a>SQL Server 2014, 2016 e 2017
 In questa esercitazione si usa un database di SQL Server come archivio dati di *origine* . La pipeline nella data factory creata in questa esercitazione copia i dati da questo database di SQL Server (origine) all'archiviazione BLOB di Azure (sink). Si crea quindi una tabella denominata **emp** nel database di SQL Server e inserire una coppia di voci di esempio nella tabella.
 
-1. Avviare SQL Server Management Studio. Se non è già installato nel computer, passare a [Scaricare SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms).
+1. Avviare SQL Server Management Studio. Se non è già installato nel computer, passare a [Scaricare SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms).
 
 1. Connettersi all'istanza di SQL Server usando le credenziali.
 

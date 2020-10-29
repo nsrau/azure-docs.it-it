@@ -1,14 +1,14 @@
 ---
 title: Esempio di progetto DoD Impact Level 4
 description: Procedura di distribuzione per l'esempio di progetto DoD Impact Level 4, inclusi i dettagli dei parametri degli artefatti del progetto.
-ms.date: 09/17/2020
+ms.date: 10/26/2020
 ms.topic: sample
-ms.openlocfilehash: 7ab2e5967031b52bcad7c1b6f38b546cb8a7eb86
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 128f47798830c6a51d8fe7a9b67b9f0d7749dc71
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90978399"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92669496"
 ---
 # <a name="deploy-the-dod-impact-level-4-blueprint-sample"></a>Distribuire l'esempio di progetto DoD Impact Level 4
 
@@ -25,26 +25,26 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di tutto, implementare l'esempio di progetto creando un nuovo progetto nell'ambiente basato sull'esempio.
 
-1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
+1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti** .
 
-1. Nella pagina **Getting started** (Introduzione) a sinistra selezionare il pulsante **Crea** in _Creare un progetto_.
+1. Nella pagina **Getting started** (Introduzione) a sinistra selezionare il pulsante **Crea** in _Creare un progetto_ .
 
-1. Trovare l'esempio di progetto **DoD Impact Level 4** in _Altri esempi_ e selezionare **Usa questo esempio**.
+1. Trovare l'esempio di progetto **DoD Impact Level 4** in _Altri esempi_ e selezionare **Usa questo esempio** .
 
 1. Immettere le _informazioni di base_ dell'esempio di progetto:
 
-   - **Nome progetto**: specificare un nome per la copia dell'esempio di progetto DoD Impact Level 4.
-   - **Posizione della definizione**: usare i puntini di sospensione e selezionare il gruppo di gestione in cui salvare la copia dell'esempio.
+   - **Nome progetto** : specificare un nome per la copia dell'esempio di progetto DoD Impact Level 4.
+   - **Posizione della definizione** : usare i puntini di sospensione e selezionare il gruppo di gestione in cui salvare la copia dell'esempio.
 
 1. Selezionare la scheda _Artefatti_ nella parte superiore della pagina oppure **Avanti: Elementi** nella parte inferiore della pagina.
 
-1. Esaminare l'elenco degli artefatti che costituiscono l'esempio di progetto. Molti artefatti hanno parametri che verranno definiti in seguito. Una volta esaminato l'esempio di progetto, selezionare **Salva bozza**.
+1. Esaminare l'elenco degli artefatti che costituiscono l'esempio di progetto. Molti artefatti hanno parametri che verranno definiti in seguito. Una volta esaminato l'esempio di progetto, selezionare **Salva bozza** .
 
 ## <a name="publish-the-sample-copy"></a>Pubblicare la copia dell'esempio
 
-La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza**, è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata in base all'ambiente e alle esigenze, ma le modifiche potrebbero renderla non allineata ai controlli DoD Impact Level 4.
+La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è stata creata in modalità **Bozza** , è necessario **pubblicarla** per poterla assegnare e distribuire. La copia dell'esempio di progetto può essere personalizzata in base all'ambiente e alle esigenze, ma le modifiche potrebbero renderla non allineata ai controlli DoD Impact Level 4.
 
-1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
+1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti** .
 
 1. Selezionare la pagina **Definizioni di progetto** a sinistra. Usare i filtri per trovare la copia dell'esempio di progetto e quindi selezionarla.
 
@@ -54,7 +54,7 @@ La copia dell'esempio di progetto è stata creata nell'ambiente. Ma poiché è s
 
 Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente, è possibile assegnarla a una sottoscrizione all'interno del gruppo di gestione in cui è stata salvata. In questo passaggio vengono specificati i parametri che rendono univoca ogni distribuzione della copia dell'esempio di progetto.
 
-1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti**.
+1. Selezionare **Tutti i servizi** nel riquadro a sinistra. Cercare e selezionare **Progetti** .
 
 1. Selezionare la pagina **Definizioni di progetto** a sinistra. Usare i filtri per trovare la copia dell'esempio di progetto e quindi selezionarla.
 
@@ -64,11 +64,11 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
    - Nozioni di base
 
-     - **Sottoscrizioni**: selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ognuna usando i parametri immessi.
-     - **Nome dell'assegnazione**: il nome viene prepopolato in base al nome del progetto.
+     - **Sottoscrizioni** : selezionare una o più sottoscrizioni presenti nel gruppo di gestione in cui è stata salvata la copia dell'esempio di progetto. Se si selezionano più sottoscrizioni, viene creata un'assegnazione per ognuna usando i parametri immessi.
+     - **Nome dell'assegnazione** : il nome viene prepopolato in base al nome del progetto.
        Cambiarlo, se necessario, o lasciarlo inalterato.
-     - **Località**: selezionare un'area in cui creare l'identità gestita. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
-     - **Versione della definizione di progetto**: Scegliere una versione **pubblicata** della copia dell'esempio di progetto.
+     - **Località** : selezionare un'area in cui creare l'identità gestita. Azure Blueprint usa questa identità gestita per distribuire tutti gli elementi nel progetto assegnato. Per altre informazioni, vedere [Managed identities for Azure resources](../../../../active-directory/managed-identities-azure-resources/overview.md) (Identità gestite per risorse di Azure).
+     - **Versione della definizione di progetto** : Scegliere una versione **pubblicata** della copia dell'esempio di progetto.
 
    - Blocca assegnazione
 
@@ -76,7 +76,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 
    - Identità gestita
 
-     Lasciare invariata l'opzione predefinita _Identità gestita assegnata dal sistema_.
+     Lasciare invariata l'opzione predefinita _Identità gestita assegnata dal sistema_ .
 
    - Parametri dell'elemento
 
@@ -85,7 +85,7 @@ Dopo che la copia dell'esempio di progetto è stata **pubblicata** correttamente
 1. Dopo avere immesso tutti i parametri, selezionare **Assegna** in fondo alla pagina. Viene creata l'assegnazione del progetto e inizia la distribuzione degli artefatti. La distribuzione richiede circa un'ora. Per controllare lo stato della distribuzione, aprire l'assegnazione del progetto.
 
 > [!WARNING]
-> Il servizio Azure Blueprints e gli esempi di progetti predefiniti sono **gratuiti**. Le risorse di Azure hanno un [prezzo in base al prodotto](https://azure.microsoft.com/pricing/). Usare la [calcolatrice dei prezzi](https://azure.microsoft.com/pricing/calculator/) per stimare il costo dell'esecuzione delle risorse distribuite da questo esempio di progetto.
+> Il servizio Azure Blueprints e gli esempi di progetti predefiniti sono **gratuiti** . Le risorse di Azure hanno un [prezzo in base al prodotto](https://azure.microsoft.com/pricing/). Usare la [calcolatrice dei prezzi](https://azure.microsoft.com/pricing/calculator/) per stimare il costo dell'esecuzione delle risorse distribuite da questo esempio di progetto.
 
 ## <a name="artifact-parameters-table"></a>Tabella di parametri degli artefatti
 

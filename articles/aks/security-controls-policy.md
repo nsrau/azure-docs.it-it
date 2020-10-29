@@ -3,20 +3,18 @@ title: Controlli di conformità alle normative di Criteri di Azure per il serviz
 description: Elenca i controlli di conformità alle normative di Criteri di Azure disponibili per il servizio Azure Kubernetes. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
 ms.date: 10/20/2020
 ms.topic: sample
-author: laurenhughes
-ms.author: lahugh
 ms.service: container-service
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: be806a7f7811133bbdd4f45d65c2a9cf191374f1
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 52d60c3fa471960e6949b0169928280f3ac59e56
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320457"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636596"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-kubernetes-service-aks"></a>Controlli di conformità alle normative di Criteri di Azure per il servizio Azure Kubernetes
 
-La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_, per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i **domini di conformità** e i **controlli di sicurezza** per il servizio Azure Kubernetes.
+La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_ , per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i **domini di conformità** e i **controlli di sicurezza** per il servizio Azure Kubernetes.
 È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
