@@ -1,23 +1,25 @@
 ---
-title: Come usare la funzionalità IP pubblico nella rete WAN virtuale
+title: Come usare la funzionalità IP pubblico nella soluzione VMware di Azure
 description: Questo articolo illustra come usare la funzionalità IP pubblico nella rete WAN virtuale di Azure.
 ms.topic: how-to
-ms.date: 10/30/2020
-ms.openlocfilehash: 61ed6487bc000a35fd25cabde2b562b6eb08da46
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.date: 10/28/2020
+ms.openlocfilehash: f51f00a9adc1fd122e723909ecaa6193c152d496
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048305"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912668"
 ---
-# <a name="how-to-use-the-public-ip-functionality-in-azure-virtual-wan"></a>Come usare la funzionalità IP pubblico nella rete WAN virtuale di Azure
+# <a name="how-to-use-the-public-ip-functionality-in-azure-vmware-solution"></a>Come usare la funzionalità IP pubblico nella soluzione VMware di Azure
 
-IP pubblico è una nuova funzionalità di connettività della soluzione VMware di Azure che consente ai clienti di abilitare l'accesso a Internet pubblico in due modi. 
+IP pubblico è una nuova funzionalità di connettività della soluzione VMware di Azure. Consente di rendere accessibili tramite una rete pubblica risorse quali server Web, macchine virtuali (VM) e host. 
+
+L'accesso a Internet pubblico viene abilitato in due modi. 
 
 - Le applicazioni possono essere ospitate e pubblicate sotto il servizio di bilanciamento del carico del gateway applicazione per il traffico HTTP/HTTPS.
 - Pubblicato tramite funzionalità IP pubbliche nella rete WAN virtuale di Azure.
 
-Come parte della distribuzione del cloud privato della soluzione VMware di Azure, quando si Abilita la funzionalità IP pubblico, i componenti necessari con l'automazione vengono creati e abilitati automaticamente:
+Come parte della distribuzione del cloud privato della soluzione VMware di Azure, quando si Abilita la funzionalità IP pubblico vengono creati e abilitati i componenti necessari con l'automazione:
 
 -  Rete WAN virtuale
 
@@ -25,7 +27,7 @@ Come parte della distribuzione del cloud privato della soluzione VMware di Azure
 
 -  Servizi firewall di Azure con IP pubblico
 
-Questo articolo illustra come usare la funzionalità IP pubblico nella rete WAN virtuale per creare risorse, ad esempio server Web, macchine virtuali (VM) e host, accessibili tramite una rete pubblica.
+Questo articolo illustra in dettaglio come usare la funzionalità IP pubblico nella rete WAN virtuale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,21 +50,21 @@ In questo scenario, è necessario pubblicare il server Web IIS su Internet. Usar
 
 ## <a name="deploy-virtual-wan"></a>Distribuire una rete WAN virtuale
 
-1. Accedere al portale di Azure, quindi cercare e selezionare **soluzione VMware di Azure**.
+1. Accedere al portale di Azure, quindi cercare e selezionare **soluzione VMware di Azure** .
 
 1. Selezionare il cloud privato della soluzione VMware di Azure.
 
    :::image type="content" source="media/public-ip-usage/avs-private-cloud-resource.png" alt-text="Diagramma dell'architettura IP pubblico" border="true" lightbox="media/public-ip-usage/avs-private-cloud-resource.png":::
 
-1. In **Gestisci**selezionare **connettività**.
+1. In **Gestisci** selezionare **connettività** .
 
    :::image type="content" source="media/public-ip-usage/avs-private-cloud-manage-menu.png" alt-text="Diagramma dell'architettura IP pubblico" border="true" lightbox="media/public-ip-usage/avs-private-cloud-manage-menu.png":::
 
-1. Selezionare la scheda **IP pubblico** , quindi selezionare **Configura**.
+1. Selezionare la scheda **IP pubblico** , quindi selezionare **Configura** .
 
    :::image type="content" source="media/public-ip-usage/connectivity-public-ip-tab.png" alt-text="Diagramma dell'architettura IP pubblico" border="true" lightbox="media/public-ip-usage/connectivity-public-ip-tab.png":::
 
-1. Accettare i valori predefiniti o modificarli, quindi selezionare **Crea**.
+1. Accettare i valori predefiniti o modificarli, quindi selezionare **Crea** .
 
    - Gruppo di risorse Wide Area Network virtuale
 
@@ -81,9 +83,9 @@ Il completamento della distribuzione di tutti i componenti richiede circa un'ora
 
 È possibile controllare e aggiungere altri indirizzi IP pubblici attenendosi alla procedura riportata di seguito.
 
-1. Nella portale di Azure cercare e selezionare **Firewall**.
+1. Nella portale di Azure cercare e selezionare **Firewall** .
 
-1. Selezionare un firewall distribuito e quindi selezionare **visitare gestione firewall di Azure per configurare e gestire il firewall**.
+1. Selezionare un firewall distribuito e quindi selezionare **visitare gestione firewall di Azure per configurare e gestire il firewall** .
 
    :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Diagramma dell'architettura IP pubblico" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
@@ -91,11 +93,11 @@ Il completamento della distribuzione di tutti i componenti richiede circa un'ora
 
    :::image type="content" source="media/public-ip-usage/select-virtual-hub.png" alt-text="Diagramma dell'architettura IP pubblico" lightbox="media/public-ip-usage/select-virtual-hub.png":::
 
-1. Nella pagina hub virtuale selezionare **configurazione IP pubblico**e aggiungere un altro indirizzo IP pubblico, quindi selezionare **Aggiungi**. 
+1. Nella pagina hub virtuale selezionare **configurazione IP pubblico** e aggiungere un altro indirizzo IP pubblico, quindi selezionare **Aggiungi** . 
 
    :::image type="content" source="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png" alt-text="Diagramma dell'architettura IP pubblico" border="true" lightbox="media/public-ip-usage/virtual-hub-page-public-ip-configuration.png":::
 
-1. Specificare il numero di indirizzi IP necessari e selezionare **Aggiungi**.
+1. Specificare il numero di indirizzi IP necessari e selezionare **Aggiungi** .
 
    :::image type="content" source="media/public-ip-usage/add-number-of-ip-addresses-required.png" alt-text="Diagramma dell'architettura IP pubblico" border="true":::
 
@@ -104,21 +106,21 @@ Il completamento della distribuzione di tutti i componenti richiede circa un'ora
 
 Una volta distribuiti tutti i componenti, è possibile visualizzarli nel gruppo di risorse aggiunto. Il passaggio successivo consiste nell'aggiungere un criterio del firewall.
 
-1. Nella portale di Azure cercare e selezionare **Firewall**.
+1. Nella portale di Azure cercare e selezionare **Firewall** .
 
-1. Selezionare un firewall distribuito e quindi selezionare **visitare gestione firewall di Azure per configurare e gestire il firewall**.
+1. Selezionare un firewall distribuito e quindi selezionare **visitare gestione firewall di Azure per configurare e gestire il firewall** .
 
    :::image type="content" source="media/public-ip-usage/configure-manage-deployed-firewall.png" alt-text="Diagramma dell'architettura IP pubblico" border="true" lightbox="media/public-ip-usage/configure-manage-deployed-firewall.png":::
 
-1. Selezionare **criteri del firewall di Azure** e quindi selezionare **Crea criterio del firewall di Azure**.
+1. Selezionare **criteri del firewall di Azure** e quindi selezionare **Crea criterio del firewall di Azure** .
 
    :::image type="content" source="media/public-ip-usage/create-firewall-policy.png" alt-text="Diagramma dell'architettura IP pubblico" border="true" lightbox="media/public-ip-usage/create-firewall-policy.png":::
 
-1. Nella scheda informazioni di **base** specificare i dettagli richiesti e selezionare **Avanti: impostazioni DNS**. 
+1. Nella scheda informazioni di **base** specificare i dettagli richiesti e selezionare **Avanti: impostazioni DNS** . 
 
-1. Nella scheda **DNS** selezionare **Disabilita**e quindi selezionare **Avanti: regole**.
+1. Nella scheda **DNS** selezionare **Disabilita** e quindi selezionare **Avanti: regole** .
 
-1. Selezionare **Aggiungi raccolta regole**, fornire i dettagli seguenti e selezionare **Aggiungi** e quindi selezionare **Avanti: Intelligence**per le minacce.
+1. Selezionare **Aggiungi raccolta regole** , fornire i dettagli seguenti e selezionare **Aggiungi** e quindi selezionare **Avanti: Intelligence** per le minacce.
 
    -  Nome
    -  Tipo di raccolta Rules-DNAT
@@ -126,29 +128,29 @@ Una volta distribuiti tutti i componenti, è possibile visualizzarli nel gruppo 
    -  Azione raccolta regole-Consenti
    -  Nome della regola
    -  Tipo di origine- **IPAddress**
-   -  Origine **\***
-   -  Protocollo- **TCP**
+   -  Origine-* *\** _
+   -  Protocollo-_ *TCP**
    -  Porta di destinazione- **80**
    -  Tipo di destinazione- **indirizzo IP**
    -  Destinazione- **indirizzo IP pubblico**
    -  Indirizzo tradotto: **indirizzo IP privato del server Web della soluzione VMware di Azure**
    -  Porta tradotta- **porta del server Web della soluzione VMware di Azure**
 
-1. Lasciare il valore predefinito e quindi fare clic su **Next (hub**).
+1. Lasciare il valore predefinito e quindi fare clic su **Next (hub** ).
 
-1. Selezionare **associa hub virtuale**.
+1. Selezionare **associa hub virtuale** .
 
    :::image type="content" source="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png" alt-text="Diagramma dell'architettura IP pubblico" border="true" lightbox="media/public-ip-usage/associate-virtual-hubs-azure-firewall-policy.png":::
 
-1. Selezionare un Hub nell'elenco e selezionare **Aggiungi**.
+1. Selezionare un Hub nell'elenco e selezionare **Aggiungi** .
 
    :::image type="content" source="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png" alt-text="Diagramma dell'architettura IP pubblico" border="true" lightbox="media/public-ip-usage/secure-hubs-with-azure-firewall-polcy.png":::
 
-1. Selezionare **Avanti: Tag**. 
+1. Selezionare **Avanti: Tag** . 
 
 1. Opzionale Creare coppie nome/valore per categorizzare le risorse. 
 
-1. Selezionare **Avanti: verifica + crea** e quindi selezionare **Crea**.
+1. Selezionare **Avanti: verifica + crea** e quindi selezionare **Crea** .
 
 ## <a name="limitations"></a>Limitazioni
 

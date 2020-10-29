@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: 6ddb2ecef3a70ed6a56b404e64cef5b78b7abd13
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb0aff6692a12ca7fb00090c0585e46f37c84ace
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90980468"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913025"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Guida introduttiva a Threat Modeling Tool
 
@@ -80,14 +80,14 @@ Essi stanno completando il processo di sviluppo del loro primo modello di minacc
 > - Sta inviando comandi al nostro server Web: il cerchio
 > - Il server Web sta consultando un database (due linee parallele)
 
-Ciò che Ricardo ha appena mostrato a Cristina è un DFD, abbreviazione di **[diagramma di flusso dei dati](https://en.wikipedia.org/wiki/Data_flow_diagram)**. Threat Modeling Tool consente agli utenti di specificare i limiti di trust, indicati dalle linee rosse tratteggiate, per mostrare dove entità diverse sono sotto controllo. Ad esempio, gli amministratori IT richiedono un sistema Active Directory per scopi di autenticazione, perciò Active Directory è fuori dal loro controllo.
+Ciò che Ricardo ha appena mostrato a Cristina è un DFD, abbreviazione di **[diagramma di flusso dei dati](https://en.wikipedia.org/wiki/Data_flow_diagram)** . Threat Modeling Tool consente agli utenti di specificare i limiti di trust, indicati dalle linee rosse tratteggiate, per mostrare dove entità diverse sono sotto controllo. Ad esempio, gli amministratori IT richiedono un sistema Active Directory per scopi di autenticazione, perciò Active Directory è fuori dal loro controllo.
 
 > Cristina: Mi sembra perfetto. E le minacce?
 > Ricardo: Ti mostro.
 
 ## <a name="analyzing-threats"></a>Analisi delle minacce
 
-Quando fa clic sulla visualizzazione di analisi nel menu di icone (il file con la lente di ingrandimento), compare un elenco delle minacce generate trovare da Threat Modeling Tool in base al modello predefinito che usa l'approccio SDL chiamato **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))**. L'idea è che il software è soggetto a una serie di minacce prevedibili che si possono trovare usando queste 6 categorie.
+Quando fa clic sulla visualizzazione di analisi nel menu di icone (il file con la lente di ingrandimento), compare un elenco delle minacce generate trovare da Threat Modeling Tool in base al modello predefinito che usa l'approccio SDL chiamato **[STRIDE (Spoofing, Tampering, Info Disclosure, Repudiation, Denial of Service and Elevation of Privilege)](https://en.wikipedia.org/wiki/STRIDE_(security))** . L'idea è che il software è soggetto a una serie di minacce prevedibili che si possono trovare usando queste 6 categorie.
 
 Questo approccio è come proteggere una casa dotando ogni porta e finestra di un meccanismo di blocco prima di aggiungere un sistema di allarme o rincorrere il ladro.
 
@@ -101,7 +101,7 @@ In primo luogo è stata migliorata l'interazione tra i due stencil
 
 In secondo luogo, altre informazioni sulla minaccia sono visualizzate nella finestra delle proprietà della minaccia
 
-![Informazioni di interazione](./media/threat-modeling-tool-getting-started/interactioninfo.png)
+![Screenshot mostra la minaccia Finestra Proprietà, che contiene titolo, categoria, descrizione, interazione e priorità.](./media/threat-modeling-tool-getting-started/interactioninfo.png)
 
 La minaccia generata lo aiuta a comprendere i potenziali difetti di progettazione. La classificazione STRIDE gli dà un'idea dei potenziali vettori di attacco, mentre la descrizione aggiuntiva gli dice esattamente qual è il problema, unitamente a possibili modi per limitarlo. Può usare campi modificabili per scrivere note nei dettagli di giustificazione o modificare le classificazioni di priorità a seconda della barra di bug della propria organizzazione.
 
@@ -118,7 +118,7 @@ Le minacce non applicabili alla progettazione a causa di mitigazioni o garanzie 
 
 Dopo che Ricardo ha ripercorso l'elenco con Cristina e aggiunto note importanti, mitigazioni/giustificazioni, modifiche di priorità e stato, seleziona Report -> Crea report completo -> Salva report, per stampare un bel report da usare insieme ai collegji come traccia per assicurarsi che gli interventi di sicurezza appropriati siano eseguiti.
 
-![Informazioni di interazione](./media/threat-modeling-tool-feature-overview/report.png)
+![Screenshot mostra un report di modellazione delle minacce rappresentativo.](./media/threat-modeling-tool-feature-overview/report.png)
 
 Se invece Ricardo desidera condividere il file, può farlo facilmente salvandolo nell'account OneDrive dell'organizzazione. Dopo averlo fatto, può copiare il collegamento al documento e condividerlo con i colleghi. 
 

@@ -10,12 +10,12 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: ad365c2d4c171105d8dec89d818ef481361d1ff8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 664c4289cbfa1f6ce2fce9f9f83b0240bd2d592c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81272594"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912872"
 ---
 # <a name="moderate-text-from-the-api-console"></a>Moderare il testo dalla console dell'API
 
@@ -29,7 +29,7 @@ Prima di poter eseguire il test drive dell'API nella console online è necessari
 
 Passare al [riferimento sulle API Moderazione testo](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f). 
 
-  Viene visualizzata la pagina **Text - Screen**.
+  Viene visualizzata la pagina **Text - Screen** .
 
 ## <a name="open-the-api-console"></a>Aprire la console dell'API
 
@@ -37,20 +37,20 @@ Per **Open API testing console** (Apri console di test dell'API) selezionare l'a
 
   ![Selezione dell'area nella pagina Text - Screen](images/test-drive-region.png)
 
-  Viene visualizzata la console dell'API **Text - Screen**.
+  Viene visualizzata la console dell'API **Text - Screen** .
 
 ## <a name="select-the-inputs"></a>Selezionare gli input
 
 ### <a name="parameters"></a>Parametri
 
-Selezionare i parametri di query che si intende usare nella schermata di testo. Per questo esempio usare il valore predefinito per **language**. È possibile anche lasciarlo vuoto, perché l'operazione rileverà automaticamente la lingua nel corso della sua esecuzione.
+Selezionare i parametri di query che si intende usare nella schermata di testo. Per questo esempio usare il valore predefinito per **language** . È possibile anche lasciarlo vuoto, perché l'operazione rileverà automaticamente la lingua nel corso della sua esecuzione.
 
 > [!NOTE]
-> Per il parametro **language** assegnare `eng` o lasciarlo vuoto per vedere la risposta alla **classificazione** automatica (funzionalità di anteprima). **Questa funzionalità supporta solo la lingua inglese**.
+> Per il parametro **language** assegnare `eng` o lasciarlo vuoto per vedere la risposta alla **classificazione** automatica (funzionalità di anteprima). **Questa funzionalità supporta solo la lingua inglese** .
 >
 > Per rilevare i **termini volgari** usare il [codice ISO 639-3](http://www-01.sil.org/iso639-3/codes.asp) delle lingue supportate elencate in questo articolo o lasciare il campo vuoto.
 
-Per **autocorrect**, **PII** e **classify (preview)** selezionare **true**. Lasciare vuoto il campo **ListId**.
+Per **autocorrect** , **PII** e **classify (preview)** selezionare **true** . Lasciare vuoto il campo **ListId** .
 
   ![Parametri di query della console Text - Screen](images/text-api-console-inputs.PNG)
 
@@ -137,4 +137,4 @@ Per una spiegazione dettagliata di tutte le sezioni della risposta JSON, vedere 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare l'API REST nel codice o seguire la [Guida introduttiva di .NET SDK](dotnet-sdk-quickstart.md) per l'integrazione con l'applicazione.
+Usare l'API REST nel codice o seguire la [Guida introduttiva di .NET SDK](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) per l'integrazione con l'applicazione.

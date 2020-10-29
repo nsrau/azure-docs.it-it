@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: pafarley
-ms.openlocfilehash: 714621fdcc307ee8b29567fc0d95ca41d31aa9e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 542fadd5e5ab91be7b7113064bf8c998dae08d12
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75448254"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912940"
 ---
 # <a name="moderate-images-from-the-api-console"></a>Moderare le immagini dalla console dell'API
 
@@ -50,7 +50,7 @@ Prima di poter eseguire il test drive dell'API nella console online è necessari
 
 5. Selezionare **Send** (Invia).
 
-6. L'API restituisce un punteggio di probabilità per ogni classificazione. Determina anche se l'immagine soddisfa le condizioni (**true** o **false**). 
+6. L'API restituisce un punteggio di probabilità per ogni classificazione. Determina anche se l'immagine soddisfa le condizioni ( **true** o **false** ). 
 
    ![Punteggio di probabilità e determinazione delle condizioni nella console Try Image - Evaluate (Prova immagine - Valutazione)](images/try-image-api-3.PNG)
 
@@ -82,7 +82,7 @@ Prima di poter eseguire il test drive dell'API nella console online è necessari
 
 È possibile usare la funzionalità OCR di Content Moderator per rilevare il testo nelle immagini.
 
-1. Nelle [informazioni di riferimento sull'API di moderazione immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), nel menu a sinistra, in **Image** (Immagine) selezionare **OCR**. 
+1. Nelle [informazioni di riferimento sull'API di moderazione immagini](https://westus.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66c), nel menu a sinistra, in **Image** (Immagine) selezionare **OCR** . 
 
    Verrà aperta la pagina **Image - OCR** (Immagine - OCR).
 
@@ -102,4 +102,4 @@ Prima di poter eseguire il test drive dell'API nella console online è necessari
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Usare l'API REST nel codice oppure seguire la [Guida introduttiva di .NET SDK](dotnet-sdk-quickstart.md) per aggiungere la moderazione dell'immagine all'applicazione.
+Usare l'API REST nel codice oppure seguire la [Guida introduttiva di .NET SDK](./client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp) per aggiungere la moderazione dell'immagine all'applicazione.

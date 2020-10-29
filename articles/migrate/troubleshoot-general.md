@@ -7,12 +7,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: hamusa
-ms.openlocfilehash: 433f3cc29e334a9034fa073d4ace735fc7e7e3ea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e7c54f47db645f218ea68ea475146143f806de1
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75725871"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912991"
 ---
 # <a name="troubleshoot-azure-migrate"></a>Risolvere i problemi relativi ad Azure Migrate
 
@@ -28,7 +28,7 @@ Esaminare le [risposte ai problemi comuni](troubleshoot-appliance-discovery.md) 
 
 ## <a name="machines-arent-discovered"></a>Computer non individuati
 
-Esaminare i problemi di individuazione comuni.
+Esaminare i [problemi di individuazione comuni](common-questions-discovery-assessment.md).
 
 ## <a name="app-discovery-isnt-working"></a>App-Discovery non funziona
 
