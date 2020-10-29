@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/18/2020
 ms.author: jeedes
-ms.openlocfilehash: bd15798e9b642f3abc617c0fa224c530d90b5dd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0433c0fdc1584ce209eb0409b0e8f5cbfc2719ed
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88555566"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454406"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-easysso-for-bitbucket"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con EasySSO for BitBucket
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare EasySSO for BitBucket con Azure Act
 * Abilitare gli utenti per l'accesso automatico a EasySSO for BitBucket con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,23 +41,23 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * EasySSO for BitBucket supporta l'accesso SSO avviato da SP e IdP.
 * EasySSO for BitBucket supporta il provisioning utenti JIT.
-* Dopo aver configurato EasySSO for BitBucket, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Dopo aver configurato EasySSO for BitBucket, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-easysso-for-bitbucket-from-the-gallery"></a>Aggiungere EasySSO for BitBucket dalla raccolta
 
 Per configurare l'integrazione di EasySSO for BitBucket in Azure AD, è necessario aggiungere EasySSO for BitBucket dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
 1. Nella sezione **Aggiungi dalla raccolta** digitare **EasySSO for BitBucket** nella casella di ricerca.
 1. Selezionare **EasySSO for BitBucket** nei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-easysso-for-bitbucket"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per EasySSO for BitBucket
 
-Configurare e testare l'accesso SSO di Azure AD con EasySSO for BitBucket usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in EasySSO for BitBucket.
+Configurare e testare l'accesso SSO di Azure AD con EasySSO for BitBucket usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in EasySSO for BitBucket.
 
 Per configurare e testare l'accesso SSO di Azure AD con EasySSO for BitBucket, completare i passaggi seguenti:
 
@@ -72,19 +72,19 @@ Per configurare e testare l'accesso SSO di Azure AD con EasySSO for BitBucket, c
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **EasySSO for BitBucket** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina di integrazione dell'applicazione **EasySSO for BitBucket** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona della matita relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Screenshot della pagina Configura l'accesso Single Sign-On con SAML, in cui è evidenziata l'icona della matita](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IdP**:
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IdP** :
 
     a. Nella casella di testo **Identificatore** digitare l'URL che usa il modello seguente:`https://<server-base-url>/plugins/servlet/easysso/saml`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<server-base-url>/plugins/servlet/easysso/saml`
 
-1. Selezionare **Impostare URL aggiuntivi** e quindi seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Selezionare **Impostare URL aggiuntivi** e quindi seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     - Nella casella di testo **URL accesso** digitare un URL che usa il modello seguente: `https://<server-base-url>/login.jsp`
 
@@ -105,7 +105,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | urn:oid:2.5.4.4 | user.surname |
     | urn:oid:2.5.4.42 | user.givenname |
     
-    Se **sAMAccountName** è configurato per gli utenti di Azure AD, è necessario eseguire il mapping di **urn:oid:0.9.2342.19200300.100.1.1** all'attributo **sAMAccountName**.
+    Se **sAMAccountName** è configurato per gli utenti di Azure AD, è necessario eseguire il mapping di **urn:oid:0.9.2342.19200300.100.1.1** all'attributo **sAMAccountName** .
     
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** selezionare i collegamenti di download relativi alle opzioni **Certificato (Base64)** o **XML metadati federazione** e salvare una o entrambi nel computer. Tali dati saranno necessari in seguito per configurare EasySSO per BitBucket.
 
@@ -117,42 +117,42 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti** .
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Per **Nome** immettere `B.Simon`.  
    1. Per **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare la casella di controllo **Mostra password** e quindi annotare la password.
-   1. Selezionare **Crea**.
+   1. Selezionare **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a EasySSO for BitBucket.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **EasySSO for BitBucket**.
-1. Nella pagina di panoramica dell'app individuare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** .
+1. Nell'elenco delle applicazioni selezionare **EasySSO for BitBucket** .
+1. Nella pagina di panoramica dell'app individuare la sezione **Gestione** e selezionare **Utenti e gruppi** .
 
    ![Screenshot della sezione Gestione con Utenti e gruppi evidenziato](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente**. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
+1. Selezionare **Aggiungi utente** . Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Utenti e gruppi** .
 
     ![Screenshot della pagina Utenti e gruppi, in cui è evidenziato il pulsante Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** nell'elenco **Utenti** e quindi scegliere **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Scegliere quindi **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
 
 ## <a name="configure-easysso-for-bitbucket-sso"></a>Configurare l'accesso Single Sign-On di EasySSO for BitBucket
 
 1. Accedere all'istanza di Atlassian BitBucket con privilegi di amministratore e passare alla sezione **Administration** (Amministrazione). 
 
     ![Screenshot dell'istanza di BitBucket, con l'icona a forma di ingranaggio evidenziata](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-1.png)
-1. Individuare e selezionare **EasySSO**.
+1. Individuare e selezionare **EasySSO** .
 
     ![Screenshot dell'opzione EasySSO](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-2.png)
 
-1. Selezionare **SAML**. Verrà visualizzata la sezione relativa alla configurazione SAML.
+1. Selezionare **SAML** . Verrà visualizzata la sezione relativa alla configurazione SAML.
 
     ![Screenshot della pagina di amministrazione di EasySSO con l'opzione SAML evidenziata](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-3.png)
 
@@ -190,7 +190,7 @@ Se però non si vuole abilitare il provisioning utenti automatico al primo acces
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di EasySSO for BitBucket, si dovrebbe accedere automaticamente all'istanza di BitBucket per cui si è configurato l'accesso SSO. Per altre informazioni, vedere [Accedere e avviare app dal portale App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di EasySSO for BitBucket, si dovrebbe accedere automaticamente all'istanza di BitBucket per cui si è configurato l'accesso SSO. Per altre informazioni, vedere [Accedere e avviare app dal portale App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="sp-initiated-workflow"></a>Flusso di lavoro avviato da SP
 
@@ -204,20 +204,20 @@ Dopo il reindirizzamento da Azure AD, potrebbe essere visualizzata la schermata 
 
 ![Screenshot della schermata di errore EasySSO, con il numero di riferimento evidenziato](./media/easysso-for-bitbucket-tutorial/bitbucket-admin-8.png)
 
-In questo caso seguire le [istruzioni disponibili in questa pagina](https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) per accedere al file **atlassian-bitbucket.log**. I dettagli dell'errore saranno disponibili in base all'ID di riferimento indicato nella pagina di errore EasySSO.
+In questo caso seguire le [istruzioni disponibili in questa pagina](https://techtime.co.nz/display/TECHTIME/EasySSO+How+to+get+the+logs#EasySSOHowtogetthelogs-RETRIEVINGTHELOGS) per accedere al file **atlassian-bitbucket.log** . I dettagli dell'errore saranno disponibili in base all'ID di riferimento indicato nella pagina di errore EasySSO.
 
 Se si verificano problemi, contattare il [team di supporto di EasySSO](mailto:support@techtime.co.nz).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare EasySSO for BitBucket con Azure AD](https://aad.portal.azure.com/)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
 
-- [Proteggere EasySSO for BitBucket con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Proteggere EasySSO for BitBucket con visibilità e controlli avanzati](/cloud-app-security/proxy-intro-aad)
