@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.author: jofrance
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: b65c37ab06092be63cbb2ad9fb5e23cdb8324e80
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c8ffe78e885eedd84c4cf6948954a7d3477a5cff
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476162"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911818"
 ---
 # <a name="configure-lvm-and-raid-on-encrypted-devices"></a>Configurare LVM e RAID nei dispositivi crittografati
 
@@ -287,7 +287,7 @@ Invece di usare il nome del dispositivo, usare i percorsi/dev/mapper per ciascun
 
 ### <a name="configure-lvm-on-top-of-the-encrypted-layers"></a>Configurare LVM oltre i livelli crittografati
 #### <a name="create-the-physical-volumes"></a>Creare i volumi fisici
-Verrà visualizzato un avviso che chiede se è OK eliminare la firma del file system. Per continuare, immettere **y**oppure usare **echo "y"** , come illustrato di seguito:
+Verrà visualizzato un avviso che chiede se è OK eliminare la firma del file system. Per continuare, immettere **y** oppure usare **echo "y"** , come illustrato di seguito:
 
 ```bash
 echo "y" | pvcreate /dev/mapper/c49ff535-1df9-45ad-9dad-f0846509f052
@@ -298,7 +298,7 @@ echo "y" | pvcreate /dev/mapper/4159c60a-a546-455b-985f-92865d51158c
 ![Verifica della creazione di un volume fisico](./media/disk-encryption/lvm-raid-on-crypt/014-lvm-raid-pvcreate.png)
 
 >[!NOTE] 
->È necessario sostituire i nomi di/dev/mapper/Device per i valori effettivi in base all'output di **lsblk**.
+>È necessario sostituire i nomi di/dev/mapper/Device per i valori effettivi in base all'output di **lsblk** .
 
 #### <a name="verify-the-information-for-physical-volumes"></a>Verificare le informazioni per i volumi fisici
 ```bash
@@ -368,9 +368,9 @@ mount -a
 lsblk -fs
 df -h
 ```
-![Informazioni per i file system montati](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
+![Screenshot mostra una finestra della console con file system montati come DATA0 e Data1.](./media/disk-encryption/lvm-raid-on-crypt/018-lvm-raid-lsblk-after-lvm.png)
 
-In questa variante di **lsblk**sono elencati i dispositivi che mostrano le dipendenze in ordine inverso. Questa opzione consente di identificare i dispositivi raggruppati in base al volume logico anziché ai nomi dei dispositivi/dev/sd [disco] originali.
+In questa variante di **lsblk** sono elencati i dispositivi che mostrano le dipendenze in ordine inverso. Questa opzione consente di identificare i dispositivi raggruppati in base al volume logico anziché ai nomi dei dispositivi/dev/sd [disco] originali.
 
 È importante assicurarsi che l'opzione **nofail** venga aggiunta alle opzioni del punto di montaggio dei volumi LVM creati sopra un dispositivo crittografato tramite crittografia dischi di Azure. Impedisce al sistema operativo di rimanere bloccati durante il processo di avvio o in modalità di manutenzione.
 
@@ -406,7 +406,7 @@ mdadm --create /dev/md10 \
 ![Informazioni per il RAID configurato tramite il comando mdadm](./media/disk-encryption/lvm-raid-on-crypt/019-lvm-raid-md-creation.png)
 
 >[!NOTE] 
->I nomi di/dev/mapper/Device devono essere sostituiti con i valori effettivi, in base all'output di **lsblk**.
+>I nomi di/dev/mapper/Device devono essere sostituiti con i valori effettivi, in base all'output di **lsblk** .
 
 ### <a name="checkmonitor-raid-creation"></a>Esegui controllo/monitoraggio creazione RAID
 ```bash
@@ -437,7 +437,7 @@ Verificare che il nuovo file system sia montato:
 lsblk -fs
 df -h
 ```
-![Informazioni per i file system montati](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
+![Screenshot mostra una finestra della console con un file system montato come raiddata.](./media/disk-encryption/lvm-raid-on-crypt/021-lvm-raid-lsblk-md-details.png)
 
 È importante assicurarsi che l'opzione **nofail** venga aggiunta alle opzioni del punto di montaggio dei volumi RAID creati sopra un dispositivo crittografato tramite crittografia dischi di Azure. Impedisce al sistema operativo di rimanere bloccati durante il processo di avvio o in modalità di manutenzione.
 

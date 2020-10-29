@@ -8,13 +8,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.author: makromer
-ms.date: 04/30/2020
-ms.openlocfilehash: 5593b0d633b133c8a8295634b674218d5e6c6daf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.openlocfilehash: 753d72b31e4f813d0e7abbbd223e050fd3390411
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89485038"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910764"
 ---
 # <a name="data-flow-activity-in-azure-data-factory"></a>Attività flusso di dati in Azure Data Factory
 
@@ -60,7 +60,7 @@ Dataflow | Riferimento al flusso di dati in esecuzione | DataFlowReference | Sì
 integrationRuntime | Ambiente di calcolo in cui viene eseguito il flusso di dati. Se non è specificato, verrà usato il runtime di integrazione di Azure per la risoluzione automatica. | IntegrationRuntimeReference | No
 Compute. coreCount | Il numero di core usati nel cluster Spark. Può essere specificato solo se viene usato il runtime di integrazione di Azure per la risoluzione automatica | 8, 16, 32, 48, 80, 144, 272 | No
 Compute. computeType | Tipo di calcolo usato nel cluster Spark. Può essere specificato solo se viene usato il runtime di integrazione di Azure per la risoluzione automatica | "General", "ComputeOptimized", "MemoryOptimized" | No
-staging. linkedService | Se si usa un'origine o un sink di analisi sinapsi di Azure, l'account di archiviazione usato per la gestione temporanea di base | LinkedServiceReference | Solo se il flusso di dati legge o scrive in un'analisi di sinapsi di Azure
+staging. linkedService | Se si usa un'origine o un sink di analisi sinapsi di Azure, specificare l'account di archiviazione usato per la gestione temporanea di base.<br/><br/>Se l'archiviazione di Azure è configurata con l'endpoint di servizio di VNet, è necessario usare l'autenticazione di identità gestita con l'abilitazione del servizio Microsoft attendibile nell'account di archiviazione, per vedere l' [effetto dell'uso degli endpoint di servizio VNet con archiviazione di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Sono inoltre disponibili informazioni sulle configurazioni necessarie per i [BLOB di Azure](connector-azure-blob-storage.md#managed-identity) e [Azure Data Lake storage Gen2](connector-azure-data-lake-storage.md#managed-identity) rispettivamente.<br/> | LinkedServiceReference | Solo se il flusso di dati legge o scrive in un'analisi di sinapsi di Azure
 staging. folderPath | Se si usa un'origine o un sink di analisi sinapsi di Azure, il percorso della cartella nell'account di archiviazione BLOB usato per la gestione temporanea di base | string | Solo se il flusso di dati legge o scrive in Azure sinapsi Analytics
 
 ![Esegui flusso di dati](media/data-flow/activity-data-flow.png "Esegui flusso di dati")
@@ -116,7 +116,7 @@ La pipeline di debug viene eseguita sul cluster di debug attivo, non sull'ambien
 
 ## <a name="monitoring-the-data-flow-activity"></a>Monitoraggio dell'attività flusso di dati
 
-L'attività flusso di dati offre un'esperienza di monitoraggio speciale in cui è possibile visualizzare le informazioni sul partizionamento, sulla fase temporale e sulla derivazione dei dati. Aprire il riquadro Monitoraggio usando l'icona degli occhiali in **azioni**. Per altre informazioni, vedere [monitoraggio dei flussi di dati](concepts-data-flow-monitoring.md).
+L'attività flusso di dati offre un'esperienza di monitoraggio speciale in cui è possibile visualizzare le informazioni sul partizionamento, sulla fase temporale e sulla derivazione dei dati. Aprire il riquadro Monitoraggio usando l'icona degli occhiali in **azioni** . Per altre informazioni, vedere [monitoraggio dei flussi di dati](concepts-data-flow-monitoring.md).
 
 ### <a name="use-data-flow-activity-results-in-a-subsequent-activity"></a>Usa l'attività flusso di dati restituisce un'attività successiva
 

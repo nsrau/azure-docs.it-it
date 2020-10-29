@@ -3,12 +3,12 @@ title: Autorizzare l'accesso con Azure Active Directory
 description: Questo articolo fornisce informazioni su come autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 1f69c3e5136ab47de4683cc65c32054d067dde13
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d794b03fdbb5429983788c74cbb05a7c13bf2d76
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332400"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910798"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory
 Hub eventi di Azure supporta l'uso di Azure Active Directory (Azure AD) per autorizzare le richieste alle risorse di hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo di Azure per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione. Per ulteriori informazioni sui ruoli e le assegnazioni di ruolo, vedere [informazioni sui diversi ruoli](../role-based-access-control/overview.md).
@@ -16,7 +16,7 @@ Hub eventi di Azure supporta l'uso di Azure Active Directory (Azure AD) per auto
 ## <a name="overview"></a>Panoramica
 Quando un'entità di sicurezza (un utente o un'applicazione) tenta di accedere a una risorsa di hub eventi, la richiesta deve essere autorizzata. Con Azure AD, l'accesso a una risorsa è un processo in due passaggi. 
 
- 1. In primo luogo, l'identità dell'entità di sicurezza viene autenticata e viene restituito un token OAuth 2,0. Il nome della risorsa per richiedere un token è `https://eventhubs.azure.net/` . Per i client Kafka, la risorsa per richiedere un token è `https://<namespace>.servicebus.windows.net` .
+ 1. In primo luogo, l'identità dell'entità di sicurezza viene autenticata e viene restituito un token OAuth 2,0. Il nome della risorsa per richiedere un token è `https://eventhubs.azure.net/` ed è lo stesso per tutti i cloud/tenant. Per i client Kafka, la risorsa per richiedere un token è `https://<namespace>.servicebus.windows.net` .
  1. Successivamente, il token viene passato come parte di una richiesta al servizio Hub eventi per autorizzare l'accesso alla risorsa specificata.
 
 Il passaggio di autenticazione richiede che una richiesta dell'applicazione contenga un token di accesso OAuth 2.0 in fase di esecuzione. Se un'applicazione è in esecuzione in un'entità di Azure, ad esempio una VM di Azure, un set di scalabilità di macchine virtuali o un'app per le funzioni di Azure, può usare un'identità gestita per accedere alle risorse. Per informazioni su come autenticare le richieste effettuate da un'identità gestita al servizio Hub eventi, vedere [autenticare l'accesso alle risorse di hub eventi di Azure con Azure Active Directory e identità gestite per le risorse di Azure](authenticate-managed-identity.md). 
@@ -46,11 +46,11 @@ Prima di assegnare un ruolo Controllo degli accessi in base al ruolo a un'entit�
 
 L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di accesso alle risorse di hub eventi, a partire dall'ambito più restrittivo:
 
-- **Gruppo di consumer**: in questo ambito, l'assegnazione di ruolo si applica solo a questa entità. Attualmente, il portale di Azure non supporta l'assegnazione di un ruolo di Azure a un'entità di sicurezza a questo livello. 
-- **Hub eventi**: l'assegnazione di ruolo si applica all'entità Hub eventi e al gruppo di consumer al suo interno.
-- **Spazio dei nomi**: l'assegnazione di ruolo si estende all'intera topologia degli hub eventi nello spazio dei nomi e al gruppo di consumer associato.
-- **Gruppo di risorse**: l'assegnazione di ruolo si applica a tutte le risorse di hub eventi nel gruppo di risorse.
-- **Sottoscrizione**: l'assegnazione di ruolo si applica a tutte le risorse di hub eventi in tutti i gruppi di risorse nella sottoscrizione.
+- **Gruppo di consumer** : in questo ambito, l'assegnazione di ruolo si applica solo a questa entità. Attualmente, il portale di Azure non supporta l'assegnazione di un ruolo di Azure a un'entità di sicurezza a questo livello. 
+- **Hub eventi** : l'assegnazione di ruolo si applica all'entità Hub eventi e al gruppo di consumer al suo interno.
+- **Spazio dei nomi** : l'assegnazione di ruolo si estende all'intera topologia degli hub eventi nello spazio dei nomi e al gruppo di consumer associato.
+- **Gruppo di risorse** : l'assegnazione di ruolo si applica a tutte le risorse di hub eventi nel gruppo di risorse.
+- **Sottoscrizione** : l'assegnazione di ruolo si applica a tutte le risorse di hub eventi in tutti i gruppi di risorse nella sottoscrizione.
 
 > [!NOTE]
 > - Tenere presente che le assegnazioni di ruolo di Azure possono richiedere fino a cinque minuti per la propagazione. 

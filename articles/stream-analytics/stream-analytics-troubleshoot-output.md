@@ -6,14 +6,14 @@ ms.author: sidram
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
-ms.date: 03/31/2020
+ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1fa9a8aa24cf6a8c8c2223836ae80b8b47807c81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c063fec3eac962d22ead12e0ca11f4b9fc155b5d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87903188"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910152"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Risolvere i problemi degli output di Analisi di flusso di Azure
 
@@ -22,11 +22,11 @@ Questo articolo descrive i problemi comuni relativi alle connessioni di output d
 ## <a name="the-job-doesnt-produce-output"></a>Il processo non produce alcun output
 
 1. Verificare la connettività agli output con il pulsante **Verifica connessione** per ogni output.
-1. Esaminare le [metriche di monitoraggio](stream-analytics-monitoring.md) nella scheda **Monitoraggio**. Poiché i valori sono aggregati, le metriche sono posticipate di alcuni minuti.
+1. Esaminare le [metriche di monitoraggio](stream-analytics-monitoring.md) nella scheda **Monitoraggio** . Poiché i valori sono aggregati, le metriche sono posticipate di alcuni minuti.
 
    * Se il valore di **Eventi di input** è maggiore di zero, il processo può leggere i dati di input. Se il valore di **Eventi di input** è minore di zero, l'input del processo presenta un problema. Per altre informazioni, vedere [Risolvere i problemi delle connessioni di input](stream-analytics-troubleshoot-input.md). Se il processo ha input di dati di riferimento, applicare la suddivisione in base al nome logico quando si esamina la metrica **degli eventi di input** . Se non sono presenti eventi di input solo dai dati di riferimento, probabilmente significa che questa origine di input non è configurata correttamente per recuperare il set di dati di riferimento a destra.
    * Se il valore di **Errori di conversione dati** è maggiore di zero e in aumento, vedere [Errori dei dati di Analisi di flusso di Azure](data-errors.md) per informazioni dettagliate sugli errori di conversione dei dati.
-   * Se il valore di **Errori di runtime** è maggiore di zero, il processo riceve i dati ma genera errori durante l'elaborazione della query. Per trovare gli errori, andare ai [log di controllo](../azure-resource-manager/management/view-activity-logs.md) e applicare il filtro in base allo stato **Non riuscito**.
+   * Se il valore di **Errori di runtime** è maggiore di zero, il processo riceve i dati ma genera errori durante l'elaborazione della query. Per trovare gli errori, andare ai [log di controllo](../azure-resource-manager/management/view-activity-logs.md) e applicare il filtro in base allo stato **Non riuscito** .
    * Se il valore di **Eventi di input** è maggiore di zero e il valore di **Eventi di output** è uguale a zero, una delle condizioni seguenti è vera:
       * L'elaborazione della query non ha prodotto eventi di output.
       * Il formato degli eventi o dei campi potrebbe non essere corretto e di conseguenza l'elaborazione della query non ha prodotto output.
@@ -67,7 +67,7 @@ Durante il normale funzionamento di un processo, l'output potrebbe avere periodi
 * Se viene applicata una limitazione al sink upstream
 * Se la logica di elaborazione della query comporta un uso elevato delle risorse di calcolo
 
-Per visualizzare i dettagli dell'output, nel portale di Azure selezionare il processo di streaming e scegliere **Diagramma del processo**. Per ogni input è presente una metrica dell'evento di backlog per partizione. Se la metrica continua ad aumentare, è un indicatore del fatto che le risorse del sistema sono vincolate. L'aumento potrebbe essere causato dalla limitazione del sink di output o dall'utilizzo elevato della CPU. Per altre informazioni, vedere [Debug guidato dai dati mediante il diagramma di processo](stream-analytics-job-diagram-with-metrics.md).
+Per visualizzare i dettagli dell'output, nel portale di Azure selezionare il processo di streaming e scegliere **Diagramma del processo** . Per ogni input è presente una metrica dell'evento di backlog per partizione. Se la metrica continua ad aumentare, è un indicatore del fatto che le risorse del sistema sono vincolate. L'aumento potrebbe essere causato dalla limitazione del sink di output o dall'utilizzo elevato della CPU. Per altre informazioni, vedere [Debug guidato dai dati mediante il diagramma di processo](stream-analytics-job-diagram-with-metrics.md).
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Avviso di violazione della chiave con output del database SQL di Azure
 
@@ -81,7 +81,29 @@ Quando si configura IGNORE_DUP_KEY per diversi tipi di indici, tenere presente l
 
 * Non è possibile impostare IGNORE_DUP_KEY in una chiave primaria o in un vincolo univoco che usa ALTER INDEX. È necessario eliminare e ricreare l'indice.  
 * È possibile impostare IGNORE_DUP_KEY usando ALTER INDEX per un indice univoco. Questa istanza è diversa rispetto a un vincolo PRIMARY KEY/UNIQUE e viene creata usando una definizione CREATE INDEX o INDEX.  
-* L'opzione IGNORE_DUP_KEY non è valida per gli indici columnstore perché in essi non è possibile applicare l'univocità.  
+* L'opzione IGNORE_DUP_KEY non è valida per gli indici columnstore perché in essi non è possibile applicare l'univocità.
+
+## <a name="sql-output-retry-logic"></a>Logica tentativi di output SQL
+
+Quando un processo di analisi di flusso con output SQL riceve il primo batch di eventi, si verificano i passaggi seguenti:
+
+1. Il processo tenta di connettersi a SQL.
+2. Il processo recupera lo schema della tabella di destinazione.
+3. Il processo convalida i nomi e i tipi di colonna rispetto allo schema della tabella di destinazione.
+4. Il processo prepara una tabella dati in memoria dai record di output nel batch.
+5. Il processo scrive la tabella dati in SQL usando l' [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1)bulkCopy.
+
+Durante questa procedura, l'output SQL può riscontrare i seguenti tipi di errori:
+
+* [Errori](/azure/azure-sql/database/troubleshoot-common-errors-issues#transient-fault-error-messages-40197-40613-and-others) temporanei che vengono ripetuti utilizzando una strategia di ripetizione dei tentativi backoff esponenziale. L'intervallo minimo tra i tentativi dipende dal codice di errore singolo, ma gli intervalli sono in genere inferiori a 60 secondi. Il limite superiore può essere al massimo cinque minuti. 
+
+   Gli [errori di accesso](/azure/azure-sql/database/troubleshoot-common-errors-issues#unable-to-log-in-to-the-server-errors-18456-40531) e i problemi del [Firewall](/azure/azure-sql/database/troubleshoot-common-errors-issues#cannot-connect-to-server-due-to-firewall-issues) vengono ritentati almeno 5 minuti dopo il tentativo precedente e vengono ripetuti fino a quando non hanno esito positivo.
+
+* Gli errori relativi ai dati, ad esempio il cast degli errori e le violazioni dei vincoli dello schema, vengono gestiti con i criteri di errore di output. Questi errori vengono gestiti ritentando i batch di suddivisione binaria fino a quando il singolo record che causa l'errore non viene gestito da Skip o Retry. La violazione del vincolo di chiave univoca primaria è [sempre gestita](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output).
+
+* Gli errori non temporanei possono verificarsi in caso di problemi del servizio SQL o di difetti del codice interno. Ad esempio, quando errori come (codice 1132) Pool elastico raggiungere il limite di archiviazione, i tentativi non risolvono l'errore. In questi scenari, il processo di analisi di flusso sperimenta un [calo](job-states.md).
+* `BulkCopy` i timeout possono verificarsi durante il `BulkCopy` passaggio 5. `BulkCopy` i timeout delle operazioni possono verificarsi occasionalmente. Il timeout predefinito configurato minimo è cinque minuti ed è raddoppiato quando viene raggiunto consecutivamente.
+Quando il timeout supera i 15 minuti, l'hint per la dimensione massima del batch `BulkCopy` viene ridotto fino a metà fino a quando non vengono lasciati gli eventi 100 per batch.
 
 ## <a name="column-names-are-lowercase-in-azure-stream-analytics-10"></a>I nomi delle colonne sono minuscoli in Analisi di flusso di Azure (1.0)
 

@@ -118,10 +118,6 @@
           href: concepts-data-in-replication.md
         - name: Repliche in lettura
           href: concepts-read-replicas.md
-    - name: Spostamento tra aree
-      items:
-        - name: Portale di Azure
-          href: howto-move-regions-portal.md
 - name: Guide pratiche
   items:
     - name: Gestire un server
@@ -240,6 +236,10 @@
           href: howto-restart-server-cli.md
         - name: Azure PowerShell
           href: howto-restart-server-powershell.md
+    - name: Spostamento tra aree
+      items:
+        - name: Portale di Azure
+          href: howto-move-regions-portal.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

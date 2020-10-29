@@ -13,6 +13,7 @@
     - name: Creare una risorsa Load Balancer pubblica - Interfaccia della riga di comando di Azure
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Creare una risorsa Load Balancer pubblica - Modello di Resource Manager
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
     - name: Creare una risorsa Load Balancer interna - Portale
       href: quickstart-load-balancer-standard-internal-portal.md
@@ -21,6 +22,7 @@
     - name: Creare una risorsa Load Balancer interna - Interfaccia della riga di comando di Azure
       href: quickstart-load-balancer-standard-internal-cli.md
     - name: Creare una risorsa Load Balancer interna - Modello di Resource Manager
+      displayName: Resource Manager
       href: quickstart-load-balancer-standard-internal-template.md
   expanded: true
 - name: Esercitazioni
@@ -53,6 +55,8 @@
       items:
         - name: Probe di integrità
           href: load-balancer-custom-probe-overview.md
+        - name: Informazioni dettagliate di Monitoraggio di Azure per Load Balancer
+          href: load-balancer-insights.md
         - name: Metriche e diagnostica di Load Balancer Standard
           href: load-balancer-standard-diagnostics.md
         - name: Log di Monitoraggio di Azure per Load Balancer Basic

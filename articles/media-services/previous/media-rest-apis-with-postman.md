@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: 4cdc3efc766daff38b566e71f06dc4db0f38fe7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d235316ad6a16cdc535c705ec88ec13d6963fb41
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89255512"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910288"
 ---
 # <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Configurare il post per le chiamate all'API REST di servizi multimediali V2
 
@@ -27,7 +27,7 @@ ms.locfileid: "89255512"
 > [!NOTE]
 > Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
 
-In questa esercitazione viene illustrato come configurare **Postman** in modo da usarlo per chiamare le API REST di Servizi multimediali di Azure (AMS). L'esercitazione illustra come importare i file di ambiente e raccolta in **Postman**. La raccolta contiene definizioni raggruppate delle richieste HTTP che chiamano le API REST di Servizi multimediali di Azure (AMS). Il file di ambiente contiene le variabili usate dalla raccolta.
+In questa esercitazione viene illustrato come configurare **Postman** in modo da usarlo per chiamare le API REST di Servizi multimediali di Azure (AMS). L'esercitazione illustra come importare i file di ambiente e raccolta in **Postman** . La raccolta contiene definizioni raggruppate delle richieste HTTP che chiamano le API REST di Servizi multimediali di Azure (AMS). Il file di ambiente contiene le variabili usate dalla raccolta.
 
 Questo ambiente e raccolta viene usato negli articoli che illustrano come eseguire varie attività con le API REST di Servizi multimediali di Azure.
 
@@ -35,30 +35,30 @@ Questo ambiente e raccolta viene usato negli articoli che illustrano come esegui
 
 - Installare il client REST di [Postman](https://www.getpostman.com/) per eseguire le API REST mostrate in alcune delle esercitazioni REST di AMS. 
 
-    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler**. 
+    Si sta usando **Postman** ma si può usare qualsiasi strumento REST. Altre alternative sono: **Visual Studio Code** con il plug-in REST o **Telerik Fiddler** . 
 
 ## <a name="configure-the-environment"></a>Configurare l'ambiente 
 
-1. Creare un file .json che contenga le variabili di ambiente usate nelle esercitazioni di AMS. Denominare il file (ad esempio, **AzureMediaServices.postman_environment.json**). Aprire il file e incollare il codice che definisce l'ambiente di Postman da [questo elenco di codici](postman-environment.md). 
-2. Aprire **Postman**.
+1. Creare un file .json che contenga le variabili di ambiente usate nelle esercitazioni di AMS. Denominare il file (ad esempio, **AzureMediaServices.postman_environment.json** ). Aprire il file e incollare il codice che definisce l'ambiente di Postman da [questo elenco di codici](postman-environment.md). 
+2. Aprire **Postman** .
 3. A destra dello schermo, selezionare l'opzione **Manage environment** (Gestisci ambiente).
 
-    ![Caricare un file](./media/media-services-rest-upload-files/postman-create-env.png)
+    ![Screenshot mostra l'opzione Gestisci ambiente selezionata.](./media/media-services-rest-upload-files/postman-create-env.png)
 4. Dalla finestra di dialogo **Manage environment** (Gestisci ambiente), fare clic su **Import** (Importa).
-5. Sfogliare e selezionare il file **AzureMediaServices.postman_environment.json**.
-6. Viene aggiunto l'ambiente **AzureMedia**.
+5. Sfogliare e selezionare il file **AzureMediaServices.postman_environment.json** .
+6. Viene aggiunto l'ambiente **AzureMedia** .
 7. Chiudere la finestra di dialogo.
-8. Selezionare l'ambiente **AzureMedia**.
+8. Selezionare l'ambiente **AzureMedia** .
 
-    ![Caricare un file](./media/media-services-rest-upload-files/postman-choose-env.png)
+    ![Screenshot mostra l'ambiente AzureMedia selezionato.](./media/media-services-rest-upload-files/postman-choose-env.png)
 
 ## <a name="configure-the-collection"></a>Configurare la raccolta
 
-1. Creare un file .json che contenga la raccolta di **Postman** con tutte le operazioni necessarie per caricare un file in Servizi multimediali. Denominare il file (ad esempio, **AzureMediaServicesOperations.postman_collection.json**). Aprire il file e incollare il codice che definisce l'ambiente di **Postman** da [questo elenco di codici](postman-collection.md).
+1. Creare un file .json che contenga la raccolta di **Postman** con tutte le operazioni necessarie per caricare un file in Servizi multimediali. Denominare il file (ad esempio, **AzureMediaServicesOperations.postman_collection.json** ). Aprire il file e incollare il codice che definisce l'ambiente di **Postman** da [questo elenco di codici](postman-collection.md).
 2. Fare clic su **Import** (Importa) per importare il file di raccolta.
-3. Scegliere il file **AzureMediaServicesOperations.postman_collection.json**.
+3. Scegliere il file **AzureMediaServicesOperations.postman_collection.json** .
 
-    ![Caricare un file](./media/media-services-rest-upload-files/postman-import-collection.png)
+    ![Screenshot mostra la finestra di dialogo Importa con scegliere i file selezionati.](./media/media-services-rest-upload-files/postman-import-collection.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

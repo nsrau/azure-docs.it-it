@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 10/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ce922e3ce39bc3df9f4c242558644922e5713300
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 2ea8840a4c66ff05bea22c5c7c063e31d09f9dc8
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494818"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911750"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-apis-and-cli"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (API e CLI)
 
@@ -29,7 +29,7 @@ Possono anche essere gestiti tramite il [portale di Azure](https://portal.azure.
 * È necessario un **account Azure** (è possibile impostarne uno gratuitamente [qui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * È necessaria un' **istanza di Azure Digital Twins** nella sottoscrizione di Azure. Se non si dispone già di un'istanza, è possibile crearne una usando la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). Per usare più avanti in questo articolo, è possibile usare i valori seguenti del programma di installazione:
     - Nome istanza
-    - Gruppo di risorse
+    - Resource group
     
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Creare un endpoint per i dispositivi gemelli digitali di Azure
 
@@ -46,7 +46,7 @@ Per collegare un endpoint ai dispositivi gemelli digitali di Azure, è necessari
 
 L'esempio seguente illustra come creare un endpoint di tipo griglia di eventi usando l'interfaccia della riga di comando di Azure. È possibile usare [Azure cloud Shell](https://shell.azure.com)o [installare l'interfaccia della riga di](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest)comando in locale.
 
-Per prima cosa, creare un argomento di griglia di eventi. È possibile usare il comando seguente o visualizzare i passaggi in modo più dettagliato visitando [la sezione *creare un argomento personalizzato* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) della Guida introduttiva *agli eventi personalizzati* di griglia di eventi.
+Per prima cosa, creare un argomento di griglia di eventi. È possibile usare il comando seguente o visualizzare i passaggi in modo più dettagliato visitando [la sezione *creare un argomento personalizzato*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) della Guida introduttiva *agli eventi personalizzati* di griglia di eventi.
 
 ```azurecli-interactive
 az eventgrid topic create -g <your-resource-group-name> --name <your-topic-name> -l <region>
@@ -64,15 +64,15 @@ Dopo aver creato l'argomento, è possibile collegarlo ai dispositivi gemelli dig
 az dt endpoint create eventgrid --endpoint-name <Event-Grid-endpoint-name> --eventgrid-resource-group <Event-Grid-resource-group-name> --eventgrid-topic <your-Event-Grid-topic-name> -n <your-Azure-Digital-Twins-instance-name>
 ```
 
-A questo punto, l'argomento di griglia di eventi è disponibile come endpoint all'interno di Azure Digital gemelli, sotto il nome specificato con l' `--endpoint-name` argomento. Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#create-an-event-route) usando l'API del servizio dispositivi digitali gemelli di Azure.
+A questo punto, l'argomento di griglia di eventi è disponibile come endpoint all'interno di Azure Digital gemelli, sotto il nome specificato con l' `--endpoint-name` argomento. Questo nome viene in genere usato come destinazione di una **Route di eventi** , che verrà creata [più avanti in questo articolo](#create-an-event-route) usando l'API del servizio dispositivi digitali gemelli di Azure.
 
 ### <a name="create-an-event-hubs-or-service-bus-endpoint"></a>Creare un hub eventi o un endpoint del bus di servizio
 
 Il processo per la creazione di hub eventi o endpoint del bus di servizio è simile al processo di griglia di eventi illustrato in precedenza.
 
 Prima di tutto, creare le risorse che verranno usate come endpoint. Ecco cosa è necessario:
-* Bus di servizio: _spazio dei nomi del bus_di servizio, _argomento del bus di servizio_, regola di _autorizzazione_
-* Hub eventi: _spazio dei nomi di hub eventi_, _Hub eventi_, _regola di autorizzazione_
+* Bus di servizio: _spazio dei nomi del bus_ di servizio, _argomento del bus di servizio_ , regola di _autorizzazione_
+* Hub eventi: _spazio dei nomi di hub eventi_ , _Hub eventi_ , _regola di autorizzazione_
 
 Quindi, usare i comandi seguenti per creare gli endpoint nei dispositivi gemelli digitali di Azure: 
 
@@ -88,7 +88,7 @@ az dt endpoint create eventhub --endpoint-name <Event-Hub-endpoint-name> --event
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Creazione di un endpoint con messaggi non recapitabili
 
-Quando un endpoint non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile**.
+Quando un endpoint non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile** .
 
 Per creare un endpoint con i messaggi non recapitabili abilitati, è necessario usare le [API ARM](/rest/api/digital-twins/controlplane/endpoints/digitaltwinsendpoint_createorupdate) per creare l'endpoint. 
 
@@ -152,11 +152,11 @@ Di seguito è riportato un esempio di messaggio non recapitabile per una notific
 
 ## <a name="create-an-event-route"></a>Creare una route di eventi
 
-Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un endpoint, è necessario definire una **route dell'evento**. Le **API EventRoutes** di Azure Digital Twins consentono agli sviluppatori di collegare il flusso degli eventi, in tutto il sistema e ai servizi downstream. Per altre informazioni sulle route di eventi, vedere [*concetti relativi al routing di eventi gemelli digitali di Azure*](concepts-route-events.md).
+Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un endpoint, è necessario definire una **route dell'evento** . Le **API EventRoutes** di Azure Digital Twins consentono agli sviluppatori di collegare il flusso degli eventi, in tutto il sistema e ai servizi downstream. Per altre informazioni sulle route di eventi, vedere [*concetti relativi al routing di eventi gemelli digitali di Azure*](concepts-route-events.md).
 
 Gli esempi in questa sezione usano [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true).
 
-**Prerequisito**: è necessario creare endpoint come descritto in precedenza in questo articolo prima di poter passare alla creazione di una route. È possibile procedere alla creazione di una route di eventi al termine della configurazione degli endpoint.
+**Prerequisito** : è necessario creare endpoint come descritto in precedenza in questo articolo prima di poter passare alla creazione di una route. È possibile procedere alla creazione di una route di eventi al termine della configurazione degli endpoint.
 
 >[!NOTE]
 >Se gli endpoint sono stati distribuiti di recente, verificare che la distribuzione sia terminata **prima** di provare a usarli per una nuova route di eventi. Se la distribuzione della route non riesce perché gli endpoint non sono pronti, attendere alcuni minuti e riprovare.
@@ -179,27 +179,29 @@ Una route deve consentire la selezione di più notifiche e tipi di evento.
 `CreateEventRoute` è la chiamata SDK utilizzata per aggiungere una route dell'evento. Di seguito è riportato un esempio di utilizzo:
 
 ```csharp
-EventRoute er = new EventRoute("endpointName");
+EventRoute er = new EventRoute("<your-endpointName>");
 er.Filter = "true"; //Filter allows all messages
-await client.CreateEventRoute("routeName", er);
+await CreateEventRoute(client, "routeName", er);
 ```
-
+    
 > [!TIP]
 > Tutte le funzioni SDK sono disponibili in versioni sincrone e asincrone.
 
 ### <a name="event-route-sample-code"></a>Codice di esempio della route di eventi
 
-Nell'esempio di codice seguente viene illustrato come creare, elencare ed eliminare una route di eventi:
+Il metodo di esempio seguente mostra come creare, elencare ed eliminare una route di eventi:
 ```csharp
-try
+private async static Task CreateEventRoute(DigitalTwinsClient client, String routeName, EventRoute er)
 {
+  try
+  {
     Console.WriteLine("Create a route: testRoute1");
-    EventRoute er = new EventRoute("< your - endpoint - name >");
+            
     // Make a filter that passes everything
     er.Filter = "true";
-    client.CreateEventRoute("< your - route - name >", er);
+    await client.CreateEventRouteAsync(routeName, er);
     Console.WriteLine("Create route succeeded. Now listing routes:");
-    Pageable <EventRoute> result = client.GetEventRoutes();
+    Pageable<EventRoute> result = client.GetEventRoutes();
     foreach (EventRoute r in result)
     {
         Console.WriteLine($"Route {r.Id} to endpoint {r.EndpointName} with filter {r.Filter} ");
@@ -210,11 +212,12 @@ try
         Console.WriteLine($"Deleting route {r.Id}:");
         client.DeleteEventRoute(r.Id);
     }
-}
-catch (RequestFailedException e)
-{
-    Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
-}
+  }
+    catch (RequestFailedException e)
+    {
+        Console.WriteLine($"*** Error in event route processing ({e.ErrorCode}):\n${e.Message}");
+    }
+  }
 ```
 
 ## <a name="filter-events"></a>Filtrare gli eventi

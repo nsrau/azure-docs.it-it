@@ -2,13 +2,13 @@
 title: Configurare i log di diagnostica - Hub eventi in Azure | Microsoft Docs
 description: Informazioni su come configurare log attività e di diagnostica per gli hub eventi in Azure.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/27/2020
+ms.openlocfilehash: a7230746dc4225b04b0507c872416368aa14442b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88927732"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912600"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
@@ -25,16 +25,16 @@ ms.locfileid: "88927732"
 I log di diagnostica sono disabilitati per impostazione predefinita. Per abilitare i log di diagnostica, eseguire i passaggi seguenti:
 
 1.  Passare allo spazio dei nomi degli hub eventi nel [portale di Azure](https://portal.azure.com). 
-2. Selezionare **Impostazioni di diagnostica** sotto **Monitoraggio** nel riquadro a sinistra, quindi selezionare **+ Aggiungi impostazione di diagnostica**. 
+2. Selezionare **Impostazioni di diagnostica** sotto **Monitoraggio** nel riquadro a sinistra, quindi selezionare **+ Aggiungi impostazione di diagnostica** . 
 
     ![Pagina Impostazioni di diagnostica - Aggiungi impostazione di diagnostica](./media/event-hubs-diagnostic-logs/diagnostic-settings-page.png)
-4. Nella sezione **Dettagli categoria**, selezionare i **tipi di log di diagnostica** che si vuole abilitare. Informazioni dettagliate su queste categorie sono disponibili più avanti in questo articolo. 
-5. Nella sezione **Dettagli destinazione**, impostare la destinazione dell'archivio desiderata, ad esempio un account di archiviazione, un hub eventi o un'area di lavoro Log Analytics.
+4. Nella sezione **Dettagli categoria** , selezionare i **tipi di log di diagnostica** che si vuole abilitare. Informazioni dettagliate su queste categorie sono disponibili più avanti in questo articolo. 
+5. Nella sezione **Dettagli destinazione** , impostare la destinazione dell'archivio desiderata, ad esempio un account di archiviazione, un hub eventi o un'area di lavoro Log Analytics.
 
     ![Pagina Aggiungi impostazioni di diagnostica](./media/event-hubs-diagnostic-logs/aDD-diagnostic-settings-page.png)
 6.  Selezionare **Salva** sulla barra degli strumenti per salvare le impostazioni di diagnostica.
 
-    Le nuove impostazioni diventano effettive in circa 10 minuti. Trascorso questo tempo, i log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica**.
+    Le nuove impostazioni diventano effettive in circa 10 minuti. Trascorso questo tempo, i log vengono visualizzati nella destinazione di archiviazione configurata, nel riquadro **Log di diagnostica** .
 
     Per altre informazioni sulla configurazione della diagnostica, vedere la [panoramica dei log di diagnostica di Azure](../azure-monitor/platform/platform-logs-overview.md).
 
@@ -188,7 +188,6 @@ Le stringhe JSON dei log degli errori utente Kafka includono gli elementi elenca
 | `Message` | Messaggio informativo, che offre informazioni dettagliate su un errore |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Schema dell'evento di connessione rete virtuale di hub eventi
-
 Le stringhe JSON dell'evento di connessione rete virtuale degli hub eventi includono gli elementi elencati nella tabella seguente:
 
 | Nome | Descrizione |
@@ -196,10 +195,12 @@ Le stringhe JSON dell'evento di connessione rete virtuale degli hub eventi inclu
 | `SubscriptionId` | ID sottoscrizione di Azure |
 | `NamespaceName` | Nome spazio dei nomi |
 | `IPAddress` | Indirizzo IP di un client connesso al servizio Hub eventi |
-| `Action` | Azione eseguita dal servizio Hub eventi durante la valutazione delle richieste di connessione. Le azioni supportate sono **Accetta connessione** e **Rifiuta connessione**. |
+| `Action` | Azione eseguita dal servizio Hub eventi durante la valutazione delle richieste di connessione. Le azioni supportate sono **Accetta connessione** e **Rifiuta connessione** . |
 | `Reason` | Fornisce un motivo per cui è stata eseguita l'azione |
 | `Count` | Numero di occorrenze dell'azione |
 | `ResourceId` | ID della risorsa di Azure Resource Manager. |
+
+I log di rete virtuale vengono generati solo se lo spazio dei nomi consente l'accesso da **reti selezionate** o da **indirizzi IP specifici** (regole di filtro IP). Se non si vuole limitare l'accesso allo spazio dei nomi usando queste funzionalità e si vuole comunque ottenere i log di rete virtuale per tenere traccia degli indirizzi IP dei client che si connettono allo spazio dei nomi di hub eventi, è possibile usare la soluzione alternativa seguente. Abilitare il filtro IP e aggiungere l'intervallo IPv4 totale indirizzabile (1.0.0.0/1-255.0.0.0/1). Hub eventi non supporta intervalli IPv6. 
 
 ### <a name="example"></a>Esempio
 

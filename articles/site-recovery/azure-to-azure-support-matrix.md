@@ -4,12 +4,12 @@ description: Informazioni di riepilogo sul supporto del ripristino di emergenza 
 ms.topic: article
 ms.date: 07/14/2020
 ms.author: raynew
-ms.openlocfilehash: b90f0c379310e8557f08f0f318ab6abe2c0be016
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 05e29278f6b9ce5436979c0533551763e2f90462
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92520939"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911036"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Matrice di supporto per il ripristino di emergenza delle macchine virtuali di Azure tra aree di Azure
 
@@ -44,7 +44,7 @@ Questo articolo offre informazioni di riepilogo sul supporto e i prerequisiti pe
 **Cluster geografico** | **Aree di Azure**
 -- | --
 America | Canada orientale, Canada centrale, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti occidentali, Stati Uniti occidentali 2, Stati Uniti centrali, Stati Uniti centro-settentrionali
-Europa | Regno Unito occidentale, Regno Unito meridionale, Europa settentrionale, Europa occidentale, Sudafrica occidentale, Sudafrica settentrionale, Norvegia orientale, Norvegia occidentale, Francia centrale
+Europa | Regno Unito occidentale, Regno Unito meridionale, Europa settentrionale, Europa occidentale, Sudafrica occidentale, Sudafrica settentrionale, Norvegia orientale, Norvegia occidentale, Francia centrale, Svizzera settentrionale
 Asia | India meridionale, India centrale, India occidentale, Asia sud-orientale, Asia orientale, Giappone orientale, Giappone occidentale, Corea centrale, Corea meridionale
 Australia    | Australia orientale, Australia sud-orientale, Australia centrale, Australia centrale 2
 Azure Government    | US GOV Virginia, US GOV Iowa, US GOV Arizona, US GOV Texas, US DOD East, US DOD Central
@@ -188,7 +188,7 @@ Immagini della raccolta di Azure - Pubblicate da Microsoft | Supportato | Suppor
 Immagini della raccolta di Azure - Pubblicate da terze parti | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Immagini personalizzate - Pubblicate da terze parti | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Macchine virtuali migrate tramite Site Recovery | Supportato | Se una VM VMware o un computer fisico è stato migrato ad Azure tramite Site Recovery, è necessario disinstallare la versione precedente del servizio di mobilità in esecuzione nel computer e riavviare il computer prima di eseguirne la replica in un'altra area di Azure.
-Criteri RBAC di Azure | Non supportato | I criteri di controllo degli accessi in base al ruolo di Azure (RBAC) sulle VM non vengono replicati nella macchina virtuale di failover nell'area di destinazione.
+Criteri RBAC di Azure | Non supportate | I criteri di controllo degli accessi in base al ruolo di Azure (RBAC) sulle VM non vengono replicati nella macchina virtuale di failover nell'area di destinazione.
 Estensioni | Non supportate | Le estensioni non vengono replicate nella macchina virtuale di failover nell'area di destinazione. L'estensione deve essere installata manualmente dopo il failover.
 Gruppi di posizionamento di prossimità | Supportato | Le macchine virtuali che si trovano all'interno di un gruppo di posizionamento di prossimità possono essere protette usando Site Recovery.
 
@@ -246,7 +246,7 @@ Firewall di Archiviazione di Azure per reti virtuali  | Supportato | Se si limit
 Account di archiviazione V2 generico (livelli di accesso frequente e sporadico) | Supportato | Aumento sostanziale dei costi delle transazioni rispetto agli account di archiviazione V1 generici
 Generazione 2 (avvio UEFI) | Supportato
 Dischi NVMe | Non supportate
-Dischi condivisi di Azure | Non supportato
+Dischi condivisi di Azure | Non supportate
 Opzione di trasferimento sicuro | Supportato
 Dischi abilitati per l'acceleratore di scrittura | Non supportate
 
@@ -275,12 +275,12 @@ Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per dis
 **Impostazione** | **Supporto** | **Dettagli**
 --- | --- | ---
 NIC | Numero massimo supportato per una specifica dimensione di macchina virtuale di Azure | Vengono create schede di interfaccia di rete contestualmente alla creazione della VM durante il failover.<br/><br/> Il numero di schede di interfaccia di rete sulla macchina virtuale di failover dipende dal numero di schede di rete sulla VM di origine quando è stata abilitata la replica. L'aggiunta o la rimozione di una scheda di interfaccia di rete dopo l'abilitazione della replica non influisce sul numero di schede sulla VM replicata dopo il failover. <br/><br/> Non è garantito che l'ordine delle schede di rete dopo il failover sia uguale a quello originale. <br/><br/> È possibile rinominare le schede di rete nell'area di destinazione in base alle convenzioni di denominazione dell'organizzazione. La ridenominazione NIC è supportata tramite PowerShell.
-Servizio di bilanciamento del carico Internet | Non supportato | È possibile configurare il servizio di bilanciamento del carico pubblico/Internet nell'area primaria. Tuttavia, i bilanciamenti del carico pubblico/Internet non sono supportati da Azure Site Recovery nell'area di ripristino di emergenza.
+Servizio di bilanciamento del carico Internet | Non supportate | È possibile configurare il servizio di bilanciamento del carico pubblico/Internet nell'area primaria. Tuttavia, i bilanciamenti del carico pubblico/Internet non sono supportati da Azure Site Recovery nell'area di ripristino di emergenza.
 Servizio di bilanciamento del carico interno | Supportato | Associare il servizio di bilanciamento del carico preconfigurato tramite uno script di Automazione di Azure in un piano di ripristino.
 Indirizzo IP pubblico | Supportato | Associare un indirizzo IP pubblico esistente alla scheda di interfaccia di rete. In alternativa, creare un indirizzo IP pubblico e associarlo alla scheda di interfaccia di rete tramite uno script di Automazione di Azure in un piano di ripristino.
 Gruppo di sicurezza di rete o scheda di interfaccia di rete | Supportato | Associare il gruppo di sicurezza di rete alla scheda di interfaccia di rete tramite uno script di Automazione di Azure in un piano di ripristino.
 Gruppo di sicurezza di rete o subnet | Supportato | Associare il gruppo di sicurezza di rete alla subnet tramite uno script di Automazione di Azure in un piano di ripristino.
-Indirizzo IP riservato (statico) | Supportato | Se la scheda di rete sulla macchina virtuale di origine ha un indirizzo IP statico e la subnet di destinazione dispone dello stesso IP, viene assegnato alla macchina virtuale di failover.<br/><br/> Se la subnet di destinazione non ha lo stesso indirizzo IP, uno degli IP disponibili nella subnet viene riservato per la macchina virtuale.<br/><br/> È anche possibile specificare un indirizzo IP fisso e una subnet in **Elementi replicati** > **Impostazioni** > **Calcolo e rete** > **Interfacce di rete**.
+Indirizzo IP riservato (statico) | Supportato | Se la scheda di rete sulla macchina virtuale di origine ha un indirizzo IP statico e la subnet di destinazione dispone dello stesso IP, viene assegnato alla macchina virtuale di failover.<br/><br/> Se la subnet di destinazione non ha lo stesso indirizzo IP, uno degli IP disponibili nella subnet viene riservato per la macchina virtuale.<br/><br/> È anche possibile specificare un indirizzo IP fisso e una subnet in **Elementi replicati** > **Impostazioni** > **Calcolo e rete** > **Interfacce di rete** .
 Indirizzo IP dinamico | Supportato | Se la scheda di interfaccia di rete nella macchina virtuale di origine ha indirizzi IP dinamici, anche la scheda sulla macchina virtuale di failover è dinamica per impostazione predefinita.<br/><br/> Se necessario, è possibile modificare questa opzione in un indirizzo IP fisso.
 Più indirizzi IP | Non supportate | Quando si esegue il failover di una macchina virtuale con una scheda di interfaccia di rete con più indirizzi IP, viene mantenuto solo l'indirizzo IP primario della scheda di interfaccia di rete nell'area di origine. Per assegnare più indirizzi IP, è possibile aggiungere macchine virtuali a un [piano di ripristino](recovery-plan-overview.md) e associare uno script per assegnare indirizzi IP aggiuntivi al piano oppure è possibile apportare la modifica manualmente o con uno script dopo il failover.
 Gestione traffico     | Supportato | È possibile preconfigurare Gestione traffico in modo che il traffico venga regolarmente indirizzato all'endpoint nell'area di origine e all'endpoint nell'area di destinazione in caso di failover.

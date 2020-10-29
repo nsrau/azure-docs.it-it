@@ -10,12 +10,12 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: f8f173291448d9da4d8967ff56b0fa027ca73409
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 82182c24f87a82df5ee040b7853588f74dda449f
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334549"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909948"
 ---
 # <a name="business-card-concepts"></a>Concetti relativi ai biglietti da visita
 
@@ -385,7 +385,7 @@ I dati estratti con l'API Business Card possono essere utilizzati per eseguire d
 * Tenere traccia dei lead di vendita.  
 * Estrai le informazioni di contatto in blocco dalle immagini dei biglietti aziendali esistenti. 
 
-L'API dei biglietti da business è anche la [funzionalità di elaborazione di AIBuilder business card](https://docs.microsoft.com/ai-builder/prebuilt-business-card).
+L'API dei biglietti da business è anche la [funzionalità di elaborazione di AIBuilder business card](/ai-builder/prebuilt-business-card).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

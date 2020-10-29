@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/29/2020
 ms.author: memildin
-ms.openlocfilehash: bde4b21f9dfff62ef43afc9c9d8e5a858631d304
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1837d84c97227ba3d8743c3717e2f68dafd6b95
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447366"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911393"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedisci le voci DNS in sospeso ed evita l'acquisizione di sottodomini
 
@@ -51,7 +51,7 @@ Uno scenario comune per l'acquisizione di sottodomini:
 
     1. L'attore minaccia esegue il provisioning di una risorsa di Azure con lo stesso FQDN della risorsa precedentemente controllata. In questo esempio, `app-contogreat-dev-001.azurewebsites.net`.
 
-    1. Il traffico inviato al sottodominio `myapp.contoso.com` viene ora indirizzato alla risorsa dell'attore malintenzionato in cui controllano il contenuto.
+    1. Il traffico inviato al sottodominio `greatapp.contoso.com` viene ora indirizzato alla risorsa dell'attore malintenzionato in cui controllano il contenuto.
 
 
 
@@ -119,7 +119,7 @@ Se si è un amministratore globale del tenant dell'organizzazione, elevare il pr
 
 ### <a name="run-the-script"></a>Eseguire lo script
 
-Altre informazioni sullo script di PowerShell, **Get-DanglingDnsRecords.ps1**e scaricarlo da GitHub: https://aka.ms/DanglingDNSDomains .
+Altre informazioni sullo script di PowerShell, **Get-DanglingDnsRecords.ps1** e scaricarlo da GitHub: https://aka.ms/DanglingDNSDomains .
 
 ## <a name="remediate-dangling-dns-entries"></a>Correggere le voci DNS in sospeso 
 

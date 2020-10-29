@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: 0365238fd70e2e098e5a228ee71d5b9e0e584c71
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f7fd40c48f94b4337c5ec342499203f83763299b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279780"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909931"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Come scegliere tra la velocità effettiva con provisioning standard (manuale) e la velocità effettiva con provisioning a scalabilità automatica 
 
@@ -83,7 +83,7 @@ Analizziamo ora la cronologia. Si supponga di avere l'utilizzo descritto nella t
 
 Si noti che nell'ora 1, quando si usa il 6% di utilizzo, la scalabilità automatica fattura le UR/s per il 10% del numero massimo di ur/sec, che corrisponde al valore minimo per ogni ora. Sebbene il costo della scalabilità automatica possa essere superiore alla velocità effettiva manuale in determinate ore, a condizione che l'utilizzo medio sia inferiore al 66% per tutte le ore, la scalabilità automatica sarà più economica in generale.
 
-|  | Utilizzo |Unità di scalabilità automatica fatturate/sec  |Opzione 1: manuale 30.000 UR/sec  | Opzione 2: ridimensionamento automatico tra 3000-30.000 UR/sec |
+|Periodo di tempo  | Utilizzo |Unità di scalabilità automatica fatturate/sec  |Opzione 1: manuale 30.000 UR/sec  | Opzione 2: ridimensionamento automatico tra 3000-30.000 UR/sec |
 |---------|---------|---------|---------|---------|
 |Ora 1  | 6%  |     3000  |  30.000 * 0,008/100 = $2,40        |   3000 * 0,012/100 = $0,36      |
 |Ora 2  | 100%  |     30.000    |  30.000 * 0,008/100 = $2,40       |  30.000 * 0,012/100 = $3,60      |
@@ -102,7 +102,7 @@ Si supponga di avere la cronologia di utilizzo come descritto nella tabella. Il 
 
 In generale, se l'utilizzo medio in tutte le 730 ore in un mese è maggiore del 66%, verrà risparmiato usando la velocità effettiva manuale. 
 
-|  | Utilizzo |Unità di scalabilità automatica fatturate/sec  |Opzione 1: manuale 30.000 UR/sec  | Opzione 2: ridimensionamento automatico tra 3000-30.000 UR/sec |
+| Periodo di tempo | Utilizzo |Unità di scalabilità automatica fatturate/sec  |Opzione 1: manuale 30.000 UR/sec  | Opzione 2: ridimensionamento automatico tra 3000-30.000 UR/sec |
 |---------|---------|---------|---------|---------|
 |Ora 1  | 72%  |     21.600   |  30.000 * 0,008/100 = $2,40        |   21600 * 0,012/100 = $2,59      |
 |Ora 2  | 93%  |     28.000    |  30.000 * 0,008/100 = $2,40       |  28.000 * 0,012/100 = $3,36       |
@@ -116,18 +116,18 @@ In generale, se l'utilizzo medio in tutte le 730 ore in un mese è maggiore del 
 Ridimensionamento automatico fatture per le UR/sec più elevate a in un'ora. Quando si analizza il consumo di unità richiesta normalizzate nel tempo, è importante usare l'utilizzo più elevato per ora durante il calcolo della media. 
 
 Per calcolare la media dell'utilizzo più elevato tra tutte le ore:
-1. Impostare l' **aggregazione** sulla metrica di utilizzo di Noramlized ur su **Max**.
+1. Impostare l' **aggregazione** sulla metrica di utilizzo di Noramlized ur su **Max** .
 1. Selezionare la **granularità dell'ora** su 1 ora.
-1. Passare a **Opzioni grafico**.
+1. Passare a **Opzioni grafico** .
 1. Selezionare l'opzione grafico a barre. 
-1. In **Condividi**selezionare l'opzione **Scarica in Excel** . Dal foglio di calcolo generato calcolare l'utilizzo medio in tutte le ore. 
+1. In **Condividi** selezionare l'opzione **Scarica in Excel** . Dal foglio di calcolo generato calcolare l'utilizzo medio in tutte le ore. 
 
 :::image type="content" source="media/how-to-choose-offer/variable-workload-highest-util-by-hour.png" alt-text="Carico di lavoro con consumo di unità richiesta normalizzato del traffico variabile tra il 6% e il 100% per tutte le ore":::
 
 ## <a name="measure-and-monitor-your-usage"></a>Misurare e monitorare l'utilizzo
 Dopo aver scelto il tipo di velocità effettiva, è necessario monitorare l'applicazione a lungo termine e apportare eventuali modifiche in base alle esigenze. 
 
-Se si sceglie la scalabilità automatica, usare Monitoraggio di Azure per visualizzare il numero massimo di UR/s con provisioning a scalabilità automatica (**velocità effettiva massima a scalabilità automatica**) e il numero di UR/s a cui si trova attualmente il sistema (**velocità effettiva con provisioning**). Di seguito è riportato un esempio di carico di lavoro variabile o imprevedibile per il quale viene usata la scalabilità automatica. Se non è presente traffico, il sistema ridimensiona il numero di UR/s alla quantità minima del 10% rispetto al numero massimo di UR/s, che in questo caso sono, rispettivamente, 5000 UR/s e 50.000 UR/s. 
+Se si sceglie la scalabilità automatica, usare Monitoraggio di Azure per visualizzare il numero massimo di UR/s con provisioning a scalabilità automatica ( **velocità effettiva massima a scalabilità automatica** ) e il numero di UR/s a cui si trova attualmente il sistema ( **velocità effettiva con provisioning** ). Di seguito è riportato un esempio di carico di lavoro variabile o imprevedibile per il quale viene usata la scalabilità automatica. Se non è presente traffico, il sistema ridimensiona il numero di UR/s alla quantità minima del 10% rispetto al numero massimo di UR/s, che in questo caso sono, rispettivamente, 5000 UR/s e 50.000 UR/s. 
 
 :::image type="content" source="media/how-to-choose-offer/autoscale-metrics-azure-monitor.png" alt-text="Carico di lavoro con consumo di unità richiesta normalizzato del traffico variabile tra il 6% e il 100% per tutte le ore":::
 

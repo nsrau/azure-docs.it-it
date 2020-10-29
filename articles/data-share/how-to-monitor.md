@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 07/30/2020
-ms.openlocfilehash: 2a986afa1916d179834c516a26f76a2789f82452
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc400922115f348090677661cd1b30434be19b72
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87511888"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92910475"
 ---
 # <a name="monitor-azure-data-share"></a>Monitorare Condivisione dati di Azure  
 
@@ -36,13 +36,13 @@ Per visualizzare lo stato degli inviti alla condivisione dati, passare a condivi
 
 ## <a name="monitor-share-subscriptions"></a>Monitorare le sottoscrizioni di condivisione
 
-Per visualizzare lo stato delle sottoscrizioni di condivisione, passare a condivisioni inviate > sottoscrizioni di condivisione. In questo modo sarà possibile ottenere informazioni dettagliate sulle sottoscrizioni attive create dai consumer di dati dopo aver accettato l'invito. È possibile arrestare gli aggiornamenti futuri al consumer di dati selezionando la sottoscrizione di condivisione e selezionando *revoca*. 
+Per visualizzare lo stato delle sottoscrizioni di condivisione, passare a condivisioni inviate > sottoscrizioni di condivisione. In questo modo sarà possibile ottenere informazioni dettagliate sulle sottoscrizioni attive create dai consumer di dati dopo aver accettato l'invito. È possibile arrestare gli aggiornamenti futuri al consumer di dati selezionando la sottoscrizione di condivisione e selezionando *revoca* . 
 
 ## <a name="snapshot-history"></a>Cronologia snapshot 
 
 Nella scheda **cronologia** di una condivisione è possibile visualizzare quando i dati vengono copiati dal provider di dati all'archivio dati del consumer di dati. È possibile monitorare la frequenza, la durata e lo stato di ogni snapshot. 
 
-![Cronologia snapshot](./media/sent-shares.png "Cronologia snapshot") 
+![Screenshot mostra le condivisioni inviate nel portale di Azure.](./media/sent-shares.png "Cronologia snapshot") 
 
 È possibile visualizzare altri dettagli su ogni esecuzione di snapshot facendo clic sulla data di inizio dell'esecuzione. Fare quindi clic sullo stato di ogni set di dati per visualizzare la quantità di dati trasferiti, il numero di file/record copiati, la durata dello snapshot, il numero di Vcore usati e il messaggio di errore, se presenti. 
 
@@ -50,9 +50,9 @@ Viene visualizzato un massimo di 30 giorni di cronologia degli snapshot. Se è n
 
 ## <a name="diagnostic-setting"></a>Impostazione di diagnostica
 
-È possibile configurare l'impostazione di diagnostica per salvare i dati o gli eventi del log. Passare a monitoraggio-> impostazioni di diagnostica e selezionare Aggiungi impostazioni di **diagnostica**. Selezionare i dati o gli eventi di log a cui si è interessati e dove si desidera archiviarli o inviarli. 
+È possibile configurare l'impostazione di diagnostica per salvare i dati o gli eventi del log. Passare a monitoraggio-> impostazioni di diagnostica e selezionare Aggiungi impostazioni di **diagnostica** . Selezionare i dati o gli eventi di log a cui si è interessati e dove si desidera archiviarli o inviarli. 
 
-![Cronologia snapshot](./media/diagnostic-settings.png "Impostazioni di diagnostica") 
+![Screenshot mostra la pagina delle impostazioni di diagnostica nell'portale di Azure.](./media/diagnostic-settings.png "Impostazioni di diagnostica") 
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

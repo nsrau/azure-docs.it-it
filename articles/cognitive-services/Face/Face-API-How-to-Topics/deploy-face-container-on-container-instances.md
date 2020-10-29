@@ -10,19 +10,19 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 07/16/2020
 ms.author: aahi
-ms.openlocfilehash: 5fbe316580cfa2ca280a2587536df037146e8d02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5354581be519172c498e57d25510f9fc5c0daa4
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86538123"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911257"
 ---
 # <a name="deploy-the-face-container-to-azure-container-instances"></a>Distribuire il contenitore viso in istanze di contenitore di Azure
 
 > [!IMPORTANT]
 > È stato raggiunto il limite per gli utenti del contenitore Viso. Attualmente non vengono accettate nuove applicazioni per il contenitore Viso.
 
-Informazioni su come distribuire il contenitore [viso](../face-how-to-install-containers.md) di servizi cognitivi in [istanze di contenitore](https://docs.microsoft.com/azure/container-instances/)di Azure. Questa procedura illustra la creazione di una risorsa viso di Azure. Viene quindi illustrato il pull dell'immagine del contenitore associata. Infine, viene evidenziata la possibilità di eseguire l'orchestrazione dei due da un browser. L'uso dei contenitori può spostare l'attenzione degli sviluppatori fuori dalla gestione dell'infrastruttura per concentrarsi invece sullo sviluppo di applicazioni.
+Informazioni su come distribuire il contenitore [viso](../face-how-to-install-containers.md) di servizi cognitivi in [istanze di contenitore](../../../container-instances/index.yml)di Azure. Questa procedura illustra la creazione di una risorsa viso di Azure. Viene quindi illustrato il pull dell'immagine del contenitore associata. Infine, viene evidenziata la possibilità di eseguire l'orchestrazione dei due da un browser. L'uso dei contenitori può spostare l'attenzione degli sviluppatori fuori dalla gestione dell'infrastruttura per concentrarsi invece sullo sviluppo di applicazioni.
 
 [!INCLUDE [Prerequisites](../../containers/includes/container-preview-prerequisites.md)]
 

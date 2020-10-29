@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 41fb34055b9992b83a11bc3e4d47e3a389147860
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 14a532e7809db3359d90a03c169c27a19cf89a9a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164228"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911631"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -21,7 +21,7 @@ L'obiettivo di questo articolo è aiutare l'utente a individuare e risolvere i p
 
 1. [Forum di archiviazione di Azure](https://docs.microsoft.com/answers/products/azure?product=storage).
 2. [UserVoice per File di Azure](https://feedback.azure.com/forums/217298-storage/category/180670-files).
-3. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida**, selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto**.
+3. Supporto tecnico Microsoft. Per creare una nuova richiesta di supporto, nel portale di Azure, nella scheda **Guida** , selezionare **Guida e supporto** e quindi selezionare **Nuova richiesta di supporto** .
 
 ## <a name="im-having-an-issue-with-azure-file-sync-on-my-server-sync-cloud-tiering-etc-should-i-remove-and-recreate-my-server-endpoint"></a>Si è verificato un problema di Sincronizzazione file di Azure nel server (sincronizzazione, suddivisione in livelli cloud e così via). È consigliabile rimuovere l'endpoint server e ricrearlo?
 [!INCLUDE [storage-sync-files-remove-server-endpoint](../../../includes/storage-sync-files-remove-server-endpoint.md)]
@@ -93,7 +93,7 @@ Reset-StorageSyncServer
 > Se il server fa parte di un cluster, è possibile usare il parametro facoltativo *Reset-StorageSyncServer -CleanClusterRegistration* per rimuovere anche la registrazione del cluster.
 
 <a id="web-site-not-trusted"></a>**Perché quando si registra un server si ricevono numerose risposte indicanti che il sito Web non è attendibile. Perché?**  
-Questo errore si verifica perché durante la registrazione del server sono abilitati i criteri **Sicurezza avanzata di Internet Explorer**. Per altre informazioni su come disabilitare correttamente i criteri **Sicurezza avanzata di Internet Explorer**, vedere [Preparare Windows Server per l'uso con Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
+Questo errore si verifica perché durante la registrazione del server sono abilitati i criteri **Sicurezza avanzata di Internet Explorer** . Per altre informazioni su come disabilitare correttamente i criteri **Sicurezza avanzata di Internet Explorer** , vedere [Preparare Windows Server per l'uso con Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md#prepare-windows-server-to-use-with-azure-file-sync) e [Come distribuire Sincronizzazione file di Azure](storage-sync-files-deployment-guide.md).
 
 <a id="server-registration-missing"></a>**Il server non è elencato in Server registrati nel portale di Azure**  
 Se un server non è presente nell'elenco **Server registrati** per un servizio di sincronizzazione archiviazione, seguire questa procedura:
@@ -102,17 +102,20 @@ Se un server non è presente nell'elenco **Server registrati** per un servizio d
 3. Eseguire il file ServerRegistration.exe e completare la registrazione guidata del server con un servizio di sincronizzazione archiviazione.
 
 ## <a name="sync-group-management"></a>Gestione dei gruppi di sincronizzazione
+
+### <a name="cloud-endpoint-creation-errors"></a>Errori di creazione dell'endpoint cloud
+
 <a id="cloud-endpoint-using-share"></a>**La creazione dell'endpoint cloud ha esito negativo e viene restituito il messaggio di errore: "La condivisione file di Azure specificata è già usata da un endpoint cloud diverso"**  
 Questo errore si verifica se la condivisione file di Azure è già in uso da parte di un altro endpoint cloud. 
 
 Se viene visualizzato questo messaggio e la condivisione file di Azure non è attualmente in uso da alcun endpoint cloud, attenersi ai passaggi seguenti per cancellare i metadati di Sincronizzazione file di Azure nella condivisone file di Azure:
 
 > [!Warning]  
-> L'eliminazione dei metadati nella condivisione file di Azure attualmente in uso da un endpoint cloud impedisce il corretto funzionamento di Sincronizzazione file di Azure. 
+> L'eliminazione dei metadati nella condivisione file di Azure attualmente in uso da un endpoint cloud impedisce il corretto funzionamento di Sincronizzazione file di Azure. 
 
-1. Nel portale di Azure passare alla condivisione file di Azure.  
-2. Fare clic con il pulsante destro del mouse sulla condivisione file di Azure e scegliere **Modifica metadati**.
-3. Fare clic con il pulsante destro del mouse su **SyncService** e quindi fare clic su **Elimina**.
+1. Nel portale di Azure passare alla condivisione file di Azure.  
+2. Fare clic con il pulsante destro del mouse sulla condivisione file di Azure e scegliere **Modifica metadati** .
+3. Fare clic con il pulsante destro del mouse su **SyncService** e quindi fare clic su **Elimina** .
 
 <a id="cloud-endpoint-authfailed"></a>**La creazione dell'endpoint cloud ha esito negativo e viene restituito il messaggio di errore: "AuthorizationFailed"**  
 Questo errore si verifica se l'account utente non ha diritti sufficienti per creare un endpoint cloud. 
@@ -128,13 +131,15 @@ I seguenti ruoli predefiniti dispongono delle necessarie autorizzazioni Microsof
 * Amministratore accessi utente
 
 Per determinare se il ruolo dell'account utente in uso dispone delle autorizzazioni necessarie:  
-1. Nel portale di Azure fare clic su **Gruppi di risorse**.
+1. Nel portale di Azure fare clic su **Gruppi di risorse** .
 2. Selezionare il gruppo di risorse in cui si trova l'account di archiviazione e quindi selezionare **Controllo di accesso (IAM)** .
-3. Selezionare la scheda **Assegnazioni di ruolo**.
+3. Selezionare la scheda **Assegnazioni di ruolo** .
 4. Selezionare il **Ruolo** per l'account utente, ad esempio proprietario o collaboratore.
-5. Nell'elenco **Provider di risorse** selezionare **Autorizzazione Microsoft**. 
-    * In **Assegnazione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura**.
-    * In **Definizione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura**.
+5. Nell'elenco **Provider di risorse** selezionare **Autorizzazione Microsoft** . 
+    * In **Assegnazione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura** .
+    * In **Definizione ruolo** devono essere impostate le autorizzazioni **Lettura** e **Scrittura** .
+
+### <a name="server-endpoint-creation-and-deletion-errors"></a>Errori di creazione ed eliminazione dell'endpoint server
 
 <a id="-2134375898"></a>**La creazione dell'endpoint del server ha esito negativo e viene restituito il messaggio di errore: "MgmtServerJobFailed" (codice errore: -2134375898 o 0x80c80226)**  
 Questo errore si verifica se il percorso dell'endpoint server si trova sul volume di sistema ed è abilitata la suddivisione in livelli nel cloud. La suddivisione in livelli cloud non è supportata nel volume di sistema. Per creare un endpoint server nel volume di sistema, disabilitare la suddivisione in livelli nel cloud durante la creazione dell'endpoint server.
@@ -165,6 +170,8 @@ Questo errore si verifica se il percorso dell'endpoint server contiene file a li
 
 <a id="-2134347757"></a>**L'eliminazione dell'endpoint del server ha esito negativo e viene restituito il messaggio di errore: "MgmtServerJobExpired" (codice errore: -2134347757 o 0x80c87013)**  
 Questo errore si verifica se il server è offline o non si dispone di connettività di rete. Se il server non è più disponibile, annullare la registrazione del server nel portale. In questo modo, si annullano gli endpoint server. Per eliminare gli endpoint server, seguire la procedura descritta in [Annullare la registrazione del server con Sincronizzazione file di Azure](storage-sync-files-server-registration.md#unregister-the-server-with-storage-sync-service).
+
+### <a name="server-endpoint-health"></a>Integrità endpoint server
 
 <a id="server-endpoint-provisioningfailed"></a>**Impossibile aprire la pagina delle proprietà dell'endpoint server o aggiornare i criteri di suddivisione in livelli nel cloud**  
 Questo problema può verificarsi se un'operazione di gestione nell'endpoint server ha esito negativo. Se la pagina delle proprietà dell'endpoint server non si apre nel portale di Azure, l'aggiornamento dell'endpoint server mediante i comandi di PowerShell dal server potrebbe risolvere il problema. 
@@ -338,16 +345,18 @@ Per visualizzare questi errori, eseguire lo script **FileSyncErrorsReport.ps1** 
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | Il file non può essere sincronizzato perché è stato raggiunto il numero massimo di file in conflitto. Sincronizzazione file di Azure supporta 100 file in conflitto per file. Per altre informazioni sui conflitti di file, vedere le [domande frequenti](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution) su Sincronizzazione file di Azure. | Per risolvere il problema, ridurre il numero di file in conflitto. Il file verrà sincronizzato quando il numero di file in conflitto sarà inferiore a 100. |
 
 #### <a name="handling-unsupported-characters"></a>Gestione dei caratteri non supportati
-Se lo script di **FileSyncErrorsReport.ps1** PowerShell Mostra gli errori di sincronizzazione per elemento a causa di caratteri non supportati (codice errore 0x8007007b o 0x80c80255), è necessario rimuovere o rinominare i caratteri in errore dai rispettivi nomi file. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. È possibile usare lo [strumento di valutazione](storage-sync-files-planning.md#evaluation-cmdlet) per identificare i caratteri non supportati. Se il set di dati contiene più file con caratteri non validi, usare lo script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) per rinominare i file che contengono caratteri non supportati.
+Se lo script di **FileSyncErrorsReport.ps1** PowerShell Mostra gli errori di sincronizzazione per elemento a causa di caratteri non supportati (codice errore 0x8007007b o 0x80c80255), è necessario rimuovere o rinominare i caratteri in errore dai rispettivi nomi file. PowerShell probabilmente stamperà i caratteri come punti interrogativi o rettangoli vuoti poiché la maggior parte di questi caratteri non ha alcuna codifica visiva standard. 
+> [!Note]  
+> È possibile usare lo [strumento di valutazione](storage-sync-files-planning.md#evaluation-cmdlet) per identificare i caratteri non supportati. Se il set di dati contiene più file con caratteri non validi, usare lo script [ScanUnsupportedChars](https://github.com/Azure-Samples/azure-files-samples/tree/master/ScanUnsupportedChars) per rinominare i file che contengono caratteri non supportati.
 
 La tabella seguente contiene tutti i caratteri unicode che Sincronizzazione file di Azure non supporta ancora.
 
 | Set di caratteri | Conteggio di caratteri |
 |---------------|-----------------|
 | <ul><li>0x0000009D (osc operating system command)</li><li>0x00000090 (dcs device control string)</li><li>0x0000008F (ss3 single shift three)</li><li>0x00000081 (high octet preset)</li><li>0x0000007F (del delete)</li><li>0x0000008D (ri reverse line feed)</li></ul> | 6 |
-| 0x0000FDD0 - 0x0000FDEF (Forme di presentazione arabo di tipo A) | 32 |
+| 0x0000FDD0 - 0x0000FDEF (Arabic presentation forms-a) | 32 |
 | 0x0000FFF0 - 0x0000FFFF (caso speciale) | 16 |
-| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (non carattere)</li><li>0x0002FFFE - 0x0002FFFF = 2 (non carattere)</li><li>0x0003FFFE - 0x0003FFFF = 2 (non carattere)</li><li>0x0004FFFE - 0x0004FFFF = 2 (non carattere)</li><li>0x0005FFFE - 0x0005FFFF = 2 (non carattere)</li><li>0x0006FFFE - 0x0006FFFF = 2 (non carattere)</li><li>0x0007FFFE - 0x0007FFFF = 2 (non carattere)</li><li>0x0008FFFE - 0x0008FFFF = 2 (non carattere)</li><li>0x0009FFFE - 0x0009FFFF = 2 (non carattere)</li><li>0x000AFFFE - 0x000AFFFF = 2 (non carattere)</li><li>0x000BFFFE - 0x000BFFFF = 2 (non carattere)</li><li>0x000CFFFE - 0x000CFFFF = 2 (non carattere)</li><li>0x000DFFFE - 0x000DFFFF = 2 (non carattere)</li><li>0x000EFFFE - 0x000EFFFF = 2 (non definito)</li><li>0x000FFFFE - 0x000FFFFF = 2 (area supplementare per uso privato)</li></ul> | 30 |
+| <ul><li>0x0001FFFE - 0x0001FFFF = 2 (non carattere)</li><li>0x0002FFFE - 0x0002FFFF = 2 (non carattere)</li><li>0x0003FFFE - 0x0003FFFF = 2 (non carattere)</li><li>0x0004FFFE - 0x0004FFFF = 2 (non carattere)</li><li>0x0005FFFE - 0x0005FFFF = 2 (non carattere)</li><li>0x0006FFFE - 0x0006FFFF = 2 (non carattere)</li><li>0x0007FFFE - 0x0007FFFF = 2 (non carattere)</li><li>0x0008FFFE - 0x0008FFFF = 2 (non carattere)</li><li>0x0009FFFE - 0x0009FFFF = 2 (non carattere)</li><li>0x000AFFFE - 0x000AFFFF = 2 (non carattere)</li><li>0x000BFFFE - 0x000BFFFF = 2 (non carattere)</li><li>0x000CFFFE - 0x000CFFFF = 2 (non carattere)</li><li>0x000DFFFE - 0x000DFFFF = 2 (non carattere)</li><li>0x000EFFFE - 0x000EFFFF = 2 (non definito)</li><li>0x000FFFFE - 0x000FFFFF = 2 (supplementary private use area)</li></ul> | 30 |
 | 0x0010FFFE, 0x0010FFFF | 2 |
 
 ### <a name="common-sync-errors"></a>Errori di sincronizzazione comuni
@@ -520,7 +529,7 @@ Questo errore si verifica quando il limite di archiviazione di condivisione file
 
 5. Selezionare **File** per visualizzare l'elenco delle condivisioni file.
 6. Fare clic sui tre puntini alla fine della riga per la condivisione file di Azure a cui fa riferimento l'endpoint cloud.
-7. Verificare che l'**Utilizzo** si trovi sotto a **Quota**. Nota: a meno che non sia stata specificata una quota alternativa, la quota corrisponderà alle [dimensioni massime della condivisione file di Azure](storage-files-scale-targets.md).
+7. Verificare che l' **Utilizzo** si trovi sotto a **Quota** . Nota: a meno che non sia stata specificata una quota alternativa, la quota corrisponderà alle [dimensioni massime della condivisione file di Azure](storage-files-scale-targets.md).
 
     ![Schermata delle proprietà della condivisione file di Azure.](media/storage-sync-files-troubleshoot/file-share-limit-reached-1.png)
 
@@ -995,16 +1004,16 @@ if ($fileShare -eq $null) {
 <a id="troubleshoot-rbac"></a>**Garantire che Sincronizzazione file di Azure possa accedere all'account di archiviazione.**  
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 1. Fare clic su **Controllo di accesso (IAM)** nel sommario a sinistra.
-1. Fare clic sulla scheda **Assegnazioni del ruolo** per passare all'elenco di utenti e applicazioni (*entità servizio*) che possono accedere all'account di archiviazione.
-1. Verificare che **Microsoft.StorageSync** o il **servizio Sincronizzazione file ibrida** (nome dell'applicazione precedente) venga visualizzato nell'elenco con il ruolo **Lettore e accesso ai dati**. 
+1. Fare clic sulla scheda **Assegnazioni del ruolo** per passare all'elenco di utenti e applicazioni ( *entità servizio* ) che possono accedere all'account di archiviazione.
+1. Verificare che **Microsoft.StorageSync** o il **servizio Sincronizzazione file ibrida** (nome dell'applicazione precedente) venga visualizzato nell'elenco con il ruolo **Lettore e accesso ai dati** . 
 
     ![Una schermata dell'entità servizio del servizio Sincronizzazione file ibrida nella scheda di controllo di accesso dell'account di archiviazione](media/storage-sync-files-troubleshoot/file-share-inaccessible-3.png)
 
     Se **Microsoft. StorageSync** o il **servizio Sincronizzazione file ibrida** non è visualizzato nell'elenco, eseguire i passaggi seguenti:
 
-    - Scegliere **Aggiungi**.
-    - Nel campo **Ruolo** selezionare **Lettore e accesso ai dati**.
-    - Nel campo **Seleziona** digitare **Microsoft.StorageSync**, selezionare il ruolo e fare clic su **Salva**.
+    - Scegliere **Aggiungi** .
+    - Nel campo **Ruolo** selezionare **Lettore e accesso ai dati** .
+    - Nel campo **Seleziona** digitare **Microsoft.StorageSync** , selezionare il ruolo e fare clic su **Salva** .
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 ```powershell    
@@ -1045,17 +1054,17 @@ Nell'archiviazione a livelli nel cloud possono prendere forma due percorsi di er
 Dai questi due percorsi di errore possono essere generate due principali classi di errore:
 
 - Errori di archiviazione cloud
-    - *Problemi di disponibilità del servizio di archiviazione temporanea*. Per altre informazioni, vedere [Contratto di servizio per Archiviazione di Azure](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
-    - *Condivisione file di Azure non accessibile*. Questo errore si verifica in genere quando si elimina una condivisione file di Azure che si trova ancora in un endpoint cloud di un gruppo di sincronizzazione.
-    - *Account di archiviazione inaccessibile*. Questo errore si verifica in genere quando si elimina un account di archiviazione che ha ancora una condivisione file di Azure costituita da un endpoint cloud in un gruppo di sincronizzazione. 
+    - *Problemi di disponibilità del servizio di archiviazione temporanea* . Per altre informazioni, vedere [Contratto di servizio per Archiviazione di Azure](https://azure.microsoft.com/support/legal/sla/storage/v1_2/).
+    - *Condivisione file di Azure non accessibile* . Questo errore si verifica in genere quando si elimina una condivisione file di Azure che si trova ancora in un endpoint cloud di un gruppo di sincronizzazione.
+    - *Account di archiviazione inaccessibile* . Questo errore si verifica in genere quando si elimina un account di archiviazione che ha ancora una condivisione file di Azure costituita da un endpoint cloud in un gruppo di sincronizzazione. 
 - Errori del server 
-  - *Il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) non è caricato*. Per rispondere alle richieste di archiviazione a livelli/richiamo, è necessario che il filtro del file system di Sincronizzazione file di Azure sia caricato. È possibile che un filtro non risulti caricato per vari motivi, ma la causa più comune è che un amministratore lo abbia scaricato manualmente. Il filtro del file system di Sincronizzazione file di Azure deve risultare sempre caricato per garantire il corretto funzionamento di Sincronizzazione file di Azure.
-  - *Reparse point mancante, danneggiato o non funzionante*. Un reparse point è una speciale struttura di dati in un file costituita da due parti:
+  - *Il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys) non è caricato* . Per rispondere alle richieste di archiviazione a livelli/richiamo, è necessario che il filtro del file system di Sincronizzazione file di Azure sia caricato. È possibile che un filtro non risulti caricato per vari motivi, ma la causa più comune è che un amministratore lo abbia scaricato manualmente. Il filtro del file system di Sincronizzazione file di Azure deve risultare sempre caricato per garantire il corretto funzionamento di Sincronizzazione file di Azure.
+  - *Reparse point mancante, danneggiato o non funzionante* . Un reparse point è una speciale struttura di dati in un file costituita da due parti:
     1. Un tag di reparse, che indica al sistema operativo che per eseguire alcune operazioni di I/O sul file è possibile che sia necessario il filtro del file system di Sincronizzazione file di Azure (StorageSync.sys). 
     2. I dati di reparse, che indicano al filtro del file system l'URI del file nell'endpoint cloud associato (la condivisione file di Azure). 
         
        Nella maggior parte dei casi, un reparse point viene danneggiato quando un amministratore tenta di modificarne il tag o i dati. 
-  - *Problemi di connettività di rete*. Per archiviare a livelli o richiamare un file, il server deve avere la connettività Internet.
+  - *Problemi di connettività di rete* . Per archiviare a livelli o richiamare un file, il server deve avere la connettività Internet.
 
 Le sezioni seguenti indicano come risolvere problemi di archiviazione a livelli nel cloud e determinare se si tratta di un problema di archiviazione cloud o di un problema del server.
 
@@ -1271,7 +1280,7 @@ Per eseguire AFSDiag, seguire questa procedura:
 
 3. Per il livello di traccia nella modalità kernel di Sincronizzazione file di Azure, immettere **1** (salvo diversamente specificato, per creare tracce più dettagliate) e quindi premere INVIO.
 4. Per il livello di traccia nella modalità utente di Sincronizzazione file di Azure, immettere **1** (salvo diversamente specificato, per creare tracce più dettagliate) e quindi premere INVIO.
-5. Riprodurre il problema. Al termine immettere **D**.
+5. Riprodurre il problema. Al termine immettere **D** .
 6. Nella directory di output specificata verrà salvato un file con estensione zip contenente i log e i file di traccia.
 
 ## <a name="see-also"></a>Vedere anche

@@ -10,12 +10,12 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.author: pafarley
-ms.openlocfilehash: 2d685683bdc359b31a5a6c550c19e8c0d858f12a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8812fd1e6c1efb2aa44c77573bc4b8f1c099834d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84689844"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912022"
 ---
 # <a name="configure-the-review-tool"></a>Configurare lo strumento di revisione
 
@@ -35,7 +35,7 @@ In questa sezione viene illustrato come creare i sottoteam e assegnare rapidamen
 
 ### <a name="create-a-subteam"></a>Creare un sottoteam
 
-Passare alla sezione **sottoteam** e fare clic su **Aggiungi sottogruppo**. Immettere il nome del sottoteam nella finestra di dialogo e fare clic su **Salva**.
+Passare alla sezione **sottoteam** e fare clic su **Aggiungi sottogruppo** . Immettere il nome del sottoteam nella finestra di dialogo e fare clic su **Salva** .
 
 ![Nome del sottoteam](images/1-Teams-2.PNG)
 
@@ -54,19 +54,19 @@ Fare clic sul pulsante **Aggiungi membro** per assegnare i membri del team prede
 ### <a name="assign-reviews-to-subteams"></a>Assegna revisioni a sottoteam
 
 Una volta creati i sottoteam e i membri assegnati, è possibile iniziare ad assegnare le [revisioni](../review-api.md#reviews) del contenuto a tali sottoteam. Questa operazione viene eseguita dalla scheda **Verifica** del sito.
-Per assegnare contenuto a un sottoteam, fare clic sui puntini di sospensione nell'angolo in alto a destra, selezionare **Sposta in**e selezionare un sottoteam.
+Per assegnare contenuto a un sottoteam, fare clic sui puntini di sospensione nell'angolo in alto a destra, selezionare **Sposta in** e selezionare un sottoteam.
 
 ![Assegnare la revisione di un'immagine a un sottoteam](images/3-review-image-subteam-1.png)
 
 ### <a name="switch-between-subteams"></a>Passare da un sottoteam a un altro
 
-Se si è membri di più sottoteam, è possibile passare da un sottoteam all'altro per modificare le revisioni del contenuto visualizzate. Nella scheda **Revisione** selezionare il menu a discesa con etichetta **predefinito** e **scegliere Scegli sottogruppo**. È possibile visualizzare le revisioni del contenuto per diversi sottoteam, ma solo quelle di cui si è membri.
+Se si è membri di più sottoteam, è possibile passare da un sottoteam all'altro per modificare le revisioni del contenuto visualizzate. Nella scheda **Revisione** selezionare il menu a discesa con etichetta **predefinito** e **scegliere Scegli sottogruppo** . È possibile visualizzare le revisioni del contenuto per diversi sottoteam, ma solo quelle di cui si è membri.
 
 ![Passare da un sottoteam a un altro](images/3-review-image-subteam-2.png)
 
 ## <a name="tags"></a>Tag
 
-La scheda **tag** consente di definire tag di moderazione personalizzati, oltre ai due tag di moderazione predefiniti &mdash; **isadult** (**a**) e a **isracy** (**r**). Quando si crea un tag personalizzato, diventa disponibile nei revisioni insieme ai tag predefiniti. È possibile modificare i tag che vengono visualizzati nelle verifiche cambiando le impostazioni di visibilità.
+La scheda **tag** consente di definire tag di moderazione personalizzati, oltre ai due tag di moderazione predefiniti &mdash; **isadult** ( **a** ) e a **isracy** ( **r** ). Quando si crea un tag personalizzato, diventa disponibile nei revisioni insieme ai tag predefiniti. È possibile modificare i tag che vengono visualizzati nelle verifiche cambiando le impostazioni di visibilità.
 
 ![Visualizzazione dei tag, incluse le caselle di controllo "visibile"](images/tags-4-disable.png)
 
@@ -74,9 +74,9 @@ La scheda **tag** consente di definire tag di moderazione personalizzati, oltre 
 
 Per creare un nuovo tag, è necessario immettere un codice, un nome e una descrizione brevi nei rispettivi campi.
 
-- **Short code**: immettere un codice di due lettere per il tag. Esempio: **CB**
-- **Nome**: immettere un nome di tag breve e descrittivo in lettere minuscole senza spazi. Esempio: **bullismo**.
-- **Descrizione**: (facoltativo) immettere una descrizione del tipo di contenuto a cui è destinato il tag. Esempio: **rappresentazioni o istanze di cyber bullismo**.
+- **Short code** : immettere un codice di due lettere per il tag. Esempio: **CB**
+- **Nome** : immettere un nome di tag breve e descrittivo in lettere minuscole senza spazi. Esempio: **bullismo** .
+- **Descrizione** : (facoltativo) immettere una descrizione del tipo di contenuto a cui è destinato il tag. Esempio: **rappresentazioni o istanze di cyber bullismo** .
 
 Fare clic su **Aggiungi** per aggiungere un tag, quindi fare clic su **Salva** al termine della creazione di tag.
 
@@ -90,7 +90,7 @@ Fare clic su **Aggiungi** per aggiungere un tag, quindi fare clic su **Salva** a
 
 La scheda **connettori** consente di gestire i connettori, che sono plug-in specifici del servizio in grado di elaborare il contenuto in modi diversi come parte dei [flussi di lavoro](../review-api.md#workflows)del contenuto.
 
-Il connettore predefinito quando si crea un flusso di lavoro è il connettore Content Moderator, che può contrassegnare il contenuto come **adulto** o **audace**, trovare volgarità e così via. Tuttavia, è possibile usare altri connettori, elencati qui, purché siano disponibili le credenziali per i rispettivi servizi (per usare il connettore viso, ad esempio, è necessario ottenere una chiave di sottoscrizione [facciale](https://docs.microsoft.com/azure/cognitive-services/face/overview) ).
+Il connettore predefinito quando si crea un flusso di lavoro è il connettore Content Moderator, che può contrassegnare il contenuto come **adulto** o **audace** , trovare volgarità e così via. Tuttavia, è possibile usare altri connettori, elencati qui, purché siano disponibili le credenziali per i rispettivi servizi (per usare il connettore viso, ad esempio, è necessario ottenere una chiave di sottoscrizione [facciale](../../face/overview.md) ).
 
 Lo [strumento di revisione](./human-in-the-loop.md) include i connettori seguenti:
 
@@ -125,7 +125,7 @@ Se è stata creata una [risorsa content moderator](https://ms.portal.azure.com/#
 
 ![Chiavi di Content Moderator nel portale di Azure](images/credentials-azure-portal-keys.PNG)
 
-Nella scheda **credenziali** [dello strumento di verifica](https://contentmoderator.cognitive.microsoft.com)andare al riquadro **Impostazioni flusso di lavoro** , selezionare **modifica**e incollare la chiave nel campo **OCP-gestione API-Subscription-Key** . A questo punto, i flussi di lavoro che chiamano le API di moderazione useranno le credenziali di Azure.
+Nella scheda **credenziali** [dello strumento di verifica](https://contentmoderator.cognitive.microsoft.com)andare al riquadro **Impostazioni flusso di lavoro** , selezionare **modifica** e incollare la chiave nel campo **OCP-gestione API-Subscription-Key** . A questo punto, i flussi di lavoro che chiamano le API di moderazione useranno le credenziali di Azure.
 
 > [!NOTE]
 > Gli altri due campi nel riquadro **Impostazioni flusso di lavoro** sono per elenchi di termini e immagini personalizzati. Per informazioni su questi concetti, vedere le guide [personalizzate](../try-terms-list-api.md) o le guide alle [Immagini personalizzate](../try-image-list-api.md) .
