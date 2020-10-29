@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/15/2020
 ms.topic: tutorial
-ms.openlocfilehash: 81dc23c208ca9fb292c849bdf35d8b91311ed9ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b6c02778b0ee790d81c713283e653058c29c153
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90987649"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899801"
 ---
 # <a name="tutorial-create-a-graphical-runbook"></a>Esercitazione: Creare un runbook grafico
 
@@ -44,11 +44,11 @@ Iniziare creando un runbook semplice che restituisce il testo `Hello World`.
 
 2. Selezionare **Runbook** in **Automazione processi** per aprire l'elenco dei runbook.
 
-3. Per creare un nuovo runbook, selezionare **Crea un runbook**.
+3. Per creare un nuovo runbook, selezionare **Crea un runbook** .
 
-4. Denominare il runbook **MyFirstRunbook-Graphical**.
+4. Denominare il runbook **MyFirstRunbook-Graphical** .
 
-5. In questo caso, verrà creato un [runbook grafico](../automation-graphical-authoring-intro.md). Per **Tipo di runbook**, selezionare **Grafico**.
+5. In questo caso, verrà creato un [runbook grafico](../automation-graphical-authoring-intro.md). Per **Tipo di runbook** , selezionare **Grafico** .
 
     ![Nuovo runbook](../media/automation-tutorial-runbook-graphical/create-new-runbook.png)
 
@@ -62,7 +62,7 @@ Il controllo Libreria sul lato sinistro dell'editor consente di selezionare le a
 
     ![Microsoft.PowerShell.Utility](../media/automation-tutorial-runbook-graphical/search-powershell-cmdlet-writeoutput.png)
 
-2. Scorrere fino alla fine dell'elenco. Fare clic con il pulsante destro del mouse su **Write-Output** e scegliere **Aggiungi ad area di disegno**. In alternativa, è possibile fare clic sui puntini di sospensione (...) accanto al nome del cmdlet e quindi selezionare **Aggiungi ad area di disegno**.
+2. Scorrere fino alla fine dell'elenco. Fare clic con il pulsante destro del mouse su **Write-Output** e scegliere **Aggiungi ad area di disegno** . In alternativa, è possibile fare clic sui puntini di sospensione (...) accanto al nome del cmdlet e quindi selezionare **Aggiungi ad area di disegno** .
 
 3. Fare clic sull'attività **Write-Output** nell'area di disegno. Si aprirà la pagina Controllo configurazione che consente di configurare l'attività.
 
@@ -74,13 +74,13 @@ Il controllo Libreria sul lato sinistro dell'editor consente di selezionare le a
 
 6. Selezionare il parametro `InputObject`. Si tratta del parametro che verrà usato per specificare il testo da inviare al flusso di output.
 
-7. Il menu a discesa **Origine dati** contiene le origini che è possibile usare per popolare il valore di un parametro. In questo menu selezionare **Espressione PowerShell**.
+7. Il menu a discesa **Origine dati** contiene le origini che è possibile usare per popolare il valore di un parametro. In questo menu selezionare **Espressione PowerShell** .
 
    È possibile usare l'output da tali origini, ad esempio un'altra attività, un asset di Automazione o un'espressione PowerShell. In questo caso, l'output è semplicemente `Hello World`. È possibile usare un'espressione di PowerShell e specificare una stringa.
 
-8. Nel campo **Espressione** digitare `Hello World` e quindi fare clic su **OK** due volte per tornare all'area di disegno.
+8. Nel campo **Espressione** digitare `"Hello World"` e quindi fare clic su **OK** due volte per tornare all'area di disegno.
 
-9. Salvare il runbook facendo clic su **Salva**.
+9. Salvare il runbook facendo clic su **Salva** .
 
 ## <a name="step-3---test-the-runbook"></a>Passaggio 3: Testare il runbook
 
@@ -106,7 +106,7 @@ Il runbook creato è ancora in modalità bozza. È necessario pubblicarlo prima 
 
 1. Selezionare **Pubblica** per pubblicare il runbook, quindi **Sì** quando richiesto.
 
-2. Scorrere verso sinistra per visualizzare il runbook nella pagina Runbook e notare che il valore di **Stato creazione** è impostato su **Pubblicato**.
+2. Scorrere verso sinistra per visualizzare il runbook nella pagina Runbook e notare che il valore di **Stato creazione** è impostato su **Pubblicato** .
 
 3. Scorrere verso destra per visualizzare la pagina **MyFirstRunbook-Graphical** (MyFirstRunbook-Grafico).
 
@@ -114,7 +114,7 @@ Il runbook creato è ancora in modalità bozza. È necessario pubblicarlo prima 
 
 4. Selezionare **Avvia** e poi **Sì** quando richiesto per avviare il runbook.
 
-5. Verrà aperto un riquadro per il processo del runbook creato. Verificare che il campo **Stato processo** indichi **Completato**.
+5. Verrà aperto un riquadro per il processo del runbook creato. Verificare che il campo **Stato processo** indichi **Completato** .
 
 6. Fare clic su **Output** per aprire la pagina Output, in cui è possibile visualizzare `Hello World`.
 
@@ -126,7 +126,7 @@ Il runbook creato è ancora in modalità bozza. È necessario pubblicarlo prima 
 
 9. Chiudere il riquadro Flussi e il riquadro Processi per tornare alla pagina MyFirstRunbook-Graphical.
 
-10. Per visualizzare tutti i processi per il runbook, selezionare **Processi** in **Risorse**. In questa pagina sono elencati tutti i processi creati dal runbook. Dovrebbe essere elencato un solo processo, perché il processo è stato eseguito una sola volta.
+10. Per visualizzare tutti i processi per il runbook, selezionare **Processi** in **Risorse** . In questa pagina sono elencati tutti i processi creati dal runbook. Dovrebbe essere elencato un solo processo, perché il processo è stato eseguito una sola volta.
 
 11. Fare clic sul nome del processo per aprire lo stesso riquadro Processo visualizzato quando è stato avviato il runbook. Utilizzare questo riquadro per visualizzare i dettagli di qualsiasi processo creato per il runbook.
 
@@ -136,16 +136,16 @@ Il runbook è stato testato e pubblicato, ma finora non esegue alcuna attività 
 
 1. Copiare l'ID sottoscrizione dall'opzione **Sottoscrizioni** del riquadro di spostamento.
 
-2. Nella pagina Account di Automazione, selezionare **Variabili** in **Risorse condivise**.
+2. Nella pagina Account di Automazione, selezionare **Variabili** in **Risorse condivise** .
 
-3. Selezionare **Aggiungi variabile**.
+3. Selezionare **Aggiungi variabile** .
 
 4. Nella pagina Nuova variabile, definire le impostazioni seguenti nei campi specificati.
 
-    * **Nome**: immettere `AzureSubscriptionId`.
-    * **Valore**: immettere l'ID sottoscrizione.
-    * **Tipo**: mantenere selezionata la voce stringa.
-    * **Crittografia**: usare il valore predefinito.
+    * **Nome** : immettere `AzureSubscriptionId`.
+    * **Valore** : immettere l'ID sottoscrizione.
+    * **Tipo** : mantenere selezionata la voce stringa.
+    * **Crittografia** : usare il valore predefinito.
 
 5. Fare clic su **Crea** per creare la variabile.
 
@@ -158,9 +158,9 @@ Dopo avere creato una variabile che contiene l'ID sottoscrizione, è possibile c
 
 1. Passare al runbook e selezionare **Modifica** nella pagina MyFirstRunbook-Graphical.
 
-2. La voce `Write Hello World to output` non è più necessaria. È sufficiente fare clic sui puntini di sospensione e selezionare **Elimina**.
+2. La voce `Write Hello World to output` non è più necessaria. È sufficiente fare clic sui puntini di sospensione e selezionare **Elimina** .
 
-3. Nel controllo Libreria espandere **ASSET**, quindi **Connessioni**. Aggiungere `AzureRunAsConnection` all'area di disegno selezionando **Aggiungi ad area di disegno**.
+3. Nel controllo Libreria espandere **ASSET** , quindi **Connessioni** . Aggiungere `AzureRunAsConnection` all'area di disegno selezionando **Aggiungi ad area di disegno** .
 
 4. Rinominare `AzureRunAsConnection` con `Get Run As Connection`.
 
@@ -172,47 +172,47 @@ Dopo avere creato una variabile che contiene l'ID sottoscrizione, è possibile c
 
     ![Creare un collegamento tra le attività](../media/automation-tutorial-runbook-graphical/runbook-link-auth-activities.png)
 
-8. Nell'area di disegno selezionare `Connect-AzAccount`. Nel pannello di controllo Configurazione digitare **Accesso ad Azure** nel campo **Etichetta**.
+8. Nell'area di disegno selezionare `Connect-AzAccount`. Nel pannello di controllo Configurazione digitare **Accesso ad Azure** nel campo **Etichetta** .
 
 9. Fare clic su **Parametri** per visualizzare la pagina Configurazione parametro attività.
 
-10. Il cmdlet `Connect-AzAccount` include più set di parametri, quindi è necessario selezionarne uno prima di specificarne i valori. Fare clic su **Set di parametri** e quindi selezionare **ServicePrincipalCertificateWithSubscriptionId**.
+10. Il cmdlet `Connect-AzAccount` include più set di parametri, quindi è necessario selezionarne uno prima di specificarne i valori. Fare clic su **Set di parametri** e quindi selezionare **ServicePrincipalCertificateWithSubscriptionId** .
 
-11. I parametri per questo set di parametri verranno visualizzati nella pagina Configurazione parametro attività. Fare clic su **APPLICATIONID**.
+11. I parametri per questo set di parametri verranno visualizzati nella pagina Configurazione parametro attività. Fare clic su **APPLICATIONID** .
 
     ![Aggiungere i parametri dell'account Azure](../media/automation-tutorial-runbook-graphical/Add-AzureRmAccount-params.png)
 
-12. Nella pagina Valore parametro configurare le impostazioni seguenti e quindi fare clic su **OK**.
+12. Nella pagina Valore parametro configurare le impostazioni seguenti e quindi fare clic su **OK** .
 
-   * **Origine dati**: selezionare **Output attività**.
+   * **Origine dati** : selezionare **Output attività** .
    * Elenco origini dati: selezionare **Get Automation Connection** (Ottieni connessione di Automazione).
-   * **Percorso campo**: digitare `ApplicationId`. Viene specificato il nome della proprietà per il percorso del campo perché l'attività restituisce un oggetto con più proprietà.
+   * **Percorso campo** : digitare `ApplicationId`. Viene specificato il nome della proprietà per il percorso del campo perché l'attività restituisce un oggetto con più proprietà.
 
-13. Fare clic su **CERTIFICATETHUMBPRINT** e nella pagina Valore parametro configurare le impostazioni seguenti, quindi fare clic su **OK**.
+13. Fare clic su **CERTIFICATETHUMBPRINT** e nella pagina Valore parametro configurare le impostazioni seguenti, quindi fare clic su **OK** .
 
-    * **Origine dati**: selezionare **Output attività**.
+    * **Origine dati** : selezionare **Output attività** .
     * Elenco origini dati: selezionare **Get Automation Connection** (Ottieni connessione di Automazione).
-    * **Percorso campo**: digitare `CertificateThumbprint`.
+    * **Percorso campo** : digitare `CertificateThumbprint`.
 
-14. Fare clic su **SERVICEPRINCIPAL**, quindi nella pagina Valore parametro selezionare **ConstantValue** per il campo **Origine dati**. Fare clic sull'opzione **True** e quindi su **OK**.
+14. Fare clic su **SERVICEPRINCIPAL** , quindi nella pagina Valore parametro selezionare **ConstantValue** per il campo **Origine dati** . Fare clic sull'opzione **True** e quindi su **OK** .
 
 15. Fare clic su **TENANTID** e nella pagina Valore parametro configurare le impostazioni seguenti. Al termine, fare clic su **OK** due volte.
 
-    * **Origine dati**: selezionare **Output attività**.
+    * **Origine dati** : selezionare **Output attività** .
     * Elenco origini dati: selezionare **Get Automation Connection** (Ottieni connessione di Automazione).
-    * **Percorso campo**: digitare `TenantId`.
+    * **Percorso campo** : digitare `TenantId`.
 
 16. Nel controllo Libreria digitare `Set-AzContext` nel campo di ricerca.
 
 17. Aggiungere `Set-AzContext` all'area di disegno.
 
-18. Nell'area di disegno selezionare `Set-AzContext`. Nel pannello di controllo Configurazione immettere `Specify Subscription Id` nel campo **Etichetta**.
+18. Nell'area di disegno selezionare `Set-AzContext`. Nel pannello di controllo Configurazione immettere `Specify Subscription Id` nel campo **Etichetta** .
 
 19. Fare clic su **Parametri** per visualizzare la pagina Configurazione parametro attività.
 
-20. Il cmdlet `Set-AzContext` include più set di parametri, quindi è necessario selezionarne uno prima di specificarne i valori. Fare clic su **Set di parametri** e quindi selezionare **SubscriptionId**.
+20. Il cmdlet `Set-AzContext` include più set di parametri, quindi è necessario selezionarne uno prima di specificarne i valori. Fare clic su **Set di parametri** e quindi selezionare **SubscriptionId** .
 
-21. I parametri per questo set di parametri verranno visualizzati nella pagina Configurazione parametro attività. Fare clic su **SubscriptionID**.
+21. I parametri per questo set di parametri verranno visualizzati nella pagina Configurazione parametro attività. Fare clic su **SubscriptionID** .
 
 22. Nella pagina Valore parametro selezionare **Asset variabile** per il campo **Origine dati** e selezionare **AzureSubscriptionId** dall'elenco di origini. Al termine, fare clic su **OK** due volte.
 
@@ -232,11 +232,11 @@ A questo punto è necessario aggiungere un'attività `Start-AzVM` per avviare un
 
 4. Selezionare `Start-AzVM`. Fare clic su **Parametri** e quindi su **Set di parametri** per visualizzare i set per l'attività.
 
-5. Selezionare il set di parametri **ResourceGroupNameParameterSetName**. Accanto ai campi **ResourceGroupName** e **Nome** sono visualizzati punti esclamativi per indicare che sono parametri obbligatori. Si noti che per entrambi i campi sono previsti valori stringa.
+5. Selezionare il set di parametri **ResourceGroupNameParameterSetName** . Accanto ai campi **ResourceGroupName** e **Nome** sono visualizzati punti esclamativi per indicare che sono parametri obbligatori. Si noti che per entrambi i campi sono previsti valori stringa.
 
-6. Selezionare **Name**. Scegliere **Espressione PowerShell** per il campo **Origine dati**. Per la macchina virtuale usata per avviare questo runbook, digitare il nome della macchina virtuale racchiuso tra virgolette doppie. Fare clic su **OK**.
+6. Selezionare **Name** . Scegliere **Espressione PowerShell** per il campo **Origine dati** . Per la macchina virtuale usata per avviare questo runbook, digitare il nome della macchina virtuale racchiuso tra virgolette doppie. Fare clic su **OK** .
 
-7. Selezionare **ResourceGroupName**. Usare il valore **Espressione PowerShell** per il campo **Origine dati** e digitare il nome del gruppo di risorse racchiuso tra virgolette doppie. Fare clic su **OK**.
+7. Selezionare **ResourceGroupName** . Usare il valore **Espressione PowerShell** per il campo **Origine dati** e digitare il nome del gruppo di risorse racchiuso tra virgolette doppie. Fare clic su **OK** .
 
 8. Fare clic su **Riquadro di test** in modo da testare il runbook.
 
@@ -252,20 +252,20 @@ Il runbook avvia la macchina virtuale nel gruppo di risorse specificato nel cmdl
 
 2. Selezionare **Input e output** e quindi **Aggiungi input** per aprire il riquadro Parametro di input del runbook.
 
-3. Configurare le impostazioni seguenti nei campi specificati e quindi fare clic su **OK**.
-   * **Nome**: specificare `VMName`.
-   * **Tipo**: mantenere l'impostazione stringa.
-   * **Obbligatorio**: impostare il valore su **Sì**.
+3. Configurare le impostazioni seguenti nei campi specificati e quindi fare clic su **OK** .
+   * **Nome** : specificare `VMName`.
+   * **Tipo** : mantenere l'impostazione stringa.
+   * **Obbligatorio** : impostare il valore su **Sì** .
 
 4. Creare un secondo parametro di input obbligatorio denominato `ResourceGroupName` e quindi fare clic su **OK** per chiudere il riquadro Input e output.
 
     ![Parametri di input del runbook](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-outputs.png)
 
-5. Selezionare l'attività `Start-AzVM` e quindi fare clic su **Parametri**.
+5. Selezionare l'attività `Start-AzVM` e quindi fare clic su **Parametri** .
 
-6. Modificare il campo **Origine dati** per **Nome** impostandolo su **Input runbook**. Selezionare quindi **VMName**.
+6. Modificare il campo **Origine dati** per **Nome** impostandolo su **Input runbook** . Selezionare quindi **VMName** .
 
-7. Modificare il campo **Origine dati** per **ResourceGroupName** impostandolo su **Input runbook** e quindi selezionare **ResourceGroupName**.
+7. Modificare il campo **Origine dati** per **ResourceGroupName** impostandolo su **Input runbook** e quindi selezionare **ResourceGroupName** .
 
     ![Parametri Start-AzVM](../media/automation-tutorial-runbook-graphical/start-azurermvm-params-runbookinput.png)
 
@@ -287,7 +287,7 @@ A questo punto sarà possibile modificare il runbook in modo che provi solo ad a
 
 1. Aprire **MyFirstRunbook-Graphical** (MyFirstRunbook-Grafico) nell'editor grafico.
 
-2. Rimuovere il collegamento tra `Specify Subscription Id` e `Start-AzVM` facendo clic su di esso e quindi fare clic su **Elimina**.
+2. Rimuovere il collegamento tra `Specify Subscription Id` e `Start-AzVM` facendo clic su di esso e quindi fare clic su **Elimina** .
 
 3. Nel controllo Libreria digitare `Get-Az` nel campo di ricerca.
 
@@ -297,11 +297,11 @@ A questo punto sarà possibile modificare il runbook in modo che provi solo ad a
 
 6. Selezionare il set di parametri **GetVirtualMachineInResourceGroupNameParamSet** . Accanto ai campi **ResourceGroupName** e **Nome** sono visualizzati punti esclamativi per indicare che sono parametri obbligatori. Si noti che per entrambi i campi sono previsti valori stringa.
 
-7. In **Origine dati** per **Nome** selezionare **Input runbook** e quindi **VMName**. Fare clic su **OK**.
+7. In **Origine dati** per **Nome** selezionare **Input runbook** e quindi **VMName** . Fare clic su **OK** .
 
-8. In **Origine dati** per **ResourceGroupName** selezionare **Input runbook** e quindi **ResourceGroupName**. Fare clic su **OK**.
+8. In **Origine dati** per **ResourceGroupName** selezionare **Input runbook** e quindi **ResourceGroupName** . Fare clic su **OK** .
 
-9. In **Origine dati** per **Stato** selezionare **Valore costante** e quindi **True**. Fare clic su **OK**.
+9. In **Origine dati** per **Stato** selezionare **Valore costante** e quindi **True** . Fare clic su **OK** .
 
 10. Creare un collegamento da `Specify Subscription Id` a `Get-AzVM`.
 
@@ -331,19 +331,19 @@ A questo punto sarà possibile modificare il runbook in modo che provi solo ad a
 
     ![Runbook con il modulo Code](../media/automation-tutorial-runbook-graphical/runbook-startvm-get-status.png)  
 
-17. Selezionare il collegamento e nel pannello Configurazione impostare **Applica condizione** su **Sì**. Si noti che il collegamento diventa una linea tratteggiata per indicare che l'attività di destinazione verrà eseguita solo se la condizione restituisce true.  
+17. Selezionare il collegamento e nel pannello Configurazione impostare **Applica condizione** su **Sì** . Si noti che il collegamento diventa una linea tratteggiata per indicare che l'attività di destinazione verrà eseguita solo se la condizione restituisce true.  
 
 18. Per **Espressione condizione** digitare `$ActivityOutput['Get Status'] -eq "Stopped"`. `Start-AzVM` viene eseguito solo se la macchina virtuale è arrestata.
 
-19. Nel controllo Libreria, espandere **Cmdlets** e quindi **Microsoft.PowerShell.Utility**.
+19. Nel controllo Libreria, espandere **Cmdlets** e quindi **Microsoft.PowerShell.Utility** .
 
 20. Aggiungere `Write-Output` all'area di disegno due volte.
 
-21. Per il primo controllo `Write-Output` fare clic su **Parametri** e modificare il valore di **Etichetta** impostandolo su **Notify VM Started**.
+21. Per il primo controllo `Write-Output` fare clic su **Parametri** e modificare il valore di **Etichetta** impostandolo su **Notify VM Started** .
 
 22. Per **InputObject** modificare il campo **Origine dati** impostandolo su **Espressione PowerShell** e digitare l'espressione `$VMName successfully started.`.
 
-23. Nel secondo controllo `Write-Output` fare clic su **Parametri** e modificare il valore di **Etichetta** impostandolo su **Notify VM Start Failed**.
+23. Nel secondo controllo `Write-Output` fare clic su **Parametri** e modificare il valore di **Etichetta** impostandolo su **Notify VM Start Failed** .
 
 24. Per **InputObject** modificare il campo **Origine dati** impostandolo su **Espressione PowerShell** e digitare l'espressione `$VMName could not start`.
 

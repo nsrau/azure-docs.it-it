@@ -3,12 +3,12 @@ title: Domande frequenti su Hub eventi di Azure | Microsoft Docs
 description: Questo articolo offre un elenco di domande frequenti (FAQ) su Hub eventi di Azure e le relative risposte.
 ms.topic: article
 ms.date: 10/27/2020
-ms.openlocfilehash: 051122c2030683eb2f3c57191dbbfa3bfd2bf6b7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3b55521c9f90192891b450e3e161607a334c3a00
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789370"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909710"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -119,6 +119,9 @@ Abilitare quindi i log di diagnostica per [gli eventi di connessione alla rete v
     "Category": "EventHubVNetConnectionEvent"
 }
 ```
+
+> [!IMPORTANT]
+> I log di rete virtuale vengono generati solo se lo spazio dei nomi consente l'accesso da **indirizzi IP specifici** (regole di filtro IP). Se non si vuole limitare l'accesso allo spazio dei nomi usando queste funzionalità e si vuole comunque ottenere i log di rete virtuale per tenere traccia degli indirizzi IP dei client che si connettono allo spazio dei nomi di hub eventi, è possibile usare la soluzione alternativa seguente: abilitare il filtro IP e aggiungere l'intervallo IPv4 totale indirizzabile (1.0.0.0/1-255.0.0.0/1). Hub eventi non supporta gli intervalli di indirizzi IPv6. 
 
 ## <a name="apache-kafka-integration"></a>Integrazione di Apache Kafka
 

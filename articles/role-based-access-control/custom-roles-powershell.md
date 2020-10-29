@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 03/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 540da4103c3f7800521407441d645070e1e3e7ca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cd518828668ed20a4fa7be0cd6c9798a013055a
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84790212"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909574"
 ---
 # <a name="create-or-update-azure-custom-roles-using-azure-powershell"></a>Creare o aggiornare ruoli personalizzati di Azure con Azure PowerShell
 
@@ -63,7 +63,7 @@ API Management Service Contributor                   False
 L'esempio seguente elenca i soli ruoli personalizzati disponibili per l'assegnazione nella sottoscrizione selezionata.
 
 ```azurepowershell
-Get-AzRoleDefinition | ? {$_.IsCustom -eq $true} | FT Name, IsCustom
+Get-AzRoleDefinition -Custom | FT Name, IsCustom
 ```
 
 ```Example
@@ -163,7 +163,7 @@ Start Virtual Machine                          Microsoft.Compute/virtualMachines
 
 Quando si crea un ruolo personalizzato con PowerShell è possibile usare come punto di partenza uno dei [ruoli predefiniti](built-in-roles.md) o iniziare da zero. Nel primo esempio riportato in questa sezione si inizia con un ruolo predefinito e quindi lo si personalizza con più autorizzazioni. Modificare gli attributi e aggiungere gli attributi `Actions`, `NotActions` o `AssignableScopes` desiderati e quindi salvare le modifiche come nuovo ruolo.
 
-L'esempio seguente inizia con il ruolo predefinito [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) per creare un ruolo personalizzato denominato *Virtual Machine Operator*. Il nuovo ruolo concede l'accesso a tutte le operazioni di lettura dei provider di risorse *Microsoft.Compute*, *Microsoft.Storage* e *Microsoft.Network* e concede l'accesso per avviare, riavviare e monitorare le macchine virtuali. Il ruolo personalizzato può essere usato in due sottoscrizioni.
+L'esempio seguente inizia con il ruolo predefinito [Virtual Machine Contributor](built-in-roles.md#virtual-machine-contributor) per creare un ruolo personalizzato denominato *Virtual Machine Operator* . Il nuovo ruolo concede l'accesso a tutte le operazioni di lettura dei provider di risorse *Microsoft.Compute* , *Microsoft.Storage* e *Microsoft.Network* e concede l'accesso per avviare, riavviare e monitorare le macchine virtuali. Il ruolo personalizzato può essere usato in due sottoscrizioni.
 
 ```azurepowershell
 $role = Get-AzRoleDefinition "Virtual Machine Contributor"
@@ -187,7 +187,7 @@ $role.AssignableScopes.Add("/subscriptions/11111111-1111-1111-1111-111111111111"
 New-AzRoleDefinition -Role $role
 ```
 
-L'esempio illustra un altro modo di creare il ruolo personalizzato *Virtual Machine Operator*. Si inizia creando un nuovo oggetto `PSRoleDefinition`. Le operazioni di azione vengono specificate nella variabile `perms` e impostate nella proprietà `Actions`. La proprietà `NotActions` viene impostata tramite la lettura di `NotActions` dal ruolo predefinito [Collaboratore Macchina Virtuale](built-in-roles.md#virtual-machine-contributor). Poiché [Collaboratore Macchina Virtuale](built-in-roles.md#virtual-machine-contributor) non presenta alcun `NotActions`, questa riga non è obbligatoria, ma illustra come è possibile recuperare informazioni da un altro ruolo.
+L'esempio illustra un altro modo di creare il ruolo personalizzato *Virtual Machine Operator* . Si inizia creando un nuovo oggetto `PSRoleDefinition`. Le operazioni di azione vengono specificate nella variabile `perms` e impostate nella proprietà `Actions`. La proprietà `NotActions` viene impostata tramite la lettura di `NotActions` dal ruolo predefinito [Collaboratore Macchina Virtuale](built-in-roles.md#virtual-machine-contributor). Poiché [Collaboratore Macchina Virtuale](built-in-roles.md#virtual-machine-contributor) non presenta alcun `NotActions`, questa riga non è obbligatoria, ma illustra come è possibile recuperare informazioni da un altro ruolo.
 
 ```azurepowershell
 $role = [Microsoft.Azure.Commands.Resources.Models.Authorization.PSRoleDefinition]::new()

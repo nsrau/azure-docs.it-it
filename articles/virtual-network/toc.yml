@@ -112,7 +112,7 @@
         - name: Criteri di rete di Kubernetes
           href: kubernetes-network-policies.md
         - name: Protezione DDoS
-          href: ddos-protection-overview.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-overview'
         - name: TAP di rete virtuale
           href: virtual-network-tap-overview.md
         - name: Controlli di sicurezza in base a Criteri di Azure
@@ -299,9 +299,9 @@
                 - name: Interfaccia della riga di comando di Azure
                   href: virtual-network-service-endpoint-policies-cli.md
         - name: Gestire la protezione DDoS
-          href: manage-ddos-protection.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/manage-ddos-protection'
         - name: Eseguire l'onboarding di partner in Protezione DDoS standard
-          href: ddos-protection-partner-onboarding.md
+          href: 'https://docs.microsoft.com/azure/ddos-protection/ddos-protection-partner-onboarding'
         - name: Gestire i gruppi di sicurezza di rete
           href: manage-network-security-group.md
         - name: Scenari di sicurezza

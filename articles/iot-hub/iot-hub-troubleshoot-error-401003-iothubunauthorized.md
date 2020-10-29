@@ -11,12 +11,12 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 4979405c7675b5eff9f6940cd34e0c974ebad217
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: af057750e81086bf691b87057da97af3de19cd3b
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538273"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909642"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -52,7 +52,7 @@ Per MQTT, alcuni SDK si basano sull'hub degli oggetti Internet per emettere la d
 
 ### <a name="cause-2"></a>Causa 2
 
-L'hub Internet delle cose non è riuscito ad autenticare l'intestazione, la regola o la chiave di autenticazione.
+L'hub Internet delle cose non è riuscito ad autenticare l'intestazione, la regola o la chiave di autenticazione. Questo problema può essere dovuto a uno dei motivi citati nei sintomi.
 
 ## <a name="solution"></a>Soluzione
 
@@ -66,10 +66,13 @@ Se il volume degli errori rappresenta un problema, passare a C SDK, che rinnova 
 
 In generale, il messaggio di errore presentato dovrebbe spiegare come correggere l'errore. Se per qualche motivo non è possibile accedere ai dettagli del messaggio di errore, verificare che:
 
-- La firma di accesso condiviso o altri token di sicurezza usati non sono scaduti. 
-- Le credenziali di autorizzazione sono ben formate per il protocollo usato. Per altre informazioni, vedere [controllo di accesso dell'hub Internet](iot-hub-devguide-security.md).
+- La firma di accesso condiviso o altri token di sicurezza usati non sono scaduti.
+- Per l'autenticazione del certificato X. 509, il certificato del dispositivo o il certificato della CA associato al dispositivo non è scaduto. Per informazioni su come registrare i certificati della CA X. 509 con l'hub Internet, vedere [configurare la sicurezza x. 509 nell'hub Azure](iot-hub-security-x509-get-started.md).
+- Per l'autenticazione dell'identificazione personale del certificato X. 509, l'identificazione personale del certificato del dispositivo è registrata con l'hub Internet.
+- Le credenziali di autorizzazione sono ben formate per il protocollo usato. Per altre informazioni, vedere [controllare l'accesso all'hub](iot-hub-devguide-security.md).
 - La regola di autorizzazione utilizzata dispone dell'autorizzazione per l'operazione richiesta.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per semplificare l'autenticazione all'hub molto, è consigliabile usare gli [SDK di Azure](iot-hub-devguide-sdks.md).
+- Per semplificare l'autenticazione all'hub molto, è consigliabile usare gli [SDK di Azure](iot-hub-devguide-sdks.md).
+- Per informazioni dettagliate sull'autenticazione con l'hub Internet, vedere [controllare l'accesso all'hub](iot-hub-devguide-security.md)Internet.

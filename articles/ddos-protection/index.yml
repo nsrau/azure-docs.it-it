@@ -1,0 +1,59 @@
+### YamlMime:Landing
+title: Documentazione di Protezione DDoS di Azure Standard
+summary: Informazioni su Protezione DDoS di Azure Standard che, in combinazione con le procedure consigliate per la progettazione di applicazione, offre un meccanismo di difesa dagli attacchi DDoS.
+metadata:
+  description: Informazioni su Protezione DDoS di Azure Standard che, in combinazione con le procedure consigliate per la progettazione di applicazione, offre un meccanismo di difesa dagli attacchi DDoS.
+  keywords: azure ddos protection standard
+  author: yitoh
+  ms.author: yitoh
+  ms.date: 09/04/2019
+  ms.service: ddos-protection
+  ms.topic: landing-page
+  ms.custom: azure-ddos-protection
+  ms.openlocfilehash: cfc0a8c4856711c4f011805322e2b28942866573
+  ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 10/28/2020
+  ms.locfileid: "92904721"
+landingContent:
+- title: Informazioni su Protezione DDoS di Azure Standard
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è la protezione DDoS di Azure Standard?
+      url: ddos-protection-overview.md
+  - linkListType: architecture
+    links:
+    - text: Funzionalità di Protezione DDoS di Azure Standard
+      url: ddos-protection-standard-features.md
+    - text: Architetture di riferimento
+      url: ddos-protection-reference-architectures.md
+- title: Introduzione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creare un piano di Protezione DDoS - Portale
+      url: manage-ddos-protection.md
+- title: Configurare l'analisi degli attacchi
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Visualizzare e configurare i dati di telemetria della protezione DDoS
+      url: telemetry-monitoring-alerting.md
+    - text: Configurare i report e i log dei flussi per la mitigazione degli attacchi DDoS
+      url: reports-and-flow-logs.md
+- title: Rispondere agli attacchi DDoS
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Tipi di attacchi
+      url: types-of-attacks.md
+    - text: Procedure consigliate fondamentali
+      url: fundamental-best-practices.md
+    - text: Componenti di una strategia di risposta DDoS
+      url: ddos-response-strategy.md
+  - linkListType: how-to-guide
+    links:
+    - text: Interagire con il team DDoS Rapid Response (DRR)
+      url: ddos-rapid-response.md

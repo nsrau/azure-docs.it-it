@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: mbullwin
-ms.openlocfilehash: a37f3cfd250d152129245395680dbd847359e869
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: b304986bd75a6d48401e2cf466320c893ec865d7
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046911"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909586"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Aggiungere feed di dati da origini dati diverse a metrica Advisor
 
@@ -26,7 +26,7 @@ Usare questo articolo per trovare le impostazioni e i requisiti per la connessio
 | Tipi di autenticazione | Descrizione |
 | ---------------------|-------------|
 |**Base** | Sarà necessario essere in grado di fornire parametri di base per l'accesso alle origini dati. Ad esempio una stringa di connessione o una chiave. Gli amministratori del feed di dati sono in grado di visualizzare queste credenziali. |
-| **AzureManagedIdentity** | Le [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per le risorse di Azure sono una funzionalità di Azure Active Directory. Fornisce servizi di Azure con un'identità gestita automaticamente in Azure AD. È possibile usare l'identità per eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD.|
+| **AzureManagedIdentity** | Le [identità gestite](../../active-directory/managed-identities-azure-resources/overview.md) per le risorse di Azure sono una funzionalità di Azure Active Directory. Fornisce servizi di Azure con un'identità gestita automaticamente in Azure AD. È possibile usare l'identità per eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD.|
 | **AzureSQLConnectionString**| Archiviare la stringa di connessione AzureSQL come **entità Credential** in Metrics Advisor e usarla direttamente ogni volta durante l'onboarding dei dati di metrica. Solo gli amministratori dell'entità Credential sono in grado di visualizzare queste credenziali, ma consentono ai visualizzatori autorizzati di creare feed di dati senza che sia necessario conoscerne i dettagli. |
 | **DataLakeGen2SharedKey**| Archiviare la chiave dell'account data Lake come **entità Credential** in Metrics Advisor e usarla direttamente ogni volta quando si caricano i dati di metrica. Solo gli amministratori dell'entità Credential sono in grado di visualizzare queste credenziali, ma consentono ai visualizzatori autorizzati di creare feed di dati senza che sia necessario conoscerne i dettagli.|
 | **Entità servizio**| Archiviare l'entità servizio come **entità Credential** in Metrics Advisor e usarla direttamente ogni volta quando si caricano i dati di metrica. Solo gli amministratori dell'entità Credential sono in grado di visualizzare le credenziali, ma consentono ai visualizzatori autorizzati di creare feed di dati senza che sia necessario conoscerne i dettagli.|
@@ -37,7 +37,7 @@ Usare questo articolo per trovare le impostazioni e i requisiti per la connessio
 
 | Origini dati | Tipi di autenticazione |
 |-------------| ---------------------|
-|[**Azure Application Insights**](#appinsights)|  Basic |
+|[**Informazioni dettagliate applicazione Azure**](#appinsights)|  Basic |
 |[**Archiviazione BLOB di Azure (JSON)**](#blob) | Basic<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Esplora dati di Azure (Kusto)**](#kusto) | Basic<br>ManagedIdentity|
@@ -55,15 +55,15 @@ Creare un' **entità Credential** e usarla per l'autenticazione alle origini dat
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 
-* **ID applicazione**: viene usato per identificare l'applicazione quando si usa l'API Application Insights. Per ottenere l'ID applicazione, eseguire le operazioni seguenti:
+* **ID applicazione** : viene usato per identificare l'applicazione quando si usa l'API Application Insights. Per ottenere l'ID applicazione, eseguire le operazioni seguenti:
 
     1. Dalla risorsa di Application Insights fare clic su Accesso all'API.
 
     2. Copiare l'ID applicazione generato nel campo **ID applicazione** in metrica Advisor. 
     
-    Per ulteriori informazioni, vedere la [documentazione del servizio Azure bot](https://docs.microsoft.com/azure/bot-service/bot-service-resources-app-insights-keys#application-id) .
+    Per ulteriori informazioni, vedere la [documentazione del servizio Azure bot](/azure/bot-service/bot-service-resources-app-insights-keys#application-id) .
 
-* **Chiave API**: le chiavi API vengono usate dalle applicazioni esterne al browser per accedere a questa risorsa. Per ottenere la chiave API, eseguire le operazioni seguenti:
+* **Chiave API** : le chiavi API vengono usate dalle applicazioni esterne al browser per accedere a questa risorsa. Per ottenere la chiave API, eseguire le operazioni seguenti:
 
     1. Dalla risorsa di Application Insights fare clic su Accesso all'API.
 
@@ -73,27 +73,27 @@ Creare un' **entità Credential** e usarla per l'autenticazione alle origini dat
 
     4. Copiare la chiave API nel campo **chiave API** in metrica Advisor.
 
-* **Query**: i log di applicazione Azure Insights sono basati su Esplora dati di Azure e le query del log di monitoraggio di Azure usano una versione dello stesso linguaggio di query kusto. La [documentazione del linguaggio di query di Kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query/) include tutti i dettagli relativi al linguaggio e deve essere la risorsa primaria per la scrittura di una query su Application Insights. 
+* **Query** : i log di applicazione Azure Insights sono basati su Esplora dati di Azure e le query del log di monitoraggio di Azure usano una versione dello stesso linguaggio di query kusto. La [documentazione del linguaggio di query di Kusto](/azure/data-explorer/kusto/query/) include tutti i dettagli relativi al linguaggio e deve essere la risorsa primaria per la scrittura di una query su Application Insights. 
 
 
 ## <a name="span-idblobazure-blob-storage-jsonspan"></a><span id="blob">Archiviazione BLOB di Azure (JSON)</span>
 
-* **Stringa di connessione**: per informazioni sul recupero di questa stringa, vedere l'articolo [stringa di connessione](https://docs.microsoft.com/azure/storage/common/storage-configure-connection-string#view-and-copy-a-connection-string) di archiviazione BLOB di Azure.
+* **Stringa di connessione** : per informazioni sul recupero di questa stringa, vedere l'articolo [stringa di connessione](../../storage/common/storage-configure-connection-string.md#configure-a-connection-string-for-an-azure-storage-account) di archiviazione BLOB di Azure.
 
-* **Container**: la metrica Advisor prevede che i dati delle serie temporali siano archiviati come file BLOB (un BLOB per ogni timestamp) in un singolo contenitore. Si tratta del campo del nome del contenitore.
+* **Container** : la metrica Advisor prevede che i dati delle serie temporali siano archiviati come file BLOB (un BLOB per ogni timestamp) in un singolo contenitore. Si tratta del campo del nome del contenitore.
 
-* **Modello BLOB**: modello dei nomi di file BLOB. Ad esempio: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. Sono supportati i seguenti parametri:
+* **Modello BLOB** : modello dei nomi di file BLOB. Ad esempio: `/%Y/%m/X_%Y-%m-%d-%h-%M.json`. Sono supportati i seguenti parametri:
   * `%Y` è l'anno formattato come `yyyy`
   * `%m` è il mese formattato come `MM`
   * `%d` è il giorno formattato come `dd`
   * `%h` è l'ora formattata come `HH`
   * `%M` è il minuto formattato come `mm`
 
-* **Versione formato JSON**: definisce lo schema di dati nei file JSON. Attualmente metrica Advisor supporta due versioni:
+* **Versione formato JSON** : definisce lo schema di dati nei file JSON. Attualmente metrica Advisor supporta due versioni:
   
   * V1 (valore predefinito)
 
-      Vengono accettati solo il *nome* e il *valore* della metrica. Ad esempio:
+      Vengono accettati solo il *nome* e il *valore* della metrica. Esempio:
     
       ``` JSON
       {"count":11, "revenue":1.23}
@@ -101,7 +101,7 @@ Creare un' **entità Credential** e usarla per l'autenticazione alle origini dat
 
   * v2
 
-      Vengono accettate anche le *dimensioni* di metrica e il *timestamp* . Ad esempio:
+      Vengono accettate anche le *dimensioni* di metrica e il *timestamp* . Esempio:
       
       ``` JSON
       [
@@ -114,10 +114,10 @@ Creare un' **entità Credential** e usarla per l'autenticazione alle origini dat
 
 ## <a name="span-idcosmosdbazure-cosmos-db-sqlspan"></a><span id="cosmosdb">Azure Cosmos DB (SQL)</span>
 
-* **Stringa di connessione**: la stringa di connessione per accedere al Azure Cosmos DB. Si trova nella risorsa Cosmos DB, in **chiavi**. 
-* **Database**: database su cui eseguire la query. Si trova nella sezione **contenitori** della pagina **Sfoglia** .
-* **ID raccolta**: ID raccolta su cui eseguire una query. Si trova nella sezione **contenitori** della pagina **Sfoglia** .
-* **Query SQL**: query SQL per ottenere e formulare i dati in dati di serie temporali multidimensionali. È possibile utilizzare le `@StartTime` `@EndTime` variabili e nella query. Devono essere formattati: `yyyy-MM-dd HH:mm:ss` .
+* **Stringa di connessione** : la stringa di connessione per accedere al Azure Cosmos DB. Si trova nella risorsa Cosmos DB, in **chiavi** . 
+* **Database** : database su cui eseguire la query. Si trova nella sezione **contenitori** della pagina **Sfoglia** .
+* **ID raccolta** : ID raccolta su cui eseguire una query. Si trova nella sezione **contenitori** della pagina **Sfoglia** .
+* **Query SQL** : query SQL per ottenere e formulare i dati in dati di serie temporali multidimensionali. È possibile utilizzare le `@StartTime` `@EndTime` variabili e nella query. Devono essere formattati: `yyyy-MM-dd HH:mm:ss` .
 
     Query di esempio:
     
@@ -133,33 +133,33 @@ Creare un' **entità Credential** e usarla per l'autenticazione alle origini dat
 
 ## <a name="span-idkustoazure-data-explorer-kustospan"></a><span id="kusto">Esplora dati di Azure (Kusto)</span>
 
-* **Stringa di connessione**: metrica Advisor supporta l'accesso ad Azure Esplora dati (kusto) utilizzando Azure ad l'autenticazione dell'applicazione. Sarà necessario creare e registrare un'applicazione Azure AD e quindi autorizzarla ad accedere a un database di Esplora dati di Azure. Per ottenere la stringa di connessione, vedere la documentazione di [Azure Esplora dati](https://docs.microsoft.com/azure/data-explorer/provision-azure-ad-app) .
+* **Stringa di connessione** : metrica Advisor supporta l'accesso ad Azure Esplora dati (kusto) utilizzando Azure ad l'autenticazione dell'applicazione. Sarà necessario creare e registrare un'applicazione Azure AD e quindi autorizzarla ad accedere a un database di Esplora dati di Azure. Per ottenere la stringa di connessione, vedere la documentazione di [Azure Esplora dati](/azure/data-explorer/provision-azure-ad-app) .
 
-* **Query**: vedere il [linguaggio di query kusto](https://docs.microsoft.com/azure/data-explorer/kusto/query) per ottenere e formulare i dati in dati di serie temporali multidimensionali. È possibile utilizzare le `@StartTime` `@EndTime` variabili e nella query. Devono essere formattati: `yyyy-MM-dd HH:mm:ss` .
+* **Query** : vedere il [linguaggio di query kusto](/azure/data-explorer/kusto/query) per ottenere e formulare i dati in dati di serie temporali multidimensionali. È possibile utilizzare le `@StartTime` `@EndTime` variabili e nella query. Devono essere formattati: `yyyy-MM-dd HH:mm:ss` .
 
 ## <a name="span-idadlazure-data-lake-storage-gen2span"></a><span id="adl">Azure Data Lake Storage Gen2</span>
 
-* **Nome account**: nome dell'account del Azure Data Lake storage Gen2. Si trova nella risorsa dell'account di archiviazione di Azure (Azure Data Lake Storage Gen2) in **chiavi di accesso**.
+* **Nome account** : nome dell'account del Azure Data Lake storage Gen2. Si trova nella risorsa dell'account di archiviazione di Azure (Azure Data Lake Storage Gen2) in **chiavi di accesso** .
 
-* **Chiave dell'account**: specificare il nome dell'account per accedere al Azure Data Lake storage Gen2. Questo problema si trova nella risorsa dell'account di archiviazione di Azure (Azure Data Lake Storage Gen2) nell'impostazione delle **chiavi di accesso** .
+* **Chiave dell'account** : specificare il nome dell'account per accedere al Azure Data Lake storage Gen2. Questo problema si trova nella risorsa dell'account di archiviazione di Azure (Azure Data Lake Storage Gen2) nell'impostazione delle **chiavi di accesso** .
 
-* **Nome file System (contenitore)**: la metrica Advisor prevede che i dati delle serie temporali siano archiviati come file BLOB (un BLOB per timestamp) in un singolo contenitore. Si tratta del campo del nome del contenitore. Si trova nell'istanza dell'account di archiviazione di Azure (Azure Data Lake Storage Gen2) e si fa clic su' contenitori ' nella sezione ' servizio BLOB '.
+* **Nome file System (contenitore)** : la metrica Advisor prevede che i dati delle serie temporali siano archiviati come file BLOB (un BLOB per timestamp) in un singolo contenitore. Si tratta del campo del nome del contenitore. Si trova nell'istanza dell'account di archiviazione di Azure (Azure Data Lake Storage Gen2) e si fa clic su' contenitori ' nella sezione ' servizio BLOB '.
 
-* **Modello di directory**: si tratta del modello di directory del file BLOB. Ad esempio: */%Y/%m/%d*. Sono supportati i seguenti parametri:
+* **Modello di directory** : si tratta del modello di directory del file BLOB. Ad esempio: */%Y/%m/%d* . Sono supportati i seguenti parametri:
   * `%Y` è l'anno formattato come `yyyy`
   * `%m` è il mese formattato come `MM`
   * `%d` è il giorno formattato come `dd`
   * `%h` è l'ora formattata come `HH`
   * `%M` è il minuto formattato come `mm`
 
-* **Modello di file**: si tratta del modello di file del file BLOB. Ad esempio: *X_% Y-% m-% d-% h-% M.jssu*. Sono supportati i seguenti parametri:
+* **Modello di file** : si tratta del modello di file del file BLOB. Ad esempio: *X_% Y-% m-% d-% h-% M.jssu* . Sono supportati i seguenti parametri:
   * `%Y` è l'anno formattato come `yyyy`
   * `%m` è il mese formattato come `MM`
   * `%d` è il giorno formattato come `dd`
   * `%h` è l'ora formattata come `HH`
   * `%M` è il minuto formattato come `mm`
 
-Attualmente metrica Advisor supporta lo schema dei dati nei file JSON come segue. Ad esempio:
+Attualmente metrica Advisor supporta lo schema dei dati nei file JSON come segue. Esempio:
 
 ``` JSON
 [
@@ -172,7 +172,7 @@ Attualmente metrica Advisor supporta lo schema dei dati nei file JSON come segue
 
 * **Connection String**: This can be found in 'Shared access policies' in your Event Hubs instance. Also for the 'EntityPath', it could be found by clicking into your Event Hubs instance and clicking at 'Event Hubs' in 'Entities' blade. Items that listed can be input as EntityPath. 
 
-* **Consumer Group**: A [consumer group](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#consumer-groups) is a view (state, position, or offset) of an entire event hub.
+* **Consumer Group**: A [consumer group](../../event-hubs/event-hubs-features.md#consumer-groups) is a view (state, position, or offset) of an entire event hub.
 Event Hubs use the latest offset of a consumer group to consume (subscribe from) the data from data source. Therefore a dedicated consumer group should be created for one data feed in your Metrics Advisor instance.
 
 * **Timestamp**: Metrics Advisor uses the Event Hubs timestamp as the event timestamp if the user data source does not contain a timestamp field.
@@ -186,7 +186,7 @@ The timestamp field must match one of these two formats:
 -->
 ## <a name="span-idsqlazure-sql-database--sql-serverspan"></a><span id="sql">Database SQL di Azure | SQL Server</span>
 
-* **Stringa di connessione**: la metrica Advisor accetta una [stringa di connessione in stile ADO.NET](https://docs.microsoft.com/dotnet/framework/data/adonet/connection-string-syntax) per l'origine dati SQL Server.
+* **Stringa di connessione** : la metrica Advisor accetta una [stringa di connessione in stile ADO.NET](/dotnet/framework/data/adonet/connection-string-syntax) per l'origine dati SQL Server.
 
     Stringa di connessione di esempio:
 
@@ -194,7 +194,7 @@ The timestamp field must match one of these two formats:
     Data Source=db-server.database.windows.net:[port];initial catalog=[database];User ID=[username];Password=[password];Connection Timeout=10ms;
     ```
 
-* **Query**: query SQL per ottenere e formulare i dati in dati di serie temporali multidimensionali. È possibile usare una `@StartTime` variabile nella query per facilitare l'ottenimento del valore della metrica prevista.
+* **Query** : query SQL per ottenere e formulare i dati in dati di serie temporali multidimensionali. È possibile usare una `@StartTime` variabile nella query per facilitare l'ottenimento del valore della metrica prevista.
 
   * `@StartTime`: valore DateTime nel formato `yyyy-MM-dd HH:mm:ss`
 
@@ -212,9 +212,9 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-idtableazure-table-storagespan"></a><span id="table">Archiviazione tabelle di Azure</span>
 
-* **Stringa di connessione**: per informazioni su come recuperare la stringa di connessione dall'archiviazione tabelle di Azure, vedere [visualizzare e copiare una stringa](https://docs.microsoft.com/azure/storage/common/storage-account-keys-manage?toc=%2Fazure%2Fstorage%2Ftables%2Ftoc.json&tabs=azure-portal#view-account-access-keys) di connessione.
+* **Stringa di connessione** : per informazioni su come recuperare la stringa di connessione dall'archiviazione tabelle di Azure, vedere [visualizzare e copiare una stringa](../../storage/common/storage-account-keys-manage.md?tabs=azure-portal&toc=%252fazure%252fstorage%252ftables%252ftoc.json#view-account-access-keys) di connessione.
 
-* **Nome tabella**: specificare una tabella in base a cui eseguire una query. Si trova nell'istanza dell'account di archiviazione di Azure. Fare clic su **tabelle** nella sezione **servizio tabelle** .
+* **Nome tabella** : specificare una tabella in base a cui eseguire una query. Si trova nell'istanza dell'account di archiviazione di Azure. Fare clic su **tabelle** nella sezione **servizio tabelle** .
 
 * **Query** di È possibile usare `@StartTime` nella query. `@StartTime` viene sostituito con una stringa di formato AAAA-MM-GGThh: mm: SS nello script.
 
@@ -225,41 +225,41 @@ The timestamp field must match one of these two formats:
 
 ## <a name="span-ideselasticsearchspan"></a><span id="es">Elasticsearch</span>
 
-* **Host**: specificare l'host master del cluster ElasticSearch.
-* **Porta**: specificare la porta master del cluster ElasticSearch.
-* **Intestazione autorizzazione**: specificare il valore dell'intestazione di autorizzazione del cluster ElasticSearch.
-* **Query**: specificare la query per ottenere i dati. Il segnaposto @StartTime è supportato. ad esempio, quando i dati del 2020-06-21T00:00:00Z viene inserito, @StartTime = 2020-06-21T00:00:00)
+* **Host** : specificare l'host master del cluster ElasticSearch.
+* **Porta** : specificare la porta master del cluster ElasticSearch.
+* **Intestazione autorizzazione** : specificare il valore dell'intestazione di autorizzazione del cluster ElasticSearch.
+* **Query** : specificare la query per ottenere i dati. Il segnaposto @StartTime è supportato. ad esempio, quando i dati del 2020-06-21T00:00:00Z viene inserito, @StartTime = 2020-06-21T00:00:00)
 
 ## <a name="span-idhttphttp-requestspan"></a><span id="http">Richiesta HTTP</span>
 
-* **URL della richiesta**: un URL http che può restituire JSON. Sono supportati i segnaposto% Y,% m,% d,% h,% M:% Y = anno nel formato aaaa,% m = mese nel formato MM,% d = giorno nel formato gg,% h = ora in formato HH,% M = minuto nel formato mm. Ad esempio: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
-* **Metodo http request**: usare Get o post.
-* **Intestazione della richiesta**: è possibile aggiungere l'autenticazione di base. 
-* **Payload della richiesta**: è supportato solo il payload JSON. Il segnaposto @StartTime è supportato nel payload. La risposta deve essere nel formato JSON seguente: [{"timestamp": "2018-01-01T00:00:00Z", "Market": "en-US", "count": 11, "Revenue": 1.23}, {"timestamp": "2018-01-01T00:00:00Z", "Market": "zh-CN", "count": 22, "Revenue": 4,56}]. (ad esempio, quando i dati del 2020-06-21T00:00:00Z viene inserito, @StartTime = 2020-06-21T00:00:00.0000000 + 00:00)
+* **URL della richiesta** : un URL http che può restituire JSON. Sono supportati i segnaposto% Y,% m,% d,% h,% M:% Y = anno nel formato aaaa,% m = mese nel formato MM,% d = giorno nel formato gg,% h = ora in formato HH,% M = minuto nel formato mm. Ad esempio: `http://microsoft.com/ProjectA/%Y/%m/X_%Y-%m-%d-%h-%M`.
+* **Metodo http request** : usare Get o post.
+* **Intestazione della richiesta** : è possibile aggiungere l'autenticazione di base. 
+* **Payload della richiesta** : è supportato solo il payload JSON. Il segnaposto @StartTime è supportato nel payload. La risposta deve essere nel formato JSON seguente: [{"timestamp": "2018-01-01T00:00:00Z", "Market": "en-US", "count": 11, "Revenue": 1.23}, {"timestamp": "2018-01-01T00:00:00Z", "Market": "zh-CN", "count": 22, "Revenue": 4,56}]. (ad esempio, quando i dati del 2020-06-21T00:00:00Z viene inserito, @StartTime = 2020-06-21T00:00:00.0000000 + 00:00)
 
 ## <a name="span-idinfluxdbinfluxdb-influxqlspan"></a><span id="influxdb">InfluxDB (InfluxQL)</span>
 
-* **Stringa di connessione**: la stringa di connessione per accedere al InfluxDB.
-* **Database**: database su cui eseguire la query.
-* **Query**: query per ottenere e formulare i dati in dati di serie temporali multidimensionali per l'inserimento.
-* **Nome utente**: questa opzione è facoltativa per l'autenticazione. 
-* **Password**: questa opzione è facoltativa per l'autenticazione. 
+* **Stringa di connessione** : la stringa di connessione per accedere al InfluxDB.
+* **Database** : database su cui eseguire la query.
+* **Query** : query per ottenere e formulare i dati in dati di serie temporali multidimensionali per l'inserimento.
+* **Nome utente** : questa opzione è facoltativa per l'autenticazione. 
+* **Password** : questa opzione è facoltativa per l'autenticazione. 
 
 ## <a name="span-idmongodbmongodbspan"></a><span id="mongodb">MongoDB</span>
 
-* **Stringa di connessione**: la stringa di connessione per accedere a MongoDB.
-* **Database**: database su cui eseguire la query.
-* **Command**: comando che consente di ottenere e formulare i dati in dati di serie temporali multidimensionali per l'inserimento.
+* **Stringa di connessione** : la stringa di connessione per accedere a MongoDB.
+* **Database** : database su cui eseguire la query.
+* **Command** : comando che consente di ottenere e formulare i dati in dati di serie temporali multidimensionali per l'inserimento.
 
 ## <a name="span-idmysqlmysqlspan"></a><span id="mysql">MySQL</span>
 
-* **Stringa di connessione**: la stringa di connessione per accedere al database MySQL.
-* **Query**: query per ottenere e formulare i dati in dati di serie temporali multidimensionali per l'inserimento.
+* **Stringa di connessione** : la stringa di connessione per accedere al database MySQL.
+* **Query** : query per ottenere e formulare i dati in dati di serie temporali multidimensionali per l'inserimento.
 
 ## <a name="span-idpgsqlpostgresqlspan"></a><span id="pgsql">PostgreSQL</span>
 
-* **Stringa di connessione**: la stringa di connessione per accedere al database PostgreSQL.
-* **Query**: query per ottenere e formulare i dati in dati di serie temporali multidimensionali per l'inserimento.
+* **Stringa di connessione** : la stringa di connessione per accedere al database PostgreSQL.
+* **Query** : query per ottenere e formulare i dati in dati di serie temporali multidimensionali per l'inserimento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
