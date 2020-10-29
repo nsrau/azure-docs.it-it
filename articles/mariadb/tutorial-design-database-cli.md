@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: f08f9065b2a7361294a2f6257c85be772d0f7119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 205fe47acb6d10b7596c462476b4e9e718a3d813
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87496084"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92424959"
 ---
 # <a name="tutorial-design-an-azure-database-for-mariadb-using-azure-cli"></a>Esercitazione: Progettare un'istanza di Database di Azure per MariaDB con l'interfaccia della riga di comando di Azure
 
@@ -42,7 +42,7 @@ az account set --subscription 00000000-0000-0000-0000-000000000000
 ```
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
-Creare un [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) con il comando [az group create](https://docs.microsoft.com/cli/azure/group#az-group-create). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
+Creare un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md) con il comando [az group create](/cli/azure/group#az-group-create). Un gruppo di risorse è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite come gruppo.
 
 L'esempio seguente consente di creare un gruppo di risorse denominato `myresourcegroup` nell'area `westus`.
 
@@ -85,7 +85,7 @@ Per connettersi al server, è necessario specificare le informazioni sull'host e
 az mariadb server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l'**administratorLogin**.
+Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' **administratorLogin** .
 ```json
 {
   "administratorLogin": "myadmin",
@@ -185,9 +185,9 @@ az mariadb server restore --resource-group myresourcegroup --name mydemoserver-r
 
 Il comando `az mariadb server restore` richiede i parametri seguenti:
 
-| Impostazione | Valore consigliato | Descrizione  |
+| Impostazione | Valore consigliato | Descrizione  |
 | --- | --- | --- |
-| resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
+| resource-group |  myresourcegroup |  Il gruppo di risorse in cui si trova il server di origine.  |
 | name | mydemoserver-restored | Il nome del nuovo server creato con il comando di ripristino. |
 | restore-point-in-time | 2017-04-13T13:59:00Z | Selezionare un punto di ripristino temporizzato. La data e l'ora devono trovarsi all'interno del periodo di memorizzazione dei backup del server di origine. Usare il formato ISO8601 per la data e l'ora. È possibile usare il fuso orario locale, ad esempio `2017-04-13T05:59:00-08:00`, o il formato UTC Zulu `2017-04-13T13:59:00Z`. |
 | source-server | mydemoserver | Il nome o l'ID del server di origine da cui eseguire il ripristino. |

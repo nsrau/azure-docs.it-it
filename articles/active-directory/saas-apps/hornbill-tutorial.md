@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/15/2019
 ms.author: jeedes
-ms.openlocfilehash: 315c6ecaeb466f3a04ed33dc9040ddab49361575
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4131f1d0ef36eb49641ac184cd3f72fb719ea90e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88521942"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92443405"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-hornbill"></a>Esercitazione: integrazione di Azure Active Directory con Hornbill
 
@@ -27,7 +27,7 @@ L'integrazione di Hornbill con Azure AD offre i vantaggi seguenti:
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Hornbill con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -57,7 +57,7 @@ Per configurare l'integrazione di Hornbill in Azure AD, è necessario aggiungere
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -65,13 +65,13 @@ Per configurare l'integrazione di Hornbill in Azure AD, è necessario aggiungere
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Hornbill**, selezionare **Hornbill** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Hornbill** , selezionare **Hornbill** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Hornbill nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Hornbill usando un utente di test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Hornbill usando un utente di test di nome **Britta Simon** .
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Hornbill.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Hornbill, è necessario completare i blocchi predefiniti seguenti:
@@ -89,7 +89,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Hornbill, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Hornbill** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Hornbill** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -97,7 +97,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Hornbill, seguire quest
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -112,7 +112,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Hornbill, seguire quest
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di Hornbill](https://www.hornbill.com/support/?request/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+5. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -124,7 +124,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Hornbill, seguire quest
 
     ![Sistema Hornbill](./media/hornbill-tutorial/tutorial_hornbill_system.png)
 
-3. Passare a **Sicurezza**.
+3. Passare a **Sicurezza** .
 
     ![Sicurezza Hornbill](./media/hornbill-tutorial/tutorial_hornbill_security.png)
 
@@ -132,15 +132,15 @@ Per configurare l'accesso Single Sign-On di Azure AD con Hornbill, seguire quest
 
     ![SSO Hornbill](./media/hornbill-tutorial/tutorial_hornbill_sso.png)
 
-5. Sul lato destro della pagina fare clic sull'opzione di **aggiunta del logo**.
+5. Sul lato destro della pagina fare clic sull'opzione di **aggiunta del logo** .
 
     ![Aggiunta Hornbill](./media/hornbill-tutorial/tutorial_hornbill_addlogo.png)
 
-6. Sulla barra di **Profile Details**  (Dettagli profilo) fare clic sull'opzione di **importazione del logo metadati SAML**.
+6. Sulla barra di **Profile Details**  (Dettagli profilo) fare clic sull'opzione di **importazione del logo metadati SAML** .
 
     ![Logo Hornbill](./media/hornbill-tutorial/tutorial_hornbill_logo.png)
 
-7. Nella casella di testo **URL** della pagina popup incollare il valore dell'**URL dei metadati di federazione dell'app** copiato dal portale di Azure e fare clic su **Process** (Elabora).
+7. Nella casella di testo **URL** della pagina popup incollare il valore dell' **URL dei metadati di federazione dell'app** copiato dal portale di Azure e fare clic su **Process** (Elabora).
 
     ![Elaborazione Hornbill](./media/hornbill-tutorial/tutorial_hornbill_process.png)
 
@@ -152,13 +152,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Hornbill, seguire quest
 
     ![Pagina 3 Hornbill](./media/hornbill-tutorial/tutorial_hornbill_ssopage2.png)
 
-9. Fare clic su **Salva modifiche**.
+9. Fare clic su **Salva modifiche** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -170,24 +170,24 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon**.
+    a. Nel campo **Nome** immettere **BrittaSimon** .
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Hornbill.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Hornbill**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Hornbill** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco applicazioni selezionare **Hornbill**.
+2. Nell'elenco applicazioni selezionare **Hornbill** .
 
     ![Collegamento di Hornbill nell'elenco applicazioni](common/all-applications.png)
 
@@ -195,7 +195,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -203,26 +203,25 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ### <a name="create-hornbill-test-user"></a>Creare l'utente di test di Hornbill
 
 In questa sezione viene creato un utente di nome Britta Simon in Hornbill. Hornbill supporta il provisioning utenti JIT, che è abilitato per impostazione predefinita. Non è necessario alcun intervento dell'utente in questa sezione. Se non esiste già un utente in Hornbill, ne viene creato uno nuovo dopo l'autenticazione.
 
 > [!Note]
-> Per creare un utente manualmente, contattare il  [team del supporto clienti di Hornbill](https://www.hornbill.com/support/?request/).
+> Per creare un utente manualmente, contattare il [team del supporto clienti di Hornbill](https://www.hornbill.com/support/?request/).
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Hornbill nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Hornbill per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Hornbill nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Hornbill per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
