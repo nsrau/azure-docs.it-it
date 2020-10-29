@@ -11,19 +11,19 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: d217f21b0a2dbdad56f2147c8800bbb50b0fa45e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8526556c00327df7e933130e7a54d23eade19f8a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91265528"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519708"
 ---
 # <a name="tutorial-configure-zscaler-three-for-automatic-user-provisioning"></a>Esercitazione: Configurare Zscaler Three per il provisioning utenti automatico
 
 In questa esercitazione si apprenderà come configurare Azure Active Directory (Azure AD) per effettuare automaticamente il provisioning e il deprovisioning di utenti e/o gruppi in Zscaler Three.
 
 > [!NOTE]
-> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e per risposte a domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../active-directory-saas-app-provisioning.md).
+> L'esercitazione descrive un connettore basato sul servizio di provisioning utenti di Azure AD. Per informazioni dettagliate sul funzionamento di questo servizio e per risposte a domande frequenti, vedere [Automatizzare il provisioning e il deprovisioning utenti in applicazioni SaaS con Azure Active Directory](../app-provisioning/user-provisioning.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,7 +44,7 @@ Nel [portale di Azure](https://portal.azure.com) selezionare **Azure Active Dire
 
 ![Selezionare Azure Active Directory](common/select-azuread.png)
 
-Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**:
+Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** :
 
 ![Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -52,7 +52,7 @@ Per aggiungere un'applicazione, selezionare **Nuova applicazione** nella parte s
 
 ![Selezionare Nuova applicazione](common/add-new-app.png)
 
-Nella casella di ricerca immettere **Zscaler Three**. Selezionare **Zscaler Three** nei risultati e quindi **Aggiungi**.
+Nella casella di ricerca immettere **Zscaler Three** . Selezionare **Zscaler Three** nei risultati e quindi **Aggiungi** .
 
 ![Elenco risultati](common/search-new-app.png)
 
@@ -60,7 +60,7 @@ Nella casella di ricerca immettere **Zscaler Three**. Selezionare **Zscaler Thre
 
 È necessario assegnare agli utenti di Azure AD l'accesso alle app selezionate per consentire loro di usarle. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
-Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD devono poter accedere a Zscaler Three. Dopo aver deciso, è possibile assegnare gli utenti e i gruppi a Zscaler Three seguendo le istruzioni riportate in [Assegnare un utente o un gruppo a un'app aziendale](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal).
+Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD devono poter accedere a Zscaler Three. Dopo aver deciso, è possibile assegnare gli utenti e i gruppi a Zscaler Three seguendo le istruzioni riportate in [Assegnare un utente o un gruppo a un'app aziendale](../manage-apps/assign-user-or-group-access-portal.md).
 
 ### <a name="important-tips-for-assigning-users-to-zscaler-three"></a>Suggerimenti importanti per l'assegnazione di utenti a Zscaler Three
 
@@ -75,25 +75,25 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 > [!TIP]
 > Può anche essere opportuno abilitare per Zscaler Three l'accesso Single Sign-On basato su SAML. In tal caso, seguire le istruzioni riportate nell'[esercitazione per l'accesso Single Sign-On di Zscaler Three](zscaler-three-tutorial.md). L'accesso Single Sign-On può essere configurato indipendentemente dal provisioning utenti automatico, ma le due funzionalità sono complementari.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Applicazioni aziendali** > **Tutte le applicazioni** > **Zscaler Three**:
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **Applicazioni aziendali** > **Tutte le applicazioni** > **Zscaler Three** :
 
     ![Applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Zscaler Three**:
+2. Nell'elenco delle applicazioni selezionare **Zscaler Three** :
 
     ![Elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **Provisioning**:
+3. Selezionare la scheda **Provisioning** :
 
     ![Provisioning di Zscaler Three](./media/zscaler-three-provisioning-tutorial/provisioning-tab.png)
 
-4. Impostare **Modalità di provisioning** su **Automatico**:
+4. Impostare **Modalità di provisioning** su **Automatico** :
 
     ![Impostare la modalità di provisioning](./media/zscaler-three-provisioning-tutorial/provisioning-credentials.png)
 
 5. Nella sezione **Credenziali amministratore** specificare i campi **URL tenant** e **Token segreto** dell'account Zscaler Three, come descritto nel passaggio successivo.
 
-6. Per ottenere i valori di **URL tenant** e **Token segreto**, scegliere **Administration** (Amministrazione)  > **Authentication Settings** (Impostazioni di autenticazione) nel portale di Zscaler Three e selezionare **SAML** in **Authentication Type** (Tipo di autenticazione):
+6. Per ottenere i valori di **URL tenant** e **Token segreto** , scegliere **Administration** (Amministrazione)  > **Authentication Settings** (Impostazioni di autenticazione) nel portale di Zscaler Three e selezionare **SAML** in **Authentication Type** (Tipo di autenticazione):
 
     ![Impostazioni di autenticazione di Zscaler Three](./media/zscaler-three-provisioning-tutorial/secret-token-1.png)
 
@@ -101,17 +101,17 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Finestra per la configurazione di SAML](./media/zscaler-three-provisioning-tutorial/secret-token-2.png)
 
-    Selezionare **Enable SCIM-Based Provisioning** (Abilita provisioning basato su SCIM), copiare il valore di **Base URL** (URL di base) e **Bearer Token** (Token di connessione) e quindi salvare le impostazioni. Nel portale di Azure incollare il valore di **Base URL** (URL di base) nella casella **URL tenant** e il valore di **Bearer Token** (Token di connessione) nella casella **Token segreto**.
+    Selezionare **Enable SCIM-Based Provisioning** (Abilita provisioning basato su SCIM), copiare il valore di **Base URL** (URL di base) e **Bearer Token** (Token di connessione) e quindi salvare le impostazioni. Nel portale di Azure incollare il valore di **Base URL** (URL di base) nella casella **URL tenant** e il valore di **Bearer Token** (Token di connessione) nella casella **Token segreto** .
 
-7. Dopo aver immesso i valori nelle caselle **URL tenant** e **Token segreto**, selezionare **Test connessione** per verificare che Azure AD riesca a connettersi a Zscaler Three. Se la connessione non riesce, verificare che l'account Zscaler Three disponga di autorizzazioni di amministratore e riprovare.
+7. Dopo aver immesso i valori nelle caselle **URL tenant** e **Token segreto** , selezionare **Test connessione** per verificare che Azure AD riesca a connettersi a Zscaler Three. Se la connessione non riesce, verificare che l'account Zscaler Three disponga di autorizzazioni di amministratore e riprovare.
 
     ![Testare la connessione](./media/zscaler-three-provisioning-tutorial/test-connection.png)
 
-8. Nel campo **Indirizzo di posta elettronica per le notifiche** immettere l'indirizzo di posta elettronica di una persona o di un gruppo che riceverà le notifiche di errore relative al provisioning. Selezionare **Invia una notifica di posta elettronica in caso di errore**:
+8. Nel campo **Indirizzo di posta elettronica per le notifiche** immettere l'indirizzo di posta elettronica di una persona o di un gruppo che riceverà le notifiche di errore relative al provisioning. Selezionare **Invia una notifica di posta elettronica in caso di errore** :
 
     ![Configurare l'indirizzo di posta elettronica per le notifiche](./media/zscaler-three-provisioning-tutorial/notification.png)
 
-9. Selezionare **Salva**.
+9. Selezionare **Salva** .
 
 10. Nella sezione **Mapping** selezionare **Synchronize Azure Active Directory Users to ZscalerThree** (Sincronizza utenti di Azure Active Directory in ZscalerThree):
 
@@ -129,23 +129,23 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Screenshot della sezione Mapping degli attributi con i tre mapping visualizzati.](./media/zscaler-three-provisioning-tutorial/group-attribute-mappings.png)
 
-14. Per configurare i filtri di ambito, fare riferimento alle istruzioni riportate nell'[esercitazione sui filtri per la definizione dell'ambito](./../active-directory-saas-scoping-filters.md).
+14. Per configurare i filtri di ambito, fare riferimento alle istruzioni riportate nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-15. Per abilitare il servizio di provisioning di Azure AD per Zscaler Three, impostare **Stato del provisioning** su **Attivato** nella sezione **Impostazioni**:
+15. Per abilitare il servizio di provisioning di Azure AD per Zscaler Three, impostare **Stato del provisioning** su **Attivato** nella sezione **Impostazioni** :
 
     ![Stato del provisioning](./media/zscaler-three-provisioning-tutorial/provisioning-status.png)
 
-16. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Zscaler Three selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni**:
+16. Definire gli utenti e/o i gruppi di cui si vuole eseguire il provisioning in Zscaler Three selezionando i valori desiderati in **Ambito** nella sezione **Impostazioni** :
 
     ![Valori di ambito](./media/zscaler-three-provisioning-tutorial/scoping.png)
 
-17. Quando si è pronti per eseguire il provisioning, selezionare **Salva**:
+17. Quando si è pronti per eseguire il provisioning, selezionare **Salva** :
 
     ![Selezionare Salva](./media/zscaler-three-provisioning-tutorial/save-provisioning.png)
 
-Questa operazione avvia la sincronizzazione iniziale di tutti gli utenti e gruppi definiti in **Ambito** nella sezione **Impostazioni**. La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che vengono eseguite circa ogni 40 minuti, purché il servizio di provisioning di Azure AD sia in esecuzione. È possibile monitorare lo stato di avanzamento nella sezione **Dettagli sincronizzazione**. È anche possibile selezionare i collegamenti a un report delle attività di provisioning, che descrive tutte le azioni eseguite dal servizio di provisioning di Azure AD per Zscaler Three.
+Questa operazione avvia la sincronizzazione iniziale di tutti gli utenti e gruppi definiti in **Ambito** nella sezione **Impostazioni** . La sincronizzazione iniziale richiede più tempo delle sincronizzazioni successive, che vengono eseguite circa ogni 40 minuti, purché il servizio di provisioning di Azure AD sia in esecuzione. È possibile monitorare lo stato di avanzamento nella sezione **Dettagli sincronizzazione** . È anche possibile selezionare i collegamenti a un report delle attività di provisioning, che descrive tutte le azioni eseguite dal servizio di provisioning di Azure AD per Zscaler Three.
 
-Per informazioni su come leggere i log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../active-directory-saas-provisioning-reporting.md).
+Per informazioni su come leggere i log di provisioning di Azure AD, vedere l'esercitazione relativa alla [creazione di report sul provisioning automatico degli account utente](../app-provisioning/check-status-user-account-provisioning.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
@@ -154,7 +154,7 @@ Per informazioni su come leggere i log di provisioning di Azure AD, vedere l'ese
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../active-directory-saas-provisioning-reporting.md)
+* [Informazioni su come esaminare i log e ottenere report sulle attività di provisioning](../app-provisioning/check-status-user-account-provisioning.md)
 
 <!--Image references-->
 [1]: ./media/zscaler-three-provisioning-tutorial/tutorial-general-01.png

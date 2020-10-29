@@ -8,17 +8,17 @@ ms.subservice: managed-hsm
 ms.topic: tutorial
 ms.date: 09/15/2020
 ms.author: ambapat
-ms.openlocfilehash: 846153dd482130bbb3b35c38a3dbb791e0d0d32e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f054638e09061c652946c9c2db1a32db73c23d9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91448266"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521034"
 ---
 # <a name="manage-a-managed-hsm-using-the-azure-cli"></a>Gestire un modulo di protezione hardware gestito con l'interfaccia della riga di comando di Azure
 
 > [!NOTE]
-> Key Vault supporta due tipi di risorse: insiemi di credenziali e moduli di protezione hardware gestiti. Questo articolo riguarda il **modulo di protezione hardware gestito**. Per informazioni su come gestire un insieme di credenziali, vedere [Gestire Key Vault con l'interfaccia della riga di comando di Azure](../general/manage-with-cli2.md).
+> Key Vault supporta due tipi di risorse: insiemi di credenziali e moduli di protezione hardware gestiti. Questo articolo riguarda il **modulo di protezione hardware gestito** . Per informazioni su come gestire un insieme di credenziali, vedere [Gestire Key Vault con l'interfaccia della riga di comando di Azure](../general/manage-with-cli2.md).
 
 Per una panoramica del modulo di protezione hardware gestito, vedere [Che cos'è il modulo di protezione hardware gestito?](overview.md)
 
@@ -69,7 +69,7 @@ Tenere presente che l'operazione di `get` restituisce solo gli attributi di chia
 
 ### <a name="create-an-ec-key"></a>Creare una chiave EC
 
-Nell'esempio seguente viene illustrato come creare una chiave **EC** con una curva P-256 che verrà usata solo per le operazioni **sign e verify** (--ops) e ha due tag, **usage** e **appname**. I tag consentono di aggiungere altri metadati alla chiave per facilitarne il rilevamento e la gestione.
+Nell'esempio seguente viene illustrato come creare una chiave **EC** con una curva P-256 che verrà usata solo per le operazioni **sign e verify** (--ops) e ha due tag, **usage** e **appname** . I tag consentono di aggiungere altri metadati alla chiave per facilitarne il rilevamento e la gestione.
 
 ```azurecli-interactive
 az keyvault key create --hsm-name ContosoMHSM --name myec256key --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
@@ -90,7 +90,7 @@ az keyvault key create --hsm-name ContosoMHSM --name myaeskey --ops encrypt decr
 ## OR
 # Note the key name (myaeskey) in the URI
 
-az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops sign verify  --tags ‘usage=signing] appname=myapp’ --kty EC-HSM --curve P-256
+az keyvault key create --id https://ContosoMHSM.managedhsm.azure.net/keys/myaeskey --ops encrypt decrypt  --tags ‘usage=signing] appname=myapp’ --kty oct-HSM --size 256
 ```
 
 ## <a name="view-key-attributes-and-tags"></a>Visualizzare i tag e gli attributi della chiave

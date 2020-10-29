@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 044ee51fb7ff675af0fb97224313c388c4cbeac1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b89ae74a1f4ead568a5454c9494d4a82b0eeea3e
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92371342"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521340"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mitel-micloud-connect-or-cloudlink-platform"></a>Esercitazione: Integrazione di Azure Active Directory con Mitel MiCloud Connect o CloudLink Platform
 
@@ -25,7 +25,7 @@ Questa esercitazione spiega come usare l'app Mitel Connect per integrare Azure A
 * È possibile controllare gli utenti che accedono alle app di MiCloud Connect e di CloudLink in Azure AD usando le credenziali aziendali.
 * È possibile abilitare gli utenti dell'account per l'accesso automatico (Single Sign-On) a MiCloud Connect o CloudLink con gli account Azure AD personali.
 
-Per dettagli sull'integrazione di app SaaS con Azure AD, vedere le [informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per dettagli sull'integrazione di app SaaS con Azure AD, vedere le [informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di avviare l'integrazione di Azure AD con Mitel MiCloud Connect o CloudLink Platform.
 
@@ -41,7 +41,7 @@ Per configurare l'integrazione di Azure AD con MiCloud Connect, sono necessari g
 In questa esercitazione verrà configurato e testato l'accesso Single Sign-On (SSO) di Azure AD.
 
 * Mitel Connect supporta l'accesso SSO avviato da **SP**
-* Dopo aver configurato Mitel Connect, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Dopo aver configurato Mitel Connect, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-mitel-connect-from-the-gallery"></a>Aggiungere Mitel Connect dalla raccolta
 
@@ -51,21 +51,21 @@ Per configurare l'integrazione di Mitel Connect in Azure AD, è necessario aggiu
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Selezionare **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
+2. Selezionare **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
-3. Selezionare **Nuova applicazione**.
+3. Selezionare **Nuova applicazione** .
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Digitare **Mitel Connect** nel campo di ricerca, selezionare **Mitel Connect** nel riquadro dei risultati e quindi selezionare **Aggiungi**.
+4. Digitare **Mitel Connect** nel campo di ricerca, selezionare **Mitel Connect** nel riquadro dei risultati e quindi selezionare **Aggiungi** .
 
      ![Mitel Connect nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con MiCloud Connect o CloudLink Platform usando un utente di test di nome **_Britta Simon_**. Per il corretto funzionamento di Single Sign-On, è necessario stabilire un collegamento tra l'utente nel portale di Azure AD e l'utente corrispondente nella piattaforma Mitel. Vedere le sezioni seguenti per informazioni sulla configurazione e il test dell'accesso SSO di Azure AD con MiCloud Connect o CloudLink Platform.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con MiCloud Connect o CloudLink Platform usando un utente di test di nome **_Britta Simon_** . Per il corretto funzionamento di Single Sign-On, è necessario stabilire un collegamento tra l'utente nel portale di Azure AD e l'utente corrispondente nella piattaforma Mitel. Vedere le sezioni seguenti per informazioni sulla configurazione e il test dell'accesso SSO di Azure AD con MiCloud Connect o CloudLink Platform.
 * Configurare e testare l'accesso SSO di Azure AD con MiCloud Connect
 * Configurare e testare l'accesso SSO di Azure AD con CloudLink Platform
 
@@ -73,10 +73,10 @@ In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure 
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con MiCloud Connect:
 
-1. **[Configurare MiCloud Connect per l'accesso SSO con Azure AD](#configure-micloud-connect-for-sso-with-azure-ad)**: per abilitare gli utenti per l'uso di questa funzionalità e configurare le impostazioni di SSO sul lato applicazione.
+1. **[Configurare MiCloud Connect per l'accesso SSO con Azure AD](#configure-micloud-connect-for-sso-with-azure-ad)** : per abilitare gli utenti per l'uso di questa funzionalità e configurare le impostazioni di SSO sul lato applicazione.
 2. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
 3. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
-4. **[Creare un utente di test di Mitel MiCloud Connect](#create-a-mitel-micloud-connect-test-user)**: per avere una controparte di Britta Simon in MiCloud Connect collegata alla relativa rappresentazione in Azure AD.
+4. **[Creare un utente di test di Mitel MiCloud Connect](#create-a-mitel-micloud-connect-test-user)** : per avere una controparte di Britta Simon in MiCloud Connect collegata alla relativa rappresentazione in Azure AD.
 5. **[Testare l'accesso Single Sign-On](#test-single-sign-on)** per verificare se la configurazione funziona.
 
 ## <a name="configure-micloud-connect-for-sso-with-azure-ad"></a>Configurare MiCloud Connect per l'accesso SSO con Azure AD
@@ -88,11 +88,11 @@ Per configurare MiCloud Connect con l'accesso SSO per Azure AD, è consigliabile
 
 1. Per aprire la pagina di configurazione nel [portale di Azure](https://portal.azure.com/):
 
-    1. Nella pagina di integrazione di **Mitel Connect** selezionare **Single Sign-On**.
+    1. Nella pagina di integrazione di **Mitel Connect** selezionare **Single Sign-On** .
 
        ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-    1. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+    1. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
     
        ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
     
@@ -110,7 +110,7 @@ Per configurare MiCloud Connect con l'accesso SSO per Azure AD, è consigliabile
     
     ![Screenshot che mostra la pagina delle impostazioni per l'accesso Single Sign-On di Mitel Connect con la casella di controllo Enable Single Sign-On selezionata.](./media/mitel-connect-tutorial/mitel-connect-enable.png)
 
-4. Nel portale di Azure selezionare l'icona **Modifica** nella sezione **Configurazione SAML di base**.
+4. Nel portale di Azure selezionare l'icona **Modifica** nella sezione **Configurazione SAML di base** .
    
     ![Screenshot che mostra la pagina Set up Single Sign-On with SAML con l'icona di modifica selezionata.](common/edit-urls.png)
 
@@ -154,7 +154,7 @@ Per configurare MiCloud Connect con l'accesso SSO per Azure AD, è consigliabile
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -166,23 +166,23 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    1. Nel campo **Nome** digitare **BrittaSimon**.
+    1. Nel campo **Nome** digitare **BrittaSimon** .
   
     1. Nel campo **Nome utente** digitare brittasimon@\<yourcompanydomain\>.\<extension\>.  Ad esempio: BrittaSimon@contoso.com.
 
-    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
 
-    1. Selezionare **Crea**.
+    1. Selezionare **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mitel Connect.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Mitel Connect**.
+2. Nell'elenco delle applicazioni selezionare **Mitel Connect** .
 
     ![Collegamento di Mitel Connect nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -190,7 +190,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -198,7 +198,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Seleziona ruolo** selezionare il ruolo appropriato per l'utente nell'elenco e quindi fare clic su **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
+7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
 
 ### <a name="create-a-mitel-micloud-connect-test-user"></a>Creare un utente di test di Mitel MiCloud Connect
 
@@ -221,7 +221,7 @@ Creare un utente nell'account MiCloud Connect con i dettagli seguenti:
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di Mitel Connect nel pannello di accesso, si dovrebbe essere automaticamente reindirizzati nella pagina di accesso all'applicazione MiCloud Connect configurata come predefinita nel campo **URL di accesso**. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Mitel Connect nel pannello di accesso, si dovrebbe essere automaticamente reindirizzati nella pagina di accesso all'applicazione MiCloud Connect configurata come predefinita nel campo **URL di accesso** . Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="configure-and-test-azure-ad-sso-with-cloudlink-platform"></a>Configurare e testare l'accesso SSO di Azure AD con CloudLink Platform
 
@@ -231,15 +231,15 @@ Per configurare la piattaforma CloudLink con l'accesso Single Sign-On per Azure 
 
 1. Per aprire la pagina di configurazione nel [portale di Azure](https://portal.azure.com/):
 
-    1. Nella pagina di integrazione di **Mitel Connect** selezionare **Single Sign-On**.
+    1. Nella pagina di integrazione di **Mitel Connect** selezionare **Single Sign-On** .
 
        ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
-    1. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+    1. Nella finestra di dialogo **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
 
        ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
     
-       Viene visualizzata la pagina **Accesso basato su SAML** in cui è presente la sezione **Configurazione SAML di base**.
+       Viene visualizzata la pagina **Accesso basato su SAML** in cui è presente la sezione **Configurazione SAML di base** .
 
        ![Screenshot che mostra la pagina di accesso basato su SAML con la configurazione SAML di base.](./media/mitel-connect-tutorial/mitel-azure-saml-settings.png)
 
@@ -265,7 +265,7 @@ Per configurare la piattaforma CloudLink con l'accesso Single Sign-On per Azure 
        
        Mitel consiglia di non selezionare la casella di controllo **Enable Mitel Credentials (Optional)** (Abilita credenziali di Mitel (facoltativo)) nella sezione **Optional Mitel credentials** (Credenziali di Mitel facoltative). Selezionare questa casella di controllo solo se si vuole che l'utente possa accedere all'applicazione CloudLink usando le credenziali di Mitel, in aggiunta all'opzione per l'accesso Single Sign-On.
 
-3. Nella pagina **Accesso basato su SAML** del portale di Azure selezionare l'icona **Modifica** nella sezione **Configurazione SAML di base**. Viene aperto il pannello **Configurazione SAML di base**.
+3. Nella pagina **Accesso basato su SAML** del portale di Azure selezionare l'icona **Modifica** nella sezione **Configurazione SAML di base** . Viene aperto il pannello **Configurazione SAML di base** .
 
     ![Screenshot che mostra la sezione Configurazione SAML di base con l'icona Modifica selezionata.](./media/mitel-connect-tutorial/mitel-azure-saml-basic.png)
  
@@ -282,9 +282,9 @@ Per configurare la piattaforma CloudLink con l'accesso Single Sign-On per Azure 
      > [!NOTE]
      > L'applicazione Mitel predefinita è quella che viene aperta quando l'utente seleziona il riquadro di Mitel Connect nel pannello di accesso. È anche l'applicazione a cui si accede quando l'utente imposta una configurazione di test da Azure AD.
 
-7. Selezionare **Salva** nella finestra di dialogo **Configurazione SAML di base**.
+7. Selezionare **Salva** nella finestra di dialogo **Configurazione SAML di base** .
 
-8. Nella sezione **Certificato di firma SAML** della pagina **Accesso basato su SAML** del portale di Azure selezionare **Scarica** accanto a **Certificato (Base64)** per scaricare il **certificato di firma**. Salvare il certificato nel computer.
+8. Nella sezione **Certificato di firma SAML** della pagina **Accesso basato su SAML** del portale di Azure selezionare **Scarica** accanto a **Certificato (Base64)** per scaricare il **certificato di firma** . Salvare il certificato nel computer.
   
     ![Screenshot che mostra la sezione Certificato di firma SAML in cui è possibile scaricare un certificato Base 64.](./media/mitel-connect-tutorial/mitel-cloudlink-save-certificate.png)
 
@@ -309,7 +309,7 @@ Per configurare la piattaforma CloudLink con l'accesso Single Sign-On per Azure 
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -321,23 +321,23 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    1. Nel campo **Nome** digitare **BrittaSimon**.
+    1. Nel campo **Nome** digitare **BrittaSimon** .
   
     1. Nel campo **Nome utente** digitare brittasimon@\<yourcompanydomain\>.\<extension\>.  Ad esempio: BrittaSimon@contoso.com.
 
-    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+    1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
 
-    1. Selezionare **Crea**.
+    1. Selezionare **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mitel Connect.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **Mitel Connect**.
+2. Nell'elenco delle applicazioni selezionare **Mitel Connect** .
 
     ![Collegamento di Mitel Connect nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -345,7 +345,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -353,7 +353,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Seleziona ruolo** selezionare il ruolo appropriato per l'utente nell'elenco e quindi fare clic su **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
+7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
 
 ### <a name="create-a-cloudlink-test-user"></a>Creare un utente di test di CloudLink
 
@@ -375,12 +375,12 @@ Creare un utente nel portale di CloudLink Accounts con i dettagli seguenti:
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di Mitel Connect nel pannello di accesso, si verrà automaticamente reindirizzati nella pagina di accesso all'applicazione CloudLink configurata come predefinita nel campo **URL di accesso**. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Mitel Connect nel pannello di accesso, si verrà automaticamente reindirizzati nella pagina di accesso all'applicazione CloudLink configurata come predefinita nel campo **URL di accesso** . Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
