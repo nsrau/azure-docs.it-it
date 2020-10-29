@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 501f19b2022d221ad6facd66c483790b13491ba0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03c78f05566876356e4f486368dc2a5b3a29de43
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88529679"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456259"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-change-process-management"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Change Process Management
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Change Process Management con Azure
 * Abilitare gli utenti per l'accesso automatico a Change Process Management con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,16 +41,16 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 Change Process Management supporta l'accesso SSO avviato da IDP.
 
-Dopo aver configurato Change Process Management, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato Change Process Management, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-change-process-management-from-the-gallery"></a>Aggiungere Change Process Management dalla raccolta
 
 Per configurare l'integrazione di Change Process Management in Azure AD, è necessario aggiungere Change Process Management dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro sinistro selezionare **Azure Active Directory**.
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere un'applicazione, selezionare **Nuova applicazione**.
+1. Nel riquadro sinistro selezionare **Azure Active Directory** .
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+1. Per aggiungere un'applicazione, selezionare **Nuova applicazione** .
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Change Process Management** nella casella di ricerca.
 1. Selezionare **Change Process Management** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
@@ -71,8 +71,8 @@ Per configurare e testare l'accesso SSO di Azure AD con Change Process Managemen
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Change Process Management** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina di integrazione dell'applicazione **Change Process Management** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante a forma di matita relativo a **Configurazione SAML di base** per modificare le impostazioni:
 
    ![Pulsante a forma di matita per Configurazione SAML di base](common/edit-urls.png)
@@ -98,31 +98,31 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**. Selezionare **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** . Selezionare **Utenti** e quindi **Tutti gli utenti** .
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** completare questa procedura:
-   1. Nella casella **Nome** immettere **B.Simon**.  
+   1. Nella casella **Nome** immettere **B.Simon** .  
    1. Nella casella **Nome utente** immettere \<username>@\<companydomain>.\<extension>. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Selezionare **Crea**.
+   1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+   1. Selezionare **Crea** .
 
 ### <a name="grant-access-to-the-test-user"></a>Concedere l'accesso all'utente di test
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendo a tale utente l'accesso a Change Process Management.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Change Process Management**.
-1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi**:
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
+1. Nell'elenco delle applicazioni selezionare **Change Process Management** .
+1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi** :
 
    ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Selezionare Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** nell'elenco **Utenti** e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
 
 ## <a name="configure-change-process-management-sso"></a>Configurare l'accesso Single Sign-On di Change Process Management
 
@@ -135,18 +135,18 @@ Per configurare l'accesso Single Sign-On sul lato Change Process Management, è 
 
 In questa sezione viene testata la configurazione dell'accesso SSO di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di Change Process Management nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Change Process Management per cui si è configurato l'accesso SSO. Per altre informazioni sul Pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Change Process Management nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Change Process Management per cui si è configurato l'accesso SSO. Per altre informazioni sul Pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Esercitazioni su come integrare le app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Esercitazioni su come integrare le app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Change Process Management con Azure AD](https://aad.portal.azure.com/)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
 
-- [Come proteggere Change Process Management con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Come proteggere Change Process Management con visibilità e controlli avanzati](/cloud-app-security/proxy-intro-aad)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/14/2019
 ms.author: jeedes
-ms.openlocfilehash: cb652cfdae0ce785d6a076b8b1592d9f700b3383
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bad9757bb62d5175e725bfe8e005155040dccf36
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549970"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92458932"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kontiki"></a>Esercitazione: Integrazione di Azure Active Directory con Kontiki
 
@@ -28,7 +28,7 @@ L'integrazione di Kontiki con Azure AD offre i vantaggi seguenti:
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Kontiki con gli account Azure AD personali.
 * È possibile gestire gli account da una posizione centrale, il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -52,25 +52,25 @@ Per integrare Kontiki con Azure AD, è necessario aggiungerlo all'elenco delle a
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Nel menu a sinistra, selezionare **Azure Active Directory**.
+1. Nel menu a sinistra, selezionare **Azure Active Directory** .
 
     ![Opzione Azure Active Directory](common/select-azuread.png)
 
-1. Selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
+1. Selezionare **Applicazioni aziendali** > **Tutte le applicazioni** .
 
     ![Riquadro Applicazioni aziendali](common/enterprise-applications.png)
 
-1. Per aggiungere un'applicazione, selezionare **Nuova applicazione**.
+1. Per aggiungere un'applicazione, selezionare **Nuova applicazione** .
 
     ![Opzione Applicazione nuova](common/add-new-app.png)
 
-1. Nella casella di ricerca immettere **Kontiki**. Nei risultati della ricerca, selezionare **Kontiki**, quindi **Aggiungi**.
+1. Nella casella di ricerca immettere **Kontiki** . Nei risultati della ricerca, selezionare **Kontiki** , quindi **Aggiungi** .
 
     ![Kontiki nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Kontiki mediante un utente test di nome **Britta Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Kontiki.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Kontiki mediante un utente test di nome **Britta Simon** . Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Kontiki.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Kontiki è necessario completare i blocchi predefiniti seguenti:
 
@@ -87,15 +87,15 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Kontiki è ne
 
 In questa sezione si configura l'accesso Single Sign-On di Azure AD con Kontiki nel portale di Azure.
 
-1. Nel riquadro di integrazione dell'applicazione **Kontiki** del [portale di Azure](https://portal.azure.com/) selezionare **Single sign-on**.
+1. Nel riquadro di integrazione dell'applicazione **Kontiki** del [portale di Azure](https://portal.azure.com/) selezionare **Single sign-on** .
 
     ![Configurare l'opzione Single Sign-On](common/select-sso.png)
 
-1. Nel riquadro **Selezionare un metodo di accesso Single Sign-On**, selezionare la modalità **SAML** o **SAML/WS-Fed** per abilitare il Single Sign-On.
+1. Nel riquadro **Selezionare un metodo di accesso Single Sign-On** , selezionare la modalità **SAML** o **SAML/WS-Fed** per abilitare il Single Sign-On.
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-1. Nel riquadro **Configura l'accesso Single Sign-On con SAML**, selezionare **Modifica** (l'icona a forma di matita) per aprire il riquadro **Configurazione SAML di base**.
+1. Nel riquadro **Configura l'accesso Single Sign-On con SAML** , selezionare **Modifica** (l'icona a forma di matita) per aprire il riquadro **Configurazione SAML di base** .
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -106,11 +106,11 @@ In questa sezione si configura l'accesso Single Sign-On di Azure AD con Kontiki 
     > [!NOTE]
     > Per ottenere il valore corretto, contattare il [team di supporto clienti di Kontiki](https://customersupport.kontiki.com/enterprise/contactsupport.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. Nel riquadro **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, selezionare **Scarica** accanto a **XML metadati federazione**. Selezionare un'opzione di download in base alle esigenze. Salvare il certificato nel computer.
+1. Nel riquadro **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , selezionare **Scarica** accanto a **XML metadati federazione** . Selezionare un'opzione di download in base alle esigenze. Salvare il certificato nel computer.
 
     ![Opzione per il download del certificato XML dei metadati federazione](common/metadataxml.png)
 
-1. Nella sezione **Configura Kontiki**, copiare gli URL seguenti in base alle esigenze:
+1. Nella sezione **Configura Kontiki** , copiare gli URL seguenti in base alle esigenze:
 
     * URL di accesso
     * Identificatore di Azure AD
@@ -126,21 +126,21 @@ Per configurare l'accesso Single Sign-On sul lato Kontiki, inviare il file di XM
 
 In questa sezione viene creato un utente di test chiamato Britta Simon nel portale di Azure.
 
-1. Nel portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
+1. Nel portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti** .
 
     ![Opzioni Utenti e Tutti gli utenti](common/users.png)
 
-1. Selezionare **Nuovo utente**.
+1. Selezionare **Nuovo utente** .
 
     ![Opzione Nuovo utente](common/new-user.png)
 
 1. Nel riquadro **Utente** completare la procedura seguente:
 
-    1. Nella casella **Nome** immettere **BrittaSimon**.
+    1. Nella casella **Nome** immettere **BrittaSimon** .
   
-    1. Nella casella **Nome utente** immettere **brittasimon\@\<your-company-domain>.\<extension>** . Ad esempio, **brittasimon\@contoso.com**.
+    1. Nella casella **Nome utente** immettere **brittasimon\@\<your-company-domain>.\<extension>** . Ad esempio, **brittasimon\@contoso.com** .
 
-    1. Selezionare la casella di controllo **Mostra password**. Prendere nota del valore visualizzato nella casella **Password**.
+    1. Selezionare la casella di controllo **Mostra password** . Prendere nota del valore visualizzato nella casella **Password** .
 
     1. Selezionare **Create** (Crea).
 
@@ -150,27 +150,27 @@ In questa sezione viene creato un utente di test chiamato Britta Simon nel porta
 
 In questa sezione si concede a Britta Simon l'accesso a Kontiki in modo che possa usare l'accesso Single Sign-On di Azure.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** > **Kontiki**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** > **Kontiki** .
 
     ![Riquadro Applicazioni aziendali](common/enterprise-applications.png)
 
-1. Nell'elenco delle applicazioni selezionare **Kontiki**.
+1. Nell'elenco delle applicazioni selezionare **Kontiki** .
 
     ![Kontiki nell'elenco delle applicazioni](common/all-applications.png)
 
-1. Nel menu selezionare **Utenti e gruppi**.
+1. Nel menu selezionare **Utenti e gruppi** .
 
     ![Opzione Utenti e gruppi](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente**. Nel riquadro **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
+1. Selezionare **Aggiungi utente** . Nel riquadro **Aggiungi assegnazione** selezionare **Utenti e gruppi** .
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
-1. Nel riquadro **Utenti e gruppi**, selezionare **Britta Simon** nell'elenco degli utenti. Scegliere **Seleziona**.
+1. Nel riquadro **Utenti e gruppi** , selezionare **Britta Simon** nell'elenco degli utenti. Scegliere **Seleziona** .
 
-1. Se si prevede un valore di ruolo nell'asserzione SAML, nel riquadro **Seleziona ruolo**, selezionare il ruolo dell'utente dall'elenco. Scegliere **Seleziona**.
+1. Se si prevede un valore di ruolo nell'asserzione SAML, nel riquadro **Seleziona ruolo** , selezionare il ruolo dell'utente dall'elenco. Scegliere **Seleziona** .
 
-1. Nel riquadro **Aggiungi assegnazione** selezionare **Assegna**.
+1. Nel riquadro **Aggiungi assegnazione** selezionare **Assegna** .
 
 ### <a name="create-a-kontiki-test-user"></a>Creare un utente test di Kontiki
 
@@ -186,6 +186,6 @@ Dopo aver configurato l'accesso Single Sign-On, quando si seleziona **Kontiki** 
 
 Per altre informazioni, vedere questi articoli:
 
-- [Elenco di esercitazioni per l'integrazione di app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
-- [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Elenco di esercitazioni per l'integrazione di app SaaS con Azure Active Directory](./tutorial-list.md)
+- [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

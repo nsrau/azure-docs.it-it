@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: jeedes
-ms.openlocfilehash: a70216286e6f19f565d189c1c16f8862494e3aef
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: f5839b5df4cdaf4abf863587b5f84f87aa63b5a0
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743081"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456926"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-beyondtrust-remote-support"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con BeyondTrust Remote Support
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare BeyondTrust Remote Support con Azur
 * Abilitare gli utenti per l'accesso automatico a BeyondTrust Remote Support con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -47,15 +47,15 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di BeyondTrust Remote Support in Azure AD è necessario aggiungere BeyondTrust Remote Support dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
 1. Nella sezione **Aggiungi dalla raccolta** digitare **BeyondTrust Remote Support** nella casella di ricerca.
 1. Selezionare **BeyondTrust Remote Support** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-beyondtrust-remote-support"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per BeyondTrust Remote Support
 
-Configurare e testare l'accesso SSO di Azure AD con BeyondTrust Remote Support usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in BeyondTrust Remote Support.
+Configurare e testare l'accesso SSO di Azure AD con BeyondTrust Remote Support usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in BeyondTrust Remote Support.
 
 Per configurare e testare l'accesso SSO di Azure AD con BeyondTrust Remote Support, completare le procedure di base seguenti:
 
@@ -70,8 +70,8 @@ Per configurare e testare l'accesso SSO di Azure AD con BeyondTrust Remote Suppo
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **BeyondTrust Remote Support** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina di integrazione dell'applicazione **BeyondTrust Remote Support** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
@@ -105,9 +105,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Quando si assegnano gruppi di Azure AD per l'applicazione BeyondTrust Remote Support, è necessario modificare il valore dell'opzione Gruppi restituiti nell'attestazione da Nessuno a Gruppo di sicurezza. I gruppi verranno importati nell'applicazione come ID oggetto. Per trovare l'ID oggetto del gruppo di Azure AD, controllare le proprietà nell'interfaccia di Azure Active Directory. Tale valore sarà necessario per fare riferimento ai gruppi Azure AD e assegnarli ai criteri di gruppo corretti.
 
-1. Quando si imposta Identificatore univoco dell'utente, questo valore deve essere impostato sul formato NameID **Persistente**. L'identificatore deve essere persistente per identificare e associare correttamente l'utente nei criteri di gruppo corretti per le autorizzazioni. Fare clic sull'icona di modifica per aprire la finestra di dialogo **Attributi utente e attestazioni** per modificare il valore di Identificatore univoco dell'utente.
+1. Quando si imposta Identificatore univoco dell'utente, questo valore deve essere impostato sul formato NameID **Persistente** . L'identificatore deve essere persistente per identificare e associare correttamente l'utente nei criteri di gruppo corretti per le autorizzazioni. Fare clic sull'icona di modifica per aprire la finestra di dialogo **Attributi utente e attestazioni** per modificare il valore di Identificatore univoco dell'utente.
 
-1. Nella sezione **Gestisci l'attestazione** fare clic su **Scegliere il formato per l'identificatore del nome** e impostare il valore su **Persistente**, quindi fare clic su **Salva**.
+1. Nella sezione **Gestisci l'attestazione** fare clic su **Scegliere il formato per l'identificatore del nome** e impostare il valore su **Persistente** , quindi fare clic su **Salva** .
 
     ![Attributi e attestazioni utente](./media/bomgarremotesupport-tutorial/attribute-unique-user-identifier.png)
 
@@ -123,31 +123,31 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Crea**.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+   1. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a BeyondTrust Remote Support.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **BeyondTrust Remote Support**.
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
+1. Nell'elenco delle applicazioni selezionare **BeyondTrust Remote Support** .
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ## <a name="configure-beyondtrust-remote-support-sso"></a>Configurare l'accesso Single Sign-On di BeyondTrust Remote Support
 
@@ -163,7 +163,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nel menu a discesa selezionare **SAML** e fare clic sul pulsante **Create Provider** (Crea provider).
 
-1. Nella sezione delle impostazioni del provider di identità è disponibile un'opzione per caricare i metadati del provider di identità. Individuare il file XML dei metadati scaricato dal portale di Azure e fare clic sul pulsante **Upload** (Carica). I valori di **Entity ID** (ID entità), **Single Sign-On Service URL** (URL del servizio SSO) e il certificato verranno caricati automaticamente e sarà necessario impostare **Protocol Binding** (Binding protocollo) su **HTTP POST**. Vedere lo screenshot seguente:
+1. Nella sezione delle impostazioni del provider di identità è disponibile un'opzione per caricare i metadati del provider di identità. Individuare il file XML dei metadati scaricato dal portale di Azure e fare clic sul pulsante **Upload** (Carica). I valori di **Entity ID** (ID entità), **Single Sign-On Service URL** (URL del servizio SSO) e il certificato verranno caricati automaticamente e sarà necessario impostare **Protocol Binding** (Binding protocollo) su **HTTP POST** . Vedere lo screenshot seguente:
 
     ![Screenshot che mostra la sezione Identity Provider Settings in cui eseguire queste azioni.](./media/bomgarremotesupport-tutorial/config-uploadfile.png)
 
@@ -187,14 +187,14 @@ In questa sezione verranno configurate le impostazioni di provisioning utenti. A
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di BeyondTrust Remote Support nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di BeyondTrust Remote Support per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di BeyondTrust Remote Support nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di BeyondTrust Remote Support per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare BeyondTrust Remote Support con Azure AD](https://aad.portal.azure.com/)

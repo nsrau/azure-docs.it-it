@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jeedes
-ms.openlocfilehash: b342731b953f7b68f8fcd9e55c49c907e5e8cc5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7690977f23b193bb3ba282df14d348b3fac0ad6b
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90973508"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92457538"
 ---
 # <a name="tutorial-integrate-atlassian-cloud-with-azure-active-directory"></a>Esercitazione: Integrare Atlassian Cloud con Azure Active Directory
 
@@ -49,15 +49,15 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di Atlassian Cloud in Azure AD, è necessario aggiungere Atlassian Cloud dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al portale di Azure con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Atlassian Cloud** nella casella di ricerca.
 1. Selezionare **Atlassian Cloud** nel riquadro dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-sso"></a>Configurare e testare l'accesso SSO di Azure AD
 
-Configurare e testare l'accesso SSO di Azure AD con Atlassian Cloud usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Atlassian Cloud.
+Configurare e testare l'accesso SSO di Azure AD con Atlassian Cloud usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Atlassian Cloud.
 
 Per configurare e testare l'accesso SSO di Azure AD con Atlassian Cloud, completare i passaggi seguenti:
 
@@ -71,7 +71,7 @@ Per configurare e testare l'accesso SSO di Azure AD con Atlassian Cloud, complet
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Per automatizzare la configurazione all'interno di Atlassian Cloud, è necessario installare l'**estensione del browser MyApps per l'accesso sicuro** facendo clic su **Installa l'estensione**.
+1. Per automatizzare la configurazione all'interno di Atlassian Cloud, è necessario installare l' **estensione del browser MyApps per l'accesso sicuro** facendo clic su **Installa l'estensione** .
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -110,7 +110,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Opzione Set up single sign-on](./media/atlassian-cloud-tutorial/set-up-sso.png)
 
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
 
    ![SAML in Azure](./media/atlassian-cloud-tutorial/saml-in-azure.png)
 
@@ -128,7 +128,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Opzione Entity ID](./media/atlassian-cloud-tutorial/entity-id-and-ss.png)
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML**, trovare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** , trovare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer in uso.
 
    ![Certificato di firma](./media/atlassian-cloud-tutorial/certificate.png)
 
@@ -136,7 +136,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Fare clic su **Add/Save** (Aggiungi/Salva) per aggiungere o salvare la configurazione SAML in Atlassian
 
-1. Se si vuole configurare l'applicazione in modalità avviata da **IDP**, modificare la sezione **Configurazione SAML di base** della pagina **Configura l'accesso Single Sign-On con SAML** in Azure e aprire la **pagina per l'accesso Single Sign-On SAML** nel portale di amministrazione di Atlassian
+1. Se si vuole configurare l'applicazione in modalità avviata da **IDP** , modificare la sezione **Configurazione SAML di base** della pagina **Configura l'accesso Single Sign-On con SAML** in Azure e aprire la **pagina per l'accesso Single Sign-On SAML** nel portale di amministrazione di Atlassian
 
    a. Copiare il valore di **SP Entity ID** (ID entità SP) da Atlassian, incollarlo nella casella **Identificatore (ID entità)** in Azure e impostarlo come predefinito
    
@@ -150,13 +150,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Immagine degli URL](./media/atlassian-cloud-tutorial/urls.png)
    
-1. Se si vuole configurare l'applicazione in modalità avviata da **IDP**, modificare la sezione **Configurazione SAML di base** della pagina **Configura l'accesso Single Sign-On con SAML** in Azure. Copiare il valore di **Instance URL** (URL istanza) dal passaggio 1 e incollarlo nella casella **URL di accesso** in Azure
+1. Se si vuole configurare l'applicazione in modalità avviata da **IDP** , modificare la sezione **Configurazione SAML di base** della pagina **Configura l'accesso Single Sign-On con SAML** in Azure. Copiare il valore di **Instance URL** (URL istanza) dal passaggio 1 e incollarlo nella casella **URL di accesso** in Azure
 
    ![Pulsante di modifica negli URL](./media/atlassian-cloud-tutorial/edit-button.png)
 
    ![URL di accesso](./media/atlassian-cloud-tutorial/sign-on-URL.png)
    
-1. L'applicazione Atlassian Cloud prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Per modificare il mapping degli attributi, fare clic sull'icona **Modifica**. 
+1. L'applicazione Atlassian Cloud prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Per modificare il mapping degli attributi, fare clic sull'icona **Modifica** . 
 
    ![attributes](./media/atlassian-cloud-tutorial/default-attributes.png)
    
@@ -166,7 +166,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
       ![Attributi e attestazioni](./media/atlassian-cloud-tutorial/user-attributes-and-claims.png)
       
-      b. Atlassian Cloud prevede il mapping di **nameidentifier** (**Identificatore univoco dell'utente**) all'indirizzo di posta elettronica dell'utente (**user.email**). Modificare il valore di **Attributo di origine** impostandolo su **user.mail**. Salvare le modifiche apportate all'attestazione.
+      b. Atlassian Cloud prevede il mapping di **nameidentifier** ( **Identificatore univoco dell'utente** ) all'indirizzo di posta elettronica dell'utente ( **user.email** ). Modificare il valore di **Attributo di origine** impostandolo su **user.mail** . Salvare le modifiche apportate all'attestazione.
 
       ![ID utente univoco](./media/atlassian-cloud-tutorial/unique-user-identifier.png)
       
@@ -180,7 +180,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
       ![immagine 3](./media/atlassian-cloud-tutorial/email-address.png)
          
-      b. Azure non popola l'attributo **user.mail** per gli utenti creati in tenant di Azure AD senza licenze di Microsoft 365 e archivia l'indirizzo di posta elettronica per tali utenti nell'attributo **userprincipalname**. Atlassian Cloud prevede il mapping di **nameidentifier** (**Identificatore univoco dell'utente**) all'indirizzo di posta elettronica dell'utente (**user.userprincipalname**).  Modificare il valore di **Attributo di origine** impostandolo su **user.userprincipalname**. Salvare le modifiche apportate all'attestazione.
+      b. Azure non popola l'attributo **user.mail** per gli utenti creati in tenant di Azure AD senza licenze di Microsoft 365 e archivia l'indirizzo di posta elettronica per tali utenti nell'attributo **userprincipalname** . Atlassian Cloud prevede il mapping di **nameidentifier** ( **Identificatore univoco dell'utente** ) all'indirizzo di posta elettronica dell'utente ( **user.userprincipalname** ).  Modificare il valore di **Attributo di origine** impostandolo su **user.userprincipalname** . Salvare le modifiche apportate all'attestazione.
 
       ![Impostazione dell'indirizzo di posta elettronica](./media/atlassian-cloud-tutorial/set-email.png)
          
@@ -192,25 +192,25 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Crea**.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+   1. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso ad Atlassian Cloud.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Atlassian Cloud**.
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
+1. Nell'elenco delle applicazioni selezionare **Atlassian Cloud** .
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo**. Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+1. Se si prevede che agli utenti venga assegnato un ruolo, è possibile selezionarlo nell'elenco a discesa **Selezionare un ruolo** . Se per questa app non è stato configurato alcun ruolo, il ruolo selezionato è "Accesso predefinito".
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ### <a name="create-atlassian-cloud-test-user"></a>Creare l'utente di test di Atlassian Cloud
 
@@ -247,9 +247,9 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Dopo aver fatto clic su **Test this application** (Testa questa applicazione) nel portale di Azure, si dovrebbe accedere automaticamente all'istanza di Atlassian Cloud per cui si è configurato l'accesso SSO 
 
-È anche possibile usare il pannello di accesso Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro di Atlassian Cloud nel pannello di accesso, se è stato configurato in modalità SP, si dovrebbe essere reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso; se invece è configurato in modalità IDP, si dovrebbe accedere automaticamente all'istanza di Atlassian Cloud per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+È anche possibile usare il pannello di accesso Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro di Atlassian Cloud nel pannello di accesso, se è stato configurato in modalità SP, si dovrebbe essere reindirizzati alla pagina di accesso dell'applicazione per avviare il flusso di accesso; se invece è configurato in modalità IDP, si dovrebbe accedere automaticamente all'istanza di Atlassian Cloud per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato Atlassian Cloud, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato Atlassian Cloud, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

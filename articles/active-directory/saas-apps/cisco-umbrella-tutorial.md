@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 86ba8527a6da3e995fc3cf63937b11f1915c82a1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec2c0089295cdd269b5bb3bccf0baaef3cb14849
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88556029"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456123"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-cisco-umbrella"></a>Esercitazione: Integrazione di Azure Active Directory con Cisco Umbrella
 
@@ -27,7 +27,7 @@ L'integrazione di Cisco Umbrella con Azure AD offre i vantaggi seguenti:
 * È possibile abilitare gli utenti per l'accesso automatico a Cisco Umbrella (Single Sign-On) con gli account Azure AD.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -53,7 +53,7 @@ Per configurare l'integrazione di Cisco Umbrella in Azure AD, è necessario aggi
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Per configurare l'integrazione di Cisco Umbrella in Azure AD, è necessario aggi
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Cisco Umbrella**, selezionare **Cisco Umbrella** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Cisco Umbrella** , selezionare **Cisco Umbrella** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Cisco Umbrella nell'elenco dei risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con [Nome applicazione] usando un utente di test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con [Nome applicazione] usando un utente di test di nome **Britta Simon** .
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in [Nome applicazione].
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con [Nome applicazione], è necessario completare i blocchi predefiniti seguenti:
@@ -85,7 +85,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione [Cisco Umbrella](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione [Cisco Umbrella](https://portal.azure.com/) del **portale di Azure** selezionare **Single Sign-On** .
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -93,7 +93,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
@@ -101,13 +101,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
     ![Informazioni su URL e dominio di Cisco Umbrella per l'accesso Single Sign-On](common/both-preintegrated-signon.png)
 
-    a. Per configurare l'applicazione in modalità avviata da **SP**, seguire questa procedura:
+    a. Per configurare l'applicazione in modalità avviata da **SP** , seguire questa procedura:
 
-    b. Fare clic su **Impostare URL aggiuntivi**.
+    b. Fare clic su **Impostare URL aggiuntivi** .
 
     c. Nella casella di testo **URL di accesso** digitare l'URL: `https://login.umbrella.com/sso`
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **file XML dei metadati** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **file XML dei metadati** definito dalle opzioni specificate in base ai propri requisiti e salvarlo nel computer in uso.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -125,37 +125,37 @@ Per configurare l'accesso Single Sign-On di Azure AD con [Nome applicazione], se
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di Cisco Umbrella come amministratore.
 
-2. Dal lato sinistro del menu, fare clic su **Amministratore** e passare a **Autenticazione**, quindi fare clic su **SAML**.
+2. Dal lato sinistro del menu, fare clic su **Amministratore** e passare a **Autenticazione** , quindi fare clic su **SAML** .
 
     ![Amministrazione](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_admin.png)
 
-3. Scegliere **Altro** e fare clic su **AVANTI**.
+3. Scegliere **Altro** e fare clic su **AVANTI** .
 
     ![Il menu Altro](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_other.png)
 
-4. Nella pagina **Metadati Cisco Umbrella** fare clic su **AVANTI**.
+4. Nella pagina **Metadati Cisco Umbrella** fare clic su **AVANTI** .
 
     ![I metadati](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_metadata.png)
 
-5. Nella scheda **Carica metadati**, se è stato preconfigurato SAML, selezionare l'opzione **Fai clic qui per modificare** e attenersi ai passaggi seguenti.
+5. Nella scheda **Carica metadati** , se è stato preconfigurato SAML, selezionare l'opzione **Fai clic qui per modificare** e attenersi ai passaggi seguenti.
 
     ![Il pulsante AVANTI](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_next.png)
 
-6. In **Opzione A: Caricare il file XML**e caricare il file **XML dei metadati di federazione** scaricato dal portale di Azure. Dopo il caricamento dei metadati, i valori seguenti vengono popolati automaticamente. A questo punto, fare clic su **AVANTI**.
+6. In **Opzione A: Caricare il file XML** e caricare il file **XML dei metadati di federazione** scaricato dal portale di Azure. Dopo il caricamento dei metadati, i valori seguenti vengono popolati automaticamente. A questo punto, fare clic su **AVANTI** .
 
     ![Finestra di selezione file](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_choosefile.png)
 
-7. Nella sezione **Convalida configurazione SAML** fare clic su **TESTA LA CONFIGURAZIONE SAML**.
+7. Nella sezione **Convalida configurazione SAML** fare clic su **TESTA LA CONFIGURAZIONE SAML** .
 
     ![Test](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_test.png)
 
-8. Fare clic su **SAVE**.
+8. Fare clic su **SAVE** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -167,24 +167,24 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon**.
+    a. Nel campo **Nome** immettere **BrittaSimon** .
   
     b. Nel campo **Nome utente** digitare **brittasimon\@dominioaziendale.estensione**  
     Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Cisco Umbrella.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Cisco Umbrella**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Cisco Umbrella** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni digitare e selezionare **Cisco Umbrella**.
+2. Nell'elenco delle applicazioni digitare e selezionare **Cisco Umbrella** .
 
     ![Collegamento a Cisco Umbrella nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -192,7 +192,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -200,7 +200,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ### <a name="create-cisco-umbrella-test-user"></a>Creare l'utente di test di Cisco Umbrella
 
@@ -211,25 +211,25 @@ Nel caso di Cisco Umbrella, il provisioning è un'attività manuale.
 
 1. In un'altra finestra del Web browser accedere al sito aziendale di Cisco Umbrella come amministratore.
 
-2. Dal lato sinistro del menu, fare clic su **Amministratore** e passare a **Account**.
+2. Dal lato sinistro del menu, fare clic su **Amministratore** e passare a **Account** .
 
     ![Account](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_account.png)
 
-3. Nella pagina **Account**, fare clic su **Aggiungi** in alto a destra e attenersi ai passaggi seguenti.
+3. Nella pagina **Account** , fare clic su **Aggiungi** in alto a destra e attenersi ai passaggi seguenti.
 
     ![Utente](./media/cisco-umbrella-tutorial/tutorial_cisco-umbrella_createuser.png)
 
-    a. Nel campo **Nome** immettere il nome, ad esempio **Britta**.
+    a. Nel campo **Nome** immettere il nome, ad esempio **Britta** .
 
-    b. Nel campo **Cognome** immettere il cognome, ad esempio **simon**.
+    b. Nel campo **Cognome** immettere il cognome, ad esempio **simon** .
 
     c. In **Scegli ruolo amministratore con delega** selezionare il proprio ruolo.
   
-    d. Nel campo **Email address** (Indirizzo di posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon\@contoso.com**.
+    d. Nel campo **Email address** (Indirizzo di posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio **brittasimon\@contoso.com** .
 
-    e. Immettere la password nel campo **Password**.
+    e. Immettere la password nel campo **Password** .
 
-    f. Reimmettere la password nel campo **Conferma password**.
+    f. Reimmettere la password nel campo **Conferma password** .
 
     g. Fare clic su **Create** (Crea).
 
@@ -237,12 +237,12 @@ Nel caso di Cisco Umbrella, il provisioning è un'attività manuale.
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro Cisco Umbrella nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Cisco Umbrella per cui è stato configurato l'accesso Single Sign-On. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro Cisco Umbrella nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Cisco Umbrella per cui è stato configurato l'accesso Single Sign-On. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

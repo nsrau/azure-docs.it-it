@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: jeedes
-ms.openlocfilehash: e6acb5f30268f0e771d80489dff52f03eb58234a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 52879eb7cb7a9d90113971aa66c590b99b2d5e88
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850757"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459289"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-kantega-sso-for-bitbucket"></a>Esercitazione: Integrazione di Azure Active Directory con Kantega SSO for Bitbucket
 
@@ -27,7 +27,7 @@ L'integrazione di Kantega SSO for Bitbucket con Azure AD offre i vantaggi seguen
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Kantega SSO for Bitbucket con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -53,7 +53,7 @@ Per configurare l'integrazione di Kantega SSO for Bitbucket in Azure AD, è nece
 
     ![Pulsante Azure Active Directory](common/select-azuread.png)
 
-2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni**.
+2. Passare ad **Applicazioni aziendali** e quindi selezionare l'opzione **Tutte le applicazioni** .
 
     ![Pannello Applicazioni aziendali](common/enterprise-applications.png)
 
@@ -61,13 +61,13 @@ Per configurare l'integrazione di Kantega SSO for Bitbucket in Azure AD, è nece
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Kantega SSO for Bitbucket**, selezionare **Kantega SSO for Bitbucket** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Kantega SSO for Bitbucket** , selezionare **Kantega SSO for Bitbucket** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Kantega SSO for Bitbucket nell'elenco risultati](common/search-new-app.png)
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbucket usando un utente di test di nome **Britta Simon**.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbucket usando un utente di test di nome **Britta Simon** .
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Kantega SSO for Bitbucket.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbucket, è necessario completare i blocchi predefiniti seguenti:
@@ -85,7 +85,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 
 Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbucket, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione **Kantega SSO for Bitbucket** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Kantega SSO for Bitbucket** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
 
     ![Collegamento Configura accesso Single Sign-On](common/select-sso.png)
 
@@ -93,11 +93,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
     ![Selezione della modalità Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**.
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** .
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP** :
 
     ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
@@ -105,7 +105,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<server-base-url>/plugins/servlet/no.kantega.saml/sp/<uniqueid>/login`
 
-5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
@@ -114,7 +114,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Questi valori vengono ricevuti durante la configurazione del plug-in Bitbucket descritta più avanti nell'esercitazione.
 
-6. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+6. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -144,11 +144,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
     ![Screenshot che mostra lo stato dell'installazione.](./media/kantegassoforbitbucket-tutorial/addon31.png)
 
-1. Al termine dell'installazione, Fare clic su **Close**.
+1. Al termine dell'installazione, Fare clic su **Close** .
 
     ![Screenshot che mostra il pulsante Close.](./media/kantegassoforbitbucket-tutorial/addon33.png)
 
-1. Fare clic su **Manage**.
+1. Fare clic su **Manage** .
 
     ![Screenshot che mostra il pulsante Manage.](./media/kantegassoforbitbucket-tutorial/addon34.png)
 
@@ -170,7 +170,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
     a. Copiare il valore di **App ID URI** (URI ID App) e usarlo come valore di **Identificatore, URL di risposta e URL di accesso** nella sezione **Configurazione SAML di base** del portale di Azure.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Avanti** .
 
 1. Nella sezione **Metadata import** (Importazione metadati) seguire questa procedura:
 
@@ -178,7 +178,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
     a. Selezionare **Metadata file on my computer** (File metadati in questo computer) e caricare il file di metadati scaricato dal portale di Azure.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Avanti** .
 
 1. Nella sezione **Name and SSO location** (Nome e percorso SSO) seguire questa procedura:
 
@@ -186,7 +186,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
     a. Aggiungere il nome del provider di identità nella casella di testo **Identity provider name** (Nome provider di identità), ad esempio Azure AD.
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Avanti** .
 
 1. Verificare il certificato di firma e fare clic su **Next** (Avanti).
 
@@ -198,9 +198,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
     a. Selezionare **Create users in Bitbucket's internal Directory if needed** (Crea utenti nella directory interna di Bitbucket se necessario) e immettere il nome appropriato del gruppo per gli utenti (è possibile specificare più gruppi separati da virgola).
 
-    b. Fare clic su **Avanti**.
+    b. Fare clic su **Avanti** .
 
-1. Fare clic su **Fine**.
+1. Fare clic su **Fine** .
 
     ![Screenshot che mostra la pagina di riepilogo.](./media/kantegassoforbitbucket-tutorial/addon11.png)
 
@@ -212,13 +212,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con Kantega SSO for Bitbuck
 
     b. Immettere il nome di dominio nella casella di testo **Known domains** (Domini noti).
 
-    c. Fare clic su **Salva**.
+    c. Fare clic su **Salva** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -230,24 +230,24 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    a. Nel campo **Nome** immettere **BrittaSimon**.
+    a. Nel campo **Nome** immettere **BrittaSimon** .
   
     b. Nel campo **Nome utente** digitare `brittasimon@yourcompanydomain.extension`.  
     Ad esempio, usare BrittaSimon@contoso.com
 
     c. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella Password.
 
-    d. Fare clic su **Crea**.
+    d. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Kantega SSO for Bitbucket.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Kantega SSO for Bitbucket**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Kantega SSO for Bitbucket** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco di applicazioni selezionare **Kantega SSO for Bitbucket**.
+2. Nell'elenco di applicazioni selezionare **Kantega SSO for Bitbucket** .
 
     ![Collegamento di Kantega SSO for Bitbucket nell'elenco delle applicazioni](common/all-applications.png)
 
@@ -255,7 +255,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
     ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Fare clic sul pulsante **Aggiungi utente** e quindi selezionare **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Riquadro Aggiungi assegnazione](common/add-assign-user.png)
 
@@ -263,7 +263,7 @@ In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sig
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco, quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+7. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ### <a name="create-kantega-sso-for-bitbucket-test-user"></a>Creare un utente di test di Kantega SSO for Bitbucket
 
@@ -305,13 +305,12 @@ Per consentire agli utenti di Azure AD di accedere a Bitbucket, è necessario ef
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Kantega SSO for Bitbucket nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Kantega SSO for Bitbucket per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Kantega SSO for Bitbucket nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Kantega SSO for Bitbucket per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
