@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 11/29/2019
-ms.openlocfilehash: 5876626ed4ba27c0f39b0c02af926c61261fca71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c7c89706d749151b5a59667282eb6675fd18dc8c
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327430"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92535366"
 ---
 # <a name="azure-hdinsight-java-samples"></a>Azure HDInsight: Esempi di Java
 
@@ -32,7 +32,7 @@ Questo articolo include:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-[Azure HDInsight SDK per Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight#sdk-installation)
+[Azure HDInsight SDK per Java](/java/api/overview/azure/hdinsight#sdk-installation)
 
 ## <a name="cluster-management---creation"></a>Gestione cluster: creazione
 
@@ -45,4 +45,4 @@ Per ottenere questi esempi per Java, clonare il repository GitHub [hdinsight-jav
 
 [!INCLUDE [hdinsight-sdk-additional-functionality](../../includes/hdinsight-sdk-additional-functionality.md)]
 
-I frammenti di codice per questa funzionalità aggiuntiva dell'SDK sono disponibili nella [documentazione di riferimento di HDInsight SDK per Java](https://docs.microsoft.com/java/api/overview/azure/hdinsight?view=azure-java-preview).
+I frammenti di codice per questa funzionalità aggiuntiva dell'SDK sono disponibili nella [documentazione di riferimento di HDInsight SDK per Java](/java/api/overview/azure/hdinsight).

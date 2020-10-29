@@ -7,16 +7,16 @@ ms.service: cache
 ms.topic: tutorial
 ms.custom: devx-track-csharp, mvc
 ms.date: 03/30/2018
-ms.openlocfilehash: 71f1e2b50daf333e19bc11bce119f37cec28d146
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 90e60044e227ea1a18ea032d302b29abda1ea2e8
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88209203"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92536845"
 ---
 # <a name="tutorial-create-a-cache-aside-leaderboard-on-aspnet"></a>Esercitazione: Creare un tabellone punteggi cache-aside in ASP.NET
 
-In questa esercitazione verrà aggiornata l'app Web ASP.NET *ContosoTeamStats*, creata nella [guida introduttiva di ASP.NET per Cache Redis di Azure](cache-web-app-howto.md), in modo da includere un tabellone punteggi che usa il [modello cache-aside](https://docs.microsoft.com/azure/architecture/patterns/cache-aside) con Cache Redis di Azure. L'applicazione di esempio mostra un elenco di statistiche del team prese da un database e illustra i diversi modi in cui è possibile usare Cache Redis di Azure per archiviare e recuperare i dati dalla cache in modo da aumentare le prestazioni. Al termine dell'esercitazione, si ottiene un'app Web in esecuzione che legge e scrive in un database, ottimizzata per Cache Redis di Azure e ospitata in Azure.
+In questa esercitazione verrà aggiornata l'app Web ASP.NET *ContosoTeamStats* , creata nella [guida introduttiva di ASP.NET per Cache Redis di Azure](cache-web-app-howto.md), in modo da includere un tabellone punteggi che usa il [modello cache-aside](/azure/architecture/patterns/cache-aside) con Cache Redis di Azure. L'applicazione di esempio mostra un elenco di statistiche del team prese da un database e illustra i diversi modi in cui è possibile usare Cache Redis di Azure per archiviare e recuperare i dati dalla cache in modo da aumentare le prestazioni. Al termine dell'esercitazione, si ottiene un'app Web in esecuzione che legge e scrive in un database, ottimizzata per Cache Redis di Azure e ospitata in Azure.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -45,7 +45,7 @@ In questa sezione dell'esercitazione viene configurato il progetto *ContosoTeamS
 ### <a name="add-the-entity-framework-to-the-project"></a>Aggiungere Entity Framework al progetto
 
 1. In Visual Studio aprire la soluzione *ContosoTeamStats* creata nella [guida introduttiva di ASP.NET per Cache Redis di Azure](cache-web-app-howto.md).
-2. Fare clic su **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti**.
+2. Fare clic su **Strumenti > Gestione pacchetti NuGet > Console di Gestione pacchetti** .
 3. Nella finestra **Console di Gestione pacchetti** eseguire il comando seguente per installare EntityFramework:
 
     ```powershell
@@ -56,9 +56,9 @@ Per altre informazioni sul pacchetto, vedere la pagina NuGet relativa a [Entity 
 
 ### <a name="add-the-team-model"></a>Aggiungere il modello di team
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Modelli**, quindi scegliere **Aggiungi**, **Classe**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse su **Modelli** , quindi scegliere **Aggiungi** , **Classe** .
 
-1. Immettere `Team` come nome della classe e fare clic su **Aggiungi**.
+1. Immettere `Team` come nome della classe e fare clic su **Aggiungi** .
 
     ![Aggiunta di una classe modello](./media/cache-web-app-cache-aside-leaderboard/cache-model-add-class-dialog.png)
 
@@ -173,13 +173,13 @@ Per altre informazioni sul pacchetto, vedere la pagina NuGet relativa a [Entity 
 
 1. Compilare il progetto in Visual Studio. 
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Controller**, quindi scegliere **Aggiungi**, **Controller**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Controller** , quindi scegliere **Aggiungi** , **Controller** .
 
-1. Scegliere **Controller MVC 5 con visualizzazioni, che usa Entity Framework** e quindi fare clic su **Aggiungi**. Se viene visualizzato un errore dopo la selezione di **Aggiungi**, assicurarsi prima di tutto di avere compilato il progetto.
+1. Scegliere **Controller MVC 5 con visualizzazioni, che usa Entity Framework** e quindi fare clic su **Aggiungi** . Se viene visualizzato un errore dopo la selezione di **Aggiungi** , assicurarsi prima di tutto di avere compilato il progetto.
 
     ![Aggiunta di una classe controller](./media/cache-web-app-cache-aside-leaderboard/cache-add-controller-class.png)
 
-1. Selezionare **Team (ContosoTeamStats.Models)** dall'elenco a discesa **Classe modello**. Selezionare **TeamContext (ContosoTeamStats.Models)** dall'elenco a discesa **Classe del contesto dei dati**. Immettere `TeamsController` nella casella di testo **Nome controller** , se non è stata popolata automaticamente. Fare clic su **Aggiungi** per creare la classe controller e aggiungere le visualizzazioni predefinite.
+1. Selezionare **Team (ContosoTeamStats.Models)** dall'elenco a discesa **Classe modello** . Selezionare **TeamContext (ContosoTeamStats.Models)** dall'elenco a discesa **Classe del contesto dei dati** . Immettere `TeamsController` nella casella di testo **Nome controller** , se non è stata popolata automaticamente. Fare clic su **Aggiungi** per creare la classe controller e aggiungere le visualizzazioni predefinite.
 
     ![Configura controller](./media/cache-web-app-cache-aside-leaderboard/cache-configure-controller.png)
 
@@ -216,7 +216,7 @@ Per altre informazioni sul pacchetto, vedere la pagina NuGet relativa a [Entity 
 
 ### <a name="configure-the-layout-view"></a>Configurare la visualizzazione Layout
 
-1. In **Esplora soluzioni** espandere la cartella **Visualizzazioni**, quindi la cartella **Condiviso** e infine fare doppio clic su **_Layout.cshtml**. 
+1. In **Esplora soluzioni** espandere la cartella **Visualizzazioni** , quindi la cartella **Condiviso** e infine fare doppio clic su **_Layout.cshtml** . 
 
     ![file _Layout.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml.png)
 
@@ -226,7 +226,7 @@ Per altre informazioni sul pacchetto, vedere la pagina NuGet relativa a [Entity 
     <title>@ViewBag.Title - Contoso Team Stats</title>
     ```
 
-1. Nella sezione `body` aggiungere la nuova istruzione `Html.ActionLink` seguente per *Contoso Team Stats* appena sotto al collegamento per il *test di Cache Redis di Azure*.
+1. Nella sezione `body` aggiungere la nuova istruzione `Html.ActionLink` seguente per *Contoso Team Stats* appena sotto al collegamento per il *test di Cache Redis di Azure* .
 
     ```csharp
     @Html.ActionLink("Contoso Team Stats", "Index", "Teams", new { area = "" }, new { @class = "navbar-brand" })`
@@ -234,7 +234,7 @@ Per altre informazioni sul pacchetto, vedere la pagina NuGet relativa a [Entity 
 
     ![Modifiche al codice](./media/cache-web-app-cache-aside-leaderboard/cache-layout-cshtml-code.png)
 
-1. Premere **CTRL+F5** per compilare ed eseguire l'applicazione. Questa versione dell'applicazione legge i risultati direttamente dal database. Si notino le azioni **Crea nuovo**, **Modifica**, **Dettagli** ed **Elimina** aggiunte automaticamente all'applicazione dallo scaffolding **Controller MVC 5 con visualizzazioni, che usa Entity Framework**. Nella sezione successiva dell'esercitazione verrà aggiunta l'istanza di Cache Redis di Azure per ottimizzare l'accesso ai dati e fornire funzionalità aggiuntive all'applicazione.
+1. Premere **CTRL+F5** per compilare ed eseguire l'applicazione. Questa versione dell'applicazione legge i risultati direttamente dal database. Si notino le azioni **Crea nuovo** , **Modifica** , **Dettagli** ed **Elimina** aggiunte automaticamente all'applicazione dallo scaffolding **Controller MVC 5 con visualizzazioni, che usa Entity Framework** . Nella sezione successiva dell'esercitazione verrà aggiunta l'istanza di Cache Redis di Azure per ottimizzare l'accesso ai dati e fornire funzionalità aggiuntive all'applicazione.
 
     ![Applicazione iniziale](./media/cache-web-app-cache-aside-leaderboard/cache-starter-application.png)
 
@@ -244,13 +244,13 @@ In questa sezione dell'esercitazione viene configurata l'applicazione di esempio
 
 ### <a name="add-a-cache-connection-to-the-teams-controller"></a>Aggiungere una connessione della cache a TeamsController
 
-L'installazione del pacchetto della libreria client *StackExchange.Redis* è già stata effettuata nella guida introduttiva. Inoltre è già stata configurata l'impostazione dell'app *CacheConnection* da usare in locale e con il servizio app pubblicato. Usare la stessa libreria client e le informazioni di *CacheConnection* in *TeamsController*.
+L'installazione del pacchetto della libreria client *StackExchange.Redis* è già stata effettuata nella guida introduttiva. Inoltre è già stata configurata l'impostazione dell'app *CacheConnection* da usare in locale e con il servizio app pubblicato. Usare la stessa libreria client e le informazioni di *CacheConnection* in *TeamsController* .
 
 1. In **Esplora soluzioni** espandere la cartella **Controller** e fare doppio clic su **TeamsController.cs** per aprirlo.
 
     ![Controller Teams](./media/cache-web-app-cache-aside-leaderboard/cache-teamscontroller.png)
 
-1. Aggiungere le due istruzioni `using` seguenti a **TeamsController.cs**:
+1. Aggiungere le due istruzioni `using` seguenti a **TeamsController.cs** :
 
     ```csharp
     using System.Configuration;
@@ -574,7 +574,7 @@ Il codice di scaffolding generato come parte di questo esempio include metodi pe
 
 ### <a name="add-caching-methods-to-the-teams-index-view"></a>Aggiungere metodi di memorizzazione nella cache per la visualizzazione dell'indice dei team
 
-1. In **Esplora soluzioni** espandere la cartella **Visualizzazioni**, quindi la cartella **Team** e fare doppio clic su **Index.cshtml**.
+1. In **Esplora soluzioni** espandere la cartella **Visualizzazioni** , quindi la cartella **Team** e fare doppio clic su **Index.cshtml** .
 
     ![Index.cshtml](./media/cache-web-app-cache-aside-leaderboard/cache-views-teams-index-cshtml.png)
 
@@ -646,41 +646,41 @@ Per eseguire l'app in locale:
 
 In questa sezione si effettuerà il provisioning di un nuovo database nel database SQL che l'app userà mentre è ospitata in Azure.
 
-1. Nell'angolo in alto a sinistra del [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa**.
+1. Nell'angolo in alto a sinistra del [portale di Azure](https://portal.azure.com/) fare clic su **Crea una risorsa** .
 
-1. Nella pagina **Nuovo** fare clic su **Database** > **Database SQL**.
+1. Nella pagina **Nuovo** fare clic su **Database** > **Database SQL** .
 
 1. Usare le impostazioni seguenti per il nuovo database SQL:
 
    | Impostazione       | Valore consigliato | Descrizione |
    | ------------ | ------------------ | ------------------------------------------------- |
-   | **Nome database** | *ContosoTeamsDatabase* | Per i nomi di database validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Nome database** | *ContosoTeamsDatabase* | Per i nomi di database validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). |
    | **Sottoscrizione** | *Sottoscrizione in uso*  | Selezionare la stessa sottoscrizione che è stata usata per creare la cache e ospitare il servizio app. |
    | **Gruppo di risorse**  | *TestResourceGroup* | Fare clic su **Usa esistente** e usare lo stesso gruppo di risorse in cui sono stati inseriti la cache e il servizio app. |
    | **Seleziona origine** | **Database vuoto** | Iniziare con un database vuoto. |
 
-1. In **Server** fare clic su **Configura le impostazioni obbligatorie** > **Crea un nuovo server** e specificare le informazioni seguenti, quindi fare clic sul pulsante **Seleziona**:
+1. In **Server** fare clic su **Configura le impostazioni obbligatorie** > **Crea un nuovo server** e specificare le informazioni seguenti, quindi fare clic sul pulsante **Seleziona** :
 
    | Impostazione       | Valore consigliato | Descrizione |
    | ------------ | ------------------ | ------------------------------------------------- |
    | **Nome server** | Qualsiasi nome globalmente univoco | Per i nomi di server validi, vedere [Regole di denominazione e restrizioni](/azure/architecture/best-practices/resource-naming). |
-   | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](https://docs.microsoft.com/sql/relational-databases/databases/database-identifiers). |
+   | **Accesso amministratore server** | Qualsiasi nome valido | Per i nomi di accesso validi, vedere [Identificatori del database](/sql/relational-databases/databases/database-identifiers). |
    | **Password** | Qualsiasi password valida | La password deve almeno 8 caratteri e contenere caratteri inclusi in tre delle categorie seguenti: caratteri maiuscoli, caratteri minuscoli, numeri e caratteri non alfanumerici. |
    | **Posizione** | *Stati Uniti orientali* | Selezionare la stessa area geografica in cui sono stati creati la cache e il servizio app. |
 
 1. Fare clic su **Pin to dashboard** (Aggiungi al dashboard) e quindi **Crea** per creare il nuovo database e il nuovo server.
 
-1. Dopo aver creato il nuovo database, fare clic su **Mostra stringhe di connessione del database** e copiare la stringa di connessione **ADO.NET**.
+1. Dopo aver creato il nuovo database, fare clic su **Mostra stringhe di connessione del database** e copiare la stringa di connessione **ADO.NET** .
 
     ![Mostra stringhe di connessione](./media/cache-web-app-cache-aside-leaderboard/cache-show-connection-strings.png)
 
-1. Nel portale di Azure passare al servizio app e fare clic su **Impostazioni applicazione**, quindi su **Aggiungi nuova stringa di connessione** nella sezione Stringhe di connessione.
+1. Nel portale di Azure passare al servizio app e fare clic su **Impostazioni applicazione** , quindi su **Aggiungi nuova stringa di connessione** nella sezione Stringhe di connessione.
 
-1. Aggiungere una nuova stringa di connessione denominata *TeamContext* corrispondente alla classe di contesto del database Entity Framework. Incollare la stringa di connessione per il nuovo database come valore. Assicurarsi di sostituire i segnaposto seguenti nella stringa di connessione e fare clic su **Salva**:
+1. Aggiungere una nuova stringa di connessione denominata *TeamContext* corrispondente alla classe di contesto del database Entity Framework. Incollare la stringa di connessione per il nuovo database come valore. Assicurarsi di sostituire i segnaposto seguenti nella stringa di connessione e fare clic su **Salva** :
 
     | Segnaposto | Valore consigliato |
     | --- | --- |
-    | *{your_username}* | Usare l'**accesso di amministratore server** per il server appena creato. |
+    | *{your_username}* | Usare l' **accesso di amministratore server** per il server appena creato. |
     | *{your_password}* | Usare la password per il server appena creato. |
 
     Se vengono aggiunti come impostazioni applicazione, il nome utente e la password non vengono inclusi nel codice. Questo approccio consente di proteggere tali credenziali.
@@ -689,7 +689,7 @@ In questa sezione si effettuerà il provisioning di un nuovo database nel databa
 
 In questo passaggio dell'esercitazione l'applicazione verrà aggiornata in Azure per essere eseguita nel cloud.
 
-1. Fare clic con il pulsante destro del mouse sul progetto **ContosoTeamStats** in Visual Studio e scegliere **Pubblica**.
+1. Fare clic con il pulsante destro del mouse sul progetto **ContosoTeamStats** in Visual Studio e scegliere **Pubblica** .
 
     ![Pubblica](./media/cache-web-app-cache-aside-leaderboard/cache-publish-app.png)
 
@@ -717,19 +717,19 @@ Fare clic su alcune azioni e provare a recuperare i dati dalle diverse origini. 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Al termine dell'uso dell'applicazione di esempio dell'esercitazione, è possibile eliminare le risorse di Azure per ridurre i costi e l'uso di risorse. Tutte le risorse devono essere contenute nello stesso gruppo di risorse; è possibile eliminarle tutte insieme in un'unica operazione eliminando il gruppo di risorse. Le istruzioni di questo argomento usano un gruppo di risorse denominato *TestResources*.
+Al termine dell'uso dell'applicazione di esempio dell'esercitazione, è possibile eliminare le risorse di Azure per ridurre i costi e l'uso di risorse. Tutte le risorse devono essere contenute nello stesso gruppo di risorse; è possibile eliminarle tutte insieme in un'unica operazione eliminando il gruppo di risorse. Le istruzioni di questo argomento usano un gruppo di risorse denominato *TestResources* .
 
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile e comporta l'eliminazione definitiva del gruppo di risorse e di tutte le risorse incluse nel gruppo. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. Se le risorse per questo esempio sono state create all'interno di un gruppo di risorse esistente che contiene anche elementi da mantenere, è possibile eliminare ogni risorsa singolarmente dai rispettivi pannelli.
 >
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e fare clic su **Gruppi di risorse** .
 2. Immettere il nome del gruppo di risorse nella casella di testo **Filtra elementi** .
-3. Fare clic su **...** a destra del gruppo di risorse, poi fare clic su **Elimina gruppo di risorse**.
+3. Fare clic su **...** a destra del gruppo di risorse, poi fare clic su **Elimina gruppo di risorse** .
 
     ![Delete](./media/cache-web-app-cache-aside-leaderboard/cache-delete-resource-group.png)
 
-4. Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina**.
+4. Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il nome del gruppo di risorse per confermare e fare clic su **Elimina** .
 
     Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 

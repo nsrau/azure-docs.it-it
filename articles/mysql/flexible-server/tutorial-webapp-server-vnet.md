@@ -8,19 +8,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 9/21/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 9cbcbeb9d9e216a0b686cba258288db8439e0a9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a7b673dc8dfeb2ebf86aec5b7449df91c2ffd635
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90929513"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92534057"
 ---
 # <a name="tutorial-create-an-azure-database-for-mysql---flexible-server-preview-with-app-services-web-app-in-virtual-network"></a>Esercitazione: Creare un server flessibile di Database di Azure per MySQL (anteprima) con un'app Web del servizio app di Azure nella stessa rete virtuale
 
 > [!IMPORTANT]
 > Il server flessibile di Database di Azure per MySQL è attualmente disponibile in anteprima pubblica.
 
-Questa esercitazione illustra come creare un'app Web del servizio app di Azure con il server flessibile MySQL (anteprima) all'interno di una [rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview).
+Questa esercitazione illustra come creare un'app Web del servizio app di Azure con il server flessibile MySQL (anteprima) all'interno di una [rete virtuale](../../virtual-network/virtual-networks-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -28,7 +28,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 Per questo articolo è necessario eseguire in locale l'interfaccia della riga di comando di Azure versione 2.0 o successiva. Per vedere la versione installata, eseguire il comando `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-È necessario accedere all'account con il comando [az login](https://docs.microsoft.com/cli/azure/reference-index#az-login). Si noti la proprietà **id** dell'output del comando per il nome della sottoscrizione corrispondente.
+È necessario accedere all'account con il comando [az login](/cli/azure/reference-index#az-login). Si noti la proprietà **id** dell'output del comando per il nome della sottoscrizione corrispondente.
 
 ```azurecli
 az login
@@ -111,4 +111,4 @@ az group delete -n myresourcegroup
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain)
+> [Eseguire il mapping di un nome DNS personalizzato esistente al Servizio app di Azure](../../app-service/app-service-web-tutorial-custom-domain.md)

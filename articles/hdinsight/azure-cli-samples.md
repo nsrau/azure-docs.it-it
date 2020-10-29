@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d0d621728ac1956b2c036c9a45202c5d75ee9153
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a289a0d963c8e20a3b861ff9964e8afd6665de22
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87499569"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542353"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Esempi dell'interfaccia della riga di comando di Azure
 
@@ -26,13 +26,13 @@ Questo articolo include script di esempio per le attività comuni. Per ogni esem
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Interfaccia della riga di comando di Azure. Per la procedura, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Interfaccia della riga di comando di Azure. Per la procedura, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-* Facoltativo: Bash. Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](https://docs.microsoft.com/windows/wsl/install-win10).  Con alcune piccole modifiche gli esempi funzioneranno anche da un prompt dei comandi di Windows.
+* Facoltativo: Bash. Negli esempi di questo articolo si usa la shell Bash in Windows 10. Per la procedura di installazione, vedere [Guida all'installazione del sottosistema Windows per Linux per Windows 10](/windows/wsl/install-win10).  Con alcune piccole modifiche gli esempi funzioneranno anche da un prompt dei comandi di Windows.
 
 ## <a name="az-login"></a>az login
 
-[Consente di accedere ad Azure](https://docs.microsoft.com/cli/azure/reference-index?view=azure-cli-latest#az-login).
+[Consente di accedere ad Azure](/cli/azure/reference-index#az-login).
 
 ```azurecli
 az login
@@ -43,7 +43,7 @@ az login
 
 ## <a name="az-hdinsight-create"></a>az hdinsight create
 
-[Crea un nuovo cluster](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create).
+[Crea un nuovo cluster](/cli/azure/hdinsight#az-hdinsight-create).
 
 ### <a name="create-a-cluster-with-an-existing-storage-account"></a>Creare un cluster con un account di archiviazione esistente
 
@@ -176,7 +176,7 @@ az hdinsight create \
 
 ## <a name="az-hdinsight-application-create"></a>az hdinsight application create
 
-[Crea un'applicazione per un cluster HDInsight](https://docs.microsoft.com/cli/azure/hdinsight/application?view=azure-cli-latest#az-hdinsight-application-create).
+[Crea un'applicazione per un cluster HDInsight](/cli/azure/hdinsight/application#az-hdinsight-application-create).
 
 ### <a name="create-an-application-with-a-script-uri"></a>Creare un'applicazione con un URI di script
 
@@ -243,7 +243,7 @@ az hdinsight application create \
 
 ## <a name="az-hdinsight-script-action-execute"></a>az hdinsight script-action execute
 
-[Eseguire azioni script sul cluster HDInsight specificato](https://docs.microsoft.com/cli/azure/hdinsight/script-action?view=azure-cli-latest#az-hdinsight-script-action-execute).
+[Eseguire azioni script sul cluster HDInsight specificato](/cli/azure/hdinsight/script-action#az-hdinsight-script-action-execute).
 
 ### <a name="execute-a-script-action-and-persist-on-success"></a>Eseguire un'azione script e renderla permanente in caso di operazione riuscita
 

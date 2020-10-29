@@ -8,16 +8,16 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 02/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 44951fc19f36bb6652caf79ded96484bcc4b38f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68dddcbc5771ef1a8b5d6ea423674a1c6845a5e6
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503141"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92539480"
 ---
 # <a name="tutorial-create-an-apache-kafka-rest-proxy-enabled-cluster-in-hdinsight-using-azure-cli"></a>Esercitazione: Creare un cluster abilitato per proxy REST Apache Kafka in HDInsight con l'interfaccia della riga di comando di Azure
 
-Questa esercitazione illustra come creare un cluster [abilitato per proxy REST](./rest-proxy.md) Apache Kafka in Azure HDInsight con l'interfaccia della riga di comando di Azure. Azure HDInsight è un servizio di analisi open source, gestito e ad ampio spettro per le aziende. Apache Kafka è una piattaforma di streaming open source distribuita. Viene spesso usata come broker di messaggi perché offre funzionalità simili a una coda messaggi di pubblicazione/sottoscrizione. Il proxy REST Kafka consente di interagire con il cluster Kafka attraverso un'[API REST](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy/) tramite HTTP. L'interfaccia della riga di comando di Azure è l'esperienza di riga di comando multipiattaforma Microsoft per la gestione delle risorse di Azure.
+Questa esercitazione illustra come creare un cluster [abilitato per proxy REST](./rest-proxy.md) Apache Kafka in Azure HDInsight con l'interfaccia della riga di comando di Azure. Azure HDInsight è un servizio di analisi open source, gestito e ad ampio spettro per le aziende. Apache Kafka è una piattaforma di streaming open source distribuita. Viene spesso usata come broker di messaggi perché offre funzionalità simili a una coda messaggi di pubblicazione/sottoscrizione. Il proxy REST Kafka consente di interagire con il cluster Kafka attraverso un'[API REST](/rest/api/hdinsight-kafka-rest-proxy/) tramite HTTP. L'interfaccia della riga di comando di Azure è l'esperienza di riga di comando multipiattaforma Microsoft per la gestione delle risorse di Azure.
 
 Possono accedere all'API Apache Kafka solo risorse interne alla stessa rete virtuale. È possibile accedere al cluster direttamente tramite SSH. Per connettere altri servizi, reti o macchine virtuali ad Apache Kafka, è necessario prima di tutto creare una rete virtuale e quindi creare le risorse all'interno della rete. Per altre informazioni, vedere [Connettersi ad Apache Kafka da una rete locale](./apache-kafka-connect-vpn-gateway.md).
 
@@ -35,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 * Un gruppo di sicurezza di Azure AD con l'applicazione registrata come membro. Questo gruppo di sicurezza verrà usato per controllare quali applicazioni sono autorizzate a interagire con il proxy REST. Per ulteriori informazioni sulla creazione di gruppi di Azure AD, vedere [Creare un gruppo di base e aggiungere membri con Azure Active Directory](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
-* Interfaccia della riga di comando di Azure. Assicurarsi che sia installata almeno la versione 2.0.79. Vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Interfaccia della riga di comando di Azure. Assicurarsi che sia installata almeno la versione 2.0.79. Vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ## <a name="create-an-apache-kafka-cluster"></a>Creare un cluster Apache Kafka
 
@@ -56,8 +56,8 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     |posizione|Sostituire LOCATION con l'area in cui verrà creato il cluster. Per un elenco delle località valide, usare il comando `az account list-locations`|
     |clusterName|Sostituire CLUSTERNAME con un nome univoco a livello globale per il nuovo cluster.|
     |storageAccount|Sostituire STORAGEACCOUNTNAME con il nome del nuovo account di archiviazione.|
-    |httpPassword|Sostituire PASSWORD con la password dell'account di accesso del cluster, **admin**.|
-    |sshPassword|Sostituire PASSWORD con una password per il nome utente Secure Shell, **sshuser**.|
+    |httpPassword|Sostituire PASSWORD con la password dell'account di accesso del cluster, **admin** .|
+    |sshPassword|Sostituire PASSWORD con una password per il nome utente Secure Shell, **sshuser** .|
     |securityGroupName|Sostituire SECURITYGROUPNAME con il nome del gruppo di sicurezza AAD client per il proxy REST Kafka. La variabile verrà passata al parametro `--kafka-client-group-name` per `az-hdinsight-create`.|
     |securityGroupID|Sostituire SECURITYGROUPID con l'ID del gruppo di sicurezza AAD client per il proxy REST Kafka. La variabile verrà passata al parametro `--kafka-client-group-id` per `az-hdinsight-create`.|
     |storageContainer|Contenitore di archiviazione che verrà usato dal cluster. Per questa esercitazione, lasciare il valore invariato. Questa variabile verrà impostata con il nome del cluster.|
@@ -85,7 +85,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     export componentVersion=kafka=2.1
     ```
 
-1. [Creare il gruppo di risorse](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-create) immettendo il comando seguente:
+1. [Creare il gruppo di risorse](/cli/azure/group#az-group-create) immettendo il comando seguente:
 
     ```azurecli
      az group create \
@@ -93,7 +93,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
         --name $resourceGroupName
     ```
 
-1. [Creare un account di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest#az-storage-account-create) immettendo il comando seguente:
+1. [Creare un account di archiviazione di Azure](/cli/azure/storage/account#az-storage-account-create) immettendo il comando seguente:
 
     ```azurecli
     # Note: kind BlobStorage is not available as the default storage account.
@@ -106,7 +106,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
         --sku Standard_LRS
     ```
 
-1. [Estrarre la chiave primaria](https://docs.microsoft.com/cli/azure/storage/account/keys?view=azure-cli-latest#az-storage-account-keys-list) dall'account di archiviazione di Azure e archiviarla in una variabile immettendo il comando seguente:
+1. [Estrarre la chiave primaria](/cli/azure/storage/account/keys#az-storage-account-keys-list) dall'account di archiviazione di Azure e archiviarla in una variabile immettendo il comando seguente:
 
     ```azurecli
     export storageAccountKey=$(az storage account keys list \
@@ -115,7 +115,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
         --query [0].value -o tsv)
     ```
 
-1. [Creare un contenitore di archiviazione di Azure](https://docs.microsoft.com/cli/azure/storage/container?view=azure-cli-latest#az-storage-container-create) immettendo il comando seguente:
+1. [Creare un contenitore di archiviazione di Azure](/cli/azure/storage/container#az-storage-container-create) immettendo il comando seguente:
 
     ```azurecli
     az storage container create \
@@ -124,24 +124,24 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
         --account-name $storageAccount
     ```
 
-1. [Creare il cluster HDInsight](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create). Prima di immettere il comando, osservare i parametri seguenti:
+1. [Creare il cluster HDInsight](/cli/azure/hdinsight#az-hdinsight-create). Prima di immettere il comando, osservare i parametri seguenti:
 
     1. Parametri obbligatori per i cluster Kafka:
 
         |Parametro | Descrizione|
         |---|---|
-        |--type|Il valore deve essere **Kafka**.|
-        |--workernode-data-disks-per-node|Numero di dischi dati da usare per ogni nodo di lavoro. HDInsight Kafka è supportato solo con i dischi dati. In questa esercitazione viene usato il valore **2**.|
+        |--type|Il valore deve essere **Kafka** .|
+        |--workernode-data-disks-per-node|Numero di dischi dati da usare per ogni nodo di lavoro. HDInsight Kafka è supportato solo con i dischi dati. In questa esercitazione viene usato il valore **2** .|
 
     1. Parametri obbligatori per il proxy REST Kafka:
 
         |Parametro | Descrizione|
         |---|---|
-        |--kafka-management-node-size|Dimensioni del nodo. In questa esercitazione viene usato il valore **Standard_D4_v2**.|
-        |--kafka-client-group-id|ID del gruppo di sicurezza AAD client per il proxy REST Kafka. Il valore viene passato dalla variabile **$securityGroupID**.|
-        |--kafka-client-group-name|Nome del gruppo di sicurezza AAD client per il proxy REST Kafka. Il valore viene passato dalla variabile **$securityGroupName**.|
-        |--version|La versione del cluster HDInsight deve essere almeno 4.0. Il valore viene passato dalla variabile **$clusterVersion**.|
-        |--component-version|La versione di Kafka deve essere almeno 2.1. Il valore viene passato dalla variabile **$componentVersion**.|
+        |--kafka-management-node-size|Dimensioni del nodo. In questa esercitazione viene usato il valore **Standard_D4_v2** .|
+        |--kafka-client-group-id|ID del gruppo di sicurezza AAD client per il proxy REST Kafka. Il valore viene passato dalla variabile **$securityGroupID** .|
+        |--kafka-client-group-name|Nome del gruppo di sicurezza AAD client per il proxy REST Kafka. Il valore viene passato dalla variabile **$securityGroupName** .|
+        |--version|La versione del cluster HDInsight deve essere almeno 4.0. Il valore viene passato dalla variabile **$clusterVersion** .|
+        |--component-version|La versione di Kafka deve essere almeno 2.1. Il valore viene passato dalla variabile **$componentVersion** .|
     
         Se si vuole creare il cluster senza proxy REST, eliminare `--kafka-management-node-size`, `--kafka-client-group-id`e `--kafka-client-group-name` dal comando `az hdinsight create`.
 
