@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: aa65508c4f8df2c11bab74cd34f3311b21c63d9c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: c953c31792b8d01199d409cbd91124138a6ebb15
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164602"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927448"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno
 
@@ -47,9 +47,9 @@ Dopo avere creato l'ambiente del servizio app, non è possibile modificare quant
 
 Esistono tre modi per creare un ambiente del servizio app:
 
-- **Durante la creazione di un piano di servizio app**. Questo metodo crea l'ambiente del servizio app e il piano di servizio app in un solo passaggio.
-- **Come azione autonoma**. Questo metodo crea un ambiente del servizio app autonomo, ovvero un ambiente del servizio app vuoto. Questo metodo è un processo avanzato per creare un ambiente del servizio app. È possibile usarlo per creare un ambiente del servizio app con bilanciamento del carico interno.
-- **Da un modello di Azure Resource Manager**. Questo metodo è per gli utenti avanzati. Per altre informazioni, vedere [Creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
+- **Durante la creazione di un piano di servizio app** . Questo metodo crea l'ambiente del servizio app e il piano di servizio app in un solo passaggio.
+- **Come azione autonoma** . Questo metodo crea un ambiente del servizio app autonomo, ovvero un ambiente del servizio app vuoto. Questo metodo è un processo avanzato per creare un ambiente del servizio app. È possibile usarlo per creare un ambiente del servizio app con bilanciamento del carico interno.
+- **Da un modello di Azure Resource Manager** . Questo metodo è per gli utenti avanzati. Per altre informazioni, vedere [Creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
 
 Un ambiente del servizio app esterno ha un indirizzo VIP pubblico, quindi tutto il traffico HTTP/HTTPS verso le app nell'ambiente del servizio app usa un indirizzo IP accessibile da Internet. Un ambiente del servizio app con bilanciamento del carico interno ha un indirizzo IP dalla subnet usata dall'ambiente del servizio app. Le app ospitate in un ambiente del servizio app con bilanciamento del carico interno non sono esposte direttamente a Internet.
 
@@ -59,7 +59,7 @@ Il piano di servizio app è un contenitore di applicazioni. Quando si crea un'ap
 
 Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
-1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **App Web**.
+1. Nel [portale di Azure](https://portal.azure.com/) selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **App Web** .
 
     ![Screenshot del portale di Azure che Mostra Web e dispositivi mobili selezionato in Azure Marketplace e la schermata per la creazione di una nuova app Web aperta a destra.][1]
 
@@ -69,27 +69,27 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 4. Selezionare il sistema operativo (Windows, Linux o Docker). 
 
-5. Selezionare il piano di servizio app, quindi selezionare **Crea nuovo**. Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
+5. Selezionare il piano di servizio app, quindi selezionare **Crea nuovo** . Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
 
     ![Screenshot della portale di Azure che mostra il riquadro app Web, il riquadro piano di servizio app e il nuovo riquadro piano di servizio app aperto.][2]
 
 6. Nell'elenco a discesa **Località** selezionare l'area in cui si vuole creare l'ambiente del servizio app. Se si seleziona un ambiente del servizio app esistente, non viene creato un nuovo ambiente del servizio app. Il piano di servizio app viene creato nell'ambiente del servizio app selezionato. 
 
-7. Selezionare **Piano tariffario** e scegliere uno dei prezzi SKU **Isolato**. Se si sceglie una scheda SKU **Isolato** e una località diversa da un ambiente del servizio app, un nuovo ambiente del servizio app viene creato in tale località. Per avviare il processo di creazione di un ambiente del servizio app, selezionare **Seleziona**. Lo SKU **Isolato** è disponibile in combinazione con un ambiente del servizio app. Non è inoltre possibile usare qualsiasi altro codice di riferimento del prodotto per i prezzi in un ambiente del servizio app diverso da **Isolato**. 
+7. Selezionare **Piano tariffario** e scegliere uno dei prezzi SKU **Isolato** . Se si sceglie una scheda SKU **Isolato** e una località diversa da un ambiente del servizio app, un nuovo ambiente del servizio app viene creato in tale località. Per avviare il processo di creazione di un ambiente del servizio app, selezionare **Seleziona** . Lo SKU **Isolato** è disponibile in combinazione con un ambiente del servizio app. Non è inoltre possibile usare qualsiasi altro codice di riferimento del prodotto per i prezzi in un ambiente del servizio app diverso da **Isolato** . 
 
     ![Selezione del piano tariffario][3]
 
-8. Immettere il nome per l'ambiente del servizio app. Questo nome viene usato nel nome indirizzabile per le app. Se il nome dell'ambiente del servizio app è _appsvcenvdemo_, il nome di dominio sarà *.appsvcenvdemo.p.azurewebsites.net*. Se è stata creata un'app denominata *mytestapp*, questa sarà disponibile all'indirizzo mytestapp.appsvcenvdemo.p.azurewebsites.net. Il nome non può contenere spazi. Anche se vengono usati caratteri maiuscoli, il nome di dominio corrisponde alla versione in caratteri minuscoli del nome.
+8. Immettere il nome per l'ambiente del servizio app. Questo nome viene usato nel nome indirizzabile per le app. Se il nome dell'ambiente del servizio app è _appsvcenvdemo_ , il nome di dominio sarà *.appsvcenvdemo.p.azurewebsites.net* . Se è stata creata un'app denominata *mytestapp* , questa sarà disponibile all'indirizzo mytestapp.appsvcenvdemo.p.azurewebsites.net. Il nome non può contenere spazi. Anche se vengono usati caratteri maiuscoli, il nome di dominio corrisponde alla versione in caratteri minuscoli del nome.
 
     ![Nome del nuovo piano di servizio app][4]
 
-9. Specificare i dettagli della rete virtuale Azure. Selezionare **Crea nuovo** o **Seleziona esistente**. L'opzione per selezionare una rete virtuale esistente è disponibile solo se si ha una rete virtuale nell'area selezionata. Se si seleziona **Crea nuovo**, immettere un nome per la rete virtuale. Viene creata una nuova rete virtuale con questo nome, che usa lo spazio indirizzi `192.168.250.0/23` nell'area selezionata. Se si sceglie **Seleziona esistente**, è necessario:
+9. Specificare i dettagli della rete virtuale Azure. Selezionare **Crea nuovo** o **Seleziona esistente** . L'opzione per selezionare una rete virtuale esistente è disponibile solo se si ha una rete virtuale nell'area selezionata. Se si seleziona **Crea nuovo** , immettere un nome per la rete virtuale. Viene creata una nuova rete virtuale con questo nome, che usa lo spazio indirizzi `192.168.250.0/23` nell'area selezionata. Se si sceglie **Seleziona esistente** , è necessario:
 
     a. Selezionare il blocco di indirizzi della rete virtuale, se ne è disponibile più di uno.
 
     b. Immettere un nuovo nome di subnet.
 
-    c. Selezionare la dimensione della subnet. *Ricordare di selezionare dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app*. È consigliabile scegliere `/24`, che contiene 128 indirizzi e può gestire un ambiente del servizio app con dimensione massima. Non è consigliato, ad esempio, `/28`, perché sono disponibili solo 16 indirizzi. L'infrastruttura usa almeno sette indirizzi e Rete di Azure ne usa altri cinque. In una subnet `/28`, il ridimensionamento massimo possibile è di quattro istanze del piano di servizio app per un ambiente del servizio app esterno e di appena tre istante del piano di servizio app per un ambiente del servizio app con bilanciamento del carico interno.
+    c. Selezionare la dimensione della subnet. *Ricordare di selezionare dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app* . È consigliabile `/24` , che ha 256 indirizzi e può gestire un ambiente del servizio app di dimensioni massime. Non è consigliato, ad esempio, `/28`, perché sono disponibili solo 16 indirizzi. L'infrastruttura usa almeno sette indirizzi e Rete di Azure ne usa altri cinque. In una subnet `/28`, il ridimensionamento massimo possibile è di quattro istanze del piano di servizio app per un ambiente del servizio app esterno e di appena tre istante del piano di servizio app per un ambiente del servizio app con bilanciamento del carico interno.
 
     d. Selezionare l'intervallo IP della subnet.
 
@@ -105,27 +105,27 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 1. Selezionare o creare un gruppo di risorse. Con i gruppi di risorse è possibile gestire insieme le risorse di Azure correlate. I gruppi di risorse sono utili anche quando si stabiliscono le regole di controllo degli accessi in base al ruolo per le app. Per altre informazioni, vedere [Panoramica di Azure Resource Manager][ARMOverview].
 
-1. Selezionare il piano di servizio app, quindi selezionare **Crea nuovo**. Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
+1. Selezionare il piano di servizio app, quindi selezionare **Crea nuovo** . Le app Web di Linux e di Windows non possono essere presenti nello stesso piano di servizio app, ma possono essere presenti nello stesso ambiente del servizio app. 
 
     ![Screenshot del portale di Azure che mostra il riquadro app Web per contenitori, il riquadro piano di servizio app e il nuovo riquadro piano di servizio app aperto.][8]
 
 1. Nell'elenco a discesa **Località** selezionare l'area in cui si vuole creare l'ambiente del servizio app. Se si seleziona un ambiente del servizio app esistente, non viene creato un nuovo ambiente del servizio app. Il piano di servizio app viene creato nell'ambiente del servizio app selezionato. 
 
-1. Selezionare **Piano tariffario** e scegliere uno dei prezzi SKU **Isolato**. Se si sceglie una scheda SKU **Isolato** e una località diversa da un ambiente del servizio app, un nuovo ambiente del servizio app viene creato in tale località. Per avviare il processo di creazione di un ambiente del servizio app, selezionare **Seleziona**. Lo SKU **Isolato** è disponibile in combinazione con un ambiente del servizio app. Non è inoltre possibile usare qualsiasi altro codice di riferimento del prodotto per i prezzi in un ambiente del servizio app diverso da **Isolato**. 
+1. Selezionare **Piano tariffario** e scegliere uno dei prezzi SKU **Isolato** . Se si sceglie una scheda SKU **Isolato** e una località diversa da un ambiente del servizio app, un nuovo ambiente del servizio app viene creato in tale località. Per avviare il processo di creazione di un ambiente del servizio app, selezionare **Seleziona** . Lo SKU **Isolato** è disponibile in combinazione con un ambiente del servizio app. Non è inoltre possibile usare qualsiasi altro codice di riferimento del prodotto per i prezzi in un ambiente del servizio app diverso da **Isolato** . 
 
     ![Selezione del piano tariffario][3]
 
-1. Immettere il nome per l'ambiente del servizio app. Questo nome viene usato nel nome indirizzabile per le app. Se il nome dell'ambiente del servizio app è _appsvcenvdemo_, il nome di dominio sarà *.appsvcenvdemo.p.azurewebsites.net*. Se è stata creata un'app denominata *mytestapp*, questa sarà disponibile all'indirizzo mytestapp.appsvcenvdemo.p.azurewebsites.net. Il nome non può contenere spazi. Anche se vengono usati caratteri maiuscoli, il nome di dominio corrisponde alla versione in caratteri minuscoli del nome.
+1. Immettere il nome per l'ambiente del servizio app. Questo nome viene usato nel nome indirizzabile per le app. Se il nome dell'ambiente del servizio app è _appsvcenvdemo_ , il nome di dominio sarà *.appsvcenvdemo.p.azurewebsites.net* . Se è stata creata un'app denominata *mytestapp* , questa sarà disponibile all'indirizzo mytestapp.appsvcenvdemo.p.azurewebsites.net. Il nome non può contenere spazi. Anche se vengono usati caratteri maiuscoli, il nome di dominio corrisponde alla versione in caratteri minuscoli del nome.
 
     ![Nome del nuovo piano di servizio app][4]
 
-1. Specificare i dettagli della rete virtuale Azure. Selezionare **Crea nuovo** o **Seleziona esistente**. L'opzione per selezionare una rete virtuale esistente è disponibile solo se si ha una rete virtuale nell'area selezionata. Se si seleziona **Crea nuovo**, immettere un nome per la rete virtuale. Viene creata una nuova rete virtuale con questo nome, che usa lo spazio indirizzi `192.168.250.0/23` nell'area selezionata. Se si sceglie **Seleziona esistente**, è necessario:
+1. Specificare i dettagli della rete virtuale Azure. Selezionare **Crea nuovo** o **Seleziona esistente** . L'opzione per selezionare una rete virtuale esistente è disponibile solo se si ha una rete virtuale nell'area selezionata. Se si seleziona **Crea nuovo** , immettere un nome per la rete virtuale. Viene creata una nuova rete virtuale con questo nome, che usa lo spazio indirizzi `192.168.250.0/23` nell'area selezionata. Se si sceglie **Seleziona esistente** , è necessario:
 
     a. Selezionare il blocco di indirizzi della rete virtuale, se ne è disponibile più di uno.
 
     b. Immettere un nuovo nome di subnet.
 
-    c. Selezionare la dimensione della subnet. *Ricordare di selezionare dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app*. È consigliabile scegliere `/24`, che contiene 128 indirizzi e può gestire un ambiente del servizio app con dimensione massima. Non è consigliato, ad esempio, `/28`, perché sono disponibili solo 16 indirizzi. L'infrastruttura usa almeno sette indirizzi e Rete di Azure ne usa altri cinque. In una subnet `/28`, il ridimensionamento massimo possibile è di quattro istanze del piano di servizio app per un ambiente del servizio app esterno e di appena tre istante del piano di servizio app per un ambiente del servizio app con bilanciamento del carico interno.
+    c. Selezionare la dimensione della subnet. *Ricordare di selezionare dimensioni sufficientemente grandi per supportare la crescita futura dell'ambiente del servizio app* . È consigliabile scegliere `/24`, che contiene 128 indirizzi e può gestire un ambiente del servizio app con dimensione massima. Non è consigliato, ad esempio, `/28`, perché sono disponibili solo 16 indirizzi. L'infrastruttura usa almeno sette indirizzi e Rete di Azure ne usa altri cinque. In una subnet `/28`, il ridimensionamento massimo possibile è di quattro istanze del piano di servizio app per un ambiente del servizio app esterno e di appena tre istante del piano di servizio app per un ambiente del servizio app con bilanciamento del carico interno.
 
     d. Selezionare l'intervallo IP della subnet.
 
@@ -141,15 +141,15 @@ Per creare un ambiente del servizio app quando si crea un piano di servizio app:
 
 Se si crea un ambiente del servizio app autonomo, risulterà vuoto. Un ambiente del servizio app vuoto continua a dover pagare una quota mensile per l'infrastruttura. Seguire questa procedura per creare un ambiente del servizio app con bilanciamento del carico interno o per creare un ambiente del servizio app nel proprio gruppo di risorse. Dopo avere creato l'ambiente del servizio app, è possibile crearvi app usando il normale processo. Selezionare il nuovo ambiente del servizio app come località.
 
-1. In Azure Marketplace cercare **Ambiente del servizio app** o selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **Ambiente del servizio app**. 
+1. In Azure Marketplace cercare **Ambiente del servizio app** o selezionare **Crea una risorsa** > **Web e dispositivi mobili** > **Ambiente del servizio app** . 
 
-1. Immettere il nome dell'ambiente del servizio app. Questo nome viene usato per le app create nell'ambiente del servizio app. Se il nome è *mynewdemoase*, il nome del sottodominio è *.mynewdemoase.p.azurewebsites.net*. Se è stata creata un'app denominata *mytestapp*, questa sarà disponibile all'indirizzo mytestapp.mynewdemoase.p.azurewebsites.net. Il nome non può contenere spazi. Anche se vengono usati caratteri maiuscoli, il nome di dominio corrisponde alla versione in caratteri minuscoli del nome. Se si usa un servizio di bilanciamento del carico interno, il nome dell'ambiente del servizio app non viene usato nel sottodominio, ma viene dichiarato in modo esplicito durante la creazione dell'ambiente.
+1. Immettere il nome dell'ambiente del servizio app. Questo nome viene usato per le app create nell'ambiente del servizio app. Se il nome è *mynewdemoase* , il nome del sottodominio è *.mynewdemoase.p.azurewebsites.net* . Se è stata creata un'app denominata *mytestapp* , questa sarà disponibile all'indirizzo mytestapp.mynewdemoase.p.azurewebsites.net. Il nome non può contenere spazi. Anche se vengono usati caratteri maiuscoli, il nome di dominio corrisponde alla versione in caratteri minuscoli del nome. Se si usa un servizio di bilanciamento del carico interno, il nome dell'ambiente del servizio app non viene usato nel sottodominio, ma viene dichiarato in modo esplicito durante la creazione dell'ambiente.
 
     ![Denominazione dell'ambiente del servizio app][5]
 
 1. Selezionare la propria sottoscrizione. Questa sottoscrizione è anche quella usata da tutte le app nell'ambiente del servizio app. Non è possibile inserire l'ambiente del servizio app in una rete virtuale che si trova in un'altra sottoscrizione.
 
-1. Selezionare o specificare un nuovo gruppo di risorse. Il gruppo di risorse per l'ambiente del servizio app deve essere uguale a quello usato per la rete virtuale. Se si seleziona una rete virtuale esistente, la selezione del gruppo di risorse per l'ambiente del servizio app viene aggiornata per riflettere il valore della rete virtuale. *È possibile creare un ambiente del servizio app con un gruppo di risorse diverso dal gruppo di risorse della rete virtuale se si usa un modello di Resource Manager*. Per creare un ambiente del servizio app da un modello, vedere [creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
+1. Selezionare o specificare un nuovo gruppo di risorse. Il gruppo di risorse per l'ambiente del servizio app deve essere uguale a quello usato per la rete virtuale. Se si seleziona una rete virtuale esistente, la selezione del gruppo di risorse per l'ambiente del servizio app viene aggiornata per riflettere il valore della rete virtuale. *È possibile creare un ambiente del servizio app con un gruppo di risorse diverso dal gruppo di risorse della rete virtuale se si usa un modello di Resource Manager* . Per creare un ambiente del servizio app da un modello, vedere [creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
 
     ![Selezione del gruppo di risorse][6]
 
@@ -159,9 +159,9 @@ Se si crea un ambiente del servizio app autonomo, risulterà vuoto. Un ambiente 
     
     * Alla nuova rete virtuale vengono assegnati l'intervallo di indirizzi 192.168.250.0/23 e una subnet denominata predefinita. La subnet è definita come 192.168.250.0/24. È possibile selezionare solo una rete virtuale di Resource Manager. La selezione di **Tipo di indirizzo VIP** indica se è possibile accedere all'ambiente del servizio app direttamente da Internet (Esterno) o se si usa un servizio di bilanciamento del carico interno. Per altre informazioni su queste opzioni, vedere [Creare e usare un bilanciamento del carico interno con un ambiente del servizio app][MakeILBASE]. 
 
-      * Se si seleziona **Esterno** come **Tipo di indirizzo VIP**, è possibile selezionare il numero di indirizzi IP esterni con cui viene creato il sistema per finalità di associazione SSL basata su IP. 
+      * Se si seleziona **Esterno** come **Tipo di indirizzo VIP** , è possibile selezionare il numero di indirizzi IP esterni con cui viene creato il sistema per finalità di associazione SSL basata su IP. 
     
-      * Se si seleziona **Interno** come **Tipo di indirizzo VIP**, è necessario specificare il dominio usato dall'ambiente del servizio app. È possibile distribuire un ambiente del servizio app in una rete virtuale che usa gli intervalli di indirizzi pubblici o privati. Per usare una rete virtuale con un intervallo di indirizzi pubblici, è necessario creare in anticipo la rete virtuale. 
+      * Se si seleziona **Interno** come **Tipo di indirizzo VIP** , è necessario specificare il dominio usato dall'ambiente del servizio app. È possibile distribuire un ambiente del servizio app in una rete virtuale che usa gli intervalli di indirizzi pubblici o privati. Per usare una rete virtuale con un intervallo di indirizzi pubblici, è necessario creare in anticipo la rete virtuale. 
     
     * Se si seleziona una rete virtuale di esistente, viene creata una nuova subnet contemporaneamente all'ambiente del servizio app. *Non è possibile usare una subnet creata in precedenza nel portale. Se si usa un modello di Gestione risorse, è possibile creare un ambiente del servizio app con una subnet esistente.* Per creare un ambiente del servizio app da un modello, vedere [Creare un ambiente del servizio app da un modello][MakeASEfromTemplate].
 

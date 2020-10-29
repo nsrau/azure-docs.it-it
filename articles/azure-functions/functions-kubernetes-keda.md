@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 11/18/2019
 ms.author: jehollan
-ms.openlocfilehash: eab0a54d30f2cd2829779dbfc6081445f5be0a71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 525635ef40437fe308c52e2d5aba2c97ed8f20e7
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83648854"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927533"
 ---
 # <a name="azure-functions-on-kubernetes-with-keda"></a>Funzioni di Azure in Kubernetes con KEDA
 
@@ -18,7 +18,7 @@ Il runtime di Funzioni di Azure offre la flessibilità necessaria per eseguire l
 
 ## <a name="how-kubernetes-based-functions-work"></a>Come operano le funzioni basate su Kubernetes
 
-Il servizio Funzioni di Azure è costituito da due componenti principali: un runtime e un controller di scalabilità.  Il runtime di Funzioni di Azure esegue il codice.  Il runtime include logica per attivare, registrare e gestire le esecuzioni di funzioni.  Il runtime di Funzioni di Azure può essere eseguito *ovunque*.  L'altro componente è un controller di scalabilità.  Il controller di scalabilità monitora la frequenza degli eventi destinati alla funzione e ridimensiona in modo proattivo il numero di istanze che eseguono l'app.  Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](functions-scale.md).
+Il servizio Funzioni di Azure è costituito da due componenti principali: un runtime e un controller di scalabilità.  Il runtime di Funzioni di Azure esegue il codice.  Il runtime include logica per attivare, registrare e gestire le esecuzioni di funzioni.  Il runtime di Funzioni di Azure può essere eseguito *ovunque* .  L'altro componente è un controller di scalabilità.  Il controller di scalabilità monitora la frequenza degli eventi destinati alla funzione e ridimensiona in modo proattivo il numero di istanze che eseguono l'app.  Per altre informazioni, vedere [Ridimensionamento e hosting di Funzioni di Azure](functions-scale.md).
 
 Le funzioni basate su Kubernetes offrono il runtime di Funzioni in un [contenitore Docker](functions-create-function-linux-custom-image.md) con scalabilità guidata dagli eventi tramite KEDA.  KEDA può ridurre in scala fino a 0 istanze (quando non si verificano eventi) e aumentare fino a *n* istanze. Questa operazione viene eseguita esponendo metriche personalizzate per la scalabilità automatica Kubernetes (Horizontal Pod AutoScaler).  L'uso di contenitori di Funzioni con KEDA consente di replicare le capacità della funzione serverless in qualsiasi cluster Kubernetes.  Queste funzioni possono essere distribuite anche usando la funzionalità [nodi virtuali dei servizi Azure Kubernetes (AKS)](../aks/virtual-nodes-cli.md) per l'infrastruttura serverless.
 
@@ -33,6 +33,9 @@ Esistono diversi modi per installare KEDA in qualsiasi cluster Kubernetes, tra c
 ## <a name="deploying-a-function-app-to-kubernetes"></a>Distribuzione di un'app per le funzioni in Kubernetes
 
 È possibile distribuire qualsiasi app per le funzioni in un cluster Kubernetes che esegue KEDA.  Poiché le funzioni vengono eseguite in un contenitore Docker, il progetto richiede un `Dockerfile`.  Se non ne ha già uno, è possibile aggiungere un Dockerfile eseguendo il comando seguente nella radice del progetto di Funzioni:
+
+> [!NOTE]
+> Gli strumenti di base creano automaticamente il Dockerfile per funzioni di Azure scritte in .NET, node, Python o PowerShell. Per le app per le funzioni scritte in Java, il Dockerfile deve essere creato manualmente. Usare l'elenco di [Immagini](https://github.com/Azure/azure-functions-docker) di funzioni di Azure per trovare l'immagine corretta per basare la funzione di Azure.
 
 ```cli
 func init --docker-only
@@ -49,7 +52,10 @@ func kubernetes deploy --name <name-of-function-deployment> --registry <containe
 
 > Sostituire `<name-of-function-deployment>` con il nome dell'app per le funzioni.
 
-In questo modo vengono create una risorsa Kubernetes `Deployment`, una risorsa `ScaledObject` e `Secrets`, che include le variabili di ambiente importate dal file `local.settings.json`.
+Il comando Distribuisci esegue una serie di azioni:
+1. Il Dockerfile creato in precedenza viene usato per compilare un'immagine locale per l'app per le funzioni.
+2. L'immagine locale viene contrassegnata e inserita nel registro contenitori in cui l'utente è connesso.
+3. Un manifesto viene creato e applicato al cluster che definisce una risorsa Kubernetes `Deployment` , una `ScaledObject` risorsa e `Secrets` , che include le variabili di ambiente importate dal `local.settings.json` file.
 
 ### <a name="deploying-a-function-app-from-a-private-registry"></a>Distribuzione di un'app per le funzioni da un registro privato
 

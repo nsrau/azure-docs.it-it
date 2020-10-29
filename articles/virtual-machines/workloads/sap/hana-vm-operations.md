@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/01/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 602e3f58ac5f8f194ad4704a4e792d4f0aec3a3e
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 19abb3f12dc1a0fd2a3dff548ecdc9e7fff47659
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978782"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927669"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configurazioni e operazioni dell'infrastruttura SAP HANA in Azure
 Questa guida contiene le indicazioni necessarie per configurare l'infrastruttura di Azure e gestire i sistemi SAP HANA distribuiti in macchine virtuali native di Azure. Il documento include anche informazioni sulla configurazione per lo scale-out di SAP HANA per lo SKU di VM M128s. Questo documento non deve sostituire la documentazione standard di SAP, che include:
@@ -135,7 +135,7 @@ Per /hana/shared, si consiglia anche l'uso di [Azure NetApp Files](https://azure
 
 Una struttura di base tipica per un singolo nodo in una configurazione con scale-out sarà simile alla seguente:
 
-![Nozioni di base sullo scale-out di un singolo nodo](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
+![Diagramma che illustra una progettazione di base tipica per un singolo nodo in una configurazione con scalabilità orizzontale.](media/hana-vm-operations/scale-out-basics-anf-shared.PNG)
 
 La configurazione di base di un nodo di macchina virtuale per lo scale-out di SAP HANA è simile alla seguente:
 

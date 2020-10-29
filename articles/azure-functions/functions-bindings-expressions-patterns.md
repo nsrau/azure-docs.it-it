@@ -6,16 +6,16 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: b4e2b5afd7742791218394422d00ee8ee46cb23a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 161e3e7fbc5b343ee73142f0e968367c3cbfaa6b
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212610"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927414"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Modelli di espressione di binding di funzioni di Azure
 
-Una delle funzionalità più potenti dei [trigger e delle associazioni](./functions-triggers-bindings.md) è rappresentata dalle *espressioni di associazione*. Nel file *function.json* e nel codice e nei parametri della funzione è possibile usare espressioni risolvibili in valori di varie origini.
+Una delle funzionalità più potenti dei [trigger e delle associazioni](./functions-triggers-bindings.md) è rappresentata dalle *espressioni di associazione* . Nel file *function.json* e nel codice e nei parametri della funzione è possibile usare espressioni risolvibili in valori di varie origini.
 
 La maggior parte delle espressioni viene identificata racchiudendo l'espressione tra parentesi graffe. Ad esempio, in una funzione di trigger della coda `{queueTrigger}` viene risolto nel testo dei messaggi della coda. Se la proprietà `path` dell'associazione di output di un BLOB è `container/{queueTrigger}` e la funzione viene attivata da un messaggio della coda `HelloWorld`, viene creato un BLOB denominato `HelloWorld`.
 
@@ -30,18 +30,18 @@ Tipi di espressioni di associazione
 
 ## <a name="binding-expressions---app-settings"></a>Espressioni di associazione - impostazioni dell'app
 
-Come procedura consigliata, i segreti e le stringhe di connessione devono essere gestiti tramite le impostazioni dell'app, invece dei file di configurazione. Questo limita l'accesso ai segreti e rende sicuro archiviare i file, ad esempio *function.json*, nei repository pubblici di controllo del codice sorgente.
+Come procedura consigliata, i segreti e le stringhe di connessione devono essere gestiti tramite le impostazioni dell'app, invece dei file di configurazione. Questo limita l'accesso ai segreti e rende sicuro archiviare i file, ad esempio *function.json* , nei repository pubblici di controllo del codice sorgente.
 
 Le impostazioni dell'app sono utili anche ogni volta che si desidera modificare la configurazione in base all'ambiente. Ad esempio, in un ambiente di test, si potrebbe voler monitorare un contenitore di archiviazione BLOB o di coda diverso.
 
 Le espressioni di associazione gestite tramite le impostazioni dell'app vengono identificate in modo diverso rispetto ad altre espressioni di associazione. Vengono infatti racchiuse tra segni di percentuale anziché tra parentesi graffe. Ad esempio, se è il percorso dell'associazione di output del BLOB è `%Environment%/newblob.txt` e il valore dell'impostazione dell'app `Environment` è `Development`, verrà creato un BLOB nel contenitore `Development`.
 
-Quando una funzione è in esecuzione a livello locale, i valori delle impostazioni dell'app vengono ricavati dal file *local.settings.json*.
+Quando una funzione è in esecuzione a livello locale, i valori delle impostazioni dell'app vengono ricavati dal file *local.settings.json* .
 
 > [!NOTE]
 > La `connection` proprietà di trigger e associazioni è un caso speciale e risolve automaticamente i valori come impostazioni dell'app, senza segni di percentuale. 
 
-L'esempio seguente è un trigger di archiviazione code di Azure che usa un'impostazione dell'app `%input-queue-name%` per definire la coda di trigger.
+L'esempio seguente è un trigger di archiviazione code di Azure che usa un'impostazione dell'app `%input_queue_name%` per definire la coda di trigger.
 
 ```json
 {
@@ -50,7 +50,7 @@ L'esempio seguente è un trigger di archiviazione code di Azure che usa un'impos
       "name": "order",
       "type": "queueTrigger",
       "direction": "in",
-      "queueName": "%input-queue-name%",
+      "queueName": "%input_queue_name%",
       "connection": "MY_STORAGE_ACCT_APP_SETTING"
     }
   ]
@@ -62,7 +62,7 @@ L'esempio seguente è un trigger di archiviazione code di Azure che usa un'impos
 ```csharp
 [FunctionName("QueueTrigger")]
 public static void Run(
-    [QueueTrigger("%input-queue-name%")]string myQueueItem, 
+    [QueueTrigger("%input_queue_name%")]string myQueueItem, 
     ILogger log)
 {
     log.LogInformation($"C# Queue trigger function processed: {myQueueItem}");
@@ -117,7 +117,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, ILogger
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
-La stessa possibilità di usare criteri ed espressioni di associazione si applica agli attributi nelle librerie di classi. Nell'esempio seguente i parametri del costruttore di attributo corrispondono ai valori di `path` nei precedenti esempi di *function.json*: 
+La stessa possibilità di usare criteri ed espressioni di associazione si applica agli attributi nelle librerie di classi. Nell'esempio seguente i parametri del costruttore di attributo corrispondono ai valori di `path` nei precedenti esempi di *function.json* : 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -161,7 +161,7 @@ Un trigger di archiviazione code di Azure, ad esempio, supporta le proprietà se
 * NextVisibleTime
 * PopReceipt
 
-I valori di questi metadati sono accessibili nelle proprietà del file *function.json*. Si supponga, ad esempio, di usare un trigger di accodamento e che il messaggio della coda contenga il nome di un BLOB di cui si vuole eseguire la lettura. Nel file *function.json* è possibile usare la proprietà dei metadati `queueTrigger` nella proprietà `path` del BLOB come mostrato nell'esempio seguente:
+I valori di questi metadati sono accessibili nelle proprietà del file *function.json* . Si supponga, ad esempio, di usare un trigger di accodamento e che il messaggio della coda contenga il nome di un BLOB di cui si vuole eseguire la lettura. Nel file *function.json* è possibile usare la proprietà dei metadati `queueTrigger` nella proprietà `path` del BLOB come mostrato nell'esempio seguente:
 
 ```json
   "bindings": [
@@ -292,7 +292,7 @@ public class BlobName
 
 ## <a name="create-guids"></a>Crea GUID
 
-L'espressione di associazione `{rand-guid}` crea un GUID. Il percorso del BLOB seguente in un file `function.json` crea un BLOB con un nome, ad esempio *50710cb5 84b9 - 4d 87-9d 83-a03d6976a682.txt*.
+L'espressione di associazione `{rand-guid}` crea un GUID. Il percorso del BLOB seguente in un file `function.json` crea un BLOB con un nome, ad esempio *50710cb5 84b9 - 4d 87-9d 83-a03d6976a682.txt* .
 
 ```json
 {
@@ -305,7 +305,7 @@ L'espressione di associazione `{rand-guid}` crea un GUID. Il percorso del BLOB s
 
 ## <a name="current-time"></a>Ora corrente
 
-L'espressione di associazione `DateTime` viene risolta in `DateTime.UtcNow`. Il percorso del BLOB seguente in un file `function.json` crea un BLOB con un nome, ad esempio *2018-02-16T17-59-55Z.txt*.
+L'espressione di associazione `DateTime` viene risolta in `DateTime.UtcNow`. Il percorso del BLOB seguente in un file `function.json` crea un BLOB con un nome, ad esempio *2018-02-16T17-59-55Z.txt* .
 
 ```json
 {
