@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/12/2020
 ms.author: jeedes
-ms.openlocfilehash: 10773a2a379291fa861dbb2adfdda2ba3f63117f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57598ea22874cfba772f6cf0e6b2ba779ef7c482
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550640"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92448419"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-mind-tools-toolkit"></a>Esercitazione: Integrazione di Azure Active Directory con Mind Tools Toolkit
 
@@ -28,7 +28,7 @@ Grazie a questa integrazione, è possibile:
 * Abilitare gli utenti per l'accesso automatico (Single Sign-On) a Mind Tools Toolkit con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Per altre informazioni sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -43,22 +43,22 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Mind Tools Toolkit supporta l'accesso SSO avviato da SP.
 * Mind Tools Toolkit supporta il provisioning utenti JIT.
-* Dopo aver configurato Mind Tools Toolkit, è possibile applicare il controllo sessione, che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Dopo aver configurato Mind Tools Toolkit, è possibile applicare il controllo sessione, che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-mind-tools-toolkit-from-the-gallery"></a>Aggiungere Mind Tools Toolkit dalla raccolta
 
 Per configurare l'integrazione di Mind Tools Toolkit in Azure AD, è necessario aggiungere Mind Tools Toolkit dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento all'estrema sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nel riquadro di spostamento all'estrema sinistra selezionare il servizio **Azure Active Directory** .
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
 1. Nella sezione **Aggiungi dalla raccolta** immettere **Mind Tools Toolkit** nella casella di ricerca.
 1. Selezionare **Mind Tools Toolkit** nei risultati della ricerca e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Mind Tools Toolkit usando un utente di test di nome **B.Simon**. Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Mind Tools Toolkit.
+In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Mind Tools Toolkit usando un utente di test di nome **B.Simon** . Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Mind Tools Toolkit.
 
 Per configurare e testare l'accesso Single Sign-On di Azure AD con Mind Tools Toolkit, completare le procedure di base seguenti:
 
@@ -73,7 +73,7 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Mind Tools To
 
 In questa sezione seguire questa procedura per configurare l'accesso Single Sign-On di Azure AD con Mind Tools Toolkit:
 
-1. Nella pagina di integrazione dell'applicazione **Mind Tools Toolkit** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Mind Tools Toolkit** del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** .
 
     ![Sezione Gestione con l'opzione Single Sign-On evidenziata](common/select-sso.png)
 
@@ -90,7 +90,7 @@ In questa sezione seguire questa procedura per configurare l'accesso Single Sign
     > [!NOTE]
     > Poiché il valore di **URL di accesso** non è reale, è necessario aggiornarlo con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Mind Tools Toolkit](mailto:support@goodpractice.com).
 
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML** passare alla sezione **Certificato di firma SAML**. A destra di **XML metadati federazione** selezionare **Scarica** per scaricare il testo in formato XML e salvarlo nel computer. Il contenuto in formato XML dipende dalle opzioni selezionate.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** passare alla sezione **Certificato di firma SAML** . A destra di **XML metadati federazione** selezionare **Scarica** per scaricare il testo in formato XML e salvarlo nel computer. Il contenuto in formato XML dipende dalle opzioni selezionate.
 
     ![Sezione Certificato di firma SAML con opzione Scarica evidenziata accanto a XML metadati federazione](common/metadataxml.png)
 
@@ -108,35 +108,35 @@ In questa sezione seguire questa procedura per configurare l'accesso Single Sign
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure:
 
-1. All'estrema sinistra del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti**.
+1. All'estrema sinistra del portale di Azure selezionare **Azure Active Directory** > **Utenti** > **Tutti gli utenti** .
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
-   1. Nel campo **Nome** immettere **B.Simon**.  
-   1. Nel campo **Nome utente** immettere **B.Simon@** _dominio_aziendale_ **.** _estensione_. Ad esempio: B.Simon@contoso.com.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Selezionare **Crea**.
+   1. Nel campo **Nome** immettere **B.Simon** .  
+   1. Nel campo **Nome utente** immettere **B.Simon@** _dominio_aziendale_ **.** _estensione_ . Ad esempio: B.Simon@contoso.com.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+   1. Selezionare **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Mind Tools Toolkit.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Mind Tools Toolkit**.
-1. Nella pagina di panoramica dell'app passare alla sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** > **Tutte le applicazioni** .
+1. Nell'elenco delle applicazioni selezionare **Mind Tools Toolkit** .
+1. Nella pagina di panoramica dell'app passare alla sezione **Gestione** e selezionare **Utenti e gruppi** .
 
    ![Sezione Gestione con opzione Utenti e gruppi evidenziata](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente**. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Utenti e gruppi**.
+1. Selezionare **Aggiungi utente** . Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Utenti e gruppi** .
 
    ![Finestra Utenti e gruppi con l'opzione Aggiungi utente evidenziata](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** nell'elenco degli utenti. Fare quindi clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Fare quindi clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
 
 ## <a name="configure-mind-tools-toolkit-sso"></a>Configurare l'accesso Single Sign-On di Mind Tools Toolkit
 
-Per configurare l'accesso Single Sign-On sul lato **Mind Tools Toolkit**, inviare il testo scaricato di **XML metadati federazione** e gli URL copiati in precedenza al [team di supporto di Mind Tools Toolkit](mailto:support@goodpractice.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Mind Tools Toolkit** , inviare il testo scaricato di **XML metadati federazione** e gli URL copiati in precedenza al [team di supporto di Mind Tools Toolkit](mailto:support@goodpractice.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-a-mind-tools-toolkit-test-user"></a>Creare l'utente di test di Mind Tools Toolkit
 
@@ -148,18 +148,18 @@ Mind Tools Toolkit supporta il provisioning JIT, che è abilitato per impostazio
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD tramite il portale App personali.
 
-Quando si seleziona il riquadro di Mind Tools Toolkit nel portale App personali, si accede automaticamente all'istanza di Mind Tools Toolkit per cui si è configurato l'accesso SSO. Per altre informazioni sul portale App personali, vedere l'[introduzione al portale App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Mind Tools Toolkit nel portale App personali, si accede automaticamente all'istanza di Mind Tools Toolkit per cui si è configurato l'accesso SSO. Per altre informazioni sul portale App personali, vedere l'[introduzione al portale App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Esercitazioni per l'integrazione di app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Esercitazioni per l'integrazione di app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Mind Tools Toolkit con Azure AD](https://aad.portal.azure.com/)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
 
-- [Come proteggere Mind Tools Toolkit con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Come proteggere Mind Tools Toolkit con visibilità e controlli avanzati](/cloud-app-security/proxy-intro-aad)
