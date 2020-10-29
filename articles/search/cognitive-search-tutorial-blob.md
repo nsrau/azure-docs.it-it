@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.openlocfilehash: 99d477bb9e8291721022e276c5933ec0ef7f1e37
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 84defa0704c44bb0ed4564195725f7dd1c42312c
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936011"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788061"
 ---
 # <a name="tutorial-use-rest-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Esercitazione: Usare REST e intelligenza artificiale per generare contenuto ricercabile dai BLOB di Azure
 
@@ -43,7 +43,7 @@ Se non si ha una sottoscrizione di Azure, aprire un [account gratuito](https://a
 
 1. Aprire questa [cartella OneDrive](https://1drv.ms/f/s!As7Oy81M_gVPa-LCb5lC_3hbS-4) e nell'angolo in alto a sinistra fare clic su **Scarica** per copiare i file nel computer. 
 
-1. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare **Estrai tutto**. Sono presenti 14 file di vari tipi. Per questo esercizio ne verranno usati 7.
+1. Fare clic con il pulsante destro del mouse sul file ZIP e selezionare **Estrai tutto** . Sono presenti 14 file di vari tipi. Per questo esercizio ne verranno usati 7.
 
 ## <a name="1---create-services"></a>1 - Creare i servizi
 
@@ -53,7 +53,7 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
 
 ### <a name="start-with-azure-storage"></a>Iniziare con Archiviazione di Azure
 
-1. [Accedere al portale di Azure](https://portal.azure.com/) e fare clic su **+ Crea una risorsa**.
+1. [Accedere al portale di Azure](https://portal.azure.com/) e fare clic su **+ Crea una risorsa** .
 
 1. Cercare *account di archiviazione* e selezionare l'offerta Account di archiviazione di Microsoft.
 
@@ -61,21 +61,21 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
 
 1. Nella scheda Informazioni di base gli elementi seguenti sono obbligatori. Accettare le impostazioni predefinite per tutti gli altri elementi.
 
-   + **Gruppo di risorse**. Selezionarne uno esistente o crearne uno nuovo, ma usare lo stesso gruppo per tutti i servizi in modo che sia possibile gestirli collettivamente.
+   + **Gruppo di risorse** . Selezionarne uno esistente o crearne uno nuovo, ma usare lo stesso gruppo per tutti i servizi in modo che sia possibile gestirli collettivamente.
 
-   + **Nome account di archiviazione**. Se si ritiene che potrebbero esistere più risorse dello stesso tipo, usare il nome per distinguerle in base al tipo e all'area, ad esempio *blobstoragewestus*. 
+   + **Nome account di archiviazione** . Se si ritiene che potrebbero esistere più risorse dello stesso tipo, usare il nome per distinguerle in base al tipo e all'area, ad esempio *blobstoragewestus* . 
 
-   + **Località**. Se possibile, scegliere la stessa località usata per Ricerca cognitiva di Azure e Servizi cognitivi. La scelta di un'unica località consente di azzerare i costi correlati alla larghezza di banda.
+   + **Località** . Se possibile, scegliere la stessa località usata per Ricerca cognitiva di Azure e Servizi cognitivi. La scelta di un'unica località consente di azzerare i costi correlati alla larghezza di banda.
 
-   + **Tipologia account**. Scegliere l'impostazione predefinita *Archiviazione (utilizzo generico v2)* .
+   + **Tipologia account** . Scegliere l'impostazione predefinita *Archiviazione (utilizzo generico v2)* .
 
 1. Fare clic su **Rivedi e crea** per creare il servizio.
 
 1. Al termine dell'operazione, fare clic su **Vai alla risorsa** per aprire la pagina Panoramica.
 
-1. Fare clic sul servizio **BLOB**.
+1. Fare clic sul servizio **BLOB** .
 
-1. Fare clic su **+ Contenitore** per creare un contenitore e assegnargli il nome *cog-search-demo*.
+1. Fare clic su **+ Contenitore** per creare un contenitore e assegnargli il nome *cog-search-demo* .
 
 1. Selezionare *cog-search-demo* e quindi fare clic su **Carica** per aprire la cartella in cui sono stati salvati i file di download. Selezionare tutti i file non di immagine. I file selezionati dovrebbero essere 7. Fare clic su **OK** per caricarli.
 
@@ -83,7 +83,7 @@ Se possibile, crearli entrambi nella stessa area e nello stesso gruppo di risors
 
 1. Prima di uscire da Archiviazione di Azure, ottenere una stringa di connessione in modo che sia possibile definire una connessione in Ricerca cognitiva di Azure. 
 
-   1. Tornare alla pagina Panoramica dell'account di archiviazione (come esempio è stato usato *blobstragewestus*). 
+   1. Tornare alla pagina Panoramica dell'account di archiviazione (come esempio è stato usato *blobstragewestus* ). 
    
    1. Nel riquadro di spostamento sinistro selezionare **Chiavi di accesso** e copiare una delle stringhe di connessione. 
 
@@ -109,13 +109,13 @@ Come per Archiviazione BLOB di Azure dedicare qualche istante alla raccolta dell
 
 ### <a name="get-an-admin-api-key-and-url-for-azure-cognitive-search"></a>Ottenere un URL e una chiave API di amministrazione per Ricerca cognitiva di Azure
 
-1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere il nome del servizio di ricerca nella relativa pagina **Panoramica**. È possibile verificare il nome del servizio esaminando l'URL dell'endpoint. Se l'URL dell'endpoint fosse `https://mydemo.search.windows.net`, il nome del servizio sarebbe `mydemo`.
+1. [Accedere al portale di Azure](https://portal.azure.com/) e ottenere il nome del servizio di ricerca nella relativa pagina **Panoramica** . È possibile verificare il nome del servizio esaminando l'URL dell'endpoint. Se l'URL dell'endpoint fosse `https://mydemo.search.windows.net`, il nome del servizio sarebbe `mydemo`.
 
 2. In **Impostazioni** > **Chiavi** ottenere una chiave amministratore per diritti completi sul servizio. Sono disponibili due chiavi amministratore interscambiabili, fornite per continuità aziendale nel caso in cui sia necessario eseguire il rollover di una di esse. È possibile usare la chiave primaria o secondaria nelle richieste per l'aggiunta, la modifica e l'eliminazione di oggetti.
 
    Ottenere anche la chiave di query. È consigliabile inviare richieste di query con accesso di sola lettura.
 
-   ![Ottenere il nome del servizio e le chiavi amministratore e di query](media/search-get-started-nodejs/service-name-and-keys.png)
+   ![Ottenere il nome del servizio e le chiavi amministratore e di query](media/search-get-started-javascript/service-name-and-keys.png)
 
 Nell'intestazione di ogni richiesta inviata al servizio è necessario specificare una chiave API (api-key). La presenza di una chiave valida stabilisce una relazione di trust, in base a singole richieste, tra l'applicazione che invia la richiesta e il servizio che la gestisce.
 
@@ -123,7 +123,7 @@ Nell'intestazione di ogni richiesta inviata al servizio è necessario specificar
 
 Avviare Postman e configurare una richiesta HTTP. Se non si ha familiarità con questo strumento, vedere [Esplorare le API REST di Ricerca cognitiva di Azure con Postman](search-get-started-postman.md) per altre informazioni.
 
-I metodi di richiesta usati in questa esercitazione sono **POST**, **PUT** e **GET**. Questi metodi verranno usati per effettuare quattro chiamate API al servizio di ricerca e in particolare per creare un'origine dati, un set di competenze, un indice e un indicizzatore.
+I metodi di richiesta usati in questa esercitazione sono **POST** , **PUT** e **GET** . Questi metodi verranno usati per effettuare quattro chiamate API al servizio di ricerca e in particolare per creare un'origine dati, un set di competenze, un indice e un indicizzatore.
 
 In Headers (Intestazioni) impostare "Content-type" su `application/json` e `api-key` sulla chiave API di amministrazione del servizio Ricerca cognitiva di Azure. Dopo aver impostato le intestazioni, è possibile usarle per ogni richiesta in questo esercizio.
 

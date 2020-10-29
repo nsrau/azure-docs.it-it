@@ -10,12 +10,12 @@ author: GitHubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 11/06/2019
-ms.openlocfilehash: 552b3f55632e817cc4669ce5da41b1e127c7d808
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9161bf4f99ddfed479451d2091458ab309aa2c17
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91283871"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92788622"
 ---
 # <a name="tutorial-security-in-azure-sql-managed-instance-using-azure-ad-server-principals-logins"></a>Esercitazione: Garantire la sicurezza dell'istanza gestita di SQL di Azure con le entità server (account di accesso) di Azure AD
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -74,7 +74,7 @@ Per esempi relativi alla connessione all'istanza gestita di SQL, vedere gli arti
 
 1. Accedere all'istanza gestita con un account di accesso SQL standard (non Azure AD), ovvero `sysadmin`, o un amministratore di Azure AD per l'istanza gestita di SQL usando [SQL Server Management Studio](point-to-site-p2s-configure.md#connect-with-ssms).
 
-2. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
+2. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query** .
 
 3. Nella finestra di query usare la sintassi seguente per creare un account di accesso per un account Azure AD locale:
 
@@ -119,15 +119,15 @@ Per creare altre entità server (account di accesso) di Azure AD, è necessario 
 ### <a name="azure-ad-authentication"></a>Autenticazione di Azure AD
 
 - Per consentire all'entità server (account di accesso) di Azure AD appena creata di creare altri account di accesso per altri utenti, gruppi o applicazioni di Azure AD, concedere all'account di accesso il ruolo del server `sysadmin` o `securityadmin`.
-- Per consentire all'entità server (account di accesso) di Azure AD di creare altre entità server (account di accesso) di Azure AD, è necessario concedere almeno l'autorizzazione **ALTER ANY LOGIN**.
-- Per impostazione predefinita, le autorizzazioni standard concesse alle entità server (account di accesso) di Azure AD appena create nel database master sono: **CONNECT SQL** e **VIEW ANY DATABASE**.
+- Per consentire all'entità server (account di accesso) di Azure AD di creare altre entità server (account di accesso) di Azure AD, è necessario concedere almeno l'autorizzazione **ALTER ANY LOGIN** .
+- Per impostazione predefinita, le autorizzazioni standard concesse alle entità server (account di accesso) di Azure AD appena create nel database master sono: **CONNECT SQL** e **VIEW ANY DATABASE** .
 - Il ruolo del server `sysadmin` può essere concesso a più entità server (account di accesso) AD Azure all'interno di un'istanza gestita.
 
 Per aggiungere l'account di accesso al ruolo del server `sysadmin`:
 
 1. Accedere di nuovo all'istanza gestita oppure usare la connessione esistente con l'amministratore di Azure AD o un'entità di sicurezza SQL, ovvero `sysadmin`.
 
-1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
+1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query** .
 
 1. Concedere all'entità server (account di accesso) di Azure AD il ruolo del server `sysadmin` usando la sintassi T-SQL seguente:
 
@@ -145,7 +145,7 @@ Per aggiungere l'account di accesso al ruolo del server `sysadmin`:
 
 ## <a name="create-additional-azure-ad-server-principals-logins-using-ssms"></a>Creare altre entità server (account di accesso) AD Azure con SQL Server Management Studio
 
-Dopo aver creato l'entità server (account di accesso) di Azure AD e aver concesso i privilegi di `sysadmin`, tale account può creare altri account di accesso usando la clausola **FROM EXTERNAL PROVIDER** con **CREATE LOGIN**.
+Dopo aver creato l'entità server (account di accesso) di Azure AD e aver concesso i privilegi di `sysadmin`, tale account può creare altri account di accesso usando la clausola **FROM EXTERNAL PROVIDER** con **CREATE LOGIN** .
 
 1. Connettersi all'istanza gestita con l'entità server (account di accesso) di Azure AD usando SQL Server Management Studio. Immettere il nome host dell'istanza gestita di SQL. Per l'autenticazione in SSMS è possibile scegliere tra tre opzioni quando si esegue l'accesso con un account Azure AD:
 
@@ -157,11 +157,11 @@ Dopo aver creato l'entità server (account di accesso) di Azure AD e aver conces
 
      Per altre informazioni, vedere [Autenticazione universale (supporto di SSMS per Multi-Factor Authentication)](../database/authentication-mfa-ssms-overview.md).
 
-1. Selezionare **Active Directory - Universale con supporto MFA**. Verrà visualizzata una finestra di accesso per Multi-Factor Authentication (MFA). Accedere con la password di Azure AD.
+1. Selezionare **Active Directory - Universale con supporto MFA** . Verrà visualizzata una finestra di accesso per Multi-Factor Authentication (MFA). Accedere con la password di Azure AD.
 
     ![Screenshot della finestra di accesso a Multi-Factor Authentication con il cursore nel campo Immetti password.](./media/aad-security-configure-tutorial/mfa-login-prompt.png)
 
-1. In **Esplora oggetti** di SSMS fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
+1. In **Esplora oggetti** di SSMS fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query** .
 1. Nella finestra di query usare la sintassi seguente per creare un account di accesso per un altro account Azure AD:
 
     ```sql
@@ -183,8 +183,8 @@ Dopo aver creato l'entità server (account di accesso) di Azure AD e aver conces
     ```
 
 1. Creare un database nell'istanza gestita usando la sintassi [CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-mi-current). Questo database verrà usato per testare gli account di accesso nella sezione successiva.
-    1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
-    1. Nella finestra di query usare la sintassi seguente per creare un database denominato **MyMITestDB**.
+    1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query** .
+    1. Nella finestra di query usare la sintassi seguente per creare un database denominato **MyMITestDB** .
 
         ```sql
         CREATE DATABASE MyMITestDB;
@@ -214,7 +214,7 @@ Dopo aver creato l'entità server (account di accesso) di Azure AD e aver conces
       ```
 
 > [!NOTE]
-> Gli utenti guest di Azure AD sono supportati per gli account di accesso dell'istanza gestita di SQL solo quando vengono aggiunti come parte di un gruppo di Azure AD. Per utente guest di Azure AD si intende un account invitato da un'altra istanza di Azure AD all'istanza di Azure AD cui appartiene l'istanza gestita. Ad esempio, è possibile aggiungere joe@contoso.com (account Azure AD) o steve@outlook.com (account Microsoft) a un gruppo nell'istanza aadsqlmi di Azure AD. Dopo aver aggiunto gli utenti a un gruppo, è possibile creare un account di accesso nel database **master** dell'istanza gestita di SQL per il gruppo usando la sintassi **CREATE LOGIN**. Gli utenti guest che fanno parte di questo gruppo possono connettersi all'istanza gestita usando gli account di accesso correnti, ad esempio joe@contoso.com o steve@outlook.com.
+> Gli utenti guest di Azure AD sono supportati per gli account di accesso dell'istanza gestita di SQL solo quando vengono aggiunti come parte di un gruppo di Azure AD. Per utente guest di Azure AD si intende un account invitato da un'altra istanza di Azure AD all'istanza di Azure AD cui appartiene l'istanza gestita. Ad esempio, è possibile aggiungere joe@contoso.com (account Azure AD) o steve@outlook.com (account Microsoft) a un gruppo nell'istanza aadsqlmi di Azure AD. Dopo aver aggiunto gli utenti a un gruppo, è possibile creare un account di accesso nel database **master** dell'istanza gestita di SQL per il gruppo usando la sintassi **CREATE LOGIN** . Gli utenti guest che fanno parte di questo gruppo possono connettersi all'istanza gestita usando gli account di accesso correnti, ad esempio joe@contoso.com o steve@outlook.com.
 
 ## <a name="create-an-azure-ad-user-from-the-azure-ad-server-principal-login"></a>Creare un utente di Azure AD dall'entità server (account di accesso) di Azure AD
 
@@ -229,7 +229,7 @@ Per altre informazioni sulla concessione delle autorizzazioni per i database, ve
 ### <a name="create-an-azure-ad-user-and-create-a-sample-table"></a>Creare un utente di Azure AD e una tabella di esempio
 
 1. Accedere all'istanza gestita con un account `sysadmin` usando SQL Server Management Studio.
-1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
+1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query** .
 1. Nella finestra di query usare la sintassi seguente per creare un utente di Azure AD da un'entità server (account di accesso) di Azure AD:
 
     ```sql
@@ -259,10 +259,10 @@ Per altre informazioni sulla concessione delle autorizzazioni per i database, ve
     GO
     ```
 
-    Tutti gli utenti che appartengono a *mygroup* possono accedere al database **MyMITestDB**.
+    Tutti gli utenti che appartengono a *mygroup* possono accedere al database **MyMITestDB** .
 
     > [!IMPORTANT]
-    > Quando si crea un utente **USER** da un'entità server (account di accesso) di Azure AD, specificare per user_name lo stesso valore di login_name indicato in **LOGIN**.
+    > Quando si crea un utente **USER** da un'entità server (account di accesso) di Azure AD, specificare per user_name lo stesso valore di login_name indicato in **LOGIN** .
 
     Per altre informazioni, vedere [CREATE USER](/sql/t-sql/statements/create-user-transact-sql?view=azuresqldb-mi-current).
 
@@ -295,7 +295,7 @@ Per consentire all'utente di visualizzare i dati nel database, è possibile conc
 
 1. Accedere all'istanza gestita con un account `sysadmin` usando SQL Server Management Studio.
 
-1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
+1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query** .
 
 1. Concedere all'utente di Azure AD il ruolo del database `db_datareader` usando la sintassi T-SQL seguente:
 
@@ -305,7 +305,7 @@ Per consentire all'utente di visualizzare i dati nel database, è possibile conc
     GO
     ```
 
-    L'esempio seguente mostra come concedere all'utente bob@aadsqlmi.net e al gruppo _mygroup_ le autorizzazioni di `db_datareader` per il database **MyMITestDB**:
+    L'esempio seguente mostra come concedere all'utente bob@aadsqlmi.net e al gruppo _mygroup_ le autorizzazioni di `db_datareader` per il database **MyMITestDB** :
 
     ```sql
     USE MyMITestDB
@@ -347,7 +347,7 @@ L'istanza gestita di SQL supporta la rappresentazione di entità di livello serv
 
 1. Accedere all'istanza gestita con un account `sysadmin` usando SQL Server Management Studio.
 
-1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
+1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query** .
 
 1. Nella finestra di query usare il comando seguente per creare una nuova stored procedure:
 
@@ -361,7 +361,7 @@ L'istanza gestita di SQL supporta la rappresentazione di entità di livello serv
     GO
     ```
 
-1. Usare il comando seguente per verificare che l'utente rappresentato durante l'esecuzione della stored procedure sia **bob\@aadsqlmi.net**.
+1. Usare il comando seguente per verificare che l'utente rappresentato durante l'esecuzione della stored procedure sia **bob\@aadsqlmi.net** .
 
     ```sql
     Exec dbo.usp_Demo
@@ -388,8 +388,8 @@ L'istanza gestita di SQL supporta la rappresentazione di entità di livello serv
 Le query tra database sono supportate per gli account Azure AD con entità server (account di accesso) di Azure AD. Per testare una query tra database con un gruppo di Azure AD, è necessario creare un altro database e un'altra tabella. È possibile non creare un altro database e un'altra tabella se esistono già.
 
 1. Accedere all'istanza gestita con un account `sysadmin` usando SQL Server Management Studio.
-1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query**.
-1. Nella finestra di query usare il comando seguente per creare un database denominato **MyMITestDB2** e una tabella denominata **TestTable2**:
+1. In **Esplora oggetti** fare clic con il pulsante destro del mouse sul server e scegliere **Nuova query** .
+1. Nella finestra di query usare il comando seguente per creare un database denominato **MyMITestDB2** e una tabella denominata **TestTable2** :
 
     ```sql
     CREATE DATABASE MyMITestDB2;
@@ -405,7 +405,7 @@ Le query tra database sono supportate per gli account Azure AD con entità serve
     );
     ```
 
-1. In una nuova finestra di query eseguire il comando seguente per creare l'utente _mygroup_ nel nuovo database **MyMITestDB2** e concedere le autorizzazioni SELECT per tale database a _mygroup_:
+1. In una nuova finestra di query eseguire il comando seguente per creare l'utente _mygroup_ nel nuovo database **MyMITestDB2** e concedere le autorizzazioni SELECT per tale database a _mygroup_ :
 
     ```sql
     USE MyMITestDB2
@@ -416,7 +416,7 @@ Le query tra database sono supportate per gli account Azure AD con entità serve
     GO
     ```
 
-1. Accedere all'istanza gestita usando SQL Server Management Studio come membro del gruppo di Azure AD _mygroup_. Aprire una nuova finestra di query ed eseguire l'istruzione SELECT tra database:
+1. Accedere all'istanza gestita usando SQL Server Management Studio come membro del gruppo di Azure AD _mygroup_ . Aprire una nuova finestra di query ed eseguire l'istruzione SELECT tra database:
 
     ```sql
     USE MyMITestDB
@@ -424,7 +424,7 @@ Le query tra database sono supportate per gli account Azure AD con entità serve
     GO
     ```
 
-    Dovrebbero essere visualizzati i risultati della tabella di **TestTable2**.
+    Dovrebbero essere visualizzati i risultati della tabella di **TestTable2** .
 
 ## <a name="additional-supported-scenarios"></a>Altri scenari supportati
 
@@ -447,7 +447,7 @@ Vedere l'articolo sulle [funzionalità di sicurezza delle istanze gestite di SQL
 - [Introduzione al rilevamento delle minacce](threat-detection-configure.md)
 - [Maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking)
 - [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security)
-- [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Funzionalità delle istanze gestite di SQL
 

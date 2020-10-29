@@ -10,12 +10,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: sstein
 ms.date: 11/21/2019
-ms.openlocfilehash: ff29e93149c618bb7d6df6b4477cc79fcf4b53d2
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 8173d53a5d4cac899b22f51a001f6e373f102236
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92058557"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92790798"
 ---
 # <a name="tutorial-configure-transactional-replication-between-azure-sql-managed-instance-and-sql-server"></a>Esercitazione: Configurare la replica transazionale tra Istanza gestita di SQL di Azure e SQL Server
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -38,7 +38,7 @@ Questa esercitazione è destinata a un pubblico esperto e presuppone che l'utent
 
 
 > [!NOTE]
-> Questo articolo descrive l'uso della [replica transazionale](/sql/relational-databases/replication/transactional/transactional-replication) nell'istanza gestita di SQL di Azure. Non è correlato ai [gruppi di failover](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group), una funzionalità dell'istanza gestita di SQL di Azure che consente di creare repliche leggibili complete di singole istanze. Per la configurazione della [ replica transazionale con i gruppi di failover](replication-transactional-overview.md#with-failover-groups), è necessario tenere presenti alcune considerazioni aggiuntive.
+> Questo articolo descrive l'uso della [replica transazionale](/sql/relational-databases/replication/transactional/transactional-replication) nell'istanza gestita di SQL di Azure. Non è correlato ai [gruppi di failover](../database/auto-failover-group-overview.md), una funzionalità dell'istanza gestita di SQL di Azure che consente di creare repliche leggibili complete di singole istanze. Per la configurazione della [ replica transazionale con i gruppi di failover](replication-transactional-overview.md#with-failover-groups), è necessario tenere presenti alcune considerazioni aggiuntive.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -69,7 +69,7 @@ New-AzResourceGroup -Name  $ResourceGroupName -Location $Location
 Creare due istanze gestite all'interno di questo nuovo gruppo di risorse usando il [portale di Azure](https://portal.azure.com).
 
 - Il nome dell'istanza gestita del server di pubblicazione deve essere `sql-mi-publisher` (oltre ad alcuni caratteri per la sequenza casuale) e il nome della rete virtuale deve essere `vnet-sql-mi-publisher`.
-- Il nome dell'istanza gestita del server di distribuzione deve essere `sql-mi-distributor` (oltre ad alcuni caratteri per la sequenza casuale) e deve trovarsi _nella stessa rete virtuale dell'istanza gestita del server di pubblicazione_.
+- Il nome dell'istanza gestita del server di distribuzione deve essere `sql-mi-distributor` (oltre ad alcuni caratteri per la sequenza casuale) e deve trovarsi _nella stessa rete virtuale dell'istanza gestita del server di pubblicazione_ .
 
    ![Usare la rete virtuale del server di pubblicazione per il server di distribuzione](./media/replication-two-instances-and-sql-server-configure-tutorial/use-same-vnet-for-distributor.png)
 
@@ -155,11 +155,11 @@ Una zona DNS privato consente il routing DNS tra le istanze gestite e SQL Server
 
    ![Creare la zona DNS privato](./media/replication-two-instances-and-sql-server-configure-tutorial/create-private-dns-zone.png)
 
-1. Selezionare **Rivedi e crea**. Rivedere i parametri della zona DNS privato e quindi selezionare **Crea** per creare la risorsa.
+1. Selezionare **Rivedi e crea** . Rivedere i parametri della zona DNS privato e quindi selezionare **Crea** per creare la risorsa.
 
 ### <a name="create-an-a-record"></a>Creare un record A
 
-1. Passare alla nuova **zona DNS privato** e selezionare **Panoramica**.
+1. Passare alla nuova **zona DNS privato** e selezionare **Panoramica** .
 1. Selezionare **+ Set di record** per creare un nuovo record A.
 1. Specificare il nome della VM di SQL Server oltre all'indirizzo IP interno privato.
 
@@ -169,11 +169,11 @@ Una zona DNS privato consente il routing DNS tra le istanze gestite e SQL Server
 
 ### <a name="link-the-virtual-network"></a>Collegare la rete virtuale
 
-1. Passare alla nuova **zona DNS privato** e selezionare **Collegamenti di rete virtuale**.
-1. Selezionare **+ Aggiungi**.
+1. Passare alla nuova **zona DNS privato** e selezionare **Collegamenti di rete virtuale** .
+1. Selezionare **+ Aggiungi** .
 1. Specificare un nome per il collegamento, ad esempio `Pub-link`.
 1. Scegliere la sottoscrizione dal menu a discesa e quindi selezionare la rete virtuale per l'istanza gestita del server di pubblicazione.
-1. Fare clic sulla casella accanto a **Abilita registrazione automatica**.
+1. Fare clic sulla casella accanto a **Abilita registrazione automatica** .
 
    ![Creare il collegamento di rete virtuale](./media/replication-two-instances-and-sql-server-configure-tutorial/configure-vnet-link.png)
 
@@ -182,7 +182,7 @@ Una zona DNS privato consente il routing DNS tra le istanze gestite e SQL Server
 
 ## <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
-[Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account#create-a-storage-account) per la directory di lavoro e quindi creare una [condivisione file](../../storage/files/storage-how-to-create-file-share.md) al suo interno.
+[Creare un account di archiviazione di Azure](../../storage/common/storage-account-create.md#create-a-storage-account) per la directory di lavoro e quindi creare una [condivisione file](../../storage/files/storage-how-to-create-file-share.md) al suo interno.
 
 Copiare il percorso della condivisione file nel formato `\\storage-account-name.file.core.windows.net\file-share-name`
 
@@ -210,7 +210,7 @@ GO
 -- Drop database if it exists
 IF EXISTS (SELECT * FROM sys.sysdatabases WHERE name = 'ReplTutorial')
 BEGIN
-    DROP DATABASE ReplTutorial
+    DROP DATABASE ReplTutorial
 END
 GO
 
@@ -283,18 +283,18 @@ Una volta configurata la distribuzione, è ora possibile creare la pubblicazione
 
 1. Avviare SQL Server Management Studio in SQL Server.
 1. Connettersi all'istanza gestita `sql-mi-publisher`.
-1. In **Esplora oggetti** espandere il nodo **Replica** e fare clic con il pulsante destro del mouse sulla cartella **Local Publication**. Selezionare **Nuova pubblicazione**.
+1. In **Esplora oggetti** espandere il nodo **Replica** e fare clic con il pulsante destro del mouse sulla cartella **Local Publication** . Selezionare **Nuova pubblicazione** .
 1. Selezionare **Avanti** per uscire dalla pagina iniziale.
-1. Nella pagina **Database di pubblicazione** selezionare il database `ReplTutorial` creato in precedenza. Selezionare **Avanti**.
-1. Nella pagina **Tipo di pubblicazione** selezionare **Pubblicazione transazionale**. Selezionare **Avanti**.
-1. Nella pagina **Articoli** selezionare la casella accanto a **Tabelle**. Selezionare **Avanti**.
+1. Nella pagina **Database di pubblicazione** selezionare il database `ReplTutorial` creato in precedenza. Selezionare **Avanti** .
+1. Nella pagina **Tipo di pubblicazione** selezionare **Pubblicazione transazionale** . Selezionare **Avanti** .
+1. Nella pagina **Articoli** selezionare la casella accanto a **Tabelle** . Selezionare **Avanti** .
 1. Nella pagina **Filtro righe tabella** selezionare **Avanti** senza aggiungere alcun filtro.
-1. Nella pagina **Agente snapshot** selezionare la casella di controllo **Crea uno snapshot immediatamente e mantieni lo snapshot disponibile per l'inizializzazione delle sottoscrizioni**. Selezionare **Avanti**.
-1. Nella pagina **Sicurezza agente** selezionare **Impostazioni di sicurezza**. Specificare le credenziali di accesso a SQL Server da usare per l'agente di snapshot e per connettersi al server di pubblicazione. Selezionare **OK** per chiudere la pagina **Sicurezza agente snapshot**. Selezionare **Avanti**.
+1. Nella pagina **Agente snapshot** selezionare la casella di controllo **Crea uno snapshot immediatamente e mantieni lo snapshot disponibile per l'inizializzazione delle sottoscrizioni** . Selezionare **Avanti** .
+1. Nella pagina **Sicurezza agente** selezionare **Impostazioni di sicurezza** . Specificare le credenziali di accesso a SQL Server da usare per l'agente di snapshot e per connettersi al server di pubblicazione. Selezionare **OK** per chiudere la pagina **Sicurezza agente snapshot** . Selezionare **Avanti** .
 
    ![Configurare la sicurezza dell'agente di snapshot](./media/replication-two-instances-and-sql-server-configure-tutorial/snapshot-agent-security.png)
 
-1. Nella pagina **Azioni procedura guidata** scegliere **Crea la pubblicazione** e, facoltativamente, **Genera un file script con i passaggi per la creazione della pubblicazione**, se si vuole salvare lo script per un uso successivo.
+1. Nella pagina **Azioni procedura guidata** scegliere **Crea la pubblicazione** e, facoltativamente, **Genera un file script con i passaggi per la creazione della pubblicazione** , se si vuole salvare lo script per un uso successivo.
 1. Nella pagina **Completare la procedura guidata** assegnare alla pubblicazione il nome `ReplTest` e selezionare **Avanti** per creare la pubblicazione.
 1. Dopo aver creato la pubblicazione, aggiornare il nodo **Replica** in **Esplora oggetti** ed espandere **Pubblicazioni locali** per visualizzare la nuova pubblicazione.
 
@@ -352,10 +352,10 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 1. Passare al gruppo di risorse nel [portale di Azure](https://portal.azure.com).
-1. Selezionare l'istanza o le istanze gestite, quindi selezionare **Elimina**. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina**. L'esecuzione di questa procedura in background può richiedere del tempo e, finché non viene completata, non sarà possibile eliminare il *cluster virtuale* o altre risorse dipendenti. Monitorare l'eliminazione nella scheda **Attività** per verificare che l'istanza gestita sia stata eliminata.
-1. Una volta eliminata l'istanza gestita, eliminare il *cluster virtuale* selezionandolo nel gruppo di risorse e quindi scegliendo **Elimina**. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina**.
-1. Eliminare eventuali risorse rimanenti. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina**.
-1. Eliminare il gruppo di risorse selezionando **Elimina gruppo di risorse**, digitando il relativo nome, `myResourceGroup`, quindi selezionando **Elimina**.
+1. Selezionare l'istanza o le istanze gestite, quindi selezionare **Elimina** . Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina** . L'esecuzione di questa procedura in background può richiedere del tempo e, finché non viene completata, non sarà possibile eliminare il *cluster virtuale* o altre risorse dipendenti. Monitorare l'eliminazione nella scheda **Attività** per verificare che l'istanza gestita sia stata eliminata.
+1. Una volta eliminata l'istanza gestita, eliminare il *cluster virtuale* selezionandolo nel gruppo di risorse e quindi scegliendo **Elimina** . Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina** .
+1. Eliminare eventuali risorse rimanenti. Digitare `yes` nella casella di testo per confermare che si vuole eliminare la risorsa, quindi selezionare **Elimina** .
+1. Eliminare il gruppo di risorse selezionando **Elimina gruppo di risorse** , digitando il relativo nome, `myResourceGroup`, quindi selezionando **Elimina** .
 
 ## <a name="known-errors"></a>Errori noti
 
@@ -397,7 +397,7 @@ Possibili soluzioni:
 
 ### <a name="no-publications-to-which-you-can-subscribe"></a>Nessuna pubblicazione disponibile per la sottoscrizione
 
-Quando si aggiunge una nuova sottoscrizione tramite la procedura guidata **Nuova sottoscrizione**, nella pagina **Pubblicazione** è possibile che non siano presenti database e pubblicazioni come opzioni disponibili e che venga visualizzato il messaggio di errore seguente:
+Quando si aggiunge una nuova sottoscrizione tramite la procedura guidata **Nuova sottoscrizione** , nella pagina **Pubblicazione** è possibile che non siano presenti database e pubblicazioni come opzioni disponibili e che venga visualizzato il messaggio di errore seguente:
 
 `There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
 
@@ -414,7 +414,7 @@ Vedere l'articolo [Informazioni su Istanza gestita di SQL di Azure](sql-managed-
 - [Introduzione al rilevamento delle minacce](threat-detection-configure.md)
 - [Maschera dati dinamica](/sql/relational-databases/security/dynamic-data-masking)
 - [Sicurezza a livello di riga](/sql/relational-databases/security/row-level-security)
-- [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
+- [Transparent Data Encryption (TDE)](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)
 
 ### <a name="sql-managed-instance-capabilities"></a>Funzionalità delle istanze gestite di SQL
 
