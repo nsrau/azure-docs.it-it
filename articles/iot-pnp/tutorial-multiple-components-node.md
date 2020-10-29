@@ -7,13 +7,13 @@ ms.date: 07/10/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.custom: devx-track-js
-ms.openlocfilehash: ea7b1ba159aa5d11a20ff565390ce0b24e38c1d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 2f0bf3b4b6e7091222b98e1743f0fb4f431fdd12
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91577187"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736054"
 ---
 # <a name="tutorial-connect-a-sample-iot-plug-and-play-multiple-component-device-application-to-iot-hub-nodejs"></a>Esercitazione: Connettere un'applicazione di un dispositivo Plug and Play IoT di esempio con più componenti a un hub IoT (Node.js)
 
@@ -47,7 +47,7 @@ git clone https://github.com/Azure/azure-iot-sdk-node
 
 Usare l'SDK del dispositivo per compilare il codice di esempio incluso. L'applicazione creata simula un dispositivo Plug and Play con più componenti che si connette a un hub IoT. L'applicazione invia proprietà e dati di telemetria e riceve comandi.
 
-1. In una finestra del terminale locale passare alla cartella del repository clonato e quindi alla cartella */azure-iot-sdk-node/device/samples/pnp*. Eseguire quindi il comando seguente per installare le librerie necessarie:
+1. In una finestra del terminale locale passare alla cartella del repository clonato e quindi alla cartella */azure-iot-sdk-node/device/samples/pnp* . Eseguire quindi il comando seguente per installare le librerie necessarie:
 
 ```cmd/sh
 npm install
@@ -57,7 +57,7 @@ Vengono installati i file npn pertinenti necessari per eseguire gli esempi nella
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
-Passare alla cartella *azure-iot-sdk-node\device\samples\pnp*.
+Passare alla cartella *azure-iot-sdk-node\device\samples\pnp* .
 
 La cartella *azure-iot-sdk-node\device\samples\pnp* contiene il codice di esempio per il dispositivo termoregolatore Plug and Play IoT.
 
@@ -105,7 +105,7 @@ Aprire il file *pnpTemperatureController.js* in un editor di codice a scelta. Il
 
   - Usa `desiredPropertyPatchListener` per restare in ascolto di aggiornamenti delle proprietà.
 
-  - Disabilita tutti i listener e le attività ed esce dal ciclo quando si preme **Q** o **q**.
+  - Disabilita tutti i listener e le attività ed esce dal ciclo quando si preme **Q** o **q** .
 
 [!INCLUDE [iot-pnp-environment](../../includes/iot-pnp-environment.md)]
 

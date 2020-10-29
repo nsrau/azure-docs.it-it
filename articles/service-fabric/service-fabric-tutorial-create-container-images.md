@@ -3,13 +3,13 @@ title: Creare immagini del contenitore in Service Fabric in Azure
 description: In questa esercitazione si apprenderà come creare immagini del contenitore per un'applicazione multicontenitore di Service Fabric.
 ms.topic: tutorial
 ms.date: 07/22/2019
-ms.custom: mvc
-ms.openlocfilehash: 73d202b3b812b59ed8dadd4a6508dfe2873ecd6c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 31b5f870465bc1dff9d6ff7827a4efed084bcf62
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532211"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739060"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>Esercitazione: Creare immagini del contenitore su un cluster Linux di Service Fabric
 
@@ -90,13 +90,13 @@ az account set --subscription <subscription_id>
 
 Prima di distribuire un'istanza di Registro Azure Container, è necessario che esista un gruppo di risorse. Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite.
 
-Creare un gruppo di risorse con il comando **az group create**. In questo esempio viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *westus*.
+Creare un gruppo di risorse con il comando **az group create** . In questo esempio viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *westus* .
 
 ```azurecli
 az group create --name <myResourceGroup> --location westus
 ```
 
-Creare un'istanza di Registro Azure Container con il comando **az acr create**. Sostituire \<acrName> con il nome del registro contenitori da creare nella sottoscrizione. Questo nome deve essere alfanumerico e univoco.
+Creare un'istanza di Registro Azure Container con il comando **az acr create** . Sostituire \<acrName> con il nome del registro contenitori da creare nella sottoscrizione. Questo nome deve essere alfanumerico e univoco.
 
 ```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true

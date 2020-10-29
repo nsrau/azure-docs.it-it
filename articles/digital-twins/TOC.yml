@@ -107,7 +107,7 @@
           href: how-to-integrate-maps.md
         - name: Integrazione con Azure Time Series Insights
           href: how-to-integrate-time-series-insights.md
-    - name: Risolvere problemi
+    - name: Monitorare e risolvere i problemi
       items:
         - name: Visualizzare le metriche in Monitoraggio di Azure
           href: troubleshoot-metrics.md
@@ -115,6 +115,8 @@
           href: troubleshoot-diagnostics.md
         - name: Attivare gli avvisi
           href: troubleshoot-alerts.md
+        - name: Informazioni sull'integrità delle risorse
+          href: troubleshoot-resource-health.md
         - name: Problemi noti
           href: troubleshoot-known-issues.md
         - name: Risoluzione dei problemi
@@ -144,7 +146,7 @@
             - name: Java SDK - informazioni di riferimento
               href: /java/api/overview/azure/digitaltwins/management?view=azure-java-preview
             - name: Java SDK - origine
-              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins'
+              href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/mgmt-v2020_10_31'
             - name: JavaScript SDK
               href: 'https://www.npmjs.com/package/@azure/arm-digitaltwins'
             - name: JavaScript SDK - origine
@@ -152,9 +154,11 @@
             - name: Python SDK
               href: 'https://pypi.org/project/azure-mgmt-digitaltwins/'
             - name: Python SDK - origine
-              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-mgmt-digitaltwins'
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/release/v3/sdk/digitaltwins/azure-mgmt-digitaltwins'
             - name: Go SDK
               href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
+            - name: Go - origine
+              href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/digitaltwins/mgmt/2020-10-31/digitaltwins'
         - name: Piano dati
           items:
             - name: Swagger

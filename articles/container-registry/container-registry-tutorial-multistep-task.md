@@ -3,13 +3,13 @@ title: 'Esercitazione: Attività del Registro Azure Container in più passaggi'
 description: Questa esercitazione illustra come configurare un'attività del Registro Azure Container per attivare automaticamente un flusso di lavoro in più passaggi per la compilazione, l'esecuzione e il push delle immagini dei contenitori nel cloud quando si esegue il commit di codice sorgente in un repository Git.
 ms.topic: tutorial
 ms.date: 05/09/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: ff32b3095638af6b2b246b99a5dc9219e0020782
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 6ba3b276c68885a0811ee445d965c486f158d193
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78402313"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739610"
 ---
 # <a name="tutorial-run-a-multi-step-container-workflow-in-the-cloud-when-you-commit-source-code"></a>Esercitazione: Eseguire un flusso di lavoro dei contenitori in più passaggi nel cloud quando si esegue il commit di codice sorgente
 
@@ -332,7 +332,7 @@ az acr task create \
 
 Per eseguire il push delle immagini nel registro identificato dal valore `regDate`, usare il comando [az acr task credential add][az-acr-task-credential-add] per aggiungere le credenziali di accesso a quel registro nell'attività.
 
-Per questo esempio, è consigliabile creare un'[entità servizio](container-registry-auth-service-principal.md) con accesso al registro con ambito del ruolo *AcrPush*. Per creare l'entità servizio, consultare questo [script dell'interfaccia della riga di comando di Azure](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
+Per questo esempio, è consigliabile creare un' [entità servizio](container-registry-auth-service-principal.md) con accesso al registro con ambito del ruolo *AcrPush* . Per creare l'entità servizio, consultare questo [script dell'interfaccia della riga di comando di Azure](https://github.com/Azure-Samples/azure-cli-samples/blob/master/container-registry/service-principal-create/service-principal-create.sh).
 
 Passare l'ID applicazione e la password dell'entità servizio nel seguente comando `az acr task credential add`:
 

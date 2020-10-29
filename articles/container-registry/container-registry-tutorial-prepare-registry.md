@@ -3,13 +3,13 @@ title: 'Esercitazione: Creare un registro con replica geografica'
 description: Creare un Registro Azure Container, configurare la replica geografica, preparare un'immagine Docker e distribuirla nel registro. Prima parte di una serie in tre parti.
 ms.topic: tutorial
 ms.date: 06/30/2020
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 854b4eb35694f7498d0dc70567b19ccfdf7c8c82
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: c473e3cd891214c2c5789bd43b0d293cb25d660a
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148385"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739488"
 ---
 # <a name="tutorial-prepare-a-geo-replicated-azure-container-registry"></a>Esercitazione: Preparare un Registro Azure Container con replica geografica
 
@@ -44,16 +44,16 @@ Per questa esercitazione, è necessario un registro contenitori di Azure nel liv
 
 Accedere al [portale di Azure](https://portal.azure.com).
 
-Selezionare **Crea una risorsa** > **Contenitori** > **Registro Azure Container**.
+Selezionare **Crea una risorsa** > **Contenitori** > **Registro Azure Container** .
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-01.png" alt-text="Creazione di un registro contenitori nel portale di Azure":::
 
-Configurare il nuovo registro con le impostazioni seguenti. Nella scheda **Informazioni di base**:
+Configurare il nuovo registro con le impostazioni seguenti. Nella scheda **Informazioni di base** :
 
-* **Nome registro**: creare un nome di registro univoco a livello globale all'interno di Azure e contenente da 5 a 50 caratteri alfanumerici.
-* **Gruppo di risorse**: **Crea nuovo** > `myResourceGroup`
-* **Percorso**: `West US`
-* **SKU**: `Premium` (obbligatorio per la replica geografica)
+* **Nome registro** : creare un nome di registro univoco a livello globale all'interno di Azure e contenente da 5 a 50 caratteri alfanumerici.
+* **Gruppo di risorse** : **Crea nuovo** > `myResourceGroup`
+* **Percorso** : `West US`
+* **SKU** : `Premium` (obbligatorio per la replica geografica)
 
 Selezionare **Rivedi e crea** e quindi **Crea** per creare l'istanza del registro.
 
@@ -68,7 +68,7 @@ Nella parte restante di questa esercitazione si usa `<acrName>` come segnaposto 
 
 Dopo aver creato un registro Premium, è possibile configurare la replica geografica. L'app web, che nella prossima esercitazione viene configurata per l'esecuzione in due aree, possono quindi eseguire il pull delle relative immagini del contenitore dal registro più vicino.
 
-Passare al nuovo registro contenitori nel portale di Azure e selezionare **Repliche** in **Servizi**:
+Passare al nuovo registro contenitori nel portale di Azure e selezionare **Repliche** in **Servizi** :
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-03.png" alt-text="Creazione di un registro contenitori nel portale di Azure":::
 
@@ -76,7 +76,7 @@ Viene visualizzata una mappa che mostra esagoni verdi a indicare le aree di Azur
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-map-01.png" alt-text="Creazione di un registro contenitori nel portale di Azure":::
 
-Replicare il registro per l'area Stati Uniti orientali selezionando il relativo esagono verde e quindi selezionare **Crea** in **Crea replica**:
+Replicare il registro per l'area Stati Uniti orientali selezionando il relativo esagono verde e quindi selezionare **Crea** in **Crea replica** :
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-04.png" alt-text="Creazione di un registro contenitori nel portale di Azure":::
 
@@ -89,7 +89,7 @@ Dopo aver completato la replica, nel portale viene visualizzato *Pronta* per ent
 
 Nelle esercitazioni successive verrà distribuita un'immagine del contenitore dal registro direttamente in app Web per contenitori. Per abilitare questa funzionalità, è anche necessario abilitare l'[account amministratore](container-registry-authentication.md#admin-account) del registro.
 
-Passare al nuovo registro contenitori nel portale di Azure e selezionare **Chiavi di accesso** in **Impostazioni**. In **Utente amministratore**selezionare **Abilita**.
+Passare al nuovo registro contenitori nel portale di Azure e selezionare **Chiavi di accesso** in **Impostazioni** . In **Utente amministratore** selezionare **Abilita** .
 
 :::image type="content" source="./media/container-registry-tutorial-prepare-registry/tut-portal-06.png" alt-text="Creazione di un registro contenitori nel portale di Azure":::
 
@@ -169,7 +169,7 @@ AcrLoginServer
 uniqueregistryname.azurecr.io
 ```
 
-Aggiornare quindi la riga `ENV DOCKER_REGISTRY` con il nome di dominio completo del server di accesso del registro. Questo esempio riporta il nome del registro di esempio, *uniqueregistryname*:
+Aggiornare quindi la riga `ENV DOCKER_REGISTRY` con il nome di dominio completo del server di accesso del registro. Questo esempio riporta il nome del registro di esempio, *uniqueregistryname* :
 
 ```Dockerfile
 ENV DOCKER_REGISTRY uniqueregistryname.azurecr.io

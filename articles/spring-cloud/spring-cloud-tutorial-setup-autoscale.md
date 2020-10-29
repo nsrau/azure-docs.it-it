@@ -6,13 +6,13 @@ ms.author: brendm
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 07/22/2020
-ms.custom: devx-track-java
-ms.openlocfilehash: 4effdbf5fb924b59a540ce16e769633c484c641a
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.custom: devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 6023d1ebd27ebaccacfce85ce0f49b7ef87e17ad
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091067"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742665"
 ---
 # <a name="tutorial-set-up-autoscale-for-microservice-applications"></a>Esercitazione: Configurare la scalabilità automatica per le applicazioni di microservizi
 
@@ -34,7 +34,7 @@ Per seguire queste procedure occorre:
 2. Passare alla pagina **Panoramica** di Azure Spring Cloud.
 3. Selezionare il gruppo di risorse contenente il servizio.
 4. Selezionare la scheda **App** in **Impostazioni** nel menu del riquadro di spostamento sinistro.
-5. Selezionare l'applicazione per cui configurare la scalabilità automatica. In questo esempio selezionare l'applicazione denominata **demo**. Verrà visualizzata la pagina **Panoramica** dell'applicazione.
+5. Selezionare l'applicazione per cui configurare la scalabilità automatica. In questo esempio selezionare l'applicazione denominata **demo** . Verrà visualizzata la pagina **Panoramica** dell'applicazione.
 6. Selezionare la scheda **Scale Out** in **Impostazioni** nel menu del riquadro di spostamento sinistro.
 7. Selezionare la distribuzione per cui configurare la scalabilità automatica. Verranno visualizzate le opzioni per la scalabilità automatica illustrate nella sezione seguente.
 
@@ -66,7 +66,7 @@ Nel portale di Azure scegliere come applicare la scalabilità.  La figura seguen
 
 ## <a name="upgrade-to-the-standard-tier"></a>Eseguire l'aggiornamento al livello Standard
 
-Se il piano corrente è il livello Basic ed è vincolato da uno o più di questi limiti, è possibile eseguire l'aggiornamento al livello Standard. A questo scopo, passare al menu **Piano tariffario** selezionando la colonna *Livello Standard* e facendo clic sul pulsante **Aggiorna**.
+Se il piano corrente è il livello Basic ed è vincolato da uno o più di questi limiti, è possibile eseguire l'aggiornamento al livello Standard. A questo scopo, passare al menu **Piano tariffario** selezionando la colonna *Livello Standard* e facendo clic sul pulsante **Aggiorna** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,13 +3,13 @@ title: "Esercitazione: Attivare la compilazione di immagini all'aggiornamento de
 description: Questa esercitazione illustra come configurare un'attività del Registro Azure Container per attivare automaticamente le compilazioni delle immagini dei contenitori nel cloud quando viene aggiornata un'immagine di base in un altro Registro Azure Container privato.
 ms.topic: tutorial
 ms.date: 01/22/2020
-ms.custom: devx-track-js
-ms.openlocfilehash: 09b795981c1afe497e6adbb14f4f62d45293f0e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-js, devx-track-azurecli
+ms.openlocfilehash: 7dda7c54c51c31e750083f302ca558ff7ef548ee
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270968"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739548"
 ---
 # <a name="tutorial-automate-container-image-builds-when-a-base-image-is-updated-in-another-private-container-registry"></a>Esercitazione: Automatizzare le compilazioni di immagini dei contenitori quando viene aggiornata un'immagine di base in un altro registro contenitori privato 
 
@@ -78,7 +78,7 @@ In questa esercitazione l'attività di Registro Azure Container crea un'immagine
 
 ## <a name="build-the-base-image"></a>Compilare l'immagine di base
 
-Per iniziare, compilare l'immagine di base con un'*attività rapida* di Attività del Registro Azure Container usando il comando [az acr build][az-acr-build]. Come illustrato nella [prima esercitazione](container-registry-tutorial-quick-task.md) della serie, questo processo non solo compila l'immagine, ma ne esegue anche il push nel registro contenitori, se la compilazione viene completata correttamente. In questo esempio viene eseguito il push dell'immagine nel registro immagini di base.
+Per iniziare, compilare l'immagine di base con un' *attività rapida* di Attività del Registro Azure Container usando il comando [az acr build][az-acr-build]. Come illustrato nella [prima esercitazione](container-registry-tutorial-quick-task.md) della serie, questo processo non solo compila l'immagine, ma ne esegue anche il push nel registro contenitori, se la compilazione viene completata correttamente. In questo esempio viene eseguito il push dell'immagine nel registro immagini di base.
 
 ```azurecli-interactive
 az acr build --registry $BASE_ACR --image baseimages/node:9-alpine --file Dockerfile-base .
@@ -257,7 +257,7 @@ Passare a http://localhost:8081 nel browser. Nella pagina Web verrà visualizzat
 
 ![Screenshot del rendering dell'applicazione di esempio nel browser][base-update-02]
 
-È importante notare che si è aggiornata l'immagine di **base** con un nuovo numero di versione, ma questo viene visualizzato nell'ultima immagine compilata dell'**applicazione**. ACR Tasks ha rilevato la modifica apportata all'immagine di base e ha ricompilato automaticamente l'immagine dell'applicazione.
+È importante notare che si è aggiornata l'immagine di **base** con un nuovo numero di versione, ma questo viene visualizzato nell'ultima immagine compilata dell' **applicazione** . ACR Tasks ha rilevato la modifica apportata all'immagine di base e ha ricompilato automaticamente l'immagine dell'applicazione.
 
 Per arrestare e rimuovere il contenitore, eseguire questo comando:
 

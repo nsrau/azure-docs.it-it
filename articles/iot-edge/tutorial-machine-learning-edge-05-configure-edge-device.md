@@ -8,13 +8,13 @@ ms.date: 2/5/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.custom: amqp
-ms.openlocfilehash: 2245bd970e93595358e95465bcc815ddaf2ef821
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.custom: amqp, devx-track-azurecli
+ms.openlocfilehash: b85984207742e0b8991ab65875dd22505b918185
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91974550"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92736753"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>Esercitazione: Configurare un dispositivo IoT Edge
 
@@ -39,11 +39,11 @@ In questa sezione vengono creati certificati autofirmati usando un'immagine Dock
 
 4. Aprire Visual Studio Code.
 
-5. Selezionare **File** > **Apri cartella** e scegliere **C:\\source\\IoTEdgeAndMlSample\\CreateCertificates**.
+5. Selezionare **File** > **Apri cartella** e scegliere **C:\\source\\IoTEdgeAndMlSample\\CreateCertificates** .
 
-6. Nel riquadro Explorer fare clic con il pulsante destro del mouse sul **Dockerfile** e scegliere **Compila immagine**.
+6. Nel riquadro Explorer fare clic con il pulsante destro del mouse sul **Dockerfile** e scegliere **Compila immagine** .
 
-7. Nella finestra di dialogo accettare il valore predefinito per il nome e il tag dell'immagine: **createcertificates: latest**.
+7. Nella finestra di dialogo accettare il valore predefinito per il nome e il tag dell'immagine: **createcertificates: latest** .
 
     ![Creare certificati in Visual Studio Code](media/tutorial-machine-learning-edge-05-configure-edge-device/create-certificates.png)
 
@@ -62,7 +62,7 @@ In questa sezione vengono creati certificati autofirmati usando un'immagine Dock
 
 11. Specificare le credenziali quando richiesto.
 
-12. Al termine dell'esecuzione del contenitore, cercare i file seguenti in **c:\\edgeCertificates**:
+12. Al termine dell'esecuzione del contenitore, cercare i file seguenti in **c:\\edgeCertificates** :
 
     * c:\\edgeCertificates\\certs\\azure-iot-test-only.root.ca.cert.pem
     * c:\\edgeCertificates\\certs\\new-edge-device-full-chain.cert.pem
@@ -76,7 +76,7 @@ Per archiviare i certificati in sicurezza e renderli accessibili da più disposi
 
 1. Nel [portale di Azure](https://portal.azure.com) passare all'area di lavoro di Azure Machine Learning.
 
-2. Nella pagina di panoramica dell'area di lavoro di Azure Machine Learning trovare il nome di **Key Vault**.
+2. Nella pagina di panoramica dell'area di lavoro di Azure Machine Learning trovare il nome di **Key Vault** .
 
     ![Copiare il nome di Key Vault](media/tutorial-machine-learning-edge-05-configure-edge-device/find-key-vault-name.png)
 
@@ -120,15 +120,15 @@ Per usare l'immagine del Marketplace in una distribuzione tramite script, è nec
 
 1. Accedere al portale di Azure.
 
-1. Selezionare **Tutti i servizi**.
+1. Selezionare **Tutti i servizi** .
 
-1. Nella barra di ricerca immettere e selezionare **Marketplace**.
+1. Nella barra di ricerca immettere e selezionare **Marketplace** .
 
-1. Nella barra di ricerca del Marketplace immettere e selezionare **Azure IoT Edge on Ubuntu**.
+1. Nella barra di ricerca del Marketplace immettere e selezionare **Azure IoT Edge on Ubuntu** .
 
 1. Selezionare il collegamento ipertestuale **Per iniziare** per eseguire la distribuzione a livello di codice.
 
-1. Selezionare il pulsante **Abilita** e quindi **Salva**.
+1. Selezionare il pulsante **Abilita** e quindi **Salva** .
 
     ![Abilitare la distribuzione a livello di codice per la VM](media/tutorial-machine-learning-edge-05-configure-edge-device/deploy-ubuntu-vm.png)
 
@@ -138,7 +138,7 @@ Per usare l'immagine del Marketplace in una distribuzione tramite script, è nec
 
 Eseguire quindi lo script per creare la macchina virtuale per il dispositivo IoT Edge.
 
-1. Aprire una finestra di PowerShell e passare alla directory **EdgeVM**.
+1. Aprire una finestra di PowerShell e passare alla directory **EdgeVM** .
 
     ```powershell
     cd c:\source\IoTEdgeAndMlSample\EdgeVM
@@ -152,11 +152,11 @@ Eseguire quindi lo script per creare la macchina virtuale per il dispositivo IoT
 
 3. Quando richiesto, specificare i valori per ogni parametro. Per sottoscrizione, gruppo di risorse e località, è consigliabile usare gli stessi valori specificati per tutte le risorse di questa esercitazione.
 
-    * **ID sottoscrizione di Azure**: disponibile nel portale di Azure
-    * **Nome gruppo di risorse**: un nome facile da ricordare per raggruppare le risorse per questa esercitazione
-    * **Località**: un'area di Azure in cui verrà creata la macchina virtuale, ad esempio westus2 o northeurope. Per altre informazioni, vedere tutte le [aree di Azure](https://azure.microsoft.com/global-infrastructure/locations/).
-    * **AdminUsername**: il nome dell'account amministratore che verrà usato per accedere alla macchina virtuale
-    * **AdminPassword**: la password da impostare per AdminUsername nella macchina virtuale
+    * **ID sottoscrizione di Azure** : disponibile nel portale di Azure
+    * **Nome gruppo di risorse** : un nome facile da ricordare per raggruppare le risorse per questa esercitazione
+    * **Località** : un'area di Azure in cui verrà creata la macchina virtuale, ad esempio westus2 o northeurope. Per altre informazioni, vedere tutte le [aree di Azure](https://azure.microsoft.com/global-infrastructure/locations/).
+    * **AdminUsername** : il nome dell'account amministratore che verrà usato per accedere alla macchina virtuale
+    * **AdminPassword** : la password da impostare per AdminUsername nella macchina virtuale
 
 4. Per configurare la VM con lo script, è necessario accedere ad Azure con le credenziali associate alla sottoscrizione di Azure in uso.
 
@@ -183,7 +183,7 @@ Nelle diverse sezioni successive verrà configurata la macchina virtuale di Azur
     ssh -l <username> iotedge-<suffix>.<region>.cloudapp.azure.com
     ```
 
-2. Quando viene richiesto di convalidare l'autenticità dell'host, digitare **sì** e selezionare **Accedi**.
+2. Quando viene richiesto di convalidare l'autenticità dell'host, digitare **sì** e selezionare **Accedi** .
 
 3. Quando richiesto, specificare la password.
 
@@ -230,7 +230,7 @@ Il dispositivo foglia verrà trattato più avanti nell'esercitazione. In questa 
 
 Il runtime IoT Edge usa il file `/etc/iotedge/config.yaml` per rendere persistente la configurazione. È necessario aggiornare tre informazioni in questo file:
 
-* **Stringa di connessione del dispositivo**: la stringa di connessione ottenuta dall'identità del dispositivo nell'hub IoT
+* **Stringa di connessione del dispositivo** : la stringa di connessione ottenuta dall'identità del dispositivo nell'hub IoT
 * **Certificati:** i certificati da usare per le connessioni stabilite con i dispositivi downstream
 * **Nome host:** il nome di dominio completo del dispositivo VM IoT Edge.
 
@@ -267,7 +267,7 @@ Quindi i certificati e il nome host verranno aggiornati modificando direttamente
 
     Fare clic con il pulsante destro del mouse su nano per incollare il contenuto degli Appunti nella posizione corrente del cursore. Usare i tasti di direzione per passare alla stringa da sostituire, eliminarla e quindi fare clic con il pulsane destro del mouse per incollare il contenuto del buffer.
 
-3. Nel portale di Azure passare alla macchina virtuale. Copiare il nome DNS (FQDN del computer) dalla sezione **Panoramica**.
+3. Nel portale di Azure passare alla macchina virtuale. Copiare il nome DNS (FQDN del computer) dalla sezione **Panoramica** .
 
 4. Incollare il nome FQDN nella sezione hostname del file config.yml. Assicurarsi che il nome sia tutto in minuscolo.
 

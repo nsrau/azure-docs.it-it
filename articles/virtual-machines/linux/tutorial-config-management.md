@@ -14,13 +14,13 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/27/2019
 ms.author: magoedte
-ms.custom: mvc
-ms.openlocfilehash: e233c7c4eb76e79e73d0c5fc386a9d908f0e35b5
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 175c92c02196105e9fb1249e5b88d73bc8b87d48
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216692"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735242"
 ---
 # <a name="tutorial-monitor-changes-and-update-a-linux-virtual-machine-in-azure"></a>Esercitazione: Monitorare le modifiche e aggiornare una macchina virtuale Linux in Azure
 
@@ -42,7 +42,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 ## <a name="create-vm"></a>Creare una macchina virtuale
 
-Per visualizzare la diagnostica e le metriche in azione, è necessaria una macchina virtuale. Creare prima un gruppo di risorse con [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupMonitor* nella località *eastus*.
+Per visualizzare la diagnostica e le metriche in azione, è necessaria una macchina virtuale. Creare prima un gruppo di risorse con [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroupMonitor* nella località *eastus* .
 
 ```azurecli-interactive
 az group create --name myResourceGroupMonitor --location eastus
@@ -70,9 +70,9 @@ Per informazioni sui prezzi, vedere [Prezzi di Automazione per la gestione degli
 
 Abilitare Gestione aggiornamenti per la macchina virtuale:
 
-1. Sul lato sinistro della schermata selezionare **Macchine virtuali**.
+1. Sul lato sinistro della schermata selezionare **Macchine virtuali** .
 2. Selezionare una macchina virtuale dall'elenco.
-3. Nella schermata della macchina virtuale nella sezione **Operazioni** selezionare **Gestione aggiornamenti**. Viene visualizzata la schermata **Abilita Gestione aggiornamenti**.
+3. Nella schermata della macchina virtuale nella sezione **Operazioni** selezionare **Gestione aggiornamenti** . Viene visualizzata la schermata **Abilita Gestione aggiornamenti** .
 
 Viene eseguita una convalida per determinare se Gestione aggiornamenti è abilitata per la macchina virtuale.
 La convalida include controlli per un'area di lavoro Log Analytics e un account di Automazione collegato e verifica se la soluzione è presente nell'area di lavoro.
@@ -91,7 +91,7 @@ Se risultano mancanti durante l'onboarding, i prerequisiti seguenti vengono aggi
 * [Account di Automazione](../../automation/index.yml)
 * [Ruolo di lavoro ibrido per runbook](../../automation/automation-hybrid-runbook-worker.md) abilitato nella macchina virtuale
 
-Viene visualizzata la schermata **Gestione aggiornamenti**. Configurare la località, l'area di lavoro di Log Analytics e l'account di automazione da usare e selezionare **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
+Viene visualizzata la schermata **Gestione aggiornamenti** . Configurare la località, l'area di lavoro di Log Analytics e l'account di automazione da usare e selezionare **Abilita** . Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione.
 
 ![Abilitare la soluzione Gestione aggiornamenti](./media/tutorial-monitoring/manage-updates-update-enable.png)
 
@@ -99,7 +99,7 @@ L'abilitazione della soluzione può richiedere fino a 15 minuti. Durante questo 
 
 ### <a name="view-update-assessment"></a>Visualizzare la valutazione degli aggiornamenti
 
-Dopo aver abilitato **Gestione aggiornamenti**, viene visualizzata la schermata **Gestione aggiornamenti**. Dopo la valutazione degli aggiornamenti, viene visualizzato un elenco di aggiornamenti mancanti nella scheda **Aggiornamenti mancanti**.
+Dopo aver abilitato **Gestione aggiornamenti** , viene visualizzata la schermata **Gestione aggiornamenti** . Dopo la valutazione degli aggiornamenti, viene visualizzato un elenco di aggiornamenti mancanti nella scheda **Aggiornamenti mancanti** .
 
  ![Visualizzare lo stato degli aggiornamenti](./media/tutorial-monitoring/manage-updates-view-status-linux.png)
 
@@ -107,18 +107,18 @@ Dopo aver abilitato **Gestione aggiornamenti**, viene visualizzata la schermata 
 
 Per installare gli aggiornamenti, pianificare una distribuzione che rispetti la pianificazione dei rilasci e l'intervallo di servizio. È possibile scegliere i tipi di aggiornamento da includere nella distribuzione. È possibile ad esempio includere gli aggiornamenti critici o della sicurezza ed escludere gli aggiornamenti cumulativi.
 
-Pianificare una nuova distribuzione di aggiornamenti per la macchina virtuale facendo clic su **Pianifica la distribuzione di aggiornamenti** nella parte superiore della schermata **Gestione aggiornamenti**. Nella schermata **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti:
+Pianificare una nuova distribuzione di aggiornamenti per la macchina virtuale facendo clic su **Pianifica la distribuzione di aggiornamenti** nella parte superiore della schermata **Gestione aggiornamenti** . Nella schermata **Nuova distribuzione di aggiornamenti** specificare le informazioni seguenti:
 
-Per creare una nuova distribuzione di aggiornamenti, selezionare **Pianifica la distribuzione di aggiornamenti**. Si apre la pagina **Nuova distribuzione di aggiornamenti**. Specificare i valori per le proprietà descritte nella tabella seguente e quindi fare clic su **Crea**:
+Per creare una nuova distribuzione di aggiornamenti, selezionare **Pianifica la distribuzione di aggiornamenti** . Si apre la pagina **Nuova distribuzione di aggiornamenti** . Specificare i valori per le proprietà descritte nella tabella seguente e quindi fare clic su **Crea** :
 
 | Proprietà | Descrizione |
 | --- | --- |
 | Nome |Nome univoco che identifica la distribuzione degli aggiornamenti. |
 |Sistema operativo| Linux o Windows|
 | Gruppi da aggiornare |Per i computer di Azure, definire una query basata su una combinazione di sottoscrizione, gruppi di risorse, posizioni e tag per creare un gruppo dinamico di macchine virtuali di Azure da includere nella distribuzione. </br></br>Per i computer non di Azure, selezionare una ricerca esistente salvata per selezionare un gruppo di computer non di Azure da includere nella distribuzione. </br></br>Per altre informazioni, vedere [Gruppi dinamici](../../automation/update-management/configure-groups.md)|
-| Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie**Computer**, l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE**.</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/platform/computer-groups.md) |
+| Computer da aggiornare |Selezionare una ricerca salvata o un gruppo importato, oppure scegliere Computer dall'elenco a discesa e selezionare i singoli computer. Se si sceglie **Computer** , l'idoneità del computer è indicata nella colonna **AGGIORNA IDONEITÀ AGENTE** .</br> Per altre informazioni sui diversi metodi di creazione di gruppi di computer nei log di Monitoraggio di Azure, vedere [Gruppi di computer nei log di Monitoraggio di Azure](../../azure-monitor/platform/computer-groups.md) |
 |Classificazioni degli aggiornamenti|Selezionare tutte le classificazioni degli aggiornamenti necessarie|
-|Includi/Escludi aggiornamenti|Apre la pagina **Includi/Escludi**. Gli aggiornamenti da includere o escludere si trovano in schede separate. Per altre informazioni su come viene gestita l'inclusione, vedere [Pianificare la distribuzione degli aggiornamenti](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment) |
+|Includi/Escludi aggiornamenti|Apre la pagina **Includi/Escludi** . Gli aggiornamenti da includere o escludere si trovano in schede separate. Per altre informazioni su come viene gestita l'inclusione, vedere [Pianificare la distribuzione degli aggiornamenti](../../automation/update-management/deploy-updates.md#schedule-an-update-deployment) |
 |Impostazioni di pianificazione|Selezionare l'ora di inizio e selezionare Una sola volta o Ricorrente per la ricorrenza|
 | Pre-script e post-script|Selezionare gli script da eseguire prima e dopo la distribuzione|
 | Finestra di manutenzione |Numero di minuti impostato per gli aggiornamenti. Il valore non può essere inferiore a 30 minuti e superiore a 6 ore |
@@ -126,14 +126,14 @@ Per creare una nuova distribuzione di aggiornamenti, selezionare **Pianifica la 
 
 Le distribuzioni di aggiornamenti possono essere create anche a livello di codice. Per informazioni su come creare una distribuzione di aggiornamenti con l'API REST, vedere [Software Update Configurations - Create](/rest/api/automation/softwareupdateconfigurations/create) (Configurazioni degli aggiornamenti software - Creazione). È anche disponibile un runbook di esempio che può essere usato per creare una distribuzione di aggiornamenti settimanale. Per altre informazioni su questo runbook, vedere [Create a weekly update deployment for one or more VMs in a resource group](https://gallery.technet.microsoft.com/scriptcenter/Create-a-weekly-update-2ad359a1) (Creare una distribuzione di aggiornamenti settimanale per una o più macchine virtuali in un gruppo di risorse).
 
-Dopo avere configurato la pianificazione, fare clic sul pulsante **Crea**. Viene nuovamente visualizzato il dashboard di stato.
+Dopo avere configurato la pianificazione, fare clic sul pulsante **Crea** . Viene nuovamente visualizzato il dashboard di stato.
 Si noti che la tabella **Pianificata** mostra la pianificazione della distribuzione creata.
 
 ### <a name="view-results-of-an-update-deployment"></a>Visualizzare i risultati di una distribuzione di aggiornamenti
 
-Dopo avere avviato la distribuzione pianificata, è possibile visualizzare lo stato della distribuzione nella scheda **Distribuzioni di aggiornamenti** nella schermata **Gestione aggiornamenti**.
-Se la distribuzione è in corso, viene visualizzato lo stato **In corso**. Quando la distribuzione viene completata correttamente, lo stato diventa **Completato**.
-Se si verifica un errore in uno o più aggiornamenti della distribuzione, lo stato sarà **Parzialmente non riuscito**.
+Dopo avere avviato la distribuzione pianificata, è possibile visualizzare lo stato della distribuzione nella scheda **Distribuzioni di aggiornamenti** nella schermata **Gestione aggiornamenti** .
+Se la distribuzione è in corso, viene visualizzato lo stato **In corso** . Quando la distribuzione viene completata correttamente, lo stato diventa **Completato** .
+Se si verifica un errore in uno o più aggiornamenti della distribuzione, lo stato sarà **Parzialmente non riuscito** .
 Selezionare la distribuzione di aggiornamenti completata per visualizzare il dashboard della distribuzione.
 
 ![Dashboard di stato di una distribuzione di aggiornamenti specifica](./media/tutorial-monitoring/manage-updates-view-results.png)
@@ -141,15 +141,15 @@ Selezionare la distribuzione di aggiornamenti completata per visualizzare il das
 Il riquadro **Risultati aggiornamento** include un riepilogo del numero totale di aggiornamenti e dei risultati della distribuzione nella macchina virtuale.
 La tabella di destra visualizza una descrizione dettagliata di ogni aggiornamento e i risultati dell'installazione che possono corrispondere a uno dei valori seguenti:
 
-* **Tentativo non eseguito**: l'aggiornamento non è stato installato a causa di tempo disponibile non sufficiente basato sulla durata della finestra di manutenzione specificata.
-* **Completato**: l'aggiornamento è stato completato
-* **Non riuscito**: l'aggiornamento non è riuscito
+* **Tentativo non eseguito** : l'aggiornamento non è stato installato a causa di tempo disponibile non sufficiente basato sulla durata della finestra di manutenzione specificata.
+* **Completato** : l'aggiornamento è stato completato
+* **Non riuscito** : l'aggiornamento non è riuscito
 
 Selezionare **Tutti i log** per visualizzare tutte le voci di log create dalla distribuzione.
 
 Selezionare il riquadro **Output** per visualizzare il flusso del processo del runbook responsabile della gestione della distribuzione di aggiornamenti nella macchina virtuale di destinazione.
 
-Per visualizzare informazioni dettagliate sugli errori della distribuzione, selezionare **Errori**.
+Per visualizzare informazioni dettagliate sugli errori della distribuzione, selezionare **Errori** .
 
 ## <a name="monitor-changes-and-inventory"></a>Monitorare le modifiche e l'inventario
 
@@ -159,11 +159,11 @@ Per visualizzare informazioni dettagliate sugli errori della distribuzione, sele
 
 Abilitare la gestione delle modifiche e dell'inventario per la macchina virtuale:
 
-1. Sul lato sinistro della schermata selezionare **Macchine virtuali**.
+1. Sul lato sinistro della schermata selezionare **Macchine virtuali** .
 2. Selezionare una macchina virtuale dall'elenco.
-3. Nella sezione **Operazioni** della schermata della macchina virtuale selezionare **Inventario** o **Rilevamento modifiche**. Verrà visualizzata la schermata **Enable Change Tracking and Inventory** (Abilita rilevamento modifiche e inventario).
+3. Nella sezione **Operazioni** della schermata della macchina virtuale selezionare **Inventario** o **Rilevamento modifiche** . Verrà visualizzata la schermata **Enable Change Tracking and Inventory** (Abilita rilevamento modifiche e inventario).
 
-Configurare la località, l'area di lavoro di Log Analytics e l'account di automazione da usare e selezionare **Abilita**. Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione. Sebbene le soluzioni siano presentate separatamente sul menu, rappresentano la stessa soluzione. L'abilitazione di una di queste le abilita entrambe per la macchina virtuale.
+Configurare la località, l'area di lavoro di Log Analytics e l'account di automazione da usare e selezionare **Abilita** . Se i campi sono inattivi, significa che un'altra soluzione di automazione è abilitata per la VM e devono essere usati la stessa area di lavoro e lo stesso account di Automazione. Sebbene le soluzioni siano presentate separatamente sul menu, rappresentano la stessa soluzione. L'abilitazione di una di queste le abilita entrambe per la macchina virtuale.
 
 ![Abilitare il rilevamento delle modifiche e dell'inventario](./media/tutorial-monitoring/manage-inventory-enable.png)
 
@@ -171,23 +171,23 @@ Dopo l'abilitazione della soluzione, la raccolta dell'inventario sulla macchina 
 
 ### <a name="track-changes"></a>Rilevare le modifiche
 
-Nella macchina virtuale selezionare **Rilevamento modifiche** in **OPERAZIONI**. Selezionare **Modifica impostazioni**. Verrà visualizzata la pagina **Rilevamento modifiche**. Selezionare il tipo di impostazione che si vuole rilevare e quindi fare clic su **+ Aggiungi** per configurare le impostazioni. L'opzione disponibile per Linux è **File Linux**
+Nella macchina virtuale selezionare **Rilevamento modifiche** in **OPERAZIONI** . Selezionare **Modifica impostazioni** . Verrà visualizzata la pagina **Rilevamento modifiche** . Selezionare il tipo di impostazione che si vuole rilevare e quindi fare clic su **+ Aggiungi** per configurare le impostazioni. L'opzione disponibile per Linux è **File Linux**
 
 Per informazioni dettagliate sul rilevamento delle modifiche, vedere [Risolvere i problemi delle modifiche in una macchina virtuale](../../automation/automation-tutorial-troubleshoot-changes.md)
 
 ### <a name="view-inventory"></a>Visualizzare l'inventario
 
-Nella macchina virtuale selezionare **Inventario** in **OPERAZIONI**. Nella scheda **Software** è presente una tabella con l'elenco del software trovato. I dettagli generali di ogni record software sono visibili nella tabella. Questi dettagli includono il nome del software, la versione, l'autore, l'ora dell'ultimo aggiornamento.
+Nella macchina virtuale selezionare **Inventario** in **OPERAZIONI** . Nella scheda **Software** è presente una tabella con l'elenco del software trovato. I dettagli generali di ogni record software sono visibili nella tabella. Questi dettagli includono il nome del software, la versione, l'autore, l'ora dell'ultimo aggiornamento.
 
 ![Visualizzare l'inventario](./media/tutorial-monitoring/inventory-view-results.png)
 
 ### <a name="monitor-activity-logs-and-changes"></a>Monitorare i log attività e le modifiche
 
-Dalla pagina **Rilevamento modifiche** della VM, selezionare **Gestisci connessione al log attività**. Si aprirà la pagina **Log attività di Azure**. Selezionare **Connetti** per connettere Rilevamento modifiche al log attività di Azure per la VM.
+Dalla pagina **Rilevamento modifiche** della VM, selezionare **Gestisci connessione al log attività** . Si aprirà la pagina **Log attività di Azure** . Selezionare **Connetti** per connettere Rilevamento modifiche al log attività di Azure per la VM.
 
 Con questa impostazione abilitata, passare alla pagina **Panoramica** della VM e selezionare **Arresta** per arrestare la macchina virtuale. Quando richiesto, selezionare **Sì** per arrestare la VM. Quando la VM è deallocata, selezionare **Avvia** per riavviarla.
 
-Con l'arresto e l'avvio di una macchina virtuale viene registrato un evento nel log attività. Tornare alla pagina **Rilevamento modifiche**. Selezionare la scheda **Eventi** nella parte inferiore della pagina. Dopo poco, gli eventi verranno visualizzati nel grafico e nella tabella. È possibile selezionare ogni evento per visualizzare le relative informazioni dettagliate.
+Con l'arresto e l'avvio di una macchina virtuale viene registrato un evento nel log attività. Tornare alla pagina **Rilevamento modifiche** . Selezionare la scheda **Eventi** nella parte inferiore della pagina. Dopo poco, gli eventi verranno visualizzati nel grafico e nella tabella. È possibile selezionare ogni evento per visualizzare le relative informazioni dettagliate.
 
 ![Visualizzare le modifiche nel log attività](./media/tutorial-monitoring/manage-activitylog-view-results.png)
 

@@ -7,12 +7,12 @@ ms.service: internet-analyzer
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: mebeatty
-ms.openlocfilehash: e5a7984cd868e7fbac08ec80f92fe28ad13d84e7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 23a76e4007965c263671554bbcd937dbf3b4b0a6
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91308096"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676215"
 ---
 # <a name="create-an-internet-analyzer-test-using-cli-preview"></a>Creare un test dell'analizzatore Internet con l'interfaccia della riga di comando (anteprima)
 
@@ -25,19 +25,19 @@ Per creare una risorsa analizzatore Internet, è possibile procedere in due modi
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-L'anteprima pubblica è disponibile per l'uso a livello globale. Durante l'anteprima l'archiviazione dei dati è tuttavia limitata all'area *Stati Uniti occidentali 2*.
+L'anteprima pubblica è disponibile per l'uso a livello globale. Durante l'anteprima l'archiviazione dei dati è tuttavia limitata all'area *Stati Uniti occidentali 2* .
 
 ## <a name="object-model"></a>Modello a oggetti
 L'interfaccia della riga di comando dell'analizzatore Internet espone i tipi di risorse seguenti:
-* **Test**: un test confronta nel tempo le prestazioni degli utenti finali di due endpoint Internet (A e B).
-* **Profili**: i test vengono creati in un profilo dell'analizzatore Internet. I profili consentono di raggruppare i test correlati e un singolo profilo può contenere uno o più test.
-* **Endpoint preconfigurati**: gli endpoint sono stati impostati per un'ampia gamma di configurazioni (aree, tecnologie di accelerazione e così via). È possibile usare nei test uno qualsiasi di questi endpoint preconfigurati.
-* **Scorecard**: una scorecard offre riepiloghi rapidi e significativi dei risultati della misurazione. Fare riferimento a [Interpretazione della scorecard](internet-analyzer-scorecard.md).
-* **Serie temporale**: una serie temporale mostra le variazioni di una metrica nel tempo.
+* **Test** : un test confronta nel tempo le prestazioni degli utenti finali di due endpoint Internet (A e B).
+* **Profili** : i test vengono creati in un profilo dell'analizzatore Internet. I profili consentono di raggruppare i test correlati e un singolo profilo può contenere uno o più test.
+* **Endpoint preconfigurati** : gli endpoint sono stati impostati per un'ampia gamma di configurazioni (aree, tecnologie di accelerazione e così via). È possibile usare nei test uno qualsiasi di questi endpoint preconfigurati.
+* **Scorecard** : una scorecard offre riepiloghi rapidi e significativi dei risultati della misurazione. Fare riferimento a [Interpretazione della scorecard](internet-analyzer-scorecard.md).
+* **Serie temporale** : una serie temporale mostra le variazioni di una metrica nel tempo.
 
 ## <a name="profile-and-test-creation"></a>Creazione di profili e test
 1. Ottenere l'accesso all'anteprima dell'analizzatore Internet seguendo le istruzioni **Come si partecipa all'anteprima?** nelle [Domande frequenti sull'analizzatore Internet di Azure](internet-analyzer-faq.md).
-2. [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
+2. [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest)
 3. Eseguire il comando `login` per avviare una sessione dell'interfaccia della riga di comando:
     ```azurecli-interactive
     az login
@@ -50,9 +50,9 @@ L'interfaccia della riga di comando dell'analizzatore Internet espone i tipi di 
 
 5. Selezionare l'ID sottoscrizione a cui è stato concesso l'accesso all'anteprima pubblica dell'analizzatore Internet.
 
-    Dopo l'accesso, viene visualizzato un elenco di sottoscrizioni associate all'account Azure. Le informazioni della sottoscrizione con `isDefault: true` rappresentano la sottoscrizione attualmente attivata dopo l'accesso. Per selezionare un'altra sottoscrizione, usare il comando [az account set](https://docs.microsoft.com/cli/azure/account#az-account-set) con l'ID sottoscrizione a cui passare. Per altre informazioni sulla selezione delle sottoscrizioni, vedere [Usare più sottoscrizioni di Azure](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
+    Dopo l'accesso, viene visualizzato un elenco di sottoscrizioni associate all'account Azure. Le informazioni della sottoscrizione con `isDefault: true` rappresentano la sottoscrizione attualmente attivata dopo l'accesso. Per selezionare un'altra sottoscrizione, usare il comando [az account set](/cli/azure/account#az-account-set) con l'ID sottoscrizione a cui passare. Per altre informazioni sulla selezione delle sottoscrizioni, vedere [Usare più sottoscrizioni di Azure](/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest).
 
-    È possibile accedere in modo non interattivo, come illustrato nei dettagli in [Accedere con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+    È possibile accedere in modo non interattivo, come illustrato nei dettagli in [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
 
 6. **[Facoltativo]** Creare un nuovo gruppo di risorse di Azure:
     ```azurecli-interactive
@@ -132,6 +132,6 @@ L'interfaccia della riga di comando dell'analizzatore Internet espone i tipi di 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per l'elenco completo dei comandi supportati e per alcuni esempi di utilizzo, vedere le [informazioni di riferimento sull'interfaccia della riga di comando dell'analizzatore Internet](https://docs.microsoft.com/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest).
+* Per l'elenco completo dei comandi supportati e per alcuni esempi di utilizzo, vedere le [informazioni di riferimento sull'interfaccia della riga di comando dell'analizzatore Internet](/cli/azure/ext/internet-analyzer/internet-analyzer?view=azure-cli-latest).
 * Leggere le [Domande frequenti sull'analizzatore Internet](internet-analyzer-faq.md).
-* Vedere le informazioni su come incorporare il [client dell'analizzatore Internet](internet-analyzer-embed-client.md) e su come creare un [endpoint personalizzato](internet-analyzer-custom-endpoint.md). 
+* Vedere le informazioni su come incorporare il [client dell'analizzatore Internet](internet-analyzer-embed-client.md) e su come creare un [endpoint personalizzato](internet-analyzer-custom-endpoint.md).

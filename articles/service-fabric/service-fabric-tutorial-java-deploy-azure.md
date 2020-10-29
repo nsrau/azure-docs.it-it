@@ -3,13 +3,13 @@ title: Distribuire un'app Java in un cluster di Service Fabric in Azure
 description: In questa esercitazione si apprenderà come distribuire un'applicazione Java di Service Fabric in un cluster di Azure Service Fabric.
 ms.topic: tutorial
 ms.date: 02/26/2018
-ms.custom: mvc, devx-track-java
-ms.openlocfilehash: 3e00e478e20fbd0bc4ff6ed17b330f0d16488be6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-java, devx-track-azurecli
+ms.openlocfilehash: 89c49ae530b7a4716bc6e8bf0ea6ccb011847eb8
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532059"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738915"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Esercitazione: Distribuire un'applicazione Java in un cluster di Service Fabric in Azure
 
@@ -61,7 +61,7 @@ La procedura seguente crea le risorse necessarie per distribuire l'applicazione 
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
-4. Dalla cartella *service-fabric-java-quickstart/AzureCluster*, eseguire questo comando per creare un certificato del cluster in Key Vault. Il certificato viene usato per proteggere il cluster di Service Fabric. Specificare l'area (deve essere la stessa area in cui si trova il cluster di Service Fabric), il nome del gruppo di risorse dell'insieme di credenziali delle chiavi, il nome dell'insieme di credenziali delle chiavi, la password del certificato e il nome DNS del cluster.
+4. Dalla cartella *service-fabric-java-quickstart/AzureCluster* , eseguire questo comando per creare un certificato del cluster in Key Vault. Il certificato viene usato per proteggere il cluster di Service Fabric. Specificare l'area (deve essere la stessa area in cui si trova il cluster di Service Fabric), il nome del gruppo di risorse dell'insieme di credenziali delle chiavi, il nome dell'insieme di credenziali delle chiavi, la password del certificato e il nome DNS del cluster.
 
     ```bash
     ./new-service-fabric-cluster-certificate.sh [REGION] [KEY-VAULT-RESOURCE-GROUP] [KEY-VAULT-NAME] [CERTIFICATE-PASSWORD] [CLUSTER-DNS-NAME-FOR-CERTIFICATE]
@@ -154,7 +154,7 @@ La procedura seguente crea le risorse necessarie per distribuire l'applicazione 
     python3 eventhubssastoken.py 'testeventhubs' 'testeventhubs' 'sender' '[PRIMARY-KEY]'
     ```
 
-    Copiare il valore del campo **sr** nell'output JSON restituito. Il valore del campo **sr** è il token di firma di accesso condiviso per Hub eventi. L'URL seguente è un esempio di campo **sr**:
+    Copiare il valore del campo **sr** nell'output JSON restituito. Il valore del campo **sr** è il token di firma di accesso condiviso per Hub eventi. L'URL seguente è un esempio di campo **sr** :
 
     ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
@@ -176,8 +176,8 @@ La procedura seguente crea le risorse necessarie per distribuire l'applicazione 
     }
     ```
 
-13. Aprire **sfdeploy.parameters.json**. Modificare i parametri seguenti e quindi salvare il file.
-    - **clusterName**. Usare solo lettere minuscole e numeri.
+13. Aprire **sfdeploy.parameters.json** . Modificare i parametri seguenti e quindi salvare il file.
+    - **clusterName** . Usare solo lettere minuscole e numeri.
     - **adminUserName** (su un valore diverso da zero)
     - **adminPassword** (su un valore diverso da zero)
 
@@ -189,7 +189,7 @@ La procedura seguente crea le risorse necessarie per distribuire l'applicazione 
 
 ## <a name="deploy-your-application-to-the-cluster"></a>Distribuire l'applicazione nel cluster
 
-1. Prima di distribuire l'applicazione è necessario aggiungere il frammento di codice seguente al file *Voting/VotingApplication/ApplicationManifest.xml*. Il campo **X509FindValue** è l'identificazione personale restituita dal passaggio 4 della sezione **Creare un cluster di Service Fabric in Azure**. Questo frammento di codice è annidato sotto il campo **ApplicationManifest** (campo radice).
+1. Prima di distribuire l'applicazione è necessario aggiungere il frammento di codice seguente al file *Voting/VotingApplication/ApplicationManifest.xml* . Il campo **X509FindValue** è l'identificazione personale restituita dal passaggio 4 della sezione **Creare un cluster di Service Fabric in Azure** . Questo frammento di codice è annidato sotto il campo **ApplicationManifest** (campo radice).
 
     ```xml
     <Certificates>
@@ -209,7 +209,7 @@ La procedura seguente crea le risorse necessarie per distribuire l'applicazione 
     sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
-4. Per distribuire l'applicazione, passare alla cartella *Voting/Scripts* ed eseguire lo script **install.sh**.
+4. Per distribuire l'applicazione, passare alla cartella *Voting/Scripts* ed eseguire lo script **install.sh** .
 
     ```bash
     ./install.sh

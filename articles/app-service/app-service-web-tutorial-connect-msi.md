@@ -4,13 +4,13 @@ description: Informazioni su come rendere più sicura la connettività del datab
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 04/27/2020
-ms.custom: devx-track-csharp, mvc, cli-validate
-ms.openlocfilehash: 19e1d71cd766a99a32e90e2f83dc717ba56b795f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: devx-track-csharp, mvc, cli-validate, devx-track-azurecli
+ms.openlocfilehash: 633e3a6386b9e6098e167c7fdd542d98c16fae48
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90984043"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92737891"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>Esercitazione: Proteggere la connessione al database SQL di Azure dal servizio app con un'identità gestita
 
@@ -37,7 +37,7 @@ Contenuto dell'esercitazione:
 > * Connettersi al database SQL da Visual Studio usando l'autenticazione di Azure AD
 
 > [!NOTE]
->L'autenticazione di Azure AD è _diversa_ dall'[autenticazione integrata di Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) nell'ambiente Active Directory locale (Active Directory Domain Services). Active Directory Domain Services e Azure AD usano protocolli di autenticazione completamente diversi. Per altre informazioni, vedere la [Documentazione di Azure AD Domain Services](../active-directory-domain-services/index.yml).
+>L'autenticazione di Azure AD è _diversa_ dall' [autenticazione integrata di Windows](/previous-versions/windows/it-pro/windows-server-2003/cc758557(v=ws.10)) nell'ambiente Active Directory locale (Active Directory Domain Services). Active Directory Domain Services e Azure AD usano protocolli di autenticazione completamente diversi. Per altre informazioni, vedere la [Documentazione di Azure AD Domain Services](../active-directory-domain-services/index.yml).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -75,9 +75,9 @@ Per altre informazioni sull'aggiunta di un amministratore di Active Directory, v
 ## <a name="set-up-visual-studio"></a>Configurare Visual Studio
 
 ### <a name="windows-client"></a>Client Windows
-Visual Studio per Windows è integrato con Autenticazione di Azure AD. Per abilitare lo sviluppo e il debug in Visual Studio, aggiungere l'utente di Azure AD in Visual Studio scegliendo **File** > **Impostazioni account** dal menu e facendo clic su **Aggiungi un account**.
+Visual Studio per Windows è integrato con Autenticazione di Azure AD. Per abilitare lo sviluppo e il debug in Visual Studio, aggiungere l'utente di Azure AD in Visual Studio scegliendo **File** > **Impostazioni account** dal menu e facendo clic su **Aggiungi un account** .
 
-Per impostare l'utente di Azure AD per l'autenticazione dei servizi di Azure, scegliere **Strumenti** > **Opzioni** dal menu, quindi selezionare **Azure Service Authentication (Autenticazione servizi di Azure)**  > **Selezione account**. Selezionare l'utente di Azure AD aggiunto e fare clic su **OK**.
+Per impostare l'utente di Azure AD per l'autenticazione dei servizi di Azure, scegliere **Strumenti** > **Opzioni** dal menu, quindi selezionare **Azure Service Authentication (Autenticazione servizi di Azure)**  > **Selezione account** . Selezionare l'utente di Azure AD aggiunto e fare clic su **OK** .
 
 A questo punto è possibile iniziare a sviluppare l'app ed eseguirne il debug con il database SQL come back-end, usando l'autenticazione di Azure AD.
 
@@ -194,7 +194,7 @@ Ecco un esempio di output:
 ### <a name="grant-permissions-to-managed-identity"></a>Concedere le autorizzazioni a un'identità gestita
 
 > [!NOTE]
-> Se si vuole, è possibile aggiungere l'identità a un [gruppo di Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md), quindi concedere l'accesso al database SQL al gruppo di Azure AD invece che all'identità. Ad esempio, i comandi seguenti aggiungono l'identità gestita del passaggio precedente a un nuovo gruppo denominato _myAzureSQLDBAccessGroup_:
+> Se si vuole, è possibile aggiungere l'identità a un [gruppo di Azure AD](../active-directory/fundamentals/active-directory-manage-groups.md), quindi concedere l'accesso al database SQL al gruppo di Azure AD invece che all'identità. Ad esempio, i comandi seguenti aggiungono l'identità gestita del passaggio precedente a un nuovo gruppo denominato _myAzureSQLDBAccessGroup_ :
 > 
 > ```azurecli-interactive
 > groupid=$(az ad group create --display-name myAzureSQLDBAccessGroup --mail-nickname myAzureSQLDBAccessGroup --query objectId --output tsv)
@@ -220,7 +220,7 @@ ALTER ROLE db_ddladmin ADD MEMBER [<identity-name>];
 GO
 ```
 
-*\<identity-name>* è il nome dell'identità gestita in Azure AD. Se l'identità è assegnata dal sistema, il nome corrisponde sempre a quello dell'app del servizio app. Per concedere le autorizzazioni per un gruppo di Azure AD, usare invece il nome visualizzato del gruppo, ad esempio *myAzureSQLDBAccessGroup*.
+*\<identity-name>* è il nome dell'identità gestita in Azure AD. Se l'identità è assegnata dal sistema, il nome corrisponde sempre a quello dell'app del servizio app. Per concedere le autorizzazioni per un gruppo di Azure AD, usare invece il nome visualizzato del gruppo, ad esempio *myAzureSQLDBAccessGroup* .
 
 Digitare `EXIT` per tornare al prompt di Cloud Shell.
 
@@ -239,11 +239,11 @@ az webapp config connection-string delete --resource-group myResourceGroup --nam
 
 A questo punto è sufficiente pubblicare le modifiche in Azure.
 
-**Se l'esercitazione completata in precedenza è [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md)** , pubblicare le modifiche in Visual Studio. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **DotNetAppSqlDb** e selezionare **Pubblica**.
+**Se l'esercitazione completata in precedenza è [Esercitazione: Creare un'app ASP.NET in Azure con un database SQL](app-service-web-tutorial-dotnet-sqldatabase.md)** , pubblicare le modifiche in Visual Studio. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto **DotNetAppSqlDb** e selezionare **Pubblica** .
 
 ![Pubblicare da Esplora soluzioni](./media/app-service-web-tutorial-dotnet-sqldatabase/solution-explorer-publish.png)
 
-Nella pagina di pubblicazione fare clic su **Pubblica**. 
+Nella pagina di pubblicazione fare clic su **Pubblica** . 
 
 **Se l'esercitazione completata in precedenza è [Esercitazione: Compilare un'app ASP.NET Core e database SQL in Servizio app di Azure](tutorial-dotnetcore-sqldb-app.md)** , pubblicare le modifiche usando Git, con i comandi seguenti:
 

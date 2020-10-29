@@ -3,13 +3,13 @@ title: 'Esercitazione: Creazione rapida di immagini di contenitori'
 description: Questa esercitazione illustra come compilare un'immagine del contenitore Docker in Azure con Attività del Registro Azure Container e quindi distribuire tale immagine in Istanze di Azure Container.
 ms.topic: tutorial
 ms.date: 09/24/2018
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 7178d7171d4c9c0183eb744f19776f6b2fac09ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 43d2c277fe3297c7e5ee55046118add352853640
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86259484"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92739531"
 ---
 # <a name="tutorial-build-and-deploy-container-images-in-the-cloud-with-azure-container-registry-tasks"></a>Esercitazione: Compilare e distribuire immagini dei contenitori nel cloud con Attività del Registro Azure Container
 
@@ -87,7 +87,7 @@ az group create --resource-group $RES_GROUP --location eastus
 az acr create --resource-group $RES_GROUP --name $ACR_NAME --sku Standard --location eastus
 ```
 
-Ora che è disponibile un registro, usare Attività del Registro Azure Container per compilare un'immagine del contenitore dal codice di esempio. Eseguire il comando [az acr build][az-acr-build] per eseguire un'*attività rapida*:
+Ora che è disponibile un registro, usare Attività del Registro Azure Container per compilare un'immagine del contenitore dal codice di esempio. Eseguire il comando [az acr build][az-acr-build] per eseguire un' *attività rapida* :
 
 ```azurecli-interactive
 az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
@@ -203,7 +203,7 @@ az keyvault secret set \
                 --output tsv)
 ```
 
-L'argomento `--role` nel comando precedente configura l'entità servizio con il ruolo *acrpull*, che concede l'accesso al registro con autorizzazioni solo di pull. Per concedere l'accesso con autorizzazioni sia di push che di pull, impostare l'argomento `--role` su *acrpush*.
+L'argomento `--role` nel comando precedente configura l'entità servizio con il ruolo *acrpull* , che concede l'accesso al registro con autorizzazioni solo di pull. Per concedere l'accesso con autorizzazioni sia di push che di pull, impostare l'argomento `--role` su *acrpush* .
 
 Archiviare quindi nell'insieme di credenziali il valore *appId* dell'entità servizio, che è il **nome utente** passato a Registro Azure Container per l'autenticazione:
 
@@ -295,7 +295,7 @@ az ad sp delete --id http://$ACR_NAME-pull
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver testato il ciclo interno con un'attività rapida, configurare un'**attività di compilazione** per attivare compilazioni delle immagini dei contenitori quando si esegue il commit di codice sorgente in un repository Git:
+Dopo aver testato il ciclo interno con un'attività rapida, configurare un' **attività di compilazione** per attivare compilazioni delle immagini dei contenitori quando si esegue il commit di codice sorgente in un repository Git:
 
 > [!div class="nextstepaction"]
 > [Attivare compilazioni automatiche con attività](container-registry-tutorial-build-task.md)

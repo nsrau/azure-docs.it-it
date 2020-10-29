@@ -1,20 +1,20 @@
 ---
 title: Controlli dell'esempio di progetto DoD Impact Level 4
 description: Mapping dei controlli dell'esempio di progetto DoD Impact Level 4. Ogni controllo viene mappato a una o più definizioni di Criteri di Azure che assistono nella valutazione.
-ms.date: 09/17/2020
+ms.date: 10/26/2020
 ms.topic: sample
-ms.openlocfilehash: 433e77775fdd28032db27c017fe370ab32074a95
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 376ddd68373026a93eaf08774cee0a1f8ce06bec
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91929524"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675738"
 ---
 # <a name="control-mapping-of-the-dod-impact-level-4-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto DoD Impact Level 4
 
 L'articolo seguente illustra come viene eseguito il mapping tra l'esempio di progetto di Azure Blueprints Department of Defense Impact Level 4 (DoD IL4) e i controlli DoD Impact Level 4. Per altre informazioni sui controlli, vedere [DoD Cloud Computing Security Requirements Guide (SRG)](https://dl.dod.cyber.mil/wp-content/uploads/cloud/pdf/Cloud_Computing_SRG_v1r3.pdf). La Defense Information Systems Agency (DISA) è un'agenzia del Department of Defense (DoD) degli Stati Uniti responsabile dello sviluppo e della gestione della DoD Cloud Computing Security Requirements Guide (SRG). La guida SRG definisce i requisiti di sicurezza di base per i provider di servizi cloud che ospitano informazioni, sistemi e applicazioni del DoD e per l'uso di servizi cloud da parte del DoD.  
 
-I mapping seguenti fanno riferimento ai controlli **DoD Impact Level 4**. Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni**. Trovare e selezionare l'iniziativa dei criteri predefinita **\[Anteprima\]: DoD Impact Level 4**.
+I mapping seguenti fanno riferimento ai controlli **DoD Impact Level 4** . Usare la barra di spostamento a destra per passare direttamente a uno specifico mapping. Molti controlli mappati vengono implementati con un'iniziativa di [Criteri di Azure](../../../policy/overview.md). Per esaminare l'iniziativa completa, aprire **Criteri** nel portale di Azure e selezionare la pagina **Definizioni** . Trovare e selezionare l'iniziativa dei criteri predefinita **\[Anteprima\]: DoD Impact Level 4** .
 
 > [!IMPORTANT]
 > Ogni controllo tra quelli riportati di seguito è associato a una o più definizioni di [Criteri di Azure](../../../policy/overview.md). Questi criteri possono aiutare a [valutare la conformità](../../../policy/how-to/get-compliance-data.md) con il controllo. In molti casi tuttavia non si tratta di una corrispondenza uno-a-uno o completa tra un controllo e uno o più criteri. Di per sé, **Conforme** in Criteri di Azure si riferisce solo ai criteri stessi e non garantisce che l'utente sia completamente conforme a tutti i requisiti di un controllo. Inoltre, in questo momento lo standard di conformità include controlli che non vengono gestiti da alcuna definizione di Criteri di Azure. La conformità in Criteri di Azure è quindi solo una visualizzazione parziale dello stato di conformità generale. Le associazioni tra i controlli e le definizioni di Criteri di Azure per questo esempio di progetto di conformità possono cambiare nel tempo. Per visualizzare la cronologia delle modifiche, vedere la [cronologia dei commit di GitHub](https://github.com/MicrosoftDocs/azure-docs/commits/master/articles/governance/blueprints/samples/dod-impact-level-4/control-mapping.md).
