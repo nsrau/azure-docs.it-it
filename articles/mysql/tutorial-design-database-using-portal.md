@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: tutorial
 ms.date: 3/20/2020
 ms.custom: mvc
-ms.openlocfilehash: d34be152a0d104e688abd6e53c97353b69012670
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6d0c4167192c42939e16dfd36bdc3eeef4b54b7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906551"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543713"
 ---
 # <a name="tutorial-design-an-azure-database-for-mysql-database-using-the-azure-portal"></a>Esercitazione: Progettare un database di Database di Azure per MySQL con il portale di Azure
 
@@ -37,43 +37,43 @@ Aprire il Web browser preferito e visitare il [portale di Microsoft Azure](https
 
 ## <a name="create-an-azure-database-for-mysql-server"></a>Creare un server Database di Azure per MySQL
 
-Verrà creato un database di Azure per MySQL con un set definito di [risorse di calcolo e di archiviazione](./concepts-compute-unit-and-storage.md). Il server viene creato all'interno di un [gruppo di risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+Verrà creato un database di Azure per MySQL con un set definito di [risorse di calcolo e di archiviazione](./concepts-pricing-tiers.md). Il server viene creato all'interno di un [gruppo di risorse di Azure](../azure-resource-manager/management/overview.md).
 
 1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale.
 
-2. Selezionare **Database** > **Database di Azure per MySQL**. Se non si trova MySQL Server nella categoria **Database**, fare clic su **Visualizza tutto** per visualizzare tutti i servizi di database disponibili. È possibile anche digitare **Database di Azure per MySQL** nella casella di ricerca per trovare rapidamente il servizio.
+2. Selezionare **Database** > **Database di Azure per MySQL** . Se non si trova MySQL Server nella categoria **Database** , fare clic su **Visualizza tutto** per visualizzare tutti i servizi di database disponibili. È possibile anche digitare **Database di Azure per MySQL** nella casella di ricerca per trovare rapidamente il servizio.
    
    :::image type="content" source="./media/tutorial-design-database-using-portal/1-Navigate-to-MySQL.png" alt-text="Passare a MySQL":::
 
-3. Fare clic sul riquadro **Database di Azure per MySQL**. Compilare il modulo di Database di Azure per MySQL.
+3. Fare clic sul riquadro **Database di Azure per MySQL** . Compilare il modulo di Database di Azure per MySQL.
    
    :::image type="content" source="./media/tutorial-design-database-using-portal/2-create-form.png" alt-text="Passare a MySQL":::
 
     **Impostazione** | **Valore consigliato** | **Descrizione campo**
     ---|---|---
-    Nome server | Nome server univoco | Scegliere un nome univoco per identificare il database di Azure per il server MySQL. Ad esempio, mydemoserver. Al nome del server specificato viene aggiunto il nome di dominio *mysql.database.azure.com*. Il nome del server può contenere solo lettere minuscole, numeri e il segno meno (-) e deve avere una lunghezza compresa tra 3 e 63 caratteri.
+    Nome server | Nome server univoco | Scegliere un nome univoco per identificare il database di Azure per il server MySQL. Ad esempio, mydemoserver. Al nome del server specificato viene aggiunto il nome di dominio *mysql.database.azure.com* . Il nome del server può contenere solo lettere minuscole, numeri e il segno meno (-) e deve avere una lunghezza compresa tra 3 e 63 caratteri.
     Subscription | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per il server. Se si hanno più sottoscrizioni, scegliere quella in cui viene fatturata la risorsa.
     Resource group | *myresourcegroup* | Specificare il nome di un gruppo di risorse nuovo o esistente.
     Selezionare l'origine | *Vuoto* | Selezionare *Vuoto* per creare un nuovo server da zero. Selezionare *Backup* se si sta creando un server da un backup geografico di un server Database di Azure per MySQL esistente.
-    Accesso amministratore server | myadmin | Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser**, **admin**, **administrator**, **root**, **guest** o **public**.
+    Accesso amministratore server | myadmin | Account di accesso da usare per la connessione al server. Il nome di accesso dell'amministratore non può essere **azure_superuser** , **admin** , **administrator** , **root** , **guest** o **public** .
     Password | *A scelta dell'utente* | Specificare una nuova password per l'account dell'amministratore del server. Deve avere una lunghezza compresa tra 8 e 128 caratteri. La password deve contenere caratteri di tre delle categorie seguenti: lettere maiuscole, lettere minuscole, numeri (0-9) e caratteri non alfanumerici (!, $, #, % e così via).
     Conferma password | *A scelta dell'utente*| Confermare la password dell'account amministratore.
     Location | *Area più vicina ai propri utenti*| Scegliere la località più vicina agli utenti o alle altre applicazioni Azure.
     Versione | *Ultima versione*| Ultima versione, a meno che non si abbiano requisiti specifici per cui deve esserne usata un'altra.
-    Piano tariffario | **Utilizzo generico**, **Generazione 5**, **2 vCore**, **5 GB**, **7 giorni**, **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Piano tariffario**. Selezionare quindi la scheda **Utilizzo generico**. *Generazione 5*, *2 vCore*, *5 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo**, **vCore**, **Archiviazione** e **Periodo di conservazione backup**. È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup**. Per salvare la selezione del piano tariffario, selezionare **OK**. Lo screenshot successivo mostra queste selezioni.
+    Piano tariffario | **Utilizzo generico** , **Generazione 5** , **2 vCore** , **5 GB** , **7 giorni** , **Con ridondanza geografica** | Configurazioni di calcolo, archiviazione e backup per il nuovo server. Selezionare **Piano tariffario** . Selezionare quindi la scheda **Utilizzo generico** . *Generazione 5* , *2 vCore* , *5 GB* e *7 giorni* sono i valori predefiniti per **Generazione di calcolo** , **vCore** , **Archiviazione** e **Periodo di conservazione backup** . È possibile lasciare questi dispositivi di scorrimento nella posizione in cui si trovano. Per abilitare l'archiviazione con ridondanza geografica dei backup del server, selezionare **Con ridondanza geografica** in **Opzioni di ridondanza per il backup** . Per salvare la selezione del piano tariffario, selezionare **OK** . Lo screenshot successivo mostra queste selezioni.
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/3-pricing-tier.png" alt-text="Passare a MySQL":::
 
    > [!TIP]
-   > Quando l'opzione per l'**aumento automatico** è abilitata, il server aumenta lo spazio di archiviazione disponibile quando si sta per raggiungere il limite allocato, senza alcun impatto sul carico di lavoro.
+   > Quando l'opzione per l' **aumento automatico** è abilitata, il server aumenta lo spazio di archiviazione disponibile quando si sta per raggiungere il limite allocato, senza alcun impatto sul carico di lavoro.
 
-4. Fare clic su **Rivedi e crea**. È possibile fare clic sul pulsante **Notifiche** sulla barra degli strumenti per monitorare il processo di distribuzione. La distribuzione può richiedere fino a 20 minuti.
+4. Fare clic su **Rivedi e crea** . È possibile fare clic sul pulsante **Notifiche** sulla barra degli strumenti per monitorare il processo di distribuzione. La distribuzione può richiedere fino a 20 minuti.
 
 ## <a name="configure-firewall"></a>Configurare il firewall
 
 I database di Azure per MySQL sono protetti da un firewall. Per impostazione predefinita, vengono rifiutate tutte le connessioni al server e ai database all'interno del server. Prima di connettersi per la prima volta al database di Azure per MySQL, configurare il firewall per aggiungere l'indirizzo IP della rete pubblica del computer client (o un intervallo di indirizzi IP).
 
-1. Fare clic sul server appena creato e quindi fare clic su **Sicurezza connessione**.
+1. Fare clic sul server appena creato e quindi fare clic su **Sicurezza connessione** .
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/1-Connection-security.png" alt-text="Passare a MySQL":::
 2. È possibile scegliere **Aggiungi indirizzo IP corrente** o configurare le regole del firewall qui. Ricordarsi di fare clic su **Salva** dopo aver creato le regole.
@@ -88,10 +88,10 @@ Ottenere il **Nome server** completo e il **Nome di accesso dell'amministratore 
 
 1. Nel [portale di Azure](https://portal.azure.com/) fare clic su **Tutte le risorse** nel menu a sinistra, digitare il nome e cercare il database di Azure per il server MySQL. Selezionare il nome del server per visualizzare i dettagli.
 
-2. Nella pagina **Panoramica** prendere nota di **Nome server** e **Nome di accesso dell'amministratore server**. È possibile fare clic sul pulsante Copia accanto a ogni campo per copiarlo negli Appunti.
+2. Nella pagina **Panoramica** prendere nota di **Nome server** e **Nome di accesso dell'amministratore server** . È possibile fare clic sul pulsante Copia accanto a ogni campo per copiarlo negli Appunti.
    :::image type="content" source="./media/tutorial-design-database-using-portal/2-server-properties.png" alt-text="Passare a MySQL":::
 
-In questo esempio, il nome del server è *mydemoserver.mysql.database.azure.com* e l'account di accesso amministratore del server è *myadmin\@mydemoserver*.
+In questo esempio, il nome del server è *mydemoserver.mysql.database.azure.com* e l'account di accesso amministratore del server è *myadmin\@mydemoserver* .
 
 ## <a name="connect-to-the-server-using-mysql"></a>Connettersi al server usando mysql
 
@@ -174,10 +174,10 @@ Si supponga di avere eliminato un'importante tabella di database e di non poter 
 
    :::image type="content" source="./media/tutorial-design-database-using-portal/2-restore-form.png" alt-text="Passare a MySQL":::
 
-   - **Punto di ripristino**: selezionare un punto nel tempo per il ripristino, all'interno dell'intervallo di tempo elencato. Assicurarsi di convertire il fuso orario locale in ora UTC.
-   - **Ripristina nel nuovo server**: specificare il nome del nuovo server in cui eseguire il ripristino
-   - **Località**: l'area corrisponde a quella del server di origine e non può essere modificata.
-   - **Piano tariffario**: il piano tariffario corrisponde a quello del server di origine e non può essere modificato.
+   - **Punto di ripristino** : selezionare un punto nel tempo per il ripristino, all'interno dell'intervallo di tempo elencato. Assicurarsi di convertire il fuso orario locale in ora UTC.
+   - **Ripristina nel nuovo server** : specificare il nome del nuovo server in cui eseguire il ripristino
+   - **Località** : l'area corrisponde a quella del server di origine e non può essere modificata.
+   - **Piano tariffario** : il piano tariffario corrisponde a quello del server di origine e non può essere modificato.
    
 3. Fare clic su **OK** per ripristinare il server da [ripristinare in un punto nel tempo](./howto-restore-server-portal.md) precedente all'eliminazione della tabella. Il ripristino di un server crea una nuova copia del server, a partire dal momento nel tempo specificato.
 

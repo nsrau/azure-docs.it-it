@@ -8,18 +8,18 @@ ms.devlang: json
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.custom: mvc
-ms.openlocfilehash: f4960482c88bf9768be1c1c9dbb3652409a8f1b8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66d09503f5db95811f807aa7faa83b92facca992
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74771101"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92543696"
 ---
 # <a name="tutorial-provision-an-azure-database-for-mysql-server-using-azure-resource-manager-template"></a>Esercitazione: Effettuare il provisioning di un server di Database di Azure per MySQL usando il modello di Azure Resource Manager
 
-L'[API REST di Database di Azure per MySQL](https://docs.microsoft.com/rest/api/mysql/) consente ai tecnici DevOps di automatizzare e integrare il provisioning, la configurazione e le operazioni di server e database MySQL gestiti in Azure.  L'API consente la creazione, l'enumerazione, la gestione e l'eliminazione di server e database MySQL nel servizio Database di Azure per MySQL.
+L'[API REST di Database di Azure per MySQL](/rest/api/mysql/) consente ai tecnici DevOps di automatizzare e integrare il provisioning, la configurazione e le operazioni di server e database MySQL gestiti in Azure.  L'API consente la creazione, l'enumerazione, la gestione e l'eliminazione di server e database MySQL nel servizio Database di Azure per MySQL.
 
-Azure Resource Manager usa l'API REST sottostante per dichiarare e programmare le risorse di Azure necessarie per le distribuzioni su larga scala, in linea con il concetto di infrastruttura distribuita come codice. Il modello usa come parametri il nome della risorsa di Azure, lo SKU, la rete, la configurazione del firewall e le impostazioni, consentendone la creazione una sola volta e il riutilizzo più volte.  È possibile creare modelli di Azure Resource Manager con facilità tramite il [portale di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal) o [Visual Studio Code](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-visual-studio-code?tabs=CLI), che consentono la creazione di pacchetti, la standardizzazione e l'automazione della distribuzione dell'applicazione, che può essere integrata nella pipeline CI/CD DevOps.  Se ad esempio si vuole distribuire rapidamente un'app Web con il back-end di Database di Azure per MySQL, è possibile eseguire la distribuzione end-to-end usando questo [modello di avvio rapido](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) della raccolta GitHub.
+Azure Resource Manager usa l'API REST sottostante per dichiarare e programmare le risorse di Azure necessarie per le distribuzioni su larga scala, in linea con il concetto di infrastruttura distribuita come codice. Il modello usa come parametri il nome della risorsa di Azure, lo SKU, la rete, la configurazione del firewall e le impostazioni, consentendone la creazione una sola volta e il riutilizzo più volte.  È possibile creare modelli di Azure Resource Manager con facilità tramite il [portale di Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md) o [Visual Studio Code](../azure-resource-manager/templates/quickstart-create-templates-use-visual-studio-code.md?tabs=CLI), che consentono la creazione di pacchetti, la standardizzazione e l'automazione della distribuzione dell'applicazione, che può essere integrata nella pipeline CI/CD DevOps.  Se ad esempio si vuole distribuire rapidamente un'app Web con il back-end di Database di Azure per MySQL, è possibile eseguire la distribuzione end-to-end usando questo [modello di avvio rapido](https://azure.microsoft.com/resources/templates/101-webapp-managed-mysql/) della raccolta GitHub.
 
 In questa esercitazione si useranno il modello di Azure Resource Manager e altre utilità e si apprenderà come:
 
@@ -115,7 +115,7 @@ Per connettersi al server, è necessario specificare le informazioni sull'host e
 az mysql server show --resource-group myresourcegroup --name mydemoserver
 ```
 
-Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l'**administratorLogin**.
+Il risultato è in formato JSON. Annotare il **fullyQualifiedDomainName** e l' **administratorLogin** .
 ```json
 {
   "administratorLogin": "myadmin",

@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
 ms.openlocfilehash: f0d0742994b14f692c2aea9130edc73d779cff52
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
+ms.lasthandoff: 10/29/2020
 ms.locfileid: "92544767"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Come configurare Cache Redis di Azure
@@ -177,7 +177,7 @@ Se durante l'uso della cache si verifica una determinata condizione, ad esempio 
 
 Per altre informazioni, vedere il pannello **Raccomandazioni** .
 
-![Indicazioni](./media/cache-configure/redis-cache-recommendations.png)
+![Consigli](./media/cache-configure/redis-cache-recommendations.png)
 
 È possibile monitorare le metriche nelle sezioni relative ai grafici di [Monitoraggio](cache-how-to-monitor.md#monitoring-charts) e [Utilizzo](cache-how-to-monitor.md#usage-charts) del pannello **Cache Redis** .
 
