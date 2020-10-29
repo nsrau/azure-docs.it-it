@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/01/2020
-ms.openlocfilehash: 608694c07894c8bdff8b1101d607e07ea4383764
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1970709dea67111bfd8b90f9fc315a3b044b2ab9
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89279832"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900257"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiare dati da una tabella SAP usando Azure Data Factory
 
@@ -51,9 +51,10 @@ In particolare, questo connettore di tabella SAP supporta:
 - Recupero di dati tramite RFC predefinito o personalizzato.
 
 La versione 7,01 o successiva si riferisce alla versione di SAP NetWeaver invece che alla versione SAP ECC. Ad esempio, SAP ECC 6,0 EHP 7 in generale presenta NetWeaver Version >= 7,4. Se non si è certi dell'ambiente, di seguito sono riportati i passaggi per confermare la versione dal sistema SAP:
-1.  Usare l'interfaccia utente grafica SAP per connettersi al sistema SAP. 
-2.  Passare a **System**  ->  **stato**del sistema. 
-3.  Controllare la versione del SAP_BASIS, verificare che sia uguale o maggiore di 701.  
+
+1. Usare l'interfaccia utente grafica SAP per connettersi al sistema SAP. 
+2. Passare a **System**  ->  **stato** del sistema. 
+3. Controllare la versione del SAP_BASIS, verificare che sia uguale o maggiore di 701.  
       ![Controlla SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -71,7 +72,7 @@ Per usare questo connettore di tabella SAP, è necessario:
   - Autorizzazione per l'utilizzo di destinazioni della chiamata di funzione remota (RFC).
   - Autorizzazioni per l'attività Execute dell'oggetto S_SDSAUTH autorizzazione.
 
-## <a name="get-started"></a>Operazioni preliminari
+## <a name="get-started"></a>Introduzione
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -225,8 +226,8 @@ Per copiare dati da una tabella SAP, sono supportate le proprietà seguenti:
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | La proprietà `type` deve essere impostata su `SapTableSource`.         | Sì      |
 | `rowCount`                         | Numero di righe da recuperare.                              | No       |
-| `rfcTableFields`                 | Campi (colonne) da copiare dalla tabella SAP. Ad esempio: `column0, column1`. | No       |
-| `rfcTableOptions`                | Opzioni per filtrare le righe in una tabella SAP. Ad esempio: `COLUMN0 EQ 'SOMEVALUE'`. Vedere anche la tabella degli operatori di query SAP più avanti in questo articolo. | No       |
+| `rfcTableFields`                 | Campi (colonne) da copiare dalla tabella SAP. Ad esempio `column0, column1`. | No       |
+| `rfcTableOptions`                | Opzioni per filtrare le righe in una tabella SAP. Ad esempio `COLUMN0 EQ 'SOMEVALUE'`. Vedere anche la tabella degli operatori di query SAP più avanti in questo articolo. | No       |
 | `customRfcReadTableFunctionModule` | Un modulo della funzione RFC personalizzato che può essere usato per leggere i dati da una tabella SAP.<br>È possibile usare un modulo della funzione RFC personalizzato per definire il modo in cui i dati vengono recuperati dal sistema SAP e restituiti a Data Factory. Il modulo della funzione personalizzata deve disporre di un'interfaccia implementata (importazione, esportazione, tabelle) simile a `/SAPDS/RFC_READ_TABLE2` , ovvero l'interfaccia predefinita utilizzata da data factory.<br>Data Factory | No       |
 | `partitionOption`                  | Meccanismo di partizione per la lettura da una tabella SAP. Le opzioni supportate includono: <ul><li>`None`</li><li>`PartitionOnInt` (valori integer o Integer normali con riempimento zero a sinistra, ad esempio `0000012345` )</li><li>`PartitionOnCalendarYear` (4 cifre nel formato "aaaa")</li><li>`PartitionOnCalendarMonth` (6 cifre nel formato "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 cifre nel formato "AAAAMMGG")</li></ul> | No       |
 | `partitionColumnName`              | Nome della colonna utilizzata per partizionare i dati.                | No       |

@@ -4,20 +4,20 @@ description: Informazioni sui componenti di base del cluster e del carico di lav
 services: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 2fe687ddd63ee85faec2d1aa4c02fa2636a3058f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17203123ceb0c196bd8f9011e2962f5022e54698
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86251859"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901301"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>Concetti di base di Kubernetes per il servizio Azure Kubernetes
 
 Quando lo sviluppo di applicazioni si sposta verso un approccio basato su contenitori, è importante la necessità di orchestrare e gestire le risorse. Kubernetes è la piattaforma leader che offre programmazione affidabile di carichi di lavoro applicativi dotati di tolleranza agli errori. Il servizio Azure Kubernetes è un'offerta Kubernetes gestita che semplifica ulteriormente lo sviluppo e la gestione di applicazioni basate su contenitori.
 
-Questo articolo presenta i componenti principali dell'infrastruttura Kubernetes, ad esempio il *piano di controllo*, i *nodi*e i *pool di nodi*. Sono presentate anche risorse del carico di lavoro come *pod*, *distribuzioni* e *set*, nonché la procedura per raggruppare risorse in *spazi dei nomi*.
+Questo articolo presenta i componenti principali dell'infrastruttura Kubernetes, ad esempio il *piano di controllo* , i *nodi* e i *pool di nodi* . Sono presentate anche risorse del carico di lavoro come *pod* , *distribuzioni* e *set* , nonché la procedura per raggruppare risorse in *spazi dei nomi* .
 
-## <a name="what-is-kubernetes"></a>Cos'è Kubernetes
+## <a name="what-is-kubernetes"></a>Che cos'è Kubernetes?
 
 Kubernetes è una piattaforma in rapida evoluzione che gestisce applicazioni basate su contenitori e i componenti di rete e archiviazione associati. La piattaforma è incentrata sui carichi di lavoro applicativi e non sui componenti dell'infrastruttura sottostante. Kubernetes offre un approccio dichiarativo alle distribuzioni, supportato da una gamma completa di API per operazioni di gestione.
 
@@ -42,10 +42,10 @@ Quando si crea un cluster AKS, viene creato e configurato automaticamente un pia
 
 Il piano di controllo include i componenti Kubernetes principali seguenti:
 
-- *kube-apiserver*: il server API indica il modo in cui le API Kubernetes sottostanti sono esposte. Questo componente fornisce l'interazione per gli strumenti di gestione, ad esempio `kubectl` o il dashboard di Kubernetes.
-- *etcd*: per mantenere lo stato della configurazione e del cluster Kubernetes, l'*etcd* con disponibilità elevata è un archivio di valori chiave all'interno di Kubernetes.
-- *kube-scheduler*: quando si creano o si ridimensionano applicazioni, l'Utilità di pianificazione determina quali nodi possono eseguire il carico di lavoro e li avvia.
-- *kube-controller-manager*: lo strumento di gestione del controller supervisiona molti controller più piccoli che eseguono azioni, ad esempio la replica di pod e la gestione delle operazioni dei nodi.
+- *kube-apiserver* : il server API indica il modo in cui le API Kubernetes sottostanti sono esposte. Questo componente fornisce l'interazione per gli strumenti di gestione, ad esempio `kubectl` o il dashboard di Kubernetes.
+- *etcd* : per mantenere lo stato della configurazione e del cluster Kubernetes, l' *etcd* con disponibilità elevata è un archivio di valori chiave all'interno di Kubernetes.
+- *kube-scheduler* : quando si creano o si ridimensionano applicazioni, l'Utilità di pianificazione determina quali nodi possono eseguire il carico di lavoro e li avvia.
+- *kube-controller-manager* : lo strumento di gestione del controller supervisiona molti controller più piccoli che eseguono azioni, ad esempio la replica di pod e la gestione delle operazioni dei nodi.
 
 AKS fornisce un piano di controllo a tenant singolo con un server API dedicato, un'utilità di pianificazione e così via. Si definiscono il numero e le dimensioni dei nodi e la piattaforma Azure configura la comunicazione protetta tra il piano di controllo e i nodi. L'interazione con il piano di controllo si verifica tramite le API Kubernetes, ad esempio `kubectl` o il dashboard di Kubernetes.
 
@@ -94,7 +94,7 @@ Per mantenere le prestazioni e le funzionalità del nodo, le risorse vengono ris
 
 - **Memoria: la** memoria usata da AKS include la somma di due valori.
 
-1. Il daemon kubelet viene installato in tutti i nodi dell'agente Kubernetes per gestire la creazione e la terminazione del contenitore. Per impostazione predefinita, in AKS questo daemon presenta la seguente regola di rimozione: *Memory. available<750Mi*, il che significa che un nodo deve sempre avere almeno 750 mi allocabile in ogni momento.  Quando un host è al di sotto di tale soglia di memoria disponibile, il kubelet terminerà uno dei pod in esecuzione per liberare memoria nel computer host e proteggerlo. Questa azione viene attivata quando la memoria disponibile diminuisce oltre la soglia 750Mi.
+1. Il daemon kubelet viene installato in tutti i nodi dell'agente Kubernetes per gestire la creazione e la terminazione del contenitore. Per impostazione predefinita, in AKS questo daemon presenta la seguente regola di rimozione: *Memory. available<750Mi* , il che significa che un nodo deve sempre avere almeno 750 mi allocabile in ogni momento.  Quando un host è al di sotto di tale soglia di memoria disponibile, il kubelet terminerà uno dei pod in esecuzione per liberare memoria nel computer host e proteggerlo. Questa azione viene attivata quando la memoria disponibile diminuisce oltre la soglia 750Mi.
 
 2. Il secondo valore è una frequenza regressiva per le prenotazioni di memoria per la corretta funzione del daemon kubelet (in base a Kube-reserved).
     - 25% dei primi 4 GB di memoria
@@ -115,7 +115,7 @@ Per le procedure consigliate associate, vedere procedure consigliate [per le fun
 
 ### <a name="node-pools"></a>Pool di nodi
 
-I nodi della stessa configurazione sono raggruppati in *pool di nodi*. Un cluster Kubernetes contiene uno o più pool di nodi. Il numero e la dimensione iniziale dei nodi sono definiti quando si crea un cluster servizio Azure Kubernetes, infatti viene creato un *pool di nodi predefinito*. Questo pool di nodi predefinito in servizio Azure Kubernetes contiene le macchine virtuali sottostanti che eseguono i nodi dell'agente.
+I nodi della stessa configurazione sono raggruppati in *pool di nodi* . Un cluster Kubernetes contiene uno o più pool di nodi. Il numero e la dimensione iniziale dei nodi sono definiti quando si crea un cluster servizio Azure Kubernetes, infatti viene creato un *pool di nodi predefinito* . Questo pool di nodi predefinito in servizio Azure Kubernetes contiene le macchine virtuali sottostanti che eseguono i nodi dell'agente.
 
 > [!NOTE]
 > Per garantire il funzionamento affidabile del cluster, è consigliabile eseguire almeno 2 (due) nodi nel pool di nodi predefinito.
@@ -128,7 +128,7 @@ Per altre informazioni su come usare più pool di nodi in AKS, vedere [creare e 
 
 In un cluster AKS che contiene più pool di nodi, potrebbe essere necessario indicare all'utilità di pianificazione Kubernetes il pool di nodi da usare per una determinata risorsa. I controller in ingresso, ad esempio, non devono essere eseguiti nei nodi di Windows Server. I selettori di nodo consentono di definire vari parametri, ad esempio il sistema operativo node, per controllare la posizione in cui deve essere pianificato un pod.
 
-Nell'esempio di base seguente viene pianificata un'istanza NGINX in un nodo Linux usando il selettore di nodo *"beta.kubernetes.io/OS": Linux*:
+Nell'esempio di base seguente viene pianificata un'istanza NGINX in un nodo Linux usando il selettore di nodo *"beta.kubernetes.io/OS": Linux* :
 
 ```yaml
 kind: Pod
@@ -138,7 +138,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx:1.15.12
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.12-alpine
   nodeSelector:
     "beta.kubernetes.io/os": linux
 ```
@@ -153,7 +153,7 @@ Quando si crea un pod, è possibile definire *richieste di risorse* per richiede
 
 Per altre informazioni, vedere [Pod di Kubernetes][kubernetes-pods] e [Ciclo di vita dei pod di Kubernetes][kubernetes-pod-lifecycle].
 
-Un pod è una risorsa logica, i carichi di lavoro applicativi sono eseguiti nei contenitori. I pod sono in genere risorse temporanee ed eliminabili e i pod con pianificazione individuale perdono alcune delle funzionalità di disponibilità elevate e ridondanza offerte da Kubernetes. I pod vengono invece distribuiti e gestiti dai *controller*Kubernetes, ad esempio il controller di distribuzione.
+Un pod è una risorsa logica, i carichi di lavoro applicativi sono eseguiti nei contenitori. I pod sono in genere risorse temporanee ed eliminabili e i pod con pianificazione individuale perdono alcune delle funzionalità di disponibilità elevate e ridondanza offerte da Kubernetes. I pod vengono invece distribuiti e gestiti dai *controller* Kubernetes, ad esempio il controller di distribuzione.
 
 ## <a name="deployments-and-yaml-manifests"></a>Distribuzioni e manifesti YAML
 
@@ -184,7 +184,7 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx:1.15.2
+        image: mcr.microsoft.com/oss/nginx/nginx:1.15.2-alpine
         ports:
         - containerPort: 80
         resources:
@@ -240,15 +240,15 @@ Per altre informazioni, vedere [Oggetti DaemonSet di Kubernetes][kubernetes-daem
 
 ## <a name="namespaces"></a>Spazi dei nomi
 
-Le risorse di Kubernetes, ad esempio i pod e le distribuzioni, vengono raggruppate logicamente in uno *spazio dei nomi*. Questi raggruppamenti consentono di dividere un cluster servizio Azure Kubernetes e limitare l'accesso per creare, visualizzare o gestire le risorse in modo logico. Ad esempio, è possibile creare spazi dei nomi per separare gruppi aziendali. Gli utenti possono interagire solo con le risorse all'interno degli spazi dei nomi assegnati.
+Le risorse di Kubernetes, ad esempio i pod e le distribuzioni, vengono raggruppate logicamente in uno *spazio dei nomi* . Questi raggruppamenti consentono di dividere un cluster servizio Azure Kubernetes e limitare l'accesso per creare, visualizzare o gestire le risorse in modo logico. Ad esempio, è possibile creare spazi dei nomi per separare gruppi aziendali. Gli utenti possono interagire solo con le risorse all'interno degli spazi dei nomi assegnati.
 
 ![Spazi dei nomi di Kubernetes per dividere in modo logico risorse e applicazioni](media/concepts-clusters-workloads/namespaces.png)
 
 Quando si crea un cluster servizio Azure Kubernetes, sono disponibili gli spazi dei nomi seguenti:
 
-- *predefinito*: lo spazio dei nomi dove i pod e le distribuzioni vengono creati per impostazione predefinita se non ne viene specificato un altro. Negli ambienti più piccoli è possibile distribuire le applicazioni direttamente nello spazio dei nomi predefinito senza creare altre suddivisioni logiche. Quando si interagisce con l'API di Kubernetes, ad esempio `kubectl get pods`, viene usato lo spazio dei nomi predefinito se non ne viene specificato un altro.
-- *kube system*: lo spazio dei nomi in cui sono presenti le risorse principali, ad esempio le funzionalità di rete come DNS e proxy o il dashboard di Kubernetes. In genere non si distribuiscono le proprie applicazioni in questo spazio dei nomi.
-- *kube-public*: questo spazio dei nomi solitamente non viene usato ma può essere usato per le risorse che devono essere visibili nell'intero cluster ed essere visualizzate da tutti gli utenti.
+- *predefinito* : lo spazio dei nomi dove i pod e le distribuzioni vengono creati per impostazione predefinita se non ne viene specificato un altro. Negli ambienti più piccoli è possibile distribuire le applicazioni direttamente nello spazio dei nomi predefinito senza creare altre suddivisioni logiche. Quando si interagisce con l'API di Kubernetes, ad esempio `kubectl get pods`, viene usato lo spazio dei nomi predefinito se non ne viene specificato un altro.
+- *kube system* : lo spazio dei nomi in cui sono presenti le risorse principali, ad esempio le funzionalità di rete come DNS e proxy o il dashboard di Kubernetes. In genere non si distribuiscono le proprie applicazioni in questo spazio dei nomi.
+- *kube-public* : questo spazio dei nomi solitamente non viene usato ma può essere usato per le risorse che devono essere visibili nell'intero cluster ed essere visualizzate da tutti gli utenti.
 
 Per altre informazioni, vedere [Spazi dei nomi di Kubernetes][kubernetes-namespaces].
 

@@ -7,12 +7,12 @@ author: zr-msft
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: zarhoads
-ms.openlocfilehash: e52bd150f72ba663c504b81832ce83d3e38cbf04
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fbbd5dbbc51cdb3b0d3c3783fa6ed72b76d26284
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90986771"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900362"
 ---
 # <a name="best-practices-for-application-developers-to-manage-resources-in-azure-kubernetes-service-aks"></a>Procedure consigliate per gli sviluppatori di applicazioni per la gestione delle risorse nel servizio Azure Kubernetes (AKS)
 
@@ -27,7 +27,7 @@ Questo articolo sulle procedure consigliate è incentrato su come eseguire il cl
 
 ## <a name="define-pod-resource-requests-and-limits"></a>Definire le richieste di risorse e i limiti del pod
 
-**Indicazioni sulle procedure consigliate**. Impostare le richieste e i limiti del pod per tutti i pod nei manifesti YAML. Se il cluster servizio Azure Kubernetes usa *quote di risorse*, la distribuzione può essere rifiutata se non si definiscono questi valori.
+**Indicazioni sulle procedure consigliate** . Impostare le richieste e i limiti del pod per tutti i pod nei manifesti YAML. Se il cluster servizio Azure Kubernetes usa *quote di risorse* , la distribuzione può essere rifiutata se non si definiscono questi valori.
 
 Uno dei modi principali per gestire le risorse di calcolo all'interno di un cluster servizio Azure Kubernetes consiste nell'usare le richieste e i limiti del pod. Le richieste e i limiti comunicano all'utilità di pianificazione di Kubernetes le risorse di calcolo da assegnare a un pod.
 
@@ -60,7 +60,7 @@ metadata:
 spec:
   containers:
   - name: mypod
-    image: nginx:1.15.5
+    image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
     resources:
       requests:
         cpu: 100m
@@ -84,7 +84,7 @@ Bridge to Kubernetes è progettato per l'uso con applicazioni eseguite su Pod e 
 
 ## <a name="use-the-visual-studio-code-extension-for-kubernetes"></a>Usare l'estensione di Visual Studio Code per Kubernetes
 
-**Indicazioni sulle procedure consigliate**. Installare e usare l'estensione di VS Code per Kubernetes quando si scrivono manifesti YAML. È anche possibile usare l'estensione per una soluzione di distribuzione integrata, particolarmente utile per i proprietari delle applicazioni che raramente interagiscono con il cluster servizio Azure Kubernetes.
+**Indicazioni sulle procedure consigliate** . Installare e usare l'estensione di VS Code per Kubernetes quando si scrivono manifesti YAML. È anche possibile usare l'estensione per una soluzione di distribuzione integrata, particolarmente utile per i proprietari delle applicazioni che raramente interagiscono con il cluster servizio Azure Kubernetes.
 
 L'[estensione di Visual Studio Code per Kubernetes][vscode-kubernetes] consente di sviluppare e distribuire applicazioni in servizio Azure Kubernetes. L'estensione fornisce IntelliSense per le risorse di Kubernetes e grafici e modelli Helm. È anche possibile esplorare, distribuire e modificare le risorse di Kubernetes da VS Code. L'estensione offre inoltre un controllo IntelliSense per le richieste di risorse o i limiti impostati nelle specifiche dei pod:
 

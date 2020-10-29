@@ -7,12 +7,12 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit, devx-track-azurecli
 author: palma21
-ms.openlocfilehash: fe6907ac659b94494472a327ff0b47e630ed89a0
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dcc015b9ff4cb9b980c7163f526eafbe5cd36119
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735579"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900486"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster nel servizio Azure Kubernetes
 
@@ -49,11 +49,11 @@ Le regole di rete e le dipendenze degli indirizzi IP richieste sono le seguenti:
 
 | Endpoint di destinazione                                                             | Protocollo | Porta    | Uso  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. Questa operazione non è necessaria per i [cluster privati](private-clusters.md)|
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. Questa operazione non è necessaria per i [cluster privati](private-clusters.md) |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. Questa operazione non è necessaria per i [cluster privati](private-clusters.md)|
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. Questa operazione non è necessaria per i [cluster privati](private-clusters.md) |
 | **`*:123`** o **`ntp.ubuntu.com:123`** (se si usano le regole di rete del firewall di Azure)  | UDP      | 123     | Obbligatorio per la sincronizzazione dell'ora NTP (Network Time Protocol) nei nodi Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Se si usano server DNS personalizzati, è necessario assicurarsi che siano accessibili dai nodi del cluster. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obbligatorio se i pod/distribuzioni in esecuzione che accedono al server API, tali Pod/distribuzioni utilizzeranno l'IP dell'API. Questa operazione non è necessaria per i [cluster privati](private-clusters.md)  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obbligatorio se i pod/distribuzioni in esecuzione che accedono al server API, tali Pod/distribuzioni utilizzeranno l'IP dell'API. Questa operazione non è necessaria per i [cluster privati](private-clusters.md)  |
 
 ### <a name="azure-global-required-fqdn--application-rules"></a>Regole dell'applicazione/FQDN globale obbligatoria di Azure 
 
@@ -76,12 +76,12 @@ Le regole di rete e le dipendenze degli indirizzi IP richieste sono le seguenti:
 
 | Endpoint di destinazione                                                             | Protocollo | Porta    | Uso  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
-| **`*:22`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:22`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:22`** <br/> *Or* <br/> **`APIServerIP:22`** `(only known after cluster creation)`  | TCP           | 22      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:22`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:22`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:22`** <br/> *Or* <br/> **`APIServerPublicIP:22`** `(only known after cluster creation)`  | TCP           | 22      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
 | **`*:123`** o **`ntp.ubuntu.com:123`** (se si usano le regole di rete del firewall di Azure)  | UDP      | 123     | Obbligatorio per la sincronizzazione dell'ora NTP (Network Time Protocol) nei nodi Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Se si usano server DNS personalizzati, è necessario assicurarsi che siano accessibili dai nodi del cluster. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obbligatorio se si eseguono Pod/distribuzioni che accedono al server API, tali Pod/distribuzioni utilizzeranno l'IP dell'API.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obbligatorio se si eseguono Pod/distribuzioni che accedono al server API, tali Pod/distribuzioni utilizzeranno l'IP dell'API.  |
 
 ### <a name="azure-china-21vianet-required-fqdn--application-rules"></a>Azure Cina 21Vianet richieste FQDN/regole dell'applicazione
 
@@ -105,11 +105,11 @@ Le regole di rete e le dipendenze degli indirizzi IP richieste sono le seguenti:
 
 | Endpoint di destinazione                                                             | Protocollo | Porta    | Uso  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
-| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerPublicIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerPublicIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
 | **`*:123`** o **`ntp.ubuntu.com:123`** (se si usano le regole di rete del firewall di Azure)  | UDP      | 123     | Obbligatorio per la sincronizzazione dell'ora NTP (Network Time Protocol) nei nodi Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Se si usano server DNS personalizzati, è necessario assicurarsi che siano accessibili dai nodi del cluster. |
-| **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obbligatorio se i pod/distribuzioni in esecuzione che accedono al server API, tali Pod/distribuzioni utilizzeranno l'IP dell'API.  |
+| **`APIServerPublicIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obbligatorio se i pod/distribuzioni in esecuzione che accedono al server API, tali Pod/distribuzioni utilizzeranno l'IP dell'API.  |
 
 ### <a name="azure-us-government-required-fqdn--application-rules"></a>Regole dell'applicazione o FQDN per il governo degli Stati Uniti di Azure obbligatorio 
 

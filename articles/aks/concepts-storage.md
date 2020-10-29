@@ -4,12 +4,12 @@ description: Informazioni sull'archiviazione nel servizio Azure Kubernetes, incl
 services: container-service
 ms.topic: conceptual
 ms.date: 08/17/2020
-ms.openlocfilehash: 00dee485c7b07ec19bb1399aab9d55b286830871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ed38625703397c9ba5021e84cd3118f30fa83c7
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89421153"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900936"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes
 
@@ -30,7 +30,7 @@ Le applicazioni devono spesso essere in grado di archiviare e recuperare dati. D
 
 Vengono creati volumi tradizionali per archiviare e recuperare i dati come risorse di Kubernetes supportate da Archiviazione di Azure. È possibile creare manualmente questi volumi di dati da assegnare ai pod direttamente o lasciare che vengano creati automaticamente da Kubernetes. Questi volumi di dati possono usare Dischi di Azure o File di Azure:
 
-- È possibile usare *Dischi di Azure* per creare una risorsa *DataDisk* Kubernetes. I dischi possono usare l'archiviazione Premium di Azure, supportata da unità SSD a prestazioni elevate, o l'archiviazione Standard di Azure, supportata da unità HDD regolari. Per la maggior parte dei carichi di lavoro di produzione e di sviluppo, usare l'archiviazione Premium. I dischi di Azure sono montati come *ReadWriteOnce*, quindi sono disponibili solo per un singolo POD. Per i volumi di archiviazione a cui è possibile accedere simultaneamente da più POD, utilizzare File di Azure.
+- È possibile usare *Dischi di Azure* per creare una risorsa *DataDisk* Kubernetes. I dischi possono usare l'archiviazione Premium di Azure, supportata da unità SSD a prestazioni elevate, o l'archiviazione Standard di Azure, supportata da unità HDD regolari. Per la maggior parte dei carichi di lavoro di produzione e di sviluppo, usare l'archiviazione Premium. I dischi di Azure sono montati come *ReadWriteOnce* , quindi sono disponibili solo per un singolo POD. Per i volumi di archiviazione a cui è possibile accedere simultaneamente da più POD, utilizzare File di Azure.
 - È possibile usare *File di Azure* per montare una condivisione SMB 3.0 supportata da un account di archiviazione di Azure nei pod. I file consentono di condividere dati tra più nodi e pod. I file possono usare l'archiviazione standard di Azure supportata da HDD normali o archiviazione Premium di Azure, supportata da unità SSD a prestazioni elevate.
 
 In Kubernetes, i volumi possono rappresentare più di un semplice disco tradizionale in cui possono essere archiviate e recuperate le informazioni. I volumi di Kubernetes possono anche essere usati come modo per inserire dati in un pod per l'uso da parte dei contenitori. I tipi di volumi aggiuntivi comuni in Kubernetes includono:
@@ -51,7 +51,7 @@ Un volume permanente può essere creato *staticamente* da un amministratore del 
 
 ## <a name="storage-classes"></a>Classi di archiviazione
 
-Per definire livelli di archiviazione diversi, ad esempio Premium e Standard, è possibile creare una *StorageClass*. La StorageClass definisce anche i *reclaimPolicy*. I criteri reclaimPolicy controllano il comportamento della risorsa di archiviazione di Azure sottostante quando il pod viene eliminato e il volume permanente potrebbe non essere più necessario. La risorsa di archiviazione sottostante può essere eliminata o conservata per l'uso con un pod futuro.
+Per definire livelli di archiviazione diversi, ad esempio Premium e Standard, è possibile creare una *StorageClass* . La StorageClass definisce anche i *reclaimPolicy* . I criteri reclaimPolicy controllano il comportamento della risorsa di archiviazione di Azure sottostante quando il pod viene eliminato e il volume permanente potrebbe non essere più necessario. La risorsa di archiviazione sottostante può essere eliminata o conservata per l'uso con un pod futuro.
 
 In AKS `StorageClasses` vengono creati quattro iniziali per il cluster con i plug-in di archiviazione nell'albero:
 
@@ -91,7 +91,7 @@ Una PersistentVolumeClaim richiede risorse di archiviazione su disco o file con 
 
 Un volume permanente viene *associato* a un PersistentVolumeClaim dopo l'assegnazione di una risorsa di archiviazione disponibile al pod che la richiede. Esiste un mapping 1:1 tra volumi permanenti e attestazioni.
 
-Il manifesto YAML di esempio seguente mostra un'attestazione di volume permanente che usa la StorageClass *managed-premium* e richiede un disco *5Gi*:
+Il manifesto YAML di esempio seguente mostra un'attestazione di volume permanente che usa la StorageClass *managed-premium* e richiede un disco *5Gi* :
 
 ```yaml
 apiVersion: v1
@@ -107,7 +107,7 @@ spec:
       storage: 5Gi
 ```
 
-Quando si crea una definizione di pod, viene specificata l'attestazione di volume permanente per richiedere le risorse di archiviazione desiderate. È quindi necessario specificare anche il *volumeMount* per consentire alle applicazioni di leggere e scrivere dati. Il manifesto YAML di esempio seguente mostra come l'attestazione di volume permanente precedente può essere usata per montare un volume in */mnt/azure*:
+Quando si crea una definizione di pod, viene specificata l'attestazione di volume permanente per richiedere le risorse di archiviazione desiderate. È quindi necessario specificare anche il *volumeMount* per consentire alle applicazioni di leggere e scrivere dati. Il manifesto YAML di esempio seguente mostra come l'attestazione di volume permanente precedente può essere usata per montare un volume in */mnt/azure* :
 
 ```yaml
 kind: Pod
@@ -117,7 +117,7 @@ metadata:
 spec:
   containers:
     - name: myfrontend
-      image: nginx
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       volumeMounts:
       - mountPath: "/mnt/azure"
         name: volume

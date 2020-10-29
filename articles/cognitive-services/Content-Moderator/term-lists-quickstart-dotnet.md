@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 90993ea2ee66a23b5b629dfaf5bb34298ce15d9b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93d90232fb530a6c14c40558fc6a9974a1da42de
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88936283"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900921"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Controllare testo in base a un elenco personalizzato di termini in C#
 
@@ -43,7 +43,7 @@ Per usare i servizi Content Moderator tramite l'API REST o l'SDK, è necessaria 
 
 1. Aggiungere un nuovo progetto **App console (.NET Framework)** alla soluzione.
 
-1. Assegnare al progetto il nome **TermLists**. Selezionare questo progetto come progetto di avvio singolo per la soluzione.
+1. Assegnare al progetto il nome **TermLists** . Selezionare questo progetto come progetto di avvio singolo per la soluzione.
 
 ### <a name="install-required-packages"></a>Installare i pacchetti necessari
 
@@ -134,10 +134,10 @@ private const double latencyDelay = 0.5;
 
 ## <a name="create-a-term-list"></a>Creare un elenco di termini
 
-Si crea un elenco di termini con **ContentModeratorClient.ListManagementTermLists.Create**. Il primo parametro per **Create** è una stringa contenente un tipo MIME, che deve essere "application/json". Per altre informazioni, vedere le [informazioni di riferimento sulle API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). Il secondo parametro è un oggetto **Body** contenente un nome e una descrizione per il nuovo elenco di termini.
+Si crea un elenco di termini con **ContentModeratorClient.ListManagementTermLists.Create** . Il primo parametro per **Create** è una stringa contenente un tipo MIME, che deve essere "application/json". Per altre informazioni, vedere le [informazioni di riferimento sulle API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). Il secondo parametro è un oggetto **Body** contenente un nome e una descrizione per il nuovo elenco di termini.
 
 > [!NOTE]
-> È previsto un limite massimo di **cinque elenchi di termini** e ogni elenco **non può includere più di 10.000 termini**.
+> È previsto un limite massimo di **cinque elenchi di termini** e ogni elenco **non può includere più di 10.000 termini** .
 
 Aggiungere la definizione di metodo seguente allo spazio dei nomi TermLists, classe Program.
 
@@ -172,7 +172,7 @@ static string CreateTermList (ContentModeratorClient client)
 
 ## <a name="update-term-list-name-and-description"></a>Aggiornare nome e la descrizione dell'elenco di termini
 
-Si aggiornano le informazioni dell'elenco di termini con **ContentModeratorClient.ListManagementTermLists.Update**. Il primo parametro per **Update** è l'ID dell'elenco di termini. Il secondo parametro è un tipo MIME, che deve essere "application/json". Per altre informazioni, vedere le [informazioni di riferimento sulle API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). Il terzo parametro è un oggetto **Body**, contenente il nuovo nome e la nuova descrizione.
+Si aggiornano le informazioni dell'elenco di termini con **ContentModeratorClient.ListManagementTermLists.Update** . Il primo parametro per **Update** è l'ID dell'elenco di termini. Il secondo parametro è un tipo MIME, che deve essere "application/json". Per altre informazioni, vedere le [informazioni di riferimento sulle API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). Il terzo parametro è un oggetto **Body** , contenente il nuovo nome e la nuova descrizione.
 
 Aggiungere la definizione di metodo seguente allo spazio dei nomi TermLists, classe Program.
 
@@ -239,7 +239,7 @@ static void GetAllTerms(ContentModeratorClient client, string list_id)
 
 Dopo aver apportato le modifiche a un elenco di termini, si aggiorna il relativo indice di ricerca per le modifiche da includere la volta successiva che si userà l'elenco dei termini per filtrare il testo. Questo è paragonabile al modo in cui un motore di ricerca sul desktop (se abilitato) o un motore di ricerca Web aggiorna continuamente il proprio indice per includere nuovi file o pagine.
 
-Si aggiorna l'indice di ricerca di un elenco di termini con **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod**.
+Si aggiorna l'indice di ricerca di un elenco di termini con **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod** .
 
 Aggiungere la definizione di metodo seguente allo spazio dei nomi TermLists, classe Program.
 
@@ -259,7 +259,7 @@ static void RefreshSearchIndex (ContentModeratorClient client, string list_id)
 
 ## <a name="screen-text-using-a-term-list"></a>Filtrare il testo usando un elenco di termini
 
-Si filtra il testo usando un elenco di termini con **ContentModeratorClient.TextModeration.ScreenText**, che accetta i parametri seguenti.
+Si filtra il testo usando un elenco di termini con **ContentModeratorClient.TextModeration.ScreenText** , che accetta i parametri seguenti.
 
 - La lingua dei termini nell'elenco di termini.
 - Un tipo MIME, che può essere "text/html", "text/xml", "text/markdown" o "text/plain".
@@ -270,7 +270,7 @@ Si filtra il testo usando un elenco di termini con **ContentModeratorClient.Text
 
 Per altre informazioni, vedere le [informazioni di riferimento sulle API](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
 
-**ScreenText** restituisce un oggetto **Screen**, che ha una proprietà **Terms** che elenca i termini rilevati da Content Moderator durante lo screening. Si noti che, se Content Moderator non ha rilevato termini durante lo screening, la proprietà **Terms** ha il valore **null**.
+**ScreenText** restituisce un oggetto **Screen** , che ha una proprietà **Terms** che elenca i termini rilevati da Content Moderator durante lo screening. Si noti che, se Content Moderator non ha rilevato termini durante lo screening, la proprietà **Terms** ha il valore **null** .
 
 Aggiungere la definizione di metodo seguente allo spazio dei nomi TermLists, classe Program.
 
@@ -296,7 +296,7 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
             Console.WriteLine(String.Format("Found term: \"{0}\" from list ID {1} at index {2}.", term.Term, term.ListId, term.Index));
         }
     }
-    read.Sleep(throttleRate);
+    Thread.Sleep(throttleRate);
 }
 ```
 
@@ -304,9 +304,9 @@ static void ScreenText (ContentModeratorClient client, string list_id, string te
 
 L'eliminazione di un termine o di un elenco è un'operazione semplice. È possibile usare l'SDK per eseguire queste attività:
 
-- Eliminare un termine. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
-- Eliminare tutti termini inclusi in un elenco senza eliminare l'elenco. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
-- Eliminare un elenco e tutto il contenuto. (**ContentModeratorClient.ListManagementTermLists.Delete**)
+- Eliminare un termine. ( **ContentModeratorClient.ListManagementTerm.DeleteTerm** )
+- Eliminare tutti termini inclusi in un elenco senza eliminare l'elenco. ( **ContentModeratorClient.ListManagementTerm.DeleteAllTerms** )
+- Eliminare un elenco e tutto il contenuto. ( **ContentModeratorClient.ListManagementTermLists.Delete** )
 
 ### <a name="delete-a-term"></a>Eliminare un termine
 
@@ -365,7 +365,7 @@ static void DeleteTermList (ContentModeratorClient client, string list_id)
 
 ## <a name="compose-the-main-method"></a>Comporre il metodo Main
 
-Aggiungere la definizione del metodo **Main** allo spazio dei nomi **TermLists**, classe **Program**. Chiudere infine la classe **Program** e lo spazio dei nomi **TermLists**.
+Aggiungere la definizione del metodo **Main** allo spazio dei nomi **TermLists** , classe **Program** . Chiudere infine la classe **Program** e lo spazio dei nomi **TermLists** .
 
 ```csharp
 static void Main(string[] args)

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: cbe6adc37025f0b727fa5f5d3ace46ed34afaa9e
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: a7341362183aee4a23556a164677bc320babdfec
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92895223"
+ms.locfileid: "92900840"
 ---
 # <a name="automate-responses-to-security-center-triggers"></a>Automatizzare le risposte ai trigger del Centro sicurezza
 
@@ -66,7 +66,7 @@ Questo articolo descrive la funzionalità di automazione del flusso di lavoro de
 1. Nella nuova app per la logica è possibile scegliere tra i modelli predefiniti predefiniti della categoria sicurezza. In alternativa, è possibile definire un flusso personalizzato di eventi che si verificano quando viene attivato questo processo.
 
     > [!TIP]
-    > In alcuni casi, in un'app per la logica, i parametri vengono inclusi nel connettore come parte di una stringa e non nel proprio campo. Per un esempio di codice EAN su come estrarre i parametri, vedere passaggio #14 di uso dei parametri dell'app per la [logica durante la compilazione di automazione del flusso](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121)di lavoro del Centro sicurezza di Azure
+    > In alcuni casi, in un'app per la logica, i parametri vengono inclusi nel connettore come parte di una stringa e non nel proprio campo. Per un esempio di come estrarre i parametri, vedere passaggio #14 di [uso dei parametri dell'app per la logica durante la compilazione di automazione del flusso di lavoro del Centro sicurezza di Azure](https://techcommunity.microsoft.com/t5/azure-security-center/working-with-logic-app-parameters-while-building-azure-security/ba-p/1342121).
 
     La finestra di progettazione dell'app per la logica supporta questi trigger del Centro sicurezza:
 

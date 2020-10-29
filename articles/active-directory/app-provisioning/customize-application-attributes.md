@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: bf88782cf771c01a6a167d4584ad86dc69795c59
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: aaafd3833c63458f8403dfeb3620d76f631315b5
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92781482"
+ms.locfileid: "92899180"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -142,10 +142,7 @@ SCIM RFC definisce uno schema di utenti e gruppi centrale, consentendo anche est
    4. Selezionare **Modifica elenco attributi per AppName** .
    5. Nella parte inferiore dell'elenco di attributi immettere le informazioni sull'attributo personalizzato nei campi disponibili. Quindi selezionare **Aggiungi attributo** .
 
-Per le applicazioni SCIM, il nome dell'attributo deve seguire il modello illustrato nell'esempio riportato di seguito. È possibile personalizzare "CustomExtensionName" e "CustomAttribute" in base ai requisiti dell'applicazione, ad esempio:  
- * urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User:CustomAttribute 
- * urn:ietf:params:scim:schemas:extension:2.0:CustomExtensionName:CustomAttribute  
- * urn: IETF: params: SCIM: schemas: Extension: CustomExtensionName: 2.0: utente: CustomAttributeName: valore
+Per le applicazioni SCIM, il nome dell'attributo deve seguire il modello illustrato nell'esempio riportato di seguito. "CustomExtensionName" e "CustomAttribute" possono essere personalizzati in base ai requisiti dell'applicazione, ad esempio: urn: IETF: params: SCIM: schemas: Extension: CustomExtensionName: 2.0: User: CustomAttribute 
 
 Queste istruzioni sono valide solo per le applicazioni abilitate per SCIM. Applicazioni come ServiceNow e Salesforce non vengono integrate con Azure AD usando SCIM e quindi non richiedono questo spazio dei nomi specifico quando si aggiunge un attributo personalizzato.
 

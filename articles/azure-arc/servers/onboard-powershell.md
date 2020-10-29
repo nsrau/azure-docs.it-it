@@ -1,14 +1,14 @@
 ---
 title: Connettere macchine ibride ad Azure con PowerShell
 description: Questo articolo illustra come installare l'agente e connettere un computer ad Azure usando i server abilitati per Azure ARC usando PowerShell.
-ms.date: 10/27/2020
+ms.date: 10/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: bb114ec3e279a7ea696d834af8eb7240cb892dc1
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0755846ef02377edade98b69e478908a111ab247
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891942"
+ms.locfileid: "92901526"
 ---
 # <a name="connect-hybrid-machines-to-azure-using-powershell"></a>Connettere macchine ibride ad Azure con PowerShell
 
@@ -44,21 +44,21 @@ Al termine dell'installazione, viene restituito il messaggio seguente:
 
     * Per installare l'agente del computer connesso nel computer di destinazione che può comunicare direttamente con Azure, eseguire:
 
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
-    ```
+        ```azurepowershell
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e
+        ```
     
     * Per installare l'agente del computer connesso nel computer di destinazione che comunica tramite un server proxy, eseguire:
-    
-    ```azurepowershell
-    Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
-    ```
+        
+        ```azurepowershell
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -SubscriptionId 978ab182-6cf0-4de3-a58b-53c8d0a3235e -proxy http://<proxyURL>:<proxyport>
+        ```
 
 Se l'agente non si avvia dopo l'installazione, controllare i log per vedere le informazioni dettagliate sull'errore. In Windows in *%ProgramData%\AzureConnectedMachineAgent\Log\himds.log* e in Linux in */var/opt/azcmagent/log/himds.log* .
 
 ## <a name="install-and-connect-using-powershell-remoting"></a>Installare e connettersi tramite la comunicazione remota di PowerShell
 
-Eseguire i passaggi seguenti per configurare il computer o il server Windows di destinazione con i server abilitati per Azure Arc. La comunicazione remota di PowerShell deve essere abilitata nel computer remoto. Usare il cmdlet `Enable-PSRemoting` per abilitare la comunicazione remota di PowerShell.
+Per configurare uno o più server Windows con i server abilitati per Azure Arc, seguire questa procedura. La comunicazione remota di PowerShell deve essere abilitata nel computer remoto. Usare il cmdlet `Enable-PSRemoting` per abilitare la comunicazione remota di PowerShell.
 
 1. Aprire una console di PowerShell come amministratore.
 
@@ -66,25 +66,32 @@ Eseguire i passaggi seguenti per configurare il computer o il server Windows di 
 
 3. Per installare l'agente computer connesso, utilizzare `Connect-AzConnectedMachine` con i `-Name` `-ResourceGroupName` parametri, e `-Location` . Usare il `-SubscriptionId` parametro per sostituire la sottoscrizione predefinita come risultato del contesto di Azure creato dopo l'accesso.
 
-Per installare l'agente del computer connesso nel computer di destinazione che può comunicare direttamente con Azure, eseguire il comando seguente:
+    * Per installare l'agente del computer connesso nel computer di destinazione che può comunicare direttamente con Azure, eseguire il comando seguente:
+    
+        ```azurepowershell
+        $session = Connect-PSSession -ComputerName myMachineName
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        ```
+    
+    * Per installare l'agente computer connesso in più computer remoti allo stesso tempo, aggiungere un elenco di nomi di computer remoti separati da una virgola.
 
-```azurepowershell
-$session = Connect-PSSession -ComputerName myMachineName
-Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
-```
+        ```azurepowershell
+        $session = Connect-PSSession -ComputerName myMachineName1, myMachineName2, myMachineName3
+        Connect-AzConnectedMachine -ResourceGroupName myResourceGroup -Name myMachineName -Location <region> -PSSession $session
+        ```
 
-Nell'esempio seguente vengono restituiti i risultati del comando:
-
-```azurepowershell
-time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
-time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
-time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
-time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
-
-Name           Location OSName   Status     ProvisioningState
-----           -------- ------   ------     -----------------
-myMachineName  eastus   windows  Connected  Succeeded
-```
+    Nell'esempio seguente vengono restituiti i risultati del comando che fa riferimento a un singolo computer:
+    
+    ```azurepowershell
+    time="2020-08-07T13:13:25-07:00" level=info msg="Onboarding Machine. It usually takes a few minutes to complete. Sometimes it may take longer depending on network and server load status."
+    time="2020-08-07T13:13:25-07:00" level=info msg="Check network connectivity to all endpoints..."
+    time="2020-08-07T13:13:29-07:00" level=info msg="All endpoints are available... continue onboarding"
+    time="2020-08-07T13:13:50-07:00" level=info msg="Successfully Onboarded Resource to Azure" VM Id=f65bffc7-4734-483e-b3ca-3164bfa42941
+    
+    Name           Location OSName   Status     ProvisioningState
+    ----           -------- ------   ------     -----------------
+    myMachineName  eastus   windows  Connected  Succeeded
+    ```
 
 ## <a name="verify-the-connection-with-azure-arc"></a>Verificare la connessione con Azure Arc
 

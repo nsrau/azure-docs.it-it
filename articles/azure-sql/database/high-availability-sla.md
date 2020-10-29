@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: sashan
 ms.author: sashan
 ms.reviewer: sstein, sashan
-ms.date: 08/12/2020
-ms.openlocfilehash: c616ba1971fcbb0674a42583b30c25f6ccda6874
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.date: 10/28/2020
+ms.openlocfilehash: c0c925f68e8edbae00f980d9445c59d7213a4b25
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791784"
+ms.locfileid: "92901319"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Disponibilità elevata per database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -116,7 +116,7 @@ Per altre informazioni sulla disponibilità elevata in iperscalabilità, vedere 
 
 ## <a name="testing-application-fault-resiliency"></a>Test della resilienza degli errori delle applicazioni
 
-La disponibilità elevata è una parte fondamentale del database SQL e della piattaforma Istanza gestita di SQL che funziona in modo trasparente per l'applicazione del database. Tuttavia, è possibile che si desideri testare il modo in cui le operazioni di failover automatico avviate durante gli eventi pianificati o non pianificati influiranno su un'applicazione prima di distribuirla nella produzione. È possibile attivare manualmente un failover chiamando un'API speciale per riavviare un database, un pool elastico o un'istanza gestita. Nel caso di un database con ridondanza della zona o di un pool elastico, la chiamata API comporterebbe il reindirizzamento delle connessioni client al nuovo primario in una zona di disponibilità diversa dalla zona di disponibilità della replica primaria precedente. Quindi, oltre a testare il modo in cui il failover influisca sulle sessioni di database esistenti, è anche possibile verificare se le prestazioni end-to-end vengono modificate a causa di modifiche alla latenza di rete. Poiché l'operazione di riavvio è intrusiva e un numero elevato di questi potrebbe sottolineare la piattaforma, viene consentita una sola chiamata di failover ogni 30 minuti per ogni database, pool elastico o istanza gestita.
+La disponibilità elevata è una parte fondamentale del database SQL e della piattaforma Istanza gestita di SQL che funziona in modo trasparente per l'applicazione del database. Tuttavia, è possibile che si desideri testare il modo in cui le operazioni di failover automatico avviate durante gli eventi pianificati o non pianificati influiranno su un'applicazione prima di distribuirla nella produzione. È possibile attivare manualmente un failover chiamando un'API speciale per riavviare un database, un pool elastico o un'istanza gestita. Nel caso di un database con ridondanza della zona o di un pool elastico, la chiamata API comporterebbe il reindirizzamento delle connessioni client al nuovo primario in una zona di disponibilità diversa dalla zona di disponibilità della replica primaria precedente. Quindi, oltre a testare il modo in cui il failover influisca sulle sessioni di database esistenti, è anche possibile verificare se le prestazioni end-to-end vengono modificate a causa di modifiche alla latenza di rete. Poiché l'operazione di riavvio è intrusiva e un numero elevato di questi potrebbe sottolineare la piattaforma, viene consentita una sola chiamata di failover ogni 15 minuti per ogni database, pool elastico o istanza gestita.
 
 È possibile avviare un failover usando PowerShell, l'API REST o l'interfaccia della riga di comando di Azure:
 

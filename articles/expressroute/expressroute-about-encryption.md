@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.author: duau
-ms.openlocfilehash: 83fa16265106e1033cb77ab4175b606714ec66d7
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 693d2304324bdfcac298b3e20ddd0d882a16533c
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996838"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899869"
 ---
 # <a name="expressroute-encryption"></a>Crittografia ExpressRoute
  
@@ -31,7 +31,7 @@ No. Se MACsec è configurato e si verifica una mancata corrispondenza della chia
 ### <a name="will-enabling-macsec-on-expressroute-direct-degrade-network-performance"></a>L'abilitazione di MACsec in ExpressRoute Direct diminuisce le prestazioni di rete?
 La crittografia e la decrittografia MACsec si verificano nell'hardware dei router usati. Non ci sono effetti sulle prestazioni. Tuttavia, è consigliabile rivolgersi al fornitore di rete per i dispositivi usati e verificare se MACsec presenta implicazioni sulle prestazioni.
 ### <a name="which-cipher-suites-are-supported-for-encryption"></a>Quali pacchetti di crittografia sono supportati per la crittografia?
-È supportata solo la versione [estesa dei pacchetti](https://1.ieee802.org/security/802-1aebw/) AES128 e AES256. Inoltre, disabilitare l' [identificatore di canale sicuro (sci)](https://en.wikipedia.org/wiki/IEEE_802.1AE) nella configurazione di MACsec nel dispositivo. 
+Sono supportate solo la versione [estesa dei pacchetti](https://1.ieee802.org/security/802-1aebw/) di aes-128 e aes-256. Inoltre, è necessario disabilitare [Secure Channel Identifier (sci)](https://wikipedia.org/wiki/IEEE_802.1AE) nella configurazione MACsec del dispositivo. 
 
 ## <a name="end-to-end-encryption-by-ipsec-faq"></a>Domande frequenti sulla crittografia end-to-end tramite IPsec
 IPsec è uno [standard IETF](https://tools.ietf.org/html/rfc6071). Esegue la crittografia dei dati a livello di protocollo IP (Internet Protocol) o rete 3. È possibile usare IPsec per crittografare una connessione end-to-end tra la rete locale e la rete virtuale (VNET) in Azure. Vedere le domande frequenti più avanti.

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: zarhoads
-ms.openlocfilehash: fab4943cad1a87bda70a4c4332ab6135ed99bf1b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1c7143b6d3479cf3083cfc730301c68dcf4eb705
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89022276"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900811"
 ---
 # <a name="best-practices-for-pod-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza dei pod nel servizio Azure Kubernetes
 
@@ -29,13 +29,13 @@ Questo articolo di procedure consigliate è incentrato sulla protezione dei pod 
 
 **Indicazioni sulle procedure consigliate** - Per eseguire l'accesso con un account utente o di gruppo diverso e limitare l'accesso ai processi e servizi dei nodi sottostanti, definire le impostazioni del contesto di protezione dei pod. Assegnare il numero minimo di privilegi necessari.
 
-Per la corretta esecuzione delle applicazioni, i pod dovrebbero essere eseguiti come utente o gruppo definito e non come *radice*. Il `securityContext` di un pod o un contenitore consente di definire impostazioni come *runAsUser* o *fsGroup* per assumere le autorizzazioni appropriate. Assegnare solo le autorizzazioni utente o di gruppo necessarie e non usare il contesto di protezione come mezzo per assumere autorizzazioni aggiuntive. *runAsUser*, l'escalation dei privilegi e altre impostazioni delle funzionalità Linux sono disponibili solo nei nodi e nei pod Linux.
+Per la corretta esecuzione delle applicazioni, i pod dovrebbero essere eseguiti come utente o gruppo definito e non come *radice* . Il `securityContext` di un pod o un contenitore consente di definire impostazioni come *runAsUser* o *fsGroup* per assumere le autorizzazioni appropriate. Assegnare solo le autorizzazioni utente o di gruppo necessarie e non usare il contesto di protezione come mezzo per assumere autorizzazioni aggiuntive. *runAsUser* , l'escalation dei privilegi e altre impostazioni delle funzionalità Linux sono disponibili solo nei nodi e nei pod Linux.
 
 In un contesto di esecuzione come utente non ROOT, i contenitori non possono eseguire il binding a porte con privilegi inferiori a 1024. In questo scenario è possibile usare i servizi Kubernetes per mascherare il fatto che un'app venga eseguita su una determinata porta.
 
 Un contesto di protezione dei pod può anche definire ulteriori funzionalità o autorizzazioni per l'accesso a processi e servizi. È possibile impostare le seguenti definizioni comuni di contesto di protezione:
 
-* **allowPrivilegeEscalation** definisce se il pod può assumere privilegi *radice*. Progettare le applicazioni in modo che questa impostazione sia sempre *false*.
+* **allowPrivilegeEscalation** definisce se il pod può assumere privilegi *radice* . Progettare le applicazioni in modo che questa impostazione sia sempre *false* .
 * Le **funzionalità Linux** consentono al pod di accedere ai processi dei nodi sottostanti. Prestare attenzione nell'assegnazione di queste funzionalità. Assegnare il numero minimo di privilegi necessari. Per altre informazioni, vedere [Funzionalità Linux][linux-capabilities].
 * Le **etichette SELinux** sono un modulo di sicurezza del kernel di Linux che consente di definire i criteri di accesso a servizi e processi e l'accesso al file system. Anche in questo caso, assegnare il numero minimo di privilegi necessari. Per altre informazioni, vedere [Opzioni SELinux in Kubernetes][selinux-labels]
 
@@ -55,7 +55,7 @@ spec:
     fsGroup: 2000
   containers:
     - name: security-context-demo
-      image: nginx:1.15.5
+      image: mcr.microsoft.com/oss/nginx/nginx:1.15.5-alpine
       securityContext:
         runAsUser: 1000
         allowPrivilegeEscalation: false

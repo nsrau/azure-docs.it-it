@@ -1,5 +1,5 @@
 ---
-title: Sicurezza aziendale
+title: Sicurezza e governance aziendale
 titleSuffix: Azure Machine Learning
 description: 'Usare Azure Machine Learning in modo sicuro: autenticazione, autorizzazione, sicurezza di rete, crittografia dei dati e monitoraggio.'
 services: machine-learning
@@ -10,18 +10,18 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: 60a18591687eb7953063e16397719191eece7844
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b45c5cd1a750ee4b3f182920c4ee2f2e47756867
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637089"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92899321"
 ---
-# <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
+# <a name="enterprise-security-and-governance-for-azure-machine-learning"></a>Sicurezza e governance aziendale per Azure Machine Learning
 
 In questo articolo vengono illustrate le funzionalità di sicurezza disponibili per Azure Machine Learning.
 
-Quando si usa un servizio cloud, è consigliabile limitare l'accesso solo agli utenti che ne hanno bisogno. Per iniziare, è necessario comprendere i modelli di autenticazione e autorizzazione usati dal servizio. È anche possibile limitare l'accesso alla rete o unire in modo sicuro le risorse nella rete locale con il cloud. Anche la crittografia dei dati è fondamentale, sia quando sono inattivi che durante lo spostamento tra i servizi. Infine, è necessario poter monitorare il servizio e produrre un log di controllo di tutte le attività.
+Quando si usa un servizio cloud, è consigliabile limitare l'accesso solo agli utenti che ne hanno bisogno. Per iniziare, è necessario comprendere i modelli di autenticazione e autorizzazione usati dal servizio. È anche possibile limitare l'accesso alla rete o unire in modo sicuro le risorse nella rete locale con il cloud. Anche la crittografia dei dati è fondamentale, sia quando sono inattivi che durante lo spostamento tra i servizi. Potrebbe inoltre essere necessario creare criteri per applicare determinate configurazioni o log quando vengono create configurazioni non conformi. Infine, è necessario poter monitorare il servizio e produrre un log di controllo di tutte le attività.
 
 > [!NOTE]
 > Le informazioni contenute in questo articolo sono destinate a Python SDK per Azure Machine Learning versione 1.0.83.1 o successiva.

@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/12/2020
-ms.openlocfilehash: 79bc9a238b7c36392ff2ba519078713089156f6e
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 7dd23f481409eb3498893c1c7f9c0fd8311b9af2
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92638211"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901597"
 ---
 # <a name="copy-and-transform-data-in-azure-synapse-analytics-formerly-sql-data-warehouse-by-using-azure-data-factory"></a>Copiare e trasformare i dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando Azure Data Factory
 
@@ -271,7 +271,7 @@ Per copiare dati da Azure Synapse Analytics, impostare la proprietà **type** ne
 | partitionOptions | Specifica le opzioni di partizionamento dei dati usate per caricare i dati da Azure sinapsi Analytics. <br>I valori consentiti sono: **None** (impostazione predefinita), **PhysicalPartitionsOfTable** e **DynamicRange** .<br>Quando è abilitata un'opzione di partizione (ovvero non `None` ), il grado di parallelismo per caricare simultaneamente i dati da un'analisi di sinapsi di Azure è controllato dall' [`parallelCopies`](copy-activity-performance-features.md#parallel-copy) impostazione dell'attività di copia. | No |
 | partitionSettings | Specifica il gruppo di impostazioni per il partizionamento dei dati. <br>Applicare quando l'opzione partition non è `None` . | No |
 | **_In `partitionSettings` :_* _ | | |
-| partitionColumnName | Specificare il nome della colonna di origine _ *nel tipo Integer o data/datetime* * che verrà utilizzato dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, l'indice o la chiave primaria della tabella vengono rilevati automaticamente e utilizzati come colonna della partizione.<br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si utilizza una query per recuperare i dati di origine, associare  `?AdfDynamicRangePartitionCondition ` la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-synapse-analytics) . | No |
+| partitionColumnName | Specificare il nome della colonna di origine _ *nel tipo Integer o date/DateTime* * ( `int` , `smallint` , `bigint` , `date` , `smalldatetime` , `datetime` , `datetime2` o `datetimeoffset` ) che verrà utilizzato dal partizionamento dell'intervallo per la copia parallela. Se non è specificato, l'indice o la chiave primaria della tabella vengono rilevati automaticamente e utilizzati come colonna della partizione.<br>Si applica quando l'opzione di partizione è `DynamicRange`. Se si utilizza una query per recuperare i dati di origine, associare  `?AdfDynamicRangePartitionCondition ` la clausola WHERE. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-synapse-analytics) . | No |
 | partitionUpperBound | Valore massimo della colonna di partizione per la suddivisione dell'intervallo di partizioni. Questo valore viene usato per decidere lo stride della partizione, non per filtrare le righe nella tabella. Tutte le righe della tabella o del risultato della query verranno partizionate e copiate. Se non è specificato, l'attività di copia rileva automaticamente il valore.  <br>Si applica quando l'opzione di partizione è `DynamicRange`. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-synapse-analytics) . | No |
 | partitionLowerBound | Valore minimo della colonna di partizione per la suddivisione dell'intervallo di partizioni. Questo valore viene usato per decidere lo stride della partizione, non per filtrare le righe nella tabella. Tutte le righe della tabella o del risultato della query verranno partizionate e copiate. Se non è specificato, l'attività di copia rileva automaticamente il valore.<br>Si applica quando l'opzione di partizione è `DynamicRange`. Per un esempio, vedere la sezione [copia parallela da database SQL](#parallel-copy-from-synapse-analytics) . | No |
 
@@ -478,7 +478,7 @@ Se la tabella contiene una partizione fisica, verrà visualizzato "HasPartition"
 - Se l'archivio e il formato dei dati di origine non sono supportati in origine da PolyBase, usare la funzionalità **[copia di staging tramite PolyBase](#staged-copy-by-using-polybase)** . La funzionalità copia di staging assicura inoltre una migliore velocità effettiva, Converte automaticamente i dati in un formato compatibile con polibase, archivia i dati nell'archiviazione BLOB di Azure e quindi chiama la polibase per caricare i dati in Azure sinapsi Analytics.
 
 > [!TIP]
-> Per altre informazioni, vedere [Procedure consigliate per l'uso di PolyBase](#best-practices-for-using-polybase).
+> Per altre informazioni, vedere [Procedure consigliate per l'uso di PolyBase](#best-practices-for-using-polybase). Quando si usa la polibase con Azure Integration Runtime, DIUs (Data Integration Unit) valido è sempre 2. L'ottimizzazione del DIU non influisca sulle prestazioni, perché il caricamento dei dati dall'archiviazione è basato sul motore sinapsi.
 
 Le impostazioni di PolyBase seguenti sono supportate in `polyBaseSettings` nell'attività di copia:
 
@@ -671,6 +671,9 @@ L' [istruzione Copy](/sql/t-sql/statements/copy-into-transact-sql) (anteprima) d
 
 >[!NOTE]
 >Attualmente Data Factory supporta la copia solo dalle origini compatibili con l'istruzione COPY indicate di seguito.
+
+>[!TIP]
+>Quando si usa un'istruzione COPY con Azure Integration Runtime, DIUs (Data Integration Unit) è sempre 2. L'ottimizzazione del DIU non influisca sulle prestazioni, perché il caricamento dei dati dall'archiviazione è basato sul motore sinapsi.
 
 L'uso dell'istruzione COPY supporta la configurazione seguente:
 

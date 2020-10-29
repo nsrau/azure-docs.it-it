@@ -4,12 +4,12 @@ description: Eseguire il backup e il ripristino di database SQL in macchine virt
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 37e2336b262311ea00e833ad91fe5e8c5c1ddf1e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b3b943a53c1da0f6f1e938b5b234dc82541b46d
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975181"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92901667"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di database SQL in macchine virtuali di Azure con PowerShell
 
@@ -56,10 +56,10 @@ Configurare PowerShell nel modo seguente:
 
     ![Elenco di cmdlet dei Servizi di ripristino](./media/backup-azure-afs-automation/list-of-recoveryservices-ps-az.png)
 
-4. Accedere al proprio account Azure con **Connect-AzAccount**.
+4. Accedere al proprio account Azure con **Connect-AzAccount** .
 5. Nella pagina Web visualizzata verrà richiesto di immettere le credenziali dell'account.
 
-    * In alternativa, è possibile includere le credenziali dell'account come parametro nel cmdlet **Connect-AzAccount** con **-Credential**.
+    * In alternativa, è possibile includere le credenziali dell'account come parametro nel cmdlet **Connect-AzAccount** con **-Credential** .
     * Se si è un partner CSP che lavora per un tenant, specificare il cliente come tenant, usando il nome di dominio primario tenantID o tenant. Un esempio è **Connect-AzAccount -Tenant** fabrikam.com.
 
 6. Associare la sottoscrizione che si vuole usare all'account perché un account può avere più sottoscrizioni.
@@ -80,13 +80,13 @@ Configurare PowerShell nel modo seguente:
     Get-AzResourceProvider -ProviderNamespace "Microsoft.RecoveryServices"
     ```
 
-9. Nell'output del comando verificare che **RegistrationState** venga modificato in **registrato**. In caso contrario, eseguire di nuovo il cmdlet **Register-AzResourceProvider** .
+9. Nell'output del comando verificare che **RegistrationState** venga modificato in **registrato** . In caso contrario, eseguire di nuovo il cmdlet **Register-AzResourceProvider** .
 
 ## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
 Seguire questa procedura per creare un insieme di credenziali di Servizi di ripristino.
 
-L'insieme di credenziali di Servizi di ripristino è una risorsa di Resource Manager, quindi è necessario inserirlo all'interno di un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno con il cmdlet **New-AzResourceGroup**. Quando si crea un nuovo gruppo di risorse, è necessario specificare il nome e il percorso per il gruppo di risorse.
+L'insieme di credenziali di Servizi di ripristino è una risorsa di Resource Manager, quindi è necessario inserirlo all'interno di un gruppo di risorse. È possibile usare un gruppo di risorse esistente o crearne uno con il cmdlet **New-AzResourceGroup** . Quando si crea un nuovo gruppo di risorse, è necessario specificare il nome e il percorso per il gruppo di risorse.
 
 1. Un insieme di credenziali viene inserito in un gruppo di risorse. Se non si dispone di un gruppo di risorse esistente, crearne uno nuovo con [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). In questo esempio viene creato un nuovo gruppo di risorse nell'area Stati Uniti occidentali.
 
@@ -103,7 +103,7 @@ L'insieme di credenziali di Servizi di ripristino è una risorsa di Resource Man
 3. Specificare il tipo di ridondanza da usare per l'archiviazione dell'insieme di credenziali.
 
     * È possibile usare l'archiviazione con ridondanza [locale](../storage/common/storage-redundancy.md#locally-redundant-storage), l'archiviazione con [ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage) o l' [archiviazione con ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) .
-    * Nell'esempio seguente viene impostata l'opzione **-BackupStorageRedundancy** per[set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd per **testvault** impostato su **georidondante**.
+    * Nell'esempio seguente viene impostata l'opzione **-BackupStorageRedundancy** per [set-AzRecoveryServicesBackupProperty](/powershell/module/az.recoveryservices/set-azrecoveryservicesbackupproperty) cmd per **testvault** impostato su **georidondante** .
 
     ```powershell
     $vault1 = Get-AzRecoveryServicesVault -Name "testvault"
@@ -137,7 +137,7 @@ Archiviare l'oggetto insieme di credenziali in una variabile e impostare il cont
 * Molti cmdlet di backup di Azure richiedono l'oggetto insieme di credenziali dei servizi di ripristino come input, quindi è consigliabile archiviare l'oggetto insieme di credenziali in una variabile.
 * Il contesto dell'insieme di credenziali definisce il tipo di dati protetti nell'insieme di credenziali. Impostarla con [set-AzRecoveryServicesVaultContext](/powershell/module/az.recoveryservices/set-azrecoveryservicesvaultcontext). Una volta impostato il contesto, si applica a tutti i cmdlet successivi.
 
-L'esempio seguente imposta il contesto per **testvault**.
+L'esempio seguente imposta il contesto per **testvault** .
 
 ```powershell
 Get-AzRecoveryServicesVault -Name "testvault" | Set-AzRecoveryServicesVaultContext
@@ -172,7 +172,7 @@ $schpol.ScheduleRunTimes[0] = $UtcTime
 > [!IMPORTANT]
 > È necessario specificare l'ora di inizio solo in più di 30 minuti. Nell'esempio precedente può essere solo "01:00:00" o "02:30:00". L'ora di inizio non può essere "01:15:00".
 
-Nell'esempio seguente i criteri di pianificazione e i criteri di conservazione vengono archiviati nelle variabili. USA quindi tali variabili come parametri per un nuovo criterio (**NewSQLPolicy**). **NewSQLPolicy** esegue un backup giornaliero "completo", lo conserva per 180 giorni ed esegue un backup del log ogni 2 ore
+Nell'esempio seguente i criteri di pianificazione e i criteri di conservazione vengono archiviati nelle variabili. USA quindi tali variabili come parametri per un nuovo criterio ( **NewSQLPolicy** ). **NewSQLPolicy** esegue un backup giornaliero "completo", lo conserva per 180 giorni ed esegue un backup del log ogni 2 ore
 
 ```powershell
 $schPol = Get-AzRecoveryServicesBackupSchedulePolicyObject -WorkloadType "MSSQL"
@@ -310,7 +310,7 @@ $FullRP = Get-AzRecoveryServicesBackupRecoveryPoint -Item $bkpItem -VaultId $tar
 Se si vuole ripristinare il database in un determinato punto nel tempo, usare il cmdlet [Get-AzRecoveryServicesBackupRecoveryLogChain](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverylogchain) di PowerShell. Il cmdlet restituisce un elenco di date che rappresentano l'ora di inizio e di fine di una catena di log continua non interruppe per tale elemento di backup SQL. Il punto nel tempo desiderato deve essere compreso in questo intervallo.
 
 ```powershell
-Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -Item -VaultId $targetVault.ID
+Get-AzRecoveryServicesBackupRecoveryLogChain -Item $bkpItem -VaultId $targetVault.ID
 ```
 
 L'output sarà simile all'esempio seguente.
@@ -499,7 +499,7 @@ Se l'output viene perso o se si vuole ottenere l'ID del processo pertinente, [ot
 
 ### <a name="change-policy-for-backup-items"></a>Modificare i criteri per gli elementi di backup
 
-È possibile modificare i criteri dell'elemento di cui è stato eseguito il backup da *Policy1* a *Policy2*. Per modificare i criteri per un elemento di cui è stato eseguito il backup, recuperare i criteri pertinenti ed eseguire il backup dell'elemento e usare il comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) con l'elemento di backup come parametro.
+È possibile modificare i criteri dell'elemento di cui è stato eseguito il backup da *Policy1* a *Policy2* . Per modificare i criteri per un elemento di cui è stato eseguito il backup, recuperare i criteri pertinenti ed eseguire il backup dell'elemento e usare il comando [Enable-AzRecoveryServices](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) con l'elemento di backup come parametro.
 
 ```powershell
 $TargetPol1 = Get-AzRecoveryServicesBackupProtectionPolicy -Name <PolicyName>

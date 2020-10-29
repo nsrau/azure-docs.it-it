@@ -4,12 +4,12 @@ description: Informazioni sui diversi modi in cui è possibile distribuire il co
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.openlocfilehash: 3865e6906b39633e14c86619770188f1c73fed8e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3988f30d0e6429a8cac450711d4033e4b2603d46
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88641960"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900177"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Tecnologie di distribuzione in funzioni di Azure
 
@@ -128,7 +128,7 @@ Usare la distribuzione zip per eseguire il push di un file con estensione zip ch
 
 >__Come usarlo:__ Creare un'app per le funzioni Linux nel piano Premium o dedicato e specificare l'immagine del contenitore da cui eseguire. Questa operazione può essere eseguita in due modi:
 >
->* Creare un'app per le funzioni Linux in un piano di servizio app Azure nel portale di Azure. Per **Publish**selezionare **Docker image**e quindi Configure the container. Immettere il percorso in cui è ospitata l'immagine.
+>* Creare un'app per le funzioni Linux in un piano di servizio app Azure nel portale di Azure. Per **Publish** selezionare **Docker image** e quindi Configure the container. Immettere il percorso in cui è ospitata l'immagine.
 >* Creare un'app per le funzioni di Linux in un piano di servizio app usando l'interfaccia della riga di comando di Azure. Per informazioni, vedere [creare una funzione in Linux usando un'immagine personalizzata](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function).
 >
 >Per eseguire la distribuzione in un'app esistente usando un contenitore personalizzato, in [Azure Functions Core Tools](functions-run-local.md)usare il [`func deploy`](functions-run-local.md#publish) comando.
@@ -212,7 +212,7 @@ Se è necessario un maggiore controllo sulla transizione, è consigliabile usare
 
 ## <a name="deployment-slots"></a>Slot di distribuzione
 
-Quando si distribuisce l'app per le funzioni in Azure, è possibile eseguire la distribuzione in uno slot di distribuzione separato invece che direttamente nell'ambiente di produzione. Per ulteriori informazioni sugli slot di distribuzione, vedere la documentazione relativa agli [slot di distribuzione di funzioni di Azure](../app-service/deploy-staging-slots.md) per informazioni dettagliate.
+Quando si distribuisce l'app per le funzioni in Azure, è possibile eseguire la distribuzione in uno slot di distribuzione separato invece che direttamente nell'ambiente di produzione. Per ulteriori informazioni sugli slot di distribuzione, vedere la documentazione relativa agli [slot di distribuzione di funzioni di Azure](functions-deployment-slots.md) per informazioni dettagliate.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
