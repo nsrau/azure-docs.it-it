@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/05/2020
 ms.author: jeedes
-ms.openlocfilehash: e01bc36f0f30cec779652a603aaf7bdb496e5190
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0266e62af55f6d775ca1b1ae5ee31d5f10d4249
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850575"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92459986"
 ---
 # <a name="tutorial-integrate-sage-intacct-with-azure-active-directory"></a>Esercitazione: Integrare Sage Intacct con Azure Active Directory
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Sage Intacct con Azure Active Direc
 * Abilitare gli utenti per l'accesso automatico a Sage Intacct con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,22 +40,22 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Sage Intacct supporta l'accesso SSO avviato da **IDP**
-* Dopo aver configurato Sage Intacct, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Dopo aver configurato Sage Intacct, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-sage-intacct-from-the-gallery"></a>Aggiunta di Sage Intacct dalla raccolta
 
 Per configurare l'integrazione di Sage Intacct in Azure AD, è necessario aggiungere Sage Intacct dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Sage Intacct** nella casella di ricerca.
 1. Selezionare **Sage Intacct** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-sso-for-sage-intacct"></a>Configurare e testare l'accesso SSO di Azure AD per Sage Intacct
 
-Configurare e testare l'accesso SSO di Azure AD con Sage Intacct usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Sage Intacct.
+Configurare e testare l'accesso SSO di Azure AD con Sage Intacct usando un utente di test di nome **B.Simon** . Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Sage Intacct.
 
 Per configurare e testare l'accesso SSO di Azure AD con Sage Intacct, completare le procedure di base seguenti:
 
@@ -70,8 +70,8 @@ Per configurare e testare l'accesso SSO di Azure AD con Sage Intacct, completare
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Sage Intacct** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina di integrazione dell'applicazione **Sage Intacct** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On** .
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
@@ -89,21 +89,21 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | Nome attributo  |  Attributo di origine|
     | ---------------| --------------- |
     | Nome dell'azienda | **ID società di Sage Intacct** |
-    | name | Il valore deve corrispondere a quello di **User ID** (ID utente) di Sage Intacct, che viene immesso nella sezione **Creare l'utente di test di Sage Intacct**, descritta più avanti nell'esercitazione. |
+    | name | Il valore deve corrispondere a quello di **User ID** (ID utente) di Sage Intacct, che viene immesso nella sezione **Creare l'utente di test di Sage Intacct** , descritta più avanti nell'esercitazione. |
 
-    a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
+    a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente** .
 
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 
-    c. Lasciare vuota la casella **Spazio dei nomi**.
+    c. Lasciare vuota la casella **Spazio dei nomi** .
 
-    d. Per Origine selezionare **Attributo**.
+    d. Per Origine selezionare **Attributo** .
 
     e. Nell'elenco **Attributo di origine** digitare o selezionare il valore dell'attributo indicato per la riga.
 
-    f. Fare clic su **OK**.
+    f. Fare clic su **OK** .
 
-    g. Fare clic su **Salva**.
+    g. Fare clic su **Salva** .
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -117,31 +117,31 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `B.Simon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Crea**.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+   1. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Sage Intacct.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Sage Intacct**.
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
+1. Nell'elenco delle applicazioni selezionare **Sage Intacct** .
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **B.Simon** dall'elenco degli utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ## <a name="configure-sage-intacct-sso"></a>Configurare l'accesso SSO di Sage Intacct
 
@@ -159,17 +159,17 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Single sign on](./media/intacct-tutorial/ic790039.png "Single Sign-On")
 
-    a. Selezionare **Abilita Single Sign-On**.
+    a. Selezionare **Abilita Single Sign-On** .
 
-    b. In **Identity provider type** (Tipo di provider di identità) selezionare **SAML 2.0**.
+    b. In **Identity provider type** (Tipo di provider di identità) selezionare **SAML 2.0** .
 
     c. Nella casella di testo **Issuer URL** (URL autorità di certificazione) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
     d. Nella casella di testo **URL di accesso** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    e. Aprire il certificato con codifica **Base 64** nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella **Certificato**.
+    e. Aprire il certificato con codifica **Base 64** nel Blocco note, copiarne il contenuto negli Appunti e incollarlo nella casella **Certificato** .
 
-    f. Fare clic su **Salva**.
+    f. Fare clic su **Salva** .
 
 ### <a name="create-sage-intacct-test-user"></a>Creare l'utente di test di Sage Intacct
 
@@ -177,7 +177,7 @@ Per consentire agli utenti di Azure AD di accedere a Sage Intacct, è necessario
 
 **Per eseguire il provisioning degli account utente, seguire questa procedura:**
 
-1. Accedere al tenant di **Sage Intacct**.
+1. Accedere al tenant di **Sage Intacct** .
 
 1. Fare clic sulla scheda **Company** (Azienda) e quindi su **Users** (Utenti).
 
@@ -191,14 +191,14 @@ Per consentire agli utenti di Azure AD di accedere a Sage Intacct, è necessario
 
     ![Screenshot che mostra la sezione User Information in cui è possibile immettere le informazioni in questo passaggio.](./media/intacct-tutorial/ic790043.png "Informazioni utente")
 
-    a. Nelle caselle di testo **User ID**, **Last name**, **First name**, **Email address**, **Title** e **Phone** immettere l'ID utente, il cognome, il nome, l'indirizzo di posta elettronica, la posizione e il numero di telefono di un account Azure AD di cui si vuole eseguire il provisioning nella sezione **Informazioni utente**.
+    a. Nelle caselle di testo **User ID** , **Last name** , **First name** , **Email address** , **Title** e **Phone** immettere l'ID utente, il cognome, il nome, l'indirizzo di posta elettronica, la posizione e il numero di telefono di un account Azure AD di cui si vuole eseguire il provisioning nella sezione **Informazioni utente** .
 
     > [!NOTE]
     > Assicurarsi che il valore di **User ID** (ID utente) nello screenshot precedente e il valore di **Source Attribute** (Attributo di origine), di cui è stato eseguito il mapping all'attributo **name** nella sezione **Attributi utente** del portale di Azure, siano identici.
 
     b. Selezionare i **privilegi di amministratore** di un account Azure AD di cui si vuole eseguire il provisioning.
 
-    c. Fare clic su **Salva**. 
+    c. Fare clic su **Salva** . 
     
     d. Il titolare dell'account Azure AD riceve un messaggio di posta elettronica con un collegamento da selezionare per confermare l'account e attivarlo.
 
@@ -213,14 +213,14 @@ Per consentire agli utenti di Azure AD di accedere a Sage Intacct, è necessario
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Sage Intacct nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Sage Intacct per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Sage Intacct nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Sage Intacct per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)

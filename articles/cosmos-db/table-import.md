@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 12/07/2017
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6cf47c3b6af89ff3ff431d18d0bda2144427ec34
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: f99d7430b76c0b1c4e9c07835267a4a0807efdb1
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329407"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481364"
 ---
 # <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Eseguire la migrazione dei dati nell'account dell'API Tabella di Azure Cosmos DB
 
@@ -110,7 +110,7 @@ dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=
 
 ## <a name="migrate-data-by-using-azcopy"></a>Eseguire la migrazione dei dati mediante AzCopy
 
-L'utilità da riga di comando AzCopy è l'altra opzione per eseguire la migrazione dei dati dall'archiviazione tabelle di Azure all'API Table di Azure Cosmos DB. Per usare AzCopy, è prima necessario esportare i dati come descritto in [Esportare dati da Archiviazione tabelle](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#export-data-from-table-storage), quindi importare i dati in Azure Cosmos DB come descritto nell'[API Tabelle di Azure Cosmos DB](https://docs.microsoft.com/previous-versions/azure/storage/storage-use-azcopy#import-data-into-table-storage).
+L'utilità da riga di comando AzCopy è l'altra opzione per eseguire la migrazione dei dati dall'archiviazione tabelle di Azure all'API Table di Azure Cosmos DB. Per usare AzCopy, è prima necessario esportare i dati come descritto in [Esportare dati da Archiviazione tabelle](/previous-versions/azure/storage/storage-use-azcopy#export-data-from-table-storage), quindi importare i dati in Azure Cosmos DB come descritto nell'[API Tabelle di Azure Cosmos DB](/previous-versions/azure/storage/storage-use-azcopy#import-data-into-table-storage).
 
 Quando si esegue l'importazione in Azure Cosmos DB, vedere l'esempio seguente. Si noti che il valore /Dest usa cosmosdb, non core.
 

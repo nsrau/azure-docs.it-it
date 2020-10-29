@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/20/2019
 ms.author: jeedes
-ms.openlocfilehash: 17c9672663cae4df7eacb72779e6caf6476e3d24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8f12b6d55cb11c0cfeda5331072127ea4a696bc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88550484"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460105"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-insideview"></a>Esercitazione: Integrazione di Azure Active Directory con InsideView
 
@@ -27,7 +27,7 @@ Questa integrazione offre i seguenti vantaggi:
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a InsideView con gli account Azure AD personali.
 * È possibile gestire gli account da una posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -52,7 +52,7 @@ Per configurare l'integrazione di InsideView in Azure AD, è necessario aggiunge
 
     ![Selezionare Azure Active Directory](common/select-azuread.png)
 
-2. Passare a **Applicazioni aziendali** > **Tutte le applicazioni**:
+2. Passare a **Applicazioni aziendali** > **Tutte le applicazioni** :
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -60,7 +60,7 @@ Per configurare l'integrazione di InsideView in Azure AD, è necessario aggiunge
 
     ![Selezionare Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **InsideView**. Selezionare **InsideView** nei risultati della ricerca e quindi selezionare **Aggiungi**.
+4. Nella casella di ricerca immettere **InsideView** . Selezionare **InsideView** nei risultati della ricerca e quindi selezionare **Aggiungi** .
 
     ![Search Results](common/search-new-app.png)
 
@@ -84,7 +84,7 @@ In questa sezione verrà abilitato l'accesso Single Sign-On di Azure AD nel port
 
 Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire questa procedura:
 
-1. Nella pagina di integrazione dell'applicazione InsideView del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On**:
+1. Nella pagina di integrazione dell'applicazione InsideView del [portale di Azure](https://portal.azure.com/) selezionare **Single Sign-On** :
 
     ![Selezionare Single Sign-On](common/select-sso.png)
 
@@ -92,7 +92,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire que
 
     ![Selezionare un metodo di accesso Single Sign-On](common/select-saml-option.png)
 
-3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base**:
+3. Nella pagina **Configura l'accesso Single Sign-On con SAML** selezionare l'icona **Modifica** per aprire la finestra di dialogo **Configurazione SAML di base** :
 
     ![Icona Modifica](common/edit-urls.png)
 
@@ -115,11 +115,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire que
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
 
-    1. **URL di accesso**.
+    1. **URL di accesso** .
 
-    1. **Identificatore Azure AD**.
+    1. **Identificatore Azure AD** .
 
-    1. **URL di disconnessione**.
+    1. **URL di disconnessione** .
 
 ### <a name="configure-insideview-single-sign-on"></a>Configurare l'accesso Single Sign-On di InsideView
 
@@ -147,13 +147,13 @@ Per configurare l'accesso Single Sign-On di Azure AD con InsideView, seguire que
 
     1. Nella casella **Crm LastName Mapping** (Mapping cognome crm) immettere **`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`** .  
 
-    1. Selezionare **Salva**.
+    1. Selezionare **Salva** .
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**:
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** :
 
     ![Selezionare Tutti gli utenti](common/users.png)
 
@@ -165,11 +165,11 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
     ![Finestra di dialogo Utente](common/user-properties.png)
 
-    1. Nella casella **Nome** immettere **BrittaSimon**.
+    1. Nella casella **Nome** immettere **BrittaSimon** .
   
     1. Nella casella **Nome utente** immettere **BrittaSimon@\<yourcompanydomain>.\<extension>** . ad esempio BrittaSimon@contoso.com.
 
-    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
+    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
 
     1. Selezionare **Create** (Crea).
 
@@ -177,19 +177,19 @@ In questa sezione verrà creato un utente di test di nome Britta Simon nel porta
 
 In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a InsideView.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **InsideView**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **InsideView** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **InsideView**.
+2. Nell'elenco delle applicazioni selezionare **InsideView** .
 
     ![Elenco delle applicazioni](common/all-applications.png)
 
-3. Nel riquadro sinistro selezionare **Utenti e gruppi**:
+3. Nel riquadro sinistro selezionare **Utenti e gruppi** :
 
     ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 
-4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+4. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Selezionare Aggiungi utente](common/add-assign-user.png)
 
@@ -197,7 +197,7 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
 6. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco. Fare clic sul pulsante **Seleziona** in basso nella finestra.
 
-7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna**.
+7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare **Assegna** .
 
 ### <a name="create-an-insideview-test-user"></a>Creare l'utente di test di InsideView
 
@@ -212,12 +212,12 @@ Per creare utenti o contatti in InsideView, contattare il [team di supporto di I
 
 Il passaggio finale consiste nel testare la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si seleziona il riquadro di InsideView nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di InsideView per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Accedere e usare le app nel portale di My Apps](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di InsideView nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di InsideView per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Accedere e usare le app nel portale di My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

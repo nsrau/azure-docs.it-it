@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 10/07/2020
 ms.author: mjbrown
-ms.openlocfilehash: e55b93d3790efe01a796860bd3607f2fcc6ba5f6
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c5d01d34e0941974590845f7a54248e2972c2067
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281977"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92481789"
 ---
 # <a name="throughput-rus-operations-with-powershell-for-a-database-or-container-for-azure-cosmos-db-core-sql-api"></a>Operazioni di velocità effettiva (UR/s) con PowerShell per un database o contenitore per l'API Core (SQL) di Azure Cosmos DB
 
@@ -47,16 +47,16 @@ Questo script usa i comandi seguenti. Ogni comando della tabella include collega
 | Comando | Note |
 |---|---|
 |**Azure Cosmos DB**| |
-| [Get-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Ottiene la velocità effettiva di cui è stato effettuato il provisioning in un database dell'API Core (SQL) di Azure Cosmos DB. |
-| [Get-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Ottiene la velocità effettiva di cui è stato effettuato il provisioning in un contenitore dell'API Core (SQL) di Azure Cosmos DB. |
-| [Update-AzCosmosDBSqlDatabaseThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabase) | Aggiorna il valore della velocità effettiva di un database dell'API Core (SQL) di Azure Cosmos DB. |
-| [Update-AzCosmosDBSqlContainerThroughput](https://docs.microsoft.com/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Aggiorna il valore della velocità effettiva di un contenitore dell'API Core (SQL) di Azure Cosmos DB. |
-| [Invoke-AzCosmosDBSqlDatabaseThroughputMigration](https://docs.microsoft.com/powershell/module/az.cosmosdb/invoke-azcosmosdbsqldatabasethroughputmigration) | Esegue la migrazione della velocità effettiva di un database dell'API Core (SQL) di Azure Cosmos DB. |
-| [Invoke-AzCosmosDBSqlContainerThroughputMigration](https://docs.microsoft.com/powershell/module/az.cosmosdb/invoke-azcosmosdbsqlcontainerthroughputmigration) | Esegue la migrazione della velocità effettiva di un contenitore dell'API Core (SQL) di Azure Cosmos DB. |
+| [Get-AzCosmosDBSqlDatabaseThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabasethroughput) | Ottiene la velocità effettiva di cui è stato effettuato il provisioning in un database dell'API Core (SQL) di Azure Cosmos DB. |
+| [Get-AzCosmosDBSqlContainerThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainerthroughput) | Ottiene la velocità effettiva di cui è stato effettuato il provisioning in un contenitore dell'API Core (SQL) di Azure Cosmos DB. |
+| [Update-AzCosmosDBSqlDatabaseThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbsqldatabase) | Aggiorna il valore della velocità effettiva di un database dell'API Core (SQL) di Azure Cosmos DB. |
+| [Update-AzCosmosDBSqlContainerThroughput](/powershell/module/az.cosmosdb/get-azcosmosdbsqlcontainer) | Aggiorna il valore della velocità effettiva di un contenitore dell'API Core (SQL) di Azure Cosmos DB. |
+| [Invoke-AzCosmosDBSqlDatabaseThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbsqldatabasethroughputmigration) | Esegue la migrazione della velocità effettiva di un database dell'API Core (SQL) di Azure Cosmos DB. |
+| [Invoke-AzCosmosDBSqlContainerThroughputMigration](/powershell/module/az.cosmosdb/invoke-azcosmosdbsqlcontainerthroughputmigration) | Esegue la migrazione della velocità effettiva di un contenitore dell'API Core (SQL) di Azure Cosmos DB. |
 |**Gruppi di risorse di Azure**| |
-| [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
+| [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Consente di eliminare un gruppo di risorse incluse tutte le risorse annidate. |
 |||
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/).
+Per altre informazioni su Azure PowerShell, vedere la [documentazione di Azure PowerShell](/powershell/).

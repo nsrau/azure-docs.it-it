@@ -8,12 +8,12 @@ ms.topic: sample
 ms.date: 10/07/2019
 author: sakash279
 ms.author: akshanka
-ms.openlocfilehash: ed3ea64bf76eafd965e13f4dab1911840ed8139a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50a34f2572e5e9feea0b5adc3e12f72451e5728b
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91282851"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477335"
 ---
 # <a name="how-to-use-azure-table-storage-and-azure-cosmos-db-table-api-with-c"></a>Come usare l'archiviazione tabelle di Azure e l'API del servizio tabelle di Azure Cosmos DB con C++
 
@@ -78,7 +78,7 @@ Questo esempio illustra come dichiarare un campo statico per memorizzare la stri
 const utility::string_t storage_connection_string(U("DefaultEndpointsProtocol=https;AccountName=<your_storage_account>;AccountKey=<your_storage_account_key>"));
 ```
 
-Usare il nome dell'account di archiviazione per `<your_storage_account>`. Per <your_storage_account_key>, usare la chiave di accesso per l'account di archiviazione elencato nel [portale di Azure](https://portal.azure.com). Per informazioni sugli account di archiviazione e sulle chiavi di accesso, vedere [Creare un account di archiviazione](../storage/common/storage-create-storage-account.md).
+Usare il nome dell'account di archiviazione per `<your_storage_account>`. Per <your_storage_account_key>, usare la chiave di accesso per l'account di archiviazione elencato nel [portale di Azure](https://portal.azure.com). Per informazioni sugli account di archiviazione e sulle chiavi di accesso, vedere [Creare un account di archiviazione](../storage/common/storage-account-create.md).
 
 ### <a name="set-up-an-azure-cosmos-db-connection-string"></a>Configurare una stringa di connessione di Azure Cosmos DB
 
@@ -98,7 +98,7 @@ Per testare l'applicazione nel proprio computer Windows locale, è possibile usa
 const utility::string_t storage_connection_string(U("UseDevelopmentStorage=true;"));  
 ```
 
-Per avviare l'emulatore di archiviazione di Azure, dal desktop di Windows selezionare il pulsante **Start** o premere il tasto WINDOWS. Accedere all'*Emulatore di archiviazione di Microsoft Azure* ed eseguirlo. Per altre informazioni, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](../storage/common/storage-use-emulator.md).
+Per avviare l'emulatore di archiviazione di Azure, dal desktop di Windows selezionare il pulsante **Start** o premere il tasto WINDOWS. Accedere all' *Emulatore di archiviazione di Microsoft Azure* ed eseguirlo. Per altre informazioni, vedere [Usare l'emulatore di archiviazione di Azure per sviluppo e test](../storage/common/storage-use-emulator.md).
 
 ### <a name="retrieve-your-connection-string"></a>Recuperare la stringa di connessione
 
@@ -138,7 +138,7 @@ table.create_if_not_exists();
 
 ### <a name="add-an-entity-to-a-table"></a>Aggiungere un'entità a una tabella
 
-Per aggiungere un'entità a una tabella, creare un nuovo oggetto `table_entity` e passarlo a `table_operation::insert_entity`. Nel codice seguente il nome del cliente viene utilizzato come chiave di riga e il cognome come chiave di partizione. La combinazione della chiave di riga e della chiave di partizione di un'entità consentono di identificare in modo univoco l'entità nella tabella. Le query su entità con la stessa chiave di partizione vengono eseguite più rapidamente di quelle con chiavi di partizione diverse. L'uso di chiavi di partizione diverse consente una maggiore scalabilità delle operazioni parallele. Per altre informazioni, vedere [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](../storage/common/storage-performance-checklist.md).
+Per aggiungere un'entità a una tabella, creare un nuovo oggetto `table_entity` e passarlo a `table_operation::insert_entity`. Nel codice seguente il nome del cliente viene utilizzato come chiave di riga e il cognome come chiave di partizione. La combinazione della chiave di riga e della chiave di partizione di un'entità consentono di identificare in modo univoco l'entità nella tabella. Le query su entità con la stessa chiave di partizione vengono eseguite più rapidamente di quelle con chiavi di partizione diverse. L'uso di chiavi di partizione diverse consente una maggiore scalabilità delle operazioni parallele. Per altre informazioni, vedere [Elenco di controllo di prestazioni e scalabilità per Archiviazione di Microsoft Azure](../storage/blobs/storage-performance-checklist.md).
 
 Il codice seguente crea una nuova istanza di `table_entity` con alcuni dati del cliente da memorizzare. Il codice quindi chiama `table_operation::insert_entity` per creare un oggetto `table_operation` per inserire un'entità in una tabella e associa la nuova entità di tabella all'oggetto. Infine, il codice chiama il metodo `execute` sull'oggetto `cloud_table`. Il nuovo oggetto `table_operation` invia una richiesta al servizio tabelle per inserire la nuova entità cliente nella tabella `people`.  
 
@@ -499,11 +499,11 @@ else
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Per Visual Studio Community Edition, se nel progetto si verificano errori di compilazione a causa dei file di inclusione *storage_account.h* e *table.h*, rimuovere l'opzione del compilatore **/permissive-** :
+Per Visual Studio Community Edition, se nel progetto si verificano errori di compilazione a causa dei file di inclusione *storage_account.h* e *table.h* , rimuovere l'opzione del compilatore **/permissive-** :
 
-1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Proprietà**.
-1. Nella finestra di dialogo **Pagine delle proprietà** espandere **Proprietà di configurazione**, quindi **C/C++** e infine selezionare **Lingua**.
-1. Impostare **Modalità di conformità** su **No**.
+1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sul progetto, quindi scegliere **Proprietà** .
+1. Nella finestra di dialogo **Pagine delle proprietà** espandere **Proprietà di configurazione** , quindi **C/C++** e infine selezionare **Lingua** .
+1. Impostare **Modalità di conformità** su **No** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -9,12 +9,12 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-js
-ms.openlocfilehash: 6ce4354faec73f8fe42a936e677bee473796701d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ac175e2c1caa39bfe88a7c1a5f42318db343fb
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318773"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477284"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Node.js
 
@@ -57,7 +57,7 @@ Per usare Archiviazione di Azure o Azure Cosmos DB, è necessario disporre di Az
     +-- request@2.57.0 (caseless@0.10.0, aws-sign2@0.5.0, forever-agent@0.6.1, stringstream@0.0.4, oauth-sign@0.8.0, tunnel-agent@0.4.1, isstream@0.1.2, json-stringify-safe@5.0.1, bl@0.9.4, combined-stream@1.0.5, qs@3.1.0, mime-types@2.0.14, form-data@0.2.0, http-signature@0.11.0, tough-cookie@2.0.0, hawk@2.3.1, har-validator@1.8.0)
    ```
 
-3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node_modules**. All'interno di questa cartella si trova il pacchetto **azure-storage** , che contiene le librerie necessarie per accedere all'archiviazione.
+3. È possibile eseguire manualmente il comando **ls** per verificare che sia stata creata una cartella **node_modules** . All'interno di questa cartella si trova il pacchetto **azure-storage** , che contiene le librerie necessarie per accedere all'archiviazione.
 
 ### <a name="import-the-package"></a>Importare il pacchetto
 
@@ -134,10 +134,10 @@ var tableSvc = azure.createTableService().withFilter(retryOperations);
 
 Per aggiungere un'entità, creare prima un oggetto che definisca le proprietà dell'entità. Tutte le entità devono contenere **PartitionKey** e **RowKey** che sono gli identificatori univoci dell'entità.
 
-* **PartitionKey**: determina la partizione in cui è archiviata l'entità.
-* **RowKey**: identifica in modo univoco l'entità all'interno della partizione.
+* **PartitionKey** : determina la partizione in cui è archiviata l'entità.
+* **RowKey** : identifica in modo univoco l'entità all'interno della partizione.
 
-Sia **PartitionKey** che **RowKey** devono essere valori stringa. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](https://msdn.microsoft.com/library/azure/dd179338.aspx).
+Sia **PartitionKey** che **RowKey** devono essere valori stringa. Per altre informazioni, vedere [Informazioni sul modello di dati del servizio tabelle](/rest/api/storageservices/Understanding-the-Table-Service-Data-Model).
 
 Nell'esempio seguente viene definita un'entità. Il valore di **dueDate** è definito come tipo di `Edm.DateTime`. La definizione del tipo è facoltativa e i tipi vengono dedotti se non sono specificati.
 
@@ -220,7 +220,7 @@ tableSvc.replaceEntity('mytable', updatedTask, function(error, result, response)
 
 Con `replaceEntity` e `mergeEntity`, se l'entità da aggiornare non esiste, l'operazione di aggiornamento ha esito negativo. Di conseguenza, se si vuole archiviare un'entità indipendentemente dal fatto che sia già presente, usare `insertOrReplaceEntity` o `insertOrMergeEntity`.
 
-L'oggetto `result` per le operazioni di aggiornamento riuscite contiene l'**Etag** dell'entità aggiornata.
+L'oggetto `result` per le operazioni di aggiornamento riuscite contiene l' **Etag** dell'entità aggiornata.
 
 ## <a name="work-with-groups-of-entities"></a>Usare i gruppi di entità
 
@@ -260,15 +260,15 @@ Per le operazioni in batch riuscite, `result` contiene le informazioni relative 
 
 È possibile esaminare le operazioni aggiunte a un batch visualizzando la proprietà `operations`. Per usare le operazioni sono disponibili anche i metodi seguenti:
 
-* **clear**: cancella tutte le operazioni da un batch.
-* **getOperations**: recupera un'operazione dal batch.
-* **hasOperations**: restituisce true se il batch contiene operazioni.
-* **removeOperations**: rimuove un'operazione.
-* **size**: restituisce il numero di operazioni nel batch.
+* **clear** : cancella tutte le operazioni da un batch.
+* **getOperations** : recupera un'operazione dal batch.
+* **hasOperations** : restituisce true se il batch contiene operazioni.
+* **removeOperations** : rimuove un'operazione.
+* **size** : restituisce il numero di operazioni nel batch.
 
 ## <a name="retrieve-an-entity-by-key"></a>Recuperare un'entità in base alla chiave
 
-Per restituire un'entità specifica in base a **PartitionKey** e **RowKey**, usare il metodo **retrieveEntity**.
+Per restituire un'entità specifica in base a **PartitionKey** e **RowKey** , usare il metodo **retrieveEntity** .
 
 ```javascript
 tableSvc.retrieveEntity('mytable', 'hometasks', '1', function(error, result, response){
@@ -284,12 +284,12 @@ Al termine di questa operazione, `result` contiene l'entità.
 
 Per eseguire una query su una tabella, usare l'oggetto **TableQuery** per creare un'espressione di query con queste clausole:
 
-* **select**: i campi che la query deve restituire.
-* **where**: la clausola where.
+* **select** : i campi che la query deve restituire.
+* **where** : la clausola where.
 
-  * **and**: una condizione where `and`.
-  * **or**: una condizione where `or`.
-* **top**: il numero di elementi da recuperare.
+  * **and** : una condizione where `and`.
+  * **or** : una condizione where `or`.
+* **top** : il numero di elementi da recuperare.
 
 L'esempio seguente crea una query che restituisce i primi cinque elementi con PartitionKey 'hometasks'.
 
@@ -299,7 +299,7 @@ var query = new azure.TableQuery()
   .where('PartitionKey eq ?', 'hometasks');
 ```
 
-Poiché la clausola **select** non viene usata, vengono restituiti tutti i campi. Per eseguire la query su una tabella, usare **queryEntities**. Nell'esempio seguente viene usata questa query per restituire entità da 'mytable'.
+Poiché la clausola **select** non viene usata, vengono restituiti tutti i campi. Per eseguire la query su una tabella, usare **queryEntities** . Nell'esempio seguente viene usata questa query per restituire entità da 'mytable'.
 
 ```javascript
 tableSvc.queryEntities('mytable',query, null, function(error, result, response) {
@@ -314,7 +314,7 @@ Se la query ha esito positivo, `result.entries` contiene una matrice delle entit
 ### <a name="query-a-subset-of-entity-properties"></a>Eseguire query su un subset di proprietà di entità
 
 Una query su una tabella può recuperare solo alcuni campi da un'entità.
-Questa tecnica permette di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Usare la clausola **select** e passare i nomi dei campi da restituire. La query seguente, ad esempio, restituisce solo i campi **description** e **dueDate**.
+Questa tecnica permette di ridurre la larghezza di banda e di migliorare le prestazioni della query, in particolare per entità di grandi dimensioni. Usare la clausola **select** e passare i nomi dei campi da restituire. La query seguente, ad esempio, restituisce solo i campi **description** e **dueDate** .
 
 ```javascript
 var query = new azure.TableQuery()
@@ -357,7 +357,7 @@ tableSvc.deleteTable('mytable', function(error, response){
 });
 ```
 
-Se non si è certi dell'esistenza della tabella, usare **deleteTableIfExists**.
+Se non si è certi dell'esistenza della tabella, usare **deleteTableIfExists** .
 
 ## <a name="use-continuation-tokens"></a>Utilizzare i token di continuazione
 
@@ -455,7 +455,7 @@ var sharedAccessPolicy = {
 };
 ```
 
-L'esempio seguente recupera l'elenco di controllo di accesso corrente per la tabella **hometasks** e quindi aggiunge i nuovi criteri tramite **setTableAcl**. Risultato:
+L'esempio seguente recupera l'elenco di controllo di accesso corrente per la tabella **hometasks** e quindi aggiunge i nuovi criteri tramite **setTableAcl** . Risultato:
 
 ```javascript
 var extend = require('extend');
@@ -483,6 +483,6 @@ Per ulteriori informazioni, vedere le risorse seguenti.
 
 * [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
 * [Azure Storage SDK per Node.js](https://github.com/Azure/azure-storage-node) su GitHub
-* [Azure per sviluppatori Node.js](https://docs.microsoft.com/azure/developer/javascript/)
+* [Azure per sviluppatori Node.js](/azure/developer/javascript/)
 * [Creare un'app Web Node.js in Azure](../app-service/quickstart-nodejs.md)
 * [Creare e distribuire un'applicazione Node.js in un servizio cloud di Azure](../cloud-services/cloud-services-nodejs-develop-deploy-app.md) (usando Windows PowerShell)

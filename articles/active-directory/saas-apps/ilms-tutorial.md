@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 03b8110db94a08f44035e75371fd7641fcd91626
-ms.sourcegitcommit: d2222681e14700bdd65baef97de223fa91c22c55
+ms.openlocfilehash: 7289fe2ec1f39679dcec95f1f48a6efa9ed0cdfc
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91826360"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460343"
 ---
 # <a name="tutorial-integrate-ilms-with-azure-active-directory"></a>Esercitazione: Integrare iLMS con Azure Active Directory
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare iLMS con Azure Active Directory (Az
 * Abilitare gli utenti per l'accesso automatico a iLMS con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -44,15 +44,15 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 Per configurare l'integrazione di iLMS in Azure AD, è necessario aggiungere iLMS dalla raccolta al proprio elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
-1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
-1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
+1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory** .
+1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni** .
+1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione** .
 1. Nella sezione **Aggiungi dalla raccolta** digitare **iLMS** nella casella di ricerca.
 1. Selezionare **iLMS** nel riquadro dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 ## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
 
-Configurare e testare l'accesso Single Sign-On di Azure AD con iLMS usando un utente di test di nome **Britta Simon**. Per consentire il funzionamento del Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in iLMS.
+Configurare e testare l'accesso Single Sign-On di Azure AD con iLMS usando un utente di test di nome **Britta Simon** . Per consentire il funzionamento del Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in iLMS.
 
 Per configurare e testare l'accesso SSO di Azure AD con iLMS, completare le procedure di base seguenti:
 
@@ -67,19 +67,19 @@ Per configurare e testare l'accesso SSO di Azure AD con iLMS, completare le proc
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **iLMS** del [portale di Azure](https://portal.azure.com/) trovare la sezione **Gestione** e selezionare **Single Sign-On**.
-1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
+1. Nella pagina di integrazione dell'applicazione **iLMS** del [portale di Azure](https://portal.azure.com/) trovare la sezione **Gestione** e selezionare **Single Sign-On** .
+1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML** .
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella pagina **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella pagina **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
 
     a. Nella casella di testo **Identificatore** incollare il valore **Identificatore** copiato dalla sezione **Provider di servizi** delle impostazioni SAML nel portale di amministrazione iLMS.
 
     b. Nella casella di testo **URL di risposta** incollare il valore **Endpoint (URL)** copiato dalla sezione **Provider di servizi** delle impostazioni SAML nel portale di amministrazione iLMS con il modello seguente `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     Nella casella di testo **URL di accesso** incollare il valore **Endpoint (URL)** copiato dalla sezione **Provider di servizi** delle impostazioni SAML nel portale di amministrazione iLMS come `https://www.inspiredlms.com/Login/<instanceName>/consumer.aspx`
 
@@ -96,21 +96,21 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | region | user.state |
     | department | user. jobtitle |
 
-    a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
+    a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente** .
 
     b. Nella casella di testo **Nome** digitare il nome dell'attributo indicato per la riga.
 
-    c. Lasciare vuota la casella **Spazio dei nomi**.
+    c. Lasciare vuota la casella **Spazio dei nomi** .
 
-    d. Per Origine selezionare **Attributo**.
+    d. Per Origine selezionare **Attributo** .
 
     e. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo indicato per la riga.
 
-    f. Fare clic su **OK**.
+    f. Fare clic su **OK** .
 
-    g. Fare clic su **Salva**.
+    g. Fare clic su **Salva** .
 
-1. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+1. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -132,13 +132,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Screenshot che mostra la scheda Settings di iLMS in cui è possibile selezionare SSO: SAML.](./media/ilms-tutorial/1.png)
 
-3. Espandere la sezione **Provider di servizi** e copiare l'**Identificatore** e il valore **Endpoint (URL)** .
+3. Espandere la sezione **Provider di servizi** e copiare l' **Identificatore** e il valore **Endpoint (URL)** .
 
     ![Screenshot che mostra la schermata SAML Settings in cui è possibile ottenere i valori.](./media/ilms-tutorial/2.png) 
 
 4. Nella sezione **Provider di identità** fare clic su **Import metadata** (Importa metadati).
 
-5. Selezionare il file dei **metadati di federazione** scaricato dal portale di Azure dalla sezione **Certificato di firma SAML**.
+5. Selezionare il file dei **metadati di federazione** scaricato dal portale di Azure dalla sezione **Certificato di firma SAML** .
 
     ![Screenshot che mostra la schermata SAML Settings in cui è possibile selezionare il file di metadati.](./media/ilms-tutorial/tutorial_ilms_ssoconfig1.png)
 
@@ -170,31 +170,31 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti** .
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `Britta Simon`.  
    1. Nel campo **Nome utente** immettere username@companydomain.extension. Ad esempio: `BrittaSimon@contoso.com`.
-   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
-   1. Fare clic su **Crea**.
+   1. Selezionare la casella di controllo **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password** .
+   1. Fare clic su **Crea** .
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
 In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Sign-On di Azure concedendo l'accesso a iLMS.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **iLMS**.
-1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
+1. Nell'elenco delle applicazioni selezionare **iLMS** .
+1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi** .
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**.
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** .
 
     ![Collegamento Aggiungi utente](common/add-assign-user.png)
 
 1. Nella finestra di dialogo **Utenti e gruppi** selezionare **Britta Simon** nell'elenco Utenti e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
-1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
+1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna** .
 
 ### <a name="create-ilms-test-user"></a>Creare un utente di test di iLMS
 
@@ -224,19 +224,19 @@ Se è necessario creare manualmente un utente, seguire questa procedura:
 
     f. Dall'elenco a discesa **Department** (Reparto), selezionare il valore per il reparto.
 
-    g. Fare clic su **Salva**.
+    g. Fare clic su **Salva** .
 
     > [!NOTE]
     > È possibile inviare all'utente un messaggio di registrazione selezionando la casella di controllo **Send Registration Mail** (Invia email di registrazione).
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 
-Quando si seleziona il riquadro di iLMS nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione iLMS per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di iLMS nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione iLMS per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

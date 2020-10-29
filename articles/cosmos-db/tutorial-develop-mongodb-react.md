@@ -10,12 +10,12 @@ ms.date: 09/05/2018
 ms.author: jopapa
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: 83c4d7c0037a3f8bc1162993c8667df62e5d9123
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 06c309de5054887a64e61d61345190c776835709
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316172"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92476587"
 ---
 # <a name="create-a-mongodb-app-with-react-and-azure-cosmos-db"></a>Creare un'app MongoDB con React e Azure Cosmos DB  
 
@@ -91,7 +91,7 @@ Questo video illustra come completare l'app e finire di collegare l'interfaccia 
 Se non si prevede di continuare a usare questa app, seguire questa procedura per eliminare tutte le risorse create da questa esercitazione nel portale di Azure. 
 
 1. Scegliere **Gruppi di risorse** dal menu a sinistra del portale di Azure e quindi fare clic sul nome della risorsa creata. 
-2. Nella pagina del gruppo di risorse fare clic su **Elimina**, digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina**.
+2. Nella pagina del gruppo di risorse fare clic su **Elimina** , digitare il nome della risorsa da eliminare nella casella di testo e quindi fare clic su **Elimina** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -107,5 +107,4 @@ In questa esercitazione si è appreso come:
 È possibile passare all'esercitazione successiva per ottenere informazioni su come importare i dati di MongoDB in Azure Cosmos DB.  
 
 > [!div class="nextstepaction"]
-> [Importare i dati di MongoDB in Azure Cosmos DB](mongodb-migrate.md)
- 
+> [Importare i dati di MongoDB in Azure Cosmos DB](../dms/tutorial-mongodb-cosmos-db.md?toc=%252fazure%252fcosmos-db%252ftoc.json%253ftoc%253d%252fazure%252fcosmos-db%252ftoc.json)

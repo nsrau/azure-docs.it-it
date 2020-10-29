@@ -9,19 +9,19 @@ ms.date: 07/23/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: devx-track-java
-ms.openlocfilehash: d50f3015be4ce12d5980fde7d039d87ef06da164
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e9df3343a89097b192c51d3b9f093805afe6b87
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330469"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92477352"
 ---
 # <a name="how-to-use-azure-table-storage-or-azure-cosmos-db-table-api-from-java"></a>Come usare l'archiviazione tabelle di Azure o l'API Tabelle di Azure Cosmos DB da Java
 
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
 [!INCLUDE [storage-table-applies-to-storagetable-and-cosmos](../../includes/storage-table-applies-to-storagetable-and-cosmos.md)]
 
-Questo articolo illustra come creare tabelle, archiviare i dati ed eseguire operazioni CRUD sui dati. Scegliere se usare il servizio tabelle di Azure o l'API Tabella di Azure Cosmos DB. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari presentati includono **creazione**, **visualizzazione di un elenco** ed **eliminazione** di tabelle, nonché **inserimento**, **esecuzione di query**, **modifica** ed **eliminazione** di entità in una tabella. Per altre informazioni sulle tabelle, vedere la sezione [Passaggi successivi](#next-steps) .
+Questo articolo illustra come creare tabelle, archiviare i dati ed eseguire operazioni CRUD sui dati. Scegliere se usare il servizio tabelle di Azure o l'API Tabella di Azure Cosmos DB. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari presentati includono **creazione** , **visualizzazione di un elenco** ed **eliminazione** di tabelle, nonché **inserimento** , **esecuzione di query** , **modifica** ed **eliminazione** di entità in una tabella. Per altre informazioni sulle tabelle, vedere la sezione [Passaggi successivi](#next-steps) .
 
 > [!NOTE]
 > per gli sviluppatori che usano il servizio di archiviazione di Azure in dispositivi Android, è disponibile un SDK specifico. Per altre informazioni, vedere [Azure Storage SDK per Android][Azure Storage SDK for Android].
@@ -62,7 +62,7 @@ import com.microsoft.azure.storage.table.TableQuery.*;
 
 ### <a name="add-an-azure-storage-connection-string"></a>Aggiungere una stringa di connessione di archiviazione di Azure
 
-I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel [portale di Azure](https://portal.azure.com) per i valori **AccountName** e **AccountKey**. 
+I client di archiviazione di Azure usano le stringhe di connessione di archiviazione per archiviare endpoint e credenziali per l'accesso ai servizi di gestione dati. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di archiviazione nel formato seguente, usando il nome dell'account di archiviazione e la chiave di accesso primaria relativa all'account di archiviazione riportata nel [portale di Azure](https://portal.azure.com) per i valori **AccountName** e **AccountKey** . 
 
 In questo esempio viene illustrato come dichiarare un campo statico per memorizzare la stringa di connessione:
 
@@ -76,7 +76,7 @@ public static final String storageConnectionString =
 
 ### <a name="add-an-azure-cosmos-db-table-api-connection-string"></a>Aggiungere una stringa di connessione dell'API Tabelle di Azure Cosmos DB
 
-Un account di Azure Cosmos DB usa una stringa di connessione per archiviare l'endpoint della tabella e le credenziali. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di Azure Cosmos DB nel formato seguente, usando il nome dell'account di Azure Cosmos DB e la chiave di accesso primaria relativa all'account riportata nel [portale di Azure](https://portal.azure.com) per i valori **AccountName** e **AccountKey**. 
+Un account di Azure Cosmos DB usa una stringa di connessione per archiviare l'endpoint della tabella e le credenziali. Quando si esegue un'applicazione client, è necessario specificare la stringa di connessione di Azure Cosmos DB nel formato seguente, usando il nome dell'account di Azure Cosmos DB e la chiave di accesso primaria relativa all'account riportata nel [portale di Azure](https://portal.azure.com) per i valori **AccountName** e **AccountKey** . 
 
 Questo esempio illustra come dichiarare un campo statico per memorizzare la stringa di connessione di Azure Cosmos DB:
 
@@ -88,7 +88,7 @@ public static final String storageConnectionString =
     "TableEndpoint=https://your_endpoint;" ;
 ```
 
-In un'applicazione in esecuzione in un ruolo di Azure, questa stringa può essere archiviata nel file di configurazione del servizio, *ServiceConfiguration.cscfg*, ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings**. Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* nel file di configurazione del servizio:
+In un'applicazione in esecuzione in un ruolo di Azure, questa stringa può essere archiviata nel file di configurazione del servizio, *ServiceConfiguration.cscfg* , ed è accessibile con una chiamata al metodo **RoleEnvironment.getConfigurationSettings** . Nell'esempio seguente viene recuperata la stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* nel file di configurazione del servizio:
 
 ```java
 // Retrieve storage account from connection-string.
@@ -434,7 +434,7 @@ catch (Exception e)
 
 ## <a name="modify-an-entity"></a>Modificare un'entità
 
-Per modificare un'entità, recuperarla dal servizio tabelle, modificare l'oggetto entità e quindi salvare le modifiche nel servizio tabelle con un'operazione di sostituzione o unione. Il codice seguente consente di modificare il numero di telefono di un cliente esistente. Anziché chiamare **TableOperation.insert** come fatto in precedenza per l'inserimento, questo codice chiama **TableOperation.replace**. Il metodo **CloudTable.execute** chiama il servizio tabelle e l'entità viene sostituita a meno che non sia stata modificata da un'altra applicazione da quando è stata recuperata dall'applicazione corrente. Se si verifica questa situazione, viene generata un'eccezione, pertanto è necessario recuperare, modificare e salvare di nuovo l'entità. Questo schema di ripetizione dei tentativi che supporta la concorrenza ottimistica è comune in un sistema di sistema di archiviazione distribuita.
+Per modificare un'entità, recuperarla dal servizio tabelle, modificare l'oggetto entità e quindi salvare le modifiche nel servizio tabelle con un'operazione di sostituzione o unione. Il codice seguente consente di modificare il numero di telefono di un cliente esistente. Anziché chiamare **TableOperation.insert** come fatto in precedenza per l'inserimento, questo codice chiama **TableOperation.replace** . Il metodo **CloudTable.execute** chiama il servizio tabelle e l'entità viene sostituita a meno che non sia stata modificata da un'altra applicazione da quando è stata recuperata dall'applicazione corrente. Se si verifica questa situazione, viene generata un'eccezione, pertanto è necessario recuperare, modificare e salvare di nuovo l'entità. Questo schema di ripetizione dei tentativi che supporta la concorrenza ottimistica è comune in un sistema di sistema di archiviazione distribuita.
 
 ```java
 try
@@ -630,5 +630,5 @@ Per altre informazioni, vedere [Azure for Java developers](/java/azure) (Azure p
 [Azure Storage SDK for Java]: https://github.com/azure/azure-storage-java
 [Azure Storage SDK for Android]: https://github.com/azure/azure-storage-android
 [Riferimento all'SDK del client di archiviazione di Azure]: https://azure.github.io/azure-storage-java/
-[Azure Storage REST API]: https://msdn.microsoft.com/library/azure/dd179355.aspx
+[Azure Storage REST API]: /rest/api/storageservices/
 [Azure Storage Team Blog]: https://blogs.msdn.microsoft.com/windowsazurestorage/
