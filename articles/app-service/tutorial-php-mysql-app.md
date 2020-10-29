@@ -5,14 +5,14 @@ ms.assetid: 14feb4f3-5095-496e-9a40-690e1414bd73
 ms.devlang: php
 ms.topic: tutorial
 ms.date: 06/15/2020
-ms.custom: mvc, cli-validate, seodec18
+ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: 0faf269852418ee8694e5fa51ce8010e57a2c054
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1053eb9772650dce040570bda04addf93df49178
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150217"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743552"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure-app-service"></a>Esercitazione: Compilare un'app PHP e MySQL nel Servizio app di Azure
 
@@ -107,7 +107,7 @@ composer install
 
 ### <a name="configure-mysql-connection"></a>Configurare la connessione di MySQL
 
-Nella radice del repository creare un file denominato *.env*. Copiare le variabili seguenti nel file *.env*. Sostituire il segnaposto _&lt;root_password>_ con la password dell'utente ROOT MySQL.
+Nella radice del repository creare un file denominato *.env* . Copiare le variabili seguenti nel file *.env* . Sostituire il segnaposto _&lt;root_password>_ con la password dell'utente ROOT MySQL.
 
 ```txt
 APP_ENV=local
@@ -197,7 +197,7 @@ az mysql server firewall-rule create --name allAzureIPs --server <mysql-server-n
 > È possibile rendere ancora più restrittiva la regola del firewall [usando solo gli indirizzi IP in uscita usati dall'app](overview-inbound-outbound-ips.md#find-outbound-ips).
 >
 
-In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal computer locale sostituendo *\<your-ip-address>* con l'[indirizzo IPv4 locale](https://www.whatsmyip.org/).
+In Cloud Shell eseguire di nuovo il comando per consentire l'accesso dal computer locale sostituendo *\<your-ip-address>* con l' [indirizzo IPv4 locale](https://www.whatsmyip.org/).
 
 ```azurecli-interactive
 az mysql server firewall-rule create --name AllowLocalClient --server <mysql-server-name> --resource-group myResourceGroup --start-ip-address=<your-ip-address> --end-ip-address=<your-ip-address>
@@ -242,7 +242,7 @@ In questo passaggio si connette l'applicazione PHP al database MySQL creato in D
 
 ### <a name="configure-the-database-connection"></a>Configurare la connessione al database
 
-Nella radice del repository creare un file _.env.production_ e copiare le variabili seguenti nel file. Sostituire il segnaposto _&lt;mysql-server-name>_ in *DB_HOST* e *DB_USERNAME*.
+Nella radice del repository creare un file _.env.production_ e copiare le variabili seguenti nel file. Sostituire il segnaposto _&lt;mysql-server-name>_ in *DB_HOST* e *DB_USERNAME* .
 
 ```
 APP_ENV=production
@@ -402,7 +402,7 @@ az webapp config appsettings set --name <app-name> --resource-group myResourceGr
 
 Laravel richiede una chiave di applicazione nel servizio app. È possibile configurarla con le impostazioni dell'app.
 
-Nella finestra del terminale locale usare `php artisan` per generare una nuova chiave applicazione senza salvarla in _.env_.
+Nella finestra del terminale locale usare `php artisan` per generare una nuova chiave applicazione senza salvarla in _.env_ .
 
 ```bash
 php artisan key:generate --show
@@ -428,7 +428,7 @@ In Cloud Shell impostare il percorso virtuale dell'applicazione con il comando [
 az resource update --name web --resource-group myResourceGroup --namespace Microsoft.Web --resource-type config --parent sites/<app_name> --set properties.virtualApplications[0].physicalPath="site\wwwroot\public" --api-version 2015-06-01
 ```
 
-Per impostazione predefinita, il servizio app di Azure fa in modo che il percorso virtuale dell'applicazione radice ( _/_ ) punti alla directory radice dei file dell'applicazione distribuiti (_sites\wwwroot_).
+Per impostazione predefinita, il servizio app di Azure fa in modo che il percorso virtuale dell'applicazione radice ( _/_ ) punti alla directory radice dei file dell'applicazione distribuiti ( _sites\wwwroot_ ).
 
 ::: zone-end
 
@@ -550,11 +550,11 @@ Nella finestra del terminale locale eseguire le migrazioni del database Laravel 
 php artisan migrate
 ```
 
-In base alla [convenzione di denominazione Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), il modello `Task` (vedere _app/Task.php_) esegue il mapping alla tabella `tasks` per impostazione predefinita.
+In base alla [convenzione di denominazione Laravel](https://laravel.com/docs/5.4/eloquent#defining-models), il modello `Task` (vedere _app/Task.php_ ) esegue il mapping alla tabella `tasks` per impostazione predefinita.
 
 ### <a name="update-application-logic"></a>Aggiornare la logica dell'applicazione
 
-Aprire il file *routes/web.php*. L'applicazione definisce qui le route e la logica di business.
+Aprire il file *routes/web.php* . L'applicazione definisce qui le route e la logica di business.
 
 Alla fine del file aggiungere una route con il codice seguente:
 
@@ -577,7 +577,7 @@ Il codice precedente esegue un semplice aggiornamento del modello di dati tramit
 
 ### <a name="update-the-view"></a>Aggiornare la visualizzazione
 
-Aprire il file *resources/views/tasks.blade.php*. Trovare il tag di apertura `<tr>` e sostituirlo con:
+Aprire il file *resources/views/tasks.blade.php* . Trovare il tag di apertura `<tr>` e sostituirlo con:
 
 ```html
 <tr class="{{ $task->complete ? 'success' : 'active' }}" >
@@ -669,7 +669,7 @@ Per interrompere lo streaming dei log in qualsiasi momento, digitare `Ctrl`+`C`.
 ::: zone-end
 
 > [!TIP]
-> Un'applicazione PHP può usare lo standard [error_log()](https://php.net/manual/function.error-log.php) da inviare alla console. L'applicazione di esempio usa questo approccio in _app/Http/routes.php_.
+> Un'applicazione PHP può usare lo standard [error_log()](https://php.net/manual/function.error-log.php) da inviare alla console. L'applicazione di esempio usa questo approccio in _app/Http/routes.php_ .
 >
 > Come framework Web, [Laravel usa Monolog](https://laravel.com/docs/5.4/errors) come provider di registrazione. Per vedere come ottenere da Monolog l'output dei messaggi sulla console, vedere [PHP: Come usare Monolog per accedere alla console (php://out)](https://stackoverflow.com/questions/25787258/php-how-to-use-monolog-to-log-to-console-php-out).
 >

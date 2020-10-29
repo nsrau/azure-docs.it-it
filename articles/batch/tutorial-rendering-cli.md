@@ -3,13 +3,13 @@ title: Eseguire il rendering di una scena nel cloud
 description: Esercitazione - Come eseguire il rendering di una scena Autodesk 3ds Max con Arnold usando il servizio Rendering di Batch e l'interfaccia della riga di comando di Azure
 ms.topic: tutorial
 ms.date: 03/05/2020
-ms.custom: mvc
-ms.openlocfilehash: e78580cc2f95f14be53c0432df4eb4bd38450832
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 516f5a3f80f1252dbf63e3b254f0c7200de16e11
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82117132"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747055"
 ---
 # <a name="tutorial-render-a-scene-with-azure-batch"></a>Esercitazione: Eseguire il rendering di una scena con Azure Batch 
 
@@ -38,7 +38,7 @@ Se si sceglie di installare e usare l'interfaccia della riga di comando in local
 
 Se non è già stato fatto, creare un gruppo di risorse, un account Batch e un account di archiviazione collegato nella sottoscrizione. 
 
-Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *Stati Uniti orientali 2*.
+Creare un gruppo di risorse con il comando [az group create](/cli/azure/group#az-group-create). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella località *Stati Uniti orientali 2* .
 
 ```azurecli-interactive 
 az group create \
@@ -83,7 +83,7 @@ export AZURE_STORAGE_KEY=$(az storage account keys list --account-name mystorage
 export AZURE_STORAGE_ACCOUNT=mystorageaccount
 ```
 
-Creare ora un contenitore BLOB nell'account di archiviazione per i file della scena. L'esempio seguente usa il comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) per creare un contenitore BLOB denominato *scenefiles*, che permette l'accesso in lettura pubblico.
+Creare ora un contenitore BLOB nell'account di archiviazione per i file della scena. L'esempio seguente usa il comando [az storage container create](/cli/azure/storage/container#az-storage-container-create) per creare un contenitore BLOB denominato *scenefiles* , che permette l'accesso in lettura pubblico.
 
 ```azurecli-interactive
 az storage container create \
@@ -195,7 +195,7 @@ az batch job create \
 
 Usare il comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) per creare un'attività di rendering nel processo. In questo esempio le impostazioni dell'attività vengono specificate in un file JSON. Nella shell corrente creare un file denominato *myrendertask.json* e quindi copiare e incollare il contenuto seguente. Assicurarsi che tutto il testo venga copiato correttamente. È possibile scaricare il file da [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask.json).
 
-L'attività specifica un comando di 3ds Max per eseguire il rendering di un singolo frame della scena *MotionBlur-DragonFlying.max*.
+L'attività specifica un comando di 3ds Max per eseguire il rendering di un singolo frame della scena *MotionBlur-DragonFlying.max* .
 
 Modificare gli elementi `blobSource` e `containerURL` nel file JSON in modo che includano il nome dell'account di archiviazione e il token di firma di accesso condiviso. 
 
@@ -286,7 +286,7 @@ Il ridimensionamento del pool richiede pochi minuti. Durante l'esecuzione del pr
 
 ## <a name="render-a-multiframe-scene"></a>Eseguire il rendering di una scena a più frame
 
-Come nell'esempio con un solo frame, usare il comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) per creare le attività di rendering nel processo denominato *myrenderjob*. A questo punto, specificare le impostazioni delle attività in un file JSON denominato *myrendertask_multi.json*. È possibile scaricare il file da [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json). Ognuna delle sei attività specifica la riga di comando di Arnold per il rendering di un frame della scena 3ds Max *MotionBlur-DragonFlying.max*.
+Come nell'esempio con un solo frame, usare il comando [az batch task create](/cli/azure/batch/task#az-batch-task-create) per creare le attività di rendering nel processo denominato *myrenderjob* . A questo punto, specificare le impostazioni delle attività in un file JSON denominato *myrendertask_multi.json* . È possibile scaricare il file da [GitHub](https://raw.githubusercontent.com/Azure/azure-docs-cli-python-samples/master/batch/render-scene/json/myrendertask_multi.json). Ognuna delle sei attività specifica la riga di comando di Arnold per il rendering di un frame della scena 3ds Max *MotionBlur-DragonFlying.max* .
 
 Nella shell corrente creare un file denominato *myrendertask.json* e quindi copiare e incollare il contenuto dal file scaricato. Modificare gli elementi `blobSource` e `containerURL` nel file JSON in modo che includano il nome dell'account di archiviazione e il token di firma di accesso condiviso. Assicurarsi di modificare le impostazioni per ognuna delle sei attività. Salvare il file ed eseguire il comando seguente per accodare le attività:
 

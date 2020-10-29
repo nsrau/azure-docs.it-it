@@ -4,13 +4,13 @@ description: In questa esercitazione sul servizio Azure Kubernetes viene illustr
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: a9a8a73e2208f7efe01f43fa87e196ffd8c64f14
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: e700934a965f836456458cb33dc46125bef4ab72
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91576303"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746994"
 ---
 # <a name="tutorial-scale-applications-in-azure-kubernetes-service-aks"></a>Esercitazione: Ridimensionare le applicazioni nel servizio Azure Kubernetes
 
@@ -45,7 +45,7 @@ azure-vote-back-2549686872-4d2r5   1/1       Running   0          31m
 azure-vote-front-848767080-tf34m   1/1       Running   0          31m
 ```
 
-Per modificare manualmente il numero di pod nella distribuzione *azure-vote-front*, usare il comando [kubectl scale][kubectl-scale]. L'esempio seguente aumenta il numero di pod front-end a *5*:
+Per modificare manualmente il numero di pod nella distribuzione *azure-vote-front* , usare il comando [kubectl scale][kubectl-scale]. L'esempio seguente aumenta il numero di pod front-end a *5* :
 
 ```console
 kubectl scale --replicas=5 deployment/azure-vote-front
@@ -74,7 +74,7 @@ az aks show --resource-group myResourceGroup --name myAKSCluster --query kuberne
 ```
 
 > [!NOTE]
-> Se la versione del cluster servizio Azure Kubernetes in uso è inferiore a *1.10*, il server delle metriche non verrà installato automaticamente. I manifesti di installazione del server delle metriche sono disponibili come asset `components.yaml` nelle versioni del server delle metriche, il che significa che è possibile installarli tramite un URL. Per altre informazioni su queste definizioni YAML, vedere la sezione [Distribuzione][metrics-server-github] del file Leggimi.
+> Se la versione del cluster servizio Azure Kubernetes in uso è inferiore a *1.10* , il server delle metriche non verrà installato automaticamente. I manifesti di installazione del server delle metriche sono disponibili come asset `components.yaml` nelle versioni del server delle metriche, il che significa che è possibile installarli tramite un URL. Per altre informazioni su queste definizioni YAML, vedere la sezione [Distribuzione][metrics-server-github] del file Leggimi.
 > 
 > Installazione di esempio:
 > ```console
@@ -91,7 +91,7 @@ resources:
      cpu: 500m
 ```
 
-L'esempio seguente usa il comando [kubectl autoscale][kubectl-autoscale] per ridimensionare automaticamente il numero di pod nella distribuzione *azure-vote-front*. Se l'utilizzo medio della CPU tra tutti i pod supera il 50% dell'utilizzo richiesto, la scalabilità automatica aumenta il numero di pod fino a un massimo di *10* istanze. Viene quindi definito un minimo di *3* istanze per la distribuzione:
+L'esempio seguente usa il comando [kubectl autoscale][kubectl-autoscale] per ridimensionare automaticamente il numero di pod nella distribuzione *azure-vote-front* . Se l'utilizzo medio della CPU tra tutti i pod supera il 50% dell'utilizzo richiesto, la scalabilità automatica aumenta il numero di pod fino a un massimo di *10* istanze. Viene quindi definito un minimo di *3* istanze per la distribuzione:
 
 ```console
 kubectl autoscale deployment azure-vote-front --cpu-percent=50 --min=3 --max=10
@@ -150,7 +150,7 @@ Dopo pochi minuti con un carico minimo sull'app Azure Vote, il numero di replich
 
 Se è stato creato usando i comandi dell'esercitazione precedente, il cluster Kubernetes include due nodi. Se si prevede un numero maggiore o minore di carichi di lavoro dei contenitori nel cluster, è possibile modificare manualmente il numero di nodi.
 
-Nell'esempio seguente il numero di nodi viene aumentato a tre nel cluster Kubernetes denominato *myAKSCluster*. Il completamento del comando richiede alcuni minuti.
+Nell'esempio seguente il numero di nodi viene aumentato a tre nel cluster Kubernetes denominato *myAKSCluster* . Il completamento del comando richiede alcuni minuti.
 
 ```azurecli
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 3

@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: aad0da53dc667039a62d2115c1afe4e2c6662bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: df28083a0522178b7327d9f6d24029d303e417a1
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91840167"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747864"
 ---
 # <a name="tutorial-scale-an-application-running-in-service-fabric-mesh"></a>Esercitazione: Ridimensionare un'applicazione in esecuzione in Service Fabric Mesh
 
@@ -88,7 +88,7 @@ Salvare le modifiche al file di parametri.  I parametri *frontEndReplicaCount* e
     }
 ```
 
-La proprietà *replicaCount* del servizio WebFrontEnd referenzia il parametro *frontEndReplicaCount* e la proprietà *replicaCount* del servizio ToDoService referenzia il parametro *serviceReplicaCount*:
+La proprietà *replicaCount* del servizio WebFrontEnd referenzia il parametro *frontEndReplicaCount* e la proprietà *replicaCount* del servizio ToDoService referenzia il parametro *serviceReplicaCount* :
 
 ```json
     "services": [

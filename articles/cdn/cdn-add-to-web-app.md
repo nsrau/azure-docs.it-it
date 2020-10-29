@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/14/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 470324799cd157c8b33311e1cae8b5b698433e1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0abe13c7c6a9f26746278aeede199a0860a54c0d
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88079910"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92779545"
 ---
 # <a name="tutorial-add-azure-cdn-to-an-azure-app-service-web-app"></a>Esercitazione: Aggiungere una rete CDN di Azure a un'app Web di Servizio app di Azure
 
@@ -43,20 +43,20 @@ Contenuto dell'esercitazione:
 Per completare questa esercitazione:
 
 - [Installare Git](https://git-scm.com/)
-- [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="create-the-web-app"></a>Creare l'app Web
 
-Per creare l'app Web che verrà usata, seguire le istruzioni riportate nella [guida introduttiva per siti HTML statici](../app-service/quickstart-html.md) fino al passaggio **Pulire le risorse**.
+Per creare l'app Web che verrà usata, seguire le istruzioni riportate nella [guida introduttiva per siti HTML statici](../app-service/quickstart-html.md) fino al passaggio **Pulire le risorse** .
 
 ## <a name="log-in-to-the-azure-portal"></a>Accedere al Portale di Azure
 
 Aprire un browser e passare al [portale di Azure](https://portal.azure.com).
 
 ### <a name="dynamic-site-acceleration-optimization"></a>Ottimizzazione dell'accelerazione sito dinamico
-Se si vuole ottimizzare l'endpoint della rete CDN per l'accelerazione sito dinamico (DSA), usare il [portale CDN](cdn-create-new-endpoint.md) per creare il profilo e l'endpoint. L'[ottimizzazione DSA](cdn-dynamic-site-acceleration.md) migliora in modo misurabile le prestazioni delle pagine Web con contenuto dinamico. Per istruzioni su come ottimizzare un endpoint rete CDN per DSA dal portale della rete CDN, vedere [Configurazione di un endpoint di rete CDN per accelerare la distribuzione di file dinamici](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). In caso contrario, se non si vuole ottimizzare il nuovo endpoint, è possibile usare il portale dell'app Web per crearlo seguendo i passaggi descritti nella sezione successiva. Si noti che per i profili di **rete CDN di Azure con tecnologia Verizon**, non è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo che è stato creato.
+Se si vuole ottimizzare l'endpoint della rete CDN per l'accelerazione sito dinamico (DSA), usare il [portale CDN](cdn-create-new-endpoint.md) per creare il profilo e l'endpoint. L'[ottimizzazione DSA](cdn-dynamic-site-acceleration.md) migliora in modo misurabile le prestazioni delle pagine Web con contenuto dinamico. Per istruzioni su come ottimizzare un endpoint rete CDN per DSA dal portale della rete CDN, vedere [Configurazione di un endpoint di rete CDN per accelerare la distribuzione di file dinamici](cdn-dynamic-site-acceleration.md#cdn-endpoint-configuration-to-accelerate-delivery-of-dynamic-files). In caso contrario, se non si vuole ottimizzare il nuovo endpoint, è possibile usare il portale dell'app Web per crearlo seguendo i passaggi descritti nella sezione successiva. Si noti che per i profili di **rete CDN di Azure con tecnologia Verizon** , non è possibile modificare l'ottimizzazione di un endpoint di rete CDN dopo che è stato creato.
 
 ## <a name="create-a-cdn-profile-and-endpoint"></a>Creare un profilo e un endpoint della rete CDN
 
@@ -64,7 +64,7 @@ Nel riquadro di spostamento a sinistra selezionare **Servizi app** e quindi l'ap
 
 ![Selezionare Servizi app nel portale](media/cdn-add-to-web-app/portal-select-app-services.png)
 
-Nella sezione **Impostazioni** della pagina **Servizio app** selezionare **Rete > Configurare la rete CDN di Azure per l'app**.
+Nella sezione **Impostazioni** della pagina **Servizio app** selezionare **Rete > Configurare la rete CDN di Azure per l'app** .
 
 ![Selezionare la rete CDN nel portale](media/cdn-add-to-web-app/portal-select-cdn.png)
 
@@ -75,12 +75,12 @@ Nella pagina **Rete per la distribuzione di contenuti di Azure** specificare le 
 | Impostazione | Valore consigliato | Descrizione |
 | ------- | --------------- | ----------- |
 | **Profilo CDN** | myCDNProfile | Un profilo di rete CDN è una raccolta di endpoint della rete CDN con lo stesso piano tariffario. |
-| **Piano tariffario** | Standard Akamai | Il [piano tariffario](cdn-features.md) specifica il provider e le funzionalità disponibili. Questa esercitazione usa *Akamai standard*. |
+| **Piano tariffario** | Standard Akamai | Il [piano tariffario](cdn-features.md) specifica il provider e le funzionalità disponibili. Questa esercitazione usa *Akamai standard* . |
 | **Nome endpoint rete CDN** | Qualsiasi nome univoco nel dominio azureedge.net | Si accede alle risorse memorizzate nella cache nel dominio *&lt;nomeendpoint&gt;* .azureedge.net.
 
 Selezionare **Crea** per creare un profilo di rete CDN.
 
-Azure crea il profilo e l'endpoint. Il nuovo endpoint viene visualizzato nell'elenco **Endpoint** e al termine del relativo provisioning lo stato è **In esecuzione**.
+Azure crea il profilo e l'endpoint. Il nuovo endpoint viene visualizzato nell'elenco **Endpoint** e al termine del relativo provisioning lo stato è **In esecuzione** .
 
 ![Nuovo endpoint nell'elenco](media/cdn-add-to-web-app/portal-new-endpoint-in-list.png)
 
@@ -91,7 +91,7 @@ Azure crea il profilo e l'endpoint. Il nuovo endpoint viene visualizzato nell'el
    - La propagazione dei profili di **rete CDN Standard di Azure con tecnologia Akamai** viene in genere completata entro un minuto. 
    - La propagazione dei profili della **rete CDN Standard di Azure con tecnologia Verizon** e della **rete CDN Premium di Azure con tecnologia Verizon** viene in genere completata entro 90 minuti. 
 
-L'app di esempio include un file *index.html* e le cartelle *css*, *img* e *js* che contengono altri asset statici. I percorsi del contenuto per tutti questi file sono gli stessi nell'endpoint della rete CDN. Entrambi gli URL seguenti, ad esempio, accedono al file *bootstrap.css* nella cartella *css*:
+L'app di esempio include un file *index.html* e le cartelle *css* , *img* e *js* che contengono altri asset statici. I percorsi del contenuto per tutti questi file sono gli stessi nell'endpoint della rete CDN. Entrambi gli URL seguenti, ad esempio, accedono al file *bootstrap.css* nella cartella *css* :
 
 ```
 http://<appname>.azurewebsites.net/css/bootstrap.css
@@ -166,13 +166,13 @@ Nell'elenco delle risorse selezionare l'endpoint della rete CDN.
 
 ![Selezionare l'endpoint](media/cdn-add-to-web-app/portal-select-endpoint.png)
 
-Nella parte superiore della pagina **Endpoint** selezionare **Ripulisci**.
+Nella parte superiore della pagina **Endpoint** selezionare **Ripulisci** .
 
 ![Selezionare Ripulisci](media/cdn-add-to-web-app/portal-select-purge.png)
 
-Immettere i percorsi del contenuto che si vuole ripulire. È possibile passare un percorso file completo per ripulire un singolo file oppure un segmento di percorso per ripulire e aggiornare tutto il contenuto in una cartella. Poiché è stato modificato *index.html*, assicurarsi che si trovi in uno dei percorsi.
+Immettere i percorsi del contenuto che si vuole ripulire. È possibile passare un percorso file completo per ripulire un singolo file oppure un segmento di percorso per ripulire e aggiornare tutto il contenuto in una cartella. Poiché è stato modificato *index.html* , assicurarsi che si trovi in uno dei percorsi.
 
-Nella parte inferiore della pagina selezionare **Ripulisci**.
+Nella parte inferiore della pagina selezionare **Ripulisci** .
 
 ![Pagina Ripulisci](media/cdn-add-to-web-app/app-service-web-purge-cdn.png)
 
@@ -182,7 +182,7 @@ Attendere il completamento dell'elaborazione della richiesta di ripulitura, che 
 
 ![Notifica di ripulitura](media/cdn-add-to-web-app/portal-purge-notification.png)
 
-Quando si passa all'URL dell'endpoint della rete CDN per *index.html*, verrà visualizzato il valore *V2* aggiunto al titolo nella home page, che indica che la cache della rete CDN è stata aggiornata.
+Quando si passa all'URL dell'endpoint della rete CDN per *index.html* , verrà visualizzato il valore *V2* aggiunto al titolo nella home page, che indica che la cache della rete CDN è stata aggiornata.
 
 ```
 http://<endpointname>.azureedge.net/index.html
@@ -206,11 +206,11 @@ In questa sezione dell'esercitazione si modificherà il comportamento per memori
 
 ### <a name="change-the-cache-behavior"></a>Modificare il comportamento della cache
 
-Nella pagina **Endpoint rete CDN** del portale di Azure selezionare **Cache**.
+Nella pagina **Endpoint rete CDN** del portale di Azure selezionare **Cache** .
 
-Selezionare **Memorizza nella cache tutti gli URL univoci** nell'elenco a discesa **Comportamento di memorizzazione nella cache della stringa di query**.
+Selezionare **Memorizza nella cache tutti gli URL univoci** nell'elenco a discesa **Comportamento di memorizzazione nella cache della stringa di query** .
 
-Selezionare **Salva**.
+Selezionare **Salva** .
 
 ![Selezionare il comportamento di memorizzazione nella cache della stringa di query](media/cdn-add-to-web-app/portal-select-caching-behavior.png)
 
@@ -226,14 +226,14 @@ La rete CDN d Azure restituisce il contenuto corrente dell'app Web, che include 
 
 Per assicurarsi che questa pagina sia memorizzata nella cache nella rete CDN, aggiornare la pagina. 
 
-Aprire *index.html*, modificare *V2* in *V3* e quindi distribuire la modifica. 
+Aprire *index.html* , modificare *V2* in *V3* e quindi distribuire la modifica. 
 
 ```bash
 git commit -am "version 3"
 git push azure master
 ```
 
-In un browser passare all'URL dell'endpoint della rete CDN con una nuova stringa di query, ad esempio `q=2`. La rete CDN recupera il file *index.html* corrente e visualizza *V3*. Se invece si passa all'endpoint della rete CDN con la stringa di query `q=1`, viene visualizzato *V2*.
+In un browser passare all'URL dell'endpoint della rete CDN con una nuova stringa di query, ad esempio `q=2`. La rete CDN recupera il file *index.html* corrente e visualizza *V3* . Se invece si passa all'endpoint della rete CDN con la stringa di query `q=1`, viene visualizzato *V2* .
 
 ```
 http://<endpointname>.azureedge.net/index.html?q=2
@@ -269,5 +269,3 @@ Per informazioni su come ottimizzare la rete CDN, vedere gli articoli seguenti:
 
 > [!div class="nextstepaction"]
 > [Esercitazione: Aggiungere un dominio personalizzato all'endpoint della rete CDN di Azure](cdn-map-content-to-custom-domain.md)
-
-

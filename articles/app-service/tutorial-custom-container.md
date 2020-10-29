@@ -5,14 +5,14 @@ ms.topic: tutorial
 ms.date: 07/16/2020
 ms.author: msangapu
 keywords: servizio app di azure, app web, linux, windows, docker, contenitore
-ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
+ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python, devx-track-azurecli
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 0cb1aa2d922db96eff21a128eaa60363b37db9d7
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f3c687d5c8b4e4c6d0b7f4ff912137066fe10bbb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152105"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92743713"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Eseguire la migrazione di un software personalizzato al Servizio app di Azure usando un contenitore personalizzato
 
@@ -29,9 +29,9 @@ Per completare questa esercitazione:
 - <a href="https://hub.docker.com/" target="_blank">Iscriversi per ottenere un account Docker Hub</a>
 - <a href="https://docs.docker.com/docker-for-windows/install/" target="_blank">Installare Docker per Windows</a>.
 - <a href="/virtualization/windowscontainers/quick-start/quick-start-windows-10" target="_blank">Impostare Docker per eseguire contenitori Windows</a>.
-- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installare Visual Studio 2019</a> con i carichi di lavoro **Sviluppo ASP.NET e Web** e **Sviluppo di Azure**. Se Visual Studio 2019 è già installato:
-    - Installare gli aggiornamenti più recenti in Visual Studio facendo clic su **?**  > **Controlla aggiornamenti**.
-    - Aggiungere i carichi di lavoro in Visual Studio facendo clic su **Strumenti** > **Ottieni strumenti e funzionalità**.
+- <a href="https://www.visualstudio.com/downloads/" target="_blank">Installare Visual Studio 2019</a> con i carichi di lavoro **Sviluppo ASP.NET e Web** e **Sviluppo di Azure** . Se Visual Studio 2019 è già installato:
+    - Installare gli aggiornamenti più recenti in Visual Studio facendo clic su **?**  > **Controlla aggiornamenti** .
+    - Aggiungere i carichi di lavoro in Visual Studio facendo clic su **Strumenti** > **Ottieni strumenti e funzionalità** .
 
 ## <a name="set-up-the-app-locally"></a>Configurare l'app in locale
 
@@ -40,13 +40,13 @@ Per completare questa esercitazione:
 In questo passaggio si configura il progetto .NET locale.
 
 - [Scaricare il progetto di esempio](https://github.com/Azure-Samples/custom-font-win-container/archive/master.zip).
-- Estrarre (decomprimere) il file *custom-font-win-container.zip*.
+- Estrarre (decomprimere) il file *custom-font-win-container.zip* .
 
 Il progetto di esempio contiene un'applicazione ASP.NET semplice che usa un tipo di carattere personalizzato installato nella libreria dei tipi di carattere Windows. Non è necessario installare i tipi di carattere, ma si tratta di un esempio di app integrata con il sistema operativo sottostante. Per eseguire la migrazione di un'app di questo tipo al servizio app, è necessario riprogettare il codice per rimuovere l'integrazione oppure è possibile eseguire la migrazione dell'app senza modifiche in un contenitore Windows personalizzato.
 
 ### <a name="install-the-font"></a>Installare il tipo di carattere
 
-In Esplora risorse passare a _custom-font-win-container-master/CustomFontSample_, fare clic con il pulsante destro del mouse su _FrederickatheGreat-Regular.ttf_ e scegliere **Installa**.
+In Esplora risorse passare a _custom-font-win-container-master/CustomFontSample_ , fare clic con il pulsante destro del mouse su _FrederickatheGreat-Regular.ttf_ e scegliere **Installa** .
 
 Questo tipo di carattere è disponibile pubblicamente in [Google Fonts](https://fonts.google.com/specimen/Fredericka+the+Great).
 
@@ -66,11 +66,11 @@ In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **C
 
 :::image type="content" source="media/tutorial-custom-container/enable-container-orchestration.png" alt-text="Screenshot che mostra l'app visualizzata nel browser predefinito.":::
 
-Selezionare **Docker Compose** > **OK**.
+Selezionare **Docker Compose** > **OK** .
 
 Il progetto è ora configurato per l'esecuzione in un contenitore Windows. Verrà aggiunto un file _Dockerfile_ al progetto **CustomFontSample** e un progetto **docker-compose** verrà aggiunto alla soluzione. 
 
-Da Esplora soluzioni aprire **Dockerfile**.
+Da Esplora soluzioni aprire **Dockerfile** .
 
 È necessario usare un'[immagine padre supportata](configure-custom-container.md#supported-parent-images). Modificare l'immagine padre sostituendo la riga `FROM` con il codice seguente:
 
@@ -84,7 +84,7 @@ Alla fine del file aggiungere la riga seguente e quindi salvare il file:
 RUN ${source:-obj/Docker/publish/InstallFont.ps1}
 ```
 
-_InstallFont.ps1_ è disponibile nel progetto **CustomFontSample**. Si tratta di un semplice script che installa il tipo di carattere. Una versione più complessa dello script è disponibile in [Script Center](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
+_InstallFont.ps1_ è disponibile nel progetto **CustomFontSample** . Si tratta di un semplice script che installa il tipo di carattere. Una versione più complessa dello script è disponibile in [Script Center](https://gallery.technet.microsoft.com/scriptcenter/fb742f92-e594-4d0c-8b79-27564c575133).
 
 > [!NOTE]
 > Per testare il contenitore Windows in locale, assicurarsi di aver avviato Docker nel computer locale.
@@ -96,13 +96,13 @@ _InstallFont.ps1_ è disponibile nel progetto **CustomFontSample**. Si tratta di
 
 ### <a name="open-publish-wizard"></a>Aprire la pubblicazione guidata
 
-In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **CustomFontSample** e scegliere **Pubblica**.
+In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **CustomFontSample** e scegliere **Pubblica** .
 
 :::image type="content" source="media/tutorial-custom-container/open-publish-wizard.png" alt-text="Screenshot che mostra l'app visualizzata nel browser predefinito.":::
 
 ### <a name="create-registry-and-publish"></a>Creare il registro ed eseguire la pubblicazione
 
-Nella pubblicazione guidata selezionare **Registro contenitori** > **Crea nuovo Registro Azure Container** > **Pubblica**.
+Nella pubblicazione guidata selezionare **Registro contenitori** > **Crea nuovo Registro Azure Container** > **Pubblica** .
 
 :::image type="content" source="media/tutorial-custom-container/create-registry.png" alt-text="Screenshot che mostra l'app visualizzata nel browser predefinito.":::
 
@@ -114,12 +114,12 @@ Nella finestra di dialogo **Crea un nuovo Registro Azure Container** selezionare
 
 ### <a name="configure-the-registry"></a>Configurare il registro
 
-Configurare il nuovo registro contenitori in base ai valori suggeriti nella tabella seguente. Al termine, fare clic su **Crea**.
+Configurare il nuovo registro contenitori in base ai valori suggeriti nella tabella seguente. Al termine, fare clic su **Crea** .
 
 | Impostazione  | Valore consigliato | Per ulteriori informazioni |
 | ----------------- | ------------ | ----|
 |**Prefisso DNS**| Mantenere il nome del registro generato oppure modificarlo scegliendo un altro nome univoco. |  |
-|**Gruppo di risorse**| Fare clic su **Nuovo**, digitare **myResourceGroup** e fare clic su **OK**. |  |
+|**Gruppo di risorse**| Fare clic su **Nuovo** , digitare **myResourceGroup** e fare clic su **OK** . |  |
 |**SKU**| Basic | [Piani tariffari](https://azure.microsoft.com/pricing/details/container-registry/)|
 |**Percorso del registro**| Europa occidentale | |
 
@@ -133,21 +133,21 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 ## <a name="create-a-web-app"></a>Creare un'app Web
 
-Dal menu a sinistra scegliere **Crea una risorsa** > **Web** > **App Web per contenitori**.
+Dal menu a sinistra scegliere **Crea una risorsa** > **Web** > **App Web per contenitori** .
 
 ### <a name="configure-app-basics"></a>Configurare le informazioni di base dell'app
 
-Nella scheda **Informazioni di base** configurare le impostazioni in base alla tabella seguente e quindi fare clic su **Avanti: Docker**.
+Nella scheda **Informazioni di base** configurare le impostazioni in base alla tabella seguente e quindi fare clic su **Avanti: Docker** .
 
 | Impostazione  | Valore consigliato | Per ulteriori informazioni |
 | ----------------- | ------------ | ----|
 |**Sottoscrizione**| Assicurarsi che sia selezionata la sottoscrizione corretta. |  |
-|**Gruppo di risorse**| Selezionare **Crea nuovo**, digitare **myResourceGroup** e scegliere **OK**. |  |
+|**Gruppo di risorse**| Selezionare **Crea nuovo** , digitare **myResourceGroup** e scegliere **OK** . |  |
 |**Nome**| Digitare un nome univoco. | L'URL dell'app Web è `http://<app-name>.azurewebsites.net`, dove `<app-name>` è il nome dell'app. |
 |**Pubblica**| Contenitore Docker | |
 |**Sistema operativo**| Windows | |
 |**Area**| Europa occidentale | |
-|**Piano Windows**| Selezionare **Crea nuovo**, digitare **myAppServicePlan** e scegliere **OK**. | |
+|**Piano Windows**| Selezionare **Crea nuovo** , digitare **myAppServicePlan** e scegliere **OK** . | |
 
 La scheda **Informazioni di base** avrà un aspetto simile al seguente:
 
@@ -155,7 +155,7 @@ La scheda **Informazioni di base** avrà un aspetto simile al seguente:
 
 ### <a name="configure-windows-container"></a>Configurare il contenitore Windows
 
-Nella scheda **Docker** configurare il contenitore Windows personalizzato come illustrato nella tabella seguente e selezionare **Rivedi e crea**.
+Nella scheda **Docker** configurare il contenitore Windows personalizzato come illustrato nella tabella seguente e selezionare **Rivedi e crea** .
 
 | Impostazione  | Valore consigliato |
 | ----------------- | ------------ |
@@ -174,9 +174,9 @@ Al termine dell'operazione di Azure, verrà visualizzata una casella di notifica
 
 ![Indica che l'operazione di Azure è stata completata.](media/tutorial-custom-container/portal-create-finished.png)
 
-1. Fare clic su **Vai alla risorsa**.
+1. Fare clic su **Vai alla risorsa** .
 
-2. Nella pagina dell'app fare clic sul collegamento sotto **URL**.
+2. Nella pagina dell'app fare clic sul collegamento sotto **URL** .
 
 Verrà aperta la nuova pagina del browser illustrata di seguito:
 
@@ -276,11 +276,11 @@ cd docker-django-webapp-linux
 
 ### <a name="download-from-github"></a>Scaricare da GitHub
 
-Invece di usare git clone, è possibile visitare [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux), selezionare **Clona**e quindi selezionare **Scarica ZIP**. 
+Invece di usare git clone, è possibile visitare [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux), selezionare **Clona** e quindi selezionare **Scarica ZIP** . 
 
-Decomprimere il file ZIP in una cartella denominata *docker-django-webapp-linux*. 
+Decomprimere il file ZIP in una cartella denominata *docker-django-webapp-linux* . 
 
-Aprire quindi una finestra del terminale nella cartella *docker-django-webapp-linux*.
+Aprire quindi una finestra del terminale nella cartella *docker-django-webapp-linux* .
 
 ## <a name="optional-examine-the-docker-file"></a>(Facoltativo) Esaminare il file Docker
 
@@ -497,7 +497,7 @@ Per altre informazioni su queste autorizzazioni, vedere [Che cos'è il controllo
 
 In questa sezione si apportano modifiche al codice dell'app Web, si ricompila il contenitore e quindi si esegue il push del contenitore nel registro. Il servizio app quindi esegue automaticamente il pull dell'immagine aggiornata dal registro per aggiornare l'app Web in esecuzione.
 
-1. Nella cartella *docker-django-webapp-linux* locale aprire il file *app/templates/app/index.html*.
+1. Nella cartella *docker-django-webapp-linux* locale aprire il file *app/templates/app/index.html* .
 
 1. Cambiare il primo elemento HTML in modo che corrisponda al codice seguente.
 
@@ -561,7 +561,7 @@ In questa sezione si apportano modifiche al codice dell'app Web, si ricompila il
 
     È anche possibile esaminare i file di log nel browser all'indirizzo `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
-1. Per interrompere lo streaming dei log in qualsiasi momento, premere **CTRL**+**C**.
+1. Per interrompere lo streaming dei log in qualsiasi momento, premere **CTRL**+**C** .
 
 ## <a name="connect-to-the-container-using-ssh"></a>Connettersi al contenitore con SSH
 
@@ -569,7 +569,7 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Per abilita
 
 ### <a name="configure-the-container-for-ssh"></a>Configurare il contenitore per SSH
 
-L'app di esempio usata in questa esercitazione ha già la configurazione necessaria nel *Dockerfile*, che installa il server SSH e imposta anche le credenziali di accesso. Questa sezione è unicamente informativa. Per connettersi al contenitore, passare alla sezione successiva
+L'app di esempio usata in questa esercitazione ha già la configurazione necessaria nel *Dockerfile* , che installa il server SSH e imposta anche le credenziali di accesso. Questa sezione è unicamente informativa. Per connettersi al contenitore, passare alla sezione successiva
 
 ```Dockerfile
 ENV SSH_PASSWD "root:Docker!"

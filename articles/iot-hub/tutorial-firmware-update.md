@@ -14,18 +14,19 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: a1410b9e8287b34c8b40e841ff513de784e1730a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+- devx-track-azurecli
+ms.openlocfilehash: 432cc733ee31bdaa18d555d9a6aeb6aee9879a44
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92150556"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748524"
 ---
 # <a name="tutorial-implement-a-device-firmware-update-process"></a>Esercitazione: Implementare un processo di aggiornamento del firmware del dispositivo
 
 Potrebbe essere necessario aggiornare il firmware nei dispositivi connessi all'hub IoT. È ad esempio possibile aggiungere nuove funzionalità al firmware o applicare patch di sicurezza. In molti scenari IoT non è possibile visitare fisicamente e quindi applicare manualmente gli aggiornamenti del firmware ai dispositivi. Questa esercitazione illustra come avviare e monitorare il processo di aggiornamento del firmware in modalità remota tramite un'applicazione back-end connessa all'hub.
 
-Per creare e monitorare il processo di aggiornamento del firmware, l'applicazione back-end in questa esercitazione crea una _configurazione_ nell'hub IoT. La [gestione automatica dei dispositivi](./iot-hub-automatic-device-management.md) dell'hub IoT usa questa configurazione per aggiornare un set di _proprietà desiderate del dispositivo gemello_ in tutti i refrigeratori. Le proprietà desiderate specificano i dettagli dell'aggiornamento del firmware necessario. Mentre i refrigeratori eseguono il processo di aggiornamento del firmware, segnalano lo stato all'applicazione back-end usando le _proprietà segnalate dal dispositivo gemello_. L'applicazione back-end può usare la configurazione per monitorare le proprietà segnalate inviate dal dispositivo e per tenere traccia del processo di aggiornamento del firmware fino al completamento:
+Per creare e monitorare il processo di aggiornamento del firmware, l'applicazione back-end in questa esercitazione crea una _configurazione_ nell'hub IoT. La [gestione automatica dei dispositivi](./iot-hub-automatic-device-management.md) dell'hub IoT usa questa configurazione per aggiornare un set di _proprietà desiderate del dispositivo gemello_ in tutti i refrigeratori. Le proprietà desiderate specificano i dettagli dell'aggiornamento del firmware necessario. Mentre i refrigeratori eseguono il processo di aggiornamento del firmware, segnalano lo stato all'applicazione back-end usando le _proprietà segnalate dal dispositivo gemello_ . L'applicazione back-end può usare la configurazione per monitorare le proprietà segnalate inviate dal dispositivo e per tenere traccia del processo di aggiornamento del firmware fino al completamento:
 
 ![Processo di aggiornamento del firmware](media/tutorial-firmware-update/Process.png)
 
@@ -61,7 +62,7 @@ Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo 
 
 Per completare questa esercitazione, la sottoscrizione di Azure deve avere un hub IoT con un dispositivo aggiunto al registro delle identità dei dispositivi. La voce del registro delle identità del dispositivo consente al dispositivo simulato in esecuzione in questa esercitazione di connettersi all'hub.
 
-Se non si dispone già di un hub IoT impostato nella sottoscrizione, è possibile configurarne uno con lo script dell'interfaccia della riga di comando seguente. Questo script usa il nome **tutorial-iot-hub** per l'hub IoT; è consigliabile sostituire questo nome con uno univoco in fase di esecuzione. Lo script crea il gruppo di risorse e l'hub nell'area **Stati Uniti centrali**, che è possibile sostituire con un'area più vicina all'utente. Lo script recupera la stringa di connessione del servizio hub IoT, utilizzabile nell'applicazione di esempio di back-end per la connessione all'hub IoT:
+Se non si dispone già di un hub IoT impostato nella sottoscrizione, è possibile configurarne uno con lo script dell'interfaccia della riga di comando seguente. Questo script usa il nome **tutorial-iot-hub** per l'hub IoT; è consigliabile sostituire questo nome con uno univoco in fase di esecuzione. Lo script crea il gruppo di risorse e l'hub nell'area **Stati Uniti centrali** , che è possibile sostituire con un'area più vicina all'utente. Lo script recupera la stringa di connessione del servizio hub IoT, utilizzabile nell'applicazione di esempio di back-end per la connessione all'hub IoT:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -81,7 +82,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-Questa esercitazione usa un dispositivo simulato chiamato **MyFirmwareUpdateDevice**. Lo script seguente aggiunge questo dispositivo nel registro delle identità dei dispositivi, imposta un valore di tag e ne recupera la stringa di connessione:
+Questa esercitazione usa un dispositivo simulato chiamato **MyFirmwareUpdateDevice** . Lo script seguente aggiunge questo dispositivo nel registro delle identità dei dispositivi, imposta un valore di tag e ne recupera la stringa di connessione:
 
 ```azurecli-interactive
 # Set the name of your IoT hub
@@ -198,7 +199,7 @@ Poiché le configurazioni automatiche dei dispositivi vengono eseguite al moment
 
 Se si prevede di completare l'esercitazione successiva, lasciare il gruppo di risorse e l'hub IoT per riutilizzarli in seguito.
 
-Se l'hub IoT non è più necessario, eliminarlo insieme al gruppo di risorse nel portale, Per farlo, selezionare il gruppo di risorse **tutorial-iot-hub-rg** che contiene l'hub IoT e fare clic su **Elimina**.
+Se l'hub IoT non è più necessario, eliminarlo insieme al gruppo di risorse nel portale, Per farlo, selezionare il gruppo di risorse **tutorial-iot-hub-rg** che contiene l'hub IoT e fare clic su **Elimina** .
 
 In alternativa, usare l'interfaccia della riga di comando:
 

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-azurecli
 ms.date: 04/15/2020
-ms.openlocfilehash: a0f081e0f8df00bbc99d2163fb54a2f15d92a159
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1031c34a44a253c7458ef78c6371b88014e882ed
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87006433"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746481"
 ---
 # <a name="tutorial-create-an-end-to-end-data-pipeline-to-derive-sales-insights-in-azure-hdinsight"></a>Esercitazione: Creare una pipeline di dati end-to-end per derivare le informazioni dettagliate di vendita in Azure HDInsight
 
@@ -27,13 +27,13 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Interfaccia della riga di comando di Azure (almeno la versione 2.2.0). Vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+* Interfaccia della riga di comando di Azure (almeno la versione 2.2.0). Vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 * jq, un processore JSON da riga di comando.  Vedere [https://stedolan.github.io/jq/](https://stedolan.github.io/jq/).
 
 * Membro del [ruolo predefinito di Azure - proprietario](../role-based-access-control/built-in-roles.md).
 
-* Se si usa PowerShell per attivare la pipeline di Data Factory, sarà necessario il [modulo az](https://docs.microsoft.com/powershell/azure/).
+* Se si usa PowerShell per attivare la pipeline di Data Factory, sarà necessario il [modulo az](/powershell/azure/).
 
 * [Power BI Desktop](https://aka.ms/pbiSingleInstaller) per visualizzare le informazioni aziendali dettagliate al termine dell'esercitazione.
 
@@ -93,7 +93,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
     ./scripts/resources.sh $resourceGroup LOCATION
     ```
 
-    In caso di dubbi su quale area specificare, è possibile recuperare un elenco di aree supportate per la sottoscrizione con il comando [az account list-locations](https://docs.microsoft.com/cli/azure/account?view=azure-cli-latest#az-account-list-locations).
+    In caso di dubbi su quale area specificare, è possibile recuperare un elenco di aree supportate per la sottoscrizione con il comando [az account list-locations](/cli/azure/account#az-account-list-locations).
 
     Il comando distribuirà le risorse seguenti:
 
@@ -214,7 +214,7 @@ Per attivare la pipeline, è possibile:
 
     Oppure
 
-* Aprire la data factory e fare clic su **Crea e monitora**. Attivare la pipeline `IngestAndTransform` dal portale. Per informazioni su come attivare le pipeline tramite il portale, vedere [Creare cluster Apache Hadoop su richiesta in HDInsight con Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
+* Aprire la data factory e fare clic su **Crea e monitora** . Attivare la pipeline `IngestAndTransform` dal portale. Per informazioni su come attivare le pipeline tramite il portale, vedere [Creare cluster Apache Hadoop su richiesta in HDInsight con Azure Data Factory](hdinsight-hadoop-create-linux-clusters-adf.md#trigger-a-pipeline).
 
 Per verificare che la pipeline sia stata eseguita, seguire una di queste procedure:
 
@@ -252,19 +252,19 @@ Per informazioni su come trasformare i dati in altri modi con HDInsight, vedere 
 
 1. Aprire Power BI Desktop.
 
-1. Dal menu passare a **Recupera dati** > **Altro** > **Azure** > **HDInsight Interactive Query**.
+1. Dal menu passare a **Recupera dati** > **Altro** > **Azure** > **HDInsight Interactive Query** .
 
-1. Selezionare **Connetti**.
+1. Selezionare **Connetti** .
 
-1. Nella finestra di dialogo **HDInsight Interactive Query**:
+1. Nella finestra di dialogo **HDInsight Interactive Query** :
     1. Nella casella di testo **Server** immettere il nome del cluster LLAP in formato `https://LLAPCLUSTERNAME.azurehdinsight.net`.
     1. Nella casella di testo **database** immettere `default`.
-    1. Selezionare **OK**.
+    1. Selezionare **OK** .
 
-1. Nella finestra di dialogo **AzureHive**:
+1. Nella finestra di dialogo **AzureHive** :
     1. Nella casella di testo **Nome utente** immettere `admin`.
     1. Nella casella di testo **Password** immettere `Thisisapassword1`.
-    1. Selezionare **Connetti**.
+    1. Selezionare **Connetti** .
 
 1. In **Strumento di navigazione** selezionare `sales` e/o `sales_raw` per visualizzare un'anteprima dei dati. Una volta caricati i dati, è possibile sperimentare con il dashboard che si vuole creare. Per iniziare a usare i dashboard di Power BI, vedere questi collegamenti:
 

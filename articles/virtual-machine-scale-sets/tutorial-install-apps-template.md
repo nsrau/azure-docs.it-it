@@ -8,13 +8,13 @@ ms.service: virtual-machine-scale-sets
 ms.subservice: template
 ms.date: 03/27/2018
 ms.reviewer: mimckitt
-ms.custom: mimckitt
-ms.openlocfilehash: 19eb5ae89598a0ebe040f1ffda5afd2b9e3d5e7e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mimckitt, devx-track-azurecli
+ms.openlocfilehash: 357d3aaa9cf9e324f8dd27636b9f34f503f566de
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87059258"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746017"
 ---
 # <a name="tutorial-install-applications-in-virtual-machine-scale-sets-with-an-azure-template"></a>Esercitazione: Installare applicazioni in set di scalabilità di macchine virtuali con un modello di Azure
 Per eseguire applicazioni nelle istanze di macchine virtuali (VM) in un set di scalabilità, è necessario prima installare i componenti dell'applicazione e i file necessari. In un'esercitazione precedente si è appreso come usare un'immagine di macchina virtuale personalizzata per distribuire le istanze di macchina virtuale. Questa immagine personalizzata includeva installazioni e configurazioni manuali di applicazioni. È anche possibile automatizzare l'installazione delle applicazioni in un set di scalabilità dopo la distribuzione di ogni istanza di macchina virtuale oppure aggiornare un'applicazione che è già in esecuzione in un set di scalabilità. In questa esercitazione si apprenderà come:
@@ -40,9 +40,9 @@ Per vedere l'estensione Script personalizzato in azione, creare un set di scalab
 
 
 ## <a name="create-custom-script-extension-definition"></a>Creare una definizione di estensione Script personalizzato
-Quando si definisce un set di scalabilità di macchine virtuali con un modello di Azure, il provider di risorse *Microsoft.Compute/virtualMachineScaleSets* può includere una sezione sulle estensioni. *extensionsProfile* illustra in dettaglio che cosa viene applicato alle istanze di macchina virtuale in un set di scalabilità. Per usare l'estensione Script personalizzato, si specifica un'entità di pubblicazione di *Microsoft.Azure.Extensions* e un tipo di *CustomScript*.
+Quando si definisce un set di scalabilità di macchine virtuali con un modello di Azure, il provider di risorse *Microsoft.Compute/virtualMachineScaleSets* può includere una sezione sulle estensioni. *extensionsProfile* illustra in dettaglio che cosa viene applicato alle istanze di macchina virtuale in un set di scalabilità. Per usare l'estensione Script personalizzato, si specifica un'entità di pubblicazione di *Microsoft.Azure.Extensions* e un tipo di *CustomScript* .
 
-La proprietà *fileUris* viene usata per definire gli script o i pacchetti di installazione di origine. Per avviare il processo di installazione, gli script necessari vengono definiti in *commandToExecute*. L'esempio seguente definisce uno script di esempio da GitHub che installa e configura il server Web NGINX:
+La proprietà *fileUris* viene usata per definire gli script o i pacchetti di installazione di origine. Per avviare il processo di installazione, gli script necessari vengono definiti in *commandToExecute* . L'esempio seguente definisce uno script di esempio da GitHub che installa e configura il server Web NGINX:
 
 ```json
 "extensionProfile": {
@@ -70,7 +70,7 @@ Per un esempio completo di un modello di Azure che distribuisce un set di scalab
 
 
 ## <a name="create-a-scale-set"></a>Creare un set di scalabilità
-Verrà usato il modello di esempio per creare un set di scalabilità e applicare l'estensione Script personalizzato. Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus*:
+Verrà usato il modello di esempio per creare un set di scalabilità e applicare l'estensione Script personalizzato. Creare prima un gruppo di risorse con [az group create](/cli/azure/group). L'esempio seguente crea un gruppo di risorse denominato *myResourceGroup* nella posizione *eastus* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -108,7 +108,7 @@ Lasciare aperto il Web browser per poter visualizzare una versione aggiornata ne
 
 
 ## <a name="update-app-deployment"></a>Aggiornare la distribuzione dell'app
-Nel ciclo di vita di un set di scalabilità potrebbe essere necessario distribuire una versione aggiornata dell'applicazione. Con l'estensione Script personalizzato è possibile fare riferimento a uno script di distribuzione aggiornato e quindi riapplicare l'estensione al set di scalabilità. Quando è stato creato il set di scalabilità in un passaggio precedente, *upgradePolicy* è stato impostato su *Automatic*. Questa impostazione consente di aggiornare automaticamente le istanze di macchina virtuale nel set di scalabilità e di applicare automaticamente la versione più recente dell'applicazione.
+Nel ciclo di vita di un set di scalabilità potrebbe essere necessario distribuire una versione aggiornata dell'applicazione. Con l'estensione Script personalizzato è possibile fare riferimento a uno script di distribuzione aggiornato e quindi riapplicare l'estensione al set di scalabilità. Quando è stato creato il set di scalabilità in un passaggio precedente, *upgradePolicy* è stato impostato su *Automatic* . Questa impostazione consente di aggiornare automaticamente le istanze di macchina virtuale nel set di scalabilità e di applicare automaticamente la versione più recente dell'applicazione.
 
 Per aggiornare la definizione dell'estensione Script personalizzato, modificare il modello per fare riferimento a un nuovo script di installazione. Per fare in modo che l'estensione Script personalizzato riconosca la modifica, deve essere usato un nuovo nome file. L'estensione Script personalizzato non esamina i contenuti dello script per determinare eventuali modifiche. La definizione seguente usa uno script di installazione aggiornato con *_v2* aggiunto al nome:
 

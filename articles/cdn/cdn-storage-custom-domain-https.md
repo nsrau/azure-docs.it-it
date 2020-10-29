@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 06/15/2018
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 5b6fe2b2704f101a7775b7eb700375105b0a9eca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6061de0a330518baaa829a9a1c8a05f196d68dcb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81259885"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92777844"
 ---
 # <a name="tutorial-access-storage-blobs-using-an-azure-cdn-custom-domain-over-https"></a>Esercitazione: Accedere ai BLOB di archiviazione con un dominio personalizzato della rete CDN di Azure tramite HTTPS
 
@@ -37,7 +37,7 @@ Quando si crea un endpoint della rete CDN nel profilo, il nome dell'endpoint, co
 Usando il protocollo HTTPS nel dominio personalizzato, ci si assicura che i dati vengano recapitati in modo sicuro su Internet tramite crittografia TLS/SSL. Quando il browser è connesso a un sito Web tramite HTTPS, convalida il certificato di sicurezza del sito Web e verifica che sia emesso da un'autorità di certificazione legittima. Per configurare HTTPS nel dominio personalizzato, seguire le istruzioni riportate nell'esercitazione [Configurare HTTPS in un dominio personalizzato della rete CDN di Azure](cdn-custom-ssl.md).
 
 ## <a name="shared-access-signatures"></a>Firme di accesso condiviso
-Se l'endpoint di archiviazione BLOB è configurato per non consentire l'accesso anonimo in lettura, è necessario fornire un token di [firma di accesso condiviso](cdn-sas-storage-support.md) in ogni richiesta effettuata al dominio personalizzato. Per impostazione predefinita, gli endpoint di archiviazione BLOB non consentono l'accesso anonimo in lettura. Per altre informazioni sulla firma di accesso condiviso, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../storage/blobs/storage-manage-access-to-resources.md).
+Se l'endpoint di archiviazione BLOB è configurato per non consentire l'accesso anonimo in lettura, è necessario fornire un token di [firma di accesso condiviso](cdn-sas-storage-support.md) in ogni richiesta effettuata al dominio personalizzato. Per impostazione predefinita, gli endpoint di archiviazione BLOB non consentono l'accesso anonimo in lettura. Per altre informazioni sulla firma di accesso condiviso, vedere [Gestire l'accesso in lettura anonimo a contenitori e BLOB](../storage/blobs/anonymous-read-access-configure.md).
 
 La rete CDN di Azure ignora le eventuali restrizioni aggiunte al token di firma di accesso condiviso. Ad esempio, tutti i token di firma di accesso condiviso hanno una scadenza e questo significa che è comunque possibile accedere al contenuto con una firma di accesso condiviso scaduta fino a quando il contenuto non viene eliminato dai server POP (Point of Presence) della rete CDN. È possibile controllare l'intervallo di tempo per cui i dati vengono memorizzati nella cache nella rete CDN di Azure impostando l'intestazione della risposta della cache. Per altre informazioni, vedere [Gestire la scadenza dei BLOB di archiviazione di Azure nella rete CDN di Azure](cdn-manage-expiration-of-blob-content.md).
 
@@ -61,7 +61,3 @@ Ad esempio, se si dispone di un account di archiviazione negli Stati Uniti a cui
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Esercitazione: Impostare le regole di memorizzazione nella cache della rete CDN di Azure](cdn-caching-rules-tutorial.md)
-
-
-
-

@@ -5,13 +5,13 @@ author: georgewallace
 ms.topic: tutorial
 ms.date: 01/11/2019
 ms.author: gwallace
-ms.custom: mvc, devcenter
-ms.openlocfilehash: eea00fe80b71f97ea280a3a76de5012175bcd61c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devcenter, devx-track-azurecli
+ms.openlocfilehash: 331830c50206d14f7894aa837b483656de4222f2
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841986"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747852"
 ---
 # <a name="tutorial-upgrade-a-service-fabric-application-running-in-service-fabric-mesh"></a>Esercitazione: Aggiornare un'applicazione di Service Fabric in esecuzione in Service Fabric Mesh
 
@@ -80,7 +80,7 @@ Il parametro *frontEndCpu* viene dichiarato nella sezione *parametri* del [model
 }
 ```
 
-La proprietà del servizio WebFrontEnd *codePackages->resources->requests->cpu* fa riferimento al parametro *frontEndCpu*:
+La proprietà del servizio WebFrontEnd *codePackages->resources->requests->cpu* fa riferimento al parametro *frontEndCpu* :
 
 ```json
     "services": [

@@ -4,13 +4,13 @@ description: In questa esercitazione sul servizio Azure Kubernetes viene illustr
 services: container-service
 ms.topic: tutorial
 ms.date: 09/30/2020
-ms.custom: mvc
-ms.openlocfilehash: c41f6dbd3b85125ef290539040819ffa1833ef6f
-ms.sourcegitcommit: d479ad7ae4b6c2c416049cb0e0221ce15470acf6
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2e9af5dcc00d8cadd0528d56ee73bc6aeba149d7
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/01/2020
-ms.locfileid: "91629643"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747736"
 ---
 # <a name="tutorial-upgrade-kubernetes-in-azure-kubernetes-service-aks"></a>Esercitazione: Aggiornare Kubernetes nel servizio Azure Kubernetes
 
@@ -37,7 +37,7 @@ Prima di aggiornare un cluster, usare il comando [az servizio Azure Kubernetes g
 az aks get-upgrades --resource-group myResourceGroup --name myAKSCluster
 ```
 
-In questo esempio la versione corrente è *1.15.11* e le versioni disponibili sono indicate in *Upgrades*.
+In questo esempio la versione corrente è *1.15.11* e le versioni disponibili sono indicate in *Upgrades* .
 
 ```json
 {
@@ -80,9 +80,9 @@ az aks upgrade \
 ```
 
 > [!NOTE]
-> È possibile aggiornare solo una versione secondaria per volta. È ad esempio possibile eseguire l'aggiornamento dalla versione *1.14.x* alla versione *1.15.x*, ma non dalla versione *1.14.x* direttamente alla versione *1.16.x*. Per eseguire l'aggiornamento dalla versione *1.14* alla versione *1.16.x*, procedere prima con l'aggiornamento dalla versione *1.14* alla versione *1.15.x*, quindi eseguire un altro aggiornamento dalla versione *1.15.x* alla versione *1.16.x*.
+> È possibile aggiornare solo una versione secondaria per volta. È ad esempio possibile eseguire l'aggiornamento dalla versione *1.14.x* alla versione *1.15.x* , ma non dalla versione *1.14.x* direttamente alla versione *1.16.x* . Per eseguire l'aggiornamento dalla versione *1.14* alla versione *1.16.x* , procedere prima con l'aggiornamento dalla versione *1.14* alla versione *1.15.x* , quindi eseguire un altro aggiornamento dalla versione *1.15.x* alla versione *1.16.x* .
 
-L'output di esempio sintetico seguente mostra il risultato dell'aggiornamento alla versione *1.16.8*. Si noti che per *kubernetesVersion* ora è indicata la versione *1.16.8*:
+L'output di esempio sintetico seguente mostra il risultato dell'aggiornamento alla versione *1.16.8* . Si noti che per *kubernetesVersion* ora è indicata la versione *1.16.8* :
 
 ```json
 {
@@ -115,7 +115,7 @@ Verificare che l'aggiornamento sia stato completato correttamente usando il coma
 az aks show --resource-group myResourceGroup --name myAKSCluster --output table
 ```
 
-L'output di esempio seguente mostra che il cluster del servizio Azure Kubernetes esegue *KubernetesVersion 1.16.8*:
+L'output di esempio seguente mostra che il cluster del servizio Azure Kubernetes esegue *KubernetesVersion 1.16.8* :
 
 ```
 Name          Location    ResourceGroup    KubernetesVersion    ProvisioningState    Fqdn

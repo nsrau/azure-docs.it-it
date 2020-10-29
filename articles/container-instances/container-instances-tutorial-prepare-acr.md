@@ -3,13 +3,13 @@ title: "Esercitazione: Preparare il registro contenitori per la distribuzione de
 description: Esercitazione di Istanze di Azure Container - Parte 2 di 3 - Preparare un Registro Azure Container ed eseguire il push di un'immagine
 ms.topic: tutorial
 ms.date: 12/18/2019
-ms.custom: seodec18, mvc
-ms.openlocfilehash: 44a7f21c067897b046413851ef5a2c73bfccc24f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: seodec18, mvc, devx-track-azurecli
+ms.openlocfilehash: 2eda960c53fc7ba851ffcfbe96bd8e9a48844910
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90708037"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746943"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>Esercitazione: Creare un Registro Azure Container ed eseguire il push di un'immagine del contenitore
 
@@ -40,7 +40,7 @@ Per prima cosa, ottenere il nome completo del server di accesso dell'istanza di 
 az acr show --name <acrName> --query loginServer --output table
 ```
 
-Se il nome del registro è *mycontainerregistry082*, ad esempio:
+Se il nome del registro è *mycontainerregistry082* , ad esempio:
 
 ```azurecli
 az acr show --name mycontainerregistry082 --query loginServer --output table
@@ -58,7 +58,7 @@ Visualizzare quindi l'elenco delle immagini locali con il comando [docker images
 docker images
 ```
 
-Insieme a tutte le altre immagini presenti nel computer, verrà visualizzata l'immagine *aci-tutorial-app* creata nell'[esercitazione precedente](container-instances-tutorial-prepare-app.md):
+Insieme a tutte le altre immagini presenti nel computer, verrà visualizzata l'immagine *aci-tutorial-app* creata nell' [esercitazione precedente](container-instances-tutorial-prepare-app.md):
 
 ```console
 $ docker images

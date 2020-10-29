@@ -14,12 +14,13 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-js
-ms.openlocfilehash: aecf5c8b71f23e3d51c755c86ec0122d6da05f21
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+- devx-track-azurecli
+ms.openlocfilehash: 74d5e5395853bcba20b2012e54dd8f9fea03afe6
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91842768"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92748552"
 ---
 <!-- **TODO** Update publish config with repo paths before publishing! -->
 
@@ -27,7 +28,7 @@ ms.locfileid: "91842768"
 
 Oltre a ricevere dati di telemetria dai dispositivi, potrebbe essere necessario configurare i dispositivi dal servizio back-end. Quando si invia una configurazione desiderata ai dispositivi, potrebbe anche essere necessario ricevere aggiornamenti di stato e di conformità da tali dispositivi. Ad esempio, è possibile impostare un intervallo di temperatura operativa di destinazione per un dispositivo o raccogliere informazioni sulla versione del firmware dai dispositivi.
 
-Per sincronizzare le informazioni sullo stato tra un dispositivo e un hub IoT, si usano _dispositivi gemelli_. Un [dispositivo gemello](iot-hub-devguide-device-twins.md) è un documento JSON, associato con un dispositivo specifico e archiviato dall'hub IoT nel cloud, in cui è possibile eseguire [query](iot-hub-devguide-query-language.md). Un dispositivo gemello contiene _proprietà desiderate_, _proprietà segnalate_ e _tag_. Una proprietà desiderata viene impostata da un'applicazione back-end e letta da un dispositivo. Una proprietà segnalata viene impostata da un dispositivo e letta da un'applicazione back-end. Un tag viene impostato da un'applicazione back-end e non viene mai inviato a un dispositivo. I tag vengono usati per organizzare i dispositivi. Questa esercitazione illustra come usare le proprietà desiderate e segnalate per sincronizzare le informazioni sullo stato:
+Per sincronizzare le informazioni sullo stato tra un dispositivo e un hub IoT, si usano _dispositivi gemelli_ . Un [dispositivo gemello](iot-hub-devguide-device-twins.md) è un documento JSON, associato con un dispositivo specifico e archiviato dall'hub IoT nel cloud, in cui è possibile eseguire [query](iot-hub-devguide-query-language.md). Un dispositivo gemello contiene _proprietà desiderate_ , _proprietà segnalate_ e _tag_ . Una proprietà desiderata viene impostata da un'applicazione back-end e letta da un dispositivo. Una proprietà segnalata viene impostata da un dispositivo e letta da un'applicazione back-end. Un tag viene impostato da un'applicazione back-end e non viene mai inviato a un dispositivo. I tag vengono usati per organizzare i dispositivi. Questa esercitazione illustra come usare le proprietà desiderate e segnalate per sincronizzare le informazioni sullo stato:
 
 ![Riepilogo dei dispositivi gemelli](media/tutorial-device-twins/DeviceTwins.png)
 
@@ -62,7 +63,7 @@ Assicurarsi che la porta 8883 sia aperta nel firewall. L'esempio di dispositivo 
 
 Per completare questa esercitazione, la sottoscrizione di Azure deve contenere un hub IoT con un dispositivo aggiunto al registro delle identità del dispositivo. La voce del registro delle identità del dispositivo consente al dispositivo simulato in esecuzione in questa esercitazione di connettersi all'hub.
 
-Se non è già presente un hub IoT nella sottoscrizione, è possibile configurarne uno con lo script dell'interfaccia della riga di comando seguente. Questo script usa il nome **tutorial-iot-hub** per l'hub IoT; è consigliabile sostituire questo nome con uno univoco in fase di esecuzione. Lo script crea il gruppo di risorse e l'hub nell'area **Stati Uniti centrali**, che è possibile sostituire con un'area più vicina all'utente. Lo script recupera la stringa di connessione del servizio hub IoT, utilizzabile nell'esempio di back-end per la connessione all'hub IoT:
+Se non è già presente un hub IoT nella sottoscrizione, è possibile configurarne uno con lo script dell'interfaccia della riga di comando seguente. Questo script usa il nome **tutorial-iot-hub** per l'hub IoT; è consigliabile sostituire questo nome con uno univoco in fase di esecuzione. Lo script crea il gruppo di risorse e l'hub nell'area **Stati Uniti centrali** , che è possibile sostituire con un'area più vicina all'utente. Lo script recupera la stringa di connessione del servizio hub IoT, utilizzabile nell'esempio di back-end per la connessione all'hub IoT:
 
 ```azurecli-interactive
 hubname=tutorial-iot-hub
@@ -82,7 +83,7 @@ az iot hub show-connection-string --name $hubname --policy-name service -o table
 
 ```
 
-Questa esercitazione usa un dispositivo simulato chiamato **MyTwinDevice**. Lo script seguente aggiunge questo dispositivo nel registro delle identità e ne recupera la stringa di connessione:
+Questa esercitazione usa un dispositivo simulato chiamato **MyTwinDevice** . Lo script seguente aggiunge questo dispositivo nel registro delle identità e ne recupera la stringa di connessione:
 
 ```azurecli-interactive
 # Set the name of your IoT hub:
@@ -129,15 +130,15 @@ Il codice seguente ottiene un dispositivo gemello dall'oggetto client:
 
 [!code-javascript[Handle all properties](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=allproperties&highlight=2 "Handle all properties")]
 
-Il gestore seguente reagisce solo alle modifiche apportate alla proprietà desiderata **fanOn**:
+Il gestore seguente reagisce solo alle modifiche apportate alla proprietà desiderata **fanOn** :
 
 [!code-javascript[Handle fan property](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=fanproperty&highlight=2 "Handle fan property")]
 
 ### <a name="handlers-for-multiple-properties"></a>Gestori per più proprietà
 
-Nel frammento di codice JSON di esempio con le proprietà desiderate riportato in precedenza il nodo **climate** sotto **components** contiene due proprietà, **minTemperature** e  **maxTemperature**.
+Nel frammento di codice JSON di esempio con le proprietà desiderate riportato in precedenza il nodo **climate** sotto **components** contiene due proprietà, **minTemperature** e  **maxTemperature** .
 
-Un oggetto **twin** locale del dispositivo archivia un set completo di proprietà desiderate e segnalate. Il **delta** inviato dal back-end potrebbe aggiornare solo un subset di proprietà desiderate. Nel frammento di codice seguente, se il dispositivo simulato riceve un aggiornamento per un solo valore tra **minTemperature** e **maxTemperature**, viene usato il valore nel dispositivo gemello locale per l'altro valore per configurare il dispositivo:
+Un oggetto **twin** locale del dispositivo archivia un set completo di proprietà desiderate e segnalate. Il **delta** inviato dal back-end potrebbe aggiornare solo un subset di proprietà desiderate. Nel frammento di codice seguente, se il dispositivo simulato riceve un aggiornamento per un solo valore tra **minTemperature** e **maxTemperature** , viene usato il valore nel dispositivo gemello locale per l'altro valore per configurare il dispositivo:
 
 [!code-javascript[Handle climate component](~/iot-samples-node/iot-hub/Tutorials/DeviceTwins/SimulatedDevice.js?name=climatecomponent&highlight=2 "Handle climate component")]
 
@@ -189,11 +190,11 @@ npm install
 node ServiceClient.js "{your service connection string}"
 ```
 
-La schermata seguente mostra l'output dell'applicazione del dispositivo simulato ed evidenzia come viene gestito l'aggiornamento della proprietà desiderata **maxTemperature**. È possibile vedere in che modo vengono eseguiti i gestori del componente relativo alle condizioni climatiche e del gestore di livello superiore:
+La schermata seguente mostra l'output dell'applicazione del dispositivo simulato ed evidenzia come viene gestito l'aggiornamento della proprietà desiderata **maxTemperature** . È possibile vedere in che modo vengono eseguiti i gestori del componente relativo alle condizioni climatiche e del gestore di livello superiore:
 
 ![Screenshot che mostra come vengono eseguiti i gestori del componente relativo alle condizioni climatiche e il gestore di livello superiore.](./media/tutorial-device-twins/SimulatedDevice1.png)
 
-La schermata seguente mostra l'output dell'applicazione back-end ed evidenzia come viene inviato l'aggiornamento della proprietà desiderata **maxTemperature**:
+La schermata seguente mostra l'output dell'applicazione back-end ed evidenzia come viene inviato l'aggiornamento della proprietà desiderata **maxTemperature** :
 
 ![Screenshot che mostra l'output dell'applicazione back-end ed evidenzia come viene inviato un aggiornamento.](./media/tutorial-device-twins/BackEnd1.png)
 
@@ -251,7 +252,7 @@ La schermata seguente mostra l'output dell'applicazione back-end ed evidenzia co
 
 Se si prevede di completare l'esercitazione successiva, lasciare il gruppo di risorse e l'hub IoT per riutilizzarli in seguito.
 
-Se l'hub IoT non è più necessario, eliminarlo insieme al gruppo di risorse nel portale, Per farlo, selezionare il gruppo di risorse **tutorial-iot-hub-rg** che contiene l'hub IoT e fare clic su **Elimina**.
+Se l'hub IoT non è più necessario, eliminarlo insieme al gruppo di risorse nel portale, Per farlo, selezionare il gruppo di risorse **tutorial-iot-hub-rg** che contiene l'hub IoT e fare clic su **Elimina** .
 
 In alternativa, usare l'interfaccia della riga di comando:
 
