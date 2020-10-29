@@ -13,16 +13,16 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
 - devx-track-csharp
-ms.openlocfilehash: 7c05d6f91f4c05405ba8148b0924a755122f99fe
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a3e328418a0f111cd0b985310ea6dc497999772d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92144459"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909795"
 ---
 # <a name="set-up-x509-security-in-your-azure-iot-hub"></a>Configurare la sicurezza X.509 nell'hub IoT di Azure
 
-Questa esercitazione illustra i passaggi necessari per proteggere l'hub Azure Internet con l' *autenticazione del certificato X. 509*. A scopo illustrativo, viene usato lo strumento open source OpenSSL per creare certificati localmente nel computer Windows. È consigliabile usare questa esercitazione solo a scopo di test. Per l'ambiente di produzione, è necessario acquistare i certificati da un'*autorità di certificazione (CA) radice*.
+Questa esercitazione illustra i passaggi necessari per proteggere l'hub Azure Internet con l' *autenticazione del certificato X. 509* . A scopo illustrativo, viene usato lo strumento open source OpenSSL per creare certificati localmente nel computer Windows. È consigliabile usare questa esercitazione solo a scopo di test. Per un ambiente di produzione, è necessario acquistare i certificati da un' *autorità di certificazione (CA) radice* . Inoltre, nell'ambiente di produzione, assicurarsi di disporre di una strategia per gestire il rollover del certificato quando un certificato del dispositivo o un certificato della CA scade.
 
 [!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
@@ -40,7 +40,7 @@ La sicurezza basata su certificati X.509 nell'hub IoT richiede prima di tutto un
 
 Per ottenere i certificati, è possibile scegliere uno dei modi seguenti:
 
-* Acquistare i certificati X.509 da un'*autorità di certificazione (CA) radice*. Questo metodo è consigliato per gli ambienti di produzione.
+* Acquistare i certificati X.509 da un' *autorità di certificazione (CA) radice* . Questo metodo è consigliato per gli ambienti di produzione.
 
 * Creare certificati X. 509 personalizzati usando uno strumento di terze parti, ad esempio [openssl](https://www.openssl.org/). Questa tecnica è ottimale a scopo di test e sviluppo. Vedere [Gestione dei certificati CA di prova per esempi e certificazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md) per informazioni sulla generazione di certificati CA di prova tramite PowerShell o Bash. Nella parte restante di questa esercitazione vengono usati i certificati CA di prova generati seguendo le istruzioni riportate in [Gestione dei certificati CA di prova per esempi e certificazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
@@ -51,7 +51,7 @@ Per ottenere i certificati, è possibile scegliere uno dei modi seguenti:
 
 ## <a name="register-x509-ca-certificates-to-your-iot-hub"></a>Registrare i certificati della CA X.509 nell'hub IoT
 
-Questi passaggi illustrano come aggiungere una nuova autorità di certificazione all'hub IoT tramite il portale.
+Questi passaggi illustrano come aggiungere una nuova autorità di certificazione all'hub IoT tramite il portale. Quando si usa l'autenticazione della CA del certificato X. 509, assicurarsi di registrare il nuovo certificato prima della scadenza di quella esistente come parte della strategia di rollover del certificato.
 
 > [!NOTE]
 > Il numero massimo di certificati della CA X. 509 che è possibile registrare per un hub Internet è 25. Per altre informazioni, vedere [quote e limitazioni dell'hub Azure](iot-hub-devguide-quotas-throttling.md).
@@ -60,15 +60,15 @@ Questi passaggi illustrano come aggiungere una nuova autorità di certificazione
 
 1. Selezionare **Aggiungi** per aggiungere un nuovo certificato.
 
-1. In **nome certificato**immettere un nome visualizzato descrittivo e selezionare il file del certificato creato nella sezione precedente del computer.
+1. In **nome certificato** immettere un nome visualizzato descrittivo e selezionare il file del certificato creato nella sezione precedente del computer.
 
-1. Quando si riceve una notifica che indica che il certificato è stato caricato correttamente, selezionare **Salva**.
+1. Quando si riceve una notifica che indica che il certificato è stato caricato correttamente, selezionare **Salva** .
 
     ![Caricamento del certificato](./media/iot-hub-security-x509-get-started/iot-hub-add-cert.png)  
 
-   Il certificato viene visualizzato nell'elenco dei certificati con lo stato non **verificato**.
+   Il certificato viene visualizzato nell'elenco dei certificati con lo stato non **verificato** .
 
-1. Selezionare il certificato appena aggiunto per visualizzare **i dettagli del certificato**e quindi selezionare **genera codice di verifica**.
+1. Selezionare il certificato appena aggiunto per visualizzare **i dettagli del certificato** e quindi selezionare **genera codice di verifica** .
 
    ![Verifica il certificato](./media/iot-hub-security-x509-get-started/copy-verification-code.png)  
 
@@ -76,17 +76,17 @@ Questi passaggi illustrano come aggiungere una nuova autorità di certificazione
 
 1. Seguire il passaggio 3 nella sezione [relativa alla gestione dei certificati della CA di test per esempi ed esercitazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).  Questo processo firma il codice di verifica con la chiave privata associata al certificato della CA X. 509, che genera una firma. Sono disponibili vari strumenti per eseguire questo processo di firma, ad esempio OpenSSL. Questo processo è noto come [prova di possesso](https://tools.ietf.org/html/rfc5280#section-3.1).
 
-1. In **Dettagli certificato**, in **file di certificato di verifica con estensione PEM o CER**, trovare e aprire il file della firma. Quindi selezionare **Verifica**.
+1. In **Dettagli certificato** , in **file di certificato di verifica con estensione PEM o CER** , trovare e aprire il file della firma. Quindi selezionare **Verifica** .
 
-   Lo stato del certificato diventa **verificato**. Selezionare **Aggiorna** se il certificato non viene aggiornato automaticamente.
+   Lo stato del certificato diventa **verificato** . Selezionare **Aggiorna** se il certificato non viene aggiornato automaticamente.
 
 ## <a name="create-an-x509-device-for-your-iot-hub"></a>Creare un dispositivo X.509 per l'hub IoT
 
-1. Nella portale di Azure passare all'hub Internet e quindi selezionare **esploratori**  >  **dispositivi**.
+1. Nella portale di Azure passare all'hub Internet e quindi selezionare **esploratori**  >  **dispositivi** .
 
 1. Selezionare **nuovo** per aggiungere un nuovo dispositivo.
 
-1. In **ID dispositivo**immettere un nome visualizzato descrittivo. Per **tipo di autenticazione**scegliere **CA X. 509 firmata**e quindi selezionare **Salva**.
+1. In **ID dispositivo** immettere un nome visualizzato descrittivo. Per **tipo di autenticazione** scegliere **CA X. 509 firmata** e quindi selezionare **Salva** .
 
    ![Creare il dispositivo X.509 nel portale](./media/iot-hub-security-x509-get-started/new-x509-device.png)
 
@@ -96,15 +96,15 @@ Per autenticare il dispositivo X.509, è prima di tutto necessario firmare il di
 
 In seguito verrà illustrato come creare un'applicazione C# per simulare il dispositivo X.509 registrato per l'hub IoT. Verranno inviati valori di temperatura e umidità dal dispositivo simulato all'hub. In questa esercitazione verrà creata solo l'applicazione del dispositivo. Rimarrà come esercizio per i lettori la creazione dell'applicazione di servizio dell'hub IoT per inviare risposta agli eventi inviati da questo dispositivo simulato. L'applicazione C# presuppone che siano stati seguiti i passaggi descritti in [Gestione dei certificati CA di prova per esempi e certificazioni](https://github.com/Azure/azure-iot-sdk-c/blob/master/tools/CACertificates/CACertificateOverview.md).
 
-1. Aprire Visual Studio, selezionare **Crea nuovo progetto**, quindi scegliere il modello di progetto **App Console (.NET Framework)** . Selezionare **Avanti**.
+1. Aprire Visual Studio, selezionare **Crea nuovo progetto** , quindi scegliere il modello di progetto **App Console (.NET Framework)** . Selezionare **Avanti** .
 
-1. In **Configura il nuovo progetto**assegnare al progetto il nome *SimulateX509Device*e quindi selezionare **Crea**.
+1. In **Configura il nuovo progetto** assegnare al progetto il nome *SimulateX509Device* e quindi selezionare **Crea** .
 
    ![Creare il progetto di dispositivo X.509 in Visual Studio](./media/iot-hub-security-x509-get-started/create-device-project-vs2019.png)
 
-1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SimulateX509Device** e quindi scegliere **Gestisci pacchetti NuGet**.
+1. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **SimulateX509Device** e quindi scegliere **Gestisci pacchetti NuGet** .
 
-1. In **Gestione pacchetti NuGet**selezionare **Sfoglia** e cercare e scegliere **Microsoft. Azure. Devices. client**. Selezionare **Installa**.
+1. In **Gestione pacchetti NuGet** selezionare **Sfoglia** e cercare e scegliere **Microsoft. Azure. Devices. client** . Selezionare **Installa** .
 
    ![Aggiungere il pacchetto NuGet SDK per dispositivi in Visual Studio](./media/iot-hub-security-x509-get-started/device-sdk-nuget.png)
 
@@ -129,7 +129,7 @@ In seguito verrà illustrato come creare un'applicazione C# per simulare il disp
         private static Random rnd = new Random();
     ```
 
-    Usare il nome descrittivo del dispositivo usato nella sezione precedente al posto di _<your_device_id>_.
+    Usare il nome descrittivo del dispositivo usato nella sezione precedente al posto di _<your_device_id>_ .
 
 1. Aggiungere la funzione seguente per creare numeri casuali per temperatura e umidità e inviare tali valori all'hub:
 
@@ -153,7 +153,7 @@ In seguito verrà illustrato come creare un'applicazione C# per simulare il disp
     }
     ```
 
-1. Aggiungere infine le righe di codice seguenti alla funzione **Main** , sostituendo i segnaposto _Device-ID_, _il nome---_----------------------------------------- _absolute-path-to-your-device-pfx-file_
+1. Aggiungere infine le righe di codice seguenti alla funzione **Main** , sostituendo i segnaposto _Device-ID_ , _il nome---_ ----------------------------------------- _absolute-path-to-your-device-pfx-file_
 
     ```csharp
     try
@@ -186,7 +186,7 @@ In seguito verrà illustrato come creare un'applicazione C# per simulare il disp
 
    1. Compilare la soluzione di Visual Studio.
 
-   1. Aprire una nuova finestra del prompt dei comandi usando **Esegui come amministratore**.  
+   1. Aprire una nuova finestra del prompt dei comandi usando **Esegui come amministratore** .  
 
    1. Passare alla cartella che contiene la soluzione, quindi passare al percorso *bin/debug* nella cartella della soluzione.
 

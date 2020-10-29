@@ -9,12 +9,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/10/2020
 ms.author: mbullwin
-ms.openlocfilehash: 9a7a914acd1358243c1e8a29f59dadf4fac46957
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5d41500a9c53e38cd36f0feba602e0e1baa5da2c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046928"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92909744"
 ---
 # <a name="metrics-advisor-service-encryption-of-data-at-rest"></a>Crittografia del servizio di Advisor delle metriche dei dati inattivi
 
@@ -32,4 +32,4 @@ Il servizio metrica Advisor crittografa automaticamente i dati in caso di salvat
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Modulo di richiesta della chiave Customer-Managed servizio di Advisor metrica](https://aka.ms/cogsvc-cmk)
-* [Altre informazioni su Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)
+* [Altre informazioni su Azure Key Vault](../../key-vault/general/overview.md)
