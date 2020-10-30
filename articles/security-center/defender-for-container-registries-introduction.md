@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 0c504ebdec524390d9deb22088979199f80e4f13
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 05d7316ceccd67a8eeb1d081843307162ff210c1
+ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275962"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92558636"
 ---
 # <a name="introduction-to-azure-defender-for-container-registries"></a>Introduzione ad Azure Defender per registri contenitori
 
@@ -37,11 +37,11 @@ Inviando notifiche solo in caso di problemi individuati, il Centro sicurezza rid
 
 L'analisi di un'immagine viene attivata da tre trigger:
 
-- **Inserimento**: ogni volta che un'immagine viene inserita nel registro, il Centro sicurezza la analizza automaticamente. Per attivare l'analisi di un'immagine, inserirla nel repository.
+- **Inserimento** : ogni volta che un'immagine viene inserita nel registro, il Centro sicurezza la analizza automaticamente. Per attivare l'analisi di un'immagine, inserirla nel repository.
 
-- **Estrazione recente**: poiché ogni giorno vengono rilevate nuove vulnerabilità, **Azure Defender per registri contenitori** analizza anche qualsiasi immagine estratta negli ultimi 30 giorni. Non sono previsti costi aggiuntivi per la ripetizione dell'analisi. Come accennato in precedenza, i costi vengono addebitati una sola volta per ogni immagine.
+- **Estrazione recente** : poiché ogni giorno vengono rilevate nuove vulnerabilità, **Azure Defender per registri contenitori** analizza anche qualsiasi immagine estratta negli ultimi 30 giorni. Non sono previsti costi aggiuntivi per la ripetizione dell'analisi. Come accennato in precedenza, i costi vengono addebitati una sola volta per ogni immagine.
 
-- **Importazione**: Registro Azure Container offre strumenti di importazione per inserire immagini nel registro da Docker Hub, Registro contenitori di Microsoft o un altro registro contenitori di Azure. **Azure Defender per registri contenitori** analizza le immagini supportate importate. Per altre informazioni, vedere [Importare immagini del contenitore in un registro contenitori](../container-registry/container-registry-import-images.md).
+- **Importazione** : Registro Azure Container offre strumenti di importazione per inserire immagini nel registro da Docker Hub, Registro contenitori di Microsoft o un altro registro contenitori di Azure. **Azure Defender per registri contenitori** analizza le immagini supportate importate. Per altre informazioni, vedere [Importare immagini del contenitore in un registro contenitori](../container-registry/container-registry-import-images.md).
  
 L'analisi viene completata in genere entro 2 minuti, ma può impiegare fino a 15 minuti. I risultati vengono resi disponibili in forma di raccomandazioni del Centro sicurezza, come la seguente:
 
@@ -71,6 +71,12 @@ Sì. I risultati si trovano nell'[API REST Sub-Assessments](/rest/api/securityce
 Per un elenco dei tipi di registri contenitori supportati da Azure Defender per registri contenitori, vedere [Disponibilità](defender-for-container-registries-usage.md#availability).
 
 Se si collegano registri non supportati alla sottoscrizione di Azure, questi non vengono analizzati e non viene addebitato alcun costo.
+
+### <a name="can-i-customize-the-findings-from-the-vulnerability-scanner"></a>È possibile personalizzare i risultati dell'analisi delle vulnerabilità?
+Sì. Se l'organizzazione deve ignorare un risultato invece di correggerlo, è possibile disabilitarlo facoltativamente. I risultati disabilitati non influiscono sul punteggio di sicurezza e non generano elementi non significativi.
+
+[Informazioni su come creare regole per disabilitare i risultati dello strumento integrato di valutazione delle vulnerabilità](defender-for-container-registries-usage.md#disable-specific-findings-preview).
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -7,14 +7,14 @@ author: tamram
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.date: 04/16/2020
+ms.date: 10/19/2020
 ms.author: tamram
-ms.openlocfilehash: f2e18b060aabcb849fb8e17722c530d199ebdbb8
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 0bf9d6eb68536588b35df93e13b04841d7868d31
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88067766"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92547155"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-the-azure-portal"></a>Guida introduttiva: Caricare, scaricare ed elencare BLOB con il portale di Azure
 
@@ -29,13 +29,13 @@ In questa guida introduttiva si apprenderà come usare il [portale di Azure](htt
 Per creare un contenitore nel portale di Azure, seguire questa procedura:
 
 1. Passare al nuovo account di archiviazione nel portale di Azure.
-2. Nel menu a sinistra per l'account di archiviazione scorrere fino alla sezione **Servizio BLOB** e quindi selezionare **Contenitori**.
-3. Selezionare il pulsante **+ Contenitore**.
+2. Nel menu a sinistra per l'account di archiviazione scorrere fino alla sezione **Servizio BLOB** e quindi selezionare **Contenitori** .
+3. Selezionare il pulsante **+ Contenitore** .
 4. Immettere un nome per il nuovo contenitore. Il nome del contenitore deve essere composto da lettere minuscole, deve iniziare con una lettera o un numero e può contenere solo lettere, numeri e trattino (-). Per altre informazioni sui nomi di contenitori e BLOB, vedere [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
 5. Impostare il livello di accesso pubblico del contenitore. Il livello predefinito è **Private (no anonymous access)** (Privato - nessun accesso anonimo).
 6. Fare clic su **OK** per creare il contenitore.
 
-    ![Screenshot che mostra come creare un contenitore nel portale di Azure](media/storage-quickstart-blobs-portal/create-container.png)
+    :::image type="content" source="media/storage-quickstart-blobs-portal/create-container.png" alt-text="Screenshot che mostra come creare un contenitore nel portale di Azure":::
 
 ## <a name="upload-a-block-blob"></a>Caricare un BLOB in blocchi
 
@@ -47,7 +47,7 @@ Per caricare un BLOB in blocchi nel nuovo contenitore nel portale di Azure, segu
 1. Selezionare il contenitore per visualizzare un elenco dei BLOB contenuti. Poiché questo contenitore è nuovo, non conterrà ancora alcun BLOB.
 1. Selezionare il pulsante **Carica** per aprire il pannello Carica ed esplorare il file system locale per trovare un file da caricare come BLOB in blocchi. Facoltativamente, è possibile espandere la sezione **Avanzate** per configurare altre impostazioni per l'operazione di caricamento.
 
-    ![Screenshot che mostra come caricare un BLOB dall'unità locale](media/storage-quickstart-blobs-portal/upload-blob.png)
+    :::image type="content" source="media/storage-quickstart-blobs-portal/upload-blob.png" alt-text="Screenshot che mostra come creare un contenitore nel portale di Azure":::
 
 1. Selezionare il pulsante **Carica** per caricare il BLOB.
 1. Caricare tutti i BLOB desiderati in questo modo. Si noterà che i nuovi BLOB sono ora elencati all'interno del contenitore.
@@ -57,16 +57,21 @@ Per caricare un BLOB in blocchi nel nuovo contenitore nel portale di Azure, segu
 È possibile scaricare un BLOB in blocchi per visualizzarlo nel browser o salvarlo nel file system locale. Per scaricare un BLOB in blocchi, seguire questa procedura:
 
 1. Passare all'elenco di BLOB caricati nella sezione precedente.
-1. Fare clic con il pulsante destro del mouse sul BLOB che si vuole scaricare e selezionare **Scarica**.
+1. Fare clic con il pulsante destro del mouse sul BLOB che si vuole scaricare e selezionare **Scarica** .
 
-    ![Screenshot che mostra come scaricare un BLOB](media/storage-quickstart-blobs-portal/download-blob.png)
+    :::image type="content" source="media/storage-quickstart-blobs-portal/download-blob.png" alt-text="Screenshot che mostra come creare un contenitore nel portale di Azure":::
 
 ## <a name="delete-a-block-blob"></a>Eliminare un BLOB in blocchi
 
-È possibile scaricare un BLOB in blocchi per visualizzarlo nel browser o salvarlo nel file system locale. Per scaricare un BLOB in blocchi, seguire questa procedura:
+Per eliminare uno o più BLOB nel portale di Azure, seguire questa procedura:
 
-1. Passare all'elenco di BLOB caricati nella sezione precedente.
-1. Selezionare i BLOB da eliminare e quindi **Elimina** nella barra delle azioni superiore.
+1. Nel portale di Azure passare al contenitore.
+1. Visualizzare l'elenco di BLOB nel contenitore.
+1. Usare la casella di controllo per selezionare uno o più BLOB nell'elenco.
+1. Selezionare il pulsante **Elimina** per eliminare i BLOB selezionati.
+1. Nella finestra di dialogo confermare l'eliminazione e indicare se eliminare anche gli snapshot del BLOB.
+
+:::image type="content" source="media/storage-quickstart-blobs-portal/delete-blobs.png" alt-text="Screenshot che mostra come creare un contenitore nel portale di Azure":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -76,12 +81,12 @@ Per eliminare il contenitore:
 
 1. Nel portale di Azure passare all'elenco dei contenitori presenti nell'account di archiviazione.
 1. Selezionare il contenitore da eliminare.
-1. Selezionare il pulsante **Altro** ( **...** ) e scegliere **Elimina**.
+1. Selezionare il pulsante **Altro** ( **...** ) e scegliere **Elimina** .
 1. Confermare di voler eliminare il contenitore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida introduttiva è stato descritto il trasferimento di file tra un disco locale e Archiviazione BLOB di Azure con il portale di Azure. Per altre informazioni sull'uso dell'archiviazione BLOB, continuare la procedura relativa all'archiviazione BLOB.
+In questa guida di avvio rapido si è appreso come creare un contenitore e caricare un BLOB con il portale di Azure. Per informazioni sull'uso di archiviazione BLOB da un'app Web, continuare con un'esercitazione che illustra come caricare immagini in un account di archiviazione.
 
 > [!div class="nextstepaction"]
-> [Procedura relativa alle operazioni di archiviazione BLOB](storage-dotnet-how-to-use-blobs.md)
+> [Esercitazione: Caricare i dati immagine nel cloud con Archiviazione di Azure](storage-upload-process-images.md)
