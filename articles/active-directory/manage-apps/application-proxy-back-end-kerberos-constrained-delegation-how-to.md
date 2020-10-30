@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 04/23/2019
 ms.author: kenwith
 ms.reviewer: asteen, japere
-ms.openlocfilehash: 3ca3df010426347846b29734426edfad4536516b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b18eb0f8d57c06e82d243c10bf038a861bcf88d1
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91568719"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042695"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Risolvere i problemi di configurazione della delega vincolata Kerberos per Application Proxy
 
@@ -51,7 +51,7 @@ I problemi possono essere legati anche ad alcuni fattori ambientali. Per evitare
 
 Che cosa costituisce un problema di delega vincolata Kerberos? Ci sono diverse indicazioni tipiche di problemi con l'accesso SSO della delega vincolata Kerberos. I primi segnali si manifestano in genere nel browser.
 
-![Esempio: errore di configurazione di delega vincolata Kerberos errato](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
+![Screenshot che mostra un esempio di errore di configurazione K C D errato, con l'errore "delega vincolata Kerberos non corretta..." evidenziato.](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic1.png)
 
 ![Esempio: autorizzazione non riuscita a causa di autorizzazioni mancanti](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic2.png)
 
@@ -81,13 +81,13 @@ Come accennato in precedenza, i messaggi di errore del browser offrono in genere
 
 ![Esempio: errore di configurazione di delega vincolata Kerberos errato](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic3.png)
 
-Le voci corrispondenti visualizzate nel log eventi vengono mostrate come eventi 13019 o 12027. I log eventi dei connettori sono disponibili in **Registri applicazioni e servizi** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connettore** &gt; **Amministratore**.
+Le voci corrispondenti visualizzate nel log eventi vengono mostrate come eventi 13019 o 12027. I log eventi dei connettori sono disponibili in **Registri applicazioni e servizi** &gt; **Microsoft** &gt; **AadApplicationProxy** &gt; **Connettore** &gt; **Amministratore** .
 
 ![Evento 13019 del log eventi del proxy dell'applicazione](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic4.png)
 
 ![Evento 12027 del log eventi del proxy dell'applicazione](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic5.png)
 
-1. Usare un record **A** nel DNS interno per l'indirizzo dell'applicazione e non un record **CName**.
+1. Usare un record **A** nel DNS interno per l'indirizzo dell'applicazione e non un record **CName** .
 1. Verificare nuovamente che all'host del connettore siano stati concessi i diritti di delega al nome dell'entità servizio (SPN) dell'account di destinazione designato e che l'opzione **Usa un qualsiasi protocollo di autenticazione** sia selezionata. Per altre informazioni, vedere l'articolo sulla [configurazione dell'accesso SSO](application-proxy-configure-single-sign-on-with-kcd.md).
 1. Verificare che in Azure AD sia presente solo un'istanza del nome dell'entità servizio, eseguendo il comando `setspn -x` da un prompt dei comandi di qualsiasi host membro di dominio.
 1. Verificare che sia applicato un criterio di dominio che limita la [dimensione massima dei token Kerberos pubblicati](https://blogs.technet.microsoft.com/askds/2012/09/12/maxtokensize-and-windows-8-and-windows-server-2012/). Questo criterio impedisce che il connettore riceva un token se il valore della dimensione è eccessivo.
@@ -102,20 +102,20 @@ Il consumer del ticket Kerberos fornito dal connettore. In questa fase si preved
 
 1. Tramite l'URL interno dell'applicazione definito nel portale, confermare che l'applicazione sia accessibile direttamente dal browser nell'host del connettore. A questo punto sarà possibile eseguire l'accesso. I dettagli a questo proposito sono disponibili nella pagina di **risoluzione dei problemi** del connettore.
 1. Sempre nell'host del connettore verificare che l'autenticazione tra il browser e l'applicazione usi Kerberos, eseguendo una delle operazioni seguenti:
-1. Eseguire Strumenti di sviluppo (**F12**) in Internet Explorer oppure usare [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) dall'host del connettore. Passare all'applicazione usando l'URL interno. Esaminare le intestazioni dell'autorizzazione WWW restituite nella risposta dell'applicazione, per assicurarsi che sia presente Negotiate o Kerberos.
+1. Eseguire Strumenti di sviluppo ( **F12** ) in Internet Explorer oppure usare [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) dall'host del connettore. Passare all'applicazione usando l'URL interno. Esaminare le intestazioni dell'autorizzazione WWW restituite nella risposta dell'applicazione, per assicurarsi che sia presente Negotiate o Kerberos.
 
-   - Il successivo BLOB Kerberos restituito nella risposta dal browser all'applicazione inizia con **YII**, e questa è una buona indicazione del fatto che Kerberos è in esecuzione. Microsoft NT LAN Manager (NTLM), d'altro canto, inizia sempre con **TlRMTVNTUAAB**, ovvero NTLM Security Support Provider (NTLMSSP) in caso di decodifica da Base64. Se **TlRMTVNTUAAB** è presente all'inizio del BLOB, Kerberos non è disponibile. Se **TlRMTVNTUAAB**non è visibile, Kerberos dovrebbe essere disponibile.
+   - Il successivo BLOB Kerberos restituito nella risposta dal browser all'applicazione inizia con **YII** , e questa è una buona indicazione del fatto che Kerberos è in esecuzione. Microsoft NT LAN Manager (NTLM), d'altro canto, inizia sempre con **TlRMTVNTUAAB** , ovvero NTLM Security Support Provider (NTLMSSP) in caso di decodifica da Base64. Se **TlRMTVNTUAAB** è presente all'inizio del BLOB, Kerberos non è disponibile. Se **TlRMTVNTUAAB** non è visibile, Kerberos dovrebbe essere disponibile.
 
       > [!NOTE]
       > Se si usa Fiddler, questo metodo richiede la disabilitazione temporanea della protezione estesa sulla configurazione dell'applicazione in IIS.
 
       ![Finestra di controllo di rete del browser](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
 
-   - Il BLOB nell'immagine non inizia con **TIRMTVNTUAAB**. In questo esempio pertanto Kerberos è disponibile, e il BLOB Kerberos non inizia con **YII**.
+   - Il BLOB nell'immagine non inizia con **TIRMTVNTUAAB** . In questo esempio pertanto Kerberos è disponibile, e il BLOB Kerberos non inizia con **YII** .
 
 1. Rimuovere temporaneamente NTLM dall'elenco di provider nel sito di IIS. Accedere all'app direttamente da Internet Explorer nell'host del connettore. NTLM non è più presente nell'elenco dei provider, ed è possibile accedere all'applicazione solo tramite Kerberos. Se l'accesso non riesce, potrebbe esserci un problema con la configurazione dell'applicazione. L'autenticazione Kerberos non funziona.
 
-   - Se Kerberos non è disponibile, controllare le impostazioni di autenticazione dell'applicazione in IIS. Verificare che l'opzione **Negotiate** sia elencata nella parte superiore, con NTLM immediatamente sotto. Se viene visualizzata l'opzione **Not Negotiate**, **Kerberos o Negotiate**, o **PKU2U**, procedere solo se Kerberos funziona.
+   - Se Kerberos non è disponibile, controllare le impostazioni di autenticazione dell'applicazione in IIS. Verificare che l'opzione **Negotiate** sia elencata nella parte superiore, con NTLM immediatamente sotto. Se viene visualizzata l'opzione **Not Negotiate** , **Kerberos o Negotiate** , o **PKU2U** , procedere solo se Kerberos funziona.
 
      ![Provider di autenticazione di Windows](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
 
@@ -138,11 +138,11 @@ Il consumer del ticket Kerberos fornito dal connettore. In questa fase si preved
 
       ![Configurazione del nome dell'entità servizio nel portale di Azure](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
 
-   - Passare a IIS e selezionare l'opzione **Editor di configurazione** per l'applicazione. Passare a **system.webServer/security/authentication/windowsAuthentication**. Verificare che il valore **UseAppPoolCredentials** sia **True**.
+   - Passare a IIS e selezionare l'opzione **Editor di configurazione** per l'applicazione. Passare a **system.webServer/security/authentication/windowsAuthentication** . Verificare che il valore **UseAppPoolCredentials** sia **True** .
 
       ![Opzione delle credenziali dei pool di applicazioni della configurazione IIS](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 
-      Modificare questo valore in **True**. Rimuovere tutti i ticket Kerberos memorizzati nella cache dal server back-end usando il comando seguente:
+      Modificare questo valore in **True** . Rimuovere tutti i ticket Kerberos memorizzati nella cache dal server back-end usando il comando seguente:
 
       ```powershell
       Get-WmiObject Win32_LogonSession | Where-Object {$_.AuthenticationPackage -ne 'NTLM'} | ForEach-Object {klist.exe purge -li ([Convert]::ToString($_.LogonId, 16))}
@@ -152,7 +152,7 @@ Per altre informazioni, vedere [Purge the Kerberos client ticket cache for all s
 
 Oltre a risultare utile per migliorare le prestazioni delle operazioni Kerberos, l'abilitazione della modalità Kernel determina la decrittografia del ticket per il servizio richiesto con l'account del computer. Questo è anche noto come sistema locale, pertanto la sua impostazione su **True** interrompe la delega vincolata Kerberos quando l'applicazione è ospitata in più server in una farm.
 
-- Come verifica aggiuntiva, disabilitare anche la protezione **estesa**. In alcune situazioni, la protezione **estesa** interrompe la delega vincolata Kerberos se abilitata in configurazioni specifiche, in cui un'applicazione viene pubblicata come sottocartella del sito Web predefinito. Tale applicazione è configurata soltanto per l'autenticazione anonima, lasciando le finestre di dialogo disattivate a indicare che gli oggetti figlio non erediteranno impostazioni attive. È consigliabile eseguire il test e quindi ripristinare questo valore su **abilitata**, laddove possibile.
+- Come verifica aggiuntiva, disabilitare anche la protezione **estesa** . In alcune situazioni, la protezione **estesa** interrompe la delega vincolata Kerberos se abilitata in configurazioni specifiche, in cui un'applicazione viene pubblicata come sottocartella del sito Web predefinito. Tale applicazione è configurata soltanto per l'autenticazione anonima, lasciando le finestre di dialogo disattivate a indicare che gli oggetti figlio non erediteranno impostazioni attive. È consigliabile eseguire il test e quindi ripristinare questo valore su **abilitata** , laddove possibile.
 
   Questi controlli aggiuntivi dovrebbero consentire di iniziare a usare correttamente l'applicazione pubblicata. È possibile avviare i connettori aggiuntivi che sono anch'essi configurati per la delega. Per altre informazioni, leggere la procedura tecnica dettagliata relativa nella [Guida completa alla risoluzione dei problemi di Azure AD Application Proxy](https://aka.ms/proxytshootpaper).
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
-ms.openlocfilehash: e6ad75178bdc8ce7db18555508e2b819f08352f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd0b708ac3a1b16804430584dfcb01b3d2a4fae2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86121912"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042385"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Usare Archiviazione BLOB di Azure per gestire i clienti potenziali del marketplace commerciale
 
@@ -32,7 +32,7 @@ ms.locfileid: "86121912"
 
 3. Nel portale di Azure creare un account di archiviazione seguendo questa procedura.  
     1. Selezionare **+Crea una risorsa** nella barra del menu a sinistra.  Il riquadro (pannello) **Nuovo** verrà visualizzato a destra.
-    2. Selezionare **Archiviazione** nel riquadro **Nuovo**.  Verrà visualizzato l'elenco **In primo piano** a destra.
+    2. Selezionare **Archiviazione** nel riquadro **Nuovo** .  Verrà visualizzato l'elenco **In primo piano** a destra.
     3. Selezionare **Account di archiviazione** per iniziare la creazione dell'account.  Seguire le istruzioni riportate nell'articolo [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
 
     ![Procedura di creazione di un account di archiviazione di Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
@@ -51,19 +51,19 @@ ms.locfileid: "86121912"
      DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net
      ```
 
-    ![Chiave di archiviazione di Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
+    ![Screenshot che mostra la pagina "chiavi di accesso" con la casella di testo "stringa di connessione" evidenziata.](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-keys-2.png)
 
-6. Dalla pagina dell'account di archiviazione selezionare **BLOB**.
+6. Dalla pagina dell'account di archiviazione selezionare **BLOB** .
 
    ![Chiave di archiviazione di Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
-7. Nella pagina BLOB selezionare il pulsante **+ Contenitore**.
+7. Nella pagina BLOB selezionare il pulsante **+ Contenitore** .
 
 8. Digitare un **nome** per il nuovo contenitore. Il nome del contenitore deve essere composto da lettere minuscole, deve iniziare con una lettera o un numero e può contenere solo lettere, numeri e trattino (-). Per altre informazioni sui nomi di contenitori e BLOB, vedere [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
 
     Salvare questo valore perché si tratta del valore di *Nome contenitore* che è necessario specificare nel portale di pubblicazione per ricevere i clienti potenziali per l'offerta nel marketplace.
 
-9. Impostare il livello di accesso pubblico al contenitore come**Privato (nessun accesso anonimo)** .
+9. Impostare il livello di accesso pubblico al contenitore come **Privato (nessun accesso anonimo)** .
 
 10. Fare clic su **OK** per creare il contenitore.
 
@@ -74,7 +74,7 @@ ms.locfileid: "86121912"
 Quando si è pronti a configurare le informazioni di gestione dei clienti potenziali per l'offerta nel portale di pubblicazione, seguire questa procedura:
 
 1. Andare alla pagina **Configurazione dell'offerta** relativa all'offerta.
-2. Nella sezione **Customer leads** (Clienti potenziali) selezionare **Connetti**.
+2. Nella sezione **Customer leads** (Clienti potenziali) selezionare **Connetti** .
 
     :::image type="content" source="./media/commercial-marketplace-lead-management-instructions-azure-blob/customer-leads.png" alt-text="Clienti potenziali":::
 
@@ -87,7 +87,7 @@ Quando si è pronti a configurare le informazioni di gestione dei clienti potenz
     * Esempio di nome del contenitore: `marketplaceleadcontainer`
     * Esempio di stringa di connessione dell'account di archiviazione: `DefaultEndpointsProtocol=https;AccountName=myAccountName;AccountKey=myAccountKey;EndpointSuffix=core.windows.net` ![Dettagli connessione](./media/commercial-marketplace-lead-management-instructions-azure-blob/connection-details.png) 
 
-5. Selezionare **Salva**.
+5. Selezionare **Salva** .
 
     > [!NOTE]
     > È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i clienti potenziali per l'offerta.

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/28/2020
-ms.openlocfilehash: a4fcdad0efda1ab2a43be65865e3aac59f7ef3e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84187602"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040179"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Trasformazione della ricerca nel flusso di dati per mapping
 
@@ -27,7 +27,7 @@ Una trasformazione della ricerca è simile a una left outer join. Tutte le righe
 
 ## <a name="configuration"></a>Configurazione
 
-![Trasformazione Ricerca](media/data-flow/lookup1.png "Ricerca")
+![Screenshot mostra la scheda Impostazioni ricerca con le etichette descritte nel testo seguente.](media/data-flow/lookup1.png "Ricerca")
 
 **Flusso primario:** il flusso di dati in ingresso. Questo flusso è equivalente al lato sinistro di un join.
 
@@ -45,7 +45,7 @@ Tutte le colonne di entrambi i flussi sono incluse nei dati di output. Per rilas
 
 ### <a name="non-equi-joins"></a>Join non uguali
 
-Per usare un operatore condizionale come non uguale (! =) o maggiore di (>) nelle condizioni di ricerca, modificare l'elenco a discesa operatore tra le due colonne. Per i join non uguali è necessario che almeno uno dei due flussi venga trasmesso usando la broadcast **fissa** nella scheda **Ottimizza**.
+Per usare un operatore condizionale come non uguale (! =) o maggiore di (>) nelle condizioni di ricerca, modificare l'elenco a discesa operatore tra le due colonne. Per i join non uguali è necessario che almeno uno dei due flussi venga trasmesso usando la broadcast **fissa** nella scheda **Ottimizza** .
 
 ![Ricerca non uguali](media/data-flow/non-equi-lookup.png "Ricerca non uguali")
 
@@ -65,7 +65,7 @@ Quando si testa la trasformazione della ricerca con anteprima dati in modalità 
 
 ![Join di trasmissione](media/data-flow/broadcast.png "Join di trasmissione")
 
-Nella trasformazione di join, ricerche ed exists, se uno o entrambi i flussi di dati rientrano nella memoria del nodo di lavoro, è possibile ottimizzare le prestazioni abilitando la **trasmissione**. Per impostazione predefinita, il motore Spark deciderà automaticamente se trasmettere o meno un lato. Per scegliere manualmente il lato da trasmettere, selezionare **Fisso**.
+Nella trasformazione di join, ricerche ed exists, se uno o entrambi i flussi di dati rientrano nella memoria del nodo di lavoro, è possibile ottimizzare le prestazioni abilitando la **trasmissione** . Per impostazione predefinita, il motore Spark deciderà automaticamente se trasmettere o meno un lato. Per scegliere manualmente il lato da trasmettere, selezionare **Fisso** .
 
 Non è consigliabile disabilitare la trasmissione tramite l'opzione **Off** a meno che i join non siano in errore di timeout.
 
@@ -85,7 +85,7 @@ Non è consigliabile disabilitare la trasmissione tramite l'opzione **Off** a me
 ```
 ### <a name="example"></a>Esempio
 
-![Trasformazione Ricerca](media/data-flow/lookup-dsl-example.png "Ricerca")
+![Screenshot mostra la scheda Impostazioni di ricerca per il codice seguente.](media/data-flow/lookup-dsl-example.png "Ricerca")
 
 Lo script del flusso di dati per la configurazione di ricerca precedente si trova nel frammento di codice riportato di seguito.
 

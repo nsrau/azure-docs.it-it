@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/02/2020
-ms.openlocfilehash: 70e0a95a85920562af8bf9d3fffa6633709dccc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d8c4d1915e22ccabf193f1b34c5fc4797ead549
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84322091"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040231"
 ---
 # <a name="select-transformation-in-mapping-data-flow"></a>Selezione trasformazione nel flusso di dati di mapping
 
@@ -44,13 +44,13 @@ I mapping corretti possono essere utilizzati per eseguire il mapping di una sott
 
 Se si desidera eseguire il mapping di più colonne in una sola volta o passare a downstream le colonne, utilizzare il mapping basato su regole per definire i mapping utilizzando i modelli di colonna. Corrispondenza basata sulle `name` colonne, `type` , `stream` e `position` . È possibile avere qualsiasi combinazione di mapping corretti e basati su regole. Per impostazione predefinita, tutte le proiezioni con colonne maggiori di 50 vengono predefinite in un mapping basato su regole che corrisponde a ogni colonna e restituisce il nome inputted. 
 
-Per aggiungere un mapping basato su regole, fare clic su **Aggiungi mapping** e selezionare **mapping basato su regole**.
+Per aggiungere un mapping basato su regole, fare clic su **Aggiungi mapping** e selezionare **mapping basato su regole** .
 
-![mapping basato su regole](media/data-flow/rule2.png "mapping basato su regole")
+![Screenshot che mostra il mapping basato su regole selezionato da Aggiungi mapping.](media/data-flow/rule2.png "mapping basato su regole")
 
 Ogni mapping basato su regole richiede due input, ovvero la condizione su cui trovare la corrispondenza e gli elementi per i quali assegnare un nome a ogni colonna mappata. Entrambi i valori vengono inseriti tramite il [Generatore di espressioni](concepts-data-flow-expression-builder.md). Nella casella espressione a sinistra immettere la condizione di corrispondenza booleana. Nella casella espressione a destra specificare l'elemento a cui verrà eseguito il mapping della colonna corrispondente.
 
-![mapping basato su regole](media/data-flow/rule-based-mapping.png "mapping basato su regole")
+![Screenshot che mostra un mapping.](media/data-flow/rule-based-mapping.png "mapping basato su regole")
 
 Utilizzare `$$` la sintassi per fare riferimento al nome di input di una colonna corrispondente. Utilizzando come esempio l'immagine precedente, si desidera che un utente desideri trovare la corrispondenza con tutte le colonne di stringa i cui nomi sono inferiori a sei caratteri. Se una colonna in ingresso è stata denominata `test` , l'espressione `$$ + '_short'` Rinomina la colonna `test_short` . Se è l'unico mapping esistente, tutte le colonne che non soddisfano la condizione verranno eliminate dai dati restituiti.
 
@@ -60,7 +60,7 @@ I modelli corrispondono alle colonne derivate e definite. Per visualizzare le co
 
 Se si fa clic sull'icona con la freccia di espansione verso il basso, è possibile specificare una condizione di mapping Regex. Una condizione di mapping Regex corrisponde a tutti i nomi di colonna che corrispondono alla condizione Regex specificata. Questo può essere usato in combinazione con i mapping standard basati su regole.
 
-![mapping basato su regole](media/data-flow/regex-matching.png "mapping basato su regole")
+![Screenshot mostra la condizione di mapping Regex con le corrispondenze del nome e del livello della gerarchia.](media/data-flow/regex-matching.png "mapping basato su regole")
 
 L'esempio precedente corrisponde a un criterio Regex `(r)` o a qualsiasi nome di colonna che contiene un r minuscolo. Analogamente al mapping basato su regole standard, tutte le colonne corrispondenti vengono modificate dalla condizione a destra usando la `$$` sintassi.
 
@@ -70,7 +70,7 @@ Se nel nome della colonna sono presenti più corrispondenze Regex, è possibile 
 
 Se la proiezione definita dispone di una gerarchia, è possibile utilizzare il mapping basato su regole per eseguire il mapping delle sottocolonne delle gerarchie. Specificare una condizione di corrispondenza e la colonna complessa le cui sottocolonne si desidera mappare. Ogni sottocolonna corrispondente verrà restituita utilizzando la regola "name As" specificata a destra.
 
-![mapping basato su regole](media/data-flow/rule-based-hierarchy.png "mapping basato su regole")
+![Screenshot mostra un mapping basato su regole usando per una gerarchia.](media/data-flow/rule-based-hierarchy.png "mapping basato su regole")
 
 L'esempio precedente corrisponde a tutte le sottocolonne della colonna complessa `a` . `a` contiene due sottocolonne `b` e `c` . Lo schema di output includerà due colonne `b` e `c` la condizione ' name As ' sarà `$$` .
 

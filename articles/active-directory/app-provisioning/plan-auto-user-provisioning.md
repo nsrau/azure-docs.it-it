@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/17/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: 7cc9e8a1cf51d57bf10523174179b5a9f2ef6e97
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 010e2a206ef08677651572c274cfc38fd516ecc9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363692"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041114"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>Pianificare una distribuzione automatica del provisioning utenti
 
@@ -34,15 +34,15 @@ Il provisioning degli utenti crea una base per la governance delle identità in 
 
 I vantaggi principali dell'abilitazione del provisioning utenti automatico sono:
 
-* **Maggiore produttività**. È possibile gestire le identità degli utenti in applicazioni SaaS con un'unica interfaccia di gestione del provisioning degli utenti. Questa interfaccia dispone di un singolo set di criteri di provisioning.
+* **Maggiore produttività** . È possibile gestire le identità degli utenti in applicazioni SaaS con un'unica interfaccia di gestione del provisioning degli utenti. Questa interfaccia dispone di un singolo set di criteri di provisioning.
 
-* **Gestire i rischi**. È possibile aumentare la sicurezza automatizzando le modifiche in base allo stato dei dipendenti o all'appartenenza a gruppi che definiscono i ruoli e/o l'accesso.
+* **Gestire i rischi** . È possibile aumentare la sicurezza automatizzando le modifiche in base allo stato dei dipendenti o all'appartenenza a gruppi che definiscono i ruoli e/o l'accesso.
 
-* **Conformità e governance degli indirizzi**. Azure AD supporta i log di controllo nativi per ogni richiesta di provisioning dell'utente. Le richieste vengono eseguite in entrambi i sistemi di origine e di destinazione. In questo modo è possibile tenere traccia degli utenti che hanno accesso alle applicazioni da un'unica schermata.
+* **Conformità e governance degli indirizzi** . Azure AD supporta i log di controllo nativi per ogni richiesta di provisioning dell'utente. Le richieste vengono eseguite in entrambi i sistemi di origine e di destinazione. In questo modo è possibile tenere traccia degli utenti che hanno accesso alle applicazioni da un'unica schermata.
 
-* **Ridurre i costi**. Il provisioning utenti automatico riduce i costi evitando inefficienze ed errori umani associati al provisioning manuale. Riduce la necessità di soluzioni di provisioning utente personalizzate, script e log di controllo.
+* **Ridurre i costi** . Il provisioning utenti automatico riduce i costi evitando inefficienze ed errori umani associati al provisioning manuale. Riduce la necessità di soluzioni di provisioning utente personalizzate, script e log di controllo.
 
-### <a name="licensing"></a>Gestione delle licenze
+### <a name="licensing"></a>Licenza
 
 Azure AD fornisce l'integrazione self-service di qualsiasi applicazione usando i modelli forniti nel menu della raccolta di applicazioni. Per un elenco completo dei requisiti di licenza, vedere la pagina relativa alla [gestione delle licenze Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
 
@@ -99,7 +99,7 @@ In questo esempio, gli utenti e i gruppi vengono creati in un database HR connes
 
 In questo esempio la creazione dell'utente avviene in Azure AD e il servizio di provisioning di Azure AD gestisce il provisioning utenti automatico per le applicazioni di destinazione (SaaS).
 
-![Figura 2](./media/plan-auto-user-provisioning/cloudprovisioning.png)
+![Diagramma che illustra il processo di creazione di utenti/gruppi da un'applicazione H R locale tramite il servizio di provisioning di Azure a D per le applicazioni di destinazione a s.](./media/plan-auto-user-provisioning/cloudprovisioning.png)
 
 **Descrizione del flusso di lavoro:**
 

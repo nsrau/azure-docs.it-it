@@ -8,12 +8,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2020
 ms.author: makromer
-ms.openlocfilehash: 3d2ef6fb0cd7af444b9bff755eee4eee70d03d15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d93cb49c77a4c8164a8b4e9bca349a805f39678
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82691891"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041639"
 ---
 # <a name="migrate-normalized-database-schema-from-azure-sql-database-to-azure-cosmosdb-denormalized-container"></a>Eseguire la migrazione dello schema del database normalizzato dal database SQL di Azure al contenitore denormalizzato di Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Il contenitore CosmosDB risultante incorpora la query interna in un unico docume
 
 2. Aggiungere un'attività flusso di dati
 
-3. Nell'attività flusso di dati selezionare **nuovo flusso di dati di mapping**.
+3. Nell'attività flusso di dati selezionare **nuovo flusso di dati di mapping** .
 
 4. Questo grafico del flusso di dati verrà costruito sotto
 
@@ -96,11 +96,11 @@ Il contenitore CosmosDB risultante incorpora la query interna in un unico docume
 
 19. In impostazioni sink, chiave di partizione ```\SalesOrderID``` e azione di raccolta su "ricrea". Assicurarsi che la scheda mapping abbia un aspetto simile al seguente:
 
-![Impostazioni sink](media/data-flow/cosmosb7.png)
+![Screenshot mostra la scheda mapping.](media/data-flow/cosmosb7.png)
 
 20. Fare clic su data Preview (Anteprima dati) per assicurarsi di visualizzare queste 32 righe impostate per inserire come nuovi documenti nel nuovo contenitore:
 
-![Impostazioni sink](media/data-flow/cosmosb8.png)
+![Screenshot mostra la scheda Anteprima dati.](media/data-flow/cosmosb8.png)
 
 Se tutto sembra corretto, è ora possibile creare una nuova pipeline, aggiungere l'attività flusso di dati alla pipeline ed eseguirla. È possibile eseguire da debug o da un'esecuzione attivata. Dopo alcuni minuti, è necessario avere un nuovo contenitore denormalizzato di ordini denominato "Orders" nel database CosmosDB.
 

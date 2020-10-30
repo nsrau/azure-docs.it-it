@@ -5,16 +5,16 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: how-to
-ms.date: 10/27/2020
+ms.date: 10/29/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 247742cac3dc24b062fc8e1cb5eceb6c1a6f3f8b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 3f97a91d56324ab583c1f8ae9989631a908df447
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911614"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042218"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Impostare gli elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake Storage Gen2
 
@@ -47,9 +47,7 @@ Installare le librerie necessarie.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-1. Verificare che sia installato .NET Framework. Vedere [scaricare .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
- 
-2. Verificare che la versione di PowerShell installata sia `5.1` o superiore usando il comando seguente.    
+1. Verificare che la versione di PowerShell installata sia `5.1` o superiore usando il comando seguente.    
 
    ```powershell
    echo $PSVersionTable.PSVersion.ToString() 
@@ -57,18 +55,10 @@ Installare le librerie necessarie.
     
    Per aggiornare la versione di PowerShell, vedere [aggiornamento di Windows PowerShell esistente](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell)
     
-3. Installare la versione più recente del modulo PowershellGet.
+2. Installare **AZ. storage** Module.
 
    ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force  
-   ```
-
-4. Chiudere e riaprire la console di PowerShell.
-
-5. Installare il modulo **AZ. storage** Preview.
-
-   ```powershell
-   Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
+   Install-Module Az.Storage -Repository PSGallery -Force  
    ```
 
    Per altre informazioni su come installare i moduli di PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps)
@@ -875,10 +865,10 @@ $result
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-In caso di errore, è possibile restituire un token di continuazione impostando il `--continue-on-failure` parametro su `true` . Dopo aver indirizzato gli errori, è possibile riprendere il processo dal punto in cui si è verificato l'errore eseguendo di nuovo il comando e quindi impostando il `--continuation` parametro sul token di continuazione. 
+In caso di errore, è possibile restituire un token di continuazione impostando il `--continue-on-failure` parametro su `false` . Dopo aver indirizzato gli errori, è possibile riprendere il processo dal punto in cui si è verificato l'errore eseguendo di nuovo il comando e quindi impostando il `--continuation` parametro sul token di continuazione. 
 
 ```azurecli
-az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --continue-on-failure true --continuation xxxxxxx -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login  
+az storage fs access set-recursive --acl "user::rw-,group::r-x,other::---" --continue-on-failure false --continuation xxxxxxx -p my-parent-directory/ -f my-container --account-name mystorageaccount --auth-mode login  
 ```
 
 ## <a name="net"></a>[.NET](#tab/dotnet)
@@ -982,7 +972,7 @@ Questa sezione contiene collegamenti a librerie ed esempi di codice.
 
 #### <a name="libraries"></a>Librerie
 
-- [PowerShell](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fwww.powershellgallery.com%2Fpackages%2FAz.Storage%2F2.5.2-preview&data=02%7C01%7Cnormesta%40microsoft.com%7Ccdabce06132c42132b4008d849a2dfb1%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637340311173215017&sdata=FWynO9UKTt7ESMCFgkWaL7J%2F%2BjODaRo5BD6G6yCx9os%3D&reserved=0)
+- [PowerShell](https://www.powershellgallery.com/packages/Az.Storage/3.0.0)
 - [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/storage/fs/access)
 - [.NET](https://pkgs.dev.azure.com/azure-sdk/public/_packaging/azure-sdk-for-net/nuget/v3/index.json)
 - [Java](/java/api/overview/azure/storage-file-datalake-readme)
@@ -1028,7 +1018,7 @@ Il numero massimo di ACL che è possibile applicare a una directory o a un file 
 
 È possibile fornire commenti e suggerimenti o segnalare un problema all'indirizzo  [recursiveACLfeedback@microsoft.com](mailto:recursiveACLfeedback@microsoft.com) .
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Controllo di accesso in Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)
 - [Problemi noti](data-lake-storage-known-issues.md)

@@ -7,12 +7,12 @@ ms.topic: how-to
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 10/19/2020
-ms.openlocfilehash: 922f4a2785a0b7260bcd0aae19c0172a2fa7a782
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bc5e98484560fcc15e0ea3e289069c84687f158c
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284335"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040579"
 ---
 # <a name="how-to-create-plans-for-a-virtual-machine-offer"></a>Come creare piani per un'offerta di macchina virtuale
 
@@ -30,19 +30,19 @@ Dopo aver creato i piani, selezionare la scheda **Panoramica del piano** per vis
 
 Le azioni disponibili nel riquadro **Panoramica del piano** variano a seconda dello stato attuale di quest'ultimo.
 
-- Se il piano è in stato di bozza, selezionare **Elimina bozza**.
+- Se il piano è in stato di bozza, selezionare **Elimina bozza** .
 - Se il piano è pubblicato in tempo reale, selezionare **Stop sell plan** (Interrompi la vendita del piano) o **Sync private audience** (Sincronizza gruppo di destinatari privato).
 
 ## <a name="create-a-new-plan"></a>Creare un nuovo piano
 
-Selezionare **Crea nuovo piano** nella parte superiore. Viene visualizzata la finestra di dialogo **Nuovo piano**.
+Selezionare **Crea nuovo piano** nella parte superiore. Viene visualizzata la finestra di dialogo **Nuovo piano** .
 
 Nella casella **ID piano** creare un ID univoco per ogni piano dell'offerta. Questo ID sarà visibile ai clienti all'indirizzo Web del prodotto. Usare solo lettere minuscole, numeri, trattini o caratteri di sottolineatura e fino a un massimo di 50 caratteri.
 
 > [!NOTE]
-> Non è possibile modificare l'ID del piano dopo aver selezionato **Crea**.
+> Non è possibile modificare l'ID del piano dopo aver selezionato **Crea** .
 
-Nella casella **Nome piano** immettere un nome per il piano. I clienti visualizzano questo nome quando decidono quale piano scegliere nell'offerta. Creare un nome univoco che indichi chiaramente le differenze tra i piani. Ad esempio, è possibile immettere **Windows Server** con i piani *Con pagamento in base al consumo*, *BYOL*, *Avanzata* ed *Enterprise*.
+Nella casella **Nome piano** immettere un nome per il piano. I clienti visualizzano questo nome quando decidono quale piano scegliere nell'offerta. Creare un nome univoco che indichi chiaramente le differenze tra i piani. Ad esempio, è possibile immettere **Windows Server** con i piani *Con pagamento in base al consumo* , *BYOL* , *Avanzata* ed *Enterprise* .
 
 Selezionare **Create** (Crea).
 
@@ -76,7 +76,7 @@ Questa opzione è visibile solo se **Azure per enti pubblici** è stato selezion
 
 I servizi di Azure per enti pubblici gestiscono dati soggetti a determinati requisiti e regolamenti governativi. Ad esempio, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Per aumentare la consapevolezza sulle certificazioni per questi programmi, è possibile specificare fino a 100 collegamenti descrittivi. Questi possono essere collegamenti diretti alla presentazione del programma o collegamenti alle descrizioni della conformità di questi ultimi sui propri siti Web. Questi collegamenti sono visibili solo ai clienti di Azure per enti pubblici.
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="plan-listing"></a>Presentazione del piano
 
@@ -94,7 +94,7 @@ Specificare un breve riepilogo del piano, non dell'offerta. Questo riepilogo è 
 
 Descrivere le caratteristiche uniche del piano software, nonché le differenze tra i piani all'interno dell'offerta. Descrivere solo il piano, non l'offerta. La descrizione del piano può contenere un massimo di 2.000 caratteri.
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="pricing-and-availability"></a>Prezzi e disponibilità
 
@@ -118,9 +118,9 @@ Per **Modello di licenza** selezionare **Piano di fatturazione mensile basato su
 
 Per i piani di fatturazione mensile basati sull'utilizzo, usare una delle tre opzioni di immissione dei prezzi seguenti:
 
-- **Per core**: consente di specificare i prezzi per core in USD. Microsoft calcola i prezzi per dimensioni core e li converte nelle valute locali basandosi sul tasso di cambio corrente.
-- **Per dimensioni core**: consente di specificare i prezzi per dimensioni core in USD. Microsoft calcola i prezzi e li converte nelle valute locali basandosi sul tasso di cambio corrente.
-- **Per mercato e dimensioni core**: consente di specificare i prezzi per ogni dimensione core per tutti i mercati. È possibile importare i prezzi da un foglio di calcolo.
+- **Per core** : consente di specificare i prezzi per core in USD. Microsoft calcola i prezzi per dimensioni core e li converte nelle valute locali basandosi sul tasso di cambio corrente.
+- **Per dimensioni core** : consente di specificare i prezzi per dimensioni core in USD. Microsoft calcola i prezzi e li converte nelle valute locali basandosi sul tasso di cambio corrente.
+- **Per mercato e dimensioni core** : consente di specificare i prezzi per ogni dimensione core per tutti i mercati. È possibile importare i prezzi da un foglio di calcolo.
 
 > [!NOTE]
 > Salvare le modifiche ai prezzi per abilitare l'esportazione dei dati sui prezzi. In seguito alla pubblicazione, non sarà più possibile modificare il prezzo per un mercato del piano. Per assicurarsi che i prezzi siano corretti prima di procedere con la pubblicazione, esportare il foglio di calcolo dei prezzi ed esaminare i prezzi per ogni mercato.
@@ -133,12 +133,12 @@ Puoi offrire una *versione di valutazione gratuita* di un mese o di tre mesi o d
 
 È possibile progettare ogni piano in modo che sia visibile a tutti o soltanto a un gruppo di destinatari preselezionato. Assegnare le appartenenze a questo gruppo di destinatari con limitazioni usando gli ID sottoscrizione di Azure.
 
-**Pubblico**: il piano può essere visualizzato da tutti.
+**Pubblico** : il piano può essere visualizzato da tutti.
 
-**Gruppo di destinatari privato**: consente di rendere il piano visibile solo a un gruppo di destinatari preselezionato. In seguito alla pubblicazione del piano come privato, è possibile aggiornare il gruppo di destinatari o impostarlo come pubblico. Dopo aver reso pubblico un piano, è necessario che rimanga tale. Non può essere impostato nuovamente come privato.
+**Gruppo di destinatari privato** : consente di rendere il piano visibile solo a un gruppo di destinatari preselezionato. In seguito alla pubblicazione del piano come privato, è possibile aggiornare il gruppo di destinatari o impostarlo come pubblico. Dopo aver reso pubblico un piano, è necessario che rimanga tale. Non può essere impostato nuovamente come privato.
 
 > [!NOTE]
-> Il gruppo di destinatari privato o con limitazioni è diverso dal gruppo di destinatari dell'anteprima definito nel riquadro **Anteprima**. Il gruppo di destinatari dell'anteprima può accedere all'offerta _prima_ della sua pubblicazione in Azure Marketplace. Sebbene la scelta del gruppo di destinatari privato si applichi solo a un piano specifico, il gruppo di destinatari dell'anteprima può visualizzare tutti i piani privati e pubblici per scopi di convalida.
+> Il gruppo di destinatari privato o con limitazioni è diverso dal gruppo di destinatari dell'anteprima definito nel riquadro **Anteprima** . Il gruppo di destinatari dell'anteprima può accedere all'offerta _prima_ della sua pubblicazione in Azure Marketplace. Sebbene la scelta del gruppo di destinatari privato si applichi solo a un piano specifico, il gruppo di destinatari dell'anteprima può visualizzare tutti i piani privati e pubblici per scopi di convalida.
 
 **Gruppo di destinatari con limitazioni (ID sottoscrizione di Azure)** : consente di assegnare il gruppo di destinatari che avrà accesso a questo piano privato tramite gli ID sottoscrizione di Azure. Facoltativamente, includere una descrizione di ogni ID sottoscrizione di Azure assegnato. È possibile aggiungere manualmente fino a 10 ID sottoscrizione o fino a 20.000 se si importa un foglio di calcolo CSV. Gli ID sottoscrizione di Azure sono rappresentati come GUID e tutte le lettere devono essere minuscole.
 
@@ -152,20 +152,20 @@ Se la macchina virtuale è destinata a essere usata solo indirettamente quando u
 > [!NOTE]
 > I piani nascosti non supportano i collegamenti all'anteprima.
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="technical-configuration"></a>Configurazione tecnica
 
 Inserire le immagini e altre proprietà tecniche associate a questo piano. Per ulteriori informazioni, vedere la pagina relativa alla [configurazione dell'offerta di VM dettagli](azure-vm-create-listing.md).
 
 > [!NOTE]
-> La scheda **Configurazione tecnica** non viene visualizzata se il piano è stato configurato sul riutilizzo dei pacchetti di un altro piano nella scheda **Configurazione del piano**.
+> La scheda **Configurazione tecnica** non viene visualizzata se il piano è stato configurato sul riutilizzo dei pacchetti di un altro piano nella scheda **Configurazione del piano** .
 
 ### <a name="operating-system"></a>Sistema operativo
 
 Nel riquadro **Sistema operativo** eseguire le operazioni seguenti:
 
-- Per **Famiglia di sistemi operativi** selezionare il sistema operativo **Windows** o **Linux**.
+- Per **Famiglia di sistemi operativi** selezionare il sistema operativo **Windows** o **Linux** .
 - Per **Release** o **Fornitore** selezionare la versione di Windows o il fornitore di Linux.
 - Per **Nome descrittivo del sistema operativo** immettere un nome descrittivo del sistema operativo. Questo nome è visibile ai clienti.
 
@@ -179,24 +179,48 @@ Aprire porte pubbliche o private in una macchina virtuale distribuita.
 
 ### <a name="storage-option-for-deployment"></a>Opzione di archiviazione per la distribuzione
 
-Per l'**opzione di distribuzione del disco** selezionare il tipo di distribuzione del disco che i clienti possono usare per la macchina virtuale. Microsoft consiglia di limitare la distribuzione esclusivamente alla **distribuzione di dischi gestiti**.
+Per l' **opzione di distribuzione del disco** selezionare il tipo di distribuzione del disco che i clienti possono usare per la macchina virtuale. Microsoft consiglia di limitare la distribuzione esclusivamente alla **distribuzione di dischi gestiti** .
 
 ### <a name="properties"></a>Proprietà
 
 Per **Support Accelerated Networking** (Supporta rete accelerata) scegliere se la macchina virtuale deve supportare la [rete accelerata](https://go.microsoft.com/fwlink/?linkid=2124513).
 
+### <a name="generations"></a>Generazioni
+
+La generazione di una macchina virtuale definisce l'hardware virtuale usato. In base alle esigenze del cliente, è possibile pubblicare una macchina virtuale di prima generazione, una VM di seconda generazione o entrambe.
+
+1. Quando si crea una nuova offerta, selezionare un **tipo di generazione** e immettere i dettagli dell'immagine richiesta:
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-image-details.png" alt-text="Visualizzazione della casella di riepilogo a discesa generazione.":::
+
+2. Per aggiungere un'altra generazione a un piano, selezionare **Aggiungi generazione** :
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-add.png" alt-text="Visualizzazione della casella di riepilogo a discesa generazione.":::
+
+    Immettere quindi i dettagli di generazione:
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-details.png" alt-text="Visualizzazione della casella di riepilogo a discesa generazione.":::
+
+    L' **ID di generazione** scelto sarà visibile ai clienti in luoghi come gli URL del prodotto e i modelli ARM (se applicabile). Usare solo lettere minuscole, caratteri alfanumerici, trattini o caratteri di sottolineatura; non può essere modificato dopo la pubblicazione.
+
+3. Per aggiornare una macchina virtuale esistente con una generazione 1 già pubblicata, è sufficiente modificare i dettagli nella pagina **configurazione tecnica** :
+
+    :::image type="content" source="./media/create-vm/azure-vm-generations-updating.png" alt-text="Visualizzazione della casella di riepilogo a discesa generazione.":::
+
+Per altre informazioni sulle differenze tra le funzionalità di generazione 1 e seconda generazione, vedere [supporto per le macchine virtuali di seconda generazione in Azure](../virtual-machines/generation-2.md).
+
 ### <a name="vm-images"></a>Immagini di macchine virtuali
 
 Specificare una versione del disco e l'URI di firma di accesso condiviso (SAS, Shared Access Signature) per le immagini delle macchine virtuali. Aggiungere fino a 16 dischi dati per ogni immagine di macchina virtuale. Specificare solo una nuova versione dell'immagine per piano in un determinato invio. Dopo essere stata pubblicata, l'immagine non potrà essere modificata, ma potrà essere eliminata. Se una versione viene eliminata, gli utenti nuovi ed esistenti non potranno distribuire una nuova istanza di tale versione eliminata.
 
-- **Versione disco**: versione dell'immagine che si sta fornendo.
-- **URI di firma di accesso condiviso**: percorso nell'account di archiviazione di Azure in cui è stato archiviato il disco rigido virtuale del sistema operativo. Per informazioni su come ottenere un URI SAS, vedere [ottenere l'URI della firma di accesso condiviso per l'immagine di macchina virtuale](azure-vm-get-sas-uri.md).
+- **Versione disco** : versione dell'immagine che si sta fornendo.
+- **URI di firma di accesso condiviso** : percorso nell'account di archiviazione di Azure in cui è stato archiviato il disco rigido virtuale del sistema operativo. Per informazioni su come ottenere un URI SAS, vedere [ottenere l'URI della firma di accesso condiviso per l'immagine di macchina virtuale](azure-vm-get-sas-uri.md).
 - Le immagini del disco dati sono anche gli URI di firma di accesso condiviso del disco rigido virtuale archiviati negli account di archiviazione di Azure.
 - Aggiungere solo un'immagine per invio in un piano.
 
 Indipendentemente dal sistema operativo usato, aggiungere solo il numero minimo di dischi dati necessari per la soluzione. In fase di distribuzione i clienti non possono rimuovere dischi che fanno parte di un'immagine, ma possono sempre aggiungerne altri durante o dopo la distribuzione.
 
-Selezionare **Salva bozza** prima di continuare e tornare a **Panoramica del piano**.
+Selezionare **Salva bozza** prima di continuare e tornare a **Panoramica del piano** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/05/2019
 ms.author: juliako
-ms.openlocfilehash: a833fd808049cfce95b182910e50e38d3c39f4e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 248799d70e0741efcaea1714c12f4d92a42cef25
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84691340"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041898"
 ---
 # <a name="scenes-shots-and-keyframes"></a>Scene, scatti e fotogrammi chiave
 
@@ -46,9 +46,9 @@ Per estrarre fotogrammi chiave ad alta risoluzione per il video, è necessario i
 
 #### <a name="with-the-video-indexer-website"></a>Con il sito Web Video Indexer
 
-Per estrarre fotogrammi chiave tramite il sito Web Video Indexer, caricare e indicizzare il video. Al termine del processo di indicizzazione, fare clic sul pulsante **download** e selezionare **elementi (zip)**. In questo modo verrà scaricata la cartella artefatti nel computer. 
+Per estrarre fotogrammi chiave tramite il sito Web Video Indexer, caricare e indicizzare il video. Al termine del processo di indicizzazione, fare clic sul pulsante **download** e selezionare **elementi (zip)** . In questo modo verrà scaricata la cartella artefatti nel computer. 
 
-![KeyFrames](./media/scenes-shots-keyframes/extracting-keyframes2.png)
+![Screenshot che mostra l'elenco a discesa "download" con "artefatti" selezionati.](./media/scenes-shots-keyframes/extracting-keyframes2.png)
  
 Decomprimere e aprire la cartella. Nella cartella *_KeyframeThumbnail* , sono disponibili tutti i fotogrammi chiave estratti dal video. 
 

@@ -6,7 +6,7 @@
       href: Overview/overview.md
     - name: Novità
       href: whats-new.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Con il portale di QnA Maker
       items:
@@ -50,6 +50,8 @@
       displayName: 'azure, resource, key, upgrade, pricing, tier,'
     - name: Gestire l'app QnA Maker
       href: How-To/manage-qna-maker-app.md
+    - name: Attivare l'apprendimento attivo
+      href: How-To/use-active-learning.md
     - name: Gestire la knowledge base
       items:
         - name: Creare la knowledge base

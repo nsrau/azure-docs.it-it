@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: joflore
-ms.openlocfilehash: e914c273adc632449ed31915127fe6d261a8d56c
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 32ec3eface215330aba9e40b46e45b97b5c07091
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91960950"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041105"
 ---
 # <a name="create-an-azure-active-directory-domain-services-resource-forest-and-outbound-forest-trust-to-an-on-premises-domain-using-azure-powershell"></a>Creare una foresta di risorse Azure Active Directory Domain Services e un trust tra foreste in uscita per un dominio locale usando Azure PowerShell
 
@@ -74,19 +74,19 @@ Prima di iniziare, assicurarsi di comprendere le [considerazioni sulla rete, la 
 
 Azure AD DS richiede un'entità servizio sincronizza i dati da Azure AD. Questa entità deve essere creata nel tenant di Azure AD prima della creazione della foresta di risorse del dominio gestito.
 
-Creare un'entità servizio Azure AD per Azure AD DS per comunicare ed eseguire l'autenticazione. Viene usato un ID applicazione specifico denominato *Domain Controller Services* con ID *2565bd9d-da50-47d4-8b85-4c97f669dc36*. Non modificare questo ID applicazione.
+Creare un'entità servizio Azure AD per Azure AD DS per comunicare ed eseguire l'autenticazione. Un ID applicazione specifico viene usato denominato *domain controller Services* con ID *6ba9a5d4-8456-4118-B521-9c5ca10cdf84* . Non modificare questo ID applicazione.
 
 Creare un'entità servizio di Azure AD usando il cmdlet [New-AzureADServicePrincipal][New-AzureADServicePrincipal]:
 
 ```powershell
-New-AzureADServicePrincipal -AppId "2565bd9d-da50-47d4-8b85-4c97f669dc36"
+New-AzureADServicePrincipal -AppId "6ba9a5d4-8456-4118-b521-9c5ca10cdf84"
 ```
 
 ## <a name="create-a-managed-domain-resource-forest"></a>Creare una foresta di risorse di dominio gestito
 
 Per creare una foresta di risorse di dominio gestito, usare lo `New-AzureAaddsForest` script. Questo script fa parte di un set di comandi più ampio che supporta la creazione e la gestione di foreste di risorse del dominio gestito, inclusa la creazione della foresta con binding unidirezionale in una sezione successiva. Questi script sono disponibili dal [PowerShell Gallery](https://www.powershellgallery.com/) e sono firmati digitalmente dal team di progettazione di Azure ad.
 
-1. Per prima cosa, creare un gruppo di risorse usando il cmdlet [New-AzResourceGroup][New-AzResourceGroup] . Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *westus*. Usare il proprio nome e l'area desiderata:
+1. Per prima cosa, creare un gruppo di risorse usando il cmdlet [New-AzResourceGroup][New-AzResourceGroup] . Nell'esempio seguente viene creato un gruppo di risorse denominato *myResourceGroup* nell'area *westus* . Usare il proprio nome e l'area desiderata:
 
     ```azurepowershell
     New-AzResourceGroup `
@@ -105,8 +105,8 @@ Per creare una foresta di risorse di dominio gestito, usare lo `New-AzureAaddsFo
     | Nome                         | Parametro script          | Descrizione |
     |:-----------------------------|---------------------------|:------------|
     | Subscription                 | *-azureSubscriptionId*    | ID sottoscrizione usato per la fatturazione Azure AD DS. Per ottenere l'elenco delle sottoscrizioni, è possibile usare il cmdlet [Get-AzureRMSubscription][Get-AzureRMSubscription] . |
-    | Resource Group               | *-aaddsResourceGroupName* | Nome del gruppo di risorse per il dominio gestito e le risorse associate. |
-    | Posizione                     | *-aaddsLocation*          | Area di Azure in cui ospitare il dominio gestito. Per le aree disponibili, vedere [aree supportate per Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
+    | Gruppo di risorse               | *-aaddsResourceGroupName* | Nome del gruppo di risorse per il dominio gestito e le risorse associate. |
+    | Location                     | *-aaddsLocation*          | Area di Azure in cui ospitare il dominio gestito. Per le aree disponibili, vedere [aree supportate per Azure AD DS.](https://azure.microsoft.com/global-infrastructure/services/?products=active-directory-ds&regions=all) |
     | Amministratore di Azure AD DS    | *-aaddsAdminUser*         | Nome dell'entità utente del primo amministratore di dominio gestito. Questo account deve essere un account utente cloud esistente nel Azure Active Directory. L'utente e l'utente che esegue lo script vengono aggiunti al gruppo di *amministratori di AAD DC* . |
     | Nome di dominio Azure AD DS      | *-aaddsDomainName*        | FQDN del dominio gestito, in base alle indicazioni precedenti su come scegliere il nome di una foresta. |
 
@@ -117,9 +117,9 @@ Per creare una foresta di risorse di dominio gestito, usare lo `New-AzureAaddsFo
     | Nome della rete virtuale              | *-aaddsVnetName*                  | Nome della rete virtuale per il dominio gestito.|
     | Spazio degli indirizzi                     | *-aaddsVnetCIDRAddressSpace*      | Intervallo di indirizzi della rete virtuale nella notazione CIDR (se si crea la rete virtuale).|
     | Nome della subnet di Azure AD DS           | *-aaddsSubnetName*                | Nome della subnet della rete virtuale *aaddsVnetName* che ospita il dominio gestito. Non distribuire le VM e i carichi di lavoro in questa subnet. |
-    | Intervallo di indirizzi Azure AD DS         | *-aaddsSubnetCIDRAddressRange*    | Intervallo di indirizzi della subnet nella notazione CIDR per l'istanza di AAD DS, ad esempio *192.168.1.0/24*. L'intervallo di indirizzi deve essere contenuto nell'intervallo di indirizzi della rete virtuale e diverso da altre subnet. |
+    | Intervallo di indirizzi Azure AD DS         | *-aaddsSubnetCIDRAddressRange*    | Intervallo di indirizzi della subnet nella notazione CIDR per l'istanza di AAD DS, ad esempio *192.168.1.0/24* . L'intervallo di indirizzi deve essere contenuto nell'intervallo di indirizzi della rete virtuale e diverso da altre subnet. |
     | Nome della subnet del carico di lavoro (facoltativo)   | *-workloadSubnetName*             | Nome facoltativo di una subnet nella rete virtuale *aaddsVnetName* da creare per i carichi di lavoro dell'applicazione. Le macchine virtuali e le applicazioni e anche essere connesse a una rete virtuale di Azure con peering. |
-    | Intervallo di indirizzi del carico di lavoro (facoltativo) | *-workloadSubnetCIDRAddressRange* | Intervallo di indirizzi subnet facoltativo nella notazione CIDR per il carico di lavoro dell'applicazione, ad esempio *192.168.2.0/24*. L'intervallo di indirizzi deve essere contenuto nell'intervallo di indirizzi della rete virtuale e diverso da altre subnet.|
+    | Intervallo di indirizzi del carico di lavoro (facoltativo) | *-workloadSubnetCIDRAddressRange* | Intervallo di indirizzi subnet facoltativo nella notazione CIDR per il carico di lavoro dell'applicazione, ad esempio *192.168.2.0/24* . L'intervallo di indirizzi deve essere contenuto nell'intervallo di indirizzi della rete virtuale e diverso da altre subnet.|
 
 1. Creare ora una foresta di risorse di dominio gestito con lo `New-AzureAaaddsForest` script. Nell'esempio seguente viene creata una foresta denominata *addscontoso.com* e viene creata una subnet del carico di lavoro. Specificare i nomi di parametro e gli intervalli di indirizzi IP o le reti virtuali esistenti.
 
@@ -163,7 +163,7 @@ Prima di iniziare, assicurarsi di comprendere le [considerazioni e le raccomanda
     * Verificare che il controller di dominio locale sia in grado di connettersi alla macchina virtuale gestita usando `ping` o desktop remoto, ad esempio.
     * Verificare che la macchina virtuale di gestione sia in grado di connettersi ai controller di dominio locali, usando di nuovo un'utilità, ad esempio `ping` .
 
-1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**. Scegliere il dominio gestito, ad esempio *aaddscontoso.com* , e attendere che lo stato venga segnalato come **in esecuzione**.
+1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services** . Scegliere il dominio gestito, ad esempio *aaddscontoso.com* , e attendere che lo stato venga segnalato come **in esecuzione** .
 
     Quando si esegue, [aggiornare le impostazioni DNS per la rete virtuale di Azure](tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network) e quindi [abilitare gli account utente per Azure AD DS](tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds) per completare le configurazioni per la foresta delle risorse del dominio gestito.
 
@@ -200,9 +200,9 @@ A questo punto specificare lo script per le seguenti informazioni:
 | Nome descrittivo attendibile                | *-TrustFriendlyName* | Nome descrittivo della relazione di trust. |
 | Indirizzi IP DNS di servizi di dominio Active Directory locali | *-TrustDnsIPs*       | Elenco delimitato da virgole di indirizzi IPv4 del server DNS per il dominio trusted elencato. |
 | Password di attendibilità                     | *-TrustPassword*     | Password complessa per la relazione di trust. Questa password viene immessa anche quando si crea il trust in ingresso unidirezionale in servizi di dominio Active Directory locale. |
-| Credenziali                        | *-Credenziali*       | Credenziali usate per l'autenticazione in Azure. L'utente deve essere nel *gruppo AAD DC Administrators*. Se non specificato, lo script richiede l'autenticazione. |
+| Credenziali                        | *-Credenziali*       | Credenziali usate per l'autenticazione in Azure. L'utente deve essere nel *gruppo AAD DC Administrators* . Se non specificato, lo script richiede l'autenticazione. |
 
-Nell'esempio seguente viene creata una relazione di trust denominata *myAzureADDSTrust* in *OnPrem.contoso.com*. Usare nomi di parametro e password personalizzati:.
+Nell'esempio seguente viene creata una relazione di trust denominata *myAzureADDSTrust* in *OnPrem.contoso.com* . Usare nomi di parametro e password personalizzati:.
 
 ```azurepowershell
 Add-AaddsResourceForestTrust `
@@ -222,8 +222,8 @@ Per risolvere correttamente il dominio gestito dall'ambiente locale, può essere
 
 1. Selezionare **Start | Strumenti di amministrazione | DNS**
 1. Fare clic con il pulsante destro del mouse sul server DNS, ad esempio *myAD01* e scegliere **Proprietà**
-1. Scegliere **Server d'inoltro**, quindi **Modifica** per aggiungere altri server d'inoltro.
-1. Aggiungere gli indirizzi IP del dominio gestito, ad esempio *10.0.1.4* e *10.0.1.5*.
+1. Scegliere **Server d'inoltro** , quindi **Modifica** per aggiungere altri server d'inoltro.
+1. Aggiungere gli indirizzi IP del dominio gestito, ad esempio *10.0.1.4* e *10.0.1.5* .
 1. Da un prompt dei comandi locale, convalidare la risoluzione dei nomi usando **nslookup** del nome di dominio della foresta di risorse del dominio gestito. Ad esempio, `Nslookup aaddscontoso.com` deve restituire i due indirizzi IP per la foresta di risorse del dominio gestito.
 
 ## <a name="create-inbound-forest-trust-in-the-on-premises-domain"></a>Creare il trust tra foreste in ingresso nel dominio locale
@@ -234,12 +234,12 @@ Per configurare il trust in ingresso nel dominio Active Directory Domain Service
 
 1. Fare clic sul pulsante **Start | Strumenti di amministrazione | Domini e trust di Active Directory**
 1. Fare clic con il pulsante destro del mouse sul dominio, ad esempio *onprem.contoso.com* e scegliere **Proprietà**
-1. Scegliere la scheda **Trust**, quindi **Nuova relazione di trust**
-1. Immettere il nome del dominio gestito, ad esempio *aaddscontoso.com*, quindi fare clic su **Next (avanti** ).
-1. Selezionare l'opzione per creare un **Trust tra foreste**, quindi creare un trust **Unidirezionale: in ingresso**.
-1. Scegliere di creare il trust per **Solo questo dominio**. Nel passaggio successivo si creerà il trust nel portale di Azure per il dominio gestito.
-1. Scegliere di usare l'**Autenticazione estesa a tutta la foresta**, quindi immettere e confermare una password del trust. Questa stessa password verrà anche immessa nel portale di Azure nella sezione successiva.
-1. Per le finestre successive lasciare le opzioni predefinite, quindi scegliere l'opzione **No, non confermare il trust in uscita**. Non è possibile convalidare la relazione di trust perché l'account amministratore delegato per la foresta di risorse del dominio gestito non ha le autorizzazioni necessarie. Questo comportamento dipende dalla progettazione.
+1. Scegliere la scheda **Trust** , quindi **Nuova relazione di trust**
+1. Immettere il nome del dominio gestito, ad esempio *aaddscontoso.com* , quindi fare clic su **Next (avanti** ).
+1. Selezionare l'opzione per creare un **Trust tra foreste** , quindi creare un trust **Unidirezionale: in ingresso** .
+1. Scegliere di creare il trust per **Solo questo dominio** . Nel passaggio successivo si creerà il trust nel portale di Azure per il dominio gestito.
+1. Scegliere di usare l' **Autenticazione estesa a tutta la foresta** , quindi immettere e confermare una password del trust. Questa stessa password verrà anche immessa nel portale di Azure nella sezione successiva.
+1. Per le finestre successive lasciare le opzioni predefinite, quindi scegliere l'opzione **No, non confermare il trust in uscita** . Non è possibile convalidare la relazione di trust perché l'account amministratore delegato per la foresta di risorse del dominio gestito non ha le autorizzazioni necessarie. Questo comportamento dipende dalla progettazione.
 1. Selezionare **Finish** (Fine)
 
 ## <a name="validate-resource-authentication"></a>Convalidare l'autenticazione delle risorse
@@ -288,50 +288,50 @@ Usando la macchina virtuale Windows Server aggiunta alla foresta delle risorse d
     > [!TIP]
     > Per connettersi in modo sicuro alle macchine virtuali Unite a Azure AD Domain Services, è possibile usare il [servizio host di Azure Bastion](../bastion/bastion-overview.md) in aree di Azure supportate.
 
-1. Aprire **Impostazioni di Windows**, quindi cercare e selezionare **Centro connessioni di rete e condivisione**.
-1. Scegliere l'opzione per **Modifica impostazioni di condivisione avanzate**.
-1. In **Profilo di dominio** selezionare **Attiva condivisione file e stampanti** e quindi **Salva modifiche**.
-1. Chiudere **Centro connessioni di rete e condivisione**.
+1. Aprire **Impostazioni di Windows** , quindi cercare e selezionare **Centro connessioni di rete e condivisione** .
+1. Scegliere l'opzione per **Modifica impostazioni di condivisione avanzate** .
+1. In **Profilo di dominio** selezionare **Attiva condivisione file e stampanti** e quindi **Salva modifiche** .
+1. Chiudere **Centro connessioni di rete e condivisione** .
 
 #### <a name="create-a-security-group-and-add-members"></a>Creare un gruppo di sicurezza e aggiungere membri
 
-1. Aprire **Utenti e computer di Active Directory**.
-1. Fare clic con il pulsante destro del mouse sul nome di dominio, scegliere **Nuovo**, quindi selezionare **Unità organizzativa**.
-1. Nella casella del nome digitare *LocalObjects* e quindi selezionare **OK**.
-1. Scegliere e fare clic con il pulsante destro del mouse su **LocalObjects** nel riquadro di spostamento. Scegliere **Nuovo** e quindi **Gruppo**.
-1. Digitare *FileServerAccess* nella casella **Nome gruppo**. Per **Ambito gruppo** selezionare **Locale dominio**, quindi scegliere **OK**.
-1. Nel riquadro del contenuto fare doppio clic su **FileServerAccess**. Selezionare **Membri**, scegliere **Aggiungi**, quindi selezionare **Percorsi**.
-1. Selezionare l'istanza di Active Directory locale dalla visualizzazione **Percorsi**, quindi scegliere **OK**.
-1. Digitare *Utenti del dominio* nella casella **Immettere i nomi degli oggetti da selezionare**. Selezionare **Controlla nomi**, fornire le credenziali per l'istanza di Active Directory locale, quindi selezionare **OK**.
+1. Aprire **Utenti e computer di Active Directory** .
+1. Fare clic con il pulsante destro del mouse sul nome di dominio, scegliere **Nuovo** , quindi selezionare **Unità organizzativa** .
+1. Nella casella del nome digitare *LocalObjects* e quindi selezionare **OK** .
+1. Scegliere e fare clic con il pulsante destro del mouse su **LocalObjects** nel riquadro di spostamento. Scegliere **Nuovo** e quindi **Gruppo** .
+1. Digitare *FileServerAccess* nella casella **Nome gruppo** . Per **Ambito gruppo** selezionare **Locale dominio** , quindi scegliere **OK** .
+1. Nel riquadro del contenuto fare doppio clic su **FileServerAccess** . Selezionare **Membri** , scegliere **Aggiungi** , quindi selezionare **Percorsi** .
+1. Selezionare l'istanza di Active Directory locale dalla visualizzazione **Percorsi** , quindi scegliere **OK** .
+1. Digitare *Utenti del dominio* nella casella **Immettere i nomi degli oggetti da selezionare** . Selezionare **Controlla nomi** , fornire le credenziali per l'istanza di Active Directory locale, quindi selezionare **OK** .
 
     > [!NOTE]
     > È necessario fornire le credenziali perché la relazione di trust è unidirezionale. Ciò significa che gli utenti del dominio gestito non possono accedere alle risorse o cercare utenti o gruppi nel dominio trusted (locale).
 
-1. Il gruppo **Utenti del dominio** dell'istanza di Active Directory locale deve essere membro del gruppo **FileServerAccess**. Selezionare **OK** per salvare il gruppo e chiudere la finestra.
+1. Il gruppo **Utenti del dominio** dell'istanza di Active Directory locale deve essere membro del gruppo **FileServerAccess** . Selezionare **OK** per salvare il gruppo e chiudere la finestra.
 
 #### <a name="create-a-file-share-for-cross-forest-access"></a>Creare una condivisione file per l'accesso tra foreste
 
-1. Nella macchina virtuale Windows Server aggiunta alla foresta delle risorse del dominio gestito creare una cartella e specificare un nome, ad esempio *CrossForestShare*.
-1. Fare clic con il pulsante destro del mouse sulla nuova cartella e scegliere **Proprietà**.
-1. Selezionare la scheda **Sicurezza** e quindi scegliere **Modifica**.
-1. Nella finestra di dialogo *Autorizzazioni per CrossForestShare* selezionare **Aggiungi**.
-1. Digitare *FileServerAccess* in **Immettere i nomi degli oggetti da selezionare**, quindi selezionare **OK**.
-1. Selezionare *FileServerAccess* dall'elenco **Gruppi o nomi utente**. Nell'elenco **Autorizzazioni per FileServerAccess** scegliere *Consenti* per le autorizzazioni di **modifica** e **scrittura**, quindi selezionare **OK**.
-1. Selezionare la scheda **Condivisione**, quindi scegliere **Condivisione avanzata**
-1. Scegliere **Condividi la cartella**, quindi immettere un nome facile da ricordare per la condivisione file in **Nome condivisione**, ad esempio *CrossForestShare*.
-1. Selezionare **Autorizzazioni**. Nell'elenco **Autorizzazioni per Everyone** scegliere **Consenti** per l'autorizzazione **Modifica**.
-1. Selezionare **OK** due volte e quindi **Chiudi**.
+1. Nella macchina virtuale Windows Server aggiunta alla foresta delle risorse del dominio gestito creare una cartella e specificare un nome, ad esempio *CrossForestShare* .
+1. Fare clic con il pulsante destro del mouse sulla nuova cartella e scegliere **Proprietà** .
+1. Selezionare la scheda **Sicurezza** e quindi scegliere **Modifica** .
+1. Nella finestra di dialogo *Autorizzazioni per CrossForestShare* selezionare **Aggiungi** .
+1. Digitare *FileServerAccess* in **Immettere i nomi degli oggetti da selezionare** , quindi selezionare **OK** .
+1. Selezionare *FileServerAccess* dall'elenco **Gruppi o nomi utente** . Nell'elenco **Autorizzazioni per FileServerAccess** scegliere *Consenti* per le autorizzazioni di **modifica** e **scrittura** , quindi selezionare **OK** .
+1. Selezionare la scheda **Condivisione** , quindi scegliere **Condivisione avanzata**
+1. Scegliere **Condividi la cartella** , quindi immettere un nome facile da ricordare per la condivisione file in **Nome condivisione** , ad esempio *CrossForestShare* .
+1. Selezionare **Autorizzazioni** . Nell'elenco **Autorizzazioni per Everyone** scegliere **Consenti** per l'autorizzazione **Modifica** .
+1. Selezionare **OK** due volte e quindi **Chiudi** .
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>Convalidare l'autenticazione tra foreste a una risorsa
 
 1. Accedere a un computer Windows aggiunto all'istanza di Active Directory locale usando un account utente di Active Directory locale.
 1. Con **Esplora risorse** connettersi alla condivisione creata usando il nome host completo e la condivisione, ad esempio `\\fs1.aaddscontoso.com\CrossforestShare`.
-1. Per convalidare l'autorizzazione di scrittura, fare clic con il pulsante destro del mouse sulla cartella, scegliere **Nuovo** e quindi selezionare **Documento di testo**. Usare il nome predefinito **Nuovo documento di testo**.
+1. Per convalidare l'autorizzazione di scrittura, fare clic con il pulsante destro del mouse sulla cartella, scegliere **Nuovo** e quindi selezionare **Documento di testo** . Usare il nome predefinito **Nuovo documento di testo** .
 
     Se le autorizzazioni di scrittura sono impostate correttamente, verrà creato un nuovo documento di testo. Nei passaggi seguenti verrà quindi aperto, modificato ed eliminato il file in base alle esigenze.
-1. Per convalidare l'autorizzazione di lettura, aprire il **Nuovo documento di testo**.
-1. Per convalidare l'autorizzazione di modifica, aggiungere testo al file e chiudere **Blocco note**. Quando viene richiesto di salvare le modifiche, scegliere **Salva**.
-1. Per convalidare l'autorizzazione di eliminazione, fare clic con il pulsante destro del mouse su **Nuovo documento di testo** e scegliere **Elimina**. Scegliere **Sì** per confermare l'eliminazione del file.
+1. Per convalidare l'autorizzazione di lettura, aprire il **Nuovo documento di testo** .
+1. Per convalidare l'autorizzazione di modifica, aggiungere testo al file e chiudere **Blocco note** . Quando viene richiesto di salvare le modifiche, scegliere **Salva** .
+1. Per convalidare l'autorizzazione di eliminazione, fare clic con il pulsante destro del mouse su **Nuovo documento di testo** e scegliere **Elimina** . Scegliere **Sì** per confermare l'eliminazione del file.
 
 ## <a name="update-or-remove-outbound-forest-trust"></a>Aggiornare o rimuovere il trust tra foreste in uscita
 
@@ -349,7 +349,7 @@ I passaggi di esempio seguenti illustrano come aggiornare una relazione di trust
     Install-Script -Name Get-AaddsResourceForestTrusts,Set-AaddsResourceForestTrust
     ```
 
-1. Prima di poter aggiornare un trust esistente, ottenere prima di tutto la risorsa di attendibilità tramite lo `Get-AaddsResourceForestTrusts` script. Nell'esempio seguente il trust esistente viene assegnato a un oggetto denominato *existingTrust*. Specificare il nome della foresta di dominio gestito e il nome della foresta locale da aggiornare:
+1. Prima di poter aggiornare un trust esistente, ottenere prima di tutto la risorsa di attendibilità tramite lo `Get-AaddsResourceForestTrusts` script. Nell'esempio seguente il trust esistente viene assegnato a un oggetto denominato *existingTrust* . Specificare il nome della foresta di dominio gestito e il nome della foresta locale da aggiornare:
 
     ```powershell
     $existingTrust = Get-AaddsResourceForestTrust `
@@ -390,7 +390,7 @@ Per rimuovere il trust in ingresso unidirezionale dalla foresta di servizi di do
 1. Fare clic sul pulsante **Start | Strumenti di amministrazione | Domini e trust di Active Directory**
 1. Fare clic con il pulsante destro del mouse sul dominio, ad esempio *onprem.contoso.com* e scegliere **Proprietà**
 1. Scegliere la scheda **trust** , quindi selezionare il trust in ingresso esistente dalla foresta di domini gestiti.
-1. Selezionare **Rimuovi**, quindi confermare che si desidera rimuovere il trust in ingresso.
+1. Selezionare **Rimuovi** , quindi confermare che si desidera rimuovere il trust in ingresso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

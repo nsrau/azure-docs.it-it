@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2020
-ms.openlocfilehash: fb5aca1739fbb4a77cbcb7eed6b9dce1b3ccc182
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 467b8506eb0cafc61731a69804c70b8080ab21c2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027585"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042448"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Trasmettere dati come input in Analisi di flusso
 
@@ -21,6 +21,7 @@ Analisi di flusso si integra perfettamente con i flussi dei dati di Azure come i
 - [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)
 - [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/) 
 - [Archivio BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 
 
 Queste risorse di input possono trovarsi nella stessa sottoscrizione del processo di Analisi di flusso o in una sottoscrizione diversa.
 
@@ -125,18 +126,18 @@ Quando si usano i dati di flusso provenienti da un hub IoT, è possibile acceder
 | **IoTHub.EnqueuedTime** | Ora in cui il messaggio è stato ricevuto dall'hub IoT. |
 
 
-## <a name="stream-data-from-blob-storage"></a>Trasmettere dati dall'archiviazione BLOB
-Per gli scenari con grandi quantità di dati non strutturati da archiviare nel cloud, l'archiviazione BLOB di Azure offre una soluzione scalabile e conveniente. I dati nell'archiviazione BLOB vengono generalmente considerati come dati inattivi, tuttavia i dati BLOB possono essere elaborati come flusso dei dati da Analisi di flusso. 
+## <a name="stream-data-from-blob-storage-or-data-lake-storage-gen2"></a>Trasmettere dati da un archivio BLOB o Data Lake Storage Gen2
+Per gli scenari con grandi quantità di dati non strutturati da archiviare nel cloud, l'archiviazione BLOB di Azure o Azure Data Lake Storage Gen2 (ADLS Gen2) offre una soluzione conveniente e scalabile. I dati nell'archivio BLOB o ADLS Gen2 vengono in genere considerati dati inattivi; Tuttavia, questi dati possono essere elaborati come flusso di dati da analisi di flusso. 
 
-L'elaborazione dei log è uno scenario di uso comune per l'uso degli input di archiviazione BLOB con Analisi di flusso. In questo scenario i file di dati di telemetria sono stati acquisiti da un sistema e devono essere analizzati ed elaborati per estrarre dati significativi.
+L'elaborazione dei log è uno scenario comunemente usato per l'uso di tali input con l'analisi di flusso. In questo scenario i file di dati di telemetria sono stati acquisiti da un sistema e devono essere analizzati ed elaborati per estrarre dati significativi.
 
-Il timestamp predefinito degli eventi dell'archiviazione BLOB in Analisi di flusso è il timestamp dell'ultima modifica del BLOB, ovvero `BlobLastModifiedUtcTime`. Se un BLOB viene caricato in un account di archiviazione alle 13:00 e il processo di analisi di flusso di Azure viene avviato con l'opzione *Adesso* alle 13:01, il BLOB non verrà selezionato perché l'ora modificata non rientra nel periodo di esecuzione del processo.
+Il timestamp predefinito di un archivio BLOB o di un evento ADLS Gen2 in analisi di flusso è il timestamp in cui è stata apportata l'ultima modifica, ovvero `BlobLastModifiedUtcTime` . Se un BLOB viene caricato in un account di archiviazione a 13:00 e il processo di analisi di flusso di Azure viene avviato con l'opzione *ora* a 13:01, non verrà prelevato perché l'ora modificata non rientra nel periodo di esecuzione del processo.
 
 Se un BLOB viene caricato in un contenitore dell'account di archiviazione alle 13:00 e il processo di Analisi di flusso di Azure viene avviato con *Ora personalizzata* alle 13:00 o prima, il BLOB verrà prelevato quando l'ora modificata rientra nel periodo di esecuzione del processo.
 
 Se un processo di Analisi di flusso di Azure viene avviato con *Adesso* alle 13:00 e un BLOB viene caricato nel contenitore dell'account di archiviazione alle 13:01, Analisi di flusso di Azure preleverà il BLOB. Il timestamp assegnato a ogni BLOB è basato solo su `BlobLastModifiedTime`. La cartella in cui si trova il BLOB non ha alcuna relazione con il timestamp assegnato. Ad esempio, se è presente un BLOB *2019/10-01/00/b1. txt* con un `BlobLastModifiedTime` di 2019-11-11, il timestamp assegnato a questo BLOB è 2019-11-11.
 
-Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Un processo di Analisi di flusso di Azure estrae i dati dall'input di Archiviazione BLOB di Azure ogni secondo se il file BLOB è disponibile. Se il file BLOB non è disponibile, è presente un backoff esponenziale con un ritardo massimo di 90 secondi.
+Per elaborare i dati come flusso usando un timestamp nel payload dell'evento, è necessario usare la parola chiave [TIMESTAMP BY](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference). Un processo di analisi di flusso estrae i dati dall'archiviazione BLOB di Azure o ADLS Gen2 input ogni secondo se il file BLOB è disponibile. Se il file BLOB non è disponibile, è presente un backoff esponenziale con un ritardo massimo di 90 secondi.
 
 Gli input in formato CSV richiedono una riga di intestazione per definire i campi per il set di dati e tutti i campi della riga di intestazione devono essere univoci.
 
@@ -152,10 +153,10 @@ La tabella seguente contiene la descrizione delle proprietà disponibili nella p
 | Proprietà | Descrizione |
 | --- | --- |
 | **Alias di input** | Nome descrittivo che viene usato nella query del processo per fare riferimento a questo input. |
-| **Sottoscrizione** | Scegliere la sottoscrizione in cui esiste la risorsa dell'hub IoT. | 
+| **Sottoscrizione** | Scegliere la sottoscrizione in cui esiste la risorsa di archiviazione. | 
 | **Account di archiviazione** | Nome dell'account di archiviazione in cui si trovano i file BLOB. |
-| **Chiave dell'account di archiviazione** | Chiave privata associata all'account di archiviazione. Il valore di questa opzione viene inserito automaticamente, a meno che non si selezioni l'opzione per specificare le impostazioni dell'archiviazione BLOB manualmente. |
-| **Contenitore** | Contenitore per l'input del servizio BLOB. I contenitori forniscono un raggruppamento logico per gli oggetti BLOB archiviati nel servizio BLOB di Microsoft Azure. Quando si carica un oggetto BLOB nel servizio Archiviazione BLOB di Azure, è necessario specificare un contenitore per tale BLOB. È possibile scegliere il contenitore **Usa esistente** o **Crea nuovo** per creare un nuovo contenitore.|
+| **Chiave dell'account di archiviazione** | Chiave privata associata all'account di archiviazione. Questa opzione viene popolata automaticamente in a meno che non si selezioni l'opzione per specificare manualmente le impostazioni. |
+| **Contenitore** | I contenitori forniscono un raggruppamento logico per i BLOB. È possibile scegliere il contenitore **Usa esistente** o **Crea nuovo** per creare un nuovo contenitore.|
 | **Modello percorso** (facoltativa) | Percorso del file usato per trovare gli oggetti BLOB nel contenitore specificato. Se si desidera leggere i BLOB dalla radice del contenitore, non impostare un modello di percorso. All'interno del percorso è possibile specificare una o più istanze delle tre variabili seguenti: `{date}`, `{time}` o `{partition}`<br/><br/>Esempio 1: `cluster1/logs/{date}/{time}/{partition}`<br/><br/>Esempio 2: `cluster1/logs/{date}`<br/><br/>Il carattere `*` non è un valore consentito per il prefisso del percorso. Sono consentiti solo <a HREF="https://msdn.microsoft.com/library/azure/dd135715.aspx">Caratteri BLOB di Azure</a> validi. Non includere i nomi di contenitori o di file. |
 | **Formato data** (facoltativa) | Formato della data in base al quale vengono organizzati i file, se si usa la variabile date nel percorso. Esempio: `YYYY/MM/DD` <br/><br/> Quando l'input del BLOB ha `{date}` o `{time}` nel percorso, le cartelle vengono esaminate in ordine di tempo crescente.|
 | **Formato ora** (facoltativa) |  Formato dell'ora in base al quale vengono organizzati i file, se si usa la variabile time nel percorso. Al momento, l'unico valore supportato è `HH` per le ore. |

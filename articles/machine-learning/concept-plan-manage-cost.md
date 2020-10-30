@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 031ec44cec473d9f2b2f05669aa3fc18084985f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e6e59ad237cdc1f23181375894512e69eba86ff
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704729"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042183"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Pianificare e gestire i costi per Azure Machine Learning
 
@@ -41,7 +41,7 @@ Per informazioni sull'assegnazione dell'accesso ai dati di Gestione costi di Azu
 
 ## <a name="estimate-costs"></a>Stimare i costi
 
-Usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) per stimare i costi prima di creare le risorse in un account Azure Machine Learning. A sinistra selezionare **ai + Machine Learning**, quindi selezionare **Azure Machine Learning** per iniziare.  
+Usare il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/) per stimare i costi prima di creare le risorse in un account Azure Machine Learning. A sinistra selezionare **ai + Machine Learning** , quindi selezionare **Azure Machine Learning** per iniziare.  
 
 Lo screenshot seguente mostra la stima dei costi tramite il calcolatore:
 
@@ -61,7 +61,9 @@ Quando si usano le risorse con Azure Machine Learning, si incorrono i costi. I c
 
 È possibile visualizzare i costi in grafici e tabelle per intervalli di tempo diversi. È anche possibile visualizzare i costi rispetto ai budget e ai costi previsti. Passando a visualizzazioni più lunghe nel tempo è possibile identificare le tendenze di spesa e vedere dove si è verificata la sovraspesa. Se sono stati creati budget, vedere dove sono stati superati.  
 
-Non verrà visualizzata un'area di servizio separata per Machine Learning.  Verranno invece visualizzate le varie risorse aggiunte alle aree di lavoro Machine Learning.
+Non verrà visualizzata un'area di servizio separata per Machine Learning.  Verranno invece visualizzate le varie risorse aggiunte alle aree di lavoro Machine Learning. 
+
+Si noti che anche se l'area di lavoro Machine Learning non dispone di costi diretti, verranno addebitate le risorse di calcolo gestite. Pertanto, se sono stati aggiunti tag alle aree di lavoro, poiché non è presente alcun costo diretto, il riquadro analisi costi rifletterà questa operazione per l'area di lavoro. Per una gestione dei costi accurata tramite tag, sarà necessario contrassegnare le risorse di calcolo associate.  
 
 ## <a name="use-azure-machine-learning-compute-cluster-amlcompute"></a>Usare Azure Machine Learning cluster di calcolo (AmlCompute)
 

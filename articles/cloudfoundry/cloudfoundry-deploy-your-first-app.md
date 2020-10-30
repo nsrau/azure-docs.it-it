@@ -7,12 +7,12 @@ ms.subservice: workloads
 ms.topic: article
 ms.date: 06/14/2017
 ms.author: seanmck
-ms.openlocfilehash: 793a8f291be4fcca6fad19d486849253dddc089f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18f9f62ba28595289d37975200352c26788e69cc
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84754321"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040033"
 ---
 # <a name="deploy-your-first-app-to-cloud-foundry-on-microsoft-azure"></a>Distribuire la prima app a Cloud Foundry in Microsoft Azure
 
@@ -41,7 +41,7 @@ cf login -a https://api.SYSTEMDOMAINURL --skip-ssl-validation
 
 Viene chiesto di accedere al controller del cloud. Usare le credenziali dell'account amministratore acquisite dalle fasi di distribuzione del marketplace.
 
-Cloud Foundry offre *organizzazioni* e *spazi* come spazi dei nomi per isolare i team e gli ambienti all'interno di una distribuzione condivisa. La distribuzione dal marketplace PCF include l'organizzazione *sistema* predefinita e un set di spazi creato per contenere i componenti di base, come il servizio di scalabilità automatica e il Service Broker di Azure. Per il momento, scegliere lo spazio *sistema*.
+Cloud Foundry offre *organizzazioni* e *spazi* come spazi dei nomi per isolare i team e gli ambienti all'interno di una distribuzione condivisa. La distribuzione dal marketplace PCF include l'organizzazione *sistema* predefinita e un set di spazi creato per contenere i componenti di base, come il servizio di scalabilità automatica e il Service Broker di Azure. Per il momento, scegliere lo spazio *sistema* .
 
 
 ## <a name="create-an-org-and-space"></a>Creare un'organizzazione e uno spazio
@@ -95,7 +95,7 @@ mvn clean package
 cf push
 ```
 
-Quando si *effettua il push* di un'applicazione, Cloud Foundry rileva il tipo di applicazione (in questo caso, un'app Java) e identifica le relative dipendenze (in questo caso, il framework Spring). Inserisce quindi in un pacchetto tutti gli elementi necessari per eseguire il codice in un'immagine del contenitore autonoma, denominata *droplet*. Infine, Cloud Foundry pianifica l'applicazione in uno dei computer disponibili nell'ambiente e crea un URL in cui è possibile raggiungerla, disponibile nell'output del comando.
+Quando si *effettua il push* di un'applicazione, Cloud Foundry rileva il tipo di applicazione (in questo caso, un'app Java) e identifica le relative dipendenze (in questo caso, il framework Spring). Inserisce quindi in un pacchetto tutti gli elementi necessari per eseguire il codice in un'immagine del contenitore autonoma, denominata *droplet* . Infine, Cloud Foundry pianifica l'applicazione in uno dei computer disponibili nell'ambiente e crea un URL in cui è possibile raggiungerla, disponibile nell'output del comando.
 
 ![Output del comando push cf][cf-push-output]
 
@@ -114,7 +114,7 @@ Per visualizzare i log di un'applicazione in base al nome, è possibile usare l'
 cf logs hello-spring-cloud
 ```
 
-Per impostazione predefinita, il comando logs usa *tail*, che visualizza i nuovi log man mano che vengono scritti. Per visualizzare i nuovi log, aggiornare l'applicazione hello-spring-cloud nel browser.
+Per impostazione predefinita, il comando logs usa *tail* , che visualizza i nuovi log man mano che vengono scritti. Per visualizzare i nuovi log, aggiornare l'applicazione hello-spring-cloud nel browser.
 
 Per visualizzare i log che sono già stati scritti, aggiungere l'istruzione `recent`:
 
@@ -146,7 +146,7 @@ L'esecuzione del comando `cf app` nell'applicazione indica che Cloud Foundry sta
 [oss-cf-bosh]: https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs
 [pcf-azuremarketplace-pivotaldocs]: https://docs.pivotal.io/pivotalcf/customizing/pcf_azure.html
 [cf-cli]: https://github.com/cloudfoundry/cli
-[cloudshell-docs]: https://docs.microsoft.com/azure/cloud-shell/overview
+[cloudshell-docs]: ../cloud-shell/overview.md
 [cf-orgs-spaces-docs]: https://docs.cloudfoundry.org/concepts/roles.html
 [spring-boot]: https://projects.spring.io/spring-boot/
 [spring-framework]: https://spring.io

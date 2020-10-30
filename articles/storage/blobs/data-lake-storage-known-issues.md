@@ -5,15 +5,15 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/08/2020
+ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 1c887093972507904b007c696214708eb0e2b039
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: bffe69dd5b7d3cdfcba1df3420d494dcffc33f9a
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282206"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042664"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -68,13 +68,13 @@ La possibilità di applicare le modifiche ACL in modo ricorsivo dalla directory 
 
 ## <a name="azcopy"></a>AzCopy
 
-Usare solo la versione più recente di AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)). Le versioni precedenti di AzCopy, ad esempio AzCopy v 8.1, non sono supportate.
+Usare solo la versione più recente di AzCopy ([AzCopy v10](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-v10?toc=%2fazure%2fstorage%2ftables%2ftoc.json)).  Le versioni precedenti di AzCopy, ad esempio AzCopy v 8.1, non sono supportate.
 
 <a id="storage-explorer"></a>
 
-## <a name="azure-storage-explorer"></a>Esplora archivi Azure
+## <a name="azure-storage-explorer"></a>Azure Storage Explorer
 
-Usare solo le versioni `1.6.0` o successive.
+Usare solo versioni `1.6.0` o versioni successive.
 
 <a id="explorer-in-portal"></a>
 
@@ -84,7 +84,7 @@ Gli elenchi di controllo di accesso non sono ancora supportati.
 
 <a id="third-party-apps"></a>
 
-## <a name="thirdpartyapplications"></a>Applicazioni di terze parti
+## <a name="third-party-applications"></a>Applicazioni di terze parti
 
 Le applicazioni di terze parti che usano le API REST continueranno a funzionare se usate con Data Lake Storage Gen2. È probabile che funzionino le applicazioni che chiamano le API BLOB.
 
@@ -92,38 +92,15 @@ Le applicazioni di terze parti che usano le API REST continueranno a funzionare 
 
 Se è stato concesso l'[accesso in lettura anonimo](storage-manage-access-to-resources.md) a un contenitore, gli elenchi di controllo di accesso non avranno alcun effetto su quel contenitore o sui file che contiene.
 
-### <a name="diagnostic-logs"></a>Log di diagnostica
+## <a name="diagnostic-logs"></a>Log di diagnostica
 
 L'impostazione per i giorni di conservazione non è ancora supportata, ma è possibile eliminare i log manualmente usando qualsiasi strumento supportato, ad esempio Azure Storage Explorer, REST o un SDK.
 
-## <a name="issues-specific-to-premium-performance-blockblobstorage-storage-accounts"></a>Problemi specifici degli account di archiviazione BlockBlobStorage con prestazioni Premium
+## <a name="lifecycle-management-policies-with-premium-tier-for-azure-data-lake-storage"></a>Criteri di gestione del ciclo di vita con livello Premium per Azure Data Lake Storage
 
-### <a name="diagnostic-logs"></a>Log di diagnostica
+Non è possibile spostare i dati archiviati nel livello Premium tra i livelli ad accesso frequente, ad accesso sporadico e archivio. Tuttavia, è possibile copiare i dati dal livello Premium al livello di accesso frequente in un altro account.
 
-Non è ancora possibile abilitare i log di diagnostica usando il portale di Azure. È possibile abilitarli tramite PowerShell. Ad esempio:
-
-```powershell
-#To login
-Connect-AzAccount
-
-#Set default block blob storage account.
-Set-AzCurrentStorageAccount -Name premiumGen2Account -ResourceGroupName PremiumGen2Group
-
-#Enable logging
-Set-AzStorageServiceLoggingProperty -ServiceType Blob -LoggingOperations read,write,delete -RetentionDays 14
-```
-
-### <a name="lifecycle-management-policies"></a>Criteri di gestione del ciclo di vita
-
-- I criteri di gestione del ciclo di vita sono supportati solo per gli account per utilizzo generico V2. Non sono ancora supportati negli account di archiviazione Premium BlockBlobStorage.
-- Non è possibile spostare i dati dal livello Premium ai livelli inferiori.
-
-
-### <a name="hdinsight-support"></a>Supporto di HDInsight
-
-Quando si crea un cluster HDInsight, non è ancora possibile selezionare un account BlockBlobStorage con la funzionalità di spazio dei nomi gerarchico abilitata. È tuttavia possibile collegare un account al cluster dopo averlo creato.
-
-### <a name="dremio-support"></a>Supporto di Dremio
+## <a name="dremio-support-with-premium-performance-blockblobstorage-storage-accounts"></a>Supporto di Dremio con account di archiviazione BlockBlobStorage a prestazioni Premium
 
 Dremio non si connette ancora a un account BlockBlobStorage con la funzionalità di spazio dei nomi gerarchico abilitata. 
 

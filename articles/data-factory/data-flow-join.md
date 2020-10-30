@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
-ms.openlocfilehash: f95f35fe0d17afdeec864674d3360fc3b172cad1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac84ce17f53145ffd85ffa31b6633d8b4b184962
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83683392"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042655"
 ---
 # <a name="join-transformation-in-mapping-data-flow"></a>Trasformazione tramite join nel flusso di dati per mapping
 
@@ -59,13 +59,13 @@ Se si vuole produrre esplicitamente un prodotto cartesiano completo, usare la tr
 
 1. Nell'elenco a discesa **Right stream** (Flusso destro) scegliere il flusso di dati di cui si vuole eseguire il join.
 1. Selezionare il **Tipo di join**
-1. Scegliere le colonne chiave per le quali si vuole trovare una corrispondenza con la condizione di join. Per impostazione predefinita, il flusso di dati cerca l'uguaglianza tra una colonna per ogni flusso. Per eseguire il confronto tramite un valore calcolato, passare il puntatore del mouse sull'elenco a discesa della colonna e selezionare **Colonna calcolata**.
+1. Scegliere le colonne chiave per le quali si vuole trovare una corrispondenza con la condizione di join. Per impostazione predefinita, il flusso di dati cerca l'uguaglianza tra una colonna per ogni flusso. Per eseguire il confronto tramite un valore calcolato, passare il puntatore del mouse sull'elenco a discesa della colonna e selezionare **Colonna calcolata** .
 
 ![Trasformazione tramite join](media/data-flow/join.png "Join")
 
 ### <a name="non-equi-joins"></a>Join non uguali
 
-Per usare un operatore condizionale come non uguale (! =) o maggiore di (>) nelle condizioni di join, modificare l'elenco a discesa operatore tra le due colonne. Per i join non uguali è necessario che almeno uno dei due flussi venga trasmesso usando la broadcast **fissa** nella scheda **Ottimizza**.
+Per usare un operatore condizionale come non uguale (! =) o maggiore di (>) nelle condizioni di join, modificare l'elenco a discesa operatore tra le due colonne. Per i join non uguali è necessario che almeno uno dei due flussi venga trasmesso usando la broadcast **fissa** nella scheda **Ottimizza** .
 
 ![Join non uguali](media/data-flow/non-equi-join.png "Join non uguali")
 
@@ -75,13 +75,13 @@ A differenza di Merge join in strumenti come SSIS, la trasformazione tramite joi
 
 ![Ottimizzazione della trasformazione tramite join](media/data-flow/joinoptimize.png "Ottimizzazione dei join")
 
-Nelle trasformazioni tramite join, Ricerche ed Esiste, se uno o entrambi i flussi di dati rientrano nella memoria del nodo di lavoro, è possibile ottimizzare le prestazioni abilitando la **trasmissione**. Per impostazione predefinita, il motore Spark deciderà automaticamente se trasmettere o meno un lato. Per scegliere manualmente il lato da trasmettere, selezionare **Fisso**.
+Nelle trasformazioni tramite join, Ricerche ed Esiste, se uno o entrambi i flussi di dati rientrano nella memoria del nodo di lavoro, è possibile ottimizzare le prestazioni abilitando la **trasmissione** . Per impostazione predefinita, il motore Spark deciderà automaticamente se trasmettere o meno un lato. Per scegliere manualmente il lato da trasmettere, selezionare **Fisso** .
 
 Non è consigliabile disabilitare la trasmissione tramite l'opzione **Off** a meno che i join non siano in errore di timeout.
 
 ## <a name="self-join"></a>Self-join
 
-Per eseguire il self-join di un flusso di dati con se stesso, creare un alias di un flusso esistente con una trasformazione Select. Creare un nuovo ramo facendo clic sull'icona a forma di più accanto a una trasformazione e selezionando **Nuovo ramo**. Aggiungere una trasformazione SELECT per creare un alias del flusso originale. Aggiungere una trasformazione join e scegliere il flusso originale come **flusso di sinistra** e "trasformazione" come **flusso di destra**.
+Per eseguire il self-join di un flusso di dati con se stesso, creare un alias di un flusso esistente con una trasformazione Select. Creare un nuovo ramo facendo clic sull'icona a forma di più accanto a una trasformazione e selezionando **Nuovo ramo** . Aggiungere una trasformazione SELECT per creare un alias del flusso originale. Aggiungere una trasformazione join e scegliere il flusso originale come **flusso di sinistra** e "trasformazione" come **flusso di destra** .
 
 ![Self-join](media/data-flow/selfjoin.png "Self-join")
 
@@ -108,7 +108,7 @@ Nell'esempio seguente viene illustrata una trasformazione join denominata `JoinM
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 
-![Esempio di join](media/data-flow/join-script1.png "esempio di join")
+![Screenshot mostra la trasformazione con la scheda Impostazioni join selezionata e un tipo di join interno.](media/data-flow/join-script1.png "esempio di join")
 
 Lo script del flusso di dati per questa trasformazione si trova nel frammento di codice seguente:
 
@@ -130,7 +130,7 @@ Nell'esempio seguente viene illustrata una trasformazione join denominata `Joini
 
 In Data Factory UX questa trasformazione è simile all'immagine seguente:
 
-![Esempio di join](media/data-flow/join-script2.png "esempio di join")
+![Screenshot mostra la trasformazione con la scheda Impostazioni join selezionata e un tipo di join personalizzato (Cross).](media/data-flow/join-script2.png "esempio di join")
 
 Lo script del flusso di dati per questa trasformazione si trova nel frammento di codice seguente:
 

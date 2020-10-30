@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 9d304767cf28c0e9230c93d5b9e7504b03ed25d4
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 1ac27f8fe0c6c608bfc261e9ac2d96651c94b341
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018883"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040079"
 ---
 # <a name="animated-character-detection-preview"></a>Rilevamento di caratteri animati (anteprima)
 
@@ -75,11 +75,11 @@ Seguire questa procedura per connettere l'account Visione personalizzata al Vide
     > [!NOTE]
     > Per fornire tutte le chiavi è necessario disporre di due risorse separate in Visione personalizzata, una per il training e una per la stima.
 1. Esplorare e accedere al [video Indexer](https://vi.microsoft.com/).
-1. Fare clic sul punto interrogativo nell'angolo superiore destro della pagina e scegliere **riferimento API**.
+1. Fare clic sul punto interrogativo nell'angolo superiore destro della pagina e scegliere **riferimento API** .
 1. Assicurarsi di aver effettuato la sottoscrizione a gestione API facendo clic sulla scheda **prodotti** . Se è stata connessa un'API, è possibile continuare con il passaggio successivo, in caso contrario, sottoscrivere. 
-1. Nel portale per sviluppatori fare clic sul **riferimento completo all'API** e selezionare **operazioni**.  
-1. Selezionare **connetti visione personalizzata account (anteprima)** e fare clic su **prova**.
-1. Compilare i campi obbligatori e il token di accesso e fare clic su **Send (Invia**). 
+1. Nel portale per sviluppatori fare clic sul **riferimento completo all'API** e selezionare **operazioni** .  
+1. Selezionare **connetti visione personalizzata account (anteprima)** e fare clic su **prova** .
+1. Compilare i campi obbligatori e il token di accesso e fare clic su **Send (Invia** ). 
 
     Per ulteriori informazioni su come ottenere il token di accesso Video Indexer passare al [portale per sviluppatori](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?)e vedere la [documentazione pertinente](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api).  
 1. Quando la chiamata restituisce 200 risposta OK, l'account è connesso.
@@ -96,9 +96,9 @@ Seguire questa procedura per connettere l'account Visione personalizzata al Vide
 1. Passare al sito Web di [Video Indexer](https://vi.microsoft.com/) ed eseguire l'accesso.
 1. Fare clic sul pulsante personalizzazione modello di contenuto nell'angolo superiore destro della pagina.
 
-    ![Personalizzazione del modello di contenuto](./media/animated-characters-recognition/content-model-customization.png)
+    ![Screenshot che mostra la pagina "Video Indexer" con il pulsante "personalizzazione modello di contenuto" selezionato nell'angolo superiore destro.](./media/animated-characters-recognition/content-model-customization.png)
 1. Passare alla scheda **caratteri animati** nella sezione personalizzazione del modello.
-1. Fare clic su **Aggiungi modello**.
+1. Fare clic su **Aggiungi modello** .
 1. Assegnare un nome al modello e fare clic su invio per salvare il nome.
 
 > [!NOTE]
@@ -108,8 +108,8 @@ Seguire questa procedura per connettere l'account Visione personalizzata al Vide
 
 1. Fare clic sul pulsante **upload (carica** ) nel menu in alto.
 1. Scegliere un video da caricare (da un file o un URL).
-1. Fare clic su **Opzioni avanzate**.
-1. In **persone/caratteri animati** scegliere **modelli di animazione**.
+1. Fare clic su **Opzioni avanzate** .
+1. In **persone/caratteri animati** scegliere **modelli di animazione** .
 1. Se si dispone di un modello, questo verrà scelto automaticamente e se si dispone di più modelli è possibile scegliere quello pertinente dal menu a discesa.
 1. Fare clic su carica.
 1. Una volta indicizzato il video, i caratteri rilevati vengono visualizzati nella sezione **caratteri animati** del riquadro **Insights** .
@@ -129,7 +129,7 @@ Seguire questa procedura per connettere l'account Visione personalizzata al Vide
 
         Aprire la pagina Personalizzazione e fare clic sulla scheda **caratteri animati** , quindi fare clic sul pulsante di **Train** per eseguire il training del modello.
          
-        Se si dispone di un account a pagamento, è possibile fare clic sul collegamento **Gestisci modelli in visione cliente** (come illustrato di seguito). Verrà quindi inviato alla pagina del modello in **visione personalizzata**.
+        Se si dispone di un account a pagamento, è possibile fare clic sul collegamento **Gestisci modelli in visione cliente** (come illustrato di seguito). Verrà quindi inviato alla pagina del modello in **visione personalizzata** .
  
         ![Personalizzazione del modello di contenuto](./media/animated-characters-recognition/content-model-customization-tab.png)
 

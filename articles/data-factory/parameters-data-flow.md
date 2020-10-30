@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8e88e5e8a9fbe1881959c5183dc01b11ac681bdf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 564c7cf6e9627db08d543b964ce476e71bfb473d
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82780394"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040751"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>Impostazione dei parametri per i flussi di dati di mapping
 
@@ -28,7 +28,7 @@ Usare questa funzionalità per rendere i flussi di dati generici, flessibili e r
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>Creazione di parametri in un flusso di dati di mapping
 
-Per aggiungere parametri al flusso di dati, fare clic sulla parte vuota dell'area di disegno del flusso di dati per visualizzare le proprietà generali. Nel riquadro impostazioni viene visualizzata una scheda denominata **Parameter**. Selezionare **nuovo** per generare un nuovo parametro. Per ogni parametro, è necessario assegnare un nome, selezionare un tipo e, facoltativamente, impostare un valore predefinito.
+Per aggiungere parametri al flusso di dati, fare clic sulla parte vuota dell'area di disegno del flusso di dati per visualizzare le proprietà generali. Nel riquadro impostazioni viene visualizzata una scheda denominata **Parameter** . Selezionare **nuovo** per generare un nuovo parametro. Per ogni parametro, è necessario assegnare un nome, selezionare un tipo e, facoltativamente, impostare un valore predefinito.
 
 ![Creare parametri del flusso di dati](media/data-flow/create-params.png "Creare parametri del flusso di dati")
 
@@ -36,11 +36,11 @@ Per aggiungere parametri al flusso di dati, fare clic sulla parte vuota dell'are
 
 È possibile fare riferimento ai parametri in qualsiasi espressione del flusso di dati. I parametri iniziano con $ e non sono modificabili. È possibile trovare l'elenco dei parametri disponibili all'interno di generatore di espressioni nella scheda **parametri** .
 
-![Espressione parametro flusso di dati](media/data-flow/parameter-expression.png "Espressione parametro flusso di dati")
+![Screenshot mostra i parametri disponibili nella scheda parametri.](media/data-flow/parameter-expression.png "Espressione parametro flusso di dati")
 
 È possibile aggiungere rapidamente parametri aggiuntivi selezionando **nuovo parametro** e specificando il nome e il tipo.
 
-![Espressione parametro flusso di dati](media/data-flow/new-parameter-expression.png "Espressione parametro flusso di dati")
+![Screenshot mostra i parametri nella scheda parametri con i nuovi parametri aggiunti.](media/data-flow/new-parameter-expression.png "Espressione parametro flusso di dati")
 
 ## <a name="assign-parameter-values-from-a-pipeline"></a>Assegnare valori di parametro da una pipeline
 
@@ -48,13 +48,13 @@ Una volta creato un flusso di dati con parametri, è possibile eseguirlo da una 
 
 Quando si assegnano valori di parametro, è possibile usare il [linguaggio delle espressioni della pipeline](control-flow-expression-language-functions.md) o il linguaggio delle espressioni del flusso di [dati](data-flow-expression-functions.md) in base ai tipi Spark. Ogni flusso di dati di mapping può includere qualsiasi combinazione di parametri dell'espressione del flusso di dati e della pipeline.
 
-![Impostazione di un parametro del flusso di dati](media/data-flow/parameter-assign.png "Impostazione di un parametro del flusso di dati")
+![Screenshot mostra la scheda parametri con l'espressione del flusso di dati selezionata per il valore di param.](media/data-flow/parameter-assign.png "Impostazione di un parametro del flusso di dati")
 
 ### <a name="pipeline-expression-parameters"></a>Parametri dell'espressione pipeline
 
-I parametri delle espressioni della pipeline consentono di fare riferimento a variabili di sistema, funzioni, parametri della pipeline e variabili simili ad altre attività della pipeline. Quando si fa clic su **espressione pipeline**, si aprirà un NAV laterale che consente di immettere un'espressione usando il generatore di espressioni.
+I parametri delle espressioni della pipeline consentono di fare riferimento a variabili di sistema, funzioni, parametri della pipeline e variabili simili ad altre attività della pipeline. Quando si fa clic su **espressione pipeline** , si aprirà un NAV laterale che consente di immettere un'espressione usando il generatore di espressioni.
 
-![Impostazione di un parametro del flusso di dati](media/data-flow/parameter-pipeline.png "Impostazione di un parametro del flusso di dati")
+![Screenshot che mostra il riquadro Generatore di espressioni.](media/data-flow/parameter-pipeline.png "Impostazione di un parametro del flusso di dati")
 
 Quando vi viene fatto riferimento, i parametri della pipeline vengono valutati e il relativo valore viene utilizzato nel linguaggio delle espressioni del flusso di dati. Il tipo di espressione della pipeline non deve corrispondere al tipo di parametro del flusso di dati. 
 
@@ -62,7 +62,7 @@ Quando vi viene fatto riferimento, i parametri della pipeline vengono valutati e
 
 Quando si assegna un parametro dell'espressione della pipeline di tipo String, per impostazione predefinita verranno aggiunte le virgolette e il valore verrà valutato come valore letterale. Per leggere il valore del parametro come espressione del flusso di dati, selezionare la casella espressione accanto al parametro.
 
-![Impostazione di un parametro del flusso di dati](media/data-flow/string-parameter.png "Impostazione di un parametro del flusso di dati")
+![Screenshot mostra l'espressione del riquadro parametri flusso di dati selezionata per un parametro.](media/data-flow/string-parameter.png "Impostazione di un parametro del flusso di dati")
 
 Se il parametro del flusso `stringParam` di dati fa riferimento a un parametro della pipeline con valore `upper(column1)` . 
 
@@ -73,7 +73,7 @@ Se il parametro del flusso `stringParam` di dati fa riferimento a un parametro d
 
 Nel linguaggio delle espressioni della pipeline, le variabili di sistema come le `pipeline().TriggerTime` funzioni e come i `utcNow()` timestamp restituiti come stringhe nel formato ' aaaa-mm-gg \' T \' hh: mm: SS. SSSSSSZ'. Per convertirli in parametri del flusso di dati di tipo timestamp, usare l'interpolazione di stringhe per includere il timestamp desiderato in una `toTimestamp()` funzione. Ad esempio, per convertire l'ora del trigger della pipeline in un parametro del flusso di dati, è possibile usare `toTimestamp(left('@{pipeline().TriggerTime}', 23), 'yyyy-MM-dd\'T\'HH:mm:ss.SSS')` . 
 
-![Impostazione di un parametro del flusso di dati](media/data-flow/parameter-timestamp.png "Impostazione di un parametro del flusso di dati")
+![Screenshot mostra la scheda parametri in cui è possibile immettere un'ora di attivazione.](media/data-flow/parameter-timestamp.png "Impostazione di un parametro del flusso di dati")
 
 > [!NOTE]
 > I flussi di dati possono supportare solo cifre fino a 3 millisecondi. La `left()` funzione viene utilizzata per tagliare le cifre aggiuntive.
@@ -82,15 +82,15 @@ Nel linguaggio delle espressioni della pipeline, le variabili di sistema come le
 
 Supponiamo di avere un parametro integer `intParam` che fa riferimento a un parametro della pipeline di tipo String, `@pipeline.parameters.pipelineParam` . 
 
-![Impostazione di un parametro del flusso di dati](media/data-flow/parameter-pipeline-2.png "Impostazione di un parametro del flusso di dati")
+![Screenshot mostra la scheda parametri con i parametri denominati stringParam e intParam.](media/data-flow/parameter-pipeline-2.png "Impostazione di un parametro del flusso di dati")
 
 `@pipeline.parameters.pipelineParam` viene assegnato un valore di `abs(1)` in fase di esecuzione.
 
-![Impostazione di un parametro del flusso di dati](media/data-flow/parameter-pipeline-4.png "Impostazione di un parametro del flusso di dati")
+![Screenshot mostra la scheda parametri con il valore di b s (1) selezionato.](media/data-flow/parameter-pipeline-4.png "Impostazione di un parametro del flusso di dati")
 
 Quando `$intParam` si fa riferimento a un oggetto in un'espressione, ad esempio una colonna derivata, viene valutato `abs(1)` return `1` . 
 
-![Impostazione di un parametro del flusso di dati](media/data-flow/parameter-pipeline-3.png "Impostazione di un parametro del flusso di dati")
+![Screenshot che mostra il valore delle colonne.](media/data-flow/parameter-pipeline-3.png "Impostazione di un parametro del flusso di dati")
 
 ### <a name="data-flow-expression-parameters"></a>Parametri dell'espressione del flusso di dati
 

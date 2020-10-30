@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 09/08/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: a10340d4c2bd2811204af41fba5b32cbe9c4e905
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 649f02097a18a141d186434a91539563c64e72ba
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735067"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042126"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>Versioni Kubernetes supportate nel servizio Azure Kubernetes
 
@@ -131,7 +131,7 @@ az aks get-versions --location eastus --output table
 
 ## <a name="aks-kubernetes-release-calendar"></a>Calendario della versione di AKS Kubernetes
 
-Per la cronologia delle versioni precedenti, vedere [qui](https://en.wikipedia.org/wiki/Kubernetes#History).
+Per la cronologia delle versioni precedenti, vedere [Kubernetes](https://en.wikipedia.org/wiki/Kubernetes#History).
 
 |  Versione di K8s | Versione upstream  | Anteprima AKS  | AKS GA  | Fine vita |
 |--------------|-------------------|--------------|---------|-------------|
@@ -139,8 +139,10 @@ Per la cronologia delle versioni precedenti, vedere [qui](https://en.wikipedia.o
 | 1.17  | 09-19 dicembre  | Gennaio 2019   | 2020 luglio  | 1,20 GA | 
 | 1.18  | Mar-23-20  | Maggio 2020   | 2020 agosto  | 1,21 GA | 
 | 1,19  | Aug-04-20  | 2020 Sep   | 2020 novembre  | 1,22 GA | 
-| 1,20  | 08-20 dicembre  | Gennaio 2021   | Mar 2021  | 1,23 GA | 
-\* A causa della stagione di festività AKS, il ciclo di vita del 1,16 verrà esteso dal 2020 novembre fino al 2021 gennaio. Per altre informazioni, leggere [qui](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+| 1,20  | 08-20 dicembre  | Gennaio 2021   | Mar 2021  | 1,23 GA |
+
+\* A causa della stagione festiva, AKS sta estendendo la durata di 1,16 dal 2020 novembre fino al 2021 gennaio. [Altre informazioni](https://github.com/Azure/AKS/releases/tag/2020-10-12).
+
 
 ## <a name="faq"></a>Domande frequenti
 

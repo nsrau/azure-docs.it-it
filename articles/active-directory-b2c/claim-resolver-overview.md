@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 04/21/2020
+ms.date: 10/28/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 466e590ba22efe1c2fbb457c15bc7f979f8a172e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39b61815c33f933e0cdf08bd46382e74eea2f806
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259637"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040452"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Informazioni sui resolver di attestazioni nei criteri personalizzati in Azure Active Directory B2C
 
@@ -44,16 +44,16 @@ Nel profilo tecnico, mappare il resolver di attestazioni al tipo di attestazione
 
 Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 
-### <a name="culture"></a>Impostazioni cultura
+### <a name="culture"></a>culture
 
 | Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | Codice ISO di due lettere per la lingua. | en |
 | {Culture:LCID}   | Identificatore LCID del codice della lingua. | 1033 |
 | {Culture:RegionName} | Codice ISO di due lettere per la regione. | US |
-| {Culture:RFC5646} | Codice RFC5646 della lingua. | it-IT |
+| {Culture:RFC5646} | Codice RFC5646 della lingua. | en-US |
 
-### <a name="policy"></a>Policy
+### <a name="policy"></a>Criteri
 
 | Attestazione | Descrizione | Esempio |
 | ----- | ----------- | --------|
@@ -88,7 +88,7 @@ Le sezioni seguenti elencano i resolver di attestazioni disponibili.
 | {Context:DateTimeInUtc} |Data e ora in formato UTC.  | 10/10/2018 12:00:00 PM |
 | {Context:DeploymentMode} |Modalità di distribuzione dei criteri.  | Produzione |
 | {Context:IPAddress} | Indirizzo IP utente. | 11.111.111.11 |
-| {Context: KMSI} | Indica se la casella [di controllo Mantieni l'accesso](custom-policy-keep-me-signed-in.md) è selezionata. |  true |
+| {Context: KMSI} | Indica se la casella [di controllo Mantieni l'accesso](custom-policy-keep-me-signed-in.md) è selezionata. |  True |
 
 ### <a name="claims"></a>Attestazioni 
 
@@ -123,16 +123,17 @@ I nomi di parametro inclusi in una richiesta OIDC o OAuth2 possono essere mappat
 | {SAML: AuthnContextClassReferences} | `AuthnContextClassRef`Valore dell'elemento, dalla richiesta SAML. | urn: Oasis: Names: TC: SAML: 2.0: AC: Classes: PasswordProtectedTransport |
 | {SAML: NameIdPolicyFormat} | `Format`Attributo, dall' `NameIDPolicy` elemento della richiesta SAML. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
 | {SAML: emittente} |  Valore dell' `Issuer` elemento SAML della richiesta SAML.| `https://contoso.com` |
-| {SAML: AllowCreate} | `AllowCreate`Valore dell'attributo, dall' `NameIDPolicy` elemento della richiesta SAML. | True |
-| {SAML: ForceAuthn} | `ForceAuthN`Valore dell'attributo, dall' `AuthnRequest` elemento della richiesta SAML. | True |
+| {SAML: AllowCreate} | `AllowCreate`Valore dell'attributo, dall' `NameIDPolicy` elemento della richiesta SAML. | Vero |
+| {SAML: ForceAuthn} | `ForceAuthN`Valore dell'attributo, dall' `AuthnRequest` elemento della richiesta SAML. | Vero |
 | {SAML: ProviderName} | `ProviderName`Valore dell'attributo, dall' `AuthnRequest` elemento della richiesta SAML.| Contoso.com |
 | {SAML: RelayState} | Parametro di stringa di query `RelayState`.| 
+| {SAML: Subject} | `Subject`Dall'elemento NameID della richiesta di autenticazione SAML.| 
 
 ## <a name="using-claim-resolvers"></a>Uso di resolver di attestazioni
 
 È possibile usare i resolver di attestazioni con gli elementi seguenti:
 
-| Item | Elemento | Impostazioni |
+| Elemento | Elemento | Impostazioni |
 | ----- | ----------------------- | --------|
 |Profilo tecnico di Application Insights |`InputClaim` | |
 |[Azure Active Directory](active-directory-technical-profile.md) profilo tecnico| `InputClaim`, `OutputClaim`| 1, 2|

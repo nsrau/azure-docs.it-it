@@ -8,12 +8,12 @@ ms.date: 01/04/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 17531c6e38447fba7fe8761a963be39ecfc8f489
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 4064acd6d2857ebc00a38ea7f6ff5d5e30bbd699
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044157"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041369"
 ---
 # <a name="prepare-your-development-and-test-environment-for-iot-edge"></a>Preparare l'ambiente di sviluppo e test per IoT Edge
 
@@ -83,7 +83,7 @@ Per le distribuzioni di produzione è supportato solo il runtime IoT Edge, tutta
 | Strumento | Noto anche come | Piattaforme supportate | Ideale per |
 | ---- | ------------- | ------------------- | --------- |
 | Strumento di sviluppo IoT EdgeHub  | iotedgehubdev | Windows, Linux, macOS | Simulazione di un dispositivo per il debug dei moduli. |
-| Contenitore per lo sviluppo IoT Edge | microsoft/iotedgedev | Windows, Linux, macOS | Sviluppo senza installazione delle dipendenze. |
+| Contenitore per lo sviluppo IoT Edge | iotedgedev | Windows, Linux, macOS | Sviluppo senza installazione delle dipendenze. |
 | Runtime IoT Edge in un contenitore | iotedgec | Windows, Linux, macOS, ARM | Test su un dispositivo che potrebbe non supportare il runtime. |
 | Contenitore di dispositivi IoT Edge | toolboc/azure-iot-edge-device-container | Windows, Linux, macOS, ARM | Test di uno scenario con numerosi dispositivi IoT Edge su larga scala. |
 
@@ -99,7 +99,7 @@ Per altre informazioni e per l'installazione, vedere [Azure IoT EdgeHub dev tool
 
 Il contenitore per lo sviluppo Azure IoT Edge è un contenitore Docker con tutte le dipendenze necessarie per lo sviluppo di IoT Edge. Questo contenitore rende più semplice iniziare con qualsiasi linguaggio di programmazione desiderato per lo sviluppo, tra cui C#, Python, Node.js e Java. Occorre solo installare un motore di contenitore, come Docker o Moby, per eseguire il pull del contenitore nel computer di sviluppo.
 
-Per altre informazioni, vedere [Azure IoT Edge dev container](https://hub.docker.com/r/microsoft/iotedgedev/) (Contenitore per lo sviluppo Azure IoT Edge).
+Per altre informazioni, vedere [Azure IoT Edge dev container](https://github.com/Azure/iotedgedev/wiki/quickstart-with-iot-edge-dev-container) (Contenitore per lo sviluppo Azure IoT Edge).
 
 ### <a name="iot-edge-runtime-in-a-container"></a>Runtime IoT Edge in un contenitore
 

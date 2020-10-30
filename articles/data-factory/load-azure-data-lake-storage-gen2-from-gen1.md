@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 05/13/2019
-ms.openlocfilehash: 6655510a4cfdb88e98319c7fc26c7ae83255bb6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 203b62bdeb2ef83d884188c5d1753b6a70050361
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81415815"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042717"
 ---
 # <a name="copy-data-from-azure-data-lake-storage-gen1-to-gen2-with-azure-data-factory"></a>Copiare dati da Azure Data Lake Storage Gen1 a Gen2 con Azure Data Factory
 
@@ -41,7 +41,7 @@ Questo articolo illustra come usare lo strumento copia dati Data Factory per cop
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Nel menu a sinistra selezionare **Crea una risorsa**  >  **dati e analisi**  >  **Data Factory**.
+1. Nel menu a sinistra selezionare **Crea una risorsa**  >  **dati e analisi**  >  **Data Factory** .
    
    ![Selezione Data Factory nel nuovo riquadro](./media/quickstart-create-data-factory-portal/new-azure-data-factory-menu.png)
 
@@ -49,14 +49,14 @@ Questo articolo illustra come usare lo strumento copia dati Data Factory per cop
       
    ![Pagina nuova data factory](./media/load-azure-data-lake-storage-gen2-from-gen1/new-azure-data-factory.png)
  
-    * **Name**: immettere un nome univoco globale per la data factory di Azure. Se viene visualizzato l'errore "Il nome \"LoadADLSDemo\" per la data factory non è disponibile", immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_**ADFTutorialDataFactory**. Creare nuovamente il data factory. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
+    * **Name** : immettere un nome univoco globale per la data factory di Azure. Se viene visualizzato l'errore "Il nome \"LoadADLSDemo\" per la data factory non è disponibile", immettere un nome diverso per la data factory. Ad esempio, usare il nome _**nomeutente**_**ADFTutorialDataFactory** . Creare nuovamente il data factory. Per informazioni sulle regole di denominazione per gli elementi di Data Factory, vedere [Azure Data Factory - Regole di denominazione](naming-rules.md).
     * **Sottoscrizione** selezionare la sottoscrizione di Azure in cui creare la data factory. 
-    * **Gruppo di risorse**: selezionare un gruppo di risorse esistente dall'elenco a discesa. È anche possibile selezionare l'opzione **Crea nuovo** e immettere il nome di un gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
-    * **Versione**: selezionare **V2**.
-    * **Località**: Selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. 
+    * **Gruppo di risorse** : selezionare un gruppo di risorse esistente dall'elenco a discesa. È anche possibile selezionare l'opzione **Crea nuovo** e immettere il nome di un gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo su come [usare gruppi di risorse per gestire le risorse di Azure](../azure-resource-manager/management/overview.md). 
+    * **Versione** : selezionare **V2** .
+    * **Località** : Selezionare la località per la data factory. Nell'elenco a discesa vengono mostrate solo le località supportate. Gli archivi dati usati dalla data factory possono trovarsi in altre località e aree. 
 
-3. Selezionare **Crea**.
-4. Al termine della creazione, passare alla data factory. Verrà visualizzata la home page **Data factory**, come mostrato nell'immagine seguente: 
+3. Selezionare **Crea** .
+4. Al termine della creazione, passare alla data factory. Verrà visualizzata la home page **Data factory** , come mostrato nell'immagine seguente: 
    
    ![Home page di Data factory](./media/load-azure-data-lake-storage-gen2-from-gen1/data-factory-home-page.png)
 
@@ -67,39 +67,39 @@ Questo articolo illustra come usare lo strumento copia dati Data Factory per cop
 1. Nella pagina attività **iniziali** selezionare il riquadro **copia dati** per avviare lo strumento copia dati. 
 
    ![Riquadro dello strumento copia dati](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-tile.png)
-2. Nella pagina **Proprietà** specificare **CopyFromADLSGen1ToGen2** per il campo **nome attività** . Selezionare **Avanti**.
+2. Nella pagina **Proprietà** specificare **CopyFromADLSGen1ToGen2** per il campo **nome attività** . Selezionare **Avanti** .
 
     ![Pagina Proprietà](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-data-tool-properties-page.png)
-3. Nella pagina **archivio dati di origine** selezionare **+ Crea nuova connessione**.
+3. Nella pagina **archivio dati di origine** selezionare **+ Crea nuova connessione** .
 
     ![Pagina Archivio dati di origine](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page.png)
     
-4. Selezionare **Azure Data Lake storage Gen1** dalla raccolta di connettori e selezionare **continua**.
+4. Selezionare **Azure Data Lake storage Gen1** dalla raccolta di connettori e selezionare **continua** .
     
     ![Pagina Archivio dati di origine per Azure Data Lake Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/source-data-store-page-adls-gen1.png)
     
 5. Nella pagina **specifica Azure Data Lake storage Gen1 connessione** eseguire le operazioni seguenti:
 
-   a. Selezionare la propria istanza di Data Lake Storage Gen1 per il nome dell'account e specificare o convalidare il **Tenant**.
+   a. Selezionare la propria istanza di Data Lake Storage Gen1 per il nome dell'account e specificare o convalidare il **Tenant** .
   
-   b. Selezionare **Test connessione** per convalidare le impostazioni. Quindi selezionare **Fine**.
+   b. Selezionare **Test connessione** per convalidare le impostazioni. Quindi selezionare **Fine** .
   
-   c. Si noterà che è stata creata una nuova connessione. Selezionare **Avanti**.
+   c. Si noterà che è stata creata una nuova connessione. Selezionare **Avanti** .
    
    > [!IMPORTANT]
    > In questa procedura dettagliata si usa un'identità gestita per le risorse di Azure per autenticare i Azure Data Lake Storage Gen1. Per concedere all'identità gestita le autorizzazioni appropriate in Azure Data Lake Storage Gen1, seguire [queste istruzioni](connector-azure-data-lake-store.md#managed-identity).
    
    ![Specificare un account di Azure Data Lake Storage Gen1](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen1-account.png)
       
-6. Nella pagina **scegliere il file o la cartella di input** individuare la cartella e il file che si desidera copiare. Selezionare la cartella o il file e **scegliere Scegli**.
+6. Nella pagina **scegliere il file o la cartella di input** individuare la cartella e il file che si desidera copiare. Selezionare la cartella o il file e **scegliere Scegli** .
 
     ![Scegliere il file o la cartella di input](./media/load-azure-data-lake-storage-gen2-from-gen1/choose-input-folder.png)
 
-7. Specificare il comportamento di copia selezionando le opzioni Copia i file in modo **ricorsivo** e **copia binaria** . Selezionare **Avanti**.
+7. Specificare il comportamento di copia selezionando le opzioni Copia i file in modo **ricorsivo** e **copia binaria** . Selezionare **Avanti** .
 
-    ![Specificare la cartella di output](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
+    ![Screenshot mostra il scegliere il file o la cartella di input in cui è possibile selezionare copia file in modo ricorsivo e copia binaria.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-binary-copy.png)
     
-8. Nella pagina **archivio dati di destinazione** selezionare **+ Crea nuova connessione**  >  **Azure Data Lake storage Gen2**  >  **continua**.
+8. Nella pagina **archivio dati di destinazione** selezionare **+ Crea nuova connessione**  >  **Azure Data Lake storage Gen2**  >  **continua** .
 
     ![Pagina dell'archivio dati di destinazione](./media/load-azure-data-lake-storage-gen2-from-gen1/destination-data-storage-page.png)
 
@@ -107,27 +107,27 @@ Questo articolo illustra come usare lo strumento copia dati Data Factory per cop
 
    a. Selezionare l'account Data Lake Storage Gen2 idoneo nell'elenco a discesa **nome account di archiviazione** .
    
-   b. Selezionare **Fine** per creare la connessione. Fare quindi clic su **Avanti**.
+   b. Selezionare **Fine** per creare la connessione. Fare quindi clic su **Avanti** .
    
    ![Specificare un account di Azure Data Lake Storage Gen2](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-account.png)
 
-10. Nella pagina **scegliere il file o la cartella** di output, immettere **copyfromadlsgen1** come nome della cartella di output e fare clic su **Avanti**. Data Factory crea le sottocartelle e file system di Azure Data Lake Storage Gen2 corrispondenti durante la copia se non esistono.
+10. Nella pagina **scegliere il file o la cartella** di output, immettere **copyfromadlsgen1** come nome della cartella di output e fare clic su **Avanti** . Data Factory crea le sottocartelle e file system di Azure Data Lake Storage Gen2 corrispondenti durante la copia se non esistono.
 
-    ![Specificare la cartella di output](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
+    ![Screenshot indica il percorso della cartella immesso.](./media/load-azure-data-lake-storage-gen2-from-gen1/specify-adls-gen2-path.png)
 
 11. Nella pagina **Settings** (Impostazioni) selezionare **Next** (Avanti) per usare le impostazioni predefinite.
 
-12. Nella pagina **Riepilogo** , rivedere le impostazioni e fare clic su **Avanti**.
+12. Nella pagina **Riepilogo** , rivedere le impostazioni e fare clic su **Avanti** .
 
     ![Pagina Riepilogo](./media/load-azure-data-lake-storage-gen2-from-gen1/copy-summary.png)
-13. Nella **pagina distribuzione**selezionare **monitoraggio** per monitorare la pipeline.
+13. Nella **pagina distribuzione** selezionare **monitoraggio** per monitorare la pipeline.
 
     ![Pagina Distribuzione](./media/load-azure-data-lake-storage-gen2-from-gen1/deployment-page.png)
 14. Si noti che la scheda **Monitoraggio** a sinistra è selezionata automaticamente. Nella colonna **azioni** sono inclusi collegamenti per visualizzare i dettagli dell'esecuzione dell'attività e per eseguire di nuovo la pipeline.
 
     ![Monitorare le esecuzioni di pipeline](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-pipeline-runs.png)
 
-15. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. Dato che la pipeline contiene una sola attività (attività di copia), viene visualizzata una sola voce. Per tornare alla visualizzazione delle esecuzioni di pipeline, selezionare il collegamento **Pipeline** in alto. Selezionare **Aggiorna** per aggiornare l'elenco. 
+15. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni** . Dato che la pipeline contiene una sola attività (attività di copia), viene visualizzata una sola voce. Per tornare alla visualizzazione delle esecuzioni di pipeline, selezionare il collegamento **Pipeline** in alto. Selezionare **Aggiorna** per aggiornare l'elenco. 
 
     ![Monitorare le esecuzioni delle attività](./media/load-azure-data-lake-storage-gen2-from-gen1/monitor-activity-runs.png)
 

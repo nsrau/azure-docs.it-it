@@ -11,18 +11,18 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a249d5f3c47e8e8789f91f355c791cc50341ab01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b8fdabc3f4f33627936eead9dda57e67c7b0da8
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827906"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040513"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Domande frequenti sulla protezione delle identità in Azure Active Directory
 
 ## <a name="dismiss-user-risk-known-issues"></a>Ignora problemi noti relativi al rischio utente
 
-**Ignorare i rischi** per gli utenti in classica Identity Protection imposta l'attore nella cronologia dei rischi dell'utente in Identity protection per **Azure ad**.
+**Ignorare i rischi** per gli utenti in classica Identity Protection imposta l'attore nella cronologia dei rischi dell'utente in Identity protection per **Azure ad** .
 
 **Ignorare i rischi** per gli utenti in Identity Protection imposta l'attore nella cronologia dei rischi dell'utente in Identity Protection su **\<Admin’s name with a hyperlink pointing to user’s blade\>** .
 
@@ -32,19 +32,25 @@ Si è verificato un problema noto corrente che causa la latenza nel flusso di ri
 
 Le query sul campo del **nome utente** fanno distinzione tra maiuscole e minuscole, mentre le query sul campo del **Nome** non fanno distinzione tra maiuscole e minuscole.
 
-Attivando **Visualizza date come** viene nascosta la colonna **ULTIMO AGGIORNAMENTO RISCHIO**. Per aggiungere nuovamente la colonna fare clic su **Colonne** nella parte superiore del pannello Utenti a rischio.
+Attivando **Visualizza date come** viene nascosta la colonna **ULTIMO AGGIORNAMENTO RISCHIO** . Per aggiungere nuovamente la colonna fare clic su **Colonne** nella parte superiore del pannello Utenti a rischio.
 
-**Ignora tutti gli eventi** in classica Identity Protection imposta lo stato dei rilevamenti dei rischi su **chiuso (risolto)**.
+**Ignora tutti gli eventi** in classica Identity Protection imposta lo stato dei rilevamenti dei rischi su **chiuso (risolto)** .
 
 ## <a name="risky-sign-ins-report-known-issues"></a>Problemi noti segnalati dagli accessi a rischio
 
-**Risolvi** in un rilevamento dei rischi imposta lo stato sugli utenti che hanno superato l'autenticazione a più fattori **basata sui criteri basati sul rischio**.
+**Risolvi** in un rilevamento dei rischi imposta lo stato sugli utenti che hanno superato l'autenticazione a più fattori **basata sui criteri basati sul rischio** .
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
 ### <a name="why-is-a-user-is-at-risk"></a>Perché un utente è a rischio?
 
 Se si è un cliente Azure AD Identity Protection, passare alla visualizzazione [utenti a rischio](howto-identity-protection-investigate-risk.md#risky-users) e fare clic su un utente a rischio. Nel cassetto nella parte inferiore della scheda ' cronologia dei rischi ' visualizzerà tutti gli eventi che hanno portato a una modifica dei rischi dell'utente. Per visualizzare tutti gli accessi a rischio per l'utente, fare clic su "accessi a rischio utente". Per visualizzare tutti i rilevamenti dei rischi per questo utente, fare clic su "rilevamento rischi utente".
+
+## <a name="why-was-my-sign-in-blocked-but-identity-protection-didnt-generate-a-risk-detection"></a>Perché l'accesso è stato bloccato ma la protezione delle identità non ha generato un rilevamento del rischio?
+Gli accessi possono essere bloccati per diversi motivi. È importante notare che Identity Protection genera solo rilevamenti di rischio quando nella richiesta di autenticazione vengono usate le credenziali corrette. Se un utente utilizza credenziali non corrette, non verrà contrassegnato da Identity Protection poiché non si verifica alcun rischio di compromissione delle credenziali, a meno che un attore non valido utilizzi le credenziali corrette. Alcuni motivi per cui un utente può essere bloccato dalla firma che non genererà un rilevamento di Identity Protection includono:
+* L' **IP può essere bloccato** a causa di attività dannose dall'indirizzo IP. Il messaggio IP bloccato non distingue se le credenziali sono corrette o meno. Se l'indirizzo IP è bloccato e non vengono usate le credenziali corrette, non verrà generato un rilevamento di Identity Protection
+* Il blocco **[intelligente](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout)** può impedire l'accesso dell'account dopo più tentativi non riusciti
+* È possibile applicare un **criterio di accesso condizionale** che usa condizioni diverse dal livello di rischio per bloccare una richiesta di autenticazione
 
 ### <a name="how-can-i-get-a-report-of-detections-of-a-specific-type"></a>Come è possibile ottenere un report dei rilevamenti di un tipo specifico?
 
@@ -76,16 +82,16 @@ Tutti i rilevamenti dei rischi sono documentati nell'articolo relativo al [risch
 
 **Conferma compromesso** (in fase di accesso) - indica ad Azure Active Directory Identity Protection che l'accesso non è stato eseguito dal proprietario dell'identità e indica un compromesso.
 
-- Dopo aver ricevuto il feedback, lo stato di rischio di accesso e di rischio utente verrà modificato in **Confermato compromesso** e il livello di rischio in **Elevato**.
+- Dopo aver ricevuto il feedback, lo stato di rischio di accesso e di rischio utente verrà modificato in **Confermato compromesso** e il livello di rischio in **Elevato** .
 
 - Inoltre, offriamo le informazioni ai sistemi di Machine Learning per futuri miglioramenti nella valutazione dei rischi.
 
     > [!NOTE]
-    > Se l'utente è già stato salvaguardato, non fare clic su **Conferma compromesso** poiché modificherà lo stato di rischio di accesso e di rischio utente in **Confermato compromesso**, e il livello di rischio in **Elevato**.
+    > Se l'utente è già stato salvaguardato, non fare clic su **Conferma compromesso** poiché modificherà lo stato di rischio di accesso e di rischio utente in **Confermato compromesso** , e il livello di rischio in **Elevato** .
 
 **Conferma sicuro** (in fase di accesso) - indica ad Azure Active Directory Identity Protection che l'accesso è stato eseguito dal proprietario dell'identità e non indica un compromesso.
 
-- Dopo aver ricevuto il feedback, lo stato di rischio di accesso (non di rischio utente) verrà modificato in **Confermato sicuro** e il livello di rischio in **-**.
+- Dopo aver ricevuto il feedback, lo stato di rischio di accesso (non di rischio utente) verrà modificato in **Confermato sicuro** e il livello di rischio in **-** .
 
 - Inoltre, offriamo le informazioni ai sistemi di Machine Learning per futuri miglioramenti nella valutazione dei rischi.
 

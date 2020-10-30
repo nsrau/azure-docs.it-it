@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 28186a7dcced47a42b3249f1f74b13e969b41978
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970093"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041355"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Utilizzare l'Editor Video Indexer per creare progetti
 
@@ -33,9 +33,9 @@ Questo articolo illustra come creare un progetto da zero e come creare un proget
 
 1. Passare al sito Web di [Video Indexer](https://www.videoindexer.ai/) ed eseguire l'accesso.
 1. Selezionare la scheda **progetti** . Se sono stati creati progetti in precedenza, tutti gli altri progetti vengono visualizzati qui.
-1. Fare clic su **Crea nuovo progetto**.  
+1. Fare clic su **Crea nuovo progetto** .  
 
-    ![Nuovo progetto](./media/video-indexer-view-edit/new-project.png)
+    ![Screenshot che mostra la pagina "Video Indexer" con la scheda "progetti" selezionata.](./media/video-indexer-view-edit/new-project.png)
 1. Assegnare un nome al progetto facendo clic sull'icona a matita. Sostituire il testo "progetto senza titolo" con il nome del progetto e fare clic sul segno di spunta.
 
     ![Nuovo progetto](./media/video-indexer-view-edit/new-project3.png)
@@ -45,7 +45,7 @@ Questo articolo illustra come creare un progetto da zero e come creare un proget
 > [!NOTE]
 > Attualmente, i progetti possono contenere solo video indicizzati nella stessa lingua. Dopo aver selezionato un video in una lingua, non è possibile aggiungere i video nell'account che si trovano in una lingua diversa.
 
-1. Aggiungere i video che si desidera utilizzare in questo progetto selezionando **Aggiungi video**.
+1. Aggiungere i video che si desidera utilizzare in questo progetto selezionando **Aggiungi video** .
 
     Vengono visualizzati tutti i video nell'account e una casella di ricerca con la dicitura "Cerca testo, parole chiave o contenuto visivo". Per cercare i video con una persona, un'etichetta, un marchio, una parola chiave o un'occorrenza specifici nella trascrizione e nell'OCR.
     
@@ -53,19 +53,19 @@ Questo articolo illustra come creare un progetto da zero e come creare un proget
     
     ![Screenshot mostra la ricerca di video che fanno riferimento a GitHub con due risultati.](./media/video-indexer-view-edit/github.png)
 
-    È possibile filtrare ulteriormente i risultati selezionando **Filtra risultati**. È possibile filtrare per visualizzare i video che contengono una determinata persona o per specificare che si desidera visualizzare solo i risultati video che sono in una determinata lingua o hanno un proprietario specifico. <br/> È inoltre possibile specificare l'ambito della query. Se ad esempio si vuole cercare "GitHub" nell'OCR, selezionare **testo visivo**.
+    È possibile filtrare ulteriormente i risultati selezionando **Filtra risultati** . È possibile filtrare per visualizzare i video che contengono una determinata persona o per specificare che si desidera visualizzare solo i risultati video che sono in una determinata lingua o hanno un proprietario specifico. <br/> È inoltre possibile specificare l'ambito della query. Se ad esempio si vuole cercare "GitHub" nell'OCR, selezionare **testo visivo** .
 
     ![Filtra](./media/video-indexer-view-edit/visual-text.png)
 
     È possibile eseguire il layer di più filtri per la query. Usare i **+** / **-** pulsanti per aggiungere o rimuovere i filtri. Utilizzare **Cancella filtri** per rimuovere tutti i filtri.
-1. Per aggiungere video, selezionarli e quindi selezionare **Aggiungi**.
+1. Per aggiungere video, selezionarli e quindi selezionare **Aggiungi** .
 1. A questo punto, verranno visualizzati tutti i video scelti. Questi sono i video da cui verranno selezionati i clip per il progetto.
 
-    È possibile ridisporre l'ordine dei video trascinando o facendo clic sul pulsante di menu elenco e scegliendo **Sposta giù** o **Sposta su**. Dal menu elenco sarà anche possibile rimuovere il video dal progetto. 
+    È possibile ridisporre l'ordine dei video trascinando o facendo clic sul pulsante di menu elenco e scegliendo **Sposta giù** o **Sposta su** . Dal menu elenco sarà anche possibile rimuovere il video dal progetto. 
 
     ![Screenshot Mostra Video Indexer con un menu contestuale per uno dei video da rimuovere, deselezionare la selezione o Sposta giù.](./media/video-indexer-view-edit/rearrange.png)
     
-    È possibile aggiungere altri video al progetto in qualsiasi momento selezionando **Aggiungi video**. È anche possibile aggiungere più occorrenze dello stesso video al progetto. Questa operazione può essere eseguita se si desidera visualizzare una clip da un video e quindi una clip da un'altra, quindi un altro clip dal primo video. 
+    È possibile aggiungere altri video al progetto in qualsiasi momento selezionando **Aggiungi video** . È anche possibile aggiungere più occorrenze dello stesso video al progetto. Questa operazione può essere eseguita se si desidera visualizzare una clip da un video e quindi una clip da un'altra, quindi un altro clip dal primo video. 
 
 ### <a name="select-clips-to-use-in-your-project"></a>Selezionare le clip da usare nel progetto
 
@@ -75,7 +75,7 @@ Se si fa clic sulla freccia verso il basso sul lato destro di ogni video, si apr
 
     ![Visualizza informazioni dettagliate](./media/video-indexer-view-edit/insights.png)
 1. Per creare query per clip specifiche, utilizzare la casella di ricerca "Cerca in trascrizione, testo visivo, persone ed etichette".
-1. Aggiungere i filtri per specificare ulteriormente i dettagli sulle scene cercate selezionando le **Opzioni di filtro**.
+1. Aggiungere i filtri per specificare ulteriormente i dettagli sulle scene cercate selezionando le **Opzioni di filtro** .
 
     ![Opzioni di filtro](./media/video-indexer-view-edit/filter-options.png)
 
@@ -87,7 +87,7 @@ Se si fa clic sulla freccia verso il basso sul lato destro di ogni video, si apr
 
 1. Aggiungere una clip al progetto selezionando il segmento che si vuole aggiungere. È possibile deselezionare il clip facendo clic di nuovo sul segmento.
     
-    Per aggiungere tutti i segmenti di un video, fare clic sull'opzione di menu elenco accanto al video e **selezionare Seleziona tutti i segmenti**. 
+    Per aggiungere tutti i segmenti di un video, fare clic sull'opzione di menu elenco accanto al video e **selezionare Seleziona tutti i segmenti** . 
 
     ![Aggiungi tutto](./media/video-indexer-view-edit/add-all.png)
 
@@ -98,14 +98,14 @@ Se si fa clic sulla freccia verso il basso sul lato destro di ogni video, si apr
 
 ![Screenshot Mostra Video Indexer con l'anteprima di un video sul lato destro della finestra.](./media/video-indexer-view-edit/preview.png)
 
-Ricordarsi di salvare il progetto quando si apportano modifiche selezionando **Salva progetto**. 
+Ricordarsi di salvare il progetto quando si apportano modifiche selezionando **Salva progetto** . 
 
 ### <a name="render-and-download-the-project"></a>Eseguire il rendering e scaricare il progetto
 
 > [!NOTE]
 > Per Video Indexer account a pagamento, il rendering del progetto comporta costi di codifica. Video Indexer account di valutazione sono limitati a 5 ore di rendering.
 
-1. Al termine, verificare che il progetto sia stato salvato. È ora possibile eseguire il rendering di questo progetto. Selezionare **il rendering e il download**. 
+1. Al termine, verificare che il progetto sia stato salvato. È ora possibile eseguire il rendering di questo progetto. Selezionare **il rendering e il download** . 
 
     ![Screenshot Mostra Video Indexer con l'opzione per eseguire il rendering e scaricare il progetto.](./media/video-indexer-view-edit/save.png)
 
@@ -117,7 +117,7 @@ Ricordarsi di salvare il progetto quando si apportano modifiche selezionando **S
 
 1. È possibile accedere ai progetti salvati dalla scheda **progetti** . 
 
-    Se si seleziona questo progetto, vengono visualizzate tutte le informazioni dettagliate e la cronologia del progetto. Se si seleziona **Editor video**, è possibile continuare a apportare modifiche al progetto. Le modifiche includono l'aggiunta o la rimozione di video e clip o la ridenominazione del progetto.
+    Se si seleziona questo progetto, vengono visualizzate tutte le informazioni dettagliate e la cronologia del progetto. Se si seleziona **Editor video** , è possibile continuare a apportare modifiche al progetto. Le modifiche includono l'aggiunta o la rimozione di video e clip o la ridenominazione del progetto.
 
     ![Editor video](./media/video-indexer-view-edit/video-editor.png)
      

@@ -7,12 +7,12 @@ ms.service: web-application-firewall
 ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: ddf631601510e725d77cc391ad41192a47ab0cf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d34641fdecfe334e84347efe1a2f64482cae74b
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84752480"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040256"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>Limiti ed elenchi di esclusione delle dimensioni delle richieste del Web Application Firewall
 
@@ -38,18 +38,18 @@ Gli attributi seguenti possono essere aggiunti agli elenchi di esclusione in bas
 
 Di seguito sono riportati gli operatori di criteri di corrispondenza supportati:
 
-- **Uguale a**: questo operatore viene usato per una corrispondenza esatta. Ad esempio, per selezionare un'intestazione denominata **bearerToken**, usare l'operatore uguale a con il selettore impostato come **bearerToken**.
-- **Inizia con**: questo operatore corrisponde a tutti i campi che iniziano con il valore del selettore specificato.
-- **Termina con**: questo operatore corrisponde a tutti i campi di richiesta che terminano con il valore del selettore specificato.
-- **Contiene**: questo operatore corrisponde a tutti i campi di richiesta che contengono il valore del selettore specificato.
-- **Uguale a any**: questo operatore corrisponde a tutti i campi della richiesta. * sarà il valore del selettore.
+- **Uguale a** : questo operatore viene usato per una corrispondenza esatta. Ad esempio, per selezionare un'intestazione denominata **bearerToken** , usare l'operatore uguale a con il selettore impostato come **bearerToken** .
+- **Inizia con** : questo operatore corrisponde a tutti i campi che iniziano con il valore del selettore specificato.
+- **Termina con** : questo operatore corrisponde a tutti i campi di richiesta che terminano con il valore del selettore specificato.
+- **Contiene** : questo operatore corrisponde a tutti i campi di richiesta che contengono il valore del selettore specificato.
+- **Uguale a any** : questo operatore corrisponde a tutti i campi della richiesta. * sarà il valore del selettore.
 
 In tutti i casi, la corrispondenza non distingue le maiuscole e le minuscole e le espressioni regolari non sono consentite come selettori.
 
 > [!NOTE]
 > Per ulteriori informazioni e per la risoluzione dei problemi, vedere [risoluzione dei problemi di WAF](web-application-firewall-troubleshoot.md).
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -81,7 +81,7 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "StartsWith" `
    -Selector "user"
 ```
-Quindi, se l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` viene passato a WAF, non valuterà la stringa **fdafdasfda**, ma valuterà comunque il nome del parametro **User %281 %29**. 
+Quindi, se l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` viene passato a WAF, non valuterà la stringa **fdafdasfda** , ma valuterà comunque il nome del parametro **User %281 %29** . 
 
 ## <a name="waf-request-size-limits"></a>Limiti di dimensioni di richiesta WAF
 
@@ -89,7 +89,7 @@ Quindi, se l'URL `http://www.contoso.com/?user%281%29=fdafdasfda` viene passato 
 
 Web application firewall consente agli utenti di configurare i limiti di dimensioni di richiesta entro i limiti inferiori e superiori. Sono disponibili le seguenti due configurazioni di limiti di dimensioni:
 
-- Il campo dimensioni massime del corpo della richiesta è specificato in kilobyte e controlla il limite complessivo delle dimensioni della richiesta, esclusi i caricamenti di file. Questo campo può variare da un minimo di 1 kB a un valore massimo di 128 kB. Il valore predefinito per le dimensioni del corpo della richiesta è 128 kB.
+- Il campo dimensioni massime del corpo della richiesta è specificato in kilobyte e controlla il limite complessivo delle dimensioni della richiesta, esclusi i caricamenti di file. Questo campo ha un valore minimo di 1 KB e un valore massimo di 128 KB. Il valore predefinito per le dimensioni del corpo della richiesta è 128 kB.
 - Il campo limite di caricamento file è specificato in MB e determina le dimensioni massime consentite per il caricamento file. Questo campo può avere un valore minimo di 1 MB e i valori massimi seguenti:
 
    - 100 MB per i gateway WAF medi V1

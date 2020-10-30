@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: b7ea61a1f09a9340661f333e452f70c5ad8cf877
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 496c5de8f9ead0773dfef7e65051344645ffa9de
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266647"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93041976"
 ---
 # <a name="manage-streaming-endpoints-with-the-azure-portal"></a>Gestire gli endpoint di streaming con il portale di Azure
 
@@ -38,9 +38,9 @@ Per informazioni su come ridimensionare l'endpoint di streaming, vedere [questo]
 Per iniziare a gestire gli endpoint di streaming per l'account, procedere come segue.
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Nel pannello **Impostazioni** selezionare **Endpoint di streaming**.
+2. Nel pannello **Impostazioni** selezionare **Endpoint di streaming** .
    
-    ![endpoint di streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
+    ![Screenshot che mostra la pagina "servizi multimediali" con "endpoint di streaming" selezionati nel pannello "Impostazioni".](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints1.png)
 
 > [!NOTE]
 > Il costo verrà addebitato solo quando StreamingEndpoint è in stato di esecuzione.
@@ -59,7 +59,7 @@ Per aggiungere o eliminare gli endpoint di streaming tramite il portale di Azure
 2. Per eliminare un endpoint di streaming, fare clic sul pulsante **Elimina** .      
 3. Fare clic sul pulsante **Start** per avviare l'endpoint di streaming.
    
-    ![endpoint di streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
+    ![Screenshot che mostra l'azione "endpoint" selezionata e il riquadro "streaming endpoint Details" visualizzato.](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints2.png)
 
 
 ## <a name="configuring-the-streaming-endpoint"></a><a id="configure_streaming_endpoints"></a>Configurare l'endpoint di streaming
@@ -77,11 +77,11 @@ Per informazioni dettagliate su queste proprietà, vedere [StreamingEndpoint](/r
 È possibile configurare un endpoint di streaming eseguendo le operazioni seguenti:
 
 1. Selezionare l'endpoint di streaming che si desidera configurare.
-2. Fare clic su **Impostazioni**.
+2. Fare clic su **Impostazioni** .
 
 Seguirà una breve descrizione dei campi.
 
-![endpoint di streaming](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
+![Screenshot che mostra l'azione "Impostazioni" selezionata per l'endpoint di streaming.](./media/media-services-portal-manage-streaming-endpoints/media-services-manage-streaming-endpoints4.png)
 
 1. Criteri della cache massima: consente di configurare la durata della cache per gli asset serviti tramite questo endpoint di streaming. Se non si imposta alcun valore, viene usato il valore predefinito. I valori predefiniti possono anche essere definiti direttamente in Archiviazione di Azure. Se la rete CDN di Azure è abilitata per l'endpoint di streaming, non impostare il valore dei criteri della cache a meno di 600 secondi.  
 2. Indirizzi IP consentiti: consente di specificare gli indirizzi IP che possono connettersi all'endpoint di streaming pubblicato. Se non viene specificato alcun indirizzo IP, la connessione è consentita a qualsiasi indirizzo IP. È possibile specificare gli indirizzi IP come un singolo indirizzo IP (ad esempio "10.0.0.1"), un intervallo IP con un indirizzo IP e una subnet mask CIDR (ad esempio "10.0.0.1/22") o un intervallo IP con un indirizzo IP e una subnet mask decimale puntata (ad esempio "10.0.0.1(255.255.255.0)").
@@ -95,14 +95,14 @@ Per altre informazioni, vedere [questo](media-services-portal-scale-streaming-en
 
 Quando si crea un nuovo account, l'integrazione della rete CDN di Azure dell'endpoint di streaming predefinita viene abilitata per impostazione predefinita.
 
-Se in seguito si desidera disabilitare o abilitare la rete CDN, l'endpoint di streaming deve essere nello stato **interrotto**. L'abilitazione dell'integrazione della rete CDN di Azure e l'attivazione delle modifiche in tutti i POP della rete CDN potrebbero richiedere fino a due ore. Tuttavia, è possibile avviare l'endpoint di streaming, trasmettere senza interruzioni dall'endpoint di streaming e, dopo aver completato l'integrazione, il flusso viene distribuito dalla rete CDN. Durante il periodo di provisioning l'endpoint di streaming ha stato **avvio in corso** ed è possibile che le prestazioni risultino ridotte.
+Se in seguito si desidera disabilitare o abilitare la rete CDN, l'endpoint di streaming deve essere nello stato **interrotto** . L'abilitazione dell'integrazione della rete CDN di Azure e l'attivazione delle modifiche in tutti i POP della rete CDN potrebbero richiedere fino a due ore. Tuttavia, è possibile avviare l'endpoint di streaming, trasmettere senza interruzioni dall'endpoint di streaming e, dopo aver completato l'integrazione, il flusso viene distribuito dalla rete CDN. Durante il periodo di provisioning l'endpoint di streaming ha stato **avvio in corso** ed è possibile che le prestazioni risultino ridotte.
 
 L'integrazione della rete CDN è abilitata in tutti i data center di Azure eccetto per le aree Cina e Governo federale.
 
-Una volta abilitato, il **controllo di accesso**, * * nome host personalizzato e la configurazione di **autenticazione della firma Akamai** vengono disabilitati.
+Una volta abilitato, il **controllo di accesso** , * * nome host personalizzato e la configurazione di **autenticazione della firma Akamai** vengono disabilitati.
  
 > [!IMPORTANT]
-> L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è implementata nella **rete CDN di Azure da Verizon** per gli endpoint di streaming standard. Gli endpoint di streaming Premium possono essere configurati usando tutti **i provider e i livelli di prezzo della rete CDN di Azure**. Per altre informazioni sulle funzionalità della rete CDN di Azure, vedere la [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](../../cdn/cdn-overview.md).
+> L'integrazione di Servizi multimediali di Azure con la rete CDN di Azure è implementata nella **rete CDN di Azure da Verizon** per gli endpoint di streaming standard. Gli endpoint di streaming Premium possono essere configurati usando tutti **i provider e i livelli di prezzo della rete CDN di Azure** . Per altre informazioni sulle funzionalità della rete CDN di Azure, vedere la [Panoramica della rete per la distribuzione di contenuti (rete CDN) di Azure](../../cdn/cdn-overview.md).
  
 ### <a name="additional-considerations"></a>Altre considerazioni
 

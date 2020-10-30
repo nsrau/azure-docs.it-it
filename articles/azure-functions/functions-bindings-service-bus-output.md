@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 3fc8f205bff52fad6e55b7aa6692ec80ae5e954a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2d0b66d2b4d89b512b34cb33a5607b471b7d1e84
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88212158"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040927"
 ---
 # <a name="azure-service-bus-output-binding-for-azure-functions"></a>Binding di output del bus di servizio di Azure per funzioni di Azure
 
 Usare l'associazione di output del bus di servizio di Azure per inviare messaggi della coda o dell'argomento.
 
-Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](functions-bindings-service-bus-output.md).
+Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Esempio
 
@@ -40,7 +40,7 @@ public static string ServiceBusOutput([HttpTrigger] dynamic input, ILogger log)
 
 L'esempio seguente mostra un'associazione di output del bus di servizio in un file *function.json* e una [funzione script C#](functions-reference-csharp.md) che usa l'associazione. La funzione usa un trigger timer per inviare un messaggio della coda ogni 15 secondi.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 ```json
 {
@@ -91,7 +91,7 @@ public static async Task Run(TimerInfo myTimer, ILogger log, IAsyncCollector<str
 
 L'esempio seguente mostra un'associazione di output del bus di servizio in un file *function.json* e una [funzione JavaScript](functions-reference-node.md) che usa l'associazione. La funzione usa un trigger timer per inviare un messaggio della coda ogni 15 secondi.
 
-Ecco i dati di associazione nel file *function.json*:
+Ecco i dati di associazione nel file *function.json* :
 
 ```json
 {
@@ -175,7 +175,7 @@ Una definizione di binding del bus di servizio viene definita infunction.jsin cu
 }
 ```
 
-In * _ \_ init_ \_ . py*è possibile scrivere un messaggio nella coda passando un valore al `set` metodo.
+In *_\_ init_ \_ . py* è possibile scrivere un messaggio nella coda passando un valore al `set` metodo.
 
 ```python
 import azure.functions as func
@@ -288,7 +288,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**queueName**|**QueueName**|Nome della coda.  Impostare questa proprietà solo se si inviano messaggi della coda, non dell'argomento.
 |**topicName**|**TopicName**|Nome dell'argomento. Impostare questa proprietà solo se si inviano messaggi dell'argomento, non della coda.|
 |**connection**|**Connection**|Nome di un'impostazione dell'app che contiene la stringa di connessione del bus di servizio da usare per questa associazione. Se il nome dell'impostazione dell'app inizia con "AzureWebJobs", è possibile specificare solo la parte restante del nome. Se ad esempio si imposta `connection` su "MyServiceBus", il runtime di funzioni Cerca un'impostazione dell'app denominata "AzureWebJobsMyServiceBus". Se si lascia vuoto `connection`, il runtime di Funzioni di Azure usa la stringa di connessione del bus di servizio predefinita nell'impostazione dell'app denominata "AzureWebJobsServiceBus".<br><br>Per ottenere una stringa di connessione, seguire i passaggi indicati in [Ottenere le credenziali di gestione](../service-bus-messaging/service-bus-quickstart-portal.md#get-the-connection-string). La stringa di connessione deve essere relativa a uno spazio dei nomi del bus di servizio e non limitata a una coda o un argomento specifico.|
-|**accessRights** (solo V1)|**Accesso**|Diritti di accesso per la stringa di connessione. I valori disponibili sono `manage` e `listen`. Il valore predefinito è `manage`, che indica che `connection` dispone dell'autorizzazione **Gestisci**. Se si usa una stringa di connessione priva dell'autorizzazione **Gestisci**, impostare `accessRights` su "listen". In caso contrario, il runtime di Funzioni potrebbe non riuscire a eseguire operazioni che richiedono diritti di gestione. In funzioni di Azure versione 2. x e successive questa proprietà non è disponibile perché la versione più recente dell'SDK del bus di servizio non supporta le operazioni di gestione.|
+|**accessRights** (solo V1)|**Accesso**|Diritti di accesso per la stringa di connessione. I valori disponibili sono `manage` e `listen`. Il valore predefinito è `manage`, che indica che `connection` dispone dell'autorizzazione **Gestisci** . Se si usa una stringa di connessione priva dell'autorizzazione **Gestisci** , impostare `accessRights` su "listen". In caso contrario, il runtime di Funzioni potrebbe non riuscire a eseguire operazioni che richiedono diritti di gestione. In funzioni di Azure versione 2. x e successive questa proprietà non è disponibile perché la versione più recente dell'SDK del bus di servizio non supporta le operazioni di gestione.|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -388,7 +388,7 @@ Se è stato `isSessionsEnabled` impostato su `true` , `sessionHandlerOptions` ve
 |---------|---------|---------|
 |prefetchCount|0|Ottiene o imposta il numero di messaggi che possono essere richiesti simultaneamente dal ricevitore del messaggio.|
 |maxAutoRenewDuration|00:05:00|La durata massima entro il quale il blocco del messaggio verrà rinnovato automaticamente.|
-|autoComplete|true|Indica se il trigger deve chiamare automaticamente complete dopo l'elaborazione o se il codice della funzione chiamerà manualmente il completamento.<br><br>L'impostazione di su `false` è supportata solo in C#.<br><br>Se impostato su `true` , il trigger completa automaticamente il messaggio se l'esecuzione della funzione viene completata correttamente e abbandona il messaggio in caso contrario.<br><br>Quando è impostato su `false` , si è responsabili della chiamata dei metodi [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) per completare, abbandonare o DeadLetter il messaggio. Se viene generata un'eccezione (e nessuno dei `MessageReceiver` metodi viene chiamato), il blocco rimane. Una volta scaduto il blocco, il messaggio viene nuovamente accodato con l' `DeliveryCount` incremento e il blocco viene rinnovato automaticamente.<br><br>Nelle funzioni non C #, le eccezioni nella funzione generano chiamate `abandonAsync` di runtime in background. Se non si verifica alcuna eccezione, `completeAsync` viene chiamato in background. |
+|autoComplete|True|Indica se il trigger deve chiamare automaticamente complete dopo l'elaborazione o se il codice della funzione chiamerà manualmente il completamento.<br><br>L'impostazione di su `false` è supportata solo in C#.<br><br>Se impostato su `true` , il trigger completa automaticamente il messaggio se l'esecuzione della funzione viene completata correttamente e abbandona il messaggio in caso contrario.<br><br>Quando è impostato su `false` , si è responsabili della chiamata dei metodi [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver?view=azure-dotnet) per completare, abbandonare o DeadLetter il messaggio. Se viene generata un'eccezione (e nessuno dei `MessageReceiver` metodi viene chiamato), il blocco rimane. Una volta scaduto il blocco, il messaggio viene nuovamente accodato con l' `DeliveryCount` incremento e il blocco viene rinnovato automaticamente.<br><br>Nelle funzioni non C #, le eccezioni nella funzione generano chiamate `abandonAsync` di runtime in background. Se non si verifica alcuna eccezione, `completeAsync` viene chiamato in background. |
 |maxConcurrentCalls|16|Numero massimo di chiamate simultanee al callback che il message pump deve avviare per istanza ridimensionata. Per impostazione predefinita, il runtime di Funzioni elabora più messaggi contemporaneamente.|
 |maxConcurrentSessions|2000|Numero massimo di sessioni che possono essere gestite simultaneamente per istanza ridimensionata.|
 
