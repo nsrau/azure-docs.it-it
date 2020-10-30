@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a59939fc7988e1a94bdfb9fac2d77011422e4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b763a1cda91886946bba211f589c37940e7c3ae1
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87274681"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042808"
 ---
 # <a name="conditional-access-grant"></a>Accesso condizionale: Concedi
 
@@ -70,7 +70,7 @@ Quando si usa il [flusso OAuth del codice del dispositivo](../develop/v2-oauth2-
 
 Le organizzazioni possono richiedere che venga eseguito un tentativo di accesso alle app Cloud selezionate da un'app client approvata. Queste app client approvate supportano i [criteri di protezione delle app di Intune](/intune/app-protection-policy) in modo indipendente da qualsiasi soluzione di gestione di dispositivi mobili (MDM).
 
-Per sfruttare questo controllo di concessione, l'accesso condizionale richiede che il dispositivo sia registrato in Azure Active Directory che richiede l'uso di un'app Broker. L'app broker può essere Microsoft Authenticator per iOS o il Portale aziendale Microsoft per i dispositivi Android. Se un'app Broker non è installata nel dispositivo quando l'utente tenta di eseguire l'autenticazione, l'utente viene reindirizzato all'App Store per installare l'app Broker.
+Per sfruttare questo controllo di concessione, l'accesso condizionale richiede che il dispositivo sia registrato in Azure Active Directory che richiede l'uso di un'app Broker. L'app broker può essere il Microsoft Authenticator per iOS o il Microsoft Authenticator o il portale aziendale Microsoft per i dispositivi Android. Se un'app Broker non è installata nel dispositivo quando l'utente tenta di eseguire l'autenticazione, l'utente viene reindirizzato all'app/Play Store appropriata per installare l'app broker richiesta.
 
 Questa impostazione si applica alle app iOS e Android seguenti:
 
@@ -106,7 +106,7 @@ Questa impostazione si applica alle app iOS e Android seguenti:
 **Osservazioni:**
 
 - Le app client approvate supportano la funzionalità di gestione di applicazioni mobili di Intune.
-- Il requisito **Richiedi app client approvata**:
+- Il requisito **Richiedi app client approvata** :
    - Supporta solo iOS e Android come condizione per le piattaforme del dispositivo.
    - Per registrare il dispositivo è necessaria un'app Broker. In iOS l'app Broker è Microsoft Authenticator e in Android è Portale aziendale Intune app.
 - L'accesso condizionale non può considerare Microsoft Edge in modalità InPrivate per un'app client approvata.

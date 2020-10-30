@@ -11,12 +11,12 @@ ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 0e14bba7b2982dd12fcca0d7aedc864b2a65288f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1683977d5c8be965cb329611c5a7fd6602a1cd97
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91259952"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043370"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Usare funzioni di Azure per gestire le risorse di calcolo nel pool SQL di Azure sinapsi Analytics
 
@@ -44,15 +44,15 @@ Al termine della distribuzione del modello, dovrebbero essere presenti tre nuove
 
 ## <a name="change-the-compute-level"></a>Modificare il livello di calcolo
 
-1. Passare al servizio app per le funzioni. Se il modello è stato distribuito con i valori predefiniti, il servizio sarà denominato *DWOperations*. Dopo aver aperto l'app per le funzioni, si noterà che nel servizio app per le funzioni sono distribuite cinque funzioni.
+1. Passare al servizio app per le funzioni. Se il modello è stato distribuito con i valori predefiniti, il servizio sarà denominato *DWOperations* . Dopo aver aperto l'app per le funzioni, si noterà che nel servizio app per le funzioni sono distribuite cinque funzioni.
 
    ![Funzioni distribuite con il modello](./media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Selezionare *DWScaleDownTrigger* o *DWScaleUpTrigger*, a seconda che si vogliano modificare la data e l'ora dell'aumento o della riduzione delle prestazioni. Nel menu a discesa selezionare Integrazione.
+2. Selezionare *DWScaleDownTrigger* o *DWScaleUpTrigger* , a seconda che si vogliano modificare la data e l'ora dell'aumento o della riduzione delle prestazioni. Nel menu a discesa selezionare Integrazione.
 
    ![Selezionare Integrazione per la funzione](./media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. Il valore attualmente visualizzato dovrebbe essere *%ScaleDownTime%* o *%ScaleUpTime%*. Questi valori indicano che la pianificazione è basata sui valori definiti nelle [impostazioni dell'applicazione](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Per il momento è possibile ignorare questo valore e modificare la pianificazione impostando la data e l'ora preferite in base ai passaggi successivi.
+3. Il valore attualmente visualizzato dovrebbe essere *%ScaleDownTime%* o *%ScaleUpTime%* . Questi valori indicano che la pianificazione è basata sui valori definiti nelle [impostazioni dell'applicazione](../../azure-functions/functions-how-to-use-azure-function-app-settings.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json). Per il momento è possibile ignorare questo valore e modificare la pianificazione impostando la data e l'ora preferite in base ai passaggi successivi.
 
 4. Nell'area pianificazione aggiungere la data e l'ora dell'espressione CRON che si vuole rispecchiare con quale frequenza si vuole aumentare la scalabilità delle analisi di sinapsi di Azure.
 
@@ -68,9 +68,9 @@ Al termine della distribuzione del modello, dovrebbero essere presenti tre nuove
 
 ## <a name="change-the-time-of-the-scale-operation"></a>Modificare la data e l'ora dell'operazione di ridimensionamento
 
-1. Passare al servizio app per le funzioni. Se il modello è stato distribuito con i valori predefiniti, il servizio sarà denominato *DWOperations*. Dopo aver aperto l'app per le funzioni, si noterà che nel servizio app per le funzioni sono distribuite cinque funzioni.
+1. Passare al servizio app per le funzioni. Se il modello è stato distribuito con i valori predefiniti, il servizio sarà denominato *DWOperations* . Dopo aver aperto l'app per le funzioni, si noterà che nel servizio app per le funzioni sono distribuite cinque funzioni.
 
-2. Selezionare *DWScaleDownTrigger* o *DWScaleUpTrigger*, a seconda che si voglia modificare il valore di calcolo per l'aumento o per la riduzione delle prestazioni. Quando si selezionano le funzioni, nel riquadro dovrebbe essere visualizzato il file *index.js*.
+2. Selezionare *DWScaleDownTrigger* o *DWScaleUpTrigger* , a seconda che si voglia modificare il valore di calcolo per l'aumento o per la riduzione delle prestazioni. Quando si selezionano le funzioni, nel riquadro dovrebbe essere visualizzato il file *index.js* .
 
    ![Modificare il livello di calcolo del trigger della funzione](././media/manage-compute-with-azure-functions/index-js.png)
 
@@ -78,7 +78,7 @@ Al termine della distribuzione del modello, dovrebbero essere presenti tre nuove
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Usare la sospensione o la ripresa invece del ridimensionamento
 
-Attualmente, le funzioni attivate per impostazione predefinita sono *DWScaleDownTrigger* e *DWScaleUpTrigger*. Se si preferisce invece sospendere e riprendere le funzionalità, è possibile abilitare *DWPauseTrigger* o *DWResumeTrigger*.
+Attualmente, le funzioni attivate per impostazione predefinita sono *DWScaleDownTrigger* e *DWScaleUpTrigger* . Se si preferisce invece sospendere e riprendere le funzionalità, è possibile abilitare *DWPauseTrigger* o *DWResumeTrigger* .
 
 1. Passare al riquadro Funzioni.
 
@@ -97,9 +97,9 @@ Attualmente, nel modello sono incluse solo due funzioni di ridimensionamento. Co
 
 1. Creare una nuova funzione vuota. Selezionare il *+* pulsante accanto al percorso funzioni per visualizzare il riquadro modello di funzione.
 
-   ![Creare una nuova funzione](./media/manage-compute-with-azure-functions/create-new-function.png)
+   ![Screenshot che mostra il menu "app per le funzioni" con l'icona "più" accanto a "Functions" selezionato.](./media/manage-compute-with-azure-functions/create-new-function.png)
 
-2. In lingua selezionare *JavaScript*, quindi selezionare *TimerTrigger*.
+2. In lingua selezionare *JavaScript* , quindi selezionare *TimerTrigger* .
 
    ![Creare una nuova funzione](./media/manage-compute-with-azure-functions/timertrigger-js.png)
 
@@ -154,7 +154,7 @@ Scalabilità giornaliera fino a 8 a compreso dw1000c, riduzione delle prestazion
 | Funzione 2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600c"}` |
 | Funzione 3 | 0 0 22 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200c"}` |
 
-### <a name="example-3"></a>Esempio 3
+### <a name="example-3"></a>Esempio 3:
 
 Scalabilità verticale a compreso dw1000c, con scalabilità verticale una volta DW600c alle 16.00 nei giorni feriali. nonché sospendere alle ore 23 di venerdì e riprendere alle ore 7 di lunedì.
 

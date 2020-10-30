@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 02/25/2019
 ms.author: srrengar
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 614c8e5f76475c7e7af35db37334eb645ad553a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 286c59938413a912c005181fca12f6698a7bc55e
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89018604"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042897"
 ---
 # <a name="query-eventstore-apis-for-cluster-events"></a>Eseguire query sulle API di EventStore per eventi del cluster
 
@@ -192,7 +192,7 @@ Oltre agli eventi relativi al ciclo di vita delle applicazioni, può essere util
 
 *Dati cronologici sull'integrità per tutti i servizi in "myApp"*
 
-Attualmente, gli eventi dei report sull'integrità per i servizi sono inclusi come eventi `DeployedServicePackageNewHealthReport` nell'entità applicazione corrispondente. Per visualizzare l'integrità dei servizi per "App1", usare la query seguente: `https://winlrc-staging-10.southcentralus.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
+Attualmente, gli eventi dei report sull'integrità per i servizi sono inclusi come eventi `DeployedServicePackageNewHealthReport` nell'entità applicazione corrispondente. Per visualizzare l'integrità dei servizi per "App1", usare la query seguente: `https://mycluster.cloudapp.azure.com:19080/EventsStore/Applications/myapp/$/Events?api-version=6.4&starttimeutc=2017-04-22T17:01:51Z&endtimeutc=2018-04-29T17:02:51Z&EventsTypesFilter=DeployedServicePackageNewHealthReport`
 
 *Riconfigurazione delle partizioni*
 

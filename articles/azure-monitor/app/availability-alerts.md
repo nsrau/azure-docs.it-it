@@ -6,12 +6,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 300c4bcdb948665b2cdf4ce0eb429499208660b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a0e8540d9488e9cc3756eb09c69349ac90d20b83
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90970750"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043384"
 ---
 # <a name="availability-alerts"></a>Avvisi di disponibilità
 
@@ -28,11 +28,11 @@ Gli avvisi vengono ora abilitati automaticamente per impostazione predefinita, m
 
 1. Dopo il salvataggio del test di disponibilità, nella scheda Dettagli fare clic sui puntini di sospensione accanto al test appena creato. Fare clic su "Modifica avviso".
 
-   ![Modifica dopo il salvataggio](./media/availability-alerts/edit-alert.png)
+   ![Screenshot Visualizza l'avviso di modifica selezionato dal menu.](./media/availability-alerts/edit-alert.png)
 
 2. Impostare il livello di gravità desiderato, la descrizione della regola ed, elemento ancora più importante, il gruppo di azioni con le preferenze di notifica che si vogliono usare per questa regola di avviso.
 
-   ![Modifica dopo il salvataggio](./media/availability-alerts/set-action-group.png)
+   ![Screenshot mostra la pagina di gestione delle regole in cui è possibile modificare la regola.](./media/availability-alerts/set-action-group.png)
 
 > [!NOTE]
 > Gli avvisi di disponibilità creati tramite questa esperienza sono basati sullo stato. Ciò significa che quando viene raggiunto il criterio di avviso, viene generato un singolo avviso quando il sito viene rilevato come non disponibile. Se il sito è ancora inattivo la volta successiva che vengono valutati i criteri di avviso, non verrà generato un nuovo avviso. Quindi, se il sito è inattivo per un'ora e si è configurato un avviso di posta elettronica, si riceverà un messaggio di posta elettronica solo quando il sito è stato disattivato e un messaggio di posta elettronica successivo al backup del sito. Non si riceveranno avvisi continui ricordando che il sito era ancora non disponibile.

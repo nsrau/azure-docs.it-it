@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 99604092ea901458062abd6423d74ad8f1f2c8d7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 58ecca6251e4c428ae5f834379e8b45059b0efc9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92014410"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042777"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>Scenari e disponibilità delle funzionalità di Servizi multimediali nei data center
 
@@ -41,9 +41,9 @@ Per iniziare a utilizzare Servizi multimediali di Azure, è necessario disporre 
 
 * Un account Azure. Se non si dispone di un account Azure, è possibile creare un account di valutazione gratuito in pochi minuti. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com).
 * Un account di Servizi multimediali di Azure. Per altre informazioni, vedere [Creare un account](media-services-portal-create-account.md).
-* L'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione**.
+* L'endpoint di streaming da cui si vuole trasmettere il contenuto deve essere nello stato **In esecuzione** .
 
-    Quando viene creato l'account AMS, un endpoint di streaming **predefinito** viene aggiunto all'account nello stato **interrotto** . Per avviare lo streaming dei contenuti e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming deve trovarsi nello stato **In esecuzione**.
+    Quando viene creato l'account AMS, un endpoint di streaming **predefinito** viene aggiunto all'account nello stato **interrotto** . Per avviare lo streaming dei contenuti e sfruttare i vantaggi della creazione dinamica dei pacchetti e della crittografia dinamica, l'endpoint di streaming deve trovarsi nello stato **In esecuzione** .
 
 ### <a name="commonly-used-objects-when-developing-against-the-ams-odata-model"></a>Oggetti comunemente usati nello sviluppo con il modello OData di AMS
 
@@ -123,7 +123,7 @@ In caso di streaming live, è possibile scegliere una delle route descritte di s
 
 Il diagramma seguente illustra le parti principali della piattaforma AMS coinvolte nel flusso di lavoro **pass-through** .
 
-![Flusso di lavoro live](./media/scenarios-and-availability/media-services-live-streaming-current.png)
+![Diagramma che mostra le parti principali della piattaforma A M, incluse nel flusso di lavoro "pass-through".](./media/scenarios-and-availability/media-services-live-streaming-current.png)
 
 Per altre informazioni, vedere l'articolo relativo all' [uso di canali che ricevono il flusso live a velocità in bit multipla da codificatori locali](media-services-live-streaming-with-onprem-encoders.md).
 
@@ -149,11 +149,11 @@ Servizi multimediali supporta l'integrazione con la rete CDN di Azure. Per infor
 
 I clienti di AMS possono ridimensionare gli endpoint di streaming, l'elaborazione di contenuti multimediali e lo spazio di archiviazione nei propri account AMS.
 
-* I clienti di Servizi multimediali possono scegliere un endpoint di streaming **Standard** o **Premium**. Un endpoint di streaming **Standard** è adatto per la maggior parte dei carichi di lavoro di streaming. Include le stesse funzionalità degli endpoint di streaming **Premium** e offre la scalabilità automatica della larghezza di banda in uscita. 
+* I clienti di Servizi multimediali possono scegliere un endpoint di streaming **Standard** o **Premium** . Un endpoint di streaming **Standard** è adatto per la maggior parte dei carichi di lavoro di streaming. Include le stesse funzionalità degli endpoint di streaming **Premium** e offre la scalabilità automatica della larghezza di banda in uscita. 
 
-    Gli endpoint di streaming **Premium** sono ideali per i carichi di lavoro avanzati, in quanto offrono una capacità di larghezza di banda dedicata e scalabile. Per impostazione predefinita, i clienti con un endpoint di streaming **Premium** ottengono un'unità di streaming. L'endpoint di streaming può essere ridimensionato aggiungendo unità di streaming. Ogni unità di streaming fornisce all'applicazione capacità di larghezza di banda aggiuntiva. Per altre informazioni sul ridimensionamento degli endpoint di streaming **Premium**, vedere l'argomento [Ridimensionare gli endpoint di streaming](media-services-portal-scale-streaming-endpoints.md).
+    Gli endpoint di streaming **Premium** sono ideali per i carichi di lavoro avanzati, in quanto offrono una capacità di larghezza di banda dedicata e scalabile. Per impostazione predefinita, i clienti con un endpoint di streaming **Premium** ottengono un'unità di streaming. L'endpoint di streaming può essere ridimensionato aggiungendo unità di streaming. Ogni unità di streaming fornisce all'applicazione capacità di larghezza di banda aggiuntiva. Per altre informazioni sul ridimensionamento degli endpoint di streaming **Premium** , vedere l'argomento [Ridimensionare gli endpoint di streaming](media-services-portal-scale-streaming-endpoints.md).
 
-* Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità dei processi di elaborazione dei multimedia. È possibile scegliere uno dei seguenti tipi di unità riservata: **S1**, **S2** o **S3**. Lo stesso processo di codifica viene eseguito più velocemente quando si usa ad esempio il tipo di unità riservata **S2** rispetto al tipo **S1**.
+* Un account di Servizi multimediali è associato a un tipo di unità riservata che determina la velocità dei processi di elaborazione dei multimedia. È possibile scegliere uno dei seguenti tipi di unità riservata: **S1** , **S2** o **S3** . Lo stesso processo di codifica viene eseguito più velocemente quando si usa ad esempio il tipo di unità riservata **S2** rispetto al tipo **S1** .
 
     Oltre a specificare il tipo di unità riservata, è possibile specificare di effettuare il provisioning dell'account con **unità riservate** (UR). Il numero delle UR sottoposte a provisioning determina il numero di attività multimediali che possono essere elaborate contemporaneamente in un determinato account.
 
@@ -175,14 +175,14 @@ Usare i [prodotti di Azure in base all'area](https://azure.microsoft.com/global-
 
 ### <a name="streaming-endpoints"></a>Endpoint di streaming 
 
-I clienti di Servizi multimediali possono scegliere un endpoint di streaming **Standard** o **Premium**. Per altre informazioni, vedere la sezione relativa al [ridimensionamento](#scaling).
+I clienti di Servizi multimediali possono scegliere un endpoint di streaming **Standard** o **Premium** . Per altre informazioni, vedere la sezione relativa al [ridimensionamento](#scaling).
 
 #### <a name="availability"></a>Disponibilità
 
 |Nome|Stato|Data center
 |---|---|---|
-|Standard|GA|All|
-|Premium|GA|All|
+|Standard|GA|Tutti|
+|Premium|GA|Tutti|
 
 ### <a name="live-encoding"></a>Codifica live
 
@@ -192,13 +192,13 @@ I clienti di Servizi multimediali possono scegliere un endpoint di streaming **S
 
 ### <a name="encoding-media-processors"></a>Processori di contenuti multimediali di codifica
 
-AMS offre due codificatori su richiesta: **Media Encoder Standard** e **Flusso di lavoro Premium del codificatore multimediale**. Per altre informazioni, vedere [Panoramica e confronto dei codificatori multimediali su richiesta di Azure](media-services-encode-asset.md). 
+AMS offre due codificatori su richiesta: **Media Encoder Standard** e **Flusso di lavoro Premium del codificatore multimediale** . Per altre informazioni, vedere [Panoramica e confronto dei codificatori multimediali su richiesta di Azure](media-services-encode-asset.md). 
 
 #### <a name="availability"></a>Disponibilità
 
 |Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
-|Codificatore multimediale standard|GA|All|
+|Codificatore multimediale standard|GA|Tutti|
 |Flusso di lavoro Premium del codificatore multimediale|GA|Tutti tranne Cina|
 
 ### <a name="analytics-media-processors"></a>Processori di contenuti multimediali di analisi
@@ -213,10 +213,10 @@ Analisi Servizi multimediali è una raccolta di componenti per sintesi vocale e 
 |Nome processore di contenuti multimediali|Stato|Data center
 |---|---|---|
 |Rilevamento multimediale volti di Azure|Anteprima|Tutti|
-|Azure Media Indexer|GA|All|
+|Azure Media Indexer|GA|Tutti|
 |Rilevatore multimediale di movimento Azure|Anteprima|Tutti|
 |Riconoscimento ottico dei caratteri multimediale di Azure|Anteprima|Tutti|
-|Azure Media Redactor|GA|All|
+|Azure Media Redactor|GA|Tutti|
 |Anteprime video multimediali di Azure|Anteprima|Tutti|
 
 ### <a name="protection"></a>Protezione
@@ -227,10 +227,10 @@ Servizi multimediali di Microsoft Azure consente di proteggere i file multimedia
 
 |Crittografia|Stato|Data center|
 |---|---|---| 
-|Archiviazione|GA|All|
-|Chiavi AES-128|GA|All|
-|Fairplay|GA|All|
-|PlayReady|GA|All|
+|Archiviazione|GA|Tutti|
+|Chiavi AES-128|GA|Tutti|
+|Fairplay|GA|Tutti|
+|PlayReady|GA|Tutti|
 |Widevine|GA|Tutti tranne Germania, Governo federale e Cina.
 
 ### <a name="reserved-units-rus"></a>Unità riservate
@@ -253,7 +253,7 @@ Per altre informazioni, vedere la sezione relativa al [ridimensionamento](#scali
 
 |Nome tipo di unità riservata|Stato|Data center
 |---|---|---|
-|S1|GA|All|
+|S1|GA|Tutti|
 |S2|GA|Tutti tranne Brasile meridionale e India occidentale|
 |S3|GA|Tutti tranne India occidentale|
 

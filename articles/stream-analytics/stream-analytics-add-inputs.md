@@ -6,13 +6,13 @@ ms.author: krishmam
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: b58a2b4cb5cd083f837eb598d4e5f330783181c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: f49ba8a907a65180061ef3973ae30b4438a945a2
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91279995"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043005"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Informazioni sugli input per Analisi di flusso di Azure
 
@@ -22,7 +22,7 @@ Analisi di flusso offre un'integrazione di prima classe con quattro tipi di riso
 - [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)
 - [Hub IoT Azure](https://azure.microsoft.com/services/iot-hub/) 
 - [Archivio BLOB di Azure](https://azure.microsoft.com/services/storage/blobs/) 
-- [Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction) 
+- [Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md) 
 
 Queste risorse di input possono risiedere nella stessa sottoscrizione di Azure del processo di analisi di flusso o in una sottoscrizione diversa.
 
@@ -37,7 +37,7 @@ Un flusso dei dati è una sequenza non associata di eventi che accadono nel temp
 Per altre informazioni sul flusso dei dati di input, vedere [Trasmettere dati come input in Analisi di flusso](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Input dei dati di riferimento
-Analisi di flusso supporta anche l'input noto come *dati di riferimento*. I dati di riferimento possono essere completamente statici o cambiare lentamente. I dati di riferimento vengono usati in genere per l'esecuzione di correlazione e ricerche. È ad esempio possibile unire i dati nell'input del flusso dei dati con quelli inclusi nei dati di riferimento, proprio come si esegue un join SQL per cercare valori statici. Archiviazione BLOB di Azure, Azure Data Lake Storage Gen2 e il database SQL di Azure sono attualmente supportati come origini di input per i dati di riferimento. I BLOB di origini dati di riferimento hanno un limite di dimensioni fino a 300 MB, a seconda della complessità della query e delle unità di streaming allocate. per altri dettagli, vedere la sezione [limitazione delle dimensioni](stream-analytics-use-reference-data.md#size-limitation) della documentazione sui dati di riferimento.
+Analisi di flusso supporta anche l'input noto come *dati di riferimento* . I dati di riferimento possono essere completamente statici o cambiare lentamente. I dati di riferimento vengono usati in genere per l'esecuzione di correlazione e ricerche. È ad esempio possibile unire i dati nell'input del flusso dei dati con quelli inclusi nei dati di riferimento, proprio come si esegue un join SQL per cercare valori statici. Archiviazione BLOB di Azure, Azure Data Lake Storage Gen2 e il database SQL di Azure sono attualmente supportati come origini di input per i dati di riferimento. I BLOB di origini dati di riferimento hanno un limite di dimensioni fino a 300 MB, a seconda della complessità della query e delle unità di streaming allocate. per altri dettagli, vedere la sezione [limitazione delle dimensioni](stream-analytics-use-reference-data.md#size-limitation) della documentazione sui dati di riferimento.
 
 Per altre informazioni sugli input di dati di riferimento, vedere [Uso dei dati di riferimento per le ricerche in Analisi di flusso](stream-analytics-use-reference-data.md)
 

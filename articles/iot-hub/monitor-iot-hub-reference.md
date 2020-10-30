@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: reference
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 166234711ce00f0ed1f45c35ef661aa5b35f8a3c
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 8cace120dc823f42f2b2e01e4234ea8d5ace7a69
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926326"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042943"
 ---
 # <a name="monitoring-azure-iot-hub-data-reference"></a>Monitoraggio del riferimento ai dati dell'hub Azure
 
@@ -60,9 +60,9 @@ Per la maggior parte delle metriche, tutti i tipi di aggregazione sono validi. T
 |Nome visualizzato per la metrica|Metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|
 |C2D Messages Expired (preview) (Messaggi C2D scaduti (anteprima))|C2DMessagesExpired|Conteggio|Totale|Numero di messaggi da cloud a dispositivo scaduti|Nessuno|
-|C2D message deliveries completed (Recapiti messaggi C2D completati)|C2D. Commands. in uscita.<br>operazione completata. operazione completata|Conteggio|Totale|Numero di recapiti di messaggi da cloud a dispositivo completati dal dispositivo|Nessuno|
-|C2D messages abandoned (Messaggi C2D abbandonati)|C2D. Commands. in uscita.<br>abbandono. esito positivo|Conteggio|Totale|Numero di messaggi da cloud a dispositivo abbandonati dal dispositivo|Nessuno|
-|C2D messages rejected (Messaggi C2D rifiutati)|C2D. Commands. in uscita.<br>rifiuto. operazione riuscita|Conteggio|Totale|Numero di messaggi da cloud a dispositivo rifiutati dal dispositivo|Nessuno|
+|C2D message deliveries completed (Recapiti messaggi C2D completati)|c2d.commands.egress.complete.success|Conteggio|Totale|Numero di recapiti di messaggi da cloud a dispositivo completati dal dispositivo|Nessuno|
+|C2D messages abandoned (Messaggi C2D abbandonati)|c2d.commands.egress.abandon.success|Conteggio|Totale|Numero di messaggi da cloud a dispositivo abbandonati dal dispositivo|Nessuno|
+|C2D messages rejected (Messaggi C2D rifiutati)|c2d.commands.egress.reject.success|Conteggio|Totale|Numero di messaggi da cloud a dispositivo rifiutati dal dispositivo|Nessuno|
 
 Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
@@ -113,7 +113,7 @@ Per il *numero totale di messaggi utilizzati* , sono supportate solo le aggregaz
 |Nome visualizzato per la metrica|Metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|
 |Dispositivi totali (deprecati)|devices.totalDevices|Conteggio|Totale|Il numero di dispositivi registrati nell'hub IoT|Nessuno|
-|Dispositivi connessi (deprecati) |Devices. connectedDevices.<br>allProtocol|Conteggio|Totale|Il numero di dispositivi connessi all'hub IoT|Nessuno|
+|Dispositivi connessi (deprecati) |devices.connectedDevices.allProtocol|Conteggio|Totale|Il numero di dispositivi connessi all'hub IoT|Nessuno|
 |Dispositivi totali (anteprima)|totalDeviceCount|Conteggio|Media|Il numero di dispositivi registrati nell'hub IoT|Nessuno|
 |Dispositivi connessi (anteprima)|connectedDeviceCount|Conteggio|Media|Il numero di dispositivi connessi all'hub IoT|Nessuno|
 
@@ -127,9 +127,9 @@ I *dispositivi connessi (anteprima)* e i *dispositivi totali (anteprima)* non so
 
 |Nome visualizzato per la metrica|Metrica|Unità|Tipo di aggregazione|Descrizione|Dimensioni|
 |---|---|---|---|---|---|
-|Number of throttling errors (Numero di errori di limitazione)|D2C. telemetria. ingress.<br>sendThrottle|Conteggio|Totale|Numero di errori di limitazione dovuti alle limitazioni della velocità effettiva del dispositivo|Nessuno|
-|Tentativi di invio di messaggi di telemetria|D2C. telemetria. ingress.<br>allProtocol|Conteggio|Totale|Il numero di messaggi di telemetria da dispositivo a cloud che si è cercato di inviare all'hub IoT|Nessuno|
-|Messaggi di telemetria inviati|D2C. telemetria. ingress.<br>esito positivo|Conteggio|Totale|Il numero di messaggi di telemetria da dispositivo a cloud inviati all'hub IoT|Nessuno|
+|Number of throttling errors (Numero di errori di limitazione)|d2c.telemetry.ingress.sendThrottle|Conteggio|Totale|Numero di errori di limitazione dovuti alle limitazioni della velocità effettiva del dispositivo|Nessuno|
+|Tentativi di invio di messaggi di telemetria|d2c.telemetry.ingress.allProtocol|Conteggio|Totale|Il numero di messaggi di telemetria da dispositivo a cloud che si è cercato di inviare all'hub IoT|Nessuno|
+|Messaggi di telemetria inviati|d2c.telemetry.ingress.success|Conteggio|Totale|Il numero di messaggi di telemetria da dispositivo a cloud inviati all'hub IoT|Nessuno|
 
 Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 
@@ -161,13 +161,13 @@ Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo 
 |---|---|---|---|---|---|
 |Processi completati|jobs.completed|Conteggio|Totale|Numero di tutti i processi completati.|Nessuno|
 |Chiamate per elencare i processi non riuscite|jobs.listJobs.failure|Conteggio|Totale|Numero di tutte le chiamate per elencare i processi non riuscite.|Nessuno|
-|Creazioni di processi di chiamata al metodo non riuscite|Jobs. createDirectMethodJob.<br>operazione non riuscita|Conteggio|Totale|Numero di tutte le creazioni di processi di chiamata a metodi diretti non riuscite.|Nessuno|
-|Creazioni di processi di aggiornamento dei dispositivi gemelli non riuscite|Jobs. createTwinUpdateJob.<br>operazione non riuscita|Conteggio|Totale|Numero di tutte le creazioni di processi di aggiornamento dei dispositivi gemelli non riuscite.|Nessuno|
+|Creazioni di processi di chiamata al metodo non riuscite|jobs.createDirectMethodJob.failure|Conteggio|Totale|Numero di tutte le creazioni di processi di chiamata a metodi diretti non riuscite.|Nessuno|
+|Creazioni di processi di aggiornamento dei dispositivi gemelli non riuscite|jobs.createTwinUpdateJob.failure|Conteggio|Totale|Numero di tutte le creazioni di processi di aggiornamento dei dispositivi gemelli non riuscite.|Nessuno|
 |Annullamenti di processi non riusciti|jobs.cancelJob.failure|Conteggio|Totale|Numero di tutte le chiamate per annullare i processi non riuscite.|Nessuno|
 |Query sui processi non riuscite|jobs.queryJobs.failure|Conteggio|Totale|Numero di tutte le chiamate per eseguire query sui processi non riuscite.|Nessuno|
 |Processi non riusciti|jobs.failed|Conteggio|Totale|Numero di tutti i processi non riusciti.|Nessuno|
 |Chiamate per elencare i processi riuscite|jobs.listJobs.success|Conteggio|Totale|Numero di tutte le chiamate per elencare i processi riuscite.|Nessuno|
-|Creazioni di processi di chiamata al metodo completate|Jobs. createDirectMethodJob.<br>esito positivo|Conteggio|Totale|Numero di tutte le creazioni di processi di chiamata a metodi diretti completate.|Nessuno|
+|Creazioni di processi di chiamata al metodo completate|jobs.createDirectMethodJob.success|Conteggio|Totale|Numero di tutte le creazioni di processi di chiamata a metodi diretti completate.|Nessuno|
 |Creazioni di processi di aggiornamento dei dispositivi gemelli completate|Jobs. createTwinUpdateJob.<br>esito positivo|Conteggio|Totale|Numero di tutte le creazioni di processi di aggiornamento dei dispositivi gemelli completate.|Nessuno|
 |Annullamenti di processi riusciti|jobs.cancelJob.success|Conteggio|Totale|Numero di tutte le chiamate per annullare i processi riuscite.|Nessuno|
 |Query sui processi riuscite|jobs.queryJobs.success|Conteggio|Totale|Numero di tutte le chiamate per eseguire query sui processi riuscite.|Nessuno|
@@ -181,23 +181,23 @@ Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo 
 | Tentativi di recapito routing (anteprima) |RoutingDeliveries | Conteggio | Totale |Si tratta della metrica per il recapito del routing. Utilizzare le dimensioni per identificare lo stato di recapito di un endpoint specifico o per un'origine di routing specifica.| Risultato:<br>RoutingSource,<br>EndpointType<br>FailureReasonCategory,<br>EndpointName<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)* . |
 | Dimensioni dei dati di recapito del routing in byte (anteprima)|RoutingDataSizeInBytesDelivered| Byte | Totale |Il numero totale di byte indirizzati dall'hub degli indirizzi Internet all'endpoint personalizzato e all'endpoint predefinito. Utilizzare le dimensioni per identificare le dimensioni dei dati indirizzate a un endpoint specifico o per un'origine di routing specifica.| RoutingSource,<br>EndpointType<br>EndpointName<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)* .|
 | Latenza routing (anteprima) |RoutingDeliveryLatency| Millisecondi | Media |Si tratta della metrica della latenza di recapito del routing. Utilizzare le dimensioni per identificare la latenza per un endpoint specifico o per un'origine di routing specifica.| RoutingSource,<br>EndpointType<br>EndpointName<br>*Per altre informazioni, vedere [dimensioni della metrica](#metric-dimensions)* .|
-|Routing: BLOB recapitati all'archiviazione|D2C. Endpoints. in uscita.<br>Storage. blob|Conteggio|Totale|Numero di volte in cui routing dell'hub IoT ha recapitato BLOB agli endpoint di archiviazione.|Nessuno|
-|Routing: dati recapitati all'archiviazione|D2C. Endpoints. in uscita.<br>Storage. bytes|Byte|Totale|Quantità di dati (byte) che il routing dell'hub IoT ha recapitato agli endpoint di archiviazione.|Nessuno|
-|Routing: latenza dei messaggi per l'hub eventi|D2C. Endpoints. latenza.<br>eventHubs|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e l'ingresso del messaggio in endpoint personalizzati di tipo hub eventi. Non sono incluse le route dei messaggi all'endpoint predefinito (eventi).|Nessuno|
-|Routing: latenza dei messaggi per la coda del bus di servizio|D2C. Endpoints. latenza.<br>serviceBusQueues|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e l'ingresso del messaggio in un endpoint della coda del bus di servizio.|Nessuno|
-|Routing: latenza dei messaggi per l'argomento del bus di servizio|D2C. Endpoints. latenza.<br>serviceBusTopics|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e l'ingresso del messaggio in un endpoint dell'argomento del bus di servizio.|Nessuno|
-|Routing: latenza dei messaggi per messaggi/eventi|D2C. Endpoints. latenza.<br>Builtin. eventi|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e l'ingresso del messaggio nell'endpoint predefinito (messaggi/eventi) e nella route di fallback.|Nessuno|
-|Routing: latenza dei messaggi per l'archiviazione|D2C. Endpoints. latenza.<br>storage|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e l'ingresso del messaggio in un endpoint di archiviazione.|Nessuno|
-|Routing: messaggi inviati all'hub eventi|D2C. Endpoints. in uscita.<br>eventHubs|Conteggio|Totale|Il numero di volte in cui il routing dell'hub Internet ha recapitato correttamente i messaggi agli endpoint personalizzati di tipo hub eventi. Non sono incluse le route dei messaggi all'endpoint predefinito (eventi).|Nessuno|
-|Routing: messaggi recapitati alla coda del bus di servizio|D2C. Endpoints. in uscita.<br>serviceBusQueues|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT ha recapitato i messaggi agli endpoint della coda del bus di servizio.|Nessuno|
-|Routing: messaggi recapitati all'argomento del bus di servizio|D2C. Endpoints. in uscita.<br>serviceBusTopics|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT ha recapitato i messaggi agli endpoint dell'argomento del bus di servizio.|Nessuno|
-|Routing: messaggi recapitati al fallback|D2C. telemetria. in uscita.<br>fallback|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT ha recapitato i messaggi all'endpoint associato con la route di fallback.|Nessuno|
-|Routing: messaggi recapitati a messaggi/eventi|D2C. Endpoints. in uscita.<br>Builtin. eventi|Conteggio|Totale|Il numero di volte in cui il routing dell'hub Internet è riuscito a recapitare messaggi all'endpoint predefinito (messaggi/eventi) e alla route di fallback.|Nessuno|
-|Routing: messaggi recapitati all'archiviazione|D2C. Endpoints. in uscita.<br>storage|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT ha recapitato i messaggi agli endpoint di archiviazione.|Nessuno|
-|Routing: messaggi di telemetria recapitati|D2C. telemetria. in uscita.<br>esito positivo|Conteggio|Totale|Numero di volte in cui i messaggi sono stati recapitati correttamente a tutti gli endpoint tramite routing dell'hub IoT. Se un messaggio viene indirizzato a più endpoint, questo valore aumenta di uno per ogni recapito con esito positivo. Se un messaggio viene recapitato più volte allo stesso endpoint, questo valore aumenta di uno per ogni recapito con esito positivo.|Nessuno|
-|Routing: messaggi di telemetria eliminati |D2C. telemetria. in uscita.<br>eliminato|Conteggio|Totale|Numero di volte in cui i messaggi sono stati eliminati dal routing dell'hub IoT a causa degli endpoint inattivi. Questo valore non include messaggi recapitati alla route di fallback perché i messaggi eliminati non vengono recapitati in tale punto.|Nessuno|
-|Routing: messaggi di telemetria incompatibili|D2C. telemetria. in uscita.<br>non valido|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT non è riuscito a recapitare i messaggi a causa di un'incompatibilità con l'endpoint. Un messaggio non è compatibile con un endpoint quando l'hub degli errori tenta di recapitare il messaggio a un endpoint e non riesce con un errore non temporaneo. I messaggi non validi non vengono ripetuti. Questo valore non include i nuovi tentativi.|Nessuno|
-|Routing: messaggi di telemetria orfani |D2C. telemetria. in uscita.<br>isolati|Conteggio|Totale|Il numero di volte in cui i messaggi sono stati orfani dal routing dell'hub Internet in quanto non corrispondono ad alcuna query di routing, quando la route di fallback è disabilitata.|Nessuno|
+|Routing: BLOB recapitati all'archiviazione|d2c.endpoints.egress.storage.blobs|Conteggio|Totale|Numero di volte in cui routing dell'hub IoT ha recapitato BLOB agli endpoint di archiviazione.|Nessuno|
+|Routing: dati recapitati all'archiviazione|d2c.endpoints.egress.storage.bytes|Byte|Totale|Quantità di dati (byte) che il routing dell'hub IoT ha recapitato agli endpoint di archiviazione.|Nessuno|
+|Routing: latenza dei messaggi per l'hub eventi|d2c.endpoints.latency.eventHubs|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e l'ingresso del messaggio in endpoint personalizzati di tipo hub eventi. Non sono incluse le route dei messaggi all'endpoint predefinito (eventi).|Nessuno|
+|Routing: latenza dei messaggi per la coda del bus di servizio|d2c.endpoints.latency.serviceBusQueues|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e l'ingresso del messaggio in un endpoint della coda del bus di servizio.|Nessuno|
+|Routing: latenza dei messaggi per l'argomento del bus di servizio|d2c.endpoints.latency.serviceBusTopics|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e l'ingresso del messaggio in un endpoint dell'argomento del bus di servizio.|Nessuno|
+|Routing: latenza dei messaggi per messaggi/eventi|d2c.endpoints.latency.builtIn.events|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e l'ingresso del messaggio nell'endpoint predefinito (messaggi/eventi) e nella route di fallback.|Nessuno|
+|Routing: latenza dei messaggi per l'archiviazione|d2c.endpoints.latency.storage|Millisecondi|Media|Latenza media (in millisecondi) tra l'ingresso del messaggio nell'hub e l'ingresso del messaggio in un endpoint di archiviazione.|Nessuno|
+|Routing: messaggi inviati all'hub eventi|d2c.endpoints.egress.eventHubs|Conteggio|Totale|Il numero di volte in cui il routing dell'hub Internet ha recapitato correttamente i messaggi agli endpoint personalizzati di tipo hub eventi. Non sono incluse le route dei messaggi all'endpoint predefinito (eventi).|Nessuno|
+|Routing: messaggi recapitati alla coda del bus di servizio|d2c.endpoints.egress.serviceBusQueues|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT ha recapitato i messaggi agli endpoint della coda del bus di servizio.|Nessuno|
+|Routing: messaggi recapitati all'argomento del bus di servizio|d2c.endpoints.egress.serviceBusTopics|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT ha recapitato i messaggi agli endpoint dell'argomento del bus di servizio.|Nessuno|
+|Routing: messaggi recapitati al fallback|d2c.telemetry.egress.fallback|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT ha recapitato i messaggi all'endpoint associato con la route di fallback.|Nessuno|
+|Routing: messaggi recapitati a messaggi/eventi|d2c.endpoints.egress.builtIn.events|Conteggio|Totale|Il numero di volte in cui il routing dell'hub Internet è riuscito a recapitare messaggi all'endpoint predefinito (messaggi/eventi) e alla route di fallback.|Nessuno|
+|Routing: messaggi recapitati all'archiviazione|d2c.endpoints.egress.storage|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT ha recapitato i messaggi agli endpoint di archiviazione.|Nessuno|
+|Routing: messaggi di telemetria recapitati|d2c.telemetry.egress.success|Conteggio|Totale|Numero di volte in cui i messaggi sono stati recapitati correttamente a tutti gli endpoint tramite routing dell'hub IoT. Se un messaggio viene indirizzato a più endpoint, questo valore aumenta di uno per ogni recapito con esito positivo. Se un messaggio viene recapitato più volte allo stesso endpoint, questo valore aumenta di uno per ogni recapito con esito positivo.|Nessuno|
+|Routing: messaggi di telemetria eliminati |d2c.telemetry.egress.dropped|Conteggio|Totale|Numero di volte in cui i messaggi sono stati eliminati dal routing dell'hub IoT a causa degli endpoint inattivi. Questo valore non include messaggi recapitati alla route di fallback perché i messaggi eliminati non vengono recapitati in tale punto.|Nessuno|
+|Routing: messaggi di telemetria incompatibili|d2c.telemetry.egress.invalid|Conteggio|Totale|Numero di volte in cui il routing dell'hub IoT non è riuscito a recapitare i messaggi a causa di un'incompatibilità con l'endpoint. Un messaggio non è compatibile con un endpoint quando l'hub degli errori tenta di recapitare il messaggio a un endpoint e non riesce con un errore non temporaneo. I messaggi non validi non vengono ripetuti. Questo valore non include i nuovi tentativi.|Nessuno|
+|Routing: messaggi di telemetria orfani |d2c.telemetry.egress.orphaned|Conteggio|Totale|Il numero di volte in cui i messaggi sono stati orfani dal routing dell'hub Internet in quanto non corrispondono ad alcuna query di routing, quando la route di fallback è disabilitata.|Nessuno|
 
 Per le metriche con un **Unit** valore di unità **conteggio** , è valida solo l'aggregazione totale (Sum). Le aggregazioni minime, massime e medie restituiscono sempre 1. Per ulteriori informazioni, vedere le [aggregazioni supportate](#supported-aggregations).
 

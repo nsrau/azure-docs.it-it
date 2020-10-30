@@ -5,18 +5,18 @@ description: Descrizione delle restrizioni e delle limitazioni relative al forma
 author: SureshJa
 ms.author: sureshja
 manager: CelesteDG
-ms.date: 08/07/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
-ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: bd6f88db2b55a5f0f445659e4b5ef609d3e146e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.reviewer: marsma, lenalepa, manrath
+ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030311"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93042912"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitazioni e limitazioni dell'URI di reindirizzamento (URL di risposta)
 
@@ -24,7 +24,7 @@ Un URI di reindirizzamento o un URL di risposta è il percorso in cui il server 
 
  Agli URL di reindirizzamento si applicano le restrizioni seguenti:
 
-* L'URI di reindirizzamento deve iniziare con lo schema `https` .
+* L'URI di reindirizzamento deve iniziare con lo schema `https` . Esistono alcune [eccezioni per](#localhost-exceptions) gli URI di reindirizzamento localhost.
 
 * L'URI di Reindirizzamento fa distinzione tra maiuscole e minuscole. Le maiuscole e le minuscole devono corrispondere a quelle nel percorso URL dell'applicazione in esecuzione. Se, ad esempio, l'applicazione include come parte del percorso `.../abc/response-oidc` , non specificare `.../ABC/response-oidc` nell'URI di reindirizzamento. Poiché il Web browser rileva la distinzione tra maiuscole e minuscole nei percorsi, è possibile che i cookie associati a `.../abc/response-oidc` vengano esclusi se reindirizzati all'URL `.../ABC/response-oidc` senza la corrispondenza tra maiuscole e minuscole.
 
@@ -64,11 +64,10 @@ Dal punto di vista dello sviluppo, questo significa che:
 
 * Non registrare più URI di reindirizzamento in cui è diversa solo la porta. Il server di accesso ne sceglierà uno arbitrario e utilizzerà il comportamento associato a tale URI di reindirizzamento (ad esempio, se è `web` -, `native` -o `spa` -Type Reindirizzamento).
 * Se è necessario registrare più URI di reindirizzamento in localhost per testare flussi diversi durante lo sviluppo, distinguerli usando il componente *path* dell'URI. Ad esempio, `http://127.0.0.1/MyWebApp` non corrisponde a `http://127.0.0.1/MyNativeApp` .
-* Per istruzioni RFC, non usare `localhost` nell'URI di reindirizzamento. Utilizzare invece l'indirizzo IP di loopback effettivo, `127.0.0.1` . In questo modo si impedisce che l'app venga interruppe da firewall o interfacce di rete rinominate in modo errato.
+* L'indirizzo di loopback IPv6 ( `[::1]` ) non è attualmente supportato.
+* Per impedire che l'app venga interruppe da firewall o interfacce di rete rinominate in modo errato, usare l'indirizzo di loopback del valore letterale IP `127.0.0.1` nell'URI di reindirizzamento anziché `localhost` .
 
-    Per utilizzare lo `http` schema con l'indirizzo di loopback (127.0.0.1) anziché localhost, è necessario modificare il [manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute). 
-
-    L'indirizzo di loopback IPv6 ( `[::1]` ) non è attualmente supportato.
+    Per utilizzare lo `http` schema con l'indirizzo di loopback valore letterale IP `127.0.0.1` , è necessario attualmente modificare l'attributo [replyUrlsWithType](reference-app-manifest.md#replyurlswithtype-attribute) nel [manifesto dell'applicazione](reference-app-manifest.md).
 
 ## <a name="restrictions-on-wildcards-in-redirect-uris"></a>Restrizioni relative ai caratteri jolly negli URI di Reindirizzamento
 
@@ -78,9 +77,9 @@ Gli URI con caratteri jolly non sono attualmente supportati nelle registrazioni 
 
 Per aggiungere gli URI di reindirizzamento con caratteri jolly alle registrazioni di app che consentono l'accesso agli account aziendali o dell'Istituto di istruzione, è necessario usare l'editor del manifesto dell'applicazione in [registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908) nel portale di Azure. Sebbene sia possibile impostare un URI di reindirizzamento con un carattere jolly usando l'editor del manifesto, è *consigliabile rispettare* la [sezione 3.1.2 della RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2) e usare solo URI assoluti.
 
-Se lo scenario richiede più URI di reindirizzamento rispetto al limite massimo consentito, prendere in considerazione l' [approccio seguente](#use-a-state-parameter) anziché aggiungere un URI di reindirizzamento con caratteri jolly.
+Se lo scenario richiede più URI di reindirizzamento rispetto al limite massimo consentito, prendere in considerazione il seguente [approccio al parametro di stato](#use-a-state-parameter) anziché aggiungere un URI di reindirizzamento con caratteri jolly.
 
-### <a name="use-a-state-parameter"></a>Uso di un parametro di stato
+#### <a name="use-a-state-parameter"></a>Uso di un parametro di stato
 
 Se si dispone di diversi sottodomini e lo scenario richiede che, al completamento dell'autenticazione, gli utenti vengano reindirizzati alla stessa pagina dal quale sono stati avviati, potrebbe essere utile usare un parametro di stato.
 

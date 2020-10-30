@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 86a512ea0e07f5eb2ce00ff27427139c5221d229
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 758e11a9c043fbd1238d1e3533a2d83804ec0b73
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92164823"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043104"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -107,13 +107,13 @@ In JavaScript le [associazioni](functions-triggers-bindings.md) vengono configur
 
 ### <a name="inputs"></a>Input
 In Funzioni di Azure, gli input vengono suddivisi in due categorie, ovvero l'input del trigger e un input aggiuntivo. Le associazioni di trigger e di altri input (associazioni di `direction === "in"`) possono essere lette da una funzione in tre modi:
- - **_[Consigliato] _ Come parametri passati alla funzione.** Vengono passati alla funzione nell'ordine in cui sono definiti in *function.json*. La `name` proprietà definita in *function.json* non deve necessariamente corrispondere al nome del parametro, anche se deve essere.
+ - **_[Consigliato]_ Come parametri passati alla funzione.** Vengono passati alla funzione nell'ordine in cui sono definiti in *function.json* . La `name` proprietà definita in *function.json* non deve necessariamente corrispondere al nome del parametro, anche se deve essere.
  
    ```javascript
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **Come membri dell'oggetto [`context.bindings`](#contextbindings-property).** Ogni membro è denominato in base alla proprietà `name` definita in *function.json*.
+ - **Come membri dell'oggetto [`context.bindings`](#contextbindings-property).** Ogni membro è denominato in base alla proprietà `name` definita in *function.json* .
  
    ```javascript
    module.exports = async function(context) { 
@@ -138,7 +138,7 @@ Gli output (associazioni di `direction === "out"`) possono essere scritti da una
 
 È possibile assegnare i dati alle associazioni di output in uno dei modi seguenti (non combinare questi metodi):
 
-- **_[Consigliato per più output] _ Restituzione di un oggetto.** Se si usa una funzione di restituzione asincrona/Promise, è possibile restituire un oggetto con i dati di output assegnati. Nell'esempio seguente, le associazioni di output sono denominate "httpResponse" e "queueOutput" in *function.json*.
+- **_[Consigliato per più output]_ Restituzione di un oggetto.** Se si usa una funzione di restituzione asincrona/Promise, è possibile restituire un oggetto con i dati di output assegnati. Nell'esempio seguente, le associazioni di output sono denominate "httpResponse" e "queueOutput" in *function.json* .
 
   ```javascript
   module.exports = async function(context) {
@@ -153,7 +153,7 @@ Gli output (associazioni di `direction === "out"`) possono essere scritti da una
   ```
 
   Se si usa una funzione sincrona, è possibile restituire questo oggetto usando [`context.done`](#contextdone-method) (vedere l'esempio).
-- **_[Consigliato per singolo output] _ Restituzione diretta di un valore e uso del nome di associazione $return.** Questo approccio vale solo per le funzioni asincrone o che restituiscono oggetti Promise. Vedere l'esempio in [Esportazione di una funzione asincrona](#exporting-an-async-function). 
+- **_[Consigliato per singolo output]_ Restituzione diretta di un valore e uso del nome di associazione $return.** Questo approccio vale solo per le funzioni asincrone o che restituiscono oggetti Promise. Vedere l'esempio in [Esportazione di una funzione asincrona](#exporting-an-async-function). 
 - **Assegnazione di valori a `context.bindings`** È possibile assegnare valori direttamente a context.bindings.
 
   ```javascript
@@ -325,10 +325,10 @@ Oltre al livello predefinito, sono disponibili i seguenti metodi di registrazion
 
 | Metodo                 | Descrizione                                |
 | ---------------------- | ------------------------------------------ |
-| **errore (_messaggio_)**   | Scrive un evento a livello di errore nei log.   |
-| **warn(_messaggio_)**    | Scrive un evento a livello di avviso nei log. |
-| **info(_messaggio_)**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
-| **verbose(_messaggio_)** | Scrive nella registrazione a livello dettagliato.           |
+| **errore ( _messaggio_ )**   | Scrive un evento a livello di errore nei log.   |
+| **warn( _messaggio_ )**    | Scrive un evento a livello di avviso nei log. |
+| **info( _messaggio_ )**    | Scrive nella registrazione a livello di informazioni o inferiore.    |
+| **verbose( _messaggio_ )** | Scrive nella registrazione a livello dettagliato.           |
 
 Nell'esempio seguente viene scritto lo stesso log a livello di traccia di avviso, anziché il livello info:
 
@@ -358,7 +358,7 @@ Per impostare la soglia per tutte le tracce scritte nei log e nella console, usa
 }  
 ```
 
-I valori di **consoleLevel** corrispondono ai nomi dei metodi `context.log`. Per disabilitare tutta la registrazione traccia nella console, impostare **consoleLevel** su _off_. Per ulteriori informazioni, vedere [host.jsil riferimento V1. x](functions-host-json-v1.md).
+I valori di **consoleLevel** corrispondono ai nomi dei metodi `context.log`. Per disabilitare tutta la registrazione traccia nella console, impostare **consoleLevel** su _off_ . Per ulteriori informazioni, vedere [host.jsil riferimento V1. x](functions-host-json-v1.md).
 
 ---
 
@@ -545,12 +545,12 @@ Esistono due modi per installare pacchetti nell'app per le funzioni:
 ### <a name="using-kudu"></a>Tramite Kudu
 1. Passare a `https://<function_app_name>.scm.azurewebsites.net`.
 
-2. Fare clic su **console di debug**  >  **cmd**.
+2. Fare clic su **console di debug**  >  **cmd** .
 
 3. Passare a `D:\home\site\wwwroot`, quindi trascinare il file package.json nella cartella **wwwroot** nella metà superiore della pagina.  
     È possibile caricare i file nell'app per le funzioni anche in altri modi. Per altre informazioni, vedere [Come aggiornare i file delle app per le funzioni](functions-reference.md#fileupdate). 
 
-4. Dopo aver caricato il file package.json, eseguire il comando `npm install` nella ** console di esecuzione remota Kudu**.  
+4. Dopo aver caricato il file package.json, eseguire il comando `npm install` nella **console di esecuzione remota Kudu** .  
     Questa azione scarica i pacchetti indicati nel file package.json e riavvia l'app per le funzioni.
 
 ## <a name="environment-variables"></a>Variabili di ambiente

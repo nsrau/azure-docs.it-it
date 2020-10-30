@@ -3,12 +3,12 @@ title: Riferimento per le impostazioni dell’app per Funzioni di Azure
 description: Documentazione di riferimento per le impostazioni o le variabili di ambiente dell'app Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: d22ab643fb4ed7eae477c8f77d9621266d9146be
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 3d3def7057eeb022b3e207cbecf06ee3074a91af
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165768"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93043232"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Riferimento per le impostazioni dell’app per Funzioni di Azure
 
@@ -226,6 +226,14 @@ Per l'utilizzo & solo piani Premium. Stringa di connessione per l'account di arc
 |Chiave|Valore di esempio|
 |---|------------|
 |WEBSITE_CONTENTAZUREFILECONNECTIONSTRING|DefaultEndpointsProtocol=https;AccountName=[nome];AccountKey=[chiave]|
+
+## <a name="website_contentovervnet"></a>SITO Web \_ CONTENTOVERVNET
+
+Solo per i piani Premium. Il valore `1` consente la scalabilità dell'app per le funzioni quando l'account di archiviazione è limitato a una rete virtuale. È consigliabile abilitare questa impostazione quando si limita l'account di archiviazione a una rete virtuale. Per altre informazioni, vedere [limitare l'account di archiviazione a una rete virtuale](functions-networking-options.md#restrict-your-storage-account-to-a-virtual-network-preview). 
+
+|Chiave|Valore di esempio|
+|---|------------|
+|WEBSITE_CONTENTOVERVNET|1|
 
 ## <a name="website_contentshare"></a>WEBSITE\_CONTENTSHARE
 
