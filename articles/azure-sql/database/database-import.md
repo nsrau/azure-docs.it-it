@@ -10,13 +10,13 @@ ms.topic: quickstart
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 06/20/2019
-ms.openlocfilehash: 08aaec23b0edc0e797d26d4b51081f6daa5b5c19
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/29/2020
+ms.openlocfilehash: 30a511caec82ead406f0a80f107e4261a707bfdb
+ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92671224"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93040174"
 ---
 # <a name="quickstart-import-a-bacpac-file-to-a-database-in-azure-sql-database-or-azure-sql-managed-instance"></a>Avvio rapido: Importare un file BACPAC in un database in Database SQL di Azure o in Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -62,9 +62,11 @@ Per eseguire la migrazione di un database in un'[istanza gestita di SQL di Azure
 
 ## <a name="using-sqlpackage"></a>Uso di SqlPackage
 
-Per importare un database SQL Server tramite l'utilità della riga di comando [SqlPackage](/sql/tools/sqlpackage), vedere la sezione relativa a [parametri e proprietà dell'importazione](/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage è incluso in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools per Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt). È possibile scaricare la versione più recente di [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) anche dall'Area download Microsoft.
+Per importare un database SQL Server tramite l'utilità della riga di comando [SqlPackage](/sql/tools/sqlpackage), vedere la sezione relativa a [parametri e proprietà dell'importazione](/sql/tools/sqlpackage#import-parameters-and-properties). SqlPackage è incluso in [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) e [SQL Server Data Tools per Visual Studio](/sql/ssdt/download-sql-server-data-tools-ssdt). È possibile scaricare la versione più recente di [SqlPackage](https://www.microsoft.com/download/details.aspx?id=53876) anche dall'Area download Microsoft. 
 
 Per la scalabilità e le prestazioni, è consigliabile usare SqlPackage, anziché il portale di Azure, nella maggior parte degli ambienti di produzione. Per informazioni da parte del team di consulenza clienti di SQL Server sull'uso di file `BACPAC` per la migrazione, vedere l'articolo [Migrating from SQL Server to Azure SQL Database using BACPAC Files](/archive/blogs/sqlcat/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files) (Migrazione da SQL Server al database SQL di Azure con file BACPAC) del blog del Customer Advisory Team di SQL Server.
+
+Il modello di provisioning basato su unità di elaborazione di database supporta valori per le dimensioni massime del database specifici per ogni livello. Quando si importa un database [usare uno di questi valori supportati](/sql/t-sql/statements/create-database-transact-sql). 
 
 Il comando di SqlPackage seguente importa il database **AdventureWorks2008R2** dall'archivio locale in un server SQL logico denominato **mynewserver20170403** . Crea un nuovo database denominato **myMigratedDatabase** con un livello di servizio **Premium** e un obiettivo di servizio **P6** . Modificare questi valori in base alle esigenze specifiche dell'ambiente.
 
@@ -94,7 +96,7 @@ sqlpackage.exe /a:Import /sf:testExport.bacpac /tdn:NewDacFX /tsn:apptestserver.
 > [!IMPORTANT]
 > Il modulo Azure Resource Manager di PowerShell è ancora supportato, ma tutte le attività di sviluppo future sono incentrate sul modulo Az.Sql. Il modulo AzureRM continuerà a ricevere correzioni di bug almeno fino a dicembre 2020.  Gli argomenti per i comandi nei moduli Az e AzureRm sono sostanzialmente identici. Per altre informazioni sulla compatibilità, vedere [Introduzione del nuovo modulo Az di Azure PowerShell](/powershell/azure/new-azureps-module-az).
 
-Usare il cmdlet [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) per inviare una richiesta di importazione database ad Azure. A seconda delle dimensioni del database, l'importazione può richiedere del tempo.
+Usare il cmdlet [New-AzSqlDatabaseImport](/powershell/module/az.sql/new-azsqldatabaseimport) per inviare una richiesta di importazione database ad Azure. A seconda delle dimensioni del database, l'importazione può richiedere del tempo. Il modello di provisioning basato su unità di elaborazione di database supporta valori per le dimensioni massime del database specifici per ogni livello. Quando si importa un database [usare uno di questi valori supportati](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```powershell
 $importRequest = New-AzSqlDatabaseImport -ResourceGroupName "<resourceGroupName>" `
@@ -126,7 +128,7 @@ $importStatus
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Usare il comando [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) per inviare una richiesta di importazione database ad Azure. A seconda delle dimensioni del database, l'importazione può richiedere del tempo.
+Usare il comando [az-sql-db-import](/cli/azure/sql/db#az-sql-db-import) per inviare una richiesta di importazione database ad Azure. A seconda delle dimensioni del database, l'importazione può richiedere del tempo. Il modello di provisioning basato su unità di elaborazione di database supporta valori per le dimensioni massime del database specifici per ogni livello. Quando si importa un database [usare uno di questi valori supportati](/sql/t-sql/statements/create-database-transact-sql). 
 
 ```azurecli
 # get the storage account key

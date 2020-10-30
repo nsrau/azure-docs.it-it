@@ -11,7 +11,8 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: Configurare Azure NetApp Files e creare un volume NFS
+    - name: Configurare Azure NetApp Files e creare un volume NFS - Modello di Resource Manager
+      displayName: Resource Manager
       href: azure-netapp-files-quickstart-set-up-account-create-volumes.md
 - name: Concetti
   items:

@@ -23,8 +23,6 @@
   items:
     - name: Modelli personalizzati
       href: concepts-models.md
-    - name: Conversione di modelli standard del settore
-      href: concepts-convert-models.md
     - name: Gemelli digitali e grafo dei gemelli
       href: concepts-twins-graph.md
     - name: Linguaggio di query
@@ -63,6 +61,8 @@
       items:
         - name: Gestire i modelli personalizzati
           href: how-to-manage-model.md
+        - name: Convertire i modelli standard di settore
+          href: how-to-convert-models.md
         - name: Analizzare e convalidare modelli
           href: how-to-parse-models.md
         - name: Aggiungi tag
@@ -176,11 +176,15 @@
             - name: Java SDK - origine
               href: 'https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
             - name: JavaScript SDK - npm
-              href: 'https://www.npmjs.com/package/@azure/digital-twins/'
+              href: 'https://www.npmjs.com/package/@azure/digital-twins-core'
             - name: JavaScript SDK - informazioni di riferimento
               href: /javascript/api/@azure/digital-twins/?preserve-view=true&view=azure-node-latest
+            - name: JavaScript SDK - origine
+              href: 'https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core'
             - name: Python SDK - PyPi
               href: 'https://pypi.org/project/azure-digitaltwins-core/1.0.0b1/'
+            - name: Python SDK - origine
+              href: 'https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core'
     - name: Interfaccia della riga di comando di Gemelli digitali
       items:
         - name: Informazioni di riferimento sull'interfaccia della riga di comando di Gemelli digitali

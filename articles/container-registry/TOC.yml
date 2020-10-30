@@ -8,7 +8,7 @@
       items:
         - name: Informazioni su Registro Container
           href: container-registry-intro.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       expanded: true
       items:
         - name: Creare un registro contenitori - Interfaccia della riga di comando
@@ -59,6 +59,8 @@
           href: container-registry-geo-replication.md
         - name: Procedure consigliate per il registro contenitori
           href: container-registry-best-practices.md
+        - name: Gestire immagini pubbliche
+          href: buffer-gate-public-content.md
     - name: Guide pratiche
       expanded: false
       items:
@@ -162,7 +164,7 @@
       items:
         - name: Informazioni su Attività del Registro Azure Container
           href: container-registry-tasks-overview.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       expanded: true
       items:
         - name: 'Creare, effettuare il push ed eseguire un''immagine - Interfaccia della riga di comando'
