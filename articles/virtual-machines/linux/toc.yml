@@ -328,7 +328,7 @@
         - name: Progettazione per prestazioni elevate
           href: ../premium-storage-performance.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Bursting del disco
-          href: disk-bursting.md
+          href: ../disk-bursting.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Obiettivi di scalabilità per i dischi
           href: disk-scalability-targets.md
         - name: Backup e ripristino di emergenza per i dischi
@@ -949,7 +949,7 @@
           href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
-            - name: Architettura
+            - name: Architecture
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md

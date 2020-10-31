@@ -731,6 +731,10 @@
               items:
                 - name: Risolvere i problemi di Java SDK v4
                   href: troubleshoot-java-sdk-v4-sql.md
+                - name: Risolvere il problema relativo al timeout della richiesta
+                  href: troubleshoot-request-timeout-java-sdk-v4-sql.md
+                - name: Risolvere il problema relativo al servizio non disponibile
+                  href: troubleshoot-service-unavailable-java-sdk-v4-sql.md
                 - name: Risoluzione dei problemi - Async Java SDK v2
                   href: troubleshoot-java-async-sdk.md
         - name: Feed delle modifiche
@@ -877,8 +881,6 @@
         - name: Modello di Resource Manager
           href: /azure/templates/microsoft.documentdb/allversions
           displayName: ARM
-        - name: Note sulla versione dell'emulatore
-          href: local-emulator-release-notes.md
         - name: Criteri di Azure predefiniti
           displayName: 'samples, policies, definitions'
           href: ./policy-reference.md
@@ -1279,6 +1281,8 @@
               href: emulator-command-line-parameters.md
             - name: Risoluzione dei problemi dell'emulatore
               href: troubleshoot-local-emulator.md
+            - name: Note sulla versione dell'emulatore
+              href: local-emulator-release-notes.md
             - name: Estensione Visual Studio Code
               href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
         - name: Configurare una pipeline di CI/CD di Azure DevOps

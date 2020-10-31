@@ -22,6 +22,8 @@
       href: resources-without-resource-group-limit.md
     - name: Sicurezza
       items:
+        - name: Baseline di sicurezza
+          href: ./security-baseline.md
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md

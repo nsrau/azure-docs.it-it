@@ -9,12 +9,12 @@ metadata:
   author: yegu-ms
   ms.author: yegu
   ms.date: 12/16/2019
-  ms.openlocfilehash: cbf495563a6d3a9000778d8980a506b6726fb658
-  ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+  ms.openlocfilehash: 2655c1a5b3a99422a71a2acc18671d9fdd31baa5
+  ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 10/09/2020
-  ms.locfileid: "88006010"
+  ms.lasthandoff: 10/30/2020
+  ms.locfileid: "93099998"
 landingContent:
 - title: Informazioni su Cache Redis di Azure
   linkLists:
@@ -24,22 +24,22 @@ landingContent:
       url: cache-overview.md
   - linkListType: video
     links:
-    - text: Opzioni di amministrazione
-      url: https://azure.microsoft.com/resources/videos/azure-redis-cache-administration-options/
-    - text: Memorizzazione nella cache per la sicurezza
-      url: https://azure.microsoft.com/resources/videos/azure-redis-security-cacheing/
     - text: Procedure consigliate
       url: https://azure.microsoft.com/resources/videos/azure-redis-cache-best-practices/
     - text: Migliorare le prestazioni
       url: https://azure.microsoft.com/resources/videos/increase-performance-through-redis-cluster-in-azure-redis-cache/
+    - text: Memorizzazione nella cache per la sicurezza
+      url: https://azure.microsoft.com/resources/videos/azure-redis-security-cacheing/
+    - text: Opzioni di amministrazione
+      url: https://azure.microsoft.com/resources/videos/azure-redis-cache-administration-options/
   - linkListType: whats-new
     links:
-    - text: Domande frequenti
-      url: cache-faq.md
+    - text: Crea una cache di livello Enterprise
+      url: quickstart-create-redis-enterprise.md
     - text: Procedure consigliate per Cache di Azure per Redis
       url: cache-best-practices.md
-    - text: Provider di stato sessione ASP.NET per Cache Redis di Azure
-      url: cache-aspnet-session-state-provider.md
+    - text: Domande frequenti
+      url: cache-faq.md
 - title: 'Argomenti di avvio rapido: Cache Redis di Azure'
   linkLists:
   - linkListType: quickstart
@@ -58,8 +58,12 @@ landingContent:
       url: cache-python-get-started.md
   - linkListType: tutorial
     links:
-    - text: Creare un tabellone punteggi cache-aside in ASP.NET
-      url: cache-web-app-cache-aside-leaderboard.md
+    - text: Usare il provider di stato della sessione
+      url: cache-aspnet-session-state-provider.md
+    - text: Usare il provider di cache di output
+      url: cache-aspnet-output-cache-provider.md
+    - text: Usare l'inizializzazione Spring Boot
+      url: /azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache
   - linkListType: get-started
     links:
     - text: Esempi

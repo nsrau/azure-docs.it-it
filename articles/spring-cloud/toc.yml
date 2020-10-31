@@ -39,8 +39,6 @@
       href: spring-cloud-tutorial-custom-domain.md
     - name: Effettuare il provisioning di un'istanza di Azure Spring Cloud con Terraform
       href: spring-cloud-tutorial-provision-azure-spring-cloud-instance-terraform.md
-    - name: CI/CD con Jenkins
-      href: /azure/developer/jenkins/deploy-to-azure-spring-cloud-using-azure-cli
     - name: Usare l'identità gestita per connettere Key Vault all'app di Azure Spring Cloud
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Distribuire Azure Spring Cloud nella rete virtuale
@@ -65,53 +63,72 @@
       href: disaster-recovery.md
 - name: Guide pratiche
   items:
-    - name: Preparare un'app per la distribuzione
-      href: spring-cloud-tutorial-prepare-app-deployment.md
-    - name: Avviare un'app Java dal codice sorgente
-      href: spring-cloud-howto-launch-from-source.md
-    - name: Configurare un server di configurazione
-      href: spring-cloud-tutorial-config-server.md
-    - name: Abilitare la registrazione del servizio
-      href: spring-cloud-service-registration.md
-    - name: Associare un'app ad Azure CosmosDB
-      href: spring-cloud-tutorial-bind-cosmos.md
-    - name: Associare un'app alla cache di Azure per Redis
-      href: spring-cloud-tutorial-bind-redis.md
-    - name: Associare un'app ad Azure MySQL
-      href: spring-cloud-tutorial-bind-mysql.md
-    - name: 'Avviare, arrestare ed eliminare un''app'
-      href: spring-cloud-howto-start-stop-delete.md
-    - name: Configurare un ambiente di staging
-      href: spring-cloud-howto-staging-environment.md
-    - name: Usare l'archiviazione permanente
-      href: spring-cloud-howto-persistent-storage.md
-    - name: Eseguire l'integrazione con le soluzioni di bilanciamento del carico di Azure
-      href: spring-cloud-howto-integrate-azure-load-balancers.md
-    - name: Abilitare l'identità gestita assegnata dal sistema
-      href: spring-cloud-howto-enable-system-assigned-managed-identity.md
-    - name: Diagnostica e risoluzione automatica dei problemi
-      href: spring-cloud-howto-self-diagnose-solve.md
+    - name: Sviluppo
+      items:
+        - name: Preparare un'app Java Spring per la distribuzione
+          href: spring-cloud-tutorial-prepare-app-deployment.md
+        - name: Configurare un server di configurazione
+          href: spring-cloud-tutorial-config-server.md
+        - name: Abilitare la registrazione del servizio
+          href: spring-cloud-service-registration.md
+    - name: Distribuire
+      items:
+        - name: Configurare un ambiente di staging
+          href: spring-cloud-howto-staging-environment.md
+        - name: Avviare un'app Java dal codice sorgente
+          href: spring-cloud-howto-launch-from-source.md
+    - name: Configurare
+      items:
+        - name: 'Avviare, arrestare ed eliminare un''app'
+          href: spring-cloud-howto-start-stop-delete.md
+        - name: Usare l'archiviazione permanente
+          href: spring-cloud-howto-persistent-storage.md
     - name: Monitorare
-    - name: Creare ruoli e autorizzazioni
-      href: spring-cloud-howto-permissions.md
-    - name: Traccia distribuita e Application Insights
-      href: spring-cloud-tutorial-distributed-tracing.md
-    - name: Analizzare log e metriche
-      href: diagnostic-services.md
-    - name: Streaming dei log in tempo reale
-      href: spring-cloud-howto-log-streaming.md
-- name: Distribuzione di DevOps
-  items:
-    - name: CI/CD con DevOps di Azure
-      href: spring-cloud-howto-cicd.md
-    - name: CI/CD con GitHub Actions
-      href: spring-cloud-howto-github-actions.md
-    - name: Autenticazione con Key Vault in GitHub Actions
-      href: spring-cloud-github-actions-key-vault.md
-- name: Risolvere problemi
-  items:
-    - name: Guida per la risoluzione dei problemi
-      href: spring-cloud-troubleshoot.md
+      items:
+        - name: Traccia distribuita e Application Insights
+          href: spring-cloud-tutorial-distributed-tracing.md
+        - name: Analizzare log e metriche
+          href: diagnostic-services.md
+        - name: Streaming dei log in tempo reale
+          href: spring-cloud-howto-log-streaming.md
+    - name: Sicurezza
+      items:
+        - name: Abilitare l'identità gestita assegnata dal sistema
+          href: spring-cloud-howto-enable-system-assigned-managed-identity.md
+        - name: Creare ruoli e autorizzazioni
+          href: spring-cloud-howto-permissions.md
+    - name: Integrare
+      items:
+        - name: Associare un'app ad Azure CosmosDB
+          href: spring-cloud-tutorial-bind-cosmos.md
+        - name: Associare un'app alla cache di Azure per Redis
+          href: spring-cloud-tutorial-bind-redis.md
+        - name: Associare un'app ad Azure MySQL
+          href: spring-cloud-tutorial-bind-mysql.md
+        - name: Eseguire l'integrazione con le soluzioni di bilanciamento del carico di Azure
+          href: spring-cloud-howto-integrate-azure-load-balancers.md
+    - name: Automatizzare
+      items:
+        - name: CI/CD con DevOps di Azure
+          href: spring-cloud-howto-cicd.md
+        - name: CI/CD con GitHub Actions
+          href: spring-cloud-howto-github-actions.md
+        - name: Autenticazione con Key Vault in GitHub Actions
+          href: spring-cloud-github-actions-key-vault.md
+    - name: Risolvere problemi
+      items:
+        - name: Diagnostica e risoluzione automatica dei problemi
+          href: spring-cloud-howto-self-diagnose-solve.md
+        - name: Guida per la risoluzione dei problemi
+          href: spring-cloud-troubleshoot.md
+    - name: Migrazione
+      items:
+        - name: Spring Cloud
+          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-cloud'
+        - name: Spring Boot
+          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-spring-boot-to-azure-spring-cloud'
+        - name: Tomcat
+          href: 'https://docs.microsoft.com/azure/developer/java/migration/migrate-tomcat-to-azure-spring-cloud'
 - name: Informazioni di riferimento
   items:
     - name: Plug-in dell'interfaccia della riga di comando di Azure

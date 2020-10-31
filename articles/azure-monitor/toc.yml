@@ -123,8 +123,6 @@
           href: platform/data-platform-metrics.md
         - name: Trasmettere dati in Hub eventi
           href: platform/stream-monitoring-data-event-hubs.md
-    - name: Informazioni dettagliate
-      href: insights/insights-overview.md
     - name: Sicurezza dei dati
       items:
         - name: Dati di log
@@ -1062,7 +1060,7 @@
               href: insights/container-insights-optout-hybrid.md
         - name: Risoluzione dei problemi
           href: insights/container-insights-troubleshoot.md
-    - name: Altri dati analitici
+    - name: Informazioni dettagliate
       items:
         - name: Cache di Azure per Redis (anteprima)
           href: insights/redis-cache-insights-overview.md
@@ -1079,61 +1077,61 @@
           href: insights/resource-group-insights.md
         - name: Risolvere i problemi relativi ai dati analitici
           href: insights/troubleshoot-workbooks.md
-    - name: Soluzioni
-      items:
-        - name: Panoramica
-          href: insights/solutions.md
-          displayName: 'Azure CLI, az monitor log-analytics'
-        - name: Soluzioni di destinazione
-          href: insights/solution-targeting.md
-        - name: Soluzioni disponibili
+        - name: Soluzioni
           items:
-            - name: Valutazione dell'integrità di AD
-              href: insights/ad-assessment.md
-            - name: Stato della replica di AD
-              href: insights/ad-replication-status.md
-            - name: Soluzione Capacità e prestazioni
-              href: insights/capacity-performance.md
-            - name: Monitoraggio dei contenitori Docker e Windows
-              href: insights/containers.md
-            - name: Reti
+            - name: Panoramica
+              href: insights/solutions.md
+              displayName: 'Azure CLI, az monitor log-analytics'
+            - name: Soluzioni di destinazione
+              href: insights/solution-targeting.md
+            - name: Soluzioni disponibili
               items:
-                - name: Analisi di rete
-                  href: insights/azure-networking-analytics.md
-                - name: DNS
-                  href: insights/dns-analytics.md
-                - name: Monitoraggio delle prestazioni di rete
+                - name: Valutazione dell'integrità di AD
+                  href: insights/ad-assessment.md
+                - name: Stato della replica di AD
+                  href: insights/ad-replication-status.md
+                - name: Soluzione Capacità e prestazioni
+                  href: insights/capacity-performance.md
+                - name: Monitoraggio dei contenitori Docker e Windows
+                  href: insights/containers.md
+                - name: Reti
                   items:
-                    - name: Panoramica della soluzione
-                      href: insights/network-performance-monitor.md
-                    - name: Monitoraggio delle prestazioni
-                      href: insights/network-performance-monitor-performance-monitor.md
-                    - name: Monitoraggio connettività servizio
-                      href: insights/network-performance-monitor-service-connectivity.md
-                    - name: ExpressRoute
-                      href: insights/network-performance-monitor-expressroute.md
-                    - name: Prezzi
-                      href: insights/network-performance-monitor-pricing-faq.md
-                    - name: Domande frequenti
-                      href: insights/network-performance-monitor-faq.md
-            - name: Office 365
-              href: insights/solution-office-365.md
-            - name: Soluzione Mapping dei servizi
-              href: insights/service-map.md
-            - name: Mapping dei servizi e Operations Manager
-              href: insights/service-map-scom.md
-            - name: SQL di Azure
-              href: insights/azure-sql.md
-            - name: SQL Server
-              href: insights/sql-assessment.md
-            - name: Surface Hub
-              href: insights/surface-hubs.md
-            - name: Soluzione VMware Analytics
-              href: insights/vmware.md
-            - name: Soluzione Wire Data
-              href: insights/wire-data.md
-            - name: Soluzione Gestione avvisi
-              href: platform/alert-management-solution.md
+                    - name: Analisi di rete
+                      href: insights/azure-networking-analytics.md
+                    - name: DNS
+                      href: insights/dns-analytics.md
+                    - name: Monitoraggio delle prestazioni di rete
+                      items:
+                        - name: Panoramica della soluzione
+                          href: insights/network-performance-monitor.md
+                        - name: Monitoraggio delle prestazioni
+                          href: insights/network-performance-monitor-performance-monitor.md
+                        - name: Monitoraggio connettività servizio
+                          href: insights/network-performance-monitor-service-connectivity.md
+                        - name: ExpressRoute
+                          href: insights/network-performance-monitor-expressroute.md
+                        - name: Prezzi
+                          href: insights/network-performance-monitor-pricing-faq.md
+                        - name: Domande frequenti
+                          href: insights/network-performance-monitor-faq.md
+                - name: Office 365
+                  href: insights/solution-office-365.md
+                - name: Soluzione Mapping dei servizi
+                  href: insights/service-map.md
+                - name: Mapping dei servizi e Operations Manager
+                  href: insights/service-map-scom.md
+                - name: SQL di Azure
+                  href: insights/azure-sql.md
+                - name: SQL Server
+                  href: insights/sql-assessment.md
+                - name: Surface Hub
+                  href: insights/surface-hubs.md
+                - name: Soluzione VMware Analytics
+                  href: insights/vmware.md
+                - name: Soluzione Wire Data
+                  href: insights/wire-data.md
+                - name: Soluzione Gestione avvisi
+                  href: platform/alert-management-solution.md
     - name: Workbooks
       items:
         - name: Panoramica
