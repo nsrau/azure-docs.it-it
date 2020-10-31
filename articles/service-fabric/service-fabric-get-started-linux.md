@@ -4,12 +4,12 @@ description: Installare il runtime e l'SDK e creare un cluster di sviluppo local
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: 39ed4a394a54112c03145c0d481e5459ecbf6d8b
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 14b8a278605a908b4182c724831b2e42de54a753
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675267"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086891"
 ---
 # <a name="prepare-your-development-environment-on-linux"></a>Preparare l'ambiente di sviluppo in Linux
 > [!div class="op_single_selector"]
@@ -175,7 +175,7 @@ Il runtime di Service Fabric fornito con l'installazione dell'SDK include i pacc
 
 # <a name="container-based-local-cluster"></a>[Cluster locale basato su contenitori](#tab/localclusteroneboxcontainer)
 
-Avviare un [cluster Service Fabric](https://hub.docker.com/r/microsoft/service-fabric-onebox/)di una casella basata su contenitori.
+Avviare un cluster OneBox basato su contenitore [Service Fabric](https://hub.docker.com/_/microsoft-service-fabric-onebox) .
 
 1. Installare Moby per poter distribuire i contenitori docker.
     ```bash

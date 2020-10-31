@@ -8,19 +8,21 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5537b70f9852f5b5a17362c13e2c9b8e8e9fc43c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9350682f7c636979df4dcde0c43a3b4941ad6ebb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570615"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085769"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Endpoint a livello di area per l'account del database a grafo di Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 Il database a grafo di Azure Cosmos DB è [distribuito a livello globale](distribute-data-globally.md), pertanto le applicazioni possono usare più endpoint di lettura. Le applicazioni che richiedono l'accesso in scrittura in più posizioni devono abilitare la funzionalità di scrittura in più [aree](how-to-multi-master.md) .
 
 Motivi per cui scegliere più di un'area:
-1. **Scalabilità in lettura orizzontale**: man mano che il carico dell'applicazione aumenta, potrebbe essere prudente instradare il traffico di lettura verso aree di Azure diverse.
-2. **Latenza più bassa**: è possibile ridurre l'overhead della latenza di rete di ogni attraversamento instradando il traffico di lettura e scrittura verso l'area di Azure più vicina.
+1. **Scalabilità in lettura orizzontale** : man mano che il carico dell'applicazione aumenta, potrebbe essere prudente instradare il traffico di lettura verso aree di Azure diverse.
+2. **Latenza più bassa** : è possibile ridurre l'overhead della latenza di rete di ogni attraversamento instradando il traffico di lettura e scrittura verso l'area di Azure più vicina.
 
 Il requisito di **residenza dei dati** viene soddisfatto impostando criteri di Azure Resource Manager per l'account Cosmos DB. Il cliente può limitare le aree in cui Cosmos DB replica i dati.
 
@@ -28,7 +30,7 @@ Il requisito di **residenza dei dati** viene soddisfatto impostando criteri di A
 
 Il motore del database a grafo di Cosmos DB è in esecuzione in più aree, ognuna contenente più cluster. Ogni cluster dispone di centinaia di computer. Il record CNAME DNS *nomeaccount.gremlin.cosmos.azure.com* dell'account del database a grafo di Cosmos DB viene risolto in un record DNS A di un cluster. Un singolo indirizzo IP di un servizio di bilanciamento del carico nasconde la topologia cluster interna.
 
-A livello di area viene creato un record CNAME DNS per ogni area dell'account del database a grafo di Cosmos DB. Il formato dell'endpoint a livello di area è *nomeaccount-area.gremlin.cosmos.azure.com*. Il segmento relativo all'area dell'endpoint a livello di area viene ottenuto rimuovendo tutti gli spazi dal nome dell'[area di Azure](https://azure.microsoft.com/global-infrastructure/regions). Ad esempio, l'area `"East US 2"` per l'account di database globale `"contoso"` avrà *contoso-eastus2.gremlin.cosmos.azure.com* come record CNAME DNS.
+A livello di area viene creato un record CNAME DNS per ogni area dell'account del database a grafo di Cosmos DB. Il formato dell'endpoint a livello di area è *nomeaccount-area.gremlin.cosmos.azure.com* . Il segmento relativo all'area dell'endpoint a livello di area viene ottenuto rimuovendo tutti gli spazi dal nome dell'[area di Azure](https://azure.microsoft.com/global-infrastructure/regions). Ad esempio, l'area `"East US 2"` per l'account di database globale `"contoso"` avrà *contoso-eastus2.gremlin.cosmos.azure.com* come record CNAME DNS.
 
 Il client TinkerPop Gremlin è progettato per funzionare con un singolo server. L'applicazione può usare il record CNAME DNS scrivibile globale per il traffico di lettura e scrittura. Le applicazioni in grado di riconoscere l'area devono usare l'endpoint a livello di area per il traffico di lettura. Usare l'endpoint a livello di area per il traffico di scrittura solo se l'area specifica è configurata per accettare le operazioni di scrittura. 
 

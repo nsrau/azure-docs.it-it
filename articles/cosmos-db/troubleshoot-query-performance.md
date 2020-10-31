@@ -8,14 +8,15 @@ ms.date: 10/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: b7e57656a6749f600d07b679aad6b8c77ac96551
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3979e5e904eb54db9566eb014f7e455ebaceaff0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476706"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087180"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query relativi all'uso di Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questo articolo illustra un approccio generale consigliato per la risoluzione dei problemi relativi alle query in Azure Cosmos DB. I passaggi descritti in questo articolo non rappresentano una soluzione completa ai potenziali problemi di query, ma offrono suggerimenti per la soluzione degli errori più comuni relativi alle prestazioni. È consigliabile usare questo articolo come punto di partenza per la soluzione dei problemi relativi a query lente o con costo elevato nell'API Core (SQL) di Azure Cosmos DB. È inoltre possibile usare i [log di diagnostica](cosmosdb-monitor-resource-logs.md) per identificare le query lente o che usano quantità significative di velocità effettiva. Se si usa l'API di Azure Cosmos DB per MongoDB, è consigliabile usare [la guida alla risoluzione dei problemi delle query dell'API di Azure Cosmos DB per MongoDB](mongodb-troubleshoot-query.md)
 
@@ -44,7 +45,7 @@ Prima di leggere questa guida, è opportuno prendere in considerazione i più pr
 
 ## <a name="get-query-metrics"></a>Recuperare le metriche della query
 
-Quando si ottimizza una query in Azure Cosmos DB, il primo passaggio consiste sempre nell'[recuperare le metriche](profile-sql-api-query.md) per la query. Le metriche sono disponibili anche tramite il portale di Azure. Una volta eseguita la query in Esplora dati, le metriche della query sono visibili accanto alla scheda dei **risultati**:
+Quando si ottimizza una query in Azure Cosmos DB, il primo passaggio consiste sempre nell'[recuperare le metriche](profile-sql-api-query.md) per la query. Le metriche sono disponibili anche tramite il portale di Azure. Una volta eseguita la query in Esplora dati, le metriche della query sono visibili accanto alla scheda dei **risultati** :
 
 :::image type="content" source="./media/troubleshoot-query-performance/obtain-query-metrics.png" alt-text="Recupero delle metriche della query" lightbox="./media/troubleshoot-query-performance/obtain-query-metrics.png":::
 
@@ -170,7 +171,7 @@ Criteri di indicizzazione:
 }
 ```
 
-**Addebito UR**: 409,51 UR
+**Addebito UR** : 409,51 UR
 
 #### <a name="optimized"></a>Con ottimizzazione
 
@@ -189,7 +190,7 @@ Criteri di indicizzazione aggiornati:
 }
 ```
 
-**Addebito UR**: 2,98 UR
+**Addebito UR** : 2,98 UR
 
 È possibile aggiungere proprietà ai criteri di indicizzazione in qualsiasi momento, senza alcun effetto sulla disponibilità di scrittura o lettura. È possibile [tenere traccia dell'avanzamento della trasformazione dell'indice](./how-to-manage-indexing-policy.md#dotnet-sdk).
 
@@ -303,7 +304,7 @@ Criteri di indicizzazione:
 }
 ```
 
-**Addebito UR**: 44,28 RU
+**Addebito UR** : 44,28 RU
 
 #### <a name="optimized"></a>Con ottimizzazione
 
@@ -344,7 +345,7 @@ Criteri di indicizzazione aggiornati:
 
 ```
 
-**Addebito UR**: 8,86 UR
+**Addebito UR** : 8,86 UR
 
 ### <a name="optimize-join-expressions-by-using-a-subquery"></a>Ottimizzare le espressioni JOIN usando una sottoquery
 
@@ -362,7 +363,7 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-**Addebito UR**: 167,62 UR
+**Addebito UR** : 167,62 UR
 
 Per questa query, l'indice determina la corrispondenza per qualsiasi documento con tag `infant formula`, `nutritionValue` maggiore di 0 e `amount` maggiore di 1. L'espressione `JOIN` esegue il prodotto incrociato per tutti gli elementi di tag, nutrienti e matrici di porzioni per ogni documento corrispondente prima dell'applicazione di qualsiasi filtro. La clausola `WHERE` applica quindi il predicato del filtro per ogni tupla di `<c, t, n, s>`.
 
@@ -378,13 +379,13 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-**Addebito UR**: 22,17 RU
+**Addebito UR** : 22,17 RU
 
 Si supponga che un solo elemento nella matrice di tag corrisponda al filtro e che siano presenti cinque elementi per le matrici nutrizionali e delle porzioni. Le espressioni `JOIN` si espanderanno fino a 1 x 1 x 5 x 5 = 25 elementi, anziché fino a 1.000 elementi come nella prima query.
 
 ## <a name="queries-where-retrieved-document-count-is-equal-to-output-document-count"></a>Query in cui il conteggio dei documenti recuperati è uguale al conteggio dei documenti di output
 
-Se il **conteggio dei documenti recuperati** è approssimativamente uguale al **conteggio di documenti di output**, il motore di query non ha dovuto analizzare molti documenti superflui. Per molte query, ad esempio quelle che usano la parola chiave `TOP`, il **conteggio dei documenti recuperati** potrebbe superare il **conteggio dei documenti di output** di 1 unità. Non è necessario preoccuparsi di questa opzione.
+Se il **conteggio dei documenti recuperati** è approssimativamente uguale al **conteggio di documenti di output** , il motore di query non ha dovuto analizzare molti documenti superflui. Per molte query, ad esempio quelle che usano la parola chiave `TOP`, il **conteggio dei documenti recuperati** potrebbe superare il **conteggio dei documenti di output** di 1 unità. Non è necessario preoccuparsi di questa opzione.
 
 ### <a name="minimize-cross-partition-queries"></a>Ridurre al minimo le query su più partizioni
 

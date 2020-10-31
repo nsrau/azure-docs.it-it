@@ -7,12 +7,12 @@ ms.author: pariks
 ms.service: mysql
 ms.topic: troubleshooting
 ms.date: 10/25/2020
-ms.openlocfilehash: af82b9e2feee3e03d2a0703d771c68b67ddd08c9
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a6ada3557350cd3f2f67dad54152eafded6639ec
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791580"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087027"
 ---
 # <a name="troubleshoot-replication-latency-in-azure-database-for-mysql"></a>Risolvere i problemi di latenza di replica in Database di Azure per MySQL
 
@@ -236,6 +236,9 @@ Per impostazione predefinita, in database di Azure per MySQL la replica è ottim
 Il parametro binlog_group_commit_sync_delay controlla il numero di microsecondi di attesa del commit del log binario prima di sincronizzare il file di log binario. Il vantaggio di questo parametro è che anziché applicare immediatamente ogni transazione di cui è stato eseguito il commit, il server di origine invia gli aggiornamenti dei log binari in blocco. Questo ritardo riduce le operazioni di i/o sulla replica e contribuisce a migliorare le prestazioni. 
 
 Potrebbe essere utile impostare il parametro binlog_group_commit_sync_delay su 1000. Monitorare quindi la latenza di replica. Impostare questo parametro con cautela e usarlo solo per carichi di lavoro con concorrenza elevata. 
+
+> [!IMPORTANT] 
+> Nel server di replica, è consigliabile binlog_group_commit_sync_delay parametro come 0. Questa operazione è consigliata perché, a differenza del server di origine, il server di replica non avrà una concorrenza elevata e l'aumento del valore per binlog_group_commit_sync_delay nel server di replica potrebbe causare un aumento involontario del ritardo di replica.
 
 Per i carichi di lavoro con concorrenza ridotta che includono molte transazioni singleton, l'impostazione binlog_group_commit_sync_delay può aumentare la latenza. La latenza può aumentare perché il thread di IO attende gli aggiornamenti bulk dei log binari anche se viene eseguito il commit solo di alcune transazioni. 
 

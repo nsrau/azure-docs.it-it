@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/10/2020
-ms.openlocfilehash: 4b91a9a73035b3add309e72ce544375520cf279e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d28138b251cf159b7cbc5cc6942bb287e57a95d7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278618"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088098"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitoraggio del servizio Key Vault con monitoraggio di Azure per Key Vault
 Monitoraggio di Azure per Key Vault offre un monitoraggio completo degli insiemi di credenziali delle chiavi grazie a una visualizzazione unificata delle richieste Key Vault, delle prestazioni, degli errori e della latenza.
@@ -20,7 +20,7 @@ Questo articolo consente di comprendere come eseguire l'onboarding e personalizz
 ## <a name="introduction-to-azure-monitor-for-key-vault"></a>Introduzione a monitoraggio di Azure per Key Vault
 
 Prima di approfondire l'esperienza è necessario comprendere il modo in cui le informazioni vengono presentate e visualizzate.
--    **Prospettiva su larga scala**, che mostra una visualizzazione snapshot delle prestazioni in base alle richieste, una suddivisione degli errori e a una panoramica di operazioni e latenza.
+-    **Prospettiva su larga scala** , che mostra una visualizzazione snapshot delle prestazioni in base alle richieste, una suddivisione degli errori e a una panoramica di operazioni e latenza.
 -   **Analisi drill-down** di un determinato insieme di credenziali delle chiavi per eseguire analisi dettagliate.
 -    **Personalizzabile** perché è possibile cambiare le metriche da visualizzare, modificare o su cui impostare soglie in linea con i limiti previsti e salvare la propria cartella di lavoro. I grafici della cartella di lavoro possono essere aggiunti ai dashboard di Azure.
 
@@ -34,7 +34,7 @@ Per visualizzare l'utilizzo e le operazioni degli insiemi di credenziali delle c
 
 1. Accedere al [portale di Azure](https://portal.azure.com/)
 
-2. Selezionare **monitoraggio** dal riquadro a sinistra nel portale di Azure e nella sezione Insights selezionare **Key Vaults**(insiemi di credenziali delle chiavi).
+2. Selezionare **monitoraggio** dal riquadro a sinistra nel portale di Azure e nella sezione Insights selezionare **Key Vaults** (insiemi di credenziali delle chiavi).
 
 ![Screenshot dell'esperienza di panoramica con più grafici](./media/key-vaults-insights-overview/overview.png)
 
@@ -90,7 +90,7 @@ La cartella di lavoro Errori suddivide i risultati di tutte le richieste effettu
 
 La cartella di lavoro Operazioni consente di approfondire i dettagli completi di tutte le transazioni, che possono essere filtrati per stato del risultato tramite i riquadri superiori.
 
-![Screenshot della visualizzazione operazioni](./media/key-vaults-insights-overview/info.png)
+![Screenshot che mostra la cartella di lavoro delle operazioni che contiene i dettagli completi di tutte le transazioni.](./media/key-vaults-insights-overview/info.png)
 
 Gli utenti possono anche definire l'ambito delle visualizzazioni in base a specifici tipi di transazioni nella tabella superiore, che aggiorna in modo dinamico la tabella inferiore, in cui è possibile visualizzare i dettagli completi delle operazioni nel riquadro contestuale popup.
 

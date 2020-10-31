@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/05/2020
 ms.author: thweiss
-ms.openlocfilehash: f3a5106fcc7f1b55db22ee13ced34328cc38096d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 21bb594f4e374d41cfc4184f3a72aea1717c85d8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486209"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086143"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Configurare le chiavi gestite dal cliente per l'account Azure Cosmos con Azure Key Vault
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-I dati archiviati nell'account Azure Cosmos vengono crittografati automaticamente e facilmente con le chiavi gestite da Microsoft (**chiavi gestite dal servizio**). Facoltativamente, è possibile scegliere di aggiungere un secondo livello di crittografia con **chiavi gestite dal cliente**.
+I dati archiviati nell'account Azure Cosmos vengono crittografati automaticamente e facilmente con le chiavi gestite da Microsoft ( **chiavi gestite dal servizio** ). Facoltativamente, è possibile scegliere di aggiungere un secondo livello di crittografia con **chiavi gestite dal cliente** .
 
 :::image type="content" source="./media/how-to-setup-cmk/cmk-intro.png" alt-text="Livelli di crittografia relativi ai dati dei clienti":::
 
@@ -26,17 +27,17 @@ I dati archiviati nell'account Azure Cosmos vengono crittografati automaticament
 
 ## <a name="register-the-azure-cosmos-db-resource-provider-for-your-azure-subscription"></a><a id="register-resource-provider"></a> Registrare il provider di risorse Azure Cosmos DB per la sottoscrizione di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com/), passare alla sottoscrizione di Azure e selezionare **Provider di risorse** nella scheda **Impostazioni**:
+1. Accedere al [portale di Azure](https://portal.azure.com/), passare alla sottoscrizione di Azure e selezionare **Provider di risorse** nella scheda **Impostazioni** :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-rp.png" alt-text="Livelli di crittografia relativi ai dati dei clienti":::
 
-1. Cercare il provider di risorse **Microsoft.DocumentDB**. Verificare che il provider di risorse sia già contrassegnato come registrato. In caso contrario, scegliere il provider di risorse e selezionare **Registra**:
+1. Cercare il provider di risorse **Microsoft.DocumentDB** . Verificare che il provider di risorse sia già contrassegnato come registrato. In caso contrario, scegliere il provider di risorse e selezionare **Registra** :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-rp-register.png" alt-text="Livelli di crittografia relativi ai dati dei clienti":::
 
 ## <a name="configure-your-azure-key-vault-instance"></a>Configurare l'istanza di Azure Key Vault
 
-Per usare le chiavi gestite dal cliente con Azure Cosmos DB è necessario impostare due proprietà nell'istanza di Azure Key Vault che si intende usare per ospitare le chiavi di crittografia: **Eliminazione temporanea** e **Protezione dall'eliminazione**.
+Per usare le chiavi gestite dal cliente con Azure Cosmos DB è necessario impostare due proprietà nell'istanza di Azure Key Vault che si intende usare per ospitare le chiavi di crittografia: **Eliminazione temporanea** e **Protezione dall'eliminazione** .
 
 Se si crea una nuova istanza di Azure Key Vault, abilitare queste proprietà durante la creazione:
 
@@ -51,13 +52,13 @@ Se si crea una nuova istanza di Azure Key Vault, abilitare queste proprietà dur
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-ap.png" alt-text="Livelli di crittografia relativi ai dati dei clienti":::
 
-1. Selezionare **+ Aggiungi criterio di accesso**.
+1. Selezionare **+ Aggiungi criterio di accesso** .
 
-1. Nel menu a discesa **Autorizzazioni chiave** selezionare le autorizzazioni **Recupera**, **Annulla il wrapping della chiave** e **Esegui il wrapping della chiave**:
+1. Nel menu a discesa **Autorizzazioni chiave** selezionare le autorizzazioni **Recupera** , **Annulla il wrapping della chiave** e **Esegui il wrapping della chiave** :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png" alt-text="Livelli di crittografia relativi ai dati dei clienti":::
 
-1. In **Selezionare un'entità** selezionare **Nessuna selezione**. Cercare quindi l'entità di sicurezza **Azure Cosmos DB** e selezionarla (per facilitarne l'individuazione, è anche possibile eseguire la ricerca in base all'ID entità di sicurezza: `a232010e-820c-4083-83bb-3ace5fc29d0b` per tutte le aree di Azure ad eccezione delle aree di Azure per enti pubblici in cui l'ID entità di sicurezza è `57506a73-e302-42a9-b869-6f12d9ec29e9`). Scegliere infine **Seleziona** nella parte inferiore della schermata. Se l'entità di sicurezza **Azure Cosmos DB** non è presente nell'elenco, potrebbe essere necessario registrare nuovamente il provider di risorse **Microsoft.DocumentDB** come descritto nella sezione [Registrare il provider di risorse](#register-resource-provider) di questo articolo.
+1. In **Selezionare un'entità** selezionare **Nessuna selezione** . Cercare quindi l'entità di sicurezza **Azure Cosmos DB** e selezionarla (per facilitarne l'individuazione, è anche possibile eseguire la ricerca in base all'ID entità di sicurezza: `a232010e-820c-4083-83bb-3ace5fc29d0b` per tutte le aree di Azure ad eccezione delle aree di Azure per enti pubblici in cui l'ID entità di sicurezza è `57506a73-e302-42a9-b869-6f12d9ec29e9`). Scegliere infine **Seleziona** nella parte inferiore della schermata. Se l'entità di sicurezza **Azure Cosmos DB** non è presente nell'elenco, potrebbe essere necessario registrare nuovamente il provider di risorse **Microsoft.DocumentDB** come descritto nella sezione [Registrare il provider di risorse](#register-resource-provider) di questo articolo.
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-add-ap.png" alt-text="Livelli di crittografia relativi ai dati dei clienti":::
 
@@ -71,13 +72,13 @@ Se si crea una nuova istanza di Azure Key Vault, abilitare queste proprietà dur
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keys.png" alt-text="Livelli di crittografia relativi ai dati dei clienti":::
 
-1. Selezionare **Genera/Importa**, specificare un nome per la nuova chiave e selezionare le dimensioni della chiave RSA. Si consiglia di usare minimo 3072 per motivi di sicurezza. quindi selezionare **Crea**:
+1. Selezionare **Genera/Importa** , specificare un nome per la nuova chiave e selezionare le dimensioni della chiave RSA. Si consiglia di usare minimo 3072 per motivi di sicurezza. quindi selezionare **Crea** :
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-gen.png" alt-text="Livelli di crittografia relativi ai dati dei clienti":::
 
 1. Dopo aver creato la chiave, selezionare la chiave appena creata e quindi la relativa versione corrente.
 
-1. Copiare l'**Identificatore chiave** della chiave, ad eccezione della parte dopo l'ultima barra:
+1. Copiare l' **Identificatore chiave** della chiave, ad eccezione della parte dopo l'ultima barra:
 
    :::image type="content" source="./media/how-to-setup-cmk/portal-akv-keyid.png" alt-text="Livelli di crittografia relativi ai dati dei clienti":::
 
@@ -85,7 +86,7 @@ Se si crea una nuova istanza di Azure Key Vault, abilitare queste proprietà dur
 
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
-Quando si crea un nuovo account Azure Cosmos DB dal portale di Azure, scegliere **Chiave gestita dal cliente** nel passaggio **Crittografia**. Nel campo **URI della chiave** incollare l'URI/identificatore chiave della chiave di Azure Key Vault copiata nel passaggio precedente:
+Quando si crea un nuovo account Azure Cosmos DB dal portale di Azure, scegliere **Chiave gestita dal cliente** nel passaggio **Crittografia** . Nel campo **URI della chiave** incollare l'URI/identificatore chiave della chiave di Azure Key Vault copiata nel passaggio precedente:
 
 :::image type="content" source="./media/how-to-setup-cmk/portal-cosmos-enc.png" alt-text="Livelli di crittografia relativi ai dati dei clienti":::
 
@@ -93,7 +94,7 @@ Quando si crea un nuovo account Azure Cosmos DB dal portale di Azure, scegliere 
 
 Quando si crea un nuovo account Azure Cosmos DB con PowerShell:
 
-- Passare l'URI della chiave di Azure Key Vault copiata in precedenza nella proprietà **keyVaultKeyUri** in **PropertyObject**.
+- Passare l'URI della chiave di Azure Key Vault copiata in precedenza nella proprietà **keyVaultKeyUri** in **PropertyObject** .
 
 - Usare **2019-12-12** o versioni successive come versione dell'API.
 
@@ -133,7 +134,7 @@ Get-AzResource -ResourceGroupName $resourceGroupName -Name $accountName `
 
 Quando si crea un nuovo account Azure Cosmos tramite un modello di Azure Resource Manager:
 
-- Passare l'URI della chiave di Azure Key Vault copiata in precedenza nella proprietà **keyVaultKeyUri** nell'oggetto **properties**.
+- Passare l'URI della chiave di Azure Key Vault copiata in precedenza nella proprietà **keyVaultKeyUri** nell'oggetto **properties** .
 
 - Usare **2019-12-12** o versioni successive come versione dell'API.
 
@@ -232,7 +233,7 @@ La rotazione della chiave gestita dal cliente usata dall'account Azure Cosmos pu
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-data-encryption.png" alt-text="Livelli di crittografia relativi ai dati dei clienti":::
 
-    Quindi, sostituire l' **URI della chiave** con la nuova chiave che si vuole usare e selezionare **Save (Salva**):
+    Quindi, sostituire l' **URI della chiave** con la nuova chiave che si vuole usare e selezionare **Save (Salva** ):
 
     :::image type="content" source="./media/how-to-setup-cmk/portal-key-swap.png" alt-text="Livelli di crittografia relativi ai dati dei clienti":::
 

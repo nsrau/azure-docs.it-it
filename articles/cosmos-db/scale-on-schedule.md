@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 01/13/2020
 ms.author: mjbrown
-ms.openlocfilehash: 56fa87cfec7f50253dfce7d7c296ff7cb980aebe
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1db64ecc231a55e59321a5c94097668f3ddc91d8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482010"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085412"
 ---
 # <a name="scale-azure-cosmos-db-throughput-by-using-azure-functions-timer-trigger"></a>Ridimensionare la velocità effettiva Azure Cosmos DB usando il trigger timer di funzioni di Azure
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Le prestazioni di un account Azure Cosmos si basano sulla quantità di velocità effettiva con provisioning espressa in unità richiesta al secondo (UR/sec). Il provisioning è a una seconda granularità e viene fatturato in base alle UR/sec più alte all'ora. Questo modello di capacità con provisioning consente al servizio fornire una velocità effettiva prevedibile e coerente, con bassa latenza e disponibilità elevata garantite. La maggior parte dei carichi di lavoro di produzione queste funzionalità. Tuttavia, negli ambienti di sviluppo e test in cui Azure Cosmos DB viene usato solo durante le ore lavorative, è possibile aumentare la velocità effettiva al mattino e ridurla di nuovo nella sera dopo le ore lavorative.
 

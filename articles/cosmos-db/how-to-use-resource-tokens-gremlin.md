@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: df25ab4b0f5593ab21336d002ad2f9f10795bdcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 74d851a28712beb80bf2a7aa196e471ef4f15074
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91570569"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085735"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Usare token di risorsa di Azure Cosmos DB con Gremlin SDK
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Questo articolo illustra come usare i [token di risorsa di Azure Cosmos DB](secure-access-to-data.md) per accedere al database a grafo tramite Gremlin SDK.
 
@@ -25,11 +26,11 @@ Apache TinkerPop Gremlin SDK non include un'API utilizzabile per creare token di
 
 Di seguito è illustrata la gerarchia del modello a oggetti sopra i token di risorsa.
 
-- **Account Azure Cosmos DB**: entità di primo livello a cui è associato un DNS, ad esempio `contoso.gremlin.cosmos.azure.com`.
+- **Account Azure Cosmos DB** : entità di primo livello a cui è associato un DNS, ad esempio `contoso.gremlin.cosmos.azure.com`.
   - **Database Azure Cosmos DB**
     - **Utente**
       - **Autorizzazione**
-        - **Token**: proprietà dell'oggetto autorizzazione che indica le azioni consentite o negate.
+        - **Token** : proprietà dell'oggetto autorizzazione che indica le azioni consentite o negate.
 
 Un token di risorsa usa il formato seguente: `"type=resource&ver=1&sig=<base64 string>;<base64 string>;"`. Questa stringa è opaca per i client e deve essere usata così com'è, senza alcuna modifica o interpretazione.
 
@@ -100,7 +101,7 @@ Con un singolo account Gremlin si può rilasciare un numero illimitato di token.
 
 ## <a name="permission"></a>Autorizzazione
 
-Un errore comune che si verifica nelle applicazioni durante l'uso dei token di risorsa è costituito da autorizzazioni insufficienti nell'intestazione dell'autorizzazione per la richiesta corrispondente. Viene quindi indicato di riprovare con un'altra intestazione dell'autorizzazione. Questo errore viene restituito quando un attraversamento di Gremlin tenta di scrivere un arco o un vertice ma il token di risorsa concede solo autorizzazioni *Read*. Controllare l'attraversamento per verificare se contiene uno dei passaggi seguenti: *.addV()*, *.addE()*, *.drop()* o *.property()*.
+Un errore comune che si verifica nelle applicazioni durante l'uso dei token di risorsa è costituito da autorizzazioni insufficienti nell'intestazione dell'autorizzazione per la richiesta corrispondente. Viene quindi indicato di riprovare con un'altra intestazione dell'autorizzazione. Questo errore viene restituito quando un attraversamento di Gremlin tenta di scrivere un arco o un vertice ma il token di risorsa concede solo autorizzazioni *Read* . Controllare l'attraversamento per verificare se contiene uno dei passaggi seguenti: *.addV()* , *.addE()* , *.drop()* o *.property()* .
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](role-based-access-control.md) in Azure Cosmos DB

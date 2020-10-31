@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 6b8b145c919a1f4e2ea9129a032da69bd30e6b71
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 63b633ed67c03a006a154bc69a1aafb4cb4aa6d0
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284121"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086279"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-cassandra-api-resources"></a>Provisioning di velocità effettiva di database, contenitori o scalabilità automatica in Azure Cosmos DB risorse API Cassandra
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Questo articolo illustra come effettuare il provisioning della velocità effettiva in Azure Cosmos DB API Cassandra. È possibile effettuare il provisioning della velocità effettiva standard (manuale) o di scalabilità automatica in un contenitore o in un database e condividerla tra i contenitori all'interno del database. Puoi effettuare il provisioning della velocità effettiva usando portale di Azure, l'interfaccia della riga di comando di Azure o Azure Cosmos DB
 
@@ -27,13 +28,13 @@ Se si usa un'API diversa, vedere gli articoli API [SQL](how-to-provision-contain
 
 1. [Creare un nuovo account Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **nuova tabella**. Specificare quindi i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **nuova tabella** . Specificare quindi i dettagli seguenti:
 
    * Indica se si sta creando un nuovo spazio per le nuove o se ne usa uno esistente. Selezionare l'opzione **provisioning database throughput** se si vuole eseguire il provisioning della velocità effettiva a livello di spazio.
    * Immettere l'ID tabella nel comando CQL.
    * Immettere un valore di chiave primaria (ad esempio, `/userrID` ).
    * Immettere una velocità effettiva di cui si desidera eseguire il provisioning (ad esempio, 1000 UR).
-   * Selezionare **OK**.
+   * Selezionare **OK** .
 
     :::image type="content" source="./media/how-to-provision-throughput-cassandra/provision-table-throughput-portal-cassandra-api.png" alt-text="Screenshot della Esplora dati quando si crea una nuova raccolta con velocità effettiva a livello di database":::
 

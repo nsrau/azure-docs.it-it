@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 70eecc7843867a5832d962b7efaecda1b6ab4ae4
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3c2af7f33135a8c6621db233451231ffa89c2d64
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284004"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086160"
 ---
 # <a name="provision-database-container-or-autoscale-throughput-on-azure-cosmos-db-gremlin-api-resources"></a>Provisioning di velocità effettiva di database, contenitori o scalabilità automatica in Azure Cosmos DB risorse API Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Questo articolo illustra come effettuare il provisioning della velocità effettiva in Azure Cosmos DB API Gremlin. È possibile effettuare il provisioning della velocità effettiva standard (manuale) o di scalabilità automatica in un contenitore o in un database e condividerla tra i contenitori all'interno del database. Puoi effettuare il provisioning della velocità effettiva usando portale di Azure, l'interfaccia della riga di comando di Azure o Azure Cosmos DB
 
@@ -27,13 +28,13 @@ Se si usa un'API diversa, vedere gli articoli API [SQL](how-to-provision-contain
 
 1. [Creare un nuovo account Azure Cosmos](create-mongodb-dotnet.md#create-a-database-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **nuovo grafico**. Specificare quindi i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **nuovo grafico** . Specificare quindi i dettagli seguenti:
 
    * Indicare se si intende creare un nuovo database o usarne uno esistente. Selezionare l'opzione **provisioning database throughput** se si desidera effettuare il provisioning della velocità effettiva a livello di database.
    * Immettere un ID grafo.
    * Immettere un valore della chiave di partizione, ad esempio `/ItemID`.
    * Immettere una velocità effettiva di cui si desidera eseguire il provisioning (ad esempio, 1000 UR).
-   * Selezionare **OK**.
+   * Selezionare **OK** .
 
     :::image type="content" source="./media/how-to-provision-throughput-gremlin/provision-database-throughput-portal-gremlin-api.png" alt-text="Screenshot di Esplora dati, durante la creazione di un nuovo grafico con velocità effettiva a livello di database":::
 

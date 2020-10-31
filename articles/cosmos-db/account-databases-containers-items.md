@@ -1,5 +1,5 @@
 ---
-title: Modello di risorsa Azure Cosmos DB
+title: Modello di risorsa di Azure Cosmos DB
 description: Questo articolo descrive Azure Cosmos DB modello di risorse che include l'account, il database, il contenitore e gli elementi di Azure Cosmos. Viene inoltre illustrata la gerarchia di questi elementi in un account Azure Cosmos.
 author: markjbrown
 ms.author: mjbrown
@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 1178a5e2850279820925c9bd02554ec7d5adf9e6
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 23adbd289ae2be484f1aef86b2224097c6ba489c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284092"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087928"
 ---
-# <a name="azure-cosmos-db-resource-model"></a>Modello di risorsa Azure Cosmos DB
+# <a name="azure-cosmos-db-resource-model"></a>Modello di risorsa di Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB è una piattaforma completamente gestita distribuita come servizio (PaaS). Per iniziare a usare Azure Cosmos DB, è prima di tutto necessario creare un account Azure Cosmos nella sottoscrizione di Azure e in database, contenitori, elementi al suo interno. Questo articolo descrive il modello di risorse Azure Cosmos DB e le entità diverse nella gerarchia del modello di risorse.
 
@@ -63,16 +64,16 @@ Un contenitore di Azure Cosmos è l'unità di scalabilità per la velocità effe
 
 Quando si crea un contenitore, la velocità effettiva viene configurata in una delle modalità seguenti:
 
-* **Modalità di velocità effettiva con provisioning dedicato**: la velocità effettiva con provisioning in un contenitore è riservata esclusivamente al contenitore ed è supportata dai contratti di contratto. Per altre informazioni, vedere [come eseguire il provisioning della velocità effettiva in un contenitore](how-to-provision-container-throughput.md).
+* **Modalità di velocità effettiva con provisioning dedicato** : la velocità effettiva con provisioning in un contenitore è riservata esclusivamente al contenitore ed è supportata dai contratti di contratto. Per altre informazioni, vedere [come eseguire il provisioning della velocità effettiva in un contenitore](how-to-provision-container-throughput.md).
 
-* **Modalità di velocità effettiva con provisioning condiviso**: questi contenitori condividono la velocità effettiva con provisioning con gli altri contenitori nello stesso database, esclusi i contenitori che sono stati configurati con una velocità effettiva con provisioning dedicata. In altre parole, la velocità effettiva con provisioning nel database viene condivisa tra tutti i contenitori "velocità effettiva condivisa". Per ulteriori informazioni, vedere [come eseguire il provisioning della velocità effettiva in un database](how-to-provision-database-throughput.md).
+* **Modalità di velocità effettiva con provisioning condiviso** : questi contenitori condividono la velocità effettiva con provisioning con gli altri contenitori nello stesso database, esclusi i contenitori che sono stati configurati con una velocità effettiva con provisioning dedicata. In altre parole, la velocità effettiva con provisioning nel database viene condivisa tra tutti i contenitori "velocità effettiva condivisa". Per ulteriori informazioni, vedere [come eseguire il provisioning della velocità effettiva in un database](how-to-provision-database-throughput.md).
 
 > [!NOTE]
 > È possibile configurare la velocità effettiva condivisa e dedicata solo quando si creano il database e il contenitore. Per passare dalla modalità di velocità effettiva dedicata alla modalità di velocità effettiva condivisa (e viceversa) dopo la creazione del contenitore, è necessario creare un nuovo contenitore dove eseguire la migrazione dei dati. È possibile eseguire la migrazione dei dati tramite la funzionalità Azure Cosmos DB feed delle modifiche.
 
 Un contenitore Azure Cosmos può essere ridimensionato in modo elastico, indipendentemente dal fatto che i contenitori vengano creati usando modalità di velocità effettiva con provisioning dedicato o condiviso.
 
-Un contenitore è un contenitore di elementi indipendente dallo schema. Gli elementi in un contenitore possono avere schemi arbitrari. Ad esempio, un elemento che rappresenta una persona e un elemento che rappresenta un'automobile può essere inserito nello *stesso contenitore*. Per impostazione predefinita, tutti gli elementi aggiunti a un contenitore vengono indicizzati automaticamente senza richiedere la gestione esplicita di indici o schemi. È possibile personalizzare il comportamento di indicizzazione configurando i [criteri di indicizzazione](index-overview.md) in un contenitore. 
+Un contenitore è un contenitore di elementi indipendente dallo schema. Gli elementi in un contenitore possono avere schemi arbitrari. Ad esempio, un elemento che rappresenta una persona e un elemento che rappresenta un'automobile può essere inserito nello *stesso contenitore* . Per impostazione predefinita, tutti gli elementi aggiunti a un contenitore vengono indicizzati automaticamente senza richiedere la gestione esplicita di indici o schemi. È possibile personalizzare il comportamento di indicizzazione configurando i [criteri di indicizzazione](index-overview.md) in un contenitore. 
 
 È possibile impostare la [durata (TTL)](time-to-live.md) per gli elementi selezionati in un contenitore o l'intero contenitore per eliminare normalmente tali elementi dal sistema. Azure Cosmos DB Elimina automaticamente gli elementi alla scadenza. Garantisce inoltre che una query eseguita sul contenitore non restituisca gli elementi scaduti in un limite fisso. Per altre informazioni, vedere [configurare la durata (TTL) nel contenitore](how-to-time-to-live.md).
 

@@ -7,14 +7,15 @@ ms.date: 09/17/2020
 author: deborahc
 ms.author: dech
 ms.custom: devx-track-python, devx-track-java, contperfq1
-ms.openlocfilehash: f747cc6405cef07510766bcfa4c826aec9d9857b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 79e2b58ea342c9449faba108881c65d0bd8de856
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490408"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085803"
 ---
 # <a name="export-the-azure-cosmos-db-emulator-certificates-for-use-with-java-python-and-nodejs-apps"></a>Esportare i certificati dell'emulatore Azure Cosmos DB per l'uso con app Java, Python e Node.js
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 L'emulatore di Azure Cosmos DB fornisce un ambiente locale che emula il servizio Azure Cosmos DB a scopo di sviluppo. Azure Cosmos Emulator supporta solo la comunicazione sicura tramite connessioni TLS.
 
@@ -30,11 +31,11 @@ Questo articolo illustra come esportare i certificati TLS/SSL da usare in lingua
 
 È necessario esportare il certificato dell'emulatore per usare correttamente l'endpoint dell'emulatore da linguaggi e ambienti di runtime che non si integrano con l'archivio certificati di Windows. È possibile esportare il certificato utilizzando Gestione certificati Windows. Usare le istruzioni dettagliate seguenti per esportare il certificato "DocumentDBEmulatorCertificate" come file con estensione cer X. 509 con codifica BASE 64:
 
-1. Avviare Gestione certificati di Windows eseguendo certlm.msc, passare alla cartella Personale->Certificati e aprire il certificato con il nome descrittivo **DocumentDbEmulatorCertificate**.
+1. Avviare Gestione certificati di Windows eseguendo certlm.msc, passare alla cartella Personale->Certificati e aprire il certificato con il nome descrittivo **DocumentDbEmulatorCertificate** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-1.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
-1. Fare clic su **Details** (Dettagli) quindi su **OK**.
+1. Fare clic su **Details** (Dettagli) quindi su **OK** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-2.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
@@ -42,7 +43,7 @@ Questo articolo illustra come esportare i certificati TLS/SSL da usare in lingua
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-3.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
-1. Fare clic su **Avanti**.
+1. Fare clic su **Avanti** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-4.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
@@ -54,11 +55,11 @@ Questo articolo illustra come esportare i certificati TLS/SSL da usare in lingua
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-6.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
-1. Assegnare un nome al certificato. In questo caso, **documentdbemulatorcert**, quindi fare clic su **Next** (Avanti).
+1. Assegnare un nome al certificato. In questo caso, **documentdbemulatorcert** , quindi fare clic su **Next** (Avanti).
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-7.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 
-1. Fare clic su **Fine**.
+1. Fare clic su **Fine** .
 
     :::image type="content" source="./media/local-emulator-export-ssl-certificates/database-local-emulator-export-step-8.png" alt-text="Passaggio 1 dell'esportazione nell'emulatore locale di Azure Cosmos DB":::
 

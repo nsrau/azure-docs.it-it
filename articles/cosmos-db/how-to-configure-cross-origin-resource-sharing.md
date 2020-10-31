@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: eb1cbed7b974b6f0015591df01674e40aac2d8c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 863c31ecac13337ea3f91d7a7ced49b0f7141e58
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390874"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086415"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configurare Condivisione di risorse tra le origini (CORS)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Condivisione risorse tra le origini (CORS, Cross Origin Resource Sharing) è una funzionalità HTTP che consente a un'applicazione Web in esecuzione in un dominio di accedere alle risorse in un altro dominio. I Web browser implementano una limitazione di sicurezza nota come criteri di corrispondenza dell'origine, che impedisce a una pagina Web di chiamare API in un dominio diverso. Tuttavia, CORS offre un modo sicuro per consentire al dominio di origine di chiamare le API in un altro dominio. L'API principale (SQL) in Azure Cosmos DB supporta ora la condivisione di risorse tra le origini (CORS) tramite l'intestazione "allowedOrigins". Dopo l'attivazione del supporto di CORS per l'account Azure Cosmos vengono valutate solo le richieste autenticate, per determinare se sono consentite in base alle regole specificate.
 
@@ -26,9 +27,9 @@ Condivisione risorse tra le origini (CORS, Cross Origin Resource Sharing) è una
 
 Seguire questa procedura per abilitare Condivisione di risorse tra le origini usando il portale di Azure:
 
-1. Accedere all'account Azure Cosmos DB. Aprire il pannello **CORS**.
+1. Accedere all'account Azure Cosmos DB. Aprire il pannello **CORS** .
 
-2. Specificare un elenco separato da virgole di origini che potranno effettuare chiamate multiorigine all'account Azure Cosmos DB. Ad esempio `https://www.mydomain.com`, `https://mydomain.com`, `https://api.mydomain.com`. È anche possibile usare un carattere jolly "\*" per consentire tutte le origini, quindi selezionare **Invia**. 
+2. Specificare un elenco separato da virgole di origini che potranno effettuare chiamate multiorigine all'account Azure Cosmos DB. Ad esempio `https://www.mydomain.com`, `https://mydomain.com`, `https://api.mydomain.com`. È anche possibile usare un carattere jolly "\*" per consentire tutte le origini, quindi selezionare **Invia** . 
 
    > [!NOTE]
    > Attualmente non è possibile usare i caratteri jolly come parte del nome di dominio. Ad esempio il formato `https://*.mydomain.net` non è ancora supportato. 

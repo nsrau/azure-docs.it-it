@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/19/2020
 ms.author: maquaran
-ms.openlocfilehash: 152454b3da0ff1efd33ac463aecec78155a8e6f7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c47d18726d9581b1b03aa2e676a71d6ca1bc1b7d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490476"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086466"
 ---
 # <a name="how-to-configure-logging-and-connectivity-with-the-azure-functions-trigger-for-cosmos-db"></a>Come configurare la registrazione e la connettività con il trigger di funzioni di Azure per Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questo articolo descrive le opzioni di configurazione avanzate che è possibile impostare quando si usa il trigger di funzioni di Azure per Cosmos DB.
 
@@ -52,11 +53,11 @@ traces
 
 ## <a name="configuring-the-connection-policy"></a>Configurazione dei criteri di connessione
 
-Esistono due modalità di connessione: Diretta e Gateway. Per ulteriori informazioni su queste modalità di connessione, vedere l'articolo relativo alle [modalità](sql-sdk-connection-modes.md) di connessione. Per impostazione predefinita, per stabilire tutte le connessioni nel trigger di Funzioni di Azure per Cosmos DB si usa la modalità **Gateway**. Tuttavia, per gli scenari basati sulle prestazioni questa potrebbe non essere l'opzione ottimale.
+Esistono due modalità di connessione: Diretta e Gateway. Per ulteriori informazioni su queste modalità di connessione, vedere l'articolo relativo alle [modalità](sql-sdk-connection-modes.md) di connessione. Per impostazione predefinita, per stabilire tutte le connessioni nel trigger di Funzioni di Azure per Cosmos DB si usa la modalità **Gateway** . Tuttavia, per gli scenari basati sulle prestazioni questa potrebbe non essere l'opzione ottimale.
 
 ### <a name="changing-the-connection-mode-and-protocol"></a>Modifica della modalità e del protocollo di connessione
 
-Sono disponibili due impostazioni di configurazione chiave per la configurazione dei criteri di connessione client, ovvero la **modalità di connessione** e il **protocollo di connessione**. È possibile cambiare la modalità e il protocollo di connessione predefiniti usati dal trigger di Funzioni di Azure per Cosmos DB e da tutti i [binding di Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-output.md). Per cambiare le impostazioni predefinite, è necessario individuare il file `host.json` nel progetto di Funzioni di Azure o nell'app per le funzioni di Azure e aggiungere l'[impostazione aggiuntiva](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) seguente:
+Sono disponibili due impostazioni di configurazione chiave per la configurazione dei criteri di connessione client, ovvero la **modalità di connessione** e il **protocollo di connessione** . È possibile cambiare la modalità e il protocollo di connessione predefiniti usati dal trigger di Funzioni di Azure per Cosmos DB e da tutti i [binding di Azure Cosmos DB](../azure-functions/functions-bindings-cosmosdb-v2-output.md). Per cambiare le impostazioni predefinite, è necessario individuare il file `host.json` nel progetto di Funzioni di Azure o nell'app per le funzioni di Azure e aggiungere l'[impostazione aggiuntiva](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) seguente:
 
 ```js
 {

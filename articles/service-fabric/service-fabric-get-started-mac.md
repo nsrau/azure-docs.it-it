@@ -4,12 +4,12 @@ description: Installare il runtime, l'SDK e gli strumenti e creare un cluster di
 ms.topic: conceptual
 ms.date: 10/16/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: adec05a4d8e34374fe260343c73b1ecd14ba04f1
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d08046c8f29901dd9650a1edc886efa2ff226e00
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168172"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086778"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Configurare l'ambiente di sviluppo in Mac OS X
 > [!div class="op_single_selector"]
@@ -41,7 +41,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
         "fixed-cidr-v6": "fd00::/64"
     }
     ```
-    È possibile aggiornare queste impostazioni direttamente nel file daemon.json nel percorso di installazione di Docker. È possibile modificare direttamente le impostazioni di configurazione del daemon in Docker. Selezionare l'**icona Docker** e quindi selezionare **Preferences** (Preferenze) > **Daemon** > **Advanced** (Avanzate).
+    È possibile aggiornare queste impostazioni direttamente nel file daemon.json nel percorso di installazione di Docker. È possibile modificare direttamente le impostazioni di configurazione del daemon in Docker. Selezionare l' **icona Docker** e quindi selezionare **Preferences** (Preferenze) > **Daemon** > **Advanced** (Avanzate).
     
     >[!NOTE]
     >
@@ -49,7 +49,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     >
 
     >[!TIP]
-    >È consigliabile aumentare le risorse allocate per Docker durante il test di applicazioni di grandi dimensioni. Questa operazione può essere eseguita selezionando l'**icona Docker**, quindi selezionando **Advanced** (Avanzate) per modificare il numero di core e la quantità di memoria.
+    >È consigliabile aumentare le risorse allocate per Docker durante il test di applicazioni di grandi dimensioni. Questa operazione può essere eseguita selezionando l' **icona Docker** , quindi selezionando **Advanced** (Avanzate) per modificare il numero di core e la quantità di memoria.
 
 2. Avviare il cluster.<br/>
     <b>Ubuntu 18,04 LTS:</b>
@@ -63,7 +63,7 @@ Per configurare un contenitore Docker locale ed eseguirvi un cluster di Service 
     ```
 
     >[!TIP]
-    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per le revisioni particolari, visitare la pagina dell' [Hub Docker](https://hub.docker.com/r/microsoft/service-fabric-onebox/) .
+    > Per impostazione predefinita, verrà eseguito il pull dell'immagine con la versione più recente di Service Fabric. Per le revisioni particolari, visitare la pagina [Service Fabric OneBox](https://hub.docker.com/_/microsoft-service-fabric-onebox) nell'hub docker.
 
 
 

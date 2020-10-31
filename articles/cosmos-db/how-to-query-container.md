@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 3/18/2019
 ms.author: mjbrown
-ms.openlocfilehash: e948031d3d1d03890bfcfccd65424a15e6e314cd
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 3c363552d1a196bed49e1ef3448a8216b7bcae2f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276109"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93086058"
 ---
 # <a name="query-an-azure-cosmos-container"></a>Eseguire una query su un contenitore in Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questo articolo illustra come eseguire una query su un contenitore (raccolta, grafo o tabella) in Azure Cosmos DB. In particolare, vengono illustrate le modalità di lavoro delle query in partizione e tra partizioni in Azure Cosmos DB.
 
@@ -57,9 +58,9 @@ Le versioni degli SDK di Azure Cosmos DB 1.9.0 e successive supportano le opzion
 
 È possibile gestire l'esecuzione di query in parallelo, ottimizzando i parametri seguenti:
 
-- **MaxConcurrency**: imposta il numero massimo di connessioni di rete simultanee alle partizioni del contenitore. Se si imposta questa proprietà su `-1` , l'SDK gestisce il grado di parallelismo. Se  `MaxConcurrency` impostato su `0` , esiste una singola connessione di rete alle partizioni del contenitore.
+- **MaxConcurrency** : imposta il numero massimo di connessioni di rete simultanee alle partizioni del contenitore. Se si imposta questa proprietà su `-1` , l'SDK gestisce il grado di parallelismo. Se  `MaxConcurrency` impostato su `0` , esiste una singola connessione di rete alle partizioni del contenitore.
 
-- **MaxBufferedItemCount**: bilancia la latenza delle query rispetto all'utilizzo della memoria sul lato client. Se questa opzione viene omessa o è impostata su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
+- **MaxBufferedItemCount** : bilancia la latenza delle query rispetto all'utilizzo della memoria sul lato client. Se questa opzione viene omessa o è impostata su -1, il numero di elementi memorizzati nel buffer durante l'esecuzione di query in parallelo viene gestito dall'SDK.
 
 Grazie alla capacità Azure Cosmos DB di parallelizzare le query tra partizioni, la latenza delle query viene in genere ridimensionata in modo da consentire al sistema di aggiungere [partizioni fisiche](partitioning-overview.md#physical-partitions). Tuttavia, l'addebito delle UR aumenterà in modo significativo man mano che aumenta il numero totale di partizioni fisiche.
 

@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: mikhegn
-ms.openlocfilehash: 5c1a7de386baeb4b89fd12bd89236ea2e0348a57
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5627aa614a7e2819b6f3cc1401c8458552e57219
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357217"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93085174"
 ---
 # <a name="visualize-your-cluster-with-service-fabric-explorer"></a>Visualizzare il cluster con Service Fabric Explorer
 
@@ -69,7 +69,7 @@ Il cluster contiene due sotto-alberi: uno per le applicazioni e un altro per i n
 
 È possibile usare la visualizzazione delle applicazioni per spostarsi nella gerarchia logica di Service Fabric: applicazioni, servizi, partizioni e repliche.
 
-Nell'esempio seguente, l'applicazione **MyApp** è costituita da due servizi, **MyStatefulService** e **WebService**. Poiché **MyStatefulService** è con stato, include una partizione con una replica primaria e due repliche secondarie. Al contrario, il WebSvcService è senza stato e contiene una singola istanza.
+Nell'esempio seguente, l'applicazione **MyApp** è costituita da due servizi, **MyStatefulService** e **WebService** . Poiché **MyStatefulService** è con stato, include una partizione con una replica primaria e due repliche secondarie. Al contrario, il WebSvcService è senza stato e contiene una singola istanza.
 
 ![Visualizzazione delle applicazioni di Service Fabric Explorer][sfx-application-tree]
 
@@ -83,7 +83,7 @@ La visualizzazione dei nodi mostra il layout fisico del cluster. Per un determin
 ## <a name="actions"></a>Azioni
 Service Fabric Explorer offre un modo rapido per richiamare le azioni su nodi, applicazioni e servizi all'interno del cluster.
 
-Ad esempio, per eliminare un'istanza dell'applicazione, scegliere l'applicazione dall'albero a sinistra, quindi scegliere **azioni**  >  **Elimina applicazione**.
+Ad esempio, per eliminare un'istanza dell'applicazione, scegliere l'applicazione dall'albero a sinistra, quindi scegliere **azioni**  >  **Elimina applicazione** .
 
 ![Eliminazione di un'applicazione in Service Fabric Explorer][sfx-delete-application]
 
@@ -117,7 +117,7 @@ EventStore è una funzionalità offerta dalla piattaforma che rende disponibili 
 ## <a name="image-store-viewer"></a>Visualizzatore archivio immagini
 Image Store Viewer è una funzionalità offerta se si usa archivio immagini nativi che consente di visualizzare il contenuto corrente dell'archivio immagini e ottenere informazioni su file e cartelle, insieme alla rimozione di file/cartelle.
 
-![Mappa del cluster di Service Fabric Explorer][sfx-imagestore]
+![Screenshot che mostra il Visualizzatore archivio immagini.][sfx-imagestore]
 
 ## <a name="backup-and-restore"></a>Backup e ripristino
 Service Fabric Explorer offre la possibilità di interfacciarsi con il [backup e il ripristino](./service-fabric-reliable-services-backup-restore.md). Per visualizzare le funzionalità di backup e ripristino in SFX, è necessario abilitare la modalità avanzata.
