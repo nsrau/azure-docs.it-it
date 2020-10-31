@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 55dabccf5a5ab9e81ff0644056002f3beb644fa9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f7e9de1f23ec46af08fe96b5db3170fac9a7eb2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491156"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101630"
 ---
 # <a name="create-a-container-in-azure-cosmos-db-gremlin-api"></a>Creare un contenitore in Azure Cosmos DB API Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Questo articolo illustra i diversi modi per creare un contenitore in Azure Cosmos DB API Gremlin. Viene illustrato come creare un contenitore usando portale di Azure, l'interfaccia della riga di comando di Azure, PowerShell o gli SDK supportati. Questo articolo spiega come creare un contenitore, specificare la chiave di partizione ed effettuare il provisioning della velocità effettiva.
 
@@ -30,14 +31,14 @@ Questo articolo illustra i diversi modi per creare un contenitore in Azure Cosmo
 
 1. [Creare un nuovo account Azure Cosmos](create-graph-dotnet.md#create-a-database-account)oppure selezionare un account esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **nuovo grafico**. Specificare quindi i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **nuovo grafico** . Specificare quindi i dettagli seguenti:
 
    * Indicare se si intende creare un nuovo database o usarne uno esistente.
    * Immettere un ID grafo.
-   * Selezionare una capacità di archiviazione **Illimitata**.
+   * Selezionare una capacità di archiviazione **Illimitata** .
    * Immettere una chiave di partizione per i vertici.
    * Immettere una velocità effettiva da sottoporre a provisioning (ad esempio, 1000 UR).
-   * Selezionare **OK**.
+   * Selezionare **OK** .
 
     :::image type="content" source="./media/how-to-create-container/partitioned-collection-create-gremlin.png" alt-text="Screenshot dell'API Gremlin con la finestra di dialogo Aggiungi Graph":::
 

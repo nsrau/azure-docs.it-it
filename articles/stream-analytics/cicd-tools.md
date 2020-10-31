@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/10/2020
-ms.openlocfilehash: e772701396f172eaab906f99463bd9019728b531
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa75a553ffc131f4827aa045849f1317d894ddc5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90938036"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123151"
 ---
 # <a name="automate-builds-tests-and-deployments-of-an-azure-stream-analytics-job-using-cicd-tools"></a>Automatizzare le compilazioni, i test e le distribuzioni di un processo di analisi di flusso di Azure usando gli strumenti CI/CD
 
@@ -21,11 +21,11 @@ ms.locfileid: "90938036"
 
 ## <a name="installation"></a>Installazione
 
-È possibile [scaricare il pacchetto](https://www.npmjs.com/package/azure-streamanalytics-cicd) direttamente oppure installarlo a [livello globale](https://docs.npmjs.com/downloading-and-installing-packages-globally) tramite il `npm install -g azure-streamanalytics-cicd` comando. Si consiglia di usare il comando, che può essere usato anche in un'attività script di PowerShell o dell'interfaccia della riga di comando di Azure di una pipeline di compilazione in **Azure Pipelines**.
+È possibile [scaricare il pacchetto](https://www.npmjs.com/package/azure-streamanalytics-cicd) direttamente oppure installarlo a [livello globale](https://docs.npmjs.com/downloading-and-installing-packages-globally) tramite il `npm install -g azure-streamanalytics-cicd` comando. Si consiglia di usare il comando, che può essere usato anche in un'attività script di PowerShell o dell'interfaccia della riga di comando di Azure di una pipeline di compilazione in **Azure Pipelines** .
 
 ## <a name="build-the-project"></a>Compilare il progetto
 
-Il pacchetto NPM **ASA-streamanalytics-CICD** fornisce gli strumenti per generare Azure Resource Manager modelli di progetti di analisi di flusso [Visual Studio Code](quick-create-vs-code.md) o [progetti di Visual Studio](stream-analytics-quick-create-vs.md). È anche possibile usare il pacchetto NPM in Windows, macOS e Linux senza installare Visual Studio Code o Visual Studio.
+Il pacchetto NPM **ASA-streamanalytics-CICD** fornisce gli strumenti per generare Azure Resource Manager modelli di progetti di analisi di flusso [Visual Studio Code](./quick-create-visual-studio-code.md) o [progetti di Visual Studio](stream-analytics-quick-create-vs.md). È anche possibile usare il pacchetto NPM in Windows, macOS e Linux senza installare Visual Studio Code o Visual Studio.
 
 Dopo aver installato il pacchetto, usare il comando seguente per compilare i progetti di analisi di flusso.
 
@@ -66,7 +66,7 @@ Quando un progetto di analisi di flusso viene compilato correttamente, genera i 
 
 I parametri predefiniti presenti nel parameters.jsfile sono inclusi nelle impostazioni del Visual Studio Code o del progetto di Visual Studio. Se si vuole distribuire in un altro ambiente, sostituire i parametri di conseguenza.
 
-I valori predefiniti per tutte le credenziali sono **null**. È necessario impostare i valori prima di eseguire la distribuzione in Azure.
+I valori predefiniti per tutte le credenziali sono **null** . È necessario impostare i valori prima di eseguire la distribuzione in Azure.
 
 ```json
 "Input_EntryStream_sharedAccessPolicyKey": {
@@ -122,7 +122,7 @@ azure-streamanalytics-cicd addtestcase -project <projectFullPath> [-testConfigPa
 | Parametro | Descrizione |
 |---|---|
 | `-project` | Il percorso del **asaproj.jsnel** file per il progetto Visual Studio Code o **[nome del progetto]. asaproj** per il progetto di Visual Studio. |
-| `-testConfigPath` | Percorso del file di configurazione di test. Se non viene specificato, il file verrà cercato in **\test** sotto la directory corrente del file **asaproj.json** , con il nome file predefinito **testConfig.json**. Se non esiste, verrà creato un nuovo file. |
+| `-testConfigPath` | Percorso del file di configurazione di test. Se non viene specificato, il file verrà cercato in **\test** sotto la directory corrente del file **asaproj.json** , con il nome file predefinito **testConfig.json** . Se non esiste, verrà creato un nuovo file. |
 
 #### <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -137,9 +137,9 @@ azure-streamanalytics-cicd addtestcase -project "/Users/roger/projects/samplejob
 ```
 ---
 
-Se il file di configurazione del test è vuoto, il contenuto seguente viene scritto nel file. In caso contrario, viene aggiunto un test case nella matrice di **testCases**. Le configurazioni di input necessarie vengono compilate automaticamente in base ai file di configurazione di input, se esistenti. In caso contrario, vengono configurati i valori predefiniti. Prima di eseguire il test, è necessario specificare **filePath** di ogni input e output previsto. È possibile modificare la configurazione manualmente.
+Se il file di configurazione del test è vuoto, il contenuto seguente viene scritto nel file. In caso contrario, viene aggiunto un test case nella matrice di **testCases** . Le configurazioni di input necessarie vengono compilate automaticamente in base ai file di configurazione di input, se esistenti. In caso contrario, vengono configurati i valori predefiniti. Prima di eseguire il test, è necessario specificare **filePath** di ogni input e output previsto. È possibile modificare la configurazione manualmente.
 
-Se si desidera che la convalida dei test ignori un determinato output, impostare il campo **obbligatorio** dell'output previsto su **false**.
+Se si desidera che la convalida dei test ignori un determinato output, impostare il campo **obbligatorio** dell'output previsto su **false** .
 
 ```json
 {
@@ -179,11 +179,11 @@ azure-streamanalytics-cicd test -project <projectFullPath> [-testConfigPath <tes
 | Parametro | Descrizione |
 |---|---|
 | `-project` | Il percorso del **asaproj.jsnel** file per il progetto Visual Studio Code o **[nome del progetto]. asaproj** per il progetto di Visual Studio. |
-| `-testConfigPath` | Percorso del file di configurazione di test. Se non viene specificato, il file verrà cercato in **\test** sotto la directory corrente del file **asaproj.json** , con il nome file predefinito **testConfig.json**.
+| `-testConfigPath` | Percorso del file di configurazione di test. Se non viene specificato, il file verrà cercato in **\test** sotto la directory corrente del file **asaproj.json** , con il nome file predefinito **testConfig.json** .
 | `-outputPath` | Percorso della cartella di output dei risultati del test. Se non viene specificato, i file dei risultati di output verranno inseriti nella directory corrente. |
 | `-customCodeZipFilePath` | Percorso del file zip per codice personalizzato, ad esempio una funzione definita dall'utente o un deserializzatore, se vengono utilizzati. |
 
-Al termine di tutti i test, nella cartella di output viene generato un riepilogo dei risultati del test in formato JSON. Il file di riepilogo è denominato **testResultSummary.json**.
+Al termine di tutti i test, nella cartella di output viene generato un riepilogo dei risultati del test in formato JSON. Il file di riepilogo è denominato **testResultSummary.json** .
 
 ```json
 {

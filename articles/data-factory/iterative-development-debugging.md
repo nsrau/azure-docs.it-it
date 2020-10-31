@@ -1,7 +1,7 @@
 ---
 title: Sviluppo e debug iterativi in Azure Data Factory
 description: Informazioni su come sviluppare ed eseguire il debug di pipeline di Data Factory in modo iterativo nell'UX di ADF
-ms.date: 09/11/2020
+ms.date: 10/29/2020
 ms.topic: conceptual
 ms.service: data-factory
 services: data-factory
@@ -9,12 +9,12 @@ documentationcenter: ''
 ms.workload: data-services
 author: djpmsft
 ms.author: daperlov
-ms.openlocfilehash: e4c66055184b2ef0113aa0e25c02ad8635feddb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1f81af715bc4b2248a24076f3b12a74d0ee73e3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90031008"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102071"
 ---
 # <a name="iterative-development-and-debugging-with-azure-data-factory"></a>Sviluppo e debug iterativi con Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -27,7 +27,7 @@ Per un'introduzione di otto minuti e una dimostrazione di questa funzionalità, 
 
 ## <a name="debugging-a-pipeline"></a>Debug di una pipeline
 
-Quando si crea usando l'area di disegno della pipeline, è possibile testare le attività usando la funzionalità di **debug** . Durante un'esecuzione dei test, non è necessario pubblicare le modifiche in Data Factory prima di selezionare **Debug**. Questa funzione risulta utile negli scenari in cui ci si vuole assicurare che le modifiche funzionino come previsto prima di aggiornare il flusso di lavoro di Data Factory.
+Quando si crea usando l'area di disegno della pipeline, è possibile testare le attività usando la funzionalità di **debug** . Durante un'esecuzione dei test, non è necessario pubblicare le modifiche in Data Factory prima di selezionare **Debug** . Questa funzione risulta utile negli scenari in cui ci si vuole assicurare che le modifiche funzionino come previsto prima di aggiornare il flusso di lavoro di Data Factory.
 
 ![Funzionalità di debug nel canvas della pipeline](media/iterative-development-debugging/iterative-development-1.png)
 
@@ -44,7 +44,7 @@ Quando un'esecuzione dei test ha esito positivo, aggiungere altre attività alla
 
 ### <a name="setting-breakpoints"></a>Impostazione di punti di interruzione
 
-Azure Data Factory consente di eseguire il debug di una pipeline fino a quando non si raggiunge una determinata attività nell'area di disegno della pipeline. Inserire un punto di interruzione nell'attività fino a quando si desidera eseguire il test e selezionare **debug**. Data Factory esegue i test solo fino all'attività con il punto di interruzione nel canvas della pipeline. Questa funzionalità *Debug Until* (Debug fino a) è utile quando non si vuole testare l'intera pipeline, ma solo un subset delle attività all'interno della pipeline.
+Azure Data Factory consente di eseguire il debug di una pipeline fino a quando non si raggiunge una determinata attività nell'area di disegno della pipeline. Inserire un punto di interruzione nell'attività fino a quando si desidera eseguire il test e selezionare **debug** . Data Factory esegue i test solo fino all'attività con il punto di interruzione nel canvas della pipeline. Questa funzionalità *Debug Until* (Debug fino a) è utile quando non si vuole testare l'intera pipeline, ma solo un subset delle attività all'interno della pipeline.
 
 ![Punti di interruzione nel canvas della pipeline](media/iterative-development-debugging/iterative-development-3.png)
 
@@ -52,7 +52,7 @@ Per impostare un punto di interruzione, selezionare un elemento nel canvas della
 
 ![Prima dell'impostazione di un punto di interruzione sull'elemento selezionato](media/iterative-development-debugging/iterative-development-4.png)
 
-Dopo avere selezionato l'opzione *Debug fino a*, diventa un cerchio rosso pieno per indicare che il punto di interruzione è abilitato.
+Dopo avere selezionato l'opzione *Debug fino a* , diventa un cerchio rosso pieno per indicare che il punto di interruzione è abilitato.
 
 ![Dopo l'impostazione di un punto di interruzione sull'elemento selezionato](media/iterative-development-debugging/iterative-development-5.png)
 
@@ -79,11 +79,14 @@ I flussi di dati di mapping consentono di compilare la logica di trasformazione 
  
 ### <a name="debugging-a-pipeline-with-a-data-flow-activity"></a>Debug di una pipeline con un'attività flusso di dati
 
-Quando si esegue un'esecuzione del debug con un flusso di dati, sono disponibili due opzioni per il calcolo da usare. È possibile usare un cluster di debug esistente o creare un nuovo cluster JIT per i flussi di dati.
+Quando si esegue una pipeline di debug eseguita con un flusso di dati, sono disponibili due opzioni per il calcolo da usare. È possibile usare un cluster di debug esistente o creare un nuovo cluster JIT per i flussi di dati.
 
-L'uso di una sessione di debug esistente ridurrà notevolmente il tempo di avvio del flusso di dati mentre il cluster è già in esecuzione, ma non è consigliato per carichi di lavoro complessi o paralleli, in quanto potrebbero verificarsi errori quando più processi vengono eseguiti contemporaneamente. 
+L'uso di una sessione di debug esistente ridurrà notevolmente il tempo di avvio del flusso di dati mentre il cluster è già in esecuzione, ma non è consigliato per carichi di lavoro complessi o paralleli, in quanto potrebbero verificarsi errori quando più processi vengono eseguiti contemporaneamente.
 
-L'uso del runtime di attività creerà un nuovo cluster usando le impostazioni specificate in ogni runtime di integrazione dell'attività flusso di dati. In questo modo è possibile isolare ogni processo e usarlo per carichi di lavoro complessi o test delle prestazioni.
+L'uso del runtime di attività creerà un nuovo cluster usando le impostazioni specificate in ogni runtime di integrazione dell'attività flusso di dati. In questo modo è possibile isolare ogni processo e usarlo per carichi di lavoro complessi o test delle prestazioni. È inoltre possibile controllare la durata (TTL) nell'Azure IR in modo che le risorse del cluster utilizzate per il debug siano ancora disponibili per tale periodo di tempo per gestire richieste di processi aggiuntive.
+
+> [!NOTE]
+> Se si dispone di una pipeline con flussi di dati in esecuzione in parallelo, scegliere "utilizza Runtime attività" in modo che Data Factory possibile utilizzare il Integration Runtime selezionato nell'attività flusso di dati. In questo modo i flussi di dati possono essere eseguiti in più cluster e possono contenere le esecuzioni del flusso di dati parallele.
 
 ![Esecuzione di una pipeline con un flusso di data](media/iterative-development-debugging/iterative-development-dataflow.png)
 

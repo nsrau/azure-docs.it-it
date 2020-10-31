@@ -8,17 +8,17 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/04/2018
 ms.custom: seodec18
-ms.openlocfilehash: 22112272bb302769e5969cf6995d486438deb41f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 923e8d1ffc3e606c16226b4b2ccbdcfaf4d3e9f1
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75431616"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123422"
 ---
 # <a name="azure-stream-analytics-output-error-policy"></a>Criteri di errore di output in Analisi di flusso di Azure
 Questo articolo descrive i criteri di gestione degli errori per i dati di output che possono essere configurati in Analisi di flusso di Azure.
 
-I criteri di gestione degli errori per i dati di output si applicano solo agli errori di conversione dei dati che si verificano quando l'evento di output prodotto da un processo di Analisi di flusso di Azure non è conforme allo schema del sink di destinazione. È possibile configurare questo criterio scegliendo tra **Riprova** oppure **Rilascia**. Nel portale di Azure, all'interno di un processo di Analisi di flusso, sotto **Configura**, selezionare **Criteri di errore** per effettuare una selezione.
+I criteri di gestione degli errori per i dati di output si applicano solo agli errori di conversione dei dati che si verificano quando l'evento di output prodotto da un processo di Analisi di flusso di Azure non è conforme allo schema del sink di destinazione. È possibile configurare questo criterio scegliendo tra **Riprova** oppure **Rilascia** . Nel portale di Azure, all'interno di un processo di Analisi di flusso, sotto **Configura** , selezionare **Criteri di errore** per effettuare una selezione.
 
 ![Posizione dei criteri di errore di output in Analisi di flusso di Azure](./media/stream-analytics-output-error-policy/stream-analytics-error-policy-locate.png)
 
@@ -34,4 +34,4 @@ Tutti gli errori temporanei (ad esempio, gli errori di rete) vengono ritentati i
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Guida per la risoluzione dei problemi di Analisi di flusso di Azure](stream-analytics-troubleshooting-guide.md)
+[Guida per la risoluzione dei problemi di Analisi di flusso di Azure](./stream-analytics-troubleshoot-query.md)

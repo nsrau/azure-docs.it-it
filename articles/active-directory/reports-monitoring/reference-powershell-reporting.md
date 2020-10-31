@@ -18,12 +18,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 4353ed5413f76b13425a59d31bb6108542e3bd23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25f3402864e2ba873ce63acb6cedcd3f2ea018f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89231130"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123133"
 ---
 # <a name="azure-ad-powershell-cmdlets-for-reporting"></a>Cmdlet di Azure AD PowerShell per la creazione di report
 
@@ -54,12 +54,12 @@ Per ottenere l'accesso ai log di controllo, usare il cmdlet "Get-AzureADAuditDir
 | Nome visualizzato dell'applicazione      | Get-AzureADAuditDirectoryLogs-filtrare "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "" |
 | Category                      | Filtro Get-AzureADAuditDirectoryLogs "Category EQ ' ApplicationManagement '" |
 | Data/ora attività            | Filtro Get-AzureADAuditDirectoryLogs "activityDateTime gt 2019-04-18" |
-| Tutte le precedenti              | Get-AzureADAuditDirectoryLogs-filtrare "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "e Category EQ" ApplicationManagement "e activityDateTime gt 2019-04-18"|
+| Tutte le risposte precedenti              | Get-AzureADAuditDirectoryLogs-filtrare "initiatedBy/app/displayName EQ" Azure AD Cloud Sync "e Category EQ" ApplicationManagement "e activityDateTime gt 2019-04-18"|
 
 
 Nell'immagine seguente viene illustrato un esempio di questo comando. 
 
-![Pulsante per il riepilogo dati](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
+![Screenshot mostra il risultato della Get-Azure un comando di log della directory di controllo D.](./media/reference-powershell-reporting/get-azureadauditdirectorylogs.png)
 
 
 
@@ -76,12 +76,12 @@ Per ottenere l'accesso ai log di accesso, usare il cmdlet ' Get-AzureADAuditSign
 | Data/ora di creazione              | Get-AzureADAuditSignInLogs-Filter "createdDateTime gt 2019-04-18T17:30:00.0 Z" (tutto dalle 5:30 PM su 4/18) |
 | Stato                        | Get-AzureADAuditSignInLogs-Filter "status/errorCode EQ 50105" |
 | Nome visualizzato dell'applicazione      | Filtro Get-AzureADAuditSignInLogs "appDisplayName EQ" StoreFrontStudio [WSFED Enabled] "" |
-| Tutte le precedenti              | Get-AzureADAuditSignInLogs-Filter "userDisplayName EQ ' Timothy Perkins ' and status/errorCode ne 0 and appDisplayName EQ ' StoreFrontStudio [WSFED Enabled]'" |
+| Tutte le risposte precedenti              | Get-AzureADAuditSignInLogs-Filter "userDisplayName EQ ' Timothy Perkins ' and status/errorCode ne 0 and appDisplayName EQ ' StoreFrontStudio [WSFED Enabled]'" |
 
 
 Nell'immagine seguente viene illustrato un esempio di questo comando. 
 
-![Pulsante per il riepilogo dati](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
+![Screenshot mostra il risultato del comando Get-Azure un log di accesso di controllo D.](./media/reference-powershell-reporting/get-azureadauditsigninlogs.png)
 
 
 

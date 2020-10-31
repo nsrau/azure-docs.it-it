@@ -6,16 +6,16 @@ author: su-jie
 ms.author: sujie
 ms.date: 11/14/2019
 ms.topic: how-to
-ms.openlocfilehash: 944c1a8cc4606c5e614f17cd0590331826527a7c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd4966ee75e9dc0ff401823e4291f8d299c8893c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90892076"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122895"
 ---
 # <a name="test-stream-analytics-queries-locally-against-live-stream-input-by-using-visual-studio-code"></a>Testare le query di analisi di flusso in locale rispetto all'input del flusso Live usando Visual Studio Code
 
-È possibile usare gli strumenti di analisi di flusso di Azure per Visual Studio Code per testare i processi di analisi di flusso in locale rispetto all'input del flusso live. L'input può provenire da un'origine, ad esempio hub eventi di Azure o hub Azure. I risultati dell'output vengono inviati come file JSON a una cartella nel progetto denominato **LocalRunOutputs**.
+È possibile usare gli strumenti di analisi di flusso di Azure per Visual Studio Code per testare i processi di analisi di flusso in locale rispetto all'input del flusso live. L'input può provenire da un'origine, ad esempio hub eventi di Azure o hub Azure. I risultati dell'output vengono inviati come file JSON a una cartella nel progetto denominato **LocalRunOutputs** .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -29,7 +29,7 @@ ms.locfileid: "90892076"
 
    ![Aggiungi input dalla cartella Inputs](./media/quick-create-visual-studio-code/add-input-from-inputs-folder.png)
 
-   È anche possibile premere **CTRL + MAIUSC + P** per aprire il riquadro comandi e immettere **ASA: Aggiungi input**.
+   È anche possibile premere **CTRL + MAIUSC + P** per aprire il riquadro comandi e immettere **ASA: Aggiungi input** .
 
    ![Aggiunta di input di Analisi di flusso in Visual Studio Code](./media/quick-create-visual-studio-code/add-input.png)
 
@@ -37,7 +37,7 @@ ms.locfileid: "90892076"
 
    ![Selezionare Hub IoT come opzione di input](./media/quick-create-visual-studio-code/iot-hub.png)
 
-3. Se l'input è stato aggiunto dal riquadro comandi, selezionare lo script di query di Analisi di flusso che userà l'input. Verrà automaticamente popolato con il percorso del file **myASAproj.asaql**.
+3. Se l'input è stato aggiunto dal riquadro comandi, selezionare lo script di query di Analisi di flusso che userà l'input. Verrà automaticamente popolato con il percorso del file **myASAproj.asaql** .
 
    ![Selezionare uno script di Analisi di flusso in Visual Studio Code](./media/quick-create-visual-studio-code/asa-script.png)
 
@@ -57,7 +57,7 @@ Per assicurarsi che i dati di input vengano ricevuti, selezionare **Anteprima da
 
 ## <a name="run-queries-locally"></a>Eseguire query in locale
 
-Tornare all'editor di query e selezionare **Esegui localmente**. Selezionare quindi **Usa input Live** dall'elenco a discesa.
+Tornare all'editor di query e selezionare **Esegui localmente** . Selezionare quindi **Usa input Live** dall'elenco a discesa.
 
 ![Selezionare "Esegui localmente" nell'editor di query](./media/vscode-local-run/run-locally.png)
 
@@ -65,7 +65,7 @@ Tornare all'editor di query e selezionare **Esegui localmente**. Selezionare qui
 
 Il risultato viene visualizzato nella finestra a destra e aggiornato ogni 3 secondi. È possibile selezionare **Esegui per eseguire** nuovamente il test. È anche possibile selezionare **Apri in cartella** per visualizzare i file dei risultati in Esplora file e aprirli con Visual Studio Code o uno strumento come Excel. Si noti che i file dei risultati sono disponibili solo in formato JSON.
 
-L'ora predefinita per l'avvio del processo di creazione dell'output è impostata su **Now**. È possibile personalizzare l'ora selezionando il pulsante **ora di inizio output** nella finestra risultati.
+L'ora predefinita per l'avvio del processo di creazione dell'output è impostata su **Now** . È possibile personalizzare l'ora selezionando il pulsante **ora di inizio output** nella finestra risultati.
 
 ![Visualizza risultato esecuzione locale](./media/vscode-local-run-live-input/vscode-livetesting.gif)
 
@@ -73,4 +73,4 @@ L'ora predefinita per l'avvio del processo di creazione dell'output è impostata
 
 * [Esplorare i processi di analisi di flusso di Azure con Visual Studio Code (anteprima)](visual-studio-code-explore-jobs.md)
 
-* [Configurare pipeline CI/CD con il pacchetto npm](setup-cicd-vs-code.md)
+* [Configurare pipeline CI/CD con il pacchetto npm](./cicd-overview.md)

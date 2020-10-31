@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 9/22/2020
-ms.openlocfilehash: ec8f27d0376f7187fd36b3feba556dbced0946e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b5057eb8c84e839f504060228986ea759c8bdc3d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937591"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123168"
 ---
 # <a name="continuous-integration-and-deployment-cicd-for-azure-stream-analytics"></a>Integrazione e distribuzione continua (CI/CD) per analisi di flusso di Azure
 
@@ -27,7 +27,7 @@ Seguire i passaggi illustrati in questa guida per creare una pipeline di integra
 
 1. Sviluppare una query di analisi di flusso di Azure.
 
-   Usare gli strumenti di analisi di flusso di Azure per [Visual Studio Code](quick-create-vs-code.md) o [Visual Studio](stream-analytics-quick-create-vs.md) per [sviluppare e testare le query in locale](develop-locally.md). È anche possibile [esportare un processo esistente](visual-studio-code-explore-jobs.md#export-a-job-to-a-local-project) in un progetto locale.
+   Usare gli strumenti di analisi di flusso di Azure per [Visual Studio Code](./quick-create-visual-studio-code.md) o [Visual Studio](stream-analytics-quick-create-vs.md) per [sviluppare e testare le query in locale](develop-locally.md). È anche possibile [esportare un processo esistente](visual-studio-code-explore-jobs.md#export-a-job-to-a-local-project) in un progetto locale.
 
 2. Eseguire il commit dei progetti di analisi di flusso di Azure nel sistema di controllo del codice sorgente, ad esempio un repository git.
 

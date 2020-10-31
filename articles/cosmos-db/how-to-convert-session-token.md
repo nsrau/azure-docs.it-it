@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ff66c2cb355e2070cdf30444c52d1accacac8964
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ece181d06c7d3dbd00ba2f1262a3887ad966d088
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490442"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101664"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Convertire i formati di token di sessione in .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questo articolo illustra come eseguire la conversione tra formati di token di sessione diversi per garantire la compatibilità tra le versioni dell'SDK.
 
@@ -26,7 +27,7 @@ Questo articolo illustra come eseguire la conversione tra formati di token di se
 
 ## <a name="session-token-formats"></a>Formati di token di sessione
 
-Sono disponibili due formati di token di sessione: **semplice** e **vettore**.  Questi due formati non sono interscambiabili, pertanto è necessario convertire il formato quando si passa all'applicazione client con versioni diverse.
+Sono disponibili due formati di token di sessione: **semplice** e **vettore** .  Questi due formati non sono interscambiabili, pertanto è necessario convertire il formato quando si passa all'applicazione client con versioni diverse.
 - Il formato del token di sessione **semplice** viene usato da .NET SDK V1 (Microsoft.Azure.DocumentDB-Version 1. x)
 - Il formato del token di sessione **vector** viene usato da .NET SDK V2 (Microsoft.Azure.DocumentDB-Version 2. x)
 

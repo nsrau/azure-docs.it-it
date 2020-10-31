@@ -16,12 +16,12 @@ ms.subservice: report-monitor
 ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: b3db86137207ae726c7befc393f62590fd1456d7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2c7cc68c84cc9f137ba5b51206526ff96111fe9a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74008258"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122742"
 ---
 # <a name="usage-and-insights-report-in-the-azure-active-directory-portal"></a>Report sull'utilizzo e le informazioni dettagliate nel portale Azure Active Directory
 
@@ -42,10 +42,10 @@ Per accedere ai dati dal report utilizzo e informazioni dettagliate, è necessar
 ## <a name="access-the-usage-and-insights-report"></a>Accedere al report utilizzo e informazioni dettagliate
 
 1. Passare al [portale di Azure](https://portal.azure.com).
-2. Selezionare la directory giusta, quindi selezionare **Azure Active Directory** e scegliere **applicazioni aziendali**.
+2. Selezionare la directory giusta, quindi selezionare **Azure Active Directory** e scegliere **applicazioni aziendali** .
 3. Nella sezione **Activity** selezionare **Usage & Insights** per aprire il report. 
 
-![Report su utilizzo e informazioni dettagliate](./media/concept-usage-insights-report/main-menu.png)
+![Screenshot mostra l'utilizzo & Insights selezionato dalla sezione Activity.](./media/concept-usage-insights-report/main-menu.png)
                                      
 
 ## <a name="use-the-report"></a>Utilizzare il report
@@ -58,7 +58,7 @@ Facendo clic su carica altro nella parte inferiore dell'elenco è possibile visu
 
 Quando si seleziona un giorno nel grafico sull'utilizzo dell'applicazione, si ottiene un elenco dettagliato delle attività di accesso per l'applicazione.  
 
-![Report su utilizzo e informazioni dettagliate](./media/concept-usage-insights-report/usage-and-insights-report.png)
+![Screenshot mostra informazioni sull'utilizzo & per le attività dell'applicazione in cui è possibile selezionare un intervallo e visualizzare l'attività di accesso per le diverse app.](./media/concept-usage-insights-report/usage-and-insights-report.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

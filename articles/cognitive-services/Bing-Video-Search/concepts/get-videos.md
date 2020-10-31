@@ -10,14 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 5add9597924aa77ede875d0056e83eceb4f99598
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8074b2411a053c8b55457f9ace716481f6b107a5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79220303"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93102225"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Cercare video con l'API Ricerca video Bing
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 L'API Ricerca video Bing facilita l'integrazione delle funzionalità di ricerca notizie cognitive di Bing nelle applicazioni. Oltre a trovare e restituire principalmente i video pertinenti dal Web, l'API offre diverse funzionalità per il recupero intelligente e mirato dei video sul Web.
 
@@ -144,9 +149,9 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Espansione della query
 
-Se Bing può espandere la query per circoscrivere la ricerca originale, significa che l'oggetto [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `queryExpansions`. Ad esempio, se la query fosse *Pulizia dei margini*, le query espanse potrebbero essere: **Strumenti** di pulizia dei margini, pulizia dei margini **dal suolo**, **Computer** di pulizia dei margini e pulizia dei margini **facile**.
+Se Bing può espandere la query per circoscrivere la ricerca originale, significa che l'oggetto [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `queryExpansions`. Ad esempio, se la query fosse *Pulizia dei margini* , le query espanse potrebbero essere: **Strumenti** di pulizia dei margini, pulizia dei margini **dal suolo** , **Computer** di pulizia dei margini e pulizia dei margini **facile** .
 
-Il seguente esempio mostra le query espanse per *Pulizia dei margini*.
+Il seguente esempio mostra le query espanse per *Pulizia dei margini* .
 
 ```json
 {
@@ -175,9 +180,9 @@ Il campo `queryExpansions` contiene un elenco di oggetto [Query](https://docs.mi
 
 ## <a name="pivoting-the-query"></a>Trasformazione tramite Pivot della query
 
-Se Bing può segmentare la query di ricerca originale, significa che l'oggetto [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `pivotSuggestions`. Se ad esempio la query originale fosse *Pulizia dei margini*, Bing potrebbe segmentare la query in *Pulizia* e *Margini*.
+Se Bing può segmentare la query di ricerca originale, significa che l'oggetto [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `pivotSuggestions`. Se ad esempio la query originale fosse *Pulizia dei margini* , Bing potrebbe segmentare la query in *Pulizia* e *Margini* .
 
-Il seguente esempio mostra i suggerimenti di pivot per *Pulizia dei margini*.
+Il seguente esempio mostra i suggerimenti di pivot per *Pulizia dei margini* .
 
 ```json
 {

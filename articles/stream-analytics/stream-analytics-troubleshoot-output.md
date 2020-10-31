@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: c063fec3eac962d22ead12e0ca11f4b9fc155b5d
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: bc630fc5ea9407c284e2e2e879c349a83302cd9f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910152"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122624"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Risolvere i problemi degli output di Analisi di flusso di Azure
 
@@ -71,7 +71,7 @@ Per visualizzare i dettagli dell'output, nel portale di Azure selezionare il pro
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Avviso di violazione della chiave con output del database SQL di Azure
 
-Quando si configura un database SQL di Azure come output di un processo di Analisi di flusso, vengono eseguiti inserimenti bulk dei record nella tabella di destinazione. Analisi di flusso di Azure garantisce in genere [almeno un recapito](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) nel sink di output. È tuttavia possibile [ottenere esattamente un recapito]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) nell'output SQL quando per la tabella SQL viene definito un vincolo univoco.
+Quando si configura un database SQL di Azure come output di un processo di Analisi di flusso, vengono eseguiti inserimenti bulk dei record nella tabella di destinazione. Analisi di flusso di Azure garantisce in genere [almeno un recapito](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics) nel sink di output. È tuttavia possibile [ottenere esattamente un recapito]( https://blogs.msdn.microsoft.com/streamanalytics/2017/01/13/how-to-achieve-exactly-once-delivery-for-sql-output/) nell'output SQL quando per la tabella SQL viene definito un vincolo univoco.
 
 Quando si configurano vincoli di chiave univoca nella tabella SQL, Analisi di flusso di Azure rimuove i record duplicati. Suddivide i dati in batch e inserisce in modo ricorsivo i batch finché non viene trovato un singolo record duplicato. Il processo di suddivisione e inserimento ignora i duplicati uno alla volta. Per un processo di streaming con molte righe duplicate, il processo è inefficiente e richiede molto tempo. Se vengono visualizzati più messaggi di avviso di violazione della chiave nel log attività dell'ora precedente, è probabile che l'output SQL stia rallentando l'intero processo.
 
@@ -95,9 +95,9 @@ Quando un processo di analisi di flusso con output SQL riceve il primo batch di 
 
 Durante questa procedura, l'output SQL può riscontrare i seguenti tipi di errori:
 
-* [Errori](/azure/azure-sql/database/troubleshoot-common-errors-issues#transient-fault-error-messages-40197-40613-and-others) temporanei che vengono ripetuti utilizzando una strategia di ripetizione dei tentativi backoff esponenziale. L'intervallo minimo tra i tentativi dipende dal codice di errore singolo, ma gli intervalli sono in genere inferiori a 60 secondi. Il limite superiore può essere al massimo cinque minuti. 
+* [Errori](../azure-sql/database/troubleshoot-common-errors-issues.md#transient-fault-error-messages-40197-40613-and-others) temporanei che vengono ripetuti utilizzando una strategia di ripetizione dei tentativi backoff esponenziale. L'intervallo minimo tra i tentativi dipende dal codice di errore singolo, ma gli intervalli sono in genere inferiori a 60 secondi. Il limite superiore può essere al massimo cinque minuti. 
 
-   Gli [errori di accesso](/azure/azure-sql/database/troubleshoot-common-errors-issues#unable-to-log-in-to-the-server-errors-18456-40531) e i problemi del [Firewall](/azure/azure-sql/database/troubleshoot-common-errors-issues#cannot-connect-to-server-due-to-firewall-issues) vengono ritentati almeno 5 minuti dopo il tentativo precedente e vengono ripetuti fino a quando non hanno esito positivo.
+   Gli [errori di accesso](../azure-sql/database/troubleshoot-common-errors-issues.md#unable-to-log-in-to-the-server-errors-18456-40531) e i problemi del [Firewall](../azure-sql/database/troubleshoot-common-errors-issues.md#cannot-connect-to-server-due-to-firewall-issues) vengono ritentati almeno 5 minuti dopo il tentativo precedente e vengono ripetuti fino a quando non hanno esito positivo.
 
 * Gli errori relativi ai dati, ad esempio il cast degli errori e le violazioni dei vincoli dello schema, vengono gestiti con i criteri di errore di output. Questi errori vengono gestiti ritentando i batch di suddivisione binaria fino a quando il singolo record che causa l'errore non viene gestito da Skip o Retry. La violazione del vincolo di chiave univoca primaria è [sempre gestita](./stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output).
 
@@ -107,16 +107,16 @@ Quando il timeout supera i 15 minuti, l'hint per la dimensione massima del batch
 
 ## <a name="column-names-are-lowercase-in-azure-stream-analytics-10"></a>I nomi delle colonne sono minuscoli in Analisi di flusso di Azure (1.0)
 
-Quando si usa il livello di compatibilità originale (1.0), Analisi di flusso di Azure modifica i nomi di colonna in lettere minuscole. Questo comportamento è stato corretto nei livelli di compatibilità successivi. Per mantenere la distinzione tra maiuscole e minuscole, passare al livello di compatibilità 1.1 o versione successiva. Per altre informazioni, vedere [Livello di compatibilità per i processi di Analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level).
+Quando si usa il livello di compatibilità originale (1.0), Analisi di flusso di Azure modifica i nomi di colonna in lettere minuscole. Questo comportamento è stato corretto nei livelli di compatibilità successivi. Per mantenere la distinzione tra maiuscole e minuscole, passare al livello di compatibilità 1.1 o versione successiva. Per altre informazioni, vedere [Livello di compatibilità per i processi di Analisi di flusso](./stream-analytics-compatibility-level.md).
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-Per maggiore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Per maggiore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](/rest/api/streamanalytics/)

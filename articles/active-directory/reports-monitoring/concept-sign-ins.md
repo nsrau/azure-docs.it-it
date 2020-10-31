@@ -17,19 +17,19 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23074dcd7ee888d6d9d8bf288cf0fda66dc0ceec
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: d61962667953b20f4b542874e902411bb579b9c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319764"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93122844"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
 L'architettura di report in Azure Active Directory (Azure AD) include i componenti seguenti:
 
 - **Attività** 
-    - **Accessi**: informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
+    - **Accessi** : informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
     - **Log**  -  di controllo I [log di controllo](concept-audit-logs.md) forniscono informazioni sulle attività di sistema relative agli utenti e alla gestione dei gruppi, alle applicazioni gestite e alle attività di directory.
     - Log di provisioning **Provisioning logs**  -  I [log di provisioning](./concept-provisioning-logs.md) consentono ai clienti di monitorare l'attività da parte del servizio di provisioning, ad esempio la creazione di un gruppo in ServiceNow o di un utente importato da giorni lavorativi. 
 - **Sicurezza** 
@@ -58,18 +58,18 @@ Il report relativo agli accessi utente fornisce le risposte alle domande seguent
 * Quanti utenti hanno effettuato l'accesso nell'arco di una settimana?
 * Qual è lo stato di questi accessi?
 
-Scegliere **Azure Active Directory**dal menu [portale di Azure](https://portal.azure.com) oppure cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
+Scegliere **Azure Active Directory** dal menu [portale di Azure](https://portal.azure.com) oppure cercare e selezionare **Azure Active Directory** da qualsiasi pagina.
 
 ![Selezionare Azure Active Directory](./media/concept-sign-ins/select-azure-active-directory.png "Azure Active Directory")
 
-In **monitoraggio**selezionare **accessi** per aprire il report degli [accessi](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
+In **monitoraggio** selezionare **accessi** per aprire il report degli [accessi](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/SignIns).
 
-![Attività di accesso](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Attività di accesso")
+![Screenshot Mostra gli accessi selezionati dal menu monitoraggio.](./media/concept-sign-ins/monitoring-sign-ins-in-azure-active-directory.png "Attività di accesso")
 
 Potrebbero essere necessarie fino a due ore per la visualizzazione di alcuni record di accesso nel portale.
 
 > [!IMPORTANT]
-> Il report degli accessi mostra solo gli accessi **interattivi**, ovvero gli accessi eseguiti manualmente da un utente usando nome utente e password. Gli accessi non interattivi, ad esempio l'autenticazione da servizio a servizio, non vengono visualizzati nel report degli accessi. 
+> Il report degli accessi mostra solo gli accessi **interattivi** , ovvero gli accessi eseguiti manualmente da un utente usando nome utente e password. Gli accessi non interattivi, ad esempio l'autenticazione da servizio a servizio, non vengono visualizzati nel report degli accessi. 
 
 Un log di accesso ha una visualizzazione elenco predefinita che include:
 
@@ -80,19 +80,19 @@ Un log di accesso ha una visualizzazione elenco predefinita che include:
 - Stato di rilevamento rischi
 - Stato del requisito di autenticazione a più fattori (MFA)
 
-![Attività di accesso](./media/concept-sign-ins/sign-in-activity.png "Attività di accesso")
+![Screenshot Mostra gli accessi di Office 365 SharePoint Online.](./media/concept-sign-ins/sign-in-activity.png "Attività di accesso")
 
 È possibile personalizzare la visualizzazione elenco facendo clic su **colonne** nella barra degli strumenti.
 
-![Attività di accesso](./media/concept-sign-ins/19.png "Attività di accesso")
+![Screenshot mostra l'opzione colonne nella pagina accessi.](./media/concept-sign-ins/19.png "Attività di accesso")
 
 La finestra di dialogo **colonne** consente di accedere agli attributi selezionabili. In un report di accesso non è possibile avere campi con più di un valore per una richiesta di accesso specificata come colonna. Ad esempio, true per i dettagli di autenticazione, i dati di accesso condizionale e il percorso di rete.   
 
-![Attività di accesso](./media/concept-sign-ins/columns.png "Attività di accesso")
+![Screenshot mostra la finestra di dialogo colonne in cui è possibile selezionare gli attributi.](./media/concept-sign-ins/columns.png "Attività di accesso")
 
 Selezionare un elemento nella visualizzazione elenco per ottenere maggiori informazioni dettagliate.
 
-![Attività di accesso](./media/concept-sign-ins/basic-sign-in.png "Attività di accesso")
+![Screenshot mostra una visualizzazione di informazioni dettagliate.](./media/concept-sign-ins/basic-sign-in.png "Attività di accesso")
 
 > [!NOTE]
 > I clienti possono ora risolvere i problemi relativi ai criteri di accesso condizionale tramite tutti i report di accesso. Facendo clic sulla scheda **accesso condizionale** per un record di accesso, i clienti possono esaminare lo stato di accesso condizionale e approfondire i dettagli dei criteri applicati all'accesso e il risultato per ogni criterio.
@@ -104,7 +104,7 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 
 Per prima cosa, limitare i dati segnalati a un livello che funziona per l'utente. In secondo luogo, filtrare i dati degli accessi usando il campo data come filtro predefinito. Azure AD offre un'ampia gamma di filtri aggiuntivi che è possibile impostare:
 
-![Attività di accesso](./media/concept-sign-ins/04.png "Attività di accesso")
+![Screenshot che mostra l'opzione Aggiungi filtri.](./media/concept-sign-ins/04.png "Attività di accesso")
 
 **ID richiesta** : l'ID della richiesta a cui si è interessati.
 
@@ -177,11 +177,11 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 
 **Accesso condizionale** -lo stato delle regole di accesso condizionale applicate
 
-- **Non applicato**: nessun criterio applicato all'utente e all'applicazione durante l'accesso.
+- **Non applicato** : nessun criterio applicato all'utente e all'applicazione durante l'accesso.
 
-- **Operazione riuscita**: uno o più criteri di accesso condizionale applicati all'utente e all'applicazione, ma non necessariamente alle altre condizioni, durante l'accesso. 
+- **Operazione riuscita** : uno o più criteri di accesso condizionale applicati all'utente e all'applicazione, ma non necessariamente alle altre condizioni, durante l'accesso. 
 
-- **Errore**: l'accesso ha soddisfatto la condizione dell'utente e dell'applicazione di almeno un criterio di accesso condizionale e i controlli di concessione non sono soddisfatti o impostati per bloccare l'accesso.
+- **Errore** : l'accesso ha soddisfatto la condizione dell'utente e dell'applicazione di almeno un criterio di accesso condizionale e i controlli di concessione non sono soddisfatti o impostati per bloccare l'accesso.
 
 
 
@@ -195,7 +195,7 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 
 Fare clic sull'opzione di **download** per creare un file CSV o JSON dei record 250.000 più recenti. Iniziare a [scaricare i dati di accesso](quickstart-download-sign-in-report.md) se si vuole usarli al di fuori della portale di Azure.  
 
-![Scaricare](./media/concept-sign-ins/71.png "Download")
+![Scaricare](./media/concept-sign-ins/71.png "Scarica")
 
 > [!IMPORTANT]
 > Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
@@ -214,7 +214,7 @@ Azure AD e i portale di Azure forniscono punti di ingresso aggiuntivi per i dati
 
 Il grafo di accesso utente nella pagina Panoramica della **protezione delle identità di sicurezza** Mostra le aggregazioni settimanali degli accessi. Il valore predefinito per il periodo di tempo è 30 giorni.
 
-![Attività di accesso](./media/concept-sign-ins/06.png "Attività di accesso")
+![Screenshot mostra un grafico degli accessi in un mese.](./media/concept-sign-ins/06.png "Attività di accesso")
 
 Quando si fa clic su un giorno nel grafico degli accessi, si ottiene una panoramica delle attività di accesso per tale giorno.
 
@@ -242,9 +242,9 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 > [!NOTE]
 > gli indirizzi IP vengono rilasciati in modo che non esista una connessione certa tra un IP e la posizione in cui si trova fisicamente il computer con tale indirizzo. Il mapping degli indirizzi IP è complicato dal fatto che provider di telefonia mobile e VPN possono rilasciare indirizzi IP da pool centrali spesso molto distanti dal luogo in cui viene effettivamente usato il dispositivo client. Attualmente nei report di Azure AD la conversione di un indirizzo IP in una posizione fisica è un'approssimazione basata su tracce, dati del Registro di sistema, ricerche inverse e altre informazioni.
 
-Nella pagina **Utenti** è possibile accedere a una panoramica completa di tutti i accessi degli utenti facendo clic su **Accessi** nella sezione **Attività**.
+Nella pagina **Utenti** è possibile accedere a una panoramica completa di tutti i accessi degli utenti facendo clic su **Accessi** nella sezione **Attività** .
 
-![Attività di accesso](./media/concept-sign-ins/08.png "Attività di accesso")
+![Screenshot mostra la sezione attività in cui è possibile selezionare accessi.](./media/concept-sign-ins/08.png "Attività di accesso")
 
 ## <a name="usage-of-managed-applications"></a>Utilizzo di applicazioni gestite
 
@@ -254,17 +254,17 @@ Con una visualizzazione dei dati di accesso basata sulle applicazioni, è possib
 * Quali sono le prime tre applicazioni nell'organizzazione?
 * In che modo l'applicazione più recente?
 
-Il punto di ingresso a questi dati è le prime tre applicazioni dell'organizzazione. I dati sono contenuti nel report ultimi 30 giorni della sezione **Panoramica** in **applicazioni aziendali**.
+Il punto di ingresso a questi dati è le prime tre applicazioni dell'organizzazione. I dati sono contenuti nel report ultimi 30 giorni della sezione **Panoramica** in **applicazioni aziendali** .
 
-![Attività di accesso](./media/concept-sign-ins/10.png "Attività di accesso")
+![Screenshot mostra dove è possibile selezionare panoramica.](./media/concept-sign-ins/10.png "Attività di accesso")
 
 I grafici dell'utilizzo delle app sono aggregazioni settimanali degli accessi per le prime tre applicazioni in un determinato periodo di tempo. Il periodo di tempo predefinito è di 30 giorni.
 
-![Attività di accesso](./media/concept-sign-ins/graph-chart.png "Attività di accesso")
+![Screenshot mostra l'utilizzo dell'app per un periodo di un mese.](./media/concept-sign-ins/graph-chart.png "Attività di accesso")
 
 Se si preferisce, è possibile mettere in evidenza un'applicazione specifica.
 
-![Reporting](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
+![Creazione di report](./media/concept-sign-ins/single-app-usage-graph.png "Reporting")
 
 Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un elenco dettagliato delle attività di accesso.
 
