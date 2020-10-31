@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 30a6a73768db7b073258487435ddbe6c0daccf16
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 30487218fc95be75d22b5a9ea5a6dbc224ffd025
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317814"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074798"
 ---
 # <a name="overview-of-the-developer-portal"></a>Panoramica del portale per sviluppatori
 
@@ -33,7 +33,7 @@ Questo articolo descrive le differenze tra le versioni Self-Hosted e quelle gest
 ## <a name="migration-from-the-legacy-portal"></a>Migrazione dal portale legacy
 
 > [!IMPORTANT]
-> Il portale per sviluppatori Legacy è ora deprecato e riceverà solo gli aggiornamenti della sicurezza. È possibile continuare a usarlo, come al solito, fino al ritiro entro il 2023 ottobre, quando verrà rimosso da tutti i servizi di gestione API.
+> Il portale per sviluppatori Legacy è ora deprecato e riceverà solo gli aggiornamenti della sicurezza. È possibile continuare a usarlo come al solito fino al ritiro nell'ottobre 2023, quando verrà rimosso da tutti i servizi di Gestione API.
 
 La migrazione al nuovo portale per sviluppatori è descritta nell' [articolo della documentazione dedicata](developer-portal-deprecated-migration.md).
 
@@ -62,7 +62,7 @@ Quando è stata avviata per la prima volta la versione di anteprima del portale 
 
 Se il portale è stato personalizzato in modo significativo in base alla versione di anteprima del contenuto, è possibile continuare a usarlo così com'è e posizionare manualmente i nuovi widget nelle pagine del portale. In caso contrario, è consigliabile sostituire il contenuto del portale con il nuovo contenuto predefinito.
 
-Per reimpostare il contenuto in un portale gestito, selezionare **Reimposta contenuto** nella sezione del menu **operazioni** . Questa operazione rimuoverà tutto il contenuto del portale ed effettuerà il provisioning del nuovo contenuto predefinito. Tutte le personalizzazioni e le modifiche del portale per sviluppatori andranno perse. **Non è possibile annullare questa azione**.
+Per reimpostare il contenuto in un portale gestito, selezionare **Reimposta contenuto** nella sezione del menu **operazioni** . Questa operazione rimuoverà tutto il contenuto del portale ed effettuerà il provisioning del nuovo contenuto predefinito. Tutte le personalizzazioni e le modifiche del portale per sviluppatori andranno perse. **Non è possibile annullare questa azione** .
 
 ![Reimposta contenuto portale](media/api-management-howto-developer-portal/reset-content.png)
 
@@ -126,7 +126,7 @@ La console interattiva esegue una richiesta API sul lato client dal browser. Ris
 
 È possibile controllare lo stato del criterio CORS nella sezione **Panoramica del portale** del servizio gestione API nella portale di Azure. Una casella di avviso indica un criterio assente o non configurato correttamente.
 
-![Portale per sviluppatori di Gestione API](media/api-management-howto-developer-portal/cors-azure-portal.png)
+![Screenshot che mostra dove è possibile controllare lo stato dei criteri di CORS.](media/api-management-howto-developer-portal/cors-azure-portal.png)
 
 Applicare automaticamente i criteri di CORS facendo clic sul pulsante **Abilita CORS** .
 

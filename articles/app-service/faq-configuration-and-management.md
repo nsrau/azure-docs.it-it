@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb193637525722bf227241a614cd977fbf70c9ac
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962350"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074183"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -59,24 +59,26 @@ Per altre informazioni, vedere [Limitazioni del servizio app](../azure-resource-
 
 Per impostare il fuso orario del server per l'app Web:
 
-1. Nel portale di Azure nella sottoscrizione del servizio app, andare al menu **Impostazioni applicazione**.
-2. In **Impostazioni app**, aggiungere questa impostazione:
+1. Nel portale di Azure nella sottoscrizione del servizio app, andare al menu **Impostazioni applicazione** .
+2. In **Impostazioni app** , aggiungere questa impostazione:
     * Key = WEBSITE_TIME_ZONE
     * Value = *fuso orario desiderato*
-3. Selezionare **Salva**.
+3. Selezionare **Salva** .
 
-Per i servizi app eseguiti in Windows, vedere la colonna **TimeZone** nell'articolo [fusi orari predefiniti](/windows-hardware/manufacture/desktop/default-time-zones) per i valori accettati. Per i servizi app eseguiti in Linux, impostare il [nome del database TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) come valore del fuso orario. Di seguito è riportato un esempio di nome del database TZ: America/Adak.
+Per i servizi app eseguiti in Windows, vedere l'output del comando di Windows `tzutil /L` . Usare il valore della seconda riga di ogni voce. Ad esempio: "ora solare Tonga". Alcuni di questi valori sono elencati anche nella colonna **TimeZone** nei [fusi orari predefiniti](/windows-hardware/manufacture/desktop/default-time-zones).
+
+Per i servizi app eseguiti in Linux, impostare un valore dal [database IANA TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). Ad esempio: "America/Adak".
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Perché i processi Web continui talvolta hanno esito negativo?
 
-Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. Nei piani Basic e Standard, è possibile attivare l'impostazione **Sempre attivata** per mantenere l'app Web sempre caricata. Se nell'app Web vengono eseguiti processi Web continui, è necessario attivare **Sempre attivata**; in caso contrario, l'esecuzione dei processi Web potrebbe non essere affidabile. Per altre informazioni, vedere [Creare un processo Web con esecuzione continua](webjobs-create.md#CreateContinuous).
+Per impostazione predefinita, le app Web vengono scaricate se restano inattive per un determinato periodo di tempo. Ciò consente al sistema di conservare le risorse. Nei piani Basic e Standard, è possibile attivare l'impostazione **Sempre attivata** per mantenere l'app Web sempre caricata. Se nell'app Web vengono eseguiti processi Web continui, è necessario attivare **Sempre attivata** ; in caso contrario, l'esecuzione dei processi Web potrebbe non essere affidabile. Per altre informazioni, vedere [Creare un processo Web con esecuzione continua](webjobs-create.md#CreateContinuous).
 
 ## <a name="how-do-i-get-the-outbound-ip-address-for-my-web-app"></a>Come si ottiene l'indirizzo IP in uscita per un'app Web?
 
 Per ottenere l'elenco di indirizzi IP in uscita per un'app Web:
 
-1. Nel pannello dell'app Web del portale di Azure, passare al menu **Proprietà**.
-2. Cercare **indirizzi ip in uscita**.
+1. Nel pannello dell'app Web del portale di Azure, passare al menu **Proprietà** .
+2. Cercare **indirizzi ip in uscita** .
 
 Viene visualizzato l'elenco di indirizzi IP in uscita.
 
@@ -127,10 +129,10 @@ Per esaminare i log dei processi Web:
 
 1. Accedere al **sito Web Kudu** ( `https://*yourwebsitename*.scm.azurewebsites.net` ).
 2. Selezionare il processo Web.
-3. Selezionare il pulsante **Attiva/Disattiva Output**.
-4. Per scaricare il file di output, selezionare il collegamento **Download**.
-5. Per le singole esecuzioni, selezionare **Singolo richiamo**.
-6. Selezionare il pulsante **Attiva/Disattiva Output**.
+3. Selezionare il pulsante **Attiva/Disattiva Output** .
+4. Per scaricare il file di output, selezionare il collegamento **Download** .
+5. Per le singole esecuzioni, selezionare **Singolo richiamo** .
+6. Selezionare il pulsante **Attiva/Disattiva Output** .
 7. Selezionare il collegamento di download.
 
 ## <a name="im-trying-to-use-hybrid-connections-with-sql-server-why-do-i-see-the-message-systemoverflowexception-arithmetic-operation-resulted-in-an-overflow"></a>Si sta tentando di utilizzare Connessioni ibride con SQL Server. Perché viene visualizzato il messaggio "System.OverflowException: Overflow di un'operazione aritmetica"?
@@ -141,7 +143,7 @@ Se si utilizza Connessioni ibride per accedere a SQL Server, un aggiornamento di
 Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 L'eccezione è stata causata da un problema con Gestione connessione ibrida che poi è stato risolto. Assicurarsi di [aggiornare Gestione connessione ibrida](https://go.microsoft.com/fwlink/?LinkID=841308) per risolvere il problema.
 
@@ -182,9 +184,9 @@ Nell'ambiente del servizio app, si ha il controllo totale sul traffico in ingres
 
 ### <a name="f12-console-output"></a>Output di console F12
 
-1. Selezionare la scheda **Console**.
-2. Per ogni scheda che contiene più di zero elementi, selezionare la scheda (**Errore**, **Avviso** o **Informazioni**). Se la scheda non è selezionata, l'icona di tabulazione è grigia o nera quando si sposta il cursore.
-3. Fare clic con il pulsante destro del mouse nell'area dei messaggi del riquadro, quindi scegliere **Copia tutto**.
+1. Selezionare la scheda **Console** .
+2. Per ogni scheda che contiene più di zero elementi, selezionare la scheda ( **Errore** , **Avviso** o **Informazioni** ). Se la scheda non è selezionata, l'icona di tabulazione è grigia o nera quando si sposta il cursore.
+3. Fare clic con il pulsante destro del mouse nell'area dei messaggi del riquadro, quindi scegliere **Copia tutto** .
 4. Incollare il testo copiato in un file, quindi salvare il file.
 
 Per visualizzare un file HAR, è possibile utilizzare il [visualizzatore HAR](http://www.softwareishard.com/har/viewer/).
@@ -282,7 +284,7 @@ Per la documentazione dettagliata sull'autenticazione e l'autorizzazione nel ser
 
 ## <a name="how-do-i-redirect-the-default-azurewebsitesnet-domain-to-my-azure-web-apps-custom-domain"></a>Come si reindirizza il dominio predefinito *.azurewebsites.net al dominio personalizzato dell'app Web di Azure?
 
-Quando si crea un nuovo sito Web tramite le app Web in Azure, viene assegnato un dominio predefinito *nomesito*.azurewebsites.net al sito. Se si aggiunge un nome host personalizzato al sito e non si vuole che gli utenti siano in grado di accedere al dominio predefinito *. azurewebsites.net, è possibile reindirizzare l'URL predefinito. Per informazioni su come reindirizzare tutto il traffico dal dominio predefinito del sito Web al dominio personalizzato, vedere [Reindirizzare il dominio predefinito al dominio personalizzato nelle app Web di Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
+Quando si crea un nuovo sito Web tramite le app Web in Azure, viene assegnato un dominio predefinito *nomesito* .azurewebsites.net al sito. Se si aggiunge un nome host personalizzato al sito e non si vuole che gli utenti siano in grado di accedere al dominio predefinito *. azurewebsites.net, è possibile reindirizzare l'URL predefinito. Per informazioni su come reindirizzare tutto il traffico dal dominio predefinito del sito Web al dominio personalizzato, vedere [Reindirizzare il dominio predefinito al dominio personalizzato nelle app Web di Azure](https://zainrizvi.io/blog/block-default-azure-websites-domain/).
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Come si determina la versione di .NET installata nel servizio app?
 
@@ -296,7 +298,7 @@ Se la scalabilità automatica di Azure non riduce né aumenta il numero di istan
 
 La scalabilità automatica si attiva quando le metriche superano i limiti preconfigurati. In alcuni casi, è possibile notare che la capacità viene riempita solo parzialmente rispetto al previsto. Questa situazione può verificarsi quando il numero di istanze desiderato non è disponibile. In questo scenario, la scalabilità automatica utilizza il numero di istanze disponibili per un riempimento parziale. La scalabilità automatica esegue quindi la logica di ribilanciamento per ottenere più capacità. Alloca le istanze rimanenti. Ciò potrebbe richiedere alcuni minuti.
 
-Se il numero previsto di istanze non viene visualizzato dopo pochi minuti, è possibile che il riempimento parziale sia stato sufficiente per portare le metriche entro i limiti. In alternativa, è possibile che la scalabilità automatica abbia ridotto le istanze avendo raggiunto il limite inferiore delle metriche.
+Se il numero previsto di istanze non viene visualizzato dopo pochi minuti, è possibile che il riempimento parziale fosse sufficiente per portare le metriche entro i limiti. In alternativa, è possibile che la scalabilità automatica abbia ridotto le istanze avendo raggiunto il limite inferiore delle metriche.
 
 Se queste condizioni non sono applicabili e il problema persiste, inviare una richiesta di supporto.
 

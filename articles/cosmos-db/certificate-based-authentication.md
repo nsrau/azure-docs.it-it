@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 3f787840422e61d6f43081d991ffc3ef28da6976
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a25cd2c0a9205dc184640e95f122c770b29cf24a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486532"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073248"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticazione basata su certificato per un'identità Azure AD per accedere alle chiavi da un account Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 L'autenticazione basata su certificati consente di autenticare l'applicazione client tramite Azure Active Directory (Azure AD) con un certificato client. È possibile eseguire l'autenticazione basata su certificato in un computer in cui è necessaria un'identità, ad esempio un computer locale o una macchina virtuale in Azure. L'applicazione può quindi leggere Azure Cosmos DB chiavi senza avere le chiavi direttamente nell'applicazione. Questo articolo descrive come creare un'applicazione Azure AD di esempio, configurarla per l'autenticazione basata su certificati, accedere ad Azure con la nuova identità dell'applicazione e quindi recuperare le chiavi dall'account Azure Cosmos. Questo articolo usa Azure PowerShell per configurare le identità e fornisce un'app di esempio C# che esegue l'autenticazione e l'accesso alle chiavi dall'account Azure Cosmos.  
 
@@ -30,7 +31,7 @@ In questo passaggio si registrerà un'applicazione Web di esempio nell'account A
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Aprire il riquadro **Active Directory** di Azure, passare al riquadro **registrazioni app** e selezionare **nuova registrazione**. 
+1. Aprire il riquadro **Active Directory** di Azure, passare al riquadro **registrazioni app** e selezionare **nuova registrazione** . 
 
    :::image type="content" source="./media/certificate-based-authentication/new-app-registration.png" alt-text="Registrazione nuova applicazione in Active Directory":::
 
@@ -44,7 +45,7 @@ In questo passaggio si registrerà un'applicazione Web di esempio nell'account A
 
 1. Selezionare **Register (registra** ) dopo aver compilato il modulo.
 
-1. Dopo aver registrato l'app, prendere nota dell'ID dell' **applicazione (client)** e dell' **ID oggetto**. questi dettagli vengono usati nei passaggi successivi. 
+1. Dopo aver registrato l'app, prendere nota dell'ID dell' **applicazione (client)** e dell' **ID oggetto** . questi dettagli vengono usati nei passaggi successivi. 
 
    :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Registrazione nuova applicazione in Active Directory":::
 
@@ -107,7 +108,7 @@ Il comando precedente restituisce un output simile allo screenshot seguente:
 
 1. Passare all'account Azure Cosmos e aprire il **Pannello controllo di accesso (IAM)** .
 
-1. Selezionare **Aggiungi** e **Aggiungi assegnazione ruolo**. Aggiungere il sampleApp creato nel passaggio precedente con il ruolo **collaboratore** , come illustrato nello screenshot seguente:
+1. Selezionare **Aggiungi** e **Aggiungi assegnazione ruolo** . Aggiungere il sampleApp creato nel passaggio precedente con il ruolo **collaboratore** , come illustrato nello screenshot seguente:
 
    :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Registrazione nuova applicazione in Active Directory":::
 
@@ -123,9 +124,9 @@ Nella registrazione dell'app di Azure per l'applicazione client:
 
 1. Aprire il riquadro **Active Directory** di Azure, passare al riquadro **registrazioni app** e aprire l'app di esempio creata nel passaggio precedente. 
 
-1. Selezionare **certificati & segreti** e quindi **caricare il certificato**. Individuare il file di certificato creato nel passaggio precedente da caricare.
+1. Selezionare **certificati & segreti** e quindi **caricare il certificato** . Individuare il file di certificato creato nel passaggio precedente da caricare.
 
-1. Selezionare **Aggiungi**. Una volta caricato il certificato, vengono visualizzati i valori di identificazione personale, data di inizio e scadenza.
+1. Selezionare **Aggiungi** . Una volta caricato il certificato, vengono visualizzati i valori di identificazione personale, data di inizio e scadenza.
 
 ## <a name="access-the-keys-from-powershell"></a>Accedere alle chiavi da PowerShell
 

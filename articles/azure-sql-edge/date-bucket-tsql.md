@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 896caae2dfd79c4678ffb34c531fb56835e9bd66
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d81419721e94a2e181f094c0e0e64b1b23544a8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886847"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073520"
 ---
 # <a name="date_bucket-transact-sql"></a>Date_Bucket (Transact-SQL)
 
@@ -37,20 +37,23 @@ DATE_BUCKET (datePart, number, date, origin)
 Parte di *date* usata con il parametro 'number'. Ex. Anno, mese, minuto, secondo e così via.
 
 > [!NOTE]
-> `DATE_BUCKET` non accetta equivalenti di variabili definite dall'utente come argomenti di *datePart*.
+> `DATE_BUCKET` non accetta equivalenti di variabili definite dall'utente come argomenti di *datePart* .
   
 |*datePart*|Abbreviazioni|  
 |---|---|
-|**day**|**dd**, **d**|  
-|**week**|**wk**, **ww**|  
+|**day**|**dd** , **d**|  
+|**week**|**wk** , **ww**| 
+|**month**|**mm** , **m**|
+|**quarter**|**qq** , **q**|  
+|**year**|**yy** , **yyyy**|  
 |**hour**|**hh**|  
-|**minute**|**mi**, **n**|  
-|**second**|**ss**, **s**|  
+|**minute**|**mi** , **n**|  
+|**second**|**ss** , **s**|  
 |**millisecond**|**ms**|  
 
 *number*
 
-Numero intero che decide la larghezza del bucket combinato con l'argomento *datePart*. Rappresenta la larghezza dei bucket di dataPart dall'ora di origine. **`This argument cannot be a negative integer value`**. 
+Numero intero che decide la larghezza del bucket combinato con l'argomento *datePart* . Rappresenta la larghezza dei bucket di dataPart dall'ora di origine. **`This argument cannot be a negative integer value`** . 
 
 *date*
 
@@ -63,7 +66,7 @@ Espressione che può risolversi in uno dei valori seguenti:
 + **smalldatetime**
 + **time**
 
-Per *date*, `DATE_BUCKET` accetterà un'espressione di colonna, un'espressione o una variabile definita dall'utente se si risolve in uno dei tipi di dati indicati in precedenza.
+Per *date* , `DATE_BUCKET` accetterà un'espressione di colonna, un'espressione o una variabile definita dall'utente se si risolve in uno dei tipi di dati indicati in precedenza.
 
 **Origine** 
 
@@ -122,7 +125,7 @@ Select DATE_BUCKET(wk, 5, @date, @origin)
 
 ## <a name="datepart-argument"></a>Argomento datepart
 
-**dayofyear**, **day**, e **weekday** restituiscono lo stesso valore. Ogni elemento *datepart* e le relative abbreviazioni restituiscono lo stesso valore.
+**dayofyear** , **day** , e **weekday** restituiscono lo stesso valore. Ogni elemento *datepart* e le relative abbreviazioni restituiscono lo stesso valore.
   
 ## <a name="number-argument"></a>Argomento number
 
@@ -193,11 +196,11 @@ Seconds 2020-04-30 21:21:21.0000000
 
 ### <a name="b-using-expressions-as-arguments-for-the-number-and-date-parameters"></a>B. Utilizzo di espressioni come argomenti per i parametri number e date
 
-In questi esempi vengono usati tipi diversi di espressioni come argomenti per i parametri *number* e *date*. Questi esempi vengono creati usando il database 'AdventureWorksDW2017'.
+In questi esempi vengono usati tipi diversi di espressioni come argomenti per i parametri *number* e *date* . Questi esempi vengono creati usando il database 'AdventureWorksDW2017'.
   
 #### <a name="specifying-user-defined-variables-as-number-and-date"></a>Indicazione di variabili definite dall'utente come argomenti number e date  
 
-In questo esempio vengono specificate variabili definite dall'utente come argomenti per i parametri *number* e *date*:
+In questo esempio vengono specificate variabili definite dall'utente come argomenti per i parametri *number* e *date* :
   
 ```sql
 DECLARE @days int = 365,
@@ -247,7 +250,7 @@ ShippedDateBucket           SumOrderQuantity SumUnitPrice
 
 #### <a name="specifying-scalar-system-function-as-date"></a>Indicazione di una funzione di sistema scalare come valore date
 
-Questo esempio specifica `SYSDATETIME` per *date*. Il valore esatto restituito dipende dal giorno e dall'ora di esecuzione dell'istruzione:
+Questo esempio specifica `SYSDATETIME` per *date* . Il valore esatto restituito dipende dal giorno e dall'ora di esecuzione dell'istruzione:
   
 ```sql
 SELECT Date_Bucket(wk, 10, SYSDATETIME());  
@@ -264,7 +267,7 @@ Questo è il set di risultati.
 
 #### <a name="specifying-scalar-subqueries-and-scalar-functions-as-number-and-date"></a>Indicazione di sottoquery scalari e funzioni scalari come valori number e date
 
-In questo esempio vengono usate sottoquery scalari, `MAX(OrderDate)`, come argomenti per *number* e *date*. `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` funge da argomento fittizio perché il parametro number illustri come selezionare un argomento *number* da un elenco di valori.
+In questo esempio vengono usate sottoquery scalari, `MAX(OrderDate)`, come argomenti per *number* e *date* . `(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100)` funge da argomento fittizio perché il parametro number illustri come selezionare un argomento *number* da un elenco di valori.
   
 ```sql
 SELECT DATE_BUCKET(week,(SELECT top 1 CustomerKey FROM dbo.DimCustomer where GeographyKey > 100),  
@@ -281,7 +284,7 @@ SELECT Date_Bucket(week,(10/2), SYSDATETIME());
 
 #### <a name="specifying-an-aggregate-window-function-as-number"></a>Indicazione di una funzione finestra di aggregazione come argomento number
 
-Questo esempio usa una funzione finestra di aggregazione come argomento per un parametro *number*.
+Questo esempio usa una funzione finestra di aggregazione come argomento per un parametro *number* .
   
 ```sql
 Select 

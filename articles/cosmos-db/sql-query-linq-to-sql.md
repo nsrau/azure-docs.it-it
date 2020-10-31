@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 7/29/2020
 ms.author: tisande
-ms.openlocfilehash: 4f5e88e7201c4097e2f8d654b8780ea12816b15d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c7d47b0bb167b3211b3859a47b0c8e11876b1614
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485104"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075402"
 ---
 # <a name="linq-to-sql-translation"></a>Traduzione LINQ in SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Il provider di query di Azure Cosmos DB esegue un mapping ottimale da una query LINQ in una query di Cosmos DB SQL. Se si desidera ottenere la query SQL convertita da LINQ, utilizzare il metodo nell' `ToString()` `IQueryable` oggetto generato. La descrizione seguente presuppone una conoscenza di base di [LINQ](/dotnet/csharp/programming-guide/concepts/linq/introduction-to-linq-queries).
 
@@ -79,21 +80,21 @@ using (FeedIterator<Book> setIterator = container.GetItemLinqQueryable<Book>()
 
 Il provider LINQ incluso in SQL .NET SDK supporta gli operatori seguenti:
 
-- **Select**: le proiezioni vengono convertite in [SELECT](sql-query-select.md), inclusa la costruzione di oggetti.
-- **Where**: i filtri vengono convertiti in [where](sql-query-where.md)e supportano `&&` la conversione tra, `||` e `!` negli operatori SQL
-- **SelectMany**: consente la rimozione delle matrici nella clausola [join](sql-query-join.md) . Usare per concatenare o annidare espressioni per filtrare gli elementi della matrice.
-- **OrderBy** e **OrderByDescending**: translate in [Order by](sql-query-order-by.md) con ASC o DESC.
-- **Operatori count**, **Sum**, **min**, **Max**e **Average** per l' [aggregazione](sql-query-aggregates.md)e i relativi equivalenti asincroni **CountAsync**, **SumAsync**, **MinAsync**, **MaxAsync**e **AverageAsync**.
-- **CompareTo**: converte in confronti di intervallo. Utilizzato comunemente per le stringhe, poiché non sono confrontabili in .NET.
-- **Ignora** e **accetta**: converte in [offset e limite](sql-query-offset-limit.md) per limitare i risultati di una query e per eseguire l'impaginazione.
-- **Funzioni matematiche**: supporta la conversione da .NET `Abs` , `Acos` , `Asin` , `Atan` , `Ceiling` , `Cos` , `Exp` , `Floor` , `Log` , `Log10` , `Pow` , `Round` , `Sign` , `Sin` , `Sqrt` , `Tan` e `Truncate` alle [funzioni matematiche predefinite](sql-query-mathematical-functions.md)equivalenti.
-- **String Functions**: supporta la conversione da .NET `Concat` ,, `Contains` `Count` , `EndsWith` , `IndexOf` , `Replace` , `Reverse` , `StartsWith` , `SubString` , `ToLower` , `ToUpper` , `TrimEnd` e `TrimStart` alle [funzioni di stringa predefinite](sql-query-string-functions.md)equivalenti.
-- **Funzioni di matrice**: supporta la conversione da .NET `Concat` , `Contains` e `Count` alle [funzioni di matrice predefinite](sql-query-array-functions.md)equivalenti.
-- **Funzioni di estensione geospaziale**: supporta la conversione da metodi stub `Distance` ,, `IsValid` `IsValidDetailed` e `Within` alle [funzioni geospaziali predefinite](sql-query-geospatial-query.md)equivalenti.
-- **Funzione di estensione della funzione definita dall'utente**: supporta la conversione dal metodo stub `UserDefinedFunctionProvider.Invoke` alla [funzione corrispondente definita dall'utente](sql-query-udfs.md).
-- **Varie**: supporta la conversione di `Coalesce` [operatori](sql-query-operators.md)condizionali e. Può tradurre in `Contains` stringa contiene, ARRAY_CONTAINS o in, a seconda del contesto.
+- **Select** : le proiezioni vengono convertite in [SELECT](sql-query-select.md), inclusa la costruzione di oggetti.
+- **Where** : i filtri vengono convertiti in [where](sql-query-where.md)e supportano `&&` la conversione tra, `||` e `!` negli operatori SQL
+- **SelectMany** : consente la rimozione delle matrici nella clausola [join](sql-query-join.md) . Usare per concatenare o annidare espressioni per filtrare gli elementi della matrice.
+- **OrderBy** e **OrderByDescending** : translate in [Order by](sql-query-order-by.md) con ASC o DESC.
+- **Operatori count** , **Sum** , **min** , **Max** e **Average** per l' [aggregazione](sql-query-aggregates.md)e i relativi equivalenti asincroni **CountAsync** , **SumAsync** , **MinAsync** , **MaxAsync** e **AverageAsync** .
+- **CompareTo** : converte in confronti di intervallo. Utilizzato comunemente per le stringhe, poiché non sono confrontabili in .NET.
+- **Ignora** e **accetta** : converte in [offset e limite](sql-query-offset-limit.md) per limitare i risultati di una query e per eseguire l'impaginazione.
+- **Funzioni matematiche** : supporta la conversione da .NET `Abs` , `Acos` , `Asin` , `Atan` , `Ceiling` , `Cos` , `Exp` , `Floor` , `Log` , `Log10` , `Pow` , `Round` , `Sign` , `Sin` , `Sqrt` , `Tan` e `Truncate` alle [funzioni matematiche predefinite](sql-query-mathematical-functions.md)equivalenti.
+- **String Functions** : supporta la conversione da .NET `Concat` ,, `Contains` `Count` , `EndsWith` , `IndexOf` , `Replace` , `Reverse` , `StartsWith` , `SubString` , `ToLower` , `ToUpper` , `TrimEnd` e `TrimStart` alle [funzioni di stringa predefinite](sql-query-string-functions.md)equivalenti.
+- **Funzioni di matrice** : supporta la conversione da .NET `Concat` , `Contains` e `Count` alle [funzioni di matrice predefinite](sql-query-array-functions.md)equivalenti.
+- **Funzioni di estensione geospaziale** : supporta la conversione da metodi stub `Distance` ,, `IsValid` `IsValidDetailed` e `Within` alle [funzioni geospaziali predefinite](sql-query-geospatial-query.md)equivalenti.
+- **Funzione di estensione della funzione definita dall'utente** : supporta la conversione dal metodo stub `UserDefinedFunctionProvider.Invoke` alla [funzione corrispondente definita dall'utente](sql-query-udfs.md).
+- **Varie** : supporta la conversione di `Coalesce` [operatori](sql-query-operators.md)condizionali e. Può tradurre in `Contains` stringa contiene, ARRAY_CONTAINS o in, a seconda del contesto.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Negli esempi seguenti viene illustrato il modo in cui alcuni degli operatori di query LINQ standard vengono convertiti in query in Azure Cosmos DB.
 

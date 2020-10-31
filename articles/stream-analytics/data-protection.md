@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/23/2020
-ms.openlocfilehash: b54076413d3a6cabf2e3ef0b06e8e17875efbf97
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e823322803958f092cee3b6d77e6a0ca7bc6e3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92746403"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074251"
 ---
 # <a name="data-protection-in-azure-stream-analytics"></a>Protezione dei dati in analisi di flusso di Azure 
 
@@ -73,6 +73,27 @@ Usare la procedura seguente per configurare l'account di archiviazione per gli a
 
    ![Impostazioni dell'account di archiviazione dati privato](./media/data-protection/storage-account-create.png)
 
+## <a name="private-data-assets-that-are-stored"></a>Asset di dati privati archiviati
+
+Tutti i dati privati che devono essere salvati in modo permanente da analisi di flusso vengono archiviati nell'account di archiviazione. Esempi di asset di dati privati includono: 
+
+* Query create e relative configurazioni  
+
+* Funzioni definite dall'utente 
+
+* Checkpoint necessari per il runtime di analisi di flusso
+
+* Snapshot dei dati di riferimento 
+
+Vengono archiviati anche i dettagli della connessione delle risorse, usati dal processo di analisi di flusso. Crittografare l'account di archiviazione per proteggere tutti i dati. 
+
+Per soddisfare gli obblighi di conformità in qualsiasi settore o ambiente regolamentato, è possibile leggere altre informazioni sulle [offerte di conformità di Microsoft](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942). 
+
+## <a name="enables-data-residency"></a>Abilita la residenza dei dati 
+Questa funzionalità può essere usata per applicare eventuali requisiti di residenza dei dati, fornendo un account di archiviazione di conseguenza.
+
+## <a name="known-issues"></a>Problemi noti
+Si verifica un problema noto in cui un processo che usa la chiave gestita dal cliente si verifica in caso di errori quando si usa l'identità gestita per l'autenticazione a qualsiasi input o output. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

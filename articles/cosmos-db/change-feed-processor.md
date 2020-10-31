@@ -9,14 +9,15 @@ ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 377165c94303a4a44d481009700cdef9169b3d78
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: dfd96e7c62d700ccec2ecd4b223668d7aca4f18f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475805"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072807"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Il processore del feed di modifiche è incluso in [Azure Cosmos DB SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3). Semplifica il processo di lettura del feed di modifiche e la distribuzione efficace dell'elaborazione di eventi tra più consumer.
 
@@ -30,9 +31,9 @@ Ci sono quattro componenti principali per l'implementazione del processore del f
 
 1. **Contenitore di lease:** Il contenitore di lease agisce come una risorsa di archiviazione di stato e coordina l'elaborazione dei feed di modifiche tra più ruoli di lavoro. Il contenitore di lease può essere archiviato nello stesso account del contenitore monitorato o in un account diverso.
 
-1. **Host**: Un host è un'istanza dell'applicazione che usa il processore del feed di modifiche per restare in ascolto delle modifiche. È possibile eseguire in parallelo più istanze con la stessa configurazione di lease, ma ogni istanza deve avere un nome di istanza **diverso**.
+1. **Host** : Un host è un'istanza dell'applicazione che usa il processore del feed di modifiche per restare in ascolto delle modifiche. È possibile eseguire in parallelo più istanze con la stessa configurazione di lease, ma ogni istanza deve avere un nome di istanza **diverso** .
 
-1. **Delegato**: Il delegato è il codice che definisce le operazioni che lo sviluppatore desidera eseguire con ogni batch di modifiche letto dal processore del feed di modifiche. 
+1. **Delegato** : Il delegato è il codice che definisce le operazioni che lo sviluppatore desidera eseguire con ogni batch di modifiche letto dal processore del feed di modifiche. 
 
 Per una migliore comprensione dell'interazione tra i quattro elementi del processore dei feed di modifiche, è consigliabile esaminare un esempio nel diagramma seguente. Il contenitore monitorato archivia i documenti e usa "City" come chiave di partizione. Si noterà che i valori della chiave di partizione sono distribuiti in intervalli che contengono elementi. Sono disponibili due istanze dell'host e il processore dei feed di modifiche assegna diversi intervalli di valori di chiave di partizione a ogni istanza per ottimizzare la distribuzione di calcolo. Ogni intervallo viene letto in parallelo e lo stato di avanzamento viene mantenuto separatamente dagli altri intervalli nel contenitore di lease.
 
@@ -61,7 +62,7 @@ Il normale ciclo di vita di un'istanza dell'host è:
 
 1. Leggere il feed di modifiche.
 1. Se non sono state apportate modifiche, sospendere per un periodo di tempo predefinito personalizzabile con `WithPollInterval` nel generatore e passare a #1.
-1. Se ci sono modifiche, inviarle al **delegato**.
+1. Se ci sono modifiche, inviarle al **delegato** .
 1. Quando il delegato termina **correttamente** l'elaborazione delle modifiche, aggiornare l'archivio dei lease con l'ultimo punto nel tempo elaborato e passare a #1.
 
 ## <a name="error-handling"></a>Gestione degli errori
@@ -104,7 +105,7 @@ Per impostazione predefinita, quando un processore di feed di modifiche viene av
 
 ### <a name="reading-from-a-previous-date-and-time"></a>Lettura da una data e un'ora precedenti
 
-È possibile inizializzare il processore dei feed di modifiche in modo da leggere le modifiche a partire da una **data e ora specifiche**, passando un'istanza di `DateTime` all'estensione del generatore `WithStartTime`:
+È possibile inizializzare il processore dei feed di modifiche in modo da leggere le modifiche a partire da una **data e ora specifiche** , passando un'istanza di `DateTime` all'estensione del generatore `WithStartTime`:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
 
@@ -112,7 +113,7 @@ Il processore dei feed di modifiche verrà inizializzato per la data e l'ora spe
 
 ### <a name="reading-from-the-beginning"></a>Lettura dall'inizio
 
-In altri scenari, ad esempio la migrazione dei dati o l'analisi dell'intera cronologia di un contenitore, è necessario leggere il feed di modifiche dall'**inizio della durata del contenitore**. A tale scopo, è possibile usare `WithStartTime` sull'estensione del generatore, ma passando `DateTime.MinValue.ToUniversalTime()`, che genererebbe la rappresentazione UTC del valore minimo `DateTime`, come segue:
+In altri scenari, ad esempio la migrazione dei dati o l'analisi dell'intera cronologia di un contenitore, è necessario leggere il feed di modifiche dall' **inizio della durata del contenitore** . A tale scopo, è possibile usare `WithStartTime` sull'estensione del generatore, ma passando `DateTime.MinValue.ToUniversalTime()`, che genererebbe la rappresentazione UTC del valore minimo `DateTime`, come segue:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
 

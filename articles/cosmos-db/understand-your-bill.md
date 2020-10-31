@@ -7,23 +7,24 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d1b03417b81299ca959670287e252402e994f15a
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476400"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073826"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 In quanto servizio di database nativo del cloud completamente gestito, Azure Cosmos DB semplifica la fatturazione addebitando solo le operazioni di database e l'archiviazione utilizzata. Non ci sono corrispettivi aggiuntivi per licenze, hardware, utenze o infrastrutture, a differenza delle alternative in locale o ospitate all'interno di sistemi IaaS. Se si considerano le funzionalità multiarea di Azure Cosmos DB, ci si rende conto che il servizio di database garantisce una riduzione sostanziale dei costi rispetto alle soluzioni locali o IaaS esistenti.
 
-- **Operazioni di database**: il modo in cui vengono addebitate le operazioni di database dipende dal tipo di account Azure Cosmos usato.
+- **Operazioni di database** : il modo in cui vengono addebitate le operazioni di database dipende dal tipo di account Azure Cosmos usato.
 
-  - **Velocità effettiva con provisioning**: viene addebitata una tariffa oraria per la velocità effettiva massima con provisioning per un'ora specifica, con incrementi di 100 ur/sec.
-  - Senza **Server**: viene addebitata una fatturazione oraria per la quantità totale di unità richiesta utilizzate dalle operazioni del database.
+  - **Velocità effettiva con provisioning** : viene addebitata una tariffa oraria per la velocità effettiva massima con provisioning per un'ora specifica, con incrementi di 100 ur/sec.
+  - Senza **Server** : viene addebitata una fatturazione oraria per la quantità totale di unità richiesta utilizzate dalle operazioni del database.
 
-- **Archiviazione**: viene addebitata una tariffa fissa per la quantità totale di spazio di archiviazione (in GB) utilizzata dai dati e dagli indici per un'ora specifica.
+- **Archiviazione** : viene addebitata una tariffa fissa per la quantità totale di spazio di archiviazione (in GB) utilizzata dai dati e dagli indici per un'ora specifica.
 
 Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) .
 

@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 1/28/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4616f6c567b0bba13fe04aed56fd5e4ddc293f90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac08b5af0afbf43c7b13808fac06c40066e48b7a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89008387"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074234"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>Leggere input in qualsiasi formato tramite deserializzatori personalizzati .NET
 
@@ -201,7 +201,7 @@ namespace ExampleCustomCode.Serialization
 
 ## <a name="serialization-format-for-rest-apis"></a>Formato di serializzazione per le API REST
 
-Ogni input di Analisi di flusso ha un **formato di serializzazione**. Per altre informazioni sulle opzioni di input, vedere la documentazione relativa all'[API REST di input](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input).
+Ogni input di Analisi di flusso ha un **formato di serializzazione** . Per altre informazioni sulle opzioni di input, vedere la documentazione relativa all'[API REST di input](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs).
 
 Il codice JavaScript seguente è un esempio del formato di serializzazione del deserializzatore .NET quando si usa l'API REST:
 

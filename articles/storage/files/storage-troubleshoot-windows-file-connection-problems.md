@@ -7,16 +7,16 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 7ec511400d1e00d37993f2f4ee581bce1bccb897
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17b2ab53c0154a29f9084f9dd999a53bcf477b72
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715991"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075127"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Risolvere i problemi di File di Azure in Windows (SMB)
 
-Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure quando si effettua la connessione da client Windows. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. Oltre ai passaggi per la risoluzione dei problemi di questo articolo, è anche possibile usare [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   per assicurarsi che l'ambiente client Windows disponga dei prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi indicati in questo articolo e consente di configurare l'ambiente in modo da ottenere prestazioni ottimali.
+Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure quando si effettua la connessione da client Windows. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. Oltre ai passaggi di risoluzione dei problemi in questo articolo, si può anche usare [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows) per verificare che l'ambiente client Windows abbia prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi indicati in questo articolo e consente di configurare l'ambiente in modo da ottenere prestazioni ottimali.
 
 > [!IMPORTANT]
 > Il contenuto di questo articolo è valido solo per le condivisioni SMB. Per informazioni dettagliate sulle condivisioni NFS, vedere [risolvere i problemi relativi alle condivisioni file NFS di Azure](storage-troubleshooting-files-nfs.md).
@@ -26,7 +26,7 @@ Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure qua
 
 Quando si tenta di montare una condivisione file, è possibile che si riceva l'errore seguente:
 
-- Errore di sistema 5. L'accesso è negato.
+- Errore di sistema 5. Accesso negato.
 
 ### <a name="cause-1-unencrypted-communication-channel"></a>Causa 1: canale di comunicazione non crittografato
 
@@ -45,7 +45,7 @@ Se nell'account di archiviazione sono configurate regole di rete virtuale o del 
 
 ### <a name="solution-for-cause-2"></a>Soluzione per la causa 2
 
-Verificare che le regole di rete virtuale e di firewall siano configurate correttamente nell'account di archiviazione. Per verificare se le regole di rete virtuale o del firewall sono la causa del problema, modificare temporaneamente le impostazioni dell'account di archiviazione per **consentire l'accesso da tutte le reti**. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verificare che le regole di rete virtuale e di firewall siano configurate correttamente nell'account di archiviazione. Per verificare se le regole di rete virtuale o del firewall sono la causa del problema, modificare temporaneamente le impostazioni dell'account di archiviazione per **consentire l'accesso da tutte le reti** . Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ### <a name="cause-3-share-level-permissions-are-incorrect-when-using-identity-based-authentication"></a>Motivo 3: le autorizzazioni a livello di condivisione non sono corrette quando si usa l'autenticazione basata su identità
 
@@ -167,7 +167,7 @@ Codice errore: 403
 
 ### <a name="solution-for-cause-1"></a>Soluzione per la causa 1
 
-Verificare che le regole di rete virtuale e di firewall siano configurate correttamente nell'account di archiviazione. Per verificare se le regole di rete virtuale o del firewall sono la causa del problema, modificare temporaneamente le impostazioni dell'account di archiviazione per **consentire l'accesso da tutte le reti**. Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
+Verificare che le regole di rete virtuale e di firewall siano configurate correttamente nell'account di archiviazione. Per verificare se le regole di rete virtuale o del firewall sono la causa del problema, modificare temporaneamente le impostazioni dell'account di archiviazione per **consentire l'accesso da tutte le reti** . Per altre informazioni, vedere [Configurare i firewall e le reti virtuali di Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security).
 
 ### <a name="cause-2-your-user-account-does-not-have-access-to-the-storage-account"></a>Causa 2: l'account utente non ha accesso all'account di archiviazione
 
@@ -177,23 +177,82 @@ Passare all'account di archiviazione in cui si trova la condivisione file di Azu
 
 <a id="open-handles"></a>
 ## <a name="unable-to-delete-a-file-or-directory-in-an-azure-file-share"></a>Impossibile eliminare un file o una directory in una condivisione file di Azure
-Quando si tenta di eliminare un file, è possibile che venga visualizzato l'errore seguente:
+Uno degli scopi chiave di una condivisione file è che più utenti e applicazioni possono interagire simultaneamente con i file e le directory nella condivisione. Per supportare questa interazione, le condivisioni file forniscono diversi modi per mediare l'accesso a file e directory.
 
-La risorsa specificata è stata contrassegnata per l'eliminazione da un client SMB.
+Quando si apre un file da una condivisione file di Azure montata su SMB, l'applicazione o il sistema operativo richiede un handle di file, ovvero un riferimento al file. Tra le altre cose, l'applicazione specifica una modalità di condivisione file quando richiede un handle di file, che specifica il livello di esclusività dell'accesso al file applicato da File di Azure: 
 
-### <a name="cause"></a>Causa
-Questo problema si verifica in genere se il file o la directory dispone di un handle aperto. 
+- `None`: si dispone di accesso esclusivo. 
+- `Read`: altri utenti possono leggere il file mentre è aperto.
+- `Write`: altri utenti possono scrivere sul file mentre è aperto. 
+- `ReadWrite`: combinazione di entrambe le `Read` modalità di `Write` condivisione e.
+- `Delete`: altri possono eliminare il file mentre è aperto. 
 
-### <a name="solution"></a>Soluzione
+Sebbene come protocollo senza stato, il protocollo filerest non ha un concetto di handle di file, fornisce un meccanismo simile per mediare l'accesso a file e cartelle che possono essere usati dallo script, dall'applicazione o dal servizio: lease di file. Quando un file viene concesso in lease, viene considerato equivalente a un handle di file con una modalità di condivisione file di `None` . 
 
-Se i client SMB hanno chiuso tutti gli handle aperti e il problema continua a verificarsi, eseguire le operazioni seguenti:
+Sebbene gli handle di file e i lease richiedano uno scopo importante, a volte gli handle di file e i lease potrebbero essere orfani. In tal caso, è possibile che si verifichino problemi durante la modifica o l'eliminazione di file. È possibile che vengano visualizzati messaggi di errore simili ai seguenti:
 
-- Usare il cmdlet di PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) per visualizzare gli handle aperti.
+- Il processo non può accedere al file perché è in uso da un altro processo.
+- Non è possibile completare l'azione perché il file è aperto in un altro programma.
+- Il documento è bloccato per la modifica da parte di un altro utente.
+- La risorsa specificata è stata contrassegnata per l'eliminazione da un client SMB.
 
-- Usare il cmdlet di PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) per chiudere gli handle aperti. 
+La risoluzione di questo problema dipende dal fatto che questo sia causato da un lease o da un handle di file orfano. 
+
+### <a name="cause-1"></a>Causa 1
+Un handle di file impedisce la modifica o l'eliminazione di un file o di una directory. È possibile usare il cmdlet di PowerShell [Get-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/get-azstoragefilehandle) per visualizzare gli handle aperti. 
+
+Se tutti i client SMB hanno chiuso i rispettivi handle aperti su un file o una directory e il problema continua a verificarsi, è possibile forzare la chiusura di un handle di file.
+
+### <a name="solution-1"></a>Soluzione 1
+Per forzare la chiusura di un handle di file, usare il cmdlet di PowerShell [Close-AzStorageFileHandle](https://docs.microsoft.com/powershell/module/az.storage/close-azstoragefilehandle) . 
 
 > [!Note]  
 > I cmdlet Get-AzStorageFileHandle e Close-AzStorageFileHandle sono inclusi nel modulo AZ PowerShell versione 2,4 o successiva. Per installare la versione più recente del modulo AZ PowerShell, vedere [installare il modulo Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+
+### <a name="cause-2"></a>Causa 2
+Un lease di file impedisce la modifica o l'eliminazione di un file. È possibile verificare se un file ha un lease di file con il seguente PowerShell, sostituendo `<resource-group>` ,, `<storage-account>` `<file-share>` e `<path-to-file>` con i valori appropriati per l'ambiente:
+
+```PowerShell
+# Set variables 
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$fileShareName = "<file-share>"
+$fileForLease = "<path-to-file>"
+
+# Get reference to storage account
+$storageAccount = Get-AzStorageAccount `
+        -ResourceGroupName $resourceGroupName `
+        -Name $storageAccountName
+
+# Get reference to file
+$file = Get-AzStorageFile `
+        -Context $storageAccount.Context `
+        -ShareName $fileShareName `
+        -Path $fileForLease
+
+$fileClient = $file.ShareFileClient
+
+# Check if the file has a file lease
+$fileClient.GetProperties().Value
+```
+
+Se un file ha un lease, l'oggetto restituito deve contenere le proprietà seguenti:
+
+```Output
+LeaseDuration         : Infinite
+LeaseState            : Leased
+LeaseStatus           : Locked
+```
+
+### <a name="solution-2"></a>Soluzione 2
+Per rimuovere un lease da un file, è possibile rilasciare il lease o interrompere il lease. Per rilasciare il lease, è necessario il LeaseId del lease, impostato quando si crea il lease. Non è necessario LeaseId per interrompere il lease.
+
+Nell'esempio seguente viene illustrato come interrompere il lease per il file indicato nella ragione 2 (questo esempio continua con le variabili di PowerShell dalla cause 2):
+
+```PowerShell
+$leaseClient = [Azure.Storage.Files.Shares.Specialized.ShareLeaseClient]::new($fileClient)
+$leaseClient.Break() | Out-Null
+```
 
 <a id="slowfilecopying"></a>
 ## <a name="slow-file-copying-to-and-from-azure-files-in-windows"></a>Rallentamento della copia del file da e verso File di Azure in Windows
@@ -287,7 +346,7 @@ Questo problema può verificarsi se si usa EFS (Encrypting File System). I file 
 ### <a name="workaround"></a>Soluzione alternativa
 Per copiare un file tramite rete, è necessario prima decrittografarlo. Utilizzare una delle seguenti modalità:
 
-- Usare il comando **copy /d**. Questo consente di salvare i file crittografati come file decrittografati nella destinazione.
+- Usare il comando **copy /d** . Questo consente di salvare i file crittografati come file decrittografati nella destinazione.
 - Impostare la chiave del Registro di sistema seguente:
   - Percorso = HKLM\Software\Policies\Microsoft\Windows\System
   - Tipo valore = DWORD

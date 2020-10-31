@@ -4,12 +4,12 @@ description: In questa guida introduttiva si abilitano gli eventi di Griglia di 
 ms.topic: article
 ms.date: 08/23/2018
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: 3e9e9a7d6016f53225c1b2f31fb8eef91e202c7a
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 6058fceb873e2b26da2d30dadba456e2a625f3f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736864"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93074217"
 ---
 # <a name="quickstart-send-events-from-private-container-registry-to-event-grid"></a>Guida introduttiva: inviare eventi dal registro contenitori privato a griglia di eventi
 
@@ -19,11 +19,11 @@ Al termine dei passaggi descritti in questo articolo, gli eventi inviati dal reg
 
 ![Rendering nel Web browser dell'applicazione Web di esempio con tre eventi ricevuti][sample-app-01]
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito][azure-account] prima di iniziare.
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-I comandi dell'interfaccia della riga di comando di Azure in questo articolo sono formattati per la shell **Bash** . Se si usa una shell diversa, ad esempio PowerShell o il prompt dei comandi, può essere necessario modificare di conseguenza i caratteri di continuazione di riga o le righe di assegnazione di variabile. Questo articolo usa le variabili per ridurre al minimo la quantità di modifiche necessarie per i comandi.
+- I comandi dell'interfaccia della riga di comando di Azure in questo articolo sono formattati per la shell **Bash** . Se si usa una shell diversa, ad esempio PowerShell o il prompt dei comandi, può essere necessario modificare di conseguenza i caratteri di continuazione di riga o le righe di assegnazione di variabile. Questo articolo usa le variabili per ridurre al minimo la quantità di modifiche necessarie per i comandi.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 

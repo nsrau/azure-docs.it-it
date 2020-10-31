@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 07/02/2019
-ms.openlocfilehash: a9850af3ea2365aa73d8b9f08b2e706c79062860
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7da3f09825f94946ba5c6e162088c1f31454cfcb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400520"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93072444"
 ---
 # <a name="visualize-graph-data-stored-in-azure-cosmos-db-gremlin-api-with-data-visualization-solutions"></a>Visualizzare i dati del grafo archiviati in Azure Cosmos DB API Gremlin con soluzioni di visualizzazione dei dati
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 È possibile visualizzare i dati archiviati in Azure Cosmos DB API Gremlin usando varie soluzioni di visualizzazione dei dati. Le soluzioni seguenti sono consigliate dalla [community di Apache Tinkerpop](https://tinkerpop.apache.org/#poweredby) per la visualizzazione dei dati Graph.
 
