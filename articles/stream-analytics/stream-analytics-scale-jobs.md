@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 7b96bc456d2dc0e3f1a1110f36b61be4accfbd8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c12c4b9f4a3757a3974e4aff7699d0265bfd7840
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89488508"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124374"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Ridimensionare un processo di Analisi di flusso di Azure per aumentare la velocità effettiva
 Questo articolo illustra come ottimizzare una query per aumentare la velocità effettiva per i processi di Analisi di flusso. È possibile usare la seguente guida per ridimensionare il processo per gestire carichi più elevati e sfruttare i vantaggi di più risorse di sistema (ad esempio maggiore larghezza di banda, più risorse della CPU, una maggiore memoria).
@@ -22,9 +22,9 @@ Come prerequisito, è necessario leggere gli articoli seguenti:
 
 ## <a name="case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions"></a>Caso 1: la query è intrinsecamente completamente eseguibile in parallelo tra le partizioni di input
 Se la query è intrinsecamente completamente eseguibile in parallelo tra le partizioni di input, è possibile seguire la procedura seguente:
-1.  Creare la query in modo che sia perfettamente parallela usando la parola chiave **PARTITION BY**. Visualizzare altri dettagli nella sezione dei processi perfettamente paralleli [in questa pagina](stream-analytics-parallelization.md).
+1.  Creare la query in modo che sia perfettamente parallela usando la parola chiave **PARTITION BY** . Visualizzare altri dettagli nella sezione dei processi perfettamente paralleli [in questa pagina](stream-analytics-parallelization.md).
 2.  A seconda dei tipi di output usati nella query, alcuni output potrebbero non essere eseguibili in parallelo, o richiederebbero un'altra configurazione perfettamente parallela. Ad esempio, l'output di Power BI non è parallelizzabile. Gli output vengono sempre uniti prima di essere inviati al sink di output. I BLOB, le tabelle, l'ADLS, il Bus di servizio e la funzione di Azure vengono parallelizzati automaticamente. Gli output di SQL e Azure sinapsi Analytics hanno un'opzione per la parallelizzazione. Hub eventi deve avere il set di configurazione PartitionKey per la corrispondenza con il campo **PARTITION BY** (in genere PartitionId). Per l'Hub eventi, prestare anche particolare attenzione a far corrispondere il numero di partizioni per tutti gli input e output per evitare il cross-over tra le partizioni. 
-3.  Eseguire la query con **SU 6** (ovvero la capacità massima di un singolo nodo di calcolo) per misurare la velocità effettiva massima ottenibile, e se si usa **GROUP BY**, misurare il numero di gruppi (cardinalità) che il processo riesce a gestire. Di seguito sono elencati i sintomi generali dei limiti della risorsa del sistema nel raggiungere il processo.
+3.  Eseguire la query con **SU 6** (ovvero la capacità massima di un singolo nodo di calcolo) per misurare la velocità effettiva massima ottenibile, e se si usa **GROUP BY** , misurare il numero di gruppi (cardinalità) che il processo riesce a gestire. Di seguito sono elencati i sintomi generali dei limiti della risorsa del sistema nel raggiungere il processo.
     - La metrica di utilizzo % SU è superiore all'80%. Indica che l'uso della memoria è elevato. I fattori che contribuiscono all'aumento della metrica sono descritti [qui](stream-analytics-streaming-unit-consumption.md). 
     -   Il timestamp di output è in ritardo rispetto all'ora. A seconda della logica della query, il timestamp di output potrebbe avere un offset della logica dall'ora. Tuttavia, dovrebbero procedere approssimativamente allo stesso ritmo. Se il timestamp di output è sempre più in ritardo, è un indicatore del fatto che il sistema è in overworking. Può trattarsi di un risultato della limitazione del sink di output di downstream o dell'uso elevato del CPU. Non si fornisce una metrica di utilizzo del CPU in questa fase, pertanto può essere difficile distinguere i due.
         - Se il problema è dovuto alla limitazione del sink, potrebbe essere necessario aumentare il numero di partizioni di output (e anche le partizioni di input per mantenere il processo completamente eseguibili in parallelo) o aumentare la quantità di risorse del sink (ad esempio il numero di unità di richiesta per CosmosDB).
@@ -78,13 +78,13 @@ Per determinati casi d'uso ISV, in cui è più conveniente elaborare dati da pi�
 
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per ulteriore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Per ulteriore supporto, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](/rest/api/streamanalytics/)
 
 <!--Image references-->
 
@@ -97,10 +97,9 @@ Per ulteriore supporto, provare la [Pagina delle domande di Domande e risposte M
 <!--Link references-->
 
 [microsoft.support]: https://support.microsoft.com
-[azure.event.hubs.developer.guide]: https://msdn.microsoft.com/library/azure/dn789972.aspx
+[azure.event.hubs.developer.guide]: /previous-versions/azure/dn789972(v=azure.100)
 
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
-
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

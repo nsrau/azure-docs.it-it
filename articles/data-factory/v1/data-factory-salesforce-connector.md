@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 8b94f6388d77cca2ef74c802aec7648091172775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ba95ba57bb57b1b2e9ecde3ad27f6bb5fbca66cb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79281132"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124884"
 ---
 # <a name="move-data-from-salesforce-by-using-azure-data-factory"></a>Spostare dati da Salesforce usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -49,9 +49,9 @@ In entrambi gli scenari è anche possibile che venga visualizzato l'errore "REQU
 ## <a name="getting-started"></a>Introduzione
 È possibile creare una pipeline con l'attività di copia che sposta i dati da Salesforce usando diversi strumenti/API.
 
-Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata**. Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
+Il modo più semplice per creare una pipeline consiste nell'usare la **Copia guidata** . Vedere [Esercitazione: Creare una pipeline usando la Copia guidata](data-factory-copy-data-wizard-tutorial.md) per la procedura dettagliata sulla creazione di una pipeline attenendosi alla procedura guidata per copiare i dati.
 
-È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio**, **Azure PowerShell**, **Azure Resource Manager modello**, **API .NET**e **API REST**. Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
+È anche possibile usare gli strumenti seguenti per creare una pipeline: **Visual Studio** , **Azure PowerShell** , **Azure Resource Manager modello** , **API .NET** e **API REST** . Per istruzioni dettagliate su come creare una pipeline con un'attività di copia, vedere l' [esercitazione sull'attività di copia](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) .
 
 Se si usano gli strumenti o le API, eseguire la procedura seguente per creare una pipeline che sposta i dati da un archivio dati di origine a un archivio dati sink:
 
@@ -68,7 +68,7 @@ La tabella seguente include le descrizioni degli elementi JSON specifici del ser
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| type |La proprietà Type deve essere impostata su: **Salesforce**. |Sì |
+| type |La proprietà Type deve essere impostata su: **Salesforce** . |Sì |
 | environmentUrl | Specificare l'URL dell'istanza di Salesforce. <br><br> -Il valore predefinito è "https: \/ /login.salesforce.com". <br> - Per copiare dati dalla sandbox, specificare "https://test.salesforce.com". <br> - Per copiare i dati dal dominio personalizzato, specificare ad esempio "https://[dominio].my.salesforce.com". |No |
 | username |Specificare un nome utente per l'account utente. |Sì |
 | password |Specificare la password per l'account utente. |Sì |
@@ -86,7 +86,7 @@ La sezione **typeProperties** è diversa per ogni tipo di set di dati e fornisce
 > [!IMPORTANT]
 > La parte "__c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Screenshot mostra i dettagli della definizione dell'oggetto personalizzato, in cui è possibile visualizzare i nomi A P i di oggetti personalizzati.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 ## <a name="copy-activity-properties"></a>Proprietà dell'attività di copia
 Per un elenco completo delle sezioni e delle proprietà disponibili per la definizione delle attività, vedere l'articolo relativo alla [creazione di pipeline](data-factory-create-pipelines.md) . Per tutti i tipi di attività sono disponibili proprietà come nome, descrizione, tabelle di input e output e diversi criteri.
@@ -102,14 +102,14 @@ Nell'attività di copia, quando l'origine è di tipo **RelationalSource** (che i
 > [!IMPORTANT]
 > La parte "__c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Screenshot mostra i campi personalizzati & le relazioni in cui è possibile visualizzare i nomi A P i di oggetti personalizzati.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 ## <a name="query-tips"></a>Suggerimenti di query
 ### <a name="retrieving-data-using-where-clause-on-datetime-column"></a>Recupero di dati tramite la clausola where nella colonna DateTime
 Quando si specifica la query SQL o SOQL, prestare attenzione alla differenza di formato di DateTime. Ad esempio:
 
-* **Esempio SOQL**: `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
-* **Esempio SQL**:
+* **Esempio SOQL** : `$$Text.Format('SELECT Id, Name, BillingCity FROM Account WHERE LastModifiedDate >= {0:yyyy-MM-ddTHH:mm:ssZ} AND LastModifiedDate < {1:yyyy-MM-ddTHH:mm:ssZ}', WindowStart, WindowEnd)`
+* **Esempio SQL** :
     * **Uso della procedura di copia guidata per specificare la query:** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\'{0:yyyy-MM-dd HH:mm:ss}\'}} AND LastModifiedDate < {{ts\'{1:yyyy-MM-dd HH:mm:ss}\'}}', WindowStart, WindowEnd)`
     * **Uso della modifica JSON per specificare la query (usare correttamente il carattere di escape):** `$$Text.Format('SELECT * FROM Account WHERE LastModifiedDate >= {{ts\\'{0:yyyy-MM-dd HH:mm:ss}\\'}} AND LastModifiedDate < {{ts\\'{1:yyyy-MM-dd HH:mm:ss}\\'}}', WindowStart, WindowEnd)`
 
@@ -119,8 +119,8 @@ Quando si specifica la query SQL o SOQL, prestare attenzione alla differenza di 
 ### <a name="retrieving-deleted-records-from-salesforce-recycle-bin"></a>Recupero dei record eliminati dal Cestino di Salesforce
 Per eseguire una query sui record eliminati temporaneamente dal Cestino di Salesforce, è possibile specificare **"IsDeleted = 1"** nella query. Ad esempio,
 
-* Per eseguire una query solo sui record eliminati, specificare "Select * from MyTable__c **where undeleted = 1**"
-* Per eseguire una query su tutti i record inclusi quelli esistenti ed eliminati, specificare "Select * from MyTable__c **where undeleted = 0 or undeleted = 1**"
+* Per eseguire una query solo sui record eliminati, specificare "Select * from MyTable__c **where undeleted = 1** "
+* Per eseguire una query su tutti i record inclusi quelli esistenti ed eliminati, specificare "Select * from MyTable__c **where undeleted = 0 or undeleted = 1** "
 
 ## <a name="json-example-copy-data-from-salesforce-to-azure-blob"></a>Esempio JSON: Copiare dati da Salesforce a BLOB di Azure
 L'esempio seguente fornisce le definizioni JSON di esempio che è possibile usare per creare una pipeline usando [Visual Studio](data-factory-copy-activity-tutorial-using-visual-studio.md) o [Azure PowerShell](data-factory-copy-activity-tutorial-using-powershell.md). Illustrano come copiare dati da Salesforce in un archivio BLOB di Azure. Tuttavia, i dati possono essere copiati in qualsiasi sink dichiarato [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats) usando l'attività di copia in Azure Data Factory.
@@ -197,7 +197,7 @@ Impostando **External** su **true** si comunica al servizio Data Factory che il 
 > [!IMPORTANT]
 > La parte "__c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
+![Screenshot mostra i dettagli della definizione dell'oggetto personalizzato, in cui è possibile visualizzare l'etichetta singolare, l'etichetta plurale, il nome dell'oggetto e un P I nome.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name.png)
 
 **Set di dati di output del BLOB di Azure**
 
@@ -225,7 +225,7 @@ I dati vengono scritti in un nuovo BLOB ogni ora (frequenza: ora, intervallo: 1)
 
 **Pipeline con attività di copia**
 
-La pipeline contiene un'attività di copia configurata per l'uso dei set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink**.
+La pipeline contiene un'attività di copia configurata per l'uso dei set di dati di input e output ed è programmata per essere eseguita ogni ora. Nella definizione JSON della pipeline il tipo di **origine** è impostato su **RelationalSource** e il tipo di **sink** è impostato su **BlobSink** .
 
 Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà del tipo RelationalSource](#copy-activity-properties) .
 
@@ -278,7 +278,7 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà
 > [!IMPORTANT]
 > La parte "__c" del nome dell'API è necessaria per qualsiasi oggetto personalizzato.
 
-![Data Factory - connessione Salesforce - nome API](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
+![Screenshot mostra i campi personalizzati & relazioni con i nomi A P i denominati.](media/data-factory-salesforce-connector/data-factory-salesforce-api-name-2.png)
 
 
 ### <a name="type-mapping-for-salesforce"></a>Mapping dei tipi per Salesforce
@@ -287,15 +287,15 @@ Per l'elenco delle proprietà supportate da RelationalSource, vedere [Proprietà
 | --- | --- |
 | Numero automatico |string |
 | Casella di controllo |Boolean |
-| Valuta |Decimal |
+| Valuta |Decimale |
 | Data |Datetime |
 | Data/ora |Datetime |
-| Posta elettronica |string |
+| E-mail |string |
 | ID |string |
 | Relazione di ricerca |string |
 | Elenco a discesa seleziona multipla |string |
-| Numero |Decimal |
-| Percentuale |Decimal |
+| Numero |Decimale |
+| Percentuale |Decimale |
 | Telefono |string |
 | Elenco a discesa |string |
 | Testo |Stringa |

@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/21/2019
-ms.openlocfilehash: 69824df1b84f6cdfafa08a662816281442ad44fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c57a3920dac3e18e248109fafdf61fdfa871c54d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044380"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123711"
 ---
 # <a name="anomaly-detection-in-azure-stream-analytics"></a>Rilevamento anomalie in Analisi di flusso di Azure
 
@@ -42,7 +42,7 @@ Un generatore di anomalie disponibile [qui](https://aka.ms/asaanomalygenerator) 
 
 ## <a name="spike-and-dip"></a>Picchi e flessioni
 
-Le anomalie temporanee in un flusso di eventi di una serie temporale sono note come picchi e flessioni. Questi picchi e flessioni possono essere monitorati usando l'operatore basato su Machine Learning [AnomalyDetection_SpikeAndDip](https://docs.microsoft.com/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
+Le anomalie temporanee in un flusso di eventi di una serie temporale sono note come picchi e flessioni. Questi picchi e flessioni possono essere monitorati usando l'operatore basato su Machine Learning [AnomalyDetection_SpikeAndDip](/stream-analytics-query/anomalydetection-spikeanddip-azure-stream-analytics
 ).
 
 ![Esempio di anomalia con picchi e flessioni](./media/stream-analytics-machine-learning-anomaly-detection/anomaly-detection-spike-dip.png)
@@ -74,9 +74,9 @@ FROM AnomalyDetectionStep
 
 ## <a name="change-point"></a>Punto di modifica
 
-Le anomalie persistenti in un flusso di eventi di una serie temporale sono modifiche nella distribuzione dei valori del flusso di eventi, come cambi di livello e tendenze. In Analisi di flusso queste anomalie vengono rilevate mediante l'operatore basato su Machine Learning [AnomalyDetection_ChangePoint](https://docs.microsoft.com/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics).
+Le anomalie persistenti in un flusso di eventi di una serie temporale sono modifiche nella distribuzione dei valori del flusso di eventi, come cambi di livello e tendenze. In Analisi di flusso queste anomalie vengono rilevate mediante l'operatore basato su Machine Learning [AnomalyDetection_ChangePoint](/stream-analytics-query/anomalydetection-changepoint-azure-stream-analytics).
 
-Le modifiche persistenti durano molto più a lungo dei picchi e le flessioni e possono indicare eventi molto gravi. Non sono generalmente visibili a occhio nudo, ma possono essere rilevate con l'operatore **AnomalyDetection_ChangePoint**.
+Le modifiche persistenti durano molto più a lungo dei picchi e le flessioni e possono indicare eventi molto gravi. Non sono generalmente visibili a occhio nudo, ma possono essere rilevate con l'operatore **AnomalyDetection_ChangePoint** .
 
 L'immagine seguente è un esempio di cambio di livello:
 
@@ -114,9 +114,9 @@ FROM AnomalyDetectionStep
 
 Le prestazioni di questi modelli dipendono dalle dimensioni della cronologia, dalla durata della finestra, dal carico degli eventi e dal fatto che il partizionamento a livello di funzione venga usato. In questa sezione vengono illustrate queste configurazioni e vengono forniti esempi su come sostenere la velocità di inserimento di eventi da 1.000, 5K e 10.000 al secondo.
 
-* **Dimensioni cronologia** : questi modelli vengono eseguiti in modo lineare con le **dimensioni della cronologia**. Maggiore è la dimensione della cronologia, più è lunga la lunghezza dei modelli per assegnare un nuovo evento al punteggio. Ciò è dovuto al fatto che i modelli confrontano il nuovo evento con tutti gli eventi passati nel buffer della cronologia.
+* **Dimensioni cronologia** : questi modelli vengono eseguiti in modo lineare con le **dimensioni della cronologia** . Maggiore è la dimensione della cronologia, più è lunga la lunghezza dei modelli per assegnare un nuovo evento al punteggio. Ciò è dovuto al fatto che i modelli confrontano il nuovo evento con tutti gli eventi passati nel buffer della cronologia.
 * **Durata finestra** : la **durata della finestra** deve riflettere il tempo necessario per ricevere il numero di eventi specificato dalle dimensioni della cronologia. Senza questo numero di eventi nella finestra, analisi di flusso di Azure avrebbe imputato i valori mancanti. Di conseguenza, l'utilizzo della CPU è una funzione delle dimensioni della cronologia.
-* **Carico dell'evento** : maggiore è il **carico dell'evento**, maggiore è il lavoro eseguito dai modelli, che influisca sul consumo della CPU. Il processo può essere scalato orizzontalmente in modo imbarazzante, supponendo che sia opportuno che la logica di business usi più partizioni di input.
+* **Carico dell'evento** : maggiore è il **carico dell'evento** , maggiore è il lavoro eseguito dai modelli, che influisca sul consumo della CPU. Il processo può essere scalato orizzontalmente in modo imbarazzante, supponendo che sia opportuno che la logica di business usi più partizioni di input.
 * Partizionamento a livello di **funzione**  -  Il **partizionamento a livello di funzione** viene eseguito usando ```PARTITION BY``` all'interno della chiamata di funzione di rilevamento anomalie. Questo tipo di partizionamento aggiunge un overhead, in quanto lo stato deve essere mantenuto per più modelli nello stesso momento. Il partizionamento a livello di funzione viene usato in scenari come il partizionamento a livello di dispositivo.
 
 ### <a name="relationship"></a>Relationship
@@ -152,13 +152,12 @@ Il codice di esempio per eseguire le configurazioni non partizionate sopra è di
 > Per una stima più accurata, personalizzare gli esempi per adattarli allo scenario.
 
 ### <a name="identifying-bottlenecks"></a>Identificazione di colli di bottiglia
-Usare il riquadro Metriche nel processo di Analisi di flusso di Azure per identificare i colli di bottiglia nella pipeline. Vedere **Eventi di input/output** per la velocità effettiva e ["Ritardo limite"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) o **Eventi con backlog** per verificare se il processo è in grado di mantenere la frequenza di input. Per le metriche dell'hub eventi, cercare **Richieste limitate** e modificare di conseguenza le unità di soglia. Per le metriche di Cosmos DB, vedere **Numero massimo di unità richiesta al secondo usate per intervallo di chiavi di partizione** in "Velocità effettiva" per assicurarsi che gli intervalli delle chiavi di partizione siano usati in modo uniforme. Per il database SQL di Azure, monitorare **I/O LOG** e **CPU**.
+Usare il riquadro Metriche nel processo di Analisi di flusso di Azure per identificare i colli di bottiglia nella pipeline. Vedere **Eventi di input/output** per la velocità effettiva e ["Ritardo limite"](https://azure.microsoft.com/blog/new-metric-in-azure-stream-analytics-tracks-latency-of-your-streaming-pipeline/) o **Eventi con backlog** per verificare se il processo è in grado di mantenere la frequenza di input. Per le metriche dell'hub eventi, cercare **Richieste limitate** e modificare di conseguenza le unità di soglia. Per le metriche di Cosmos DB, vedere **Numero massimo di unità richiesta al secondo usate per intervallo di chiavi di partizione** in "Velocità effettiva" per assicurarsi che gli intervalli delle chiavi di partizione siano usati in modo uniforme. Per il database SQL di Azure, monitorare **I/O LOG** e **CPU** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](/rest/api/streamanalytics/)

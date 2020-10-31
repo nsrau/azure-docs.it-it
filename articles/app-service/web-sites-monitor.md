@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: c4e9a66e6bd6b94d8397429769d7718b3e9c555d
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: b201ebb5ad8ab9d98a76a29831fa12d6174e47cc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148114"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125207"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
 [App Azure servizio](./overview.md) fornisce funzionalità di monitoraggio predefinite per app Web, per dispositivi mobili e per le app per le API nel [portale di Azure](https://portal.azure.com).
@@ -25,9 +25,9 @@ Le app ospitate nel servizio app sono soggette a determinati limiti in relazione
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Se l'app è ospitata in un piano *Gratuito* o *Condiviso*, i limiti relativi alle risorse che l'app può usare sono definiti dalle quote.
+Se l'app è ospitata in un piano *Gratuito* o *Condiviso* , i limiti relativi alle risorse che l'app può usare sono definiti dalle quote.
 
-Se l'app è ospitata in un piano *Basic*, *Standard* o *Premium*, i limiti relativi alle risorse che può usare vengono stabiliti in base alle *dimensioni* (Small, Medium, Large) e al *numero di istanze* (1, 2, 3 e così via) del piano di servizio app.
+Se l'app è ospitata in un piano *Basic* , *Standard* o *Premium* , i limiti relativi alle risorse che può usare vengono stabiliti in base alle *dimensioni* (Small, Medium, Large) e al *numero di istanze* (1, 2, 3 e così via) del piano di servizio app.
 
 Le quote per le app ospitate nel piano Gratuito o Condiviso sono:
 
@@ -37,15 +37,15 @@ Le quote per le app ospitate nel piano Gratuito o Condiviso sono:
 | **Tempo CPU (giorno)** | Quantità totale di CPU consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
 | **Memoria** | Quantità totale di memoria consentita per l'app. |
 | **Larghezza di banda** | Quantità totale di larghezza di banda in uscita consentita per l'app in un giorno. Questa quota viene reimpostata automaticamente ogni 24 ore a mezzanotte (ora UTC). |
-| **File System** | Quantità totale di spazio di archiviazione consentito. |
+| **Filesystem** | Quantità totale di spazio di archiviazione consentito. |
 
-L'unica quota applicabile alle app ospitate in *Basic*, *standard*e *Premium* è file System.
+L'unica quota applicabile alle app ospitate in *Basic* , *standard* e *Premium* è file System.
 
 Per altre informazioni su quote, funzionalità e limiti specifici per i vari SKU del servizio app, vedere i [limiti del servizio per la sottoscrizione di Azure](../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits).
 
 ### <a name="quota-enforcement"></a>Applicazione delle quote
 
-Se l'uso di un'app supera la quota *Tempo CPU (breve)*, *Tempo CPU (giorno)* o *Larghezza di banda*, l'app viene arrestata fino al momento in cui viene reimpostata la quota. Durante questo intervallo di tempo, per tutte le richieste in ingresso viene restituito un errore HTTP 403.
+Se l'uso di un'app supera la quota *Tempo CPU (breve)* , *Tempo CPU (giorno)* o *Larghezza di banda* , l'app viene arrestata fino al momento in cui viene reimpostata la quota. Durante questo intervallo di tempo, per tutte le richieste in ingresso viene restituito un errore HTTP 403.
 
 ![Messaggio di errore 403][http403]
 
@@ -87,6 +87,7 @@ Le metriche disponibili per un'app sono:
 | **Garbage Collection di generazione 1** | Numero di operazioni di Garbage Collection sugli oggetti di generazione 1 dall'avvio del processo dell'app. Le operazioni di GC di generazione superiore includono tutte quelle di generazione inferiore.|
 | **Garbage Collection di generazione 2** | Numero di operazioni di Garbage Collection sugli oggetti di generazione 2 dall'avvio del processo dell'app.|
 | **Numero di handle** | Numero totale di handle attualmente aperti dal processo dell'app.|
+| **Stato controllo integrità** | Lo stato di integrità medio tra le istanze dell'applicazione nel piano di servizio app.|
 | **Http 2xx** | Numero di richieste che hanno restituito un codice di stato HTTP ≥ 200 e < 300. |
 | **Http 3xx** | Numero di richieste che hanno restituito un codice di stato HTTP ≥ 300 e < 400. |
 | **Http 401** | Numero di richieste che hanno restituito un codice di stato HTTP 401. |
@@ -113,7 +114,7 @@ Le metriche disponibili per un'app sono:
 Le metriche disponibili per un piano di servizio app sono:
 
 > [!NOTE]
-> Le metriche del piano di servizio app sono disponibili solo per i piani dei livelli *Basic*, *Standard* e *Premium*.
+> Le metriche del piano di servizio app sono disponibili solo per i piani dei livelli *Basic* , *Standard* e *Premium* .
 > 
 
 | Metrica | Descrizione |
@@ -130,9 +131,9 @@ Le metriche disponibili per un piano di servizio app sono:
 
 Le metriche che riflettono l'utilizzo della CPU sono due:
 
-**Tempo CPU**: utile per le app ospitate in piani gratuiti o condivisi, perché una delle rispettive quote è definita in minuti CPU usati dall'app.
+**Tempo CPU** : utile per le app ospitate in piani gratuiti o condivisi, perché una delle rispettive quote è definita in minuti CPU usati dall'app.
 
-**Percentuale CPU**: utile per le app ospitate nei piani Basic, standard e Premium, perché possono essere scalate orizzontalmente. La percentuale di CPU è una indicazione corretta dell'utilizzo complessivo in tutte le istanze.
+**Percentuale CPU** : utile per le app ospitate nei piani Basic, standard e Premium, perché possono essere scalate orizzontalmente. La percentuale di CPU è una indicazione corretta dell'utilizzo complessivo in tutte le istanze.
 
 ## <a name="metrics-granularity-and-retention-policy"></a>Granularità delle metriche e criteri di conservazione
 Le metriche per un'app e il piano di servizio app vengono registrate e aggregate dal servizio e [mantenute in base a queste regole](../azure-monitor/platform/data-platform-metrics.md#retention-of-metrics).
@@ -142,7 +143,7 @@ Per esaminare lo stato delle varie quote e metriche che interessano un'app, acce
 
 ![Grafico delle quote nel portale di Azure][quotas]
 
-Per trovare le quote, selezionare **Settings**  >  **quote**impostazioni. Nel grafico è possibile esaminare gli elementi seguenti: 
+Per trovare le quote, selezionare **Settings**  >  **quote** impostazioni. Nel grafico è possibile esaminare gli elementi seguenti: 
 1. Nome della quota
 1. Intervallo di reimpostazione
 1. Limite corrente

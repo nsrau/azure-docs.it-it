@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.custom: contperfq1
 ms.date: 06/18/2020
-ms.openlocfilehash: 18270a2f435428824714067749fc18ce2addc535
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 0e7777cba93706baea815521757b495209431ce6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913042"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124018"
 ---
 # <a name="troubleshoot-azure-stream-analytics-by-using-resource-logs"></a>Risolvere i problemi di Analisi di flusso di Azure usando i log delle risorse
 
@@ -48,7 +48,7 @@ I log attività sono attivati per impostazione predefinita e forniscono informaz
 
    ![Riepilogo dell'operazione del Log attività di Analisi di flusso](./media/stream-analytics-job-diagnostic-logs/operation-summary.png)
 
-4. Scorrere verso il basso fino alla sezione **pannello Proprietà** di JSON, che fornisce i dettagli dell'errore che ha causato il fallimento dell'operazione. In questo esempio, l'errore era dovuto al superamento dei valori della latitudine associata di Common Language Runtime. La discrepanza nei dati elaborati da un processo di analisi di flusso causa un errore di dati. È possibile ottenere informazioni sui diversi [errori di dati di input e di output e sul motivo](https://docs.microsoft.com/azure/stream-analytics/data-errors)per cui si verificano.
+4. Scorrere verso il basso fino alla sezione **pannello Proprietà** di JSON, che fornisce i dettagli dell'errore che ha causato il fallimento dell'operazione. In questo esempio, l'errore era dovuto al superamento dei valori della latitudine associata di Common Language Runtime. La discrepanza nei dati elaborati da un processo di analisi di flusso causa un errore di dati. È possibile ottenere informazioni sui diversi [errori di dati di input e di output e sul motivo](./data-errors.md)per cui si verificano.
 
    ![Dettagli dell'errore JSON](./media/stream-analytics-job-diagnostic-logs/error-details.png)
 
@@ -111,7 +111,7 @@ I log di esecuzione hanno informazioni sugli eventi che si sono verificati duran
 
 ### <a name="data-errors"></a>Errori nei dati
 
-Qualsiasi errore che si verifica durante il processo di elaborazione dei dati è in questa categoria di log. Questi log vengono creati più spesso durante le operazioni di lettura dei dati, serializzazione e scrittura. Questi log non includono errori di connettività. Gli errori di connettività vengono trattati come eventi generici. È possibile ottenere altre informazioni sulla cause di diversi [errori di dati di input e di output](https://docs.microsoft.com/azure/stream-analytics/data-errors).
+Qualsiasi errore che si verifica durante il processo di elaborazione dei dati è in questa categoria di log. Questi log vengono creati più spesso durante le operazioni di lettura dei dati, serializzazione e scrittura. Questi log non includono errori di connettività. Gli errori di connettività vengono trattati come eventi generici. È possibile ottenere altre informazioni sulla cause di diversi [errori di dati di input e di output](./data-errors.md).
 
 Nome | Descrizione
 ------- | -------
@@ -143,5 +143,5 @@ ID correlazione | GUID che identifica in modo univoco l'esecuzione del processo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Errori dei dati di analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/data-errors)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
+* [Errori dei dati di analisi di flusso](./data-errors.md)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](/stream-analytics-query/stream-analytics-query-language-reference)

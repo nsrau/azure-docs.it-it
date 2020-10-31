@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e43a43d929d256bc2a12b6b243d9620c5bd1aba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8891bb5cd3b8bd8ae9e02c871d6d0ffe42078c0b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317702"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124765"
 ---
 # <a name="azure-stream-analytics-javascript-user-defined-aggregates"></a>Aggregazioni JavaScript definite dall'utente in Analisi di flusso di Azure
  
@@ -83,7 +83,7 @@ L'alias di funzione rappresenta l'identificatore dell'aggregazione definita dall
 
 ### <a name="function-type"></a>Tipo di funzione
 
-Per l'aggregazione definita dall'utente, il tipo di funzione deve essere **UDA JavaScript**.
+Per l'aggregazione definita dall'utente, il tipo di funzione deve essere **UDA JavaScript** .
 
 ### <a name="output-type"></a>Tipo di output
 
@@ -123,7 +123,7 @@ Di seguito viene descritto il processo di creazione di un'aggregazione definita 
 A questo punto viene creata un'aggregazione JavaScript definita dall'utente in un processo ASA esistente eseguendo i passaggi seguenti.
 
 1. Accedere al portale di Azure e individuare il processo di Analisi di flusso di Azure esistente.
-1. Fare clic sul collegamento alle funzioni in **PROCESSO TOPOLOGIA**.
+1. Fare clic sul collegamento alle funzioni in **PROCESSO TOPOLOGIA** .
 1. Fare clic sull'icona **Aggiungi** per aggiungere una nuova funzione.
 1. Nella visualizzazione Nuova funzione selezionare **UDA JavaScript** nel campo Tipo di funzione. Nell'editor verrà visualizzato un modello UDA predefinito.
 1. Immettere "TWA" come alias dell'aggregazione definita dall'utente e modificare l'implementazione della funzione come indicato di seguito:
@@ -226,12 +226,12 @@ Creare un file JSON locale con il contenuto riportato di seguito, caricare il fi
 
 ## <a name="get-help"></a>Ottenere aiuto
 
-Per ulteriore assistenza, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Per ulteriore assistenza, provare la [Pagina delle domande di Domande e risposte Microsoft per Analisi di flusso di Azure](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](/rest/api/streamanalytics/)

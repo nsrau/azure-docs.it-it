@@ -7,18 +7,18 @@ ms.topic: article
 ms.date: 06/19/2020
 ms.author: keferna
 author: keferna
-ms.openlocfilehash: 8ccc4cb6a6f95cfc51fb7e265e455131bc6393c2
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 1af2793bc32c1f3cdbdcd016562b761e05427073
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92735602"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125139"
 ---
 # <a name="azure-resource-manager-test-drive"></a>Azure Resource Manager test drive
 
 Usare questo tipo se si dispone di un'offerta in Azure Marketplace o in AppSource, ma si vuole creare una test drive solo con le risorse di Azure. Un modello di Azure Resource Manager (ARM) è un contenitore codificato di risorse di Azure che è possibile progettare per rappresentare meglio la soluzione. Test Drive accetta il modello ARM fornito e distribuisce tutte le risorse necessarie per un gruppo di risorse. Questa è l'unica opzione test drive per le offerte di macchine virtuali o app di Azure.
 
-Se non si ha familiarità con il modello di gestione risorse di Azure, leggere le informazioni [Azure Resource Manager](../azure-resource-manager/resource-group-overview.md) e [comprendere la struttura e la sintassi dei modelli ARM](../azure-resource-manager/resource-group-authoring-templates.md) per comprendere meglio come compilare e testare i propri modelli.
+Se non si ha familiarità con il modello di gestione risorse di Azure, leggere le informazioni [Azure Resource Manager](../azure-resource-manager/management/overview.md) e [comprendere la struttura e la sintassi dei modelli ARM](../azure-resource-manager/templates/template-syntax.md) per comprendere meglio come compilare e testare i propri modelli.
 
 Per informazioni su un' **app** per la logica o **ospitata** test drive, vedere [che cos'è un test drive?](what-is-test-drive.md)
 
@@ -34,7 +34,7 @@ Un modello di distribuzione contiene tutte le risorse di Azure che costituiscono
 
   - **Poco utilizzata** : questo tipo di istanza rappresenta il numero totale di istanze che è possibile distribuire per ogni area. Per le istanze di questo tipo è necessario distribuire l'intero modello di Resource Manager del test drive quando un cliente richiede il test drive e di conseguenza le istanze impostate su *Poco utilizzata* vengono caricate più lentamente rispetto a quelle impostate su *Frequente* . Il compromesso consiste nel fatto che è necessario pagare solo per la durata del test drive, che *non* è sempre in esecuzione nella sottoscrizione di Azure come un'istanza *Frequente* .
 
-- **Modello di Azure Resource Manager del test drive** : caricare il file con estensione zip contenente il modello di Azure Resource Manager. Per altre informazioni sulla creazione di un modello di Azure Resource Manager, vedere l'articolo di avvio rapido [Creare e distribuire modelli di Resource Manager con il portale di Azure](../azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal.md).
+- **Modello di Azure Resource Manager del test drive** : caricare il file con estensione zip contenente il modello di Azure Resource Manager. Per altre informazioni sulla creazione di un modello di Azure Resource Manager, vedere l'articolo di avvio rapido [Creare e distribuire modelli di Resource Manager con il portale di Azure](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md).
 
     > [!note]
     > Per la pubblicazione corretta, è importante convalidare la formattazione del modello ARM. Due modi per eseguire questa operazione sono (1) usando uno [strumento API online](https://docs.microsoft.com/rest/api/resources/deployments/validate) o (2) con una [distribuzione di prova](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal).

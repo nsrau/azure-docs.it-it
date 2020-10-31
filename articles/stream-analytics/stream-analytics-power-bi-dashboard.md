@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 8/6/2020
-ms.openlocfilehash: 4c6d1d3877629150493ee2a57a04573760d2772a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2a130345a755644874b4547a5906101b593664a6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88870018"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123473"
 ---
 # <a name="stream-analytics-and-power-bi-a-real-time-analytics-dashboard-for-streaming-data"></a>Analisi di flusso e Power BI: un dashboard di analisi in tempo reale per il flusso di dati
 
@@ -37,12 +37,12 @@ Nell'esercitazione sul rilevamento delle frodi in tempo reale l'output viene inv
 
 1. Nel portale di Azure aprire il processo di Analisi di flusso creato in precedenza. Se si usa il nome suggerito, il processo è denominato `sa_frauddetection_job_demo`.
 
-2. Nel menu a sinistra selezionare **Output** in **Topologia processo**. Selezionare quindi **+ Aggiungi** e scegliere **Power BI** dal menu a discesa.
+2. Nel menu a sinistra selezionare **Output** in **Topologia processo** . Selezionare quindi **+ Aggiungi** e scegliere **Power BI** dal menu a discesa.
 
-3. Selezionare **+ Aggiungi** > **Power BI**. Compilare quindi il modulo con i dettagli seguenti e selezionare **autorizza** per usare la propria identità utente per connettersi a Power BI (il token è valido per 90 giorni). 
+3. Selezionare **+ Aggiungi** > **Power BI** . Compilare quindi il modulo con i dettagli seguenti e selezionare **autorizza** per usare la propria identità utente per connettersi a Power BI (il token è valido per 90 giorni). 
 
 >[!NOTE]
->Per i processi di produzione, è consigliabile connettersi per [usare identità gestita per autenticare il processo di analisi di flusso di Azure per Power bi](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity).
+>Per i processi di produzione, è consigliabile connettersi per [usare identità gestita per autenticare il processo di analisi di flusso di Azure per Power bi](./powerbi-output-managed-identity.md).
 
    |**Impostazione**  |**Valore consigliato**  |
    |---------|---------|
@@ -57,25 +57,25 @@ Nell'esercitazione sul rilevamento delle frodi in tempo reale l'output viene inv
    > È consigliabile non creare in modo esplicito il set di dati e la tabella nell'account di Power BI. Vengono creati automaticamente quando il processo di Analisi di flusso viene avviato e inizia a generare output in Power BI. Se la query del processo non genera alcun risultato, il set di dati e la tabella non vengono creati.
    >
 
-4. Quando si seleziona **Autorizza**, viene visualizzata una finestra popup in cui viene chiesto di fornire le credenziali per l'autenticazione dell'account di Power BI. Una volta completato il processo di autorizzazione, fare clic su **Salva** per salvare le impostazioni.
+4. Quando si seleziona **Autorizza** , viene visualizzata una finestra popup in cui viene chiesto di fornire le credenziali per l'autenticazione dell'account di Power BI. Una volta completato il processo di autorizzazione, fare clic su **Salva** per salvare le impostazioni.
 
-8. Fare clic su **Crea**.
+8. Fare clic su **Crea** .
 
 Il set di dati viene creato con le impostazioni seguenti:
 
-* **defaultRetentionPolicy: BasicFIFO**: dati FIFO, con un massimo di 200.000 righe.
-* **defaultMode: pushStreaming**: il set di dati supporta sia i riquadri in streaming che gli oggetti visivi tradizionali basati sui report, detti anche push.
+* **defaultRetentionPolicy: BasicFIFO** : dati FIFO, con un massimo di 200.000 righe.
+* **defaultMode: pushStreaming** : il set di dati supporta sia i riquadri in streaming che gli oggetti visivi tradizionali basati sui report, detti anche push.
 
 Attualmente non è possibile creare set di dati con altri flag.
 
-Per altre informazioni sui set di dati di Power BI, vedere le informazioni di riferimento sull'[API REST di Power BI](https://msdn.microsoft.com/library/mt203562.aspx).
+Per altre informazioni sui set di dati di Power BI, vedere le informazioni di riferimento sull'[API REST di Power BI](/rest/api/power-bi/).
 
 
 ## <a name="write-the-query"></a>Scrivere la query
 
 1. Chiudere il pannello **Output** e tornare al pannello del processo.
 
-2. Fare clic sulla casella **Query**. 
+2. Fare clic sulla casella **Query** . 
 
 3. Immettere la query seguente. Questa query è simile alla query self-join che è stata creata nell'esercitazione sul rilevamento delle frodi. La differenza è che questa query invia i risultati al nuovo output creato (`CallStream-PowerBI`). 
 
@@ -102,7 +102,7 @@ Per altre informazioni sui set di dati di Power BI, vedere le informazioni di ri
    GROUP BY TumblingWindow(Duration(second, 1))
    ```
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Salva** .
 
 
 ## <a name="test-the-query"></a>Testare la query
@@ -117,9 +117,9 @@ Questa sezione è facoltativa ma consigliata.
 
        `telcodatagen.exe 1000 .2 2`
 
-2. Nella pagina **Query** del processo di Analisi di flusso fare clic sui puntini di sospensione accanto all'input `CallStream` e quindi selezionare **Carica dati di esempio da input**.
+2. Nella pagina **Query** del processo di Analisi di flusso fare clic sui puntini di sospensione accanto all'input `CallStream` e quindi selezionare **Carica dati di esempio da input** .
 
-3. Specificare che si desidera ottenere i dati di tre minuti e fare clic su **OK**. Attendere fino a quando non si riceve la notifica che i dati sono stati campionati.
+3. Specificare che si desidera ottenere i dati di tre minuti e fare clic su **OK** . Attendere fino a quando non si riceve la notifica che i dati sono stati campionati.
 
 4. Fare clic su **Test** e rivedere i risultati.
 
@@ -127,7 +127,7 @@ Questa sezione è facoltativa ma consigliata.
 
 1. Verificare che l'app TelcoStreaming sia in esecuzione.
 
-2. Passare alla pagina **Panoramica** del processo di Analisi di flusso e selezionare **Avvia**.
+2. Passare alla pagina **Panoramica** del processo di Analisi di flusso e selezionare **Avvia** .
 
     ![Avviare il processo di analisi di flusso](./media/stream-analytics-power-bi-dashboard/stream-analytics-sa-job-start-output.png)
 
@@ -140,7 +140,7 @@ Il processo di Analisi di flusso inizia a cercare le chiamate fraudolente nel fl
 
     ![Posizione del set di dati di streaming in Power BI](./media/stream-analytics-power-bi-dashboard/stream-analytics-streaming-dataset.png)
 
-2. Nell'area di lavoro fare clic su **+&nbsp;Crea**.
+2. Nell'area di lavoro fare clic su **+&nbsp;Crea** .
 
     ![Pulsante Crea nell'area di lavoro di Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard.png)
 
@@ -148,25 +148,25 @@ Il processo di Analisi di flusso inizia a cercare le chiamate fraudolente nel fl
 
     ![Creare un dashboard e assegnargli un nome nell'area di lavoro di Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-dashboard-name.png)
 
-4. Nella parte superiore della finestra, fare clic su **Aggiungi riquadro**, selezionare **DATI IN STREAMING PERSONALIZZATI**, quindi fare clic su **Avanti**.
+4. Nella parte superiore della finestra, fare clic su **Aggiungi riquadro** , selezionare **DATI IN STREAMING PERSONALIZZATI** , quindi fare clic su **Avanti** .
 
     ![Riquadro del set di dati di streaming personalizzato in Power BI](./media/stream-analytics-power-bi-dashboard/custom-streaming-data.png)
 
-5. In **YOUR DATSETS** (SET DI DATI PERSONALI) selezionare il set di dati interessato e quindi fare clic su **Avanti**.
+5. In **YOUR DATSETS** (SET DI DATI PERSONALI) selezionare il set di dati interessato e quindi fare clic su **Avanti** .
 
     ![Il set di dati di streaming in Power BI](./media/stream-analytics-power-bi-dashboard/your-streaming-dataset.png)
 
-6. In **Tipo di visualizzazione** selezionare **Scheda** e quindi nell'elenco **Campi** selezionare **fraudulentcalls**.
+6. In **Tipo di visualizzazione** selezionare **Scheda** e quindi nell'elenco **Campi** selezionare **fraudulentcalls** .
 
     ![Dettagli di visualizzazione per il nuovo riquadro](./media/stream-analytics-power-bi-dashboard/add-fraudulent-calls-tile.png)
 
-7. Fare clic su **Avanti**.
+7. Fare clic su **Avanti** .
 
 8. Immettere i dettagli del riquadro, ad esempio un titolo e un sottotitolo.
 
     ![Titolo e sottotitolo per il nuovo riquadro](./media/stream-analytics-power-bi-dashboard/pbi-new-tile-details.png)
 
-9. Fare clic su **Applica**.
+9. Fare clic su **Applica** .
 
     Si dispone a questo punto di un contatore di frodi.
 
@@ -174,14 +174,14 @@ Il processo di Analisi di flusso inizia a cercare le chiamate fraudolente nel fl
 
 8. Seguire di nuovo la procedura per aggiungere un riquadro (partendo dal passaggio 4). Questa volta eseguire le operazioni seguenti:
 
-    * Quando si accede a **Tipo di visualizzazione** selezionare **Grafico a linee**. 
-    * Aggiungere un asse e selezionare **windowend**. 
-    * Aggiungere un valore e selezionare **fraudulentcalls**.
+    * Quando si accede a **Tipo di visualizzazione** selezionare **Grafico a linee** . 
+    * Aggiungere un asse e selezionare **windowend** . 
+    * Aggiungere un valore e selezionare **fraudulentcalls** .
     * Per **Intervallo di tempo da visualizzare**  selezionare gli ultimi 10 minuti.
 
       ![Creare il riquadro per il grafico a linee in Power BI](./media/stream-analytics-power-bi-dashboard/pbi-create-tile-line-chart.png)
 
-9. Fare clic su **Avanti**, aggiungere un titolo e un sottotitolo e fare clic su **Applica**.
+9. Fare clic su **Avanti** , aggiungere un titolo e un sottotitolo e fare clic su **Applica** .
 
      Il dashboard di Power BI offre ora due visualizzazioni di dati sulle chiamate fraudolente in base al rilevamento nei dati di streaming.
 
@@ -223,7 +223,7 @@ Con questa configurazione è possibile modificare la query originale come segue:
 ### <a name="renew-authorization"></a>Rinnovare l'autorizzazione
 Se la password è stata modificata dopo la creazione o l'ultima autenticazione del processo, è necessario autenticare nuovamente l'account Power BI. Se Azure Multi-Factor Authentication è configurato nel tenant di Azure Active Directory (Azure AD), è anche necessario rinnovare l'autorizzazione di Power BI ogni due settimane. Se non viene rinnovata, si potrebbero verificare problemi come la mancanza di output dei processi o un `Authenticate user error` nei log delle operazioni.
 
-Se si tenta di avviare un processo dopo che il token è scaduto, si verifica un errore e l'avvio del processo ha esito negativo. Per risolvere questo problema, arrestare il processo in esecuzione e passare all'output di Power BI. Per evitare la perdita di dati, fare clic sul collegamento **Rinnova autorizzazione** e riavviare il processo selezionando **Ora ultimo arresto**.
+Se si tenta di avviare un processo dopo che il token è scaduto, si verifica un errore e l'avvio del processo ha esito negativo. Per risolvere questo problema, arrestare il processo in esecuzione e passare all'output di Power BI. Per evitare la perdita di dati, fare clic sul collegamento **Rinnova autorizzazione** e riavviare il processo selezionando **Ora ultimo arresto** .
 
 Dopo aver aggiornato l'autorizzazione con Power BI, viene visualizzato un avviso verde nell'area di autorizzazione che indica che il problema è stato risolto.
 
@@ -231,6 +231,6 @@ Dopo aver aggiornato l'autorizzazione con Power BI, viene visualizzato un avviso
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Output di Analisi di flusso](stream-analytics-define-outputs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-* [Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI](https://docs.microsoft.com/azure/stream-analytics/powerbi-output-managed-identity)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](/rest/api/streamanalytics/)
+* [Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI](./powerbi-output-managed-identity.md)

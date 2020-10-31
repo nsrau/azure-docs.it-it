@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: f8885229c8ab6784c6c0bf45487812fcc43f9b22
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 766d3f8d4d4c03fb4fe173dbb12eb85bb09cd71a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90903829"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124170"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Eseguire il debug di query di analisi di flusso di Azure in locale usando il diagramma Visual Studio Code del processo
 
@@ -31,7 +31,7 @@ Usare questa [Guida introduttiva](quick-create-visual-studio-code.md) per inform
 
 Se si desidera testare la query con i dati di input locali, attenersi a queste [istruzioni](visual-studio-code-local-run.md). Se si vuole eseguire il test con l'input Live, configurare lo spostamento dell' [input](stream-analytics-add-inputs.md) al passaggio successivo. 
 
-Aprire il file di script * \. asaql* e selezionare **Esegui localmente**. Selezionare quindi **Usa input locale** o **Usa input Live**. Il diagramma del processo viene visualizzato sul lato destro della finestra.
+Aprire il file di script *\. asaql* e selezionare **Esegui localmente** . Selezionare quindi **Usa input locale** o **Usa input Live** . Il diagramma del processo viene visualizzato sul lato destro della finestra.
 
 ### <a name="view-the-output-and-intermediate-result-set"></a>Visualizzare l'output e il set di risultati intermedi  
 
@@ -56,7 +56,7 @@ In questa sezione vengono esaminate le metriche disponibili per ogni parte del d
    > [!div class="mx-imgBorder"]
    > ![Metriche del diagramma di processo](./media/debug-locally-using-job-diagram-vs-code/job-metrics.png)
 
-3. Selezionare il nome dell'origine dati di input dall'elenco a discesa per visualizzare le metriche di input. L'origine di input nello screenshot seguente è denominata *virgolette*. Per altre informazioni sulle metriche di input, vedere informazioni sul [monitoraggio dei processi di analisi di flusso e su come monitorare le query](stream-analytics-monitoring.md).
+3. Selezionare il nome dell'origine dati di input dall'elenco a discesa per visualizzare le metriche di input. L'origine di input nello screenshot seguente è denominata *virgolette* . Per altre informazioni sulle metriche di input, vedere informazioni sul [monitoraggio dei processi di analisi di flusso e su come monitorare le query](stream-analytics-monitoring.md).
 
    > [!div class="mx-imgBorder"]
    > ![Metriche di input del diagramma processi](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
@@ -104,7 +104,7 @@ Selezionare **Riepilogo processi** nella parte superiore destra del diagramma de
 
 * Il codice personalizzato C# e le funzioni Azure Machine Learning non sono supportate. 
 
-* Solo le opzioni di input cloud supportano i [criteri temporali](stream-analytics-out-of-order-and-late-events.md) , mentre le opzioni di input locali non lo sono.
+* Solo le opzioni di input cloud supportano i [criteri temporali](./stream-analytics-time-handling.md) , mentre le opzioni di input locali non lo sono.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

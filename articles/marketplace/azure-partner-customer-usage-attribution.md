@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 09/01/2020
+ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 167c2f091d4d8a7d7d5c32009b484125d7275796
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 91de9aff154dec1a61360477edebc90b7a13cf24
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282363"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125173"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Partner del Marketplace commerciale e attribuzione dell'utilizzo dei clienti
 
@@ -33,15 +33,18 @@ L'attribuzione dell'utilizzo da parte dei clienti supporta tre opzioni di distri
 >- L'attribuzione dell'utilizzo da parte dei clienti riguarda le nuove distribuzioni e NON supporta l'assegnazione di tag alle risorse esistenti già distribuite.
 >
 >- L'attribuzione dell'utilizzo da parte dei clienti è necessaria per le offerte di [applicazioni di Azure](./partner-center-portal/create-new-azure-apps-offer.md) pubblicate in Azure Marketplace.
+>
+>- Non tutti i servizi di Azure sono compatibili con l'attribuzione dell'utilizzo del cliente. I servizi di Azure Kubernetes (AKS) e i set di scalabilità di macchine virtuali presentano attualmente problemi noti che provocano la segnalazione dell'utilizzo.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="create-guids"></a>Crea GUID
 
-Un GUID è un identificatore di riferimento univoco con 32 cifre esadecimali. Per creare un GUID per il rilevamento, è necessario usare un generatore di GUID. Il team di Archiviazione di Azure ha creato un [modulo generatore di GUID](https://aka.ms/StoragePartners) che invierà un'e-mail con un GUID nel formato corretto e riutilizzabile nei vari sistemi di rilevamento.
+Un GUID è un identificatore di riferimento univoco con 32 cifre esadecimali. Per creare GUID per il rilevamento, è necessario usare un generatore di GUID, ad esempio tramite PowerShell.
 
-> [!NOTE]
-> Per la creazione di un GUID, è consigliabile usare il [modulo del generatore di GUID di Archiviazione di Azure](https://aka.ms/StoragePartners). Per altre informazioni, vedere la sezione [Domande frequenti](#faq).
+```powershell
+[guid]::NewGuid()]
+```
 
 Si consiglia di creare un GUID univoco per ogni canale di offerta e distribuzione per ogni prodotto. È possibile scegliere di usare un unico GUID per i vari canali di distribuzione del prodotto se non si vuole suddividere la creazione di report.
 
@@ -67,19 +70,19 @@ Dopo avere aggiunto il GUID al modello o nell'agente utente e avere registrato i
 
 1. Eseguire la registrazione come [editore del marketplace commerciale](https://aka.ms/JoinMarketplace).
 
-   * I partner devono [avere un profilo nel Centro per i partner](become-publisher.md). Si consiglia di inserire l'offerta in Azure Marketplace o AppSource.
+   * I partner devono [avere un profilo nel Centro per i partner](./partner-center-portal/create-account.md). Si consiglia di inserire l'offerta in Azure Marketplace o AppSource.
    * I partner possono registrare più GUID.
    * I partner possono registrare GUID per modelli e offerte di soluzioni non del marketplace.
 
-1. Nell'angolo in alto a destra selezionare l'icona delle impostazioni a forma di ingranaggio e quindi **Impostazioni sviluppatore**.
+1. Nell'angolo in alto a destra selezionare l'icona delle impostazioni a forma di ingranaggio e quindi **Impostazioni sviluppatore** .
 
-1. Nella **pagina Impostazioni account** selezionare **Aggiungi GUID di verifica**.
+1. Nella **pagina Impostazioni account** selezionare **Aggiungi GUID di verifica** .
 
 1. Nella casella **GUID** immettere il GUID di verifica. Immettere solo il GUID senza il `pid-` prefisso. Nella casella **Descrizione** immettere il nome o la descrizione dell'offerta.
 
 1. Per registrare più GUID, selezionare di nuovo **Add Tracking GUID** (Aggiungi GUID di rilevamento). Nella pagina verranno visualizzate finestre aggiuntive.
 
-1. Selezionare **Salva**.
+1. Selezionare **Salva** .
 
 ## <a name="use-resource-manager-templates"></a>Usare i modelli di Resource Manager
 Molte soluzioni dei partner vengono distribuite usando i modelli di Azure Resource Manager. Se si dispone di un modello di Gestione risorse disponibile in Azure Marketplace, su GitHub o come guida introduttiva, il processo di modifica del modello per consentire l'attribuzione dell'utilizzo dei clienti è semplice.
@@ -97,9 +100,9 @@ Per aggiungere un identificatore univoco globale (GUID), si apporta una sola mod
 
 1. Aprire il modello di Resource Manager.
 
-1. Aggiungere una nuova risorsa di tipo [Microsoft. resources/Deployments](https://docs.microsoft.com/azure/templates/microsoft.resources/deployments) nel file di modello principale. La risorsa deve essere solo nel file **mainTemplate.json** o **azuredeploy.json**, non in un template annidato o collegato.
+1. Aggiungere una nuova risorsa di tipo [Microsoft. resources/Deployments](/azure/templates/microsoft.resources/deployments) nel file di modello principale. La risorsa deve essere solo nel file **mainTemplate.json** o **azuredeploy.json** , non in un template annidato o collegato.
 
-1. Immettere il valore GUID dopo il `pid-` prefisso come nome della risorsa. Se ad esempio il GUID è eb7927c8-dd66-43e1-b0cf-c346a422063, il nome della risorsa sarà _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_.
+1. Immettere il valore GUID dopo il `pid-` prefisso come nome della risorsa. Se ad esempio il GUID è eb7927c8-dd66-43e1-b0cf-c346a422063, il nome della risorsa sarà _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_ .
 
 1. Controllare il modello per individuare eventuali errori.
 
@@ -110,7 +113,7 @@ Per aggiungere un identificatore univoco globale (GUID), si apporta una sola mod
 ### <a name="sample-resource-manager-template-code"></a>Esempio di codice di modello di Resource Manager
 
 Per abilitare il rilevamento delle risorse per il modello, è necessario aggiungere la risorsa aggiuntiva seguente nella sezione risorse. Assicurarsi di modificare il seguente codice di esempio con il proprio input quando aggiunto al file del modello principale.
-La risorsa deve essere aggiunta solo nel file **mainTemplate.json** o **azuredeploy.json**, non in un template annidato o collegato.
+La risorsa deve essere aggiunta solo nel file **mainTemplate.json** o **azuredeploy.json** , non in un template annidato o collegato.
 
 ```json
 // Make sure to modify this sample code with your own inputs where applicable
@@ -132,7 +135,7 @@ La risorsa deve essere aggiunta solo nel file **mainTemplate.json** o **azuredep
 
 ## <a name="use-the-resource-manager-apis"></a>Utilizzare le API di Resource Manager
 
-In alcuni casi, è preferibile effettuare chiamate direttamente alle API REST di Resource Manager per distribuire i servizi di Azure. [Azure supporta più SDK](https://docs.microsoft.com/azure/?pivot=sdkstools) per abilitare queste chiamate. È possibile usare uno degli SDK o chiamare le API REST direttamente per distribuire le risorse.
+In alcuni casi, è preferibile effettuare chiamate direttamente alle API REST di Resource Manager per distribuire i servizi di Azure. [Azure supporta più SDK](../index.yml?pivot=sdkstools) per abilitare queste chiamate. È possibile usare uno degli SDK o chiamare le API REST direttamente per distribuire le risorse.
 
 Se si usa un modello Resource Manager, è consigliabile assegnare tag alla soluzione seguendo le istruzioni descritte in precedenza. Se non si utilizza un modello di Resource Manager ed è possibile effettuare chiamate dirette alle API, è comunque possibile assegnare tag all'installazione remota per associare l'utilizzo delle risorse di Azure.
 
@@ -147,7 +150,7 @@ Per abilitare l'attribuzione dell'utilizzo da parte dei clienti, quando si proge
 
 #### <a name="example-the-python-sdk"></a>Esempio: Python SDK
 
-Per Python, usare l’attributo **config**. È possibile aggiungere l’attributo solo a un agente utente. Ad esempio:
+Per Python, usare l’attributo **config** . È possibile aggiungere l’attributo solo a un agente utente. Ad esempio:
 
 ![Aggiungere l'attributo a un agente utente](media/marketplace-publishers-guide/python-for-lu.PNG)
 
@@ -156,7 +159,7 @@ Per Python, usare l’attributo **config**. È possibile aggiungere l’attribut
 
 #### <a name="example-the-net-sdk"></a>Esempio: .NET SDK
 
-Per .NET, assicurarsi di impostare l'agente utente. La libreria [Microsoft. Azure. Management. Fluent](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) può essere usata per impostare l'agente utente con il codice seguente, ad esempio in C#:
+Per .NET, assicurarsi di impostare l'agente utente. La libreria [Microsoft. Azure. Management. Fluent](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) può essere usata per impostare l'agente utente con il codice seguente, ad esempio in C#:
 
 ```csharp
 
@@ -178,18 +181,18 @@ Se si distribuiscono risorse tramite Azure PowerShell, aggiungere il GUID utiliz
 
 #### <a name="tag-a-deployment-by-using-the-azure-cli"></a>Aggiungere un tag a una distribuzione usando l’interfaccia della riga di comando di Azure
 
-Quando si utilizza Azure CLI per aggiungere il proprio GUID, impostare la variabile di ambiente **AZURE_HTTP_USER_AGENT**. È possibile impostare questa variabile nell'ambito di uno script. È anche possibile impostare la variabile a livello globale per l'ambito della shell:
+Quando si utilizza Azure CLI per aggiungere il proprio GUID, impostare la variabile di ambiente **AZURE_HTTP_USER_AGENT** . È possibile impostare questa variabile nell'ambito di uno script. È anche possibile impostare la variabile a livello globale per l'ambito della shell:
 
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
 ```
-Per altre informazioni, vedere [Azure SDK per Go](https://docs.microsoft.com/azure/developer/go/).
+Per altre informazioni, vedere [Azure SDK per Go](/azure/developer/go/).
 
 ## <a name="use-terraform"></a>Usare Terraform
 
 Il supporto per Terraform è disponibile tramite la versione 1.21.0 del provider di Azure: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Questo supporto si applica a tutti i partner che distribuiscono la propria soluzione tramite Terraform e a tutte le risorse distribuite e misurate dal provider di Azure (versione 1.21.0 o successiva).
 
-Il provider di Azure per Terraform prevede un nuovo campo facoltativo denominato [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) che consente di specificare il GUID di verifica usato per la soluzione. Il valore di questo campo può anche essere ricavato dalla variabile di ambiente *ARM_PARTNER_ID*.
+Il provider di Azure per Terraform prevede un nuovo campo facoltativo denominato [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) che consente di specificare il GUID di verifica usato per la soluzione. Il valore di questo campo può anche essere ricavato dalla variabile di ambiente *ARM_PARTNER_ID* .
 
 ```
 provider "azurerm" {

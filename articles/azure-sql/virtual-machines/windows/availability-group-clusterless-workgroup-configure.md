@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/29/2020
 ms.author: mathoma
-ms.openlocfilehash: 6bfea42c6fca3369485ccf7a47158f7420df9c9c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 5714a2fd79d01f4cbc445c1ec1a726209ab6d427
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790033"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93124935"
 ---
 # <a name="configure-a-workgroup-availability-group"></a>Configurare un gruppo di disponibilità del gruppo di lavoro 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -62,11 +62,11 @@ Seguire questa procedura per configurare il suffisso DNS:
 1. Selezionare **Altro...** per aprire la finestra di dialogo **Suffisso DNS e nome NetBIOS del computer** . 
 1. Digitare il nome del suffisso DNS in **Suffisso DNS primario del computer** , ad esempio `ag.wgcluster.example.com`, quindi selezionare **OK** : 
 
-   ![Aggiungere il suffisso DNS](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
+   ![Screenshot mostra la finestra di dialogo suffisso D N S e nome computer NetBIOS in cui è possibile immettere il valore.](./media/availability-group-clusterless-workgroup-configure/2-add-dns-suffix.png)
 
 1. Verificare che il **Nome completo del computer** ora mostri il suffisso DNS, quindi selezionare **OK** per salvare le modifiche: 
 
-   ![Aggiungere il suffisso DNS](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
+   ![Screenshot indica dove visualizzare il nome completo del computer.](./media/availability-group-clusterless-workgroup-configure/3-confirm-full-computer-name.png)
 
 1. Riavviare il server quando richiesto. 
 1. Ripetere questi passaggi in tutti gli altri nodi da usare per il gruppo di disponibilità. 

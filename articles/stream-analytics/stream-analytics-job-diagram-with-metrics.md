@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/01/2017
-ms.openlocfilehash: fdb3c5c12af8e9022f5babc84126badda890dce5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e4ee868125ee30d40ef0d9ca5a42881ad003e9a8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044482"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93123983"
 ---
 # <a name="data-driven-debugging-by-using-the-job-diagram"></a>Debug guidato dai dati mediante il diagramma di processo
 
@@ -20,7 +20,7 @@ Il diagramma di processo nel pannello **Monitoraggio** del portale di Azure cons
 
 ## <a name="using-the-job-diagram"></a>Uso del diagramma di processo
 
-Nel portale di Azure, durante un processo di Analisi di flusso, sotto **SUPPORTO E RISOLUZIONE DEI PROBLEMI** selezionare **Diagramma del processo**:
+Nel portale di Azure, durante un processo di Analisi di flusso, sotto **SUPPORTO E RISOLUZIONE DEI PROBLEMI** selezionare **Diagramma del processo** :
 
 ![Diagramma di processo con metriche - posizione](./media/stream-analytics-job-diagram-with-metrics/stream-analytics-job-diagram-with-metrics-portal-1.png)
 
@@ -75,15 +75,15 @@ Se il passaggio di query precedente è un processore di input, usare le metriche
  
 ### <a name="are-we-falling-behind-in-reading-data"></a>Si sta verificando un ritardo nella lettura dei dati?
 
-*   **Input Events Backlogged (Total)** (Totale eventi con backlog di input) indica quanti altri messaggi devono essere letti per gli input di Hub eventi e dell'hub IoT di Azure. Quando questo numero è maggiore di 0, significa che il processo non è in grado di elaborare i dati alla stessa velocità di ingresso. In questo caso potrebbe essere necessario aumentare il numero di unità di streaming e/o verificare se il processo può essere eseguito in parallelo. È possibile visualizzare altre informazioni su questo argomento nella [pagina relativa alla parallelizzazione delle query](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization). 
+*   **Input Events Backlogged (Total)** (Totale eventi con backlog di input) indica quanti altri messaggi devono essere letti per gli input di Hub eventi e dell'hub IoT di Azure. Quando questo numero è maggiore di 0, significa che il processo non è in grado di elaborare i dati alla stessa velocità di ingresso. In questo caso potrebbe essere necessario aumentare il numero di unità di streaming e/o verificare se il processo può essere eseguito in parallelo. È possibile visualizzare altre informazioni su questo argomento nella [pagina relativa alla parallelizzazione delle query](./stream-analytics-parallelization.md). 
 
 
 ## <a name="get-help"></a>Ottenere aiuto
-Per un'ulteriore assistenza, provare la [pagina di domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html). 
+Per un'ulteriore assistenza, provare la [pagina di domande e risposte Microsoft per Analisi di flusso di Azure](/answers/topics/azure-stream-analytics.html). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Presentazione di Analisi di flusso](stream-analytics-introduction.md)
 * [Introduzione ad Analisi di flusso](stream-analytics-real-time-fraud-detection.md)
 * [Scalabilità dei processi di Analisi di flusso](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sull'API REST di gestione di Analisi di flusso](/rest/api/streamanalytics/)
