@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 44b84c03dd9c070fd7ca3764a0dc50e8caa9e1fc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55ff983169e15c74bf343993b66088932a538c36
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045162"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127519"
 ---
 # <a name="develop-stream-analytics-edge-jobs-using-visual-studio-tools"></a>Sviluppare processi Edge di Analisi di flusso usando gli strumenti di Visual Studio
 
@@ -29,7 +29,7 @@ Per completare questa esercitazione è necessario soddisfare i prerequisiti segu
  
 ## <a name="create-a-stream-analytics-edge-project"></a>Creare un progetto Edge di analisi di flusso 
 
-In Visual Studio selezionare **file**  >  **nuovo**  >  **progetto**. Passare all'elenco **Modelli** a sinistra > espandere **Analisi di flusso di Azure** > **Stream Analytics Edge** (Analisi di flusso - Edge)  > **Azure Stream Analytics Edge Application** (Applicazione Edge di Analisi di flusso). Specificare un nome per il progetto, il percorso e il nome della soluzione, quindi scegliere **OK**.
+In Visual Studio selezionare **file**  >  **nuovo**  >  **progetto** . Passare all'elenco **Modelli** a sinistra > espandere **Analisi di flusso di Azure** > **Stream Analytics Edge** (Analisi di flusso - Edge)  > **Azure Stream Analytics Edge Application** (Applicazione Edge di Analisi di flusso). Specificare un nome per il progetto, il percorso e il nome della soluzione, quindi scegliere **OK** .
 
 ![Nuovo progetto Edge di analisi di flusso in Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/new-stream-analytics-edge-project.png)
 
@@ -40,29 +40,29 @@ Dopo avere creato il progetto, passare a **Esplora soluzioni** per visualizzare 
  
 ## <a name="choose-the-correct-subscription"></a>Scegliere la sottoscrizione corretta
 
-1. Nel menu **Visualizza** di Visual Studio selezionare **Esplora server**.  
+1. Nel menu **Visualizza** di Visual Studio selezionare **Esplora server** .  
 
 2. Fare clic con il pulsante destro del mouse su **Azure** > Selezionare **Connetti a sottoscrizione di Microsoft Azure** > e quindi accedere con l'account di Azure.
 
 ## <a name="define-inputs"></a>Definire gli input
 
-1. In **Esplora soluzioni** espandere il nodo **Input**. Dovrebbe essere presente un input denominato **EdgeInput.json**. Fare doppio clic per visualizzare le relative impostazioni.  
+1. In **Esplora soluzioni** espandere il nodo **Input** . Dovrebbe essere presente un input denominato **EdgeInput.json** . Fare doppio clic per visualizzare le relative impostazioni.  
 
-2. Impostare Tipo di origine su **Flusso dati**. Quindi impostare Origine su **Hub Edge**, Formato di serializzazione eventi su **Json** e Codifica su **UTF8**. Facoltativamente, è possibile rinominare l'**Alias di input**. In questo esempio viene lasciato invariato. Se si rinomina l'alias di input, usare il nome specificato quando si definisce la query. Selezionare **Salva** per salvare le impostazioni.  
+2. Impostare Tipo di origine su **Flusso dati** . Quindi impostare Origine su **Hub Edge** , Formato di serializzazione eventi su **Json** e Codifica su **UTF8** . Facoltativamente, è possibile rinominare l' **Alias di input** . In questo esempio viene lasciato invariato. Se si rinomina l'alias di input, usare il nome specificato quando si definisce la query. Selezionare **Salva** per salvare le impostazioni.  
    ![Configurazione dell'input processo di Analisi di flusso](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-input-configuration.png)
  
 
 
 ## <a name="define-outputs"></a>Definire gli output
 
-1. In **Esplora soluzioni** espandere il nodo **Output**. Dovrebbe essere presente un input denominato **EdgeOutput.json**. Fare doppio clic per visualizzare le relative impostazioni.  
+1. In **Esplora soluzioni** espandere il nodo **Output** . Dovrebbe essere presente un input denominato **EdgeOutput.json** . Fare doppio clic per visualizzare le relative impostazioni.  
 
-2. Assicurarsi di impostare sink per selezionare l' **Hub Edge**, impostare il formato di serializzazione degli eventi su **JSON**, impostare la codifica su **UTF8**e impostare **Array**di formato. Facoltativamente, è possibile rinominare l'**Alias di output**. In questo esempio viene lasciato invariato. Se si rinomina l'alias di output, usare il nome specificato quando si definisce la query. Selezionare **Salva** per salvare le impostazioni. 
+2. Assicurarsi di impostare sink per selezionare l' **Hub Edge** , impostare il formato di serializzazione degli eventi su **JSON** , impostare la codifica su **UTF8** e impostare **Array** di formato. Facoltativamente, è possibile rinominare l' **Alias di output** . In questo esempio viene lasciato invariato. Se si rinomina l'alias di output, usare il nome specificato quando si definisce la query. Selezionare **Salva** per salvare le impostazioni. 
    ![Configurazione dell'output processo di Analisi di flusso](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-output-configuration.png)
  
 ## <a name="define-the-transformation-query"></a>Definire la query di trasformazione
 
-I processi di analisi di flusso distribuiti negli ambienti di analisi di flusso IoT Edge supportano la maggior parte dei [riferimenti al linguaggio di query di analisi di flusso](https://msdn.microsoft.com/azure/stream-analytics/reference/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396) Tuttavia, le operazioni seguenti non sono ancora supportate per i processi Edge di analisi di flusso: 
+I processi di analisi di flusso distribuiti negli ambienti di analisi di flusso IoT Edge supportano la maggior parte dei [riferimenti al linguaggio di query di analisi di flusso](/stream-analytics-query/stream-analytics-query-language-reference?f=255&MSPPError=-2147217396) Tuttavia, le operazioni seguenti non sono ancora supportate per i processi Edge di analisi di flusso: 
 
 
 |**Categoria**  | **Comando**  |
@@ -71,7 +71,7 @@ I processi di analisi di flusso distribuiti negli ambienti di analisi di flusso 
 
 Quando si crea un processo Edge di analisi di flusso nel portale, il compilatore avvisa automaticamente se non si usa un operatore supportato.
 
-Da Visual Studio definire la query di trasformazione seguente nell'editor di query (**file script.asaql**)
+Da Visual Studio definire la query di trasformazione seguente nell'editor di query ( **file script.asaql** )
 
 ```sql
 SELECT * INTO EdgeOutput
@@ -84,11 +84,11 @@ Per testare la query in locale, è necessario caricare i dati di esempio. È pos
 
 1. Per caricare i dati di esempio, fare clic con il pulsante destro del mouse sul file **EdgeInput.json** e scegliere **Aggiungi input locale**  
 
-2. Nella finestra popup > fare clic su **Sfoglia** per passare ai dati di esempio nel percorso locale > scegliere **Salva**.
+2. Nella finestra popup > fare clic su **Sfoglia** per passare ai dati di esempio nel percorso locale > scegliere **Salva** .
    ![Configurazione di input locale in Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-local-input-configuration.png)
  
 3. Verrà aggiunto automaticamente un file denominato **local_EdgeInput.json** nella cartella degli input.  
-4. È possibile eseguirlo localmente o inviarlo ad Azure. Per testare la query, selezionare **Esegui localmente**.  
+4. È possibile eseguirlo localmente o inviarlo ad Azure. Per testare la query, selezionare **Esegui localmente** .  
    ![Opzioni di esecuzione processo di Analisi di flusso in Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/stream-analytics-visual-stuidio-run-options.png)
  
 5. La finestra del prompt dei comandi mostra lo stato del processo. Quando il processo viene eseguito correttamente, viene creata una cartella dal nome simile a "2018-02-23-11-31-42" nel percorso della cartella del progetto "Visual Studio 2015\Projects\MyASAEdgejob\MyASAEdgejob\ASALocalRun\2018-02-23-11-31-42". Passare al percorso della cartella per visualizzare i risultati nella cartella locale:
@@ -101,9 +101,9 @@ Per testare la query in locale, è necessario caricare i dati di esempio. È pos
 
 1. Prima di inviare il processo ad Azure, è necessario connettersi alla sottoscrizione di Azure. Aprire **Esplora server** > fare clic con il pulsante destro del mouse su **Azure** > **Connetti alla sottoscrizione di Microsoft Azure** > accedere alla sottoscrizione di Azure.  
 
-2. Per inviare il processo ad Azure, passare all'editor di query > selezionare **Invia a Azure**.  
+2. Per inviare il processo ad Azure, passare all'editor di query > selezionare **Invia a Azure** .  
 
-3. Verrà visualizzata una finestra popup. Scegliere di aggiornare un processo Edge di analisi di flusso esistente o crearne uno nuovo. Quando si aggiorna un processo esistente, viene sostituita la configurazione di tutti i processi, in questo scenario verrà pubblicato un nuovo processo. Selezionare **Create a New Azure Stream Analytics Job** (Crea un nuovo progetto di Analisi di flusso di Azure) > immettere un nome per il processo simile a **MyASAEdgeJob** > scegliere **Sottoscrizione**, **Gruppo di risorse** e **Percorso** > Selezionare **Invia**.
+3. Verrà visualizzata una finestra popup. Scegliere di aggiornare un processo Edge di analisi di flusso esistente o crearne uno nuovo. Quando si aggiorna un processo esistente, viene sostituita la configurazione di tutti i processi, in questo scenario verrà pubblicato un nuovo processo. Selezionare **Create a New Azure Stream Analytics Job** (Crea un nuovo progetto di Analisi di flusso di Azure) > immettere un nome per il processo simile a **MyASAEdgeJob** > scegliere **Sottoscrizione** , **Gruppo di risorse** e **Percorso** > Selezionare **Invia** .
 
    ![Inviare il processo di Analisi di flusso in Azure da Visual Studio](./media/stream-analytics-tools-for-visual-studio-edge-jobs/submit-stream-analytics-job-to-azure.png)
  
@@ -111,7 +111,7 @@ Per testare la query in locale, è necessario caricare i dati di esempio. È pos
 
 ## <a name="manage-the-job"></a>Gestire il processo 
 
-È possibile visualizzare lo stato e il diagramma del processo da Esplora server. Da **analisi di flusso** in **Esplora server**, espandere la sottoscrizione e il gruppo di risorse in cui è stato distribuito il processo Edge di analisi di flusso. È possibile visualizzare il processo MyASAEdgeJob con lo stato **Creato**. Espandere il nodo del processo e fare doppio clic su di esso per aprire la visualizzazione del processo.
+È possibile visualizzare lo stato e il diagramma del processo da Esplora server. Da **analisi di flusso** in **Esplora server** , espandere la sottoscrizione e il gruppo di risorse in cui è stato distribuito il processo Edge di analisi di flusso. È possibile visualizzare il processo MyASAEdgeJob con lo stato **Creato** . Espandere il nodo del processo e fare doppio clic su di esso per aprire la visualizzazione del processo.
 
 ![Opzioni di gestione dei processi di Esplora server](./media/stream-analytics-tools-for-visual-studio-edge-jobs/server-explorer-options.png)
  
@@ -123,4 +123,4 @@ La finestra di visualizzazione di processo offre la possibilità di eseguire ope
 
 * [Ulteriori informazioni su Azure IoT Edge](../iot-edge/about-iot-edge.md)
 * [Esercitazione su Analisi di flusso di Azure in IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
-* [Invio di commenti e suggerimenti al team tramite questo sondaggio](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u) 
+* [Invio di commenti e suggerimenti al team tramite questo sondaggio](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR2czagZ-i_9Cg6NhAZlH9ypUMjNEM0RDVU9CVTBQWDdYTlk0UDNTTFdUTC4u)

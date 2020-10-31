@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 46a5f4036be2d670689f7e936a31dc63e0690ddc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: de2b12bca10382d7e885626222fe463af27f9953
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302384"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128776"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Pubblicare e monitorare le pipeline di Machine Learning
 
@@ -95,9 +95,148 @@ L' `json` argomento della richiesta post deve contenere, per la `ParameterAssign
 | `DataSetDefinitionValueAssignments` | Dizionario usato per la modifica dei set di impostazioni senza ripetizione del training (vedere la discussione riportata di seguito) | 
 | `DataPathAssignments` | Dizionario usato per la modifica dei percorsi di DataPath senza ripetizione del training (vedere la discussione riportata di seguito) | 
 
+### <a name="run-a-published-pipeline-using-c"></a>Eseguire una pipeline pubblicata con C # 
+
+Il codice seguente illustra come chiamare una pipeline in modo asincrono da C#. Il frammento di codice parziale Mostra solo la struttura di chiamata e non fa parte di un esempio Microsoft. Non Mostra le classi complete o la gestione degli errori. 
+
+```csharp
+[DataContract]
+public class SubmitPipelineRunRequest
+{
+    [DataMember]
+    public string ExperimentName { get; set; }
+
+    [DataMember]
+    public string Description { get; set; }
+
+    [DataMember(IsRequired = false)]
+    public IDictionary<string, string> ParameterAssignments { get; set; }
+}
+
+// ... in its own class and method ... 
+const string RestEndpoint = "your-pipeline-endpoint";
+
+using (HttpClient client = new HttpClient())
+{
+    var submitPipelineRunRequest = new SubmitPipelineRunRequest()
+    {
+        ExperimentName = "YourExperimentName", 
+        Description = "Asynchronous C# REST api call", 
+        ParameterAssignments = new Dictionary<string, string>
+        {
+            {
+                // Replace with your pipeline parameter keys and values
+                "your-pipeline-parameter", "default-value"
+            }
+        }
+    };
+
+    string auth_key = "your-auth-key"; 
+    client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", auth_key);
+
+    // submit the job
+    var requestPayload = JsonConvert.SerializeObject(submitPipelineRunRequest);
+    var httpContent = new StringContent(requestPayload, Encoding.UTF8, "application/json");
+    var submitResponse = await client.PostAsync(RestEndpoint, httpContent).ConfigureAwait(false);
+    if (!submitResponse.IsSuccessStatusCode)
+    {
+        await WriteFailedResponse(submitResponse); // ... method not shown ...
+        return;
+    }
+
+    var result = await submitResponse.Content.ReadAsStringAsync().ConfigureAwait(false);
+    var obj = JObject.Parse(result);
+    // ... use `obj` dictionary to access results
+}
+```
+
+### <a name="run-a-published-pipeline-using-java"></a>Eseguire una pipeline pubblicata con Java
+
+Il codice seguente illustra una chiamata a una pipeline che richiede l'autenticazione (vedere [configurare l'autenticazione per risorse e flussi di lavoro Azure Machine Learning](how-to-setup-authentication.md)). Se la pipeline viene distribuita pubblicamente, non sono necessarie le chiamate che producono `authKey` . Il frammento di codice parziale non Mostra la classe Java e lo standard di gestione delle eccezioni. Il codice usa `Optional.flatMap` per concatenare le funzioni che possono restituire un oggetto vuoto `Optional` . L'uso di `flatMap` abbrevia e chiarisce il codice, ma si noti che le `getRequestBody()` eccezioni vengono inghiottite.
+
+```java
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.util.Optional;
+// JSON library
+import com.google.gson.Gson;
+
+String scoringUri = "scoring-endpoint";
+String tenantId = "your-tenant-id";
+String clientId = "your-client-id";
+String clientSecret = "your-client-secret";
+String resourceManagerUrl = "https://management.azure.com";
+String dataToBeScored = "{ \"ExperimentName\" : \"My_Pipeline\", \"ParameterAssignments\" : { \"pipeline_arg\" : \"20\" }}";
+
+HttpClient client = HttpClient.newBuilder().build();
+Gson gson = new Gson();
+
+HttpRequest tokenAuthenticationRequest = tokenAuthenticationRequest(tenantId, clientId, clientSecret, resourceManagerUrl);
+Optional<String> authBody = getRequestBody(client, tokenAuthenticationRequest);
+Optional<String> authKey = authBody.flatMap(body -> Optional.of(gson.fromJson(body, AuthenticationBody.class).access_token);;
+Optional<HttpRequest> scoringRequest = authKey.flatMap(key -> Optional.of(scoringRequest(key, scoringUri, dataToBeScored)));
+Optional<String> scoringResult = scoringRequest.flatMap(req -> getRequestBody(client, req));
+// ... etc (`scoringResult.orElse()`) ... 
+
+static HttpRequest tokenAuthenticationRequest(String tenantId, String clientId, String clientSecret, String resourceManagerUrl)
+{
+    String authUrl = String.format("https://login.microsoftonline.com/%s/oauth2/token", tenantId);
+    String clientIdParam = String.format("client_id=%s", clientId);
+    String resourceParam = String.format("resource=%s", resourceManagerUrl);
+    String clientSecretParam = String.format("client_secret=%s", clientSecret);
+
+    String bodyString = String.format("grant_type=client_credentials&%s&%s&%s", clientIdParam, resourceParam, clientSecretParam);
+
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(authUrl))
+        .POST(HttpRequest.BodyPublishers.ofString(bodyString))
+        .build();
+    return request;
+}
+
+static HttpRequest scoringRequest(String authKey, String scoringUri, String dataToBeScored)
+{
+    HttpRequest request = HttpRequest.newBuilder()
+        .uri(URI.create(scoringUri))
+        .header("Authorization", String.format("Token %s", authKey))
+        .POST(HttpRequest.BodyPublishers.ofString(dataToBeScored))
+        .build();
+    return request;
+
+}
+
+static Optional<String> getRequestBody(HttpClient client, HttpRequest request) {
+    try {
+        HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
+        if (response.statusCode() != 200) {
+            System.out.println(String.format("Unexpected server response %d", response.statusCode()));
+            return Optional.empty();
+        }
+        return Optional.of(response.body());
+    }catch(Exception x)
+    {
+        System.out.println(x.toString());
+        return Optional.empty();
+    }
+}
+
+class AuthenticationBody {
+    String access_token;
+    String token_type;
+    int expires_in;
+    String scope;
+    String refresh_token;
+    String id_token;
+    
+    AuthenticationBody() {}
+}
+```
+
 ### <a name="changing-datasets-and-datapaths-without-retraining"></a>Modifica di DataSet e percorsi di DataPath senza ripetizione del training
 
-Potrebbe essere necessario eseguire il training e l'inferenza su set di impostazioni e percorsi di DataSet diversi. Ad esempio, è possibile eseguire il training su un set di dati più piccolo e di tipo sparse ma inferenza sul set di dati completo. I set di impostazioni vengono passati con la `DataSetDefinitionValueAssignments` chiave nell'argomento della richiesta `json` . È possibile cambiare i percorsi di DataPath con `DataPathAssignments` . La tecnica per entrambi è simile:
+Potrebbe essere necessario eseguire il training e l'inferenza su set di impostazioni e percorsi di DataSet diversi. È ad esempio possibile che si desideri eseguire il training su un set di dati più piccolo, ma inferenza sul set di dati completo. I set di impostazioni vengono passati con la `DataSetDefinitionValueAssignments` chiave nell'argomento della richiesta `json` . È possibile cambiare i percorsi di DataPath con `DataPathAssignments` . La tecnica per entrambi è simile:
 
 1. Nello script di definizione della pipeline creare un oggetto `PipelineParameter` per il set di dati. Creare un oggetto `DatasetConsumptionConfig` o `DataPath` da `PipelineParameter` :
 
@@ -155,7 +294,7 @@ I notebook che [mostrano il set di dati e PipelineParameter](https://github.com/
 
 ## <a name="create-a-versioned-pipeline-endpoint"></a>Creare un endpoint della pipeline con versione
 
-È possibile creare un endpoint della pipeline con più pipeline pubblicate. In questo modo si ottiene un endpoint REST fisso durante l'iterazione e l'aggiornamento delle pipeline di ML.
+È possibile creare un endpoint della pipeline con più pipeline pubblicate. Questa tecnica fornisce un endpoint REST fisso durante l'iterazione e l'aggiornamento delle pipeline di ML.
 
 ```python
 from azureml.pipeline.core import PipelineEndpoint
@@ -201,9 +340,9 @@ response = requests.post(rest_endpoint,
 
 1. [Visualizzare l'area di lavoro](how-to-manage-workspace.md#view).
 
-1. A sinistra selezionare **endpoint**.
+1. A sinistra selezionare **endpoint** .
 
-1. Nella parte superiore selezionare **endpoint della pipeline**.
+1. Nella parte superiore selezionare **endpoint della pipeline** .
  ![elenco di pipeline pubblicate di Machine Learning](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
 
 1. Consente di selezionare una pipeline specifica per l'esecuzione, l'utilizzo o la verifica dei risultati delle esecuzioni precedenti dell'endpoint della pipeline.

@@ -7,32 +7,32 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/15/2019
-ms.openlocfilehash: 175abe54ce5476bece309bbfaf7858cd2e214f52
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c05db2d9ba184da89665a236994c851355cc2644
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86187660"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127434"
 ---
 # <a name="use-the-azure-stream-analytics-cicd-nuget-package-for-integration-and-development"></a>Usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per l'integrazione e lo sviluppo 
 Questo articolo descrive come usare il pacchetto NuGet CI/CD di analisi di flusso di Azure per configurare un processo di integrazione e distribuzione continua.
 
-Usare la versione 2.3.0000.0 o una versione successiva degli [strumenti di Analisi di flusso di Azure per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio) per ottenere il supporto di MSBuild.
+Usare la versione 2.3.0000.0 o una versione successiva degli [strumenti di Analisi di flusso di Azure per Visual Studio](./stream-analytics-quick-create-vs.md) per ottenere il supporto di MSBuild.
 
 È disponibile un pacchetto NuGet: [Microsoft.Azure.Stream Analytics.CICD](https://www.nuget.org/packages/Microsoft.Azure.StreamAnalytics.CICD/). Fornisce gli strumenti MSBuild, di esecuzione locale e di distribuzione che supportano il processo di integrazione e distribuzione continua dei [progetti di analisi di flusso di Visual Studio](stream-analytics-vs-tools.md). 
 > [!NOTE]
 > Il pacchetto NuGet può essere usato solo con la versione 2.3.0000.0 o successiva di strumenti di Analisi di flusso di Azure per Visual Studio. Se i progetti sono stati creati con le versioni precedenti degli strumenti di Visual Studio, aprirli con la versione 2.3.0000.0 o successiva e salvare. Le nuove funzionalità vengono quindi abilitate. 
 
-Per altre informazioni, vedere [Usare gli strumenti di Analisi di flusso di Azure per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio).
+Per altre informazioni, vedere [Usare gli strumenti di Analisi di flusso di Azure per Visual Studio](./stream-analytics-quick-create-vs.md).
 
 ## <a name="msbuild"></a>MSBuild
-Come l'esperienza standard di Visual Studio MSBuild, per compilare un progetto sono disponibili due opzioni. È possibile fare clic con il pulsante destro del mouse sul progetto e quindi scegliere **Compila**. È possibile anche usare **MSBuild** nel pacchetto NuGet dalla riga di comando.
+Come l'esperienza standard di Visual Studio MSBuild, per compilare un progetto sono disponibili due opzioni. È possibile fare clic con il pulsante destro del mouse sul progetto e quindi scegliere **Compila** . È possibile anche usare **MSBuild** nel pacchetto NuGet dalla riga di comando.
 ```
 ./build/msbuild /t:build [Your Project Full Path] /p:CompilerTaskAssemblyFile=Microsoft.WindowsAzure.StreamAnalytics.Common.CompileService.dll  /p:ASATargetsFilePath="[NuGet Package Local Path]\build\StreamAnalytics.targets"
 
 ```
 
-Quando viene compilato un progetto di Analisi di flusso per Visual Studio, vengono generati i seguenti due file del modello di Azure Resource Manager nella cartella **bin/[Debug/Retail]/Deploy**: 
+Quando viene compilato un progetto di Analisi di flusso per Visual Studio, vengono generati i seguenti due file del modello di Azure Resource Manager nella cartella **bin/[Debug/Retail]/Deploy** : 
 
 * File del modello di Resource Manager
 
@@ -52,7 +52,7 @@ I parametri predefiniti nel file parameters.json corrispondono alle impostazioni
       "value": null
     },
 ```
-Altre informazioni su come [distribuire con un file di modello di Resource Manager e Azure PowerShell](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy). Altre informazioni su come [usare un oggetto come parametro in un modello di Resource Manager](https://docs.microsoft.com/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
+Altre informazioni su come [distribuire con un file di modello di Resource Manager e Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md). Altre informazioni su come [usare un oggetto come parametro in un modello di Resource Manager](/azure/architecture/building-blocks/extending-templates/objects-as-parameters).
 
 Per usare le identità gestite per Azure Data Lake Store Gen1 come sink di output, è necessario fornire l'accesso all'entità servizio con PowerShell prima della distribuzione in Azure. Altre informazioni su come [distribuire ADLS Gen1 con identità gestite usando un modello di Resource Manager](stream-analytics-managed-identities-adls.md#resource-manager-template-deployment).
 
@@ -60,7 +60,7 @@ Per usare le identità gestite per Azure Data Lake Store Gen1 come sink di outpu
 ## <a name="command-line-tool"></a>Strumento da riga di comando
 
 ### <a name="build-the-project"></a>Compilare il progetto
-Il pacchetto NuGet include uno strumento da riga di comando denominato **SA.exe**. Supporta la compilazione di progetti e i test locali in un computer arbitrario che è possibile usare nei processi di integrazione continua e recapito continuo. 
+Il pacchetto NuGet include uno strumento da riga di comando denominato **SA.exe** . Supporta la compilazione di progetti e i test locali in un computer arbitrario che è possibile usare nei processi di integrazione continua e recapito continuo. 
 
 Per impostazione predefinita, i file di distribuzione vengono inseriti nella directory corrente. È possibile specificare il percorso di output usando il seguente parametro -OutputPath:
 
@@ -70,7 +70,7 @@ Per impostazione predefinita, i file di distribuzione vengono inseriti nella dir
 
 ### <a name="test-the-script-locally"></a>Testare lo script in locale
 
-Se il progetto ha file di input locali specificati in Visual Studio, è possibile eseguire un test automatico per lo script usando il comando *localrun*. Il risultato dell'output verrà inserito nella directory corrente.
+Se il progetto ha file di input locali specificati in Visual Studio, è possibile eseguire un test automatico per lo script usando il comando *localrun* . Il risultato dell'output verrà inserito nella directory corrente.
  
 ```
 localrun -Project [ProjectFullPath]

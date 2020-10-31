@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 0830a8b552283b5b39fa78c505ed177d1959989f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8f40808834c64ad74673f1c5f0c19892607fdcc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83640043"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127474"
 ---
 # <a name="understand-time-handling-in-azure-stream-analytics"></a>Informazioni sulla gestione del tempo in Analisi di flusso di Azure
 
@@ -22,11 +22,11 @@ Questo articolo illustra come prendere decisioni di progettazione per risolvere 
 
 Per strutturare meglio la discussione, è opportuno definire alcuni concetti di base:
 
-- **Ora dell'evento**: l'ora in cui si è verificato l'evento originale. Ad esempio, quando un'automobile in corsa su un'autostrada si avvicina a un casello.
+- **Ora dell'evento** : l'ora in cui si è verificato l'evento originale. Ad esempio, quando un'automobile in corsa su un'autostrada si avvicina a un casello.
 
-- **Ora di elaborazione**: l'ora in cui l'evento raggiunge il sistema di elaborazione e viene osservato. Ad esempio, quando il sensore di un casello avvista l'automobile e il sistema impiega alcuni istanti ad elaborare i dati.
+- **Ora di elaborazione** : l'ora in cui l'evento raggiunge il sistema di elaborazione e viene osservato. Ad esempio, quando il sensore di un casello avvista l'automobile e il sistema impiega alcuni istanti ad elaborare i dati.
 
-- **Limite**: indicatore temporale che indica gli eventi inseriti nel processore di flusso fino a un certo punto. I limiti consentono al sistema di indicare chiaramente lo stato di inserimento degli eventi. Per la natura stessa dei flussi, i dati degli eventi in ingresso non si arrestano mai, quindi i limiti indicano l'avanzamento fino a un determinato punto del flusso.
+- **Limite** : indicatore temporale che indica gli eventi inseriti nel processore di flusso fino a un certo punto. I limiti consentono al sistema di indicare chiaramente lo stato di inserimento degli eventi. Per la natura stessa dei flussi, i dati degli eventi in ingresso non si arrestano mai, quindi i limiti indicano l'avanzamento fino a un determinato punto del flusso.
 
    Il concetto di limite è importante. I limiti consentono ad Analisi di flusso di Azure di determinare quando il sistema è in grado di produrre risultati completi, corretti e ripetibili che non è necessario ritirare. L'elaborazione può essere eseguita in un modo prevedibile e ripetibile. Ad esempio, se è necessario ripetere un conteggio per una qualche condizione di gestione degli errori, i limiti sono punti di inizio e fine sicuri.
 
@@ -46,7 +46,7 @@ L'ora di arrivo viene usata per impostazione predefinita e trova il suo impiego 
 
 Il tempo applicazione viene assegnato quando l'evento viene generato e fa parte del payload dell'evento. Per elaborare gli eventi in base al tempo applicazione, usare la clausola **Timestamp by** nella query SELECT. Se **Timestamp by** è assente, gli eventi vengono elaborati in base all'ora di arrivo.
 
-È importante usare un timestamp nel payload quando è necessaria la logica temporale per tenere conto dei ritardi nel sistema di origine o nella rete. Il tempo assegnato a un evento è disponibile in [SYSTEM.TIMESTAMP](https://docs.microsoft.com/stream-analytics-query/system-timestamp-stream-analytics).
+È importante usare un timestamp nel payload quando è necessaria la logica temporale per tenere conto dei ritardi nel sistema di origine o nella rete. Il tempo assegnato a un evento è disponibile in [SYSTEM.TIMESTAMP](/stream-analytics-query/system-timestamp-stream-analytics).
 
 ## <a name="how-time-progresses-in-azure-stream-analytics"></a>Avanzamento del tempo in Analisi di flusso di Azure
 
@@ -62,7 +62,7 @@ La struttura ha altri due scopi oltre alla generazione dei limiti:
 
 1. Il sistema genera risultati in modo tempestivo con o senza eventi in ingresso.
 
-   È possibile controllare il livello di tempestività con cui visualizzare i risultati di output. Nella pagina **Ordinamento eventi** del processo di Analisi di flusso nel portale di Azure è possibile configurare l'impostazione **Eventi non in ordine**. Quando si configura l'impostazione, tenere in considerazione il compromesso fra tempestività e tolleranza degli eventi non in ordine nel flusso di eventi.
+   È possibile controllare il livello di tempestività con cui visualizzare i risultati di output. Nella pagina **Ordinamento eventi** del processo di Analisi di flusso nel portale di Azure è possibile configurare l'impostazione **Eventi non in ordine** . Quando si configura l'impostazione, tenere in considerazione il compromesso fra tempestività e tolleranza degli eventi non in ordine nel flusso di eventi.
 
    La finestra di tolleranza per arrivo in ritardo è necessaria per continuare a generare limiti, anche in assenza di eventi in ingresso. Possono esserci periodi senza eventi in ingresso, ad esempio quando un flusso di input degli eventi è di tipo sparse. Questo problema viene aggravato dall'uso di più partizioni nel gestore eventi di input.
 
@@ -72,21 +72,21 @@ La struttura ha altri due scopi oltre alla generazione dei limiti:
 
    Il limite viene derivato da ora di arrivo e tempo applicazione. Entrambi sono persistenti nel gestore eventi e pertanto sono ripetibili. Se l'ora di arrivo deve essere stimata in assenza di eventi, Analisi di flusso di Azure inserisce nel journal l'ora di arrivo stimata per garantirne la ripetibilità durante la riproduzione per il ripristino da errori.
 
-Quando si sceglie di usare l'**ora di arrivo** come ora dell'evento, non è necessario configurare la tolleranza elementi non in ordine e la tolleranza per arrivo in ritardo. Poiché per l'**ora di arrivo** vi è una garanzia di incremento nel gestore eventi di input, Analisi di flusso di Azure ignora semplicemente le configurazioni.
+Quando si sceglie di usare l' **ora di arrivo** come ora dell'evento, non è necessario configurare la tolleranza elementi non in ordine e la tolleranza per arrivo in ritardo. Poiché per l' **ora di arrivo** vi è una garanzia di incremento nel gestore eventi di input, Analisi di flusso di Azure ignora semplicemente le configurazioni.
 
 ## <a name="late-arriving-events"></a>Eventi che arrivano in ritardo
 
-In base alla definizione della finestra di tolleranza per arrivo in ritardo, per ogni evento in ingresso Analisi di flusso di Azure confronta l'**ora dell'evento** con l'**ora di arrivo**. Se l'ora dell'evento è al di fuori della finestra di tolleranza, è possibile configurare il sistema in modo che elimini l'evento o modifichi l'ora per farla rientrare nella tolleranza.
+In base alla definizione della finestra di tolleranza per arrivo in ritardo, per ogni evento in ingresso Analisi di flusso di Azure confronta l' **ora dell'evento** con l' **ora di arrivo** . Se l'ora dell'evento è al di fuori della finestra di tolleranza, è possibile configurare il sistema in modo che elimini l'evento o modifichi l'ora per farla rientrare nella tolleranza.
 
 Dopo la generazione dei limiti, il servizio può potenzialmente ricevere eventi con un'ora inferiore al limite. È possibile configurare il servizio in modo da **eliminare** questi eventi o **modificare** l'ora dell'evento in base al valore del limite.
 
-Nell'ambito della modifica, il **System.Timestamp** dell'evento viene impostato sul nuovo valore, ma il campo dell'**ora dell'evento** in sé non viene modificato. Questa modifica è l'unica situazione in cui il **System.Timestamp** di un evento può essere diverso dal valore indicato nel campo dell'ora dell'evento e può generare risultati imprevisti.
+Nell'ambito della modifica, il **System.Timestamp** dell'evento viene impostato sul nuovo valore, ma il campo dell' **ora dell'evento** in sé non viene modificato. Questa modifica è l'unica situazione in cui il **System.Timestamp** di un evento può essere diverso dal valore indicato nel campo dell'ora dell'evento e può generare risultati imprevisti.
 
 ## <a name="handle-time-variation-with-substreams"></a>Gestire le variazioni temporali con i flussi secondari
 
 Il meccanismo di generazione di limiti euristici descritto funziona bene nella maggior parte dei casi in cui il tempo è per lo più sincronizzato tra i vari mittenti di eventi. Nella vita reale però, specialmente in molti scenari IoT, il sistema ha poco controllo sull'orologio dei mittenti di eventi. Questi mittenti possono essere qualsiasi tipo di dispositivo disponibile sul mercato, con versioni di hardware e software diverse.
 
-Invece di usare un limite comune a tutti gli eventi in una partizione di input, Analisi di flusso usa un altro meccanismo, ossia i **flussi secondari**. È possibile usare i flussi secondari in un processo scrivendo una query di processo che usa la clausola [**TIMESTAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) e la parola chiave **OVER**. Per designare il flusso secondario, specificare un nome di colonna chiave dopo la parola chiave **OVER**, ad esempio `deviceid`, in modo che il sistema applichi i criteri temporali in base a quella colonna. Ogni flusso secondario ottiene il proprio limite indipendente. Questo meccanismo è utile per consentire la generazione tempestiva dell'output, in presenza di notevoli sfasamenti di orario o ritardi di rete tra i mittenti di eventi.
+Invece di usare un limite comune a tutti gli eventi in una partizione di input, Analisi di flusso usa un altro meccanismo, ossia i **flussi secondari** . È possibile usare i flussi secondari in un processo scrivendo una query di processo che usa la clausola [**TIMESTAMP BY**](/stream-analytics-query/timestamp-by-azure-stream-analytics) e la parola chiave **OVER** . Per designare il flusso secondario, specificare un nome di colonna chiave dopo la parola chiave **OVER** , ad esempio `deviceid`, in modo che il sistema applichi i criteri temporali in base a quella colonna. Ogni flusso secondario ottiene il proprio limite indipendente. Questo meccanismo è utile per consentire la generazione tempestiva dell'output, in presenza di notevoli sfasamenti di orario o ritardi di rete tra i mittenti di eventi.
 
 I flussi secondari sono una soluzione fornita esclusivamente da Analisi di flusso di Azure e non vengono offerti da altri sistemi di elaborazione dati in streaming.
 
@@ -96,7 +96,7 @@ Quando si usano i flussi secondari, Analisi di flusso applica la finestra di tol
 
 Oltre alla finestra di tolleranza per arrivo in ritardo esiste anche, all'opposto, la finestra di tolleranza per arrivo in anticipo. Questa finestra è impostata su 5 minuti e ha uno scopo diverso da quella per l'arrivo in ritardo.
 
-Poiché Analisi di flusso di Azure garantisce sempre risultati completi, è possibile specificare solo l'**ora di inizio processo** come prima ora di output del processo, invece dell'ora di input. L'ora di inizio processo è necessaria per elaborare la finestra completa, invece che a partire dalla parte centrale.
+Poiché Analisi di flusso di Azure garantisce sempre risultati completi, è possibile specificare solo l' **ora di inizio processo** come prima ora di output del processo, invece dell'ora di input. L'ora di inizio processo è necessaria per elaborare la finestra completa, invece che a partire dalla parte centrale.
 
 Analisi di flusso deriva l'ora di inizio dalla specifica della query. Tuttavia, poiché il gestore eventi di input viene indicizzato solo in base all'ora di arrivo, il sistema deve convertire l'ora di inizio dell'evento in ora di arrivo. Il sistema può iniziare a elaborare gli eventi da quel punto nel gestore eventi di input. Con il limite della finestra di tolleranza per arrivo in anticipo, la conversione è semplice: corrisponde all'ora di inizio dell'evento meno i 5 minuti della finestra di tolleranza per arrivo in anticipo. In base a questo calcolo, il sistema elimina tutti gli eventi la cui ora dell'evento è precedente all'ora di arrivo di oltre 5 minuti. La [metrica degli eventi di input anticipati](stream-analytics-monitoring.md) viene incrementata quando gli eventi vengono eliminati.
 
@@ -104,7 +104,7 @@ Questo concetto viene usato per garantire la ripetibilità dell'elaborazione ind
 
 ## <a name="side-effects-of-event-ordering-time-tolerances"></a>Effetti collaterali delle tolleranze di ordinamento temporale degli eventi
 
-I processi di Analisi di flusso offrono diverse opzioni di **Ordinamento eventi**. Due di queste possono essere configurate nel portale di Azure, ossia **Eventi non in ordine** (tolleranza elementi non in ordine) e **Eventi pervenuti in ritardo** (tolleranza per arrivo in ritardo). La tolleranza per **arrivo in anticipo** è fissa e non può essere modificata. Questi criteri temporali vengono usati da Analisi di flusso per fornire solide garanzie. Queste impostazioni hanno tuttavia alcune implicazioni talvolta impreviste:
+I processi di Analisi di flusso offrono diverse opzioni di **Ordinamento eventi** . Due di queste possono essere configurate nel portale di Azure, ossia **Eventi non in ordine** (tolleranza elementi non in ordine) e **Eventi pervenuti in ritardo** (tolleranza per arrivo in ritardo). La tolleranza per **arrivo in anticipo** è fissa e non può essere modificata. Questi criteri temporali vengono usati da Analisi di flusso per fornire solide garanzie. Queste impostazioni hanno tuttavia alcune implicazioni talvolta impreviste:
 
 1. Invio accidentale di eventi troppo anticipati.
 
@@ -120,11 +120,11 @@ I processi di Analisi di flusso offrono diverse opzioni di **Ordinamento eventi*
 
 4. Gli input sono di tipo sparse.
 
-   Quando una determinata partizione è priva di input, il tempo del limite viene calcolato sottraendo all'**ora di arrivo** la finestra di tolleranza per arrivo in ritardo. Di conseguenza, se gli eventi di input sono poco frequenti e di tipo sparse, l'output può essere ritardato di quella quantità di tempo. Il valore predefinito di **Eventi pervenuti in ritardo** è 5 secondi. Ad esempio, un certo ritardo è normale quando si inviano eventi di input uno alla volta. I ritardi possono peggiorare quando si imposta la finestra **Eventi pervenuti in ritardo** su un valore elevato.
+   Quando una determinata partizione è priva di input, il tempo del limite viene calcolato sottraendo all' **ora di arrivo** la finestra di tolleranza per arrivo in ritardo. Di conseguenza, se gli eventi di input sono poco frequenti e di tipo sparse, l'output può essere ritardato di quella quantità di tempo. Il valore predefinito di **Eventi pervenuti in ritardo** è 5 secondi. Ad esempio, un certo ritardo è normale quando si inviano eventi di input uno alla volta. I ritardi possono peggiorare quando si imposta la finestra **Eventi pervenuti in ritardo** su un valore elevato.
 
-5. Il valore di **System.Timestamp** è diverso dal tempo indicato nel campo dell'**ora dell'evento**.
+5. Il valore di **System.Timestamp** è diverso dal tempo indicato nel campo dell' **ora dell'evento** .
 
-   Come descritto in precedenza, il sistema regola l'ora dell'evento in base alla finestra di tolleranza elementi non in ordine o alla finestra di tolleranza per arrivo in ritardo. Il valore di **System.Timestamp** viene modificato, ma non quello del campo dell'**ora dell'evento**. Può essere usato per identificare per quali eventi sono stati regolati i timestamp. Se il sistema ha modificato il timestamp a causa di una delle tolleranze, in genere corrispondono.
+   Come descritto in precedenza, il sistema regola l'ora dell'evento in base alla finestra di tolleranza elementi non in ordine o alla finestra di tolleranza per arrivo in ritardo. Il valore di **System.Timestamp** viene modificato, ma non quello del campo dell' **ora dell'evento** . Può essere usato per identificare per quali eventi sono stati regolati i timestamp. Se il sistema ha modificato il timestamp a causa di una delle tolleranze, in genere corrispondono.
 
 ## <a name="metrics-to-observe"></a>Metriche da osservare
 
@@ -222,5 +222,5 @@ In questa illustrazione vengono usate le tolleranze seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Considerazioni sull'ordine degli eventi con Analisi di flusso di Azure](stream-analytics-out-of-order-and-late-events.md)
+- [Considerazioni sull'ordine degli eventi con Analisi di flusso di Azure]()
 - [Informazioni sul monitoraggio dei processi di Analisi di flusso e su come monitorare le query](stream-analytics-monitoring.md)

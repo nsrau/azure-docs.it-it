@@ -7,12 +7,12 @@ ms.topic: include
 author: mingshen-ms
 ms.author: krsh
 ms.date: 10/20/2020
-ms.openlocfilehash: 24adbfe38a3d43a83307fb8726849f7c73def3f3
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: ecbafe0d3f39b1bd6f7c494695ea17e067f0c79e
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284300"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129279"
 ---
 ## <a name="generalize-the-image"></a>Generalizzare l'immagine
 
@@ -20,7 +20,7 @@ Tutte le immagini in Azure Marketplace devono poter essere riutilizzate in modo 
 
 ### <a name="for-windows"></a>Per Windows
 
-I dischi del sistema operativo Windows sono generalizzati con lo strumento [Sysprep](https://docs.microsoft.com/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) . Se successivamente si aggiorna o si riconfigura il sistema operativo, è necessario eseguire di nuovo Sysprep.
+I dischi del sistema operativo Windows sono generalizzati con lo strumento [Sysprep](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) . Se successivamente si aggiorna o si riconfigura il sistema operativo, è necessario eseguire di nuovo Sysprep.
 
 > [!WARNING]
 > Dopo aver eseguito Sysprep, spegnere la macchina virtuale fino a quando non viene distribuita perché gli aggiornamenti possono essere eseguiti automaticamente. Questo arresto eviterà che gli aggiornamenti successivi possano apportare modifiche specifiche di istanza al sistema operativo o ai servizi installati. Per altre informazioni sull'esecuzione di sysprep, vedere [Procedura per generalizzare un disco rigido virtuale](../../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep).
@@ -41,13 +41,13 @@ Il processo seguente generalizza una macchina virtuale Linux e la ridistribuisce
 ### <a name="take-a-snapshot-of-the-vm-disk"></a>Eseguire uno snapshot del disco della macchina virtuale
 
 1. Accedere al [portale di Azure](https://ms.portal.azure.com/).
-2. A partire dall'angolo in alto a sinistra, selezionare **Crea una risorsa**, quindi cercare e selezionare **snapshot**.
-3. Nel pannello snapshot selezionare  **Crea**.
+2. A partire dall'angolo in alto a sinistra, selezionare **Crea una risorsa** , quindi cercare e selezionare **snapshot** .
+3. Nel pannello snapshot selezionare  **Crea** .
 4. Immettere un **Nome** per lo snapshot.
 5. Selezionare un gruppo di risorse esistente o immettere il nome per un nuovo gruppo.
-6. Per **Disco di origine**, selezionare il disco gestito di cui creare lo snapshot.
+6. Per **Disco di origine** , selezionare il disco gestito di cui creare lo snapshot.
 7. Selezionare il **tipo di account** da usare per archiviare lo snapshot. Usare il tipo **Standard HDD** a meno che non sia necessario archiviare lo snapshot su un'unità SSD a prestazioni elevate.
-8. Selezionare **Create** (Crea).
+8. Selezionare **Crea** .
 
 #### <a name="extract-the-vhd"></a>Estrarre il disco rigido virtuale
 

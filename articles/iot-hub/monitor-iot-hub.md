@@ -6,12 +6,12 @@ ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
 ms.date: 10/22/2020
-ms.openlocfilehash: 577ec9e01310787dacb45a03e1efae128cbab872
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078221"
+ms.locfileid: "93128880"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitoraggio dell'hub Azure
 
@@ -23,7 +23,9 @@ La pagina di **Panoramica** nel portale di Azure per ogni hub degli elementi del
 
 :::image type="content" source="media/monitor-iot-hub/overview-portal.png" alt-text="Grafici metrici predefiniti nella pagina Panoramica dell'hub Internet.":::
 
-Queste informazioni sono utili, ma rappresentano solo una piccola quantità di dati di monitoraggio disponibili per un hub Internet. Alcuni dati di monitoraggio vengono raccolti automaticamente ed è disponibile per l'analisi non appena si crea l'hub Internet delle cose. Con alcune configurazioni è possibile abilitare altri tipi di raccolta dati.
+Tenere presente che il valore del numero di messaggi può essere ritardato di 1 minuto e che, per motivi che hanno dovuto fare con l'infrastruttura del servizio dell'hub Internet delle cose, il valore può talvolta rimbalzare tra i valori superiore e inferiore durante l'aggiornamento. Questo contatore deve essere errato solo per i valori accumulati nell'ultimo minuto.
+
+Le informazioni visualizzate nel riquadro Panoramica sono utili, ma rappresentano solo una piccola quantità di dati di monitoraggio disponibili per un hub Internet. Alcuni dati di monitoraggio vengono raccolti automaticamente ed è disponibile per l'analisi non appena si crea l'hub Internet delle cose. Con alcune configurazioni è possibile abilitare altri tipi di raccolta dati.
 
 ## <a name="what-is-azure-monitor"></a>Informazioni su Monitoraggio di Azure
 

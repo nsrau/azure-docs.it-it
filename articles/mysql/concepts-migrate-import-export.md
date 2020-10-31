@@ -5,17 +5,19 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 9/22/2020
-ms.openlocfilehash: 6d0a29d8ef8123eafd6a1616a24003c1e36e6e59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/30/2020
+ms.openlocfilehash: 1b4959cbf082a589c90034f48d597907c9b7e6cc
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905935"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128930"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>Migrare il database MySQL mediante l'importazione ed esportazione
 [!INCLUDE[applies-to-single-flexible-server](includes/applies-to-single-flexible-server.md)]
 In questo articolo vengono illustrati due approcci comuni per importare ed esportare i dati in un database di Azure per il server MySQL con MySQL Workbench.
+
+È anche possibile fare riferimento alla [Guida alla migrazione del database](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) per informazioni dettagliate e casi d'uso sulla migrazione di database al database di Azure per MySQL. Questa guida fornisce indicazioni che comporteranno la corretta pianificazione e l'esecuzione di una migrazione di MySQL in Azure.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 Per proseguire con questa guida, si richiedono:
@@ -45,7 +47,7 @@ Usare gli strumenti di MySQL per importare ed esportare database nel database My
 - Quando si esegue la migrazione di dati da origini dati esterne diverse da un database MySQL, creare un file flat e importarli usando [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html).
 
 > [!Important]
-> Sia il server singolo che il server flessibile supportano **solo il motore di archiviazione InnoDB**. Verificare che tutte le tabelle nel database usino il motore di archiviazione InnoDB quando si caricano dati nel database di Azure per MySQL.
+> Sia il server singolo che il server flessibile supportano **solo il motore di archiviazione InnoDB** . Verificare che tutte le tabelle nel database usino il motore di archiviazione InnoDB quando si caricano dati nel database di Azure per MySQL.
 > Se il database di origine usa un altro motore di archiviazione, convertirlo nel motore InnoDB prima di eseguire la migrazione del database. Se ad esempio si possiede un'app Web o WordPress che usa il motore MyISAM, convertire prima le tabelle eseguendo la migrazione dei dati in tabelle InnoDB. Usare la clausola `ENGINE=INNODB` per impostare il motore per la creazione di una tabella e trasferire i dati nella tabella compatibile prima della migrazione.
 
    ```sql
@@ -78,20 +80,20 @@ Le procedure guidate per i dati delle tabelle supportano le operazioni di import
 L'esempio seguente illustra l'esportazione di una tabella in un file CSV:
 1. Fare clic con il pulsante destro del mouse sulla tabella del database da esportare.
 2. Selezionare **Table Data Export Wizard** (Esportazione guidata di tabelle). Selezionare le colonne da esportare, l'offset di riga (se presente) e il conteggio (se presente).
-3. Fare clic su **Avanti** nella pagina **Selezionare i dati da esportare**. Selezionare il percorso del file, il tipo di file CSV o JSON. Selezionare anche separatore di riga, metodo di inclusione delle stringhe e separatore di campo.
+3. Fare clic su **Avanti** nella pagina **Selezionare i dati da esportare** . Selezionare il percorso del file, il tipo di file CSV o JSON. Selezionare anche separatore di riga, metodo di inclusione delle stringhe e separatore di campo.
 4. Fare clic su **Avanti** nella pagina **Select output file location** (Selezionare la posizione del file di output).
-5. Fare clic su **Avanti** nella pagina **Esporta dati**.
+5. Fare clic su **Avanti** nella pagina **Esporta dati** .
 
 #### <a name="table-data-import-wizard"></a>Importazione guidata di tabelle
 L'esempio seguente illustra l'importazione di una tabella da un file CSV:
 1. Fare clic con il pulsante destro del mouse sulla tabella del database da importare.
-2. Individuare e selezionare il file CSV da importare e quindi fare clic su **Avanti**.
-3. Selezionare la tabella di destinazione (nuova o esistente) e selezionare o deselezionare la casella di controllo **Truncate table before import** (Tronca tabella prima dell'importazione). Fare clic su **Avanti**.
-4. Selezionare la codifica e le colonne da importare e quindi fare clic su **Avanti**.
-5. Fare clic su **Avanti** nella pagina **Importa dati**. La procedura guidata importa i dati di conseguenza.
+2. Individuare e selezionare il file CSV da importare e quindi fare clic su **Avanti** .
+3. Selezionare la tabella di destinazione (nuova o esistente) e selezionare o deselezionare la casella di controllo **Truncate table before import** (Tronca tabella prima dell'importazione). Fare clic su **Avanti** .
+4. Selezionare la codifica e le colonne da importare e quindi fare clic su **Avanti** .
+5. Fare clic su **Avanti** nella pagina **Importa dati** . La procedura guidata importa i dati di conseguenza.
 
 ### <a name="sql-data-export-and-import-wizards-from-the-navigator-pane"></a>Esportazione e importazione guidata di dati SQL dal riquadro Strumento di navigazione
-Usare una procedura guidata per esportare o importare SQL generati da MySQL Workbench o tramite il comando mysqldump. Accedere a queste procedure guidate dal riquadro **Strumento di navigazione** oppure selezionando **Server** dal menu principale. Selezionare quindi **Esporta dati** o **Importa dati**.
+Usare una procedura guidata per esportare o importare SQL generati da MySQL Workbench o tramite il comando mysqldump. Accedere a queste procedure guidate dal riquadro **Strumento di navigazione** oppure selezionando **Server** dal menu principale. Selezionare quindi **Esporta dati** o **Importa dati** .
 
 #### <a name="data-export"></a>Esportazione dati
 :::image type="content" source="./media/concepts-migrate-import-export/p2.png" alt-text="Trovare le informazioni di connessione nel portale di Azure" e segnalare gli identificatori con l'apice inverso.
@@ -107,4 +109,4 @@ Usare una procedura guidata per esportare o importare SQL generati da MySQL Work
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per un altro approccio di migrazione, vedere [Eseguire la migrazione del database MySQL mediante dump e ripristino nel database di Azure per MySQL](concepts-migrate-dump-restore.md).
-- Per altre informazioni sulla migrazione dei database in Database di Azure per MySQL, vedere [Database Migration Guide](https://aka.ms/datamigration) (Guida alla migrazione di database).
+- Per altre informazioni sulla migrazione dei database in Database di Azure per MySQL, vedere [Database Migration Guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide) (Guida alla migrazione di database).

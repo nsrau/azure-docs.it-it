@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b4941d326359a51ff6a75385a74a8bcdabfa075
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90032385"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128998"
 ---
 # <a name="determine-your-publishing-option"></a>Determinare l'opzione di pubblicazione
 
@@ -49,14 +49,14 @@ La tabella seguente illustra le opzioni di pubblicazione per i tipi di offerta i
 
 ## <a name="choose-a-listing-option"></a>Scegliere un'opzione di elenco
 
-Le opzioni di inserzione disponibili offrono un impegno differenziato per i clienti, offrendo al contempo l'accesso ai vantaggi di condivisione di lead e [Marketplace commerciali](https://docs.microsoft.com/azure/marketplace/gtm-your-marketplace-benefits). Si notino le opzioni di inserzione che corrispondono all'opzione di pubblicazione:
+Le opzioni di inserzione disponibili offrono un impegno differenziato per i clienti, offrendo al contempo l'accesso ai vantaggi di condivisione di lead e [Marketplace commerciali](./gtm-your-marketplace-benefits.md). Si notino le opzioni di inserzione che corrispondono all'opzione di pubblicazione:
 
 | **Opzione di pubblicazione**    | **Descrizione**  |
 | :------------------- | :-------------------|
 | **Elenco** | Elenco semplice dell'applicazione o del servizio che consente a un utente del Marketplace commerciale di richiedere la connessione al cliente tramite le opzioni per l'elenco **contatti** . |
-| **Versione di valutazione** | Usare il marketplace commerciale per aumentare la visibilità e automatizzare il provisioning dell'esperienza di valutazione della soluzione, consentendo agli utenti potenziali di provare l'esperienza in-app SaaS, IaaS o Microsoft senza costi aggiuntivi per un periodo di tempo limitato prima dell'acquisto. Le opzioni di elenco usate per l'opzione di pubblicazione di valutazione sono **versione di valutazione gratuita** o **test drive**. |
-| **BYOL** | Usare il marketplace commerciale per aumentare la visibilità e automatizzare il provisioning della soluzione, per poi completare la transazione finanziaria separatamente. I tipi di offerta BYOL sono ideali per le migrazioni di ambienti locali al cloud. L'opzione Listing è **Get it now**.
-| **Transazione** | Le offerte di transazioni vengono vendute tramite il marketplace commerciale. Microsoft è responsabile della fatturazione e delle riscossioni. L'opzione Listing è **Get it now**.|
+| **Versione di valutazione** | Usare il marketplace commerciale per aumentare la visibilità e automatizzare il provisioning dell'esperienza di valutazione della soluzione, consentendo agli utenti potenziali di provare l'esperienza in-app SaaS, IaaS o Microsoft senza costi aggiuntivi per un periodo di tempo limitato prima dell'acquisto. Le opzioni di elenco usate per l'opzione di pubblicazione di valutazione sono **versione di valutazione gratuita** o **test drive** . |
+| **BYOL** | Usare il marketplace commerciale per aumentare la visibilità e automatizzare il provisioning della soluzione, per poi completare la transazione finanziaria separatamente. I tipi di offerta BYOL sono ideali per le migrazioni di ambienti locali al cloud. L'opzione Listing è **Get it now** .
+| **Transazione** | Le offerte di transazioni vengono vendute tramite il marketplace commerciale. Microsoft è responsabile della fatturazione e delle riscossioni. L'opzione Listing è **Get it now** .|
 
 > [!Note]
 > Quando si usa l'opzione di pubblicazione delle transazioni, è importante avere presenti le considerazioni relative a prezzi, fatturazione e proventi prima di selezionare un tipo di offerta e di creare l'offerta. Per altre informazioni, vedere l'articolo [Funzionalità per le transazioni del marketplace commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).

@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 78a81a2d392363ac45979fd28138f838653a2358
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d84e1508dec4d4a5802f7a2ac8c0e6ada5a8044c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89380974"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93128692"
 ---
 # <a name="how-to-add-technical-details-for-your-saas-offer"></a>Come aggiungere i dettagli tecnici per l'offerta SaaS
 
@@ -38,7 +38,7 @@ Nella scheda **configurazione tecnica** verranno definiti i dettagli tecnici usa
 
 - **Azure Active Directory ID tenant** (obbligatorio): per trovare l'ID tenant per l'app Azure Active Directory (Azure ad), passare al pannello [registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in Azure Active Directory. Nella colonna **nome visualizzato** selezionare l'app. Cercare quindi il numero di **ID della directory (tenant)** elencato (ad esempio, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
-- **Azure Active Directory ID applicazione** (obbligatorio): per trovare l' [ID applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in), passare al pannello [registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in Azure Active Directory. Nella colonna **nome visualizzato** selezionare l'app. Cercare quindi il numero ID dell'applicazione (client) elencato (ad esempio, `50c464d3-4930-494c-963c-1e951d15360e` ).
+- **Azure Active Directory ID applicazione** (obbligatorio): per trovare l' [ID applicazione](../active-directory/develop/howto-create-service-principal-portal.md#get-tenant-and-app-id-values-for-signing-in), passare al pannello [registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) in Azure Active Directory. Nella colonna **nome visualizzato** selezionare l'app. Cercare quindi il numero ID dell'applicazione (client) elencato (ad esempio, `50c464d3-4930-494c-963c-1e951d15360e` ).
 
 Selezionare **Salva bozza** prima di continuare con la scheda successiva: Panoramica del piano.
 

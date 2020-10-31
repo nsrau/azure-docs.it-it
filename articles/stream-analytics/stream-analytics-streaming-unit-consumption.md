@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/28/2020
-ms.openlocfilehash: e568051bfd5ac58f283eac7f9dc8a72be5c9dbbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 70b5e85c99184b890d2b5269f483785a82340255
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89079677"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127553"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -25,14 +25,14 @@ La metrica di utilizzo in percentuale delle unità di streaming, da 0% a 100%, d
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configurare le unità di streaming di Analisi di flusso
 1. Accedi per [portale di Azure](https://portal.azure.com/)
 
-2. Nell'elenco delle risorse trovare il processo di Analisi di flusso da ridimensionare e aprirlo. 
+2. Nell'elenco delle risorse trovare il processo di Analisi di flusso da ridimensionare e aprirlo. 
 
-3. Nell'intestazione **Configura** della pagina del processo selezionare **Ridimensiona**.Il numero predefinito di SUs è 3 durante la creazione di un processo.
+3. Nell'intestazione **Configura** della pagina del processo selezionare **Ridimensiona** . Il numero predefinito di SUs è 3 durante la creazione di un processo.
 
     ![Configurazione del processo di Analisi di flusso nel portale di Azure][img.stream.analytics.preview.portal.settings.scale]
     
-4. Usare il dispositivo di scorrimento per impostare le unità di streaming per il processo. Si noti che è possibile definire solo impostazioni specifiche delle unità di streaming. 
-5. È possibile modificare il numero di unità di streaming assegnate al processo anche quando è in esecuzione. Questa operazione non è possibile se il processo usa un [output non partizionato](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) o presenta [una query in più passaggi con diversi valori di partizionamento](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values). Quando il processo è in esecuzione, è possibile scegliere da un set di valori SU. 
+4. Usare il dispositivo di scorrimento per impostare le unità di streaming per il processo. Si noti che è possibile definire solo impostazioni specifiche delle unità di streaming. 
+5. È possibile modificare il numero di unità di streaming assegnate al processo anche quando è in esecuzione. Questa operazione non è possibile se il processo usa un [output non partizionato](./stream-analytics-parallelization.md#query-using-non-partitioned-output) o presenta [una query in più passaggi con diversi valori di partizionamento](./stream-analytics-parallelization.md#multi-step-query-with-different-partition-by-values). Quando il processo è in esecuzione, è possibile scegliere da un set di valori SU. 
 
 ## <a name="monitor-job-performance"></a>Monitorare le prestazioni del processo
 Nel portale di Azure è possibile rilevare la velocità effettiva di un processo:
@@ -45,25 +45,25 @@ Calcolare la velocità effettiva prevista del carico di lavoro. Se la velocità 
 
 Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione della partizione per gli input e dalla query definita nel processo. La pagina **Ridimensiona** consente di impostare il numero corretto di unità di streaming. È consigliabile allocare più unità di streaming di quelle necessarie. Il motore di elaborazione di Analisi di flusso è ottimizzato per la latenza e la velocità effettiva al costo di allocazione di memoria aggiuntiva.
 
-In generale la procedura consigliata consiste nell'iniziare con 6 unità di streaming per le query che non usano **PARTITION BY**. Determinare quindi il punto critico usando un metodo di valutazione e correzione degli errori con cui modificare il numero di unità di streaming dopo aver passato quantità rappresentative di dati e aver esaminato la metrica di utilizzo in percentuale delle unità di streaming. Il numero massimo di unità di streaming che possono essere usate da un processo di Analisi dei flussi dipende dal numero di passaggi nella query definita per il processo e dal numero di partizioni in ogni passaggio. Altre informazioni sui limiti sono disponibili [qui](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
+In generale la procedura consigliata consiste nell'iniziare con 6 unità di streaming per le query che non usano **PARTITION BY** . Determinare quindi il punto critico usando un metodo di valutazione e correzione degli errori con cui modificare il numero di unità di streaming dopo aver passato quantità rappresentative di dati e aver esaminato la metrica di utilizzo in percentuale delle unità di streaming. Il numero massimo di unità di streaming che possono essere usate da un processo di Analisi dei flussi dipende dal numero di passaggi nella query definita per il processo e dal numero di partizioni in ogni passaggio. Altre informazioni sui limiti sono disponibili [qui](./stream-analytics-parallelization.md#calculate-the-maximum-streaming-units-of-a-job).
 
 Per altre informazioni sulla scelta del numero corretto di unità di streaming, vedere questa pagina: [Ridimensionare i processi di Analisi di flusso di Azure per aumentare la velocità effettiva dell'elaborazione dei flussi di dati](stream-analytics-scale-jobs.md)
 
 > [!Note]
 > Il numero di unità di streaming necessarie per un particolare processo dipende dalla configurazione delle partizioni per gli input e dalla query definita per il processo. È prevista una quota massima di unità di streaming che è possibile selezionare per un processo. Per impostazione predefinita, ogni sottoscrizione di Azure ha una quota fino a 500 SUs per tutti i processi di analisi in un'area specifica. Per superare la quota massima di unità di streaming per le sottoscrizioni, contattare il [supporto tecnico Microsoft](https://support.microsoft.com). I valori validi di unità di streaming per processo sono 1, 3, 6 e poi a salire, con incrementi di 6.
 
-## <a name="factors-that-increase-su-utilization"></a>Fattori che determinano un maggiore utilizzo in percentuale delle unità di streaming 
+## <a name="factors-that-increase-su-utilization"></a>Fattori che determinano un maggiore utilizzo in percentuale delle unità di streaming 
 
 Gli elementi di query temporali costituiscono il set principale degli operatori con stato forniti da Analisi di flusso. Analisi di flusso gestisce lo stato di queste operazioni internamente per conto dell'utente, controllando l'utilizzo della memoria, i checkpoint per la resilienza e il ripristino dello stato durante gli aggiornamenti del servizio. Anche se Analisi di flusso gestisce completamente gli stati, è opportuno che gli utenti prendano in considerazione alcune indicazioni relative alle procedure consigliate.
 
 Si noti che un processo con logica di query complessa potrebbe presentare un'elevata percentuale di utilizzo delle unità di streaming anche quando non riceve eventi di input in modo continuo. Questa situazione può verificarsi dopo un picco improvviso negli eventi di input e output. Se la query è complessa, il processo potrebbe continuare a mantenere lo stato in memoria.
 
-La percentuale di utilizzo dell'unità di archiviazione può improvvisamente scendere a 0 per un breve periodo di tempo prima di tornare ai livelli previsti. Ciò si verifica a causa di errori temporanei o dell'avvio di aggiornamenti di sistema. L'aumento del numero di unità di streaming per un processo potrebbe non ridurre l'utilizzo di SU% se la query non è [completamente parallela](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization).
+La percentuale di utilizzo dell'unità di archiviazione può improvvisamente scendere a 0 per un breve periodo di tempo prima di tornare ai livelli previsti. Ciò si verifica a causa di errori temporanei o dell'avvio di aggiornamenti di sistema. L'aumento del numero di unità di streaming per un processo potrebbe non ridurre l'utilizzo di SU% se la query non è [completamente parallela](./stream-analytics-parallelization.md).
 
 Quando si confronta l'utilizzo in un periodo di tempo, usare le [metriche della frequenza degli eventi](stream-analytics-monitoring.md). Le metriche InputEvents e eventi mostrano il numero di eventi letti ed elaborati. Sono disponibili metriche che indicano anche il numero di eventi di errore, ad esempio gli errori di deserializzazione. Quando aumenta il numero di eventi per unità di tempo, nella maggior parte dei casi viene aumentata la percentuale SU%.
 
-## <a name="stateful-query-logicin-temporal-elements"></a>Logica di query con stato negli elementi temporali
-Una delle esclusive funzionalità dei processi di Analisi di flusso di Azure è l'esecuzione dell'elaborazione con stato, ad esempio per funzioni di aggregazione finestra, join temporali e funzioni di analisi temporali. Ognuno di questi operatori mantiene le informazioni sullo stato.La dimensione massima della finestra temporale per questi elementi di query è sette giorni. 
+## <a name="stateful-query-logic-in-temporal-elements"></a>Logica di query con stato negli elementi temporali
+Una delle esclusive funzionalità dei processi di Analisi di flusso di Azure è l'esecuzione dell'elaborazione con stato, ad esempio per funzioni di aggregazione finestra, join temporali e funzioni di analisi temporali. Ognuno di questi operatori mantiene le informazioni sullo stato. La dimensione massima della finestra temporale per questi elementi di query è sette giorni. 
 
 Il concetto di finestra temporale è presente in diversi elementi di query di Analisi di flusso:
 1. Funzioni di aggregazione finestra: GROUP BY di finestre temporali scorrevoli, di salto e a cascata
@@ -78,7 +78,7 @@ I fattori seguenti influiscono sulla memoria usata (parte della metrica di unit�
 La memoria utilizzata (dimensione dello stato) per una funzione di aggregazione finestra non è sempre direttamente proporzionale alla dimensione della finestra. È invece proporzionale alla cardinalità dei dati o al numero di gruppi in ogni finestra temporale.
 
 
-Ad esempio, nella query seguente il numero associato a `clusterid` è la cardinalità della query. 
+Ad esempio, nella query seguente il numero associato a `clusterid` è la cardinalità della query. 
 
    ```sql
    SELECT count(*)
@@ -94,9 +94,9 @@ Per attenuare i problemi causati dalla cardinalità elevata nella query preceden
    GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
    ```
 
-In seguito al partizionamento, la query viene distribuita su più nodi. Di conseguenza, il numero di valori `clusterid` in arrivo in ogni nodo diminuisce, riducendo a sua volta la cardinalità dell'operatore GROUP BY. 
+In seguito al partizionamento, la query viene distribuita su più nodi. Di conseguenza, il numero di valori `clusterid` in arrivo in ogni nodo diminuisce, riducendo a sua volta la cardinalità dell'operatore GROUP BY. 
 
-Le partizioni di Hub eventi devono essere create in base alla chiave di raggruppamento per evitare la necessità di un passaggio di riduzione. Per altre informazioni, vedere [Panoramica di Hub eventi](../event-hubs/event-hubs-what-is-event-hubs.md). 
+Le partizioni di Hub eventi devono essere create in base alla chiave di raggruppamento per evitare la necessità di un passaggio di riduzione. Per altre informazioni, vedere [Panoramica di Hub eventi](../event-hubs/event-hubs-about.md). 
 
 ## <a name="temporal-joins"></a>Join temporali
 La memoria utilizzata (dimensione dello stato) di un join temporale è proporzionale al numero di eventi nell'area di ridimensionamento temporale del join, che corrisponde alla frequenza di input degli eventi moltiplicata per la dimensione della stanza di wiggle. In altre parole, la memoria utilizzata dai join è proporzionale all'intervallo di tempo DateDiff moltiplicato per la frequenza media degli eventi.
@@ -109,7 +109,7 @@ Il numero di eventi senza corrispondenza nel join influisce sull'utilizzo della 
    INNER JOIN impressions ON impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10.
    ```
 
-In questo esempio è possibile che vengano mostrati molti annunci e che pochi utenti facciano clic sugli annunci. È anche necessario mantenere tutti gli eventi nell'intervallo di tempo. La memoria consumata è proporzionale alle dimensioni della finestra e alla frequenza degli eventi. 
+In questo esempio è possibile che vengano mostrati molti annunci e che pochi utenti facciano clic sugli annunci. È anche necessario mantenere tutti gli eventi nell'intervallo di tempo. La memoria consumata è proporzionale alle dimensioni della finestra e alla frequenza degli eventi. 
 
 Per correggere questo problema, inviare gli eventi all'hub eventi partizionati in base alle chiavi di join (in questo caso ID) e scalare la query consentendo al sistema di elaborare ogni partizione di input separatamente usando  **Partition by** , come illustrato:
 
@@ -117,30 +117,30 @@ Per correggere questo problema, inviare gli eventi all'hub eventi partizionati i
    SELECT clicks.id
    FROM clicks PARTITION BY PartitionId
    INNER JOIN impressions PARTITION BY PartitionId 
-   ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
+   ON impression.PartitionId = clicks.PartitionId AND impressions.id = clicks.id AND DATEDIFF(hour, impressions, clicks) between 0 AND 10 
    ```
 
-In seguito al partizionamento, la query viene distribuita su più nodi. Di conseguenza, il numero di eventi in arrivo in ogni nodo diminuisce, riducendo a sua volta le dimensioni dello stato mantenuto nell'intervallo di join. 
+In seguito al partizionamento, la query viene distribuita su più nodi. Di conseguenza, il numero di eventi in arrivo in ogni nodo diminuisce, riducendo a sua volta le dimensioni dello stato mantenuto nell'intervallo di join. 
 
 ## <a name="temporal-analytic-functions"></a>Funzioni di analisi temporale
-La memoria utilizzata (dimensione dello stato) per una funzione di analisi temporale è proporzionale alla frequenza degli eventi moltiplicata per la durata.La memoria utilizzata dalle funzioni di analisi non è proporzionale alla dimensione della finestra, ma piuttosto al numero di partizioni in ogni finestra temporale.
+La memoria utilizzata (dimensione dello stato) per una funzione di analisi temporale è proporzionale alla frequenza degli eventi moltiplicata per la durata. La memoria utilizzata dalle funzioni di analisi non è proporzionale alla dimensione della finestra, ma piuttosto al numero di partizioni in ogni finestra temporale.
 
-La correzione è simile a quella per il join temporale. È possibile scalare orizzontalmente la query usando **PARTITION BY**. 
+La correzione è simile a quella per il join temporale. È possibile scalare orizzontalmente la query usando **PARTITION BY** . 
 
-## <a name="out-of-order-buffer"></a>Buffer non in ordine 
-L'utente può configurare le dimensioni del buffer non in ordine nel riquadro di configurazione Ordinamento eventi. Il buffer viene usato per contenere gli input per la durata dell'intervallo e per riordinarli. Le dimensioni del buffer sono proporzionali alla frequenza di input degli eventi moltiplicata per la dimensione dell'intervallo per l'ordine non corretto. La dimensione predefinita dell'intervallo è 0. 
+## <a name="out-of-order-buffer"></a>Buffer non in ordine 
+L'utente può configurare le dimensioni del buffer non in ordine nel riquadro di configurazione Ordinamento eventi. Il buffer viene usato per contenere gli input per la durata dell'intervallo e per riordinarli. Le dimensioni del buffer sono proporzionali alla frequenza di input degli eventi moltiplicata per la dimensione dell'intervallo per l'ordine non corretto. La dimensione predefinita dell'intervallo è 0. 
 
-Per correggere l'overflow del buffer non in ordine, scalare orizzontalmente la query usando **PARTITION BY**. In seguito al partizionamento, la query viene distribuita su più nodi. Di conseguenza, il numero di eventi in arrivo in ogni nodo diminuisce, riducendo a sua volta il numero di eventi in ogni buffer di riordinamento. 
+Per correggere l'overflow del buffer non in ordine, scalare orizzontalmente la query usando **PARTITION BY** . In seguito al partizionamento, la query viene distribuita su più nodi. Di conseguenza, il numero di eventi in arrivo in ogni nodo diminuisce, riducendo a sua volta il numero di eventi in ogni buffer di riordinamento. 
 
-## <a name="input-partition-count"></a>Conteggio delle partizioni di input 
+## <a name="input-partition-count"></a>Conteggio delle partizioni di input 
 Ogni partizione di input di un processo ha un buffer. Maggiore è il numero di partizioni di input, maggiore è il numero di risorse utilizzate dal processo. Per ogni unità di streaming, Analisi di flusso di Azure può elaborare circa 1 MB di input al secondo. È pertanto possibile ottimizzare definendo una corrispondenza tra il numero di unità di streaming di Analisi di flusso e il numero di partizioni nell'istanza di Hub eventi. 
 
 Un processo configurato con una sola unità di streaming è in genere sufficiente per un'istanza di Hub eventi con due partizioni, ovvero il numero minimo di partizioni per Hub di eventi. Se l'istanza di Hub eventi ha più partizioni, il processo di Analisi di flusso utilizza più risorse, ma non usa necessariamente la velocità effettiva aggiuntiva fornita da Hub eventi. 
 
 Per un processo con 6 unità di streaming, possono essere necessarie 4 o 8 partizioni in Hub eventi. È tuttavia opportuno evitare di configurare troppe partizioni non necessarie poiché ciò determina un utilizzo eccessivo delle risorse, come nel caso di un'istanza di Hub eventi con 16 o più partizioni in un processo di Analisi di flusso con una sola unità di streaming. 
 
-## <a name="reference-data"></a>Dati di riferimento 
-I dati di riferimento in Analisi di flusso di Azure vengono caricati in memoria per consentire la ricerca rapida. Con l'implementazione corrente ogni operazione di join con dati di riferimento mantiene una copia dei dati di riferimento in memoria, anche se il join viene eseguito con gli stessi dati di riferimento più volte. Per le query con **PARTITION BY**, ogni partizione include una copia dei dati di riferimento, in modo che le partizioni siano completamente separate. Con l'effetto moltiplicatore l'utilizzo della memoria può aumentare rapidamente se si esegue il join con i dati di riferimento più volte con più partizioni.  
+## <a name="reference-data"></a>Dati di riferimento 
+I dati di riferimento in Analisi di flusso di Azure vengono caricati in memoria per consentire la ricerca rapida. Con l'implementazione corrente ogni operazione di join con dati di riferimento mantiene una copia dei dati di riferimento in memoria, anche se il join viene eseguito con gli stessi dati di riferimento più volte. Per le query con **PARTITION BY** , ogni partizione include una copia dei dati di riferimento, in modo che le partizioni siano completamente separate. Con l'effetto moltiplicatore l'utilizzo della memoria può aumentare rapidamente se si esegue il join con i dati di riferimento più volte con più partizioni.  
 
 ### <a name="use-of-udf-functions"></a>Uso di funzioni definite dall'utente
 Quando si aggiunge una funzione definita dall'utente, Analisi di flusso di Azure carica il runtime JavaScript in memoria. Questo comportamento influisce sulla percentuale di unità di streaming.
@@ -155,4 +155,4 @@ Quando si aggiunge una funzione definita dall'utente, Analisi di flusso di Azure
 [img.stream.analytics.configure.scale]: ./media/stream-analytics-scale-jobs/StreamAnalytics.configure.scale.png
 [img.stream.analytics.perfgraph]: ./media/stream-analytics-scale-jobs/perf.png
 [img.stream.analytics.streaming.units.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsStreamingUnitsExample.jpg
-[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png   
+[img.stream.analytics.preview.portal.settings.scale]: ./media/stream-analytics-scale-jobs/StreamAnalyticsPreviewPortalJobSettings-NewPortal.png
