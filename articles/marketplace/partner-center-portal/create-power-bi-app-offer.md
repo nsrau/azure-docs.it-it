@@ -7,12 +7,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 07/22/2020
-ms.openlocfilehash: e0dcd5db36e41093bf1cd75779770b04df2fc26a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 99c60cf541b3997f2aeca2ccef5a5af6b9c88e08
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710652"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131497"
 ---
 # <a name="create-a-power-bi-app-offer"></a>Creare un'offerta di app Power BI
 
@@ -23,8 +23,8 @@ Prima di iniziare, [creare un account per il marketplace commerciale nel Centro 
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-2. Nel menu di spostamento a sinistra selezionare **Marketplace commerciale** > **Panoramica**.
-3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **App del servizio Power BI**.
+2. Nel menu di spostamento a sinistra selezionare **Marketplace commerciale** > **Panoramica** .
+3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **App del servizio Power BI** .
 
    ![Immagine del menu di spostamento a sinistra.](./media/new-offer-power-bi-app.png)
 
@@ -36,16 +36,16 @@ Prima di iniziare, [creare un account per il marketplace commerciale nel Centro 
 
 ## <a name="new-offer"></a>Nuova offerta
 
-Immettere un ID in **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nell'account.
+Immettere un ID in **ID offerta** . Si tratta di un identificatore univoco per ogni offerta nell'account.
 
 - Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta nel marketplace e nei modelli di Azure Resource Manager, se applicabile.
-- Usare solo lettere minuscole e numeri. Può includere trattini e caratteri di sottolineatura, ma senza spazi e con un limite di 50 caratteri. Se ad esempio si immette **test-offer-1**, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
+- Usare solo lettere minuscole e numeri. Può includere trattini e caratteri di sottolineatura, ma senza spazi e con un limite di 50 caratteri. Se ad esempio si immette **test-offer-1** , l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+- Non è possibile modificare l'ID offerta dopo aver selezionato **Crea** .
 
-Immettere un alias in **Alias offerta**. Si tratta del nome usato per l'offerta nel Centro per i partner.
+Immettere un alias in **Alias offerta** . Si tratta del nome usato per l'offerta nel Centro per i partner.
 
 - Questo nome non viene usato nel marketplace ed è diverso dal nome dell'offerta e da altri valori visualizzati ai clienti.
-- L'alias dell'offerta non può essere modificato dopo aver selezionato **Crea**.
+- L'alias dell'offerta non può essere modificato dopo aver selezionato **Crea** .
 
 Selezionare **Crea** per generare l'offerta e continuare.
 
@@ -55,10 +55,10 @@ Questa pagina mostra una rappresentazione visiva dei passaggi per pubblicare l'o
 
 Sono inclusi i collegamenti per eseguire operazioni su questa offerta in base alla selezione effettuata. Ad esempio:
 
-- Se l'offerta è una bozza, [Elimina bozza](update-existing-offer.md#delete-a-draft-offer)
+- Se l'offerta è una bozza: Eliminare un'offerta bozza
 - Se l'offerta è stata pubblicata, [Interrompi vendita](update-existing-offer.md#stop-selling-an-offer-or-plan)
-- Se l'offerta è in anteprima, [Passa allo stato Live](publishing-status.md#publisher-approval)
-- Se la pubblicazione non è stata completata, [Annulla](update-existing-offer.md#cancel-publishing) la pubblicazione
+- Se l'offerta è in anteprima, [Passa allo stato Live](../review-publish-offer.md#previewing-and-approving-your-offer)
+- Se non è stata completata la disconnessione dell'editore: [Annullare la pubblicazione](../review-publish-offer.md#cancel-publishing)
 
 ## <a name="offer-setup"></a>Configurazione dell'offerta
 
@@ -86,7 +86,7 @@ Di seguito sono elencate alcune risorse aggiuntive per la gestione dei lead:
 - [Risoluzione degli errori di configurazione del lead](../lead-management-faq.md#publishing-config-errors)
 - PDF [Panoramica della gestione dei clienti potenziali](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assicurarsi che il blocco dei popup sia disattivato)
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="properties"></a>Proprietà
 
@@ -97,7 +97,7 @@ Questa pagina consente di definire le categorie e i settori usati per raggruppar
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
 - Almeno una delle due categorie, incluse una categoria primaria e una secondaria (facoltativo).
-- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile**.
+- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile** .
 
 Vedere l'elenco completo di categorie e sottocategorie nell'elenco delle [procedure](../gtm-offer-listing-best-practices.md)consigliate.
 
@@ -109,11 +109,11 @@ Vedere l'elenco completo di categorie e sottocategorie nell'elenco delle [proced
 
 #### <a name="terms-and-conditions"></a>Termini e condizioni
 
-Per specificare termini e condizioni personalizzati, immettere fino a 10.000 caratteri nella casella **Termini e condizioni**. Se i termini e le condizioni richiedono una descrizione più lunga, immettere un unico collegamento Web alla pagina in cui possono essere consultati. Verrà visualizzato ai clienti come collegamento attivo.
+Per specificare termini e condizioni personalizzati, immettere fino a 10.000 caratteri nella casella **Termini e condizioni** . Se i termini e le condizioni richiedono una descrizione più lunga, immettere un unico collegamento Web alla pagina in cui possono essere consultati. Verrà visualizzato ai clienti come collegamento attivo.
 
 I clienti devono accettare queste condizioni prima di poter provare l'offerta.
 
-Prima di passare alla sezione successiva, Presentazione dell'offerta, selezionare **Salva bozza**.
+Prima di passare alla sezione successiva, Presentazione dell'offerta, selezionare **Salva bozza** .
 
 ## <a name="offer-listing"></a>Presentazione dell'offerta
 
@@ -143,7 +143,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 7. Informativa sulla privacy
 8. Nome offerta
 9. Riepilogo
-10. Description
+10. Descrizione
 11. Screenshot/video
 
 ### <a name="name"></a>Nome
@@ -186,7 +186,7 @@ Immettere l'indirizzo Web dell'informativa sulla privacy dell'organizzazione. L'
 
 ### <a name="contact-information"></a>Informazioni sul contatto
 
-È necessario specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per **Contatto di supporto** e **Contatto tecnico**. Queste informazioni non vengono visualizzate ai clienti. Sono disponibili per Microsoft e possono essere fornite ai partner CSP (Cloud Solution Provider).
+È necessario specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per **Contatto di supporto** e **Contatto tecnico** . Queste informazioni non vengono visualizzate ai clienti. Sono disponibili per Microsoft e possono essere fornite ai partner CSP (Cloud Solution Provider).
 
 - Contatto supporto tecnico (obbligatorio): per domande di supporto generiche.
 - Contatto tecnico (obbligatorio): per domande tecniche e problemi di certificazione.
@@ -234,7 +234,7 @@ Per altre informazioni sulla creazione di presentazioni di offerte, vedere [Proc
 
 ## <a name="technical-configuration"></a>Configurazione tecnica
 
-Promuovere l'app nel servizio Power BI all'ambiente di produzione e fornire il collegamento al programma di installazione dell'app Power BI che consente ai clienti di installare l'app. Per altre informazioni, vedere [Pubblicare app con dashboard e report in Power BI](https://docs.microsoft.com/power-bi/service-create-distribute-apps).
+Promuovere l'app nel servizio Power BI all'ambiente di produzione e fornire il collegamento al programma di installazione dell'app Power BI che consente ai clienti di installare l'app. Per altre informazioni, vedere [Pubblicare app con dashboard e report in Power BI](/power-bi/service-create-distribute-apps).
 
 ## <a name="supplemental-content"></a>Contenuto supplementare
 
@@ -248,16 +248,16 @@ Fornire informazioni aggiuntive sull'offerta per semplificarne la convalida. Que
 
 Dopo aver completato tutte le sezioni obbligatorie dell'offerta, è possibile inviare l'offerta per la revisione e la pubblicazione.
 
-Nell'angolo in alto a destra del portale selezionare **Rivedi e pubblica**.
+Nell'angolo in alto a destra del portale selezionare **Rivedi e pubblica** .
 
 Nella pagina di revisione è possibile:
 
 - Visualizzare lo stato di completamento di ogni sezione dell'offerta. Non è possibile eseguire la pubblicazione fino a quando tutte le sezioni dell'offerta non vengono contrassegnate come complete.
-  - **Non avviata**: la sezione non è stata avviata e deve essere completata.
-  - **Incompleta**: la sezione contiene errori che devono essere corretti o è necessario inserire altre informazioni. Per indicazioni, vedere le sezioni precedenti di questo documento.
-  - **Completa**: la sezione contiene tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere complete prima di poter inviare l'offerta.
+  - **Non avviata** : la sezione non è stata avviata e deve essere completata.
+  - **Incompleta** : la sezione contiene errori che devono essere corretti o è necessario inserire altre informazioni. Per indicazioni, vedere le sezioni precedenti di questo documento.
+  - **Completa** : la sezione contiene tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere complete prima di poter inviare l'offerta.
 - Fornire al team di certificazione istruzioni di test per assicurarsi che l'app venga testata correttamente. Specificare anche eventuali note supplementari utili per comprendere l'offerta.
 
-Per inviare l'offerta per la pubblicazione, selezionare **Pubblica**.
+Per inviare l'offerta per la pubblicazione, selezionare **Pubblica** .
 
-Si riceverà un messaggio di posta elettronica per far sapere all'utente che una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Per pubblicare l'offerta al pubblico, passare a centro per i partner e selezionare **Go-Live**.
+Si riceverà un messaggio di posta elettronica per far sapere all'utente che una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Per pubblicare l'offerta al pubblico, passare a centro per i partner e selezionare **Go-Live** .

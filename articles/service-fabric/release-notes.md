@@ -5,12 +5,12 @@ ms.date: 06/10/2019
 ms.topic: conceptual
 hide_comments: true
 hideEdit: true
-ms.openlocfilehash: 9bfca7def313fc701798ff96d0ed4b18ca13ef60
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 01574407801c0a6b0a5e0ddc438af4d3965dc090
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313884"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131548"
 ---
 # <a name="service-fabric-releases"></a>Versioni Service Fabric
 
@@ -23,6 +23,28 @@ ms.locfileid: "92313884"
 Questo articolo fornisce altre informazioni sulle versioni più recenti e sugli aggiornamenti per il runtime di Service Fabric e gli SDK.
 
 ## <a name="whats-new-in-service-fabric"></a>Novità di Service Fabric
+
+### <a name="service-fabric-72"></a>Service Fabric 7,2 
+Siamo lieti di annunciare che la versione 7,2 del Service Fabric runtime ha iniziato a implementare le varie aree di Azure con gli strumenti e gli aggiornamenti SDK. Gli aggiornamenti per .NET SDK, Java SDK e Service Fabric Runtime sono disponibili tramite l'installazione guidata piattaforma Web, i pacchetti NuGet e i repository maven.
+## <a name="what-is-new-in-service-fabric-7"></a>Quali sono le novità di-Service Fabric 7?
+Questa versione è stata caricata con le funzionalità e i miglioramenti principali. Di seguito sono evidenziate alcune delle funzionalità principali:
+## <a name="key-announcements-in-72"></a>Annunci chiave in 7,2
+- **Anteprima** : i [**cluster gestiti Service Fabric**](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-managed-clusters-are-now-in-public-preview/ba-p/1721572) sono ora disponibili in anteprima pubblica. Service Fabric cluster gestiti mirano a semplificare la distribuzione e la gestione dei cluster incapsulando le risorse sottostanti che costituiscono un cluster Service Fabric in una singola risorsa ARM. Per informazioni dettagliate, vedere [Service Fabric Panoramica di cluster gestiti](https://docs.microsoft.com/azure/service-fabric/overview-managed-cluster).
+- **Anteprima** : [**il supporto di servizi senza stato con un numero di istanze superiore al numero di nodi**](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies) è ora disponibile in anteprima pubblica. Un criterio di posizionamento consente la creazione di più istanze senza stato di una partizione in un nodo.
+- [**FabricObserver (FO) 3,0**](https://aka.ms/sf/fabricobserver) è ora disponibile.
+    - È ora possibile eseguire FabricObserver nei cluster Linux e Windows.
+    - È ora possibile creare plug-in Observer personalizzati. Per informazioni dettagliate e codice, vedere il [file Leggimi dei plug](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Plugins.md) -in e il [progetto di plug](https://github.com/microsoft/service-fabric-observer/tree/master/SampleObserverPlugin) -in.
+    - È ora possibile modificare qualsiasi impostazione Observer tramite l'aggiornamento dei parametri dell'applicazione. Ciò significa che non è più necessario ridistribuire FO per modificare le impostazioni di Observer specifiche. Vedere l' [esempio](https://github.com/microsoft/service-fabric-observer/blob/master/Documentation/Using.md#parameterUpdates).
+- [**Supporto per le immagini del contenitore OneBox Ubuntu 18,04**](https://hub.docker.com/_/microsoft-service-fabric-onebox).
+- **Anteprima** : informazioni [ **di riferimento sull'insieme di credenziali delle chiavi per applicazioni Service Fabric supporta **solo segreti con versione** . I segreti senza versioni non sono supportati.**](https://docs.microsoft.com/azure/service-fabric/service-fabric-keyvault-references)
+- SF SDK richiede la versione più recente di Visual Studio 2019 Update 16.7.6 o 16,8 Preview 4 per poter creare nuovi progetti .NET Framework senza stato/con stato/Actors. Se non si dispone dell'aggiornamento di Visual Studio più recente, dopo aver creato il progetto di servizio, usare Gestione pacchetti per installare Microsoft. ServiceFabric. Services (versione 4.2. x) per i progetti con stato o senza stato e Microsoft. ServiceFabric. Actors (versione 4.2. x) per i progetti Actor da nuget.org.
+- **RunToCompletion** : Service Fabric supporta il concetto di esecuzione fino al completamento per i file eseguibili Guest. Con questo aggiornamento quando la replica viene eseguita fino al completamento, verranno rilasciate le risorse del cluster allocate alla replica.
+- Il supporto per la [**governance delle risorse è stato migliorato**](https://docs.microsoft.com/azure/service-fabric/service-fabric-resource-governance): consentendo richieste e limitazioni specifiche per le risorse di CPU e memoria.
+
+### <a name="service-fabric-72-releases"></a>Versioni di Service Fabric 7,2
+| Data di rilascio | Versione | Altre informazioni |
+|---|---|---|
+| 21 ottobre 2020 | [Azure Service Fabric 7,2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-7-2-release/ba-p/1805653)  | [Note sulla versione](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service-Fabric-72-releasenotes.md)|
 
 ### <a name="service-fabric-71"></a>Service Fabric 7,1
 A causa della crisi COVID-19 attuale e prendendo in considerazione le problematiche affrontate dai clienti, viene reso disponibile 7,1, ma non vengono aggiornati automaticamente i cluster impostati per la ricezione di aggiornamenti automatici. Gli aggiornamenti automatici verranno sospesi fino a un ulteriore avviso per garantire che i clienti possano applicare gli aggiornamenti quando sono più appropriati, in modo da evitare rotture impreviste.
@@ -50,14 +72,14 @@ Siamo entusiasti di annunciare la prossima versione di Service Fabric. Questa ve
 
 ### <a name="improve-application-life-cycle-experience"></a>Migliorare l'esperienza del ciclo di vita dell'applicazione
 
-- **[Anteprima: svuotamento richieste](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)**: durante la manutenzione pianificata del servizio, ad esempio gli aggiornamenti del servizio o la disattivazione del nodo, si desidera consentire ai servizi di svuotare normalmente le connessioni. Questa funzionalità aggiunge una durata del ritardo di chiusura dell'istanza nella configurazione del servizio. Durante le operazioni pianificate, SF eliminerà l'indirizzo del servizio dall'individuazione e quindi attenderà la durata prima di arrestare il servizio.
-- **[Rilevamento e bilanciamento automatico del sottocluster](./cluster-resource-manager-subclustering.md)**: il sottoclustering si verifica quando i servizi con vincoli di posizionamento diversi hanno una [metrica di carico](./service-fabric-cluster-resource-manager-metrics.md)comune. Se il carico sui diversi set di nodi differisce in modo significativo, il cluster Service Fabric Gestione risorse ritiene che il cluster sia sbilanciato, anche quando dispone del migliore equilibrio possibile a causa dei vincoli di posizionamento. Di conseguenza, tenta di ribilanciare il cluster, causando potenzialmente movimenti di servizio non necessari (poiché lo "squilibrio" non può essere notevolmente migliorato). A partire da questa versione, il cluster Gestione risorse tenterà di rilevare automaticamente questi tipi di configurazioni e di comprendere quando lo squilibrio può essere risolto tramite lo spostamento e quando invece dovrebbe lasciarsi da solo perché non è possibile apportare miglioramenti sostanziali.  
+- **[Anteprima: svuotamento richieste](./service-fabric-application-upgrade-advanced.md#avoid-connection-drops-during-stateless-service-planned-downtime)** : durante la manutenzione pianificata del servizio, ad esempio gli aggiornamenti del servizio o la disattivazione del nodo, si desidera consentire ai servizi di svuotare normalmente le connessioni. Questa funzionalità aggiunge una durata del ritardo di chiusura dell'istanza nella configurazione del servizio. Durante le operazioni pianificate, SF eliminerà l'indirizzo del servizio dall'individuazione e quindi attenderà la durata prima di arrestare il servizio.
+- **[Rilevamento e bilanciamento automatico del sottocluster](./cluster-resource-manager-subclustering.md)** : il sottoclustering si verifica quando i servizi con vincoli di posizionamento diversi hanno una [metrica di carico](./service-fabric-cluster-resource-manager-metrics.md)comune. Se il carico sui diversi set di nodi differisce in modo significativo, il cluster Service Fabric Gestione risorse ritiene che il cluster sia sbilanciato, anche quando dispone del migliore equilibrio possibile a causa dei vincoli di posizionamento. Di conseguenza, tenta di ribilanciare il cluster, causando potenzialmente movimenti di servizio non necessari (poiché lo "squilibrio" non può essere notevolmente migliorato). A partire da questa versione, il cluster Gestione risorse tenterà di rilevare automaticamente questi tipi di configurazioni e di comprendere quando lo squilibrio può essere risolto tramite lo spostamento e quando invece dovrebbe lasciarsi da solo perché non è possibile apportare miglioramenti sostanziali.  
 - [**Costo di spostamento diverso per le repliche secondarie**](./service-fabric-cluster-resource-manager-movement-cost.md): è stato introdotto un nuovo valore di costo di spostamento VeryHigh che offre maggiore flessibilità in alcuni scenari per definire se usare un costo di spostamento separato per le repliche secondarie.
 - Meccanismo di [**Probe di Livezza**](./probes-codepackage.md) abilitato per applicazioni in contenitori. Il probe di Livenza consente di annunciare la vita dell'applicazione in contenitori e quando non rispondono in modo tempestivo, comporterà un riavvio.
 - [**Esegui fino al completamento/una volta per i servizi**](./run-to-completion.md)**
 
 ### <a name="image-store-improvements"></a>Miglioramenti di archivio immagini
- - Service Fabric 7,1 utilizza il **trasporto personalizzato per proteggere il trasferimento di file tra i nodi per impostazione predefinita**. La dipendenza dalla condivisione file SMB viene rimossa dalla versione 7,1. Le condivisioni file SMB protette sono ancora presenti nei nodi che contengono archivio immagini replica del servizio per la scelta del cliente di rifiutare esplicitamente l'impostazione predefinita e per l'aggiornamento e il downgrade alla versione precedente.
+ - Service Fabric 7,1 utilizza il **trasporto personalizzato per proteggere il trasferimento di file tra i nodi per impostazione predefinita** . La dipendenza dalla condivisione file SMB viene rimossa dalla versione 7,1. Le condivisioni file SMB protette sono ancora presenti nei nodi che contengono archivio immagini replica del servizio per la scelta del cliente di rifiutare esplicitamente l'impostazione predefinita e per l'aggiornamento e il downgrade alla versione precedente.
        
  ### <a name="reliable-collections-improvements"></a>Miglioramenti alle raccolte Reliable Collections
 
@@ -86,15 +108,15 @@ Verranno aggiornate anche le date di rilascio pianificate per indicare che quest
 Questa è la versione più recente di Service Fabric e viene caricata con le funzionalità e i miglioramenti principali.
 
 ### <a name="key-announcements"></a>Annunci chiave
- - [**Supporto di KeyVaultReference per i segreti dell'applicazione (anteprima)**](./service-fabric-keyvault-references.md): Service Fabric le applicazioni che hanno abilitato le [identità gestite](./concepts-managed-identity.md) possono ora fare riferimento direttamente a un URL di Key Vault Secret come variabile di ambiente, parametro dell'applicazione o credenziale del repository del contenitore. Service Fabric risolverà automaticamente il segreto usando l'identità gestita dell'applicazione. 
+ - [**Supporto di KeyVaultReference per i segreti dell'applicazione (anteprima)**](./service-fabric-keyvault-references.md): Service Fabric le applicazioni che hanno abilitato le [identità gestite](./concepts-managed-identity.md) possono ora fare riferimento direttamente a un URL di Key Vault Secret come variabile di ambiente, parametro dell'applicazione o credenziale del repository del contenitore. Service Fabric risolverà automaticamente il segreto usando l'identità gestita dell'applicazione. 
      
-- **Miglioramento della sicurezza dell'aggiornamento per i servizi**senza stato: per garantire la disponibilità durante l'aggiornamento di un'applicazione, sono state introdotte nuove configurazioni per definire il [numero minimo di istanze per i servizi](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) senza stato da considerare disponibili. In precedenza questo valore era 1 per tutti i servizi e non era modificabile. Con questo nuovo controllo di sicurezza per servizio, è possibile assicurarsi che i servizi mantengano un numero minimo di istanze durante gli aggiornamenti dell'applicazione, gli aggiornamenti del cluster e altre operazioni di manutenzione che si basano sui controlli di integrità e sicurezza del Service Fabric.
+- **Miglioramento della sicurezza dell'aggiornamento per i servizi** senza stato: per garantire la disponibilità durante l'aggiornamento di un'applicazione, sono state introdotte nuove configurazioni per definire il [numero minimo di istanze per i servizi](/dotnet/api/system.fabric.description.statelessservicedescription?view=azure-dotnet) senza stato da considerare disponibili. In precedenza questo valore era 1 per tutti i servizi e non era modificabile. Con questo nuovo controllo di sicurezza per servizio, è possibile assicurarsi che i servizi mantengano un numero minimo di istanze durante gli aggiornamenti dell'applicazione, gli aggiornamenti del cluster e altre operazioni di manutenzione che si basano sui controlli di integrità e sicurezza del Service Fabric.
   
-- [**Limiti delle risorse per i servizi utente**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services): gli utenti possono impostare i limiti delle risorse per i servizi utente in un nodo per evitare scenari come l'esaurimento delle risorse dei servizi di Service Fabric sistema. 
+- [**Limiti delle risorse per i servizi utente**](./service-fabric-resource-governance.md#enforcing-the-resource-limits-for-user-services): gli utenti possono impostare i limiti delle risorse per i servizi utente in un nodo per evitare scenari come l'esaurimento delle risorse dei servizi di Service Fabric sistema. 
   
 - [**Costo di spostamento del servizio molto elevato**](./service-fabric-cluster-resource-manager-movement-cost.md) per un tipo di replica. Le repliche con un costo di spostamento molto elevato verranno spostate solo se si verifica una violazione del vincolo nel cluster che non può essere risolto in altro modo. Per ulteriori informazioni sull'utilizzo di un costo di spostamento "molto elevato", vedere il documento collegato e per ulteriori considerazioni.
   
--  **Controlli di sicurezza aggiuntivi del cluster**: in questa versione è stato introdotto un controllo di sicurezza del quorum del nodo di inizializzazione configurabile. In questo modo è possibile personalizzare il numero di nodi di inizializzazione che devono essere disponibili durante gli scenari di gestione e ciclo di vita del cluster. Le operazioni che comportano il blocco del cluster al di sotto del valore configurato sono bloccate. Attualmente, il valore predefinito è sempre un quorum dei nodi di inizializzazione, ad esempio, se si dispone di 7 nodi di inizializzazione, un'operazione che richiederebbe meno di 5 nodi di inizializzazione verrebbe bloccata per impostazione predefinita. Con questa modifica, è possibile impostare il valore minimo di Safe 6, in modo da consentire un solo nodo di inizializzazione alla volta.
+-  **Controlli di sicurezza aggiuntivi del cluster** : in questa versione è stato introdotto un controllo di sicurezza del quorum del nodo di inizializzazione configurabile. In questo modo è possibile personalizzare il numero di nodi di inizializzazione che devono essere disponibili durante gli scenari di gestione e ciclo di vita del cluster. Le operazioni che comportano il blocco del cluster al di sotto del valore configurato sono bloccate. Attualmente, il valore predefinito è sempre un quorum dei nodi di inizializzazione, ad esempio, se si dispone di 7 nodi di inizializzazione, un'operazione che richiederebbe meno di 5 nodi di inizializzazione verrebbe bloccata per impostazione predefinita. Con questa modifica, è possibile impostare il valore minimo di Safe 6, in modo da consentire un solo nodo di inizializzazione alla volta.
    
 - Aggiunta del supporto per [**la gestione del servizio di backup e ripristino in Service Fabric Explorer**](./service-fabric-backuprestoreservice-quickstart-azurecluster.md). In questo modo è possibile eseguire le attività seguenti direttamente da SFX: individuazione del servizio di backup e ripristino, creazione di criteri di backup, abilitazione di backup automatici, esecuzione di backup ad hoc, attivazione di operazioni di ripristino ed esplorazione dei backup esistenti.
 
@@ -130,7 +152,7 @@ Ecco le novità di Service Fabric 6,5:
 
 - Sono stati aggiunti [eventi del ciclo](service-fabric-diagnostics-event-generation-operational.md#replica-events) di vita della replica per i servizi con stato.
 
-- [Migliore visibilità dello stato del nodo di inizializzazione](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), inclusi gli avvisi a livello di cluster se un nodo di inizializzazione non è integro (*inattivo*, *rimosso* o *sconosciuto*).
+- [Migliore visibilità dello stato del nodo di inizializzazione](service-fabric-understand-and-troubleshoot-with-system-health-reports.md#seed-node-status), inclusi gli avvisi a livello di cluster se un nodo di inizializzazione non è integro ( *inattivo* , *rimosso* o *sconosciuto* ).
 
 - [Service Fabric strumento di ripristino di emergenza dell'applicazione](https://github.com/Microsoft/Service-Fabric-AppDRTool) consente Service Fabric servizi con stato di eseguire rapidamente il ripristino quando il cluster primario rileva un'emergenza. I dati del cluster primario vengono continuamente sincronizzati nell'applicazione di standby secondaria mediante backup e ripristino periodici.
 

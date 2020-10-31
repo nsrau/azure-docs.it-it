@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: shkale-msft
 ms.author: shkale
 ms.reviewer: mathoma, stevestein, danil
-ms.date: 10/05/2020
-ms.openlocfilehash: dc6d083efd1d39d96f9df995fe5e7e4bcc95abff
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 10/30/2020
+ms.openlocfilehash: a97e39314b4dc15a360a01408f183a3f9a19c76f
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675310"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131361"
 ---
 # <a name="automated-backups---azure-sql-database--sql-managed-instance"></a>Backup automatici: database SQL di Azure & SQL Istanza gestita
 
@@ -50,7 +50,7 @@ Per un database SQL è possibile configurare la ridondanza dell'archiviazione di
 > L'archiviazione con ridondanza della zona è attualmente disponibile solo in [determinate aree geografiche](../../storage/common/storage-redundancy.md#zone-redundant-storage). 
 
 > [!NOTE]
-> La ridondanza di archiviazione di backup configurabile per il database SQL di Azure è attualmente disponibile a livello generale solo nell'area di Azure Asia sudorientale. Questa funzionalità non è ancora disponibile per il livello iperscalabile. 
+> La ridondanza di archiviazione di backup configurabile per il database SQL di Azure è attualmente disponibile in anteprima pubblica in Brasile meridionale e disponibile a livello generale nell'area di Azure dell'Asia sudorientale. Questa funzionalità non è ancora disponibile per il livello iperscalabile. 
 
 ### <a name="backup-usage"></a>Utilizzo backup
 
@@ -371,7 +371,7 @@ Per altre informazioni, vedere [Backup Retention REST API](/rest/api/sql/backups
 ## <a name="configure-backup-storage-redundancy"></a>Configurare la ridondanza dell'archiviazione di backup
 
 > [!NOTE]
-> La ridondanza di archiviazione configurabile per i backup di SQL Istanza gestita può essere specificata solo durante il processo di creazione dell'istanza gestita. Una volta eseguito il provisioning della risorsa, non è possibile modificare l'opzione di ridondanza dell'archiviazione di backup. Per il database SQL, l'anteprima pubblica di questa funzionalità è attualmente disponibile solo nell'area di Azure Asia sudorientale. 
+> La ridondanza di archiviazione configurabile per i backup di SQL Istanza gestita può essere specificata solo durante il processo di creazione dell'istanza gestita. Una volta eseguito il provisioning della risorsa, non è possibile modificare l'opzione di ridondanza dell'archiviazione di backup. Per il database SQL, la versione di anteprima pubblica di questa funzionalità è attualmente disponibile in Brasile meridionale ed è disponibile a livello generale nell'area di Azure Asia sudorientale. 
 
 Una ridondanza di archiviazione di backup di un'istanza gestita può essere impostata solo durante la creazione dell'istanza. Per un database SQL può essere impostato durante la creazione del database oppure può essere aggiornato per un database esistente. Il valore predefinito è archiviazione con ridondanza geografica (RA-GRS). Per le differenze tra i prezzi tra archiviazione con ridondanza locale (con ridondanza locale), con ridondanza della zona (ZRS) e archiviazione con ridondanza geografica (RA-GRS), vedere la [pagina dei prezzi delle istanze gestite](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 

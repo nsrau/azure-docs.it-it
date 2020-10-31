@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/30/2020
 ms.author: aahi
-ms.openlocfilehash: 9a8e0dde8b24c39180a584c26af725ab82ea0176
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e77b5ea2bbd5bae79295a5680fa6e143efa5e99
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907110"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131531"
 ---
 # <a name="use-computer-vision-container-with-kubernetes-and-helm"></a>Usare Visione artificiale contenitore con Kubernetes e Helm
 
@@ -25,12 +25,12 @@ Un'opzione per gestire i contenitori di Visione artificiale in locale consiste n
 
 I prerequisiti seguenti prima di usare Visione artificiale contenitori in locale:
 
-| Obbligatoria | Scopo |
+| Necessario | Scopo |
 |----------|---------|
 | Account Azure | Se non si ha una sottoscrizione di Azure, creare un [account gratuito][free-azure-account] prima di iniziare. |
 | INTERFACCIA della riga di comando Kubernetes | L' [interfaccia][kubernetes-cli] della riga di comando di Kubernetes è necessaria per gestire le credenziali condivise dal registro contenitori. Kubernetes è necessario anche prima di Helm, ovvero Kubernetes Package Manager. |
 | Interfaccia della riga di comando di Helm | Installare l' [interfaccia][helm-install]della riga di comando di Helm, che viene usata per installare un grafico Helm (definizione del pacchetto del contenitore). |
-| Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **visione artificiale** di Azure e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica**|
+| Risorsa Visione artificiale |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa **visione artificiale** di Azure e la chiave API associata l'URI dell'endpoint. Entrambi i valori sono disponibili nelle pagine Panoramica e chiavi per la risorsa e sono necessari per avviare il contenitore.<br><br>**{API_KEY}** : una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : endpoint fornito nella pagina **Panoramica**|
 
 [!INCLUDE [Gathering required parameters](../containers/includes/container-gathering-required-parameters.md)]
 
@@ -46,56 +46,15 @@ I prerequisiti seguenti prima di usare Visione artificiale contenitori in locale
 
 Il computer host dovrebbe avere un cluster Kubernetes disponibile. Per informazioni concettuali su come distribuire un cluster Kubernetes in un computer host, vedere questa esercitazione sulla [distribuzione di un cluster Kubernetes](../../aks/tutorial-kubernetes-deploy-cluster.md) . È possibile trovare altre informazioni sulle distribuzioni nella [documentazione di Kubernetes](https://kubernetes.io/docs/concepts/workloads/controllers/deployment/).
 
-### <a name="sharing-docker-credentials-with-the-kubernetes-cluster"></a>Condivisione di credenziali Docker con il cluster Kubernetes
-
-Per consentire al cluster Kubernetes di `docker pull` accedere alle immagini configurate dal `containerpreview.azurecr.io` Registro contenitori, è necessario trasferire le credenziali Docker nel cluster. Eseguire il [`kubectl create`][kubectl-create] comando seguente per creare un *segreto del registro Docker* in base alle credenziali fornite dal prerequisito di accesso del registro contenitori.
-
-Dall'interfaccia della riga di comando desiderata, eseguire il comando seguente. Assicurarsi di sostituire `<username>` , `<password>` e `<email-address>` con le credenziali del registro contenitori.
-
-```console
-kubectl create secret docker-registry containerpreview \
-    --docker-server=containerpreview.azurecr.io \
-    --docker-username=<username> \
-    --docker-password=<password> \
-    --docker-email=<email-address>
-```
-
-> [!NOTE]
-> Se si ha già accesso al `containerpreview.azurecr.io` Registro contenitori, è possibile creare un segreto Kubernetes usando invece il flag generico. Si consideri il comando seguente che viene eseguito sul file JSON di configurazione di Docker.
-> ```console
->  kubectl create secret generic containerpreview \
->      --from-file=.dockerconfigjson=~/.docker/config.json \
->      --type=kubernetes.io/dockerconfigjson
-> ```
-
-Il seguente output viene stampato nella console quando il segreto è stato creato correttamente.
-
-```console
-secret "containerpreview" created
-```
-
-Per verificare che la chiave privata sia stata creata, eseguire [`kubectl get`][kubectl-get] con il `secrets` flag.
-
-```console
-kubectl get secrets
-```
-
-L'esecuzione di `kubectl get secrets` Stampa tutti i segreti configurati.
-
-```console
-NAME                  TYPE                                  DATA      AGE
-containerpreview      kubernetes.io/dockerconfigjson        1         30s
-```
-
 ## <a name="configure-helm-chart-values-for-deployment"></a>Configurare i valori del grafico Helm per la distribuzione
 
-Per iniziare, creare una cartella denominata *Read*. Incollare quindi il contenuto YAML seguente in un nuovo file denominato `chart.yaml` :
+Per iniziare, creare una cartella denominata *Read* . Incollare quindi il contenuto YAML seguente in un nuovo file denominato `chart.yaml` :
 
 ```yaml
 apiVersion: v2
 name: read
 version: 1.0.0
-description: A Helm chart to deploy the microsoft/cognitive-services-read to a Kubernetes cluster
+description: A Helm chart to deploy the Read OCR container to a Kubernetes cluster
 dependencies:
 - name: rabbitmq
   condition: read.image.args.rabbitmq.enabled
@@ -111,15 +70,13 @@ Per configurare i valori predefiniti del grafico Helm, copiare e incollare il co
 
 ```yaml
 # These settings are deployment specific and users can provide customizations
-
 read:
   enabled: true
   image:
     name: cognitive-services-read
-    registry:  containerpreview.azurecr.io/
-    repository: microsoft/cognitive-services-read
-    tag: latest
-    pullSecret: containerpreview # Or an existing secret
+    registry:  mcr.microsoft.com/
+    repository: azure-cognitive-services/vision/read
+    tag: 3.1-preview
     args:
       eula: accept
       billing: # {ENDPOINT_URI}
@@ -227,15 +184,15 @@ Il modello specifica un servizio di bilanciamento del carico e la distribuzione 
 
 ### <a name="the-kubernetes-package-helm-chart"></a>Pacchetto di Kubernetes (grafico Helm)
 
-Il *grafico Helm* contiene la configurazione dell'immagine o delle immagini Docker da estrarre dal `containerpreview.azurecr.io` Registro contenitori.
+Il *grafico Helm* contiene la configurazione dell'immagine o delle immagini Docker da estrarre dal `mcr.microsoft.com` Registro contenitori.
 
 > Un [grafico Helm][helm-charts] è una raccolta di file che descrivono un set correlato di risorse Kubernetes. Un singolo grafico può essere usato per distribuire elementi semplici, ad esempio un pod Memcache, o un elemento complesso, ad esempio uno stack di app Web completo con server HTTP, database, cache e così via.
 
-I *grafici Helm* forniti tirano le immagini docker del servizio visione artificiale e il servizio corrispondente dal `containerpreview.azurecr.io` Registro contenitori.
+I *grafici Helm* forniti tirano le immagini docker del servizio visione artificiale e il servizio corrispondente dal `mcr.microsoft.com` Registro contenitori.
 
 ## <a name="install-the-helm-chart-on-the-kubernetes-cluster"></a>Installare il grafico Helm nel cluster Kubernetes
 
-Per installare il *grafico Helm*, è necessario eseguire il [`helm install`][helm-install-cmd] comando. Assicurarsi di eseguire il comando install dalla directory sopra la `read` cartella.
+Per installare il *grafico Helm* , è necessario eseguire il [`helm install`][helm-install-cmd] comando. Assicurarsi di eseguire il comando install dalla directory sopra la `read` cartella.
 
 ```console
 helm install read ./read

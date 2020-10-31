@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 08/07/2020
-ms.openlocfilehash: 48f178a74dea0403ff8926cf34fd64cdd9c6839f
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 416e6cb29ab2816d53cb837f72233a9fe098f659
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92072000"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131378"
 ---
 # <a name="azure-stream-analytics-data-errors"></a>Errori dei dati di Analisi di flusso di Azure
 
@@ -168,7 +168,7 @@ Vedere [risolvere i problemi di analisi di flusso di Azure usando i log di diagn
 * Motivo: la differenza tra il tempo applicazione e l'ora di arrivo è maggiore della finestra di tolleranza per arrivo in ritardo.
 * Notifica del portale fornita: No
 * Livello di log delle risorse: informazioni
-* Impact: gli eventi di input tardivi vengono gestiti in base all'impostazione "Gestisci altri eventi" nella sezione relativa all'ordinamento degli eventi della configurazione del processo. Per altre informazioni, vedere [criteri di gestione del tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Impact: gli eventi di input tardivi vengono gestiti in base all'impostazione "Gestisci altri eventi" nella sezione relativa all'ordinamento degli eventi della configurazione del processo. Per altre informazioni, vedere [criteri di gestione del tempo](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Dettagli del log
    * Tempo applicazione e ora di arrivo. 
    * Payload effettivo fino a pochi kilobyte.
@@ -184,7 +184,7 @@ Vedere [risolvere i problemi di analisi di flusso di Azure usando i log di diagn
 * Motivo: la differenza tra il tempo applicazione e l'ora di arrivo è maggiore di 5 minuti.
 * Notifica del portale fornita: No
 * Livello di log delle risorse: informazioni
-* Impact: gli eventi di input iniziali vengono gestiti in base all'impostazione "Gestisci altri eventi" nella sezione relativa all'ordinamento degli eventi della configurazione del processo. Per altre informazioni, vedere [criteri di gestione del tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Impact: gli eventi di input iniziali vengono gestiti in base all'impostazione "Gestisci altri eventi" nella sezione relativa all'ordinamento degli eventi della configurazione del processo. Per altre informazioni, vedere [criteri di gestione del tempo](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Dettagli del log
    * Tempo applicazione e ora di arrivo. 
    * Payload effettivo fino a pochi kilobyte.
@@ -200,7 +200,7 @@ Vedere [risolvere i problemi di analisi di flusso di Azure usando i log di diagn
 * Motivo: l'evento viene considerato non in ordine in base alla finestra di tolleranza per elementi non in ordine definita.
 * Notifica del portale fornita: No
 * Livello di log delle risorse: informazioni
-* Impact: gli eventi non in ordine vengono gestiti in base all'impostazione "Gestisci altri eventi" nella sezione relativa all'ordinamento degli eventi della configurazione del processo. Per altre informazioni, vedere [criteri di gestione del tempo](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+* Impact: gli eventi non in ordine vengono gestiti in base all'impostazione "Gestisci altri eventi" nella sezione relativa all'ordinamento degli eventi della configurazione del processo. Per altre informazioni, vedere [criteri di gestione del tempo](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
 * Dettagli del log
    * Payload effettivo fino a pochi kilobyte.
 
@@ -221,7 +221,7 @@ Esistono diversi errori relativi ai dati che possono essere rilevati solo dopo l
 * Motivo: la colonna necessaria per l'output non esiste. Ad esempio, è presente una colonna definita come tabella di Azure PartitionKey richiesto non.
 * Notifica del portale fornita: Sì
 * Livello di log delle risorse: avviso
-* Impact: tutti gli errori di conversione dei dati di output, inclusa la colonna mancante obbligatoria, vengono gestiti in base all'impostazione dei [criteri di output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Impact: tutti gli errori di conversione dei dati di output, inclusa la colonna mancante obbligatoria, vengono gestiti in base all'impostazione dei [criteri di output](./stream-analytics-output-error-policy.md) .
 * Dettagli del log
    * Nome della colonna e identificatore del record o parte del record.
 
@@ -236,7 +236,7 @@ Esistono diversi errori relativi ai dati che possono essere rilevati solo dopo l
 * Motivo: il valore della colonna non è conforme all'output. Ad esempio, il nome della colonna non è una colonna di tabella di Azure valida.
 * Notifica del portale fornita: Sì
 * Livello di log delle risorse: avviso
-* Impact: tutti gli errori di conversione dei dati di output, incluso il nome di colonna non valido, vengono gestiti in base all'impostazione dei [criteri di output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Impact: tutti gli errori di conversione dei dati di output, incluso il nome di colonna non valido, vengono gestiti in base all'impostazione dei [criteri di output](./stream-analytics-output-error-policy.md) .
 * Dettagli del log
    * Nome della colonna e identificatore del record o parte del record.
 
@@ -251,7 +251,7 @@ Esistono diversi errori relativi ai dati che possono essere rilevati solo dopo l
 * Motivo: una colonna non può essere convertita in un tipo valido nell'output. Il valore della colonna, ad esempio, non è compatibile con i vincoli o il tipo definito nella tabella SQL.
 * Notifica del portale fornita: Sì
 * Livello di log delle risorse: avviso
-* Impact: tutti gli errori di conversione dei dati di output, incluso l'errore di conversione del tipo, vengono gestiti in base all'impostazione dei [criteri di output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Impact: tutti gli errori di conversione dei dati di output, incluso l'errore di conversione del tipo, vengono gestiti in base all'impostazione dei [criteri di output](./stream-analytics-output-error-policy.md) .
 * Dettagli del log
    * Nome della colonna.
    * Identificatore del record o parte del record.
@@ -267,7 +267,7 @@ Esistono diversi errori relativi ai dati che possono essere rilevati solo dopo l
 * Motivo: il valore del messaggio è maggiore della dimensione di output supportata. Ad esempio, un record è più grande di 1 MB per un output di hub eventi.
 * Notifica del portale fornita: Sì
 * Livello di log delle risorse: avviso
-* Impact: tutti gli errori di conversione dei dati di output, incluso il limite massimo delle dimensioni del record, vengono gestiti in base all'impostazione dei [criteri di output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Impact: tutti gli errori di conversione dei dati di output, incluso il limite massimo delle dimensioni del record, vengono gestiti in base all'impostazione dei [criteri di output](./stream-analytics-output-error-policy.md) .
 * Dettagli del log
    * Identificatore del record o parte del record.
 
@@ -282,7 +282,7 @@ Esistono diversi errori relativi ai dati che possono essere rilevati solo dopo l
 * Motivo: un record contiene già una colonna con lo stesso nome di una colonna di sistema. Ad esempio, CosmosDB output con una colonna denominata ID quando la colonna ID corrisponde a una colonna diversa.
 * Notifica del portale fornita: Sì
 * Livello di log delle risorse: avviso
-* Impact: tutti gli errori di conversione dei dati di output, inclusa la chiave duplicata, vengono gestiti in base all'impostazione dei [criteri di output](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-output-error-policy) .
+* Impact: tutti gli errori di conversione dei dati di output, inclusa la chiave duplicata, vengono gestiti in base all'impostazione dei [criteri di output](./stream-analytics-output-error-policy.md) .
 * Dettagli del log
    * Nome della colonna.
    * Identificatore del record o parte del record.

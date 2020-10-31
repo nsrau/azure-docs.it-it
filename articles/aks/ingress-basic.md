@@ -5,12 +5,12 @@ description: Informazioni su come installare e configurare un controller di ingr
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: b7a741a8193271fe8a297f7b2d13f6317b35f87c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9b51ee2767a9595f5732f558cfa25f5064944e49
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461482"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131191"
 ---
 # <a name="create-an-ingress-controller-in-azure-kubernetes-service-aks"></a>Creare un controller di ingresso del servizio Azure Kubernetes
 
@@ -33,15 +33,15 @@ Questo articolo richiede anche l'esecuzione dell'interfaccia della riga di coman
 
 ## <a name="create-an-ingress-controller"></a>Creare un controller di ingresso
 
-Per creare il controller di ingresso, usare Helm per installare *nginx-ingress*. Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster servizio Azure Kubernetes siano presenti più nodi.
+Per creare il controller di ingresso, usare Helm per installare *nginx-ingress* . Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster servizio Azure Kubernetes siano presenti più nodi.
 
 Il controller di ingresso deve anche essere pianificato in un nodo Linux. I nodi di Windows Server non devono eseguire il controller di ingresso. Un selettore di nodo viene specificato con il parametro `--set nodeSelector` per indicare all'utilità di pianificazione Kubernetes di eseguire il controller di ingresso NGINX in un nodo basato su Linux.
 
 > [!TIP]
-> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate *ingress-Basic*. Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze.
+> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate *ingress-Basic* . Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze.
 
 > [!TIP]
-> Per abilitare la [conservazione dell'indirizzo IP di origine client][client-source-ip] per le richieste ai contenitori nel cluster, aggiungere `--set controller.service.externalTrafficPolicy=Local` al comando Helm install. L'IP di origine del client viene archiviato nell'intestazione della richiesta sotto *X-inoltred-for*. Quando si usa un controller di ingresso con la conservazione IP dell'origine client abilitata, il pass-through SSL non funzionerà.
+> Per abilitare la [conservazione dell'indirizzo IP di origine client][client-source-ip] per le richieste ai contenitori nel cluster, aggiungere `--set controller.service.externalTrafficPolicy=Local` al comando Helm install. L'IP di origine del client viene archiviato nell'intestazione della richiesta sotto *X-inoltred-for* . Quando si usa un controller di ingresso con la conservazione IP dell'origine client abilitata, il pass-through SSL non funzionerà.
 
 ```console
 # Create a namespace for your ingress resources
@@ -93,7 +93,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld-one
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -131,7 +131,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld-two
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -223,11 +223,11 @@ ingress.extensions/hello-world-ingress-static created
 
 ## <a name="test-the-ingress-controller"></a>Testare il controller di ingresso
 
-Per testare le route per il controller di ingresso, passare alle due applicazioni. Aprire un Web browser all'indirizzo IP del controller di ingresso NGINX, ad esempio *EXTERNAL_IP*. La prima applicazione demo viene visualizzata nel Web browser, come illustrato nell'esempio seguente:
+Per testare le route per il controller di ingresso, passare alle due applicazioni. Aprire un Web browser all'indirizzo IP del controller di ingresso NGINX, ad esempio *EXTERNAL_IP* . La prima applicazione demo viene visualizzata nel Web browser, come illustrato nell'esempio seguente:
 
 ![Prima app in esecuzione dietro al controller di ingresso](media/ingress-basic/app-one.png)
 
-Aggiungere ora il percorso */Hello-World-Two* all'indirizzo IP, ad esempio *EXTERNAL_IP/Hello-World-Two*. Viene visualizzata la seconda applicazione demo con il titolo personalizzato:
+Aggiungere ora il percorso */Hello-World-Two* all'indirizzo IP, ad esempio *EXTERNAL_IP/Hello-World-Two* . Viene visualizzata la seconda applicazione demo con il titolo personalizzato:
 
 ![Seconda app in esecuzione dietro al controller di ingresso](media/ingress-basic/app-two.png)
 
@@ -245,7 +245,7 @@ kubectl delete namespace ingress-basic
 
 ### <a name="delete-resources-individually"></a>Elimina risorse singolarmente
 
-In alternativa, un approccio più granulare consiste nell'eliminare le singole risorse create. Elencare le versioni Helm con il `helm list` comando. Cercare i grafici denominati *nginx-ingress* e *aks-helloworld*, come illustrato nell'output di esempio seguente:
+In alternativa, un approccio più granulare consiste nell'eliminare le singole risorse create. Elencare le versioni Helm con il `helm list` comando. Cercare i grafici denominati *nginx-ingress* e *aks-helloworld* , come illustrato nell'output di esempio seguente:
 
 ```
 $ helm list --namespace ingress-basic

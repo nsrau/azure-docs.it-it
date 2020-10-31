@@ -7,12 +7,12 @@ ms.topic: article
 author: emuench
 ms.author: navits
 ms.date: 07/17/2020
-ms.openlocfilehash: 10137e59e0ea06fa785fccc215c867b6d8c0cb76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9685081c0beacd745a83067b9d9876384933377
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91651157"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131242"
 ---
 # <a name="appsource-dynamics-365-finance-and-operations-functional-validation"></a>Convalida funzionale AppSource Dynamics 365 Finance and Operations
 
@@ -22,7 +22,7 @@ Per completare una prima pubblicazione nel [centro](https://partner.microsoft.co
 - Sono presenti schermate che illustrano l'ambiente di [Servizi ciclo](https://lcs.dynamics.com/) di vita (LCS) della soluzione.
 
 > [!NOTE]
-> Le successive pubblicazioni di ricertificazione non richiedono la dimostrazione. Per altre informazioni, vedere il [documento dei criteri di AppSource](https://docs.microsoft.com/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops).
+> Le successive pubblicazioni di ricertificazione non richiedono la dimostrazione. Per altre informazioni, vedere il [documento dei criteri di AppSource](/legal/marketplace/certification-policies#1440-dynamics-365-finance-ops).
 
 ## <a name="how-to-validate"></a>Come convalidare
 
@@ -50,11 +50,11 @@ Per pianificare una chiamata di revisione finale, contattare [appsourceCRM@micro
 
 2. Eseguire le schermate seguenti dell'ambiente [LCS](https://lcs.dynamics.com/) che corrispondono all'offerta o alla soluzione che si vuole pubblicare. Devono essere sufficientemente chiare da consentire al team di certificazione di leggere il testo. Salvare le schermate come file JPG. È possibile fornire [appSourceCRM@microsoft.com](mailto:appSourceCRM@microsoft.com) l'autorizzazione per l'ambiente LCS, in modo che sia possibile verificare la configurazione invece di fornire schermate.
 
-    1. Passare alla libreria del progetto **LCS**  >  **Business Process Modeler**  >  **Project library**. Eseguire screenshot di tutti i passaggi del processo. Includere i **diagrammi** e le colonne **rivedute** , come illustrato di seguito:
+    1. Passare alla libreria del progetto **LCS**  >  **Business Process Modeler**  >  **Project library** . Eseguire screenshot di tutti i passaggi del processo. Includere i **diagrammi** e le colonne **rivedute** , come illustrato di seguito:
 
        :::image type="content" source="media/dynamics-365-finance-operations/project-library.png" alt-text="Mostra la finestra libreria del progetto.":::
 
-      2. Passare a **LCS**  >  **soluzione Gestione**  >  **test pacchetto soluzione**. Eseguire screenshot che includono la panoramica e il contenuto dei pacchetti illustrati negli esempi seguenti:
+      2. Passare a **LCS**  >  **soluzione Gestione**  >  **test pacchetto soluzione** . Eseguire screenshot che includono la panoramica e il contenuto dei pacchetti illustrati negli esempi seguenti:
 
     | Campo | Immagine <img src="" width="400px">|
     | --- | --- |
@@ -65,7 +65,7 @@ Per pianificare una chiamata di revisione finale, contattare [appsourceCRM@micro
     | <ul><li>Modello di report Power BI</li><li>Elemento BPM</li></ul><br>Gli artefatti non sono necessari nella sezione **Power bi** . | [![Schermata contenuto pacchetto tre](media/dynamics-365-finance-operations/package-contents-3-45.png)](media/dynamics-365-finance-operations/package-contents-3.png#lightbox) |
     | <ul><li>Elabora pacchetto dati</li><li>Contratto di licenza della soluzione e informativa sulla privacy</li></ul><br>Le sezioni **configurazione GER** e **modello di report Power bi** sono facoltative da includere per le offerte per Finanza e operazioni. | [![Schermata del contenuto del pacchetto quattro](media/dynamics-365-finance-operations/package-contents-4-45.png)](media/dynamics-365-finance-operations/package-contents-4.png#lightbox) |
 
-    Per ulteriori informazioni su ogni sezione del portale di LCS, vedere il [manuale dell'utente di LCS](https://docs.microsoft.com/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
+    Per ulteriori informazioni su ogni sezione del portale di LCS, vedere il [manuale dell'utente di LCS](/dynamics365/fin-ops-core/dev-itpro/lifecycle-services/lcs-user-guide).
 
 3. Caricare nel centro per i partner.
 
@@ -76,4 +76,4 @@ Per pianificare una chiamata di revisione finale, contattare [appsourceCRM@micro
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sulla creazione di un'offerta, vedere: [creare un'offerta di Dynamics 365 per le operazioni](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-new-operations-offer).
+Per informazioni sulla creazione di un'offerta, vedere: [creare un'offerta di Dynamics 365 per le operazioni](./partner-center-portal/create-new-operations-offer.md).

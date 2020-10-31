@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 61ced7eda78d3ce56d78dfd6cc54e0e92d376e68
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0b79fa22d3203504e63161aba03b32830d74d016
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100678"
+ms.locfileid: "93131276"
 ---
 # <a name="remove-vms-from-change-tracking-and-inventory"></a>Rimuovere macchine virtuali da Rilevamento modifiche e inventario
 
@@ -22,7 +22,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="to-remove-your-vms"></a>Per rimuovere le macchine virtuali
 
-1. Nel portale di Azure avviare **cloud Shell** dalla parte superiore della portale di Azure. Se non si ha familiarità con Azure Cloud Shell, vedere [Panoramica di Azure cloud Shell](/azure/cloud-shell/overview).
+1. Nel portale di Azure avviare **cloud Shell** dalla parte superiore della portale di Azure. Se non si ha familiarità con Azure Cloud Shell, vedere [Panoramica di Azure cloud Shell](../../cloud-shell/overview.md).
 
 2. Usare il comando seguente per identificare l'UUID di un computer che si vuole rimuovere dalla gestione.
 

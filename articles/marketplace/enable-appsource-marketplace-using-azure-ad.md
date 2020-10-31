@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/24/2020
-ms.openlocfilehash: a6e304e5ffeab8f0a44cbdfe1566465f2b9bf34a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c70d976a05cbeed058243829d0658693341636e9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88607423"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131208"
 ---
 # <a name="integrate-your-commercial-marketplace-listing-with-azure-active-directory"></a>Integrare l'inserzione del marketplace commerciale con Azure Active Directory
 
@@ -80,8 +80,8 @@ Se non si ha familiarità con l'uso dell'accesso Single Sign-On (SSO) federato d
 
 Usare Azure AD per supportare una delle azioni seguenti:
 
-- Aggiungere utenti guest alla directory tramite [Azure AD B2B](../active-directory/b2b/what-is-b2b.md).
-- Configurare manualmente le versioni di valutazione per i clienti mediante l'opzione di pubblicazione **Contattami**.
+- Aggiungere utenti guest alla directory tramite [Azure AD B2B](../active-directory/external-identities/what-is-b2b.md).
+- Configurare manualmente le versioni di valutazione per i clienti mediante l'opzione di pubblicazione **Contattami** .
 - Sviluppare una test drive per ogni cliente.
 - Creare un'app demo di esempio multi-tenant che usa SSO.
 

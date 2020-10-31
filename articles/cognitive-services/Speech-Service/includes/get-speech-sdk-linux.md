@@ -4,16 +4,16 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/03/2020
 ms.author: trbye
-ms.openlocfilehash: a93c478f0621bf62b710f58f3e6f06298bad9954
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d0298bcd675b1b94999dab3a1ad1c40a6feb7438
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83673051"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93136053"
 ---
 :::row:::
     :::column span="3":::
-        Speech SDK supporta solo **Ubuntu 16.04/18.04**, **Debian 9**, **Red Hat Enterprise Linux (RHEL) 7/8**e **CentOS 7/8** nelle seguenti architetture di destinazione se usate con Linux:
+        Speech SDK supporta solo **Ubuntu 16.04/18.04/20.04** , **Debian 9/10** , **Red Hat Enterprise Linux (RHEL) 7/8** e **CentOS 7/8** sulle seguenti architetture di destinazione se usate con Linux:
     :::column-end:::
     :::column:::
         <br>
@@ -39,19 +39,25 @@ Per un'applicazione nativa, l'SDK di riconoscimento vocale si basa su `libMicros
 - Libreria OpenSSL ( `libssl.so.1.0.0` o `libssl.so.1.0.2` )
 - La libreria condivisa per le applicazioni ALSA (`libasound.so.2`)
 
-# <a name="ubuntu-16041804"></a>[Ubuntu 16.04/18.04](#tab/ubuntu)
+# <a name="ubuntu-160418042004"></a>[Ubuntu 16.04/18.04/20.04](#tab/ubuntu)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.0 libasound2
 ```
 
-# <a name="debian-9"></a>[Debian 9](#tab/debian)
+> [!NOTE]
+> Se libssl 1.0. x non è disponibile, installare invece libssl 1.1.
+
+# <a name="debian-910"></a>[Debian 9/10](#tab/debian)
 
 ```Bash
 sudo apt-get update
 sudo apt-get install build-essential libssl1.0.2 libasound2
 ```
+
+> [!NOTE]
+> Se libssl 1.0. x non è disponibile, installare invece libssl 1.1.
 
 # <a name="rhel-78-and-centos-78"></a>[RHEL 7/8 e CentOS 7/8](#tab/rhel-centos)
 
