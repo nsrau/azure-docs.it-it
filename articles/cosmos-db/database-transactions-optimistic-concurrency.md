@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 17c01188f783664747b7c20b9703ee5d33a8ab3f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c1ecd3a3d29d6876a59a2fa039802966f348a09d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278726"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089832"
 ---
 # <a name="transactions-and-optimistic-concurrency-control"></a>Transazioni e controllo della concorrenza ottimistica
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Le transazioni di database offrono un modello di programmazione sicuro e prevedibile per gestire le modifiche simultanee ai dati. I database relazionali tradizionali, come SQL Server, consentono di scrivere la logica di business utilizzando stored procedure e/o trigger, inviarli al server per l'esecuzione direttamente nel motore di database. Con i database relazionali tradizionali, è necessario gestire due linguaggi di programmazione diversi, ovvero il linguaggio di programmazione delle applicazioni (non transazionale), ad esempio JavaScript, Python, C#, Java e così via, e il linguaggio di programmazione transazionale (ad esempio, T-SQL) eseguito in modo nativo dal database.
 

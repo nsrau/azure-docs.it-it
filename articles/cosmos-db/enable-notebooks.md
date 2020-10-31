@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2019
 ms.author: dech
-ms.openlocfilehash: 4c485bf6b9eb34e68e399c24e51286428f47586f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf8da4379a7770e44e86663c02cc7a57da9d3452
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85261903"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089781"
 ---
 # <a name="enable-notebooks-for-azure-cosmos-db-accounts-preview"></a>Abilitare i notebook per gli account Azure Cosmos DB (anteprima)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]
 > I notebook predefiniti per Azure Cosmos DB sono attualmente disponibili nelle aree di Azure seguenti: Australia orientale, Stati Uniti orientali, Stati Uniti orientali 2, Europa settentrionale, Stati Uniti centro-meridionali, Asia sudorientale, Regno Unito meridionale, Europa occidentale e Stati Uniti occidentali 2. Per usare i notebook, [creare un nuovo account con notebook](#enable-notebooks-in-a-new-cosmos-account) o [abilitare notebook in un account esistente](#enable-notebooks-in-an-existing-cosmos-account) in una di queste aree.
@@ -23,13 +24,13 @@ I notebook Jupyter predefiniti in Azure Cosmos DB consentono di analizzare e vis
 ## <a name="enable-notebooks-in-a-new-cosmos-account"></a>Abilitare i notebook in un nuovo account Cosmos
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-1. Selezionare **Crea una risorsa** > **Database** > **Azure Cosmos DB**.
-1. Nella pagina **Crea Account Azure Cosmos DB** selezionare **notebook**. 
+1. Selezionare **Crea una risorsa** > **Database** > **Azure Cosmos DB** .
+1. Nella pagina **Crea Account Azure Cosmos DB** selezionare **notebook** . 
  
     :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks.png" alt-text="Selezionare l'opzione Notebooks nel pannello Azure Cosmos DB crea":::
 
-1. Selezionare **Rivedi e crea**. È possibile ignorare l'opzione **rete** e **tag** . 
-1. Esaminare le impostazioni dell'account e quindi selezionare **Crea**. La creazione dell'account richiede alcuni minuti. Attendere che la pagina del portale visualizzi **La distribuzione è stata completata**. 
+1. Selezionare **Rivedi e crea** . È possibile ignorare l'opzione **rete** e **tag** . 
+1. Esaminare le impostazioni dell'account e quindi selezionare **Crea** . La creazione dell'account richiede alcuni minuti. Attendere che la pagina del portale visualizzi **La distribuzione è stata completata** . 
 
    :::image type="content" source="media/enable-notebooks/create-new-account-with-notebooks-complete.png" alt-text="Selezionare l'opzione Notebooks nel pannello Azure Cosmos DB crea":::
 
@@ -46,7 +47,7 @@ I notebook Jupyter predefiniti in Azure Cosmos DB consentono di analizzare e vis
 È anche possibile abilitare notebook per gli account esistenti. Questo passaggio deve essere eseguito solo una volta per ogni account.
 
 1. Passare al riquadro **Esplora dati** nell'account Cosmos.
-1. Selezionare **Abilita notebook**.
+1. Selezionare **Abilita notebook** .
 
     :::image type="content" source="media/enable-notebooks/enable-notebooks-workspace.png" alt-text="Selezionare l'opzione Notebooks nel pannello Azure Cosmos DB crea":::
 
@@ -57,7 +58,7 @@ I notebook Jupyter predefiniti in Azure Cosmos DB consentono di analizzare e vis
 
 Per verificare che sia possibile usare i notebook, selezionare uno dei notebook in notebook di esempio. Verrà salvata una copia del notebook nell'area di lavoro e la si aprirà.
 
-In questo esempio si userà **GettingStarted. ipynb**. 
+In questo esempio si userà **GettingStarted. ipynb** . 
 
 :::image type="content" source="media/enable-notebooks/select-getting-started-notebook.png" alt-text="Selezionare l'opzione Notebooks nel pannello Azure Cosmos DB crea":::
 

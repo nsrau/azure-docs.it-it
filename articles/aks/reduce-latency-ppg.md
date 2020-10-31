@@ -4,62 +4,31 @@ description: Informazioni su come usare i gruppi di posizionamento di prossimit�
 services: container-service
 manager: gwallace
 ms.topic: article
-ms.date: 07/10/2020
+ms.date: 10/19/2020
 author: jluk
-ms.openlocfilehash: 5b3dc3803cfb89f4a74d082b5913e69df1d03a00
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a96489495abe3bfbed3030b3e08ff121c5c7cddf
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87986713"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090798"
 ---
-# <a name="reduce-latency-with-proximity-placement-groups-preview"></a>Ridurre la latenza con gruppi di posizionamento vicini (anteprima)
+# <a name="reduce-latency-with-proximity-placement-groups"></a>Ridurre la latenza con gruppi di posizionamento vicini
 
 > [!Note]
 > Quando si usano i gruppi di posizionamento prossimità su AKS, la condivisione percorso si applica solo ai nodi dell'agente. È stato migliorato il nodo a nodo e il corrispondente Pod ospitato alla latenza pod. La condivisione percorso non influisce sulla posizione del piano di controllo di un cluster.
 
 Quando si distribuisce l'applicazione in Azure, la distribuzione di istanze di macchine virtuali (VM) tra aree o zone di disponibilità crea una latenza di rete, che può influisca sulle prestazioni complessive dell'applicazione. Un gruppo di posizionamento vicino è un raggruppamento logico usato per assicurarsi che le risorse di calcolo di Azure siano posizionate fisicamente tra loro. Alcune applicazioni come giochi, simulazioni ingegneristiche e trading ad alta frequenza (HFT) richiedono bassa latenza e attività che vengono completate rapidamente. Per gli scenari HPC (High Performance Computing) come questi, è consigliabile usare i [gruppi di posizionamento vicini](../virtual-machines/linux/co-location.md#proximity-placement-groups) per i pool di nodi del cluster.
 
-## <a name="limitations"></a>Limitazioni
+## <a name="before-you-begin"></a>Prima di iniziare
+
+Questo articolo richiede la versione 2,14 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure][azure-cli-install].
+
+### <a name="limitations"></a>Limitazioni
 
 * È possibile eseguire il mapping di un gruppo di posizionamento vicino a una zona di disponibilità.
 * Un pool di nodi deve usare i set di scalabilità di macchine virtuali per associare un gruppo di posizionamento di prossimità.
 * Un pool di nodi può associare un gruppo di posizionamento vicino al solo tempo di creazione del pool di nodi.
-
-[!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
-
-## <a name="before-you-begin"></a>Prima di iniziare
-
-Devono essere installate le risorse seguenti:
-
-- Estensione 0.4.53 AKS-Preview
-
-### <a name="set-up-the-preview-feature-for-proximity-placement-groups"></a>Configurare la funzionalità di anteprima per i gruppi di posizionamento vicino
-
-> [!IMPORTANT]
-> Quando si usano i gruppi di posizionamento prossimità con i pool di nodi AKS, la condivisione percorso si applica solo ai nodi dell'agente. È stato migliorato il nodo a nodo e il corrispondente Pod ospitato alla latenza pod. La condivisione percorso non influisce sulla posizione del piano di controllo di un cluster.
-
-```azurecli-interactive
-# register the preview feature
-az feature register --namespace "Microsoft.ContainerService" --name "ProximityPlacementGroupPreview"
-```
-
-Potrebbero essere necessari alcuni minuti per la registrazione. Usare il comando seguente per verificare che la funzionalità sia registrata:
-
-```azurecli-interactive
-# Verify the feature is registered:
-az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/ProximityPlacementGroupPreview')].{Name:name,State:properties.state}"
-```
-
-Durante l'anteprima, è necessaria l'estensione dell'interfaccia della riga di comando *AKS-Preview* per usare i gruppi di posizionamento di prossimità. Usare il comando [AZ Extension Add][az-extension-add] , quindi verificare la presenza di eventuali aggiornamenti disponibili usando il comando [AZ Extension Update][az-extension-update] :
-
-```azurecli-interactive
-# Install the aks-preview extension
-az extension add --name aks-preview
-
-# Update the extension to make sure you have the latest version installed
-az extension update --name aks-preview
-```
 
 ## <a name="node-pools-and-proximity-placement-groups"></a>Pool di nodi e gruppi di posizionamento di prossimità
 

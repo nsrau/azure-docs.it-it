@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 01/17/2020
 author: macolso
 ms.author: macolso
-ms.openlocfilehash: 1c45999dbb354e8c2d550be82cdf37a6694d2dbb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2cad98267ef1654c4f2d9ad2db75f769dbc0780
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825679"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091356"
 ---
 # <a name="encrypt-deployment-data"></a>Crittografare i dati della distribuzione
 
@@ -27,13 +27,13 @@ I dati in ACI vengono crittografati e decrittografati usando la crittografia AES
 |    |    chiavi gestite da Microsoft     |     Chiavi gestite dal cliente     |
 |----|----|----|
 |    **Operazioni di crittografia/decrittografia**    |    Azure    |    Azure    |
-|    **Archiviazione chiavi**    |    Archivio chiavi Microsoft    |    Insieme di credenziali chiave di Azure    |
+|    **Archiviazione chiavi**    |    Archivio chiavi Microsoft    |    Azure Key Vault    |
 |    **Responsabilità della rotazione delle chiavi**    |    Microsoft    |    Customer    |
 |    **Accesso alle chiavi**    |    Solo Microsoft    |    Microsoft, cliente    |
 
 Il resto del documento illustra i passaggi necessari per crittografare i dati di distribuzione ACI con la chiave (chiave gestita dal cliente). 
 
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
 ## <a name="encrypt-data-with-a-customer-managed-key"></a>Crittografare i dati con una chiave gestita dal cliente
 
@@ -73,7 +73,7 @@ Per le proprietà dell'insieme di credenziali delle chiavi, usare le linee guida
 
 ### <a name="generate-a-new-key"></a>Genera una nuova chiave 
 
-Dopo aver creato l'insieme di credenziali delle chiavi, passare alla risorsa in portale di Azure. Nel menu di spostamento a sinistra del pannello della risorsa, in impostazioni, fare clic su **chiavi**. Nella vista "chiavi", fare clic su "genera/importa" per generare una nuova chiave. Usare un nome univoco per questa chiave e qualsiasi altra preferenza in base ai requisiti. 
+Dopo aver creato l'insieme di credenziali delle chiavi, passare alla risorsa in portale di Azure. Nel menu di spostamento a sinistra del pannello della risorsa, in impostazioni, fare clic su **chiavi** . Nella vista "chiavi", fare clic su "genera/importa" per generare una nuova chiave. Usare un nome univoco per questa chiave e qualsiasi altra preferenza in base ai requisiti. 
 
 ![Genera una nuova chiave](./media/container-instances-encrypt-data/generate-key.png)
 
@@ -81,10 +81,10 @@ Dopo aver creato l'insieme di credenziali delle chiavi, passare alla risorsa in 
 
 Creare nuovi criteri di accesso per consentire al servizio ACI di accedere alla chiave.
 
-* Dopo che la chiave è stata generata, tornare al pannello delle risorse dell'insieme di credenziali delle chiavi, in impostazioni, fare clic su **criteri di accesso**.
-* Nella pagina "criteri di accesso" dell'insieme di credenziali delle chiavi fare clic su **Aggiungi criteri di accesso**.
+* Dopo che la chiave è stata generata, tornare al pannello delle risorse dell'insieme di credenziali delle chiavi, in impostazioni, fare clic su **criteri di accesso** .
+* Nella pagina "criteri di accesso" dell'insieme di credenziali delle chiavi fare clic su **Aggiungi criteri di accesso** .
 * Impostare le *autorizzazioni chiave* per includere le autorizzazioni **Get** e **Unwrap** Key ![ set Key](./media/container-instances-encrypt-data/set-key-permissions.png)
-* Per *Select Principal*selezionare il **servizio istanza di contenitore di Azure**
+* Per *Select Principal* selezionare il **servizio istanza di contenitore di Azure**
 * Fare clic su **Aggiungi** nella parte inferiore 
 
 I criteri di accesso dovrebbero ora essere visualizzati nei criteri di accesso dell'insieme di credenziali delle chiavi.

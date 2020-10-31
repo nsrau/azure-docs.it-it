@@ -10,14 +10,19 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: fa518900b05ba552cb066fbf55e4dbeaa6c681e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57edc16f4396e0fe71380d4f51fa9e0dcca1ef03
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86183206"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090818"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurare un'esperienza API Ricerca personalizzata Bing
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Un'istanza di Ricerca personalizzata consente di personalizzare l'esperienza di ricerca in modo da includere il contenuto solo dai siti Web a cui sono interessati gli utenti. Anziché eseguire una ricerca in tutto il Web, Bing esegue la ricerca solo nelle sezioni Web desiderate. Per creare una visualizzazione personalizzata del Web, usare il [portale](https://customsearch.ai) di Ricerca personalizzata Bing.
 
@@ -27,8 +32,8 @@ Quando si definiscono le sezioni Web, usare il comando seguente:
 
 | Nome della sezione | Descrizione                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dominio     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio: `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Se, ad esempio, si specifica `microsoft.com` , Bing restituisce anche i risultati da `support.microsoft.com` o `technet.microsoft.com` . |
-| Pagina secondaria    | La sezione di una pagina secondaria include tutto il contenuto disponibile nella pagina secondaria e i relativi percorsi. È possibile specificare un massimo di due pagine secondarie nel percorso. Ad esempio: `www.microsoft.com/en-us/windows/`                                                                                                                       |
+| Dominio     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Se, ad esempio, si specifica `microsoft.com` , Bing restituisce anche i risultati da `support.microsoft.com` o `technet.microsoft.com` . |
+| Pagina secondaria    | La sezione di una pagina secondaria include tutto il contenuto disponibile nella pagina secondaria e i relativi percorsi. È possibile specificare un massimo di due pagine secondarie nel percorso. Ad esempio, usare `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Pagina Web    | La sezione di una pagina Web può includere solo la pagina Web in una ricerca personalizzata. Facoltativamente, è possibile specificare se includere pagine secondarie.                                                                                                                                                                                  |
 
 > [!IMPORTANT]
@@ -57,7 +62,7 @@ Se non si è certi di quali sezioni includere, è possibile inviare le query di 
 
 Per specificare le sezioni del Web in cui si desidera effettuare la ricerca con Bing, fare clic sulla scheda **Active** (Attivo) e aggiungere uno o più URL. Per modificare o eliminare URL, usare le opzioni nella colonna **Controls** (Controlli). 
 
-Quando si aggiungono URL all'elenco **Active**(Elementi attivi), è possibile aggiungere singoli URL o più URL in una sola volta, caricando un file di testo usando l'icona di caricamento.
+Quando si aggiungono URL all'elenco **Active** (Elementi attivi), è possibile aggiungere singoli URL o più URL in una sola volta, caricando un file di testo usando l'icona di caricamento.
 
 ![Informazioni sulla scheda Active (Attivo) di Ricerca personalizzata Bing](media/file-upload-icon.png)
 
@@ -82,9 +87,9 @@ Queste API sono simili alle API non-personalizzate [Ricerca immagini Bing](../Bi
 
 È possibile testare l'istanza di ricerca usando il riquadro di anteprima sul lato destro del portale per inviare le query di ricerca e visualizzare i risultati. 
 
-1. Sotto la casella di ricerca, selezionare **My Instance**(Istanza personale). È possibile confrontare i risultati della propria esperienza di ricerca con Bing, selezionando **Bing**. 
+1. Sotto la casella di ricerca, selezionare **My Instance** (Istanza personale). È possibile confrontare i risultati della propria esperienza di ricerca con Bing, selezionando **Bing** . 
 2. Selezionare un filtro di ricerca sicura e il mercato in cui eseguire la ricerca. Vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) (Parametri di query).
-3. Immettere una query e premere INVIO o fare clic sull'icona di ricerca per visualizzare i risultati dalla configurazione corrente. È possibile modificare il tipo di ricerca da eseguire facendo clic su **Web**, **Image**(Immagine), o **Video** per ottenere i risultati corrispondenti. 
+3. Immettere una query e premere INVIO o fare clic sull'icona di ricerca per visualizzare i risultati dalla configurazione corrente. È possibile modificare il tipo di ricerca da eseguire facendo clic su **Web** , **Image** (Immagine), o **Video** per ottenere i risultati corrispondenti. 
 
 <a name="adjustrank"></a>
 
@@ -120,7 +125,7 @@ Il portale consente inoltre di aggiungere URL alla parte superiore dei risultati
 
 * Nella scheda **bloccata** immettere l'URL della pagina Web da aggiungere alla parte superiore e la query corrispondente.
 
-* Nel riquadro **Preview** (Anteprima) immettere un termine di query e fare clic sull'opzione di ricerca. Trovare la pagina Web che si vuole aggiungere per la query e fare clic su **Aggiungi alla parte superiore**. La pagina Web e la query verranno aggiunte all'elenco **Pinned** (Elementi aggiunti in alto).
+* Nel riquadro **Preview** (Anteprima) immettere un termine di query e fare clic sull'opzione di ricerca. Trovare la pagina Web che si vuole aggiungere per la query e fare clic su **Aggiungi alla parte superiore** . La pagina Web e la query verranno aggiunte all'elenco **Pinned** (Elementi aggiunti in alto).
 
 ### <a name="specify-the-pins-match-condition"></a>Indicare la condizione di corrispondenza dell'elemento aggiunto in alto
 

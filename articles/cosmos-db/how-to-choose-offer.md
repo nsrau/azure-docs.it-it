@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: dech
-ms.openlocfilehash: f7fd40c48f94b4337c5ec342499203f83763299b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: d8a6471d53ad4b2428504f9c53cbec6bc1967c49
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909931"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089640"
 ---
 # <a name="how-to-choose-between-standard-manual-and-autoscale-provisioned-throughput"></a>Come scegliere tra la velocità effettiva con provisioning standard (manuale) e la velocità effettiva con provisioning a scalabilità automatica 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB supporta due tipi o offerte di velocità effettiva con provisioning: standard (manuale) e a scalabilità automatica. Entrambi i tipi di velocità effettiva sono adatti per carichi di lavoro cruciali che richiedono scalabilità e prestazioni elevate e sono supportati dagli stessi contratti di servizio Azure Cosmos DB in merito a velocità effettiva, disponibilità, latenza e coerenza.
 
@@ -59,7 +60,7 @@ Determinare quindi il modo in cui l'utilizzo normalizzato varia nel tempo. Trova
 > [!TIP]
 > Se l'account è configurato per l'uso di scritture in più aree e ha più di un'area, la frequenza per 100 ur/sec è la stessa sia per la scalabilità manuale che per quella automatica. Ciò significa che l'abilitazione della scalabilità automatica non comporta costi aggiuntivi, indipendentemente dall'utilizzo. Di conseguenza, è sempre consigliabile usare la scalabilità automatica con scritture in più aree quando si dispone di più di un'area, per sfruttare i vantaggi offerti dal pagamento solo per le UR/sec a cui si applica la scalabilità dell'applicazione. Se si hanno Scritture in più aree e un'area, usare l'utilizzo medio per determinare se la scalabilità automatica provocherà risparmi sui costi. 
 
-#### <a name="examples"></a>Esempi
+#### <a name="examples"></a>Esempio
 
 Verranno ora esaminati due carichi di lavoro di esempio diversi e verranno analizzati se sono adatti per la velocità effettiva di scalabilità manuale o automatica. Per illustrare l'approccio generale, verranno analizzate tre ore di cronologia per determinare la differenza di costo tra l'uso della scalabilità manuale e automatica. Per i carichi di lavoro di produzione, è consigliabile usare da 7 a 30 giorni di cronologia (o più, se disponibile) per stabilire un modello di utilizzo di Ur/s.
 

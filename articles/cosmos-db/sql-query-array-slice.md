@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: a98cb17d22f41776ff788d12ced6aa988ad0b10e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c66e9ee2ff4b1c279e0fcc4e735be583cf55a2c8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303325"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089356"
 ---
 # <a name="array_slice-azure-cosmos-db"></a>ARRAY_SLICE (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Restituisce parte di un'espressione di matrice.
   
 ## <a name="syntax"></a>Sintassi
@@ -37,7 +39,7 @@ ARRAY_SLICE (<arr_expr>, <num_expr> [, <num_expr>])
   
   Restituisce un'espressione di matrice.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   Nell'esempio seguente viene illustrato come ottenere sezioni diverse di una matrice utilizzando `ARRAY_SLICE` .  
   

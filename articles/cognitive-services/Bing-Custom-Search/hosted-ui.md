@@ -11,14 +11,19 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 4a63a54f5ad4d1bcccecb1d1a4892ef55c238b92
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0033f4919e4e4e5e56e4057e00c393ae7be1ca44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319181"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090563"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurare l'esperienza dell'interfaccia utente ospitata
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Ricerca personalizzata Bing offre un'interfaccia utente ospitata che è possibile integrare facilmente in applicazioni Web e pagine Web come frammento di codice JavaScript. Tramite il portale di Ricerca personalizzata Bing è possibile configurare layout, colore e opzioni di ricerca dell'interfaccia utente.
 
@@ -100,7 +105,7 @@ Per altre informazioni, tra cui l'ID di configurazione personalizzato, vedere **
 - Risultati Web per pagina: numero di risultati della ricerca Web da visualizzare alla volta (il valore massimo è 50 risultati per pagina).
 - Didascalia immagine: determina se le immagini vengono visualizzate con i risultati della ricerca.
 
-Se si fa clic su **Mostra configurazioni avanzate**, vengono visualizzate le configurazioni seguenti:
+Se si fa clic su **Mostra configurazioni avanzate** , vengono visualizzate le configurazioni seguenti:
 
 - Highlight Words: determina se i risultati vengono visualizzati con i termini di ricerca in grassetto.
 - Destinazione collegamento: determina se la pagina Web viene aperta in una nuova scheda del browser (vuota) o nella stessa scheda del browser (self) quando l'utente fa clic su un risultato della ricerca.
@@ -130,7 +135,7 @@ Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzat
 
 Se si fa clic su **Show advanced configurations** (Mostra configurazioni avanzate), vengono visualizzate le configurazioni seguenti.  
 
-|Colonna1  |Colonna2  |
+|Colonna 1  |Colonna 2  |
 |---------|---------|
 |Search box text placeholder (Segnaposto del testo della casella di ricerca)   | Testo visualizzato nella casella di ricerca prima dell'input.        |
 |Title link URL (URL collegamento titolo)    |Destinazione per il collegamento del titolo.         |

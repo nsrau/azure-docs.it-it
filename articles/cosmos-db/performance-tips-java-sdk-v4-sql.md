@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: b14910bc37fc8f3d7f105f382de64ae52fd19a47
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 49827b7387edc1e914bbd58c63df2db74f4ed17b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475227"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091277"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB Java SDK v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -38,7 +39,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 * **Modalità di connessione: usare la modalità diretta**
 <a id="direct-connection"></a>
     
-    La modalità di connessione predefinita di Java SDK è diretta. È possibile configurare la modalità di connessione nel generatore client usando i metodi *directMode ()* o *gatewayMode ()* , come illustrato di seguito. Per configurare una delle modalità con le impostazioni predefinite, chiamare uno dei metodi senza argomenti. In caso contrario, passare un'istanza della classe delle impostazioni di configurazione come argomento (*DirectConnectionConfig* per *directMode ()*,  *GatewayConnectionConfig* per *gatewayMode ()*. Per ulteriori informazioni sulle diverse opzioni di connettività, vedere l'articolo relativo alle [modalità di connettività](sql-sdk-connection-modes.md) .
+    La modalità di connessione predefinita di Java SDK è diretta. È possibile configurare la modalità di connessione nel generatore client usando i metodi *directMode ()* o *gatewayMode ()* , come illustrato di seguito. Per configurare una delle modalità con le impostazioni predefinite, chiamare uno dei metodi senza argomenti. In caso contrario, passare un'istanza della classe delle impostazioni di configurazione come argomento ( *DirectConnectionConfig* per *directMode ()* ,  *GatewayConnectionConfig* per *gatewayMode ()* . Per ulteriori informazioni sulle diverse opzioni di connettività, vedere l'articolo relativo alle [modalità di connettività](sql-sdk-connection-modes.md) .
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -106,7 +107,7 @@ Per altri dettagli, vedere le istruzioni per [Windows](../virtual-network/create
 
 * **Usare il livello di coerenza minimo richiesto per l'applicazione**
 
-    Quando si crea un *CosmosClient*, la coerenza predefinita usata, se non impostata in modo esplicito, è *Session*. Se la coerenza *Session* non è richiesta dalla logica dell'applicazione, impostare *Consistency* su *Eventual*. Nota: è consigliabile impostare almeno la coerenza *Session* nelle applicazioni che usano il processore del feed di modifiche di Azure Cosmos DB.
+    Quando si crea un *CosmosClient* , la coerenza predefinita usata, se non impostata in modo esplicito, è *Session* . Se la coerenza *Session* non è richiesta dalla logica dell'applicazione, impostare *Consistency* su *Eventual* . Nota: è consigliabile impostare almeno la coerenza *Session* nelle applicazioni che usano il processore del feed di modifiche di Azure Cosmos DB.
 
 * **Usare l'API Async per la massima velocità effettiva di cui viene effettuato il provisioning**
 
@@ -148,13 +149,13 @@ Per altri dettagli, vedere le istruzioni per [Windows](../virtual-network/create
 
     In Azure Cosmos DB Java SDK v4 la modalità diretta è la scelta ottimale per migliorare le prestazioni del database con la maggior parte dei carichi di lavoro. 
 
-    * ***Panoramica della modalità diretta**_
+    * ***Panoramica della modalità diretta** _
 
         :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustrazione dei criteri di connessione di Azure Cosmos DB" border="false":::
 
-        L'architettura sul lato client usata in modalità diretta consente l'utilizzo di rete prevedibile e l'accesso in multiplex alle repliche di Azure Cosmos DB. Il diagramma precedente mostra in che modo la modalità diretta instrada le richieste dei client alle repliche nel back-end di Cosmos DB. L'architettura della modalità diretta alloca fino a 10 _*canali** sul lato client per replica di database. Un canale è una connessione TCP preceduta da un buffer di richieste, con una profondità di 30 richieste. I canali appartenenti a una replica vengono allocati dinamicamente in base alle esigenze dall'**endpoint di servizio** della replica. Quando l'utente invia una richiesta in modalità diretta, il **TransportClient** instrada la richiesta all'endpoint di servizio appropriato in base alla chiave di partizione. La **coda delle richieste** memorizza le richieste nel buffer prima dell'endpoint di servizio.
+        L'architettura sul lato client usata in modalità diretta consente l'utilizzo di rete prevedibile e l'accesso in multiplex alle repliche di Azure Cosmos DB. Il diagramma precedente mostra in che modo la modalità diretta instrada le richieste dei client alle repliche nel back-end di Cosmos DB. L'architettura della modalità diretta alloca fino a 10 _ *canali* * sul lato client per replica di database. Un canale è una connessione TCP preceduta da un buffer di richieste, con una profondità di 30 richieste. I canali appartenenti a una replica vengono allocati dinamicamente in base alle esigenze dall' **endpoint di servizio** della replica. Quando l'utente invia una richiesta in modalità diretta, il **TransportClient** instrada la richiesta all'endpoint di servizio appropriato in base alla chiave di partizione. La **coda delle richieste** memorizza le richieste nel buffer prima dell'endpoint di servizio.
 
-    * ***Opzioni di configurazione per la modalità diretta**_
+    * ***Opzioni di configurazione per la modalità diretta** _
 
         Se si desidera un comportamento della modalità diretta non predefinito, creare un'istanza di _DirectConnectionConfig * e personalizzarne le proprietà, quindi passare l'istanza della proprietà personalizzata al metodo *directMode ()* nel generatore client Azure Cosmos DB.
 
@@ -180,7 +181,7 @@ Per altri dettagli, vedere le istruzioni per [Windows](../virtual-network/create
 
         È importante notare che le query parallele producono i vantaggi migliori se i dati sono distribuiti uniformemente tra tutte le partizioni per quanto riguarda la query. Se la raccolta è partizionata in modo tale che tutti o la maggior parte dei dati restituiti da una query siano concentrati in alcune partizioni (una sola partizione nel peggiore dei casi), le prestazioni della query potrebbero essere limitate da tali partizioni.
 
-    _ ***Ottimizzazione setmaxbuffereditemcount sul \: **_
+    _ * **Ottimizzazione setmaxbuffereditemcount sul \:** _
     
         Parallel query is designed to pre-fetch results while the current batch of results is being processed by the client. The pre-fetching helps in overall latency improvement of a query. setMaxBufferedItemCount limits the number of pre-fetched results. Setting setMaxBufferedItemCount to the expected number of results returned (or a higher number) enables the query to receive maximum benefit from pre-fetching.
 
@@ -196,7 +197,7 @@ _ **Scalabilità orizzontale del carico di lavoro del client**
 
 * **Modificare le dimensioni di pagina per le query o i feed di lettura per ottenere prestazioni migliori**
 
-    Quando si esegue una lettura in blocco di documenti usando la funzionalità dei feed di lettura (ad esempio, *readItems*) oppure quando si esegue una query SQL (*queryItems*), i risultati vengono restituiti in modo segmentato se il set di risultati è troppo grande. Per impostazione predefinita, i risultati vengono restituiti in blocchi di 100 elementi o 1 MB, a seconda del limite che viene raggiunto prima.
+    Quando si esegue una lettura in blocco di documenti usando la funzionalità dei feed di lettura (ad esempio, *readItems* ) oppure quando si esegue una query SQL ( *queryItems* ), i risultati vengono restituiti in modo segmentato se il set di risultati è troppo grande. Per impostazione predefinita, i risultati vengono restituiti in blocchi di 100 elementi o 1 MB, a seconda del limite che viene raggiunto prima.
 
     Si supponga che l'applicazione esegua una query su Azure Cosmos DB e che richieda il set completo di risultati della query per completare l'attività. Per ridurre il numero di round trip di rete necessari per recuperare tutti i risultati applicabili, è possibile aumentare la dimensione di pagina usando il campo dell'intestazione della richiesta [x-ms-max-item-count](/rest/api/cosmos-db/common-cosmosdb-rest-request-headers). 
 
@@ -231,11 +232,11 @@ _ **Scalabilità orizzontale del carico di lavoro del client**
 
     Per diversi motivi, può essere utile o necessario aggiungere la registrazione in un thread che genera una velocità effettiva elevata della richiesta. Se l'obiettivo è quello di saturare completamente, con le richieste generate da questo thread, la velocità effettiva di un contenitore di cui viene effettuato il provisioning, le ottimizzazioni della registrazione possono migliorare significativamente le prestazioni.
 
-    * ***Configurare un logger asincrono**_
+    * ***Configurare un logger asincrono** _
 
         La latenza di un logger sincrono implica necessariamente il calcolo della latenza complessiva del thread che genera richieste. È consigliabile un logger asincrono, ad esempio [log4j2](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Flogging.apache.org%2Flog4j%2Flog4j-2.3%2Fmanual%2Fasync.html&data=02%7C01%7CCosmosDBPerformanceInternal%40service.microsoft.com%7C36fd15dea8384bfe9b6b08d7c0cf2113%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637189868158267433&sdata=%2B9xfJ%2BWE%2F0CyKRPu9AmXkUrT3d3uNA9GdmwvalV3EOg%3D&reserved=0), per separare l'overhead di registrazione dai thread dell'applicazione a prestazioni elevate.
 
-    _ ***Disabilitare la registrazione di Netty**_
+    _ * **Disabilitare la registrazione di Netty** _
 
         Netty library logging is chatty and needs to be turned off (suppressing sign in the configuration may not be enough) to avoid additional CPU costs. If you are not in debugging mode, disable netty's logging altogether. So if you are using log4j to remove the additional CPU costs incurred by ``org.apache.log4j.Category.callAppenders()`` from netty add the following line to your codebase:
 

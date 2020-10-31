@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 613e0dbfc90586475fe0ba9820ede1359a99d3a6
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d986106337eb1ede2f6d61303d8a4c487bbed276
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482214"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088472"
 ---
 # <a name="understanding-the-differences-between-nosql-and-relational-databases"></a>Informazioni sulle differenze tra NoSQL e i database relazionali
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 In questo articolo vengono enumerati alcuni dei principali vantaggi dei database NoSQL sui database relazionali. Verranno inoltre illustrati alcuni dei problemi relativi all'utilizzo di NoSQL. Per un esame approfondito dei diversi archivi dati esistenti, vedere l'articolo sulla [scelta dell'archivio dati appropriato](/azure/architecture/guide/technology-choices/data-store-overview).
 

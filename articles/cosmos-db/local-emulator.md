@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/22/2020
 ms.custom: devx-track-csharp, contperfq1
-ms.openlocfilehash: 9455ac3520192274e80f2d9e0fdfd1c8f8a238a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b1a0382b6bb650b6761897f4a16f988e5ce00c1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482622"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088744"
 ---
 # <a name="install-and-use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Installare e usare l'emulatore di Azure Cosmos per lo sviluppo e il test locali
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos Emulator fornisce un ambiente locale che emula il servizio Azure Cosmos DB a scopo di sviluppo. Con Azure Cosmos Emulator è possibile sviluppare e testare l'applicazione in locale, senza creare una sottoscrizione di Azure o sostenere costi. Quando si è soddisfatti del funzionamento dell'applicazione nell'emulatore di Azure Cosmos, è possibile passare all'uso di un account Azure Cosmos nel cloud. Questo articolo descrive come installare e usare l'emulatore in ambienti Windows, Linux, macOS e Windows docker.
 
@@ -98,7 +99,7 @@ Per impostazione predefinita, l'emulatore di Azure Cosmos viene eseguito sul com
 
 È possibile eseguire l'emulatore di Azure Cosmos nel contenitore Docker di Windows. Per ulteriori informazioni, vedere l' [Hub Docker](https://hub.docker.com/r/microsoft/azure-cosmosdb-emulator/) per il comando Docker pull e [GitHub](https://github.com/Azure/azure-cosmos-db-emulator-docker) `Dockerfile` . Attualmente l'emulatore non funziona in Docker per Oracle Linux. Usare le istruzioni seguenti per eseguire l'emulatore in Docker per Windows:
 
-1. Dopo aver [Docker per Windows](https://www.docker.com/docker-windows) installato, passare a contenitori Windows facendo clic con il pulsante destro del mouse sull'icona Docker sulla barra degli strumenti e scegliendo **passa a contenitori Windows**.
+1. Dopo aver [Docker per Windows](https://www.docker.com/docker-windows) installato, passare a contenitori Windows facendo clic con il pulsante destro del mouse sull'icona Docker sulla barra degli strumenti e scegliendo **passa a contenitori Windows** .
 
 1. Eseguire quindi il pull dell'immagine dell'emulatore dall'hub Docker eseguendo il comando seguente dalla shell preferita.
 
@@ -293,7 +294,7 @@ Se si usa Mac, seguire questa procedura:
 
 1. Aprire l'elenco dei certificati e identificare quello con il nome `localhost`.
 
-1. Aprire il menu di scelta rapida per quell'elemento specifico, scegliere *Get Item*(Ottieni elemento) e nell'opzione *Trust* > *When using this certificate* (Attendibilità > Quando si usa questo certificato) selezionare *Always Trust* (Considera sempre attendibile). 
+1. Aprire il menu di scelta rapida per quell'elemento specifico, scegliere *Get Item* (Ottieni elemento) e nell'opzione *Trust* > *When using this certificate* (Attendibilità > Quando si usa questo certificato) selezionare *Always Trust* (Considera sempre attendibile). 
 
    :::image type="content" source="./media/local-emulator/mac-trust-certificate.png" alt-text="Selezionare il pulsante Start o premere il tasto Windows, iniziare a digitare Azure Cosmos Emulator e selezionare l'emulatore nell'elenco di applicazioni":::
   
@@ -328,7 +329,7 @@ Se sono presenti più computer che usano una singola rete e se si configura l'em
 
 È possibile eseguire l'emulatore in una rete locale. Per abilitare l'accesso tramite rete, specificare l'opzione `/AllowNetworkAccess` nella [riga di comando](emulator-command-line-parameters.md), che richiede di specificare anche `/Key=key_string` o `/KeyFile=file_name`. È possibile usare `/GenKeyFile=file_name` per generare un file con una chiave casuale sin dall'inizio, per poi passarli a `/KeyFile=file_name` o `/Key=contents_of_file`.
 
-Per abilitare l'accesso alla rete per la prima volta, l'utente deve arrestare l'emulatore ed eliminare la directory dei dati dell'emulatore *%LocalAppData%\CosmosDBEmulator*.
+Per abilitare l'accesso alla rete per la prima volta, l'utente deve arrestare l'emulatore ed eliminare la directory dei dati dell'emulatore *%LocalAppData%\CosmosDBEmulator* .
 
 ## <a name="authenticate-connections-when-using-emulator"></a><a id="authenticate-requests"></a>Autenticare le connessioni quando si usa l'emulatore
 
@@ -458,11 +459,11 @@ Avviare l'emulatore da un [prompt dei comandi](emulator-command-line-parameters.
 
 Per disinstallare l'emulatore, attenersi alla procedura seguente:
 
-1. Uscire da tutte le istanze aperte dell'emulatore locale facendo clic con il pulsante destro del mouse sull'icona dell' **emulatore di Azure Cosmos** sulla barra delle applicazioni e quindi scegliere **Esci**. La chiusura di tutte le istanze può richiedere qualche minuto.
+1. Uscire da tutte le istanze aperte dell'emulatore locale facendo clic con il pulsante destro del mouse sull'icona dell' **emulatore di Azure Cosmos** sulla barra delle applicazioni e quindi scegliere **Esci** . La chiusura di tutte le istanze può richiedere qualche minuto.
 
 1. Nella casella di ricerca di Windows digitare **app & funzionalità** e selezionare **app & le funzionalità (impostazioni di sistema)** .
 
-1. Nell'elenco di app scorrere fino all' **emulatore Azure Cosmos DB**, selezionarlo, fare clic su **Disinstalla**, quindi confermare e selezionare di nuovo **Disinstalla** .
+1. Nell'elenco di app scorrere fino all' **emulatore Azure Cosmos DB** , selezionarlo, fare clic su **Disinstalla** , quindi confermare e selezionare di nuovo **Disinstalla** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

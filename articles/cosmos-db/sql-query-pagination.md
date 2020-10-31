@@ -6,14 +6,15 @@ ms.author: tisande
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
-ms.openlocfilehash: 2e899e76a1e68e120e0419926f8169785146bbfc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 08f8095670b48fcefccb0a9adf477b83ce2537d3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485036"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089237"
 ---
 # <a name="pagination-in-azure-cosmos-db"></a>Paginazione in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB, le query possono avere più pagine di risultati. Questo documento illustra i criteri usati dal motore di query di Azure Cosmos DB per decidere se suddividere i risultati delle query in più pagine. Facoltativamente, è possibile utilizzare i token di continuazione per gestire i risultati delle query che si estendono su più pagine.
 
@@ -45,12 +46,13 @@ Di seguito sono riportati alcuni esempi per l'elaborazione dei risultati da quer
 
 ## <a name="continuation-tokens"></a>Token di continuazione
 
-In .NET SDK e Java SDK è possibile usare facoltativamente i token di continuazione come segnalibro per lo stato della query. Azure Cosmos DB le esecuzioni di query sono senza stato sul lato server e possono essere ripresi in qualsiasi momento utilizzando il token di continuazione. I token di continuazione non sono supportati in SDK Node.js o Python SDK.
+In .NET SDK e Java SDK è possibile usare facoltativamente i token di continuazione come segnalibro per lo stato della query. Azure Cosmos DB le esecuzioni di query sono senza stato sul lato server e possono essere ripresi in qualsiasi momento utilizzando il token di continuazione. I token di continuazione non sono supportati in Node.js SDK. Per Python SDK, è supportato per le query a partizione singola e il PK deve essere specificato nell'oggetto options perché non è sufficiente nella query stessa.
 
 Ecco alcuni esempi per l'uso di token di continuazione:
 
 - [.NET SDK](https://github.com/Azure/azure-cosmos-dotnet-v2/blob/master/samples/code-samples/Queries/Program.cs#L699-L734)
 - [SDK per Java](https://github.com/Azure-Samples/azure-cosmos-java-sql-api-samples/blob/master/src/main/java/com/azure/cosmos/examples/queries/sync/QueriesQuickstart.java#L216)
+- [Python SDK](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/cosmos/azure-cosmos/test/test_query.py#L533)
 
 Se la query restituisce un token di continuazione, sono presenti ulteriori risultati della query.
 

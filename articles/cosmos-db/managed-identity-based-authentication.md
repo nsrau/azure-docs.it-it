@@ -8,14 +8,15 @@ ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 07bfaabf051a016ca9617245ba8628ef6c7e80c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 918033f736a28534cd36a4637b41d0a6b3b4cdc7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91566619"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088574"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usare identità gestite assegnate dal sistema per accedere ai dati di Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In questo articolo si configurerà una *solida soluzione agnostica* per la rotazione della chiave per accedere alle chiavi Azure Cosmos DB usando le [identità gestite](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md). L'esempio in questo articolo usa funzioni di Azure, ma è possibile usare qualsiasi servizio che supporta le identità gestite. 
 
@@ -33,7 +34,7 @@ In questo passaggio si assegnerà un'identità gestita assegnata dal sistema all
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-selection.png" alt-text="Screenshot che illustra le funzionalità della piattaforma e le opzioni di identità per l'app per le funzioni.":::
 
-1. Nella scheda **identità** **, attivare lo** **stato** di identità del sistema e selezionare **Salva**. Il riquadro **Identity** avrà un aspetto simile al seguente:  
+1. Nella scheda **identità** **, attivare lo** **stato** di identità del sistema e selezionare **Salva** . Il riquadro **Identity** avrà un aspetto simile al seguente:  
 
    :::image type="content" source="./media/managed-identity-based-authentication/identity-tab-system-managed-on.png" alt-text="Screenshot che illustra le funzionalità della piattaforma e le opzioni di identità per l'app per le funzioni.":::
 
@@ -60,19 +61,19 @@ In questo scenario, l'app per le funzioni leggerà la temperatura dell'acquario,
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab.png" alt-text="Screenshot che illustra le funzionalità della piattaforma e le opzioni di identità per l'app per le funzioni.":::
 
-1. Selezionare **Aggiungi** > **Aggiungi assegnazione di ruolo**.
+1. Selezionare **Aggiungi** > **Aggiungi assegnazione di ruolo** .
 
 1. Si apre il pannello **Aggiungi assegnazione ruolo** a destra:
 
    :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane.png" alt-text="Screenshot che illustra le funzionalità della piattaforma e le opzioni di identità per l'app per le funzioni.":::
 
-   * **Ruolo**: selezionare **collaboratore account DocumentDB**
-   * **Assegnare l'accesso a**: nella sottosezione **Seleziona identità gestita assegnata dal sistema** Selezionare **app per le funzioni**.
-   * **Select**: il riquadro verrà popolato con tutte le app per le funzioni nella sottoscrizione che hanno un' **identità del sistema gestito**. In questo caso, selezionare l'app per le funzioni **FishTankTemperatureService** : 
+   * **Ruolo** : selezionare **collaboratore account DocumentDB**
+   * **Assegnare l'accesso a** : nella sottosezione **Seleziona identità gestita assegnata dal sistema** Selezionare **app per le funzioni** .
+   * **Select** : il riquadro verrà popolato con tutte le app per le funzioni nella sottoscrizione che hanno un' **identità del sistema gestito** . In questo caso, selezionare l'app per le funzioni **FishTankTemperatureService** : 
 
       :::image type="content" source="./media/managed-identity-based-authentication/cosmos-db-iam-tab-add-role-pane-filled.png" alt-text="Screenshot che illustra le funzionalità della piattaforma e le opzioni di identità per l'app per le funzioni.":::
 
-1. Dopo aver selezionato l'app per le funzioni, selezionare **Salva**.
+1. Dopo aver selezionato l'app per le funzioni, selezionare **Salva** .
 
 ### <a name="assign-the-role-using-azure-cli"></a>Assegnare il ruolo usando l'interfaccia della riga di comando di Azure
 

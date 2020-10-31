@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 07/16/2020
 ms.custom: contperfq4, tracking-python, contperfq1
-ms.openlocfilehash: 59e8c836a796a46cbf5a45c6ad4440e4b80d476d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 232260ada4d810127584e675480f91d0213e3953
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425104"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091498"
 ---
 # <a name="secure-an-azure-machine-learning-training-environment-with-virtual-networks"></a>Proteggere un ambiente di training Azure Machine Learning con reti virtuali
 
@@ -52,7 +52,7 @@ Questo articolo illustra come proteggere le risorse di calcolo di training segue
 
 ## <a name="compute-clusters--instances"></a><a name="compute-instance"></a>Cluster di elaborazione e istanze di calcolo 
 
-Per usare una [__destinazione di calcolo__ gestita di Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) o un'[istanza __di calcolo di Azure Machine Learning__](concept-compute-instance.md) in una rete virtuale, è necessario che siano soddisfatti i seguenti requisiti di rete:
+Per usare una [__destinazione di calcolo__ gestita di Azure Machine Learning](concept-compute-target.md#azure-machine-learning-compute-managed) o un' [istanza __di calcolo di Azure Machine Learning__](concept-compute-instance.md) in una rete virtuale, è necessario che siano soddisfatti i seguenti requisiti di rete:
 
 > [!div class="checklist"]
 > * La rete virtuale deve trovarsi nella stessa sottoscrizione e area dell'area di lavoro di Azure Machine Learning.
@@ -60,10 +60,11 @@ Per usare una [__destinazione di calcolo__ gestita di Azure Machine Learning](co
 > * Controllare se i criteri di sicurezza o i blocchi nel gruppo di risorse o nella sottoscrizione della rete virtuale limitano le autorizzazioni per gestire la rete virtuale. Se si prevede di proteggere la rete virtuale limitando il traffico, lasciare aperte alcune porte per il servizio dell'ambiente di calcolo. Per altre informazioni, vedere la sezione [Porte richieste](#mlcports).
 > * Se si prevede di inserire più istanze di calcolo o cluster di elaborazione in una sola rete virtuale, potrebbe essere necessario richiedere un aumento di quota per una o più risorse.
 > * Se anche gli account di archiviazione di Azure per l'area di lavoro sono protetti in una rete virtuale, devono trovarsi nella stessa rete virtuale dell'istanza di calcolo o del cluster di elaborazione di Azure Machine Learning. 
-> * Per il corretto funzionamento della funzionalità Jupyter dell'istanza di calcolo, assicurarsi che la comunicazione con il Websocket non sia disabilitata. Assicurarsi che la rete consenta le connessioni WebSocket a *. instances.azureml.net e *. instances.azureml.ms.
-
+> * Per il corretto funzionamento della funzionalità Jupyter dell'istanza di calcolo, assicurarsi che la comunicazione con il Websocket non sia disabilitata. Assicurarsi che la rete consenta le connessioni WebSocket a *. instances.azureml.net e *. instances.azureml.ms. 
+> * Quando l'istanza di calcolo viene distribuita in un'area di lavoro di collegamento privato, è possibile accedervi solo dall'interno della rete virtuale. Se si usa un file host o DNS personalizzato, aggiungere una voce per `<instance-name>.<region>.instances.azureml.ms` con l'indirizzo IP privato dell'endpoint privato dell'area di lavoro. Per altre informazioni, vedere l'articolo [DNS personalizzato](https://docs.microsoft.com/azure/machine-learning/how-to-custom-dns) .
+    
 > [!TIP]
-> L'istanza di calcolo o il cluster di elaborazione di Machine Learning alloca automaticamente le risorse di rete aggiuntive __nel gruppo di risorse contenente la rete virtuale__. Per ogni istanza o cluster, il servizio alloca le risorse seguenti:
+> L'istanza di calcolo o il cluster di elaborazione di Machine Learning alloca automaticamente le risorse di rete aggiuntive __nel gruppo di risorse contenente la rete virtuale__ . Per ogni istanza o cluster, il servizio alloca le risorse seguenti:
 > 
 > * Un gruppo di sicurezza di rete
 > * Un indirizzo IP pubblico
@@ -79,7 +80,7 @@ Se si prevede di proteggere la rete virtuale limitando il traffico di rete da e 
 
 Il servizio Batch aggiunge gruppi di sicurezza di rete a livello di interfacce di rete collegate alle macchine virtuali. Questi gruppi di sicurezza di rete configurano automaticamente le regole in ingresso e in uscita per consentire il traffico seguente:
 
-- Traffico TCP in ingresso sulle porte 29876 e 29877 da un __tag del servizio__ di __BatchNodeManagement__.
+- Traffico TCP in ingresso sulle porte 29876 e 29877 da un __tag del servizio__ di __BatchNodeManagement__ .
 
     ![Una regola in ingresso che usa il tag del servizio BatchNodeManagement](./media/how-to-enable-virtual-network/batchnodemanagement-service-tag.png)
 
@@ -89,7 +90,7 @@ Il servizio Batch aggiunge gruppi di sicurezza di rete a livello di interfacce d
 
 - Traffico in uscita su qualsiasi porta verso Internet.
 
-- Per il traffico TCP in ingresso dell'istanza di calcolo sulla porta 44224 da un __tag del servizio__ di __AzureMachineLearning__.
+- Per il traffico TCP in ingresso dell'istanza di calcolo sulla porta 44224 da un __tag del servizio__ di __AzureMachineLearning__ .
 
 > [!IMPORTANT]
 > Prestare attenzione se si modificano o aggiungono regole in ingresso o in uscita nei gruppi di sicurezza di rete configurati per Batch. Se un gruppo di sicurezza di rete blocca la comunicazione con i nodi di calcolo, il servizio dell'ambiente di calcolo imposta i nodi di calcolo come non utilizzabili.
@@ -110,9 +111,9 @@ Se non si vogliono usare le regole in uscita predefinite e si vuole limitare l'a
 
 - Negare la connessione Internet in uscita usando le regole del gruppo di sicurezza di rete.
 
-- Per un'__istanza di calcolo__ o un __cluster di elaborazione__, limitare il traffico in uscita agli elementi seguenti:
-   - Archiviazione di Azure, usando __tag del servizio__ di __Storage.RegionName__. Dove `{RegionName}` è il nome di un'area di Azure.
-   - Registro Azure Container, usando il __tag del servizio__ di __AzureContainerRegistry.RegionName__. Dove `{RegionName}` è il nome di un'area di Azure.
+- Per un' __istanza di calcolo__ o un __cluster di elaborazione__ , limitare il traffico in uscita agli elementi seguenti:
+   - Archiviazione di Azure, usando __tag del servizio__ di __Storage.RegionName__ . Dove `{RegionName}` è il nome di un'area di Azure.
+   - Registro Azure Container, usando il __tag del servizio__ di __AzureContainerRegistry.RegionName__ . Dove `{RegionName}` è il nome di un'area di Azure.
    - Azure Machine Learning, usando il __tag del servizio__ di __AzureMachineLearning__
    - Azure Resource Manager, usando il __tag del servizio__ di __AzureResourceManager__
    - Azure Active Directory, usando il __tag del servizio__ di __AzureActiveDirectory__
@@ -122,7 +123,7 @@ La configurazione della regola del gruppo di sicurezza di rete nel portale di Az
 [![Regole dei gruppi di sicurezza di rete in uscita per l'ambiente di calcolo di Machine Learning](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png)](./media/how-to-enable-virtual-network/limited-outbound-nsg-exp.png#lightbox)
 
 > [!NOTE]
-> Se si prevede di usare le immagini Docker predefinite fornite da Microsoft e di abilitare le dipendenze gestite dall'utente, è necessario usare anche i __tag di servizio__seguenti:
+> Se si prevede di usare le immagini Docker predefinite fornite da Microsoft e di abilitare le dipendenze gestite dall'utente, è necessario usare anche i __tag di servizio__ seguenti:
 >
 > * __MicrosoftContainerRegistry__
 > * __AzureFrontDoor.FirstParty__
@@ -176,7 +177,7 @@ Se si usa il [tunneling forzato](/azure/vpn-gateway/vpn-gateway-forced-tunneling
         > * [Intervalli IP di Azure e tag dei servizi per Azure per enti pubblici](https://www.microsoft.com/download/details.aspx?id=57063)
         > * [Intervalli IP di Azure e tag dei servizi per Azure Cina](https://www.microsoft.com//download/details.aspx?id=57062)
     
-    Quando si aggiungono le route definite dall'utente, definire la route per ogni prefisso dell'indirizzo IP di Batch correlato e impostare __Tipo hop successivo__ su __Internet__. La figura seguente illustra un esempio di route definita dall'utente nel portale di Azure:
+    Quando si aggiungono le route definite dall'utente, definire la route per ogni prefisso dell'indirizzo IP di Batch correlato e impostare __Tipo hop successivo__ su __Internet__ . La figura seguente illustra un esempio di route definita dall'utente nel portale di Azure:
 
     ![Esempio di route definita dall'utente per un prefisso di indirizzo](./media/how-to-enable-virtual-network/user-defined-route.png)
 
@@ -198,12 +199,12 @@ Per creare un cluster dell'ambiente di calcolo di Machine Learning seguire quest
 
 1. Selezionare __Cluster di training__ dal centro, quindi selezionare __+__ .
 
-1. Nella finestra di dialogo di __creazione di un cluster di training__ espandere la sezione __Impostazioni avanzate__.
+1. Nella finestra di dialogo di __creazione di un cluster di training__ espandere la sezione __Impostazioni avanzate__ .
 
-1. Per configurare questa risorsa di calcolo per l'uso di una rete virtuale, eseguire le azioni seguenti nella sezione __Configura rete virtuale__:
+1. Per configurare questa risorsa di calcolo per l'uso di una rete virtuale, eseguire le azioni seguenti nella sezione __Configura rete virtuale__ :
 
     1. Nell'elenco a discesa __Gruppo di risorse__ selezionare il gruppo di risorse che contiene la rete virtuale.
-    1. Selezionare la rete virtuale che contiene la subnet nell'elenco a discesa __Rete virtuale__.
+    1. Selezionare la rete virtuale che contiene la subnet nell'elenco a discesa __Rete virtuale__ .
     1. Nell'elenco a discesa __Subnet__ selezionare la subnet da usare.
 
    ![Impostazioni della rete virtuale per l'ambiente di calcolo di Machine Learning](./media/how-to-enable-virtual-network/amlcompute-virtual-network-screen.png)
@@ -252,7 +253,7 @@ Al termine del processo di creazione, eseguire il training del modello usando il
 
 Se si usano notebook in un'istanza di calcolo di Azure, è necessario assicurarsi che il notebook sia in esecuzione in una risorsa di calcolo dietro la stessa rete virtuale e la stessa subnet dei dati. 
 
-È necessario configurare l'istanza di calcolo in modo che si trovi nella stessa rete virtuale durante la creazione in **Impostazioni avanzate**  >  **Configura rete virtuale**. Non è possibile aggiungere un'istanza di calcolo esistente a una rete virtuale.
+È necessario configurare l'istanza di calcolo in modo che si trovi nella stessa rete virtuale durante la creazione in **Impostazioni avanzate**  >  **Configura rete virtuale** . Non è possibile aggiungere un'istanza di calcolo esistente a una rete virtuale.
 
 ## <a name="azure-databricks"></a>Azure Databricks
 
@@ -285,21 +286,21 @@ Creare una macchina virtuale o un cluster HDInsight usando il portale di Azure o
 
 Consentire a Azure Machine Learning di comunicare con la porta SSH nella macchina virtuale o nel cluster, configurare una voce di origine per il gruppo di sicurezza di rete. La porta SSH è in genere la porta 22. Per consentire il traffico da questa origine, eseguire queste operazioni:
 
-1. Nell'elenco a discesa __Origine__ selezionare __Tag del servizio__.
+1. Nell'elenco a discesa __Origine__ selezionare __Tag del servizio__ .
 
-1. Nell'elenco a discesa __Tag del servizio di origine__ selezionare __AzureMachineLearning__.
+1. Nell'elenco a discesa __Tag del servizio di origine__ selezionare __AzureMachineLearning__ .
 
     ![Regole in ingresso per la sperimentazione in una macchina virtuale o un cluster HDInsight in una rete virtuale](./media/how-to-enable-virtual-network/experimentation-virtual-network-inbound.png)
 
 1. Nell'elenco a discesa __Intervalli di porte di origine__ selezionare __*__ .
 
-1. Nell'elenco a discesa __Destinazione__ selezionare __Qualsiasi__.
+1. Nell'elenco a discesa __Destinazione__ selezionare __Qualsiasi__ .
 
-1. Nell'elenco a discesa __Intervalli di porte di destinazione__ selezionare __22__.
+1. Nell'elenco a discesa __Intervalli di porte di destinazione__ selezionare __22__ .
 
-1. In __Protocollo__ selezionare __Qualsiasi__.
+1. In __Protocollo__ selezionare __Qualsiasi__ .
 
-1. In __Azione__ selezionare __Consenti__.
+1. In __Azione__ selezionare __Consenti__ .
 
 Mantenere le regole in ingresso per il gruppo di sicurezza di rete. Per altre informazioni, vedere le regole di sicurezza predefinite in [Gruppi di sicurezza](https://docs.microsoft.com/azure/virtual-network/security-overview#default-security-rules).
 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: 8e6a6d1c557a765e55152685f08e80ad54bbd903
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c206c89bf8e9abae219ce863a8b08f4b0e7041c3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362011"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93089917"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Distribuire Azure Cosmos DB e app Azure servizio con un'app Web da GitHub usando un modello di Azure Resource Manager
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In questa esercitazione viene illustrato come eseguire una distribuzione "No Touch" di un'applicazione Web che si connette a Azure Cosmos DB alla prima esecuzione senza dover tagliare e incollare le informazioni di connessione da Azure Cosmos DB a `appsettings.json` o alle impostazioni dell'applicazione servizi app Azure nel portale di Azure. Tutte queste azioni vengono eseguite utilizzando un modello di Azure Resource Manager in un'unica operazione. Nell'esempio seguente viene illustrato come distribuire l' [esempio Azure Cosmos DB todo](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) da un' [app Web](sql-api-dotnet-application.md).
 
@@ -102,7 +103,7 @@ In primo luogo, l'applicazione deve richiedere l'endpoint Cosmos DB e la chiave 
 
 ### <a name="using-special-azure-resource-management-functions"></a>Uso di funzioni speciali di gestione delle risorse di Azure
 
-Perché questi valori siano disponibili per l'applicazione al momento della distribuzione, il modello di Azure Resource Manager può richiedere tali valori dall'account Cosmos DB usando funzioni speciali di gestione delle risorse di Azure, tra cui [Reference](../azure-resource-manager/templates/template-functions-resource.md#reference) e [listKeys](../azure-resource-manager/templates/template-functions-resource.md#listkeys) , che acquisiscono i valori dall'account Cosmos DB e li inseriscono nei valori delle impostazioni dell'applicazione con i nomi delle chiavi che corrispondono a quelli usati nell'applicazione precedente nel formato ' {section: Key} Ad esempio: `CosmosDb:Account`.
+Perché questi valori siano disponibili per l'applicazione al momento della distribuzione, il modello di Azure Resource Manager può richiedere tali valori dall'account Cosmos DB usando funzioni speciali di gestione delle risorse di Azure, tra cui [Reference](../azure-resource-manager/templates/template-functions-resource.md#reference) e [listKeys](../azure-resource-manager/templates/template-functions-resource.md#listkeys) , che acquisiscono i valori dall'account Cosmos DB e li inseriscono nei valori delle impostazioni dell'applicazione con i nomi delle chiavi che corrispondono a quelli usati nell'applicazione precedente nel formato ' {section: Key} Ad esempio `CosmosDb:Account`.
 
 :::image type="content" source="./media/create-website/template-keys.png" alt-text="Distribuzione in Azure":::
 

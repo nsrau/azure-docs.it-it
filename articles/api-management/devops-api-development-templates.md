@@ -7,12 +7,12 @@ ms.service: api-management
 ms.topic: conceptual
 ms.date: 10/09/2020
 ms.author: apimpm
-ms.openlocfilehash: c37224a3a455abcf3de62998cb65e1d66a1bb0f2
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 92d108304f788279a636b1dc5e1c4e6c103ede3d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92910713"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93088880"
 ---
 # <a name="cicd-for-api-management-using-azure-resource-manager-templates"></a>Integrazione continua/distribuzione continua per gestione API con modelli di Azure Resource Manager
 
@@ -67,7 +67,8 @@ Gli sviluppatori di API affrontano problemi durante l'uso di modelli di Gestione
 
 * Gli editori di API possono convalidare la richiesta pull e verificare che le modifiche siano sicure e conformi. Ad esempio, è possibile verificare se solo HTTPS è autorizzato a comunicare con l'API. La maggior parte delle convalide può essere automatizzata come passaggio nella pipeline CI/CD.
 
-* Una volta approvate e unite correttamente le modifiche, gli autori delle API possono scegliere di distribuirle nell'istanza di produzione in base alla pianificazione o su richiesta. Possono automatizzare la distribuzione dei modelli usando le azioni di [GitHub](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/devops/pipelines/), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), l'interfaccia della riga di comando di [Azure](../azure-resource-manager/templates/deploy-cli.md)o altri strumenti.
+* Una volta approvate e unite correttamente le modifiche, gli autori delle API possono scegliere di distribuirle nell'istanza di produzione in base a una pianificazione o su richiesta. La distribuzione dei modelli può essere automatizzata usando [azioni di GitHub](https://github.com/Azure/apimanagement-devops-samples), [Azure Pipelines](/azure/devops/pipelines), [Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md), l'interfaccia della riga di comando di [Azure](../azure-resource-manager/templates/deploy-cli.md)o altri strumenti.
+
 
 Con questo approccio, un'organizzazione può automatizzare la distribuzione delle modifiche API nelle istanze di gestione API ed è facile alzare di livello le modifiche da un ambiente a un altro. Poiché i diversi team di sviluppo API lavoreranno su diversi set di modelli e file API, impedisce l'interferenza tra diversi team.
 
