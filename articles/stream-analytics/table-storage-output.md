@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 3e5b747e55c8f246167bcf8bbde3542146e69706
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea775ef472687485dbd2f30c4f60adc33c0eaa73
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90891951"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127349"
 ---
 # <a name="table-storage-output-from-azure-stream-analytics"></a>Output dell'archiviazione tabelle da analisi di flusso di Azure
 
@@ -28,7 +28,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 | Nome tabella |Nome della tabella. Se non esiste, viene creata una nuova tabella. |
 | Chiave di partizione |Nome della colonna di output contenente la chiave di partizione. La chiave di partizione è un identificatore univoco per la partizione di una tabella che costituisce la prima parte della chiave primaria di un'entità. Si tratta di un valore stringa le cui dimensioni massime sono di 1 KB. |
 | Chiave di riga |Nome della colonna di output che contiene la chiave di riga. La chiave di riga è un identificatore univoco per un'entità all'interno di una partizione. Costituisce la seconda parte della chiave primaria di un'entità. La chiave di riga è un valore stringa le cui dimensioni massime sono di 1 KB. |
-| Dimensioni dei batch |Numero di record per un'operazione batch. Il valore predefinito (100) è sufficiente per la maggior parte dei processi. Per altre informazioni sulla modifica di questa impostazione, vedere la [specifica relativa alle operazioni batch su tabella](https://docs.microsoft.com/java/api/com.microsoft.azure.storage.table.tablebatchoperation). |
+| Dimensioni dei batch |Numero di record per un'operazione batch. Il valore predefinito (100) è sufficiente per la maggior parte dei processi. Per altre informazioni sulla modifica di questa impostazione, vedere la [specifica relativa alle operazioni batch su tabella](/java/api/com.microsoft.azure.storage.table.tablebatchoperation). |
 
 ## <a name="partitioning"></a>Partizionamento
 

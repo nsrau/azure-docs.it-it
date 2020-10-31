@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 51f226443e6f21b6c333cacf6c88f0d00208f5f2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75bf1e3d81b466098884a354826019aa94a94174
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89484273"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126108"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Linee guida per la presentazione in Azure Marketplace
 
@@ -32,7 +32,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 | 8 | Stato elenco (Opzioni elenco) | <ul><li>Deve essere contrassegnato da uno dei tipi seguenti: <ul><li>*Contattami*</li><li>*Versione di valutazione*/*Scarica ora la versione di valutazione*/*Avvia versione di valutazione*/*Test Drive*</li><li>*Acquista ora*/*Scarica ora*</li></ul></ul> | Il cliente può immediatamente capire quali sono i passaggi successivi: <ol><li>Provare la versione di valutazione.</li><li>Acquistare subito.</li><li>Mettersi in contatto tramite e-mail o telefonicamente per un appuntamento per un modello di verifica, una valutazione o un briefing.</li></ol> | 
 | 9 | Prezzi della soluzione | I prezzi della soluzione, sotto forma di scheda o descrizione dettagliata, sono obbligatori e devono essere espressi nella valuta locale del partner che offre la soluzione. | Devono essere disponibili più opzioni di fatturazione con diversi livelli di prezzo per offrire ai clienti opzioni di scelta. |
 | 10 | Altre informazioni | I collegamenti in basso (sotto la descrizione, distinti dai collegamenti di Azure Marketplace a sinistra) consentono di accedere ad altre informazioni sulla soluzione e devono essere disponibili pubblicamente e visualizzati correttamente. |    I collegamenti devono consentire l'accesso a elementi specifici (ad esempio, alle pagine delle specifiche nel sito Web del partner) e non solo alla home page del partner. | 
-| 11 | Supporto per la soluzione e guida | Inserire un collegamento ad almeno una delle informazioni seguenti: <ul><li>Numeri di telefono</li><li>Supporto tramite e-mail</li><li>Agenti di chat</li><li>Forum della community |<ul><li>Tutti i metodi di supporto devono essere elencati.</li><li>Il supporto a pagamento viene offerto gratuitamente durante il periodo di *prova* o *test drive*. |
+| 11 | Supporto per la soluzione e guida | Inserire un collegamento ad almeno una delle informazioni seguenti: <ul><li>Numeri di telefono</li><li>Supporto tramite e-mail</li><li>Agenti di chat</li><li>Forum della community |<ul><li>Tutti i metodi di supporto devono essere elencati.</li><li>Il supporto a pagamento viene offerto gratuitamente durante il periodo di *prova* o *test drive* . |
 | 12 | Note legali | I criteri o le condizioni devono essere disponibili tramite un URL pubblico. |  |
 |||
 
@@ -40,7 +40,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 
 | No. | Elemento presentazione | Requisito base | Requisito ottimale | 
 |:--- |:--- |:--- |:--- |
-|  | Elenco stato (opzione elenco) | Il collegamento deve consentire l'accesso a un'esperienza di *prova* gestita dal cliente. | Sono disponibili anche altre opzioni di elenco (ad esempio, *Acquista adesso*). | 
+|  | Elenco stato (opzione elenco) | Il collegamento deve consentire l'accesso a un'esperienza di *prova* gestita dal cliente. | Sono disponibili anche altre opzioni di elenco (ad esempio, *Acquista adesso* ). | 
 |||
 
 ## <a name="saas-application-requirements"></a>Requisiti delle applicazioni SaaS
@@ -48,7 +48,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 | No. | Elemento presentazione | Requisito base | Requisito ottimale | 
 |:--- |:--- |:--- |:--- |
 | 1 | Titolo dell'offerta |<ul><li>Deve contenere solo lettere minuscole, caratteri alfanumerici, trattini o caratteri di sottolineatura. Il titolo non può essere modificato dopo la pubblicazione.</li><li>Descrive la soluzione offerta.</li><li>Corrisponde alla promozione online della soluzione nel sito Web del partner. | Contiene parole chiave di ricerca. |
-| 2 | Informazioni tecniche: Configurazione |<ul><li>Per le app SaaS (Software as a Service), scegliere se si vuole solo presentare l'app o consentire ai clienti di acquistarla tramite Azure.</li><li>• Selezionare il testo che si vuole visualizzare sul pulsante di acquisizione dell'offerta: *Gratuito*, *Versione di prova gratuita* o *Desidero essere contattato*.</li><li>Nella finestra popup selezionare un solo prodotto applicabile se l'app utilizza la tecnologia: Cortana Intelligence, Modelli di soluzioni di Power BI o Power Apps. |  |
+| 2 | Informazioni tecniche: Configurazione |<ul><li>Per le app SaaS (Software as a Service), scegliere se si vuole solo presentare l'app o consentire ai clienti di acquistarla tramite Azure.</li><li>• Selezionare il testo che si vuole visualizzare sul pulsante di acquisizione dell'offerta: *Gratuito* , *Versione di prova gratuita* o *Desidero essere contattato* .</li><li>Nella finestra popup selezionare un solo prodotto applicabile se l'app utilizza la tecnologia: Cortana Intelligence, Modelli di soluzioni di Power BI o Power Apps. |  |
 | 3 | Test drive | Selezionare *Yes* o *No* | Il cliente può immediatamente capire quali sono i passaggi successivi: <ol><li>Provare la versione di valutazione.</li><li>Acquistare subito.</li><li>Mettersi in contatto tramite e-mail o telefonicamente per un appuntamento per un modello di verifica, una valutazione o un briefing.</li></ol> |
 | 4 | Dettagli archivio online: riepilogo offerta | Viene visualizzato nella pagina di ricerca dell'app e contiene un massimo di 100 caratteri. | |
 | 5 | Dettagli negozio online: settori | Settori (max 2): selezionare i settori ai quali l'app è più allineata e applicabile. | |
@@ -56,7 +56,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 | 7 | Artefatti di marketing | I logo vengono visualizzati correttamente. | <ul><li>Logos: Small (48 x 48 px, optional), Medium (90 x 90 px, optional) e Large (da 216 x 216 a 350 x 350 px, required).</li><li>Screenshot (max. 5): richiede un. Immagine PNG con risoluzione di 1280x720 pixel. |
 | 8 | Categorie e settori | <ul><li>Le categorie corrispondono alle caratteristiche della soluzione offerta.</li><li>Selezionare almeno un elemento nella finestra popup.</li><li>Non selezionare le categorie non adatte alla soluzione.</li><li>È stato selezionato il settore ottimale oppure sono stati selezionati tutti i settori appropriati (se non esiste un settore ottimale). | Max. 3 categorie selezionate, se applicabili. |
 | 9 | Lead management (Gestione di clienti potenziali) | Selezionare il sistema nel quale archiviare i clienti potenziali. Per connettere il sistema CRM, vedere le informazioni per [ottenere clienti potenziali](./partner-center-portal/commercial-marketplace-get-customer-leads.md). |  |
-| 10 | Contatti: Supporto per la soluzione e guida | <ul><li>Nome contatto del reparto tecnico: nome del contatto del reparto tecnico per l'app. Questo contatto riceverà le comunicazioni tecniche da Microsoft.</li><li>E-mail contatto del reparto tecnico: indirizzo e-mail del contatto del reparto tecnico per l'app.</li><li>Telefono contatto del reparto tecnico: numero di telefono del contatto del reparto tecnico. Sono supportate le [notazioni ISO dei numeri di telefono](https://en.wikipedia.org/wiki/E.123).</li><li>Nome contatto del supporto: nome del contatto del supporto per l'app. Questo contatto riceverà le comunicazioni relative al supporto da Microsoft.</li><li>E-mail contatto del supporto: indirizzo e-mail del contatto del supporto per l'app.</li><li>Telefono contatto del supporto: numero di telefono del contatto del supporto. Sono supportate le [notazioni ISO dei numeri di telefono](https://en.wikipedia.org/wiki/E.123).</li><li>URL del supporto tecnico: URL della pagina del supporto. | <ul><li>Tutti i metodi di supporto devono essere elencati.</li><li>Il supporto a pagamento viene offerto gratuitamente durante il periodo di *prova* o *test drive*. |
+| 10 | Contatti: Supporto per la soluzione e guida | <ul><li>Nome contatto del reparto tecnico: nome del contatto del reparto tecnico per l'app. Questo contatto riceverà le comunicazioni tecniche da Microsoft.</li><li>E-mail contatto del reparto tecnico: indirizzo e-mail del contatto del reparto tecnico per l'app.</li><li>Telefono contatto del reparto tecnico: numero di telefono del contatto del reparto tecnico. Sono supportate le [notazioni ISO dei numeri di telefono](https://en.wikipedia.org/wiki/E.123).</li><li>Nome contatto del supporto: nome del contatto del supporto per l'app. Questo contatto riceverà le comunicazioni relative al supporto da Microsoft.</li><li>E-mail contatto del supporto: indirizzo e-mail del contatto del supporto per l'app.</li><li>Telefono contatto del supporto: numero di telefono del contatto del supporto. Sono supportate le [notazioni ISO dei numeri di telefono](https://en.wikipedia.org/wiki/E.123).</li><li>URL del supporto tecnico: URL della pagina del supporto. | <ul><li>Tutti i metodi di supporto devono essere elencati.</li><li>Il supporto a pagamento viene offerto gratuitamente durante il periodo di *prova* o *test drive* . |
 | 11 | Note legali |<ul><li>URL dell'informativa sulla privacy: URL dell'informativa sulla privacy dell'app nel corrispondente campo del portale Cloud Partner.</li><li>Condizioni per l'utilizzo: condizioni per l'utilizzo dell'app. Per ottenere la versione di prova dell'app, i clienti devono accettare tali condizioni. |    I criteri o le condizioni sono disponibili tramite un URL pubblico. |
 |||
 
@@ -91,7 +91,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Vedere le informazioni sui vari tipi di offerta in Azure Marketplace:
-  * [App SaaS](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide)
-  * [Contenitori](https://docs.microsoft.com/azure/marketplace/marketplace-containers)
-  * [Servizi di consulenza](https://docs.microsoft.com/azure/marketplace/consulting-services)
-* [Determinare l'opzione di pubblicazione](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
+  * [App SaaS](./plan-saas-offer.md)
+  * [Contenitori](./marketplace-containers.md)
+  * [Servizi di consulenza](./consulting-services.md)
+* [Determinare l'opzione di pubblicazione](./determine-your-listing-type.md)

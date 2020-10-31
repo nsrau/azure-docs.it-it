@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/11/2020
-ms.openlocfilehash: 879ea141a4621fac9e1774df64a63e9e56549012
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: a5c5d7ae4dbf1126d171c78bbd4e353f11402260
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026956"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126720"
 ---
 # <a name="common-questions-about-the-microsoft-commercial-marketplace"></a>Domande comuni sul Marketplace commerciale Microsoft
 
@@ -46,7 +46,7 @@ Per ulteriori informazioni, vedere l' [Hub Microsoft Commercial Marketplace](htt
 
 ### <a name="is-there-a-listing-fee-for-the-microsoft-commercial-marketplace"></a>È previsto un costo per la pubblicazione di offerte nel marketplace commerciale di Microsoft?
 
-No, non è previsto alcun costo per la pubblicazione di offerte nel marketplace commerciale. Microsoft trattiene una piccola percentuale sulla vendita, come commissioni per la transazione, che verrà investita nel programma Marketplace Rewards, nell'innovazione della piattaforma e nelle operazioni del marketplace commerciale. Questa tariffa per le transazioni è ridotta per le offerte di incentivate di [co-selling IP di Azure](https://docs.microsoft.com/azure/marketplace/marketplace-co-sell) e per le offerte SaaS a pagamento in AppSource associate a un'app Microsoft teams o almeno due Microsoft 365 componenti aggiuntivi (Excel, PowerPoint, Word, Outlook e SharePoint).
+No, non è previsto alcun costo per la pubblicazione di offerte nel marketplace commerciale. Microsoft trattiene una piccola percentuale sulla vendita, come commissioni per la transazione, che verrà investita nel programma Marketplace Rewards, nell'innovazione della piattaforma e nelle operazioni del marketplace commerciale. Questa tariffa per le transazioni è ridotta per le offerte di incentivate di [co-selling IP di Azure](./marketplace-co-sell.md) e per le offerte SaaS a pagamento in AppSource associate a un'app Microsoft teams o almeno due Microsoft 365 componenti aggiuntivi (Excel, PowerPoint, Word, Outlook e SharePoint).
 
 ### <a name="how-do-i-sign-up-to-be-a-publisher-in-the-microsoft-commercial-marketplace"></a>Come si effettua l'iscrizione come editore nel marketplace commerciale di Microsoft?
 
@@ -106,7 +106,7 @@ Sono quattro i ruoli pertinenti che regolano l'accesso al Centro per i partner.
 
 Le autorizzazioni di *Amministratore globale* di Azure Active Directory (Azure AD) sono necessarie per la creazione di nuovi account utente o per invitare account guest nella directory sottostante. Il Centro per i partner applica Azure AD al modello di identità e l'istanza di Azure AD di un'organizzazione viene spesso gestita e controllata dai team IT o della sicurezza.
 
-Per altre informazioni, vedere [Assegnare ruoli utente e autorizzazioni](https://docs.microsoft.com/partner-center/permissions-overview).
+Per altre informazioni, vedere [Assegnare ruoli utente e autorizzazioni](/partner-center/permissions-overview).
 
 ### <a name="do-customers-need-a-subscription-for-microsoft-azure-cloud-services"></a>I clienti devono avere una sottoscrizione a Servizi cloud di Microsoft Azure?
 

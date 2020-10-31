@@ -4,12 +4,12 @@ description: Informazioni su come integrare Azure NetApp Files con il servizio A
 services: container-service
 ms.topic: article
 ms.date: 10/23/2020
-ms.openlocfilehash: 78119d3d7ff83ca237c1e668785439d943dcfd14
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: bc65c3dfad4c27c1650054c6836fbbbf07a7dbf2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900418"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126254"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Integrare Azure NetApp Files con il servizio Azure Kubernetes
 
@@ -29,7 +29,6 @@ Quando si utilizza Azure NetApp Files, si applicano le limitazioni seguenti:
 
 * Azure NetApp Files è disponibile solo [nelle aree di Azure selezionate][anf-regions].
 * Prima di poter usare Azure NetApp Files, è necessario disporre dell'accesso al servizio Azure NetApp Files. Per richiedere l'accesso, è possibile usare il [modulo di invio Azure NetApp files dell'attesa][anf-waitlist]. Non è possibile accedere al servizio Azure NetApp Files finché non si riceve il messaggio di posta elettronica di conferma ufficiale dal team di Azure NetApp Files.
-* Il servizio di Azure NetApp Files deve essere creato nella stessa rete virtuale del cluster AKS.
 * Dopo la distribuzione iniziale di un cluster AKS, è supportato solo il provisioning statico per Azure NetApp Files.
 * Per usare il provisioning dinamico con Azure NetApp Files, installare e configurare [NetApp Trident](https://netapp-trident.readthedocs.io/) versione 19,07 o successiva.
 
@@ -146,7 +145,7 @@ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_
 }
 ```
 
-Creare una `pv-nfs.yaml` definizione di PersistentVolume. Sostituire `path` con *creationToken* e `server` con *IPAddress* del comando precedente. Esempio:
+Creare una `pv-nfs.yaml` definizione di PersistentVolume. Sostituire `path` con *creationToken* e `server` con *IPAddress* del comando precedente. Ad esempio:
 
 ```yaml
 ---
@@ -178,7 +177,7 @@ kubectl describe pv pv-nfs
 
 ## <a name="create-the-persistentvolumeclaim"></a>Creare il PersistentVolumeClaim
 
-Creare una `pvc-nfs.yaml` definizione di PersistentVolume. Esempio:
+Creare una `pvc-nfs.yaml` definizione di PersistentVolume. Ad esempio:
 
 ```yaml
 apiVersion: v1
@@ -208,7 +207,7 @@ kubectl describe pvc pvc-nfs
 
 ## <a name="mount-with-a-pod"></a>Montare con un pod
 
-Creare un oggetto `nginx-nfs.yaml` che definisce un pod che usa PersistentVolumeClaim. Esempio:
+Creare un oggetto `nginx-nfs.yaml` che definisce un pod che usa PersistentVolumeClaim. Ad esempio:
 
 ```yaml
 kind: Pod

@@ -7,12 +7,12 @@ ms.topic: reference
 author: keferna
 ms.author: keferna
 ms.date: 07/29/2020
-ms.openlocfilehash: d04f95372eb050c3eea08d50d4c9bdbd3a0232b1
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: c277525927f7f74f281220bf5e593e98509d8237
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282345"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126686"
 ---
 # <a name="geographic-availability-and-currency-support-for-commercial-marketplace"></a>Disponibilità geografica e valute supportate per il marketplace commerciale
 
@@ -204,4 +204,4 @@ Per informazioni dettagliate su come immettere i prezzi per i tipi di offerta sp
 - [Creare un'offerta di moduli IoT Edge](partner-center-portal/azure-iot-edge-module-creation.md)
 - [Creare un'offerta di servizi gestiti](partner-center-portal/create-new-managed-service-offer.md)
 - [Creare un'app di Power BI](partner-center-portal/create-power-bi-app-offer.md)
-- [Creare un'offerta SaaS](partner-center-portal/create-new-saas-offer.md)
+- [Creare un'offerta SaaS](./create-new-saas-offer.md)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/31/2017
 ms.author: mathoma
-ms.openlocfilehash: 46adbfee24ab463acdc4687c0465bbf50527a329
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: f681c6c453c9c0955092c4f1574a54ea2c9973f5
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790645"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93126652"
 ---
 # <a name="application-patterns-and-development-strategies-for-sql-server-on-azure-virtual-machines"></a>Modelli di applicazione e strategie di sviluppo per SQL Server in Macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -191,11 +191,11 @@ Il diagramma seguente illustra uno scenario locale e la relativa soluzione abili
 
 Come osservato nel diagramma, il servizio di bilanciamento del carico di Azure distribuisce il traffico tra più macchine virtuali e inoltre determina a quale server Web o server applicazioni connettersi. La presenza di più istanze di server Web e applicazioni dietro il servizio di bilanciamento del carico assicura la disponibilità elevata dei livelli presentazione e business. Per altre informazioni, vedere [Procedure consigliate per i modelli di applicazione che richiedono disponibilità elevata e ripristino di emergenza (HADR) per SQL Server](#best-practices-for-application-patterns-requiring-sql-hadr).
 
-![Modelli dell'applicazione con Servizi cloud](./media/application-patterns-development-strategies/IC728013.png)
+![Il diagramma mostra le macchine virtuali o fisiche locali connesse alle istanze del ruolo Web in una rete virtuale di Azure tramite un servizio di bilanciamento del carico di Azure.](./media/application-patterns-development-strategies/IC728013.png)
 
 Un altro approccio all'implementazione di questo modello di applicazione consiste nell'usare un ruolo Web consolidato che contenga componenti del livello presentazione e del livello business, come illustrato nel diagramma seguente. Questo modello di applicazione è utile per le applicazioni che richiedono un design con stato. Poiché Azure fornisce nodi di calcolo senza stato su ruoli Web e di lavoro, è consigliabile implementare una logica per memorizzare lo stato della sessione mediante una delle tecnologie seguenti: [Cache di Azure](https://azure.microsoft.com/documentation/services/azure-cache-for-redis/), [Archiviazione tabelle di Azure](../../../cosmos-db/tutorial-develop-table-dotnet.md) o [Database SQL di Azure](../../database/sql-database-paas-overview.md).
 
-![Modelli dell'applicazione con Servizi cloud](./media/application-patterns-development-strategies/IC728014.png)
+![Il diagramma mostra le macchine virtuali o fisiche locali connesse alle istanze del ruolo Web/di lavoro consolidato in una rete virtuale di Azure.](./media/application-patterns-development-strategies/IC728014.png)
 
 ## <a name="pattern-with-azure-virtual-machines-azure-sql-database-and-azure-app-service-web-apps"></a>Modello con macchine virtuali di Azure, database SQL di Azure e servizio app Azure (app Web)
 L'obiettivo principale di questo modello di applicazione è mostrare come combinare i componenti IaaS (Infrastructure as a Service) con i componenti PaaS (Platform as a Service) di Azure nella propria soluzione. Il modello è incentrato sul database SQL di Azure per l'archiviazione di dati relazionali e non include SQL Server in una macchina virtuale di Azure, che invece fa parte dell'offerta IaaS di Azure.

@@ -3,16 +3,16 @@ title: Distribuire un'istanza del contenitore abilitata per GPU
 description: Informazioni su come distribuire istanze di contenitore di Azure per eseguire app contenitore a elevato utilizzo di calcolo con risorse GPU.
 ms.topic: article
 ms.date: 07/22/2020
-ms.openlocfilehash: 19240560baa0cebdb6777d7b63d8c91832b12e1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d645d1fce24d1324e485d74e20bcf492d4444a7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87387091"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127009"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>Distribuire le istanze di contenitore che usano risorse della GPU
 
-Per eseguire determinati carichi di lavoro a elevato utilizzo di calcolo in istanze di contenitore di Azure, distribuire i [gruppi di contenitori](container-instances-container-groups.md) con *risorse GPU*. Le istanze di contenitore nel gruppo possono accedere a una o più GPU NVIDIA Tesla durante l'esecuzione dei carichi di lavoro dei contenitori, ad esempio CUDA e applicazioni di Deep Learning.
+Per eseguire determinati carichi di lavoro a elevato utilizzo di calcolo in istanze di contenitore di Azure, distribuire i [gruppi di contenitori](container-instances-container-groups.md) con *risorse GPU* . Le istanze di contenitore nel gruppo possono accedere a una o più GPU NVIDIA Tesla durante l'esecuzione dei carichi di lavoro dei contenitori, ad esempio CUDA e applicazioni di Deep Learning.
 
 Questo articolo illustra come aggiungere risorse GPU quando si distribuisce un gruppo di contenitori usando un [file YAML](container-instances-multi-container-yaml.md) o [Gestione risorse modello](container-instances-multi-container-group.md). È anche possibile specificare risorse GPU quando si distribuisce un'istanza del contenitore usando il portale di Azure.
 
@@ -27,9 +27,9 @@ In fase di anteprima, durante l'uso di risorse della GPU in gruppi di contenitor
 
 In futuro verrà aggiunto il supporto di ulteriori aree.
 
-**Tipi di sistemi operativi supportati**: solo Linux
+**Tipi di sistemi operativi supportati** : solo Linux
 
-**Limitazioni aggiuntive**: non è possibile usare le risorse GPU quando si distribuisce un gruppo di contenitori in una [rete virtuale](container-instances-vnet.md).
+**Limitazioni aggiuntive** : non è possibile usare le risorse GPU quando si distribuisce un gruppo di contenitori in una [rete virtuale](container-instances-vnet.md).
 
 ## <a name="about-gpu-resources"></a>Informazioni sulle risorse GPU
 
@@ -37,8 +37,8 @@ In futuro verrà aggiunto il supporto di ulteriori aree.
 
 Per usare le GPU in un'istanza di contenitore, specificare una *risorsa GPU* con le informazioni seguenti:
 
-* **Conteggio** : numero di GPU: **1**, **2**o **4**.
-* **SKU** : SKU GPU: **K80**, **P100**o **V100**. Ogni SKU esegue il mapping alla GPU NVIDIA Tesla in una delle famiglie di macchine virtuali di Azure abilitate per la GPU seguenti:
+* **Conteggio** : numero di GPU: **1** , **2** o **4** .
+* **SKU** : SKU GPU: **K80** , **P100** o **V100** . Ogni SKU esegue il mapping alla GPU NVIDIA Tesla in una delle famiglie di macchine virtuali di Azure abilitate per la GPU seguenti:
 
   | SKU | Famiglia di macchine virtuali |
   | --- | --- |
@@ -55,13 +55,13 @@ Quando si distribuiscono risorse GPU, impostare le risorse di CPU e memoria appr
 
 ### <a name="things-to-know"></a>Informazioni importanti
 
-* **Tempo di distribuzione**: la creazione di un gruppo di contenitori con le risorse della GPU richiede fino a **8-10 minuti**. Ciò è dovuto al tempo aggiuntivo necessario per il provisioning e la configurazione di una macchina virtuale della GPU in Azure. 
+* **Tempo di distribuzione** : la creazione di un gruppo di contenitori con le risorse della GPU richiede fino a **8-10 minuti** . Ciò è dovuto al tempo aggiuntivo necessario per il provisioning e la configurazione di una macchina virtuale della GPU in Azure. 
 
-* **Prezzi**: simili ai gruppi di contenitori senza risorse della GPU, le fatture di Azure per le risorse usate per la *durata* di un gruppo di contenitori con risorse della GPU. La durata viene calcolata a partire dal pull dell'immagine del primo contenitore fino al termine del gruppo di contenitori. Non include il tempo necessario per distribuire il gruppo di contenitori.
+* **Prezzi** : simili ai gruppi di contenitori senza risorse della GPU, le fatture di Azure per le risorse usate per la *durata* di un gruppo di contenitori con risorse della GPU. La durata viene calcolata a partire dal pull dell'immagine del primo contenitore fino al termine del gruppo di contenitori. Non include il tempo necessario per distribuire il gruppo di contenitori.
 
   Vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/container-instances/).
 
-* **Driver CUDA**: poiché viene effettuato il pre-provisioning delle istanze di contenitore con risorse della GPU con i driver NVIDIA CUDA e i runtime dei contenitori, è possibile usare le immagini dei contenitori sviluppati per carichi di lavoro CUDA.
+* **Driver CUDA** : poiché viene effettuato il pre-provisioning delle istanze di contenitore con risorse della GPU con i driver NVIDIA CUDA e i runtime dei contenitori, è possibile usare le immagini dei contenitori sviluppati per carichi di lavoro CUDA.
 
   In questa fase è supportato solo CUDA 9,0. Ad esempio, è possibile usare le seguenti immagini di base per il file docker:
   * [NVIDIA/CUDA: 9.0-base-Ubuntu 16.04](https://hub.docker.com/r/nvidia/cuda/)
@@ -69,7 +69,7 @@ Quando si distribuiscono risorse GPU, impostare le risorse di CPU e memoria appr
     
 ## <a name="yaml-example"></a>Esempio YAML
 
-Un modo per aggiungere risorse GPU consiste nel distribuire un gruppo di contenitori tramite un [file YAML](container-instances-multi-container-yaml.md). Copiare il file YAML seguente in un nuovo file denominato *gpu-deploy-aci.yaml*, quindi salvare il file. Il file YAML crea un gruppo di contenitori denominato *gpucontainergroup* specificando un'istanza di contenitore con una GPU K80. L'istanza esegue un'applicazione di aggiunta vettore CUDA di esempio. Le richieste di risorse sono sufficienti per eseguire il carico di lavoro.
+Un modo per aggiungere risorse GPU consiste nel distribuire un gruppo di contenitori tramite un [file YAML](container-instances-multi-container-yaml.md). Copiare il file YAML seguente in un nuovo file denominato *gpu-deploy-aci.yaml* , quindi salvare il file. Il file YAML crea un gruppo di contenitori denominato *gpucontainergroup* specificando un'istanza di contenitore con una GPU K80. L'istanza esegue un'applicazione di aggiunta vettore CUDA di esempio. Le richieste di risorse sono sufficienti per eseguire il carico di lavoro.
 
 ```YAML
 additional_properties: {}
@@ -133,7 +133,7 @@ Un altro modo per distribuire un gruppo di contenitori con le risorse GPU consis
     },
     "variables": {
       "containername": "gpucontainer",
-      "containerimage": "microsoft/samples-tf-mnist-demo:gpu"
+      "containerimage": "mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu"
     },
     "resources": [
       {

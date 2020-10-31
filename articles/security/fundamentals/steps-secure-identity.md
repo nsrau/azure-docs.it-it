@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 18e04350260258b74d746a2796a56d7d3ba46346
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 43974258008e3813a368ab31891251db15060aff
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92364117"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93127060"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>Cinque passaggi per proteggere l'infrastruttura di identità
 
@@ -145,7 +145,7 @@ Azure Active Directory offre molte funzionalità che intercettano automaticament
 
 Il rischio utente indica la probabilità che l'identità di un utente sia stata compromessa e viene calcolato in base ai [rilevamenti di rischi utente](../../active-directory/identity-protection/overview.md) associati all'identità di un utente. I criteri di rischio utente sono criteri di accesso condizionale che valutano il livello di rischio per un utente o un gruppo specifico. Basato su un livello di rischio basso, medio o elevato, un criterio può essere configurato per bloccare l'accesso o richiedere una modifica sicura della password mediante autenticazione a più fattori. Microsoft consiglia di richiedere una modifica sicura della password per gli utenti con rischio alto.
 
-![Utenti contrassegnati per il rischio](./media/steps-secure-identity/azure-ad-sec-steps1.png)
+![Screenshot Mostra gli utenti contrassegnati per il rischio, con un utente selezionato.](./media/steps-secure-identity/azure-ad-sec-steps1.png)
 
 ### <a name="implement-sign-in-risk-policy-using-azure-ad-identity-protection"></a>Implementare criteri di rischio di accesso mediante Azure AD Identity Protection
 
@@ -175,7 +175,7 @@ Azure AD Identity Protection offre due importanti report da monitorare quotidian
 1. Report sugli accessi a rischio, che evidenzieranno le attività di accesso dell'utente che è necessario analizzare: il legittimo proprietario può non aver eseguito l'accesso.
 2. Report sugli utenti a rischio, che evidenzieranno gli account utente che potrebbero essere stati compromessi: ad esempio, perdita di credenziali o accesso dell'utente da posizioni differenti che causa un evento di tipo comunicazione impossibile.
 
-![Utenti contrassegnati per il rischio](./media/steps-secure-identity/azure-ad-sec-steps3.png)
+![Screenshot mostra il riquadro Azure A D Identity Protection con gli utenti e i relativi livelli di rischio.](./media/steps-secure-identity/azure-ad-sec-steps3.png)
 
 ### <a name="audit-apps-and-consented-permissions"></a>App di controllo e autorizzazioni per il consenso
 

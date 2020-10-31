@@ -5,12 +5,12 @@ description: Procedure consigliate per l'operatore del cluster per l'uso delle f
 services: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.openlocfilehash: b8077a772d6fdc4b911fabdfa893a15dcd7615db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c0c1f587b4e52607e9466300f976a52874c9e5ad
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87530062"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93125632"
 ---
 # <a name="best-practices-for-advanced-scheduler-features-in-azure-kubernetes-service-aks"></a>Procedure consigliate per le funzionalità avanzate dell'utilità di pianificazione nel servizio Azure Kubernetes (AKS)
 
@@ -25,7 +25,7 @@ Questo articolo sulle procedure consigliate è incentrato sulle funzionalità di
 
 ## <a name="provide-dedicated-nodes-using-taints-and-tolerations"></a>Fornire nodi dedicati tramite taint e tolleranze
 
-**Indicazioni sulle procedure consigliate**. Limitare l'accesso a nodi specifici per le applicazioni a elevato utilizzo di risorse, come i controller di ingresso. Mantenere le risorse dei nodi disponibili per i carichi di lavoro che le richiedono e non consentire la pianificazione di altri carichi di lavoro sui nodi.
+**Indicazioni sulle procedure consigliate** . Limitare l'accesso a nodi specifici per le applicazioni a elevato utilizzo di risorse, come i controller di ingresso. Mantenere le risorse dei nodi disponibili per i carichi di lavoro che le richiedono e non consentire la pianificazione di altri carichi di lavoro sui nodi.
 
 Quando si crea il cluster servizio Azure Kubernetes, è possibile distribuire i nodi con supporto GPU o un numero elevato di potenti CPU. Questi nodi vengono spesso usati per i carichi di lavoro di elaborazione dati di grandi dimensioni, ad esempio Machine Learning (ML) o intelligenza artificiale. Poiché questo tipo di hardware è in genere una risorsa nodo costosa da distribuire, limitare i carichi di lavoro che possono essere pianificati su questi nodi. È invece consigliabile dedicare alcuni nodi del cluster per eseguire i servizi in ingresso e impedire altri carichi di lavoro.
 
@@ -36,7 +36,7 @@ L'utilità di pianificazione di Kubernetes può usare taint e tolleranze per lim
 * Un **taint** viene applicato a un nodo per indicare che possono essere pianificati solo pod specifici.
 * Una **tolleranza** viene quindi applicata a un pod per *tollerare* un taint di un nodo.
 
-Quando si distribuisce un pod in un cluster servizio Azure Kubernetes, Kubernetes pianifica solo i pod sui nodi in cui una tolleranza è allineata con un taint. Si supponga, ad esempio, di avere un pool di nodi nel cluster AKS per i nodi con supporto GPU. Si definisce il nome, ad esempio *gpu*, quindi un valore per la pianificazione. Se si imposta questo valore su *NoSchedule*, l'utilità di pianificazione di Kubernetes non può pianificare i pod sul nodo se il pod non definisce la tolleranza appropriata.
+Quando si distribuisce un pod in un cluster servizio Azure Kubernetes, Kubernetes pianifica solo i pod sui nodi in cui una tolleranza è allineata con un taint. Si supponga, ad esempio, di avere un pool di nodi nel cluster AKS per i nodi con supporto GPU. Si definisce il nome, ad esempio *gpu* , quindi un valore per la pianificazione. Se si imposta questo valore su *NoSchedule* , l'utilità di pianificazione di Kubernetes non può pianificare i pod sul nodo se il pod non definisce la tolleranza appropriata.
 
 ```console
 kubectl taint node aks-nodepool1 sku=gpu:NoSchedule
@@ -52,7 +52,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -79,21 +79,21 @@ Quando si esegue l'aggiornamento di un pool di nodi in AKS, i guasti e le toller
 
 - **Cluster predefiniti che usano i set di scalabilità di macchine virtuali**
   - È possibile [intaccare un nodepool][taint-node-pool] dall'API AKS per fare in modo che i nodi con scalabilità orizzontale ricevano i guasti del nodo specificati dall'API.
-  - Si supponga di avere un cluster a due nodi, *node1* e *node2*. Si aggiorna il pool di nodi.
-  - Vengono creati due nodi aggiuntivi, *Nodo3* e *Nodo4*, e i guasti vengono passati rispettivamente.
+  - Si supponga di avere un cluster a due nodi, *node1* e *node2* . Si aggiorna il pool di nodi.
+  - Vengono creati due nodi aggiuntivi, *Nodo3* e *Nodo4* , e i guasti vengono passati rispettivamente.
   - I *node1* e *node2* originali vengono eliminati.
 
 - **Cluster senza supporto per set di scalabilità di macchine virtuali**
-  - Si supponga di avere un cluster a due nodi, *node1* e *node2*. Quando si esegue l'aggiornamento, viene creato un nodo aggiuntivo (*Nodo3*).
-  - Le macchie da *node1* vengono applicate a *Nodo3*, quindi *node1* viene quindi eliminato.
-  - Viene creato un altro nodo nuovo (denominato *node1*, dal momento in cui è stato eliminato il *node1* precedente) e vengono applicati i Taini *node2* alla nuova *node1*. Quindi, *node2* viene eliminato.
-  - In sostanza *node1* diventa *Nodo3*e *node2* diventa *node1*.
+  - Si supponga di avere un cluster a due nodi, *node1* e *node2* . Quando si esegue l'aggiornamento, viene creato un nodo aggiuntivo ( *Nodo3* ).
+  - Le macchie da *node1* vengono applicate a *Nodo3* , quindi *node1* viene quindi eliminato.
+  - Viene creato un altro nodo nuovo (denominato *node1* , dal momento in cui è stato eliminato il *node1* precedente) e vengono applicati i Taini *node2* alla nuova *node1* . Quindi, *node2* viene eliminato.
+  - In sostanza *node1* diventa *Nodo3* e *node2* diventa *node1* .
 
 Quando si ridimensiona un pool di nodi in AKS, i guasti e le tollerazioni non vengono riportate in base alla progettazione.
 
 ## <a name="control-pod-scheduling-using-node-selectors-and-affinity"></a>Controllare la pianificazione dei pod tramite selettori di nodo e affinità
 
-**Indicazioni sulle procedure consigliate**. Controllare la pianificazione dei pod sui nodi tramite selettori di nodo, affinità tra nodi o affinità tra pod. Queste impostazioni consentono all'utilità di pianificazione di Kubernetes di isolare in modo logico i carichi di lavoro, ad esempio in base all'hardware nel nodo.
+**Indicazioni sulle procedure consigliate** . Controllare la pianificazione dei pod sui nodi tramite selettori di nodo, affinità tra nodi o affinità tra pod. Queste impostazioni consentono all'utilità di pianificazione di Kubernetes di isolare in modo logico i carichi di lavoro, ad esempio in base all'hardware nel nodo.
 
 Taint e tolleranze vengono usati per isolare in modo logico le risorse con un limite rigido: se il pod non tollera il taint di un nodo, non viene pianificato su quel nodo. Un approccio alternativo consiste nell'usare i selettori di nodo. Si etichettano i nodi, in modo da indicare l'archiviazione SSD collegata in locale o una quantità elevata di memoria, quindi si definisce un selettore di nodo nella specifica del pod. Kubernetes pianifica quindi tali pod su un nodo corrispondente. A differenza delle tolleranze, i pod senza un selettore di nodo corrispondente possono essere pianificati sui nodi con etichetta. Questo comportamento consente l'utilizzo delle risorse inutilizzate sui nodi, dando tuttavia la priorità ai pod che definiscono il selettore di nodo corrispondente.
 
@@ -113,7 +113,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
@@ -131,9 +131,9 @@ Per altre informazioni sull'uso dei selettori di nodo, vedere [Assigning Pods to
 
 ### <a name="node-affinity"></a>Affinità tra nodi
 
-Un selettore di nodo è un modo semplice per assegnare pod a un determinato nodo. Una maggiore flessibilità è disponibile con l'*affinità tra nodi*. Usando l'affinità tra nodi, si definisce cosa accade se il pod non può essere associato a un nodo. È possibile *richiedere* che l'utilità di pianificazione di Kubernetes trovi una corrispondenza tra un pod e un host con etichetta. In alternativa, è possibile *preferire* una corrispondenza ma consentire la pianificazione del pod su un host differente se la corrispondenza non è disponibile.
+Un selettore di nodo è un modo semplice per assegnare pod a un determinato nodo. Una maggiore flessibilità è disponibile con l' *affinità tra nodi* . Usando l'affinità tra nodi, si definisce cosa accade se il pod non può essere associato a un nodo. È possibile *richiedere* che l'utilità di pianificazione di Kubernetes trovi una corrispondenza tra un pod e un host con etichetta. In alternativa, è possibile *preferire* una corrispondenza ma consentire la pianificazione del pod su un host differente se la corrispondenza non è disponibile.
 
-Nell'esempio seguente l'affinità tra nodi viene impostata su *requiredDuringSchedulingIgnoredDuringExecution*. Questa affinità richiede che l'utilità di pianificazione di Kubernetes usi un nodo con un'etichetta corrispondente. Se non è disponibile alcun nodo, il pod rimane in attesa che la pianificazione continui. Per consentire la pianificazione del pod in un nodo diverso, è possibile impostare il valore su *preferredDuringSchedulingIgnoreDuringExecution*:
+Nell'esempio seguente l'affinità tra nodi viene impostata su *requiredDuringSchedulingIgnoredDuringExecution* . Questa affinità richiede che l'utilità di pianificazione di Kubernetes usi un nodo con un'etichetta corrispondente. Se non è disponibile alcun nodo, il pod rimane in attesa che la pianificazione continui. Per consentire la pianificazione del pod in un nodo diverso, è possibile impostare il valore su *preferredDuringSchedulingIgnoreDuringExecution* :
 
 ```yaml
 kind: Pod
@@ -143,7 +143,7 @@ metadata:
 spec:
   containers:
   - name: tf-mnist
-    image: microsoft/samples-tf-mnist-demo:gpu
+    image: mcr.microsoft.com/azuredocs/samples-tf-mnist-demo:gpu
     resources:
       requests:
         cpu: 0.5
