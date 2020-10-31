@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: d4934d784e871988b5bc30f7b7cf8c09651576e2
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: e07e12e82d96b591db324673f4c24b9074128065
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330368"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092994"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 
@@ -37,7 +37,7 @@ Azure Machine Learning usa la distribuzione anaconda di Python, che include molt
 
 Per un elenco completo, vedere la sezione [pacchetti Python preinstallati](#preinstalled-python-packages).
 
-Per installare i pacchetti che non sono inclusi nell'elenco preinstallato (ad esempio, *Scikit-varie*), aggiungere il codice seguente allo script: 
+Per installare i pacchetti che non sono inclusi nell'elenco preinstallato (ad esempio, *Scikit-varie* ), aggiungere il codice seguente allo script: 
 
 ```python
 import os
@@ -60,7 +60,7 @@ if spec is None:
 > [!WARNING]
 > Il modulo di script Python di excute non supporta l'installazione di pacchetti che dipendono da librerie native aggiuntive con comando come "apt-get", ad esempio Java, PyODBC e così via. Questo è dovuto al fatto che questo modulo viene eseguito in un ambiente semplice con Python preinstallato e con autorizzazioni non amministrative.  
 
-## <a name="upload-files"></a>Caricare file
+## <a name="upload-files"></a>Caricare i file
 Il modulo Execute Python script supporta il caricamento di file tramite il [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true#upload-file-name--path-or-stream-).
 
 L'esempio seguente illustra come caricare un file di immagine nel modulo Execute Python script:
@@ -110,17 +110,17 @@ Il modulo Execute Python script contiene codice Python di esempio che è possibi
 
 1. Aggiungere il modulo **Execute Python script (Esegui script Python** ) alla pipeline.
 
-2. Aggiungere e connettersi a **DataSet1** tutti i set di dati della finestra di progettazione che si desidera utilizzare per l'input. Fare riferimento a questo set di dati nello script Python come **DataFrame1**.
+2. Aggiungere e connettersi a **DataSet1** tutti i set di dati della finestra di progettazione che si desidera utilizzare per l'input. Fare riferimento a questo set di dati nello script Python come **DataFrame1** .
 
     L'utilizzo di un set di dati è facoltativo. Usare questa impostazione se si vuole generare dati tramite Python o usare il codice Python per importare i dati direttamente nel modulo.
 
-    Questo modulo supporta l'aggiunta di un secondo set di dati in **Dataset2**. Fare riferimento al secondo set di dati nello script Python come **DataFrame2**.
+    Questo modulo supporta l'aggiunta di un secondo set di dati in **Dataset2** . Fare riferimento al secondo set di dati nello script Python come **DataFrame2** .
 
     I set di dati archiviati in Azure Machine Learning vengono convertiti automaticamente in frame di dati Pandas quando vengono caricati con questo modulo.
 
     ![Mappa di input di Execute Python](media/module/python-module.png)
 
-4. Per includere nuovi pacchetti o codice Python, connettere il file compresso che contiene queste risorse personalizzate alla porta del **bundle di script** . In alternativa, se lo script è superiore a 16 KB, utilizzare la porta **bundle script** per evitare errori come *CommandLine supera il limite di 16597 caratteri*. 
+4. Per includere nuovi pacchetti o codice Python, connettere il file compresso che contiene queste risorse personalizzate alla porta del **bundle di script** . In alternativa, se lo script è superiore a 16 KB, utilizzare la porta **bundle script** per evitare errori come *CommandLine supera il limite di 16597 caratteri* . 
 
     
     1. Aggregare lo script e altre risorse personalizzate in un file zip.
@@ -129,7 +129,10 @@ Il modulo Execute Python script contiene codice Python di esempio che è possibi
     1. Connettere il modulo DataSet alla porta del **bundle di script** del modulo **Execute R script** .
     
     Qualsiasi file contenuto nell'archivio compresso caricato può essere usato durante l'esecuzione della pipeline. Se l'archivio include una struttura di directory, la struttura viene mantenuta.
-    
+ 
+    > [!WARNING]
+    > **Non** usare **app** come nome della cartella o dello script, perché l' **app** è una parola riservata per i servizi predefiniti. È tuttavia possibile utilizzare altri spazi dei nomi `app123` , ad esempio.
+   
     Di seguito è riportato un esempio di bundle di script, che contiene un file di script Python e un file txt:
       
     > [!div class="mx-imgBorder"]
@@ -182,7 +185,7 @@ Il modulo Execute Python script contiene codice Python di esempio che è possibi
     Due set di impostazioni possono essere restituiti alla finestra di progettazione, che deve essere una sequenza di tipo `pandas.DataFrame` . È possibile creare altri output nel codice Python e scriverli direttamente in archiviazione di Azure.
 
     > [!WARNING]
-    > **Non** è consigliabile connettersi a un database o ad altre archiviazioni esterne nel **modulo Execute Python script**. È possibile usare il modulo [Import Data](./import-data.md) ed [Export Data](./export-data.md)     
+    > **Non** è consigliabile connettersi a un database o ad altre archiviazioni esterne nel **modulo Execute Python script** . È possibile usare il modulo [Import Data](./import-data.md) ed [Export Data](./export-data.md)     
 
 6. Inviare la pipeline.
 
@@ -194,9 +197,9 @@ I risultati di qualsiasi calcolo dal codice Python incorporato devono essere for
 
 Il modulo restituisce due set di impostazioni:  
   
-+ Il set di dati **dei risultati 1**, definito dal primo frame di dati Pandas restituito in uno script Python.
++ Il set di dati **dei risultati 1** , definito dal primo frame di dati Pandas restituito in uno script Python.
 
-+ Set di dati di **risultati 2**, definito dal secondo frame di dati Pandas restituito in uno script Python.
++ Set di dati di **risultati 2** , definito dal secondo frame di dati Pandas restituito in uno script Python.
 
 ## <a name="preinstalled-python-packages"></a>Pacchetti Python preinstallati
 I pacchetti preinstallati sono:

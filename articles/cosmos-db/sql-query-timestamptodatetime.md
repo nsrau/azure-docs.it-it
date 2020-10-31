@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 9d4b5179ea08d5d6eca03422db7dfc7c8c4b5c3e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4a37206187d4b042bb69c065310f3a55fd51e37
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88608769"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093827"
 ---
 # <a name="timestamptodatetime-azure-cosmos-db"></a>TimestampToDateTime (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Converte il valore timestamp specificato in un valore DateTime.
   
@@ -41,7 +42,7 @@ Restituisce il valore della stringa ISO 8601 di data e ora UTC nel formato in `Y
   |GG|giorno del mese a due cifre (da 01 a 31)|
   |T|significato per l'inizio degli elementi Time|
   |hh|ora a due cifre (da 00 a 23)|
-  |MM|minuti a due cifre (da 00 a 59)|
+  |mm|minuti a due cifre (da 00 a 59)|
   |ss|secondi a due cifre (da 00 a 59)|
   |. fffffff|secondi frazionari a sette cifre|
   |Z|Indicatore UTC (Coordinated Universal Time)||
@@ -52,7 +53,7 @@ Restituisce il valore della stringa ISO 8601 di data e ora UTC nel formato in `Y
 
 TimestampToDateTime restituisce `undefined` se il valore di timestamp specificato non è valido.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
 Nell'esempio seguente il timestamp viene convertito in un valore DateTime:
 

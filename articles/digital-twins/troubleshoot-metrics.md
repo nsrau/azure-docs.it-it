@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: b4bc291c21ca1ccabec3cfd9544deaa5d45fcf51
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 7fde67ab9b9160bb89493748d09e83bd9cfcff34
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787194"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091702"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: metriche
 
@@ -64,7 +64,7 @@ Metriche che è necessario eseguire con le richieste API:
 Metriche che è necessario eseguire con la fatturazione:
 
 >[!NOTE]
-> Durante l'anteprima, **la fatturazione è a costo zero** . Sebbene queste metriche siano ancora visualizzate nell'elenco selezionabile, non si applicano durante la fase di anteprima e rimarranno azzerate fino a quando il servizio non verrà spostato oltre l'anteprima.
+>Sebbene queste metriche siano ancora visualizzate nell'elenco selezionabile, rimarranno azzerate fino a quando non saranno disponibili i nuovi prezzi per il servizio. Per altre informazioni, vedere [*prezzi di Azure Digital gemelli*](https://azure.microsoft.com/pricing/details/digital-twins/).
 
 | Metrica | Nome visualizzato metrica | Unità | Tipo di aggregazione| Descrizione | Dimensioni |
 | --- | --- | --- | --- | --- | --- |

@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 10/09/2020
-ms.openlocfilehash: 0235b8350e21fa51d1b3fed747a11b681f125e67
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: f722345b5be91a09bc513064b476f0b94eda765d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92540721"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094507"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -81,7 +81,7 @@ Si supponga, ad esempio, di ridurre il limite di conservazione da 90 a 30 giorni
 
 1. Al termine, sulla barra degli strumenti di **Impostazioni del flusso di lavoro** selezionare **Salva** .
 
-Se si genera un modello di Azure Resource Manager per l'app per la logica, questa impostazione viene visualizzata come proprietà nella definizione di risorsa del flusso di lavoro, descritta nel [riferimento del modello dei flussi di lavoro Microsoft. logici](/templates/microsoft.logic/workflows):
+Se si genera un modello di Azure Resource Manager per l'app per la logica, questa impostazione viene visualizzata come proprietà nella definizione di risorsa del flusso di lavoro, descritta nel [riferimento del modello dei flussi di lavoro Microsoft. logici](/azure/templates/microsoft.logic/workflows):
 
 ```json
 {

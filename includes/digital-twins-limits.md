@@ -5,16 +5,16 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 60a5f62d4ea23db1052b2e40d10775dfaa33c632
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: fe3c737e0cbf6831e3abc37443e27926ed5e62b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989431"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091777"
 ---
 ### <a name="functional-limits"></a>Limiti funzionali
 
-La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali di Azure nell'anteprima corrente.
+La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali di Azure.
 
 | Area | Funzionalità | Limite predefinito | Regolabile? |
 | --- | --- | --- | --- |
@@ -23,9 +23,9 @@ La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali 
 | Gemelli digitali | Numero di relazioni in ingresso per un singolo gemello | 5\.000 | No |
 | Gemelli digitali | Numero di relazioni in uscita da un singolo gemello | 5\.000 | No |
 | Gemelli digitali | Dimensione massima di un singolo gemello | 32 KB | No |
-| API gemelli digitali | Dimensioni massime payload richiesta | 32 KB | No | 
-| Routing | Numero di endpoint per una singola istanza di Azure Digital Twins | 6 | No |
-| Routing | Numero di route per una singola istanza di Azure Digital Twins | 6 | Sì |
+| Gemelli digitali | Dimensioni massime payload richiesta | 32 KB | No | 
+| Routing. | Numero di endpoint per una singola istanza di Azure Digital Twins | 6 | No |
+| Routing. | Numero di route per una singola istanza di Azure Digital Twins | 6 | Sì |
 | Modelli | Numero di modelli all'interno di una singola istanza di Azure Digital Twins | 10,000 | Sì |
 | Modelli | Numero di modelli che possono essere caricati in una singola chiamata API | 250 | No |
 | Modelli | Numero di elementi restituiti in una singola pagina | 100 | No |
@@ -37,12 +37,14 @@ La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali 
 
 ### <a name="rate-limits"></a>Limiti di velocità
 
-Questa tabella riflette i limiti di velocità delle diverse API.
+La tabella seguente indica i limiti di velocità delle diverse API.
 
 | API | Funzionalità | Limite predefinito | Regolabile? |
 | --- | --- | --- | --- |
 | API modelli | Numero di richieste al secondo | 100 | Sì |
-| API gemelli digitali | Numero di richieste al secondo | 1\.000 | Sì |
+| API gemelli digitali | Numero di richieste al secondo | 2.000 | Sì |
+| API gemelli digitali | Numero di operazioni di creazione/eliminazione al secondo in **tutti i dispositivi gemelli e relazioni** | 50 | Sì |
+| API gemelli digitali | Numero di operazioni di creazione/aggiornamento/eliminazione al secondo in un **singolo gemello** o nelle relative relazioni | 10 | No |
 | API di query | Numero di richieste al secondo | 500 | Sì |
 | API di query | [Unità di query](../articles/digital-twins/concepts-query-units.md) al secondo | 4.000 | Sì |
 | API route di eventi | Numero di richieste al secondo | 100 | Sì |
@@ -51,4 +53,4 @@ Questa tabella riflette i limiti di velocità delle diverse API.
 
 I limiti per i tipi di dati e i campi nei documenti di DTDL per i modelli di dispositivi gemelli digitali di Azure sono disponibili nella relativa documentazione specifica in GitHub: [*Digital Gemini Definition Language (DTDL)-versione 2*](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/dtdlv2.md).
  
-Per informazioni dettagliate sulla latenza delle query e altre linee guida sulla scrittura di query durante [*l'anteprima, vedere Procedura: eseguire una query sul grafico gemello*](../articles/digital-twins/how-to-query-graph.md).
+Per informazioni dettagliate sulla latenza delle query e altre limitazioni [*delle query, vedere Procedura: eseguire una query sul grafico gemello*](../articles/digital-twins/how-to-query-graph.md).

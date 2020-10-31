@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: d840fe5b6fde72149893a15ab9096d3880c1c8ea
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: d4ae18b335453f3e1d3512951675afe10c804c8d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425681"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094422"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Che cos'è un'istanza di calcolo di Azure Machine Learning?
 
@@ -25,6 +25,8 @@ Le istanze di calcolo semplificano l'avvio dello sviluppo di Azure Machine Learn
 Usa un'istanza di calcolo come ambiente di sviluppo completamente configurato e gestito nel cloud per Machine Learning. Possono anche essere usati come destinazione di calcolo per il training e l'inferenza a scopo di sviluppo e test.  
 
 Per il training del modello di livello di produzione, usare un [cluster di calcolo Azure Machine Learning](how-to-create-attach-compute-cluster.md) con funzionalità di scalabilità a più nodi. Per la distribuzione del modello di livello di produzione, usare il [cluster di servizi Kubernetes di Azure](how-to-deploy-azure-kubernetes-service.md).
+
+Per il corretto funzionamento della funzionalità Jupyter dell'istanza di calcolo, assicurarsi che la comunicazione con il Websocket non sia disabilitata. Assicurarsi che la rete consenta le connessioni WebSocket a *. instances.azureml.net e *. instances.azureml.ms.
 
 ## <a name="why-use-a-compute-instance"></a>Perché usare un'istanza di calcolo?
 
@@ -82,7 +84,7 @@ Gli strumenti e gli ambienti seguenti sono già installati nell'istanza di calco
 |Pacchetti ONNX|`keras2onnx`</br>`onnx`</br>`onnxconverter-common`</br>`skl2onnx`</br>`onnxmltools`|
 |Esempi di Azure Machine Learning Python e R SDK||
 
-Tutti i pacchetti Python sono installati nell'ambiente **Python 3.6 - AzureML**.  
+Tutti i pacchetti Python sono installati nell'ambiente **Python 3.6 - AzureML** .  
 
 ## <a name="accessing-files"></a>Accesso ai file
 
@@ -100,7 +102,7 @@ La scrittura di file di piccole dimensioni può essere più lenta nelle unità d
 
 ## <a name="managing-a-compute-instance"></a>Gestione di un'istanza di calcolo
 
-Nell'area di lavoro in Azure Machine Learning Studio selezionare **Calcolo**, quindi selezionare **Istanza di calcolo** nella parte superiore.
+Nell'area di lavoro in Azure Machine Learning Studio selezionare **Calcolo** , quindi selezionare **Istanza di calcolo** nella parte superiore.
 
 ![Gestire un'istanza di calcolo](./media/concept-compute-instance/manage-compute-instance.png)
 

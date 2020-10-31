@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 04/04/2020
 ms.author: thvankra
 ms.reviewer: sngun
-ms.openlocfilehash: 7de38097acdbfa1f9c9b90f3051c68dec5465b32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc9c7c2f06b9d39243b8593b20ddeb7ffa2f886c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80758027"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092365"
 ---
 # <a name="secondary-indexing-in-azure-cosmos-db-cassandra-api"></a>Indicizzazione secondaria in Azure Cosmos DB API Cassandra
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 Il API Cassandra in Azure Cosmos DB sfrutta l'infrastruttura di indicizzazione sottostante per esporre il livello di attendibilità dell'indicizzazione intrinseco alla piattaforma. Tuttavia, a differenza dell'API SQL di base, API Cassandra in Azure Cosmos DB non indicizza tutti gli attributi per impostazione predefinita. Supporta invece l'indicizzazione secondaria per creare un indice in determinati attributi, il che si comporta allo stesso modo di Apache Cassandra.  
 

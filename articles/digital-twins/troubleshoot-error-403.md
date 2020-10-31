@@ -6,12 +6,12 @@ author: baanders
 ms.author: baanders
 ms.topic: troubleshooting
 ms.date: 7/20/2020
-ms.openlocfilehash: d821d6dacc2620988c32e63439ec2e039819e0a5
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: aeae1f1a99d1fa574df8202efd2405232855628b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495900"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091804"
 ---
 # <a name="service-request-failed-status-403-forbidden"></a>Richiesta di servizio non riuscita. Stato: 403 (accesso negato)
 
@@ -25,7 +25,7 @@ Questo errore può verificarsi in molti tipi di richieste di servizio che richie
 
 ### <a name="cause-1"></a>Causare #1
 
-In genere, questo errore indica che le autorizzazioni di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per il servizio non sono configurate correttamente. Per molte azioni per un'istanza di Azure Digital Twins è necessario avere il ruolo di *proprietario dei dati di Azure Digital gemelli* nell' **istanza che si sta tentando di gestire**. 
+In genere, questo errore indica che le autorizzazioni di controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per il servizio non sono configurate correttamente. Per molte azioni per un'istanza di Azure Digital Twins è necessario avere il ruolo di *proprietario dei dati di Azure Digital gemelli* nell' **istanza che si sta tentando di gestire** . 
 
 [!INCLUDE [digital-twins-role-rename-note.md](../../includes/digital-twins-role-rename-note.md)]
 
@@ -52,7 +52,7 @@ Si noti che questo ruolo è diverso da...
 
 #### <a name="fix-issues"></a>Risolvere i problemi 
 
-Se non si dispone di questa assegnazione di ruolo, un utente con un ruolo proprietario nella **sottoscrizione di Azure** deve eseguire il comando seguente per concedere all'utente di Azure il ruolo di *proprietario dei dati di Azure Digital gemelli* nell'istanza di **Azure Digital gemelli**. 
+Se non si dispone di questa assegnazione di ruolo, un utente con un ruolo proprietario nella **sottoscrizione di Azure** deve eseguire il comando seguente per concedere all'utente di Azure il ruolo di *proprietario dei dati di Azure Digital gemelli* nell'istanza di **Azure Digital gemelli** . 
 
 Se si è un proprietario della sottoscrizione, è possibile eseguire questo comando manualmente. In caso contrario, contattare un proprietario per eseguire questo comando per conto dell'utente.
 
@@ -60,7 +60,7 @@ Se si è un proprietario della sottoscrizione, è possibile eseguire questo coma
 az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<your-Azure-AD-email>" --role "Azure Digital Twins Data Owner"
 ```
 
-Per altri dettagli su questo requisito del ruolo e il processo di assegnazione, vedere la [sezione *configurare le autorizzazioni di accesso dell'utente* ](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) in *procedura: configurare un'istanza e l'autenticazione (CLI o portale)*.
+Per altri dettagli su questo requisito del ruolo e il processo di assegnazione, vedere la [sezione *configurare le autorizzazioni di accesso dell'utente*](how-to-set-up-instance-CLI.md#set-up-user-access-permissions) in *procedura: configurare un'istanza e l'autenticazione (CLI o portale)* .
 
 Se questa assegnazione di ruolo è già stata usata *e* si sta usando una registrazione dell'app Azure ad per autenticare un'app client, è possibile passare alla soluzione successiva se questa soluzione non ha risolto il problema 403.
 

@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/03/2020
 ms.author: tisande
-ms.openlocfilehash: 546b664c74980b3522fefed82c00eec414641eaa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f250c15dbb30736e3e89a301fc236a848bd05da2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326627"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092059"
 ---
 # <a name="index-geospatial-data-with-azure-cosmos-db"></a>Indicizzare i dati geospaziali con Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Il motore di database di Azure Cosmos DB è stato progettato in modo da essere effettivamente indipendente dallo schema e fornire supporto di prima classe per JSON. Il motore di database ottimizzato per la scrittura di Azure Cosmos DB riconosce in modo nativo i dati spaziali rappresentati nello standard GeoJSON.
 
-In breve, la geometria è proiettata dalle coordinate geodetiche su un piano 2D, quindi suddivisa progressivamente in celle utilizzando un **quadtree**. Queste celle vengono mappate in 1D in base alla posizione della cella all'interno di una **curva di riempimento dello spazio di Hilbert**, che consente di mantenere la posizione dei punti. Quando i dati di località vengono indicizzati, passano attraverso un processo noto come **mosaico**: tutte le celle che intersecano una posizione vengono identificate e archiviate come chiavi nell'indice di Azure Cosmos DB. In fase di query, anche argomenti come punti e poligoni sono tassellati per estrarre gli intervalli degli ID delle celle pertinenti e quindi usati per recuperare dati dall'indice.
+In breve, la geometria è proiettata dalle coordinate geodetiche su un piano 2D, quindi suddivisa progressivamente in celle utilizzando un **quadtree** . Queste celle vengono mappate in 1D in base alla posizione della cella all'interno di una **curva di riempimento dello spazio di Hilbert** , che consente di mantenere la posizione dei punti. Quando i dati di località vengono indicizzati, passano attraverso un processo noto come **mosaico** : tutte le celle che intersecano una posizione vengono identificate e archiviate come chiavi nell'indice di Azure Cosmos DB. In fase di query, anche argomenti come punti e poligoni sono tassellati per estrarre gli intervalli degli ID delle celle pertinenti e quindi usati per recuperare dati dall'indice.
 
 Se si specifica un criterio di indicizzazione che include l'indice spaziale per/* (tutti i percorsi), tutti i dati trovati all'interno del contenitore vengono indicizzati per query spaziali efficienti.
 
@@ -36,11 +37,11 @@ Di seguito viene illustrato come impostare la **configurazione geospaziale** in 
 
 :::image type="content" source="./media/sql-query-geospatial-index/geospatial-configuration.png" alt-text="Impostazione della configurazione geospaziale":::
 
-È anche possibile modificare `geospatialConfig` in .NET SDK per modificare la **configurazione geospaziale**:
+È anche possibile modificare `geospatialConfig` in .NET SDK per modificare la **configurazione geospaziale** :
 
 Se non specificato, `geospatialConfig` per impostazione predefinita viene impostato il tipo di dati geography. Quando si modifica la `geospatialConfig` , tutti i dati geospaziali esistenti nel contenitore verranno reindicizzati.
 
-Di seguito è riportato un esempio per modificare il tipo di dati geospaziale in impostando `geometry` la `geospatialConfig` proprietà e aggiungendo un **BoundingBox**:
+Di seguito è riportato un esempio per modificare il tipo di dati geospaziale in impostando `geometry` la `geospatialConfig` proprietà e aggiungendo un **BoundingBox** :
 
 ```csharp
     //Retrieve the container's details
@@ -111,10 +112,10 @@ Con il tipo di dati **Geometry** , simile al tipo di dati geography, è necessar
 
 Il rettangolo di delimitazione è costituito dalle proprietà seguenti:
 
-- **xmin**: coordinata x minima indicizzata
-- **yMin**: coordinata y minima indicizzata
-- **Xmax**: coordinata x massima indicizzata
-- **yMax**: coordinata y massima indicizzata
+- **xmin** : coordinata x minima indicizzata
+- **yMin** : coordinata y minima indicizzata
+- **Xmax** : coordinata x massima indicizzata
+- **yMax** : coordinata y massima indicizzata
 
 È necessario un rettangolo di delimitazione perché i dati geometrici occupano un piano che può essere infinito. Gli indici spaziali, tuttavia, richiedono uno spazio finito. Per il tipo di dati **geography** , la terra è il limite e non è necessario impostare un rettangolo di delimitazione.
 
@@ -159,7 +160,7 @@ Ecco un esempio di criterio di indicizzazione che indicizza i dati **Geometry** 
 Il criterio di indicizzazione precedente presenta un **BoundingBox** di (-10, 10) per le coordinate x e (-20, 20) per le coordinate y. Il contenitore con i criteri di indicizzazione elencati sopra indicizza tutti i punti, i poligoni, i multipoligoni e gli oggetti LineString che sono interamente all'interno di questa area.
 
 > [!NOTE]
-> Se si tenta di aggiungere un criterio di indicizzazione con un **BoundingBox** a un contenitore con `geography` tipo di dati, l'operazione avrà esito negativo. È necessario modificare il **geospatialConfig** del contenitore prima di `geometry` aggiungere un **BoundingBox**. È possibile aggiungere dati e modificare il resto del criterio di indicizzazione, ad esempio i percorsi e i tipi, prima o dopo aver selezionato il tipo di dati geospaziale per il contenitore.
+> Se si tenta di aggiungere un criterio di indicizzazione con un **BoundingBox** a un contenitore con `geography` tipo di dati, l'operazione avrà esito negativo. È necessario modificare il **geospatialConfig** del contenitore prima di `geometry` aggiungere un **BoundingBox** . È possibile aggiungere dati e modificare il resto del criterio di indicizzazione, ad esempio i percorsi e i tipi, prima o dopo aver selezionato il tipo di dati geospaziale per il contenitore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

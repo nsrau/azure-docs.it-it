@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 683c53c369f136ad4b917b93e9a92a71072d05e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41c5cc1a6032a0aee16f1922fc59349449c65b55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "71349643"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091940"
 ---
 # <a name="power-azure-cosmos-db"></a>POTENZA (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Restituisce il valore dell'espressione specificata alla potenza specificata.  
   
 ## <a name="syntax"></a>Sintassi
@@ -29,13 +31,13 @@ POWER (<numeric_expr1>, <numeric_expr2>)
    È un'espressione numerica.  
   
 *numeric_expr2*  
-   Potenza a cui generare *numeric_expr1*.  
+   Potenza a cui generare *numeric_expr1* .  
   
 ## <a name="return-types"></a>Tipi restituiti
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   Nell'esempio seguente viene illustrata la generazione di un numero con potenza 3 (il cubo del numero).  
   

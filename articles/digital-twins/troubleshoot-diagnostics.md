@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/28/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: f4abf78c153bd3d61068e4b7607794d6ccf1ed04
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 11a7b4876c773922d4b0ed28f7047912b738ee6a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047676"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93091736"
 ---
 # <a name="troubleshooting-azure-digital-twins-diagnostics-logging"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: registrazione diagnostica
 
@@ -26,13 +26,13 @@ Ecco come abilitare le impostazioni di diagnostica per l'istanza di Azure Digita
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'istanza di Azure Digital gemelli. È possibile trovarlo digitando il relativo nome nella barra di ricerca del portale. 
 
-2. Selezionare **impostazioni di diagnostica** dal menu e quindi **Aggiungi impostazione di diagnostica**.
+2. Selezionare **impostazioni di diagnostica** dal menu e quindi **Aggiungi impostazione di diagnostica** .
 
     :::image type="content" source="media/troubleshoot-diagnostics/diagnostic-settings.png" alt-text="Screenshot che mostra la pagina delle impostazioni di diagnostica e il pulsante per aggiungere":::
 
 3. Nella pagina seguente compilare i valori seguenti:
-     * **Nome dell'impostazione di diagnostica**: assegnare un nome alle impostazioni di diagnostica.
-     * **Dettagli categoria**: scegliere le operazioni che si desidera monitorare e selezionare le caselle per abilitare la diagnostica per tali operazioni. Le operazioni per cui le impostazioni di diagnostica possono inviare report sono:
+     * **Nome dell'impostazione di diagnostica** : assegnare un nome alle impostazioni di diagnostica.
+     * **Dettagli categoria** : scegliere le operazioni che si desidera monitorare e selezionare le caselle per abilitare la diagnostica per tali operazioni. Le operazioni per cui le impostazioni di diagnostica possono inviare report sono:
         - DigitalTwinsOperation
         - EventRoutesOperation
         - ModelsOperation
@@ -40,7 +40,7 @@ Ecco come abilitare le impostazioni di diagnostica per l'istanza di Azure Digita
         - AllMetrics
         
         Per ulteriori informazioni su queste opzioni, vedere la sezione [*Dettagli categoria*](#category-details) riportata di seguito.
-     * **Dettagli destinazione**: scegliere il percorso in cui si desidera inviare i log. È possibile selezionare qualsiasi combinazione delle tre opzioni:
+     * **Dettagli destinazione** : scegliere il percorso in cui si desidera inviare i log. È possibile selezionare qualsiasi combinazione delle tre opzioni:
         - Invia a Log Analytics
         - Archivia in un account di archiviazione
         - Streaming in un hub eventi
@@ -70,7 +70,7 @@ Ogni categoria di log è costituita da operazioni di scrittura, lettura, elimina
 | --- | --- |
 | Scrittura | PUT e PATCH |
 | Lettura | GET |
-| Delete | DELETE |
+| Elimina | DELETE |
 | Azione | POST |
 
 Ecco un elenco completo delle operazioni e delle [chiamate API REST di Azure Digital gemelle](/rest/api/azure-digitaltwins/) corrispondenti registrate in ogni categoria. 
@@ -106,7 +106,7 @@ Questo schema del registro è coerente per `ADTDigitalTwinsOperation` , `ADTMode
 
 Di seguito sono riportate le descrizioni dei campi e delle proprietà per i log API.
 
-| Nome del campo | Tipo di dati | Descrizione |
+| Nome campo | Tipo di dati | Descrizione |
 |-----|------|-------------|
 | `Time` | Datetime | Data e ora in cui si è verificato l'evento, in formato UTC |
 | `ResourceID` | string | ID di risorsa Azure Resource Manager per la risorsa in cui si è verificata l'evento |
@@ -132,7 +132,7 @@ Di seguito sono riportati i corpi JSON di esempio per questi tipi di log.
   "time": "2020-03-14T21:11:14.9918922Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/digitaltwins/write",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "DigitalTwinOperation",
   "resultType": "Success",
   "resultSignature": "200",
@@ -142,7 +142,7 @@ Di seguito sono riportati i corpi JSON di esempio per questi tipi di log.
   "correlationId": "2f6a8e64-94aa-492a-bc31-16b9f0b16ab3",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-05-31-preview"
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/digitaltwins/factory-58d81613-2e54-4faa-a930-d980e6e2a884?api-version=2020-10-31"
 }
 ```
 
@@ -153,7 +153,7 @@ Di seguito sono riportati i corpi JSON di esempio per questi tipi di log.
   "time": "2020-10-29T21:12:24.2337302Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/models/write",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "ModelsOperation",
   "resultType": "Success",
   "resultSignature": "201",
@@ -163,7 +163,7 @@ Di seguito sono riportati i corpi JSON di esempio per questi tipi di log.
   "correlationId": "9dcb71ea-bb6f-46f2-ab70-78b80db76882",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-05-31-preview",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/Models?api-version=2020-10-31",
 }
 ```
 
@@ -174,7 +174,7 @@ Di seguito sono riportati i corpi JSON di esempio per questi tipi di log.
   "time": "2020-12-04T21:11:44.1690031Z",
   "resourceId": "/SUBSCRIPTIONS/BBED119E-28B8-454D-B25E-C990C9430C8F/RESOURCEGROUPS/MYRESOURCEGROUP/PROVIDERS/MICROSOFT.DIGITALTWINS/DIGITALTWINSINSTANCES/MYINSTANCENAME",
   "operationName": "Microsoft.DigitalTwins/query/action",
-  "operationVersion": "2020-05-31-preview",
+  "operationVersion": "2020-10-31",
   "category": "QueryOperation",
   "resultType": "Success",
   "resultSignature": "200",
@@ -184,7 +184,7 @@ Di seguito sono riportati i corpi JSON di esempio per questi tipi di log.
   "correlationId": "1ee2b6e9-3af4-4873-8c7c-1a698b9ac334",
   "level": "4",
   "location": "southcentralus",
-  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-05-31-preview",
+  "uri": "https://myinstancename.api.scus.digitaltwins.azure.net/query?api-version=2020-10-31",
 }
 ```
 
@@ -192,7 +192,7 @@ Di seguito sono riportati i corpi JSON di esempio per questi tipi di log.
 
 Si tratta dello schema per i `ADTEventRoutesOperation` log. Sono inclusi i dettagli relativi alle eccezioni e le operazioni API relative agli endpoint in uscita connessi a un'istanza di dispositivi gemelli digitali di Azure.
 
-|Nome del campo | Tipo di dati | Descrizione |
+|Nome campo | Tipo di dati | Descrizione |
 |-----|------|-------------|
 | `Time` | Datetime | Data e ora in cui si è verificato l'evento, in formato UTC |
 | `ResourceId` | string | ID di risorsa Azure Resource Manager per la risorsa in cui si è verificata l'evento |

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 03/06/2020
 ms.author: tisande
-ms.openlocfilehash: ceffb203ccc2cca1ff6e1c53644cde955c2e0acb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f1698390e759a4f347ed37157ca6b7073c44607
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523503"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93093521"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Clausola WHERE in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 La clausola WHERE facoltativa ( `WHERE <filter_condition>` ) specifica le condizioni che devono essere soddisfatte dagli elementi JSON di origine affinché la query li includa nei risultati. Un elemento JSON deve valutare le condizioni specificate per `true` essere considerato per il risultato. Il livello di indice utilizza la clausola WHERE per determinare il subset più piccolo di elementi di origine che può far parte del risultato.
   
@@ -41,7 +42,7 @@ WHERE <filter_condition>
 
   Se si include la chiave di partizione nella `WHERE` clausola come parte di un filtro di uguaglianza, la query verrà automaticamente filtrata solo per le partizioni pertinenti.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 La query seguente richiede elementi che contengono una `id` proprietà il cui valore è `AndersenFamily` . Esclude tutti gli elementi che non dispongono di una `id` proprietà o il cui valore non corrisponde `AndersenFamily` .
 

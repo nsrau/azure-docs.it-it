@@ -6,14 +6,15 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: 5905471dad5cf4e2e8191894af52c503c23e9036
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 58e7d54750da86b8a700a4f2195bc4cfa012ae4b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277974"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092688"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Domande frequenti sulla velocità effettiva con provisioning a scalabilità automatica in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Con la velocità effettiva con provisioning a scalabilità automatica, Azure Cosmos DB gestisce e ridimensiona automaticamente le UR/s del database o del contenitore in base all'utilizzo. Questo articolo presenta le risposte ad alcune domande comuni sulla scalabilità automatica.
 
@@ -108,9 +109,9 @@ Quando si invia una richiesta di aumento del numero massimo di UR/s `Tmax`, a se
 #### <a name="lowering-the-max-rus"></a>Riduzione del numero massimo di UR/s
 Quando si riduce il numero massimo di UR/s, il valore minimo che è possibile impostare è `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100)`, arrotondato al migliaio di UR/s più vicino. 
 
-Esempio 1: Si supponga di avere un contenitore con scalabilità automatica con un numero massimo di UR/s pari a 20.000 (con scalabilità compresa tra 2000 e 20.000 UR/s) e 50 GB di spazio di archiviazione. Il valore minimo più basso per il quale è possibile impostare il numero massimo di UR/s corrisponde a MAX(4000, 20.000/10, **50 * 100**) = 5000 UR/s (con scalabilità compresa tra 500 e 5000 UR/s).
+Esempio 1: Si supponga di avere un contenitore con scalabilità automatica con un numero massimo di UR/s pari a 20.000 (con scalabilità compresa tra 2000 e 20.000 UR/s) e 50 GB di spazio di archiviazione. Il valore minimo più basso per il quale è possibile impostare il numero massimo di UR/s corrisponde a MAX(4000, 20.000/10, **50 * 100** ) = 5000 UR/s (con scalabilità compresa tra 500 e 5000 UR/s).
 
-Esempio 2: Si supponga di avere un contenitore con scalabilità automatica con un numero massimo di UR/s pari a 100.000 e 100 GB di spazio di archiviazione. Si decide ora di ridimensionare il numero massimo di UR/s a 150.000 (con scalabilità compresa tra 15.000 e 150.000 UR/s). Il valore minimo più basso per il quale è ora possibile impostare il numero massimo di UR/s corrisponde a MAX(4000, **150.000/10**, 100 * 100) = 15,000 UR/s (con scalabilità compresa tra 1500 e 15,000 UR/s). 
+Esempio 2: Si supponga di avere un contenitore con scalabilità automatica con un numero massimo di UR/s pari a 100.000 e 100 GB di spazio di archiviazione. Si decide ora di ridimensionare il numero massimo di UR/s a 150.000 (con scalabilità compresa tra 15.000 e 150.000 UR/s). Il valore minimo più basso per il quale è ora possibile impostare il numero massimo di UR/s corrisponde a MAX(4000, **150.000/10** , 100 * 100) = 15,000 UR/s (con scalabilità compresa tra 1500 e 15,000 UR/s). 
 
 Per un database con velocità effettiva condivisa, quando si riduce il numero massimo di UR/s, il valore minimo che è possibile impostare è `MAX(4000, highest max RU/s ever provisioned / 10, current storage in GB * 100,  4000 + (MAX(Container count - 25, 0) * 1000))`, arrotondato al migliaio di UR/s più vicino.  
 

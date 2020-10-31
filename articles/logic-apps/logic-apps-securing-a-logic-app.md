@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 10/16/2020
-ms.openlocfilehash: 159f4b2ea0cafb0b2c883cde76ddce7ddd3f1fc6
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.date: 10/29/2020
+ms.openlocfilehash: dc03f2276af7c5f6121966a52d50e9c1b208d8cb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92317565"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094711"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -91,7 +91,7 @@ Per altre informazioni sulla protezione dell'accesso con SAS, vedere le sezioni 
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica che contiene la chiave che si desidera rigenerare.
 
-1. Nel menu di app per la logica in **Impostazioni**, selezionare **Chiave di accesso**.
+1. Nel menu di app per la logica in **Impostazioni** , selezionare **Chiave di accesso** .
 
 1. Scegliere la chiave da rigenerare e completare il processo.
 
@@ -137,7 +137,7 @@ Prima di abilitare Azure AD OAuth, esaminare le considerazioni seguenti:
 
 * Un criterio di autorizzazione deve includere almeno l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth v2) come ID autorità di certificazione Azure ad.
 
-  Si supponga, ad esempio, che l'app per la logica disponga di un criterio di autorizzazione che richiede due tipi di attestazione, **audience** e **emittente**. Questa [sezione di payload](../active-directory/develop/access-tokens.md#payload-claims) di esempio per un token di accesso decodificato include entrambi i tipi di attestazione in cui `aud` è il valore **audience** e `iss` è il valore dell' **autorità emittente** :
+  Si supponga, ad esempio, che l'app per la logica disponga di un criterio di autorizzazione che richiede due tipi di attestazione, **audience** e **emittente** . Questa [sezione di payload](../active-directory/develop/access-tokens.md#payload-claims) di esempio per un token di accesso decodificato include entrambi i tipi di attestazione in cui `aud` è il valore **audience** e `iss` è il valore dell' **autorità emittente** :
 
   ```json
   {
@@ -188,7 +188,7 @@ Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, segui
 
 1. Nel [portale di Azure](https://portal.microsoft.com) individuare e aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Autorizzazione**. Dopo l'apertura del riquadro Autorizzazione, selezionare **Aggiungi criteri**.
+1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Autorizzazione** . Dopo l'apertura del riquadro Autorizzazione, selezionare **Aggiungi criteri** .
 
    ![Selezionare "Autorizzazione" > "Aggiungi criteri"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
@@ -199,18 +199,18 @@ Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, segui
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Nome del criterio** | Sì | Il nome da usare per il criterio di autorizzazione |
-   | **Richieste** | Sì | I tipi di attestazione e i valori accettati dall'app per la logica dalle chiamate in ingresso. Ecco i tipi di attestazione disponibili: <p><p>- **Autorità di certificazione** <br>- **Destinatari** <br>- **Oggetto** <br>- **ID JWT** (ID token Web JSON) <p><p>Come minimo, l'elenco di **attestazioni** deve includere l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID autorità di certificazione Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore. |
+   | **Richieste** | Sì | I tipi di attestazione e i valori accettati dall'app per la logica dalle chiamate in ingresso. Il valore dell'attestazione è limitato a 80 caratteri. Ecco i tipi di attestazione disponibili: <p><p>- **Autorità di certificazione** <br>- **Destinatari** <br>- **Oggetto** <br>- **ID JWT** (ID token Web JSON) <p><p>Come minimo, l'elenco di **attestazioni** deve includere l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID autorità di certificazione Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore. |
    |||
 
 1. Per aggiungere un'altra attestazione, selezionare una delle opzioni seguenti:
 
-   * Per aggiungere un altro tipo di attestazione, selezionare **Aggiungi attestazione standard**, selezionare il tipo di attestazione e specificare il valore dell'attestazione.
+   * Per aggiungere un altro tipo di attestazione, selezionare **Aggiungi attestazione standard** , selezionare il tipo di attestazione e specificare il valore dell'attestazione.
 
-   * Per aggiungere un'attestazione personalizzata, selezionare **Aggiungi attestazione personalizzata**, quindi specificare il valore dell'attestazione personalizzata.
+   * Per aggiungere un'attestazione personalizzata, selezionare **Aggiungi attestazione personalizzata** , quindi specificare il valore dell'attestazione personalizzata.
 
-1. Per aggiungere un altro criterio di autorizzazione, selezionare **Aggiungi criteri**. Ripetere i passaggi precedenti per configurare i criteri.
+1. Per aggiungere un altro criterio di autorizzazione, selezionare **Aggiungi criteri** . Ripetere i passaggi precedenti per configurare i criteri.
 
-1. Al termine, selezionare **Salva**.
+1. Al termine, selezionare **Salva** .
 
 1. Per includere l' `Authorization` intestazione dal token di accesso negli output dei trigger basati su richiesta, vedere [includere l'intestazione ' Authorization ' negli output del trigger di richiesta](#include-auth-header).
 
@@ -312,9 +312,9 @@ Oltre alla firma di accesso condiviso (SAS) è possibile che l'utente voglia lim
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Impostazioni del flusso di lavoro**.
+1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Impostazioni del flusso di lavoro** .
 
-1. In **Configurazione del controllo di accesso** > **Indirizzi IP in ingresso consentiti** selezionare **Intervalli IP specifici**.
+1. In **Configurazione del controllo di accesso** > **Indirizzi IP in ingresso consentiti** selezionare **Intervalli IP specifici** .
 
 1. Quando viene visualizzata la casella **intervalli IP per trigger** , specificare gli intervalli di indirizzi IP accettati dal trigger. Un intervallo IP valido usa questi formati: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*
 
@@ -412,11 +412,11 @@ Per controllare l'accesso agli input e agli output nella cronologia di esecuzion
 
 1. Nel portale di Azure aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica, in **Impostazioni**, selezionare **Impostazioni del flusso di lavoro**.
+1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Impostazioni del flusso di lavoro** .
 
-1. In **Configurazione del controllo di accesso** > **Indirizzi IP in ingresso consentiti** selezionare **Intervalli IP specifici**.
+1. In **Configurazione del controllo di accesso** > **Indirizzi IP in ingresso consentiti** selezionare **Intervalli IP specifici** .
 
-1. In **Intervalli IP per i contenuti**, specificare gli intervalli di indirizzi IP che possono accedere al contenuto da input e output.
+1. In **Intervalli IP per i contenuti** , specificare gli intervalli di indirizzi IP che possono accedere al contenuto da input e output.
 
    Un intervallo IP valido usa questi formati: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*
 
@@ -477,7 +477,7 @@ Molti trigger e azioni hanno impostazioni per la protezione degli input, degli o
 
    ![Aprire impostazioni trigger o azione](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
-1. Attivare **Input protetti**, **Output protetti** o entrambi. Al termine, fare clic su **Fine**.
+1. Attivare **Input protetti** , **Output protetti** o entrambi. Al termine, fare clic su **Fine** .
 
    ![Attivare "Input protetti" o "Output protetti"](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
 
@@ -493,7 +493,7 @@ Molti trigger e azioni hanno impostazioni per la protezione degli input, degli o
 
    1. Nel riquadro **Panoramica** dell'app per la logica selezionare l'esecuzione che si desidera visualizzare.
 
-   1. Nel riquadro **Esecuzione dell'app per la logica**, espandere le azioni che si desiderano esaminare.
+   1. Nel riquadro **Esecuzione dell'app per la logica** , espandere le azioni che si desiderano esaminare.
 
       Se si è scelto di nascondere gli input e gli output, questi valori vengono ora nascosti.
 
@@ -546,7 +546,7 @@ Di seguito sono riportate alcune [considerazioni da esaminare](#obfuscation-cons
 
   ![Output protetti come input e effetto downstream sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
 
-  Le azioni Compose, Parse JSON e Response hanno solo l'impostazione degli**input protetti**. Se attivata, l'impostazione nasconde anche gli output di tali azioni. Se queste azioni usano in modo esplicito gli output protetti upstream come input, le app per la logica nascondono gli input e gli output di tali azioni, ma *non abilitano* l'impostazione degli **input protetti** delle azioni. Se un'azione downstream usa in modo esplicito gli output nascosti delle azioni Compose, Parse JSON o Response come input, le app per la logica *non nascondono gli input o gli output dell'azione downstream*.
+  Le azioni Compose, Parse JSON e Response hanno solo l'impostazione degli **input protetti** . Se attivata, l'impostazione nasconde anche gli output di tali azioni. Se queste azioni usano in modo esplicito gli output protetti upstream come input, le app per la logica nascondono gli input e gli output di tali azioni, ma *non abilitano* l'impostazione degli **input protetti** delle azioni. Se un'azione downstream usa in modo esplicito gli output nascosti delle azioni Compose, Parse JSON o Response come input, le app per la logica *non nascondono gli input o gli output dell'azione downstream* .
 
   ![Output protetti come input con effetto downstream su azioni specifiche](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
 
@@ -556,7 +556,7 @@ Di seguito sono riportate alcune [considerazioni da esaminare](#obfuscation-cons
 
   ![Input protetti e effetto downstream sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
-  Se le azioni Compose, Parse JSON e Response usano in modo esplicito gli output visibili del trigger o dell'azione con gli input protetti, app per la logica nasconde gli input e gli output di queste azioni, ma *non abilita* l'impostazione degli **input protetti** dell'azione. Se un'azione downstream usa in modo esplicito gli output nascosti delle azioni Compose, Parse JSON o Response come input, le app per la logica *non nascondono gli input o gli output dell'azione downstream*.
+  Se le azioni Compose, Parse JSON e Response usano in modo esplicito gli output visibili del trigger o dell'azione con gli input protetti, app per la logica nasconde gli input e gli output di queste azioni, ma *non abilita* l'impostazione degli **input protetti** dell'azione. Se un'azione downstream usa in modo esplicito gli output nascosti delle azioni Compose, Parse JSON o Response come input, le app per la logica *non nascondono gli input o gli output dell'azione downstream* .
 
   ![Input protetti e effetto downstream su azioni specifiche](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
@@ -638,7 +638,7 @@ Un [modello di Resource Manager](../logic-apps/logic-apps-azure-resource-manager
 
 Ecco altre informazioni su queste sezioni `parameters`:
 
-* Al livello principale del modello, una sezione `parameters` definisce i parametri per i valori usati dal modello in fase di *distribuzione*. Questi valori, ad esempio, possono includere stringhe di connessione per un ambiente di distribuzione specifico. È quindi possibile archiviare questi valori in un [file di parametro](../azure-resource-manager/templates/parameter-files.md) separato, rendendo più semplice la modifica di questi valori.
+* Al livello principale del modello, una sezione `parameters` definisce i parametri per i valori usati dal modello in fase di *distribuzione* . Questi valori, ad esempio, possono includere stringhe di connessione per un ambiente di distribuzione specifico. È quindi possibile archiviare questi valori in un [file di parametro](../azure-resource-manager/templates/parameter-files.md) separato, rendendo più semplice la modifica di questi valori.
 
 * All'interno della definizione di risorsa dell'app per la logica, ma all'esterno della definizione del flusso di lavoro, una sezione `parameters` specifica i valori per i parametri della definizione del flusso di lavoro. In questa sezione è possibile assegnare questi valori usando espressioni di modello che fanno riferimento ai parametri del modello. Queste espressioni vengono valutate in fase di distribuzione.
 
@@ -818,9 +818,9 @@ Ecco altri modi per proteggere gli endpoint che gestiscono le chiamate inviate d
 
     1. Nella finestra di progettazione dell'app per la logica immettere `api management` nella casella di ricerca. Scegliere il passaggio a seconda che si stia aggiungendo un trigger o un'azione:<p>
 
-       * Se si aggiunge un trigger, che è sempre il primo passaggio del flusso di lavoro, selezionare **scegliere un trigger di gestione API di Azure**.
+       * Se si aggiunge un trigger, che è sempre il primo passaggio del flusso di lavoro, selezionare **scegliere un trigger di gestione API di Azure** .
 
-       * Se si sta aggiungendo un'azione, selezionare **scegliere un'azione di gestione API di Azure**.
+       * Se si sta aggiungendo un'azione, selezionare **scegliere un'azione di gestione API di Azure** .
 
        In questo esempio viene aggiunto un trigger:
 
@@ -838,7 +838,7 @@ Ecco altri modi per proteggere gli endpoint che gestiscono le chiamate inviate d
 
 ### <a name="add-authentication-to-outbound-calls"></a>Aggiunta dell'autenticazione alle chiamate in uscita
 
-Gli endpoint HTTP e HTTPS supportano vari tipi di autenticazione. In alcuni trigger e azioni usati per inviare chiamate in uscita o richieste a questi endpoint, è possibile specificare un tipo di autenticazione. Nella finestra di progettazione dell'app per la logica, i trigger e le azioni che supportano la scelta di un tipo di autenticazione hanno una proprietà di **autenticazione** . Questa proprietà, tuttavia, potrebbe non essere sempre visualizzata per impostazione predefinita. In questi casi, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **autenticazione**.
+Gli endpoint HTTP e HTTPS supportano vari tipi di autenticazione. In alcuni trigger e azioni usati per inviare chiamate in uscita o richieste a questi endpoint, è possibile specificare un tipo di autenticazione. Nella finestra di progettazione dell'app per la logica, i trigger e le azioni che supportano la scelta di un tipo di autenticazione hanno una proprietà di **autenticazione** . Questa proprietà, tuttavia, potrebbe non essere sempre visualizzata per impostazione predefinita. In questi casi, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **autenticazione** .
 
 > [!IMPORTANT]
 > Per proteggere le informazioni riservate gestite dall'app per la logica, usare i parametri protetti e codificare i dati in modo necessario.
@@ -894,7 +894,7 @@ Se è disponibile l'opzione [Certificato client](../active-directory/authenticat
 
 | Proprietà (progettazione) | Proprietà (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|
-| **autenticazione** | `type` | Sì | **Certificato client** <br>o <br>`ClientCertificate` | Tipo di autenticazione da usare. È possibile gestire i certificati con [gestione API di Azure](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Nota**: i connettori personalizzati non supportano l'autenticazione basata su certificati per le chiamate in ingresso e in uscita. |
+| **autenticazione** | `type` | Sì | **Certificato client** <br>o <br>`ClientCertificate` | Tipo di autenticazione da usare. È possibile gestire i certificati con [gestione API di Azure](../api-management/api-management-howto-mutual-certificates.md). <p></p>**Nota** : i connettori personalizzati non supportano l'autenticazione basata su certificati per le chiamate in ingresso e in uscita. |
 | **Pfx** | `pfx` | Sì | <*encoded-pfx-file-content*> | Contenuto con codifica base64 del file di scambio di informazioni personali (PFX, Personal Information Exchange) <p><p>Per convertire il file PFX in formato con codifica Base64, è possibile usare PowerShell attenendosi alla procedura seguente: <p>1. Salvare il contenuto del certificato in una variabile: <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. Convertire il contenuto del certificato usando la funzione `ToBase64String()` e salvare il contenuto in un file di testo: <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
 | **Password** | `password`| No | <*password-for-pfx-file*> | Password per accedere al file PFX. |
 |||||
@@ -1023,8 +1023,8 @@ Se l'opzione [identità gestita](../active-directory/managed-identities-azure-re
    | Proprietà (progettazione) | Proprietà (JSON) | Obbligatoria | valore | Descrizione |
    |---------------------|-----------------|----------|-------|-------------|
    | **autenticazione** | `type` | Sì | **Identità gestita** <br>o <br>`ManagedServiceIdentity` | Tipo di autenticazione da usare |
-   | **Identità gestita** | `identity` | Sì | * **Identità gestita assegnata dal sistema** <br>o <br>`SystemAssigned` <p><p>* <*user-assigned-identity-name*> | L'identità gestita da usare |
-   | **Destinatari** | `audience` | Sì | <*target-resource-ID*> | L'ID risorsa per la risorsa di destinazione a cui si vuole accedere. <p>Ad esempio, `https://storage.azure.com/` rende i [token di accesso](../active-directory/develop/access-tokens.md) per l'autenticazione validi per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare un URL del servizio radice, ad esempio `https://fabrikamstorageaccount.blob.core.windows.net` per un account di archiviazione specifico. <p>**Nota**: la proprietà **Destinatari** potrebbe essere nascosta in alcuni trigger o azioni. Per fare in modo che la proprietà venga visualizzata, nel trigger o nell'azione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Destinatari**. <p><p>**Importante**: assicurarsi che questo ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure AD, incluse le eventuali barre finali necessarie. Quindi, l'ID della risorsa `https://storage.azure.com/` per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID della risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID risorsa, vedere [Servizi di Azure che supportano Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Identità gestita** | `identity` | Sì | * **Identità gestita assegnata dal sistema** <br>o <br>`SystemAssigned` <p><p>* < *user-assigned-identity-name*> | L'identità gestita da usare |
+   | **Destinatari** | `audience` | Sì | <*target-resource-ID*> | L'ID risorsa per la risorsa di destinazione a cui si vuole accedere. <p>Ad esempio, `https://storage.azure.com/` rende i [token di accesso](../active-directory/develop/access-tokens.md) per l'autenticazione validi per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare un URL del servizio radice, ad esempio `https://fabrikamstorageaccount.blob.core.windows.net` per un account di archiviazione specifico. <p>**Nota** : la proprietà **Destinatari** potrebbe essere nascosta in alcuni trigger o azioni. Per fare in modo che la proprietà venga visualizzata, nel trigger o nell'azione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Destinatari** . <p><p>**Importante** : assicurarsi che questo ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure AD, incluse le eventuali barre finali necessarie. Quindi, l'ID della risorsa `https://storage.azure.com/` per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID della risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID risorsa, vedere [Servizi di Azure che supportano Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
    Quando si usano i [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) per l'automazione della distribuzione, è possibile usare le espressioni per accedere a questi valori di parametro in fase di esecuzione. Questa definizione di azione HTTP di esempio specifica l'autenticazione `type` come `ManagedServiceIdentity` e usa la [funzione dei parametri()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:
@@ -1059,7 +1059,7 @@ Se l'organizzazione non consente la connessione a risorse specifiche usando i co
 
 * Per eseguire il proprio codice o eseguire la trasformazione XML, [creare e chiamare una funzione di Azure](../logic-apps/logic-apps-azure-functions.md), anziché usare la [funzionalità di codice inline](../logic-apps/logic-apps-add-run-inline-code.md) o fornire gli [assembly da usare rispettivamente come Maps](../logic-apps/logic-apps-enterprise-integration-maps.md). Inoltre, configurare l'ambiente host per l'app per le funzioni in modo che soddisfi i requisiti di isolamento.
 
-  Ad esempio, per soddisfare i requisiti del livello di influenza 5, creare l'app per le funzioni con il [piano di servizio app](../azure-functions/functions-scale.md#app-service-plan) usando il piano [tariffario **isolato** ](../app-service/overview-hosting-plans.md) insieme a un [ambiente del servizio app (ASE)](../app-service/environment/intro.md) che usa anche il piano tariffario **isolato** . In questo ambiente, le app per le funzioni vengono eseguite in macchine virtuali di Azure dedicate e in reti virtuali di Azure dedicate, che garantiscono l'isolamento della rete oltre l'isolamento di calcolo per le app e le funzionalità di scalabilità orizzontale. Per altre informazioni, vedere [linee guida sull'isolamento di Azure Government Impact Level 5-funzioni di Azure](../azure-government/documentation-government-impact-level-5.md#azure-functions).
+  Ad esempio, per soddisfare i requisiti del livello di influenza 5, creare l'app per le funzioni con il [piano di servizio app](../azure-functions/functions-scale.md#app-service-plan) usando il piano [tariffario **isolato**](../app-service/overview-hosting-plans.md) insieme a un [ambiente del servizio app (ASE)](../app-service/environment/intro.md) che usa anche il piano tariffario **isolato** . In questo ambiente, le app per le funzioni vengono eseguite in macchine virtuali di Azure dedicate e in reti virtuali di Azure dedicate, che garantiscono l'isolamento della rete oltre l'isolamento di calcolo per le app e le funzionalità di scalabilità orizzontale. Per altre informazioni, vedere [linee guida sull'isolamento di Azure Government Impact Level 5-funzioni di Azure](../azure-government/documentation-government-impact-level-5.md#azure-functions).
 
   Per altre informazioni, vedere gli argomenti seguenti:<p>
 

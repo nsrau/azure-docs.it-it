@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/05/2020
 ms.author: sngun
-ms.openlocfilehash: 08cc3b08611947ac32973b2dfb01060140dc0798
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 683fc553e7712e2a760a0af1b601207cb20f2f55
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743897"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092807"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Come controllare le operazioni del piano di controllo Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Il piano di controllo in Azure Cosmos DB è un servizio RESTful che consente di eseguire un set diversificato di operazioni nell'account Azure Cosmos. Espone un modello di risorse pubblico, ad esempio database, account, e varie operazioni agli utenti finali per eseguire azioni sul modello di risorse. Le operazioni del piano di controllo includono le modifiche apportate all'account o al contenitore Azure Cosmos. Ad esempio, operazioni come la creazione di un account Azure Cosmos, l'aggiunta di un'area, la velocità effettiva degli aggiornamenti, il failover dell'area, l'aggiunta di un VNet e così via sono alcune delle operazioni del piano di controllo. Questo articolo illustra come controllare le operazioni del piano di controllo in Azure Cosmos DB. È possibile eseguire le operazioni del piano di controllo sugli account Azure Cosmos usando l'interfaccia della riga di comando di Azure, PowerShell o portale di Azure, mentre per i contenitori usare l'interfaccia della riga di comando di Azure o PowerShell.
 
@@ -170,29 +171,29 @@ La proprietà *ResourceDetails* contiene l'intero corpo della risorsa come paylo
 Di seguito sono riportati alcuni esempi per ottenere i log di diagnostica per le operazioni del piano di controllo:
 
 ```kusto
-AzureDiagnostics 
-| where Category startswith "ControlPlane"
+AzureDiagnostics 
+| where Category startswith "ControlPlane"
 | where OperationName contains "Update"
-| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
+| project httpstatusCode_s, statusCode_s, OperationName, resourceDetails_s, activityId_g
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
 | where TimeGenerated >= todatetime('2020-05-14T17:37:09.563Z')
-| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
+| project TimeGenerated, OperationName, apiKind_s, apiKindResourceType_s, operationType_s, resourceDetails_s
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersUpdate"
 ```
 
 ```kusto
-AzureDiagnostics 
-| where Category =="ControlPlaneRequests"
-| where  OperationName startswith "SqlContainersThroughputUpdate"
+AzureDiagnostics 
+| where Category =="ControlPlaneRequests"
+| where  OperationName startswith "SqlContainersThroughputUpdate"
 ```
 
 Eseguire una query per ottenere l'activityId e il chiamante che ha avviato l'operazione di eliminazione del contenitore:

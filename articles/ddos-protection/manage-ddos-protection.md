@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/17/2019
 ms.author: kumud
-ms.openlocfilehash: 358fccec56f81ee41acc2898751b8848beaeb168
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: fc60ca462a2891cc022847e056e32239f2675f70
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905445"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094575"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard"></a>Guida introduttiva: creare e configurare la protezione DDoS di Azure standard
 
@@ -42,7 +42,7 @@ In questa Guida introduttiva si creerà un piano di protezione DDoS che verrà c
 3. Selezionare **Crea** .
 4. Immettere o selezionare i valori seguenti e quindi selezionare **Crea** :
 
-    |Impostazione        |valore                                              |
+    |Impostazione        |Valore                                              |
     |---------      |---------                                          |
     |Nome           | Immettere _MyDdosProtectionPlan_ .                     |
     |Subscription   | Selezionare la propria sottoscrizione.                         |
@@ -57,7 +57,7 @@ In questa Guida introduttiva si creerà un piano di protezione DDoS che verrà c
 2. Selezionare **rete e quindi** **rete virtuale** .
 3. Immettere o selezionare i valori seguenti, accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea** :
 
-    | Impostazione         | valore                                           |
+    | Impostazione         | Valore                                           |
     | ---------       | ---------                                       |
     | Nome            | Immettere _MyVnet_ .                                 |
     | Subscription    | Selezionare la propria sottoscrizione.                                    |
@@ -84,8 +84,6 @@ Per prima cosa, verificare i dettagli del piano di protezione DDoS:
 3. Selezionare il piano di protezione DDoS dall'elenco.
 
 Verrà visualizzata la rete virtuale _MyVnet_ . 
-
-Eseguire test tramite simulazioni
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -114,4 +112,4 @@ Se si vuole eliminare un piano di protezione DDoS, è necessario innanzitutto an
 Per informazioni su come visualizzare e configurare i dati di telemetria per il piano di protezione DDoS, continuare con le esercitazioni.
 
 > [!div class="nextstepaction"]
-> [Visualizzare e configurare la telemetria di protezione DDoS](telemetry-monitoring-alerting.md)
+> [Visualizzare e configurare i dati di telemetria della protezione DDoS](telemetry-monitoring-alerting.md)

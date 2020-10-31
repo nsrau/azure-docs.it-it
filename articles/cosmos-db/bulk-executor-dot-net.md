@@ -10,14 +10,15 @@ ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 31baad997733c46cf3e9aa8dc92ac0613468f72f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7b97d702fffa7e65e24b8367892599b7bde5b669
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489388"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93092620"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizzare la libreria .NET Executor in blocco per eseguire operazioni bulk in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!NOTE]
 > Questa libreria dell'esecutore bulk descritta in questo articolo viene mantenuta per le applicazioni che usano .NET SDK versione 2. x. Per le nuove applicazioni, è possibile usare il **supporto bulk** disponibile direttamente con [.NET SDK versione 3. x](tutorial-sql-api-dotnet-bulk-import.md) e non richiede alcuna libreria esterna. 
@@ -32,7 +33,7 @@ Attualmente, la libreria di esecuzioni bulk è supportata solo dagli account Azu
 
 * Se Visual Studio 2019 non è ancora installato, è possibile scaricare e usare [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Assicurarsi di abilitare "sviluppo Azure" durante l'installazione di Visual Studio.
 
-* Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
 * È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa, è possibile usare l' [emulatore Azure Cosmos DB](./local-emulator.md) con l' `https://localhost:8081` endpoint. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticate-requests).
 
@@ -104,7 +105,7 @@ L'applicazione "BulkImportSample" genera documenti casuali ed esegue l'importazi
      maxInMemorySortingBatchSize: null,
      cancellationToken: token);
    ```
-   **Di seguito sono illustrati i parametri accettati dal metodo BulkImportAsync**.
+   **Di seguito sono illustrati i parametri accettati dal metodo BulkImportAsync** .
    
    |**Parametro**  |**Descrizione** |
    |---------|---------|
@@ -155,7 +156,7 @@ L'applicazione "BulkImportSample" genera documenti casuali ed esegue l'importazi
      maxInMemorySortingBatchSize: null,
      cancellationToken: token);
    ```  
-   **Di seguito sono illustrati i parametri accettati dal metodo BulkUpdateAsync**.
+   **Di seguito sono illustrati i parametri accettati dal metodo BulkUpdateAsync** .
 
    |**Parametro**  |**Descrizione** |
    |---------|---------|
