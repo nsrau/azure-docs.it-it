@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: f8c98915ad3b682af00492acc7bc51672ec874a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c40916d975b8acabaa7083cf57259291f09b40a9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74870735"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082607"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Espressioni scalari in Azure Cosmos DB query SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'espressione scalare è una combinazione di simboli e operatori che si può valutare per ottenere un singolo valore. Esempi di espressioni scalari includono: costanti, riferimenti a proprietà, riferimenti a elementi di matrice, riferimenti ad alias o chiamate di funzione. Le espressioni scalari possono essere combinate in espressioni complesse usando gli operatori.
 
@@ -55,7 +56,7 @@ La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'es
 - `input_alias`  
   
    Rappresenta un valore definito dall'elemento `input_alias` introdotto nella clausola `FROM`.  
-  Questo valore è sicuramente diverso da un valore **non definito**: i valori **non definiti** presenti nell'input verranno ignorati.  
+  Questo valore è sicuramente diverso da un valore **non definito** : i valori **non definiti** presenti nell'input verranno ignorati.  
   
 - `<scalar_expression>.property_name`  
   
@@ -97,7 +98,7 @@ La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'es
   
    Rappresenta un valore del nome di parametro specificato. I nomi di parametro devono avere un singolo carattere \@ come primo carattere.  
   
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
   
   Quando si chiama una funzione scalare predefinita o definita dall'utente, è necessario definire tutti gli argomenti. Se uno degli argomenti non è definito, la funzione non verrà chiamata e il risultato sarà indefinito.  
   
@@ -105,7 +106,7 @@ La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'es
   
   Quando si crea una matrice, qualsiasi valore di elemento a cui viene assegnato un valore **non definito** verrà ignorato e non incluso nell'oggetto creato. Ciò causa la sostituzione dell'elemento da parte dell'elemento definito successivo in modo tale che la matrice creata non abbia indici ignorati.  
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ```sql
     SELECT ((2 + 11 % 7)-2)/3

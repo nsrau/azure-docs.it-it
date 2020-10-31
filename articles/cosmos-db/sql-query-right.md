@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 247616d2ac4f2a5799a5896d679f6e6d5917d5a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3219ccc58d5a4c517adfaf9fef196fae3a955d3e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302152"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082828"
 ---
 # <a name="right-azure-cosmos-db"></a>A destra (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Restituisce la parte destra di una stringa con il numero specificato di caratteri.  
   
 ## <a name="syntax"></a>Sintassi
@@ -35,7 +37,7 @@ RIGHT(<str_expr>, <num_expr>)
   
   Restituisce un'espressione di stringa.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   L'esempio seguente restituisce la parte destra di "abc" per diversi valori di lunghezza.  
   

@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: e439f7d2b0232a2e1c36517f24723e4e16f7e6bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c1ee42b5b5884b0ce3491282d256d4bea87f44e1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91537600"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083542"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creare un suggerimento per abilitare il completamento automatico e i risultati suggeriti in una query
 
-In Azure ricerca cognitiva "Search-As-You-Type" viene abilitato tramite un costrutto del **Suggerimento** aggiunto a un [indice di ricerca](search-what-is-an-index.md). Un suggerimento supporta due esperienze: *completamento automatico*, che completa un input parziale per una query di termini interi, e *suggerimenti* che invita a fare clic su una corrispondenza specifica. Il completamento automatico genera una query. I suggerimenti producono un documento corrispondente.
+In Azure ricerca cognitiva "Search-As-You-Type" viene abilitato tramite un costrutto del **Suggerimento** aggiunto a un [indice di ricerca](search-what-is-an-index.md). Un suggerimento supporta due esperienze: *completamento automatico* , che completa un input parziale per una query di termini interi, e *suggerimenti* che invita a fare clic su una corrispondenza specifica. Il completamento automatico genera una query. I suggerimenti producono un documento corrispondente.
 
 La schermata seguente illustra come [creare la prima app in C#](tutorial-csharp-type-ahead-and-suggestions.md) . Il completamento automatico prevede un termine potenziale, terminando "TW" con "in". I suggerimenti sono i risultati della ricerca minima, dove un campo come il nome dell'hotel rappresenta un documento di ricerca di un hotel corrispondente dall'indice. Per i suggerimenti, è possibile esporre qualsiasi campo che fornisca informazioni descrittive.
 
@@ -52,7 +52,7 @@ Il completamento automatico offre vantaggi da un pool di campi più ampio da cui
 
 I suggerimenti, d'altra parte, producono risultati migliori quando la scelta del campo è selettiva. Tenere presente che il suggerimento è un proxy per un documento di ricerca, in modo da volere i campi che rappresentano meglio un singolo risultato. Nomi, titoli o altri campi univoci che distinguono tra più corrispondenze funzionano meglio. Se i campi sono costituiti da valori ripetitivi, i suggerimenti sono costituiti da risultati identici e un utente non saprà quale fare clic.
 
-Per soddisfare entrambe le esperienze di ricerca in quanto si digita, aggiungere tutti i campi necessari per il completamento automatico, ma usare **$Select**, **$Top**, **$Filter**e **searchFields** per controllare i risultati per i suggerimenti.
+Per soddisfare entrambe le esperienze di ricerca in quanto si digita, aggiungere tutti i campi necessari per il completamento automatico, ma usare **$Select** , **$Top** , **$Filter** e **searchFields** per controllare i risultati per i suggerimenti.
 
 ### <a name="choose-analyzers"></a>Scegli analizzatori
 
@@ -167,7 +167,7 @@ POST /indexes/myxboxgames/docs/autocomplete?search&api-version=2020-06-30
 
 + [Creare la prima app in C# (lezione 3-aggiungere un esempio di ricerca in base al tipo)](tutorial-csharp-type-ahead-and-suggestions.md) illustra una costruzione del suggerimento, le query suggerite, il completamento automatico e l'esplorazione in base a facet. Questo esempio di codice viene eseguito in un servizio sandbox ricerca cognitiva di Azure e usa un indice degli Alberghi precaricato, quindi è sufficiente premere F5 per eseguire l'applicazione. Non è necessaria alcuna sottoscrizione o accesso.
 
-+ [DotNetHowToAutocomplete](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) è un esempio precedente contenente codice C# e Java. Viene inoltre illustrata una costruzione del suggerimento, le query suggerite, il completamento automatico e l'esplorazione in base a facet. Questo esempio di codice usa i dati di esempio [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) ospitati. 
++ [DotNetHowToAutocomplete](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete) è un esempio precedente contenente codice C# e Java. Viene inoltre illustrata una costruzione del suggerimento, le query suggerite, il completamento automatico e l'esplorazione in base a facet. Questo esempio di codice usa i dati di esempio [NYCJobs](https://github.com/Azure-Samples/search-dotnet-asp-net-mvc-jobs) ospitati. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

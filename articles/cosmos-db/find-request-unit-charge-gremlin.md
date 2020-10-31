@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: ea9ab661fce1cd88bf1bdc065c2b26ccad73c30d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 8393fb431c5148d3f4885135c90fe4d0b8970d52
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490714"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082012"
 ---
 # <a name="find-the-request-unit-charge-for-operations-executed-in-azure-cosmos-db-gremlin-api"></a>Trovare l'addebito delle unità richiesta per le operazioni eseguite in Azure Cosmos DB API Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 Azure Cosmos DB supporta un'ampia gamma di API, come SQL, MongoDB, Cassandra, Gremlin e Tabella. Ogni API ha il proprio set di operazioni di database, da semplici operazioni di lettura e scrittura puntuali a query complesse. Ogni operazione di database utilizza le risorse di sistema a seconda della complessità.
 
@@ -33,7 +34,7 @@ Le intestazioni restituite dall'API Gremlin vengono mappate agli attributi di st
 
 1. Passare al riquadro **Esplora dati** e quindi selezionare il contenitore da usare.
 
-1. Immettere una query valida, quindi selezionare **Esegui query Gremlin**.
+1. Immettere una query valida, quindi selezionare **Esegui query Gremlin** .
 
 1. Fare clic su **Statistiche query** per visualizzare l'addebito effettivo per la richiesta eseguita.
 

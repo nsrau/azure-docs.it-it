@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5d24fd36e668fc52a8b5c9a20472c42ef3c420
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7651f84e14d6ea7dcb4e12d57e2bf494d5aeff1e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825969"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083185"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: gestire dispositivi non aggiornati in Azure AD
 
@@ -37,7 +37,7 @@ I dispositivi non aggiornati in Azure AD possono interferire con i criteri gener
 
 ## <a name="detect-stale-devices"></a>Rilevare i dispositivi non aggiornati
 
-Dal momento che un dispositivo non aggiornato è definito come dispositivo registrato che non è stato usato per accedere ad app cloud per uno specifico intervallo di tempo, il rilevamento dei dispositivi non aggiornati richiede una proprietà correlata al timestamp. In Azure AD questa proprietà è chiamata **ApproximateLastLogonTimestamp** o **timestamp dell'attività**. Se il delta tra il momento attuale e il valore del **timestamp dell'attività** supera l'intervallo di tempo definito per i dispositivi attivi, un dispositivo viene considerato non aggiornato. Il **timestamp dell'attività** è ora disponibile in anteprima pubblica.
+Dal momento che un dispositivo non aggiornato è definito come dispositivo registrato che non è stato usato per accedere ad app cloud per uno specifico intervallo di tempo, il rilevamento dei dispositivi non aggiornati richiede una proprietà correlata al timestamp. In Azure AD questa proprietà è chiamata **ApproximateLastLogonTimestamp** o **timestamp dell'attività** . Se il delta tra il momento attuale e il valore del **timestamp dell'attività** supera l'intervallo di tempo definito per i dispositivi attivi, un dispositivo viene considerato non aggiornato. Il **timestamp dell'attività** è ora disponibile in anteprima pubblica.
 
 ## <a name="how-is-the-value-of-the-activity-timestamp-managed"></a>Come viene gestito il valore del timestamp dell'attività?  
 
@@ -55,11 +55,11 @@ Sono disponibili due opzioni per recuperare il valore del timestamp dell'attivit
 
 - La colonna **Attività** nella [pagina Dispositivi](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) nel portale di Azure
 
-    ![Timestamp dell'attività](./media/manage-stale-devices/01.png)
+    :::image type="content" source="./media/manage-stale-devices/01.png" alt-text="Screenshot di una pagina nel portale di Azure elencando il nome, il proprietario e altre informazioni sui dispositivi. Una colonna elenca il timestamp dell'attività." border="false":::
 
 - Cmdlet [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
-    ![Timestamp dell'attività](./media/manage-stale-devices/02.png)
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Screenshot di una pagina nel portale di Azure elencando il nome, il proprietario e altre informazioni sui dispositivi. Una colonna elenca il timestamp dell'attività." border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>Pianificare la pulizia dei dispositivi non aggiornati
 
@@ -97,7 +97,7 @@ I dispositivi aggiunti ad Azure AD ibrido devono seguire i criteri per la gestio
 
 Per eseguire la pulizia di Azure AD:
 
-- **Dispositivi Windows 10**: disabilitare o eliminare i dispositivi Windows 10 nell'istanza di AD locale e consentire ad Azure AD Connect di sincronizzare lo stato del dispositivo modificato in Azure AD.
+- **Dispositivi Windows 10** : disabilitare o eliminare i dispositivi Windows 10 nell'istanza di AD locale e consentire ad Azure AD Connect di sincronizzare lo stato del dispositivo modificato in Azure AD.
 - **Windows 7/8** : disabilitare o eliminare prima i dispositivi Windows 7/8 in Active Directory locale. Non è possibile usare Azure AD Connect per disabilitare o eliminare i dispositivi Windows 7/8 in Azure AD. Al contrario, quando si apportano le modifiche in locale, è necessario disabilitare/eliminare in Azure AD.
 
 > [!NOTE]
@@ -176,7 +176,7 @@ Per saperne di più sui diversi tipi, vedere la [panoramica sulla gestione dei d
 Viene negata qualsiasi autenticazione in cui viene usato un dispositivo per eseguire l'autenticazione in Azure AD. Esempi comuni:
 
 - **Azure ad ibrido dispositivo aggiunto** : gli utenti potrebbero essere in grado di usare il dispositivo per accedere al dominio locale. Tuttavia, non possono accedere alle risorse Azure AD come Microsoft 365.
-- **Dispositivo aggiunto ad Azure AD**: gli utenti non possono usare il dispositivo per eseguire l'accesso. 
+- **Dispositivo aggiunto ad Azure AD** : gli utenti non possono usare il dispositivo per eseguire l'accesso. 
 - **Dispositivi mobili** : l'utente non può accedere a risorse Azure AD come Microsoft 365. 
 
 ## <a name="next-steps"></a>Passaggi successivi

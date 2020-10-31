@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e235bf90568a1382a5ecee3ff4d2283aaa32f10b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89433654"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083217"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi a dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
@@ -95,16 +95,16 @@ Esaminare i campi seguenti e assicurarsi che siano presenti i valori previsti:
 
 #### <a name="domainjoined--yes"></a>DomainJoined: YES
 
-Questo campo mostra se il dispositivo è aggiunto a un dominio Active Directory locale. Se il valore è **NO**, il dispositivo non riesce a eseguire un'aggiunta all'identità ibrida di Azure AD.
+Questo campo mostra se il dispositivo è aggiunto a un dominio Active Directory locale. Se il valore è **NO** , il dispositivo non riesce a eseguire un'aggiunta all'identità ibrida di Azure AD.
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined: NO
 
-Questo campo mostra se il dispositivo è registrato con Azure AD come dispositivo personale, contrassegnato come *aggiunto correttamente* all'area di lavoro. Questo valore deve essere **NO** per un computer aggiunto al dominio che è anche aggiunto all'identità ibrida di Azure AD. Se il valore è **YES**, è stato aggiunto un account aziendale o dell'istituto di istruzione prima del completamento dell'aggiunta all'identità ibrida di Azure AD. In questo caso, l'account viene ignorato quando si usa Windows 10 versione 1607 o successiva.
+Questo campo mostra se il dispositivo è registrato con Azure AD come dispositivo personale, contrassegnato come *aggiunto correttamente* all'area di lavoro. Questo valore deve essere **NO** per un computer aggiunto al dominio che è anche aggiunto all'identità ibrida di Azure AD. Se il valore è **YES** , è stato aggiunto un account aziendale o dell'istituto di istruzione prima del completamento dell'aggiunta all'identità ibrida di Azure AD. In questo caso, l'account viene ignorato quando si usa Windows 10 versione 1607 o successiva.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined: YES
 
 Questo campo indica se il dispositivo è unito in join. Il valore sarà **Sì** se il dispositivo è un dispositivo Azure ad aggiunto o un dispositivo ibrido Azure ad aggiunto.
-Se il valore è **NO**, l'aggiunta ad Azure AD non è ancora completata.
+Se il valore è **NO** , l'aggiunta ad Azure AD non è ancora completata.
 
 Per ulteriori operazioni di risoluzione dei problemi, procedere con i passaggi successivi.
 
@@ -135,9 +135,9 @@ Utilizzare i registri Visualizzatore eventi per individuare la fase e il codice 
 1. Aprire i registri eventi di **registrazione dispositivo utente** nel Visualizzatore eventi. Disponibile in **registri applicazioni e servizi**  >  **Microsoft**  >  **Windows**  >  **registrazione dispositivo utente** Microsoft Windows
 2. Cercare gli eventi con i seguenti EventID compresi 304, 305, 307.
 
-![Evento del log degli errori](./media/troubleshoot-hybrid-join-windows-current/1.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/1.png" alt-text="Screenshot del Visualizzatore eventi. Viene selezionato un evento con I D 304 e vengono visualizzate le relative informazioni con il codice di errore e la fase evidenziati." border="false":::
 
-![Evento del log degli errori](./media/troubleshoot-hybrid-join-windows-current/2.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/2.png" alt-text="Screenshot del Visualizzatore eventi. Viene selezionato un evento con I D 304 e vengono visualizzate le relative informazioni con il codice di errore e la fase evidenziati." border="false":::
 
 ### <a name="step-4-check-for-possible-causes-and-resolutions-from-the-lists-below"></a>Passaggio 4: verificare le possibili cause e le soluzioni degli elenchi seguenti
 
@@ -210,7 +210,7 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 1. Aprire i registri eventi di **registrazione dispositivo utente** nel Visualizzatore eventi. Disponibile in **registri applicazioni e servizi**  >  **Microsoft**  >  **Windows**  >  **registrazione dispositivo utente** Microsoft Windows
 2. Cercare gli eventi con il seguente EventID compresi 201
 
-![Evento del log degli errori](./media/troubleshoot-hybrid-join-windows-current/5.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/5.png" alt-text="Screenshot del Visualizzatore eventi. Viene selezionato un evento con I D 304 e vengono visualizzate le relative informazioni con il codice di errore e la fase evidenziati." border="false":::
 
 ###### <a name="network-errors"></a>errori di rete
 
@@ -255,7 +255,7 @@ Utilizzare i registri Visualizzatore eventi per individuare il codice di errore,
 1. Aprire i registri eventi di **registrazione dispositivo utente** nel Visualizzatore eventi. Disponibile in **registri applicazioni e servizi**  >  **Microsoft**  >  **Windows**  >  **registrazione dispositivo utente** Microsoft Windows
 2. Cerca gli eventi con gli EventID 305 seguenti
 
-![Evento del log degli errori](./media/troubleshoot-hybrid-join-windows-current/3.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/3.png" alt-text="Screenshot del Visualizzatore eventi. Viene selezionato un evento con I D 304 e vengono visualizzate le relative informazioni con il codice di errore e la fase evidenziati." border="false":::
 
 ##### <a name="configuration-errors"></a>Errori di configurazione
 
@@ -330,7 +330,7 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 1. Aprire i registri eventi di **registrazione dispositivo utente** nel Visualizzatore eventi. Disponibile in **registri applicazioni e servizi**  >  **Microsoft**  >  **Windows**  >  **registrazione dispositivo utente** Microsoft Windows
 2. Cercare gli eventi con il seguente EventID compresi 204
 
-![Evento del log degli errori](./media/troubleshoot-hybrid-join-windows-current/4.png)
+:::image type="content" source="./media/troubleshoot-hybrid-join-windows-current/4.png" alt-text="Screenshot del Visualizzatore eventi. Viene selezionato un evento con I D 304 e vengono visualizzate le relative informazioni con il codice di errore e la fase evidenziati." border="false":::
 
 ##### <a name="http-errors-returned-from-drs-server"></a>Errori HTTP restituiti dal server DRS
 
@@ -373,13 +373,13 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 
 ##### <a name="federated-join-server-errors"></a>Errori del server join federato
 
-| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Soluzione |
+| Codice di errore del server | Messaggio di errore del server | Motivi possibili | Risoluzione |
 | --- | --- | --- | --- |
 | DirectoryError | La richiesta è limitata temporaneamente. Provare dopo 300 secondi. | Errore previsto. Probabilmente a causa dell'esecuzione di più richieste di registrazione in rapida successione. | Riprova join dopo il periodo di ricarica |
 
 ##### <a name="sync-join-server-errors"></a>Errori del server di sincronizzazione join
 
-| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Soluzione |
+| Codice di errore del server | Messaggio di errore del server | Motivi possibili | Risoluzione |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: il tenant non è stato <UUID> trovato. Questo errore può verificarsi se non sono presenti sottoscrizioni attive per il tenant. Rivolgersi all'amministratore della sottoscrizione. | L'ID tenant nell'oggetto SCP non è corretto | Verificare che l'oggetto SCP sia configurato con l'ID tenant Azure AD corretto e con le sottoscrizioni attive e presenti nel tenant. |
 | DirectoryError | L'oggetto dispositivo in base all'ID specificato non è stato trovato. | Errore previsto per Sync join. L'oggetto dispositivo non è stato sincronizzato da AD Azure AD | Attendere il completamento della sincronizzazione del Azure AD Connect e il successivo tentativo di join dopo il completamento della sincronizzazione risolverà il problema |
@@ -389,12 +389,12 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 
 Scaricare il file Auth.zip da [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
-1. Decomprimere i file e rinominare i file inclusi **start-auth.txt** e **stop-auth.txt** in **Start-auth. cmd** e **Stop-auth. cmd**.
-1. Da un prompt dei comandi con privilegi elevati eseguire **Start-auth. cmd**.
+1. Decomprimere i file e rinominare i file inclusi **start-auth.txt** e **stop-auth.txt** in **Start-auth. cmd** e **Stop-auth. cmd** .
+1. Da un prompt dei comandi con privilegi elevati eseguire **Start-auth. cmd** .
 1. Usare switch account per passare a un'altra sessione con l'utente del problema.
 1. Riprodurre il problema.
 1. Usare switch account per passare di nuovo alla sessione di amministrazione che esegue la traccia.
-1. Da un prompt dei comandi con privilegi elevati eseguire **Stop-auth. cmd**.
+1. Da un prompt dei comandi con privilegi elevati eseguire **Stop-auth. cmd** .
 1. Zip e inviare la cartella **Authlogs** dalla cartella da cui sono stati eseguiti gli script.
 
 ## <a name="troubleshoot-post-join-issues"></a>Risolvere i problemi relativi a post-join
@@ -404,7 +404,7 @@ Scaricare il file Auth.zip da [https://github.com/CSS-Windows/WindowsDiag/tree/m
 #### <a name="wamdefaultset-yes-and-azureadprt-yes"></a>WamDefaultSet: Sì e AzureADPrt: Sì
 
 Questi campi indicano se l'utente è autenticato correttamente in Azure AD durante l'accesso al dispositivo.
-Se i valori sono **NO**, il motivo potrebbe essere:
+Se i valori sono **NO** , il motivo potrebbe essere:
 
 - Chiave di archiviazione non valida nel TPM associato al dispositivo durante la registrazione. controllare KeySignTest durante l'esecuzione di con privilegi elevati.
 - ID di accesso alternativo

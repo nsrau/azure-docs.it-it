@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 84d0731a67ac47b8b0fc73cb485857458b3febbb
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 6837bbdb63caf0fb1ecb3f6e520d5f3623483b44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92093311"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083236"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Informazioni sulle workstation sicure gestite da Azure
 
@@ -94,12 +94,15 @@ Essenziale per una workstation protetta è una soluzione di supply chain in cui 
 
 Per questa soluzione, la radice del trust verrà distribuita usando la tecnologia [Microsoft Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) con hardware che soddisfa i requisiti tecnici moderni. Per proteggere una workstation, Autopilot consente di sfruttare i dispositivi Windows 10 ottimizzati per OEM Microsoft. Questi dispositivi sono in uno stato valido noto del produttore. Anziché ricreazione dell'immagine di un dispositivo potenzialmente non sicuro, Autopilot può trasformare un dispositivo Windows in uno stato "pronto per l'azienda". Applica le impostazioni e i criteri, installa le app e persino modifica l'edizione di Windows 10. Ad esempio, Autopilot potrebbe modificare l'installazione di Windows di un dispositivo da Windows 10 Pro a Windows 10 Enterprise, in modo da poter utilizzare funzionalità avanzate.
 
-![Livelli di workstation sicuri](./media/concept-azure-managed-workstation/supplychain.png)
+:::image type="complex" source="./media/concept-azure-managed-workstation/supplychain.png" alt-text="Diagramma che mostra il ciclo di vita di una workstation protetta." border="false":::
+Nella parte superiore del diagramma viene illustrato un fornitore di dispositivi. Le frecce puntano da tale fornitore a un cliente che ha acquistato la workstation e a un camion con etichetta fulfill e Deliver. Dal camion, una freccia punta a un'immagine con etichetta Distribuisci che consente di creare immagini di una persona che usa una workstation. Una freccia denominata esperienza self-service si estende da tale persona a una schermata con etichetta Ready for business. Sotto tale schermata, le icone con etichetta gestito protetto sono illustrate. Una freccia con etichetta stato stabile utilizzo, Gestisci e Mantieni i punti correnti dallo schermo fino a un'icona di fine vita e a un'icona di reimpostazione della correzione delle interruzioni. Una freccia finale esegue il loop dall'icona per la correzione alla schermata Ready for business.
+:::image-end:::
 
 ## <a name="device-roles-and-profiles"></a>Profili e ruoli del dispositivo
 
 Questa guida fa riferimento a diversi profili e ruoli di sicurezza che consentono di creare soluzioni più sicure per utenti, sviluppatori e personale IT. Questi profili bilanciano l'usabilità e i rischi per gli utenti comuni che possono trarre vantaggio da una workstation migliorata o sicura. Le configurazioni delle impostazioni disponibili sono basate sugli standard accettati dal settore. Questa guida illustra come finalizzare Windows 10 e ridurre i rischi associati alla compromissione del dispositivo o dell'utente. Per sfruttare i vantaggi della tecnologia hardware moderna e della radice del dispositivo di attendibilità, si userà [attestazione dell'integrità del dispositivo](https://techcommunity.microsoft.com/t5/Intune-Customer-Success/Support-Tip-Using-Device-Health-Attestation-Settings-as-Part-of/ba-p/282643), abilitata a partire dal profilo di **sicurezza elevato** . Questa funzionalità è presente per assicurarsi che gli utenti malintenzionati non possano essere persistenti durante l'avvio iniziale di un dispositivo. Questa operazione viene eseguita usando i criteri e la tecnologia per gestire le funzionalità di sicurezza e i rischi.
-![Livelli di workstation sicuri](./media/concept-azure-managed-workstation/seccon-levels.png)
+
+:::image type="content" source="./media/concept-azure-managed-workstation/seccon-levels.png" alt-text="Diagramma che mostra il ciclo di vita di una workstation protetta." border="false":::
 
 * **Sicurezza di base** : una workstation standard gestita fornisce un valido punto di partenza per la maggior parte delle attività domestiche e piccole imprese. Questi dispositivi sono registrati in Azure AD e gestiti con Intune. Questo profilo consente agli utenti di eseguire qualsiasi applicazione ed esplorare qualsiasi sito Web. È necessario abilitare una soluzione antimalware come [Microsoft Defender](https://www.microsoft.com/windows/comprehensive-security) .
 

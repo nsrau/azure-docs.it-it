@@ -8,14 +8,15 @@ ms.date: 05/07/2020
 ms.author: tisande
 ms.reviewer: sngun
 ms.custom: devx-track-js
-ms.openlocfilehash: f16498f0661ba918acd42b7964b649d0bbdf5841
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 116253e783595cf0e169c6a5774944dfd89f890e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495879"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082947"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>API di query JavaScript in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Oltre a eseguire query con l'API SQL in Azure Cosmos DB, l' [SDK lato server di Cosmos DB](https://github.com/Azure/azure-cosmosdb-js-server/) fornisce un'interfaccia JavaScript per l'esecuzione di query ottimizzate in Cosmos DB stored procedure e trigger. Non è necessario conoscere il linguaggio SQL per usare questa interfaccia JavaScript. L'API di query JavaScript consente di creare query a livello di programmazione passando funzioni di predicato in una sequenza di chiamate di funzione, con una sintassi familiare alle librerie JavaScript predefinite e integrate della matrice ECMAScript5 come Lodash. Le query vengono analizzate dal runtime JavaScript ed eseguite in modo efficiente usando gli indici di Azure Cosmos DB.
 

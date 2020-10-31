@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e76c5f51486f7c1673fb5359eabc99ee41130472
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ab17e5c0a024fec938f1b588cc4ce69bf16a878
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278857"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083253"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -39,7 +39,7 @@ La pagina **tutti i dispositivi** consente di:
 È possibile accedere al portale per i dispositivi attenendosi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory**  >  **dispositivi**.
+1. Passare a **Azure Active Directory**  >  **dispositivi** .
 
 ## <a name="manage-devices"></a>Gestire dispositivi
 
@@ -71,7 +71,7 @@ Entrambe le opzioni consentono agli amministratori di:
 
 ### <a name="manage-an-intune-device"></a>Gestire un dispositivo Intune
 
-Se si è un amministratore di Intune, è possibile gestire i dispositivi in cui MDM è contrassegnato come **Microsoft Intune**. Se il dispositivo non è registrato con Microsoft Intune, l'opzione "Gestisci" sarà disattivata.
+Se si è un amministratore di Intune, è possibile gestire i dispositivi in cui MDM è contrassegnato come **Microsoft Intune** . Se il dispositivo non è registrato con Microsoft Intune, l'opzione "Gestisci" sarà disattivata.
 
 ### <a name="enable-or-disable-an-azure-ad-device"></a>Abilitare o disabilitare un dispositivo Azure AD
 
@@ -111,7 +111,7 @@ Se un dispositivo è gestito da un'altra autorità di gestione (ad esempio, Micr
   
 ### <a name="view-or-copy-bitlocker-keys"></a>Visualizzare o copiare le chiavi BitLocker
 
-È possibile visualizzare e copiare le chiavi BitLocker per consentire agli utenti di ripristinare le unità crittografate. Queste chiavi sono disponibili solo per i dispositivi Windows crittografati e le cui chiavi sono archiviate in Azure AD. È possibile trovare queste chiavi quando si accede ai dettagli di un dispositivo selezionando **Mostra chiave di ripristino**. Selezionando **Mostra chiave di ripristino** , viene generato un log di controllo, che è possibile trovare nella `KeyManagement` categoria.
+È possibile visualizzare e copiare le chiavi BitLocker per consentire agli utenti di ripristinare le unità crittografate. Queste chiavi sono disponibili solo per i dispositivi Windows crittografati e le cui chiavi sono archiviate in Azure AD. È possibile trovare queste chiavi quando si accede ai dettagli di un dispositivo selezionando **Mostra chiave di ripristino** . Selezionando **Mostra chiave di ripristino** , viene generato un log di controllo, che è possibile trovare nella `KeyManagement` categoria.
 
 ![Visualizzare le chiavi BitLocker](./media/device-management-azure-portal/device-details-show-bitlocker-key.png)
 
@@ -140,7 +140,7 @@ Per abilitare la funzionalità di filtro anteprima nella visualizzazione **tutti
 ![Abilitare la funzionalità di anteprima del filtro](./media/device-management-azure-portal/device-filter-preview-enable.png)
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Passare a **Azure Active Directory**  >  **dispositivi**.
+1. Passare a **Azure Active Directory**  >  **dispositivi** .
 1. Selezionare il banner che afferma, **provare i nuovi miglioramenti del filtro dei dispositivi. Fare clic per abilitare l'anteprima.**
 
 Sarà ora possibile **aggiungere filtri** alla visualizzazione **tutti i dispositivi** .
@@ -158,19 +158,19 @@ Per gestire le identità dei dispositivi tramite il portale di Azure AD, è nece
 
 ![Impostazioni del dispositivo correlate all'Azure AD](./media/device-management-azure-portal/device-settings-azure-portal.png)
 
-- **Gli utenti possono aggiungere dispositivi a Azure ad** . questa impostazione consente di selezionare gli utenti che possono registrare i propri dispositivi come Azure ad dispositivi aggiunti. Il valore predefinito è **All**.
+- **Gli utenti possono aggiungere dispositivi a Azure ad** . questa impostazione consente di selezionare gli utenti che possono registrare i propri dispositivi come Azure ad dispositivi aggiunti. Il valore predefinito è **All** .
 
 > [!NOTE]
 > **Gli utenti possono aggiungere dispositivi a Azure ad** impostazione è applicabile solo a Azure ad join in Windows 10.
 
-- **Amministratori locali aggiuntivi su dispositivi aggiunti ad Azure AD**: è possibile selezionare gli utenti a cui vengono concessi i diritti di amministratore locale per un dispositivo. Questi utenti vengono aggiunti al ruolo di *amministratore del dispositivo* in Azure ad. Agli amministratori globali di Azure AD e ai proprietari dei dispositivi vengono concessi i diritti di amministratore locale per impostazione predefinita. Questa opzione è una funzionalità dell'edizione Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
-- **Gli utenti possono registrare i propri dispositivi con Azure ad** : è necessario configurare questa impostazione per consentire la registrazione dei dispositivi Windows 10 Personal, iOS, Android e macOS con Azure ad. Se si seleziona **nessuno**, i dispositivi non possono eseguire la registrazione con Azure ad. La registrazione con Microsoft Intune o la gestione di dispositivi mobili (MDM) per Microsoft 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile.
-- **Richiedi autenticazione a più fattori per aggiungere dispositivi** : è possibile scegliere se gli utenti devono fornire un ulteriore fattore di autenticazione per aggiungere il dispositivo a Azure ad. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per altre informazioni sui diversi servizi di autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
+- **Amministratori locali aggiuntivi su dispositivi aggiunti ad Azure AD** : è possibile selezionare gli utenti a cui vengono concessi i diritti di amministratore locale per un dispositivo. Questi utenti vengono aggiunti al ruolo di *amministratore del dispositivo* in Azure ad. Agli amministratori globali di Azure AD e ai proprietari dei dispositivi vengono concessi i diritti di amministratore locale per impostazione predefinita. Questa opzione è una funzionalità dell'edizione Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
+- **Gli utenti possono registrare i propri dispositivi con Azure ad** : è necessario configurare questa impostazione per consentire la registrazione dei dispositivi Windows 10 Personal, iOS, Android e macOS con Azure ad. Se si seleziona **nessuno** , i dispositivi non possono eseguire la registrazione con Azure ad. La registrazione con Microsoft Intune o la gestione di dispositivi mobili (MDM) per Microsoft 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile.
+- **Richiedi autenticazione a più fattori per aggiungere dispositivi** : è possibile scegliere se gli utenti devono fornire un ulteriore fattore di autenticazione per aggiungere il dispositivo a Azure ad. Il valore predefinito è **No** . Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per altre informazioni sui diversi servizi di autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
 > **Richiedi autenticazione a più fattori per aggiungere** l'impostazione dei dispositivi si applica ai dispositivi che sono Azure ad aggiunti o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti.
 
-- **Numero massimo di dispositivi** : questa impostazione consente di selezionare il numero massimo di dispositivi Azure ad aggiunti o Azure ad registrati che un utente può avere in Azure ad. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. Il valore predefinito è **50**.
+- **Numero massimo di dispositivi** : questa impostazione consente di selezionare il numero massimo di dispositivi Azure ad aggiunti o Azure ad registrati che un utente può avere in Azure ad. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. Il valore predefinito è **50** .
 
 > [!NOTE]
 > L'impostazione **numero massimo di dispositivi** si applica ai dispositivi Azure ad aggiunti o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti.
@@ -185,7 +185,7 @@ Le attività del dispositivo sono disponibili tramite i log attività. Questi lo
 - Modifiche alle impostazioni del dispositivo
 - Funzionamento del dispositivo, ad esempio eliminazione o aggiornamento
 
-Il punto di ingresso ai dati di controllo è **Log di controllo** nella sezione **Attività** della pagina **Dispositivi**.
+Il punto di ingresso ai dati di controllo è **Log di controllo** nella sezione **Attività** della pagina **Dispositivi** .
 
 Il log di controllo ha una visualizzazione elenco predefinita che mostra:
 
@@ -194,11 +194,11 @@ Il log di controllo ha una visualizzazione elenco predefinita che mostra:
 - Iniziatore/attore di un'attività (chi)
 - Attività (cosa)
 
-![Log di controllo](./media/device-management-azure-portal/63.png)
+:::image type="content" source="./media/device-management-azure-portal/63.png" alt-text="Screenshot di una tabella nella sezione Activity della pagina Devices (dispositivi) che elenca la data, la destinazione, l'attore e l'attività per quattro log di controllo." border="false":::
 
 È possibile personalizzare la visualizzazione elenco facendo clic su **colonne** nella barra degli strumenti.
 
-![Log di controllo](./media/device-management-azure-portal/64.png)
+:::image type="content" source="./media/device-management-azure-portal/64.png" alt-text="Screenshot di una tabella nella sezione Activity della pagina Devices (dispositivi) che elenca la data, la destinazione, l'attore e l'attività per quattro log di controllo." border="false":::
 
 Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dati di controllo usando i campi seguenti:
 
@@ -211,7 +211,7 @@ Per limitare i dati segnalati in base alle esigenze, è possibile filtrare i dat
 
 Oltre a usare i filtri, è possibile cercare voci specifiche.
 
-![Log di controllo](./media/device-management-azure-portal/65.png)
+:::image type="content" source="./media/device-management-azure-portal/65.png" alt-text="Screenshot di una tabella nella sezione Activity della pagina Devices (dispositivi) che elenca la data, la destinazione, l'attore e l'attività per quattro log di controllo." border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 06/12/2020
-ms.openlocfilehash: e64914118409332f6a1c08b6d5e1669685529d76
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: ff071373706759576f80426d61a27851bfc4e1b6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999170"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082165"
 ---
 # <a name="deploy-a-model-to-azure-container-instances"></a>Distribuire un modello a Istanze di Azure Container
 
@@ -60,7 +60,7 @@ Per ulteriori informazioni, vedere [come proteggere l'inferenza con le reti virt
 
 ## <a name="deploy-to-aci"></a>Distribuire in ACI
 
-Per distribuire un modello in istanze di contenitore di Azure, creare una __configurazione di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una __configurazione di inferenza__, che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+Per distribuire un modello in istanze di contenitore di Azure, creare una __configurazione di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una __configurazione di inferenza__ , che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > * ACI è adatto solo per piccoli modelli di dimensioni inferiori a 1 GB. 
@@ -104,6 +104,8 @@ Vedere [distribuire i modelli con vs code](tutorial-train-deploy-image-classific
 > [!IMPORTANT]
 > Non è necessario creare un contenitore ACI da testare in anticipo. I contenitori ACI vengono creati in base alle esigenze.
 
+> [!IMPORTANT]
+> Si aggiunge l'ID dell'area di lavoro con hash a tutte le risorse ACI sottostanti che vengono create, tutti i nomi ACI della stessa area di lavoro avranno lo stesso suffisso. Il nome del servizio Azure Machine Learning sarebbe comunque lo stesso cliente fornito "service_name" e tutte le API di Azure Machine Learning SDK per gli utenti non necessitano di alcuna modifica. Non vengono fornite garanzie sui nomi delle risorse sottostanti da creare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 3d5452e5ba650b487acff03f622cdbb170275dce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64cef5fc3c6a90f31674cee245a7669addadb427
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78303461"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082420"
 ---
 # <a name="sqrt-azure-cosmos-db"></a>SQRT (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Restituisce la radice quadrata del valore numerico specificato.  
   
 ## <a name="syntax"></a>Sintassi
@@ -32,7 +34,7 @@ SQRT(<numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   L'esempio seguente restituisce le radici quadrate dei numeri da 1 a 3.  
   

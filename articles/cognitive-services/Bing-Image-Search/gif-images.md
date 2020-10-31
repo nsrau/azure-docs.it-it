@@ -11,16 +11,21 @@ ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 862a7f6c31df7395fe225cf89ad83425e917394e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcfd711f0a38d5993447823c31cbf7f27226ad6b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84169985"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084341"
 ---
 # <a name="search-for-gif-images"></a>Cercare immagini GIF 
 
-L'API Ricerca immagini Bing consente anche di cercare nell'intero Web le immagini più rilevanti con estensione gif.Gli sviluppatori possono integrare coinvolgenti immagini con estensione gif in vari scenari di conversazione. 
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+
+L'API Ricerca immagini Bing consente anche di cercare nell'intero Web le immagini più rilevanti con estensione gif.  Gli sviluppatori possono integrare coinvolgenti immagini con estensione gif in vari scenari di conversazione. 
 
 L'URL seguente è una query per cercare immagini animate con estensione gif.
 ```

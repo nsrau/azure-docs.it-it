@@ -11,14 +11,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: d833b017004365e9dad7241e360f42ff41a55883
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f697449fffe6c93d8e5082b210678d3f51c0c736
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67542753"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93084411"
 ---
 # <a name="customize-and-suggest-image-search-queries"></a>Personalizzare e suggerire query di ricerca immagini
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Usare questo articolo per informazioni su come personalizzare le query e suggerire i termini di ricerca da inviare al API Ricerca immagini Bing.
 
@@ -28,9 +33,9 @@ Se l'app ha una casella di ricerca in cui immettere i termini di ricerca, è pos
 
 ## <a name="pivot-the-query"></a>Segmentare la query in pivot
 
-Se Bing può segmentare la query di ricerca originale, l'oggetto [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) restituito contiene `pivotSuggestions`. I suggerimenti di pivot possono essere visualizzati come termini di ricerca facoltativi per l'utente. Se ad esempio la query originale fosse *Microsoft Surface*, Bing potrebbe segmentare la query in *Microsoft* e *Surface* o fornire pivot suggeriti per ciascuno. Questi suggerimenti possono essere visualizzati come termini facoltativi della query per l'utente.
+Se Bing può segmentare la query di ricerca originale, l'oggetto [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) restituito contiene `pivotSuggestions`. I suggerimenti di pivot possono essere visualizzati come termini di ricerca facoltativi per l'utente. Se ad esempio la query originale fosse *Microsoft Surface* , Bing potrebbe segmentare la query in *Microsoft* e *Surface* o fornire pivot suggeriti per ciascuno. Questi suggerimenti possono essere visualizzati come termini facoltativi della query per l'utente.
 
-L'esempio seguente illustra i suggerimenti di pivot per *Microsoft Surface*:  
+L'esempio seguente illustra i suggerimenti di pivot per *Microsoft Surface* :  
 
 ```json
 {
@@ -101,13 +106,13 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Espandere la query
 
-Se Bing può espandere la query per restringere la ricerca originale, l'oggetto [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contiene il campo `queryExpansions`. Se ad esempio la query è *Microsoft Surface*, le query espanse possono essere:
-- Microsoft Surface **Pro 3**.
-- Microsoft Surface **RT**.
-- Microsoft Surface **Phone**.
-- Microsoft Surface **Hub**.
+Se Bing può espandere la query per restringere la ricerca originale, l'oggetto [Images](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference#images) contiene il campo `queryExpansions`. Se ad esempio la query è *Microsoft Surface* , le query espanse possono essere:
+- Microsoft Surface **Pro 3** .
+- Microsoft Surface **RT** .
+- Microsoft Surface **Phone** .
+- Microsoft Surface **Hub** .
 
-L'esempio seguente illustra le query espanse per *Microsoft Surface*.
+L'esempio seguente illustra le query espanse per *Microsoft Surface* .
 
 ```json
 {

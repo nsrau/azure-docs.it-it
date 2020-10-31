@@ -6,18 +6,19 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: tisande
-ms.openlocfilehash: 2859f603dd168e4f93eb8f3cbc9c841de884e1ee
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d0ee7dc8890c228617eaeee8b1cdc72d2230458e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489235"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93082964"
 ---
 # <a name="indexing-policies-in-azure-cosmos-db"></a>Indexing policies in Azure Cosmos DB (Criteri di indicizzazione in Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB, ogni contenitore dispone di un criterio di indicizzazione che determina come devono essere indicizzati gli elementi del contenitore. I criteri di indicizzazione predefiniti per i contenitori appena creati indicizzano ogni proprietà di ogni elemento e applicano indici di intervallo per qualsiasi stringa o numero. Ciò consente di ottenere prestazioni di query elevate senza dover pensare all'indicizzazione e alla gestione degli indici in anticipo.
 
-In alcune situazioni potrebbe essere necessario eseguire l'override di questo comportamento automatico per soddisfare al meglio le proprie esigenze. È possibile personalizzare i criteri di indicizzazione di un contenitore impostando la *modalità di indicizzazione*e includendo o escludendo i *percorsi delle proprietà*.
+In alcune situazioni potrebbe essere necessario eseguire l'override di questo comportamento automatico per soddisfare al meglio le proprie esigenze. È possibile personalizzare i criteri di indicizzazione di un contenitore impostando la *modalità di indicizzazione* e includendo o escludendo i *percorsi delle proprietà* .
 
 > [!NOTE]
 > Il metodo di aggiornamento dei criteri di indicizzazione descritti in questo articolo si applica solo all'API SQL (Core) di Azure Cosmos DB. Informazioni sull'indicizzazione nell' [API Azure Cosmos DB per MongoDB](mongodb-indexing.md)
@@ -26,11 +27,11 @@ In alcune situazioni potrebbe essere necessario eseguire l'override di questo co
 
 Azure Cosmos DB supporta due modalità di indicizzazione:
 
-- **Coerente**: l'indice viene aggiornato in modo sincrono durante la creazione, l'aggiornamento o l'eliminazione di elementi. Ciò significa che la coerenza delle query di lettura sarà la [coerenza configurata per l'account](consistency-levels.md).
-- **None**: l'indicizzazione è disabilitata nel contenitore. Questa operazione viene in genere usata quando un contenitore viene usato come archivio chiave-valore puro senza la necessità di indici secondari. Può anche essere usato per migliorare le prestazioni delle operazioni bulk. Una volta completate le operazioni bulk, è possibile impostare la modalità di indicizzazione su coerente e quindi monitorarla utilizzando [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) fino al completamento.
+- **Coerente** : l'indice viene aggiornato in modo sincrono durante la creazione, l'aggiornamento o l'eliminazione di elementi. Ciò significa che la coerenza delle query di lettura sarà la [coerenza configurata per l'account](consistency-levels.md).
+- **None** : l'indicizzazione è disabilitata nel contenitore. Questa operazione viene in genere usata quando un contenitore viene usato come archivio chiave-valore puro senza la necessità di indici secondari. Può anche essere usato per migliorare le prestazioni delle operazioni bulk. Una volta completate le operazioni bulk, è possibile impostare la modalità di indicizzazione su coerente e quindi monitorarla utilizzando [IndexTransformationProgress](how-to-manage-indexing-policy.md#dotnet-sdk) fino al completamento.
 
 > [!NOTE]
-> Azure Cosmos DB supporta anche una modalità di indicizzazione differita. L'indicizzazione differita esegue gli aggiornamenti dell'indice con un livello di priorità molto più basso quando il motore non esegue altre operazioni. Ciò può comportare risultati delle query **incoerenti o incompleti**. Se si prevede di eseguire una query su un contenitore Cosmos, non è consigliabile selezionare l'indicizzazione differita. Nel giugno 2020 è stata introdotta una modifica che non consente più l'impostazione dei nuovi contenitori sulla modalità di indicizzazione differita. Se l'account Azure Cosmos DB contiene già almeno un contenitore con indicizzazione differita, questo account viene esentato automaticamente dalla modifica. È anche possibile richiedere un'esenzione contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (ad eccezione del caso in cui si usi un account Azure Cosmos in modalità senza [Server](serverless.md) che non supporta l'indicizzazione differita).
+> Azure Cosmos DB supporta anche una modalità di indicizzazione differita. L'indicizzazione differita esegue gli aggiornamenti dell'indice con un livello di priorità molto più basso quando il motore non esegue altre operazioni. Ciò può comportare risultati delle query **incoerenti o incompleti** . Se si prevede di eseguire una query su un contenitore Cosmos, non è consigliabile selezionare l'indicizzazione differita. Nel giugno 2020 è stata introdotta una modifica che non consente più l'impostazione dei nuovi contenitori sulla modalità di indicizzazione differita. Se l'account Azure Cosmos DB contiene già almeno un contenitore con indicizzazione differita, questo account viene esentato automaticamente dalla modifica. È anche possibile richiedere un'esenzione contattando il [supporto tecnico di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) (ad eccezione del caso in cui si usi un account Azure Cosmos in modalità senza [Server](serverless.md) che non supporta l'indicizzazione differita).
 
 Per impostazione predefinita, i criteri di indicizzazione vengono impostati su `automatic` . Per ottenere questo risultato, impostare la `automatic` proprietà nei criteri di indicizzazione su `true` . L'impostazione di questa proprietà su `true` consente ad Azure CosmosDB di indicizzare automaticamente i documenti man mano che vengono scritti.
 
@@ -77,7 +78,7 @@ Tutti i criteri di indicizzazione devono includere il percorso radice `/*` come 
 
 - Per `_etag` impostazione predefinita, la proprietà di sistema viene esclusa dall'indicizzazione, a meno che l'eTag non venga aggiunto al percorso incluso per l'indicizzazione.
 
-- Se la modalità di indicizzazione è impostata su **coerente**, le proprietà di sistema `id` e `_ts` vengono indicizzate automaticamente.
+- Se la modalità di indicizzazione è impostata su **coerente** , le proprietà di sistema `id` e `_ts` vengono indicizzate automaticamente.
 
 Quando si includono ed escludono i percorsi, è possibile che si verifichino gli attributi seguenti:
 
@@ -101,11 +102,11 @@ Per esempi di criteri di indicizzazione per l'inclusione e l'esclusione di perco
 
 Se i percorsi inclusi e i percorsi esclusi presentano un conflitto, il percorso più preciso avrà la precedenza.
 
-Di seguito è riportato un esempio:
+Ecco un esempio:
 
-**Percorso incluso**: `/food/ingredients/nutrition/*`
+**Percorso incluso** : `/food/ingredients/nutrition/*`
 
-**Percorso escluso**: `/food/ingredients/*`
+**Percorso escluso** : `/food/ingredients/*`
 
 In questo caso, il percorso incluso avrà la precedenza sul percorso escluso perché è più preciso. In base a questi percorsi, tutti i dati nel `food/ingredients` percorso o annidati all'interno di verrebbero esclusi dall'indice. L'eccezione è costituita dai dati all'interno del percorso incluso: `/food/ingredients/nutrition/*` , che verrebbe indicizzato.
 
