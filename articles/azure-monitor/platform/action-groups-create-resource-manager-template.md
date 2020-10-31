@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/16/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 5c02812d4c97b94667fcddcb275243e7a9b36b29
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01fb93a4b74a35501d0684b822ea83fc7b20770a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87321905"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130579"
 ---
 # <a name="create-an-action-group-with-a-resource-manager-template"></a>Creare un gruppo di azione con un modello di Resource Manager
 L'articolo illustra come usare un [modello di Azure Resource Manager](../../azure-resource-manager/templates/template-syntax.md) per configurare gruppi di azione. Tramite i modelli è possibile configurare automaticamente i gruppi di azione che possono essere riusati in determinati tipi di avvisi. Questi gruppi di azione assicurano che tutte le parti corrette vengano notificate all'attivazione di un avviso.
@@ -23,11 +23,11 @@ I passaggi di base sono:
 
 2. [Distribuire il modello con un metodo di distribuzione qualsiasi](../../azure-resource-manager/templates/deploy-powershell.md).
 
-In primo luogo viene descritto come creare un modello di Resource Manager per un gruppo di azione, in cui le definizioni di azioni sono hardcoded nel modello. In secondo luogo viene descritto come creare un modello che accetta le informazioni di configurazione del webhook come parametri di input quando viene distribuito il modello.
-
 ## <a name="resource-manager-templates-for-an-action-group"></a>Modelli di Resource Manager per un gruppo di azione
 
 Per creare un gruppo di azioni usando un modello di Resource Manager, si crea una risorsa di tipo `Microsoft.Insights/actionGroups`. Compilare quindi tutte le proprietà correlate. Ecco due modelli di esempio che creano un gruppo di azione.
+
+Primo modello, descrive come creare un modello di Gestione risorse per un gruppo di azioni in cui le definizioni delle azioni sono hardcoded nel modello. Secondo modello, descrive come creare un modello che accetta le informazioni di configurazione del webhook come parametri di input quando viene distribuito il modello.
 
 ```json
 {

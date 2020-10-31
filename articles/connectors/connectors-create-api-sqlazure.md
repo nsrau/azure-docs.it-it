@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: f8dccca1d1264492a4e7c8dab568e13eec9d2557
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ce7679fff86d2c96588cf2b704d44238535963b3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100712"
+ms.locfileid: "93130936"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizzare i flussi di lavoro per un database SQL usando app per la logica di Azure
 
@@ -96,9 +96,14 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
    ||||
 
    > [!TIP]
-   > È possibile trovare queste informazioni nella stringa di connessione del database. Ad esempio, nella portale di Azure individuare e aprire il database. Nel menu database selezionare le stringhe di **connessione** o le **Proprietà** in cui è possibile trovare la stringa seguente:
+   > Per fornire le informazioni sul database e sulla tabella, sono disponibili le opzioni seguenti:
+   > 
+   > * Trovare queste informazioni nella stringa di connessione del database. Ad esempio, nella portale di Azure individuare e aprire il database. Nel menu database selezionare le stringhe di **connessione** o le **Proprietà** , dove è possibile trovare la stringa seguente:
    >
-   > `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >   `Server=tcp:{your-server-address}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
+   >
+   > * Per impostazione predefinita, le tabelle nei database di sistema vengono filtrate, quindi potrebbero non essere visualizzate automaticamente quando si seleziona un database di sistema. In alternativa, è possibile immettere manualmente il nome della tabella dopo aver selezionato **Immetti valore personalizzato** dall'elenco database.
+   >
 
    Questo esempio illustra come possono apparire questi valori:
 

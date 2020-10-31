@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 06/17/2020
-ms.openlocfilehash: bcb14c786ab652b1c51a3d3bf487e39fd0ebfdb6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96bdfc513023cafb2d94a68c06f1065cf20c3ba8
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710686"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130171"
 ---
 # <a name="create-a-dynamics-365-for-customer-engagement--powerapps-offer"></a>Creare un'offerta Dynamics 365 for Customer Engagement e PowerApps
 
@@ -23,8 +23,8 @@ Prima di iniziare, [creare un account per il marketplace commerciale nel Centro 
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-2. Nel menu di spostamento di sinistra selezionare **Marketplace commerciale** > **Panoramica**.
-3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **Dynamics 365 for Customer Engagement e PowerApps**.
+2. Nel menu di spostamento di sinistra selezionare **Marketplace commerciale** > **Panoramica** .
+3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **Dynamics 365 for Customer Engagement e PowerApps** .
 
     ![Immagine del menu di spostamento di sinistra.](./media/new-offer-dynamics-365-customer-engagement-powerapps.png)
 
@@ -33,17 +33,17 @@ Prima di iniziare, [creare un account per il marketplace commerciale nel Centro 
 
 ## <a name="new-offer"></a>Nuova offerta
 
-Immettere un ID in **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nell'account.
+Immettere un ID in **ID offerta** . Si tratta di un identificatore univoco per ogni offerta nell'account.
 
 - Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta del marketplace e nei modelli di Azure Resource Manager, se applicabile.
 - L'ID offerta combinato con l'ID editore deve avere una lunghezza compresa tra 40 caratteri.
-- Usare solo lettere minuscole e numeri. Può includere trattini e caratteri di sottolineatura, ma senza spazi. Se, ad esempio, l'ID editore è testpublisherid e si immette **test-offer-1**, l'indirizzo Web dell'offerta sarà `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
+- Usare solo lettere minuscole e numeri. Può includere trattini e caratteri di sottolineatura, ma senza spazi. Se, ad esempio, l'ID editore è testpublisherid e si immette **test-offer-1** , l'indirizzo Web dell'offerta sarà `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
+- Non è possibile modificare l'ID offerta dopo aver selezionato **Crea** .
 
-Immettere un alias in **Alias offerta**. Si tratta del nome usato per l'offerta nel Centro per i partner.
+Immettere un alias in **Alias offerta** . Si tratta del nome usato per l'offerta nel Centro per i partner.
 
 - Questo nome non viene usato nel marketplace ed è diverso dal nome dell'offerta e da altri valori visualizzati ai clienti.
-- Non può essere modificato dopo aver selezionato **Crea**.
+- Non può essere modificato dopo aver selezionato **Crea** .
 
 Selezionare **Crea** per generare l'offerta e continuare.
 
@@ -70,13 +70,13 @@ Elencare l'offerta ai clienti con un collegamento a una versione di valutazione 
 
 Consente di raccogliere informazioni di contatto del cliente tramite la connessione al sistema di gestione delle relazioni con i clienti (CRM, Customer Relationship Management). Al cliente verrà chiesta l'autorizzazione per condividere le informazioni. Questi dettagli sul cliente, tra cui il nome dell'offerta, l'ID e l'origine del marketplace in cui ha trovato l'offerta, verranno inviate al sistema CRM configurato. Per altre informazioni sulla configurazione del sistema CRM, vedere [Lead clienti](#customer-leads).
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ### <a name="test-drive"></a>Test drive
 
 Il test drive è un'ottima soluzione per presentare un'offerta a potenziali clienti, dando loro la possibilità di provarla prima dell'acquisto e ottenendo un incremento delle conversioni e la generazione di clienti potenziali altamente qualificati. Per altre informazioni, vedere la pagina relativa all' [test drive](../what-is-test-drive.md).
 
-Per abilitare un test drive per un periodo di tempo fisso, selezionare la casella di controllo **Abilita un test drive**. Per rimuovere il test drive dall'offerta, deselezionare questa casella di controllo.
+Per abilitare un test drive per un periodo di tempo fisso, selezionare la casella di controllo **Abilita un test drive** . Per rimuovere il test drive dall'offerta, deselezionare questa casella di controllo.
 
 ### <a name="customer-leads"></a>Clienti potenziali
 
@@ -84,7 +84,7 @@ Per abilitare un test drive per un periodo di tempo fisso, selezionare la casell
 
 Per altre informazioni, vedere [Panoramica della gestione dei lead](./commercial-marketplace-get-customer-leads.md).
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="properties"></a>Proprietà
 
@@ -95,7 +95,7 @@ Questa pagina consente di definire le categorie e i settori usati per raggruppar
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
 - Almeno una delle due categorie, incluse una categoria primaria e una secondaria (facoltativo).
-- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile**.
+- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile** .
 
 Vedere l'elenco completo di categorie e sottocategorie nell'elenco delle [procedure](../gtm-offer-listing-best-practices.md)consigliate.
 
@@ -109,13 +109,13 @@ Selezionare tutti i prodotti Dynamics 365 per cui è valida l'offerta.
 
 ### <a name="app-version"></a>Versione dell'app
 
-Immettere il numero di versione dell'offerta. I clienti visualizzeranno questa versione nella pagina dei dettagli dell'offerta. Se si aggiorna il numero di versione solo per via di modifiche di marketing/descrittive, selezionare la casella **Modifica solo marketing**. Questa opzione consente all'offerta di ignorare le fasi di certificazione e provisioning.
+Immettere il numero di versione dell'offerta. I clienti visualizzeranno questa versione nella pagina dei dettagli dell'offerta. Se si aggiorna il numero di versione solo per via di modifiche di marketing/descrittive, selezionare la casella **Modifica solo marketing** . Questa opzione consente all'offerta di ignorare le fasi di certificazione e provisioning.
 
 ### <a name="terms-and-conditions"></a>Termini e condizioni
 
 Specificare i termini e le condizioni legali qui. È anche possibile fornire l'indirizzo in cui sono disponibili i termini e le condizioni. Ai clienti verrà chiesto di accettare questi termini prima di poter provare l'offerta.
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="offer-listing"></a>Presentazione dell'offerta
 
@@ -138,7 +138,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 4. Indirizzo di supporto (collegamento)
 5. Indirizzo Condizioni per l'utilizzo (collegamento)
 6. Nome offerta
-7. Description
+7. Descrizione
 8. Screenshot/video
 
 ### <a name="name"></a>Nome
@@ -179,7 +179,7 @@ Immettere l'indirizzo dell'informativa sulla privacy dell'organizzazione. Si è 
 
 ### <a name="contacts"></a>Contatti
 
-Specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per **Contatto supporto tecnico** e **Contatto tecnico**. Queste informazioni non vengono visualizzate ai clienti, ma saranno disponibili per Microsoft e possono essere fornite ai partner CSP.
+Specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per **Contatto supporto tecnico** e **Contatto tecnico** . Queste informazioni non vengono visualizzate ai clienti, ma saranno disponibili per Microsoft e possono essere fornite ai partner CSP.
 
 Nella sezione **Contatto supporto tecnico** è necessario fornire anche un valore per **URL supporto** in cui i partner CSP possono trovare supporto per l'offerta.
 
@@ -221,7 +221,7 @@ Se si vuole, è possibile aggiungere fino a quattro video che descrivono l'offer
 
 [Procedure consigliate per la presentazione di offerte nel marketplace](../gtm-offer-listing-best-practices.md)
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="availability"></a>Disponibilità
 
@@ -229,7 +229,7 @@ Questa pagina consente di definire dove e come rendere disponibile l'offerta.
 
 ### <a name="markets"></a>Mercati
 
-Specificare i mercati in cui l'offerta deve essere disponibile. A questo scopo, selezionare **Modifica mercati**. Verrà visualizzata la finestra popup **Selezione mercato**.
+Specificare i mercati in cui l'offerta deve essere disponibile. A questo scopo, selezionare **Modifica mercati** . Verrà visualizzata la finestra popup **Selezione mercato** .
 
 Per impostazione predefinita, non è selezionato alcun mercato, ma è necessario selezionarne almeno uno per pubblicare l'offerta. Scegliere **Seleziona tutto** per rendere l'offerta disponibile in ogni mercato possibile oppure selezionare i mercati specifici da aggiungere.
 
@@ -244,7 +244,7 @@ Prima di pubblicare l'offerta live all'interno della più ampia offerta del mark
 
 Quindi, quando si è pronti a rendere disponibile l'offerta e a rimuovere la restrizione, sarà necessario rimuovere la chiave specificata in **Nascondi chiave** e ripubblicare l'offerta.
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="technical-configuration"></a>Configurazione tecnica
 
@@ -267,19 +267,19 @@ Specificare l'URL per la pagina Web di configurazione che consente al cliente di
 Nel campo **URL del percorso del pacchetto** immettere l'URL di un account di Archiviazione BLOB di Azure che contiene il file ZIP del pacchetto CRM caricato. Includere una chiave di firma di accesso condiviso di sola lettura per consentire a Microsoft di prelevare il pacchetto per la verifica.
 
 > [!IMPORTANT]
-> Per evitare un blocco di pubblicazione, assicurarsi che la data di scadenza nell'URL dell'archiviazione BLOB non sia scaduta. È possibile modificare la data accedendo al criterio. Si consiglia di impostare l'**ora di scadenza** su almeno un mese nel futuro.
+> Per evitare un blocco di pubblicazione, assicurarsi che la data di scadenza nell'URL dell'archiviazione BLOB non sia scaduta. È possibile modificare la data accedendo al criterio. Si consiglia di impostare l' **ora di scadenza** su almeno un mese nel futuro.
 
-Selezionare la casella con l'etichetta **Nel file del pacchetto è presente più di un pacchetto CRM**, se applicabile. In tal caso, assicurarsi di includere tutti i pacchetti nel file ZIP.
+Selezionare la casella con l'etichetta **Nel file del pacchetto è presente più di un pacchetto CRM** , se applicabile. In tal caso, assicurarsi di includere tutti i pacchetti nel file ZIP.
 
-Per informazioni dettagliate su come creare il pacchetto e aggiornarne la struttura, vedere il [Passaggio 3: Creare un pacchetto AppSource per l'app](https://docs.microsoft.com/powerapps/developer/common-data-service/create-package-app-appsource)
+Per informazioni dettagliate su come creare il pacchetto e aggiornarne la struttura, vedere il [Passaggio 3: Creare un pacchetto AppSource per l'app](/powerapps/developer/common-data-service/create-package-app-appsource)
 
 ### <a name="crm-package-availability"></a>Disponibilità del pacchetto CRM
 
 In questa sezione selezionare **+ Aggiungi area** per specificare le aree geografiche in cui il pacchetto CRM sarà disponibile per i clienti. La distribuzione nelle aree sovrane seguenti richiede un'autorizzazione speciale e la convalida durante il processo di certificazione: [Germania](../../germany/index.yml), [Cloud del US Gov](../../azure-government/documentation-government-welcome.md) e TIP.
 
-Per impostazione predefinita, l'**URL di configurazione dell'applicazione** immesso in precedenza verrà usato per ogni area. Se si preferisce, è possibile immettere un URL di configurazione dell'applicazione distinto per una o più aree specifiche. 
+Per impostazione predefinita, l' **URL di configurazione dell'applicazione** immesso in precedenza verrà usato per ogni area. Se si preferisce, è possibile immettere un URL di configurazione dell'applicazione distinto per una o più aree specifiche. 
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="test-drive-technical-configuration"></a>Configurazione tecnica del test drive
 
@@ -297,7 +297,7 @@ In questa pagina è possibile fornire informazioni aggiuntive sull'offerta per c
 
 Caricare un file PDF in cui sono elencati gli scenari di utilizzo chiave dell'offerta. Tutti gli scenari elencati qui possono essere verificati dal team di convalida prima di approvare l'offerta per il marketplace.
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="publish"></a>Pubblica
 
@@ -308,11 +308,11 @@ Dopo aver completato tutte le sezioni obbligatorie dell'offerta, selezionare **R
 Se è la prima volta che si pubblica questa offerta, è possibile:
 
 - Visualizzare lo stato di completamento di ogni sezione dell'offerta.
-    - **Non avviata**: la sezione è stata lasciata inalterata e deve essere completata.
-    - **Incompleta**: la sezione contiene errori che devono essere corretti o è necessario fornire altre informazioni. Tornare alla sezione e aggiornarla.
-    - **Completa**: la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in stato completato prima di poter inviare l'offerta.
+    - **Non avviata** : la sezione è stata lasciata inalterata e deve essere completata.
+    - **Incompleta** : la sezione contiene errori che devono essere corretti o è necessario fornire altre informazioni. Tornare alla sezione e aggiornarla.
+    - **Completa** : la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in stato completato prima di poter inviare l'offerta.
 - Nella sezione **Note per la certificazione** specificare le istruzioni per il test per il team di certificazione per assicurarsi che l'app venga testata correttamente, oltre a eventuali note supplementari utili per conoscere l'app.
-- Inviare l'offerta per la pubblicazione selezionando **Invia**. Si riceverà un messaggio di posta elettronica per far sapere all'utente che una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Tornare al centro per i partner e selezionare **Go-Live** per pubblicare l'offerta sul pubblico.
+- Inviare l'offerta per la pubblicazione selezionando **Invia** . Si riceverà un messaggio di posta elettronica per far sapere all'utente che una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Tornare al centro per i partner e selezionare **Go-Live** per pubblicare l'offerta sul pubblico.
 
 ## <a name="next-step"></a>Passaggio successivo
 

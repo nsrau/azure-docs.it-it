@@ -7,22 +7,22 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.openlocfilehash: b4e34befbf28de2b985ff49ce17a87a25842015e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80567a211f08d6322c80b6645f8b70ec7df64b59
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87901692"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130664"
 ---
 # <a name="configuring-event-ordering-policies-for-azure-stream-analytics"></a>Configurazione dei criteri di ordinamento degli eventi per analisi di flusso di Azure
 
-Questo articolo descrive come configurare e usare i criteri di arrivo in ritardo e di eventi non ordinati in analisi di flusso di Azure. Questi criteri vengono applicati solo quando si usa la clausola [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) nella query e vengono applicati solo per le origini di input cloud.
+Questo articolo descrive come configurare e usare i criteri di arrivo in ritardo e di eventi non ordinati in analisi di flusso di Azure. Questi criteri vengono applicati solo quando si usa la clausola [timestamp by](/stream-analytics-query/timestamp-by-azure-stream-analytics) nella query e vengono applicati solo per le origini di input cloud.
 
 ## <a name="event-time-and-arrival-time"></a>Ora dell'evento e ora di arrivo
 
-Il processo di analisi di flusso può elaborare gli eventi in base all' *ora dell'evento* o all' *ora di arrivo*. **Evento/ora applicazione** è il timestamp presente nel payload dell'evento (quando è stato generato l'evento). L' **ora di arrivo** è il timestamp in cui l'evento è stato ricevuto nell'origine di input (hub eventi/archiviazione BLOB/Hub). 
+Il processo di analisi di flusso può elaborare gli eventi in base all' *ora dell'evento* o all' *ora di arrivo* . **Evento/ora applicazione** è il timestamp presente nel payload dell'evento (quando è stato generato l'evento). L' **ora di arrivo** è il timestamp in cui l'evento è stato ricevuto nell'origine di input (hub eventi/archiviazione BLOB/Hub). 
 
-Per impostazione predefinita, l'analisi di flusso elabora gli eventi in base all' *ora di arrivo*, ma è possibile scegliere di elaborare gli eventi in base all'ora dell' *evento* usando la clausola [timestamp by](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics) nella query. I criteri di arrivo in ritardo e non ordinati sono applicabili solo se si elaborano gli eventi in base all'ora dell'evento. Prendere in considerazione i requisiti di latenza e correttezza per lo scenario durante la configurazione di queste impostazioni. 
+Per impostazione predefinita, l'analisi di flusso elabora gli eventi in base all' *ora di arrivo* , ma è possibile scegliere di elaborare gli eventi in base all'ora dell' *evento* usando la clausola [timestamp by](/stream-analytics-query/timestamp-by-azure-stream-analytics) nella query. I criteri di arrivo in ritardo e non ordinati sono applicabili solo se si elaborano gli eventi in base all'ora dell'evento. Prendere in considerazione i requisiti di latenza e correttezza per lo scenario durante la configurazione di queste impostazioni. 
 
 ## <a name="what-is-late-arrival-policy"></a>Che cosa sono i criteri di arrivo in ritardo?
 
@@ -79,8 +79,8 @@ Questo messaggio indica che almeno una partizione nell'input è vuota e ritarder
 ## <a name="why-do-i-see-a-delay-of-5-seconds-even-when-my-late-arrival-policy-is-set-to-0"></a>Perché viene visualizzato un ritardo di 5 secondi anche quando i criteri di arrivo in ritardo sono impostati su 0?
 Questo errore si verifica quando è presente una partizione di input che non ha mai ricevuto input. È possibile verificare la metrica di input in base alla partizione per convalidare questo comportamento. 
 
-Quando una partizione non contiene dati per più della soglia di arrivo in ritardo configurata, analisi di flusso sposta il timestamp dell'applicazione come descritto nella sezione Considerazioni sull'ordinamento degli eventi. Questa operazione richiede l'ora di arrivo stimata. Se la partizione non dispone mai di dati, analisi di flusso stima l'ora di arrivo come *ora locale-5 secondi*. A causa di questa partizione che non aveva mai dati, poteva visualizzare un ritardo della filigrana di 5 secondi.  
+Quando una partizione non contiene dati per più della soglia di arrivo in ritardo configurata, analisi di flusso sposta il timestamp dell'applicazione come descritto nella sezione Considerazioni sull'ordinamento degli eventi. Questa operazione richiede l'ora di arrivo stimata. Se la partizione non dispone mai di dati, analisi di flusso stima l'ora di arrivo come *ora locale-5 secondi* . A causa di questa partizione che non aveva mai dati, poteva visualizzare un ritardo della filigrana di 5 secondi.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Considerazioni sulla gestione del tempo](stream-analytics-time-handling.md)
-* [Metriche disponibili in Analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-monitoring#metrics-available-for-stream-analytics)
+* [Metriche disponibili in Analisi di flusso di Azure](./stream-analytics-monitoring.md#metrics-available-for-stream-analytics)

@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 5/11/2020
-ms.openlocfilehash: 8aae9a0ff3ffdbd4f6bc93db5c6f15dcb938080e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3a08b73a74d30a99ba3c360f012d5917f1d0c8bf
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84196431"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129729"
 ---
 # <a name="using-reference-data-for-lookups-in-stream-analytics"></a>Uso dei dati di riferimento per le ricerche in Analisi di flusso
 
-I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato che è statico o a modifica lenta, usato per eseguire una ricerca o per aumentare i flussi di dati. Ad esempio, in uno scenario IoT, si potrebbero archiviare i metadati relativi ai sensori, che non cambiano spesso, in dati di riferimento e unirli ai flussi di dati IoT in tempo reale. Analisi di flusso di Azure carica i dati di riferimento nella memoria per ottenere un'elaborazione del flusso a bassa latenza. Per usare i dati di riferimento nel processo di analisi di flusso di Azure, in genere si usa un [join dei dati di riferimento](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) nella query. 
+I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato che è statico o a modifica lenta, usato per eseguire una ricerca o per aumentare i flussi di dati. Ad esempio, in uno scenario IoT, si potrebbero archiviare i metadati relativi ai sensori, che non cambiano spesso, in dati di riferimento e unirli ai flussi di dati IoT in tempo reale. Analisi di flusso di Azure carica i dati di riferimento nella memoria per ottenere un'elaborazione del flusso a bassa latenza. Per usare i dati di riferimento nel processo di analisi di flusso di Azure, in genere si usa un [join dei dati di riferimento](/stream-analytics-query/reference-data-join-azure-stream-analytics) nella query. 
 
 ## <a name="example"></a>Esempio  
 È possibile avere un flusso in tempo reale degli eventi generati quando le automobili passano un casello. Il casello può acquisire la targa in tempo reale e partecipare a un set di dati statico con i dettagli di registrazione per identificare le targhe che sono scadute.  
@@ -37,7 +37,7 @@ I dati di riferimento sono modellati come una sequenza di BLOB (definiti nella c
 
 ### <a name="configure-blob-reference-data"></a>Configurare i dati di riferimento BLOB
 
-Per configurare i dati di riferimento, è prima di tutto necessario creare un input che sia di tipo **Dati di riferimento**. La tabella seguente illustra ogni proprietà che è necessario fornire durante la creazione di input di dati di riferimento con la relativa descrizione:
+Per configurare i dati di riferimento, è prima di tutto necessario creare un input che sia di tipo **Dati di riferimento** . La tabella seguente illustra ogni proprietà che è necessario fornire durante la creazione di input di dati di riferimento con la relativa descrizione:
 
 |**Nome proprietà**  |**Descrizione**  |
 |---------|---------|
@@ -82,7 +82,7 @@ Analisi di flusso di Azure verifica automaticamente se sono disponibili BLOB di 
 3. I BLOB dei dati di riferimento **non** vengono ordinati in base all'ora dell'Ultima modifica del BLOB, ma solo in base all'ora e alla data specificate nel nome del BLOB usando le sostituzioni {date} e {Time}.
 3. Per evitare di dover elencare un numero elevato di BLOB, valutare l'eliminazione dei BLOB molto vecchi per cui non verrà più eseguita l'elaborazione. Si noti che ASA potrebbe doverne rielaborare una piccola quantità in alcuni scenari, ad esempio un riavvio.
 
-## <a name="azure-sql-database"></a>database SQL di Azure
+## <a name="azure-sql-database"></a>Database SQL di Azure
 
 I dati di riferimento del database SQL di Azure vengono recuperati dal processo di Analisi di flusso archiviati come snapshot in memoria per l'elaborazione. Lo snapshot dei dati di riferimento viene anche archiviato in un contenitore all'interno di un account di archiviazione specificato nelle impostazioni di configurazione. Il contenitore viene creato automaticamente all'avvio del processo. Se il processo viene arrestato o si trova in uno stato di errore, i contenitori creati automaticamente vengono eliminati quando il processo viene riavviato.  
 
@@ -94,9 +94,9 @@ Con l'opzione della query delta, Analisi di flusso esegue la query snapshot all'
 
 ### <a name="configure-sql-database-reference"></a>Configurare il riferimento del database SQL
 
-Per configurare i dati di riferimento del database SQL, è prima di tutto necessario creare un input **Dati di riferimento**. La tabella seguente illustra ogni proprietà che è necessario fornire durante la creazione di input di dati di riferimento con la relativa descrizione. Per altre informazioni, vedere [Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure](sql-reference-data.md).
+Per configurare i dati di riferimento del database SQL, è prima di tutto necessario creare un input **Dati di riferimento** . La tabella seguente illustra ogni proprietà che è necessario fornire durante la creazione di input di dati di riferimento con la relativa descrizione. Per altre informazioni, vedere [Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure](sql-reference-data.md).
 
-È possibile usare [istanza gestita SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) come input di dati di riferimento. È necessario [configurare l'endpoint pubblico in SQL istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e quindi configurare manualmente le impostazioni seguenti in analisi di flusso di Azure. La macchina virtuale di Azure che esegue SQL Server con un database collegato è supportata anche dalla configurazione manuale delle impostazioni riportate di seguito.
+È possibile usare [istanza gestita SQL di Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) come input di dati di riferimento. È necessario [configurare l'endpoint pubblico in SQL istanza gestita](../azure-sql/managed-instance/public-endpoint-configure.md) e quindi configurare manualmente le impostazioni seguenti in analisi di flusso di Azure. La macchina virtuale di Azure che esegue SQL Server con un database collegato è supportata anche dalla configurazione manuale delle impostazioni riportate di seguito.
 
 |**Nome proprietà**|**Descrizione**  |
 |---------|---------|
@@ -146,6 +146,6 @@ JOIN    refData2 ON refData2.Desc = Step1.Desc
 [stream.analytics.developer.guide]: ../stream-analytics-developer-guide.md
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.get.started]: stream-analytics-get-started.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.get.started]: ./stream-analytics-real-time-fraud-detection.md
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

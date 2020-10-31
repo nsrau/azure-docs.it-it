@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: 3b74f3ecdc048b6468906fb46a848d27cd1f23b9
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7008c305525c7564e57fd225e961b462bf6939f2
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275423"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130834"
 ---
 # <a name="support-for-the-microsoft-commercial-marketplace"></a>Supporto per Microsoft Commercial Marketplace
 
@@ -32,7 +32,7 @@ Aprire un ticket per il [supporto per la pubblicazione nel Marketplace](https://
 
 | Canale di supporto | Descrizione |  
 |:--- |:--- |  
-| Forum MSDN: Marketplace disponibile alla [pagina delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/products/azure) | Forum di Microsoft Developer Network. |  
+| Forum MSDN: Marketplace disponibile alla [pagina delle domande di Domande e risposte Microsoft](/answers/products/azure) | Forum di Microsoft Developer Network. |  
 | Stack Overflow: Azure disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Ambiente di Stack Overflow per ottenere soluzioni e porre domande su qualsiasi argomento relativo ad Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: macchine virtuali in Azure disponibile all'indirizzo [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: contenitori in Azure disponibile all'indirizzo [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
 
 ## <a name="marketing-resources"></a>Risorse di marketing  

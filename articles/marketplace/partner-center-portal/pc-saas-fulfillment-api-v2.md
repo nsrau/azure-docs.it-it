@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: c74535b8cf11ec4beb413654bdddedb5ba847eea
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 06a2a5bbe637cd2366dbdf218c0278cd683635df
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275536"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130035"
 ---
 # <a name="saas-fulfillment-apis-version-2-in-the-commercial-marketplace"></a>API di evasione SaaS versione 2 nel Marketplace commerciale
 
@@ -28,7 +28,7 @@ Vengono visualizzati gli Stati di una sottoscrizione SaaS e le azioni applicabil
 
 ![Ciclo di vita di una sottoscrizione SaaS nel Marketplace](./media/saas-subscription-lifecycle-api-v2.png)
 
-#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Acquistato ma non ancora attivato (*PendingFulfillmentStart*)
+#### <a name="purchased-but-not-yet-activated-pendingfulfillmentstart"></a>Acquistato ma non ancora attivato ( *PendingFulfillmentStart* )
 
 Dopo che un cliente finale (o CSP) acquista un'offerta SaaS nel Marketplace, l'editore deve ricevere una notifica dell'acquisto in modo che un nuovo account SaaS venga creato e configurato per il cliente finale sul lato dell'editore.
 
@@ -51,7 +51,7 @@ Nella pagina di destinazione il cliente deve essere connesso all'account SaaS nu
 Il server di pubblicazione deve implementare l'accesso SSO per fornire l'esperienza utente richiesta da Microsoft per questo flusso.  Quando si configura l'accesso SSO, assicurarsi di usare l'applicazione Azure AD multi-tenant, consentire account aziendali o dell'Istituto di istruzione o account Microsoft personali.  Questo requisito si applica solo alla pagina di destinazione e per gli utenti che vengono reindirizzati al servizio SaaS quando si è già connessi con le credenziali Microsoft. Non si applica a tutti gli account di accesso al servizio SaaS.
 
 > [!NOTE]
->Se l'accesso SSO richiede che un amministratore conceda un'autorizzazione a un'app, la descrizione dell'offerta nel centro per i partner deve rivelare che è necessario l'accesso a livello di amministratore. In conformità con i criteri di [certificazione del Marketplace commerciale](https://docs.microsoft.com/legal/marketplace/certification-policies#10003-authentication-options).
+>Se l'accesso SSO richiede che un amministratore conceda un'autorizzazione a un'app, la descrizione dell'offerta nel centro per i partner deve rivelare che è necessario l'accesso a livello di amministratore. In conformità con i criteri di [certificazione del Marketplace commerciale](/legal/marketplace/certification-policies#10003-authentication-options).
 
 Una volta effettuato l'accesso, il cliente deve completare la configurazione SaaS sul lato server di pubblicazione. Il server di pubblicazione deve quindi chiamare l' [API di sottoscrizione Activate](#activate-a-subscription) per inviare un segnale al Marketplace che il provisioning dell'account Saas è stato completato.
 Verrà avviato il ciclo di fatturazione del cliente. Se la chiamata all'API per l'attivazione della sottoscrizione non riesce, il cliente non viene addebitato per l'acquisto.
@@ -106,9 +106,9 @@ Sequenza di chiamate API per lo scenario di aggiornamento avviato dal lato serve
 
 ![Chiamate API per un aggiornamento avviato dal lato Publisher](./media/saas-update-status-api-v2-calls-publisher-side.png)
 
-#### <a name="suspended-suspended"></a>Sospesa (*sospesa*)
+#### <a name="suspended-suspended"></a>Sospesa ( *sospesa* )
 
-Questo stato indica che il pagamento di un cliente per il servizio SaaS non è stato ricevuto. Il server di pubblicazione riceverà una notifica di questa modifica nello stato di sottoscrizione SaaS da parte di Microsoft. La notifica viene eseguita tramite una chiamata a webhook con il parametro *Action* impostato su *suspended*.
+Questo stato indica che il pagamento di un cliente per il servizio SaaS non è stato ricevuto. Il server di pubblicazione riceverà una notifica di questa modifica nello stato di sottoscrizione SaaS da parte di Microsoft. La notifica viene eseguita tramite una chiamata a webhook con il parametro *Action* impostato su *suspended* .
 
 Il server di pubblicazione può o meno apportare modifiche al servizio SaaS sul lato server di pubblicazione. È consigliabile che il server di pubblicazione renda disponibili tali informazioni ai clienti sospesi e limiti o blocchi l'accesso del cliente al servizio SaaS.  Esiste una probabilità che il pagamento non venga mai ricevuto.
 
@@ -119,7 +119,7 @@ Microsoft concede al cliente un periodo di tolleranza di 30 giorni prima di annu
 
 Lo stato della sottoscrizione viene modificato in sospeso sul lato Microsoft prima che il server di pubblicazione accetti qualsiasi azione. È possibile sospendere solo le sottoscrizioni attive.
 
-#### <a name="reinstated-suspended"></a>Reintegrato (*sospeso*)
+#### <a name="reinstated-suspended"></a>Reintegrato ( *sospeso* )
 
 È in corso il ripristino della sottoscrizione.
 
@@ -135,7 +135,7 @@ Se la patch viene inviata con lo stato di errore, il processo di ripristino non 
 
 È possibile ripristinare solo una sottoscrizione sospesa.  Durante il ripristino di una sottoscrizione SaaS, il suo stato rimane sospeso.  Al termine dell'operazione, lo stato della sottoscrizione diventerà attivo.
 
-#### <a name="renewed-subscribed"></a>Rinnovato (*sottoscritto*)
+#### <a name="renewed-subscribed"></a>Rinnovato ( *sottoscritto* )
 
 Alla fine del periodo di validità della sottoscrizione (dopo un mese o un anno), la sottoscrizione SaaS verrà rinnovata automaticamente da Microsoft.  Il valore predefinito per l'impostazione di rinnovo automatico è *true* per tutte le sottoscrizioni Saas. Le sottoscrizioni SaaS attive continueranno a essere rinnovate a cadenza regolare. Microsoft non invia una notifica al server di pubblicazione quando viene rinnovata una sottoscrizione. Un cliente può disabilitare il rinnovo automatico per una sottoscrizione SaaS tramite il portale di amministrazione di M365 o tramite portale di Azure.  In questo caso, la sottoscrizione SaaS verrà annullata automaticamente alla fine del periodo di fatturazione corrente.  I clienti possono anche annullare la sottoscrizione SaaS in qualsiasi momento.
 
@@ -143,7 +143,7 @@ Solo le sottoscrizioni attive vengono rinnovate automaticamente.  Le sottoscrizi
 
 Se un rinnovo automatico ha esito negativo a causa di un problema relativo al pagamento, la sottoscrizione verrà sospesa.  Verrà inviata una notifica al server di pubblicazione.
 
-#### <a name="canceled-unsubscribed"></a>Annullato (annullamento della*sottoscrizione*) 
+#### <a name="canceled-unsubscribed"></a>Annullato (annullamento della *sottoscrizione* ) 
 
 Le sottoscrizioni raggiungono questo stato in risposta a un'azione esplicita del cliente o del CSP mediante l'annullamento di una sottoscrizione dal sito del server di pubblicazione, portale di Azure o dall'interfaccia di amministrazione di M365.  Una sottoscrizione può anche essere annullata in modo implicito, a causa del mancato pagamento delle quote, dopo che è stato sospeso per 30 giorni.
 
@@ -581,7 +581,7 @@ Il partner riceverà anche una notifica webhook quando l'azione è pronta per es
 
 |  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  URL per ottenere lo stato dell'operazione.  Ad esempio: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  URL per ottenere lo stato dell'operazione.  Ad esempio `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
 Codice: 400 richiesta non valida: errori di convalida.
 
@@ -646,7 +646,7 @@ Il partner riceverà anche una notifica webhook quando l'azione è pronta per es
 
 |  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  Collegamento a una risorsa per ottenere lo stato dell'operazione.  Ad esempio: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
+|  `Operation-Location`        |  Collegamento a una risorsa per ottenere lo stato dell'operazione.  Ad esempio `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`.  |
 
 Codice: 400 richiesta non valida: errori di convalida.
 
@@ -711,7 +711,7 @@ Il partner riceverà anche una notifica webhook quando l'azione viene completata
 
 |  Parametro         | Valore             |
 |  ---------------   |  ---------------  |
-|  `Operation-Location`        |  Collegamento a una risorsa per ottenere lo stato dell'operazione.  Ad esempio: `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
+|  `Operation-Location`        |  Collegamento a una risorsa per ottenere lo stato dell'operazione.  Ad esempio `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=2018-08-31`. |
 
 Codice: 400 richiesta non valida.  L'eliminazione non è `allowedCustomerOperations` presente nell'elenco per questa sottoscrizione Saas.
 
@@ -788,9 +788,9 @@ Codice: 500 errore interno del server. Ripetere la chiamata API.  Se l'errore vi
 
 #### <a name="get-operation-status"></a>Ottenere lo stato dell'operazione
 
-Consente al server di pubblicazione di tenere traccia dello stato dell'operazione asincrona specificata:  **unsubscribe**, **ChangePlan**o **ChangeQuantity**.
+Consente al server di pubblicazione di tenere traccia dello stato dell'operazione asincrona specificata:  **unsubscribe** , **ChangePlan** o **ChangeQuantity** .
 
-`operationId`Per questa chiamata API può essere recuperato dal valore restituito da **Operation-location**, get pending Operation API call o dal `<id>` valore del parametro ricevuto in una chiamata webhook.
+`operationId`Per questa chiamata API può essere recuperato dal valore restituito da **Operation-location** , get pending Operation API call o dal `<id>` valore del parametro ricevuto in una chiamata webhook.
 
 ##### <a name="get-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Ottieni `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -850,7 +850,7 @@ Codice: 500 errore interno del server.  Ripetere la chiamata API.  Se l'errore v
 
 Aggiornare lo stato di un'operazione in sospeso per indicare l'esito positivo o negativo dell'operazione sul lato del server di pubblicazione.
 
-`operationId`Per questa chiamata API può essere recuperato dal valore restituito da **Operation-location**, get pending Operation API call o il `<id>` valore del parametro ricevuto in una chiamata webhook.
+`operationId`Per questa chiamata API può essere recuperato dal valore restituito da **Operation-location** , get pending Operation API call o il `<id>` valore del parametro ricevuto in una chiamata webhook.
 
 ##### <a name="patch-httpsmarketplaceapimicrosoftcomapisaassubscriptionssubscriptionidoperationsoperationidapi-versionapiversion"></a>Patch `https://marketplaceapi.microsoft.com/api/saas/subscriptions/<subscriptionId>/operations/<operationId>?api-version=<ApiVersion>`
 
@@ -962,7 +962,7 @@ Quando il server di pubblicazione è pronto per il test end-to-end:
 
 Un flusso di acquisto può essere attivato dal portale di Azure o da siti Microsoft AppSource, a seconda della posizione in cui viene pubblicata l'offerta.
 
-Le azioni *modifica piano*, *modifica quantità*e *Annulla sottoscrizione* sono testate dal lato server di pubblicazione.  Dal lato Microsoft, l' *annullamento della sottoscrizione* può essere attivato sia dal portale di Azure che dal centro di amministrazione (il portale in cui vengono gestiti Microsoft AppSource acquisti).  La *modifica della quantità e del piano* può essere attivata solo dall'interfaccia di amministrazione.
+Le azioni *modifica piano* , *modifica quantità* e *Annulla sottoscrizione* sono testate dal lato server di pubblicazione.  Dal lato Microsoft, l' *annullamento della sottoscrizione* può essere attivato sia dal portale di Azure che dal centro di amministrazione (il portale in cui vengono gestiti Microsoft AppSource acquisti).  La *modifica della quantità e del piano* può essere attivata solo dall'interfaccia di amministrazione.
 
 ## <a name="get-support"></a>Ottenere supporto
 

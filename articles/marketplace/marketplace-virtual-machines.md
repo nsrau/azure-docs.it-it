@@ -8,18 +8,18 @@ ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 8653279c353ad679503f2501afeb14725c7fc215
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: a14ccb74e6f0ac2454255d609662706cb53ede31
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92329033"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129593"
 ---
 # <a name="how-to-plan-a-virtual-machine-offer"></a>Come pianificare un'offerta di macchina virtuale
 
 Questo articolo illustra le diverse opzioni e i requisiti per la pubblicazione di un'offerta di macchina virtuale (VM) nel Marketplace commerciale. Le offerte di macchine virtuali sono offerte transazionali distribuite e fatturate tramite Azure Marketplace.
 
-Prima di iniziare, [creare un account Marketplace commerciale nel centro](https://docs.microsoft.com/azure/marketplace/partner-center-portal/create-account) per i partner e assicurarsi che l'account sia registrato nel programma Commercial Marketplace.
+Prima di iniziare, [creare un account Marketplace commerciale nel centro](./partner-center-portal/create-account.md) per i partner e assicurarsi che l'account sia registrato nel programma Commercial Marketplace.
 
 ### <a name="technical-fundamentals"></a>Nozioni tecniche
 
@@ -70,7 +70,7 @@ Un pubblico di anteprima può accedere all'offerta di VM prima di essere pubblic
 
 Le offerte della macchina virtuale richiedono almeno un piano. Un piano definisce l'ambito e i limiti della soluzione e i prezzi associati. È possibile creare più piani per l'offerta per offrire ai clienti diverse opzioni tecniche e di licenza, oltre a versioni di valutazione gratuite. Vedi [piani e prezzi per le offerte del Marketplace commerciale](plans-pricing.md) per indicazioni generali sui piani, inclusi i modelli di prezzi, le versioni di valutazione gratuite e i piani privati. 
 
-Le macchine virtuali sono completamente abilitate per il commercio, usando modelli di licenza con pagamento in base al consumo o bring your own License (BYOL). Microsoft gestisce la transazione commerciale e addebita il costo al cliente per conto dell'utente. Si ottiene il vantaggio di usare la relazione di pagamento preferita tra il cliente e Microsoft, compresi eventuali contratti Enterprise. Per ulteriori informazioni, vedere la pagina relativa alle [funzionalità Transact del Marketplace commerciale](https://docs.microsoft.com/azure/marketplace/marketplace-commercial-transaction-capabilities-and-considerations).
+Le macchine virtuali sono completamente abilitate per il commercio, usando modelli di licenza con pagamento in base al consumo o bring your own License (BYOL). Microsoft gestisce la transazione commerciale e addebita il costo al cliente per conto dell'utente. Si ottiene il vantaggio di usare la relazione di pagamento preferita tra il cliente e Microsoft, compresi eventuali contratti Enterprise. Per ulteriori informazioni, vedere la pagina relativa alle [funzionalità Transact del Marketplace commerciale](./marketplace-commercial-transaction-capabilities-and-considerations.md).
 
 > [!NOTE]
 > Gli impegni monetari associati a un Enterprise Agreement possono essere usati per l'utilizzo di Azure della macchina virtuale, ma non per i costi di licenza software.
@@ -84,7 +84,7 @@ Queste sono le opzioni di licenza disponibili per le offerte di macchine virtual
 | Opzione gestione licenze | Processo di transazione |
 | --- | --- |
 | Versione di prova gratuita | Offri ai tuoi clienti una versione di valutazione gratuita di una, tre o sei mesi. |
-| Test drive | Questa opzione consente ai clienti di valutare le macchine virtuali senza costi aggiuntivi. Non è necessario essere un cliente di Azure esistente per partecipare all'esperienza di valutazione. Per informazioni dettagliate, vedere [che cos'è un test drive?](https://docs.microsoft.com/azure/marketplace/what-is-test-drive) |
+| Test drive | Questa opzione consente ai clienti di valutare le macchine virtuali senza costi aggiuntivi. Non è necessario essere un cliente di Azure esistente per partecipare all'esperienza di valutazione. Per informazioni dettagliate, vedere [che cos'è un test drive?](./what-is-test-drive.md) |
 | BYOL | L'opzione Bring your own Licensing consente ai clienti di portare le licenze software esistenti in Azure.\* |
 | Basato sull'utilizzo | Noto anche come pagamento in base al consumo, questa opzione consente ai clienti di pagare all'ora. |
 | Demo interattiva  | Offrire ai clienti un'esperienza guidata della soluzione usando una dimostrazione interattiva. Il vantaggio è che è possibile offrire un'esperienza di valutazione senza dover fornire un'installazione complessa della soluzione complessa. |
@@ -129,7 +129,7 @@ Se si sceglie di utilizzare il contratto standard, si ha la possibilità di aggi
 Quando si crea l'offerta nel centro per i partner, viene visualizzata la scheda **rivendi tramite CSP** . Questa opzione consente ai partner che fanno parte del programma Microsoft Cloud Solution Providers (CSP) di rivendere la macchina virtuale come parte di un'offerta in bundle. Tutti i piani Bring Your Own License (BYOL) fanno automaticamente parte del programma. È anche possibile scegliere di includere i piani non BYOL. Per ulteriori informazioni, vedere il [programma Cloud Solution Provider](cloud-solution-providers.md) . 
 
 > [!NOTE]
-> Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile. Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [**Cloud Solution Provider**](https://docs.microsoft.com/azure/marketplace/cloud-solution-providers).
+> Il consenso esplicito del canale partner Cloud Solution Provider (CSP) è ora disponibile. Per ulteriori informazioni sul marketing dell'offerta tramite i canali del partner Microsoft CSP, vedere [**Cloud Solution Provider**](./cloud-solution-providers.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

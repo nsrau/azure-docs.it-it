@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: aee5cb077604e5fc95647eca0e6570ea3582a785
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 29bd4dc5cabe8b29efe7b89395c5e7d36bd0347a
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91822995"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129780"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI output di analisi di flusso di Azure
 
@@ -51,7 +51,7 @@ Power BI usa i criteri di conservazione FIFO. I dati verranno raccolti in una ta
 
 Analisi di flusso di Azure consente di aggiornare il modello di dati in modo dinamico in fase di esecuzione se viene modificato lo schema di output. Vengono rilevate tutte le modifiche al nome e al tipo di colonna e l'aggiunta o la rimozione di colonne.
 
-Questa tabella contiene le conversioni dei tipi di dati dai [tipi di dati di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics) ai [tipi Entity Data Model (EDM)](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) di Power BI, se non esistono né un set di dati né una tabella di Power BI.
+Questa tabella contiene le conversioni dei tipi di dati dai [tipi di dati di Analisi di flusso](/stream-analytics-query/data-types-azure-stream-analytics) ai [tipi Entity Data Model (EDM)](/dotnet/framework/data/adonet/entity-data-model) di Power BI, se non esistono né un set di dati né una tabella di Power BI.
 
 Dall'analisi di flusso | A Power BI
 -----|-----
@@ -76,7 +76,7 @@ Datetime | string | string |  Datetime | string
 
 ## <a name="output-batch-size"></a>Dimensione del batch di output
 
-Per le dimensioni del batch di output, vedere [Power Bi limiti dell'API REST](https://msdn.microsoft.com/library/dn950053.aspx).
+Per le dimensioni del batch di output, vedere [Power Bi limiti dell'API REST](/power-bi/developer/automation/api-rest-api-limitations).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

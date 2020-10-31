@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: 85925369da8fec83a613226fe248b396fd88105a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f81b6dabbd9053a69ff60d1a3c71d03fff38f627
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89613411"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129763"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI
 
@@ -23,19 +23,19 @@ Questo articolo illustra come abilitare l'identità gestita per gli output Power
 
 Per usare questa funzionalità, è necessario quanto segue:
 
-- Un account Power BI con una [licenza Pro](https://docs.microsoft.com/power-bi/service-admin-purchasing-power-bi-pro).
+- Un account Power BI con una [licenza Pro](/power-bi/service-admin-purchasing-power-bi-pro).
 
 - Un'area di lavoro aggiornata all'interno dell'account Power BI. Per ulteriori informazioni, vedere l' [annuncio di Power bi](https://powerbi.microsoft.com/blog/announcing-new-workspace-experience-general-availability-ga/) di questa funzionalità.
 
 ## <a name="create-a-stream-analytics-job-using-the-azure-portal"></a>Creare un processo di analisi di flusso usando il portale di Azure
 
-1. Creare un nuovo processo di analisi di flusso o aprire un processo esistente nel portale di Azure. Dalla barra dei menu disponibile sul lato sinistro della schermata selezionare **identità gestita** situata in **Configura**. Verificare che sia selezionata l'opzione "Usa identità gestita assegnata dal sistema" e quindi fare clic sul pulsante **Salva** nella parte inferiore della schermata.
+1. Creare un nuovo processo di analisi di flusso o aprire un processo esistente nel portale di Azure. Dalla barra dei menu disponibile sul lato sinistro della schermata selezionare **identità gestita** situata in **Configura** . Verificare che sia selezionata l'opzione "Usa identità gestita assegnata dal sistema" e quindi fare clic sul pulsante **Salva** nella parte inferiore della schermata.
 
    ![Configurare l'identità gestita di analisi di flusso](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. Prima di configurare l'output, consentire al processo di analisi di flusso di accedere all'area di lavoro di Power BI seguendo le istruzioni riportate nella sezione [fornire l'accesso al processo di analisi di flusso all'area](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) di lavoro Power BI di questo articolo.
 
-3. Passare alla sezione **output** del processo di analisi di flusso, selezionare **+ Aggiungi**e quindi scegliere **Power bi**. Quindi, selezionare il pulsante **autorizza** e accedere con l'account Power bi.
+3. Passare alla sezione **output** del processo di analisi di flusso, selezionare **+ Aggiungi** e quindi scegliere **Power bi** . Quindi, selezionare il pulsante **autorizza** e accedere con l'account Power bi.
 
    ![Autorizza con account Power BI](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 
@@ -45,7 +45,7 @@ Per usare questa funzionalità, è necessario quanto segue:
 
 ## <a name="azure-resource-manager-deployment"></a>Distribuzione Azure Resource Manager
 
-Azure Resource Manager consente di automatizzare completamente la distribuzione del processo di analisi di flusso. È possibile distribuire modelli di Gestione risorse usando Azure PowerShell o l' [interfaccia](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)della riga di comando di Azure. Gli esempi seguenti usano l'interfaccia della riga di comando di Azure.
+Azure Resource Manager consente di automatizzare completamente la distribuzione del processo di analisi di flusso. È possibile distribuire modelli di Gestione risorse usando Azure PowerShell o l' [interfaccia](/cli/azure/?view=azure-cli-latest)della riga di comando di Azure. Gli esempi seguenti usano l'interfaccia della riga di comando di Azure.
 
 
 1. È possibile creare una risorsa **Microsoft. StreamAnalytics/streaming** con un'identità gestita includendo la proprietà seguente nella sezione delle risorse del modello di gestione risorse:
@@ -160,9 +160,9 @@ Ora che il processo di analisi di flusso è stato creato, può essere concesso l
 ### <a name="use-the-power-bi-ui"></a>Usare l'interfaccia utente di Power BI
 
    > [!Note]
-   > Per aggiungere il processo di analisi di flusso all'area di lavoro di Power BI usando l'interfaccia utente, è anche necessario abilitare l'accesso all'entità servizio nelle **impostazioni dello sviluppatore** nel portale di amministrazione di Power bi. Per altri dettagli, vedere [Introduzione a un'entità servizio](https://docs.microsoft.com/power-bi/developer/embed-service-principal) .
+   > Per aggiungere il processo di analisi di flusso all'area di lavoro di Power BI usando l'interfaccia utente, è anche necessario abilitare l'accesso all'entità servizio nelle **impostazioni dello sviluppatore** nel portale di amministrazione di Power bi. Per altri dettagli, vedere [Introduzione a un'entità servizio](/power-bi/developer/embed-service-principal) .
 
-1. Passare alle impostazioni di accesso dell'area di lavoro. Per altri dettagli, vedere questo articolo: [concedere l'accesso all'area di lavoro](https://docs.microsoft.com/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
+1. Passare alle impostazioni di accesso dell'area di lavoro. Per altri dettagli, vedere questo articolo: [concedere l'accesso all'area di lavoro](/power-bi/service-create-the-new-workspaces#give-access-to-your-workspace).
 
 2. Digitare il nome del processo di analisi di flusso nella casella di testo e selezionare **collaboratore** come livello di accesso.
 
@@ -195,7 +195,7 @@ Add-PowerBIWorkspaceUser -WorkspaceId <group-id> -PrincipalId <principal-id> -Pr
 
 ### <a name="use-the-power-bi-rest-api"></a>Usare l'API REST di Power BI
 
-Il processo di analisi di flusso può essere aggiunto anche come collaboratore all'area di lavoro usando direttamente l'API REST "Aggiungi utente gruppo". La documentazione completa per questa API si trova qui: [gruppi-Aggiungi utente gruppo](https://docs.microsoft.com/rest/api/power-bi/groups/addgroupuser).
+Il processo di analisi di flusso può essere aggiunto anche come collaboratore all'area di lavoro usando direttamente l'API REST "Aggiungi utente gruppo". La documentazione completa per questa API si trova qui: [gruppi-Aggiungi utente gruppo](/rest/api/power-bi/groups/addgroupuser).
 
 **Richiesta di esempio**
 ```http

@@ -7,18 +7,18 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 4310bd94edd5ebe14eab40b6d19e2bacbdd1b03c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d5ddb508740cf5fec670d258926419512e3d549
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906227"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129831"
 ---
 # <a name="azure-sql-database-output-from-azure-stream-analytics"></a>Output del database SQL di Azure da analisi di flusso di Azure
 
 È possibile usare [database SQL di Azure](https://azure.microsoft.com/services/sql-database/) come output per i dati di natura relazionale o per applicazioni che dipendono dal contenuto ospitato in un database relazionale. I processi di analisi di flusso di Azure scrivono in una tabella esistente del database SQL. Lo schema della tabella deve corrispondere esattamente ai campi e ai relativi tipi nell'output del processo. È anche possibile specificare [Azure sinapsi Analytics](https://azure.microsoft.com/documentation/services/sql-data-warehouse/) come output tramite l'opzione di output del database SQL. Per informazioni sui modi che consentono di migliorare la velocità effettiva di scrittura, vedere l'articolo [Analisi di flusso con database SQL di Azure come output](stream-analytics-sql-output-perf.md).
 
-È anche possibile usare [istanza gestita SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) come output. È necessario [configurare l'endpoint pubblico in SQL istanza gestita](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure) e quindi configurare manualmente le impostazioni seguenti in analisi di flusso di Azure. La macchina virtuale di Azure che esegue SQL Server con un database collegato è supportata anche dalla configurazione manuale delle impostazioni riportate di seguito.
+È anche possibile usare [istanza gestita SQL di Azure](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md) come output. È necessario [configurare l'endpoint pubblico in SQL istanza gestita](../azure-sql/managed-instance/public-endpoint-configure.md) e quindi configurare manualmente le impostazioni seguenti in analisi di flusso di Azure. La macchina virtuale di Azure che esegue SQL Server con un database collegato è supportata anche dalla configurazione manuale delle impostazioni riportate di seguito.
 
 ## <a name="output-configuration"></a>Configurazione di output
 
@@ -37,9 +37,9 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 
 Sono disponibili due adattatori che consentono l'output da Analisi di flusso di Azure ad Azure Synapse Analytics (in precedenza SQL Data Warehouse): Database SQL e Azure Synapse. Si consiglia di scegliere la scheda di analisi delle sinapsi di Azure anziché l'adattatore del database SQL se si verifica una delle condizioni seguenti:
 
-* **Velocità effettiva**: se la velocità effettiva prevista ora o in futuro è superiore a 10 MB/sec, usare l'opzione di output di Azure Synapse per ottenere prestazioni migliori.
+* **Velocità effettiva** : se la velocità effettiva prevista ora o in futuro è superiore a 10 MB/sec, usare l'opzione di output di Azure Synapse per ottenere prestazioni migliori.
 
-* **Partizioni di input**: se si dispone di otto o più partizioni di input, usare l'opzione di output di Azure Synapse per aumentare il numero di istanze.
+* **Partizioni di input** : se si dispone di otto o più partizioni di input, usare l'opzione di output di Azure Synapse per aumentare il numero di istanze.
 
 ## <a name="partitioning"></a>Partizionamento
 
@@ -47,7 +47,7 @@ Il partizionamento deve essere abilitato ed è basato sulla clausola PARTITION B
 
 ## <a name="output-batch-size"></a>Dimensione del batch di output
 
-È possibile configurare la dimensione massima del messaggio usando il **numero massimo di batch**. Il valore massimo predefinito è 10.000 e il valore minimo predefinito è 100 righe per singolo inserimento bulk. Per altre informazioni, vedere [limiti di SQL Azure](../sql-database/sql-database-resource-limits.md). Per ogni batch viene inizialmente eseguito l'inserimento bulk con il numero massimo di batch. Il batch può essere diviso a metà (fino al numero minimo di batch) in base a errori SQL non irreversibili.
+È possibile configurare la dimensione massima del messaggio usando il **numero massimo di batch** . Il valore massimo predefinito è 10.000 e il valore minimo predefinito è 100 righe per singolo inserimento bulk. Per altre informazioni, vedere [limiti di SQL Azure](../azure-sql/database/resource-limits-logical-server.md). Per ogni batch viene inizialmente eseguito l'inserimento bulk con il numero massimo di batch. Il batch può essere diviso a metà (fino al numero minimo di batch) in base a errori SQL non irreversibili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

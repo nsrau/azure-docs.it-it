@@ -8,12 +8,12 @@ ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 9ea85449d3980f46e88eddc7e06e4a5384b8cea3
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 3fbd9016bcbfa83574d894af7ca728b863f54344
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027551"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129321"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Eseguire l'integrazione con app per la logica usando un connettore personalizzato
 
@@ -33,34 +33,11 @@ Accedere al [portale di Azure](https://portal.azure.com) con questo account.
 
 È anche necessario completare gli elementi seguenti come parte dell'installazione dei prerequisiti. Nella parte restante di questa sezione vengono illustrati i passaggi seguenti:
 - Configurare un'istanza di Gemelli digitali di Azure
-- Ottenere il segreto client di registrazione dell'app
 - Aggiungere un dispositivo gemello digitale
 
 ### <a name="set-up-azure-digital-twins-instance"></a>Configurare l'istanza di Gemelli digitali di Azure
 
-Per connettere un'istanza di Azure Digital Twins alle app per la logica in questo articolo, è necessario che l' **istanza di Azure Digital Twins** sia già configurata. 
-
-Prima di tutto, **configurare un'istanza di Gemelli digitali di Azure** e l'autenticazione necessaria per poterla usare. A tale scopo, seguire le istruzioni in [*Procedura: Configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md).
-* Dopo aver configurato l'istanza di Azure Digital gemelli, sarà necessario il **_nome host_** dell'istanza ( [trovare nella portale di Azure](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
-
-Per autenticare il connettore, è necessario anche configurare una **registrazione dell'app** . Seguire le istruzioni in [*Procedura dettagliata: Creare una registrazione dell'app*](how-to-create-app-registration.md) per configurare questa impostazione. 
-* Una volta eseguita la registrazione di un'app, sono necessari l'ID dell' **_applicazione (client)_** di registrazione e l' **_ID della directory (tenant)_** ( [trovare nella portale di Azure](how-to-create-app-registration.md#collect-client-id-and-tenant-id)).
-
-### <a name="get-app-registration-client-secret"></a>Ottenere il segreto client di registrazione dell'app
-
-Sarà inoltre necessario creare un **_segreto client_** per la registrazione dell'app Azure ad. A tale scopo, passare alla pagina [registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nella portale di Azure (è possibile usare questo collegamento o cercarla nella barra di ricerca del portale). Selezionare la registrazione creata nella sezione precedente dall'elenco per aprirne i dettagli. 
-
-Premere i *certificati e i segreti* dal menu della registrazione e selezionare *+ nuovo segreto client* .
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
-
-Immettere i valori desiderati per la descrizione e la scadenza, quindi fare clic su *Aggiungi* .
-
-:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
-
-Verificare ora che il segreto client sia visibile nella pagina _certificati & segreti_ con i campi _scadenza_ e _valore_ . Prendere nota del _valore_ da usare in un secondo momento. è anche possibile copiarlo negli Appunti con l'icona di copia.
-
-:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ### <a name="add-a-digital-twin"></a>Aggiungere un dispositivo gemello digitale
 
@@ -70,9 +47,29 @@ Questo articolo usa app per la logica per aggiornare un dispositivo gemello nell
 
 È necessario l' **_ID gemello_** di un gemello nell'istanza creata.
 
+## <a name="set-up-app-registration"></a>Configurare la registrazione dell'app
+
+[!INCLUDE [digital-twins-prereq-registration.md](../../includes/digital-twins-prereq-registration.md)]
+
+### <a name="get-app-registration-client-secret"></a>Ottenere il segreto client di registrazione dell'app
+
+Sarà inoltre necessario creare un **_segreto client_** per la registrazione dell'app Azure ad. A tale scopo, passare alla pagina [registrazioni app](https://portal.azure.com/#blade/Microsoft_AAD_RegisteredApps/ApplicationsListBlade) nella portale di Azure (è possibile usare questo collegamento o cercarla nella barra di ricerca del portale). Selezionare la registrazione creata nella sezione precedente dall'elenco per aprirne i dettagli. 
+
+Premere i *certificati e i segreti* dal menu della registrazione e selezionare *+ nuovo segreto client* .
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
+
+Immettere i valori desiderati per la *Descrizione* e la *scadenza* , quindi fare clic su *Aggiungi* .
+
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
+
+Verificare ora che il segreto client sia visibile nella pagina _certificati & segreti_ con i campi _scadenza_ e _valore_ . Prendere nota del _valore_ da usare in un secondo momento. è anche possibile copiarlo negli Appunti con l'icona di copia.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
+
 ## <a name="create-custom-logic-apps-connector"></a>Creare un connettore di app per la logica personalizzato
 
-In questo passaggio verrà creato un [connettore personalizzato](../logic-apps/custom-connector-overview.md) per le app per la logica per le API dei dispositivi gemelli digitali di Azure. Al termine di questa operazione, sarà possibile associare i dispositivi gemelli digitali di Azure durante la creazione di un'app per la logica nella sezione successiva.
+A questo punto si è pronti per creare un [connettore personalizzato](../logic-apps/custom-connector-overview.md) per le app per la logica per le API dei dispositivi gemelli digitali di Azure. Al termine di questa operazione, sarà possibile associare i dispositivi gemelli digitali di Azure durante la creazione di un'app per la logica nella sezione successiva.
 
 Passare alla pagina del [connettore personalizzato app](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) per la logica nel portale di Azure (è possibile usare questo collegamento o cercarlo nella barra di ricerca del portale). Premere *+ Aggiungi* .
 

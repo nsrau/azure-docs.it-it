@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b00d4be72aaed980e2604291d8c67c9fec0fb25b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a5cff53ee9e742e93a6183eb5d506bf8f1a08deb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88115102"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130188"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione di Azure AD
 
@@ -156,7 +156,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS50136 | RedirectMsaSessionToApp: è stata rilevata una singola sessione dell'account del servizio gestito. |
 | AADSTS50139 | SessionMissingMsaOAuth2RefreshToken: la sessione è non valida a causa di un token di aggiornamento esterno mancante. |
 | AADSTS50140 | KmsiInterrupt: questo errore si è verificato a causa di un interrupt del comando "Mantieni l'accesso" durante l'accesso dell'utente. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) con ID di correlazione, ID richiesta e codice di errore per ottenere altri dettagli. |
-| AADSTS50143 | Mancata corrispondenza della sessione: la sessione non è valida perché il tenant utente non corrisponde al suggerimento di dominio a causa di una risorsa diversa.  [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) con ID di correlazione, ID richiesta e codice di errore per ottenere altri dettagli. |
+| AADSTS50143 | Mancata corrispondenza di sessione. La sessione non è valida perché il tenant dell'utente non corrisponde all'hint di dominio a causa di una risorsa diversa. [Aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) con ID di correlazione, ID richiesta e codice di errore per ottenere altri dettagli. |
 | AADSTS50144 | InvalidPasswordExpiredOnPremPassword: la password di Active Directory dell'utente è scaduta. Generare una nuova password per l'utente o chiedere all'utente di usare lo strumento di reimpostazione self-service per reimpostare la password. |
 | AADSTS50146 | MissingCustomSigningKey: questa app deve essere configurata con una chiave di firma specifica dell'app. O non è configurata con tale chiave oppure la chiave è scaduta o non è ancora valida. |
 | AADSTS50147 | MissingCodeChallenge: la dimensione del parametro della richiesta di verifica del codice non è valida. |
@@ -200,7 +200,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS70007 | UnsupportedResponseMode: l'app ha restituito un valore non supportato per `response_mode` durante la richiesta di un token.  |
 | AADSTS70008 | ExpiredOrRevokedGrant: il token di aggiornamento è scaduto a causa di inattività. Il token è stato rilasciato in data XXX ed è rimasto inattivo per un certo periodo di tempo. |
 | AADSTS70011 | InvalidScope: l'ambito richiesto dall'app non è valido. |
-| AADSTS70012 | MsaServerError: si è verificato un errore del server durante l'autenticazione di un utente (consumer) dell'account del servizio gestito. Riprovare. Se l'errore persiste, [aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md) |
+| AADSTS70012 | MsaServerError: si è verificato un errore del server durante l'autenticazione di un utente (consumer) dell'account del servizio gestito. Riprovare. Se il problema persiste, [aprire un ticket di supporto](../fundamentals/active-directory-troubleshooting-support-howto.md). |
 | AADSTS70016 | AuthorizationPending: errore del flusso del dispositivo OAuth 2.0. L'autorizzazione è in sospeso. Il dispositivo ritenterà il polling della richiesta. |
 | AADSTS70018 | BadVerificationCode: codice di verifica non valido a causa di un errore di digitazione del codice per il flusso del codice del dispositivo da parte dell'utente. L'autorizzazione non è stata approvata. |
 | AADSTS70019 | CodeExpired: il codice di verifica è scaduto. Chiedere all'utente di ripetere l'accesso. |
@@ -320,6 +320,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS1000000 | UserNotBoundError: l'API di associazione richiede che l'utente di Azure AD esegua l'autenticazione anche con un provider di identità esterno e questa autenticazione non è stata ancora eseguita. |
 | AADSTS1000002 | BindCompleteInterruptError: l'associazione è stata completata correttamente, ma l'utente deve essere informato. |
 | AADSTS7000112 | UnauthorizedClientApplicationDisabled-l'applicazione è disabilitata. |
+| AADSTS7000114| L'applicazione ' appIdentifier ' non è consentita per effettuare chiamate per l'applicazione.|
 | AADSTS7500529 | Il valore ' SAMLId-GUID ' non è un ID SAML valido-Azure AD usa questo attributo per popolare l'attributo InResponseTo della risposta restituita. L'ID non deve iniziare con un numero, quindi una strategia comune consiste nell'anteporre una stringa come "id" alla rappresentazione di stringa di un GUID. Ad esempio, id6c1c178c166d486687be4aaf5e482730 è un ID valido. |
 
 ## <a name="next-steps"></a>Passaggi successivi

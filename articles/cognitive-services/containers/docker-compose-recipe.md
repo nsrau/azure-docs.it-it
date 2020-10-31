@@ -8,14 +8,14 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 10/29/2020
 ms.author: aahi
-ms.openlocfilehash: 740311226a662ea3d3f8bba3ee5156e14f74516b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cedcf8a3fcd656c4af0ca7493c598791d35d20d9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88244296"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130562"
 ---
 # <a name="use-docker-compose-to-deploy-multiple-containers"></a>Usare Docker Compose per distribuire più contenitori
 
@@ -35,24 +35,17 @@ Per questa procedura sono necessari diversi strumenti che devono essere installa
   * **Visione artificiale** risorse solo con F0 o il piano tariffario standard.
   * **Creare** una risorsa di riconoscimento con F0 o solo il piano tariffario standard.
   * Risorsa **Servizi cognitivi** con piano tariffario S0.
-
-## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
-
-Completare e inviare il [modulo di richiesta dei contenitori di sintesi vocale di servizi cognitivi](https://aka.ms/speechcontainerspreview/). 
-
-[!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
-
-[!INCLUDE [Authenticate to the container registry](../../../includes/cognitive-services-containers-access-registry.md)]
+* Se si usa un contenitore di anteprima gestita, sarà necessario completare il [modulo di richiesta online](https://aka.ms/csgate/) per usarlo.
 
 ## <a name="docker-compose-file"></a>File Docker Compose
 
-Il file YAML definisce tutti i servizi da distribuire. Questi servizi si basano su un' `DockerFile` immagine del contenitore o esistente. In questo caso, verranno usate due immagini di anteprima. Copiare e incollare il file YAML seguente e salvarlo come *Docker-compose. YAML*. Specificare i valori **APIKEY**, **Billing**e **EndpointUri** appropriati nel file.
+Il file YAML definisce tutti i servizi da distribuire. Questi servizi si basano su un' `DockerFile` immagine del contenitore o esistente. In questo caso, verranno usate due immagini di anteprima. Copiare e incollare il file YAML seguente e salvarlo come *Docker-compose. YAML* . Specificare i valori **APIKEY** , **Billing** e **EndpointUri** appropriati nel file.
 
 ```yaml
 version: '3.7'
 services:
   forms:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer"
+    image: "mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout"
     environment:
        eula: accept
        billing: # < Your form recognizer billing URL >
@@ -70,7 +63,7 @@ services:
       - "5010:5000"
 
   ocr:
-    image: "containerpreview.azurecr.io/microsoft/cognitive-services-read"
+    image: "mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview"
     environment:
       eula: accept
       apikey: # < Your computer vision API key >
@@ -98,8 +91,8 @@ docker-compose up
 La prima volta che Docker esegue il comando **Docker-compose up** usando questa configurazione, estrae le immagini configurate nel nodo **Servizi** e quindi le Scarica e le monta:
 
 ```console
-Pulling forms (containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer:)...
-latest: Pulling from microsoft/cognitive-services-form-recognizer
+Pulling forms (mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout:)...
+latest: Pulling from azure-cognitive-services/form-recognizer/layout
 743f2d6c1f65: Pull complete
 72befba99561: Pull complete
 2a40b9192d02: Pull complete
@@ -113,8 +106,8 @@ fd93b5f95865: Pull complete
 ef41dcbc5857: Pull complete
 4d05c86a4178: Pull complete
 34e811d37201: Pull complete
-Pulling ocr (containerpreview.azurecr.io/microsoft/cognitive-services-read:)...
-latest: Pulling from microsoft/cognitive-services-read
+Pulling ocr (mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview:)...
+latest: Pulling from /azure-cognitive-services/vision/read:3.1-preview
 f476d66f5408: Already exists
 8882c27f669e: Already exists
 d9af21273955: Already exists
@@ -166,8 +159,8 @@ Di seguito è riportato un esempio di output:
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
-2ce533f88e80        containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer   latest
-4be104c126c5        containerpreview.azurecr.io/microsoft/cognitive-services-read              latest
+2ce533f88e80        mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout          latest
+4be104c126c5        mcr.microsoft.com/azure-cognitive-services/vision/read:3.1-preview         latest
 ```
 
 ### <a name="test-containers"></a>Contenitori di test

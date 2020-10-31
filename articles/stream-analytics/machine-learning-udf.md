@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-js
-ms.openlocfilehash: a24d1716448363a199151a50a260bbdbd1e8e634
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14f7462aec65d2a13eb36b291331c347b995d281
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249485"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130681"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrare Analisi di flusso di Azure con Azure Machine Learning (anteprima)
 
@@ -23,13 +23,13 @@ ms.locfileid: "91249485"
 
 Completare i passaggi seguenti prima di aggiungere un modello di Machine Learning come funzione al processo di Analisi di flusso di Azure:
 
-1. Usare Azure Machine Learning per [distribuire il modello come servizio Web](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+1. Usare Azure Machine Learning per [distribuire il modello come servizio Web](../machine-learning/how-to-deploy-and-where.md).
 
 2. Lo script di assegnazione dei punteggi deve contenere [input e output di esempio](../machine-learning/how-to-deploy-and-where.md) che vengono usati da Azure Machine Learning per generare una specifica relativa allo schema. Analisi di flusso di Azure usa lo schema per comprendere la firma della funzione del servizio Web. Questa [definizione di spavalderia di esempio](https://github.com/Azure/azure-stream-analytics/blob/master/Samples/AzureML/swagger-example.json) può essere usata come riferimento per assicurarsi che sia stata configurata correttamente.
 
 3. Assicurarsi che il servizio Web accetti e restituisca i dati serializzati JSON.
 
-4. Distribuire il modello nel [servizio Azure Kubernetes](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) per distribuzioni di produzione su larga scala. Se il servizio Web non è in grado di gestire il numero di richieste provenienti dal processo, le prestazioni del processo di Analisi di flusso di Azure risulteranno compromesse, con conseguenze per la latenza. I modelli distribuiti nelle istanze di Azure Container sono supportati solo se si usa il portale di Azure. I modelli creati con [Azure machine learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer) non sono ancora supportati in analisi di flusso.
+4. Distribuire il modello nel [servizio Azure Kubernetes](../machine-learning/how-to-deploy-and-where.md#choose-a-compute-target) per distribuzioni di produzione su larga scala. Se il servizio Web non è in grado di gestire il numero di richieste provenienti dal processo, le prestazioni del processo di Analisi di flusso di Azure risulteranno compromesse, con conseguenze per la latenza. I modelli distribuiti nelle istanze di Azure Container sono supportati solo se si usa il portale di Azure. I modelli creati con [Azure machine learning designer](../machine-learning/concept-designer.md) non sono ancora supportati in analisi di flusso.
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Aggiungere un modello di apprendimento automatico al processo
 
@@ -37,7 +37,7 @@ Completare i passaggi seguenti prima di aggiungere un modello di Machine Learnin
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Passare al processo di Analisi di flusso di Azure nel portale di Azure e selezionare **Funzioni** in **Topologia processo**. Selezionare quindi **Azure Machine Learning servizio** dal menu a discesa **+ Aggiungi** .
+1. Passare al processo di Analisi di flusso di Azure nel portale di Azure e selezionare **Funzioni** in **Topologia processo** . Selezionare quindi **Azure Machine Learning servizio** dal menu a discesa **+ Aggiungi** .
 
    ![Aggiungi Azure Machine Learning UDF](./media/machine-learning-udf/add-azure-machine-learning-udf.png)
 
@@ -47,7 +47,7 @@ Completare i passaggi seguenti prima di aggiungere un modello di Machine Learnin
 
 ### <a name="visual-studio-code"></a>Visual Studio Code
 
-1. Aprire il progetto di analisi di flusso in Visual Studio Code e fare clic con il pulsante destro del mouse sulla cartella **funzioni** . Scegliere quindi **Aggiungi funzione**. Selezionare **Machine Learning UDF** dall'elenco a discesa.
+1. Aprire il progetto di analisi di flusso in Visual Studio Code e fare clic con il pulsante destro del mouse sulla cartella **funzioni** . Scegliere quindi **Aggiungi funzione** . Selezionare **Machine Learning UDF** dall'elenco a discesa.
 
    :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Aggiungere UDF in VS Code":::
 

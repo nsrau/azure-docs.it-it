@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/10/2020
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: dddcdd52709c634f0dcf67cb982804f5556e88b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 39a0830806d2d9c7358d175cae703e9c81c45b02
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548336"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130018"
 ---
 # <a name="register-a-saas-application"></a>Registrare un'applicazione SaaS
 
@@ -20,7 +20,7 @@ Questo articolo illustra come registrare un'applicazione SaaS usando il [portale
 
 Azure Marketplace non impone alcun vincolo al metodo di autenticazione usato dal servizio SaaS per gli utenti finali. Il flusso riportato di seguito è necessario solo per l'autenticazione del servizio SaaS in Azure Marketplace.
 
-Per ulteriori informazioni sull'Azure AD (Active Directory), vedere [che cos'è l'autenticazione](../../active-directory/develop/authentication-scenarios.md)?
+Per ulteriori informazioni sull'Azure AD (Active Directory), vedere [che cos'è l'autenticazione](../../active-directory/develop/authentication-vs-authorization.md)?
 
 ## <a name="register-an-azure-ad-secured-app"></a>Registrare un'app protetta da Azure AD
 
@@ -28,22 +28,22 @@ Qualsiasi applicazione che vuole usare le funzionalità di Azure AD deve prima e
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 2. Se l'account consente di accedere a più di uno, fare clic sull'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure AD desiderato.
-3. Nel riquadro di spostamento a sinistra fare clic sul servizio **Azure Active Directory**, fare clic su **Registrazioni per l'app** e fare clic su **Registrazione nuova applicazione**.
+3. Nel riquadro di spostamento a sinistra fare clic sul servizio **Azure Active Directory** , fare clic su **Registrazioni per l'app** e fare clic su **Registrazione nuova applicazione** .
 
     ![Registrazioni di App SaaS AD](./media/saas-offer-app-registration-v1.png)
 
 4. Nella pagina Crea, immettere le informazioni di registrazione\' dell'applicazione:
     -   **Nome:** Immettere un nome significativo per l'applicazione
-    -   **Tipo di applicazione**:  
+    -   **Tipo di applicazione** :  
         
-        Selezionare **app Web/API** per [le applicazioni client](../../active-directory/develop/active-directory-dev-glossary.md#client-application)) e [applicazioni per risorse/API](../../active-directory/develop/active-directory-dev-glossary.md#resource-server)) installate in un server protetto. Questa impostazione viene usata per [i client Web](../../active-directory/develop/active-directory-dev-glossary.md#web-client)OAuth riservati) e [i client pubblici basati su agente utente](../../active-directory/develop/active-directory-dev-glossary.md#user-agent-based-client)).
+        Selezionare **app Web/API** per [le applicazioni client](../../active-directory/develop/developer-glossary.md#client-application)) e [applicazioni per risorse/API](../../active-directory/develop/developer-glossary.md#resource-server)) installate in un server protetto. Questa impostazione viene usata per [i client Web](../../active-directory/develop/developer-glossary.md#web-client)OAuth riservati) e [i client pubblici basati su agente utente](../../active-directory/develop/developer-glossary.md#user-agent-based-client)).
         La stessa applicazione può anche esporre sia un'API client che un'API di risorse.
 
         Per esempi specifici di applicazioni Web, vedere le configurazioni guidate introduttive disponibili nella sezione [Introduzione](../../active-directory/develop/quickstart-create-new-tenant.md) della [guida per sviluppatori Azure ad](../../active-directory/develop/index.yml).
 
-5. Al termine, fare clic su **registra**.  Azure AD assegna un *ID applicazione* univoco alla nuova applicazione. Si consiglia di registrare un'app che accede solo all'API e come singolo tenant.
+5. Al termine, fare clic su **registra** .  Azure AD assegna un *ID applicazione* univoco alla nuova applicazione. Si consiglia di registrare un'app che accede solo all'API e come singolo tenant.
 
-6. Per creare il segreto client, passare alla **pagina certificati & segreti** e fare clic su **+ nuovo segreto client**.  Assicurarsi di copiare il valore del segreto per usarlo nel codice.
+6. Per creare il segreto client, passare alla **pagina certificati & segreti** e fare clic su **+ nuovo segreto client** .  Assicurarsi di copiare il valore del segreto per usarlo nel codice.
 
 Il **Azure ad ID app** è associato all'ID editore, quindi assicurarsi che lo stesso *ID app* venga usato in tutte le offerte.
 
@@ -87,7 +87,7 @@ Pubblica<br>
 |  `client_secret`   |  True      |  Segreto associato all'app Azure AD. |
 |  `resource`        |  True      |  Risorsa di destinazione per cui è richiesto il token. Usare `20e940b3-4c77-4b0b-9a53-9e16a1b010a7` perché in questo caso l'API Saas del Marketplace è sempre la risorsa di destinazione. |
 
-##### <a name="response"></a>*Response*.
+##### <a name="response"></a>*Response* .
 
 |  Nome     |  Type         |  Descrizione |
 |  ------   |  ---------------  | ------------ |

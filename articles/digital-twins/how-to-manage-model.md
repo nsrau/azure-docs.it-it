@@ -7,18 +7,22 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 399ae682028479f801b82b6273f7d1429cfa1b97
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: e50c2bb73f56017a047e6c657c866b61e5eaa465
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494853"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130399"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
 È possibile gestire i [modelli](concepts-models.md) che l'istanza di Azure Digital gemelli sa usando le [**API DigitalTwinModels**](/rest/api/digital-twins/dataplane/models), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). 
 
 Le operazioni di gestione includono il caricamento, la convalida, il recupero e l'eliminazione di modelli. 
+
+## <a name="prerequisites"></a>Prerequisiti
+
+[!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 ## <a name="create-models"></a>Creare modelli
 
@@ -61,7 +65,7 @@ Il primo passaggio per la soluzione consiste nel creare modelli per rappresentar
 > [!NOTE]
 > Si tratta di un corpo di esempio per un file con estensione JSON in cui un modello viene definito e salvato, da caricare come parte di un progetto client. La chiamata all'API REST, d'altra parte, accetta una matrice di definizioni di modello come quella precedente (mappata a un `IEnumerable<string>` in .NET SDK). Quindi, per usare direttamente questo modello nell'API REST, racchiuderlo tra parentesi quadre.
 
-Questo modello definisce un nome e un ID univoco per la stanza del paziente e le proprietà per rappresentare il numero di visitatori e lo stato di lavaggio a mano (questi contatori verranno aggiornati dai sensori di movimento e dai dosatori SOAP intelligenti e verranno usati insieme per calcolare una proprietà *percentuale lavare* ). Il modello definisce anche una relazione *hasDevices*, che verrà usata per connettere i dispositivi [gemelli digitali](concepts-twins-graph.md) basati su questo modello di *chat* ai dispositivi effettivi.
+Questo modello definisce un nome e un ID univoco per la stanza del paziente e le proprietà per rappresentare il numero di visitatori e lo stato di lavaggio a mano (questi contatori verranno aggiornati dai sensori di movimento e dai dosatori SOAP intelligenti e verranno usati insieme per calcolare una proprietà *percentuale lavare* ). Il modello definisce anche una relazione *hasDevices* , che verrà usata per connettere i dispositivi [gemelli digitali](concepts-twins-graph.md) basati su questo modello di *chat* ai dispositivi effettivi.
 
 Seguendo questo metodo, è possibile scegliere di definire i modelli per il reparto, le zone o l'ospedale.
 
@@ -200,7 +204,7 @@ Quando si crea un nuovo dispositivo gemello, poiché la nuova versione del model
 
 Questo significa anche che il caricamento di una nuova versione di un modello non influisce automaticamente sui dispositivi gemelli esistenti. I dispositivi gemelli esistenti rimarranno semplicemente le istanze della versione precedente del modello.
 
-È possibile aggiornare questi dispositivi gemelli esistenti alla nuova versione del modello mediante l'applicazione di patch, come descritto nella sezione [*aggiornare un modello di un dispositivo digitale gemello*](how-to-manage-twin.md#update-a-digital-twins-model) di *How-to: Manage Digital gemells*. All'interno della stessa patch, è necessario aggiornare sia l' **ID del modello** (alla nuova versione) **che tutti i campi che devono essere modificati sul dispositivo gemello per renderlo conforme al nuovo modello**.
+È possibile aggiornare questi dispositivi gemelli esistenti alla nuova versione del modello mediante l'applicazione di patch, come descritto nella sezione [*aggiornare un modello di un dispositivo digitale gemello*](how-to-manage-twin.md#update-a-digital-twins-model) di *How-to: Manage Digital gemells* . All'interno della stessa patch, è necessario aggiornare sia l' **ID del modello** (alla nuova versione) **che tutti i campi che devono essere modificati sul dispositivo gemello per renderlo conforme al nuovo modello** .
 
 ### <a name="remove-models"></a>Rimuovi modelli
 

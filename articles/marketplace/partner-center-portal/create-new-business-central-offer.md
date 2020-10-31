@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: bc34d2044c3a91fe18e900b21d589dde855754d3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 71cbc09f21e21c325665809953f209615d835124
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91774579"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130154"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creare un'offerta Dynamics 365 Business Central
 
@@ -23,8 +23,8 @@ Prima di iniziare, [creare un account per il marketplace commerciale nel Centro 
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-2. Nel menu di spostamento a sinistra selezionare **Marketplace commerciale** > **Panoramica**.
-3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **Dynamics 365 Business Central**.
+2. Nel menu di spostamento a sinistra selezionare **Marketplace commerciale** > **Panoramica** .
+3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **Dynamics 365 Business Central** .
 
     ![Menu di spostamento a sinistra.](./media/new-offer-dynamics-365-business-central.png)
 
@@ -33,17 +33,17 @@ Prima di iniziare, [creare un account per il marketplace commerciale nel Centro 
 
 ## <a name="new-offer"></a>Nuova offerta
 
-Immettere l'ID in **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nell'account.
+Immettere l'ID in **ID offerta** . Si tratta di un identificatore univoco per ogni offerta nell'account.
 
 - Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta del marketplace e nei modelli di Azure Resource Manager, se applicabile.
 - L'ID offerta combinato con l'ID editore deve avere una lunghezza compresa tra 40 caratteri.
 - Usare solo lettere minuscole e numeri. Può includere trattini e caratteri di sottolineatura, ma senza spazi. Se, ad esempio, l'ID editore è testpublisherid e si immette **test-offer-1** qui, l'indirizzo Web dell'offerta sarà `https://appsource.microsoft.com/product/dynamics-365/testpublisherid.test-offer-1` .
-- Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
+- Non è possibile modificare l'ID offerta dopo aver selezionato **Crea** .
 
-Immettere un alias in **Alias offerta**. Si tratta del nome usato per l'offerta nel Centro per i partner.
+Immettere un alias in **Alias offerta** . Si tratta del nome usato per l'offerta nel Centro per i partner.
 
 - Questo nome non viene usato nel marketplace ed è diverso dal nome dell'offerta e da altri valori visualizzati ai clienti.
-- L'alias dell'offerta non può essere modificato dopo aver selezionato **Crea**.
+- L'alias dell'offerta non può essere modificato dopo aver selezionato **Crea** .
 
 Selezionare **Crea** per generare l'offerta e continuare.
 
@@ -80,7 +80,7 @@ A questo punto le offerte di Dynamics 365 business Central non supportano test d
 
 Per altre informazioni, vedere [Panoramica della gestione dei lead](./commercial-marketplace-get-customer-leads.md).
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="properties"></a>Proprietà
 
@@ -91,7 +91,7 @@ Questa pagina consente di definire le categorie e i settori usati per raggruppar
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
 - Almeno una delle due categorie, incluse una categoria primaria e una secondaria (facoltativo).
-- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile**.
+- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile** .
 
 Vedere l'elenco completo di categorie e sottocategorie nell'elenco delle [procedure](../gtm-offer-listing-best-practices.md)consigliate.
 
@@ -105,9 +105,9 @@ Immettere il numero di versione dell'offerta. I clienti visualizzeranno questa v
 
 ### <a name="terms-and-conditions"></a>Termini e condizioni
 
-Specificare i propri termini e condizioni legali nel campo **Termini e condizioni**. È anche possibile specificare l'URL in cui sono disponibili i termini e le condizioni. Ai clienti verrà chiesto di accettare questi termini e condizioni prima di poter provare l'offerta.
+Specificare i propri termini e condizioni legali nel campo **Termini e condizioni** . È anche possibile specificare l'URL in cui sono disponibili i termini e le condizioni. Ai clienti verrà chiesto di accettare questi termini e condizioni prima di poter provare l'offerta.
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="offer-listing"></a>Presentazione dell'offerta
 
@@ -130,7 +130,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 6. Informativa sulla privacy
 7. Nome offerta
 8. Riepilogo
-9. Description
+9. Descrizione
 10. Screenshot/video
 
 ### <a name="name"></a>Nome
@@ -171,9 +171,9 @@ Immettere l'URL dell'informativa sulla privacy dell'organizzazione. Si è tenuti
 
 ### <a name="contact-information"></a>Informazioni sul contatto
 
-In questa sezione è necessario specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per **Contatto di supporto** e **Contatto tecnico**. Queste informazioni non vengono visualizzate ai clienti, ma saranno disponibili per Microsoft e possono essere fornite ai partner CSP.
+In questa sezione è necessario specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per **Contatto di supporto** e **Contatto tecnico** . Queste informazioni non vengono visualizzate ai clienti, ma saranno disponibili per Microsoft e possono essere fornite ai partner CSP.
 
-Nella sezione **Contatto di supporto** è necessario fornire anche un valore per **URL supporto** in cui i partner CSP possono trovare supporto per l'offerta. L'URL del supporto non può essere lo stesso di quello immesso in **Collegamento alla Guida**.
+Nella sezione **Contatto di supporto** è necessario fornire anche un valore per **URL supporto** in cui i partner CSP possono trovare supporto per l'offerta. L'URL del supporto non può essere lo stesso di quello immesso in **Collegamento alla Guida** .
 
 ### <a name="supporting-documents"></a>Documenti di supporto
 
@@ -207,7 +207,7 @@ Facoltativamente, è possibile aggiungere fino a cinque video che descrivono l'o
 
 [Procedure consigliate per la presentazione di offerte nel marketplace](../gtm-offer-listing-best-practices.md)
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="availability"></a>Disponibilità
 
@@ -215,7 +215,7 @@ In questa pagina sono incluse le opzioni relative a dove e come rendere disponib
 
 ### <a name="markets"></a>Mercati
 
-Questa sezione consente di specificare i mercati in cui l'offerta deve essere disponibile. A questo scopo, selezionare **Modifica mercati**. Verrà visualizzata la finestra popup **Selezione mercato**.
+Questa sezione consente di specificare i mercati in cui l'offerta deve essere disponibile. A questo scopo, selezionare **Modifica mercati** . Verrà visualizzata la finestra popup **Selezione mercato** .
 
 Selezionare almeno un mercato in cui pubblicare l'offerta. Scegliere **Seleziona tutto** per rendere l'offerta disponibile in ogni mercato possibile oppure selezionare i mercati specifici da aggiungere.
 
@@ -232,7 +232,7 @@ Prima di pubblicare l'offerta live all'interno della più ampia offerta del mark
 
 Quindi, quando si è pronti a rendere disponibile l'offerta e a rimuovere la restrizione, sarà necessario rimuovere la chiave specificata in **Nascondi chiave** e ripubblicare l'offerta.
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="technical-configuration"></a>Configurazione tecnica
 
@@ -242,12 +242,12 @@ Questa pagina definisce i dettagli tecnici usati per connettersi all'offerta. Qu
 
 Selezionare l'opzione che si applica all'offerta:
 
-* **Componente aggiuntivo**: app che funge da componente aggiuntivo per estendere l'esperienza e le funzionalità esistenti di Dynamics 365 Business Central. Per informazioni dettagliate, vedere [App componente aggiuntivo](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
-* **Connessione**: è possibile usare un'app di connessione nello scenario in cui deve essere stabilita una connessione punto a punto tra Dynamics 365 Business Central e una soluzione o un servizio di terze parti. Per informazioni dettagliate, vedere [App di connessione](https://docs.microsoft.com/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
+* **Componente aggiuntivo** : app che funge da componente aggiuntivo per estendere l'esperienza e le funzionalità esistenti di Dynamics 365 Business Central. Per informazioni dettagliate, vedere [App componente aggiuntivo](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-add-on-apps).
+* **Connessione** : è possibile usare un'app di connessione nello scenario in cui deve essere stabilita una connessione punto a punto tra Dynamics 365 Business Central e una soluzione o un servizio di terze parti. Per informazioni dettagliate, vedere [App di connessione](/dynamics365/business-central/dev-itpro/developer/readiness/readiness-connect-apps).
 
 ### <a name="file-upload"></a>Caricamento di file
 
-Se sopra è stata selezionata l'opzione **Componente aggiuntivo**, questa opzione consente di caricare il file del pacchetto dell'offerta, insieme ai file di pacchetto per qualsiasi estensione da cui ha dipendenze.
+Se sopra è stata selezionata l'opzione **Componente aggiuntivo** , questa opzione consente di caricare il file del pacchetto dell'offerta, insieme ai file di pacchetto per qualsiasi estensione da cui ha dipendenze.
 
 #### <a name="extensions-package-file"></a>File del pacchetto dell'estensione
 
@@ -262,9 +262,9 @@ Obbligatorio se l'offerta deve essere installata insieme a un'altra estensione c
 
 ### <a name="url-to-app-installation"></a>URL per l'installazione dell'app
 
-Se in precedenza è stata selezionata l'opzione **Connessione**, specificare qui l'indirizzo per l'installazione dell'app. Per i servizi connessi che non richiedono l'installazione, specificare l'indirizzo della pagina di destinazione o la pagina di iscrizione del servizio.
+Se in precedenza è stata selezionata l'opzione **Connessione** , specificare qui l'indirizzo per l'installazione dell'app. Per i servizi connessi che non richiedono l'installazione, specificare l'indirizzo della pagina di destinazione o la pagina di iscrizione del servizio.
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="test-drive-technical-configuration"></a>Configurazione tecnica del test drive
 
@@ -280,11 +280,11 @@ In questa pagina è possibile fornire informazioni aggiuntive sull'offerta per c
 
 ### <a name="target-release"></a>Versione di destinazione
 
-Indicare la versione di Microsoft Dynamics Business Central cui è destinata la soluzione: **Corrente**, **Versione principale successiva** o **Versione secondaria successiva**. Queste informazioni consentono di testare la soluzione in modo appropriato.
+Indicare la versione di Microsoft Dynamics Business Central cui è destinata la soluzione: **Corrente** , **Versione principale successiva** o **Versione secondaria successiva** . Queste informazioni consentono di testare la soluzione in modo appropriato.
 
 ### <a name="supported-editions"></a>Edizioni supportate
 
-Se l'offerta richiede l'edizione Premium di Microsoft Dynamics 365 Business Central, selezionare solo **Premium**. In caso contrario, selezionare sia **Essentials** sia **Premium**.
+Se l'offerta richiede l'edizione Premium di Microsoft Dynamics 365 Business Central, selezionare solo **Premium** . In caso contrario, selezionare sia **Essentials** sia **Premium** .
 
 ### <a name="key-usage-scenario"></a>Scenario di utilizzo principale
 
@@ -296,22 +296,22 @@ Se l'offerta è un'app che funge da componente aggiuntivo, è necessario caricar
 
 ### <a name="test-accounts"></a>Account di test
 
-Se è necessario un account di test per consentire al team di certificazione di controllare correttamente l'offerta, caricare un file PDF, DOC o DOCX con le informazioni specificate in **Account di test**.
+Se è necessario un account di test per consentire al team di certificazione di controllare correttamente l'offerta, caricare un file PDF, DOC o DOCX con le informazioni specificate in **Account di test** .
 
 ## <a name="publish"></a>Pubblica
 
 ### <a name="submit-offer-to-preview"></a>Inviare l'offerta per l'anteprima
 
-Dopo aver completato tutte le sezioni obbligatorie dell'offerta, selezionare **Pubblica** nell'angolo superiore destro del portale. Verrà visualizzata la pagina **Rivedi e pubblica**. 
+Dopo aver completato tutte le sezioni obbligatorie dell'offerta, selezionare **Pubblica** nell'angolo superiore destro del portale. Verrà visualizzata la pagina **Rivedi e pubblica** . 
 
 Se è la prima volta che si pubblica questa offerta, è possibile:
 
 - Visualizzare lo stato di completamento di ogni sezione dell'offerta.
-    - *Non avviata*: indica che la sezione è stata lasciata inalterata e deve essere completata.
-    - *Incompleta*: indica che la sezione contiene errori che devono essere corretti o è necessario fornire altre informazioni. Tornare alla sezione o aggiornarla.
-    - *Completa*: indica che la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in stato completo prima di poter inviare l'offerta.
+    - *Non avviata* : indica che la sezione è stata lasciata inalterata e deve essere completata.
+    - *Incompleta* : indica che la sezione contiene errori che devono essere corretti o è necessario fornire altre informazioni. Tornare alla sezione o aggiornarla.
+    - *Completa* : indica che la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in stato completo prima di poter inviare l'offerta.
 - Nella sezione **Note per la certificazione** specificare le istruzioni per il test per il team di certificazione per assicurarsi che l'app venga testata correttamente, oltre a eventuali note supplementari utili per conoscere l'app.
-- Inviare l'offerta per la pubblicazione selezionando **Invia**. Si riceverà un messaggio di posta elettronica quando una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Tornare al centro per i partner e selezionare **Go-Live** per l'offerta per pubblicare l'offerta sul pubblico.
+- Inviare l'offerta per la pubblicazione selezionando **Invia** . Si riceverà un messaggio di posta elettronica quando una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Tornare al centro per i partner e selezionare **Go-Live** per l'offerta per pubblicare l'offerta sul pubblico.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

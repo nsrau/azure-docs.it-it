@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/16/2020
-ms.openlocfilehash: 4c8d2143d2b6e18de2669a6b45961e601cc394bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c4ddffa5f9e9ff4b313f05c9cedb3cb207695225
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707558"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129704"
 ---
 # <a name="introduction-to-stream-analytics-windowing-functions"></a>Introduzione alle funzioni delle finestre di Analisi di flusso
 
 Negli scenari di flusso tempo eseguire operazioni solo sui dati contenuti in finestre temporali è un modello comune. Analisi di flusso offre supporto nativo per le funzioni delle finestre, consentendo agli sviluppatori di creare processi di elaborazione dei flussi complessi con il minimo sforzo.
 
-Sono disponibili cinque tipi di finestre temporali tra cui scegliere: a [**cascata**](https://docs.microsoft.com/stream-analytics-query/tumbling-window-azure-stream-analytics), ad [**salto**](https://docs.microsoft.com/stream-analytics-query/hopping-window-azure-stream-analytics), a [**scorrimento**](https://docs.microsoft.com/stream-analytics-query/sliding-window-azure-stream-analytics), a [**sessione**](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics)e a [**snapshot**](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) .  Usare le funzioni delle finestre nella clausola [**GROUP BY**](https://docs.microsoft.com/stream-analytics-query/group-by-azure-stream-analytics) della sintassi di query nei processi di Flusso Analitica. È anche possibile aggregare eventi su più finestre usando la [funzione **Windows ()** ](https://docs.microsoft.com/stream-analytics-query/windows-azure-stream-analytics).
+Sono disponibili cinque tipi di finestre temporali tra cui scegliere: a [**cascata**](/stream-analytics-query/tumbling-window-azure-stream-analytics), ad [**salto**](/stream-analytics-query/hopping-window-azure-stream-analytics), a [**scorrimento**](/stream-analytics-query/sliding-window-azure-stream-analytics), a [**sessione**](/stream-analytics-query/session-window-azure-stream-analytics)e a [**snapshot**](/stream-analytics-query/snapshot-window-azure-stream-analytics) .  Usare le funzioni delle finestre nella clausola [**GROUP BY**](/stream-analytics-query/group-by-azure-stream-analytics) della sintassi di query nei processi di Flusso Analitica. È anche possibile aggregare eventi su più finestre usando la [funzione **Windows ()**](/stream-analytics-query/windows-azure-stream-analytics).
 
-Tutte le operazioni delle [finestre](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) restituiscono i risultati alla **fine** della finestra. Si noti che quando si avvia un processo di analisi di flusso, è possibile specificare l' *ora di inizio dell'output del processo* e il sistema recupererà automaticamente gli eventi precedenti nei flussi in ingresso per restituire la prima finestra all'ora specificata. ad esempio, quando si inizia con l'opzione *Now* , inizierà a emettere immediatamente i dati. L'output della finestra sarà un singolo evento basato sulla funzione di aggregazione usata. All'evento di output sarà associato il timestamp di fine della finestra e tutte le funzioni finestra sono definite con una lunghezza fissa. 
+Tutte le operazioni delle [finestre](/stream-analytics-query/windowing-azure-stream-analytics) restituiscono i risultati alla **fine** della finestra. Si noti che quando si avvia un processo di analisi di flusso, è possibile specificare l' *ora di inizio dell'output del processo* e il sistema recupererà automaticamente gli eventi precedenti nei flussi in ingresso per restituire la prima finestra all'ora specificata. ad esempio, quando si inizia con l'opzione *Now* , inizierà a emettere immediatamente i dati. L'output della finestra sarà un singolo evento basato sulla funzione di aggregazione usata. All'evento di output sarà associato il timestamp di fine della finestra e tutte le funzioni finestra sono definite con una lunghezza fissa. 
 
 ![Concetti delle funzioni finestra di Analisi di flusso](media/stream-analytics-window-functions/stream-analytics-window-functions-conceptual.png)
 
@@ -53,7 +53,7 @@ Quando viene fornita una chiave di partizione, gli eventi vengono raggruppati tr
 
 ## <a name="snapshot-window"></a>Finestra snapshot
 
-Snapshot gruppi di Windows eventi con lo stesso timestamp. A differenza di altri tipi di finestra, che richiedono una funzione finestra specifica (ad esempio [SessionWindow ()](https://docs.microsoft.com/stream-analytics-query/session-window-azure-stream-analytics), è possibile applicare una finestra snapshot aggiungendo System. timestamp () alla clausola Group by.
+Snapshot gruppi di Windows eventi con lo stesso timestamp. A differenza di altri tipi di finestra, che richiedono una funzione finestra specifica (ad esempio [SessionWindow ()](/stream-analytics-query/session-window-azure-stream-analytics), è possibile applicare una finestra snapshot aggiungendo System. timestamp () alla clausola Group by.
 
 ![Finestra snapshot di analisi di flusso](media/stream-analytics-window-functions/snapshot.png)
 
@@ -61,6 +61,5 @@ Snapshot gruppi di Windows eventi con lo stesso timestamp. A differenza di altri
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
-
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](/rest/api/streamanalytics/)

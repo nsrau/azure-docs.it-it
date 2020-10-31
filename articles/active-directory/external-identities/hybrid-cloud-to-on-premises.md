@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 10/10/2018
+ms.date: 10/30/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 61f82e94f506cc403106912e24532f9d5263a60d
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: cd91d1d2c9f5a4a413f9ea64cfdef649823d0f09
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896467"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131021"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>Concedere agli utenti B2B in Azure AD l'accesso alle applicazioni locali
 
@@ -64,7 +64,7 @@ Il diagramma seguente offre una panoramica generale del funzionamento combinato 
 
 ### <a name="lifecycle-management-policies"></a>Criteri di gestione del ciclo di vita
 
-È possibile gestire gli oggetti utente B2B locali tramite i criteri di gestione del ciclo di vita. Esempio:
+È possibile gestire gli oggetti utente B2B locali tramite i criteri di gestione del ciclo di vita. Ad esempio:
 
 - È possibile impostare criteri di autenticazione a più fattori (MFA) per l'utente guest in modo che l'autenticazione a più fattori venga usata durante l'autenticazione di Application Proxy. Per altre informazioni, vedere [accesso condizionale per gli utenti di collaborazione B2B](conditional-access.md).
 - Qualsiasi sponsorizzazione, verifica di accesso, verifica dell'account e così via eseguita per l'utente B2B cloud si applica agli utenti locali. Se, ad esempio, l'utente cloud viene eliminato attraverso i criteri di gestione del ciclo di vita, l'utente locale viene anche eliminato dalla sincronizzazione MIM o tramite Azure AD Connect sincronizzazione. Per altre informazioni, vedere [gestire l'accesso guest con le verifiche di accesso Azure ad](../governance/manage-guest-access-with-access-reviews.md).
@@ -77,7 +77,7 @@ Per informazioni su come usare MIM 2016 Service Pack 1 e l'agente di gestione MI
 
 È disponibile uno script di esempio di PowerShell che è possibile usare come punto di partenza per creare oggetti utente guest nell'istanza locale di Active Directory.
 
-È possibile scaricare lo script e il file leggimi dall'[Area download](https://www.microsoft.com/download/details.aspx?id=51495). Scegliere il file **Script and Readme to pull Azure AD B2B users on-prem.zip** .
+È possibile scaricare lo script e il file Leggimi dai [connettori per Microsoft Identity Manager 2016 e Forefront Identity Manager 2010 R2](https://www.microsoft.com/download/details.aspx?id=51495). Nel pacchetto di download scegliere lo **script e il file Leggimi per eseguire il pull Azure AD on-prem.zipdi utenti B2B** .
 
 Prima di usare lo script, verificare i prerequisiti e leggere le considerazioni importanti nel file leggimi associato. Tenere inoltre presente che lo script viene fornito solo come esempio. Il team di sviluppo o un partner dovrà personalizzare e verificare lo script prima dell'esecuzione.
 

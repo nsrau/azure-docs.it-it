@@ -7,12 +7,12 @@ ms.topic: how-to
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.date: 08/07/2020
-ms.openlocfilehash: 34af52b32d9e31ad003c5e95e288f88b157a944a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d253bda69839c76aed0170f9a79a03b7d4bf1a79
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710618"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130107"
 ---
 # <a name="create-a-managed-service-offer"></a>Creare un'offerta di servizi gestiti
 
@@ -23,8 +23,8 @@ Per pubblicare un'offerta di servizio gestito, è necessario avere un [livello d
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-2. Nel menu di spostamento di sinistra selezionare **Marketplace commerciale** > **Panoramica**.
-3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **Servizio gestito**.
+2. Nel menu di spostamento di sinistra selezionare **Marketplace commerciale** > **Panoramica** .
+3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **Servizio gestito** .
 
     ![Immagine del menu di spostamento di sinistra.](./media/new-offer-managed-service.png)
 
@@ -33,16 +33,16 @@ Per pubblicare un'offerta di servizio gestito, è necessario avere un [livello d
 
 ## <a name="new-offer"></a>Nuova offerta
 
-Immettere un **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nell'account.
+Immettere un **ID offerta** . Si tratta di un identificatore univoco per ogni offerta nell'account.
 
 * Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta del marketplace e nei modelli di Azure Resource Manager, se applicabile.
-* Usare solo lettere minuscole e numeri. È possibile includere trattini e caratteri di sottolineatura, ma non spazi, per un massimo di 50 caratteri. Ad esempio, se si immette **test-offer-1**, l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-* Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
+* Usare solo lettere minuscole e numeri. È possibile includere trattini e caratteri di sottolineatura, ma non spazi, per un massimo di 50 caratteri. Ad esempio, se si immette **test-offer-1** , l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
+* Non è possibile modificare l'ID offerta dopo aver selezionato **Crea** .
 
-Immettere un **Alias offerta**. Si tratta del nome usato per l'offerta nel Centro per i partner.
+Immettere un **Alias offerta** . Si tratta del nome usato per l'offerta nel Centro per i partner.
 
 * Questo nome non viene usato nel marketplace ed è diverso dal nome dell'offerta e da altri valori visualizzati ai clienti.
-* L'alias dell'offerta non può essere modificato dopo aver selezionato **Crea**.
+* L'alias dell'offerta non può essere modificato dopo aver selezionato **Crea** .
 
 Selezionare **Crea** per generare l'offerta e continuare.
 
@@ -52,11 +52,11 @@ Selezionare **Crea** per generare l'offerta e continuare.
 
 [!INCLUDE [Connect lead management](./includes/connect-lead-management.md)]
 
-In base ai [criteri di certificazione dei servizi gestiti](https://docs.microsoft.com/legal/marketplace/certification-policies#700-managed-services), è necessaria una **destinazione del lead**. Verrà creato un record nel sistema CRM ogni volta che un cliente distribuisce l'offerta.
+In base ai [criteri di certificazione dei servizi gestiti](/legal/marketplace/certification-policies#700-managed-services), è necessaria una **destinazione del lead** . Verrà creato un record nel sistema CRM ogni volta che un cliente distribuisce l'offerta.
 
 Per altre informazioni, vedere [Panoramica della gestione dei lead](./commercial-marketplace-get-customer-leads.md).
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="properties"></a>Proprietà
 
@@ -68,9 +68,9 @@ Selezionare almeno una e un massimo di cinque categorie che verranno usate per i
 
 ### <a name="terms-and-conditions"></a>Termini e condizioni
 
-Specificare i propri termini e condizioni legali nel campo **Termini e condizioni**. È anche possibile specificare l'URL in cui sono disponibili i termini e le condizioni. Ai clienti verrà chiesto di accettare questi termini e condizioni prima di poter provare l'offerta.
+Specificare i propri termini e condizioni legali nel campo **Termini e condizioni** . È anche possibile specificare l'URL in cui sono disponibili i termini e le condizioni. Ai clienti verrà chiesto di accettare questi termini e condizioni prima di poter provare l'offerta.
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="offer-listing"></a>Presentazione dell'offerta
 
@@ -116,15 +116,15 @@ Immettere l'URL dell'informativa sulla privacy dell'organizzazione (presente nel
 
 ### <a name="useful-links"></a>Collegamenti utili
 
-Specificare altri documenti online facoltativi sulla soluzione. Aggiungere altri collegamenti utili facendo clic su **+ Aggiungi un collegamento**.
+Specificare altri documenti online facoltativi sulla soluzione. Aggiungere altri collegamenti utili facendo clic su **+ Aggiungi un collegamento** .
 
 ### <a name="contact-information"></a>Informazioni sul contatto
 
-In questa sezione è necessario specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per **Contatto di supporto** e **Contatto tecnico**. Queste informazioni non vengono visualizzate ai clienti, ma saranno disponibili per Microsoft e possono essere fornite ai partner CSP.
+In questa sezione è necessario specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per **Contatto di supporto** e **Contatto tecnico** . Queste informazioni non vengono visualizzate ai clienti, ma saranno disponibili per Microsoft e possono essere fornite ai partner CSP.
 
 ### <a name="support-urls"></a>URL di supporto
 
-Se si hanno siti Web di supporto per i **clienti globali di Azure** e/o i **clienti di Azure per enti pubblici**, specificare gli URL qui.
+Se si hanno siti Web di supporto per i **clienti globali di Azure** e/o i **clienti di Azure per enti pubblici** , specificare gli URL qui.
 
 ### <a name="marketplace-images"></a>Immagini del Marketplace
 
@@ -161,7 +161,7 @@ Facoltativamente, è possibile aggiungere fino a cinque video che descrivono l'o
 
 - [Procedure consigliate per la presentazione di offerte nel marketplace](../gtm-offer-listing-best-practices.md)
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="preview"></a>Anteprima
 
@@ -171,7 +171,7 @@ Prima di pubblicare l'offerta live all'interno della più ampia offerta del mark
 
 Tutti i clienti associati a queste sottoscrizioni potranno visualizzare l'offerta in Azure Marketplace prima che diventi disponibile. Assicurarsi di includere qui le sottoscrizioni per poter visualizzare l'offerta in anteprima.
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="plan-overview"></a>Panoramica del piano
 
@@ -179,9 +179,9 @@ Ogni offerta deve avere uno o più piani, chiamati in precedenza SKU. È possibi
 
 È possibile creare fino a 100 piani per ogni offerta: fino a 45 di questi possono essere privati. Scopri di più sui piani privati in [offerte private in Microsoft Commercial Marketplace](../private-offers.md).
 
-Nella pagina **Panoramica del piano** selezionare **+ Crea nuovo piano**. Immettere quindi un **ID piano** e un **Nome del piano**. Entrambi questi valori possono contenere solo caratteri alfanumerici minuscoli, trattini e caratteri di sottolineatura, fino a un massimo di 50 caratteri. Questi valori possono essere visibili ai clienti e non possono essere modificati dopo la pubblicazione dell'offerta.
+Nella pagina **Panoramica del piano** selezionare **+ Crea nuovo piano** . Immettere quindi un **ID piano** e un **Nome del piano** . Entrambi questi valori possono contenere solo caratteri alfanumerici minuscoli, trattini e caratteri di sottolineatura, fino a un massimo di 50 caratteri. Questi valori possono essere visibili ai clienti e non possono essere modificati dopo la pubblicazione dell'offerta.
 
-Selezionare **Crea** dopo aver immesso questi valori per continuare a creare il piano. È necessario compilare tre sezioni: **Elenco piani**, **Prezzi e disponibilità** e **Configurazione tecnica**.
+Selezionare **Crea** dopo aver immesso questi valori per continuare a creare il piano. È necessario compilare tre sezioni: **Elenco piani** , **Prezzi e disponibilità** e **Configurazione tecnica** .
 
 ### <a name="plan-listing"></a>Elenco piani
 
@@ -198,10 +198,10 @@ La sezione **Plan visibility** (Visibilità del piano) consente di indicare se i
 > [!NOTE]
 > I piani privati non sono supportati con le sottoscrizioni stabilite tramite un rivenditore del programma Cloud Solution Provider (CSP).
 
-Per rendere questo piano disponibile solo a clienti specifici, selezionare **Sì**. Quando si esegue questa operazione, è necessario identificare i clienti fornendo gli ID sottoscrizione. Questi possono essere immessi uno alla volta (per un massimo di 10 sottoscrizioni) o caricando un file con estensione csv (per un massimo di 10.000 sottoscrizioni in tutti i piani). Assicurarsi di includere qui le sottoscrizioni per poter testare e convalidare l'offerta.
+Per rendere questo piano disponibile solo a clienti specifici, selezionare **Sì** . Quando si esegue questa operazione, è necessario identificare i clienti fornendo gli ID sottoscrizione. Questi possono essere immessi uno alla volta (per un massimo di 10 sottoscrizioni) o caricando un file con estensione csv (per un massimo di 10.000 sottoscrizioni in tutti i piani). Assicurarsi di includere qui le sottoscrizioni per poter testare e convalidare l'offerta.
 
 > [!IMPORTANT]
-> Quando un piano viene pubblicato come pubblico non è possibile modificarlo in un piano privato. Per controllare i clienti che possono accettare l'offerta e delegare le risorse, usare un piano privato. Con un piano pubblico non è possibile limitare la disponibilità a determinati clienti o a un determinato numero di clienti, ma è possibile interrompere completamente la vendita del piano, se necessario. È possibile [rimuovere l'accesso a una delega](../../lighthouse/how-to/remove-delegation.md) dopo che un cliente accetta un'offerta solo se è stata inclusa un'**Autorizzazione** con **Definizione ruolo** impostata su [Ruolo con autorizzazioni di eliminazione assegnazioni di registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) quando è stata pubblicata l'offerta. È anche possibile contattare il cliente e chiedere di [rimuovere l'accesso](../../lighthouse/how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
+> Quando un piano viene pubblicato come pubblico non è possibile modificarlo in un piano privato. Per controllare i clienti che possono accettare l'offerta e delegare le risorse, usare un piano privato. Con un piano pubblico non è possibile limitare la disponibilità a determinati clienti o a un determinato numero di clienti, ma è possibile interrompere completamente la vendita del piano, se necessario. È possibile [rimuovere l'accesso a una delega](../../lighthouse/how-to/remove-delegation.md) dopo che un cliente accetta un'offerta solo se è stata inclusa un' **Autorizzazione** con **Definizione ruolo** impostata su [Ruolo con autorizzazioni di eliminazione assegnazioni di registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) quando è stata pubblicata l'offerta. È anche possibile contattare il cliente e chiedere di [rimuovere l'accesso](../../lighthouse/how-to/view-manage-service-providers.md#add-or-remove-service-provider-offers).
 
 ### <a name="technical-configuration"></a>Configurazione tecnica
 
@@ -216,9 +216,9 @@ Assicurarsi di esaminare [tenant, ruoli e utenti negli scenari di Azure Lighthou
 
 Specificare prima di tutto una **versione** per il manifesto. Usare il formato *n.n.n* (ad esempio, 1.2.5).
 
-Immettere quindi l'**ID tenant**. Si tratta di un GUID associato all'ID tenant di Azure Active Directory (Azure AD) dell'organizzazione, ovvero il tenant di gestione da cui verrà eseguito l'accesso alle risorse dei clienti. Se non lo si ha disposizione, è possibile trovarlo passando il puntatore sul nome dell'account nell'angolo in alto a destra del portale di Azure o selezionando **Cambia directory**.
+Immettere quindi l' **ID tenant** . Si tratta di un GUID associato all'ID tenant di Azure Active Directory (Azure AD) dell'organizzazione, ovvero il tenant di gestione da cui verrà eseguito l'accesso alle risorse dei clienti. Se non lo si ha disposizione, è possibile trovarlo passando il puntatore sul nome dell'account nell'angolo in alto a destra del portale di Azure o selezionando **Cambia directory** .
 
-Se si pubblica una nuova versione dell'offerta ed è necessario creare un manifesto aggiornato, selezionare **+ Nuovo manifesto**. Assicurarsi di incrementare il numero di versione rispetto al numero di versione precedente del manifesto.
+Se si pubblica una nuova versione dell'offerta ed è necessario creare un manifesto aggiornato, selezionare **+ Nuovo manifesto** . Assicurarsi di incrementare il numero di versione rispetto al numero di versione precedente del manifesto.
 
 #### <a name="authorization"></a>Autorizzazione
 
@@ -229,21 +229,21 @@ Le autorizzazioni definiscono le entità nel tenant di gestione che possono acce
 > [!TIP]
 > Nella maggior parte dei casi, è consigliabile assegnare i ruoli a un gruppo utenti o a un'entità servizio di Azure AD anziché a una serie di singoli account utente. In questo modo è possibile aggiungere o rimuovere l'accesso per i singoli utenti senza dover aggiornare e ripubblicare il piano quando cambiano i requisiti di accesso. Quando si assegnano ruoli a gruppi di Azure AD [assicurarsi che il **Tipo di gruppo** sia impostato su **Sicurezza** e non su **Office 365**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md). Per altri consigli, vedere [Tenant, ruoli e utenti negli scenari di Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md).
 
-Per ogni valore di **Autorizzazione**, è necessario specificare gli elementi seguenti. È possibile selezionare **+ Aggiungi autorizzazione** ogni volta che è necessario per aggiungere altri utenti o definizioni del ruolo.
+Per ogni valore di **Autorizzazione** , è necessario specificare gli elementi seguenti. È possibile selezionare **+ Aggiungi autorizzazione** ogni volta che è necessario per aggiungere altri utenti o definizioni del ruolo.
 
-- **ID oggetto Azure AD**: identificatore Azure AD di un utente, un gruppo utenti o un'applicazione a cui vengono concesse determinate autorizzazioni (come indicato dalla definizione del ruolo) per le risorse dei clienti.
+- **ID oggetto Azure AD** : identificatore Azure AD di un utente, un gruppo utenti o un'applicazione a cui vengono concesse determinate autorizzazioni (come indicato dalla definizione del ruolo) per le risorse dei clienti.
 - **Azure AD Object Display Name** (Nome visualizzato dell'oggetto Azure AD): nome descrittivo per aiutare il cliente a comprendere lo scopo di questa autorizzazione. Questo nome verrà visualizzato dal cliente durante la delega delle risorse.
 - **Role Definition** (Definizione ruolo): selezionare uno dei ruoli predefiniti di Azure AD disponibili nell'elenco. Questo ruolo determinerà le autorizzazioni che l'utente indicato nel campo **ID oggetto Azure AD** avrà per le risorse dei clienti. Per le descrizioni di questi ruoli, vedere [ruoli predefiniti](../../role-based-access-control/built-in-roles.md) e supporto dei ruoli [per il faro di Azure](../../lighthouse/concepts/tenants-users-roles.md#role-support-for-azure-lighthouse).
   > [!NOTE]
   > Poiché i nuovi ruoli predefiniti applicabili vengono aggiunti ad Azure, diventeranno disponibili qui, anche se potrebbe verificarsi un ritardo prima che vengano visualizzati.
-- **Assignable Roles** (Ruoli assegnabili): questa opzione viene visualizzata solo se per questa autorizzazione è stato selezionato Amministratore Accesso utenti in **Definizione ruolo**. In tal caso, è necessario aggiungere qui uno o più ruoli assegnabili. L'utente nel campo **ID oggetto Azure AD** sarà in grado di assegnare i ruoli a [entità gestite](../../active-directory/managed-identities-azure-resources/overview.md). Questa operazione è necessaria per [distribuire criteri che possono essere corretti](../../lighthouse/how-to/deploy-policy-remediation.md). Si noti che nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente.
+- **Assignable Roles** (Ruoli assegnabili): questa opzione viene visualizzata solo se per questa autorizzazione è stato selezionato Amministratore Accesso utenti in **Definizione ruolo** . In tal caso, è necessario aggiungere qui uno o più ruoli assegnabili. L'utente nel campo **ID oggetto Azure AD** sarà in grado di assegnare i ruoli a [entità gestite](../../active-directory/managed-identities-azure-resources/overview.md). Questa operazione è necessaria per [distribuire criteri che possono essere corretti](../../lighthouse/how-to/deploy-policy-remediation.md). Si noti che nessun'altra autorizzazione normalmente associata al ruolo Amministratore Accesso utenti verrà applicata a questo utente.
 
 > [!TIP]
-> Per assicurarsi che sia possibile [rimuovere l'accesso a una delega](../../lighthouse/how-to/remove-delegation.md) se necessario, includere un'**Autorizzazione** con **Definizione ruolo** impostata su [Ruolo con autorizzazioni di eliminazione assegnazioni di registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Se questo ruolo non viene assegnato, le risorse delegate possono essere rimosse solo da un utente che si trova nel tenant del cliente.
+> Per assicurarsi che sia possibile [rimuovere l'accesso a una delega](../../lighthouse/how-to/remove-delegation.md) se necessario, includere un' **Autorizzazione** con **Definizione ruolo** impostata su [Ruolo con autorizzazioni di eliminazione assegnazioni di registrazione dei servizi gestiti](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role). Se questo ruolo non viene assegnato, le risorse delegate possono essere rimosse solo da un utente che si trova nel tenant del cliente.
 
-Dopo aver compilato tutte le sezioni per il piano, è possibile selezionare **+ Crea nuovo piano** il numero di volte necessario per creare piani aggiuntivi. Al termine, selezionare **Salva**.
+Dopo aver compilato tutte le sezioni per il piano, è possibile selezionare **+ Crea nuovo piano** il numero di volte necessario per creare piani aggiuntivi. Al termine, selezionare **Salva** .
 
-Prima di continuare, selezionare **Salva bozza**.
+Prima di continuare, selezionare **Salva bozza** .
 
 ## <a name="publish"></a>Pubblica
 
@@ -254,11 +254,11 @@ Dopo aver completato tutte le sezioni obbligatorie dell'offerta, selezionare **R
 Se è la prima volta che si pubblica questa offerta, è possibile:
 
 - Visualizzare lo stato di completamento di ogni sezione dell'offerta.
-  - **Non avviata**: la sezione è stata lasciata inalterata e deve essere completata.
-  - **Incompleta**: la sezione contiene errori che devono essere corretti o è necessario specificare altre informazioni. Tornare alla sezione e aggiornarla.
-  - **Completa**: la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in stato completato prima di poter inviare l'offerta.
+  - **Non avviata** : la sezione è stata lasciata inalterata e deve essere completata.
+  - **Incompleta** : la sezione contiene errori che devono essere corretti o è necessario specificare altre informazioni. Tornare alla sezione e aggiornarla.
+  - **Completa** : la sezione è completa, sono stati forniti tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere in stato completato prima di poter inviare l'offerta.
 - Nella sezione **Note per la certificazione** specificare le istruzioni per il test per il team di certificazione per assicurarsi che l'app venga testata correttamente, oltre a eventuali note supplementari utili per conoscere l'app.
-- Inviare l'offerta per la pubblicazione selezionando **Invia**. Si riceverà un messaggio di posta elettronica quando una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Tornare al Centro per i partner e selezionare **Passa allo stato Live** per l'offerta per pubblicare l'offerta per il pubblico oppure, se l'offerta è privata, per destinatari privati.
+- Inviare l'offerta per la pubblicazione selezionando **Invia** . Si riceverà un messaggio di posta elettronica quando una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Tornare al Centro per i partner e selezionare **Passa allo stato Live** per l'offerta per pubblicare l'offerta per il pubblico oppure, se l'offerta è privata, per destinatari privati.
 
 ### <a name="customer-experience-and-offer-management"></a>Gestione dell'esperienza dei clienti e dell'offerta
 

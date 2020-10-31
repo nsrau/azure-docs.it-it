@@ -8,12 +8,12 @@ author: emuench
 ms.author: mingshen
 ms.date: 10/15/2020
 ms.custom: contperfq2
-ms.openlocfilehash: f7c08172f3a60487ae6e15260a0cd5fc5e4a712c
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: c4fdf8e986b9c98588689a57bde8ca9464667abe
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740748"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129542"
 ---
 # <a name="azure-consumption-commitment-benefit"></a>Vantaggi dell'impegno per il consumo di Azure
 
@@ -57,4 +57,4 @@ Se non si è certi che l'organizzazione abbia un contratto valido, accedere all'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sul modo in cui l'organizzazione può sfruttare Azure Marketplace, completare il modulo Microsoft Learn: [semplificare l'approvvigionamento e la governance del cloud con Azure Marketplace](https://aka.ms/cm.marketplaceprocurement).
+- Per altre informazioni sul modo in cui l'organizzazione può sfruttare Azure Marketplace, completare il modulo Microsoft Learn: [semplificare l'approvvigionamento e la governance del cloud con Azure Marketplace](/learn/modules/simplify-cloud-procurement-governance-azure-marketplace/).

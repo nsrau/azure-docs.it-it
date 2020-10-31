@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/06/2018
-ms.openlocfilehash: f47f34b60c858bb9a0feafd25176e4a811046630
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44e445f6d1dce8193109d6b5ad1742210458e74c
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75426233"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130409"
 ---
 # <a name="introduction-to-stream-analytics-geospatial-functions"></a>Introduzione alle funzioni geospaziali di Analisi di flusso
 
@@ -26,7 +26,7 @@ Degli esempi di scenari che possono trarre vantaggio da funzioni geospaziali com
 * Definizione del geo-fencing
 * Rilevamento telefonico tra siti di cella
 
-Linguaggio di query di analisi di flusso ha sette funzioni geospaziali incorporati: **CreateLineString**, **Createpoint(20.0**, **CreatePolygon**, **ST_DISTANCE **, **ST_OVERLAPS**, **ST_INTERSECTS**, e **ST_WITHIN**.
+Linguaggio di query di analisi di flusso ha sette funzioni geospaziali incorporati: **CreateLineString** , **Createpoint(20.0** , **CreatePolygon** , **ST_DISTANCE** , **ST_OVERLAPS** , **ST_INTERSECTS** , e **ST_WITHIN** .
 
 ## <a name="createlinestring"></a>CreateLineString
 
@@ -53,11 +53,11 @@ FROM input
 
  {"type" : "LineString", "coordinate" : [ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5] ]}
 
-Per altre informazioni, visitare il riferimento [CreateLineString](https://docs.microsoft.com/stream-analytics-query/createlinestring).
+Per altre informazioni, visitare il riferimento [CreateLineString](/stream-analytics-query/createlinestring).
 
 ## <a name="createpoint"></a>CreatePoint
 
-La funzione `CreatePoint` accetta una latitudine e longitudine e restituisce un punto GeoJSON, che può essere tracciato su una mappa. I termini di latitudine e longitudine devono essere un tipo di dati **float**.
+La funzione `CreatePoint` accetta una latitudine e longitudine e restituisce un punto GeoJSON, che può essere tracciato su una mappa. I termini di latitudine e longitudine devono essere un tipo di dati **float** .
 
 La query di esempio seguente usa `CreatePoint` per creare un punto che usa termini di latitudine e longitudine dall'esecuzione del flusso di dati di input.
 
@@ -80,7 +80,7 @@ FROM input
   
  {"type": "Point", "coordinate": [20.2321, -87.33]}  
 
-Per altre informazioni, visitare il riferimento [CreatePoint](https://docs.microsoft.com/stream-analytics-query/createpoint).
+Per altre informazioni, visitare il riferimento [CreatePoint](/stream-analytics-query/createpoint).
 
 ## <a name="createpolygon"></a>CreatePolygon
 
@@ -107,7 +107,7 @@ FROM input
  
  {"type" : "Polygon", "coordinate" : [[ [20.2321, -87.33], [10.0, 10.0], [10.5, 10.5], [20.2321, -87.33] ]]}
 
-Per altre informazioni, visitare il riferimento [CreatePolygon](https://docs.microsoft.com/stream-analytics-query/createpolygon).
+Per altre informazioni, visitare il riferimento [CreatePolygon](/stream-analytics-query/createpolygon).
 
 
 ## <a name="st_distance"></a>ST_DISTANCE
@@ -121,7 +121,7 @@ FROM Cars c
 JOIN Station s ON ST_DISTANCE(c.Location, s.Location) < 10 * 1000
 ```
 
-Per altre informazioni, visitare il riferimento [ST_DISTANCE](https://docs.microsoft.com/stream-analytics-query/st-distance).
+Per altre informazioni, visitare il riferimento [ST_DISTANCE](/stream-analytics-query/st-distance).
 
 ## <a name="st_overlaps"></a>ST_OVERLAPS
 La funzione `ST_OVERLAPS` confronta due poligoni. Se i poligoni si sovrappongono, la funzione restituisce un valore 1. La funzione restituisce il valore 0 se i valori non si sovrappongono. 
@@ -142,7 +142,7 @@ FROM Cars c, Storm s
 JOIN Storm s ON ST_OVERLAPS(c.Location, s.Course)
 ```
 
-Per altre informazioni, visitare il riferimento [ST_OVERLAPS](https://docs.microsoft.com/stream-analytics-query/st-overlaps).
+Per altre informazioni, visitare il riferimento [ST_OVERLAPS](/stream-analytics-query/st-overlaps).
 
 ## <a name="st_intersects"></a>ST_INTERSECTS
 La funzione `ST_INTERSECTS` confronta due LineString. Se la LineString si interseca, la funzione restituisce 1. La funzione restituisce il valore 0 se la LineString non si interseca.
@@ -168,7 +168,7 @@ FROM input
   
  0  
 
-Per altre informazioni, visitare il riferimento [ST_INTERSECTS](https://docs.microsoft.com/stream-analytics-query/st-intersects).
+Per altre informazioni, visitare il riferimento [ST_INTERSECTS](/stream-analytics-query/st-intersects).
 
 ## <a name="st_within"></a>ST_WITHIN
 La `ST_WITHIN` funzione determina se un punto o poligono è all'interno di un poligono. Se il poligono contiene il punto o il poligono, la funzione restituirà il valore 1. La funzione restituirà il valore 0 se il punto o poligono non si trova all'interno del poligono dichiarato.
@@ -194,12 +194,12 @@ FROM input
   
  1  
 
-Per altre informazioni, visitare il riferimento [ST_WITHIN](https://docs.microsoft.com/stream-analytics-query/st-within).
+Per altre informazioni, visitare il riferimento [ST_WITHIN](/stream-analytics-query/st-within).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Introduzione ad Analisi dei flussi di Azure](stream-analytics-introduction.md)
 * [Introduzione all'uso di Analisi dei flussi di Azure](stream-analytics-real-time-fraud-detection.md)
 * [Ridimensionare i processi di Analisi dei flussi di Azure](stream-analytics-scale-jobs.md)
-* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference)
-* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](https://msdn.microsoft.com/library/azure/dn835031.aspx)
+* [Informazioni di riferimento sul linguaggio di query di Analisi di flusso di Azure](/stream-analytics-query/stream-analytics-query-language-reference)
+* [Informazioni di riferimento sulle API REST di gestione di Analisi di flusso di Azure](/rest/api/streamanalytics/)

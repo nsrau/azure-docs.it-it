@@ -7,16 +7,16 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: cc09912bb0c9ab553d180ff5cc06fc52c4c5cc0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2a9063a202ba542279efd8017d282fe0aa78d42
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91261053"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129865"
 ---
 # <a name="service-bus-topics-output-from-azure-stream-analytics"></a>Argomenti del bus di servizio output di analisi di flusso di Azure
 
-Le code del bus di servizio forniscono un metodo di comunicazione uno-a-uno dal mittente al destinatario. Gli [argomenti del bus di servizio](https://msdn.microsoft.com/library/azure/hh367516.aspx) offrono una forma di comunicazione uno-a-molti.
+Le code del bus di servizio forniscono un metodo di comunicazione uno-a-uno dal mittente al destinatario. Gli [argomenti del bus di servizio](/previous-versions/azure/hh367516(v=azure.100)) offrono una forma di comunicazione uno-a-molti.
 
 La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per la creazione di un output dell'argomento del bus di servizio.
 
@@ -65,7 +65,7 @@ L'immagine seguente è delle proprietà del messaggio di output previste ispezio
 
 ## <a name="system-properties"></a>Proprietà di sistema
 
-È possibile aggiungere colonne di query come [proprietà di sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) ai messaggi in uscita di code o argomenti del bus di servizio. Queste colonne non vengono inserite nel payload, bensì la [proprietà di sistema](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage corrispondente viene popolata con i valori della colonna di query.
+È possibile aggiungere colonne di query come [proprietà di sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) ai messaggi in uscita di code o argomenti del bus di servizio. Queste colonne non vengono inserite nel payload, bensì la [proprietà di sistema](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage?view=azure-dotnet#properties&preserve-view=true) BrokeredMessage corrispondente viene popolata con i valori della colonna di query.
 Sono supportate le proprietà di sistema seguenti: `MessageId, ContentType, Label, PartitionKey, ReplyTo, SessionId, CorrelationId, To, ForcePersistence, TimeToLive, ScheduledEnqueueTimeUtc`.
 
 I valori stringa di queste colonne vengono analizzati come tipo di valore della proprietà di sistema corrispondente e gli eventuali errori di analisi vengono considerati come errori di dati.

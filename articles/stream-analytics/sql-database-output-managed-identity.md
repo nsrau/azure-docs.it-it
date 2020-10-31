@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 05/08/2020
-ms.openlocfilehash: 8b5c106c1464ec6d77305b1985cc8dbd51e2b4db
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: c703dd4053cc27d469d83d344da910e8e5b23ddb
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519478"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129899"
 ---
 # <a name="use-managed-identities-to-access-azure-sql-database-from-an-azure-stream-analytics-job-preview"></a>Usare le identità gestite per accedere al database SQL di Azure da un processo di Analisi di flusso di Azure (anteprima)
 
@@ -33,7 +33,7 @@ Per prima cosa, si crea un'identità gestita per il processo di Analisi di fluss
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire il processo di Analisi di flusso di Azure.
 
-1. Nel menu di spostamento a sinistra selezionare **Identità gestita** in **Configura**. Selezionare quindi la casella accanto a **Usa identità gestita assegnata dal sistema** e selezionare **Salva**.
+1. Nel menu di spostamento a sinistra selezionare **Identità gestita** in **Configura** . Selezionare quindi la casella accanto a **Usa identità gestita assegnata dal sistema** e selezionare **Salva** .
 
    ![Selezionare l'identità gestita assegnata dal sistema](./media/sql-db-output-managed-identity/system-assigned-managed-identity.png)
 
@@ -44,7 +44,7 @@ Per prima cosa, si crea un'identità gestita per il processo di Analisi di fluss
 
    ![ID oggetto indicato come ID entità](./media/sql-db-output-managed-identity/principal-id.png)
 
-   L'entità servizio ha lo stesso nome del processo di Analisi di flusso. Ad esempio, se il nome del processo è *MyASAJob*, anche il nome dell'entità servizio è *MyASAJob*.
+   L'entità servizio ha lo stesso nome del processo di Analisi di flusso. Ad esempio, se il nome del processo è *MyASAJob* , anche il nome dell'entità servizio è *MyASAJob* .
 
 ## <a name="select-an-active-directory-admin"></a>Selezionare un amministratore di Active Directory
 
@@ -52,17 +52,17 @@ Dopo aver creato un'identità gestita, è necessario selezionare un amministrato
 
 1. Passare alla risorsa del database SQL di Azure e selezionare il server SQL in cui si trova il database. È possibile trovare il nome del server SQL accanto a *Nome server* nella pagina di panoramica delle risorse. 
 
-1. Selezionare **Amministratore di Active Directory** in **Impostazioni**. Selezionare quindi **Imposta amministratore**. 
+1. Selezionare **Amministratore di Active Directory** in **Impostazioni** . Selezionare quindi **Imposta amministratore** . 
 
    ![Pagina Amministratore di Active Directory](./media/sql-db-output-managed-identity/active-directory-admin-page.png)
  
-1. Nella pagina Amministratore di Active Directory cercare un utente o un gruppo da impostare come amministratore per SQL Server e fare clic su **Seleziona**.
+1. Nella pagina Amministratore di Active Directory cercare un utente o un gruppo da impostare come amministratore per SQL Server e fare clic su **Seleziona** .
 
    ![Aggiungere un amministratore di Active Directory](./media/sql-db-output-managed-identity/add-admin.png)
 
-   La pagina Amministratore di Active Directory mostra tutti i membri e i gruppi di Active Directory. Non è possibile selezionare utenti o gruppi non disponibili perché non sono supportati come amministratori Azure Active Directory. Vedere l'elenco degli amministratori supportati nella sezione **funzionalità e limitazioni**   del Azure Active Directory di [usare l'autenticazione Azure Active Directory per l'autenticazione con il database SQL o la sinapsi di Azure](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations). Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) si applica solo al portale e non viene propagato ai SQL Server. Inoltre, l'utente o il gruppo selezionato è l'utente che sarà in grado di creare l'**Utente di database indipendente** nella sezione successiva.
+   La pagina Amministratore di Active Directory mostra tutti i membri e i gruppi di Active Directory. Non è possibile selezionare utenti o gruppi non disponibili perché non sono supportati come amministratori Azure Active Directory. Vedere l'elenco degli amministratori supportati nella sezione **funzionalità e limitazioni**   del Azure Active Directory di [usare l'autenticazione Azure Active Directory per l'autenticazione con il database SQL o la sinapsi di Azure](../azure-sql/database/authentication-aad-overview.md#azure-ad-features-and-limitations). Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) si applica solo al portale e non viene propagato ai SQL Server. Inoltre, l'utente o il gruppo selezionato è l'utente che sarà in grado di creare l' **Utente di database indipendente** nella sezione successiva.
 
-1. Selezionare **Salva** nella pagina **Amministratore di Active Directory**. Il processo per la modifica dell'amministratore può durare alcuni minuti.
+1. Selezionare **Salva** nella pagina **Amministratore di Active Directory** . Il processo per la modifica dell'amministratore può durare alcuni minuti.
 
    Quando si configura l'amministratore di Azure Active Directory, il nuovo nome amministratore (utente o gruppo) non può essere presente nel database primario virtuale come utente di autenticazione SQL Server. Se presente, l'installazione dell'amministratore di Azure Active Directory avrà esito negativo e verrà eseguito il rollback della creazione, a indicare che esiste già un amministratore (nome). Poiché l'utente SQL Server Authentication non fa parte di Azure Active Directory, qualsiasi tentativo di connessione al server tramite Azure Active Directory l'autenticazione con l'errore dell'utente. 
 
@@ -70,13 +70,13 @@ Dopo aver creato un'identità gestita, è necessario selezionare un amministrato
 
 Successivamente, occorre creare un utente di un database indipendente nel database SQL mappato all'identità di Azure Active Directory. L'utente del database indipendente non dispone di un account di accesso per il database primario, ma esegue il mapping a un'identità nella directory associata al database. L'identità di Azure Active Directory può essere un singolo account utente o un gruppo. In questo caso, si vuole creare un utente di un database indipendente per il processo di Analisi di flusso. 
 
-1. Connettersi al database SQL utilizzando SQL Server Management Studio. Il **Nome utente** è un utente Azure Active Directory con l'autorizzazione **ALTER ANY USER**. L'amministratore impostato in SQL Server è un esempio. Usare l'autenticazione **Azure Active Directory - Universale con supporto MFA**. 
+1. Connettersi al database SQL utilizzando SQL Server Management Studio. Il **Nome utente** è un utente Azure Active Directory con l'autorizzazione **ALTER ANY USER** . L'amministratore impostato in SQL Server è un esempio. Usare l'autenticazione **Azure Active Directory - Universale con supporto MFA** . 
 
    ![Connessione a SQL Server](./media/sql-db-output-managed-identity/connect-sql-server.png)
 
    Il nome del server `<SQL Server name>.database.windows.net` può essere differente nelle diverse aree. Ad esempio, l'area Cina deve usare `<SQL Server name>.database.chinacloudapi.cn`.
  
-   È possibile specificare un database SQL specifico selezionando **Opzioni > Proprietà connessione > Connetti al database**.  
+   È possibile specificare un database SQL specifico selezionando **Opzioni > Proprietà connessione > Connetti al database** .  
 
    ![Proprietà di connessione SQL Server](./media/sql-db-output-managed-identity/sql-server-connection-properties.png)
 
@@ -84,13 +84,13 @@ Successivamente, occorre creare un utente di un database indipendente nel databa
 
    ![Finestra Nuova regola del firewall](./media/sql-db-output-managed-identity/new-firewall-rule.png)
 
-   1. In tal caso, passare alla risorsa di SQL Server nel portale di Azure. Nella sezione **Sicurezza** aprire la pagina **Firewall e rete virtuale**. 
+   1. In tal caso, passare alla risorsa di SQL Server nel portale di Azure. Nella sezione **Sicurezza** aprire la pagina **Firewall e rete virtuale** . 
    1. Aggiungere una nuova regola con un nome qualsiasi.
-   1. Usare l'indirizzo IP *Da* della finestra **Nuova regola del firewall** per *IP iniziale*.
-   1. Usare l'indirizzo IP *A* della finestra **Nuova regola del firewall** per *IP finale*. 
+   1. Usare l'indirizzo IP *Da* della finestra **Nuova regola del firewall** per *IP iniziale* .
+   1. Usare l'indirizzo IP *A* della finestra **Nuova regola del firewall** per *IP finale* . 
    1. Selezionare **Salva** e provare di nuovo a connettersi da SQL Server Management Studio. 
 
-1. Dopo avere stabilito la connessione, creare l'utente del database indipendente. Il comando SQL seguente crea un utente del database indipendente con lo stesso nome del processo di Analisi di flusso. Assicurarsi di includere le parentesi quadre intorno ad *ASA_JOB_NAME*. Usare la sintassi T-SQL seguente ed eseguire la query. 
+1. Dopo avere stabilito la connessione, creare l'utente del database indipendente. Il comando SQL seguente crea un utente del database indipendente con lo stesso nome del processo di Analisi di flusso. Assicurarsi di includere le parentesi quadre intorno ad *ASA_JOB_NAME* . Usare la sintassi T-SQL seguente ed eseguire la query. 
 
    ```sql
    CREATE USER [ASA_JOB_NAME] FROM EXTERNAL PROVIDER; 
@@ -110,7 +110,7 @@ Per concedere solo l'autorizzazione a una determinata tabella od oggetto nel dat
 GRANT SELECT, INSERT ON OBJECT::TABLE_NAME TO ASA_JOB_NAME; 
 ```
 
-In alternativa, è possibile fare clic con il pulsante destro del mouse sul database SQL in SQL Server Management Studio e selezionare **Proprietà > Autorizzazioni**. Dal menu Autorizzazioni è possibile visualizzare il processo di Analisi di flusso aggiunto in precedenza e concedere o negare manualmente le autorizzazioni in base alle esigenze.
+In alternativa, è possibile fare clic con il pulsante destro del mouse sul database SQL in SQL Server Management Studio e selezionare **Proprietà > Autorizzazioni** . Dal menu Autorizzazioni è possibile visualizzare il processo di Analisi di flusso aggiunto in precedenza e concedere o negare manualmente le autorizzazioni in base alle esigenze.
 
 ## <a name="create-an-azure-sql-database-output"></a>Creare un output del database SQL di Azure
 
@@ -118,11 +118,11 @@ Ora che l'identità gestita è configurata, si è pronti per aggiungere il datab
 
 Assicurarsi di aver creato una tabella nel database SQL con lo schema di output appropriato. Il nome di questa tabella è una delle proprietà obbligatorie da compilare quando si aggiunge l'output del database SQL al processo di Analisi di flusso. Assicurarsi anche che il processo abbia le autorizzazioni **SELECT** e **INSERT** per testare la connessione ed eseguire query di Analisi di flusso. Vedere la sezione [Concedere autorizzazioni al processo di Analisi di flusso](#grant-stream-analytics-job-permissions) se non è già stato fatto. 
 
-1. Tornare al processo di Analisi di flusso e passare alla pagina **Output** in **Topologia processo**. 
+1. Tornare al processo di Analisi di flusso e passare alla pagina **Output** in **Topologia processo** . 
 
-1. Selezionare **Aggiungi > Database SQL**. Nella finestra delle proprietà di output del sink di output del database SQL selezionare **Identità gestita** dall'elenco a discesa Modalità di autenticazione.
+1. Selezionare **Aggiungi > Database SQL** . Nella finestra delle proprietà di output del sink di output del database SQL selezionare **Identità gestita** dall'elenco a discesa Modalità di autenticazione.
 
-1. Compilare le proprietà rimanenti. Per altre informazioni sulla creazione di un output del database SQL, vedere [Creare un output del database SQL con Analisi di flusso](sql-database-output.md). Al termine dell'operazione, selezionare **Salva**. 
+1. Compilare le proprietà rimanenti. Per altre informazioni sulla creazione di un output del database SQL, vedere [Creare un output del database SQL con Analisi di flusso](sql-database-output.md). Al termine dell'operazione, selezionare **Salva** . 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

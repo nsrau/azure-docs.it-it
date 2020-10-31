@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 35b1b07bd4d9eef555be26e1c24356b7c352bf38
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39caa60196eca1afb7df1b0acbecddb557796fc3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100695"
+ms.locfileid: "93130341"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Panoramica di Rilevamento modifiche e inventario
 
@@ -93,7 +93,7 @@ Per tenere traccia delle modifiche nei file in Windows e Linux, Rilevamento modi
 
 ## <a name="tracking-file-content-changes"></a>Rilevamento delle modifiche al contenuto del file
 
-Rilevamento modifiche e Inventory consente di visualizzare il contenuto di un file Windows o Linux. Per ogni modifica apportata a un file, Rilevamento modifiche e inventario archivia il contenuto del file in un [account di Archiviazione di Azure](/azure/storage/common/storage-account-create). Quando si esegue il rilevamento di un file, è possibile visualizzarne il contenuto prima o dopo una modifica. Il contenuto del file può essere visualizzato inline o affiancato.
+Rilevamento modifiche e Inventory consente di visualizzare il contenuto di un file Windows o Linux. Per ogni modifica apportata a un file, Rilevamento modifiche e inventario archivia il contenuto del file in un [account di Archiviazione di Azure](../../storage/common/storage-account-create.md). Quando si esegue il rilevamento di un file, è possibile visualizzarne il contenuto prima o dopo una modifica. Il contenuto del file può essere visualizzato inline o affiancato.
 
 ![Visualizzare le modifiche in un file](./media/overview/view-file-changes.png)
 
@@ -158,7 +158,7 @@ La tabella seguente illustra i limiti dell'elemento di rilevamento per ogni macc
 |Servizi|250|
 |Daemon|250|
 
-L'uso medio dei dati di Log Analytics per un computer che usa Rilevamento modifiche e inventario è di circa 40 MB al mese, in base all'ambiente. Con la funzionalità utilizzo e costi stimati dell'area di lavoro Log Analytics, è possibile visualizzare i dati inseriti da Rilevamento modifiche e inventario in un grafico di utilizzo. Questa vista dati consente di valutare l'utilizzo dei dati e di determinare il modo in cui influiscono sulla fattura. Vedere [Comprendere l'utilizzo e stimare i costi](/azure-monitor/platform/manage-cost-storage#understand-your-usage-and-estimate-costs).
+L'uso medio dei dati di Log Analytics per un computer che usa Rilevamento modifiche e inventario è di circa 40 MB al mese, in base all'ambiente. Con la funzionalità utilizzo e costi stimati dell'area di lavoro Log Analytics, è possibile visualizzare i dati inseriti da Rilevamento modifiche e inventario in un grafico di utilizzo. Questa vista dati consente di valutare l'utilizzo dei dati e di determinare il modo in cui influiscono sulla fattura. Vedere [Comprendere l'utilizzo e stimare i costi](../../azure-monitor/platform/manage-cost-storage.md#understand-your-usage-and-estimate-costs).
 
 ### <a name="microsoft-service-data"></a>Dati del servizio Microsoft
 

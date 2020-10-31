@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6ce256db907589ace7e77157397257732564fb6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90006398"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130324"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del marketplace commerciale
 
@@ -24,7 +24,7 @@ L'editore o Microsoft è responsabile della gestione delle transazioni delle lic
 
 ### <a name="contact-me-free-trial-and-byol-options"></a>Contattaci, versione di valutazione gratuita e opzioni di BYOL
 
-Gli editori possono scegliere il _contatto_ e la _versione di valutazione gratuita_, le opzioni per scopi promozionali e di acquisizione utente. Per alcuni tipi di offerte, i publisher possono scegliere l'opzione Bring your own License (BYOL) per consentire ai clienti di acquistare una sottoscrizione all'offerta usando una licenza acquistata direttamente dall'utente. Con queste opzioni, Microsoft non partecipa direttamente alle transazioni delle licenze software dell'editore e non sono previsti costi di transazione. 
+Gli editori possono scegliere il _contatto_ e la _versione di valutazione gratuita_ , le opzioni per scopi promozionali e di acquisizione utente. Per alcuni tipi di offerte, i publisher possono scegliere l'opzione Bring your own License (BYOL) per consentire ai clienti di acquistare una sottoscrizione all'offerta usando una licenza acquistata direttamente dall'utente. Con queste opzioni, Microsoft non partecipa direttamente alle transazioni delle licenze software dell'editore e non sono previsti costi di transazione. 
 
 Gli editori sono responsabili del supporto di tutti gli aspetti della transazione di licenza software. Sono inclusi, ad esempio, l'ordine, l'evasione, la misurazione, la fatturazione, la fatturazione, il pagamento e la raccolta. Con l'opzione Contact me Listing, i Publisher mantengono il 100% dei costi di licenza software dell'editore raccolti dal cliente.
 
@@ -46,9 +46,9 @@ L'opzione di pubblicazione delle transazioni è attualmente supportata per i tip
 
 ### <a name="billing-infrastructure-costs"></a>Fatturazione dei costi per l'infrastruttura
 
-Per le **macchine virtuali** e **le applicazioni Azure**, le tariffe di utilizzo dell'infrastruttura di Azure vengono fatturate alla sottoscrizione di Azure del cliente. Nella fattura del cliente i costi di utilizzo dell'infrastruttura vengono addebitati e visualizzati separatamente dai costi di licenza del provider software.
+Per le **macchine virtuali** e **le applicazioni Azure** , le tariffe di utilizzo dell'infrastruttura di Azure vengono fatturate alla sottoscrizione di Azure del cliente. Nella fattura del cliente i costi di utilizzo dell'infrastruttura vengono addebitati e visualizzati separatamente dai costi di licenza del provider software.
 
-Per le **app SaaS**, l'editore deve contabilizzare i costi di utilizzo dell'infrastruttura di Azure e i costi di licenza software sotto un'unica voce di costo,  presentata al cliente come tariffa mensile fissa. L'utilizzo dell'infrastruttura di Azure viene gestito e fatturato direttamente all'editore. I costi effettivi di utilizzo dell'infrastruttura di Azure non sono visibili al cliente. Gli editori scelgono in genere di accorpare i costi di utilizzo dell'infrastruttura di Azure nei prezzi di licenza software. Le tariffe per le licenze software non vengono misurate o in base al consumo dell'utente.
+Per le **app SaaS** , l'editore deve contabilizzare i costi di utilizzo dell'infrastruttura di Azure e i costi di licenza software sotto un'unica voce di costo,  presentata al cliente come tariffa mensile fissa. L'utilizzo dell'infrastruttura di Azure viene gestito e fatturato direttamente all'editore. I costi effettivi di utilizzo dell'infrastruttura di Azure non sono visibili al cliente. Gli editori scelgono in genere di accorpare i costi di utilizzo dell'infrastruttura di Azure nei prezzi di licenza software. Le tariffe per le licenze software non vengono misurate o in base al consumo dell'utente.
 
 ## <a name="pricing-models"></a>Modelli di determinazione dei prezzi
 
@@ -150,13 +150,13 @@ Per alcune offerte pubblicate sul Marketplace commerciale, Microsoft ridurrà il
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Fatturazione cliente, pagamento e riscossioni
 
-**Fatturazione e pagamento**: è possibile usare il metodo di fatturazione preferito del cliente per far pervenire i costi di licenza software con pagamento in base al consumo o in abbonamento.
+**Fatturazione e pagamento** : è possibile usare il metodo di fatturazione preferito del cliente per far pervenire i costi di licenza software con pagamento in base al consumo o in abbonamento.
 
-**Contratto Enterprise**: se il metodo di fatturazione preferito del cliente è il contratto Microsoft Enterprise Agreement, le tariffe della licenza software verranno fatturate usando questo metodo di fatturazione come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
+**Contratto Enterprise** : se il metodo di fatturazione preferito del cliente è il contratto Microsoft Enterprise Agreement, le tariffe della licenza software verranno fatturate usando questo metodo di fatturazione come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
 
-**Carte di credito e fattura mensile**: i clienti possono anche pagare con una carta di credito e una fattura mensile. In questo caso, le tariffe della licenza software verranno fatturate come nello scenario Enterprise Agreement, ovvero come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
+**Carte di credito e fattura mensile** : i clienti possono anche pagare con una carta di credito e una fattura mensile. In questo caso, le tariffe della licenza software verranno fatturate come nello scenario Enterprise Agreement, ovvero come costo dettagliato, separato da eventuali costi di utilizzo specifici di Azure.
 
-**Crediti gratuiti e impegno monetario**: alcuni clienti decidono di pagare in anticipo Azure con un impegno monetario nel contratto Enterprise Agreement o dispongono di crediti gratuiti da usare con Azure. Anche se questi crediti possono essere usati per pagare l'utilizzo di Azure, non possono essere usati per pagare costi di licenza del software dell'editore.
+**Crediti gratuiti e impegno monetario** : alcuni clienti decidono di pagare in anticipo Azure con un impegno monetario nel contratto Enterprise Agreement o dispongono di crediti gratuiti da usare con Azure. Anche se questi crediti possono essere usati per pagare l'utilizzo di Azure, non possono essere usati per pagare costi di licenza del software dell'editore.
 
 **Fatturazione e raccolte** : la fatturazione delle licenze software dell'editore viene presentata usando il metodo di fatturazione selezionato dal cliente e segue la sequenza temporale per la fatturazione. Per i clienti senza un contratto Enterprise Agreement appropriato le licenze del software del marketplace vengono fatturate mensilmente. Per i clienti con Enterprise Agreement viene emessa una fattura mensile inviata ogni trimestre.
 
@@ -197,7 +197,7 @@ L'opzione di pubblicazione delle transazioni è disponibile solo per l'uso con i
 
 - **Applicazione Azure: modello di soluzione o app gestita:** è necessario effettuare il provisioning di una o più macchine virtuali ed eseguire il pull della somma dei prezzi della macchina virtuale. Per le app gestite in un singolo piano, come modello di determinazione prezzi è possibile selezionare una sottoscrizione a tariffa fissa mensile invece dei prezzi delle macchine virtuali. In alcuni casi, le spese di utilizzo dell'infrastruttura di Azure vengono trasferite al cliente separatamente dalle spese di licenza software, ma nello stesso estratto conto. Tuttavia, se si configura un'offerta di app gestita per gli addebiti per l'infrastruttura ISV, le risorse di Azure vengono fatturate all'editore e il cliente riceve una tariffa fissa che include il costo dell'infrastruttura, le licenze software e i servizi di gestione.
 
-- **Applicazione SaaS** : deve essere una soluzione multi-tenant, usare [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per l'autenticazione e integrarsi con le [API di evasione Saas](partner-center-portal/pc-saas-fulfillment-api-v2.md). L'utilizzo dell'infrastruttura di Azure viene gestito e fatturato direttamente all'utente (il partner), quindi è necessario tenere conto delle tariffe di utilizzo dell'infrastruttura di Azure e delle tariffe di licenza software come singolo costo. Per istruzioni dettagliate, vedere [la pagina relativa alla creazione di una nuova offerta SaaS nel Marketplace commerciale](partner-center-portal/create-new-saas-offer.md).
+- **Applicazione SaaS** : deve essere una soluzione multi-tenant, usare [Azure Active Directory](https://azure.microsoft.com/services/active-directory/) per l'autenticazione e integrarsi con le [API di evasione Saas](partner-center-portal/pc-saas-fulfillment-api-v2.md). L'utilizzo dell'infrastruttura di Azure viene gestito e fatturato direttamente all'utente (il partner), quindi è necessario tenere conto delle tariffe di utilizzo dell'infrastruttura di Azure e delle tariffe di licenza software come singolo costo. Per istruzioni dettagliate, vedere [la pagina relativa alla creazione di una nuova offerta SaaS nel Marketplace commerciale](./create-new-saas-offer.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

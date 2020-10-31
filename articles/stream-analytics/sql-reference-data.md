@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 01/29/2019
-ms.openlocfilehash: 1ae5908fe3ab95dcd62da976988bd7ce107217e5
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 1826b66b0548b7567af59de64549c7eb700025c3
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027407"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130902"
 ---
 # <a name="use-reference-data-from-a-sql-database-for-an-azure-stream-analytics-job"></a>Usare dati di riferimento da un database SQL per un processo di Analisi di flusso di Azure
 
@@ -173,11 +173,11 @@ Quando si usa la query delta, è consigliabile usare le [tabelle temporali nel d
    Si noti che il runtime di Analisi di flusso può eseguire periodicamente la query snapshot oltre alla query delta per archiviare i checkpoint.
 
 ## <a name="test-your-query"></a>Testare la query
-   È importante verificare che la query restituisca il set di dati previsto che verrà usato dal processo di analisi di flusso come dati di riferimento. Per testare la query, passare a Input nella sezione Topologia processo nel portale. È quindi possibile selezionare Dati di esempio nell'input di riferimento del database SQL. Quando l'esempio diventa disponibile, è possibile scaricare il file e verificare se i dati restituiti sono quelli previsti. Se si vuole ottimizzare le iterazioni di sviluppo e test, è consigliabile usare gli [Strumenti di Analisi di flusso per Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-install). È anche possibile usare qualsiasi altro strumento di preferenza per assicurarsi prima che la query restituisca i risultati corretti dal database SQL di Azure e quindi usarla nel processo di analisi di flusso. 
+   È importante verificare che la query restituisca il set di dati previsto che verrà usato dal processo di analisi di flusso come dati di riferimento. Per testare la query, passare a Input nella sezione Topologia processo nel portale. È quindi possibile selezionare Dati di esempio nell'input di riferimento del database SQL. Quando l'esempio diventa disponibile, è possibile scaricare il file e verificare se i dati restituiti sono quelli previsti. Se si vuole ottimizzare le iterazioni di sviluppo e test, è consigliabile usare gli [Strumenti di Analisi di flusso per Visual Studio](./stream-analytics-tools-for-visual-studio-install.md). È anche possibile usare qualsiasi altro strumento di preferenza per assicurarsi prima che la query restituisca i risultati corretti dal database SQL di Azure e quindi usarla nel processo di analisi di flusso. 
 
 ### <a name="test-your-query-with-visual-studio-code"></a>Testare la query con Visual Studio Code
 
-   Installare [gli strumenti di analisi di flusso di Azure](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) e [SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) in Visual Studio Code e configurare il progetto ASA. Per altre informazioni, vedere [Guida introduttiva: creare un processo di analisi di flusso di Azure in Visual Studio Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code) e l' [esercitazione sull'estensione SQL Server (MSSQL)](https://aka.ms/mssql-getting-started).
+   Installare [gli strumenti di analisi di flusso di Azure](https://marketplace.visualstudio.com/items?itemName=ms-bigdatatools.vscode-asa) e [SQL Server (mssql)](https://marketplace.visualstudio.com/items?itemName=ms-mssql.mssql) in Visual Studio Code e configurare il progetto ASA. Per altre informazioni, vedere [Guida introduttiva: creare un processo di analisi di flusso di Azure in Visual Studio Code](./quick-create-visual-studio-code.md) e l' [esercitazione sull'estensione SQL Server (MSSQL)](/sql/tools/visual-studio-code/sql-server-develop-use-vscode).
 
 1. Configurare l'input dei dati di riferimento SQL.
    

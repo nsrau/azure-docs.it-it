@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/06/2018
 ms.custom: seodec18
-ms.openlocfilehash: e0e2244d8c70ca2e6d379e741d543d9cd260b7f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 87ec59d19fb442293fb7f14d110cf513015ec9f7
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86044584"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130800"
 ---
 # <a name="build-an-iot-solution-by-using-stream-analytics"></a>Compilare una soluzione IoT con Analisi di flusso
 
@@ -43,7 +43,7 @@ Questa soluzione usa due flussi di dati. Il primo flusso viene prodotto da senso
 ### <a name="entry-data-stream"></a>Flusso di dati di ingresso
 Il flusso di dati di ingresso contiene informazioni sulle automobili che entrano nel casello. Gli eventi dei dati di uscita vengono trasmessi live in una coda di Hub eventi da un'app Web inclusa nell'app di esempio.
 
-| ID casello | Tempo ingresso | Targa | State | Casa automobilistica | Modello | Tipo veicolo | Peso veicolo | Casello | Tag |
+| ID casello | Tempo ingresso | Targa | Stato | Casa automobilistica | Modello | Tipo veicolo | Peso veicolo | Casello | Tag |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
@@ -59,7 +59,7 @@ Ecco una breve descrizione delle colonne:
 | ID casello |ID casello che identifica in modo univoco un casello |
 | Tempo ingresso |Data e ora (UTC) di ingresso del veicolo nel casello |
 | Targa |Numero di targa del veicolo |
-| State |Stato degli Stati Uniti |
+| Stato |Stato degli Stati Uniti |
 | Casa automobilistica |Il produttore dell'automobile |
 | Modello |Numero di modello dell'automobile |
 | Tipo veicolo |1 per autovetture o 2 per veicoli commerciali |
@@ -126,7 +126,7 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
 
 5. Selezionare una località di Azure.
 
-6. Specificare un valore come numero di secondi in **Intervallo**. Questo valore viene usato nell'app Web di esempio per specificare come inviare i dati in Hub eventi.
+6. Specificare un valore come numero di secondi in **Intervallo** . Questo valore viene usato nell'app Web di esempio per specificare come inviare i dati in Hub eventi.
 
 7. Fare clic su **Seleziona** per accettare i termini e le condizioni.
 
@@ -134,7 +134,7 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
 
 9. Selezionare **Acquista** per distribuire il modello di esempio.
 
-10. Dopo alcuni istanti, viene visualizzata la notifica **La distribuzione è riuscita**, che conferma l'operazione.
+10. Dopo alcuni istanti, viene visualizzata la notifica **La distribuzione è riuscita** , che conferma l'operazione.
 
 ### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Esaminare le risorse di Analisi di flusso di Azure per TollApp
 
@@ -152,7 +152,7 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
 ## <a name="examine-the-sample-tollapp-job"></a>Esaminare il processo TollApp di esempio
 1. Iniziando dal gruppo di risorse della sezione precedente, selezionare il processo di streaming di Analisi di flusso di Azure che inizia con il nome **tollapp** (il nome contiene caratteri casuali per scopi di univocità).
 
-2. Nella pagina **Panoramica** del processo notare la casella **Query**, in cui è visualizzata la sintassi di query.
+2. Nella pagina **Panoramica** del processo notare la casella **Query** , in cui è visualizzata la sintassi di query.
 
    ```sql
    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
@@ -163,7 +163,7 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
 
    Parafrasando la finalità della query, è necessario conteggiare il numero di veicoli che entrano in un casello. Poiché un casello in autostrada ha un flusso continuo di veicoli in entrata, questi eventi di entrata sono analoghi a un flusso senza fine. Per quantificare il flusso, è necessario definire un "periodo di tempo" in base al quale eseguire la misurazione. Affinare ulteriormente la domanda, chiedendo: "Quanti veicoli entrano in un casello ogni tre minuti?" Questo tipo di conteggio viene detto a cascata.
 
-   Come si può notare, Analisi di flusso di Azure usa un linguaggio di query simile a SQL e aggiunge alcune estensioni per specificare gli aspetti temporali della query.  Per maggiori dettagli, vedere i costrutti relativi alla [gestione del tempo](https://docs.microsoft.com/stream-analytics-query/time-management-azure-stream-analytics) e al [windowing](https://docs.microsoft.com/stream-analytics-query/windowing-azure-stream-analytics) usati nella query.
+   Come si può notare, Analisi di flusso di Azure usa un linguaggio di query simile a SQL e aggiunge alcune estensioni per specificare gli aspetti temporali della query.  Per maggiori dettagli, vedere i costrutti relativi alla [gestione del tempo](/stream-analytics-query/time-management-azure-stream-analytics) e al [windowing](/stream-analytics-query/windowing-azure-stream-analytics) usati nella query.
 
 3. Esaminare gli input del processo di esempio TollApp. Nella query corrente viene usato solo l'input EntryStream.
    - L'input **EntryStream** è una connessione a Hub eventi che accoda i dati che rappresentano ogni momento in cui un'auto entra in un casello in autostrada. Un'app Web che fa parte dell'esempio sta creando gli eventi e i dati vengono accodati in Hub eventi. Notare che le query su questo input vengono eseguite nella clausola FROM della query di streaming.
@@ -176,20 +176,20 @@ Diverse risorse possono essere facilmente distribuite in un gruppo di risorse in
 ## <a name="start-the-tollapp-streaming-job"></a>Avviare il processo di streaming TollApp
 Per avviare il processo di streaming, completare questi passaggi:
 
-1. Nella pagina **Panoramica** del processo selezionare **Avvia**.
+1. Nella pagina **Panoramica** del processo selezionare **Avvia** .
 
-2. Nel riquadro **Avvia processo** selezionare **Ora**.
+2. Nel riquadro **Avvia processo** selezionare **Ora** .
 
-3. Dopo alcuni istanti, quando il processo è in esecuzione, nella pagina **Panoramica** del processo di streaming visualizzare il grafico **Monitoraggio**. Il grafico mostrerà diverse migliaia di eventi in input e decine di eventi di output.
+3. Dopo alcuni istanti, quando il processo è in esecuzione, nella pagina **Panoramica** del processo di streaming visualizzare il grafico **Monitoraggio** . Il grafico mostrerà diverse migliaia di eventi in input e decine di eventi di output.
 
 ## <a name="review-the-cosmosdb-output-data"></a>Esaminare i dati di output di Cosmos DB
 1. Individuare il gruppo di risorse che contiene le risorse di TollApp.
 
-2. Selezionare l'account Azure Cosmos DB con il modello di denominazione **tollapp\<random\>-cosmos**.
+2. Selezionare l'account Azure Cosmos DB con il modello di denominazione **tollapp\<random\>-cosmos** .
 
 3. Selezionare l'intestazione **Esplora dati** per aprire la pagina Esplora dati.
 
-4. Espandere i documenti di **tollAppDatabase**  >  **tollAppCollection**  >  **Documents**.
+4. Espandere i documenti di **tollAppDatabase**  >  **tollAppCollection**  >  **Documents** .
 
 5. Nell'elenco di ID diversi documenti vengono visualizzati solo quando è disponibile l'output.
 
@@ -201,7 +201,7 @@ Per avviare il processo di streaming, completare questi passaggi:
 ## <a name="report-total-time-for-each-car"></a>Segnalare il tempo totale per ogni auto
 Il tempo medio necessario a un'automobile per passare attraverso il casello consente di valutare l'efficienza del processo e l'esperienza dell'utente.
 
-Per trovare il tempo totale, unire il flusso EntryTime al flusso ExitTime. Unire i due flussi di input nelle colonne TollId e LicencePlate corrispondenti. L'operatore **JOIN** richiede di specificare un margine temporale che descrive la differenza di tempo accettabile tra gli eventi uniti. Usare la funzione **DATEDIFF** per specificare che gli eventi non devono essere distanti più di 15 minuti uno dall'altro. Applicare anche la funzione **DATEDIFF** ai tempi di uscita ed entrata per calcolare il tempo effettivo impiegato da un'auto nel casello. Si noti il diverso uso di **DATEDIFF** in un'istruzione **SELECT** rispetto a una condizione **JOIN**.
+Per trovare il tempo totale, unire il flusso EntryTime al flusso ExitTime. Unire i due flussi di input nelle colonne TollId e LicencePlate corrispondenti. L'operatore **JOIN** richiede di specificare un margine temporale che descrive la differenza di tempo accettabile tra gli eventi uniti. Usare la funzione **DATEDIFF** per specificare che gli eventi non devono essere distanti più di 15 minuti uno dall'altro. Applicare anche la funzione **DATEDIFF** ai tempi di uscita ed entrata per calcolare il tempo effettivo impiegato da un'auto nel casello. Si noti il diverso uso di **DATEDIFF** in un'istruzione **SELECT** rispetto a una condizione **JOIN** .
 
 ```sql
 SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute, EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
@@ -214,7 +214,7 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 ### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>Per aggiornare la sintassi di query del processo di streaming TollApp:
 
-1. Nella pagina **Panoramica** del processo selezionare **Arresta**.
+1. Nella pagina **Panoramica** del processo selezionare **Arresta** .
 
 2. Attendere alcuni istanti la notifica di arresto del processo.
 
@@ -224,9 +224,9 @@ AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 
 5. Selezionare **Salva** per salvare la query. Confermare **Sì** per salvare le modifiche.
 
-6. Nella pagina **Panoramica** del processo selezionare **Avvia**.
+6. Nella pagina **Panoramica** del processo selezionare **Avvia** .
 
-7. Nel riquadro **Avvia processo** selezionare **Ora**.
+7. Nel riquadro **Avvia processo** selezionare **Ora** .
 
 ### <a name="review-the-total-time-in-the-output"></a>Esaminare il tempo totale nell'output
 Ripetere i passaggi nella sezione precedente per esaminare i dati di output di Cosmos DB dal processo di streaming. Esaminare i documenti JSON più recenti.
@@ -301,9 +301,9 @@ Per ridimensionare il processo di streaming in base a più unità di streaming:
 
 2. Aggiornare la sintassi di query nella pagina **Query < >** e salvare le modifiche.
 
-3. Nell'intestazione CONFIGURA nel processo di streaming selezionare **Scala**.
+3. Nell'intestazione CONFIGURA nel processo di streaming selezionare **Scala** .
 
-4. Spostare il dispositivo di scorrimento **Unità di streaming** da 1 a 6. Le unità di streaming definiscono la quantità di potenza di calcolo che il processo può ricevere. Selezionare **Salva**.
+4. Spostare il dispositivo di scorrimento **Unità di streaming** da 1 a 6. Le unità di streaming definiscono la quantità di potenza di calcolo che il processo può ricevere. Selezionare **Salva** .
 
 5. Fare clic su **Avvia** per avviare il processo di streaming per provare la scalabilità aggiuntiva. Analisi di flusso di Azure distribuisce il lavoro tra più risorse di calcolo e ottiene velocità effettiva migliore, partizionando il lavoro tra risorse tramite la colonna designata nella clausola PARTITION BY.
 
@@ -319,9 +319,9 @@ L'area **MONITORAGGIO** contiene le statistiche relative al processo in esecuzio
 
 2. Individuare il gruppo di risorse che contiene otto risorse correlate al modello TollApp.
 
-3. Selezionare **Elimina gruppo di risorse**. Digitare il nome del gruppo di attività per confermare l'eliminazione.
+3. Selezionare **Elimina gruppo di risorse** . Digitare il nome del gruppo di attività per confermare l'eliminazione.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Questa soluzione ha presentato il servizio Analisi di flusso di Azure. È stato illustrato come configurare input e output per il processo di Analisi di flusso. Usando lo scenario dei dati del casello, la soluzione ha descritto tipi comuni di problemi che si verificano nello spazio dei dati in movimento e come risolverli con semplici query di tipo SQL in Analisi di flusso di Azure. La soluzione ha descritto i costrutti di estensioni SQL per l'uso di dati temporali. È stato illustrato come creare un join tra flussi di dati, come arricchire il flusso di dati con dati di riferimento statici e come aumentare il numero di istanze di una query per ottenere una maggiore produttività.
 
 Anche se questa soluzione offre una buona introduzione, non può ritenersi completa. Per altri modelli di query che usano il linguaggio SAQL, vedere [Esempi di query per modelli di uso comune di Analisi di flusso](stream-analytics-stream-analytics-query-patterns.md).

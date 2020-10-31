@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 10/06/2020
-ms.openlocfilehash: ff31e29b8c2a36c9aaa3d72eab86340ed405b1ff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54775d7e9923505c6e68a47feed6726b9cb84c47
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91772652"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129933"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guida alla pubblicazione per tipo di offerta
 
@@ -37,7 +37,7 @@ La tabella seguente illustra i tipi di offerta del Marketplace commerciale nel c
 | [**Servizio di consulenza**](consulting-services.md) | I servizi di consulenza consentono di connettere i clienti con servizi per supportare ed estendere l'uso dei servizi di Azure, Dynamics 365 o Power Suite.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Puoi pubblicare offerte AppSource che sviluppano o estendono le app Dynamics 365 business Central, Dynamics 365 Customer Engagement, Power Apps e Finance e Operations.|
 | [**Modulo IoT Edge**](iot-edge-module.md) | I moduli di Azure IoT Edge sono le unità di calcolo più piccole gestite da IoT Edge e possono contenere i servizi di Microsoft, ad esempio analisi di flusso, servizi di terze parti o il codice specifico per la soluzione. |
-| [**Servizio gestito**](partner-center-portal/create-new-managed-service-offer.md) | È possibile creare offerte di servizi gestiti e gestire sottoscrizioni o gruppi di risorse delegati dai clienti tramite [Azure Lighthouse](/azure/lighthouse/overview).|
+| [**Servizio gestito**](partner-center-portal/create-new-managed-service-offer.md) | È possibile creare offerte di servizi gestiti e gestire sottoscrizioni o gruppi di risorse delegati dai clienti tramite [Azure Lighthouse](../lighthouse/overview.md).|
 | [**App Power bi** <br/> **Microsoft 365**](appsource-offer-publishing-guide.md) | È possibile pubblicare offerte AppSource che compilano o estendono Power BI e Microsoft 365.|
 | [**Software come servizio**](plan-saas-offer.md) | Usare il tipo di offerta Software as a Service (SaaS) per consentire al cliente di acquistare una soluzione tecnica basata su SaaS come sottoscrizione. |
 

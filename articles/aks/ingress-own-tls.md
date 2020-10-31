@@ -5,12 +5,12 @@ description: Informazioni su come installare e configurare un controller di ingr
 services: container-service
 ms.topic: article
 ms.date: 08/17/2020
-ms.openlocfilehash: 42e9f2128063caa13cf3fca1a28ec7e6465ba74e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8ea245444fa5e8e042644bd3f7a34ed021ccd1d
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855689"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131038"
 ---
 # <a name="create-an-https-ingress-controller-and-use-your-own-tls-certificates-on-azure-kubernetes-service-aks"></a>Creare un controller di ingresso HTTPS e usare i propri certificati TLS nel servizio Azure Kubernetes
 
@@ -33,15 +33,15 @@ Questo articolo richiede anche l'esecuzione dell'interfaccia della riga di coman
 
 ## <a name="create-an-ingress-controller"></a>Creare un controller di ingresso
 
-Per creare il controller di ingresso, usare `Helm` per installare *Ingresso nginx*. Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster servizio Azure Kubernetes siano presenti più nodi.
+Per creare il controller di ingresso, usare `Helm` per installare *Ingresso nginx* . Per maggiore ridondanza, vengono distribuite due repliche dei controller di ingresso NGINX con il parametro `--set controller.replicaCount`. Per sfruttare appieno le repliche del controller di ingresso in esecuzione, assicurarsi che nel cluster servizio Azure Kubernetes siano presenti più nodi.
 
 Il controller di ingresso deve anche essere pianificato in un nodo Linux. I nodi di Windows Server non devono eseguire il controller di ingresso. Un selettore di nodo viene specificato con il parametro `--set nodeSelector` per indicare all'utilità di pianificazione Kubernetes di eseguire il controller di ingresso NGINX in un nodo basato su Linux.
 
 > [!TIP]
-> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate *ingress-Basic*. Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze. Se il cluster AKS non è abilitato per il controllo degli accessi in base al ruolo, aggiungere `--set rbac.create=false` ai comandi Helm.
+> L'esempio seguente crea uno spazio dei nomi Kubernetes per le risorse in ingresso denominate *ingress-Basic* . Specificare uno spazio dei nomi per il proprio ambiente in base alle esigenze. Se il cluster AKS non è abilitato per il controllo degli accessi in base al ruolo, aggiungere `--set rbac.create=false` ai comandi Helm.
 
 > [!TIP]
-> Per abilitare la [conservazione dell'indirizzo IP di origine client][client-source-ip] per le richieste ai contenitori nel cluster, aggiungere `--set controller.service.externalTrafficPolicy=Local` al comando Helm install. L'IP di origine del client viene archiviato nell'intestazione della richiesta sotto *X-inoltred-for*. Quando si usa un controller di ingresso con la conservazione IP dell'origine client abilitata, il pass-through TLS non funzionerà.
+> Per abilitare la [conservazione dell'indirizzo IP di origine client][client-source-ip] per le richieste ai contenitori nel cluster, aggiungere `--set controller.service.externalTrafficPolicy=Local` al comando Helm install. L'IP di origine del client viene archiviato nell'intestazione della richiesta sotto *X-inoltred-for* . Quando si usa un controller di ingresso con la conservazione IP dell'origine client abilitata, il pass-through TLS non funzionerà.
 
 ```console
 # Create a namespace for your ingress resources
@@ -83,7 +83,7 @@ Non è ancora stata creata alcuna regola di ingresso. Se si passa all'indirizzo 
 
 Per questo articolo, è necessario generare un certificato autofirmato con `openssl`. Per l'uso in produzione è necessario richiedere un certificato attendibile firmato mediante un provider o la propria autorità di certificazione (CA). Nel passaggio successivo, si genera un *segreto* Kubernetes usando il certificato TLS e la chiave privata generati da OpenSSL.
 
-L'esempio seguente genera un certificato RSA X509 a 2048 bit valido per 365 giorni denominato *aks-ingress-tls.crt*. Il file della chiave privata è denominato *aks-ingress-tls.key*. Un segreto Kubernetes TLS richiede entrambi i file.
+L'esempio seguente genera un certificato RSA X509 a 2048 bit valido per 365 giorni denominato *aks-ingress-tls.crt* . Il file della chiave privata è denominato *aks-ingress-tls.key* . Un segreto Kubernetes TLS richiede entrambi i file.
 
 Questo articolo funziona con il nome comune soggetto *demo.azure.com* e non deve necessariamente essere modificato. Per l'uso in produzione, specificare i propri valori organizzativi per il `-subj` parametro:
 
@@ -98,7 +98,7 @@ openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
 
 Per consentire a Kubernetes di usare il certificato TLS e la chiave privata per il controller di ingresso, creare e usare un segreto. Il segreto viene definito una sola volta e usa il certificato e il file di chiave creati nel passaggio precedente. Si fa quindi riferimento a questo segreto quando si definiscono le route in ingresso.
 
-L'esempio seguente crea un nome segreto *aks-ingress-tls*:
+L'esempio seguente crea un nome segreto *aks-ingress-tls* :
 
 ```console
 kubectl create secret tls aks-ingress-tls \
@@ -132,7 +132,7 @@ spec:
     spec:
       containers:
       - name: aks-helloworld
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -170,7 +170,7 @@ spec:
     spec:
       containers:
       - name: ingress-demo
-        image: neilpeterson/aks-helloworld:v1
+        image: mcr.microsoft.com/azuredocs/aks-helloworld:v1
         ports:
         - containerPort: 80
         env:
@@ -205,7 +205,7 @@ Nell'esempio seguente il traffico verso l'indirizzo `https://demo.azure.com/` vi
 > [!TIP]
 > Se il nome host specificato durante il processo di richiesta di certificato, il nome del CN non corrisponde all'host definito nella route di ingresso, il controller di ingresso Visualizza un avviso del *certificato Fake del controller di ingresso Kubernetes* . Assicurarsi che i nomi host del certificato e della route di ingresso corrispondano.
 
-La sezione *tls* indica la route di ingresso per la quale usare il segreto denominato *aks-ingress-tls* per l'host *demo.azure.com*. Anche in questo caso, per l'uso in produzione specificare il proprio indirizzo host.
+La sezione *tls* indica la route di ingresso per la quale usare il segreto denominato *aks-ingress-tls* per l'host *demo.azure.com* . Anche in questo caso, per l'uso in produzione specificare il proprio indirizzo host.
 
 Creare un file denominato `hello-world-ingress.yaml` e copiarlo nell'esempio YAML seguente.
 
@@ -258,7 +258,7 @@ ingress.extensions/hello-world-ingress created
 
 ## <a name="test-the-ingress-configuration"></a>Testare la configurazione di ingresso
 
-Per testare i certificati con il nostro host finto *demo.azure.com*, usare `curl` e specificare il parametro *--risolvere*. Questo parametro consente di eseguire il mapping del nome *demo.azure.com* per l'indirizzo IP pubblico del controller di ingresso. Specificare l'indirizzo IP pubblico del proprio controller di ingresso, come illustrato nell'esempio seguente:
+Per testare i certificati con il nostro host finto *demo.azure.com* , usare `curl` e specificare il parametro *--risolvere* . Questo parametro consente di eseguire il mapping del nome *demo.azure.com* per l'indirizzo IP pubblico del controller di ingresso. Specificare l'indirizzo IP pubblico del proprio controller di ingresso, come illustrato nell'esempio seguente:
 
 ```
 curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
@@ -278,7 +278,7 @@ $ curl -v -k --resolve demo.azure.com:443:EXTERNAL_IP https://demo.azure.com
 [...]
 ```
 
-Il parametro *- v* nel nostro comando `curl` restituisce informazioni dettagliate, tra cui il certificato TLS ricevuto. A metà dell'output di curl, è possibile verificare che sia stato usato il proprio certificato TLS. Il parametro *-k* continua il caricamento della pagina anche se viene usato un certificato autofirmato. L'esempio seguente mostra che è stato usato il certificato *autorità di certificazione: CN=demo.azure.com; O=aks-ingress-tls*:
+Il parametro *- v* nel nostro comando `curl` restituisce informazioni dettagliate, tra cui il certificato TLS ricevuto. A metà dell'output di curl, è possibile verificare che sia stato usato il proprio certificato TLS. Il parametro *-k* continua il caricamento della pagina anche se viene usato un certificato autofirmato. L'esempio seguente mostra che è stato usato il certificato *autorità di certificazione: CN=demo.azure.com; O=aks-ingress-tls* :
 
 ```
 [...]

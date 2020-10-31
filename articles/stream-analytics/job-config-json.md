@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 02/14/2020
-ms.openlocfilehash: f2dd759203655746601699f665436c78ee0758f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb1a1a0b9f3a5996af56ff2c4e2de91d78a6c260
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90885506"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93129338"
 ---
 # <a name="azure-stream-analytics-jobconfigjson-fields"></a>JobConfig.jsdi analisi di flusso di Azure sui campi
 
@@ -41,10 +41,10 @@ I campi seguenti sono supportati nell' *JobConfig.jssu* file usato per [creare u
 |----|----|--------|-----|
 |Impostazioni locali|stringa|No|Impostazioni locali dei dati del processo di analisi di flusso. Il valore deve corrispondere al nome di un oggetto supportato. Se non è specificato alcun valore, il valore predefinito è "en-US".|
 |OutputErrorPolicy|stringa|No|Indica i criteri da applicare agli eventi che arrivano all'output e che non possono essere scritti nella risorsa di archiviazione esterna a causa di un formato non valido (valori di colonna mancanti, valori di colonna di tipo o dimensione errata). -Arresta o Elimina|
-|EventsLateArrivalMaxDelayInSeconds|numero intero|No|Ritardo massimo tollerabile in secondi in cui potrebbero essere inclusi gli eventi che arrivano in ritardo. L'intervallo supportato è compreso tra-1 e 1814399 (20.23:59:59 giorni) e-1 viene usato per specificare un'attesa indefinita. Se la proprietà è assente, viene interpretato come un valore pari a-1.|
-|EventsOutOfOrderMaxDelayInSeconds|numero intero|No|Il ritardo massimo tollerabile in secondi per cui è possibile modificare gli eventi non ordinati in modo da essere nuovamente nell'ordine.|
+|EventsLateArrivalMaxDelayInSeconds|integer|No|Ritardo massimo tollerabile in secondi in cui potrebbero essere inclusi gli eventi che arrivano in ritardo. L'intervallo supportato è compreso tra-1 e 1814399 (20.23:59:59 giorni) e-1 viene usato per specificare un'attesa indefinita. Se la proprietà è assente, viene interpretato come un valore pari a-1.|
+|EventsOutOfOrderMaxDelayInSeconds|integer|No|Il ritardo massimo tollerabile in secondi per cui è possibile modificare gli eventi non ordinati in modo da essere nuovamente nell'ordine.|
 |EventsOutOfOrderPolicy|stringa|No|Indica i criteri da applicare agli eventi che non arrivano in ordine nel flusso di eventi di input. -Regola o Elimina|
-|Streaming|numero intero|Sì|Specifica il numero di unità di streaming utilizzate dal processo di streaming.|
+|Streaming|integer|Sì|Specifica il numero di unità di streaming utilizzate dal processo di streaming.|
 |CompatibilityLevel|stringa|No|Controlla alcuni comportamenti di runtime del processo di streaming. -I valori accettabili sono "1,0", "1,1", "1,2"|
 |UseSystemAssignedIdentity|boolean|No|Impostare true per consentire a questo processo di comunicare con altri servizi di Azure usando un'identità del Azure Active Directory gestito.|
 |GlobalStorage. AccountName|stringa|No|L'account di archiviazione globale viene usato per archiviare il contenuto correlato al processo di analisi di flusso, ad esempio snapshot dei dati di riferimento SQL.|
@@ -58,4 +58,4 @@ I campi seguenti sono supportati nell' *JobConfig.jssu* file usato per [creare u
 * [Creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-visual-studio-code.md)
 * [Eseguire test locali delle query di Analisi di flusso con dati di esempio con Visual Studio Code](visual-studio-code-local-run.md)
 * [Testare le query di analisi di flusso in locale rispetto all'input del flusso Live usando Visual Studio Code](visual-studio-code-local-run-live-input.md) 
-* [Distribuire un processo di analisi di flusso di Azure tramite ci/CD NPM Package](setup-cicd-vs-code.md)
+* [Distribuire un processo di analisi di flusso di Azure tramite ci/CD NPM Package](./cicd-overview.md)

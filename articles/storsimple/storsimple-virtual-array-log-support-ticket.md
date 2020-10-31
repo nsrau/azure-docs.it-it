@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2016
 ms.author: manuaery
-ms.openlocfilehash: 0ed8533b093c5af0d8aefdcd5175bed63f37a76c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 57cd9b55f529bde3f6bcb0a25a95c70333f6d8dd
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85507671"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130953"
 ---
 # <a name="use-the-storsimple-device-manager-service-to-log-a-support-request-for-the-storsimple-virtual-array"></a>Usare il servizio Gestione dispositivi StorSimple per registrare una richiesta di supporto per l'array virtuale StorSimple
 
@@ -33,27 +33,27 @@ In base al [piano di supporto](https://azure.microsoft.com/support/plans/) è po
 
 #### <a name="to-log-a-new-request"></a>Per registrare una nuova richiesta
 
-1. Passare al servizio Gestione dispositivi StorSimple. Nelle impostazioni del pannello di riepilogo servizio passare alla sezione **SUPPORTO E RISOLUZIONE DEI PROBLEMI** e quindi fare clic su **Nuova richiesta di supporto**.
+1. Passare al servizio Gestione dispositivi StorSimple. Nelle impostazioni del pannello di riepilogo servizio passare alla sezione **SUPPORTO E RISOLUZIONE DEI PROBLEMI** e quindi fare clic su **Nuova richiesta di supporto** .
    
-    ![Nuova richiesta di supporto](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
+    ![Screenshot mostra il riquadro delle nozioni di base per una nuova richiesta di supporto.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket1.png)
 
 2. Nel pannello **Informazioni di base** eseguire le operazioni seguenti:
 
-    1. Nell'elenco a discesa **Tipo di problema** selezionare **Tecnico**. 
+    1. Nell'elenco a discesa **Tipo di problema** selezionare **Tecnico** . 
     
-    2. Vengono scelti automaticamente i valori correnti di **sottoscrizione**, tipo di **servizio** e **risorsa** (servizio Gestione dispositivi StorSimple). 
+    2. Vengono scelti automaticamente i valori correnti di **sottoscrizione** , tipo di **servizio** e **risorsa** (servizio Gestione dispositivi StorSimple). 
 
     3. Specificare uno o più dispositivi registrati per il servizio per cui si sono verificati problemi.
 
     4. Scegliere un **piano di supporto** appropriato, se più piani sono associati alla sottoscrizione. È necessario un piano di supporto a pagamento per poter abilitare il supporto tecnico.
 
-3. Nel **Passaggio 2** scegliere la **gravità** e specificare se il problema è correlato all'array o al servizio Gestione dispositivi StorSimple. Scegliere anche una **categoria** per il problema e fornire maggiori **dettagli**.
+3. Nel **Passaggio 2** scegliere la **gravità** e specificare se il problema è correlato all'array o al servizio Gestione dispositivi StorSimple. Scegliere anche una **categoria** per il problema e fornire maggiori **dettagli** .
    
-    ![Nuova richiesta di supporto](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
+    ![Screenshot Visualizza il riquadro problema in cui è possibile immettere il tipo di problema, la categoria e i dettagli per la richiesta di supporto.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket2.png)
 
 4. In **Passaggio 3** fornire le informazioni di contatto. Il supporto Microsoft userà queste informazioni per contattare l'utente per altre informazioni, la diagnostica e la risoluzione.
    
-    ![Nuova richiesta di supporto](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
+    ![Screenshot che mostra il riquadro informazioni di contatto.](./media/storsimple-virtual-array-log-support-ticket/log-support-ticket3.png)
 
 ## <a name="manage-a-support-request"></a>Gestire una richiesta di supporto
 
@@ -61,7 +61,7 @@ Dopo la creazione del ticket di supporto, sarà possibile gestire il ciclo di vi
 
 #### <a name="to-manage-your-support-requests"></a>Per gestire le richieste di supporto
 
-Per visualizzare la pagina Guida e supporto, passare a **Sfoglia -> Guida e supporto**.
+Per visualizzare la pagina Guida e supporto, passare a **Sfoglia -> Guida e supporto** .
 
 ![Gestire le richieste di supporto](./media/storsimple-virtual-array-log-support-ticket/manage-support-tickets.png)
 

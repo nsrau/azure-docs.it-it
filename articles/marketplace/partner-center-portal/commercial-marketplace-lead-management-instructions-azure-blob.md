@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 05/01/2020
-ms.openlocfilehash: cd0b708ac3a1b16804430584dfcb01b3d2a4fae2
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: dea9c0eec275c6a0596636c8625e52b8978bb9a6
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042385"
+ms.locfileid: "93130545"
 ---
 # <a name="use-azure-blob-storage-to-manage-commercial-marketplace-leads"></a>Usare Archiviazione BLOB di Azure per gestire i clienti potenziali del marketplace commerciale
 
@@ -33,7 +33,7 @@ ms.locfileid: "93042385"
 3. Nel portale di Azure creare un account di archiviazione seguendo questa procedura.  
     1. Selezionare **+Crea una risorsa** nella barra del menu a sinistra.  Il riquadro (pannello) **Nuovo** verrà visualizzato a destra.
     2. Selezionare **Archiviazione** nel riquadro **Nuovo** .  Verrà visualizzato l'elenco **In primo piano** a destra.
-    3. Selezionare **Account di archiviazione** per iniziare la creazione dell'account.  Seguire le istruzioni riportate nell'articolo [Creare un account di archiviazione](../../storage/common/storage-quickstart-create-account.md?tabs=azure-portal).
+    3. Selezionare **Account di archiviazione** per iniziare la creazione dell'account.  Seguire le istruzioni riportate nell'articolo [Creare un account di archiviazione](../../storage/common/storage-account-create.md?tabs=azure-portal).
 
     ![Procedura di creazione di un account di archiviazione di Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/azure-storage-create.png)
 
@@ -55,11 +55,11 @@ ms.locfileid: "93042385"
 
 6. Dalla pagina dell'account di archiviazione selezionare **BLOB** .
 
-   ![Chiave di archiviazione di Azure](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
+   ![Screenshot della pagina dell'account di archiviazione di Azure con i BLOB selezionati](./media/commercial-marketplace-lead-management-instructions-azure-blob/select-blobs.png)
 
 7. Nella pagina BLOB selezionare il pulsante **+ Contenitore** .
 
-8. Digitare un **nome** per il nuovo contenitore. Il nome del contenitore deve essere composto da lettere minuscole, deve iniziare con una lettera o un numero e può contenere solo lettere, numeri e trattino (-). Per altre informazioni sui nomi di contenitori e BLOB, vedere [Naming and Referencing Containers, Blobs, and Metadata](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
+8. Digitare un **nome** per il nuovo contenitore. Il nome del contenitore deve essere composto da lettere minuscole, deve iniziare con una lettera o un numero e può contenere solo lettere, numeri e trattino (-). Per altre informazioni sui nomi di contenitori e BLOB, vedere [Naming and Referencing Containers, Blobs, and Metadata](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata) (Denominazione e riferimento a contenitori, BLOB e metadati).
 
     Salvare questo valore perché si tratta del valore di *Nome contenitore* che è necessario specificare nel portale di pubblicazione per ricevere i clienti potenziali per l'offerta nel marketplace.
 
@@ -91,5 +91,3 @@ Quando si è pronti a configurare le informazioni di gestione dei clienti potenz
 
     > [!NOTE]
     > È necessario completare la configurazione del resto dell'offerta e pubblicarla prima di poter ricevere i clienti potenziali per l'offerta.
-
-

@@ -8,12 +8,12 @@ ms.reviewer: mamccrea
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.custom: seodec18
-ms.openlocfilehash: 7a084b2d0582f53d4372ba3332194629ad29a4ec
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: cba81b8415f0f9cf7253e674e90ae09718b94d54
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93041863"
+ms.locfileid: "93130477"
 ---
 # <a name="azure-stream-analytics-on-iot-edge"></a>Analisi di flusso di Azure in IoT Edge
  
@@ -32,11 +32,11 @@ L'Analisi di flusso di Azure su IoT Edge viene eseguita all'interno del framewor
 ## <a name="edge-jobs-in-azure-stream-analytics"></a>Processi Edge in Analisi di flusso di Azure
 ### <a name="what-is-an-edge-job"></a>Che cos'è un processo Edge?
 
-I processi Edge di Analisi di flusso di Azure vengono eseguiti in contenitori distribuiti in [dispositivi Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works). Sono costituiti da due parti:
+I processi Edge di Analisi di flusso di Azure vengono eseguiti in contenitori distribuiti in [dispositivi Azure IoT Edge](../iot-edge/about-iot-edge.md). Sono costituiti da due parti:
 1.  Una parte nel cloud responsabile della definizione del processo: gli utenti definiscono input, output, query e altre impostazioni (eventi non in ordine e così via) nel cloud.
 2.  Un modulo in esecuzione nei dispositivi IoT. Contiene il motore di Analisi di flusso di Azure e riceve la definizione del processo dal cloud. 
 
-Analisi di flusso di Azure usa un hub IoT per distribuire i processi Edge ai dispositivi. Altre informazioni sulla [distribuzione di IoT Edge sono disponibili qui](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+Analisi di flusso di Azure usa un hub IoT per distribuire i processi Edge ai dispositivi. Altre informazioni sulla [distribuzione di IoT Edge sono disponibili qui](../iot-edge/module-deployment-monitoring.md).
 
 ![Processo Edge di Analisi di flusso di Azure](media/stream-analytics-edge/stream-analytics-edge-job.png)
 
@@ -48,24 +48,24 @@ Le procedure generali sono descritte nella tabella seguente. Altri dettagli sono
 | --- | --- |
 | **Creare un contenitore di archiviazione** | I contenitori di archiviazione vengono usati per salvare la definizione del processo in cui sono accessibili dai dispositivi IoT. <br>  È possibile riusare qualsiasi contenitore di archiviazione esistente. |
 | **Creare un processo Edge di Analisi di flusso di Azure** | Creare un nuovo processo, selezionare **Edge** come **Ambiente host** . <br> Questi processi vengono creati e gestiti dal cloud ed eseguiti nei dispositivi IoT Edge. |
-| **Configurare l'ambiente IoT Edge nei dispositivi** | Istruzioni per [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) o [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).|
+| **Configurare l'ambiente IoT Edge nei dispositivi** | Istruzioni per [Windows](../iot-edge/quickstart.md) o [Linux](../iot-edge/quickstart-linux.md).|
 | **Distribuire Analisi di flusso di Azure nei dispositivi IoT Edge** | La definizione del processo di Analisi di flusso di Azure viene esportata nel contenitore di archiviazione creato in precedenza. |
 
-È possibile seguire [questa esercitazione dettagliata](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics) per distribuire il primo processo di Analisi di flusso di Azure in IoT Edge. Il video seguente fornisce informazioni sull'esecuzione di un processo di Analisi di flusso in un dispositivo IoT Edge:  
+È possibile seguire [questa esercitazione dettagliata](../iot-edge/tutorial-deploy-stream-analytics.md) per distribuire il primo processo di Analisi di flusso di Azure in IoT Edge. Il video seguente fornisce informazioni sull'esecuzione di un processo di Analisi di flusso in un dispositivo IoT Edge:  
 
 
 > [!VIDEO https://channel9.msdn.com/Events/Connect/2017/T157/player]
 
 #### <a name="create-a-storage-container"></a>Creare un contenitore di archiviazione
 Per esportare la query compilata e la configurazione del processo di Analisi di flusso di Azure, è necessario un contenitore di archiviazione, che viene usato per configurare l'immagine Docker di Analisi di flusso di Azure con la query specifica. 
-1. Seguire [queste istruzioni](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) per creare un account di archiviazione dal portale di Azure. È possibile mantenere tutte le opzioni predefinite per usare questo account con Analisi di flusso di Azure.
+1. Seguire [queste istruzioni](../storage/common/storage-account-create.md) per creare un account di archiviazione dal portale di Azure. È possibile mantenere tutte le opzioni predefinite per usare questo account con Analisi di flusso di Azure.
 2. Nell'account di archiviazione appena creato creare un contenitore di archiviazione BLOB:
     1. Fare clic su **BLOB** e quindi su **+ Contenitore** . 
     2. Immettere un nome e mantenere il contenitore **Privato** .
 
 #### <a name="create-an-asa-edge-job"></a>Creare un processo Edge di Analisi di flusso di Azure
 > [!Note]
-> Questa esercitazione è incentrata sulla creazione di processi ASA tramite il portale di Azure. È anche possibile [usare il plug-in Visual Studio per creare un processo Edge ASA](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+> Questa esercitazione è incentrata sulla creazione di processi ASA tramite il portale di Azure. È anche possibile [usare il plug-in Visual Studio per creare un processo Edge ASA](./stream-analytics-tools-for-visual-studio-edge-jobs.md)
 
 1. Dal portale di Azure creare un nuovo "processo di Analisi di flusso". [Collegamento diretto per la creazione di un nuovo processo di Analisi di flusso di Azure](https://ms.portal.azure.com/#create/Microsoft.StreamAnalyticsJob).
 
@@ -81,7 +81,7 @@ Per esportare la query compilata e la configurazione del processo di Analisi di 
 4. Impostare le informazioni sul contenitore di archiviazione nel menu **Impostazioni di IoT Edge** .
 
 5. Configurare le impostazioni facoltative
-    1. **Ordinamento eventi** . È possibile configurare criteri non ordinati nel portale. La documentazione è disponibile [qui](https://docs.microsoft.com/stream-analytics-query/time-skew-policies-azure-stream-analytics).
+    1. **Ordinamento eventi** . È possibile configurare criteri non ordinati nel portale. La documentazione è disponibile [qui](/stream-analytics-query/time-skew-policies-azure-stream-analytics).
     2. **Impostazioni locali** . Impostare il formato di internalizzazione.
 
 
@@ -97,7 +97,7 @@ A tale scopo, è necessario seguire questa procedura:
 - Installare Docker e il runtime IoT Edge nei dispositivi Edge.
 - Configurare i dispositivi come **Dispositivi IoT Edge** nell'hub IoT.
 
-Questi passaggi sono descritti nella documentazione di IoT Edge per [Windows](https://docs.microsoft.com/azure/iot-edge/quickstart) o [Linux](https://docs.microsoft.com/azure/iot-edge/quickstart-linux).  
+Questi passaggi sono descritti nella documentazione di IoT Edge per [Windows](../iot-edge/quickstart.md) o [Linux](../iot-edge/quickstart-linux.md).  
 
 
 ####  <a name="deployment-asa-on-your-iot-edge-devices"></a>Distribuzione di Analisi di flusso di Azure nei dispositivi IoT Edge
@@ -113,11 +113,11 @@ Questi passaggi sono descritti nella documentazione di IoT Edge per [Windows](ht
 > Per distribuire il processo ai dispositivi IoT Edge, Analisi di flusso di Azure crea una firma di accesso condiviso per il file di definizione del processo. La chiave della firma di accesso condiviso viene trasmessa in modo sicuro ai dispositivi IoT Edge tramite dispositivo gemello. Questa chiave ha una scadenza di tre anni dalla data di creazione. Quando si aggiorna un processo di IoT Edge, la firma di accesso condiviso viene cambiata, ma la versione dell'immagine resta invariata. Una volta eseguito l' **aggiornamento** , seguire il flusso di lavoro di distribuzione. Nel dispositivo viene registrata una notifica di aggiornamento.
 
 
-Per altre informazioni sulle distribuzioni IoT Edge, vedere [questa pagina](https://docs.microsoft.com/azure/iot-edge/module-deployment-monitoring).
+Per altre informazioni sulle distribuzioni IoT Edge, vedere [questa pagina](../iot-edge/module-deployment-monitoring.md).
 
 
 ##### <a name="configure-routes"></a>Configurare le route
-IoT Edge consente di instradare in modo dichiarativo i messaggi tra i moduli e tra i moduli e l'hub IoT. La sintassi completa è descritta [qui](https://docs.microsoft.com/azure/iot-edge/module-composition).
+IoT Edge consente di instradare in modo dichiarativo i messaggi tra i moduli e tra i moduli e l'hub IoT. La sintassi completa è descritta [qui](../iot-edge/module-composition.md).
 I nomi di input e output creati nel processo di Analisi di flusso di Azure possono essere usati come endpoint per il routing.  
 
 ###### <a name="example"></a>Esempio
@@ -145,7 +145,7 @@ Questo esempio definisce le route seguenti:
 ### <a name="current-limitations-for-iot-edge-jobs-compared-to-cloud-jobs"></a>Limitazioni correnti per i processi IoT Edge rispetto ai processi cloud
 L'obiettivo è di ottenere una parità tra i processi IoT Edge e i processi cloud. La maggior parte delle funzionalità del linguaggio di query SQL è supportata, consentendo di eseguire la stessa logica sia nel cloud che in IoT Edge.
 Tuttavia, le funzionalità seguenti non sono ancora supportate per i processi Edge:
-* Funzioni definite dall'utente in JavaScript. Le funzioni definite dall'utente sono disponibili in [C# per i processi IoT Edge](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-edge-csharp-udf) (anteprima).
+* Funzioni definite dall'utente in JavaScript. Le funzioni definite dall'utente sono disponibili in [C# per i processi IoT Edge](./stream-analytics-edge-csharp-udf.md) (anteprima).
 * Aggregazioni definite dall'utente.
 * Funzioni di Azure Machine Learning.
 * Uso di più di 14 aggregati in un unico passaggio.
@@ -165,7 +165,7 @@ Analisi di flusso di Azure in IoT Edge è reso disponibile come immagini Windows
 
 ### <a name="input-and-output"></a>Input e output
 #### <a name="input-and-output-streams"></a>Flussi di input e output
-I processi Edge di Analisi di flusso di Azure possono ottenere input e output da altri moduli in esecuzione in dispositivi IoT Edge. Per la connessione da e a moduli specifici, è possibile impostare la configurazione di routing in fase di distribuzione. Altre informazioni sono disponibili nella [documentazione relativa alla composizione di un modulo IoT Edge](https://docs.microsoft.com/azure/iot-edge/module-composition).
+I processi Edge di Analisi di flusso di Azure possono ottenere input e output da altri moduli in esecuzione in dispositivi IoT Edge. Per la connessione da e a moduli specifici, è possibile impostare la configurazione di routing in fase di distribuzione. Altre informazioni sono disponibili nella [documentazione relativa alla composizione di un modulo IoT Edge](../iot-edge/module-composition.md).
 
 Per input e output sono supportati i formati CSV e JSON.
 
@@ -176,7 +176,7 @@ Al momento, gli unici tipi supportati di input e output del flusso sono rapprese
 
 
 ##### <a name="reference-data"></a>Dati di riferimento
-I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato di natura statica o che cambia molto lentamente, usato per eseguire una ricerca o per la correlazione con il flusso di dati. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](https://docs.microsoft.com/stream-analytics-query/reference-data-join-azure-stream-analytics) nella query. Per altre informazioni, vedere [Uso dei dati di riferimento per le ricerche in Analisi di flusso](stream-analytics-use-reference-data.md).
+I dati di riferimento (noti anche come tabella di ricerca) sono un set di dati limitato di natura statica o che cambia molto lentamente, usato per eseguire una ricerca o per la correlazione con il flusso di dati. Per usare i dati di riferimento in un processo di Analisi di flusso di Azure, si usa in genere un [JOIN dei dati di riferimento](/stream-analytics-query/reference-data-join-azure-stream-analytics) nella query. Per altre informazioni, vedere [Uso dei dati di riferimento per le ricerche in Analisi di flusso](stream-analytics-use-reference-data.md).
 
 Sono supportati solo dati di riferimento locali. Quando un processo viene distribuito in un dispositivo IoT Edge, carica i dati di riferimento dal percorso file definito dall'utente.
 
@@ -226,13 +226,13 @@ Queste informazioni sulla versione sono state aggiornate l'ultima volta il 27 gi
       
       
 ## <a name="get-help"></a>Ottenere aiuto
-Per un'ulteriore assistenza, provare la [pagina di domande e risposte Microsoft per Analisi di flusso di Azure](https://docs.microsoft.com/answers/topics/azure-stream-analytics.html).
+Per un'ulteriore assistenza, provare la [pagina di domande e risposte Microsoft per Analisi di flusso di Azure](/answers/topics/azure-stream-analytics.html).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Altre informazioni su Azure IoT Edge](https://docs.microsoft.com/azure/iot-edge/how-iot-edge-works)
-* [Esercitazione su Analisi di flusso di Azure in IoT Edge](https://docs.microsoft.com/azure/iot-edge/tutorial-deploy-stream-analytics)
-* [Sviluppare processi Edge di Analisi di flusso usando gli strumenti di Visual Studio](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-tools-for-visual-studio-edge-jobs)
+* [Altre informazioni su Azure IoT Edge](../iot-edge/about-iot-edge.md)
+* [Esercitazione su Analisi di flusso di Azure in IoT Edge](../iot-edge/tutorial-deploy-stream-analytics.md)
+* [Sviluppare processi Edge di Analisi di flusso usando gli strumenti di Visual Studio](./stream-analytics-tools-for-visual-studio-edge-jobs.md)
 * [Implementare CI/CD per Analisi di flusso usando le API](stream-analytics-cicd-api.md)
 
 <!--Link references-->
@@ -240,5 +240,5 @@ Per un'ulteriore assistenza, provare la [pagina di domande e risposte Microsoft 
 [stream.analytics.scale.jobs]: stream-analytics-scale-jobs.md
 [stream.analytics.introduction]: stream-analytics-introduction.md
 [stream.analytics.get.started]: stream-analytics-real-time-fraud-detection.md
-[stream.analytics.query.language.reference]: https://go.microsoft.com/fwlink/?LinkID=513299
-[stream.analytics.rest.api.reference]: https://go.microsoft.com/fwlink/?LinkId=517301
+[stream.analytics.query.language.reference]: /stream-analytics-query/stream-analytics-query-language-reference
+[stream.analytics.rest.api.reference]: /rest/api/streamanalytics/

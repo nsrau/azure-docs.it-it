@@ -8,38 +8,38 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/03/2019
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: bce1f00603d9304fc544fb92d4cc5f1a429504ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f89b23d0c20aafeeb07a744545208f6056efa2c9
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89069001"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93130817"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>Come avviare un processo di analisi di flusso di Azure
 
 È possibile avviare il processo di analisi di flusso di Azure usando il portale di Azure, Visual Studio e PowerShell. Quando si avvia un processo, si seleziona un'ora in cui il processo inizierà a creare l'output. In portale di Azure, Visual Studio e PowerShell sono disponibili metodi diversi per l'impostazione dell'ora di inizio. Questi metodi sono descritti di seguito.
 
 ## <a name="start-options"></a>Opzioni di avvio
-Per avviare un processo, sono disponibili le tre opzioni seguenti. Si noti che tutti gli orari indicati di seguito sono quelli specificati in [timestamp da](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics). Se TIMESTAMP BY non è specificato, verrà utilizzata l'ora di arrivo.
-* **Now**: rende il punto iniziale del flusso di eventi di output uguale a quello in cui viene avviato il processo. Se viene usato un operatore temporale (ad esempio, intervallo di tempo, LAG o JOIN), analisi di flusso di Azure riguarderà automaticamente i dati nell'origine di input. Ad esempio, se si avvia un processo "Now" e se la query usa una finestra a cascata di 5 minuti, analisi di flusso di Azure cercherà i dati di 5 minuti fa nell'input.
+Per avviare un processo, sono disponibili le tre opzioni seguenti. Si noti che tutti gli orari indicati di seguito sono quelli specificati in [timestamp da](/stream-analytics-query/timestamp-by-azure-stream-analytics). Se TIMESTAMP BY non è specificato, verrà utilizzata l'ora di arrivo.
+* **Now** : rende il punto iniziale del flusso di eventi di output uguale a quello in cui viene avviato il processo. Se viene usato un operatore temporale (ad esempio, intervallo di tempo, LAG o JOIN), analisi di flusso di Azure riguarderà automaticamente i dati nell'origine di input. Ad esempio, se si avvia un processo "Now" e se la query usa una finestra a cascata di 5 minuti, analisi di flusso di Azure cercherà i dati di 5 minuti fa nell'input.
 Il primo evento di output potrebbe avere un timestamp uguale o maggiore dell'ora corrente e ASA garantisce che tutti gli eventi di input che possono contribuire logicamente all'output siano stati considerati. Ad esempio, non vengono generate aggregazioni a finestra parziali. Si tratta sempre del valore aggregato completo.
 
-* **Personalizzata**: è possibile scegliere il punto iniziale dell'output. Analogamente all'opzione **Now** , analisi di flusso di Azure leggerà automaticamente i dati prima di questa ora se viene usato un operatore temporale 
+* **Personalizzata** : è possibile scegliere il punto iniziale dell'output. Analogamente all'opzione **Now** , analisi di flusso di Azure leggerà automaticamente i dati prima di questa ora se viene usato un operatore temporale 
 
-* Data dell' **ultimo arresto**. Questa opzione è disponibile quando il processo è stato avviato in precedenza, ma è stato interrotto manualmente o non riuscito. Quando si sceglie questa opzione, analisi di flusso di Azure userà l'ora dell'ultimo output per riavviare il processo, in modo che i dati non vengano persi. Analogamente alle opzioni precedenti, analisi di flusso di Azure leggerà automaticamente i dati prima di questa ora se viene usato un operatore temporale. Poiché diverse partizioni di input possono avere un tempo diverso, viene usata la prima ora di arresto di tutte le partizioni, di conseguenza alcuni duplicati possono essere visualizzati nell'output. Altre informazioni sull'elaborazione di exactly-once sono disponibili nelle [garanzie di recapito degli eventi](https://docs.microsoft.com/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)della pagina.
+* Data dell' **ultimo arresto** . Questa opzione è disponibile quando il processo è stato avviato in precedenza, ma è stato interrotto manualmente o non riuscito. Quando si sceglie questa opzione, analisi di flusso di Azure userà l'ora dell'ultimo output per riavviare il processo, in modo che i dati non vengano persi. Analogamente alle opzioni precedenti, analisi di flusso di Azure leggerà automaticamente i dati prima di questa ora se viene usato un operatore temporale. Poiché diverse partizioni di input possono avere un tempo diverso, viene usata la prima ora di arresto di tutte le partizioni, di conseguenza alcuni duplicati possono essere visualizzati nell'output. Altre informazioni sull'elaborazione di exactly-once sono disponibili nelle [garanzie di recapito degli eventi](/stream-analytics-query/event-delivery-guarantees-azure-stream-analytics)della pagina.
 
 
 ## <a name="azure-portal"></a>Portale di Azure
 
-Passare al processo nel portale di Azure e selezionare **Avvia** nella pagina panoramica. Selezionare l' **ora di inizio dell'output** di un processo e quindi fare clic su **Avvia**.
+Passare al processo nel portale di Azure e selezionare **Avvia** nella pagina panoramica. Selezionare l' **ora di inizio dell'output** di un processo e quindi fare clic su **Avvia** .
 
-Scegliere una delle opzioni per l' **ora di inizio dell'output del processo**. Le opzioni sono *ora*, *personalizzate*e, se il processo è stato eseguito in precedenza, al  *momento dell'ultimo arresto*. Per ulteriori informazioni su queste opzioni, vedere sopra.
+Scegliere una delle opzioni per l' **ora di inizio dell'output del processo** . Le opzioni sono *ora* , *personalizzate* e, se il processo è stato eseguito in precedenza, al  *momento dell'ultimo arresto* . Per ulteriori informazioni su queste opzioni, vedere sopra.
 
 ## <a name="visual-studio"></a>Visual Studio
 
-In visualizzazione processo selezionare il pulsante freccia verde per avviare il processo. Impostare la **modalità di avvio dell'output del processo** e selezionare **Avvia**. Lo stato del processo cambierà in **in esecuzione**.
+In visualizzazione processo selezionare il pulsante freccia verde per avviare il processo. Impostare la **modalità di avvio dell'output del processo** e selezionare **Avvia** . Lo stato del processo cambierà in **in esecuzione** .
 
-Sono disponibili tre opzioni per la **modalità di avvio dell'output del processo**: *JobStartTime*, *CustomTime*e *LastOutputEventTime*. Se questa proprietà è assente, il valore predefinito è *JobStartTime*. Per ulteriori informazioni su queste opzioni, vedere sopra.
+Sono disponibili tre opzioni per la **modalità di avvio dell'output del processo** : *JobStartTime* , *CustomTime* e *LastOutputEventTime* . Se questa proprietà è assente, il valore predefinito è *JobStartTime* . Per ulteriori informazioni su queste opzioni, vedere sopra.
 
 
 ## <a name="powershell"></a>PowerShell
@@ -53,7 +53,7 @@ Start-AzStreamAnalyticsJob `
   -OutputStartMode 'JobStartTime'
 ```
 
-Sono disponibili tre opzioni per **Proprietà outputstartmode**: *JobStartTime*, *CustomTime*e *LastOutputEventTime*. Se questa proprietà è assente, il valore predefinito è *JobStartTime*. Per ulteriori informazioni su queste opzioni, vedere sopra.
+Sono disponibili tre opzioni per **Proprietà outputstartmode** : *JobStartTime* , *CustomTime* e *LastOutputEventTime* . Se questa proprietà è assente, il valore predefinito è *JobStartTime* . Per ulteriori informazioni su queste opzioni, vedere sopra.
 
 Per ulteriori informazioni sul `Start-AzStreamAnalyitcsJob` cmdlet, visualizzare il [riferimento Start-AzStreamAnalyticsJob](/powershell/module/az.streamanalytics/start-azstreamanalyticsjob).
 

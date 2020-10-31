@@ -7,12 +7,12 @@ ms.topic: article
 author: keferna
 ms.author: keferna
 ms.date: 07/14/2020
-ms.openlocfilehash: bdd2dacbba4ef8b7c439a345ea70771354b7fb5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c906d37a01f0fca2d4114e8ba07078fc46eec88b
+ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708595"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93131174"
 ---
 # <a name="cloud-solution-provider-program"></a>Programma per provider di soluzioni cloud
 
@@ -64,11 +64,11 @@ Per autorizzare i partner, selezionare **Seleziona partner CSP** . verrà visual
 
 ![Menu di selezione CSP](media/marketplace-publishers-guide/csp-pop-up-module.png)
 
-È possibile applicare filtri di ricerca, ad esempio **Paese**, **Competenza** o **Competenze**.
+È possibile applicare filtri di ricerca, ad esempio **Paese** , **Competenza** o **Competenze** .
 
 ![Filtri relativi a paese/area geografica e competenze per la ricerca di partner](media/marketplace-publishers-guide/csp-add-resellers.png)
 
-Dopo aver scelto l'elenco dei partner, selezionare **Aggiungi**.
+Dopo aver scelto l'elenco dei partner, selezionare **Aggiungi** .
 
 ![Elenco di esempio di partner autorizzati nel programma CSP](media/marketplace-publishers-guide/csp-add-resellers-details.png)
 
@@ -81,11 +81,11 @@ Selezionare **Salva bozza** per registrare le modifiche.
 Se questa offerta non è stata pubblicata, sarà necessario pubblicarla per renderla disponibile ai partner selezionati.
 
 >[!NOTE]
->Se un partner del programma CSP in una determinata area viene autorizzato, può vendere l'offerta a qualsiasi cliente appartenente a tale area specifica. Per altre informazioni su come le offerte CSP sono classificate in aree, vedere la pagina relativa ai [mercati e alla valuta per il programma Cloud Solution Provider](https://docs.microsoft.com/partner-center/regional-authorization-overview).
+>Se un partner del programma CSP in una determinata area viene autorizzato, può vendere l'offerta a qualsiasi cliente appartenente a tale area specifica. Per altre informazioni su come le offerte CSP sono classificate in aree, vedere la pagina relativa ai [mercati e alla valuta per il programma Cloud Solution Provider](/partner-center/regional-authorization-overview).
 
 Se si sta aggiornando l'elenco CSP di un'offerta già pubblicata, aggiungere gli altri partner e selezionare **Sync CSP audience** (Sincronizza destinatari CSP).
 
-Se si ha un'offerta che comprende già un elenco di partner autorizzati e si vuole usare lo stesso elenco per un'altra offerta, usare **Importazione/Esportazione**. Passare all'offerta con l'elenco CSP e selezionare **Esporta CSP**. La funzione sviluppa un file CSV che può essere importato in un'altra offerta.
+Se si ha un'offerta che comprende già un elenco di partner autorizzati e si vuole usare lo stesso elenco per un'altra offerta, usare **Importazione/Esportazione** . Passare all'offerta con l'elenco CSP e selezionare **Esporta CSP** . La funzione sviluppa un file CSV che può essere importato in un'altra offerta.
 
 #### <a name="option-3-no-partners-in-the-csp-program"></a>Opzione 3: nessun partner nel programma CSP
 
@@ -134,7 +134,7 @@ Se l'offerta attuale è **Opzione 1: Qualsiasi partner nel programma CSP** e si 
 
 ### <a name="navigate-from-option-two-specific-partners-in-the-csp-program-i-select"></a>Uscire dall'opzione due: Partner specifici nel programma CSP selezionato
 
-Se l'offerta attuale è **Opzione 2: Partner specifici nel programma CSP selezionato** e si vuole passare a **Opzione uno: Qualsiasi partner nel programma CSP**, seguire questa procedura per creare una richiesta:
+Se l'offerta attuale è **Opzione 2: Partner specifici nel programma CSP selezionato** e si vuole passare a **Opzione uno: Qualsiasi partner nel programma CSP** , seguire questa procedura per creare una richiesta:
 
 1. Andare alla [pagina della richiesta di supporto](https://aka.ms/marketplacepublishersupport). I primi menu a discesa vengono compilati automaticamente.
 
@@ -147,7 +147,7 @@ Se l'offerta attuale è **Opzione 2: Partner specifici nel programma CSP selezio
 5. Selezionare **Avanti** per passare alla pagina **Dettagli del problema** dove è possibile immettere altri dettagli sul problema.
 6. Usare **Deauthorize CSP** come titolo del problema e compilare la altre sezioni obbligatorie.
 
- Se l'offerta attuale è **Opzione 2: Partner specifici nel programma CSP selezionato** e si vuole passare a **Opzione 3: Nessun partner nel programma CSP**, sarà possibile passare a tale opzione solo se i partner del programma CSP autorizzati in precedenza non hanno rivenduto l'offerta ai clienti finali. Usare le istruzioni seguenti per creare una richiesta:
+ Se l'offerta attuale è **Opzione 2: Partner specifici nel programma CSP selezionato** e si vuole passare a **Opzione 3: Nessun partner nel programma CSP** , sarà possibile passare a tale opzione solo se i partner del programma CSP autorizzati in precedenza non hanno rivenduto l'offerta ai clienti finali. Usare le istruzioni seguenti per creare una richiesta:
 
 1. Andare alla [pagina della richiesta di supporto](https://aka.ms/marketplacepublishersupport). I primi menu a discesa vengono compilati automaticamente.
 
@@ -162,7 +162,7 @@ Se l'offerta attuale è **Opzione 2: Partner specifici nel programma CSP selezio
 
 ### <a name="navigate-from-option-3-no-partners-in-the-csp-program"></a>Uscire dall'opzione 3: Nessun partner nel programma CSP
 
-Se l'offerta attuale è **Opzione 3: Nessun partner nel programma CSP**, è possibile passare a una delle altre due opzioni in qualsiasi momento.
+Se l'offerta attuale è **Opzione 3: Nessun partner nel programma CSP** , è possibile passare a una delle altre due opzioni in qualsiasi momento.
 
 ## <a name="sharing-sales-and-support-materials-with-partners-in-the-csp-program"></a>Condivisione di materiali di vendita e supporto con i partner del programma CSP
 
