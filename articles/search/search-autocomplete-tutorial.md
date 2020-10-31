@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 1796566c0a775e5810c387a01e0b54983727fa37
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 04123d06d22786c9dd2aa08c2dab1153f6d43375
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91951401"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098451"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Aggiungere il completamento automatico e suggerimenti alle app client
 
-Il tipo di ricerca è una tecnica comune per migliorare la produttività delle query avviate dall'utente. In Azure ricerca cognitiva questa esperienza è supportata tramite il *completamento automatico*, che completa un termine o una frase basata sull'input parziale (completando "micro" con "Microsoft"). Un altro modulo è costituito da *suggerimenti*: un breve elenco di documenti corrispondenti (che restituiscono titoli di libro con un ID per potersi collegare a una pagina di dettaglio). Il completamento automatico e i suggerimenti vengono predicati in base a una corrispondenza nell'indice. Il servizio non offrirà query che restituiscono zero risultati.
+Il tipo di ricerca è una tecnica comune per migliorare la produttività delle query avviate dall'utente. In Azure ricerca cognitiva questa esperienza è supportata tramite il *completamento automatico* , che completa un termine o una frase basata sull'input parziale (completando "micro" con "Microsoft"). Un altro modulo è costituito da *suggerimenti* : un breve elenco di documenti corrispondenti (che restituiscono titoli di libro con un ID per potersi collegare a una pagina di dettaglio). Il completamento automatico e i suggerimenti vengono predicati in base a una corrispondenza nell'indice. Il servizio non offrirà query che restituiscono zero risultati.
 
 Per implementare queste esperienze in Azure ricerca cognitiva, sarà necessario:
 
@@ -67,7 +67,7 @@ Le risposte vengono modellate in base ai parametri della richiesta. Per il compl
 
 Per i suggerimenti, è necessario affinare ulteriormente la risposta per evitare i duplicati o i risultati non correlati. Per controllare i risultati, includere più parametri nella richiesta. I parametri seguenti si applicano sia a completamento automatico che a suggerimenti, ma sono forse più necessari per i suggerimenti, soprattutto quando un suggerimento include più campi.
 
-| Parametro | Uso |
+| Parametro | Utilizzo |
 |-----------|-------|
 | **$select** | Se si dispone di più **sourceFields** in un suggerimento, utilizzare **$SELECT** per scegliere il campo che contribuisce ai valori ( `$select=GameTitle` ). |
 | **searchFields** | Vincolare la query a campi specifici. |
@@ -131,7 +131,7 @@ source: "/home/suggest?highlights=false&fuzzy=true&",
 
 ### <a name="enable-highlighting"></a>Abilita evidenziazione
 
-L'evidenziazione applica lo stile del carattere ai caratteri nel risultato che corrispondono all'input. Ad esempio, se l'input parziale è "micro", il risultato verrebbe visualizzato come **micro**soft, ambito **micro**e così via. L'evidenziazione si basa sui parametri HighlightPreTag e HighlightPostTag, definiti inline con la funzione di suggerimento.
+L'evidenziazione applica lo stile del carattere ai caratteri nel risultato che corrispondono all'input. Ad esempio, se l'input parziale è "micro", il risultato verrebbe visualizzato come **micro** soft, ambito **micro** e così via. L'evidenziazione si basa sui parametri HighlightPreTag e HighlightPostTag, definiti inline con la funzione di suggerimento.
 
 ```javascript
 source: "/home/suggest?highlights=true&fuzzy=true&",
@@ -181,7 +181,7 @@ La funzione Suggest include due parametri che determinano se vengono restituiti 
 
 ## <a name="autocomplete"></a>Completamento automatico
 
-Fino ad ora, il codice UX di ricerca è stato centrato sui suggerimenti. Il blocco di codice successivo Mostra il completamento automatico, usando la funzione di completamento automatico dell'interfaccia utente di XDSoft jQuery, passando una richiesta di Azure ricerca cognitiva completamento automatico. Come per i suggerimenti, in un'applicazione C# il codice che supporta l'interazione con l'utente passa a **index. cshtml**.
+Fino ad ora, il codice UX di ricerca è stato centrato sui suggerimenti. Il blocco di codice successivo Mostra il completamento automatico, usando la funzione di completamento automatico dell'interfaccia utente di XDSoft jQuery, passando una richiesta di Azure ricerca cognitiva completamento automatico. Come per i suggerimenti, in un'applicazione C# il codice che supporta l'interazione con l'utente passa a **index. cshtml** .
 
 ```javascript
 $(function () {
@@ -253,4 +253,4 @@ Segui questi collegamenti per istruzioni end-to-end o codice che dimostrano entr
 
 + [Esercitazione: creare la prima app in C# (lezione 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [Esempio di codice C#: Azure-Search-DotNet-Samples/create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [C# e JavaScript con l'esempio di codice side-by-side REST](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)
++ [C# e JavaScript con l'esempio di codice side-by-side REST](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

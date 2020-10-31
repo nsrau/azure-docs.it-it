@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/31/2019
 ms.author: tisande
-ms.openlocfilehash: cca62c358037dbe99fd16746ee081b1540161df2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ebc1f66e68d4cf37546e7d33a9b723385330395c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74873421"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100865"
 ---
 # <a name="azure-cosmos-db-sql-query-constants"></a>Azure Cosmos DB costanti di query SQL  
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  Una costante, denominata anche valore letterale o scalare, è un simbolo che rappresenta un valore di dati specifico. Il formato di una costante dipende dal tipo di dati del valore che essa rappresenta.  
   
@@ -23,11 +24,11 @@ ms.locfileid: "74873421"
 |-|-|  
 |**Non definito**|Singolo valore: **non definito**|  
 |**Null**|Singolo valore: **null**|  
-|**Boolean**|Valori: **false**, **true**.|  
+|**Boolean**|Valori: **false** , **true** .|  
 |**Number**|Un numero a virgola mobile e precisione doppia, standard IEEE 754.|  
 |**Stringa**|Una sequenza di zero o più caratteri Unicode. Le stringhe devono essere racchiuse tra virgolette singole o doppie.|  
-|**Di matrice**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalari, ad eccezione di **undefined**.|  
-|**Object**|Un set non ordinato di zero o più coppie nome/valore. Il nome è una stringa Unicode, il valore può essere di qualsiasi tipo di dati scalare, tranne **Undefined**.|  
+|**Di matrice**|Una sequenza di zero o più elementi. Ogni elemento può essere un valore di qualsiasi tipo di dati scalari, ad eccezione di **undefined** .|  
+|**Object**|Un set non ordinato di zero o più coppie nome/valore. Il nome è una stringa Unicode, il valore può essere di qualsiasi tipo di dati scalare, tranne **Undefined** .|  
   
 ## <a name="syntax"></a><a name="bk_syntax"></a>Sintassi
   
@@ -67,7 +68,7 @@ ms.locfileid: "74873421"
   
 * `<null_constant>; null`  
   
-  Rappresenta un valore **null** di tipo **Null**.  
+  Rappresenta un valore **null** di tipo **Null** .  
   
 * `<boolean_constant>`  
   

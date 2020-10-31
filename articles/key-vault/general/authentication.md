@@ -7,12 +7,12 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3ec831bada19aa8d3872440ba628ac06bc64f749
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89481376"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099420"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Eseguire l'autenticazione con Azure Key Vault
 
@@ -20,7 +20,7 @@ Azure Key Vault consente di archiviare i segreti e controllarne la distribuzione
 
 ## <a name="app-identity-and-security-principals"></a>Identità ed entità di sicurezza dell'app
 
-L'autenticazione con Key Vault funziona in combinazione con [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), che è responsabile dell'autenticazione dell'identità di una determinata **entità di sicurezza**.
+L'autenticazione con Key Vault funziona in combinazione con [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), che è responsabile dell'autenticazione dell'identità di una determinata **entità di sicurezza** .
 
 Un'entità di sicurezza è un oggetto che rappresenta un utente, un gruppo, un servizio o un'applicazione che richiede l'accesso alle risorse di Azure. Azure assegna un **ID oggetto** univoco a ogni entità di sicurezza.
 
@@ -28,11 +28,11 @@ Un'entità di sicurezza è un oggetto che rappresenta un utente, un gruppo, un s
 
 * L'entità di sicurezza di un **gruppo** identifica un set di utenti creati in Azure Active Directory. Tutti i ruoli o le autorizzazioni assegnati al gruppo vengono concessi a tutti gli utenti all'interno del gruppo.
 
-* Un'**entità servizio** è un tipo di entità di sicurezza che identifica un'applicazione o un servizio, ovvero una porzione di codice anziché un utente o un gruppo. L'ID oggetto di un'entità servizio è noto come **ID client** e funge da nome utente. Il **segreto client** dell'entità servizio funge da password.
+* Un' **entità servizio** è un tipo di entità di sicurezza che identifica un'applicazione o un servizio, ovvero una porzione di codice anziché un utente o un gruppo. L'ID oggetto di un'entità servizio è noto come **ID client** e funge da nome utente. Il **segreto client** dell'entità servizio funge da password.
 
 Per le applicazioni esistono due modi per ottenere un'entità servizio:
 
-* Consigliato: abilitare un'**identità gestita** assegnata dal sistema per l'applicazione.
+* Consigliato: abilitare un' **identità gestita** assegnata dal sistema per l'applicazione.
 
     Con l'identità gestita, Azure gestisce internamente l'entità servizio dell'applicazione e autentica automaticamente l'applicazione per altri servizi di Azure. L'identità gestita è disponibile per le applicazioni distribuite in un'ampia gamma di servizi.
 
@@ -111,7 +111,7 @@ La tabella seguente contiene collegamenti a diversi articoli che illustrano come
 |  --- | --- | --- |
 | [Python](/azure/key-vault/secrets/quick-create-python) | [Python](/azure/key-vault/keys/quick-create-python) | [Python](/azure/key-vault/certificates/quick-create-python) | 
 | [.NET (SDK v4)](/azure/key-vault/secrets/quick-create-net) | -- | -- |
-| [.NET (SDK v3)](/azure/key-vault/secrets/quick-create-net-v3) | -- | -- |
+| [.NET (SDK v3)](https://dotnet.microsoft.com/download/dotnet-core/3.0) | -- | -- |
 | [Java](/azure/key-vault/secrets/quick-create-java) | -- | -- |
 | [JavaScript](/azure/key-vault/secrets/quick-create-node) | -- | -- | 
 | | | |

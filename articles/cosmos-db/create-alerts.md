@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 07/16/2020
-ms.openlocfilehash: 84c2ad3a24d944db6a55f3f21e8a2a0c4084d033
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1042638dc622e6675c997bc6db8df1d072824816
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87099635"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099913"
 ---
 # <a name="create-alerts-for-azure-cosmos-db-using-azure-monitor"></a>Creare avvisi per Azure Cosmos DB usando monitoraggio di Azure
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Gli avvisi vengono usati per configurare test ricorrenti per monitorare la disponibilità e la velocità di risposta delle risorse Azure Cosmos DB. Gli avvisi possono inviare una notifica sotto forma di messaggio di posta elettronica oppure eseguire una funzione di Azure quando una delle metriche raggiunge la soglia o se viene registrato un evento specifico nel log attività.
 
@@ -33,7 +34,7 @@ Questa sezione illustra come creare un avviso quando si riceve un codice di stat
 
 1. Accedere al [portale di Azure.](https://portal.azure.com/)
 
-1. Selezionare **monitoraggio** nella barra di spostamento a sinistra e selezionare **avvisi**.
+1. Selezionare **monitoraggio** nella barra di spostamento a sinistra e selezionare **avvisi** .
 
 1. Selezionare il pulsante nuova regola di avviso per aprire il riquadro Crea regola di avviso.  
 
@@ -43,31 +44,31 @@ Questa sezione illustra come creare un avviso quando si riceve un codice di stat
 
    * Scegliere il nome della **sottoscrizione** .
 
-   * Selezionare **Azure Cosmos DB account** per il **tipo di risorsa**.
+   * Selezionare **Azure Cosmos DB account** per il **tipo di risorsa** .
 
    * Il **percorso** dell'account Azure Cosmos.
 
-   * Dopo aver compilato i dettagli, viene visualizzato un elenco di account Azure Cosmos nell'ambito selezionato. Scegliere quella per cui si desidera configurare gli avvisi e selezionare **fine**.
+   * Dopo aver compilato i dettagli, viene visualizzato un elenco di account Azure Cosmos nell'ambito selezionato. Scegliere quella per cui si desidera configurare gli avvisi e selezionare **fine** .
 
 1. Compilare la sezione **condizione** :
 
    * Aprire il riquadro **Seleziona condizione** per aprire la pagina **Configura logica del segnale** e configurare quanto segue:
 
-   * Selezionare un segnale, Il **tipo di segnale** può essere una **metrica** o un **log attività**. Scegliere le **metriche** per questo scenario. Poiché si desidera ricevere un avviso quando si verificano problemi di limitazione della frequenza per la metrica totale unità richiesta.
+   * Selezionare un segnale, Il **tipo di segnale** può essere una **metrica** o un **log attività** . Scegliere le **metriche** per questo scenario. Poiché si desidera ricevere un avviso quando si verificano problemi di limitazione della frequenza per la metrica totale unità richiesta.
 
    * Seleziona **tutto** per il **servizio di monitoraggio**
 
-   * Scegliere un **nome di segnale**. Per ricevere un avviso per i codici di stato HTTP, scegliere il segnale **totale delle unità richiesta** .
+   * Scegliere un **nome di segnale** . Per ricevere un avviso per i codici di stato HTTP, scegliere il segnale **totale delle unità richiesta** .
 
    * Nella scheda successiva è possibile definire la logica per l'attivazione di un avviso e usare il grafico per visualizzare le tendenze dell'account Azure Cosmos. La metrica **totale unità richiesta** supporta le dimensioni. Queste dimensioni consentono di filtrare la metrica. Se non si seleziona alcuna dimensione, questo valore viene ignorato.
 
-   * Scegliere **statusCode** come **nome della dimensione**. Selezionare **Aggiungi valore personalizzato** e impostare il codice di stato su 429.
+   * Scegliere **statusCode** come **nome della dimensione** . Selezionare **Aggiungi valore personalizzato** e impostare il codice di stato su 429.
 
-   * Nella **logica di avviso**impostare la **soglia** su **static**. La soglia statica usa un valore soglia definito dall'utente per valutare la regola, mentre le soglie dinamiche usano gli algoritmi di apprendimento automatico incorporati per apprendere continuamente il modello di comportamento della metrica e calcolare automaticamente le soglie.
+   * Nella **logica di avviso** impostare la **soglia** su **static** . La soglia statica usa un valore soglia definito dall'utente per valutare la regola, mentre le soglie dinamiche usano gli algoritmi di apprendimento automatico incorporati per apprendere continuamente il modello di comportamento della metrica e calcolare automaticamente le soglie.
 
-   * Impostare l' **operatore** su un valore **maggiore di**, il **tipo di aggregazione** su **Total**e il **valore soglia** su **100**. Con questa logica, se il client rileva più di 100 richieste con un codice di stato 429, viene attivato l'avviso. È anche possibile configurare il tipo di aggregazione, la granularità delle aggregazioni e la frequenza di valutazione in base ai requisiti.
+   * Impostare l' **operatore** su un valore **maggiore di** , il **tipo di aggregazione** su **Total** e il **valore soglia** su **100** . Con questa logica, se il client rileva più di 100 richieste con un codice di stato 429, viene attivato l'avviso. È anche possibile configurare il tipo di aggregazione, la granularità delle aggregazioni e la frequenza di valutazione in base ai requisiti.
 
-   * Dopo aver compilato il modulo, selezionare **fine**. La schermata seguente mostra i dettagli della logica di avviso:
+   * Dopo aver compilato il modulo, selezionare **fine** . La schermata seguente mostra i dettagli della logica di avviso:
 
      :::image type="content" source="./media/create-alerts/configure-alert-logic.png" alt-text="Configurare la logica per la ricezione di avvisi per richieste con frequenza limitata/429":::
 
@@ -81,7 +82,7 @@ Questa sezione illustra come creare un avviso quando si riceve un codice di stat
 
    * Scegliere la sottoscrizione e il gruppo di risorse in cui verrà creato il gruppo di azione.  
 
-   * Specificare un nome per l'azione e selezionare **messaggio di posta elettronica/SMS/push/Voice** come **tipo di azione**. La schermata seguente mostra i dettagli del tipo di azione:
+   * Specificare un nome per l'azione e selezionare **messaggio di posta elettronica/SMS/push/Voice** come **tipo di azione** . La schermata seguente mostra i dettagli del tipo di azione:
 
      :::image type="content" source="./media/create-alerts/configure-alert-action-type.png" alt-text="Configurare la logica per la ricezione di avvisi per richieste con frequenza limitata/429":::
 

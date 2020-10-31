@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 19e0d741d959eba704f26e7e8f7b5d311aa77775
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4e5522c162e08f0257bd6f20b058bf8bb858cff3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904864"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099347"
 ---
 # <a name="how-to-secure-apis-using-client-certificate-authentication-in-api-management"></a>Come proteggere le API usando l'autenticazione con certificati client in Gestione API
 
@@ -93,9 +93,8 @@ L'esempio seguente illustra come controllare l'identificazione personale di un c
 
 > [!TIP]
 > Il problema di deadlock del certificato client descritto in questo [articolo](https://techcommunity.microsoft.com/t5/Networking-Blog/HTTPS-Client-Certificate-Request-freezes-when-the-Server-is/ba-p/339672) può manifestarsi in diversi modi, ad esempio le richieste bloccate, il risultato del `403 Forbidden` codice di stato dopo il timeout `context.Request.Certificate` è `null` . Questo problema in genere interessa `POST` e `PUT` richiede una lunghezza del contenuto di approssimativamente 60kb o superiore.
-> Per evitare che si verifichi questo problema, attivare l'impostazione "Negotiate client certificate" per i nomi host desiderati nel pannello "domini personalizzati", come illustrato di seguito. Questa funzionalità non è disponibile nel livello a consumo.
+> Per evitare che si verifichi questo problema, attivare l'impostazione "Negotiate client certificate" per i nomi host desiderati nel pannello "domini personalizzati", come illustrato nella prima immagine di questo documento. Questa funzionalità non è disponibile nel livello a consumo.
 
-![Negozia certificato client](./media/api-management-howto-mutual-certificates-for-clients/negotiate-client-certificate.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

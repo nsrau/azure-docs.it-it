@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 38e80f1597a08b8db7cbfa852d1bcf38ac768b1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4c754455e2a686274eab8b1f77713b8983251a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74871143"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100797"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Join in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-In un database relazionale, i join tra le tabelle sono il corollario logico della progettazione di schemi normalizzati. Al contrario, l'API SQL utilizza il modello di dati denormalizzato di elementi privi di schema, che è l'equivalente logico di un *self-join*.
+In un database relazionale, i join tra le tabelle sono il corollario logico della progettazione di schemi normalizzati. Al contrario, l'API SQL utilizza il modello di dati denormalizzato di elementi privi di schema, che è l'equivalente logico di un *self-join* .
 
 Gli inner join generano un prodotto incrociato completo dei set che partecipano al join. Il risultato di un join a N vie è un set di tuple a N elementi, in cui ogni valore presente nella tupla è associato al set con alias che partecipa al join e l'accesso al set è possibile facendo riferimento a tale alias in altre clausole.
 
@@ -101,7 +102,7 @@ Verrà ora esaminata la seguente clausola FROM: `<from_source1> JOIN <from_sourc
   > [!NOTE]
   > Viene generato un prodotto incrociato tra `<from_source2>` e `<from_source3>` perché entrambi hanno come ambito lo stesso elemento `<from_source1>`.  Sono state create 4 (2x2) tuple con valore A, 0 tuple con valore B (1 x 0) e 2 (2x1) tuple con valore C.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Gli esempi seguenti illustrano il funzionamento della clausola JOIN. Prima di eseguire questi esempi, caricare i [dati della famiglia](sql-query-getting-started.md#upload-sample-data)di esempio. Nell'esempio seguente, il risultato è vuoto, perché il prodotto incrociato di ogni elemento dall'origine e un set vuoto è vuoto:
 

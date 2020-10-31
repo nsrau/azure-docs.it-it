@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/14/2020
-ms.openlocfilehash: 7caa29807f2779ee1f52cb22de2bf95fdb9cb37e
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4d03e651006661a2fa82901d64f8fb6ac2236210
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367126"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098774"
 ---
 # <a name="introduction-to-provisioned-throughput-in-azure-cosmos-db"></a>Introduzione alla velocità effettiva con provisioning in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB consente di impostare la velocità effettiva con provisioning su database e contenitori. Esistono due tipi di velocità effettiva con provisioning: standard (manuale) o con scalabilità automatica. Questo articolo offre una panoramica del funzionamento della velocità effettiva con provisioning. 
 
@@ -79,11 +80,11 @@ Se i carichi di lavoro comportano l'eliminazione e la ricreazione di tutte le ra
 È possibile combinare i due modelli, effettuando il provisioning della velocità effettiva sia nel database che nel contenitore. L'esempio seguente illustra come effettuare il provisioning della velocità effettiva standard (manuale) in un database di Azure Cosmos e in un contenitore:
 
 * È possibile creare un database di Azure Cosmos denominato *Z* con una velocità effettiva con provisioning standard (manuale) pari a *"K"* UR. 
-* Creare quindi cinque contenitori denominati *A*, *B*, *C*, *D* ed *E* all'interno del database. Quando si crea il contenitore B, abilitare l'opzione **Provision dedicated throughput for this container** (Effettua il provisioning di velocità effettiva dedicata per questo contenitore) e configurare in modo esplicito *"P"* UR di velocità effettiva con provisioning in questo contenitore. È possibile configurare la velocità effettiva condivisa e dedicata solo quando si creano il database e il contenitore. 
+* Creare quindi cinque contenitori denominati *A* , *B* , *C* , *D* ed *E* all'interno del database. Quando si crea il contenitore B, abilitare l'opzione **Provision dedicated throughput for this container** (Effettua il provisioning di velocità effettiva dedicata per questo contenitore) e configurare in modo esplicito *"P"* UR di velocità effettiva con provisioning in questo contenitore. È possibile configurare la velocità effettiva condivisa e dedicata solo quando si creano il database e il contenitore. 
 
    :::image type="content" source="./media/set-throughput/coll-level-throughput.png" alt-text="Partizione fisica che ospita una o più partizioni logiche di un contenitore":::
 
-* La velocità effettiva di *"K"* UR è condivisa tra i quattro contenitori *A*, *C*, *D* ed *E*. La quantità esatta di velocità effettiva disponibile per *A*, *C*, *D* o *E* varia. Non sono previsti contratti di servizio per la velocità effettiva di ogni singolo contenitore.
+* La velocità effettiva di *"K"* UR è condivisa tra i quattro contenitori *A* , *C* , *D* ed *E* . La quantità esatta di velocità effettiva disponibile per *A* , *C* , *D* o *E* varia. Non sono previsti contratti di servizio per la velocità effettiva di ogni singolo contenitore.
 * Il contenitore *B* ha la garanzia di ottenere sempre la velocità effettiva di *"P"* UR ed è supportato da contratti di servizio.
 
 > [!NOTE]
@@ -119,9 +120,9 @@ Il numero effettivo minimo di ur/sec può variare a seconda della configurazione
 * [Container. ReplaceThroughputAsync](/dotnet/api/microsoft.azure.cosmos.container.replacethroughputasync?view=azure-dotnet&preserve-view=true) in .NET SDK.
 * [CosmosContainer. replaceThroughput](/java/api/com.azure.cosmos.cosmosasynccontainer.replacethroughput?view=azure-java-stable&preserve-view=true) in Java SDK.
 
-Se si **riduce la velocità effettiva con provisioning**, sarà possibile farlo fino al [minimo](#current-provisioned-throughput).
+Se si **riduce la velocità effettiva con provisioning** , sarà possibile farlo fino al [minimo](#current-provisioned-throughput).
 
-Se si **aumenta la velocità effettiva con provisioning**, nella maggior parte dei casi l'operazione è immediata. Esistono tuttavia casi in cui l'operazione può richiedere più tempo a causa delle attività di sistema per il provisioning delle risorse necessarie. In questo caso, un tentativo di modificare la velocità effettiva con provisioning durante l'esecuzione di questa operazione produrrà una risposta HTTP 423 con un messaggio di errore che informa che è in corso un'altra operazione di ridimensionamento.
+Se si **aumenta la velocità effettiva con provisioning** , nella maggior parte dei casi l'operazione è immediata. Esistono tuttavia casi in cui l'operazione può richiedere più tempo a causa delle attività di sistema per il provisioning delle risorse necessarie. In questo caso, un tentativo di modificare la velocità effettiva con provisioning durante l'esecuzione di questa operazione produrrà una risposta HTTP 423 con un messaggio di errore che informa che è in corso un'altra operazione di ridimensionamento.
 
 > [!NOTE]
 > Se si prevede un carico di lavoro di inserimento molto grande che richiede un notevole aumento della velocità effettiva con provisioning, tenere presente che l'operazione di ridimensionamento non ha un contratto di servizio e, come indicato nel paragrafo precedente, può richiedere molto tempo quando l'incremento è elevato. È possibile pianificare in anticipo e avviare il ridimensionamento prima che il carico di lavoro venga avviato e usare i metodi seguenti per verificare lo stato di avanzamento.

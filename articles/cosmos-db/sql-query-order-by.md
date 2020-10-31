@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: tisande
-ms.openlocfilehash: c4ae66884602989284a427bdc33de7612bd9a8df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fdbe0f9754cc82ef790409cf2b36a7203b90855b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84484334"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099284"
 ---
 # <a name="order-by-clause-in-azure-cosmos-db"></a>Clausola ORDER BY in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 La clausola facoltativa `ORDER BY` consente di specificare l'ordinamento dei risultati restituiti dalla query.
 
@@ -54,7 +55,7 @@ ORDER BY <sort_specification>
 > [!Note]
 > Se le proprietà ordinate potrebbero non essere definite per alcuni documenti e si desidera recuperarle in una query ORDER BY, è necessario includere in modo esplicito questo percorso nell'indice. I criteri di indicizzazione predefiniti non consentiranno il recupero dei documenti in cui la proprietà di ordinamento non è definita. [Esaminare le query di esempio sui documenti con alcuni campi mancanti](#documents-with-missing-fields).
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Ad esempio, ecco una query che recupera le famiglie in ordine crescente di nome della città residente:
 
@@ -79,7 +80,7 @@ I risultati sono:
     ]
 ```
 
-La query seguente recupera le famiglie `id` in ordine di data di creazione dell'elemento. `creationDate`L'elemento è un numero che rappresenta l' *ora di epoche*o il tempo trascorso da Jan. 1, 1970 in secondi.
+La query seguente recupera le famiglie `id` in ordine di data di creazione dell'elemento. `creationDate`L'elemento è un numero che rappresenta l' *ora di epoche* o il tempo trascorso da Jan. 1, 1970 in secondi.
 
 ```sql
     SELECT f.id, f.creationDate

@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 77af5a66ba349e5985e3b27b07c82a1595ccc8a1
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 742ff2e6cff4569b5b7eeb131cd4394277b6c3cd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547079"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100457"
 ---
 # <a name="consistency-levels-in-azure-cosmos-db"></a>Livelli di coerenza in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 I database distribuiti che si basano sulla replica per la disponibilità elevata, la bassa latenza o entrambi, devono avere un compromesso fondamentale tra la coerenza di lettura, la disponibilità, la latenza e la velocità effettiva in base a quanto definito dal [teorema PACLC](https://en.wikipedia.org/wiki/PACELC_theorem). Il della linearità del modello di coerenza forte è lo standard Gold di programmabilità dei dati. Ma aggiunge un prezzo ripido dalle latenze di scrittura più elevate a causa della necessità di replicare ed eseguire il commit di una grande quantità di dati. La coerenza assoluta può anche risentirne la disponibilità ridotta (durante gli errori), perché i dati non possono essere replicati ed eseguito il commit in ogni area La coerenza finale offre una maggiore disponibilità e prestazioni migliori, ma è più difficile programmare le applicazioni perché i dati potrebbero non essere completamente coerenti in tutte le aree.
 

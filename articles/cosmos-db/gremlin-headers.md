@@ -7,21 +7,23 @@ ms.topic: reference
 ms.date: 09/03/2019
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: 4b082c89684bc06346fa933aad6be97dc371bc3f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 00394e60ad1cf86bfd75a86a0b6630505c7d7356
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490578"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100389"
 ---
 # <a name="azure-cosmos-db-gremlin-server-response-headers"></a>Intestazioni di risposta del server Azure Cosmos DB Gremlin
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
+
 Questo articolo illustra le intestazioni che il server Gremlin di Cosmos DB restituisce al chiamante al momento dell'esecuzione della richiesta. Queste intestazioni sono utili per la risoluzione dei problemi relativi alle prestazioni delle richieste, per la compilazione di applicazioni che si integrano in modo nativo con il servizio Cosmos DB e per semplificare il supporto clienti.
 
 Tenere presente che la dipendenza da queste intestazioni consente di limitare la portabilità dell'applicazione ad altre implementazioni Gremlin. In cambio, si ottiene un'integrazione più stretta con Cosmos DB Gremlin. Queste intestazioni non sono standard TinkerPop.
 
 ## <a name="headers"></a>Intestazioni
 
-| Intestazione | Tipo | Valore di esempio | Quando incluso | Spiegazione |
+| Intestazione | Type | Valore di esempio | Quando incluso | Spiegazione |
 | --- | --- | --- | --- | --- |
 | **x-ms-request-charge** | double | 11,3243 | Success and Failure | Quantità di velocità effettiva raccolta o database utilizzata in [unità richiesta (UR/s o UR)](request-units.md) per un messaggio di risposta parziale. Questa intestazione è presente in ogni continuazione per le richieste con più blocchi. Riflette il costo di un determinato blocco di risposta. Solo per le richieste che sono costituite da un singolo blocco di risposta questa intestazione corrisponde al costo totale di attraversamento. Tuttavia, per la maggior parte degli attraversamenti complessi, questo valore rappresenta un costo parziale. |
 | **x-ms-Total-request-charge** | double | 423,987 | Success and Failure | Quantità di velocità effettiva raccolta o database utilizzata nelle [unità richiesta (UR/s o UR)](request-units.md) per l'intera richiesta. Questa intestazione è presente in ogni continuazione per le richieste con più blocchi. Indica un addebito cumulativo dall'inizio della richiesta. Il valore di questa intestazione nell'ultimo blocco indica un addebito completo della richiesta. |
@@ -43,7 +45,7 @@ Di seguito sono elencati i codici di stato più comuni restituiti dal server.
 | **408** | `"Server timeout"` indica che l'attraversamento ha impiegato più di **30 secondi** ed è stato annullato dal server. Ottimizzare gli attraversamenti per l'esecuzione rapida filtrando i vertici o i bordi su ogni hop di attraversamento per limitare l'ambito di ricerca.|
 | **409** | `"Conflicting request to resource has been attempted. Retry to avoid conflicts."` Generalmente questo si verifica quando nel grafo esiste già un vertice o un arco con un identificatore.| 
 | **412** | Il codice di stato è integrato con il messaggio di errore `"PreconditionFailedException": One of the specified pre-condition is not met` . Questo errore indica una violazione del controllo della concorrenza ottimistica tra la lettura di un bordo o un vertice e la riscrittura nell'archivio dopo la modifica. La maggior parte delle situazioni comuni in cui si verifica questo errore è la modifica delle proprietà, ad esempio `g.V('identifier').property('name','value')` . Il motore Gremlin legge il vertice, lo modifica e lo scrive di nuovo. Se è presente un altro attraversamento in esecuzione in parallelo che tenta di scrivere lo stesso vertice o un bordo, uno di essi riceverà questo errore. L'applicazione deve inviare nuovamente l'attraversamento al server.| 
-| **429** | La richiesta è stata limitata e deve essere ritentata dopo il valore in** x-ms-retry-after-ms**| 
+| **429** | La richiesta è stata limitata e deve essere ritentata dopo il valore in **x-ms-retry-after-ms**| 
 | **500** | Il messaggio di errore contenente `"NotFoundException: Entity with the specified id does not exist in the system."` indica che sono stati ricreati un database e/o una raccolta con lo stesso nome. L'errore scomparirà entro 5 minuti perché la modifica si propaga e invalida le cache in componenti Cosmos DB diversi. Per evitare il problema, usare ogni volta i nomi univoci per database e raccolte.| 
 | **1000** | Questo codice di stato viene restituito quando il server ha analizzato correttamente un messaggio ma non è stato possibile eseguirlo. Indica in genere un problema con la query.| 
 | **1001** | Questo codice viene restituito quando il server completa l'esecuzione attraversata, ma non riesce a serializzare la risposta al client. Questo errore può verificarsi quando l'attraversamento genera un risultato complesso, troppo grande o non è conforme alla specifica del protocollo TinkerPop. L'applicazione dovrebbe semplificare l'attraversamento quando si verifica questo errore. | 

@@ -7,13 +7,13 @@ author: jonfancey
 ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/25/2020
-ms.openlocfilehash: a5511d7cd4b5bb0f3fe901a735535f8db9036ee7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/29/2020
+ms.openlocfilehash: 486930776b4b4b6d852102be723ac1047ebd5e0a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87078153"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098485"
 ---
 # <a name="pricing-model-for-azure-logic-apps"></a>Modello di determinazione dei prezzi per le App per la logica di Azure
 
@@ -85,13 +85,13 @@ I connettori delle app per la logica di Azure consentono all'app per la logica d
 
 Un trigger è sempre il primo passaggio di un flusso di lavoro dell'app per la logica ed è un'azione speciale che crea ed esegue un'istanza di app per la logica quando vengono soddisfatti criteri specifici o si verifica un evento specifico. I trigger agiscono in modi diversi, che influiscono sulla misurazione dell'app per la logica. Ecco i diversi tipi di trigger presenti nelle app per la logica di Azure:
 
-* **Trigger di ricorrenza**: è possibile usare questo trigger generico, che non è specifico per alcun servizio o sistema, per avviare qualsiasi flusso di lavoro dell'app per la logica e creare un'istanza dell'app per la logica che viene eseguita in base all'intervallo di ricorrenza configurato nel trigger. Ad esempio, è possibile impostare un trigger di ricorrenza che viene eseguito ogni tre giorni o in base a una pianificazione più complessa.
+* **Trigger di ricorrenza** : è possibile usare questo trigger generico, che non è specifico per alcun servizio o sistema, per avviare qualsiasi flusso di lavoro dell'app per la logica e creare un'istanza dell'app per la logica che viene eseguita in base all'intervallo di ricorrenza configurato nel trigger. Ad esempio, è possibile impostare un trigger di ricorrenza che viene eseguito ogni tre giorni o in base a una pianificazione più complessa.
 
-* **Trigger di polling**: è possibile usare questo trigger di ricorrenza più specializzato, che in genere è associato al connettore gestito per un servizio o un sistema specifico, per verificare la presenza di eventi o messaggi che soddisfino i criteri per la creazione e l'esecuzione di un'istanza dell'app per la logica in base all'intervallo di ricorrenza configurato nel trigger. Anche quando non viene creata alcuna istanza di app per la logica, ad esempio quando i trigger vengono ignorati, il servizio app per la logica misura ogni richiesta di polling come esecuzione. Per specificare l'intervallo di polling, configurare il trigger tramite la finestra Progettazione app per la logica.
+* **Trigger di polling** : è possibile usare questo trigger di ricorrenza più specializzato, che in genere è associato al connettore gestito per un servizio o un sistema specifico, per verificare la presenza di eventi o messaggi che soddisfino i criteri per la creazione e l'esecuzione di un'istanza dell'app per la logica in base all'intervallo di ricorrenza configurato nel trigger. Anche quando non viene creata alcuna istanza di app per la logica, ad esempio quando i trigger vengono ignorati, il servizio app per la logica misura ogni richiesta di polling come esecuzione. Per specificare l'intervallo di polling, configurare il trigger tramite la finestra Progettazione app per la logica.
 
   [!INCLUDE [logic-apps-polling-trigger-non-standard-metering](../../includes/logic-apps-polling-trigger-non-standard-metering.md)]
 
-* **Trigger di Webhook**: invece di usare un trigger di polling, è possibile usare un trigger webhook per attendere che il client invii una richiesta all'app per la logica in un URL di endpoint specifico. Ogni richiesta inviata all'endpoint del webhook viene conteggiata come esecuzione di un'azione. Ad esempio, il trigger di richiesta e webhook HTTP sono entrambi trigger di Webhook generici. Alcuni connettori per i servizi o i sistemi hanno anche trigger di webhook.
+* **Trigger di Webhook** : invece di usare un trigger di polling, è possibile usare un trigger webhook per attendere che il client invii una richiesta all'app per la logica in un URL di endpoint specifico. Ogni richiesta inviata all'endpoint del webhook viene conteggiata come esecuzione di un'azione. Ad esempio, il trigger di richiesta e webhook HTTP sono entrambi trigger di Webhook generici. Alcuni connettori per i servizi o i sistemi hanno anche trigger di webhook.
 
 <a name="actions"></a>
 
@@ -122,11 +122,11 @@ Se si dispone di un [ *ambiente Integration Services* (ISE)](../logic-apps/conne
 
 Per scegliere tra un account di integrazione gratuito, Basic o standard, esaminare le descrizioni dei casi d'uso seguenti:
 
-* **Gratuito**: per i casi in cui si vuole provare scenari esplorativi, non scenari di produzione. Questo livello è disponibile solo per le aree pubbliche in Azure, ad esempio Stati Uniti occidentali o Asia sudorientale, ma non per [Azure Cina 21ViaNet](/azure/china/overview-operations) o [Azure per enti](../azure-government/documentation-government-welcome.md)pubblici.
+* **Gratuito** : per i casi in cui si vuole provare scenari esplorativi, non scenari di produzione. Questo livello è disponibile solo per le aree pubbliche in Azure, ad esempio Stati Uniti occidentali o Asia sudorientale, ma non per [Azure Cina 21ViaNet](/azure/china/overview-operations) o [Azure per enti](../azure-government/documentation-government-welcome.md)pubblici.
 
-* **Basic**: per i casi in cui si desidera solo la gestione dei messaggi o fungere da partner commerciale di piccole dimensioni con una relazione tra partner commerciali e un'entità di business più ampia
+* **Basic** : per i casi in cui si desidera solo la gestione dei messaggi o fungere da partner commerciale di piccole dimensioni con una relazione tra partner commerciali e un'entità di business più ampia
 
-* **Standard**: per le relazioni B2B più complesse e un numero maggiore di entità che è necessario gestire
+* **Standard** : per le relazioni B2B più complesse e un numero maggiore di entità che è necessario gestire
 
 <a name="data-retention"></a>
 
@@ -137,6 +137,7 @@ Fatta eccezione per le app per la logica eseguite in un ambiente Integration Ser
 Per facilitare il monitoraggio del consumo di spazio di archiviazione dell'app per la logica, è possibile:
 
 * Visualizzare il numero di unità di archiviazione in GB utilizzate dall'app per la logica mensilmente.
+
 * Visualizzare le dimensioni per gli input e gli output di un'azione specifica nella cronologia di esecuzione dell'app per la logica.
 
 <a name="storage-consumption"></a>
@@ -145,11 +146,14 @@ Per facilitare il monitoraggio del consumo di spazio di archiviazione dell'app p
 
 1. Nel portale di Azure trovare e aprire l'app per la logica.
 
-1. Dal menu dell'app per la logica, in **monitoraggio**selezionare **metriche**.
+1. Dal menu dell'app per la logica, in **monitoraggio** selezionare **metriche** .
 
-1. Nel riquadro di destra, in **titolo grafico**, dall'elenco **metrica** Selezionare **utilizzo fatturazione per le esecuzioni del consumo di archiviazione**.
+1. Nel riquadro di destra, in **titolo grafico** , dall'elenco **metrica** Selezionare **utilizzo fatturazione per le esecuzioni del consumo di archiviazione** .
 
    Questa metrica indica il numero di unità di consumo di archiviazione in GB al mese fatturate.
+
+   > [!NOTE]
+   > Le esecuzioni che utilizzano meno di 500 MB di spazio di archiviazione potrebbero non essere visualizzate nella visualizzazione monitoraggio, ma vengono comunque fatturate.
 
 <a name="input-output-sizes"></a>
 
@@ -157,15 +161,18 @@ Per facilitare il monitoraggio del consumo di spazio di archiviazione dell'app p
 
 1. Nel portale di Azure trovare e aprire l'app per la logica.
 
-1. Scegliere **Panoramica**dal menu dell'app per la logica.
+1. Scegliere **Panoramica** dal menu dell'app per la logica.
 
-1. Nel riquadro di destra, in **Cronologia esecuzioni**, selezionare l'esecuzione con gli input e gli output che si desidera controllare.
+1. Nel riquadro di destra, in **Cronologia esecuzioni** , selezionare l'esecuzione con gli input e gli output che si desidera controllare.
 
-1. In **esecuzione App**per la logica scegliere **Dettagli esecuzione**.
+1. In **esecuzione App** per la logica scegliere **Dettagli esecuzione** .
 
 1. Nella tabella Actions del riquadro **Dettagli esecuzione App** per la logica, che elenca lo stato e la durata di ogni azione, selezionare l'azione che si desidera visualizzare.
 
-1. Nel riquadro **azione dell'app** per la logica trovare le dimensioni per gli input e gli output dell'azione visualizzati rispettivamente in **input collegamento** e **output collegamento**.
+1. Nel riquadro **azione dell'app** per la logica trovare le dimensioni per gli input e gli output dell'azione. In **input collegamento** e **output collegamento** trovare i collegamenti a tali input e output.
+
+   > [!NOTE]
+   > Per i cicli for, solo le azioni di primo livello mostrano le dimensioni per gli input e gli output. Per le azioni all'interno di cicli annidati, gli input e gli output mostrano dimensioni zero e nessun collegamento.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

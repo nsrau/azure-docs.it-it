@@ -8,14 +8,15 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.custom: devx-track-csharp, devx-track-azurecli
-ms.openlocfilehash: 452259015cf78234aa6a96194342de20db9a3724
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 615ce7da3ec480b766ceaeb307c50f7cb759fd4a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740885"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100117"
 ---
 # <a name="provision-autoscale-throughput-on-database-or-container-in-azure-cosmos-db---sql-api"></a>Eseguire il provisioning della velocità effettiva di ridimensionamento automatico per database o contenitore nell'API Azure Cosmos DB-SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questo articolo illustra come eseguire il provisioning della velocità effettiva di scalabilità automatica in un database o un contenitore (raccolta, grafo o tabella) in Azure Cosmos DB API SQL. È possibile abilitare la scalabilità automatica per un singolo contenitore oppure effettuare il provisioning della velocità effettiva per la scalabilità automatica a livello di database e condividerla tra tutti i contenitori nel database.
 

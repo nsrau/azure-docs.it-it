@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: ec0b8ccaceed4abe3dd2784463f507f3bc76d890
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11222b2df1acee07647e02c5a4f1f65e3cf3e525
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606960"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098536"
 ---
 # <a name="getcurrentdatetime-azure-cosmos-db"></a>GetCurrentDateTime (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Restituisce la data e l'ora UTC (Coordinated Universal Time) correnti come stringa ISO 8601.
   
@@ -35,7 +36,7 @@ GetCurrentDateTime ()
   |GG|giorno del mese a due cifre (da 01 a 31)|
   |T|significato per l'inizio degli elementi Time|
   |hh|ora a due cifre (da 00 a 23)|
-  |MM|minuti a due cifre (da 00 a 59)|
+  |mm|minuti a due cifre (da 00 a 59)|
   |ss|secondi a due cifre (da 00 a 59)|
   |. fffffff|secondi frazionari a sette cifre|
   |Z|Indicatore UTC (Coordinated Universal Time)||
@@ -48,7 +49,7 @@ GetCurrentDateTime () è una funzione non deterministica. Il risultato restituit
 
 Questa funzione di sistema non utilizzerà l'indice.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
 Nell'esempio seguente viene illustrato come ottenere la data e ora UTC correnti utilizzando la funzione predefinita GetCurrentDateTime ().
   

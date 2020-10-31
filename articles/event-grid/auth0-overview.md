@@ -3,12 +3,12 @@ title: Argomenti partner Auth0 con Griglia di eventi di Azure
 description: Inviare eventi da Auth0 ai servizi di Azure con Griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 411d8f8eb53e4bc3fa8c8dda04bdcf12c74db768
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 340403111c094540ba7e66faf71ebf3cfe24fe7d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103348"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101290"
 ---
 # <a name="auth0-partner-topics"></a>Argomenti del partner Auth0
 ![Logo di Auth0](./media/auth0-overview/auth0-logo.png)
@@ -43,7 +43,7 @@ Quando si protegge un sistema distribuito, è importante combinare le procedure 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica degli argomenti partner](partner-topics-overview.md)
+- [Panoramica degli argomenti partner](partner-events-overview.md)
 - [Come usare l'argomento partner Auth0](auth0-how-to.md)
 - [Documentazione di Auth0](https://auth0.com/docs/azure-tutorial)
 - [Diventare un partner di Griglia di eventi](partner-onboarding-overview.md)

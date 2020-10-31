@@ -6,14 +6,15 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 05/19/2020
-ms.openlocfilehash: d85f020152fa3cadb1d437c125d327f5e895e14e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46170a0f723e912c370eb6e068542a02b9959948
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262889"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101477"
 ---
 # <a name="import-notebooks-from-a-github-repo-into-azure-cosmos-db"></a>Importare notebook da un repository GitHub in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Dopo aver [abilitato il supporto dei notebook](enable-notebooks.md) per gli account Azure Cosmos, è possibile creare nuovi notebook, caricare nuovi notebook da un computer locale o importare notebook esistenti da account GitHub. Questo articolo illustra come connettere l'area di lavoro dei notebook a GitHub e importare i notebook da un repository GitHub in un account Azure Cosmos. Dopo averli importati, è possibile eseguirli, apportare modifiche e salvare le modifiche in GitHub.
 
@@ -23,11 +24,11 @@ Dopo aver [abilitato il supporto dei notebook](enable-notebooks.md) per gli acco
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) e passare all'account Azure Cosmos.
 
-1. Aprire la scheda **Esplora dati**. In questa scheda vengono visualizzati tutti i database, i contenitori e i notebook esistenti.
+1. Aprire la scheda **Esplora dati** . In questa scheda vengono visualizzati tutti i database, i contenitori e i notebook esistenti.
 
-1. Selezionare la voce di menu **Connetti a GitHub**.
+1. Selezionare la voce di menu **Connetti a GitHub** .
 
-1. Viene visualizzata una scheda in cui è possibile scegliere di connettersi solo a **repository pubblici** o a **repository pubblici e privati**.  Dopo aver scelto l'opzione appropriata, selezionare il pulsante di **autorizzazione dell'accesso**. L'autorizzazione è necessaria per consentire ad Azure Cosmos DB di accedere ai repository nell'account GitHub in uso.
+1. Viene visualizzata una scheda in cui è possibile scegliere di connettersi solo a **repository pubblici** o a **repository pubblici e privati** .  Dopo aver scelto l'opzione appropriata, selezionare il pulsante di **autorizzazione dell'accesso** . L'autorizzazione è necessaria per consentire ad Azure Cosmos DB di accedere ai repository nell'account GitHub in uso.
 
    :::image type="content" source="./media/import-github-notebooks/authorize-access-github.png" alt-text="Autorizzare Azure Cosmos DB ad accedere ai repository GitHub&quot;:::
 
@@ -45,13 +46,13 @@ Dopo aver [abilitato il supporto dei notebook](enable-notebooks.md) per gli acco
 
 Dopo aver eseguito l'integrazione con un account GitHub, solo l'utente può visualizzare l'elenco dei repository e dei notebook presenti nel proprio account Azure Cosmos. Questa affermazione è vera anche se più utenti accedono all'account Azure Cosmos DB e aggiungono gli account personali. In altre parole, più utenti possono usare contemporaneamente lo stesso account Azure Cosmos per connettere l'area di lavoro del notebook a GitHub. Ogni utente, tuttavia, vedrà solo l'elenco dei repository e dei notebook che ha importato, mentre non saranno visibili i notebook importati da altri utenti.
 
-Per disconnettere l'account GitHub dall'area di lavoro dei notebook, aprire la scheda **Esplora dati**, selezionare `…` accanto a **Repository GitHub** e selezionare **Disconnettersi da GitHub**.
+Per disconnettere l'account GitHub dall'area di lavoro dei notebook, aprire la scheda **Esplora dati** , selezionare `…` accanto a **Repository GitHub** e selezionare **Disconnettersi da GitHub** .
 
 ## <a name="edit-a-notebook-and-push-changes-to-github"></a>Modificare un notebook ed eseguire il push delle modifiche in GitHub
 
 È possibile modificare un notebook esistente o aggiungere un nuovo notebook al repository e salvare le modifiche in GitHub.
 
-Dopo aver modificato un notebook esistente, selezionare **Salva**. Verrà visualizzata una finestra di dialogo in cui è possibile immettere il messaggio di commit per le modifiche apportate. Selezionare **Commit** per aggiornare il notebook in GitHub. Per convalidare gli aggiornamenti, effettuare l'accesso all'account GitHub e verificare la cronologia dei commit.
+Dopo aver modificato un notebook esistente, selezionare **Salva** . Verrà visualizzata una finestra di dialogo in cui è possibile immettere il messaggio di commit per le modifiche apportate. Selezionare **Commit** per aggiornare il notebook in GitHub. Per convalidare gli aggiornamenti, effettuare l'accesso all'account GitHub e verificare la cronologia dei commit.
 
 Nel tradizionale flusso di GitHub, dopo aver eseguito il commit delle modifiche, se ne esegue il push in un computer remoto. In questo caso, tuttavia, con l'opzione di commit si esegue "la gestione temporanea, il commit e il push" degli aggiornamenti in GitHub.
 

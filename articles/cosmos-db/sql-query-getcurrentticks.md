@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 2ca76d75edba6688dbe93f11a51a0ad67942677a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4841c374454dea9afdf0dbc4094311ded54cfbb6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606943"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098519"
 ---
 # <a name="getcurrentticks-azure-cosmos-db"></a>GetCurrentTicks (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Restituisce il numero di cicli di 100-nanosecondi trascorsi dal 00:00:00 giovedì, 1 gennaio 1970.
   
@@ -34,7 +35,7 @@ GetCurrentTicks () è una funzione non deterministica. Il risultato restituito �
 
 Questa funzione di sistema non utilizzerà l'indice.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Di seguito è riportato un esempio che restituisce l'ora corrente, misurata in cicli:
 

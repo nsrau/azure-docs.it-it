@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/19/2018
 ms.author: genli
-ms.openlocfilehash: 9b51205fe67bfe5be46491b0238e987fc14f6737
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b7fc4a120f5a4b513e1852fc6e2cf5ab68e9631
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87074357"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101256"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-the-azure-portal"></a>Risolvere i problemi relativi a una macchina virtuale Windows collegando il disco del sistema operativo a una macchina virtuale di ripristino nel portale di Azure
 Se nella macchina virtuale Windows in Azure viene rilevato un errore di avvio o del disco, potrebbe essere necessario eseguire alcuni passaggi per la risoluzione dei problemi sul disco rigido virtuale stesso. Un esempio comune è un aggiornamento di un'applicazione non riuscito che impedisce il corretto avvio della VM. Questo articolo illustra come usare il portale di Azure per connettere il disco rigido virtuale a un'altra VM Windows per risolvere eventuali errori e quindi ricreare la VM originale. 
@@ -40,9 +40,9 @@ I passaggi per la risoluzione dei problemi sono i seguenti:
 Uno snapshot è una copia completa di sola lettura di un disco rigido virtuale. È consigliabile arrestare la macchina virtuale prima di creare uno snapshot per cancellare tutti i processi in corso. Per creare uno snapshot di un disco del sistema operativo, attenersi alla procedura seguente:
 
 1. Passare a [portale di Azure](https://portal.azure.com). Selezionare **macchine virtuali** dalla barra laterale, quindi selezionare la macchina virtuale con problemi.
-1. Nel riquadro sinistro selezionare **dischi**e quindi selezionare il nome del disco del sistema operativo.
+1. Nel riquadro sinistro selezionare **dischi** e quindi selezionare il nome del disco del sistema operativo.
     ![Immagine sul nome del disco del sistema operativo](./media/troubleshoot-recovery-disks-portal-windows/select-osdisk.png)
-1. Nella pagina **Panoramica** del disco del sistema operativo, quindi selezionare **Crea snapshot**.
+1. Nella pagina **Panoramica** del disco del sistema operativo, quindi selezionare **Crea snapshot** .
 1. Creare uno snapshot nella stessa posizione del disco del sistema operativo.
 
 ## <a name="create-a-disk-from-the-snapshot"></a>Creare un disco dallo snapshot
@@ -86,7 +86,7 @@ Per creare un disco dallo snapshot, attenersi alla procedura seguente:
 ## <a name="attach-the-disk-to-another-vm"></a>Connetti il disco a un'altra macchina virtuale
 Nei passaggi successivi viene utilizzata un'altra macchina virtuale per la risoluzione dei problemi. Dopo aver collegato il disco alla macchina virtuale per la risoluzione dei problemi, è possibile esplorare e modificare il contenuto del disco. Questo processo consente di correggere eventuali errori di configurazione o di esaminare ulteriori file di registro di sistema o dell'applicazione. Per aggiungere il disco a un'altra macchina virtuale, seguire questa procedura:
 
-1. Nel portale, selezionare il gruppo di risorse e quindi la macchina virtuale da usare per la risoluzione dei problemi. Selezionare **dischi**, selezionare **modifica**e quindi fare clic su **Aggiungi disco dati**:
+1. Nel portale, selezionare il gruppo di risorse e quindi la macchina virtuale da usare per la risoluzione dei problemi. Selezionare **dischi** , selezionare **modifica** e quindi fare clic su **Aggiungi disco dati** :
 
     ![Collegare un disco esistente nel portale](./media/troubleshoot-recovery-disks-portal-windows/attach-existing-disk.png)
 
@@ -96,11 +96,11 @@ Nei passaggi successivi viene utilizzata un'altra macchina virtuale per la risol
 ## <a name="mount-the-attached-data-disk-to-the-vm"></a>Montare il disco dati collegato alla macchina virtuale
 
 1. Aprire una connessione Desktop remoto alla macchina virtuale per la risoluzione dei problemi. 
-2. Nella pagina risolvere i problemi della macchina virtuale aprire **Server Manager**, quindi selezionare **Servizi file e archiviazione**. 
+2. Nella pagina risolvere i problemi della macchina virtuale aprire **Server Manager** , quindi selezionare **Servizi file e archiviazione** . 
 
     ![Selezionare Servizi file e archiviazione in Server Manager](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-3. Il disco dati viene automaticamente rilevato e collegato. Per visualizzare un elenco dei dischi connessi, selezionare **Dischi**. È possibile selezionare il disco dati per visualizzare informazioni sul volume, inclusa la lettera di unità. L'esempio seguente illustra il disco dati collegato e l'uso di **F:**
+3. Il disco dati viene automaticamente rilevato e collegato. Per visualizzare un elenco dei dischi connessi, selezionare **Dischi** . È possibile selezionare il disco dati per visualizzare informazioni sul volume, inclusa la lettera di unità. L'esempio seguente illustra il disco dati collegato e l'uso di **F:**
 
     ![Disco collegato e informazioni sul volume in Server Manager](./media/troubleshoot-recovery-disks-portal-windows/server-manager-disk-attached.png)
 
@@ -110,27 +110,27 @@ Dopo aver montato il disco rigido virtuale eseguire tutte le operazioni di manut
 ## <a name="unmount-and-detach-original-virtual-hard-disk"></a>Smontare e scollegare il disco rigido virtuale originale
 Dopo aver risolto gli errori, scollegare il disco rigido virtuale esistente dalla macchina virtuale usata per la risoluzione dei problemi. Non è possibile usare il disco rigido virtuale con altre macchine virtuali finché non viene rilasciato il lease che collega il disco rigido virtuale alla macchina virtuale usata per la risoluzione dei problemi.
 
-1. Dalla sessione RDP stabilita con la VM aprire **Server Manager**, quindi selezionare **Servizi file e archiviazione**:
+1. Dalla sessione RDP stabilita con la VM aprire **Server Manager** , quindi selezionare **Servizi file e archiviazione** :
 
     ![Selezionare Servizi file e archiviazione in Server Manager](./media/troubleshoot-recovery-disks-portal-windows/server-manager-select-storage.png)
 
-2. Selezionare **Dischi** e quindi selezionare il disco dati. Fare clic con il pulsante destro del mouse sul disco dati e selezionare **Porta offline**:
+2. Selezionare **Dischi** e quindi selezionare il disco dati. Fare clic con il pulsante destro del mouse sul disco dati e selezionare **Porta offline** :
 
     ![Impostare il disco dati come offline in Server Manager](./media/troubleshoot-recovery-disks-portal-windows/server-manager-set-disk-offline.png)
 
-3. Scollegare il disco rigido virtuale dalla macchina virtuale. Selezionare la macchina virtuale nel portale di Azure e fare clic su **Dischi**. 
-4. Selezionare **modifica**, selezionare il disco del sistema operativo collegato e quindi fare clic su **Scollega**:
+3. Scollegare il disco rigido virtuale dalla macchina virtuale. Selezionare la macchina virtuale nel portale di Azure e fare clic su **Dischi** . 
+4. Selezionare **modifica** , selezionare il disco del sistema operativo collegato e quindi fare clic su **Elimina** :
 
     ![Scollegare il disco rigido virtuale esistente](./media/troubleshoot-recovery-disks-portal-windows/detach-disk.png)
 
-    Attendere che il disco dati sia completamente scollegato dalla macchina virtuale prima di continuare.
+    Attendere che la macchina virtuale sia stata eliminata correttamente nella VM IE. Scollegare il disco dati prima di continuare.
 
 ## <a name="swap-the-os-disk-for-the-vm"></a>Scambiare il disco del sistema operativo per la macchina virtuale
 
-Portale di Azure supporta ora la modifica del disco del sistema operativo della macchina virtuale. A tale scopo, attenersi alla seguente procedura:
+Portale di Azure supporta ora la modifica del disco del sistema operativo della macchina virtuale. A questo scopo, seguire questa procedura:
 
 1. Passare a [portale di Azure](https://portal.azure.com). Selezionare **macchine virtuali** dalla barra laterale, quindi selezionare la macchina virtuale con problemi.
-1. Nel riquadro sinistro selezionare **dischi**e quindi fare clic su **Scambia disco del sistema operativo**.
+1. Nel riquadro sinistro selezionare **dischi** e quindi fare clic su **Scambia disco del sistema operativo** .
         ![Immagine sul disco del sistema operativo di scambio in portale di Azure](./media/troubleshoot-recovery-disks-portal-windows/swap-os-ui.png)
 
 1. Scegliere il nuovo disco che è stato riparato, quindi digitare il nome della macchina virtuale per confermare la modifica. Se il disco non è visualizzato nell'elenco, attendere 10 ~ 15 minuti dopo lo scollegamento del disco dalla macchina virtuale per la risoluzione dei problemi. Assicurarsi inoltre che il disco si trovi nello stesso percorso della macchina virtuale.

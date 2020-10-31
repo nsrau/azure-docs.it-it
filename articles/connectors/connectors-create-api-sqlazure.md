@@ -7,12 +7,12 @@ ms.reviewer: estfan, jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 10/22/2020
 tags: connectors
-ms.openlocfilehash: 674d496485f89bee1904e3588a0fb81c6140945b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: f8dccca1d1264492a4e7c8dab568e13eec9d2557
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426610"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100712"
 ---
 # <a name="automate-workflows-for-a-sql-database-by-using-azure-logic-apps"></a>Automatizzare i flussi di lavoro per un database SQL usando app per la logica di Azure
 
@@ -38,7 +38,7 @@ Se non si ha familiarità con le app per la logica, consultare [Informazioni su 
 
   * Per il database SQL di Azure, è possibile trovare questi dettagli nella stringa di connessione.
   
-    Ad esempio, per trovare questa stringa nella portale di Azure, aprire il database. Scegliere **stringhe di connessione** o **Proprietà**dal menu database:
+    Ad esempio, per trovare questa stringa nella portale di Azure, aprire il database. Scegliere **stringhe di connessione** o **Proprietà** dal menu database:
 
     `Server=tcp:{your-server-name}.database.windows.net,1433;Initial Catalog={your-database-name};Persist Security Info=False;User ID={your-user-name};Password={your-password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;`
 
@@ -72,19 +72,19 @@ Per accedere a un Istanza gestita di Azure SQL senza usare il gateway dati local
 
 La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione SQL](#add-sql-action)e in precedenza non è stata creata una connessione al database, viene richiesto di completare i passaggi seguenti:
 
-1. Per **tipo di autenticazione**selezionare l'autenticazione richiesta e abilitata nel database nel database SQL di Azure o in azure SQL istanza gestita:
+1. Per **tipo di autenticazione** selezionare l'autenticazione richiesta e abilitata nel database nel database SQL di Azure o in azure SQL istanza gestita:
 
-   | Autenticazione | Descrizione |
+   | Authentication | Descrizione |
    |----------------|-------------|
    | [**Azure AD integrata**](../azure-sql/database/authentication-aad-overview.md) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un'identità valida in Azure Active Directory (Azure AD) che può accedere al database. <p>Per altre informazioni, vedere gli argomenti seguenti: <p>- [Panoramica della sicurezza di Azure SQL-autenticazione](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizzare l'accesso al database a SQL di Azure: autenticazione e autorizzazione](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) <br>- [Azure SQL-Azure AD autenticazione integrata](../azure-sql/database/authentication-aad-overview.md) |
    | [**Autenticazione di SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un nome utente e una password complesse validi che vengono creati e archiviati nel database. <p>Per altre informazioni, vedere gli argomenti seguenti: <p>- [Panoramica della sicurezza di Azure SQL-autenticazione](../azure-sql/database/security-overview.md#authentication) <br>- [Autorizzare l'accesso al database a SQL di Azure: autenticazione e autorizzazione](../azure-sql/database/logins-create-manage.md#authentication-and-authorization) |
    |||
 
-   Questo esempio continua con **Azure ad Integrated**:
+   Questo esempio continua con **Azure ad Integrated** :
 
    ![Screenshot che mostra la finestra di connessione "SQL Server" con l'elenco "tipo di autenticazione" aperto e "Azure AD Integrated" selezionato.](./media/connectors-create-api-sqlazure/select-azure-ad-authentication.png)
 
-1. Dopo aver selezionato **Azure ad Integrated**, selezionare **Sign in (accedi**). A seconda che si usi il database SQL di Azure o il Istanza gestita SQL di Azure, selezionare le credenziali utente per l'autenticazione.
+1. Dopo aver selezionato **Azure ad Integrated** , selezionare **Sign in (accedi** ). A seconda che si usi il database SQL di Azure o il Istanza gestita SQL di Azure, selezionare le credenziali utente per l'autenticazione.
 
 1. Selezionare i valori seguenti per il database:
 
@@ -116,15 +116,15 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
 
    In caso contrario, la risorsa del gateway dati non verrà visualizzata nell'elenco **gateway di connessione** quando si crea la connessione.
 
-1. Per **tipo di autenticazione**selezionare l'autenticazione richiesta e abilitata nel SQL Server:
+1. Per **tipo di autenticazione** selezionare l'autenticazione richiesta e abilitata nel SQL Server:
 
-   | Autenticazione | Descrizione |
+   | Authentication | Descrizione |
    |----------------|-------------|
    | [**Autenticazione di Windows**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) | -Supporta solo il connettore SQL Server non ISE, che richiede una risorsa del gateway dati creata in precedenza in Azure per la connessione, indipendentemente dal fatto che si usi Azure multi-tenant o ISE. <p><p>-Richiede un nome utente e una password validi di Windows per confermare l'identità tramite l'account di Windows. <p>Per ulteriori informazioni, vedere [autenticazione di Windows](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-windows-authentication) . |
    | [**Autenticazione di SQL Server**](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication) | : Supporta sia il connettore SQL Server non ISE che ISE. <p><p>-Richiede un nome utente e una password complesse validi che vengono creati e archiviati nella SQL Server. <p>Per ulteriori informazioni, vedere [SQL Server Authentication](/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication). |
    |||
 
-   Questo esempio continua con **l'autenticazione di Windows**:
+   Questo esempio continua con **l'autenticazione di Windows** :
 
    ![Selezionare il tipo di autenticazione da usare](./media/connectors-create-api-sqlazure/select-windows-authentication.png)
 
@@ -137,7 +137,7 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
    | **Nome utente** | Sì | Nome utente per SQL Server e database |
    | **Password** | Sì | Password per SQL Server e il database |
    | **Sottoscrizione** |  Sì, per l'autenticazione di Windows | Sottoscrizione di Azure per la risorsa del gateway dati creata in precedenza in Azure |
-   | **Gateway di connessione** | Sì, per l'autenticazione di Windows | Nome della risorsa del gateway dati creata in precedenza in Azure <p><p>**Suggerimento**: se il gateway non viene visualizzato nell'elenco, verificare di aver [configurato correttamente il gateway](../logic-apps/logic-apps-gateway-connection.md). |
+   | **Gateway di connessione** | Sì, per l'autenticazione di Windows | Nome della risorsa del gateway dati creata in precedenza in Azure <p><p>**Suggerimento** : se il gateway non viene visualizzato nell'elenco, verificare di aver [configurato correttamente il gateway](../logic-apps/logic-apps-gateway-connection.md). |
    |||
 
    > [!TIP]
@@ -152,7 +152,7 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
 
    ![Creazione connessione SQL Server completata](./media/connectors-create-api-sqlazure/sql-server-create-connection-complete.png)
 
-1. Al termine, selezionare **Crea**.
+1. Al termine, selezionare **Crea** .
 
 1. A questo punto, continuare con i passaggi non ancora completati in [aggiungere un trigger SQL](#add-sql-trigger) o [aggiungere un'azione SQL](#add-sql-action).
 
@@ -176,7 +176,7 @@ La prima volta che si aggiunge un [trigger SQL](#add-sql-trigger) o un' [azione 
    
    Ad esempio, per visualizzare i dati in questa riga, è possibile aggiungere altre azioni per la creazione di un file che include i campi dalla riga restituita e quindi inviare avvisi di posta elettronica. Per informazioni sulle altre azioni disponibili per questo connettore, vedere la [pagina di riferimento del connettore](/connectors/sql/).
 
-1. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
+1. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva** .
 
    Sebbene questo passaggio consenta e pubblichi automaticamente l'app per la logica in Azure, l'unica azione attualmente accettata dall'app per la logica consiste nel controllare il database in base all'intervallo e alla frequenza specificati.
 
@@ -188,42 +188,46 @@ In questo esempio, l'app per la logica inizia con il [trigger di ricorrenza](../
 
 1. Nel [portale di Azure](https://portal.azure.com) o in Visual Studio aprire l'app per la logica in progettazione app per la logica. Questo esempio continua il portale di Azure.
 
-1. Nel trigger o nell'azione in cui si vuole aggiungere l'azione SQL selezionare **Nuovo passaggio**.
+1. Nel trigger o nell'azione in cui si vuole aggiungere l'azione SQL selezionare **Nuovo passaggio** .
 
    ![Aggiungere un'azione all'app per la logica](./media/connectors-create-api-sqlazure/select-new-step-logic-app.png)
 
-   In alternativa, per aggiungere un'azione tra i passaggi esistenti, spostare il mouse sulla freccia di connessione. Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione**.
+   In alternativa, per aggiungere un'azione tra i passaggi esistenti, spostare il mouse sulla freccia di connessione. Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione** .
 
-1. In **Scegliere un'azione** immettere `sql server` nella casella di ricerca. Nell'elenco delle azioni scegliere l'azione SQL desiderata. Questo esempio usa l'azione **Ottieni riga**, che ottiene un singolo record.
+1. In **Scegliere un'azione** immettere `sql server` nella casella di ricerca. Nell'elenco delle azioni scegliere l'azione SQL desiderata. Questo esempio usa l'azione **Ottieni riga** , che ottiene un singolo record.
 
    ![Selezionare l'azione "Ottieni riga" di SQL](./media/connectors-create-api-sqlazure/select-sql-get-row-action.png)
 
 1. Se ci si connette al database SQL per la prima volta, viene richiesto di [creare subito la connessione al database SQL](#create-connection). Dopo aver creato la connessione, è possibile continuare con il passaggio successivo.
 
-1. Selezionare il **nome della tabella**, che `SalesLT.Customer` in questo esempio è. Immettere l' **ID di riga** per il record desiderato.
+1. Selezionare il **nome della tabella** , che `SalesLT.Customer` in questo esempio è. Immettere l' **ID di riga** per il record desiderato.
 
    ![Selezionare il nome della tabella e specificare l'ID di riga](./media/connectors-create-api-sqlazure/specify-table-row-id.png)
 
    Questa azione restituisce solo una riga della tabella selezionata. Quindi, per visualizzare i dati in questa riga, è possibile aggiungere altre azioni che consentono di creare un file che include i campi dalla riga restituita e archiviare il file in un account di archiviazione cloud. Per informazioni sulle altre azioni disponibili per questo connettore, vedere la [pagina di riferimento del connettore](/connectors/sql/).
 
-1. Al termine, nella barra degli strumenti della finestra di progettazione selezionare **Salva**.
+1. Al termine, nella barra degli strumenti della finestra di progettazione selezionare **Salva** .
 
    Con questo passaggio l'app per la logica viene automaticamente abilitata e pubblicata in Azure.
+
+<a name="handle-bulk-data"></a>
 
 ## <a name="handle-bulk-data"></a>Gestire i dati in blocco
 
 A volte, è necessario usare set di risultati di dimensioni tali che il connettore non riesce a restituire tutti i risultati contemporaneamente oppure si vuole un controllo migliore sulle dimensioni e sulla struttura dei set di risultati. Ecco alcuni modi in cui è possibile gestire set di risultati di grandi dimensioni:
 
-* Per gestire i risultati come set più piccoli, attivare la *paginazione*. Per altre informazioni, vedere [Ottenere dati in blocco, record ed elementi usando la paginazione](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md). Per altre informazioni, vedere [impaginazione SQL per il trasferimento di dati in blocco con app per la logica](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx).
+* Per gestire i risultati come set più piccoli, attivare la *paginazione* . Per altre informazioni, vedere [Ottenere dati in blocco, record ed elementi usando la paginazione](../logic-apps/logic-apps-exceed-default-page-size-with-pagination.md). Per altre informazioni, vedere [impaginazione SQL per il trasferimento di dati in blocco con app per la logica](https://social.technet.microsoft.com/wiki/contents/articles/40060.sql-pagination-for-bulk-data-transfer-with-logic-apps.aspx).
 
 * Creare una [*stored procedure*](/sql/relational-databases/stored-procedures/stored-procedures-database-engine) per organizzare i risultati nel modo desiderato. Il connettore SQL fornisce molte funzionalità di back-end a cui è possibile accedere usando app per la logica di Azure, in modo che sia possibile automatizzare più facilmente le attività aziendali che funzionano con le tabelle del database SQL.
 
   Se si ottengono o si inseriscono più righe, l'app per la logica può scorrere queste righe usando un [*ciclo Until*](../logic-apps/logic-apps-control-flow-loops.md#until-loop) nell'ambito di questi [limiti](../logic-apps/logic-apps-limits-and-config.md). In alcuni casi, tuttavia, l'app per la logica deve interagire con set di record talmente grandi, ad esempio migliaia o milioni di righe, che si vuole ridurre al minimo i costi risultanti dalle chiamate al database.
 
-  Per organizzare i risultati nel modo desiderato, è possibile creare una stored procedure che viene eseguita nell'istanza di SQL e usa l'istruzione **SELECT - ORDER BY**. Questa soluzione consente di controllare meglio le dimensioni e la struttura dei risultati. L'app per logica chiama la stored procedure usando l'azione **Esegui stored procedure** del connettore SQL Server. Per ulteriori informazioni, vedere [clausola SELECT-ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql).
+  Per organizzare i risultati nel modo desiderato, è possibile creare una stored procedure che viene eseguita nell'istanza di SQL e usa l'istruzione **SELECT - ORDER BY** . Questa soluzione consente di controllare meglio le dimensioni e la struttura dei risultati. L'app per logica chiama la stored procedure usando l'azione **Esegui stored procedure** del connettore SQL Server. Per ulteriori informazioni, vedere [clausola SELECT-ORDER BY](/sql/t-sql/queries/select-order-by-clause-transact-sql).
 
   > [!NOTE]
-  > Con questo connettore, un'esecuzione stored procedure è limitata a un [limite di timeout inferiore a 2 minuti](/connectors/sql/#known-issues-and-limitations). Alcune stored procedure potrebbero richiedere più tempo rispetto a questo limite per l'elaborazione e il completamento completo, che genera un `504 TIMEOUT` errore. In realtà, alcuni processi a esecuzione prolungata vengono codificati come stored procedure in modo esplicito a questo scopo. La chiamata di queste procedure da app per la logica di Azure potrebbe creare problemi a causa di questo limite di timeout. Sebbene il connettore SQL non supporti in modo nativo una modalità asincrona, è possibile simulare questa modalità usando un trigger di completamento SQL, una query pass-through SQL nativa, una tabella di stato e processi sul lato server usando l' [agente processo elastico di Azure](../azure-sql/database/elastic-jobs-overview.md).
+  > Il connettore SQL ha un limite di timeout di stored procedure [inferiore a 2 minuti](/connectors/sql/#known-issues-and-limitations). Per il completamento di alcune stored procedure potrebbe essere necessario più tempo di questo limite, causando un `504 Timeout` errore. Per aggirare questo problema, è possibile usare un trigger di completamento SQL, una query pass-through SQL nativa, una tabella di stato e processi sul lato server.
+  > 
+  > Per questa attività, è possibile usare l' [agente processo elastico di Azure](../azure-sql/database/elastic-jobs-overview.md) per il [database SQL di Azure](../azure-sql/database/sql-database-paas-overview.md). Per [SQL Server in locale](/sql/sql-server/sql-server-technical-documentation) e [istanza gestita di Azure SQL](../azure-sql/managed-instance/sql-managed-instance-paas-overview.md), è possibile usare il [SQL Server Agent](/sql/ssms/agent/sql-server-agent). Per altre informazioni, vedere [gestire i timeout di stored procedure con esecuzione prolungata nel connettore SQL per app per la logica di Azure](../logic-apps/handle-long-running-stored-procedures-sql-connector.md).
 
 ### <a name="handle-dynamic-bulk-data"></a>Gestire i dati in blocco dinamici
 
@@ -233,18 +237,18 @@ Quando si chiama un stored procedure usando il connettore SQL Server, l'output r
 
 1. Visualizzare il formato di output eseguendo un'esecuzione dei test. Copiare e salvare l'output di esempio.
 
-1. Nella finestra di progettazione, in corrispondenza dell'azione in cui è stata effettuata la chiamata alla stored procedure, selezionare **Nuovo passaggio**.
+1. Nella finestra di progettazione, in corrispondenza dell'azione in cui è stata effettuata la chiamata alla stored procedure, selezionare **Nuovo passaggio** .
 
-1. In **scegliere un'azione**trovare e selezionare l'azione [**analizza JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) .
+1. In **scegliere un'azione** trovare e selezionare l'azione [**analizza JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) .
 
-1. Nell'azione **Analizza JSON** selezionare **Usare il payload di esempio per generare lo schema**.
+1. Nell'azione **Analizza JSON** selezionare **Usare il payload di esempio per generare lo schema** .
 
-1. Nella casella **immettere o incollare un payload JSON di esempio** incollare l'output di esempio e selezionare **fine**.
+1. Nella casella **immettere o incollare un payload JSON di esempio** incollare l'output di esempio e selezionare **fine** .
 
    > [!NOTE]
    > Se viene restituito un errore che indica che App per la logica non può generare uno schema, verificare che la sintassi dell'output di esempio sia formattata correttamente. Se non si riesce ancora a generare lo schema, nella casella **schema** immettere manualmente lo schema.
 
-1. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
+1. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva** .
 
 1. Per fare riferimento alle proprietà di contenuto JSON, fare clic all'interno delle caselle di modifica in cui si desidera fare riferimento a tali proprietà in modo che venga visualizzato l'elenco contenuto dinamico. Nell'elenco, sotto l'intestazione [**Parse JSON**](../logic-apps/logic-apps-perform-data-operations.md#parse-json-action) , selezionare i token di dati per le proprietà di contenuto JSON desiderate.
 

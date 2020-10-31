@@ -1,22 +1,22 @@
 ---
-title: Gestione del ciclo di vita di archiviazione di Azure
-description: Informazioni su come creare regole dei criteri del ciclo di vita per la transizione dei dati da livelli di archiviazione ad accesso frequente a livelli di archiviazione ad accesso sporadico e archivio.
+title: Ottimizzare i costi automatizzando i livelli di accesso all'archivio BLOB di Azure
+description: Creare regole automatiche per lo stato di trasferimento dei dati tra livelli ad accesso frequente, ad accesso sporadico e archivio.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 09/15/2020
+ms.date: 10/29/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: ee04ad28d6b52e63becd2991d77b453cd411f683
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: a4a338a4d13715ba1ff7cb30c011757d5050ba05
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92309793"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100070"
 ---
-# <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di Archiviazione BLOB di Azure
+# <a name="optimize-costs-by-automating-azure-blob-storage-access-tiers"></a>Ottimizzare i costi automatizzando i livelli di accesso all'archivio BLOB di Azure
 
 I set di dati hanno cicli di vita specifici. All'inizio del ciclo di vita, gli utenti accedono ad alcuni dati spesso. La necessità di accesso si riduce tuttavia drasticamente con l'invecchiamento dei dati. Alcuni dati rimangono inattivi nel cloud e gli utenti vi accedono raramente dopo l'archiviazione. Alcuni dati scadono giorni o mesi dopo la creazione, mentre altri set di dati vengono letti e modificati per l'intero ciclo di vita. Gestione del ciclo di vita dell'archiviazione BLOB di Azure offre un criterio completo basato su regole per gli account di archiviazione BLOB e GPv2. Usare i criteri per trasferire i dati ai livelli di accesso appropriati o farli scadere alla fine del loro ciclo di vita.
 
@@ -31,6 +31,7 @@ I criteri di gestione del ciclo di vita consentono di eseguire queste operazioni
 Si consideri uno scenario in cui i dati ottengono un accesso frequente durante le fasi iniziali del ciclo di vita, ma solo occasionalmente dopo due settimane. Oltre il primo mese, l'accesso al set di dati è raro. In questo scenario è consigliabile l'archiviazione ad accesso frequente durante le fasi iniziali. L'archiviazione ad accesso sporadico è più appropriata per l'accesso occasionale. Storage Archive è l'opzione del livello migliore dopo le età dei dati in un mese. Grazie alla regolazione dei livelli di archiviazione in base alla validità dei dati, è possibile progettare le opzioni di archiviazione meno costose per le proprie esigenze. Per realizzare questa transizione, sono disponibili regole dei criteri di gestione del ciclo di vita per spostare i dati a livelli di archiviazione ad accesso più sporadico.
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
+
 >[!NOTE]
 >Se è necessario che i dati siano leggibili, ad esempio quando vengono usati da StorSimple, non impostare un criterio per spostare i BLOB nel livello archivio.
 
@@ -69,11 +70,11 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
 
 1. Nella portale di Azure cercare e selezionare l'account di archiviazione. 
 
-1. In **servizio BLOB**selezionare **gestione del ciclo** di vita per visualizzare o modificare le regole.
+1. In **servizio BLOB** selezionare **gestione del ciclo** di vita per visualizzare o modificare le regole.
 
 1. Selezionare la scheda **visualizzazione elenco** .
 
-1. Selezionare **Aggiungi una regola** e assegnare un nome alla regola nel modulo **Dettagli** . È anche possibile impostare l' **ambito della regola**, il **tipo di BLOB**e i valori dei **sottotipi di BLOB** . Nell'esempio seguente viene impostato l'ambito per filtrare i BLOB. In questo modo viene aggiunta la scheda **set di filtri** .
+1. Selezionare **Aggiungi una regola** e assegnare un nome alla regola nel modulo **Dettagli** . È anche possibile impostare l' **ambito della regola** , il **tipo di BLOB** e i valori dei **sottotipi di BLOB** . Nell'esempio seguente viene impostato l'ambito per filtrare i BLOB. In questo modo viene aggiunta la scheda **set di filtri** .
 
    :::image type="content" source="media/storage-lifecycle-management-concepts/lifecycle-management-details.png" alt-text="Gestione del ciclo di vita aggiungere una pagina Dettagli regola in portale di Azure":::
 
@@ -103,7 +104,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
 
 1. Nella portale di Azure cercare e selezionare l'account di archiviazione.
 
-1. In **servizio BLOB**selezionare **gestione del ciclo** di vita per visualizzare o modificare i criteri.
+1. In **servizio BLOB** selezionare **gestione del ciclo** di vita per visualizzare o modificare i criteri.
 
 1. Il codice JSON seguente è un esempio di criteri che possono essere incollati nella scheda **visualizzazione codice** .
 
@@ -136,7 +137,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
    }
    ```
 
-1. Selezionare **Salva**.
+1. Selezionare **Salva** .
 
 1. Per altre informazioni su questo esempio JSON, vedere le sezioni [criteri](#policy) e [regole](#rules) .
 
@@ -214,7 +215,7 @@ Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountN
 
 ---
 
-## <a name="policy"></a>Condizione
+## <a name="policy"></a>Criteri
 
 I criteri di gestione del ciclo di vita sono una raccolta di regole in un documento JSON:
 
@@ -244,12 +245,12 @@ Un criterio è una raccolta di regole:
 
 Ogni regola all'interno del criterio presenta diversi parametri:
 
-| Nome parametro | Tipo di parametro | Note | Obbligatoria |
+| Nome parametro | Tipo di parametro | Note | Necessario |
 |----------------|----------------|-------|----------|
-| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole. Il nome deve essere univoco nel criterio. | True |
-| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | False | 
-| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | True |
-| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | True |
+| `name`         | string |Il nome di una regola può includere fino a 256 caratteri alfanumerici. Nel nome della regola viene applicata la distinzione tra maiuscole e minuscole. Il nome deve essere univoco nel criterio. | Vero |
+| `enabled`      | Boolean | Valore booleano facoltativo per consentire la disabilitazione temporanea di una regola. Il valore predefinito è true se non è impostato. | Falso | 
+| `type`         | Un valore di enumerazione | Il tipo valido corrente è `Lifecycle` . | Vero |
+| `definition`   | Un oggetto che definisce la regola del ciclo di vita | Ogni definizione è composta da un set di filtri e un set di azioni. | Vero |
 
 ## <a name="rules"></a>Regole
 
@@ -321,7 +322,7 @@ I filtri includono:
 | blobIndexMatch | Matrice di valori del dizionario costituito da condizioni di chiave e valore del tag di indice BLOB da confrontare. Ogni regola può definire fino a 10 condizioni di tag di indice BLOB. Se ad esempio si desidera trovare la corrispondenza di tutti i BLOB con `Project = Contoso` in `https://myaccount.blob.core.windows.net/` per una regola, blobIndexMatch è `{"name": "Project","op": "==","value": "Contoso"}` . | Se non si definisce blobIndexMatch, la regola si applica a tutti i BLOB all'interno dell'account di archiviazione. | No |
 
 > [!NOTE]
-> L'indice BLOB è in anteprima pubblica ed è disponibile nelle aree **Canada centrale**, **Canada orientale**, **Francia centrale**e **Francia meridionale** . Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB (anteprima)](storage-manage-find-blobs.md).
+> L'indice BLOB è in anteprima pubblica ed è disponibile nelle aree **Canada centrale** , **Canada orientale** , **Francia centrale** e **Francia meridionale** . Per altre informazioni su questa funzionalità insieme ai problemi noti e alle limitazioni, vedere [Gestire e trovare i dati nell'archiviazione BLOB di Azure con l'indice BLOB (anteprima)](storage-manage-find-blobs.md).
 
 ### <a name="rule-actions"></a>Azioni della regola
 
@@ -332,7 +333,7 @@ La gestione del ciclo di vita supporta la suddivisione in livelli e l'eliminazio
 | Azione                      | BLOB di base                                  | Snapshot      | Versione
 |-----------------------------|--------------------------------------------|---------------|---------------|
 | tierToCool                  | Supportato per `blockBlob`                  | Supportato     | Supportato     |
-| enableAutoTierToHotFromCool | Supportato per `blockBlob`                  | Non supportato | Non supportato |
+| enableAutoTierToHotFromCool | Supportato per `blockBlob`                  | Non supportate | Non supportate |
 | tierToArchive               | Supportato per `blockBlob`                  | Supportato     | Supportato     |
 | eliminare                      | Supportato per `blockBlob` e `appendBlob` | Supportato     | Supportato     |
 
@@ -347,7 +348,7 @@ Le condizioni di esecuzione sono basate sull'età. I BLOB di base usano l'ora de
 | daysAfterCreationGreaterThan       | Valore intero che indica il tempo trascorso in giorni | Condizione per le azioni di versione BLOB e snapshot BLOB                         |
 | daysAfterLastAccessTimeGreaterThan | Valore intero che indica il tempo trascorso in giorni | anteprima Condizione per le azioni BLOB di base quando è abilitata l'ora dell'ultimo accesso |
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Gli esempi seguenti illustrano come affrontare scenari comuni relativi alle regole dei criteri del ciclo di vita.
 

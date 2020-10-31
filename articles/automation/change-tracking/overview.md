@@ -5,12 +5,12 @@ services: automation
 ms.subservice: change-inventory-management
 ms.date: 10/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: f4fc464da08128b7f2ecd0a037213d5f40aa65e0
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 35b1b07bd4d9eef555be26e1c24356b7c352bf38
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670740"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100695"
 ---
 # <a name="change-tracking-and-inventory-overview"></a>Panoramica di Rilevamento modifiche e inventario
 
@@ -93,7 +93,7 @@ Per tenere traccia delle modifiche nei file in Windows e Linux, Rilevamento modi
 
 ## <a name="tracking-file-content-changes"></a>Rilevamento delle modifiche al contenuto del file
 
-Rilevamento modifiche e Inventory consente di visualizzare il contenuto di un file Windows o Linux. Per ogni modifica apportata a un file, Rilevamento modifiche e inventario archivia il contenuto del file in un [account di Archiviazione di Azure](/storage/common/storage-account-create). Quando si esegue il rilevamento di un file, è possibile visualizzarne il contenuto prima o dopo una modifica. Il contenuto del file può essere visualizzato inline o affiancato.
+Rilevamento modifiche e Inventory consente di visualizzare il contenuto di un file Windows o Linux. Per ogni modifica apportata a un file, Rilevamento modifiche e inventario archivia il contenuto del file in un [account di Archiviazione di Azure](/azure/storage/common/storage-account-create). Quando si esegue il rilevamento di un file, è possibile visualizzarne il contenuto prima o dopo una modifica. Il contenuto del file può essere visualizzato inline o affiancato.
 
 ![Visualizzare le modifiche in un file](./media/overview/view-file-changes.png)
 

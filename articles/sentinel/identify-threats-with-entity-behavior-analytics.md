@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/19/2020
 ms.author: yelevin
-ms.openlocfilehash: 6597baa67bcd2e26f3b8aeaa98c1776b5fc47430
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad0486c9d2eb6c651b507f4b0a44f4a6fc2b018f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997145"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100661"
 ---
 # <a name="identify-advanced-threats-with-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Identificare le minacce avanzate con l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure
 
@@ -62,11 +62,43 @@ Ogni attività viene classificata con "Punteggio di priorità dell'indagine", ch
 
 Per un esempio di come funziona, vedere come viene usata l'analisi del comportamento in [Microsoft cloud app Security](https://techcommunity.microsoft.com/t5/microsoft-security-and/prioritize-user-investigations-in-cloud-app-security/ba-p/700136) .
 
+## <a name="entities-in-azure-sentinel"></a>Entità in Sentinel di Azure
 
+### <a name="entity-identifiers"></a>Identificatori di entità
 
-## <a name="entity-pages"></a>Pagine entità
+Quando gli avvisi vengono inviati ad Azure Sentinel, includono elementi dati identificati e classificati da Azure Sentinel come entità, ad esempio account utente, host, indirizzi IP e altri. In alcuni casi, questa identificazione può costituire un problema se l'avviso non contiene informazioni sufficienti sull'entità.
 
-Quando si verifica un'entità (attualmente limitata a utenti e host) in una ricerca, un avviso o un'indagine, è possibile selezionare l'entità e una **pagina di entità**, un foglio dati completo di informazioni utili su tale entità. I tipi di informazioni che si troveranno in questa pagina includono fact di base sull'entità, una sequenza temporale di eventi rilevanti correlati a questa entità e informazioni dettagliate sul comportamento dell'entità.
+Ad esempio, gli account utente possono essere identificati in più modi: usando un identificatore numerico (GUID) di un account di Azure AD o il relativo nome dell'entità utente (UPN) o, in alternativa, usando una combinazione del nome utente e del relativo nome di dominio NT. Origini dati diverse possono identificare lo stesso utente in modi diversi. Pertanto, quando possibile, Azure Sentinel unisce tali identificatori in un'unica entità, in modo che possa essere identificata correttamente.
+
+Può accadere, tuttavia, che uno dei provider di risorse crei un avviso in cui un'entità non è sufficientemente identificata, ad esempio un nome utente senza il contesto del nome di dominio. In tal caso, l'entità utente non può essere unita ad altre istanze dello stesso account utente, che verrebbero identificate come entità separate e le due entità rimarranno separate anziché unificate.
+
+Per ridurre al minimo il rischio che si verifichi questo problema, è necessario verificare che tutti i provider di avvisi identifichino correttamente le entità negli avvisi che producono. Inoltre, la sincronizzazione delle entità account utente con Azure Active Directory può creare una directory unificata, che sarà in grado di unire entità account utente.
+
+In Sentinel di Azure sono attualmente identificati i tipi di entità seguenti:
+
+- Account utente (account)
+- Host
+- Indirizzo IP (IP)
+- Malware
+- File
+- Processo
+- Applicazione cloud (CloudApplication)
+- Nome di dominio (DNS)
+- Risorsa di Azure
+- File (filehash)
+- Chiave del Registro di sistema
+- Valore del Registro di sistema
+- Gruppo di protezione
+- URL
+- Dispositivo IoT
+- Mailbox
+- Cluster di posta
+- Messaggio di posta elettronica
+- Posta elettronica di invio
+
+### <a name="entity-pages"></a>Pagine entità
+
+Quando si verifica un'entità (attualmente limitata a utenti e host) in una ricerca, un avviso o un'indagine, è possibile selezionare l'entità e una **pagina di entità** , un foglio dati completo di informazioni utili su tale entità. I tipi di informazioni che si troveranno in questa pagina includono fact di base sull'entità, una sequenza temporale di eventi rilevanti correlati a questa entità e informazioni dettagliate sul comportamento dell'entità.
  
 Le pagine entità sono costituite da tre parti:
 - Il pannello a sinistra contiene le informazioni di identificazione dell'entità, raccolte da origini dati come Azure Active Directory, monitoraggio di Azure, Centro sicurezza di Azure e Microsoft Defender.
@@ -81,11 +113,11 @@ Le pagine entità sono costituite da tre parti:
 
 La sequenza temporale è una parte importante del contributo della pagina di entità all'analisi del comportamento in Sentinel di Azure. Viene presentata una storia sugli eventi correlati a entità, che consente di comprendere l'attività dell'entità in un intervallo di tempo specifico.
 
-È possibile scegliere l' **intervallo di tempo** tra le diverse opzioni predefinite (ad esempio, le *ultime 24 ore*) o impostarlo su qualsiasi intervallo di tempo definito personalizzato. Inoltre, è possibile impostare i filtri che limitano le informazioni nella sequenza temporale a tipi specifici di eventi o avvisi.
+È possibile scegliere l' **intervallo di tempo** tra le diverse opzioni predefinite (ad esempio, le *ultime 24 ore* ) o impostarlo su qualsiasi intervallo di tempo definito personalizzato. Inoltre, è possibile impostare i filtri che limitano le informazioni nella sequenza temporale a tipi specifici di eventi o avvisi.
 
 Nella sequenza temporale sono inclusi i tipi di elementi seguenti:
 
-- Avvisi: tutti gli avvisi in cui l'entità viene definita come **entità mappata**. Si noti che, se l'organizzazione ha creato [avvisi personalizzati con le regole di analisi](./tutorial-detect-threats-custom.md), è necessario assicurarsi che il mapping delle entità delle regole venga eseguito correttamente.
+- Avvisi: tutti gli avvisi in cui l'entità viene definita come **entità mappata** . Si noti che, se l'organizzazione ha creato [avvisi personalizzati con le regole di analisi](./tutorial-detect-threats-custom.md), è necessario assicurarsi che il mapping delle entità delle regole venga eseguito correttamente.
 
 - Segnalibri: tutti i segnalibri che includono l'entità specifica visualizzata nella pagina.
 
@@ -162,7 +194,7 @@ Azure Sentinel calcola e classifica i peer di un utente, in base all'appartenenz
 
 L'analisi delle autorizzazioni consente di determinare il potenziale impatto della compromissione di un asset aziendale da parte di un utente malintenzionato. Questo effetto è noto anche come "raggio di esplosione" dell'asset. Gli analisti della sicurezza possono usare queste informazioni per definire la priorità delle indagini e della gestione degli eventi imprevisti.
 
-Azure Sentinel determina i diritti di accesso diretti e transitivi conservati da un determinato utente per le risorse di Azure, valutando le sottoscrizioni di Azure a cui l'utente può accedere direttamente o tramite gruppi o entità servizio. Queste informazioni, nonché l'elenco completo delle Azure AD appartenenza al gruppo di sicurezza dell'utente, vengono quindi archiviate nella tabella **UserAccessAnalytics** . La schermata seguente mostra una riga di esempio nella tabella UserAccessAnalytics, per l'utente Alex Johnson. L' **entità di origine** è l'account utente o dell'entità servizio e l'entità di **destinazione** è la risorsa a cui l'entità di origine ha accesso. I valori del **livello di accesso** e del **tipo di accesso** dipendono dal modello di controllo di accesso dell'entità di destinazione. Si noterà che Alex ha l'accesso collaboratore al tenant di *Contoso Hotels*della sottoscrizione di Azure. Il modello di controllo di accesso della sottoscrizione è RBAC.   
+Azure Sentinel determina i diritti di accesso diretti e transitivi conservati da un determinato utente per le risorse di Azure, valutando le sottoscrizioni di Azure a cui l'utente può accedere direttamente o tramite gruppi o entità servizio. Queste informazioni, nonché l'elenco completo delle Azure AD appartenenza al gruppo di sicurezza dell'utente, vengono quindi archiviate nella tabella **UserAccessAnalytics** . La schermata seguente mostra una riga di esempio nella tabella UserAccessAnalytics, per l'utente Alex Johnson. L' **entità di origine** è l'account utente o dell'entità servizio e l'entità di **destinazione** è la risorsa a cui l'entità di origine ha accesso. I valori del **livello di accesso** e del **tipo di accesso** dipendono dal modello di controllo di accesso dell'entità di destinazione. Si noterà che Alex ha l'accesso collaboratore al tenant di *Contoso Hotels* della sottoscrizione di Azure. Il modello di controllo di accesso della sottoscrizione è RBAC.   
 
 :::image type="content" source="./media/identify-threats-with-entity-behavior-analytics/user-access-analytics.png" alt-text="Architettura di analisi del comportamento delle entità":::
 

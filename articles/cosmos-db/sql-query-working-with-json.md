@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/19/2020
 ms.author: tisande
-ms.openlocfilehash: 355f73d46215aa9e05f4ea6d91bb173c77509b63
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cc79862bccee3253e41ce5f1c6bc8c149d9b3ae
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91270854"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100644"
 ---
 # <a name="working-with-json-in-azure-cosmos-db"></a>Uso di JSON in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Nell'API SQL (Core) di Azure Cosmos DB, gli elementi vengono archiviati come file JSON. Il sistema di tipi e le espressioni sono quindi limitati all'interazione esclusiva con i tipi JSON. Per altre informazioni, vedere le [specifiche JSON](https://www.json.org/).
 

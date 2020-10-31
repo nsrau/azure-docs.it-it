@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 3edaf55c8acb4def4f074c0d8f96eb399d98b6ce
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 7370642f5a325867c901d7ebd362e6dfa68e098f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491088"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101511"
 ---
 # <a name="manage-conflict-resolution-policies-in-azure-cosmos-db"></a>Gestire i criteri di risoluzione dei conflitti in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Con le scritture in più aree, se più client scrivono nello stesso elemento si potrebbero verificare conflitti. Se si verifica un conflitto, è possibile risolverlo usando diversi criteri di risoluzione. Questo articolo descrive come gestire i criteri di risoluzione dei conflitti.
 
@@ -134,10 +135,10 @@ Questi esempi illustrano come configurare un contenitore con un criterio di riso
 
 Le stored procedure per la risoluzione personalizzata di conflitti devono essere implementate usando la firma della funzione indicata di seguito. Anche se non è necessario, scegliendo per la funzione lo stesso nome usato per la registrazione della stored procedure con il contenitore si semplifica la denominazione. Ecco una descrizione dei parametri che è necessario implementare per questa stored procedure.
 
-- **incomingItem**: l'elemento da inserire o aggiornare nel commit che genera i conflitti. Per le operazioni di eliminazione è Null.
-- **existingItem**: elemento di cui è attualmente stato eseguito il commit. Questo valore è non Null in un aggiornamento e Null per un'operazione di inserimento o eliminazione.
-- **Tombstone**: valore booleano che indica se incomingItem è in conflitto con un elemento eliminato in precedenza. Se True, existingItem è Null.
-- **conflictingItems**: matrice della versione di cui è stato eseguito il commit di tutti gli elementi nel contenitore in conflitto con INCOMINGITEM su ID o qualsiasi altra proprietà di indice univoco.
+- **incomingItem** : l'elemento da inserire o aggiornare nel commit che genera i conflitti. Per le operazioni di eliminazione è Null.
+- **existingItem** : elemento di cui è attualmente stato eseguito il commit. Questo valore è non Null in un aggiornamento e Null per un'operazione di inserimento o eliminazione.
+- **Tombstone** : valore booleano che indica se incomingItem è in conflitto con un elemento eliminato in precedenza. Se True, existingItem è Null.
+- **conflictingItems** : matrice della versione di cui è stato eseguito il commit di tutti gli elementi nel contenitore in conflitto con INCOMINGITEM su ID o qualsiasi altra proprietà di indice univoco.
 
 > [!IMPORTANT]
 > Come per qualsiasi stored procedure, una procedura personalizzata di risoluzione dei conflitti può accedere ai dati con la stessa chiave di partizione e può eseguire qualsiasi operazione di inserimento, aggiornamento o eliminazione per risolvere i conflitti.

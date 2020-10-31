@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5be1cfc097da4f1f10bb775c9b20043096b9fb8b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 14c18d0cae335f96cc2d95c79bcf39bf85ef6a2b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279631"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101545"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Creare più trigger di Funzioni di Azure per Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questo articolo descrive come configurare più trigger di Funzioni di Azure per Cosmos DB che funzionano in parallelo e reagiscono in modo indipendente alle modifiche.
 
@@ -28,11 +29,11 @@ Durante la creazione di flussi serverless basati su eventi usando il [trigger di
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Ottimizzazione di contenitori per più trigger
 
-Considerando i *requisiti* del trigger di Funzioni di Azure per Cosmos DB, è necessario un secondo contenitore per archiviare lo stato, noto anche come *contenitore per i lease*. Ciò significa che è necessario un contenitore per i lease separato per ogni funzione di Azure?
+Considerando i *requisiti* del trigger di Funzioni di Azure per Cosmos DB, è necessario un secondo contenitore per archiviare lo stato, noto anche come *contenitore per i lease* . Ciò significa che è necessario un contenitore per i lease separato per ogni funzione di Azure?
 
 Sono disponibili due opzioni:
 
-* Creare **un contenitore di lease per ogni funzione**: questo approccio può tradursi in costi aggiuntivi, a meno che non si stia usando un [database di velocità effettiva condivisa](./set-throughput.md#set-throughput-on-a-database). Tenere presente che la velocità effettiva minima a livello di contenitore è di 400 [Unità richiesta](./request-units.md) e, nel caso del contenitore per i lease, si usa solo per eseguire il checkpoint dello stato di avanzamento e mantenere lo stato.
+* Creare **un contenitore di lease per ogni funzione** : questo approccio può tradursi in costi aggiuntivi, a meno che non si stia usando un [database di velocità effettiva condivisa](./set-throughput.md#set-throughput-on-a-database). Tenere presente che la velocità effettiva minima a livello di contenitore è di 400 [Unità richiesta](./request-units.md) e, nel caso del contenitore per i lease, si usa solo per eseguire il checkpoint dello stato di avanzamento e mantenere lo stato.
 * Avere **un contenitore di lease e condividerlo** per tutte le funzioni: questa seconda opzione consente di usare meglio le unità richiesta di cui è stato effettuato il provisioning nel contenitore, perché consente a più funzioni di Azure di condividere e usare la stessa velocità effettiva con provisioning.
 
 L'obiettivo di questo articolo è fornire istruzioni utili per usare la seconda opzione.

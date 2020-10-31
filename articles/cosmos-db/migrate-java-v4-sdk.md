@@ -8,14 +8,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/11/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 24e9087a175385f8e5c347a1d2df3b2785868506
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb2553346881bc2e8de631988bd11642b85aa847
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87327855"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099641"
 ---
 # <a name="migrate-your-application-to-use-the-azure-cosmos-db-java-sdk-v4"></a>Eseguire la migrazione dell'applicazione per usare Azure Cosmos DB Java SDK v4
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!IMPORTANT]  
 > Per altre informazioni su questo SDK, vedere le [note sulla versione](sql-api-sdk-java-v4.md) di Azure Cosmos DB Java SDK v4, il [repository Maven](https://mvnrepository.com/artifact/com.azure/azure-cosmos), i [suggerimenti sulle prestazioni ](performance-tips-java-sdk-v4-sql.md) di Azure Cosmos DB Java SDK v4 e la [guida alla risoluzione dei problemi](troubleshoot-java-sdk-v4-sql.md) di Azure Cosmos DB Java SDK v4.
@@ -62,11 +63,11 @@ Di seguito sono illustrate le modifiche a livello di API introdotte in Azure Cos
 
 * Azure Cosmos DB Java SDK 3.x.x e 4.0 offrono sia API asincrone sia API sincrone.
 
-  * **Java SDK 4.0**: tutte le classi appartengono all'API sincrona, a meno che nel nome della classe non sia stato aggiunto `Async` dopo `Cosmos`.
+  * **Java SDK 4.0** : tutte le classi appartengono all'API sincrona, a meno che nel nome della classe non sia stato aggiunto `Async` dopo `Cosmos`.
 
-  * **Java SDK 3.x.x**: tutte le classi appartengono all'API asincrona, a meno che nel nome della classe non sia stato aggiunto `Async` dopo `Cosmos`.
+  * **Java SDK 3.x.x** : tutte le classi appartengono all'API asincrona, a meno che nel nome della classe non sia stato aggiunto `Async` dopo `Cosmos`.
 
-  * **Async Java SDK 2.x.x**: i nomi delle classi sono simili a Sync Java SDK 2.x.x, ma iniziano con *Async*.
+  * **Async Java SDK 2.x.x** : i nomi delle classi sono simili a Sync Java SDK 2.x.x, ma iniziano con *Async* .
 
 ### <a name="hierarchical-api-structure"></a>Struttura dell'API gerarchica
 

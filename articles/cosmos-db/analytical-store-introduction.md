@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: d27eb4dc6c4e4bd8f0a744ad925d91aee0faa8d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8add203fabf867e22dbfe98b2bc9c632e62018b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567146"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100525"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è l'archivio analitico di Azure Cosmos DB (anteprima)?
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 > [!IMPORTANT]
 > L'archivio analitico di Azure Cosmos DB attualmente è disponibile in anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -149,7 +150,7 @@ Di seguito è riportato un mapping di tutti i tipi di dati delle proprietà e de
 | Double |  ". float64" |    24,99|
 | Array | ". matrice" |    ["a", "b"]|
 |Binary | ". Binary" |0|
-|Boolean    | ". bool"   |True|
+|Boolean    | ". bool"   |Vero|
 |Int32  | ". Int32"  |123|
 |Int64  | ". Int64"  |255486129307|
 |Null   | ". null"   | Null|

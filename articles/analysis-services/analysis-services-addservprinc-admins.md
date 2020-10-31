@@ -8,12 +8,12 @@ ms.date: 07/07/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 8e751d210ab472d82e4abd613d37069a8c591f52
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b1d5f8ec628245756c53e4dfeeecdeb3a4bebc2e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013934"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100729"
 ---
 # <a name="add-a-service-principal-to-the-server-administrator-role"></a>Aggiungere un'entità servizio al ruolo di amministratore del server 
 
@@ -33,14 +33,14 @@ Prima di completare questa attività, è necessario aver creato un'entità servi
 È possibile configurare gli amministratori del server con SQL Server Management Studio (SSMS). Per completare questa attività, è necessario avere autorizzazioni di [amministratore del server](analysis-services-server-admins.md) nel server Azure Analysis Services. 
 
 1. In SSMS connettersi al server Azure Analysis Services.
-2. In **Proprietà server** > **Sicurezza** fare clic su **Aggiungi**.
-3. In **Selezionare un utente o un gruppo** cercare l'app registrata per nome, selezionarla e quindi fare clic su **Aggiungi**.
+2. In **Proprietà server** > **Sicurezza** fare clic su **Aggiungi** .
+3. In **Selezionare un utente o un gruppo** cercare l'app registrata per nome, selezionarla e quindi fare clic su **Aggiungi** .
 
     ![Cercare l'account dell'entità servizio](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-picker.png)
 
-4. Verificare l'ID account dell'entità servizio e quindi fare clic su **OK**.
+4. Verificare l'ID account dell'entità servizio e quindi fare clic su **OK** .
     
-    ![Cercare l'account dell'entità servizio](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
+    ![Screenshot che mostra l'ID dell'account dell'entità servizio ed evidenzia il pulsante OK.](./media/analysis-services-addservprinc-admins/aas-add-sp-ssms-add.png)
 
 ## <a name="using-a-resource-manager-template"></a>Uso di un modello di Resource Manager
 

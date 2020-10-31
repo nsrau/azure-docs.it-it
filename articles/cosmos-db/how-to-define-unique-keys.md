@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 968ae8e582587564f1e268f16c18cf6d562d4333
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b814100097897aff6047b8b6d6cc0e8ebaa409ba
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279558"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101528"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definire chiavi univoche per un contenitore di Azure Cosmos
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questo articolo presenta i diversi modi per definire [chiavi univoche](unique-keys.md) durante la creazione di un contenitore di Azure Cosmos. È attualmente possibile eseguire questa operazione usando il portale di Azure o tramite uno degli SDK.
 
@@ -26,9 +27,9 @@ Questo articolo presenta i diversi modi per definire [chiavi univoche](unique-ke
 
 1. Aprire il riquadro **Esplora dati** e selezionare il contenitore da usare.
 
-1. Fare clic su **Nuovo contenitore**.
+1. Fare clic su **Nuovo contenitore** .
 
-1. Nella finestra di dialogo **Aggiungi contenitore**, fare clic su **+ Aggiungi chiave univoca** per aggiungere una voce di chiave univoca.
+1. Nella finestra di dialogo **Aggiungi contenitore** , fare clic su **+ Aggiungi chiave univoca** per aggiungere una voce di chiave univoca.
 
 1. Immettere il percorso o i percorsi del vincolo della chiave univoca
 

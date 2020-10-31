@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: ef681f861a14fbbf86e7e350441d05f84fc95f58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 75d22a5021c7c8ae3a12f25644f2875e0ccf8cdd
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88757898"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098757"
 ---
 # <a name="azure-cosmos-db-serverless-preview"></a>Azure Cosmos DB senza server (anteprima)
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 > [!IMPORTANT]
 > Azure Cosmos DB senza server è attualmente in fase di anteprima. Questa versione di anteprima viene fornita senza una Contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
@@ -32,9 +33,9 @@ Quando si utilizza Azure Cosmos DB, tutte le operazioni di database hanno un cos
 
 Azure Cosmos DB gli scenari più adatti per i server in cui ci si aspetta:
 
-- **Traffico leggero**: poiché la capacità di provisioning in tali situazioni non è necessaria e può essere dispendiosa in termini di costi
-- Velocità di espansione **moderata**: poiché i contenitori senza server possono fornire fino a 5.000 unità richiesta al secondo
-- **Prestazioni moderate**: poiché i contenitori senza server hanno [caratteristiche specifiche delle prestazioni](#performance)
+- **Traffico leggero** : poiché la capacità di provisioning in tali situazioni non è necessaria e può essere dispendiosa in termini di costi
+- Velocità di espansione **moderata** : poiché i contenitori senza server possono fornire fino a 5.000 unità richiesta al secondo
+- **Prestazioni moderate** : poiché i contenitori senza server hanno [caratteristiche specifiche delle prestazioni](#performance)
 
 Per questi motivi, è necessario prendere in considerazione Azure Cosmos DB senza server per i seguenti tipi di carico di lavoro:
 
@@ -81,9 +82,9 @@ Quando si Esplora il riquadro **metriche** dell'account, si troverà un grafico 
 
 Le risorse senza server producono caratteristiche specifiche delle prestazioni diverse da quelle offerte dalle risorse della velocità effettiva con provisioning:
 
-- **Disponibilità**: dopo che l'offerta senza server diventa disponibile a livello generale, la disponibilità di contenitori senza server sarà coperta da un contratto di servizio (SLA) del 99,9% quando non vengono usati zone di disponibilità (ridondanza della zona). Il contratto di contratto è 99,99% quando si utilizzano zone di disponibilità.
-- **Latenza**: dopo che l'offerta senza server diventa disponibile a livello generale, la latenza dei contenitori senza server sarà coperta da un obiettivo del livello di servizio (SLO) di 10 millisecondi o meno per le scritture di punti e 30 millisecondi o meno per le Scritture. Un'operazione di lettura di punti consiste nel recupero di un singolo elemento in base al relativo ID e valore della chiave di partizione.
-- Espansione **: dopo**che l'offerta senza server diventa disponibile a livello generale, l'espansione dei contenitori senza server sarà coperta da un obiettivo del livello di servizio (SLO) del 95%. Ciò significa che è possibile ottenere la massima espansione per almeno il 95% del tempo.
+- **Disponibilità** : dopo che l'offerta senza server diventa disponibile a livello generale, la disponibilità di contenitori senza server sarà coperta da un contratto di servizio (SLA) del 99,9% quando non vengono usati zone di disponibilità (ridondanza della zona). Il contratto di contratto è 99,99% quando si utilizzano zone di disponibilità.
+- **Latenza** : dopo che l'offerta senza server diventa disponibile a livello generale, la latenza dei contenitori senza server sarà coperta da un obiettivo del livello di servizio (SLO) di 10 millisecondi o meno per le scritture di punti e 30 millisecondi o meno per le Scritture. Un'operazione di lettura di punti consiste nel recupero di un singolo elemento in base al relativo ID e valore della chiave di partizione.
+- Espansione **: dopo** che l'offerta senza server diventa disponibile a livello generale, l'espansione dei contenitori senza server sarà coperta da un obiettivo del livello di servizio (SLO) del 95%. Ciò significa che è possibile ottenere la massima espansione per almeno il 95% del tempo.
 
 > [!NOTE]
 > Come qualsiasi anteprima di Azure, Azure Cosmos DB senza server è escluso dai contratti di servizio (SLA). Le caratteristiche di prestazioni menzionate in precedenza sono fornite come anteprima dell'offerta che verrà garantita dall'offerta quando disponibile a livello generale.

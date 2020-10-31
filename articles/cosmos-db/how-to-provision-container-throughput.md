@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: mjbrown
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: a6855a1c730c33a835e5033041ee7978be28fc6b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4caf43cb972b44dd1482b9e6e467e41cae294708
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278662"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100100"
 ---
 # <a name="provision-standard-manual-throughput-on-an-azure-cosmos-container---sql-api"></a>Eseguire il provisioning della velocità effettiva standard (manuale) in un contenitore Azure Cosmos-API SQL
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questo articolo illustra come effettuare il provisioning della velocità effettiva standard (manuale) in un contenitore in Azure Cosmos DB API SQL. È possibile effettuare il provisioning della velocità effettiva per un singolo contenitore oppure [effettuare il provisioning della velocità effettiva per un database](how-to-provision-database-throughput.md) e condividerlo tra i contenitori all'interno del database. Il provisioning della velocità effettiva per un contenitore può essere effettuato usando il portale di Azure, l'interfaccia della riga di comando di Azure o gli SDK di Azure Cosmos DB.
 
@@ -27,13 +28,13 @@ Se si usa un'API diversa, vedere l'articolo relativo alle API [per MongoDB](how-
 
 1. [Creare un nuovo account Azure Cosmos](create-sql-api-dotnet.md#create-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **nuovo contenitore**. Specificare quindi i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **nuovo contenitore** . Specificare quindi i dettagli seguenti:
 
    * Indicare se si intende creare un nuovo database o usarne uno esistente.
    * Immettere un ID contenitore.
    * Immettere un valore della chiave di partizione, ad esempio `/ItemID`.
    * Immettere una velocità effettiva di cui si desidera eseguire il provisioning (ad esempio, 1000 UR).
-   * Selezionare **OK**.
+   * Selezionare **OK** .
 
     :::image type="content" source="./media/how-to-provision-container-throughput/provision-container-throughput-portal-sql-api.png" alt-text="Screenshot del riquadro Esplora dati con l'opzione Nuova raccolta evidenziata":::
 

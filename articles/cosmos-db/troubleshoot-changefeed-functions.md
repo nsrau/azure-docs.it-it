@@ -7,14 +7,15 @@ ms.date: 03/13/2020
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 7bf7d418e3f2680b32f61e42cffc76c921068508
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9da07dc76bdd9273b70f68ee1abcddfa04519fda
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79365509"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101035"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Diagnosticare e risolvere i problemi quando si usa il trigger di funzioni di Azure per Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questo articolo descrive i problemi comuni, le soluzioni alternative e i passaggi di diagnostica, quando si usa il [trigger di funzioni di Azure per Cosmos DB](change-feed-functions.md).
 
@@ -31,7 +32,7 @@ Questo articolo si riferisce sempre a funzioni di Azure V2 ogni volta che viene 
 
 La funzionalità principale del pacchetto di estensione consiste nel fornire supporto per il trigger e le associazioni di funzioni di Azure per Cosmos DB. Include anche [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet-core.md), utile se si desidera interagire con Azure Cosmos DB a livello di codice senza utilizzare il trigger e le associazioni.
 
-Se si vuole usare Azure Cosmos DB SDK, assicurarsi di non aggiungere al progetto un altro riferimento al pacchetto NuGet. Al contrario, **lasciare che il riferimento all'SDK venga risolto tramite il pacchetto di estensione delle funzioni di Azure**. Utilizzare il Azure Cosmos DB SDK separatamente dal trigger e dalle associazioni
+Se si vuole usare Azure Cosmos DB SDK, assicurarsi di non aggiungere al progetto un altro riferimento al pacchetto NuGet. Al contrario, **lasciare che il riferimento all'SDK venga risolto tramite il pacchetto di estensione delle funzioni di Azure** . Utilizzare il Azure Cosmos DB SDK separatamente dal trigger e dalle associazioni
 
 Inoltre, se si crea manualmente una propria istanza del [client Azure Cosmos DB SDK](./sql-api-sdk-dotnet-core.md), è necessario seguire il modello per avere una sola istanza del client [usando un approccio basato su modello singleton](../azure-functions/manage-connections.md#documentclient-code-example-c). Questo processo eviterà i potenziali problemi di socket nelle operazioni.
 
@@ -43,7 +44,7 @@ La funzione di Azure ha esito negativo con il messaggio di errore "la raccolta d
 
 Ciò significa che uno o entrambi i contenitori di Azure Cosmos necessari per il funzionamento del trigger non esistono o non sono raggiungibili dalla funzione di Azure. **L'errore indica che il database e il contenitore di Azure Cosmos sono il trigger che cerca** in base alla configurazione.
 
-1. Verificare l' `ConnectionStringSetting` attributo e che **faccia riferimento a un'impostazione esistente nel app per le funzioni di Azure**. Il valore di questo attributo non deve essere la stringa di connessione, ma il nome dell'impostazione di configurazione.
+1. Verificare l' `ConnectionStringSetting` attributo e che **faccia riferimento a un'impostazione esistente nel app per le funzioni di Azure** . Il valore di questo attributo non deve essere la stringa di connessione, ma il nome dell'impostazione di configurazione.
 2. Verificare che `databaseName` e `collectionName` esistano nell'account Azure Cosmos. Se si usa la sostituzione automatica dei valori (usando i `%settingName%` modelli), assicurarsi che il nome dell'impostazione esista nel app per le funzioni di Azure.
 3. Se non si specifica un oggetto `LeaseCollectionName/leaseCollectionName` , il valore predefinito è "leases". Verificare che tale contenitore esista. Facoltativamente, è possibile impostare l' `CreateLeaseCollectionIfNotExists` attributo nel trigger su `true` per crearlo automaticamente.
 4. Verificare la [configurazione del firewall dell'account Azure Cosmos](how-to-configure-firewall.md) per verificare che non stia bloccando la funzione di Azure.
@@ -94,7 +95,7 @@ In questo scenario, il modo migliore consiste nell'aggiungere `try/catch` blocch
 > [!NOTE]
 > Per impostazione predefinita, il trigger di Funzioni di Azure per Cosmos DB non cerca di ripetere un batch di modifiche se si è verificata un'eccezione non gestita durante l'esecuzione del codice. Ciò significa che il motivo per cui le modifiche non arrivano alla destinazione è dovuto al fatto che l'elaborazione non è riuscita.
 
-Se si rileva che alcune modifiche non sono state ricevute dal trigger, lo scenario più comune è che è **in esecuzione un'altra funzione di Azure**. Potrebbe trattarsi di un'altra funzione di Azure distribuita in Azure o di una funzione di Azure in esecuzione in locale nel computer di uno sviluppatore che ha **esattamente la stessa configurazione** (gli stessi contenitori monitorati e di lease) e che questa funzione di Azure sta rubando un subset delle modifiche che si prevede vengano elaborate dalla funzione di Azure.
+Se si rileva che alcune modifiche non sono state ricevute dal trigger, lo scenario più comune è che è **in esecuzione un'altra funzione di Azure** . Potrebbe trattarsi di un'altra funzione di Azure distribuita in Azure o di una funzione di Azure in esecuzione in locale nel computer di uno sviluppatore che ha **esattamente la stessa configurazione** (gli stessi contenitori monitorati e di lease) e che questa funzione di Azure sta rubando un subset delle modifiche che si prevede vengano elaborate dalla funzione di Azure.
 
 Inoltre, è possibile convalidare lo scenario, se si conosce il numero di istanze di app per le funzioni di Azure in esecuzione. Se si esamina il contenitore dei lease e si conta il numero di elementi di lease in, i valori distinti della `Owner` Proprietà in essi contenuti devono essere uguali al numero di istanze del app per le funzioni. Se sono presenti più proprietari delle istanze note di Azure app per le funzioni, significa che questi proprietari aggiuntivi sono quelli che "rubano" le modifiche.
 

@@ -10,14 +10,19 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: 642aa23bc74f1f3f44deb6e489e6f7aafe7ff237
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43086c245f1d16975eae6951b1e8c2cb56fe5241
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254126"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098332"
 ---
 # <a name="spell-check-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Controllo ortografico
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Controllo ortografico Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 
@@ -25,7 +30,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 
 ### <a name="endpoints"></a>Endpoint
 
-- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio: `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
+- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio `https://api.cognitive.microsoft.com/bing/v7.0/spellcheck`.
 
 ### <a name="error-response-objects-and-error-codes"></a>Oggetti di risposta di errore e codici di errore
 

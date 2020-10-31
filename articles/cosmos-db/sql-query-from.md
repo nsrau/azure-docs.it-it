@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: e4bbb27a2f49027ed5a456ad824f54b9c92a899c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 967e07e55599be0a614e0b6097ae4745f6c7081f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83005865"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100083"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Clausola FROM in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 La clausola FROM ( `FROM <from_specification>` ) è facoltativa, a meno che l'origine non sia filtrata o proiettata più avanti nella query. Una query come `SELECT * FROM Families` enumera l'intero `Families` contenitore. È anche possibile usare la radice identificatore speciale per il contenitore invece di usare il nome del contenitore.
 
@@ -103,7 +104,7 @@ Un'espressione di contenitore può avere come ambito un contenitore o un documen
   
 - Un'espressione ha un ambito documento se l'origine dell'espressione di contenitore sottostante è `input_alias` introdotta in precedenza nella query. Tale espressione rappresenta un set di documenti ottenuti dalla valutazione dell'espressione di contenitore nell'ambito di ogni documento appartenente al set associato al contenitore con alias. Il set risultante sarà un'unione di set ottenuti dalla valutazione dell'espressione di contenitore per ogni documento del set sottostante.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 ### <a name="get-subitems-by-using-the-from-clause"></a>Ottenere gli elementi secondari utilizzando la clausola FROM
 

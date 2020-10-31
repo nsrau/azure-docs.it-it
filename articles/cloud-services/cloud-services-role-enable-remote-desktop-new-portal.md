@@ -9,12 +9,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 11/28/2016
 ms.author: memccror
-ms.openlocfilehash: d65f4b55be317234c10a0e90cfe413d9e38a6a90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 507af87c3126be00a802bcbc5170f8ad364c06fc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696780"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099318"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services"></a>Impostare una connessione Desktop remoto per un ruolo nei servizi cloud di Azure
 
@@ -31,11 +31,11 @@ Desktop remoto consente di accedere al desktop di un ruolo in esecuzione in Azur
 
 Il portale di Azure usa l'approccio dell'estensione di Desktop remoto in modo da poter abilitare Desktop remoto anche dopo la distribuzione dell'applicazione. L'impostazione **Desktop remoto** per il servizio cloud consente di abilitare Desktop remoto, modificare l'account amministratore locale usato per connettersi alle macchine virtuali e il certificato usato nell'autenticazione e impostare la data di scadenza.
 
-1. Fare clic su **Servizi cloud**, selezionare il nome del servizio cloud e infine **Desktop remoto**.
+1. Fare clic su **Servizi cloud** , selezionare il nome del servizio cloud e infine **Desktop remoto** .
 
-    ![Servizi cloud per Desktop remoto](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
+    ![Screenshot che evidenzia l'opzione Desktop remoto.](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop.png)
 
-2. Scegliere se si vuole abilitare Desktop remoto per un singolo ruolo o per tutti i ruoli, quindi modificare il valore del commutatore su **Abilitato**.
+2. Scegliere se si vuole abilitare Desktop remoto per un singolo ruolo o per tutti i ruoli, quindi modificare il valore del commutatore su **Abilitato** .
 
 3. Compilare i campi obbligatori per nome utente, password, scadenza e certificato.
 
@@ -46,22 +46,22 @@ Il portale di Azure usa l'approccio dell'estensione di Desktop remoto in modo da
 
 4. In **Ruolo** selezionare il ruolo da aggiornare oppure selezionare **Tutti** per tutti i ruoli.
 
-5. Al termine degli aggiornamenti della configurazione, selezionare **Salva**. Ci vorranno alcuni minuti affinché le istanze del ruolo siano pronte a ricevere le connessioni.
+5. Al termine degli aggiornamenti della configurazione, selezionare **Salva** . Ci vorranno alcuni minuti affinché le istanze del ruolo siano pronte a ricevere le connessioni.
 
 ## <a name="remote-into-role-instances"></a>Accedere in remoto alle istanze del ruolo
 
 Dopo aver abilitato Desktop remoto nei ruoli, è possibile avviare una connessione direttamente dal portale di Azure:
 
-1. Fare clic su **Istanze** per aprire l'impostazione **Istanze**.
+1. Fare clic su **Istanze** per aprire l'impostazione **Istanze** .
 2. Selezionare un'istanza del ruolo per cui è configurato Desktop remoto.
 3. Fare clic su **Connetti** per scaricare un file RDP per l'istanza del ruolo.
 
-    ![Servizi cloud per Desktop remoto](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
+    ![Screenshot con il pulsante Connetti evidenziato.](./media/cloud-services-role-enable-remote-desktop-new-portal/CloudServices_Remote_Desktop_Connect.png)
 
 4. Fare clic su **Apri** e quindi su **Connetti** per avviare la connessione Desktop remoto.
 
 >[!NOTE]
-> Se il servizio cloud si trova dietro un gruppo di sicurezza di rete, potrebbe essere necessario creare regole che consentano il traffico sulle porte **3389** e **20000**.  Desktop remoto usa la porta **3389**.  Dato che alle istanze del servizio cloud viene applicato il bilanciamento del carico, non è possibile controllare direttamente a quale istanza connettersi.  Gli agenti *RemoteForwarder* e *RemoteAccess* gestiscono il traffico RDP e consentono al client di inviare un cookie RDP e specificare una singola istanza a cui connettersi.  Gli agenti *RemoteForwarder* e *RemoteAccess* richiedono che la porta **20000***, che potrebbe essere bloccata in presenza di un gruppo di sicurezza di rete, sia aperta.
+> Se il servizio cloud si trova dietro un gruppo di sicurezza di rete, potrebbe essere necessario creare regole che consentano il traffico sulle porte **3389** e **20000** .  Desktop remoto usa la porta **3389** .  Dato che alle istanze del servizio cloud viene applicato il bilanciamento del carico, non è possibile controllare direttamente a quale istanza connettersi.  Gli agenti *RemoteForwarder* e *RemoteAccess* gestiscono il traffico RDP e consentono al client di inviare un cookie RDP e specificare una singola istanza a cui connettersi.  Gli agenti *RemoteForwarder* e *RemoteAccess* richiedono che la porta **20000** *, che potrebbe essere bloccata in presenza di un gruppo di sicurezza di rete, sia aperta.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

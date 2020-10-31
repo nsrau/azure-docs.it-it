@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: thweiss
 ms.custom: devx-track-js
-ms.openlocfilehash: 8e9d11ed39d6e4dc7ad432659534e7dd14fcf1ec
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 92d15337f511f534c23ff97d274b344714812a5e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277988"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100253"
 ---
 # <a name="how-to-model-and-partition-data-on-azure-cosmos-db-using-a-real-world-example"></a>Come modellare e partizionare i dati in Azure Cosmos DB usando un esempio reale
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questo articolo si basa su diversi concetti Azure Cosmos DB come la [modellazione dei dati](modeling-data.md), il [partizionamento](partitioning-overview.md)e la [velocità effettiva con provisioning](request-units.md) per illustrare come affrontare un esercizio di progettazione dei dati reale.
 
@@ -22,7 +23,7 @@ Se in genere si lavora con i database relazionali, saranno già state implementa
 
 ## <a name="the-scenario"></a>Scenario
 
-Per questo esercizio, si prenderà in considerazione il dominio di una piattaforma di blog in cui gli *utenti* possono scrivere dei *post* a cui possono anche *aggiungere Mi piace* e *commenti*.
+Per questo esercizio, si prenderà in considerazione il dominio di una piattaforma di blog in cui gli *utenti* possono scrivere dei *post* a cui possono anche *aggiungere Mi piace* e *commenti* .
 
 > [!TIP]
 > Sono evidenziate in *corsivo* alcune parole che identificano il tipo di elementi che il modello dovrà modificare.
@@ -46,12 +47,12 @@ Ecco l'elenco di richieste che la piattaforma dovrà esporre:
 - **[C1]** Creare/modificare un utente
 - **[Q1]** Recuperare un utente
 - **[C2]** Creare/modificare un post
-- **[Q2] ** Recuperare un post
+- **[Q2]** Recuperare un post
 - **[Q3]** Elencare i post di un utente in forma breve
 - **[C3]** Creare un commento
 - **[Q4]** Elenca i commenti di un post
 - **[C4]** Aggiungere Mi piace a un post
-- **[Q5] ** Elencare i Mi piace ricevuti da un post
+- **[Q5]** Elencare i Mi piace ricevuti da un post
 - **[Q6]** Elenca gli *x* post più recenti creati in forma breve (feed)
 
 In questa fase, non sono stati considerati i dettagli relativi a ogni entità (utente, post e così via) che conterrà. Questo passaggio è in genere tra le prime da affrontare quando si progetta in un archivio relazionale, perché è necessario determinare il modo in cui tali entità verranno convertite in termini di tabelle, colonne, chiavi esterne e così via. È molto meno problematico per un database di documenti che non impone alcuno schema in fase di scrittura.
@@ -145,7 +146,7 @@ Per recuperare un utente si legge l'elemento corrispondente dal contenitore `use
 
 ### <a name="c2-createedit-a-post"></a>[C2] Creare/modificare un post
 
-Analogamente a **[C1]**, occorre solo scrivere nel contenitore `posts`.
+Analogamente a **[C1]** , occorre solo scrivere nel contenitore `posts`.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Scrittura di un singolo elemento nel contenitore utenti" border="false":::
 
@@ -204,7 +205,7 @@ Anche se la query principale filtra la chiave di partizione del contenitore, agg
 
 ### <a name="c4-like-a-post"></a>[C4] Aggiungere Mi piace a un post
 
-Come per **[C3]**, basta scrivere l'elemento corrispondente nel contenitore `posts`.
+Come per **[C3]** , basta scrivere l'elemento corrispondente nel contenitore `posts`.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-C2.png" alt-text="Scrittura di un singolo elemento nel contenitore utenti" border="false":::
 
@@ -214,7 +215,7 @@ Come per **[C3]**, basta scrivere l'elemento corrispondente nel contenitore `pos
 
 ### <a name="q5-list-a-posts-likes"></a>[Q5] Elencare i Mi piace ricevuti da un post
 
-Analogamente a **[Q4]**, si esegue una query per i Mi piace ricevuti da tale post, quindi si aggregano i relativi nomi utente.
+Analogamente a **[Q4]** , si esegue una query per i Mi piace ricevuti da tale post, quindi si aggregano i relativi nomi utente.
 
 :::image type="content" source="./media/how-to-model-partition-example/V1-Q5.png" alt-text="Scrittura di un singolo elemento nel contenitore utenti" border="false":::
 
@@ -291,7 +292,7 @@ Si modificano anche i commenti e i Mi piace aggiungendo il nome utente del relat
 
 L'obiettivo in questo caso è incrementare il `commentCount` o il `likeCount` nel post corrispondente ogni volta che si aggiunge un commento o un Mi piace. Dal momento che il contenitore `posts` è partizionato per `postId`, il nuovo elemento (commento o Mi piace) e il post corrispondente si trovano nella medesima partizione logica. Di conseguenza, è possibile usare una [stored procedure](stored-procedures-triggers-udfs.md) per eseguire tale operazione.
 
-A questo punto, quando si crea un commento (**[C3]**), anziché aggiungere solo un nuovo elemento nel contenitore `posts` si chiama la stored procedure seguente in tale contenitore:
+A questo punto, quando si crea un commento ( **[C3]** ), anziché aggiungere solo un nuovo elemento nel contenitore `posts` si chiama la stored procedure seguente in tale contenitore:
 
 ```javascript
 function createComment(postId, comment) {
@@ -405,7 +406,7 @@ La stessa esatta situazione di quando si elencano i Mi piace.
 
 ## <a name="v3-making-sure-all-requests-are-scalable"></a>V3: assicurarsi che tutte le richieste siano scalabili
 
-Esaminando i miglioramenti delle prestazioni complessivi, ci sono ancora due richieste che non sono state ancora completamente ottimizzate: **[Q3]** e **[Q6]**. Si tratta di richieste che prevedono query che non filtrano la chiave di partizione dei contenitori di destinazione.
+Esaminando i miglioramenti delle prestazioni complessivi, ci sono ancora due richieste che non sono state ancora completamente ottimizzate: **[Q3]** e **[Q6]** . Si tratta di richieste che prevedono query che non filtrano la chiave di partizione dei contenitori di destinazione.
 
 ### <a name="q3-list-a-users-posts-in-short-form"></a>[Q3] Elencare i post di un utente in forma breve
 

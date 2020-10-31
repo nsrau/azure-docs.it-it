@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/28/2019
 ms.author: mjbrown
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1de6aa5450a42bbc8fe35b220e810726f7dd2cda
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a93bf4fe92cc7b2240a7411b093a7bab5a1a275e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488436"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098825"
 ---
 # <a name="create-containers-with-large-partition-key"></a>Creare contenitori con una chiave di partizione grande
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB usa lo schema di partizionamento basato su hash per ottenere il ridimensionamento orizzontale dei dati. Tutti i contenitori di Azure Cosmos creati prima del 3 2019 maggio usano una funzione hash che calcola l'hash in base ai primi 100 byte della chiave di partizione. Se sono presenti più chiavi di partizione con lo stesso primo 100 byte, le partizioni logiche vengono considerate come la stessa partizione logica da parte del servizio. Questo può causare problemi quali la quota delle dimensioni della partizione non corretta e gli indici univoci applicati tra le chiavi di partizione. Per risolvere questo problema, sono state introdotte chiavi di partizione di grandi dimensioni. Azure Cosmos DB supporta ora chiavi di partizione di grandi dimensioni con valori fino a 2 KB.
 

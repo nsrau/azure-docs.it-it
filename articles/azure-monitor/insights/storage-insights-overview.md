@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: c030c1548a931bc749ad799a5aa88813c35d19cd
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 250a06d81f929d0e3d3befa1e7494db13044fc97
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91997033"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93101273"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitoraggio del servizio di archiviazione con Monitoraggio di Azure per l'archiviazione
 
@@ -25,11 +25,11 @@ Prima di approfondire l'esperienza è necessario comprendere il modo in cui le i
 
 In combinazione, offre:
 
-* **Una prospettiva su larga scala**, che mostra una visualizzazione snapshot della disponibilità in base all'integrità del servizio di archiviazione o all'operazione API, dell'utilizzo, con il numero totale di richieste ricevute dal servizio di archiviazione, e della latenza, con il tempo medio impiegato dal servizio di archiviazione o dal tipo di operazione API per elaborare le richieste. È anche possibile visualizzare la capacità per BLOB, file, tabelle e code.
+* **Una prospettiva su larga scala** , che mostra una visualizzazione snapshot della disponibilità in base all'integrità del servizio di archiviazione o all'operazione API, dell'utilizzo, con il numero totale di richieste ricevute dal servizio di archiviazione, e della latenza, con il tempo medio impiegato dal servizio di archiviazione o dal tipo di operazione API per elaborare le richieste. È anche possibile visualizzare la capacità per BLOB, file, tabelle e code.
 
 * **Analisi drill-down** di uno specifico account di archiviazione per facilitare la diagnosi dei problemi o eseguire l'analisi dettagliata per categoria: disponibilità, prestazioni, errori e capacità. Selezionando una di queste opzioni si ottiene una visualizzazione approfondita delle metriche.  
 
-* **Possibilità di personalizzazione**, per modificare le metriche da visualizzare, modificare o impostare soglie allineate ai propri limiti e salvare come cartella di lavoro personalizzata. I grafici nelle cartelle di lavoro possono essere aggiunti ai dashboard di Azure.  
+* **Possibilità di personalizzazione** , per modificare le metriche da visualizzare, modificare o impostare soglie allineate ai propri limiti e salvare come cartella di lavoro personalizzata. I grafici nelle cartelle di lavoro possono essere aggiunti ai dashboard di Azure.  
 
 Per questa funzionalità non è necessario abilitare o configurare alcunché, le metriche di archiviazione degli account di archiviazione vengono raccolte per impostazione predefinita. Se non si ha familiarità con le metriche disponibili in Archiviazione di Azure, vedere la descrizione e la definizione delle metriche in [Metriche di archiviazione di Azure](../../storage/blobs/monitor-blob-storage.md).
 
@@ -48,7 +48,7 @@ Per visualizzare l'utilizzo e la disponibilità degli account di archiviazione i
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Selezionare **Monitoraggio** nel riquadro a sinistra del portale di Azure e nella sezione **Informazioni dettagliate** selezionare **Account di archiviazione**.
+2. Selezionare **Monitoraggio** nel riquadro a sinistra del portale di Azure e nella sezione **Informazioni dettagliate** selezionare **Account di archiviazione** .
 
     ![Vista di più account di archiviazione](./media/storage-insights-overview/multiple-storage-accounts-view-01.png)
 
@@ -56,18 +56,18 @@ Per visualizzare l'utilizzo e la disponibilità degli account di archiviazione i
 
 Nella cartella di lavoro **Panoramica** per la sottoscrizione selezionata la tabella Visualizza le metriche di archiviazione interattiva e lo stato di disponibilità del servizio per un massimo di 5 account di archiviazione raggruppati nella sottoscrizione. È possibile filtrare i risultati in base alle opzioni selezionate dagli elenchi a discesa seguenti:
 
-* **Sottoscrizioni**: sono elencate solo le sottoscrizioni con account di archiviazione.  
+* **Sottoscrizioni** : sono elencate solo le sottoscrizioni con account di archiviazione.  
 
 * **Account di archiviazione** : per impostazione predefinita, 5 account di archiviazione sono pre-selezionati. Se si selezionano più account di archiviazione o tutti gli account nel selettore di ambito, verranno restituiti fino a 200 account di archiviazione. Ad esempio, se si ha un totale di 573 account di archiviazione in tre sottoscrizioni selezionate, verranno visualizzati solo 200 account. 
 
-* **Intervallo di tempo**: per impostazione predefinita, visualizza le ultime 4 ore di informazioni in base alle selezioni corrispondenti effettuate.
+* **Intervallo di tempo** : per impostazione predefinita, visualizza le ultime 4 ore di informazioni in base alle selezioni corrispondenti effettuate.
 
 Il riquadro contatore sotto gli elenchi a discesa riepiloga il numero totale di account di archiviazione nella sottoscrizione e indica quanti ne sono selezionati sul totale. Per le colonne nella cartella di lavoro che riportano metriche di transazioni errori sono previste una codifica con colori condizionale o le mappe termiche. Il colore più profondo presenta il valore più elevato, mentre un colore più chiaro deriva da valori più bassi. Per le colonne basate sugli errori il valore è in rosso, per le colonne basate su metriche il valore è in blu.
 
-Selezionare un valore nelle colonne **Disponibilità**, **Latenza end-to-end**, **Latenza server** e **tipo di errore transazione/Errori** per accedere a un report basato sul tipo specifico di metrica di archiviazione corrispondente alla colonna selezionata per l'account di archiviazione. Per altre informazioni sulle cartelle di lavoro per ogni categoria, vedere la sezione [Cartelle di lavoro sull'archiviazione dettagliate](#detailed-storage-workbooks) più avanti. 
+Selezionare un valore nelle colonne **Disponibilità** , **Latenza end-to-end** , **Latenza server** e **tipo di errore transazione/Errori** per accedere a un report basato sul tipo specifico di metrica di archiviazione corrispondente alla colonna selezionata per l'account di archiviazione. Per altre informazioni sulle cartelle di lavoro per ogni categoria, vedere la sezione [Cartelle di lavoro sull'archiviazione dettagliate](#detailed-storage-workbooks) più avanti. 
 
 >[!NOTE]
->Per informazioni dettagliate sugli errori che possono essere visualizzati nel report, vedere lo [schema dei tipi di risposta](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) e cercare i tipi di risposta, ad esempio **ServerOtherError**, **ClientOtherError**, **ClientThrottlingError**. A seconda degli account di archiviazione selezionati, in presenza di più di tre tipi di errore, tutti gli altri errori sono rappresentati nella categoria **Altro**.
+>Per informazioni dettagliate sugli errori che possono essere visualizzati nel report, vedere lo [schema dei tipi di risposta](../../storage/blobs/monitor-blob-storage-reference.md#metrics-dimensions) e cercare i tipi di risposta, ad esempio **ServerOtherError** , **ClientOtherError** , **ClientThrottlingError** . A seconda degli account di archiviazione selezionati, in presenza di più di tre tipi di errore, tutti gli altri errori sono rappresentati nella categoria **Altro** .
 
 La soglia di **Disponibilità** predefinita è:
 
@@ -78,7 +78,7 @@ Per impostare una soglia di disponibilità in base ai risultati dell'osservazion
 
 ### <a name="capacity-workbook"></a>Cartella di lavoro Capacità
 
-Selezionare **Capacità** nella parte superiore della pagina e verrà aperta la cartella di lavoro **Capacità**. Mostra la quantità di spazio di archiviazione totale usato nell'account e la capacità usata da ogni servizio dati nell'account, per identificare le risorse di archiviazione sovrautilizzate e sottoutilizzate.
+Selezionare **Capacità** nella parte superiore della pagina e verrà aperta la cartella di lavoro **Capacità** . Mostra la quantità di spazio di archiviazione totale usato nell'account e la capacità usata da ogni servizio dati nell'account, per identificare le risorse di archiviazione sovrautilizzate e sottoutilizzate.
 
 ![Cartella di lavoro della capacità per più account di archiviazione](./media/storage-insights-overview/storage-account-capacity-02.png) 
 
@@ -94,37 +94,37 @@ Per accedere a Monitoraggio di Azure per le macchine virtuali direttamente da un
 
 2. Scegliere un account di archiviazione nell'elenco. Nella sezione Monitoraggio scegliere Informazioni dettagliate.
 
-    ![Pagina Panoramica dell'account di archiviazione selezionato](./media/storage-insights-overview/storage-account-direct-overview-01.png)
+    ![Screenshot che mostra la pagina della cartella di lavoro Panoramica per l'account di archiviazione.](./media/storage-insights-overview/storage-account-direct-overview-01.png)
 
 La cartella di lavoro **Panoramica** per l'account di archiviazione mostra diverse metriche relative alle prestazioni di archiviazione che consentono di valutare rapidamente:
 
-* Integrità del servizio di archiviazione, per vedere immediatamente se un problema al di fuori del proprio controllo incide sul servizio di archiviazione nell'area in cui è distribuito, come indicato nella colonna **Riepilogo**.
+* Integrità del servizio di archiviazione, per vedere immediatamente se un problema al di fuori del proprio controllo incide sul servizio di archiviazione nell'area in cui è distribuito, come indicato nella colonna **Riepilogo** .
 
 * Grafici delle prestazioni interattivi con i dettagli più importanti relativi a capacità di archiviazione, disponibilità, transazioni e latenza.  
 
 * Riquadri relativi a metriche e stato che evidenziano la disponibilità del servizio, il numero totale di transazioni per il servizio di archiviazione, la latenza end-to-end e la latenza del server.
 
-Selezionando uno dei pulsanti per **Errori**, **Prestazioni**, **Disponibilità** e **Capacità** verrà aperta la cartella di lavoro corrispondente. 
+Selezionando uno dei pulsanti per **Errori** , **Prestazioni** , **Disponibilità** e **Capacità** verrà aperta la cartella di lavoro corrispondente. 
 
 ![Pagina Panoramica dell'account di archiviazione selezionato](./media/storage-insights-overview/storage-account-capacity-01.png)
 
 ## <a name="detailed-storage-workbooks"></a>Cartelle di lavoro sull'archiviazione dettagliate
 
-Selezionando un valore nelle colonne **Disponibilità**, **Latenza end-to-end**, **Latenza server** e **tipo di errore di transazione/Errori** dalla cartella di lavoro **Panoramica** di più account di archiviazione, oppure selezionando uno dei pulsanti per **Errori**, **Prestazioni**, **Disponibilità** e **Capacità** dalla cartella di lavoro **Panoramica** di uno specifico account di archiviazione, si otterrà un set di informazioni interattive correlate all'archiviazione, personalizzato in base a tale categoria.  
+Selezionando un valore nelle colonne **Disponibilità** , **Latenza end-to-end** , **Latenza server** e **tipo di errore di transazione/Errori** dalla cartella di lavoro **Panoramica** di più account di archiviazione, oppure selezionando uno dei pulsanti per **Errori** , **Prestazioni** , **Disponibilità** e **Capacità** dalla cartella di lavoro **Panoramica** di uno specifico account di archiviazione, si otterrà un set di informazioni interattive correlate all'archiviazione, personalizzato in base a tale categoria.  
 
-* **Disponibilità** apre la cartella di lavoro **Disponibilità**. Mostra lo stato di integrità corrente del servizio Archiviazione di Azure, una tabella con lo stato di integrità disponibile di ogni oggetto categorizzato in base al servizio dati definito nell'account di archiviazione, con una linea di tendenza che rappresenta l'intervallo di tempo selezionato e un grafico di tendenza della disponibilità per ogni servizio dati nell'account.  
+* **Disponibilità** apre la cartella di lavoro **Disponibilità** . Mostra lo stato di integrità corrente del servizio Archiviazione di Azure, una tabella con lo stato di integrità disponibile di ogni oggetto categorizzato in base al servizio dati definito nell'account di archiviazione, con una linea di tendenza che rappresenta l'intervallo di tempo selezionato e un grafico di tendenza della disponibilità per ogni servizio dati nell'account.  
 
     ![Esempio di report di disponibilità](./media/storage-insights-overview/storage-account-availability-01.png)
 
-* **Latenza E2E** e **Latenza server** aprono la cartella di lavoro **Prestazioni**. Include un riquadro riepilogativo dello stato che mostra la latenza end-to-end e la latenza del server, un grafico delle prestazioni con i due tipi di latenza a confronto e una tabella con la suddivisione della latenza delle chiamate riuscita per API, categorizzate in base al servizio dati definito nell'account di archiviazione.
+* **Latenza E2E** e **Latenza server** aprono la cartella di lavoro **Prestazioni** . Include un riquadro riepilogativo dello stato che mostra la latenza end-to-end e la latenza del server, un grafico delle prestazioni con i due tipi di latenza a confronto e una tabella con la suddivisione della latenza delle chiamate riuscita per API, categorizzate in base al servizio dati definito nell'account di archiviazione.
 
     ![Esempio di report sulle prestazioni](./media/storage-insights-overview/storage-account-performance-01.png)
 
-* Selezionando una delle categorie di errore elencate nella griglia viene aperta la cartella di lavoro **Errori**. Il report mostra i riquadri delle metriche di tutti gli altri errori lato client tranne quelli descritti e le richieste riuscite, gli errori di limitazione del client, un grafico delle prestazioni per la metrica della dimensione **Tipo di risposta** della transazione specifica dell'attributo ClientOtherError e due tabelle: **Transactions by API name** (Transazioni per nome API) e **Transazioni in base al tipo di risposta**.
+* Selezionando una delle categorie di errore elencate nella griglia viene aperta la cartella di lavoro **Errori** . Il report mostra i riquadri delle metriche di tutti gli altri errori lato client tranne quelli descritti e le richieste riuscite, gli errori di limitazione del client, un grafico delle prestazioni per la metrica della dimensione **Tipo di risposta** della transazione specifica dell'attributo ClientOtherError e due tabelle: **Transactions by API name** (Transazioni per nome API) e **Transazioni in base al tipo di risposta** .
 
    ![Esempio di report degli errori](./media/storage-insights-overview/storage-account-failures-01.png)
 
-* **Capacità** apre la cartella di lavoro **Capacità**. Mostra la quantità totale di spazio di archiviazione utilizzato per ogni oggetto dati di archiviazione nell'account nei riquadri e nel grafico e il numero di oggetti dati archiviati nell'account.  
+* **Capacità** apre la cartella di lavoro **Capacità** . Mostra la quantità totale di spazio di archiviazione utilizzato per ogni oggetto dati di archiviazione nell'account nei riquadri e nel grafico e il numero di oggetti dati archiviati nell'account.  
 
     ![Pagina Capacità dell'account di archiviazione selezionato](./media/storage-insights-overview/storage-account-capacity-01.png) 
 
@@ -174,23 +174,23 @@ In questo esempio si usa la cartella di lavoro Capacità relativa a più sottosc
 * Rimuovere una metrica
 * Modificare il rendering dei colori
 
-È possibile eseguire le stesse modifiche su una qualsiasi delle cartelle di lavoro predefinite **Errori**, **Prestazioni**, **Disponibilità** e **Capacità**.
+È possibile eseguire le stesse modifiche su una qualsiasi delle cartelle di lavoro predefinite **Errori** , **Prestazioni** , **Disponibilità** e **Capacità** .
 
 1. Selezionare **Monitoraggio** dal portale e quindi selezionare **Account di archiviazione** dal riquadro a sinistra.
 
-2. Selezionare **Capacità** per passare alla cartella di lavoro della capacità e nella barra dei comandi selezionare **Modifica**.
+2. Selezionare **Capacità** per passare alla cartella di lavoro della capacità e nella barra dei comandi selezionare **Modifica** .
 
     ![Selezionare Modifica per modificare una cartella di lavoro](./media/storage-insights-overview/workbook-edit-workbook.png)
 
-3. Accanto alla sezione delle metriche selezionare **Modifica**.
+3. Accanto alla sezione delle metriche selezionare **Modifica** .
 
     ![Selezionare Modifica per modificare le metriche della cartella di lavoro della capacità](./media/storage-insights-overview/edit-metrics-capacity-workbook-01.png)
 
-4. Verrà rimossa la colonna **Sequenza temporale capacità usata account**, quindi selezionare **Impostazioni di colonna** nella griglia delle metriche.
+4. Verrà rimossa la colonna **Sequenza temporale capacità usata account** , quindi selezionare **Impostazioni di colonna** nella griglia delle metriche.
 
     ![Modifica impostazioni di colonna](./media/storage-insights-overview/edit-capacity-workbook-resource-grid.png)
 
-5. Nel riquadro **Modifica impostazioni di colonna**, sotto la sezione **Colonne** selezionare **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Account used capacity Timeline$** e nell'elenco a discesa **Renderer colonna** selezionare **Nascosto**.
+5. Nel riquadro **Modifica impostazioni di colonna** , sotto la sezione **Colonne** selezionare **microsoft.storage/storageaccounts-Capacity-UsedCapacity Timeline$|Account used capacity Timeline$** e nell'elenco a discesa **Renderer colonna** selezionare **Nascosto** .
 
 6. Selezionare **Salva e chiudi** per eseguire il commit della modifica.
 
@@ -198,7 +198,7 @@ A questo punto è possibile modificare il tema colori per le metriche di capacit
 
 1. Selezionare **Impostazioni di colonna** nella griglia delle metriche.
 
-2. Nel riquadro **Modifica impostazioni colonna** selezionare sotto la sezione **colonne** **Microsoft. storage/Storageaccounts-Capacity-capacità utilizzata $ `|` Microsoft. storage/storageaccounts/blobservices-Capacity-BlobCapacity $ `|` Microsoft. storage/storageaccounts/fileservices-Capacity-filecapacity $ `|` Microsoft. storage/storageaccounts/queueservices-Capacity-QueueCapacity $ `|` Microsoft. storage/storageaccounts/tableservices-Capacity-TableCapacity $**. Nell'elenco a discesa **Tavolozza dei colori** selezionare **Verde**.
+2. Nel riquadro **Modifica impostazioni colonna** selezionare sotto la sezione **colonne** **Microsoft. storage/Storageaccounts-Capacity-capacità utilizzata $ `|` Microsoft. storage/storageaccounts/blobservices-Capacity-BlobCapacity $ `|` Microsoft. storage/storageaccounts/fileservices-Capacity-filecapacity $ `|` Microsoft. storage/storageaccounts/queueservices-Capacity-QueueCapacity $ `|` Microsoft. storage/storageaccounts/tableservices-Capacity-TableCapacity $** . Nell'elenco a discesa **Tavolozza dei colori** selezionare **Verde** .
 
 3. Selezionare **Salva e chiudi** per eseguire il commit della modifica.
 
@@ -214,13 +214,13 @@ In questo esempio si usa la cartella di lavoro sulla capacità dell'account di a
 
 3. Nella cartella di lavoro selezionare **Disponibilità** per passare alla cartella di lavoro corrispondente, quindi selezionare **Modifica** dalla barra dei comandi. 
 
-4. Scorrere verso il basso fino alla parte inferiore della pagina e sul lato sinistro accanto alla griglia della **disponibilità per API** selezionare **Modifica**.
+4. Scorrere verso il basso fino alla parte inferiore della pagina e sul lato sinistro accanto alla griglia della **disponibilità per API** selezionare **Modifica** .
 
     ![Modificare le impostazioni della griglia di disponibilità in base al nome API](./media/storage-insights-overview/availability-workbook-avail-by-apiname.png)
 
-5. Selezionare **Impostazioni di colonna**, quindi nel riquadro **Modifica impostazioni di colonna** selezionare **Availability (%) (Thresholds + Formatted)** (Disponibilità % - Soglie + formattati) nella sezione **Colonne**.
+5. Selezionare **Impostazioni di colonna** , quindi nel riquadro **Modifica impostazioni di colonna** selezionare **Availability (%) (Thresholds + Formatted)** (Disponibilità % - Soglie + formattati) nella sezione **Colonne** .
 
-6. Modificare il valore per lo stato di integrità **Critico** da **90** a **85**, quindi fare clic su **Salva e chiudi**.
+6. Modificare il valore per lo stato di integrità **Critico** da **90** a **85** , quindi fare clic su **Salva e chiudi** .
 
     ![Modificare il valore della soglia di disponibilità per lo stato critico](./media/storage-insights-overview/edit-column-settings-capacity-workbook-01.png)
 

@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 8f56538470b8a52697e2d5c4154a6a6807a0cfde
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 549e1808a3b449f7d29b968cde76ef29391880b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489014"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93100617"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemi noti nei dispositivi gemelli digitali di Azure
 
@@ -32,7 +32,7 @@ Per risolvere il problema, eseguire nuovamente il `az login` comando in cloud Sh
 
 In alternativa, è possibile aprire il riquadro Cloud Shell nel portale di Azure e completare il lavoro Cloud Shell da questa posizione:
 
-:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Visualizzazione del portale di Azure con l'icona Cloud Shell evidenziata e il riquadro di Cloud Shell visualizzato nella parte inferiore della finestra del portale":::
+:::image type="content" source="media/includes/portal-cloud-shell.png" alt-text="Visualizzazione del portale di Azure con l'icona Cloud Shell evidenziata e il riquadro di Cloud Shell visualizzato nella parte inferiore della finestra del portale" lightbox="media/includes/portal-cloud-shell.png":::
 
 Infine, un'altra soluzione consiste nell' [installare l'interfaccia della](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) riga di comando di Azure nel computer, in modo da poter eseguire i comandi dell'interfaccia della riga di comando Questo problema non viene riscontrato nell'interfaccia della riga di comando locale.
 

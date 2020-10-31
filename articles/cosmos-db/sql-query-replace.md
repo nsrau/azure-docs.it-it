@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 758ac13530752df481d27e7e253f025f5c8d6430
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb3afd2524949b1209ac42542a012b74559234d5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78302203"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098111"
 ---
 # <a name="replace-azure-cosmos-db"></a>SOSTITUISCi (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Sostituisce tutte le occorrenze di un valore stringa specificato con un altro valore stringa.  
   
 ## <a name="syntax"></a>Sintassi
@@ -32,13 +34,13 @@ REPLACE(<str_expr1>, <str_expr2>, <str_expr3>)
    Espressione stringa da trovare.  
   
 *str_expr3*  
-   Espressione stringa che consente di sostituire le occorrenze di *str_expr2* in *str_expr1*.  
+   Espressione stringa che consente di sostituire le occorrenze di *str_expr2* in *str_expr1* .  
   
 ## <a name="return-types"></a>Tipi restituiti
   
   Restituisce un'espressione di stringa.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   Nell'esempio seguente viene illustrato come utilizzare `REPLACE` in una query.  
   
