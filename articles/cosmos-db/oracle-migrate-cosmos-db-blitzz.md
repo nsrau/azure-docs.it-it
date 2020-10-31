@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/21/2019
 ms.author: sngun
 ms.reviewer: sngun
-ms.openlocfilehash: 882ba7f0b8f896c51e340fe921e53b27dd07ff8a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 263c38e330bad00833bd31bc8a43208c3784bcf4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85262464"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097482"
 ---
 # <a name="migrate-data-from-oracle-to-azure-cosmos-db-cassandra-api-account-using-blitzz"></a>Eseguire la migrazione dei dati da Oracle a Azure Cosmos DB account di API Cassandra tramite blitzz
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 API Cassandra in Azure Cosmos DB è diventata un'ottima scelta per i carichi di lavoro aziendali in esecuzione in Oracle per diversi motivi, ad esempio:
 
@@ -100,7 +101,7 @@ In questa sezione vengono descritti i passaggi necessari per configurare blitzz 
 
    È necessario ridurre la velocità effettiva al termine della migrazione. In base alla quantità di dati archiviati e ur necessari per ogni operazione, è possibile stimare la velocità effettiva necessaria dopo la migrazione dei dati. Per altre informazioni su come stimare le UR richieste, vedere [provisioning della velocità effettiva su contenitori e database](set-throughput.md) e [stimare ur/sec usando gli articoli Azure Cosmos DB Capacity Planner](estimate-ru-with-capacity-planner.md) .
 
-1. Ottenere il **punto di contatto, la porta, il nome utente**e la **password primaria** dell'account Azure Cosmos dal riquadro della **stringa di connessione** . Questi valori vengono utilizzati nel file di configurazione.
+1. Ottenere il **punto di contatto, la porta, il nome utente** e la **password primaria** dell'account Azure Cosmos dal riquadro della **stringa di connessione** . Questi valori vengono utilizzati nel file di configurazione.
 
 1. Dal terminale dell'interfaccia della riga di comando configurare la configurazione del database di destinazione. Aprire il file di configurazione usando il **`vi conf/conn/cosmosdb.yml`** comando e aggiungere un elenco delimitato da virgole di Uri host, numero di porta, nome utente, password e altri parametri obbligatori. Di seguito è riportato un esempio di contenuto nel file di configurazione:
 

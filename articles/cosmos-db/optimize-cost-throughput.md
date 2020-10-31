@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d7d77bdb223e8c3b71ef03febd4081d1f63bd1a3
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 76f4f9ddaa1e4aec9409e96a0088ec51b8c2645e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475465"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097465"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Ottimizzare il costo della velocità effettiva con provisioning in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Offrendo il modello di velocità effettiva con provisioning, Azure Cosmos DB garantisce prestazioni prevedibili su qualsiasi scala. Riservando la velocità effettiva o effettuandone il provisioning in anticipo, si elimina l'effetto"noisy neighbor" sulle prestazioni. Se si specifica la quantità esatta di velocità effettiva necessaria, Azure Cosmos DB garantisce la velocità effettiva configurata, supportata dal contratto di servizio.
 
@@ -30,7 +31,7 @@ Offrendo il modello di velocità effettiva con provisioning, Azure Cosmos DB gar
 
 Di seguito sono riportate alcune linee guida per scegliere una strategia di velocità effettiva con provisioning:
 
-**Prendere in considerazione il provisioning della velocità effettiva in un database di Azure Cosmos (contenente un set di contenitori) se**:
+**Prendere in considerazione il provisioning della velocità effettiva in un database di Azure Cosmos (contenente un set di contenitori) se** :
 
 1. Si dispone di qualche dozzina di contenitori Azure Cosmos e si desidera condividere la velocità effettiva in tutti o in alcuni di loro. 
 
@@ -54,7 +55,7 @@ Di seguito sono riportate alcune linee guida per scegliere una strategia di velo
 
 Come illustrato nella tabella seguente, a seconda della scelta dell'API, è possibile effettuare il provisioning della velocità effettiva con livelli diversi di granularità.
 
-|API|Per la velocità effettiva **condivisa**, configurare |Per la velocità effettiva **dedicata**, configurare |
+|API|Per la velocità effettiva **condivisa** , configurare |Per la velocità effettiva **dedicata** , configurare |
 |----|----|----|
 |API SQL|Database|Contenitore|
 |API Azure Cosmos DB per MongoDB|Database|Raccolta|

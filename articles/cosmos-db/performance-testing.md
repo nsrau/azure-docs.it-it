@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6ddc428a1b2228c7e6e15093c12deb25ddd65c27
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: b89c48b5040c198cb1b4a6ce383baed51dfac19e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281025"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097414"
 ---
 # <a name="performance-and-scale-testing-with-azure-cosmos-db"></a>Test delle prestazioni e della scalabilità con Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Il test delle prestazioni e della scalabilità è un passaggio chiave nello sviluppo di un'applicazione. Per molte applicazioni, il livello di database ha un impatto significativo sulla scalabilità e sulle prestazioni complessive. È pertanto considerato un componente fondamentale nel test delle prestazioni. [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) è studiato appositamente per offrire scalabilità elastica e prestazioni prevedibili. Queste funzionalità lo rendono ideale per le applicazioni che richiedono un livello di database ad alte prestazioni. 
 
@@ -35,7 +36,7 @@ Se si è interessati alle opzioni di configurazione lato client per migliorare l
 ## <a name="run-the-performance-testing-application"></a>Eseguire l'applicazione per il test delle prestazioni
 Il modo più rapido per iniziare è compilare ed eseguire l'esempio .NET, come descritto nella procedura seguente. È anche possibile rivedere il codice sorgente e implementare configurazioni analoghe nelle proprie applicazioni client.
 
-**Passaggio 1**: scaricare il progetto dell'[esempio relativo al test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o creare una copia tramite fork del repository GitHub.
+**Passaggio 1** : scaricare il progetto dell' [esempio relativo al test delle prestazioni di Azure Cosmos DB](https://github.com/Azure/azure-documentdb-dotnet/tree/master/samples/documentdb-benchmark) o creare una copia tramite fork del repository GitHub.
 
 **Passaggio 2:** Modificare le impostazioni per EndpointUrl, AuthorizationKey, CollectionThroughput e DocumentTemplate (facoltativo) in App.config.
 

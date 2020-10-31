@@ -8,14 +8,15 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 57d319d54d15b72747da029d365137f5b5bb384c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d8398dbded8753bac193f973026fb63d5f1fc6b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489252"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097720"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Advanced Threat Protection per Azure Cosmos DB (anteprima)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Advanced Threat Protection per Azure Cosmos DB offre un livello aggiuntivo di intelligence di sicurezza in grado di rilevare tentativi insoliti e potenzialmente dannosi di accesso o sfruttamento di account Azure Cosmos DB. Questo livello di protezione consente di affrontare le minacce anche senza essere esperti di sicurezza e di integrarle con sistemi di monitoraggio della sicurezza di terze parti.
 
@@ -32,9 +33,9 @@ Per un'analisi completa degli avvisi di sicurezza, è consigliabile abilitare la
 
 Advanced Threat Protection per Azure Cosmos DB rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database. Può attualmente attivare gli avvisi seguenti:
 
-- **Accesso da una posizione insolita**: questo avviso viene attivato quando il modello di accesso a un account Azure Cosmos cambia oppure quando un utente si connette all'endpoint di Azure Cosmos DB da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o un'operazione di manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa da parte di un ex dipendente, un utente malintenzionato esterno e così via.
+- **Accesso da una posizione insolita** : questo avviso viene attivato quando il modello di accesso a un account Azure Cosmos cambia oppure quando un utente si connette all'endpoint di Azure Cosmos DB da una posizione geografica insolita. In alcuni casi, l'avviso rileva un'azione legittima (una nuova applicazione o un'operazione di manutenzione da parte dello sviluppatore). In altri casi, l'avviso rileva un'azione dannosa da parte di un ex dipendente, un utente malintenzionato esterno e così via.
 
-- **Estrazione insolita di dati**: questo avviso viene generato quando un client estrae una quantità insolita di dati da un account Azure Cosmos DB. Questo evento può essere il sintomo di un'esfiltrazione di dati eseguita per trasferire tutti i dati archiviati nell'account in un archivio dati esterno.
+- **Estrazione insolita di dati** : questo avviso viene generato quando un client estrae una quantità insolita di dati da un account Azure Cosmos DB. Questo evento può essere il sintomo di un'esfiltrazione di dati eseguita per trasferire tutti i dati archiviati nell'account in un archivio dati esterno.
 
 
 
@@ -46,13 +47,13 @@ Advanced Threat Protection per Azure Cosmos DB rileva le attività anomale che i
 
 1. Avviare il portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com/).
 
-2. Dall'account Azure Cosmos DB, selezionare **Sicurezza avanzata** dal menu **Impostazioni**.
+2. Dall'account Azure Cosmos DB, selezionare **Sicurezza avanzata** dal menu **Impostazioni** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp.png" alt-text="Configurare Advanced Threat Protection":::
 
-3. Nel pannello di configurazione **Sicurezza avanzata**:
+3. Nel pannello di configurazione **Sicurezza avanzata** :
 
-    * Fare clic sull'opzione **Advanced Threat Protection** per impostarla su **ON**.
+    * Fare clic sull'opzione **Advanced Threat Protection** per impostarla su **ON** .
     * Fare clic su **Salva** per salvare i criteri di Advanced Threat Protection nuovi o aggiornati.   
 
 ### <a name="rest-api"></a>[REST API](#tab/rest-api)
@@ -79,21 +80,21 @@ Per altre informazioni, vedere [Create a CosmosDB Account with Advanced Threat P
 
 Usare i criteri di Azure per abilitare Advanced Threat Protection per Cosmos DB.
 
-1. Avviare la pagina di Azure **Criteri - Definizioni** e cercare i criteri **Distribuisci Advanced Threat Protection per Cosmos DB**.
+1. Avviare la pagina di Azure **Criteri - Definizioni** e cercare i criteri **Distribuisci Advanced Threat Protection per Cosmos DB** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db.png" alt-text="Configurare Advanced Threat Protection"::: 
 
-1. Fare clic sui criteri **Distribuisci Advanced Threat Protection per Cosmos DB** e quindi fare clic su **Assegna**.
+1. Fare clic sui criteri **Distribuisci Advanced Threat Protection per Cosmos DB** e quindi fare clic su **Assegna** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-policy.png" alt-text="Configurare Advanced Threat Protection":::
 
 
-1. Nel campo **Ambito** fare clic sui tre puntini di sospensione, selezionare un gruppo di risorse o una sottoscrizione di Azure e quindi fare clic su **Seleziona**.
+1. Nel campo **Ambito** fare clic sui tre puntini di sospensione, selezionare un gruppo di risorse o una sottoscrizione di Azure e quindi fare clic su **Seleziona** .
 
     :::image type="content" source="./media/cosmos-db-advanced-threat-protection/cosmos-db-atp-details.png" alt-text="Configurare Advanced Threat Protection":::
 
 
-1. Immettere gli altri parametri e quindi fare clic su **Assegna**.
+1. Immettere gli altri parametri e quindi fare clic su **Assegna** .
 
 
 

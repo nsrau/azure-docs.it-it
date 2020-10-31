@@ -7,12 +7,12 @@ ms.date: 09/14/2020
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure
-ms.openlocfilehash: 638dfc63b6a37bae3905703bbd5ecabaa94d2020
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6c768df964d46364a8ca501c078dbecaf1aaa21f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92783080"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095561"
 ---
 # <a name="deploy-to-app-service-using-github-actions"></a>Eseguire la distribuzione nel servizio app usando GitHub Actions
 
@@ -74,6 +74,9 @@ Un profilo di pubblicazione è una credenziale a livello di app. Configurare il 
 1. Nella pagina **Panoramica** selezionare **Ottieni profilo di pubblicazione** .
 
 1. Salvare il file scaricato. Il contenuto del file verrà usato per creare un segreto GitHub.
+
+> [!NOTE]
+> A partire dal 2020 ottobre, per le app Web Linux è necessario impostare l'opzione app `WEBSITE_WEBDEPLOY_USE_SCM` su `true` **prima di scaricare il profilo di pubblicazione** . Questo requisito verrà rimosso in futuro.
 
 # <a name="service-principal"></a>[Entità servizio](#tab/userlevel)
 

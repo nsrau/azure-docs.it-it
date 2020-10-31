@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 04/28/2020
 ms.author: sngun
-ms.openlocfilehash: 05b0ff7d4f56a61c5c91848044a30cb9bf1d0f46
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 03c47b398a715a128a32fb6a6fd9d99564ccb891
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91565310"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096632"
 ---
 # <a name="frequently-asked-questions-about-the-azure-cosmos-dbs-api-for-mongodb"></a>Domande frequenti sull'API Azure Cosmos DB per MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 L'API Azure Cosmos DB per MongoDB è un livello di compatibilità del protocollo wire che consente alle applicazioni di comunicare in modo semplice e trasparente con il motore di database nativo di Azure Cosmos usando gli SDK e i driver supportati dalla community esistenti per MongoDB. Gli sviluppatori possono ora usare toolchain e competenze di MongoDB esistenti per creare applicazioni che sfruttano i vantaggi offerti da Azure Cosmos DB. Gli sviluppatori traggono vantaggio dalle funzionalità esclusive di Azure Cosmos DB, tra cui la distribuzione globale con replica di scrittura in più aree, l'indicizzazione automatica, la manutenzione dei backup, i contratti di servizio con supporto finanziario e così via.
 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: sngun
-ms.openlocfilehash: 77e74a36d7b353d0713a7bf17f7a6341558f0739
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b2aab6579f9cc78e44454407f1f4ddeed605086b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92485002"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096105"
 ---
 # <a name="frequently-asked-questions-about-the-table-api-in-azure-cosmos-db"></a>Domande frequenti sull'API Tabella in Azure Cosmos DB
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 L'API Tabella di Azure Cosmos DB è disponibile nel [portale di Azure](https://portal.azure.com). Prima di tutto è necessario iscriversi per una sottoscrizione di Azure. Dopo aver effettuato l'iscrizione, è possibile aggiungere un account API Table di Azure Cosmos DB alla sottoscrizione di Azure e quindi aggiungere tabelle all'account. Per informazioni sui linguaggi supportati e sulle guide introduttive associate, vedere [Introduzione all'API Tabelle di Azure Cosmos DB](table-introduction.md).
 
@@ -195,7 +196,7 @@ Sì. L'API Tabelle di Azure Cosmos DB offre l'indicizzazione automatica di tutti
 
 Sì. È possibile modificare i criteri di indicizzazione specificando la definizione di indice. È necessario eseguire correttamente la codifica e l'escape delle impostazioni.
 
-Per gli SDK non .NET è possibile configurare i criteri di indicizzazione solo nel portale in **Esplora dati**. Passare alla tabella specifica da modificare, quindi selezionare **Scala e impostazioni**->Criteri di indicizzazione, apportare le modifiche desiderate e quindi scegliere **Salva**.
+Per gli SDK non .NET è possibile configurare i criteri di indicizzazione solo nel portale in **Esplora dati** . Passare alla tabella specifica da modificare, quindi selezionare **Scala e impostazioni** ->Criteri di indicizzazione, apportare le modifiche desiderate e quindi scegliere **Salva** .
 
 Da .NET SDK è possibile inviare i criteri nel file app.config:
 

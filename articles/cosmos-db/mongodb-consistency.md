@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 19dcc0f7605ae771e2ff826299413eaa073f212b
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 37c128a42ca68134b770b32c940d59834261ce44
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92284106"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096581"
 ---
 # <a name="consistency-levels-for-azure-cosmos-db-and-the-api-for-mongodb"></a>Livelli di coerenza per Azure Cosmos DB e l'API per MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 A differenza Azure Cosmos DB, MongoDB nativo non fornisce garanzie di coerenza definite in modo accurato. Al contrario, MongoDB nativo consente agli utenti di configurare le garanzie di coerenza seguenti: un problema di scrittura, un problema di lettura e la direttiva Master per indirizzare le operazioni di lettura alle repliche primarie o secondarie per ottenere il livello di coerenza desiderato.
 

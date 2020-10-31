@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/23/2019
-ms.openlocfilehash: c2228c99dba2dd99c0afa44457642235e08ac011
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 02fd0a4c7d931f439ab85af8d90de323105e21f2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480922"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096700"
 ---
 # <a name="migrate-hundreds-of-terabytes-of-data-into-azure-cosmos-db"></a>Eseguire la migrazione di centinaia di terabyte di dati ad Azure Cosmos DB 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Con Azure Cosmos DB è possibile archiviare terabyte di dati. È possibile eseguire una migrazione dei dati su larga scala per spostare il carico di lavoro di produzione in Azure Cosmos DB. Questo articolo descrive i problemi relativi allo spostamento dei dati su larga scala in Azure Cosmos DB e presenta lo strumento che consente di risolvere le problematiche ed eseguire la migrazione dei dati in Azure Cosmos DB. In questo case study il cliente ha usato l'API SQL per Cosmos DB.  
 
@@ -28,11 +29,11 @@ Le strategie di migrazione Azure Cosmos DB attualmente variano in base alla scel
 
 Gli strumenti esistenti per la migrazione dei dati a Azure Cosmos DB presentano alcune limitazioni che diventano particolarmente evidenti a grandi scale:
 
- * **Funzionalità di scalabilità orizzontale limitate**: per eseguire la migrazione di terabyte di dati in Azure Cosmos DB il più rapidamente possibile e per utilizzare in modo efficace l'intera velocità effettiva con provisioning, i client di migrazione dovrebbero avere la possibilità di eseguire la scalabilità orizzontale per un tempo illimitato.  
+ * **Funzionalità di scalabilità orizzontale limitate** : per eseguire la migrazione di terabyte di dati in Azure Cosmos DB il più rapidamente possibile e per utilizzare in modo efficace l'intera velocità effettiva con provisioning, i client di migrazione dovrebbero avere la possibilità di eseguire la scalabilità orizzontale per un tempo illimitato.  
 
-* **Mancanza del rilevamento e del controllo dello stato di avanzamento**: è importante tenere traccia dello stato di avanzamento della migrazione e verificare la presenza di punti di controllo durante la migrazione di set di dati di grandi dimensioni. In caso contrario, qualsiasi errore che si verifica durante la migrazione arresterà la migrazione e sarà necessario avviare il processo da zero. Non sarebbe produttivo riavviare l'intero processo di migrazione quando il 99% di esso è già stato completato.  
+* **Mancanza del rilevamento e del controllo dello stato di avanzamento** : è importante tenere traccia dello stato di avanzamento della migrazione e verificare la presenza di punti di controllo durante la migrazione di set di dati di grandi dimensioni. In caso contrario, qualsiasi errore che si verifica durante la migrazione arresterà la migrazione e sarà necessario avviare il processo da zero. Non sarebbe produttivo riavviare l'intero processo di migrazione quando il 99% di esso è già stato completato.  
 
-* **Mancanza di coda di messaggi non recapitabili**: in set di dati di grandi dimensioni, in alcuni casi potrebbero verificarsi problemi con parti dei dati di origine. Potrebbero inoltre verificarsi problemi temporanei relativi al client o alla rete. Uno di questi casi non dovrebbe provocare l'esito negativo dell'intera migrazione. Sebbene la maggior parte degli strumenti di migrazione disponga di potenti funzionalità di ripetizione dei tentativi che proteggono da problemi intermittenti, non è sempre sufficiente. Se, ad esempio, la dimensione inferiore al 0,01% dei documenti dati di origine è superiore a 2 MB, la scrittura del documento avrà esito negativo in Azure Cosmos DB. Idealmente, è utile che lo strumento di migrazione manterrà i documenti ' non riusciti ' in un'altra coda di messaggi non recapitabili, che può essere elaborata dopo la migrazione. 
+* **Mancanza di coda di messaggi non recapitabili** : in set di dati di grandi dimensioni, in alcuni casi potrebbero verificarsi problemi con parti dei dati di origine. Potrebbero inoltre verificarsi problemi temporanei relativi al client o alla rete. Uno di questi casi non dovrebbe provocare l'esito negativo dell'intera migrazione. Sebbene la maggior parte degli strumenti di migrazione disponga di potenti funzionalità di ripetizione dei tentativi che proteggono da problemi intermittenti, non è sempre sufficiente. Se, ad esempio, la dimensione inferiore al 0,01% dei documenti dati di origine è superiore a 2 MB, la scrittura del documento avrà esito negativo in Azure Cosmos DB. Idealmente, è utile che lo strumento di migrazione manterrà i documenti ' non riusciti ' in un'altra coda di messaggi non recapitabili, che può essere elaborata dopo la migrazione. 
 
 Molti di questi limiti sono corretti per strumenti come Azure Data Factory, servizi di migrazione dei dati di Azure. 
 

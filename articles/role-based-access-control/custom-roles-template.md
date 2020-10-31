@@ -1,6 +1,6 @@
 ---
 title: Creare un ruolo personalizzato di Azure usando un modello di Azure Resource Manager-RBAC di Azure
-description: Informazioni su come creare un ruolo personalizzato di Azure usando modelli di Azure Resource Manager e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
+description: Informazioni su come creare un ruolo personalizzato di Azure usando un modello di Azure Resource Manager (ARM template) e il controllo degli accessi in base al ruolo di Azure (RBAC di Azure).
 services: role-based-access-control,azure-resource-manager
 author: rolyon
 manager: mtillman
@@ -10,47 +10,49 @@ ms.custom: subject-armqs
 ms.workload: identity
 ms.date: 06/25/2020
 ms.author: rolyon
-ms.openlocfilehash: bcf1966ffc326291448cb611d99390fe0d652151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96dfdc0a1c32237c55d4e65bb25989656e2a4ad2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85397996"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097023"
 ---
-# <a name="create-an-azure-custom-role-using-an-azure-resource-manager-template"></a>Creare un ruolo personalizzato di Azure usando un modello di Azure Resource Manager
+# <a name="create-an-azure-custom-role-using-an-arm-template"></a>Creare un ruolo personalizzato di Azure usando un modello ARM
 
-Se i [ruoli predefiniti di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati](custom-roles.md). Questo articolo descrive come creare un ruolo personalizzato usando un modello di Azure Resource Manager.
+Se i [ruoli predefiniti di Azure](built-in-roles.md) non soddisfano le esigenze specifiche dell'organizzazione, è possibile creare [ruoli personalizzati](custom-roles.md). Questo articolo descrive come creare un ruolo personalizzato usando un modello di Azure Resource Manager (modello ARM).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Per creare un ruolo personalizzato, è necessario specificare un nome di ruolo, le autorizzazioni e la posizione in cui è possibile utilizzare il ruolo. In questo articolo viene creato un ruolo denominato _Custom Role-RG Reader_ con le autorizzazioni per le risorse che possono essere assegnate a un ambito di sottoscrizione o a un livello inferiore.
+
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fsubscription-deployments%2Fcreate-role-def%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per creare un ruolo personalizzato, è necessario disporre di:
 
-- Avere le autorizzazioni per creare ruoli personalizzati, ad esempio [Proprietario](built-in-roles.md#owner) o [Amministratore Accesso utenti](built-in-roles.md#user-access-administrator)
+- Autorizzazioni per la creazione di ruoli personalizzati, ad esempio [proprietario](built-in-roles.md#owner) o [amministratore accesso utenti](built-in-roles.md#user-access-administrator).
 
-## <a name="create-a-custom-role"></a>Creare un ruolo personalizzato
+## <a name="review-the-template"></a>Rivedere il modello
 
-Per creare un ruolo personalizzato, è necessario specificare un nome di ruolo, le autorizzazioni e la posizione in cui è possibile utilizzare il ruolo. In questo articolo viene creato un ruolo denominato "Custom Role-RG Reader" con autorizzazioni per le risorse che possono essere assegnate a un ambito di sottoscrizione o a un livello inferiore.
+Il modello usato in questo articolo è relativo ai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/create-role-def). Il modello include quattro parametri e una sezione Resources. I quattro parametri sono i seguenti:
 
-### <a name="review-the-template"></a>Rivedere il modello
-
-Il modello usato in questo articolo è relativo ai [modelli di avvio rapido di Azure](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-deployments/create-role-def). Il modello include quattro parametri e una sezione Resources. I quattro parametri sono i seguenti:
-
-- Matrice di azioni con un valore predefinito di ["Microsoft. resources/subscriptions/resourceGroups/Read"]
-- Matrice di notacts con un valore predefinito vuoto
-- Nome ruolo con un valore predefinito di "ruolo personalizzato-lettore RG"
-- Descrizione del ruolo con un valore predefinito di "distribuzione a livello di sottoscrizione di una definizione di ruolo"
-
-Nel modello è definita la risorsa seguente:
-
-- [Microsoft. Authorization/roleDefinitions](/azure/templates/Microsoft.Authorization/roleDefinitions)
+- Matrice di azioni con un valore predefinito di `["Microsoft.Resources/subscriptions/resourceGroups/read"]` .
+- Matrice di `notActions` con un valore predefinito vuoto.
+- Nome del ruolo con valore predefinito `Custom Role - RG Reader` .
+- Descrizione del ruolo con valore predefinito `Subscription Level Deployment of a Role Definition` .
 
 L'ambito in cui è possibile assegnare questo ruolo personalizzato è impostato sulla sottoscrizione corrente.
 
 :::code language="json" source="~/quickstart-templates/subscription-deployments/create-role-def/azuredeploy.json":::
 
-### <a name="deploy-the-template"></a>Distribuire il modello
+Nel modello è definita la risorsa seguente:
+
+- [Microsoft. Authorization/roleDefinitions](/azure/templates/Microsoft.Authorization/roleDefinitions)
+
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 Per distribuire il modello precedente, seguire questa procedura.
 
@@ -60,7 +62,7 @@ Per distribuire il modello precedente, seguire questa procedura.
 
 1. Copiare e incollare lo script seguente in Cloud Shell.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     $location = Read-Host -Prompt "Enter a location (i.e. centralus)"
     [string[]]$actions = Read-Host -Prompt "Enter actions as a comma-separated list (i.e. action1,action2)"
     $actions = $actions.Split(',')
@@ -70,19 +72,19 @@ Per distribuire il modello precedente, seguire questa procedura.
     New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
     ```
 
-1. Immettere un percorso per la distribuzione, ad esempio *centralus*.
+1. Immettere un percorso per la distribuzione, ad esempio *centralus* .
 
-1. Immettere un elenco di azioni per il ruolo personalizzato come un elenco delimitato da virgole *, ad esempio Microsoft. resources/Resources/Read, Microsoft. resources/subscriptions/resourceGroups/Read*.
+1. Immettere un elenco di azioni per il ruolo personalizzato come un elenco delimitato da virgole *, ad esempio Microsoft. resources/Resources/Read, Microsoft. resources/subscriptions/resourceGroups/Read* .
 
-1. Se necessario, premere INVIO per eseguire il comando New-AzDeployment.
+1. Se necessario, premere INVIO per eseguire il `New-AzDeployment` comando.
 
     Il comando [New-AzDeployment](/powershell/module/az.resources/new-azdeployment) distribuisce il modello per creare il ruolo personalizzato.
 
     L'output dovrebbe essere simile al seguente:
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     PS> New-AzDeployment -Location $location -TemplateUri $templateUri -actions $actions
-    
+
     Id                      : /subscriptions/{subscriptionId}/providers/Microsoft.Resources/deployments/azuredeploy
     DeploymentName          : azuredeploy
     Location                : centralus
@@ -92,7 +94,7 @@ Per distribuire il modello precedente, seguire questa procedura.
     TemplateLink            :
                               Uri            : https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/subscription-deployments/create-role-def/azuredeploy.json
                               ContentVersion : 1.0.0.0
-    
+
     Parameters              :
                               Name               Type                       Value
                               =================  =========================  ==========
@@ -103,7 +105,7 @@ Per distribuire il modello precedente, seguire questa procedura.
                               notActions         Array                      []
                               roleName           String                     Custom Role - RG Reader
                               roleDescription    String                     Subscription Level Deployment of a Role Definition
-    
+
     Outputs                 :
     DeploymentDebugLogLevel :
     ```
@@ -114,13 +116,13 @@ Attenersi alla seguente procedura per verificare che il ruolo personalizzato sia
 
 1. Eseguire il comando [Get-AzRoleDefinition](/powershell/module/az.resources/get-azroledefinition) per elencare il ruolo personalizzato.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Get-AzRoleDefinition "Custom Role - RG Reader" | ConvertTo-Json
     ```
 
     L'output dovrebbe essere simile al seguente:
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     {
       "Name": "Custom Role - RG Reader",
       "Id": "11111111-1111-1111-1111-111111111111",
@@ -141,11 +143,11 @@ Attenersi alla seguente procedura per verificare che il ruolo personalizzato sia
 
 1. Nella portale di Azure aprire la sottoscrizione.
 
-1. Nel menu a sinistra fare clic su **Controllo di accesso (IAM)** .
+1. Nel menu a sinistra selezionare **controllo di accesso (IAM)** .
 
-1. Fare clic sulla scheda **ruoli** .
+1. Selezionare la scheda **ruoli** .
 
-1. Impostare l'elenco dei **tipi** su **CustomRole**.
+1. Impostare l'elenco dei **tipi** su **CustomRole** .
 
 1. Verificare che sia elencato il ruolo **personalizzato lettore RG** .
 
@@ -157,7 +159,7 @@ Per rimuovere il ruolo personalizzato, attenersi alla seguente procedura.
 
 1. Eseguire il comando seguente per rimuovere il ruolo personalizzato.
 
-    ```azurepowershell
+    ```azurepowershell-interactive
     Get-AzRoleDefinition -Name "Custom Role - RG Reader" | Remove-AzRoleDefinition
     ```
 

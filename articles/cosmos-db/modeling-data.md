@@ -7,14 +7,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: ae0bf6836fd08e20d97f1cfd85627b25e31bf380
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 0868b0d3e917b857d09c89e3a35d03872c42a23e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92278413"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096649"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modellazione dei dati in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Sebbene i database privi di schema, come Azure Cosmos DB, rendono estremamente semplice archiviare ed eseguire query su dati non strutturati e semistrutturati, è consigliabile dedicare del tempo al modello di dati per sfruttare al meglio il servizio in termini di prestazioni e scalabilità e costi più bassi.
 
@@ -35,7 +36,7 @@ Per il confronto, è possibile vedere prima di tutto come modellare i dati in un
 
 :::image type="content" source="./media/sql-api-modeling-data/relational-data-model.png" alt-text="Database relazionale" border="false":::
 
-Quando si lavora con i database relazionali, la strategia consiste nel normalizzare tutti i dati. La normalizzazione dei dati comporta in genere l'assunzione di un'entità, ad esempio una persona, e la suddivisione in componenti discreti. Nell'esempio precedente, una persona può avere più record di dettagli di contatto, oltre a più record di indirizzi. I dettagli del contatto possono essere suddivisi ulteriormente estraendo i campi comuni come un tipo. Lo stesso vale per l'indirizzo, ogni record può essere di tipo *Home* o *Business*.
+Quando si lavora con i database relazionali, la strategia consiste nel normalizzare tutti i dati. La normalizzazione dei dati comporta in genere l'assunzione di un'entità, ad esempio una persona, e la suddivisione in componenti discreti. Nell'esempio precedente, una persona può avere più record di dettagli di contatto, oltre a più record di indirizzi. I dettagli del contatto possono essere suddivisi ulteriormente estraendo i campi comuni come un tipo. Lo stesso vale per l'indirizzo, ogni record può essere di tipo *Home* o *Business* .
 
 Il presupposto principale quando si normalizzano i dati è **evitare di archiviare i dati ridondanti** in ogni record e fare invece riferimento ai dati. In questo esempio, per leggere una persona, con tutti i relativi dettagli di contatto e gli indirizzi, è necessario usare JOIN per comporre in modo efficace i dati in fase di esecuzione o denormalizzarli.
 
@@ -85,9 +86,9 @@ In generale, usare i modelli di dati incorporati quando:
 
 * Esistono relazioni **contenute** tra le entità.
 * Esistono relazioni **one-to-few** tra le entità.
-* Esistono dati incorporati che **cambiano raramente**.
-* Sono presenti dati incorporati che non aumenteranno **senza limiti**.
-* Sono presenti dati incorporati di cui viene **eseguita una query spesso insieme**.
+* Esistono dati incorporati che **cambiano raramente** .
+* Sono presenti dati incorporati che non aumenteranno **senza limiti** .
+* Sono presenti dati incorporati di cui viene **eseguita una query spesso insieme** .
 
 > [!NOTE]
 > I modelli di dati denormalizzati garantiscono di solito prestazioni di **lettura** più elevate.
@@ -116,7 +117,7 @@ Consideriamo questo frammento JSON.
 }
 ```
 
-Questo potrebbe essere l'aspetto di un'entità post con commenti incorporati, se si modellasse un tipico sistema di blog, o CMS. Il problema di questo esempio è che la matrice di commenti non è **limitata**, vale a dire che non esiste in pratica un limite al numero di commenti per i singoli post. Questo potrebbe costituire un problema, in quanto le dimensioni dell'elemento potrebbero aumentare di dimensioni infinite.
+Questo potrebbe essere l'aspetto di un'entità post con commenti incorporati, se si modellasse un tipico sistema di blog, o CMS. Il problema di questo esempio è che la matrice di commenti non è **limitata** , vale a dire che non esiste in pratica un limite al numero di commenti per i singoli post. Questo potrebbe costituire un problema, in quanto le dimensioni dell'elemento potrebbero aumentare di dimensioni infinite.
 
 Man mano che le dimensioni dell'elemento aumentano la capacità di trasmettere i dati in transito, nonché la lettura e l'aggiornamento dell'elemento, su larga scala, saranno interessati.
 
@@ -241,8 +242,8 @@ In generale, usare i modelli di dati normalizzati quando:
 
 * Si rappresentano relazioni **uno a molti** .
 * Si rappresentano relazioni **molti a molti** .
-* I dati correlati **cambiano spesso**.
-* È possibile che i dati a cui si fa riferimento **non siamo limitati**.
+* I dati correlati **cambiano spesso** .
+* È possibile che i dati a cui si fa riferimento **non siamo limitati** .
 
 > [!NOTE]
 > La normalizzazione offre di solito migliori prestazioni di **scrittura** .
@@ -400,9 +401,9 @@ Se si osserva il documento dei libri, si possono vedere alcuni campi interessant
 
 Certo, se il nome dell'autore è cambiato o vuole aggiornare la foto, è necessario aggiornare ogni libro pubblicato, ma per l'applicazione, in base al presupposto che gli autori non modifichino spesso i loro nomi, si tratta di una decisione di progettazione accettabile.  
 
-Nell'esempio sono presenti valori di **aggregazioni precalcolate**, che consentono di evitare l'elaborazione di costose operazioni di lettura. Nell'esempio, alcuni dati incorporati nel documento dell'autore vengono calcolati in fase di esecuzione. Ogni volta che viene pubblicato un nuovo libro, viene creato un documento per il libro **e** il campo countOfBooks viene impostato su un valore calcolato in base al numero di documenti dei libri esistenti per un determinato autore. Questa ottimizzazione andrebbe bene nei sistemi che eseguono un'intensa attività di lettura, in cui si è disposti a effettuare calcoli nelle scritture per ottimizzare le letture.
+Nell'esempio sono presenti valori di **aggregazioni precalcolate** , che consentono di evitare l'elaborazione di costose operazioni di lettura. Nell'esempio, alcuni dati incorporati nel documento dell'autore vengono calcolati in fase di esecuzione. Ogni volta che viene pubblicato un nuovo libro, viene creato un documento per il libro **e** il campo countOfBooks viene impostato su un valore calcolato in base al numero di documenti dei libri esistenti per un determinato autore. Questa ottimizzazione andrebbe bene nei sistemi che eseguono un'intensa attività di lettura, in cui si è disposti a effettuare calcoli nelle scritture per ottimizzare le letture.
 
-Azure Cosmos DB supporta le transazioni in più documenti e consente quindi di usare **transazioni su più documenti**. Molti archivi NoSQL non possono eseguire le transazioni nei documenti e, a causa di questa limitazione, inducono a prendere decisioni di progettazione, ad esempio "incorporare sempre tutto". Con Azure Cosmos DB è possibile usare trigger lato server, o stored procedure, che inseriscono i libri e aggiornano gli autori in una sola transazione ACID. Ora non è **necessario** incorporare tutto in un unico documento solo per essere sicuri che i dati rimangano coerenti.
+Azure Cosmos DB supporta le transazioni in più documenti e consente quindi di usare **transazioni su più documenti** . Molti archivi NoSQL non possono eseguire le transazioni nei documenti e, a causa di questa limitazione, inducono a prendere decisioni di progettazione, ad esempio "incorporare sempre tutto". Con Azure Cosmos DB è possibile usare trigger lato server, o stored procedure, che inseriscono i libri e aggiornano gli autori in una sola transazione ACID. Ora non è **necessario** incorporare tutto in un unico documento solo per essere sicuri che i dati rimangano coerenti.
 
 ## <a name="distinguishing-between-different-document-types"></a>Distinzione tra tipi di documento diversi
 

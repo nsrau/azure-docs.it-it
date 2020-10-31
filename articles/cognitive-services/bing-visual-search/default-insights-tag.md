@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 04/04/2019
 ms.author: scottwhi
-ms.openlocfilehash: a11bf408f06b5c4e621f0af1f71f23c335dc2069
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f5df94f95ea486f069ece264b8d09de1d9fc8607
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86512640"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095017"
 ---
 # <a name="default-insights-tag"></a>Tag informazioni dettagliate predefinite
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Il tag delle informazioni dettagliate predefinite è quello con il campo `displayName` impostato su una stringa vuota. L'esempio seguente mostra il possibile elenco di informazioni dettagliate predefinite (azioni). L'elenco delle azioni incluse nella risposta dipende dall'immagine. E per ogni azione, l'elenco delle proprietà potrebbe variare in base all'immagine, quindi verificare se la proprietà esiste prima di provare a usarla.
 

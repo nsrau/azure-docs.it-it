@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: dech
-ms.openlocfilehash: b82fdd40c9ae538d1d7aa87ab5b71ea6a6c0542d
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d5958ea947f6b786e9fbc6c44ab914ea895d6e08
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487501"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096802"
 ---
 # <a name="work-with-data-using-azure-cosmos-explorer"></a>Utilizzare i dati con Azure Cosmos Explorer 
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB Explorer è un'interfaccia autonoma basata sul Web che consente di visualizzare e gestire i dati archiviati in Azure Cosmos DB. Azure Cosmos DB Explorer è equivalente alla scheda **Esplora dati** disponibile nel portale di Azure quando si crea un account di Azure Cosmos DB. I vantaggi principali di Azure Cosmos DB Explorer rispetto alla scheda Esplora dati esistente sono i seguenti:
 
@@ -27,19 +28,19 @@ Azure Cosmos DB Explorer è un'interfaccia autonoma basata sul Web che consente 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/). 
 
-2. In **Tutte le risorse** individuare e accedere all'account di Azure Cosmos DB, selezionare Chiavi e copiare il valore del campo **Stringa di connessione primaria**.  
+2. In **Tutte le risorse** individuare e accedere all'account di Azure Cosmos DB, selezionare Chiavi e copiare il valore del campo **Stringa di connessione primaria** .  
 
-3. Passare a https://cosmos.azure.com/, incollare la stringa di connessione e quindi selezionare **Connetti**. Se si usa la stringa di connessione, è possibile accedere ad Azure Cosmos DB Explorer senza alcun limite di tempo.  
+3. Passare a https://cosmos.azure.com/, incollare la stringa di connessione e quindi selezionare **Connetti** . Se si usa la stringa di connessione, è possibile accedere ad Azure Cosmos DB Explorer senza alcun limite di tempo.  
 
    Se si vuole concedere ad altri utenti l'accesso temporaneo all'account di Azure Cosmos DB, è possibile usare gli URL di accesso in lettura e in lettura/scrittura. 
 
-4. Aprire il pannello **Esplora dati** e selezionare **Apri a schermo intero**. Nella finestra di dialogo popup è possibile visualizzare due URL di accesso, ovvero **Lettura-Scrittura** e **Lettura**. Tali URL consentono di condividere temporaneamente l'account Azure Cosmos DB con altri utenti. L'accesso all'account scade dopo 24 ore. Al termine di questo intervallo è possibile riconnettersi usando un nuovo URL di accesso o la stringa di connessione. 
+4. Aprire il pannello **Esplora dati** e selezionare **Apri a schermo intero** . Nella finestra di dialogo popup è possibile visualizzare due URL di accesso, ovvero **Lettura-Scrittura** e **Lettura** . Tali URL consentono di condividere temporaneamente l'account Azure Cosmos DB con altri utenti. L'accesso all'account scade dopo 24 ore. Al termine di questo intervallo è possibile riconnettersi usando un nuovo URL di accesso o la stringa di connessione. 
 
-   **Lettura-Scrittura**: quando si condivide l'URL di lettura/scrittura con altri utenti, questi ultimi possono visualizzare e modificare database, raccolte, query e altre risorse associati all'account specifico.
+   **Lettura-Scrittura** : quando si condivide l'URL di lettura/scrittura con altri utenti, questi ultimi possono visualizzare e modificare database, raccolte, query e altre risorse associati all'account specifico.
 
-   **Lettura**: quando si condivide l'URL di sola lettura con altri utenti, è possibile visualizzare database, raccolte, query e altre risorse associati all'account specifico. Se ad esempio si vogliono condividere i risultati di una query con i colleghi del team che non dispongono dell'accesso al portale di Azure o all'account di Azure Cosmos DB, è possibile fornire loro questo URL.
+   **Lettura** : quando si condivide l'URL di sola lettura con altri utenti, è possibile visualizzare database, raccolte, query e altre risorse associati all'account specifico. Se ad esempio si vogliono condividere i risultati di una query con i colleghi del team che non dispongono dell'accesso al portale di Azure o all'account di Azure Cosmos DB, è possibile fornire loro questo URL.
 
-   Scegliere il tipo di accesso da usare per aprire l'account e quindi fare clic su **Apri**. Dopo aver aperto l'interfaccia di esplorazione dei dati, l'esperienza è analoga a quella della scheda Esplora dati nel portale di Azure.
+   Scegliere il tipo di accesso da usare per aprire l'account e quindi fare clic su **Apri** . Dopo aver aperto l'interfaccia di esplorazione dei dati, l'esperienza è analoga a quella della scheda Esplora dati nel portale di Azure.
 
    :::image type="content" source="./media/data-explorer/open-data-explorer-with-access-url.png" alt-text="Apri Esplora Azure Cosmos DB":::
 

@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: yitoh
-ms.openlocfilehash: ec2f2f572caa69a9017bfa6da0de404db5b4fd2a
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 49fa0c849a6b2eab0647922a711c50b4fe762584
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92905475"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095663"
 ---
 # <a name="quickstart-create-and-configure-azure-ddos-protection-standard-using-azure-powershell"></a>Guida introduttiva: creare e configurare la protezione DDoS di Azure standard usando Azure PowerShell
 
@@ -89,8 +89,6 @@ Get-AzDdosProtectionPlan -ResourceGroupName MyResourceGroup -Name MyDdosProtecti
 
 Verificare che il comando restituisca i dettagli corretti del piano di protezione DDoS.
 
-Eseguire test tramite simulazioni
-
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 È possibile salvare le risorse per l'esercitazione successiva. Se non è più necessario, eliminare il gruppo di risorse _MyResourceGroup_ . Quando si elimina il gruppo di risorse, viene eliminato anche il piano di protezione DDoS e tutte le risorse correlate. 
@@ -116,4 +114,4 @@ Se si vuole eliminare un piano di protezione DDoS, è necessario innanzitutto an
 Per informazioni su come visualizzare e configurare i dati di telemetria per il piano di protezione DDoS, continuare con le esercitazioni.
 
 > [!div class="nextstepaction"]
-> [Visualizzare e configurare la telemetria di protezione DDoS](telemetry-monitoring-alerting.md)
+> [Visualizzare e configurare i dati di telemetria della protezione DDoS](telemetry-monitoring-alerting.md)

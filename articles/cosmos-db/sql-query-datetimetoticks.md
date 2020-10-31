@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 2e2c9e8f2bf0d4760bf030fb19a90737cdb54525
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47bf8a3a2ffe66e295fcb9d8a2a02891812c6813
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88605131"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095782"
 ---
 # <a name="datetimetoticks-azure-cosmos-db"></a>DateTimeToTicks (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Converte il valore DateTime specificato in cicli. Un singolo segno di selezione rappresenta 100 nanosecondi o 1 10-milionesimo di secondo. 
 
@@ -39,7 +40,7 @@ Il valore di DateTimeDateTimeToTicks restituirà `undefined` se DateTime non è 
 
 Questa funzione di sistema non utilizzerà l'indice.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Di seguito è riportato un esempio che restituisce il numero di cicli:
 

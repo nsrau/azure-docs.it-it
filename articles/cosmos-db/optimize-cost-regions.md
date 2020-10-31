@@ -6,14 +6,15 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 723a1fbe05919f2e797c7b29715cd3995bf42cad
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 010ca40f4f3aacd6353aecd150e944672cc09066
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926293"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097510"
 ---
 # <a name="optimize-multi-region-cost-in-azure-cosmos-db"></a>Ottimizzare i costi per più aree in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 È possibile aggiungere e rimuovere aree nell'account Azure Cosmos in qualsiasi momento. La velocità effettiva che si configura per vari database e contenitori di Azure Cosmos è riservata in ogni area associata al proprio account. Se la velocità effettiva di cui è stato effettuato il provisioning all'ora, ovvero la somma di Ur/s configurata in tutti i database e i contenitori per l'account Azure Cosmos è `T` e il numero di aree di Azure associate all'account del database è `N` , la velocità effettiva totale con provisioning per l'account Cosmos, per un'ora specifica è uguale a `T x N RU/s` .
 

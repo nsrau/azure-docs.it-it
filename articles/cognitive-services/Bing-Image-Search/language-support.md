@@ -10,14 +10,19 @@ ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
 ms.author: aahi
-ms.openlocfilehash: ca3821b6088e45730334d1b0971e270b1d86dfce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b7037804f1a0984cee2d1756adf80bfe2eec3918
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68881913"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095528"
 ---
 # <a name="language-and-region-support-for-the-bing-image-search-api"></a>Lingua e regioni supportate dall'API Ricerca immagini Bing
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 L'API Ricerca immagini Bing supporta più di una quarantina di paesi/aree, molti dei quali con più di una lingua. Specificare un paese/un'area con una query serve principalmente per perfezionare i risultati della ricerca in base agli interessi in tale paese/area. I risultati possono anche contenere collegamenti a Bing e questi collegamenti possono localizzare l'esperienza utente di Bing in base al paese/all'area o alla lingua specifica.
 
@@ -115,7 +120,7 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Taiwan|Cinese tradizionale|zh-TW|
 |Turchia|Turco|tr-TR|
 |Regno Unito|Inglese|en-GB|
-|Stati Uniti|Inglese|it-IT|
+|Stati Uniti|Inglese|en-US|
 |Stati Uniti|Spagnolo|es-US|
 
 ## <a name="next-steps"></a>Passaggi successivi

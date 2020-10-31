@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 0b2741a3d2b013ba7bd97038eb4ba4512f36af11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f6177426ce62f3369092403c52344fa764bcf2e6
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86262065"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095852"
 ---
 # <a name="datetimeadd-azure-cosmos-db"></a>DateTimeAdd (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Restituisce un valore stringa DateTime risultante dall'aggiunta di un valore numerico specificato (come intero con segno) a una stringa DateTime specificata  
   
@@ -54,7 +55,7 @@ DateTimeAdd (<DateTimePart> , <numeric_expr> ,<DateTime>)
   |GG|giorno del mese a due cifre (da 01 a 31)|
   |T|significato per l'inizio degli elementi Time|
   |hh|ora a due cifre (da 00 a 23)|
-  |MM|minuti a due cifre (da 00 a 59)|
+  |mm|minuti a due cifre (da 00 a 59)|
   |ss|secondi a due cifre (da 00 a 59)|
   |. fffffff|secondi frazionari a sette cifre|
   |Z|Indicatore UTC (Coordinated Universal Time)||
@@ -72,7 +73,7 @@ Restituisce un valore stringa ISO 8601 di data e ora UTC nel formato in `YYYY-MM
   |GG|giorno del mese a due cifre (da 01 a 31)|
   |T|significato per l'inizio degli elementi Time|
   |hh|ora a due cifre (da 00 a 23)|
-  |MM|minuti a due cifre (da 00 a 59)|
+  |mm|minuti a due cifre (da 00 a 59)|
   |ss|secondi a due cifre (da 00 a 59)|
   |. fffffff|secondi frazionari a sette cifre|
   |Z|Indicatore UTC (Coordinated Universal Time)||
@@ -85,7 +86,7 @@ DateTimeAdd restituirà `undefined` per i motivi seguenti:
 - Il numeric_expr specificato non è un numero intero valido
 - Il valore DateTime nell'argomento o nel risultato non è un valore DateTime ISO 8601 valido.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
 Nell'esempio seguente viene aggiunto un mese a DateTime: `2020-07-09T23:20:13.4575530Z`
 

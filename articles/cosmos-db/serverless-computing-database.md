@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 0167dc0b1cbf8cf3b95995645ef24548a05c4343
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 5264fb44f8088ae8f942abf95bc8c0ef6d917413
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538647"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096139"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Elaborazione di database serverless con Azure Cosmos DB e Funzioni di Azure
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 L'elaborazione senza server consiste nella possibilità di concentrarsi sulle singole parti logiche ripetibili e senza stato. Queste parti non richiedono la gestione dell'infrastruttura e usano le risorse solo per i secondi o millisecondi in cui vengono eseguite. Alla base dello spostamento di elaborazioni senza server ci sono le funzioni, che vengono rese disponibili all'interno dell'ecosistema di Azure da [Funzioni di Azure](https://azure.microsoft.com/services/functions). Per altre informazioni su altri ambienti di esecuzione serverless in Azure, vedere la pagina [Serverless in Azure](https://azure.microsoft.com/solutions/serverless/). 
 

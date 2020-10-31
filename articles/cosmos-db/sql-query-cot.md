@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 25c907644f58ee40ea08e5636d68dc0e84564a28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 862899b6abd7f6d10da0c3b01205457553bad903
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78299488"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095865"
 ---
 # <a name="cot-azure-cosmos-db"></a>LETTIno (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Restituisce la cotangente trigonometrica dell'angolo specificato, espresso in radianti, nell'espressione numerica specificata.  
   
 ## <a name="syntax"></a>Sintassi
@@ -32,7 +34,7 @@ COT(<numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   Nell'esempio seguente viene calcolato l'oggetto `COT` dell'angolo specificato.  
   

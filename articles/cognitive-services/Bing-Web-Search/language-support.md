@@ -10,20 +10,25 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: aahi
-ms.openlocfilehash: e378bc88d28173eaed0308db3034a54236d63098
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 998e18f8901dda3430d5289e0590ef8099b6fb8c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91262825"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095459"
 ---
 # <a name="language-and-region-support-for-the-bing-web-search-api"></a>Lingua e regioni supportate dall'API Ricerca Web Bing
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 L'API Ricerca Web Bing supporta numerosi paesi o aree, molti dei quali con più di una lingua. Specificando un paese o un'area con una query è possibile perfezionare i risultati della ricerca in base agli interessi relativi a tale paese o area. I risultati possono includere collegamenti a Bing e questi collegamenti possono localizzare l'esperienza utente di Bing in base al paese, all'area o alla lingua specificata.
 
 È possibile specificare un paese o un'area usando il parametro di query `cc`. Quando si specifica un paese o un'area geografica, è necessario specificare uno o più codici di lingua con l' [ `Accept-Language` intestazione](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#headers). Usare la [tabella Mercati](#markets) per un elenco delle lingue supportate nei singoli mercati.
 
-In alternativa, è possibile specificare il mercato usando il parametro di query `mkt` e un codice della tabella **Mercati**. Specificando un mercato, vengono contemporaneamente specificati un paese o un'area e una lingua preferita. È possibile impostare in modo esplicito la lingua con il parametro di query `setLang`.
+In alternativa, è possibile specificare il mercato usando il parametro di query `mkt` e un codice della tabella **Mercati** . Specificando un mercato, vengono contemporaneamente specificati un paese o un'area e una lingua preferita. È possibile impostare in modo esplicito la lingua con il parametro di query `setLang`.
 
 ## <a name="countriesregions"></a>Paesi/aree geografiche
 
@@ -108,7 +113,7 @@ In alternativa, è possibile specificare il mercato usando il parametro di query
 |Taiwan|Cinese tradizionale|zh-TW|
 |Turchia|Turco|tr-TR|
 |Regno Unito|Inglese|en-GB|
-|Stati Uniti|Inglese|it-IT|
+|Stati Uniti|Inglese|en-US|
 |Stati Uniti|Spagnolo|es-US|
 
 ## <a name="next-steps"></a>Passaggi successivi

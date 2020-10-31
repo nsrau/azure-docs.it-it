@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: d50c273e50a7faf2d8c24982fbd39cecdff0bf7f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 5ba765f03e7ac700fb4338e14358fc55e6423c47
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92044378"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097040"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unità di query nei dispositivi gemelli digitali di Azure 
 
@@ -70,4 +70,4 @@ Per altre informazioni sull'esecuzione di query sui dispositivi gemelli digitali
 * [*Procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md)
 * [Documentazione di riferimento dell'API di query](/rest/api/digital-twins/dataplane/query/querytwins)
 
-È possibile trovare i limiti correlati alle query di Azure Digital gemelli in [*riferimento: limiti dei servizi in anteprima pubblica*](reference-service-limits.md).
+È possibile trovare i limiti correlati alle query di Azure Digital gemelli in [*riferimento: limiti del servizio*](reference-service-limits.md).

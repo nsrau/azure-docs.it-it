@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: a82f3c347c75d658e3e7ec52d51107f5a240ee5b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1b49cdb423e8fd2e70175d4ac71f6dcd07b459f9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88056517"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097737"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
 
@@ -33,13 +33,13 @@ Quando si crea un nuovo processo di analisi di flusso, è consigliabile crearlo 
 
 ## <a name="set-the-compatibility-level"></a>Configurare il livello di compatibilità
 
-È possibile impostare il livello di compatibilità per un processo di analisi di flusso nel portale di Azure o usando la [chiamata all'API REST di creazione del processo](/rest/api/streamanalytics/stream-analytics-job).
+È possibile impostare il livello di compatibilità per un processo di analisi di flusso nel portale di Azure o usando la [chiamata all'API REST di creazione del processo](/azure/stream-analytics/stream-analytics-quick-create-portal).
 
 Per aggiornare il livello di compatibilità del processo nel portale di Azure:
 
 1. Usare il [portale di Azure](https://portal.azure.com) per individuare il processo di analisi di flusso.
 2. **Arrestare** il processo prima di aggiornare il livello di compatibilità. Il livello di compatibilità, infatti, non può essere aggiornato se il processo è in esecuzione.
-3. Nell'intestazione **Configura** selezionare livello di **compatibilità**.
+3. Nell'intestazione **Configura** selezionare livello di **compatibilità** .
 4. Scegliere il valore del livello di compatibilità desiderato.
 5. Selezionare **Save (Salva** ) nella parte inferiore della pagina.
 
@@ -53,7 +53,7 @@ Nel livello di compatibilità 1,2 sono state introdotte le modifiche principali 
 
 ###  <a name="amqp-messaging-protocol"></a>Protocollo di messaggistica AMQP
 
-**1,2 livello**: analisi di flusso di Azure usa il protocollo di messaggistica [AMQP (Advanced Message Queueing Protocol)](../service-bus-messaging/service-bus-amqp-overview.md) per scrivere in code e argomenti del bus di servizio. AMQP consente di creare applicazioni ibride multipiattaforma usando un protocollo aperto standard.
+**1,2 livello** : analisi di flusso di Azure usa il protocollo di messaggistica [AMQP (Advanced Message Queueing Protocol)](../service-bus-messaging/service-bus-amqp-overview.md) per scrivere in code e argomenti del bus di servizio. AMQP consente di creare applicazioni ibride multipiattaforma usando un protocollo aperto standard.
 
 ### <a name="geospatial-functions"></a>Funzioni geospaziali
 
@@ -75,11 +75,11 @@ Per altre informazioni, vedere [aggiornamenti alle funzionalità geospaziali in 
 
 ### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Integrazione dell'API bulk nativa con output CosmosDB
 
-**Livelli precedenti:** Il comportamento di Upsert è *Insert o merge*.
+**Livelli precedenti:** Il comportamento di Upsert è *Insert o merge* .
 
 **livello 1,2:** L'integrazione dell'API bulk nativa con l'output CosmosDB ottimizza la velocità effettiva e gestisce in modo efficiente le richieste di limitazione. Per altre informazioni, vedere [la pagina relativa all'output di analisi di flusso di Azure per Azure Cosmos DB](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-documentdb-output#improved-throughput-with-compatibility-level-12).
 
-Il comportamento di Upsert è *Insert o Replace*.
+Il comportamento di Upsert è *Insert o Replace* .
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset durante la scrittura nell'output SQL
 

@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: guide
 ms.date: 09/22/2020
 ms.author: jasonh
-ms.openlocfilehash: c6369be39d0a964f07c64083e3269bb1c0c49c7f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eb12fc909b5165cbc759bbb7c531864cde16bb88
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409664"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096309"
 ---
 # <a name="upgrade-the-mongodb-wire-protocol-version-of-your-azure-cosmos-dbs-api-for-mongodb-account"></a>Aggiornare la versione del protocollo wire di MongoDB dell'API del Azure Cosmos DB per l'account MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Questo articolo descrive come aggiornare la versione del protocollo Wire dell'API Azure Cosmos DB per l'account MongoDB. Dopo aver aggiornato la versione del protocollo wire, è possibile usare le funzionalità più recenti nell'API Azure Cosmos DB per MongoDB. Il processo di aggiornamento non interrompe la disponibilità dell'account e non utilizza ur/s né diminuisce la capacità del database in qualsiasi momento. Questo processo non influirà sui dati o sugli indici esistenti.
 
@@ -37,7 +38,7 @@ Di seguito sono riportate le nuove funzionalità incluse nella versione 3,6:
 
 ### <a name="changes-from-version-32"></a>Modifiche dalla versione 3,2
 
-- Gli **errori di RequestRateIsLarge sono stati rimossi**. Le richieste provenienti dall'applicazione client non restituiranno più 16500 errori. Al contrario, le richieste verranno riavviate fino al completamento o al timeout.
+- Gli **errori di RequestRateIsLarge sono stati rimossi** . Le richieste provenienti dall'applicazione client non restituiranno più 16500 errori. Al contrario, le richieste verranno riavviate fino al completamento o al timeout.
 - Il timeout per richiesta è impostato su 60 secondi.
 - Per le raccolte MongoDB create nella nuova versione del protocollo wire la `_id` proprietà viene indicizzata per impostazione predefinita.
 
@@ -49,7 +50,7 @@ Per l'aggiornamento alla versione 3,6, il suffisso dell'endpoint dell'account de
 <your_database_account_name>.mongo.cosmos.azure.com
 ```
 
-È necessario sostituire l'endpoint esistente nelle applicazioni e i driver che si connettono a questo account del database. **Solo le connessioni che usano il nuovo endpoint avranno accesso alle funzionalità della versione 3,6 di MongoDB**. Il suffisso dell'endpoint precedente deve essere `.documents.azure.com` .
+È necessario sostituire l'endpoint esistente nelle applicazioni e i driver che si connettono a questo account del database. **Solo le connessioni che usano il nuovo endpoint avranno accesso alle funzionalità della versione 3,6 di MongoDB** . Il suffisso dell'endpoint precedente deve essere `.documents.azure.com` .
 
 >[!Note]
 > Questo endpoint potrebbe avere piccole differenze se l'account è stato creato in un cloud di Azure sovrano, governativo o limitato.
@@ -80,7 +81,7 @@ Per l'aggiornamento alla versione 3,6, il suffisso dell'endpoint dell'account de
 
     :::image type="content" source="./media/mongodb-version-upgrade/6.png" alt-text="Panoramica dell'account portale di Azure con MongoDB" border="false":::
 
-7. **Per iniziare a usare la versione aggiornata dell'account del database**, tornare al pannello `Overview` e copiare la nuova stringa di connessione da usare nell'applicazione. Le applicazioni inizieranno a usare la versione aggiornata non appena si connetteranno al nuovo endpoint. Le connessioni esistenti non verranno interrotte e potranno essere aggiornate in praticità. Per garantire un'esperienza coerente, è necessario che tutte le applicazioni usino il nuovo endpoint.
+7. **Per iniziare a usare la versione aggiornata dell'account del database** , tornare al pannello `Overview` e copiare la nuova stringa di connessione da usare nell'applicazione. Le applicazioni inizieranno a usare la versione aggiornata non appena si connetteranno al nuovo endpoint. Le connessioni esistenti non verranno interrotte e potranno essere aggiornate in praticità. Per garantire un'esperienza coerente, è necessario che tutte le applicazioni usino il nuovo endpoint.
 
     :::image type="content" source="./media/mongodb-version-upgrade/7.png" alt-text="Panoramica dell'account portale di Azure con MongoDB" border="false":::
 

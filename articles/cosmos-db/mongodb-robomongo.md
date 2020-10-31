@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 03/23/2020
 author: timsander1
 ms.author: tisande
-ms.openlocfilehash: 657f3cf204411bd51541437f05ff13a3f9b929c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e096de5eea9bf5bbd47b976976192e62eb6aa33e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85263042"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096411"
 ---
 # <a name="use-robo-3t-with-azure-cosmos-dbs-api-for-mongodb"></a>Usare Robo 3T con l'API di Azure Cosmos DB per MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Per connettersi all'account Cosmos usando Robo 3T, è necessario:
 
@@ -35,10 +36,10 @@ Per aggiungere l'account Cosmos alla gestione connessione di Robo 3T, seguire qu
 
 3. Fare clic sul pulsante di connessione in **File** per gestire le connessioni. Fare clic su **Create** (Crea) nella finestra **MongoDB Connections** (Connessioni MongoDB) per aprire la finestra **Connection Settings** (Impostazioni di connessione).
 
-4. Nella finestra **Impostazioni di connessione** scegliere un nome. Individuare l'**host** e la **porta** dalle informazioni di connessione nel Passaggio 1 e immettere tali valori nei campi **Address** (Indirizzo) e **Port** (Porta), rispettivamente.
+4. Nella finestra **Impostazioni di connessione** scegliere un nome. Individuare l' **host** e la **porta** dalle informazioni di connessione nel Passaggio 1 e immettere tali valori nei campi **Address** (Indirizzo) e **Port** (Porta), rispettivamente.
 
     :::image type="content" source="./media/mongodb-robomongo/manageconnections.png" alt-text="Screenshot del pannello Stringa di connessione":::
-5. Nella scheda **Authentication** (Autenticazione) fare clic su **Perform authentication** (Esegui autenticazione). Immettere il valore nel campo **User Name** (Nome utente) (il valore predefinito è *Admin*) e la **password**.
+5. Nella scheda **Authentication** (Autenticazione) fare clic su **Perform authentication** (Esegui autenticazione). Immettere il valore nel campo **User Name** (Nome utente) (il valore predefinito è *Admin* ) e la **password** .
 I valori per i campi **User Name** (Nome utente) e **Password** possono essere trovati nelle informazioni di connessione nel Passaggio 1.
 
     :::image type="content" source="./media/mongodb-robomongo/authentication.png" alt-text="Screenshot del pannello Stringa di connessione":::

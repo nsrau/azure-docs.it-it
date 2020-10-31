@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: d5de1cc606f97655427c0c86aea0c5c722e1bab8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dbd4f32e77dc8d386067987a0ab0436a7875c15e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84171464"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095391"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informazioni di riferimento per l'API Bing Local Business Search v7
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 L'API Local Business Search invia una query di ricerca a Bing per ottenere risultati che includono ristoranti, hotel o altre attività commerciali locali. Per le località, la query può specificare il nome dell'attività commerciale locale o una categoria, ad esempio ristoranti nelle vicinanze. I risultati relativi all'entità includono persone, località o cose. Il posizionamento in questo contesto è soggetto a entità aziendali, Stati, Paesi o aree geografiche e così via.  
 
@@ -47,7 +52,7 @@ La richiesta deve usare il protocollo HTTPS.
 > La lunghezza massima dell'URL è di 2048 caratteri. Per garantire che la lunghezza dell'URL non superi il limite, la lunghezza massima dei parametri di query deve essere inferiore a 1.500 caratteri. Se l'URL supera 2.048 caratteri, il server restituisce l'errore 404 Non trovato.  
   
   
-## <a name="headers"></a>Headers  
+## <a name="headers"></a>Intestazioni  
 Di seguito sono riportate le intestazioni che una richiesta e una risposta possono includere.  
   
 |Intestazione|Descrizione|  
@@ -79,7 +84,7 @@ La richiesta può includere i parametri di query seguenti. Vedere i parametri ob
 |<a name="offset"></a>offset|Indice per definire l'inizio dei risultati specificati dal parametro `count`.|Integer|No|  
 |<a name="query"></a>q|Termine di ricerca dell'utente.|string|No|  
 |<a name="responseformat"></a>responseFormat|Tipo di contenuto multimediale da usare per la risposta. Di seguito sono riportati i valori possibili senza distinzione tra maiuscole e minuscole.<br /><ul><li>JSON</li><li>JSONLD</li></ul><br /> Il valore predefinito è JSON. Per informazioni sugli oggetti JSON contenuti nella risposta, vedere [Oggetti risposta](#response-objects).<br /><br />  Se si specifica JsonLd, il corpo della risposta include gli oggetti JSON-LD contenenti i risultati della ricerca. Per informazioni su JSON-LD, vedere [JSON-LD](https://json-ld.org/).|string|No|  
-|<a name="safesearch"></a>safeSearch|Filtro usato per filtrare il contenuto per adulti. Di seguito sono indicati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Disattivata: vengono restituite le pagine Web con testo, immagini o video per adulti.<br /><br/></li><li>Moderata: vengono restituite le pagine Web con testo per adulti, ma non le immagini o i video per adulti.<br /><br/></li><li>Completa: non vengono restituite le pagine Web con testo, immagini o video per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostata su Completa, Bing ignora il valore di `safeSearch` e usa Completa.<br/><br/>** NOTA: ** se si usa l'operatore di query `site:`, esiste la possibilità che la risposta possa includere contenuti per adulti indipendentemente dall'impostazione del parametro di query `safeSearch`. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti. |string|No|  
+|<a name="safesearch"></a>safeSearch|Filtro usato per filtrare il contenuto per adulti. Di seguito sono indicati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Disattivata: vengono restituite le pagine Web con testo, immagini o video per adulti.<br /><br/></li><li>Moderata: vengono restituite le pagine Web con testo per adulti, ma non le immagini o i video per adulti.<br /><br/></li><li>Completa: non vengono restituite le pagine Web con testo, immagini o video per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostata su Completa, Bing ignora il valore di `safeSearch` e usa Completa.<br/><br/>**NOTA:** se si usa l'operatore di query `site:`, esiste la possibilità che la risposta possa includere contenuti per adulti indipendentemente dall'impostazione del parametro di query `safeSearch`. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti. |string|No|  
 |<a name="setlang"></a>setLang|Lingua da usare per le stringhe dell'interfaccia utente. Specificare la lingua tramite il codice lingua a due lettere ISO 639-1. Ad esempio, il codice lingua per l'inglese è EN. L'impostazione predefinita è EN (inglese).<br /><br /> Sebbene sia facoltativo, è opportuno specificare sempre la lingua. In genere, si imposta `setLang` sulla stessa lingua specificata da `mkt`, a meno che non si intenda visualizzare le stringhe dell'interfaccia utente in un'altra lingua.<br /><br /> Questo parametro e l'intestazione [Accept-Language](#acceptlanguage) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti risposta si applicano anche alla lingua specificata.|string|No| 
 
 
@@ -136,7 +141,7 @@ Definisce i componenti di un collegamento ipertestuale.
 
 
   
-### <a name="organization"></a>Organizzazione  
+### <a name="organization"></a>Organization  
 Definisce un editore.  
   
 Si noti che un editore può fornire il proprio nome e/o il sito Web.  
@@ -167,10 +172,10 @@ Definisce il contesto di query usato da Bing per la richiesta.
   
 |Elemento|Descrizione|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Valore booleano che indica se la query specificata ha finalità per adulti. Il valore è ** true ** se la query ha finalità per adulti; in caso contrario, è **false **.|Boolean|  
-|alterationOverrideQuery|Stringa di query da usare per forzare l'utilizzo della stringa originale in Bing. Ad esempio, se la stringa di query è *saling downwind*, questa stringa di query sarà *+saling downwind*. Ricordarsi di codificare la stringa di query che risulta in *%2Bsaling+downwind*.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|string|  
+|adultIntent|Valore booleano che indica se la query specificata ha finalità per adulti. Il valore è **true** se la query ha finalità per adulti; in caso contrario, è **false** .|Boolean|  
+|alterationOverrideQuery|Stringa di query da usare per forzare l'utilizzo della stringa originale in Bing. Ad esempio, se la stringa di query è *saling downwind* , questa stringa di query sarà *+saling downwind* . Ricordarsi di codificare la stringa di query che risulta in *%2Bsaling+downwind* .<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|string|  
 |alteredQuery|La stringa di query usata da Bing per eseguire la query. Bing usa la stringa di query modificata se la stringa di query originale conteneva errori di ortografia. Ad esempio, se la stringa di query è `saling downwind`, la stringa di query modificata sarà `sailing downwind`.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|string|  
-|askUserForLocation|Valore booleano che indica se Bing richiede la posizione dell'utente per fornire risultati accurati. Se è stata specificata la posizione dell'utente usando le intestazioni [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), è possibile ignorare questo campo.<br /><br /> Per le query in grado di riconoscere la posizione, ad esempio "meteo di oggi " o "ristoranti vicino a me" che richiedono la posizione dell'utente per fornire risultati accurati, questo campo è impostato su **true**.<br /><br /> Per le query in grado di riconoscere la posizione che includono la posizione, ad esempio "meteo di Seattle", questo campo è impostato su **false**. Questo campo viene impostato su **false** anche per le query che non riconoscono la posizione, ad esempio "best seller".|Boolean|  
+|askUserForLocation|Valore booleano che indica se Bing richiede la posizione dell'utente per fornire risultati accurati. Se è stata specificata la posizione dell'utente usando le intestazioni [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), è possibile ignorare questo campo.<br /><br /> Per le query in grado di riconoscere la posizione, ad esempio "meteo di oggi " o "ristoranti vicino a me" che richiedono la posizione dell'utente per fornire risultati accurati, questo campo è impostato su **true** .<br /><br /> Per le query in grado di riconoscere la posizione che includono la posizione, ad esempio "meteo di Seattle", questo campo è impostato su **false** . Questo campo viene impostato su **false** anche per le query che non riconoscono la posizione, ad esempio "best seller".|Boolean|  
 |originalQuery|La stringa di query come è stata specificata nella richiesta.|string|  
 
 ### <a name="identifiable"></a>Identifiable
@@ -194,7 +199,7 @@ Definisce un elemento dei risultati della ricerca da visualizzare.
 |resultIndex|Indice in base zero dell'elemento nella risposta da visualizzare. Se l'elemento non include questo campo, visualizzare tutti gli elementi nella risposta. Ad esempio, visualizzare tutti gli articoli sulle notizie nella risposta di Ricerca notizie.|Integer|
 |answerType|Risposta che contiene l'elemento da visualizzare, ad esempio, Ricerca notizie.<br /><br />Usare il tipo per trovare la risposta nell'oggetto SearchResponse. Il tipo è il nome di un campo SearchResponse.<br /><br /> Tuttavia, usare il tipo di risposta solo se questo oggetto include il campo del valore; in caso contrario, ignorarlo.|string|
 |textualIndex|Indice della risposta in textualAnswers da visualizzare.| Unsigned Integer|
-|value|ID che identifica una risposta o un elemento di una risposta da visualizzare. Se l'ID identifica una risposta, visualizzare tutti gli elementi della risposta.|Identifiable|
+|Valore|ID che identifica una risposta o un elemento di una risposta da visualizzare. Se l'ID identifica una risposta, visualizzare tutti gli elementi della risposta.|Identifiable|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Definisce il punto in cui il contenuto della pagina dei risultati della ricerca deve essere posizionato e in quale ordine.  

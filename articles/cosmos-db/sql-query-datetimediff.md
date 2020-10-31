@@ -7,16 +7,17 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: b90b45072128252e8abc22d3422c84c813808119
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d51c8774a8646a4b961906ee77913d8edbe752ee
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87446383"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095833"
 ---
 # <a name="datetimediff-azure-cosmos-db"></a>DateTimeDiff (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-Restituisce il conteggio (come valore intero con segno) dei limiti di DateTimePart specificati attraversati tra il *StartDate* e l' *EndDate*specificati.
+Restituisce il conteggio (come valore intero con segno) dei limiti di DateTimePart specificati attraversati tra il *StartDate* e l' *EndDate* specificati.
   
 ## <a name="syntax"></a>Sintassi
   
@@ -51,7 +52,7 @@ DateTimeDiff (<DateTimePart> , <StartDate> , <EndDate>)
   |GG|giorno del mese a due cifre (da 01 a 31)|
   |T|significato per l'inizio degli elementi Time|
   |hh|ora a due cifre (da 00 a 23)|
-  |MM|minuti a due cifre (da 00 a 59)|
+  |mm|minuti a due cifre (da 00 a 59)|
   |ss|secondi a due cifre (da 00 a 59)|
   |. fffffff|secondi frazionari a sette cifre|
   |Z|Indicatore UTC (Coordinated Universal Time)||
@@ -74,7 +75,7 @@ DateTimeDiff restituirà `undefined` per i motivi seguenti:
 
 DateTimeDiff restituirà sempre un valore intero con segno ed è una misurazione del numero di limiti DateTimePart superati, non di misura dell'intervallo di tempo.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
 Nell'esempio seguente viene calcolato il numero di limiti di giorno incrociato tra `2020-01-01T01:02:03.1234527Z` e `2020-01-03T01:02:03.1234567Z` .
 

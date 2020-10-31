@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: aahi
-ms.openlocfilehash: 630b86f55a537d109c851cb585cfccc34d229f83
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac1b636f644784092b5f68f59d787c328478df69
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74110630"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096921"
 ---
 # <a name="resize-and-crop-thumbnail-images"></a>Ridimensionare e ritagliare le immagini di anteprima
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Alcune risposte dalla API di ricerca Bing includono gli URL per le immagini di anteprima gestite da Bing, che è possibile ridimensionare e ritagliare e possono contenere parametri di query. Ad esempio:
 

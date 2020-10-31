@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 10/28/2020
 ms.author: bwren
 ms.custom: subject-monitoring
-ms.openlocfilehash: c17d660c75fdfd6f1eb429db3a8b55f3e3db1b2d
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: eb06fda43590198f1b2643c8362f774a031eaef9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92925952"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096280"
 ---
 # <a name="azure-cosmos-db-monitoring-data-reference"></a>Informazioni di riferimento sui dati di monitoraggio di Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Questo articolo fornisce un riferimento ai dati di log e delle metriche raccolti per analizzare le prestazioni e la disponibilità di Azure Cosmos DB. Per informazioni su come raccogliere e analizzare i dati di monitoraggio per Azure Cosmos DB, vedere l'articolo di monitoraggio [Azure Cosmos DB](monitor-cosmos-db.md) .
 

@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 06/04/2020
 ms.author: rosouz
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 97a887b9fbb0edd4b1574d3e68399ea83fe11451
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46164a5cd96941609c8a6484470fff863680f9d3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326746"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096598"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>Flussi di modifiche nell'API di Azure Cosmos DB per MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Il supporto del [feed di modifiche](change-feed.md) nell'API di Azure Cosmos DB per MongoDB è disponibile tramite l'API dei flussi di modifiche. Con l'API dei flussi di modifiche, le applicazioni possono ottenere le modifiche apportate alla raccolta o agli elementi in una singola partizione. In seguito sarà possibile eseguire altre azioni in base ai risultati. Le modifiche apportate agli elementi nella raccolta vengono acquisite in base all'ora della modifica e l'ordinamento è garantito per ogni chiave di partizione.
 
@@ -146,7 +147,7 @@ A differenza del feed di modifiche nell'API SQL di Azure Cosmos DB, non è prese
 
 Quando si usano i flussi di modifiche, sono supportati i codici e messaggi di errore seguenti:
 
-* **Codice di errore HTTP 16500**: quando il flusso di modifiche è rallentato, viene restituita una pagina vuota.
+* **Codice di errore HTTP 16500** : quando il flusso di modifiche è rallentato, viene restituita una pagina vuota.
 
 * **NamespaceNotFound (Invalidate OperationType)** : se si esegue il flusso di modifiche su una raccolta inesistente o se la raccolta viene eliminata, viene restituito un errore `NamespaceNotFound`. Poiché la proprietà `operationType` non può essere restituita nel documento di output, invece dell'errore `operationType Invalidate` viene restituito l'errore `NamespaceNotFound`.
 

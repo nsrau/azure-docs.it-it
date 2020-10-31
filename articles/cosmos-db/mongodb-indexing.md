@@ -9,14 +9,15 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: 6e084a890dd5c772fbf576ddc50fd26b2d1774f0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a1144560b8bd8638477828f1aeafcacbc8b77f1d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487382"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096479"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 L'API di Azure Cosmos DB per MongoDB sfrutta le funzionalità di gestione degli indici principali di Azure Cosmos DB. Questo articolo è incentrato su come aggiungere indici usando l'API di Azure Cosmos DB per MongoDB. È anche possibile leggere una [Panoramica dell'indicizzazione in Azure Cosmos DB](index-overview.md) pertinente in tutte le API.
 
@@ -53,7 +54,7 @@ Il comando che segue crea un indice composto sui campi `name` e `age` :
 
 `db.coll.find().sort({name:1,age:1})`
 
-È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Di seguito è riportato un esempio:
+È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Ecco un esempio:
 
 `db.coll.find().sort({name:-1,age:-1})`
 
@@ -121,7 +122,7 @@ Il comando che segue crea un indice con caratteri jolly in qualsiasi proprietà 
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-**Diversamente da MongoDB, gli indici con caratteri jolly possono supportare più campi nei predicati di query**. Non vi sarà alcuna differenza nelle prestazioni delle query se si usa un singolo indice con caratteri jolly anziché creare un indice separato per ogni proprietà.
+**Diversamente da MongoDB, gli indici con caratteri jolly possono supportare più campi nei predicati di query** . Non vi sarà alcuna differenza nelle prestazioni delle query se si usa un singolo indice con caratteri jolly anziché creare un indice separato per ogni proprietà.
 
 È possibile creare i tipi di indice seguenti utilizzando la sintassi con caratteri jolly:
 
@@ -147,7 +148,7 @@ Gli indici con caratteri jolly non supportano i tipi di indice o le proprietà s
 - TTL
 - Univoco
 
-**Diversamente da MongoDB**, nell'API Azure Cosmos DB per MongoDB **non** è possibile usare gli indici con caratteri jolly per:
+**Diversamente da MongoDB** , nell'API Azure Cosmos DB per MongoDB **non** è possibile usare gli indici con caratteri jolly per:
 
 - Creazione di un indice con caratteri jolly che include più campi specifici
 

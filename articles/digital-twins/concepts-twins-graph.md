@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: c41ffcd552cddf981c2ed54d1d78c7cb2e8698c5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 3bf039eb099a5735c3528c1ba5b9c440d7787c43
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440834"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097057"
 ---
 # <a name="understand-digital-twins-and-their-twin-graph"></a>Comprendere i dispositivi gemelli digitali e i relativi grafici gemelli
 
-In una soluzione di dispositivi gemelli digitali di Azure, le entità nell'ambiente sono rappresentate dai dispositivi **gemelli digitali**di Azure. Un dispositivo gemello digitale è un'istanza di uno dei [modelli](concepts-models.md)personalizzati definiti. Può essere connessa ad altri dispositivi gemelli digitali tramite **relazioni** per formare un **grafico a due gemelli**: questo grafico a due è la rappresentazione dell'intero ambiente.
+In una soluzione di dispositivi gemelli digitali di Azure, le entità nell'ambiente sono rappresentate dai dispositivi **gemelli digitali** di Azure. Un dispositivo gemello digitale è un'istanza di uno dei [modelli](concepts-models.md)personalizzati definiti. Può essere connessa ad altri dispositivi gemelli digitali tramite **relazioni** per formare un **grafico a due gemelli** : questo grafico a due è la rappresentazione dell'intero ambiente.
 
 > [!TIP]
 > "I dispositivi gemelli digitali di Azure" si riferiscono a questo servizio di Azure nel suo complesso. "I gemelli digitali" o solo i "gemelli" si riferiscono ai singoli nodi gemelli all'interno dell'istanza del servizio.
@@ -25,13 +25,13 @@ In una soluzione di dispositivi gemelli digitali di Azure, le entità nell'ambie
 
 Prima di poter creare un dispositivo gemello digitale nell'istanza di Azure Digital gemelli, è necessario che nel servizio sia caricato un *modello* . Un modello descrive il set di proprietà, i messaggi di telemetria e le relazioni che un particolare gemello può avere, tra le altre cose. Per informazioni sui tipi definiti in un modello, vedere [*concetti: modelli personalizzati*](concepts-models.md).
 
-Dopo la creazione e il caricamento di un modello, l'app client può creare un'istanza del tipo. si tratta di un dispositivo gemello digitale. Ad esempio, dopo aver creato un modello di *floor*, è possibile creare uno o più dispositivi gemelli digitali che usano questo tipo, ad esempio un gemello di tipo *floor*denominato *pianterreno*, un altro denominato *floor2*e così via. 
+Dopo la creazione e il caricamento di un modello, l'app client può creare un'istanza del tipo. si tratta di un dispositivo gemello digitale. Ad esempio, dopo aver creato un modello di *floor* , è possibile creare uno o più dispositivi gemelli digitali che usano questo tipo, ad esempio un gemello di tipo *floor* denominato *pianterreno* , un altro denominato *floor2* e così via. 
 
 ## <a name="relationships-a-graph-of-digital-twins"></a>Relazioni: un grafico di gemelli digitali
 
 I dispositivi gemelli sono connessi in un grafo gemello dalle relazioni. Le relazioni che possono avere un gemello sono definite come parte del modello.  
 
-Ad esempio, il *piano* del modello potrebbe definire una relazione *Contains* destinata ai gemelli di tipo *room*. Con questa definizione *, i dispositivi* gemelli digitali di Azure consentiranno *di creare relazioni tra i* dispositivi gemelli *e i dispositivi gemelli* , inclusi i sottotipi di *chat* . 
+Ad esempio, il *piano* del modello potrebbe definire una relazione *Contains* destinata ai gemelli di tipo *room* . Con questa definizione *, i dispositivi* gemelli digitali di Azure consentiranno *di creare relazioni tra i* dispositivi gemelli *e i dispositivi gemelli* , inclusi i sottotipi di *chat* . 
 
 Il risultato di questo processo è un set di nodi (i gemelli digitali) connessi tramite bordi (le rispettive relazioni) in un grafico.
 
@@ -43,17 +43,20 @@ In questa sezione viene illustrato come creare i gemelli digitali e le relazioni
 
 ### <a name="create-digital-twins"></a>Creare i gemelli digitali
 
-Di seguito è riportato un frammento di codice client che usa le [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) per creare un'istanza di un gemello di tipo *room*.
+Di seguito è riportato un frammento di codice client che usa le [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) per creare un'istanza di un gemello di tipo *room* .
 
-Nell'anteprima corrente dei dispositivi gemelli digitali di Azure, tutte le proprietà di un dispositivo gemello devono essere inizializzate prima che il dispositivo gemello possa essere creato. Questa operazione viene eseguita creando un documento JSON che fornisce i valori di inizializzazione necessari.
+È possibile inizializzare le proprietà di un dispositivo gemello quando viene creato oppure impostarle in un secondo momento. Per creare un dispositivo gemello con le proprietà inizializzate, creare un documento JSON che fornisca i valori di inizializzazione necessari.
 
 [!INCLUDE [Azure Digital Twins code: create twin](../../includes/digital-twins-code-create-twin.md)]
 
-È anche possibile usare una classe helper denominata `BasicDigitalTwin` per archiviare più direttamente i campi di proprietà in un oggetto "gemello", come alternativa all'uso di un dizionario. Per ulteriori informazioni sulla classe helper ed esempi relativi all'uso, vedere la sezione [*creare un dispositivo gemello digitale*](how-to-manage-twin.md#create-a-digital-twin) di *How-to: Manage Digital gemells*.
+È anche possibile usare una classe helper denominata `BasicDigitalTwin` per archiviare più direttamente i campi di proprietà in un oggetto "gemello", come alternativa all'uso di un dizionario. Per ulteriori informazioni sulla classe helper ed esempi relativi all'uso, vedere la sezione [*creare un dispositivo gemello digitale*](how-to-manage-twin.md#create-a-digital-twin) di *How-to: Manage Digital gemells* .
+
+>[!NOTE]
+>Mentre le proprietà dei dispositivi gemelli vengono considerate facoltative e pertanto non devono essere inizializzate, è **necessario impostare** tutti i [componenti](concepts-models.md#elements-of-a-model) del dispositivo gemello quando viene creato il dispositivo gemello. Possono essere oggetti vuoti, ma devono esistere anche i componenti.
 
 ### <a name="create-relationships"></a>Creare relazioni
 
-Di seguito è riportato un esempio di codice client che usa le [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) per creare una relazione tra un gemello digitale di tipo *floor*denominato *pianterreno* e un gemello digitale di tipo *room*chiamato *Cafe*.
+Di seguito è riportato un esempio di codice client che usa le [API DigitalTwins](/rest/api/digital-twins/dataplane/twins) per creare una relazione tra un gemello digitale di tipo *floor* denominato *pianterreno* e un gemello digitale di tipo *room* chiamato *Cafe* .
 
 ```csharp
 // Create Twins, using functions similar to the previous sample
@@ -85,7 +88,7 @@ Quando viene rappresentato come oggetto JSON, un dispositivo gemello digitale Vi
 | --- | --- |
 | `$dtId` | Stringa fornita dall'utente che rappresenta l'ID del dispositivo gemello digitale |
 | `$etag` | Campo HTTP standard assegnato dal server Web |
-| `$conformance` | Enumerazione contenente lo stato di conformità del dispositivo gemello*digitale (conforme,* *non conforme*, *sconosciuto*) |
+| `$conformance` | Enumerazione contenente lo stato di conformità del dispositivo gemello *digitale (conforme,* *non conforme* , *sconosciuto* ) |
 | `{propertyName}` | Valore di una proprietà in JSON ( `string` , tipo numerico o oggetto) |
 | `$relationships` | URL del percorso della raccolta di relazioni. Questo campo è assente se il gemello digitale non ha bordi di relazione in uscita. |
 | `$metadata.$model` | Opzionale ID dell'interfaccia del modello che caratterizza il gemello digitale |

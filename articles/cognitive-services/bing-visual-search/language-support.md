@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 09/25/2018
 ms.author: scottwhi
-ms.openlocfilehash: b17341bc234ff3dfecc2c6dcd84ef77116a95d61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f32c7a97036319dcae610fd0baa2dad48763d8ae
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "68883555"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93094932"
 ---
 # <a name="language-and-region-support-for-the-bing-visual-search-api"></a>Lingua e regioni supportate dall'API Ricerca visiva Bing
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 L'API Ricerca visiva Bing supporta numerosi paesi/le aree, molti dei quali con più di una lingua. Per ogni richiesta è consigliabile includere paese/l'area e lingua dell'utente, poiché la conoscenza del mercato dell'utente consente a Bing di restituire risultati appropriati. Se l'utente non specifica il paese/l'area e la lingua, Bing fa del proprio meglio per determinarli. Poiché i risultati possono contenere collegamenti a Bing, se l'utente specifica il paese/l'area e la lingua e quindi fa clic sui collegamenti Bing, Bing è in grado di offrire un'esperienza utente localizzata nel modo più appropriato.
 
@@ -117,5 +122,5 @@ In alternativa è possibile specificare il paese/l'area usando il parametro di q
 |Taiwan|Cinese tradizionale|zh-TW|
 |Turchia|Turco|tr-TR|
 |Regno Unito|Inglese|en-GB|
-|Stati Uniti|Inglese|it-IT|
+|Stati Uniti|Inglese|en-US|
 |Stati Uniti|Spagnolo|es-US|

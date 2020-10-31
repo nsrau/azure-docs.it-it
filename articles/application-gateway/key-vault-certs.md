@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 07/27/2020
 ms.author: victorh
-ms.openlocfilehash: e7c4842494c144f5cd64d46f53f7a99266064680
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3569ae130813eb0aaf14ec3d8d4e5cfac3e98c6f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993636"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095648"
 ---
 # <a name="tls-termination-with-key-vault-certificates"></a>Terminazione TLS con certificati Key Vault
 
@@ -49,6 +49,9 @@ L'integrazione del gateway applicazione con Key Vault richiede un processo di co
 
    È quindi possibile importare un certificato esistente o crearne uno nuovo nell'insieme di credenziali delle chiavi. Il certificato verrà usato dalle applicazioni che vengono eseguite tramite il gateway applicazione. In questo passaggio, è anche possibile usare un segreto dell'insieme di credenziali delle chiavi archiviato come file PFX con codifica base-64 senza password. È consigliabile usare un tipo di certificato a causa della funzionalità di rinnovo automatico disponibile con gli oggetti tipo di certificato nell'insieme di credenziali delle chiavi. Dopo aver creato un certificato o un segreto, è necessario definire i criteri di accesso nell'insieme di credenziali delle chiavi per consentire all'identità di concedere *l'accesso al* segreto.
    
+   > [!IMPORTANT]
+   > Il gateway applicazione richiede attualmente Key Vault per consentire l'accesso da tutte le reti per sfruttare l'integrazione. Non supporta l'integrazione di Key Vault quando Key Vault è impostato in modo da consentire solo endpoint privati e selezionare l'accesso alle reti. Il supporto per le reti private e Select è in funziona per l'integrazione completa di Key Vault con il gateway applicazione. 
+
    > [!NOTE]
    > Se si distribuisce il gateway applicazione tramite un modello ARM tramite l'interfaccia della riga di comando di Azure o PowerShell oppure tramite un'applicazione Azure distribuita dalla portale di Azure, il certificato SSL viene archiviato nell'insieme di credenziali delle chiavi come file PFX con codifica Base64. È necessario completare i passaggi descritti in [usare Azure Key Vault per passare il valore del parametro sicuro durante la distribuzione](../azure-resource-manager/templates/key-vault-parameter.md). 
    >

@@ -7,14 +7,16 @@ ms.date: 07/13/2020
 ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: 905560094afa9338d44ba73120d316b3c81b5580
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 10917ce51ff64292809f2fa8799c84b5cdeb3d6c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92277153"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097907"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-rate-too-large-exceptions"></a>Diagnosticare e risolvere i problemi relativi alle eccezioni Azure Cosmos DB frequenza di richieste troppo grandi
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 Un messaggio di "frequenza di richiesta troppo grande" o codice di errore 429 indica che le richieste sono soggette A limitazioni.
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi

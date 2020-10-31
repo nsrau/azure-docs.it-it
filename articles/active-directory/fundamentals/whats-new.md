@@ -16,12 +16,12 @@ ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37dc60fd14eb26ab4c8f5a867b97369a066b743b
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: f08efc8a10c50dcfcc6da884396dea88695dbb2a
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92362757"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096020"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -38,6 +38,19 @@ Azure AD viene regolarmente migliorato. Per stare al passo con gli sviluppi più
 Questa pagina viene aggiornata ogni mese, si consiglia pertanto di consultarla regolarmente. Se si stanno cercando elementi più vecchi di sei mesi, è possibile trovarli in [Archivio per le novità di Azure Active Directory](whats-new-archive.md).
 
 ---
+## <a name="october-2020"></a>Ottobre 2020
+
+### <a name="azure-ad-on-premises-hybrid-agents-impacted-by-azure-tls-certificate-changes"></a>Azure AD agenti ibridi locali interessati dalle modifiche ai certificati TLS di Azure
+
+**Tipo:** Modifica pianificata  
+**Categoria di servizio:** N/D  
+**Funzionalità del prodotto:** Piattaforma
+
+Microsoft sta aggiornando i servizi di Azure per l'uso di certificati TLS emessi da un set diverso di autorità di certificazione (CA) radice. Questo aggiornamento è dovuto ai certificati della CA correnti non conformi a uno dei requisiti di base del forum CA/browser. Questa modifica influirà Azure AD gli agenti ibridi installati in locale che hanno ambienti finalizzati con un elenco fisso di certificati radice e dovranno essere aggiornati per considerare attendibile le nuove autorità emittenti di certificati.
+
+Questa modifica provocherà un'interferenza del servizio se non si esegue immediatamente un'azione. Questi agenti includono i [connettori del proxy di applicazione](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AppProxy) per l'accesso remoto agli agenti di [autenticazione pass-through](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) locali che consentono agli utenti di accedere alle applicazioni usando le stesse password e gli agenti di anteprima del [provisioning del cloud](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) che eseguono ad Azure ad la sincronizzazione. 
+
+Se si dispone di un ambiente con regole del firewall impostate per consentire le chiamate in uscita solo per il download di un elenco di revoche di certificati (CRL) specifico, sarà necessario consentire i seguenti URL CRL e OCSP. Per informazioni dettagliate sulla modifica e sugli URL CRL e OCSP per consentire l'accesso a, vedere  [modifiche ai certificati TLS di Azure](../../security/fundamentals/tls-certificate-changes.md).
 
 ## <a name="september-2020"></a>Settembre 2020
 
@@ -1223,9 +1236,9 @@ Per ulteriori informazioni, vedere [gestione delle unità amministrative in Azur
 
 **Funzionalità del prodotto:** Controllo di accesso
 
-**Amministratore della stampante**: gli utenti con questo ruolo possono registrare le stampanti e gestire tutti gli aspetti di tutte le configurazioni della stampante nella soluzione di stampa universale Microsoft, incluse le impostazioni del connettore di stampa universale. Possono concedere il consenso a tutte le richieste di autorizzazione di stampa delegate. Gli amministratori stampante possono anche accedere ai report di stampa. 
+**Amministratore della stampante** : gli utenti con questo ruolo possono registrare le stampanti e gestire tutti gli aspetti di tutte le configurazioni della stampante nella soluzione di stampa universale Microsoft, incluse le impostazioni del connettore di stampa universale. Possono concedere il consenso a tutte le richieste di autorizzazione di stampa delegate. Gli amministratori stampante possono anche accedere ai report di stampa. 
 
-**Tecnico della stampante**: gli utenti con questo ruolo possono registrare le stampanti e gestire lo stato della stampante nella soluzione di stampa universale Microsoft. Possono anche leggere tutte le informazioni sul connettore. Le attività principali che un tecnico di stampa non può eseguire sono impostare le autorizzazioni utente sulle stampanti e condividere stampanti. [Altre informazioni.](../roles/permissions-reference.md#printer-administrator)
+**Tecnico della stampante** : gli utenti con questo ruolo possono registrare le stampanti e gestire lo stato della stampante nella soluzione di stampa universale Microsoft. Possono anche leggere tutte le informazioni sul connettore. Le attività principali che un tecnico di stampa non può eseguire sono impostare le autorizzazioni utente sulle stampanti e condividere stampanti. [Altre informazioni.](../roles/permissions-reference.md#printer-administrator)
 
 ---
 

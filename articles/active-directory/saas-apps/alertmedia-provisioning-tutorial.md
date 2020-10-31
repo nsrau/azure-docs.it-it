@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2ae06a8ed59f7987f58aba8b8017833315e6529f
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 98cca99ab0e088bbae047fa64ec52429e531dfed
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92429005"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096081"
 ---
 # <a name="tutorial-configure-alertmedia-for-automatic-user-provisioning"></a>Esercitazione: configurare AlertMedia per il provisioning utenti automatico
 
@@ -49,10 +49,10 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e AlertMedia](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes). 
 
-## <a name="step-2-configure-alertmedia-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare AlertMedia per supportare il provisioning con Azure AD
+## <a name="step-2-configure-alertmedia-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare AlertMedia per supportare il provisioning con Azure AD
 
-1. Accedere all'account AlertMedia. Passare a **azienda > API**.
-2. Fare clic su **Aggiungi nuovo**.
+1. Accedere all'account AlertMedia. Passare a **azienda > API** .
+2. Fare clic su **Aggiungi nuovo** .
 3. Scegliere di assegnare un nome all' **integrazione dell'API** per identificare facilmente la posizione in cui vengono usate le chiavi.
 4. Selezionare l'amministratore a cui si vuole associare l'integrazione.
 5. Fare clic sul pulsante **genera chiavi** e **Salva** .
@@ -67,7 +67,7 @@ Aggiungere AlertMedia dalla raccolta di applicazioni Azure AD per iniziare a ges
 
 Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
-* Quando si assegnano utenti e gruppi a AlertMedia, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli. 
+* Quando si assegnano utenti e gruppi a AlertMedia, è necessario selezionare un ruolo diverso dall' **accesso predefinito** . Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/howto-add-app-roles-in-azure-ad-apps) per aggiungere altri ruoli. 
 
 * Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts). 
 
@@ -78,38 +78,38 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 ### <a name="to-configure-automatic-user-provisioning-for-alertmedia-in-azure-ad"></a>Per configurare il provisioning utenti automatico per AlertMedia in Azure AD:
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **AlertMedia**.
+2. Nell'elenco delle applicazioni selezionare **AlertMedia** .
 
     ![Collegamento di AlertMedia nell'elenco delle applicazioni](common/all-applications.png)
 
-3. Selezionare la scheda **Provisioning**.
+3. Selezionare la scheda **Provisioning** .
 
     ![Scheda Provisioning](common/provisioning.png)
 
-4. Impostare **Modalità di provisioning** su **Automatico**.
+4. Impostare **Modalità di provisioning** su **Automatico** .
 
     ![Scheda Provisioning automatica](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere l' **URL del tenant** AlertMedia come uno dei seguenti.
-      * (nessun dominio personalizzato) https://dashboard.alertmedia.com/api/scim/v3
+      * (nessun dominio personalizzato) https://docs.gitlab.com/ee/api/scim.html
 
-      * (dominio personalizzato) https://subdomain.alertmedia.com/api/scim/v3
+      * (dominio personalizzato) https://developer.github.com/v3/scim/
 
       Immettere il **token Secret** come recuperato in precedenza nel passaggio 2. Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a AlertMedia. Se la connessione non riesce, verificare che l'account AlertMedia disponga delle autorizzazioni di amministratore e riprovare.
 
       ![token](common/provisioning-testconnection-tenanturltoken.png)
 
-6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
+6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore** .
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Selezionare **Salva**.
+7. Selezionare **Salva** .
 
-8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a AlertMedia**.
+8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a AlertMedia** .
 
 9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a AlertMedia nella sezione **mapping degli attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in AlertMedia per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes), sarà necessario assicurarsi che l'API AlertMedia supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
@@ -143,7 +143,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |urn: IETF: params: SCIM: schemas: Extension: alertmedia: 2.0: CustomAttribute: utente: customer_user_id|string|
    |urn: IETF: params: SCIM: schemas: Extension: alertmedia: 2.0: CustomAttribute: utente: user_type|string|
 
-10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to AlertMedia**.
+10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to AlertMedia** .
 
 11. Esaminare gli attributi di gruppo sincronizzati da Azure AD a AlertMedia nella sezione **mapping** degli attributi. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in AlertMedia per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
@@ -162,11 +162,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
-15. Quando si è pronti per eseguire il provisioning, fare clic su **Salva**.
+15. Quando si è pronti per eseguire il provisioning, fare clic su **Salva** .
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i gruppi definiti in **Ambito** nella sezione **Impostazioni**. Il ciclo di sincronizzazione iniziale richiede più tempo dei cicli successivi, che verranno eseguiti ogni 40 minuti circa quando il servizio di provisioning di Azure AD è in esecuzione. 
+L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i gruppi definiti in **Ambito** nella sezione **Impostazioni** . Il ciclo di sincronizzazione iniziale richiede più tempo dei cicli successivi, che verranno eseguiti ogni 40 minuti circa quando il servizio di provisioning di Azure AD è in esecuzione. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Passaggio 6. Monitorare la distribuzione
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:

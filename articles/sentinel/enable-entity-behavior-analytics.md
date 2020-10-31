@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/15/2020
+ms.date: 10/28/2020
 ms.author: yelevin
-ms.openlocfilehash: c55ea0e7753faa6dc21b955d63a57d96e3849f70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4587ab5e2cf36dce65cd02b167656c88cfde10a1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90997118"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096955"
 ---
 # <a name="enable-user-and-entity-behavior-analytics-ueba-in-azure-sentinel"></a>Abilitare l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure 
 
@@ -27,17 +27,27 @@ ms.locfileid: "90997118"
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- È necessario che all'utente siano assegnati i ruoli di amministratore **globale** o di **amministratore della sicurezza** in Azure ad per abilitare o disabilitare offrono dati, ma non per eseguirlo.
+Per abilitare o disabilitare questa funzionalità (questi prerequisiti non sono necessari per usare la funzionalità):
+
+- L'utente deve essere un membro dell'Azure Active Directory dell'organizzazione e non un utente Guest.
+
+- All'utente deve essere assegnato il ruolo di amministratore **globale** o **amministratore della sicurezza** in Azure ad.
+
+- È necessario che all'utente sia assegnato almeno uno dei seguenti **ruoli di Azure** ( [altre informazioni su RBAC di Azure](roles.md)):
+    - **Collaboratore sentinella di Azure** a livello di area di lavoro o di gruppo di risorse.
+    - **Log Analytics collaboratore** a livello di gruppo di risorse o di sottoscrizione.
+
+- All'area di lavoro non deve essere applicato alcun blocco di risorse di Azure. [Altre informazioni sul blocco delle risorse di Azure](../azure-resource-manager/management/lock-resources.md).
 
 ## <a name="how-to-enable-user-and-entity-behavior-analytics"></a>Come abilitare l'analisi del comportamento dell'utente e dell'entità
 
-1. Dal menu di navigazione di Azure Sentinel selezionare **comportamento entità (anteprima)**.
+1. Dal menu di navigazione di Azure Sentinel selezionare **comportamento entità (anteprima)** .
 
-1. Sotto l'intestazione **attiva**, impostare l'interruttore **su on**.
+1. Sotto l'intestazione **attiva** , impostare l'interruttore **su on** .
 
 1. Fare clic sul pulsante **Seleziona origini dati** .
 
-1. Nel riquadro di **selezione dell'origine dati** selezionare le caselle di controllo accanto alle origini dati in cui si desidera abilitare offrono dati, quindi selezionare **applica**.
+1. Nel riquadro di **selezione dell'origine dati** selezionare le caselle di controllo accanto alle origini dati in cui si desidera abilitare offrono dati, quindi selezionare **applica** .
 
     > [!NOTE]
     >
@@ -45,7 +55,7 @@ ms.locfileid: "90997118"
     >
     > Dopo aver abilitato offrono dati, si avrà l'opzione, quando si connettono nuove origini dati, per abilitarle per offrono dati direttamente dal riquadro connettore dati, se sono compatibili con offrono dati.
 
-1. Selezionare **Vai a ricerca entità**. Verrà visualizzato il riquadro ricerca entità, che da ora in poi sarà ciò che viene visualizzato quando si sceglie **comportamento entità** dal menu principale di Azure Sentinel.
+1. Selezionare **Vai a ricerca entità** . Verrà visualizzato il riquadro ricerca entità, che da ora in poi sarà ciò che viene visualizzato quando si sceglie **comportamento entità** dal menu principale di Azure Sentinel.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento si è appreso come abilitare e configurare l'analisi del comportamento dell'utente e dell'entità (offrono dati) in Sentinel di Azure. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:

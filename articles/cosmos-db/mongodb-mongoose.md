@@ -9,14 +9,15 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18, devx-track-js
-ms.openlocfilehash: 84d96344f20c56c9fab9eb5b3affcca3a437c096
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: eab24c317513382afdd452843bc09e845ca90452
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324553"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096496"
 ---
 # <a name="connect-a-nodejs-mongoose-application-to-azure-cosmos-db"></a>Connettere un'applicazione Node.js Mongoose ad Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Questa esercitazione dimostra come usare il [framework Mongoose](https://mongoosejs.com/) quando si archiviano dati in Cosmos DB. Per questa procedura dettagliata viene usata l'API di Azure Cosmos DB per MongoDB. Mongoose è un framework di modellazione a oggetti per MongoDB in Node.js che offre una soluzione semplice e basata su schemi per modellare i dati dell'applicazione.
 
@@ -38,11 +39,11 @@ Di seguito viene descritta la procedura per creare un account Cosmos. Se è già
 
 ### <a name="create-a-database"></a>Creazione di un database 
 In questa applicazione vengono illustrati due modi per creare le raccolte in Azure Cosmos DB: 
-- **Archiviazione di ogni modello a oggetti in una raccolta separata**: è consigliabile [creare un database con una velocità effettiva dedicata](set-throughput.md#set-throughput-on-a-database). L'uso di questo modello di capacità offrirà una migliore efficienza dei costi.
+- **Archiviazione di ogni modello a oggetti in una raccolta separata** : è consigliabile [creare un database con una velocità effettiva dedicata](set-throughput.md#set-throughput-on-a-database). L'uso di questo modello di capacità offrirà una migliore efficienza dei costi.
 
     :::image type="content" source="./media/mongodb-mongoose/db-level-throughput.png" alt-text="Node.js esercitazione: screenshot del portale di Azure, che illustra come creare un database nel Esplora dati per un account di Azure Cosmos DB, da usare con il modulo Mangusta node":::
 
-- **Archiviazione di tutti i modelli a oggetti in una singola raccolta di Cosmos DB**: se si preferisce archiviare tutti i modelli in una singola raccolta, è possibile creare un nuovo database senza selezionare l'opzione provisioning della velocità effettiva. L'utilizzo di questo modello di capacità creerà ogni raccolta con la propria capacità di velocità effettiva per ogni modello a oggetti.
+- **Archiviazione di tutti i modelli a oggetti in una singola raccolta di Cosmos DB** : se si preferisce archiviare tutti i modelli in una singola raccolta, è possibile creare un nuovo database senza selezionare l'opzione provisioning della velocità effettiva. L'utilizzo di questo modello di capacità creerà ogni raccolta con la propria capacità di velocità effettiva per ogni modello a oggetti.
 
 Dopo aver creato il database, il nome verrà usato nella variabile di `COSMOSDB_DBNAME` ambiente riportata di seguito.
 

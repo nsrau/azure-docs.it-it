@@ -6,16 +6,17 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: maquaran
-ms.openlocfilehash: 7118a12a5a92912c51bb35d8b516d5b8e2f45388
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 329c4b40f11b36de80581d4a1396813bc8de5c73
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92478151"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097329"
 ---
 # <a name="going-social-with-azure-cosmos-db"></a>Integrazione con i social con Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Vivere in una società profondamente interconnessa porta, prima o poi, ad avere a che fare con i **social network**. I social network vengono usati per rimanere in contatto con amici, colleghi e familiari, ma anche per condividere passioni con persone con interessi simili.
+Vivere in una società profondamente interconnessa porta, prima o poi, ad avere a che fare con i **social network** . I social network vengono usati per rimanere in contatto con amici, colleghi e familiari, ma anche per condividere passioni con persone con interessi simili.
 
 I tecnici e gli sviluppatori si chiederanno probabilmente come vengono archiviati e interconnessi i dati in queste reti. Come sviluppatori, è anche possibile aver ricevuto richieste per creare o progettare un nuovo social network per un mercato di nicchia specifico. La domanda più importante di tutte è: come vengono archiviati tutti questi dati?
 
@@ -238,9 +239,9 @@ Un'altra opzione disponibile consiste nell'usare [Servizi cognitivi di Azure](ht
 
 ## <a name="a-planet-scale-social-experience"></a>Un'esperienza social su scala globale
 
-C'è un ultimo, ma non meno importante, articolo da affrontare: la **scalabilità**. Quando si progetta un'architettura, ogni componente deve poter essere ridimensionato in modo autonomo. Potrebbe diventare necessario elaborare più dati o ottenere una copertura geografica più ampia. Per fortuna, entrambe le attività sono un'**esperienza chiavi in mano** con Cosmos DB.
+C'è un ultimo, ma non meno importante, articolo da affrontare: la **scalabilità** . Quando si progetta un'architettura, ogni componente deve poter essere ridimensionato in modo autonomo. Potrebbe diventare necessario elaborare più dati o ottenere una copertura geografica più ampia. Per fortuna, entrambe le attività sono un' **esperienza chiavi in mano** con Cosmos DB.
 
-Cosmos DB supporta il partizionamento dinamico per impostazione predefinita. e crea automaticamente partizioni in base a una determinata **chiave di partizione**, definita come attributo nei documenti. La definizione della chiave di partizione corretta deve essere eseguita in fase di progettazione. Per altre informazioni, vedere [Partizionamento in Azure Cosmos DB](partitioning-overview.md).
+Cosmos DB supporta il partizionamento dinamico per impostazione predefinita. e crea automaticamente partizioni in base a una determinata **chiave di partizione** , definita come attributo nei documenti. La definizione della chiave di partizione corretta deve essere eseguita in fase di progettazione. Per altre informazioni, vedere [Partizionamento in Azure Cosmos DB](partitioning-overview.md).
 
 Per un'esperienza social, è necessario allineare la strategia di partizionamento al modo in cui si eseguono query e scrittura. È consigliabile, ad esempio, leggere all'interno della stessa partizione ed evitare "aree sensibili" diffondendo le Scritture in più partizioni. Alcune opzioni sono: partizioni basate su una chiave temporale (giorno/mese/settimana), per categoria di contenuto, per area geografica o per utente. Tutto dipende da come verranno eseguite le query sui dati e visualizzati i dati nell'esperienza social.
 

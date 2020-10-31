@@ -7,14 +7,15 @@ ms.topic: troubleshooting
 ms.date: 10/12/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 7a34b4a3a0f9fe75b5e252f20a8b0924b0ce01d7
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: ece814ea316fe62bc2b8b64036b08983f65ccbef
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488385"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096360"
 ---
 # <a name="troubleshoot-query-issues-when-using-the-azure-cosmos-db-api-for-mongodb"></a>Risolvere i problemi di query quando si usa l'API Azure Cosmos DB per MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Questo articolo illustra un approccio generale consigliato per la risoluzione dei problemi relativi alle query in Azure Cosmos DB. I passaggi descritti in questo articolo non rappresentano una soluzione completa ai potenziali problemi di query, ma offrono suggerimenti per la soluzione degli errori più comuni relativi alle prestazioni. Usare questo articolo come punto di partenza per la risoluzione dei problemi relativi alle query lente o costose nell'API Azure Cosmos DB per MongoDB. Se si usa l'API Azure Cosmos DB Core (SQL), vedere l'articolo [Guida alla risoluzione dei problemi delle query dell'API SQL](troubleshoot-query-performance.md) .
 
@@ -262,7 +263,7 @@ Gli [indici jolly](mongodb-indexing.md#wildcard-indexes) possono semplificare l'
 
 Nella maggior parte dei casi, le operazioni di aggregazione nell'API Azure Cosmos DB per MongoDB utilizzeranno parzialmente gli indici. Il motore di query, in genere, applica prima i filtri di uguaglianza e di intervallo e usa gli indici. Dopo aver applicato questi filtri, il motore di query può valutare filtri aggiuntivi e ricorrere al caricamento dei documenti rimanenti per calcolare l'aggregazione, se necessario. 
 
-Di seguito è riportato un esempio:
+Ecco un esempio:
 
 ```
 db.coll.aggregate( [

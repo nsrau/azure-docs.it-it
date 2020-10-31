@@ -6,16 +6,17 @@ ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: a50de7154bd768f5cc4c25062ec3ce05c0f37328
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6868859247fc430ee96581ae85fb7077af04999
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279861"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098026"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Creare una chiave di partizione sintetica
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-È consigliabile avere una chiave di partizione con molti valori distinti, ad esempio centinaia o migliaia. L'obiettivo è quello di distribuire il carico di lavoro e i dati in modo uniforme tra gli elementi associati a tali valori di chiave. Se tale proprietà non esiste nei dati, è possibile costruire una chiave di *partizione sintetica*. Questo documento descrive diverse tecniche di base per la generazione di una chiave di partizione sintetica per il contenitore Cosmos.
+È consigliabile avere una chiave di partizione con molti valori distinti, ad esempio centinaia o migliaia. L'obiettivo è quello di distribuire il carico di lavoro e i dati in modo uniforme tra gli elementi associati a tali valori di chiave. Se tale proprietà non esiste nei dati, è possibile costruire una chiave di *partizione sintetica* . Questo documento descrive diverse tecniche di base per la generazione di una chiave di partizione sintetica per il contenitore Cosmos.
 
 ## <a name="concatenate-multiple-properties-of-an-item"></a>Concatenare più proprietà di un elemento
 

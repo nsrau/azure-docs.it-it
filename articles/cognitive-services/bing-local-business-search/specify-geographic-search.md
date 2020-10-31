@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: 213457bc583494bbe039269b96b25990f7d0a961
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 210de0ef2cfbaec676528b4788bebecaa34136e4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "69906237"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095085"
 ---
 # <a name="use-geographic-boundaries-to-filter-results-from-the-bing-local-business-search-api"></a>Usare i confini geografici per filtrare i risultati generati dall'API di ricerca di attività locali Bing
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 L'API di ricerca di attività locali Bing consente di impostare i confini dell'area geografica specifica in cui si vuole eseguire la ricerca usando il parametro di query `localCircularView` o `localMapView`. Assicurarsi di usare un solo parametro nelle query. 
 

@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: f44a8d82ea2588abad6855fd8eaf7aed34256d87
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fc285599176057c57621dc6bfefbe9188d3badd7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370764"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096887"
 ---
 # <a name="create-a-real-time-dashboard-using-azure-cosmos-db-and-power-bi"></a>Creare un dashboard in tempo reale usando Azure Cosmos DB e Power BI
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questo articolo descrive i passaggi necessari per creare un dashboard Meteo attivo in Power BI usando Azure Cosmos DB e Azure Analysis Services. Il dashboard Power BI Visualizza i grafici per visualizzare le informazioni in tempo reale sulla temperatura e la pioggia in un'area.
 
@@ -63,7 +64,7 @@ Configurare una pipeline di inserimento per caricare [i dati meteo](https://cata
    A seconda della colonna e del tipo di dati presenti nel set di dati di origine, è possibile modificare di conseguenza i campi RangeStart e RangeEnd
 
    
-   |Proprietà  |Tipo di dati  |Filtro  |
+   |Proprietà  |Tipo di dati  |Filtra  |
    |---------|---------|---------|
    |_ts     |   Numeric      |  [_ts] > Duration. TotalSeconds (RangeStart-#datetime (1970, 1, 1, 0, 0, 0)) e [_ts] < Duration. TotalSeconds (RangeEnd-#datetime (1970, 1, 1, 0, 0, 0)))       |
    |Data (ad esempio:-2019-08-19)     |   string      | [Document. date] > DateTime. ToText (RangeStart, "AAAA-MM-GG") e [Document. date] < DateTime. ToText (RangeEnd, "AAAA-MM-GG")        |
@@ -74,7 +75,7 @@ Configurare una pipeline di inserimento per caricare [i dati meteo](https://cata
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/define-refresh-policy.png" alt-text="Connettore Power BI di Azure Cosmos DB":::
 
-   Ignorare l'avviso che indica che *la query M non può essere confermata per essere ripiegata*. Il connettore Azure Cosmos DB esegue il riduzioni delle query di filtro.
+   Ignorare l'avviso che indica che *la query M non può essere confermata per essere ripiegata* . Il connettore Azure Cosmos DB esegue il riduzioni delle query di filtro.
 
 1. **Caricare i dati e generare i report** : usando i dati caricati in precedenza, creare i grafici per segnalare la temperatura e le precipitazioni.
 
@@ -105,7 +106,7 @@ Configurare una pipeline di inserimento per caricare [i dati meteo](https://cata
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/add-data-source.png" alt-text="Connettore Power BI di Azure Cosmos DB":::
 
-   Connettersi a Azure Cosmos DB fornendo l' **URI dell'account**, il **nome del database**e il nome del **contenitore**. È ora possibile visualizzare i dati di Azure Cosmos container importati in Power BI.
+   Connettersi a Azure Cosmos DB fornendo l' **URI dell'account** , il **nome del database** e il nome del **contenitore** . È ora possibile visualizzare i dati di Azure Cosmos container importati in Power BI.
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/preview-cosmosdb-data.png" alt-text="Connettore Power BI di Azure Cosmos DB":::
 
@@ -140,7 +141,7 @@ Configurare una pipeline di inserimento per caricare [i dati meteo](https://cata
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/create-analysis-services-partitions.png" alt-text="Connettore Power BI di Azure Cosmos DB" = Table.SelectRows(#"Sorted Rows", each [Document.month] = "2019-07")`
    * **Cronologici** -  `#"Filtered Rows" = Table.SelectRows(#"Sorted Rows", each [Document.month] <> "2019-07")`
 
-1. **Distribuire il modello nel Analysis server di Azure** : fare clic con il pulsante destro del mouse sul progetto Azure Analysis Services e scegliere **Distribuisci**. Aggiungere il nome del server nel riquadro delle **proprietà del server di distribuzione** .
+1. **Distribuire il modello nel Analysis server di Azure** : fare clic con il pulsante destro del mouse sul progetto Azure Analysis Services e scegliere **Distribuisci** . Aggiungere il nome del server nel riquadro delle **proprietà del server di distribuzione** .
 
    :::image type="content" source="./media/create-real-time-weather-dashboard-powerbi/analysis-services-deploy-model.png" alt-text="Connettore Power BI di Azure Cosmos DB":::
 

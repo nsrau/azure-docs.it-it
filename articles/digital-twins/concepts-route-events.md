@@ -7,20 +7,20 @@ ms.author: baanders
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: f124eb24dcdc9e6437c803d1066d6ca86d5c32ab
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 9c7b08b92fad07cddbdb2783f2d68cdb9be034a4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440808"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097074"
 ---
 # <a name="route-events-within-and-outside-of-azure-digital-twins"></a>Indirizzare gli eventi all'interno e all'esterno dei dispositivi gemelli digitali di Azure
 
 I dispositivi gemelli digitali di Azure usano le **route degli eventi** per inviare dati a utenti esterni al servizio. 
 
-Durante la fase di anteprima, esistono due casi principali per l'invio di dati dei dispositivi gemelli digitali di Azure:
+Esistono due casi principali per l'invio di dati dei dispositivi gemelli digitali di Azure:
 * Invio di dati da un gemello nel grafico dei gemelli digitali di Azure a un altro. Ad esempio, quando una proprietà di un dispositivo gemello digitale cambia, è possibile che si voglia inviare una notifica e aggiornare un altro gemello digitale di conseguenza.
-* Invio di dati a downstream Data Services per l'archiviazione o l'elaborazione aggiuntiva (noti anche come *dati in uscita*). Ad esempio,
+* Invio di dati a downstream Data Services per l'archiviazione o l'elaborazione aggiuntiva (noti anche come *dati in uscita* ). Ad esempio,
   - Un ospedale potrebbe voler inviare i dati degli eventi di Azure Digital Twins a [Time Series Insights (TSI)](../time-series-insights/overview-what-is-tsi.md)per registrare i dati delle serie temporali degli eventi correlati a mani per l'analisi in blocco.
   - Un'azienda che usa già [mappe di Azure](../azure-maps/about-azure-maps.md) potrebbe voler usare i dispositivi gemelli digitali di Azure per migliorare la propria soluzione. È possibile abilitare rapidamente una mappa di Azure dopo aver configurato i dispositivi gemelli digitali di Azure, importare le entità mappa di Azure in dispositivi gemelli digitali di Azure come [gemelli digitali](concepts-twins-graph.md) nel grafico gemello o eseguire query potenti sfruttando le mappe di Azure e i dati di Azure Digital gemelli insieme.
 
@@ -38,7 +38,7 @@ Le destinazioni downstream tipiche per le route di eventi sono risorse come le s
 
 ### <a name="event-routes-for-internal-digital-twin-events"></a>Route di eventi per eventi gemelli digitali interni
 
-Durante la versione di anteprima corrente, le route degli eventi vengono usate anche per gestire gli eventi all'interno del grafo gemello e inviare i dati dal dispositivo gemello digitale al dispositivo gemello. Questa operazione viene eseguita connettendo le route degli eventi tramite griglia di eventi alle risorse di calcolo, ad esempio [funzioni di Azure](../azure-functions/functions-overview.md). Queste funzioni definiscono quindi il modo in cui i gemelli dovrebbero ricevere e rispondere agli eventi. 
+Le route degli eventi vengono usate anche per gestire gli eventi all'interno del grafo gemello e inviare dati dal dispositivo gemello digitale al dispositivo gemello digitale. Questa operazione viene eseguita connettendo le route degli eventi tramite griglia di eventi alle risorse di calcolo, ad esempio [funzioni di Azure](../azure-functions/functions-overview.md). Queste funzioni definiscono quindi il modo in cui i gemelli dovrebbero ricevere e rispondere agli eventi. 
 
 Quando una risorsa di calcolo vuole modificare il grafico a due gemelli in base a un evento ricevuto tramite la route dell'evento, può essere utile conoscere il gemello che desidera modificare in anticipo. 
 
@@ -50,7 +50,7 @@ Per esaminare il processo di configurazione di una funzione di Azure per elabora
 
 ## <a name="create-an-endpoint"></a>Creare un endpoint
 
-Per definire una route di eventi, gli sviluppatori devono innanzitutto definire gli endpoint. Un **endpoint** è una destinazione esterna ai dispositivi gemelli digitali di Azure che supporta una connessione di route. Le destinazioni supportate nella versione di anteprima corrente sono:
+Per definire una route di eventi, gli sviluppatori devono innanzitutto definire gli endpoint. Un **endpoint** è una destinazione esterna ai dispositivi gemelli digitali di Azure che supporta una connessione di route. Le destinazioni supportate includono:
 * Argomenti personalizzati di griglia di eventi
 * Hub eventi
 * Bus di servizio
@@ -73,7 +73,7 @@ Le API dell'endpoint disponibili nel piano di controllo sono:
  
 Per creare una route di eventi, è possibile usare le API del [**piano dati**](how-to-manage-routes-apis-cli.md#create-an-event-route)di Azure Digital gemelli, i [**comandi dell'interfaccia**](how-to-manage-routes-apis-cli.md#manage-endpoints-and-routes-with-cli)della riga di comando o la [**portale di Azure**](how-to-manage-routes-portal.md#create-an-event-route). 
 
-Di seguito è riportato un esempio di creazione di una route di evento all'interno di un'applicazione client tramite la chiamata a `CreateEventRoute` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview) : 
+Di seguito è riportato un esempio di creazione di una route di evento all'interno di un'applicazione client tramite la chiamata a `CreateEventRoute` [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true) : 
 
 ```csharp
 EventRoute er = new EventRoute("endpointName");
@@ -94,7 +94,7 @@ await client.CreateEventRoute("routeName", er);
 
 ## <a name="dead-letter-events"></a>Eventi relativi ai messaggi non recapitabili
 
-Quando un endpoint non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile**. I dispositivi gemelli digitali di Azure non vengono recapitati a un evento quando viene soddisfatta **una delle condizioni seguenti** . 
+Quando un endpoint non è in grado di recapitare un evento entro un determinato periodo di tempo o dopo il tentativo di recapitare l'evento un certo numero di volte, può inviare l'evento non recapitato a un account di archiviazione. Questo processo è noto come **messaggio non recapitabile** . I dispositivi gemelli digitali di Azure non vengono recapitati a un evento quando viene soddisfatta **una delle condizioni seguenti** . 
 
 * L'evento non viene recapitato entro la durata (TTL)
 * Il numero di tentativi di recapitare l'evento ha superato il limite

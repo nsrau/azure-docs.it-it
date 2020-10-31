@@ -12,12 +12,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova
 ms.date: 10/22/2020
-ms.openlocfilehash: 88849e6b915128394546c01698ecee34d6206043
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 5ebe0bcf1e491166c5fc61597904056307f9679c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461720"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098009"
 ---
 # <a name="connectivity-architecture-for-azure-sql-managed-instance"></a>Architettura della connettività per Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -104,7 +104,7 @@ Distribuire Istanza gestita SQL in una subnet dedicata all'interno della rete vi
 - **Delega subnet:** È necessario delegare la subnet di SQL Istanza gestita al `Microsoft.Sql/managedInstances` provider di risorse.
 - **Gruppo di sicurezza di rete (NSG):** Una NSG deve essere associata alla subnet SQL Istanza gestita. È possibile usare un NSG per controllare l'accesso all'endpoint dati di SQL Istanza gestita filtrando il traffico sulla porta 1433 e sulle porte 11000-11999 quando SQL Istanza gestita è configurato per le connessioni di reindirizzamento. Il servizio eseguirà automaticamente il provisioning e manterrà [le regole](#mandatory-inbound-security-rules-with-service-aided-subnet-configuration) correnti necessarie per consentire il flusso ininterrotto del traffico di gestione.
 - **Tabella route definita dall'utente (UDR):** È necessario associare una tabella UDR alla subnet SQL Istanza gestita. È possibile aggiungere voci alla tabella di route per indirizzare il traffico con intervalli IP privati locali come destinazione tramite un gateway di rete virtuale o un'appliance di rete virtuale. Il servizio eseguirà automaticamente il provisioning e manterrà le [voci](#user-defined-routes-with-service-aided-subnet-configuration) correnti necessarie per consentire un flusso ininterrotto del traffico di gestione.
-- **Indirizzi IP sufficienti:** La subnet SQL Istanza gestita deve avere almeno 16 indirizzi IP. Il valore minimo consigliato è 32 indirizzi IP. Per ulteriori informazioni, vedere [determinare le dimensioni della subnet per SQL istanza gestita](vnet-subnet-determine-size.md). È possibile distribuire le istanze gestite nella [rete esistente](vnet-existing-add-subnet.md) dopo averla configurata in modo da soddisfare [i requisiti di rete per SQL istanza gestita](#network-requirements). In caso contrario, creare [una nuova rete e una nuova subnet](virtual-network-subnet-create-arm-template.md).
+- **Indirizzi IP sufficienti:** La subnet SQL Istanza gestita deve avere almeno 32 indirizzi IP. Per ulteriori informazioni, vedere [determinare le dimensioni della subnet per SQL istanza gestita](vnet-subnet-determine-size.md). È possibile distribuire le istanze gestite nella [rete esistente](vnet-existing-add-subnet.md) dopo averla configurata in modo da soddisfare [i requisiti di rete per SQL istanza gestita](#network-requirements). In caso contrario, creare [una nuova rete e una nuova subnet](virtual-network-subnet-create-arm-template.md).
 
 > [!IMPORTANT]
 > Quando viene creata un'istanza gestita, nella subnet vengono applicati criteri relativi alle finalità di rete per impedire modifiche non conformi alla configurazione di rete. Dopo la rimozione dell'ultima istanza dalla subnet, vengono rimossi anche i criteri relativi alle finalità di rete.
@@ -301,27 +301,29 @@ Distribuire Istanza gestita SQL in una subnet dedicata all'interno della rete vi
 
 \* MI SUBNET fa riferimento all'intervallo di indirizzi IP della subnet nel formato x.x.x.x/y. Queste informazioni sono disponibili nel portale di Azure, nella sezione relativa alle proprietà della subnet.
 
+\** Se l'indirizzo di destinazione è per uno dei servizi di Azure, Azure instrada il traffico direttamente al servizio tramite la rete backbone di Azure, anziché indirizzare il traffico a Internet. Il traffico tra i servizi di Azure non attraversa Internet, indipendentemente dall'area di Azure in cui si trova la rete virtuale o in cui viene distribuita un'istanza del servizio di Azure. Per altri dettagli, vedere la [pagina della documentazione di UdR](../../virtual-network/virtual-networks-udr-overview.md).
+
 È inoltre possibile aggiungere voci alla tabella di route per indirizzare il traffico con intervalli IP privati locali come destinazione tramite un gateway di rete virtuale o un'appliance di rete virtuale.
 
 Se la rete virtuale include un DNS personalizzato, il server DNS personalizzato deve essere in grado di risolvere i record DNS pubblici. L'uso di funzionalità aggiuntive come Autenticazione di Azure AD, inoltre, potrebbe richiedere la risoluzione di nomi di dominio completi aggiuntivi. Per altre informazioni, vedere [Configurare un DNS personalizzato](custom-dns-configure.md).
 
 ### <a name="networking-constraints"></a>Vincoli di rete
 
-**TLS 1.2 viene applicato alle connessioni in uscita**: nel gennaio 2020 Microsoft ha applicato in tutti i servizi di Azure il protocollo TLS 1.2 per il traffico interno al servizio. Per il Istanza gestita SQL di Azure, il risultato è che TLS 1,2 viene applicato alle connessioni in uscita utilizzate per la replica e le connessioni al server collegato SQL Server. Se si usano versioni di SQL Server precedenti a 2016 con SQL Istanza gestita, assicurarsi che siano stati applicati [gli aggiornamenti specifici di TLS 1,2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) .
+**TLS 1.2 viene applicato alle connessioni in uscita** : nel gennaio 2020 Microsoft ha applicato in tutti i servizi di Azure il protocollo TLS 1.2 per il traffico interno al servizio. Per il Istanza gestita SQL di Azure, il risultato è che TLS 1,2 viene applicato alle connessioni in uscita utilizzate per la replica e le connessioni al server collegato SQL Server. Se si usano versioni di SQL Server precedenti a 2016 con SQL Istanza gestita, assicurarsi che siano stati applicati [gli aggiornamenti specifici di TLS 1,2](https://support.microsoft.com/help/3135244/tls-1-2-support-for-microsoft-sql-server) .
 
 Le funzionalità di rete virtuale seguenti non sono attualmente supportate con SQL Istanza gestita:
 
-- **Peering Microsoft**: l'abilitazione del [peering Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) nei circuiti ExpressRoute con peering diretto o transitivo con una rete virtuale in cui risiede SQL istanza gestita influisce sul flusso del traffico tra i componenti di SQL istanza gestita all'interno della rete virtuale e i servizi da cui dipende, causando problemi di disponibilità. Le distribuzioni di SQL Istanza gestita alla rete virtuale con peering Microsoft già abilitato dovrebbero avere esito negativo.
-- **Peering di rete virtuale globale**: la connettività del [peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md) tra le aree di Azure non funziona per le istanze gestite di SQL inserite in subnet create prima del 9/22/2020.
-- **AzurePlatformDNS**: se si usa il [tag del servizio](../../virtual-network/service-tags-overview.md) AzurePlatformDNS per bloccare la risoluzione DNS della piattaforma, il rendering di SQL istanza gestita non è disponibile. Anche se SQL Istanza gestita supporta il DNS definito dal cliente per la risoluzione DNS all'interno del motore, esiste una dipendenza dal DNS della piattaforma per le operazioni della piattaforma.
-- **Gateway NAT**: l'uso della [rete virtuale di Azure NAT](../../virtual-network/nat-overview.md) per controllare la connettività in uscita con un indirizzo IP pubblico specifico renderebbe SQL istanza gestita non disponibile. Il servizio di Istanza gestita SQL è attualmente limitato all'uso del servizio di bilanciamento del carico di base che non fornisce la coesistenza dei flussi in ingresso e in uscita con la rete virtuale NAT.
+- **Peering Microsoft** : l'abilitazione del [peering Microsoft](../../expressroute/expressroute-faqs.md#microsoft-peering) nei circuiti ExpressRoute con peering diretto o transitivo con una rete virtuale in cui risiede SQL istanza gestita influisce sul flusso del traffico tra i componenti di SQL istanza gestita all'interno della rete virtuale e i servizi da cui dipende, causando problemi di disponibilità. Le distribuzioni di SQL Istanza gestita alla rete virtuale con peering Microsoft già abilitato dovrebbero avere esito negativo.
+- **Peering di rete virtuale globale** : la connettività del [peering di rete virtuale](../../virtual-network/virtual-network-peering-overview.md) tra le aree di Azure non funziona per le istanze gestite di SQL inserite in subnet create prima del 9/22/2020.
+- **AzurePlatformDNS** : se si usa il [tag del servizio](../../virtual-network/service-tags-overview.md) AzurePlatformDNS per bloccare la risoluzione DNS della piattaforma, il rendering di SQL istanza gestita non è disponibile. Anche se SQL Istanza gestita supporta il DNS definito dal cliente per la risoluzione DNS all'interno del motore, esiste una dipendenza dal DNS della piattaforma per le operazioni della piattaforma.
+- **Gateway NAT** : l'uso della [rete virtuale di Azure NAT](../../virtual-network/nat-overview.md) per controllare la connettività in uscita con un indirizzo IP pubblico specifico renderebbe SQL istanza gestita non disponibile. Il servizio di Istanza gestita SQL è attualmente limitato all'uso del servizio di bilanciamento del carico di base che non fornisce la coesistenza dei flussi in ingresso e in uscita con la rete virtuale NAT.
 
 ### <a name="deprecated-network-requirements-without-service-aided-subnet-configuration"></a>[Deprecato] Requisiti di rete senza configurazione della subnet con il supporto del servizio
 
 Distribuire Istanza gestita SQL in una subnet dedicata all'interno della rete virtuale. Di seguito sono illustrate le caratteristiche della subnet:
 
 - **Subnet dedicata:** La subnet di SQL Istanza gestita non può contenere altri servizi cloud associati e non può essere una subnet del gateway. La subnet non può contenere risorse, ma SQL Istanza gestita e successivamente non sarà possibile aggiungere altri tipi di risorse nella subnet.
-- **Gruppo di sicurezza di rete**: Un gruppo di sicurezza di rete associato alla rete virtuale deve definire [regole di sicurezza in ingresso](#mandatory-inbound-security-rules) e [regole di sicurezza in uscita](#mandatory-outbound-security-rules) prima di qualsiasi altra regola. È possibile usare un NSG per controllare l'accesso all'endpoint dati di SQL Istanza gestita filtrando il traffico sulla porta 1433 e sulle porte 11000-11999 quando SQL Istanza gestita è configurato per le connessioni di reindirizzamento.
+- **Gruppo di sicurezza di rete** : Un gruppo di sicurezza di rete associato alla rete virtuale deve definire [regole di sicurezza in ingresso](#mandatory-inbound-security-rules) e [regole di sicurezza in uscita](#mandatory-outbound-security-rules) prima di qualsiasi altra regola. È possibile usare un NSG per controllare l'accesso all'endpoint dati di SQL Istanza gestita filtrando il traffico sulla porta 1433 e sulle porte 11000-11999 quando SQL Istanza gestita è configurato per le connessioni di reindirizzamento.
 - **Tabella delle route definite dall'utente:** una tabella UDR associata alla rete virtuale deve includere determinate [voci](#user-defined-routes).
 - **Nessun endpoint servizio:** Nessun endpoint di servizio deve essere associato alla subnet SQL Istanza gestita. Verificare che l'opzione Endpoint di servizio sia disabilitata durante la creazione della rete virtuale.
 - **Indirizzi IP sufficienti:** La subnet SQL Istanza gestita deve avere almeno 16 indirizzi IP. Il valore minimo consigliato è 32 indirizzi IP. Per ulteriori informazioni, vedere [determinare le dimensioni della subnet per SQL istanza gestita](vnet-subnet-determine-size.md). È possibile distribuire le istanze gestite nella [rete esistente](vnet-existing-add-subnet.md) dopo averla configurata in modo da soddisfare [i requisiti di rete per SQL istanza gestita](#network-requirements). In caso contrario, creare [una nuova rete e una nuova subnet](virtual-network-subnet-create-arm-template.md).

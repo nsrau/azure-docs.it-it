@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: f469196f96b97903f69e29d1a38900369653e02f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 41acc956d4eca2accc16c46cdc52336c3cd89065
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86200513"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095425"
 ---
 # <a name="search-categories-for-the-bing-local-business-search-api"></a>Categorie di ricerca per l'API di ricerca di attività locali Bing
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 L'API di ricerca di attività locali Bing permette di eseguire ricerche di entità commerciali locali in un'ampia gamma di categorie, dando la priorità ai risultati vicini alla posizione dell'utente. È possibile includere queste categorie nelle ricerche con i  [parametri](specify-geographic-search.md)`localCircularView` e `localMapView`.
 

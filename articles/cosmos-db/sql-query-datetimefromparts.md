@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: aec567c642f8eb3cb421ef5a119fe58f3a5fe05a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a897c5d08abd71fcda380363e3f26304bc69f876
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86262062"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095813"
 ---
 # <a name="datetimefromparts-azure-cosmos-db"></a>DateTimeFromParts (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Restituisce un valore DateTime stringa costruito dai valori di input.
   
@@ -53,7 +54,7 @@ Restituisce un valore stringa ISO 8601 di data e ora UTC nel formato in `YYYY-MM
   |GG|giorno del mese a due cifre (da 01 a 31)|
   |T|significato per l'inizio degli elementi Time|
   |hh|ora a due cifre (da 00 a 23)|
-  |MM|minuti a due cifre (da 00 a 59)|
+  |mm|minuti a due cifre (da 00 a 59)|
   |ss|secondi a due cifre (da 00 a 59)|
   |. fffffff|secondi frazionari a sette cifre|
   |Z|Indicatore UTC (Coordinated Universal Time)||
@@ -66,7 +67,7 @@ Se gli Integer specificati creeranno un valore DateTime non valido, DateTimeFrom
 
 Se non si specifica un argomento facoltativo, il valore sarà 0.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Di seguito è riportato un esempio che include solo gli argomenti obbligatori per costruire un valore DateTime:
 

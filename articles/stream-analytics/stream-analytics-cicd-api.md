@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/04/2018
-ms.openlocfilehash: ed11488f397704be782a092d6cdc6463449cc71e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 18817a426bacc1ddf144c1d64b611c55245cc21e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86039076"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097788"
 ---
 # <a name="implement-cicd-for-stream-analytics-on-iot-edge-using-apis"></a>Implementare CI/CD per Analisi di flusso in IoT Edge usando le API
 
@@ -59,7 +59,7 @@ Per creare un processo di Analisi di flusso, chiamare il metodo PUT usando l'API
 |------|-----------|
 |PUT|`https://management.azure.com/subscriptions/{\**subscription-id**}/resourcegroups/{**resource-group-name**}/providers/Microsoft.StreamAnalytics/streamingjobs/{**job-name**}?api-version=2017-04-01-preview`|
  
-Esempio di comando con **curl**:
+Esempio di comando con **curl** :
 
 ```curl
 curl -u { <username:password> } -H "Content-Type: application/json" -X { <method> } -d "{ <request body> }" https://management.azure.com/subscriptions/{subscription-id}/resourcegroups/{resource-group-name}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}?api-version=2017-04-01-preview  
@@ -136,7 +136,7 @@ Esempio di corpo della richiesta in JSON:
 } 
 ```
  
-Per altre informazioni, vedere la [documentazione delle API](/rest/api/streamanalytics/stream-analytics-job).  
+Per altre informazioni, vedere la [documentazione delle API](/rest/api/streamanalytics/).  
  
 ## <a name="publish-edge-package"></a>Pubblicare il pacchetto Edge 
  
@@ -148,7 +148,7 @@ Per pubblicare un processo di Analisi di flusso in IoT Edge, chiamare il metodo 
 
 Questa operazione asincrona restituisce uno stato di 202 finché il processo non è stato pubblicato correttamente. L'intestazione della risposta di posizione contiene l'URI usato per ottenere lo stato del processo. Mentre il processo è in esecuzione, una chiamata all'URI nell'intestazione della posizione restituisce uno stato di 202. Al termine del processo, l'URI nell'intestazione della posizione restituisce uno stato di 200. 
 
-Esempio di una chiamata di pubblicazione del pacchetto Edge con **curl**: 
+Esempio di una chiamata di pubblicazione del pacchetto Edge con **curl** : 
 
 ```bash
 curl -d -X POST https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{jobname}/publishedgepackage?api-version=2017-04-01-preview
@@ -163,7 +163,7 @@ https://management.azure.com/subscriptions/{**subscriptionid**}/resourcegroups/{
 ```
 Attendere uno o due minuti prima di eseguire questo comando per effettuare una chiamata API con l'URL trovato nell'intestazione della risposta. Riprovare il comando se non si ottiene una risposta 200.
  
-Esempio di chiamata API con URL restituito con **curl**:
+Esempio di chiamata API con URL restituito con **curl** :
 
 ```bash
 curl -d –X GET https://management.azure.com/subscriptions/{subscriptionid}/resourceGroups/{resourcegroupname}/providers/Microsoft.StreamAnalytics/streamingjobs/{resourcename}/publishedgepackage?api-version=2017-04-01-preview 

@@ -7,14 +7,15 @@ ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 87663c18ddaa5da6740a0f54aa5f2812cbb06af8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd88f8d6a0f5271da97d6f2f95eecb60bf94ed78
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88227385"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095799"
 ---
 # <a name="datetimepart-azure-cosmos-db"></a>DateTimePart (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Restituisce il valore dell'oggetto DateTimePart specificato tra il valore DateTime specificato.
   
@@ -57,7 +58,7 @@ DateTimePart restituirà `undefined` per i motivi seguenti:
 
 Questa funzione di sistema non utilizzerà l'indice.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Di seguito è riportato un esempio in cui viene restituito il valore integer del mese:
 

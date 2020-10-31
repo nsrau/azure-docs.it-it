@@ -11,12 +11,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 9ddee5991efd5bde3bd139257ad154f02f5d0371
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 41a97c639d9148f2bff3e4f530363ea05a65a7b8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071303"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095952"
 ---
 # <a name="automatically-scale-an-azure-api-management-instance"></a>Ridimensionare automaticamente un'istanza di Gestione API di Azure  
 
@@ -52,7 +52,7 @@ Alcune limitazioni e conseguenze di decisioni di scalabilità devono essere pres
 
 Attenersi alla procedura seguente per configurare la scalabilità automatica per un servizio Gestione API di Azure:
 
-1. Nel portale di Azure, passare all'istanza di **Monitoraggio**.
+1. Nel portale di Azure, passare all'istanza di **Monitoraggio** .
 
     ![Monitoraggio di Azure](media/api-management-howto-autoscale/01.png)
 
@@ -62,11 +62,11 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
 3. Individuare il servizio Gestione API di Azure avvalendosi dei filtri nei menu a discesa.
 4. Selezionare l'istanza del servizio Gestione API di Azure desiderata.
-5. Nella sezione appena aperta, fare clic sul pulsante **Abilita scalabilità automatica**.
+5. Nella sezione appena aperta, fare clic sul pulsante **Abilita scalabilità automatica** .
 
     ![Abilitare la scalabilità automatica di Monitoraggio di Azure](media/api-management-howto-autoscale/03.png)
 
-6. Nella sezione **Regole**, fare clic su **+ Aggiungi una regola**.
+6. Nella sezione **Regole** , fare clic su **+ Aggiungi una regola** .
 
     ![Aggiungere una regola di scalabilità automatica di Monitoraggio di Azure](media/api-management-howto-autoscale/04.png)
 
@@ -74,7 +74,7 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
    Ad esempio, una regola di scalabilità orizzontale consente di attivare un'aggiunta di un'unità di Gestione API di Azure, quando la metrica capacità media negli ultimi 30 minuti supera l'80%. La tabella seguente fornisce la configurazione per tale regola.
 
-    | Parametro             | valore             | Note                                                                                                                                                                                                                                                                           |
+    | Parametro             | Valore             | Note                                                                                                                                                                                                                                                                           |
     |-----------------------|-------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Origine della metrica         | Risorsa corrente  | Definire la regola in base alle metriche delle risorse di Gestione API di Azure correnti.                                                                                                                                                                                                     |
     | *Criteri*            |                   |                                                                                                                                                                                                                                                                                 |
@@ -93,7 +93,7 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
     ![Regola di scalabilità orizzontale di Monitoraggio di Azure](media/api-management-howto-autoscale/05.png)
 
-9. Fare clic nuovamente su **+ Aggiungi una regola**.
+9. Fare clic nuovamente su **+ Aggiungi una regola** .
 
     Questa volta dovrà essere definita una regola di riduzione. Ciò garantisce che le risorse non vengano sprecate quando diminuisce l'utilizzo delle API.
 
@@ -101,7 +101,7 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
 
     Ad esempio, una regola di riduzione consente di rimuovere un'unità di Gestione API di Azure, quando la metrica della capacità media negli ultimi 30 minuti è inferiore al 35%. La tabella seguente fornisce la configurazione per tale regola.
 
-    | Parametro             | valore             | Note                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
+    | Parametro             | Valore             | Note                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               |
     |-----------------------|-------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Origine della metrica         | Risorsa corrente  | Definire la regola in base alle metriche delle risorse di Gestione API di Azure correnti.                                                                                                                                                                                                                                                                                                                                                                                                                         |
     | *Criteri*            |                   |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
@@ -125,9 +125,9 @@ Attenersi alla procedura seguente per configurare la scalabilità automatica per
     > [!NOTE]
     > Gestione API di Azure prevede un limite per le unità che un'istanza può scalare orizzontalmente. Il limite dipende da un livello di servizio.
 
-    ![Regola di riduzione di Monitoraggio di Azure](media/api-management-howto-autoscale/07.png)
+    ![Screenshot che evidenzia dove impostare il numero massimo di unità di gestione API di Azure.](media/api-management-howto-autoscale/07.png)
 
-13. Fare clic su **Salva**. La scalabilità automatica è stata configurata.
+13. Fare clic su **Salva** . La scalabilità automatica è stata configurata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

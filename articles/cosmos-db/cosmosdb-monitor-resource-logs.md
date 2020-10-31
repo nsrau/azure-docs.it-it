@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.author: sngun
-ms.openlocfilehash: 319713cd631b87d9f97af0db3d4a7b3af1c580ec
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 18850fafd1f6cb084c9e5fdb9a24e9c4fd8bb4cc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926122"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097567"
 ---
 # <a name="monitor-azure-cosmos-db-data-by-using-diagnostic-settings-in-azure"></a>Monitorare i dati Azure Cosmos DB usando le impostazioni di diagnostica in Azure
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Le impostazioni di diagnostica in Azure vengono usate per raccogliere i log delle risorse. I log delle risorse di Azure vengono generati da una risorsa e forniscono dati avanzati e frequenti sul funzionamento di tale risorsa. Questi log vengono acquisiti per ogni richiesta e sono detti anche "log del piano dati". Alcuni esempi di operazioni del piano dati includono Delete, INSERT e readFeed. Il contenuto di questi log varia in base al tipo di risorsa.
 

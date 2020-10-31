@@ -10,14 +10,19 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 06/26/2018
 ms.author: rosh
-ms.openlocfilehash: 25bcdb89002fec4f9b67b091996d7bf80bcf21c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e26d128fea7208206be8a7329522f8202051215
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74326730"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095408"
 ---
 # <a name="sending-and-using-bing-local-business-search-api-queries-and-responses"></a>Invio e uso di query e risposte dell'API di ricerca di attività locali Bing
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 È possibile ottenere risultati locali dall'API di ricerca di attività locali Bing inviando una query di ricerca all'endpoint e includendo l'intestazione `Ocp-Apim-Subscription-Key`, che è obbligatoria. Insieme alle [intestazioni](local-search-reference.md#headers) e ai [parametri](local-search-reference.md#query-parameters) disponibili, le ricerche possono essere personalizzate specificando [confini geografici](specify-geographic-search.md) per l'area in cui cercare e le [categorie](local-search-query-response.md) delle località restituite.
 

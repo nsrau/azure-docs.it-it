@@ -9,14 +9,15 @@ ms.topic: how-to
 ms.date: 06/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 86fcdde72145cf25ee289ef3869976fecd628707
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 765fd3afc7fe688d3e6b0e3394e7dc8c39af69b3
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362045"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096853"
 ---
 # <a name="how-to-create-a-java-application-that-uses-azure-cosmos-db-sql-api-and-change-feed-processor"></a>Come creare un'applicazione Java che usa l'API SQL di Azure Cosmos DB e il processore del feed di modifiche
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questa guida pratica illustra una semplice applicazione Java che usa l'API SQL di Azure Cosmos DB per inserire documenti in un contenitore di Azure Cosmos DB, mantenendo al tempo stesso una vista materializzata del contenitore con il feed di modifiche e il processore del feed di modifiche. L'applicazione Java comunica con l'API SQL di Azure Cosmos DB usando Java SDK v4 per Azure Cosmos DB.
 
@@ -56,7 +57,7 @@ mvn clean package
 
 ## <a name="walkthrough"></a>Procedura dettagliata
 
-1. Per prima cosa, è necessario disporre di un account Azure Cosmos DB. Aprire il **portale di Azure** nel browser, passare all'account Azure Cosmos DB e nel riquadro sinistro passare a **Esplora dati**.
+1. Per prima cosa, è necessario disporre di un account Azure Cosmos DB. Aprire il **portale di Azure** nel browser, passare all'account Azure Cosmos DB e nel riquadro sinistro passare a **Esplora dati** .
 
    :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_empty.JPG" alt-text="Account Azure Cosmos DB":::
 
@@ -74,9 +75,9 @@ mvn clean package
 
     tornare quindi alla pagina del browser di Esplora dati nel portale di Azure. Si osserverà che è stato aggiunto un database **GroceryStoreDatabase** con tre contenitori vuoti: 
 
-    * **InventoryContainer**: il record di inventario per il negozio di alimentari di esempio, partizionato sull'elemento ```id```, che è un UUID.
-    * **InventoryContainer-PKType**: una vista materializzata del record di inventario, ottimizzata per le query sull'elemento ```type```
-    * **InventoryContainer-leases**: un contenitore di lease è sempre necessario per il feed delle modifiche. I lease tengono traccia dello stato dell'app durante la lettura del feed di modifiche.
+    * **InventoryContainer** : il record di inventario per il negozio di alimentari di esempio, partizionato sull'elemento ```id```, che è un UUID.
+    * **InventoryContainer-PKType** : una vista materializzata del record di inventario, ottimizzata per le query sull'elemento ```type```
+    * **InventoryContainer-leases** : un contenitore di lease è sempre necessario per il feed delle modifiche. I lease tengono traccia dello stato dell'app durante la lettura del feed di modifiche.
 
     :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_account_resources_lease_empty.JPG" alt-text="Account Azure Cosmos DB":::
 
@@ -94,11 +95,11 @@ mvn clean package
 
     ```"SampleHost_1"``` è il nome del ruolo di lavoro del processore del feed di modifiche. ```changeFeedProcessorInstance.start()``` è l'elemento che avvia effettivamente il processore del feed di modifiche.
 
-    Tornare alla pagina del browser di Esplora dati nel portale di Azure. Nel contenitore **InventoryContainer-leases** fare clic su **items** (elementi) per visualizzarne il contenuto. Si noterà che il processore del feed di modifiche ha popolato il contenitore di lease, ovvero il processore ha assegnato il ruolo di lavoro ```SampleHost_1``` a un lease in alcune partizioni di **InventoryContainer**.
+    Tornare alla pagina del browser di Esplora dati nel portale di Azure. Nel contenitore **InventoryContainer-leases** fare clic su **items** (elementi) per visualizzarne il contenuto. Si noterà che il processore del feed di modifiche ha popolato il contenitore di lease, ovvero il processore ha assegnato il ruolo di lavoro ```SampleHost_1``` a un lease in alcune partizioni di **InventoryContainer** .
 
     :::image type="content" source="media/create-sql-api-java-changefeed/cosmos_leases.JPG" alt-text="Account Azure Cosmos DB":::
 
-1. Premere di nuovo INVIO nel terminale. Verranno attivati 10 documenti per l'inserimento in **InventoryContainer**. Ogni inserimento di documento viene visualizzato nel feed di modifiche come JSON. Il codice di callback seguente gestisce questi eventi eseguendo il mirroring dei documenti JSON in una vista materializzata:
+1. Premere di nuovo INVIO nel terminale. Verranno attivati 10 documenti per l'inserimento in **InventoryContainer** . Ogni inserimento di documento viene visualizzato nel feed di modifiche come JSON. Il codice di callback seguente gestisce questi eventi eseguendo il mirroring dei documenti JSON in una vista materializzata:
 
     ### <a name="java-sdk-v4-maven-comazureazure-cosmos-async-api"></a><a id="java4-connection-policy-async"></a>API asincrona Java SDK v4 (Maven com.azure::azure-cosmos)
 
@@ -122,7 +123,7 @@ mvn clean package
 
     [!code-java[](~/azure-cosmos-java-sql-app-example/src/main/java/com/azure/cosmos/workedappexample/SampleGroceryStore.java?name=DeleteWithTTL)]
 
-    Il feed di modifiche ```feedPollDelay``` è impostato su 100 ms, di conseguenza il feed di modifiche risponde quasi immediatamente a questo aggiornamento e chiama ```updateInventoryTypeMaterializedView()```, come illustrato in precedenza. L'ultima chiamata di funzione esegue l'upsert del nuovo documento con una durata TTL di 5 secondi in **InventoryContainer-pktype**.
+    Il feed di modifiche ```feedPollDelay``` è impostato su 100 ms, di conseguenza il feed di modifiche risponde quasi immediatamente a questo aggiornamento e chiama ```updateInventoryTypeMaterializedView()```, come illustrato in precedenza. L'ultima chiamata di funzione esegue l'upsert del nuovo documento con una durata TTL di 5 secondi in **InventoryContainer-pktype** .
 
     L'effetto è che, dopo circa 5 secondi, il documento scadrà e verrà eliminato da entrambi i contenitori.
 

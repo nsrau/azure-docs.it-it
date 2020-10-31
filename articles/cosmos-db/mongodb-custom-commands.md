@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: 39f116139d68f2382085dbbab5e862d0c621ad2e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 68f7c9331423fa4ef350bd7915ad85e3152c6885
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282458"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096547"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usare i comandi di estensione MongoDB per gestire i dati archiviati nell'API Azure Cosmos DB per MongoDB 
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Il documento seguente contiene i comandi dell'azione personalizzata specifici dell'API Azure Cosmos DB per MongoDB. Questi comandi possono essere utilizzati per creare e ottenere risorse di database specifiche per il [modello di capacità Azure Cosmos DB](account-databases-containers-items.md).
 
@@ -53,7 +54,7 @@ Se il comando ha esito positivo, verrà restituita la risposta seguente:
 
 Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="create-a-database"></a>Creazione di un database
 
@@ -108,7 +109,7 @@ Se il comando ha esito positivo, verrà restituita la risposta seguente:
 
 Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="update-the-provisioned-throughput-associated-with-a-database"></a>Aggiornare la velocità effettiva con provisioning associata a un database
 
@@ -159,7 +160,7 @@ Se il comando ha esito positivo, la risposta contiene un documento con i campi s
 
 Se il comando ha esito negativo, viene restituita una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="get-the-database"></a>Ottenere il database
 
@@ -213,8 +214,8 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 | **Campo** | **Tipo** | **Obbligatorio** | **Descrizione** |
 |---------|---------|---------|---------|
-| `customAction` | `string` | Obbligatoria | Nome del comando personalizzato. Deve essere "CreateCollection".|
-| `collection` | `string` | Obbligatoria | Nome della raccolta. Non sono consentiti spazi o caratteri speciali.|
+| `customAction` | `string` | Necessario | Nome del comando personalizzato. Deve essere "CreateCollection".|
+| `collection` | `string` | Necessario | Nome della raccolta. Non sono consentiti spazi o caratteri speciali.|
 | `offerThroughput` | `int` | Facoltativo | Velocità effettiva con provisioning da impostare nel database. Se questo parametro non viene specificato, il valore predefinito sarà minimo 400 ur/sec. * Per specificare una velocità effettiva superiore a 10.000 UR/s, il `shardKey` parametro è obbligatorio.|
 | `shardKey` | `string` | Obbligatorio per le raccolte con velocità effettiva elevata | Percorso della chiave di partizione per la raccolta partizionata. Questo parametro è obbligatorio se si impostano più di 10.000 UR/sec in `offerThroughput` .  Se specificato, tutti i documenti inseriti richiedono questa chiave e un valore. |
 | `autoScaleSettings` | `Object` | Obbligatorio per la [modalità di scalabilità](provision-throughput-autoscale.md) automatica | Questo oggetto contiene le impostazioni associate alla modalità di capacità di scalabilità automatica. È possibile impostare il `maxThroughput` valore, che descrive la quantità più elevata di unità richiesta che la raccolta verrà aumentata in modo dinamico. |
@@ -223,7 +224,7 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 Restituisce una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="create-a-collection-with-the-minimum-configuration"></a>Creare una raccolta con la configurazione minima
 
@@ -313,7 +314,7 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 Restituisce una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="update-the-provisioned-throughput-associated-with-a-collection"></a>Aggiornare la velocità effettiva con provisioning associata a una raccolta
 
@@ -359,7 +360,7 @@ Se il comando ha esito positivo, la risposta contiene un documento con i campi s
 
 Se il comando ha esito negativo, viene restituita una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempi
+### <a name="examples"></a>Esempio
 
 #### <a name="get-the-collection"></a>Ottenere la raccolta
 

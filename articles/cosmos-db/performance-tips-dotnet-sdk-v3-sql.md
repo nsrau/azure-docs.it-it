@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 05fe22ed0dc7d03148f66fd02aa648e1b63ab319
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 21821bbb41126a53c2b137bf1f5e5684ff1ae267
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475329"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096289"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -39,16 +40,16 @@ Per Linux e altre piattaforme non supportate in cui ServiceInterop.dll non è di
 
 Per impostazione predefinita, i quattro tipi di applicazione elencati di seguito utilizzano l'elaborazione host a 32 bit. Per modificare l'elaborazione dell'host nell'elaborazione a 64 bit per il tipo di applicazione, eseguire le operazioni seguenti:
 
-- **Per le applicazioni eseguibili**: nella finestra delle **proprietà del progetto** , nel riquadro **Compila** , impostare la [destinazione della piattaforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) su **x64**.
+- **Per le applicazioni eseguibili** : nella finestra delle **proprietà del progetto** , nel riquadro **Compila** , impostare la [destinazione della piattaforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) su **x64** .
 
-- **Per i progetti di test basati su VSTest**: nel menu **test** di Visual Studio **selezionare**  >  **impostazioni test**test, quindi impostare **architettura del processore predefinita** su **x64**.
+- **Per i progetti di test basati su VSTest** : nel menu **test** di Visual Studio **selezionare**  >  **impostazioni test** test, quindi impostare **architettura del processore predefinita** su **x64** .
 
-- **Per le applicazioni Web ASP.NET distribuite localmente**: selezionare **strumenti**  >  **Opzioni**  >  **progetti e soluzioni**progetti  >  **Web**, quindi selezionare **Usa la versione a 64 bit di IIS Express per i siti Web e i progetti**.
+- **Per le applicazioni Web ASP.NET distribuite localmente** : selezionare **strumenti**  >  **Opzioni**  >  **progetti e soluzioni** progetti  >  **Web** , quindi selezionare **Usa la versione a 64 bit di IIS Express per i siti Web e i progetti** .
 
-- **Per le applicazioni web ASP.NET distribuite in Azure**: nella portale di Azure, in **Impostazioni applicazione**, selezionare la piattaforma a **64 bit** .
+- **Per le applicazioni web ASP.NET distribuite in Azure** : nella portale di Azure, in **Impostazioni applicazione** , selezionare la piattaforma a **64 bit** .
 
 > [!NOTE] 
-> Per impostazione predefinita, i nuovi progetti di Visual Studio sono impostati su **qualsiasi CPU**. Si consiglia di impostare il progetto su **x64** in modo che non passi a **x86**. Un progetto impostato su **qualsiasi CPU** può passare facilmente a **x86** se viene aggiunta una dipendenza solo x86.<br/>
+> Per impostazione predefinita, i nuovi progetti di Visual Studio sono impostati su **qualsiasi CPU** . Si consiglia di impostare il progetto su **x64** in modo che non passi a **x86** . Un progetto impostato su **qualsiasi CPU** può passare facilmente a **x86** se viene aggiunta una dipendenza solo x86.<br/>
 > Il file di ServiceInterop.dll deve trovarsi nella cartella da cui viene eseguita la DLL SDK. Questo dovrebbe essere un problema solo se si copiano le dll manualmente o si dispone di sistemi di compilazione o distribuzione personalizzati.
     
 **Attivare Garbage Collection lato server**
@@ -154,13 +155,13 @@ SQL .NET SDK supporta le query parallele, che consentono di eseguire query in un
 
 Le query parallele forniscono due parametri che è possibile ottimizzare per soddisfare i requisiti: 
 
-- **MaxConcurrency**: controlla il numero massimo di partizioni su cui è possibile eseguire query in parallelo.
+- **MaxConcurrency** : controlla il numero massimo di partizioni su cui è possibile eseguire query in parallelo.
 
    La query parallela funziona eseguendo query su più partizioni in parallelo. Tuttavia, i dati di una singola partizione vengono recuperati in modo seriale rispetto alla query. L'impostazione di `MaxConcurrency` [SDK V3](https://github.com/Azure/azure-cosmos-dotnet-v3) sul numero di partizioni ha la possibilità di ottenere la query più efficiente, purché tutte le altre condizioni del sistema rimangano invariate. Se non si conosce il numero di partizioni, è possibile impostare il grado di parallelismo su un numero elevato. Il sistema sceglierà il numero minimo di partizioni, ovvero l'input fornito dall'utente, come grado di parallelismo.
 
     Le query parallele producono i maggiori vantaggi se i dati vengono distribuiti uniformemente tra tutte le partizioni rispetto alla query. Se la raccolta partizionata è partizionata in modo che tutti o la maggior parte dei dati restituiti da una query siano concentrati in poche partizioni (una partizione è il caso peggiore), tali partizioni faranno un collo di bottiglia delle prestazioni della query.
    
-- **MaxBufferedItemCount**: controlla il numero di risultati prerecuperati.
+- **MaxBufferedItemCount** : controlla il numero di risultati prerecuperati.
 
    La query parallela è progettata per la prelettura dei risultati mentre il client elabora il batch di risultati corrente. Il recupero preliminare consente di migliorare la latenza complessiva di una query. Il `MaxBufferedItemCount` parametro limita il numero di risultati prerecuperati. Impostare sul `MaxBufferedItemCount` numero previsto di risultati restituiti (o un numero più elevato) per consentire alla query di ricevere il vantaggio massimo dal recupero preliminare.
 

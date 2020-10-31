@@ -8,14 +8,15 @@ ms.date: 03/20/2020
 author: timsander1
 ms.author: tisande
 ms.custom: seodec18
-ms.openlocfilehash: 6c9ea401a4a62f617b5acf6f96c60532d929ff1c
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: a02aaadf8c774557eb182acf041b6f19337a0de8
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167968"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096513"
 ---
 # <a name="connect-to-an-azure-cosmos-account-using-studio-3t"></a>Connettersi a un account Azure Cosmos usando Studio 3T
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Per connettersi all'API di un Azure Cosmos DB per MongoDB usando Studio 3T, è necessario:
 
@@ -52,10 +53,10 @@ Per creare un database, una raccolta e documenti usando Studio 3T, seguire la pr
 1. In **Connection Manager** (Gestione connessioni) evidenziare la connessione e fare clic su **Connect** (Connetti).
 
     :::image type="content" source="./media/mongodb-mongochef/ConnectToAccount.png" alt-text="Screenshot della pagina della stringa di connessione":::
-2. Fare clic con il pulsante destro del mouse sull'host, quindi scegliere **Add Database** (Aggiungi database).  Specificare un nome per il database e fare clic su **OK**.
+2. Fare clic con il pulsante destro del mouse sull'host, quindi scegliere **Add Database** (Aggiungi database).  Specificare un nome per il database e fare clic su **OK** .
 
     :::image type="content" source="./media/mongodb-mongochef/AddDatabase1.png" alt-text="Screenshot della pagina della stringa di connessione":::
-3. Fare clic con il pulsante destro del mouse sul database, quindi scegliere **Add Collection** (Aggiungi raccolta).  Specificare un nome per la raccolta, quindi fare clic su **Create**(Crea).
+3. Fare clic con il pulsante destro del mouse sul database, quindi scegliere **Add Collection** (Aggiungi raccolta).  Specificare un nome per la raccolta, quindi fare clic su **Create** (Crea).
 
     :::image type="content" source="./media/mongodb-mongochef/AddCollection.png" alt-text="Screenshot della pagina della stringa di connessione":::
 4. Selezionare la voce di menu **Collection** (Raccolta), quindi fare clic su **Add Document** (Aggiungi documento).

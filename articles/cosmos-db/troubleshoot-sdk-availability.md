@@ -8,14 +8,15 @@ ms.author: maquaran
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: d43305040e7896a9d3a58929537f19c2bd1f526c
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: b1c2377ba26b4ca64f5028fb1a51ca4e64f6a67c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319371"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93097890"
 ---
 # <a name="diagnose-and-troubleshoot-the-availability-of-azure-cosmos-sdks-in-multiregional-environments"></a>Diagnosticare e risolvere i problemi relativi alla disponibilità di Azure Cosmos SDK in ambienti multiarea
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Questo articolo descrive il comportamento della versione più recente di Azure Cosmos SDK quando viene riscontrato un problema di connettività a una determinata area o quando si verifica un failover in un'area.
 
@@ -34,7 +35,7 @@ Quando si imposta la preferenza a livello di area, il client si connetterà a un
 | Singola area di scrittura | Area preferita | Area primaria  |
 | Più aree di scrittura | Area preferita | Area preferita  |
 
-Se **non si imposta un'area preferita**, l'impostazione predefinita del client SDK è l'area primaria:
+Se **non si imposta un'area preferita** , l'impostazione predefinita del client SDK è l'area primaria:
 
 |Tipo di account |Letture |Scritture |
 |------------------------|--|--|
@@ -46,7 +47,7 @@ Se **non si imposta un'area preferita**, l'impostazione predefinita del client S
 
 In circostanze normali, il client SDK si connetterà all'area preferita (se è impostata una preferenza a livello di area) o all'area primaria (se non è impostata alcuna preferenza) e le operazioni saranno limitate a tale area, a meno che non si verifichi uno degli scenari seguenti.
 
-In questi casi, il client che usa Azure Cosmos SDK espone i log e include le informazioni di ripetizione dei tentativi come parte delle **informazioni di diagnostica dell'operazione**:
+In questi casi, il client che usa Azure Cosmos SDK espone i log e include le informazioni di ripetizione dei tentativi come parte delle **informazioni di diagnostica dell'operazione** :
 
 * Proprietà *RequestDiagnosticsString* sulle risposte in .NET v2 SDK.
 * Proprietà di *diagnostica* sulle risposte e sulle eccezioni in .NET V3 SDK.

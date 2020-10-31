@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-mongo
 ms.topic: troubleshooting
 ms.date: 07/15/2020
 ms.author: jasonh
-ms.openlocfilehash: 27a9c7eb48c4a0148401c0d146a50a5197593806
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fa33e2ccc5c6cca94ab4e2294a4865745145c1ce
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91409630"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096326"
 ---
 # <a name="troubleshoot-common-issues-in-azure-cosmos-dbs-api-for-mongodb"></a>Risolvere i problemi comuni nell'API Azure Cosmos DB per MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 L'articolo seguente descrive gli errori comuni e le soluzioni per i database che usano l'API Azure Cosmos DB per MongoDB.
 
@@ -29,7 +30,7 @@ L'articolo seguente descrive gli errori comuni e le soluzioni per i database che
 | TooManyRequests     | 16500 | Il numero totale di unità richiesta utilizzate è maggiore del livello di unità richiesta di cui è stato effettuato il provisioning per la raccolta ed è stata applicata la limitazione. | Valutare la possibilità di dimensionare la velocità effettiva assegnata a un contenitore o a un set di contenitori dal portale di Azure oppure riprovare. |
 | ExceededMemoryLimit | 16501 | In quanto servizio multi-tenant, l'operazione ha superato il limite di allocazione di memoria del client. | Ridurre l'ambito dell'operazione tramite criteri di query più restrittivi oppure contattare il supporto tecnico dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). Esempio: `db.getCollection('users').aggregate([{$match: {name: "Andy"}}, {$sort: {age: -1}}]))` |
 | Il percorso dell'indice corrispondente all'elemento Ordina per specificato è escluso/La query Ordina per non dispone di un indice composto corrispondente da cui può essere servita. | 2 | La query richiede un ordinamento in un campo non indicizzato. | Creare un indice o un indice composto corrispondente per la query di ordinamento da tentare. |
-| Problemi con la versione protocollo di collegamento di MongoDB | - | Le versioni precedenti dei driver MongoDB non sono in grado di rilevare il nome dell'account Azure Cosmos nelle stringhe di connessione. | Aggiungere *appname = @**AccountName** @ * alla fine della stringa di connessione dell'API Cosmos DB per MongoDB, dove ***AccountName*** è il nome dell'account Cosmos DB. |
+| Problemi con la versione protocollo di collegamento di MongoDB | - | Le versioni precedenti dei driver MongoDB non sono in grado di rilevare il nome dell'account Azure Cosmos nelle stringhe di connessione. | Aggiungere *appname = @ **AccountName** @* alla fine della stringa di connessione dell'API Cosmos DB per MongoDB, dove ***AccountName*** è il nome dell'account Cosmos DB. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

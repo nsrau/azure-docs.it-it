@@ -10,14 +10,19 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: d9be654b014b00a9d906210f484c2620e688838d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 331b2ffde8d034ba94f5b1adcae5efa223f57594
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84169135"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095119"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Invio di query di ricerca all'API Ricerca visiva Bing
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Questo articolo descrive i parametri e gli attributi delle richieste inviate all'API Ricerca visiva Bing, nonché l'oggetto risposta. 
 
@@ -80,7 +85,7 @@ Di seguito vengono indicati i parametri di query da specificare nella richiesta.
 | <a name="safesearch"></a>safeSearch | Filtro per contenuti per adulti. Di seguito sono indicati i possibili valori di filtro con distinzione tra maiuscole e minuscole.<br /><ul><li>Off&mdash;Vengono restituite pagine Web con testo o immagini per adulti.<br /><br/></li><li>Moderate&mdash;Vengono restituite pagine Web con testo per adulti, ma non con immagini per adulti.<br /><br/></li><li>Strict&mdash;Non viene restituita alcuna pagina Web con testo o immagini per adulti.</li></ul><br /> Il valore predefinito è Moderate.<br /><br /> **NOTA:** se la richiesta proviene da un mercato in cui il criterio per adulti di Bing richiede che `safeSearch` sia impostato su Strict, Bing ignora il valore di `safeSearch` e usa il valore Strict.<br/><br/>**Nota:** Se si usa l' `site:` operatore di query, è possibile che la risposta contenga contenuto per adulti indipendentemente dall'impostazione del `safeSearch` parametro di query. Usare `site:` solo se si è a conoscenza del contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti.  | string | No       |
 | <a name="setlang"></a>setLang  | Lingua da usare per le stringhe dell'interfaccia utente. Specificare la lingua usando il codice di lingua ISO 639-1 di due lettere. Ad esempio, il codice lingua per l'inglese è EN. L'impostazione predefinita è EN (inglese).<br /><br /> Sebbene sia facoltativo, è opportuno specificare sempre la lingua. In genere, si imposta `setLang` sulla stessa lingua specificata da `mkt`, a meno che non si intenda visualizzare le stringhe dell'interfaccia utente in un'altra lingua.<br /><br /> Questo parametro e l'intestazione [Accept-Language](#acceptlanguage) si escludono a vicenda&mdash;non specificare entrambi.<br /><br /> Una stringa di interfaccia utente è una stringa usata come etichetta in un'interfaccia utente. Gli oggetti di risposta JSON contengono poche stringhe di interfaccia utente. Eventuali collegamenti alle proprietà Bing.com negli oggetti risposta si applicano anche alla lingua specificata. | string | No   |
 
-## <a name="headers"></a>Headers
+## <a name="headers"></a>Intestazioni
 
 Di seguito vengono indicate le intestazioni che la richiesta deve specificare. Le `Content-Type` `Ocp-Apim-Subscription-Key` intestazioni e sono le uniche intestazioni obbligatorie, ma è necessario includere anche `User-Agent` , `X-MSEdge-ClientID` , `X-MSEdge-ClientIP` e `X-Search-Location` .
 
@@ -104,7 +109,7 @@ Di seguito vengono indicate le intestazioni che la richiesta deve specificare. L
 
 ### <a name="content-form-types"></a>Tipi di formato per il contenuto
 
-Ogni richiesta deve includere l' `Content-Type` intestazione. L'intestazione deve essere impostata su: `multipart/form-data; boundary=\<boundary string\>` , dove \<boundary string\> è una stringa opaca univoca che identifica il limite dei dati del form. Ad esempio: `boundary=boundary_1234-abcd`.
+Ogni richiesta deve includere l' `Content-Type` intestazione. L'intestazione deve essere impostata su: `multipart/form-data; boundary=\<boundary string\>` , dove \<boundary string\> è una stringa opaca univoca che identifica il limite dei dati del form. Ad esempio `boundary=boundary_1234-abcd`.
 
 Se si invia Ricerca visiva un token di immagine o un URL, il frammento di codice seguente mostra i dati del modulo che è necessario includere nel corpo del POST. I dati del modulo devono includere l' `Content-Disposition` intestazione ed è necessario impostare il relativo `name` parametro su "knowledgeRequest". Per informazioni dettagliate sull' `imageInfo` oggetto, vedere la richiesta.
 
@@ -148,7 +153,7 @@ Se si carica un'immagine locale, il frammento di codice seguente mostra i dati d
 Content-Disposition: form-data; name="image"; filename="myimagefile.jpg"
 Content-Type: image/jpeg
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```
@@ -175,7 +180,7 @@ Content-Disposition: form-data; name="image"; filename="image"
 Content-Type: image/jpeg
 
 
-ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
+ÿØÿà JFIF ÖÆ68g-¤CWŸþ29ÌÄøÖ‘º«™æ±èuZiÀ)"óÓß°Î= ØJ9á+*G¦...
 
 --boundary_1234-abcd--
 ```

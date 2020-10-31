@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d175ba53a71998fc8e7812a1b761f9cd264c38a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 991d83a329603342975a8186fe704afc53813e08
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "78299471"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93095765"
 ---
 # <a name="degrees-azure-cosmos-db"></a>GRADI (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Restituisce l'angolo corrispondente in gradi di un angolo specificato in radianti.  
   
 ## <a name="syntax"></a>Sintassi
@@ -32,7 +34,7 @@ DEGREES (<numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   L'esempio seguente restituisce il numero di gradi di un angolo di PI/2 radianti.  
   

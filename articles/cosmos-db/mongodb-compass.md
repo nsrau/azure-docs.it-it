@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 06/05/2020
 author: jasonwhowell
 ms.author: jasonh
-ms.openlocfilehash: 15b4e6515f98a4d5a65bb5a56bdd5a5f40f90fe8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2016f00249da9abfa2f0904b14d6a34298973f99
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91408612"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93096615"
 ---
 # <a name="use-mongodb-compass-to-connect-to-azure-cosmos-dbs-api-for-mongodb"></a>Usare MongoDB Compass per connettersi all'API di Azure Cosmos DB per MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 Questa esercitazione illustra come usare [MongoDB Compass](https://www.mongodb.com/products/compass) per l'archiviazione e/o la gestione dei dati in Cosmos DB. Per questa procedura dettagliata viene usata l'API di Azure Cosmos DB per MongoDB. Compass è un'interfaccia utente grafica per MongoDB comunemente usata per visualizzare i dati, eseguire query ad-hoc e gestire i dati.
 
@@ -42,7 +43,7 @@ Per connettere l'account Cosmos DB a Compass, è possibile seguire questa proced
 
     :::image type="content" source="./media/mongodb-compass/mongodb-connection-copy.png" alt-text="Screenshot del pannello Stringa di connessione":::
 
-3. Aprire Compass nel desktop/computer e fare clic su **Connetti** e quindi su **Connetti a**.
+3. Aprire Compass nel desktop/computer e fare clic su **Connetti** e quindi su **Connetti a** .
 
 4. Compass rileverà automaticamente una stringa di connessione negli Appunti e richiederà se si vuole usarla per la connessione. Fare clic su **Sì** come illustrato nello screenshot seguente.
 
