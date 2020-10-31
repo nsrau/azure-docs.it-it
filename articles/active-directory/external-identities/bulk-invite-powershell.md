@@ -11,12 +11,12 @@ author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89e24d9ff76184c36aee5c14f15f9713b30f6f1d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e047f11cc243ab1a36a8c61dd1b229d9e115115
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87906954"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892486"
 ---
 # <a name="tutorial-use-powershell-to-bulk-invite-azure-ad-b2b-collaboration-users"></a>Esercitazione: Usare PowerShell per invitare in blocco utenti di Collaborazione B2B di Azure AD
 
@@ -71,13 +71,13 @@ Sono necessari almeno due account di posta elettronica di test a cui inviare gli
 
 ## <a name="prepare-the-csv-file"></a>Preparare il file CSV
 
-In Microsoft Excel creare un file CSV con l'elenco dei nomi utente e degli indirizzi di posta elettronica degli invitati. Assicurarsi di includere le intestazioni di colonna **Name** e **InvitedUserEmailAddress**.
+In Microsoft Excel creare un file CSV con l'elenco dei nomi utente e degli indirizzi di posta elettronica degli invitati. Assicurarsi di includere le intestazioni di colonna **Name** e **InvitedUserEmailAddress** .
 
 Ad esempio, creare un foglio di lavoro nel formato seguente:
 
 ![Output di PowerShell che indica l'accettazione utente in sospeso](media/tutorial-bulk-invite/AddUsersExcel.png)
 
-Salvare il file come **C:\BulkInvite\Invitations.csv**. 
+Salvare il file come **C:\BulkInvite\Invitations.csv** . 
 
 Se non è disponibile Excel, è possibile creare un file CSV con qualsiasi editor di testo, come ad esempio il Blocco note. Separare ogni valore con una virgola e ogni riga con una nuova riga. 
 
@@ -116,7 +116,7 @@ foreach ($email in $invitations)
 
 Lo script invia un invito agli indirizzi di posta elettronica presenti nel file Invitations.csv. L'output dovrebbe essere simile all'esempio seguente per ogni utente:
 
-![Output di PowerShell che indica l'accettazione utente in sospeso](media/tutorial-bulk-invite/B2BBulkImport.png)
+![Screenshot che mostra l'output di PowerShell che include l'accettazione dell'utente in sospeso.](media/tutorial-bulk-invite/B2BBulkImport.png)
 
 ## <a name="verify-users-exist-in-the-directory"></a>Verificare che gli utenti esistano nella directory
 
@@ -126,7 +126,7 @@ Per verificare che gli utenti invitati siano stati aggiunti ad Azure AD, eseguir
  Get-AzureADUser -Filter "UserType eq 'Guest'"
 ```
 
-Dovrebbero essere elencati gli utenti invitati, con il nome dell'entità utente nel formato *indirizzopostaelettronica*#EXT#\@*dominio*. Ad esempio *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com*, in cui contoso.onmicrosoft.com è l'organizzazione da cui sono stati inviati gli inviti.
+Dovrebbero essere elencati gli utenti invitati, con il nome dell'entità utente nel formato *indirizzopostaelettronica* #EXT#\@*dominio* . Ad esempio *lstokes_fabrikam.com#EXT#\@contoso.onmicrosoft.com* , in cui contoso.onmicrosoft.com è l'organizzazione da cui sono stati inviati gli inviti.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

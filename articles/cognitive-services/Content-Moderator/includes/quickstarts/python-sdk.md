@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.custom: cog-serv-seo-aug-2020
 ms.author: pafarley
-ms.openlocfilehash: bea422514b109f446ee30633b0074730f9b89af0
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 64a9143e7a425b35e37f23b233c91b8e7bb70169
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332570"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755747"
 ---
 Introduzione alla libreria client di Azure Content Moderator per Python. Seguire questi passaggi per installare il pacchetto PiPy e provare il codice di esempio per le attività di base. 
 
@@ -24,11 +24,11 @@ Content Moderator è un servizio di intelligenza artificiale che consente di ges
 
 Usare la libreria client di Content Moderator per Python per:
 
-* [Moderare il testo](#moderate-text)
-* [Usare un elenco di termini personalizzati](#use-a-custom-terms-list)
-* [Moderare le immagini](#moderate-images)
-* [Usare un elenco personalizzato di immagini](#use-a-custom-image-list)
-* [Creare una revisione](#create-a-review)
+* Moderare il testo
+* Usare un elenco di termini personalizzati
+* Moderare le immagini
+* Usare un elenco personalizzato di immagini
+* Creare una revisione
 
 [Documentazione di riferimento](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/contentmoderator?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-contentmoderator) | [Pacchetto (PiPy)](https://pypi.org/project/azure-cognitiveservices-vision-contentmoderator/) | [Esempi](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples)
 
@@ -36,35 +36,38 @@ Usare la libreria client di Content Moderator per Python per:
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
 * [Python 3.x](https://www.python.org/)
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="creare una risorsa Content Moderator"  target="_blank">creare una risorsa Content Moderator <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Attendere che venga distribuita e fare clic sul pulsante **Vai alla risorsa** .
+    * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione a Content Moderator. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
+    * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
-## <a name="create-a-content-moderator-resource"></a>Creare una risorsa di Content Moderator
 
-I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Content Moderator usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli) nel computer locale. È anche possibile:
+## <a name="setting-up"></a>Configurazione
 
-* Visualizzare questa risorsa nel [portale di Azure](https://portal.azure.com/)
+### <a name="install-the-client-library"></a>Installare la libreria client
 
-Dopo aver ottenuto una chiave dalla risorsa, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e per l'URL dell'endpoint, denominate rispettivamente `CONTENT_MODERATOR_SUBSCRIPTION_KEY` e `CONTENT_MODERATOR_ENDPOINT`.
- 
-## <a name="create-a-new-python-script"></a>Creare un nuovo script Python
+Dopo aver installato Python, è possibile installare la libreria client di Content Moderator con il comando seguente:
+
+```console
+pip install --upgrade azure-cognitiveservices-vision-contentmoderator
+```
+
+### <a name="create-a-new-python-application"></a>Creare una nuova applicazione Python
 
 Creare un nuovo script Python in un editor o un IDE a scelta. Aggiungere quindi le istruzioni `import` seguenti all'inizio del file.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_imports)]
 
-Creare quindi le variabili per la località dell'endpoint della risorsa e la chiave come variabile di ambiente. 
+> [!TIP]
+> Si vuole visualizzare l'intero file di codice dell'argomento di avvio rapido? È possibile trovarlo [in GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ContentModerator/ContentModeratorQuickstart.py), che contiene gli esempi di codice di questo argomento.
+
+Creare quindi le variabili per la località dell'endpoint della risorsa e la chiave.
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_vars)]
 
-> [!NOTE]
-> Se le variabili di ambiente sono state create dopo aver avviato l'applicazione, per accedervi sarà necessario chiudere e riaprire l'editor, l'IDE o la shell che la eseguono.
-
-## <a name="install-the-client-library"></a>Installare la libreria client
-
-È possibile installare la libreria client di Content Moderator con il comando seguente:
-
-```console
-pip install --upgrade azure-cognitiveservices-vision-contentmoderator
-```
+> [!IMPORTANT]
+> Accedere al portale di Azure. Se la risorsa Content Moderator creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi** . La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse** . 
+>
+> Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, ad esempio [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
 
 ## <a name="object-model"></a>Modello a oggetti
 
@@ -90,16 +93,13 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-> [!NOTE]
-> Questo argomento di avvio rapido presuppone che siano state [create variabili di ambiente](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave e l'endpoint di Content Moderator.
-
 Creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto [CognitiveServicesCredentials](https://docs.microsoft.com/python/api/msrest/msrest.authentication.cognitiveservicescredentials?view=azure-python) con la chiave e usarlo con l'endpoint per creare un oggetto [ContentModeratorClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-contentmoderator/azure.cognitiveservices.vision.contentmoderator.content_moderator_client.contentmoderatorclient?view=azure-python).
 
 [!code-python[](~/cognitive-services-quickstart-code/python/ContentModerator/ContentModeratorQuickstart.py?name=snippet_client)]
 
 ## <a name="moderate-text"></a>Moderare il testo
 
-Il codice seguente usa un client di Content Moderator per analizzare un corpo di testo e stampare i risultati nella console. Creare prima di tutto una cartella **text_files/** nella radice del progetto e aggiungere un file *content_moderator_text_moderation.txt*. Aggiungere un testo personalizzato in questo file oppure usare il testo di esempio seguente:
+Il codice seguente usa un client di Content Moderator per analizzare un corpo di testo e stampare i risultati nella console. Creare prima di tutto una cartella **text_files/** nella radice del progetto e aggiungere un file *content_moderator_text_moderation.txt* . Aggiungere un testo personalizzato in questo file oppure usare il testo di esempio seguente:
 
 ```
 Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
@@ -120,7 +120,7 @@ Il codice seguente illustra come gestire un elenco di termini personalizzati per
 
 ### <a name="get-sample-text"></a>Ottenere il testo di esempio
 
-Per usare questo esempio, è necessario creare una cartella **text_files/** nella radice del progetto e aggiungere un file *content_moderator_term_list.txt*. Questo file deve contenere testo organico che verrà verificato rispetto all'elenco di termini. È possibile usare il testo di esempio seguente:
+Per usare questo esempio, è necessario creare una cartella **text_files/** nella radice del progetto e aggiungere un file *content_moderator_term_list.txt* . Questo file deve contenere testo organico che verrà verificato rispetto all'elenco di termini. È possibile usare il testo di esempio seguente:
 
 ```
 This text contains the terms "term1" and "term2".

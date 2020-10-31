@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/25/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e2631332be1ea2a9e63755ea53897ba0d7813ef
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: fa1571721653b9a3829a91bb5659f0b8216e0037
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91332514"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92470941"
 ---
 Questo argomento di avvio rapido illustra i modelli di progettazione comuni per eseguire la sintesi vocale con Speech SDK. Si inizia con la configurazione di base e la sintesi e si passa ad esempi più avanzati per lo sviluppo di applicazioni personalizzate, tra cui:
 
@@ -64,7 +64,7 @@ Esistono diversi modi per inizializzare [`SpeechConfig`](https://docs.microsoft.
 * Con un host: passare l'indirizzo di un host. La chiave e il token di autorizzazione sono facoltativi.
 * Con un token di autorizzazione: passare un token di autorizzazione e l'area associata.
 
-In questo esempio viene creato un oggetto [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) usando una chiave e un'area di sottoscrizione. Per trovare l'identificatore di area, vedere la pagina del [supporto a livello di area](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk). Si crea anche un codice boilerplate di base da usare per la parte restante di questo articolo, che viene modificato per diverse personalizzazioni.
+In questo esempio viene creato un oggetto [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true) usando una chiave e un'area di sottoscrizione. Per ottenere queste credenziali, seguire la procedura descritta in [Provare il servizio Voce gratuitamente](../../../overview.md#try-the-speech-service-for-free). Si crea anche un codice boilerplate di base da usare per la parte restante di questo articolo, che viene modificato per diverse personalizzazioni.
 
 ```csharp
 public class Program 
@@ -185,7 +185,7 @@ Eseguendo il programma, anche in questo caso verrà scritto un file `.wav` nel p
 Il linguaggio SSML (Speech Synthesis Markup Language) consente di ottimizzare il tono, la pronuncia, la velocità del parlato, il volume e altro ancora dell'output della sintesi vocale inviando le richieste da XML Schema. Questa sezione illustra alcuni esempi pratici, ma per una guida dettagliata, vedere l'[articolo di procedure su SSML](../../../speech-synthesis-markup.md).
 
 Per iniziare a usare SSML per la personalizzazione, è necessario apportare una semplice modifica che cambia la voce.
-Creare prima di tutto un nuovo file XML per la configurazione di SSML nella directory radice del progetto, in questo esempio `ssml.xml`. L'elemento radice è sempre `<speak>` e il wrapping del testo in un elemento `<voice>` consente di cambiare la voce usando il parametro `name`. Questo esempio imposta una voce maschile in inglese (Regno Unito). Si noti che questa voce è **standard** e prevede prezzi e disponibilità differenti rispetto alle voci **neurali**. Vedere l'[elenco completo](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#standard-voices) di voci **standard** supportate.
+Creare prima di tutto un nuovo file XML per la configurazione di SSML nella directory radice del progetto, in questo esempio `ssml.xml`. L'elemento radice è sempre `<speak>` e il wrapping del testo in un elemento `<voice>` consente di cambiare la voce usando il parametro `name`. Questo esempio imposta una voce maschile in inglese (Regno Unito). Si noti che questa voce è **standard** e prevede prezzi e disponibilità differenti rispetto alle voci **neurali** . Vedere l' [elenco completo](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#standard-voices) di voci **standard** supportate.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -198,7 +198,7 @@ Creare prima di tutto un nuovo file XML per la configurazione di SSML nella dire
 Successivamente, è necessario cambiare la richiesta di sintesi vocale in modo che faccia riferimento al file XML. La richiesta è essenzialmente la stessa, ma invece di usare la funzione `SpeakTextAsync()` si usa `SpeakSsmlAsync()`. Questa funzione prevede una stringa XML, quindi è prima di tutto necessario caricare la configurazione di SSML come stringa usando `File.ReadAllText()`. Da qui, l'oggetto risultato è esattamente lo stesso degli esempi precedenti.
 
 > [!NOTE]
-> Se si usa Visual Studio, la configurazione di compilazione probabilmente non troverà il file XML per impostazione predefinita. Per risolvere questo problema, fare clic con il pulsante destro del mouse sul file e scegliere **Proprietà**. Impostare **Azione di compilazione** su *Contenuto*  e **Copia nella directory di output** su *Copia sempre*.
+> Se si usa Visual Studio, la configurazione di compilazione probabilmente non troverà il file XML per impostazione predefinita. Per risolvere questo problema, fare clic con il pulsante destro del mouse sul file e scegliere **Proprietà** . Impostare **Azione di compilazione** su *Contenuto*  e **Copia nella directory di output** su *Copia sempre* .
 
 ```csharp
 public static async Task SynthesizeAudioAsync() 
@@ -214,7 +214,7 @@ public static async Task SynthesizeAudioAsync()
 }
 ```
 
-L'output funziona, ma è possibile apportare alcune altre semplici modifiche per rendere il suono più naturale. La velocità del parlato generale è leggermente troppo veloce, quindi aggiungere un tag `<prosody>` per ridurla al **90%** di quella predefinita. Inoltre, la pausa dopo la virgola nella frase è un po' troppo breve e risulta poco naturale. Per risolvere questo problema, aggiungere un tag `<break>` per ritardare la voce e impostare il parametro time su **200ms**. Eseguire di nuovo la sintesi per verificare l'effetto di queste personalizzazioni sull'output.
+L'output funziona, ma è possibile apportare alcune altre semplici modifiche per rendere il suono più naturale. La velocità del parlato generale è leggermente troppo veloce, quindi aggiungere un tag `<prosody>` per ridurla al **90%** di quella predefinita. Inoltre, la pausa dopo la virgola nella frase è un po' troppo breve e risulta poco naturale. Per risolvere questo problema, aggiungere un tag `<break>` per ritardare la voce e impostare il parametro time su **200ms** . Eseguire di nuovo la sintesi per verificare l'effetto di queste personalizzazioni sull'output.
 
 ```xml
 <speak version="1.0" xmlns="https://www.w3.org/2001/10/synthesis" xml:lang="en-US">
@@ -233,7 +233,7 @@ Le voci neurali sono algoritmi di sintesi vocale basati su reti neurali profonde
 Per passare a una voce neurale, impostare `name` su una delle [opzioni di voce neurale](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support#neural-voices). Aggiungere quindi uno spazio dei nomi XML per `mstts` ed eseguire il wrapping del testo nel tag `<mstts:express-as>`. Usare il parametro `style` per personalizzare lo stile di pronuncia. Questo esempio usa `cheerful`, ma provare a impostarlo su `customerservice` o su `chat` per vedere la differenza nello stile di pronuncia.
 
 > [!IMPORTANT]
-> Le voci neurali sono supportate **solo** per le risorse Voce create nelle aree *Stati Uniti orientali*, *Asia sud-orientale* ed *Europa occidentale*.
+> Le voci neurali sono supportate **solo** per le risorse Voce create nelle aree *Stati Uniti orientali* , *Asia sud-orientale* ed *Europa occidentale* .
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="en-US">

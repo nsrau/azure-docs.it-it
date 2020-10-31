@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 10/06/2020
 ms.author: pafarley
-ms.openlocfilehash: 06b56566108bb482109d02d8d4f9db66dc2a6995
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 9e0bdbc9cc197deb5028848731f031ff19d5ebf7
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92755492"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897816"
 ---
 > [!IMPORTANT]
 > Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità.
@@ -91,6 +91,9 @@ Nella classe **Program** dell'applicazione creare le variabili per l'endpoint e 
 
 Nel metodo **Main** dell'applicazione aggiungere una chiamata all'attività asincrona usata in questa guida di avvio rapido. Questa verrà implementata in un secondo momento.
 
+[!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_main)]
+
+
 ## <a name="object-model"></a>Modello a oggetti 
 
 Con Riconoscimento modulo è possibile creare due diversi tipi di client. Il primo, `FormRecognizerClient`, viene usato per eseguire query sul servizio per riconoscere campi modulo e contenuti. Il secondo, `FormTrainingClient`, viene usato per creare e gestire modelli personalizzati da usare per migliorare il riconoscimento. 
@@ -143,16 +146,11 @@ Sotto **Main** creare un nuovo metodo denominato `AuthenticateClient`. Verrà us
 
 ## <a name="get-assets-for-testing"></a>Ottenere le risorse per il test 
 
-I frammenti di codice di questa guida usano i moduli remoti a cui si accede tramite URL. Se invece si desidera elaborare i documenti del modulo locale, vedere i metodi correlati nella [documentazione di riferimento](https://docs.microsoft.com/python/api/azure-ai-formrecognizer/azure.ai.formrecognizer) e negli [esempi](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples).
-
 Sarà inoltre necessario aggiungere riferimenti agli URL per i dati di training e di test. Aggiungerli alla radice della classe **Program** .
 
 * Per recuperare l'URL di firma di accesso condiviso per i dati di training del modello personalizzato, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso** . Assicurarsi che le autorizzazioni **Lettura** ed **Elenco** siano selezionate e fare clic su **Crea** . A questo punto, copiare il valore dalla sezione **URL** . Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
 * Usare quindi i passaggi precedenti per ottenere l'URL di firma di accesso condiviso di un singolo documento nell'archivio BLOB.
 * Infine, salvare l'URL dell'immagine della ricevuta di esempio inclusa negli esempi seguenti, disponibile anche in [GitHub](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/formrecognizer/azure-ai-formrecognizer/samples/sample_forms). 
-
-> [!NOTE]
-> I frammenti di codice di questa guida usano i moduli remoti a cui si accede tramite URL. Se invece si vogliono elaborare i documenti del modulo locale, vedere i metodi correlati nella [documentazione di riferimento](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/).
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_urls)]
 
@@ -161,9 +159,12 @@ Sarà inoltre necessario aggiungere riferimenti agli URL per i dati di training 
 
 È possibile usare Riconoscimento modulo per riconoscere tabelle, righe e parole nei documenti, senza dover eseguire il training di un modello. Il valore restituito è una raccolta di oggetti **FormPage** : uno per ogni pagina nel documento inviato. 
 
-Per riconoscere il contenuto di un file a un URL specifico, usare il metodo `StartRecognizeContentFromUri`.
+Per riconoscere il contenuto di un file all'interno di un URL specifico, usare il metodo `StartRecognizeContentFromUri`.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_getcontent_call)]
+
+> [!TIP]
+> È anche possibile ottenere contenuto da un file locale. Vedere i metodi [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), ad esempio **StartRecognizeContent** . In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
 
 La parte rimanente di questa attività stampa le informazioni sul contenuto nella console.
 
@@ -208,10 +209,12 @@ Table 0 has 2 rows and 6 columns.
 
 Questa sezione mostra come riconoscere ed estrarre i campi comuni dalle ricevute degli Stati Uniti, usando un modello di ricevuta con training preliminare.
 
-Per riconoscere le ricevute da un URI, usare il metodo `StartRecognizeReceiptsFromUri`. 
+Per riconoscere le ricevute a partire da un URL, usare il metodo `StartRecognizeReceiptsFromUri`. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_receipt_call)]
 
+> [!TIP]
+> È anche possibile riconoscere le immagini di ricevute locali. Vedere i metodi [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), ad esempio **StartRecognizeReceipts** . In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
 
 Il valore restituito è una raccolta di oggetti `RecognizedReceipt`, uno per ogni pagina del documento inviato. Il codice seguente elabora una ricevuta in corrispondenza dell'URI specificato e stampa i campi e i valori principali nella console.
 
@@ -401,12 +404,14 @@ Questa sezione illustra come estrarre informazioni chiave-valore e altro contenu
 > [!IMPORTANT]
 > Per implementare questo scenario è necessario avere già eseguito il training di un modello in modo da poter passare il relativo ID al metodo seguente.
 
-Verrà usato il metodo `StartRecognizeCustomFormsFromUri`. Il valore restituito è una raccolta di oggetti `RecognizedForm`: uno per ogni pagina nel documento inviato. 
-
+Verrà usato il metodo `StartRecognizeCustomFormsFromUri`. 
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze)]
 
-Il codice seguente stampa i risultati dell'analisi nella console. Stampa ogni campo riconosciuto e il valore corrispondente, insieme a un punteggio di attendibilità.
+> [!TIP]
+> È anche possibile analizzare un file locale. Vedere i metodi [FormRecognizerClient](https://docs.microsoft.com/dotnet/api/azure.ai.formrecognizer.formrecognizerclient?view=azure-dotnet), ad esempio **StartRecognizeCustomForms** . In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/formrecognizer/Azure.AI.FormRecognizer/samples/README.md).
+
+Il valore restituito è una raccolta di oggetti `RecognizedForm`: uno per ogni pagina nel documento inviato. Il codice seguente stampa i risultati dell'analisi nella console. Stampa ogni campo riconosciuto e il valore corrispondente, insieme a un punteggio di attendibilità.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/FormRecognizer/FormRecognizerQuickstart.cs?name=snippet_analyze_response)]
 

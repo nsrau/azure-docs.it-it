@@ -11,12 +11,12 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: pafarley
 ms.custom: devx-track-dotnet, cog-serv-seo-aug-2020
-ms.openlocfilehash: cb0d9ff1074ba1a309cf4f5a8cad12f34335e435
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2db80cdba778d868d90d5278005791257acb0ed3
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989472"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92548146"
 ---
 Introduzione alla libreria client di Azure Content Moderator per .NET. Seguire questi passaggi per installare il pacchetto NuGet e provare il codice di esempio per le attività di base. 
 
@@ -34,7 +34,7 @@ Usare la libreria client di Content Moderator per .NET per:
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
 * [IDE di Visual Studio](https://visualstudio.microsoft.com/vs/) o la versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account"  title="creare una risorsa [Nome prodotto]"  target="_blank">creare una risorsa Content Moderator <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Attendere che venga distribuita e fare clic sul pulsante **Vai alla risorsa**.
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesContentModerator"  title="creare una risorsa Content Moderator"  target="_blank">creare una risorsa Content Moderator <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Attendere che venga distribuita e fare clic sul pulsante **Vai alla risorsa** .
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione a Content Moderator. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
@@ -48,11 +48,11 @@ Creare un'applicazione .NET Core con Visual Studio.
 
 ### <a name="install-the-client-library"></a>Installare la libreria client 
 
-Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.ContentModerator`. Selezionare la versione `2.0.0`, quindi **Installa**. 
+Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet** . Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia** , **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.ContentModerator`. Selezionare la versione `2.0.0`, quindi **Installa** . 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
-In una finestra di una console, ad esempio cmd, PowerShell o Bash, usare il comando `dotnet new` per creare una nuova app console con il nome `content-moderator-quickstart`. Questo comando crea un semplice progetto C# "Hello World" con un singolo file di origine: *Program.cs*.
+In una finestra di una console, ad esempio cmd, PowerShell o Bash, usare il comando `dotnet new` per creare una nuova app console con il nome `content-moderator-quickstart`. Questo comando crea un semplice progetto C# "Hello World" con un singolo file di origine: *Program.cs* .
 
 ```console
 dotnet new console -n content-moderator-quickstart
@@ -94,7 +94,7 @@ Dalla directory del progetto aprire il file *Program.cs* nell'ambiente di svilup
 Nella classe **Program** creare le variabili per l'endpoint e la chiave della risorsa.
 
 > [!IMPORTANT]
-> Accedere al portale di Azure. Se la risorsa Content Moderator creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. 
+> Accedere al portale di Azure. Se la risorsa Content Moderator creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi** . La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse** . 
 >
 > Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) di Servizi cognitivi.
 
@@ -144,7 +144,7 @@ Il codice seguente usa un client di Content Moderator per analizzare un corpo di
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_text_vars)]
 
-Nella radice del progetto aggiungere un file *TextFile.txt*. Aggiungere un testo personalizzato in questo file oppure usare il testo di esempio seguente:
+Nella radice del progetto aggiungere un file *TextFile.txt* . Aggiungere un testo personalizzato in questo file oppure usare il testo di esempio seguente:
 
 ```
 Is this a grabage email abcdef@abcd.com, phone: 4255550111, IP: 255.255.255.255, 1234 Main Boulevard, Panapolis WA 96555.
@@ -152,7 +152,7 @@ Crap is the profanity here. Is this information PII? phone 4255550111
 ```
 
 
-Definire quindi il metodo di moderazione del testo in un punto qualsiasi della classe **Program**:
+Definire quindi il metodo di moderazione del testo in un punto qualsiasi della classe **Program** :
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_textmod)]
 
@@ -178,7 +178,7 @@ https://moderatorsampleimages.blob.core.windows.net/samples/sample5.png
 
 ### <a name="define-helper-class"></a>Definire la classe helper
 
-Aggiungere la definizione di classe seguente all'interno della classe **Program**. Questa classe interna gestirà i risultati della moderazione delle immagini.
+Aggiungere la definizione di classe seguente all'interno della classe **Program** . Questa classe interna gestirà i risultati della moderazione delle immagini.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_dataclass)]
 
@@ -208,25 +208,25 @@ Il metodo di questa sezione usa la classe [Reviews](https://docs.microsoft.com/d
 
 ### <a name="get-sample-images"></a>Recupera immagini di esempio
 
-Dichiarare la matrice seguente nella radice della classe **Program**. Questa variabile fa riferimento a un'immagine di esempio da usare per creare la revisione.
+Dichiarare la matrice seguente nella radice della classe **Program** . Questa variabile fa riferimento a un'immagine di esempio da usare per creare la revisione.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_urls)]
 
 ### <a name="get-review-credentials"></a>Ottenere le credenziali per la revisione
 
-Accedere allo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com) e recuperare il nome del proprio team. Quindi assegnarlo alla variabile appropriata nella classe **Program**. Facoltativamente, è possibile configurare un endpoint di callback per ricevere aggiornamenti sull'attività della revisione.
+Accedere allo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com) e recuperare il nome del proprio team. Quindi assegnarlo alla variabile appropriata nella classe **Program** . Facoltativamente, è possibile configurare un endpoint di callback per ricevere aggiornamenti sull'attività della revisione.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_vars)]
 
 ### <a name="define-helper-class"></a>Definire la classe helper
 
-Aggiungere la definizione di classe seguente all'interno della classe **Program**. Questa classe verrà usata per rappresentare una singola istanza di revisione inviata allo strumento di revisione.
+Aggiungere la definizione di classe seguente all'interno della classe **Program** . Questa classe verrà usata per rappresentare una singola istanza di revisione inviata allo strumento di revisione.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_review_item)]
 
 ### <a name="define-helper-method"></a>Definire il metodo helper
 
-Aggiungere il metodo seguente alla classe **Program**. Questo metodo scriverà i risultati delle query di revisione nel file di testo di output.
+Aggiungere il metodo seguente alla classe **Program** . Questo metodo scriverà i risultati delle query di revisione nel file di testo di output.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/ContentModerator/Program.cs?name=snippet_writeline)]
 

@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: include
-ms.date: 10/06/2020
+ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: ceb33a747b987898668e315518c3ba7a2b02efcc
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: aad1be52ae05573d565d960d914dafdf824a4de9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91989416"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886619"
 ---
 Introduzione al riconoscimento facciale con la libreria client di Viso per .NET. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -32,7 +32,7 @@ Usare la libreria client dell'API Viso per .NET per:
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
 * [IDE di Visual Studio](https://visualstudio.microsoft.com/vs/) o la versione corrente di [.NET Core](https://dotnet.microsoft.com/download/dotnet-core).
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="creare una risorsa Viso"  target="_blank">creare una risorsa Viso <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="creare una risorsa Viso"  target="_blank">creare una risorsa Viso <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa** .
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Viso. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
@@ -46,11 +46,11 @@ Creare un'applicazione .NET Core con Visual Studio.
 
 ### <a name="install-the-client-library"></a>Installare la libreria client 
 
-Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet**. Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia**, **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.Vision.Face`. Selezionare la versione `2.6.0-preview.1`, quindi **Installa**. 
+Dopo aver creato un nuovo progetto, installare la libreria client facendo clic con il pulsante destro del mouse sulla soluzione del progetto in **Esplora soluzioni** e scegliendo **Gestisci pacchetti NuGet** . Nella finestra di dialogo Gestione pacchetti visualizzata selezionare **Sfoglia** , **Includi versione preliminare** e cercare `Microsoft.Azure.CognitiveServices.Vision.Face`. Selezionare la versione `2.6.0-preview.1`, quindi **Installa** . 
 
 #### <a name="cli"></a>[CLI](#tab/cli)
 
-In una finestra di una console, ad esempio cmd, PowerShell o Bash, usare il comando `dotnet new` per creare una nuova app console con il nome `face-quickstart`. Questo comando crea un semplice progetto C# "Hello World" con un unico file di origine: *program.cs*. 
+In una finestra di una console, ad esempio cmd, PowerShell o Bash, usare il comando `dotnet new` per creare una nuova app console con il nome `face-quickstart`. Questo comando crea un semplice progetto C# "Hello World" con un unico file di origine: *program.cs* . 
 
 ```console
 dotnet new console -n face-quickstart
@@ -94,7 +94,7 @@ Nella classe **Program** dell'applicazione creare le variabili per l'endpoint e 
 
 
 > [!IMPORTANT]
-> Accedere al portale di Azure. Se la risorsa [Nome prodotto] creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. 
+> Accedere al portale di Azure. Se la risorsa [Nome prodotto] creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi** . La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse** . 
 >
 > Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) di Servizi cognitivi.
 
@@ -151,6 +151,9 @@ Creare un nuovo metodo per rilevare i visi. Il metodo `DetectFaceExtract` elabor
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_detect)]
 
+> [!TIP]
+> È anche possibile rilevare i visi in un'immagine locale. Vedere i metodi [FaceOperations](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ifaceoperations?view=azure-dotnet) come **DetectWithStreamAsync** .
+
 ### <a name="display-detected-face-data"></a>Visualizzare i dati dei visi rilevati
 
 Il resto del metodo `DetectFaceExtract` analizza e stampa i dati di attributo per ogni viso rilevato. Ogni attributo deve essere specificato separatamente nella chiamata all'API di rilevamento viso originale (nell'elenco **[FaceAttributeType](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.models.faceattributetype?view=azure-dotnet)** ). Il codice seguente elabora ogni attributo, ma è probabile che sia necessario usarne solo uno o alcuni.
@@ -181,11 +184,11 @@ Il codice seguente visualizza i dettagli delle corrispondenze nella console:
 
 ## <a name="identify-a-face"></a>Identificare un viso
 
-L'operazione di identificazione acquisisce un'immagine di una persona (o di più persone) e cerca di individuare l'identità di ogni viso nell'immagine (ricerca basata su riconoscimento facciale). Confronta ogni viso rilevato con un **PersonGroup**, un database di oggetti **Person** diversi le cui caratteristiche del viso sono note. Per eseguire l'operazione di identificazione, è prima di tutto necessario creare ed eseguire il training di un oggetto **PersonGroup**
+L'operazione di identificazione acquisisce un'immagine di una persona (o di più persone) e cerca di individuare l'identità di ogni viso nell'immagine (ricerca basata su riconoscimento facciale). Confronta ogni viso rilevato con un **PersonGroup** , un database di oggetti **Person** diversi le cui caratteristiche del viso sono note. Per eseguire l'operazione di identificazione, è prima di tutto necessario creare ed eseguire il training di un oggetto **PersonGroup**
 
 ### <a name="create-a-person-group"></a>Creare un gruppo di persone
 
-Il codice seguente crea un **PersonGroup** con sei diversi oggetti **Person**. Associa ogni oggetto **Person** a un set di immagini di esempio e quindi esegue il training per riconoscere ogni persona in base alle caratteristiche del volto. Gli oggetti **Person** e **PersonGroup** vengono usati nelle operazioni di verifica, identificazione e raggruppamento.
+Il codice seguente crea un **PersonGroup** con sei diversi oggetti **Person** . Associa ogni oggetto **Person** a un set di immagini di esempio e quindi esegue il training per riconoscere ogni persona in base alle caratteristiche del volto. Gli oggetti **Person** e **PersonGroup** vengono usati nelle operazioni di verifica, identificazione e raggruppamento.
 
 Dichiarare una variabile di stringa alla radice della classe per rappresentare l'ID dell'oggetto **PersonGroup** che verrà creato.
 
@@ -201,9 +204,12 @@ Aggiungere quindi il codice seguente per creare un oggetto **Person** per ogni p
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_create)]
 
+> [!TIP]
+> È anche possibile creare un **PersonGroup** dalle immagini locali. Vedere i metodi [IPersonGroupPerson](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.ipersongroupperson?view=azure-dotnet), ad esempio **AddFaceFromStreamAsync** .
+
 ### <a name="train-the-persongroup"></a>Eseguire il training del PersonGroup
 
-Dopo aver estratto i dati sui visi dalle immagini e averli ordinati in oggetti **Person** diversi, è necessario eseguire il training di **PersonGroup** per identificare le caratteristiche visive associate a ogni oggetto **Person**. Il codice seguente chiama il metodo **train** asincrono ed esegue il polling dei risultati, visualizzando lo stato nella console.
+Dopo aver estratto i dati sui visi dalle immagini e averli ordinati in oggetti **Person** diversi, è necessario eseguire il training di **PersonGroup** per identificare le caratteristiche visive associate a ogni oggetto **Person** . Il codice seguente chiama il metodo **train** asincrono ed esegue il polling dei risultati, visualizzando lo stato nella console.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_persongroup_train)]
 
@@ -211,11 +217,11 @@ Questo gruppo **Person** e gli oggetti **Person** associati sono ora pronti per 
 
 ### <a name="identify-faces"></a>Identificare visi
 
-Il codice seguente crea un elenco di tutti i visi rilevati nell'immagine di origine. Sono i visi che verranno identificati in base al **PersonGroup**.
+Il codice seguente crea un elenco di tutti i visi rilevati nell'immagine di origine. Sono i visi che verranno identificati in base al **PersonGroup** .
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify_sources)]
 
-Il frammento di codice successivo chiama l'operazione **IdentifyAsync** e visualizza i risultati nella console. In questo caso, il servizio tenta di trovare una corrispondenza tra ogni viso nell'immagine di origine e un oggetto **Person** nel **PersonGroup**. In questo modo si chiude il metodo di identificazione.
+Il frammento di codice successivo chiama l'operazione **IdentifyAsync** e visualizza i risultati nella console. In questo caso, il servizio tenta di trovare una corrispondenza tra ogni viso nell'immagine di origine e un oggetto **Person** nel **PersonGroup** . In questo modo si chiude il metodo di identificazione.
 
 [!code-csharp[](~/cognitive-services-quickstart-code/dotnet/Face/FaceQuickstart.cs?name=snippet_identify)]
 

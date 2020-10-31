@@ -10,28 +10,28 @@ ms.topic: include
 ms.date: 09/21/2020
 ms.custom: devx-track-java
 ms.author: pafarley
-ms.openlocfilehash: 9bf42518c77dadb350d8c93c6aa5a17d48aaaff5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 0dc4528147a144ed9887ae1becfbbe2aa4b9fcf3
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91963059"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897812"
 ---
 > [!IMPORTANT]
-> * L'SDK di Riconoscimento modulo è attualmente destinato alla versione 2.0 del servizio Riconoscimento modulo.
-> * Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità. Vedere la documentazione di riferimento di seguito. 
+> Il codice di questo articolo usa metodi sincroni e archiviazione con credenziali non protette per motivi di semplicità.
 
 [Documentazione di riferimento ](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer) | [Esempi](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services)
-* Un BLOB di Archiviazione di Azure contenente un set di dati di training. Consultare [Compilare un training set per un modello personalizzato](../../build-training-data-set.md) per suggerimenti e opzioni per la creazione di un set di dati di training. Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Train** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre *sample_data.zip*).
-* La versione corrente di [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
+* La versione più recente di [Java Development Kit (JDK)](https://www.oracle.com/technetwork/java/javase/downloads/index.html)
 * Lo [strumento di compilazione Gradle](https://gradle.org/install/) o un'altra utilità di gestione dipendenze.
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="creare una risorsa di Riconoscimento modulo"  target="_blank">creare una risorsa di Riconoscimento modulo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer"  title="creare una risorsa di Riconoscimento modulo"  target="_blank">creare una risorsa di Riconoscimento modulo <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa** .
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Riconoscimento modulo. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
+* Un BLOB di Archiviazione di Azure contenente un set di dati di training. Consultare [Compilare un training set per un modello personalizzato](../../build-training-data-set.md) per suggerimenti e opzioni per la creazione di un set di dati di training. Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Train** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2090451) (scaricare ed estrarre *sample_data.zip* ).
+
 
 ## <a name="setting-up"></a>Configurazione
 
@@ -43,19 +43,14 @@ In una finestra della console, ad esempio cmd, PowerShell o Bash, creare e passa
 mkdir myapp && cd myapp
 ```
 
-Eseguire il comando `gradle init` dalla directory di lavoro. Questo comando creerà i file di compilazione essenziali per Gradle, tra cui *build.gradle.kts*, che viene usato in fase di esecuzione per creare e configurare l'applicazione.
+Eseguire il comando `gradle init` dalla directory di lavoro. Questo comando creerà i file di compilazione essenziali per Gradle, tra cui *build.gradle.kts* , che viene usato in fase di esecuzione per creare e configurare l'applicazione.
 
 ```console
 gradle init --type basic
 ```
 
-Quando viene chiesto di scegliere un linguaggio **DSL**, selezionare **Kotlin**.
+Quando viene chiesto di scegliere un linguaggio **DSL** , selezionare **Kotlin** .
 
-Dalla directory di lavoro eseguire il comando seguente:
-
-```console
-mkdir -p src/main/java
-```
 
 ### <a name="install-the-client-library"></a>Installare la libreria client
 
@@ -79,37 +74,43 @@ dependencies {
 }
 ```
 
-Passare alla nuova cartella **src/main/Java** e creare un file denominato *Management.Java*. Aprirlo in un editor o un IDE a scelta e importare le istruzioni `import` seguenti:
+### <a name="create-a-java-file"></a>Creare un file Java
 
-```java
-import com.azure.ai.formrecognizer.*;
-import com.azure.ai.formrecognizer.training.*;
-import com.azure.ai.formrecognizer.models.*;
-import com.azure.ai.formrecognizer.training.models.*;
 
-import java.util.concurrent.atomic.AtomicReference;
-import java.util.List;
-import java.util.Map;
-import java.time.LocalDate;
+Dalla directory di lavoro eseguire il comando seguente:
 
-import com.azure.core.credential.AzureKeyCredential;
-import com.azure.core.http.rest.PagedIterable;
-import com.azure.core.util.Context;
-import com.azure.core.util.polling.SyncPoller;
+```console
+mkdir -p src/main/java
 ```
 
-Aggiungere una classe e un metodo `main` e creare le variabili per l'endpoint e la chiave di Azure della risorsa. Se la variabile di ambiente è stata creata dopo l'avvio dell'applicazione, per accedervi sarà necessario chiudere e riaprire l'editor, l'IDE o la shell. Gli altri metodi verranno definiti successivamente.
+Passare alla nuova cartella e creare un file denominato *FormRecognizer.java* . Aprirlo in un editor o un IDE a scelta e importare le istruzioni `import` seguenti:
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_imports)]
+
+> [!TIP]
+> Si vuole visualizzare l'intero file di codice dell'argomento di avvio rapido? È possibile trovarlo [in GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/java/FormRecognizer/FormRecognizer.java), che contiene gli esempi di codice di questo argomento.
 
 
-```java
-public class FormRecognizer {
-    public static void main(String[] args)
-    {
-        String key = "<replace-with-your-form-recognizer-key>";
-        String endpoint = "<replace-with-your-form-recognizer-endpoint>";
-    }
-}
-```
+Nella classe **FormRecognizer** dell'applicazione creare le variabili per l'endpoint e la chiave della risorsa.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_creds)]
+
+> [!IMPORTANT]
+> Accedere al portale di Azure. Se la risorsa [Nome prodotto] creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi** . La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse** . 
+>
+> Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) di Servizi cognitivi.
+
+Nel metodo **main** dell'applicazione aggiungere le chiamate per i metodi usati in questa guida di avvio rapido. Verranno definiti in un secondo momento. Sarà inoltre necessario aggiungere riferimenti agli URL per i dati di training e di test.
+
+* Per recuperare l'URL di firma di accesso condiviso per i dati di training del modello personalizzato, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso** . Assicurarsi che le autorizzazioni **Lettura** ed **Elenco** siano selezionate e fare clic su **Crea** . A questo punto, copiare il valore dalla sezione **URL** . Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
+* Per ottenere un URL di un modulo da testare è possibile usare i passaggi precedenti per ottenere l'URL di firma di accesso condiviso di un singolo documento nell'archivio BLOB. In alternativa, prendere l'URL di un documento situato altrove.
+* Usare il metodo precedente per ottenere l'URL anche di un'immagine di una ricevuta.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_mainvars)]
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_maincalls)]
+
+
 
 ## <a name="object-model"></a>Modello a oggetti 
 
@@ -148,100 +149,24 @@ Questi frammenti di codice mostrano come eseguire le attività seguenti con la l
 
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
-Aggiungere il codice seguente nel metodo `Main`. In questo caso si eseguirà l'autenticazione dei due oggetti client con le variabili di sottoscrizione definite in precedenza. Si userà un oggetto **AzureKeyCredential** in modo che, se necessario, sia possibile aggiornare la chiave API senza creare nuovi oggetti client.
+All'inizio del metodo **principale** , aggiungere il codice seguente. In questo caso si eseguirà l'autenticazione dei due oggetti client con le variabili di sottoscrizione definite in precedenza. Si userà un oggetto **AzureKeyCredential** in modo che, se necessario, sia possibile aggiornare la chiave API senza creare nuovi oggetti client.
 
-> [!IMPORTANT]
-> Ottenere la chiave e l'endpoint nel portale di Azure. Se la risorsa di Riconoscimento modulo creata nella sezione **Prerequisiti** è stata distribuita correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi**. La chiave e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse**. 
->
-> Al termine, ricordarsi di rimuovere la chiave dal codice e non renderlo mai pubblico. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, ad esempio [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview).
-
-```java
-    FormRecognizerClient recognizerClient = new FormRecognizerClientBuilder()
-    .credential(new AzureKeyCredential(key))
-    .endpoint(endpoint)
-    .buildClient();
-    
-    FormTrainingClient trainingClient = new FormTrainingClientBuilder()
-    .credential(new AzureKeyCredential(key))
-    .endpoint(endpoint)
-    .buildClient();
-```
-
-### <a name="call-client-specific-methods"></a>Chiamare metodi specifici del client
-
-Il blocco di codice successivo usa gli oggetti client per chiamare i metodi per ogni attività principale nell'SDK di Riconoscimento modulo. Questi metodi verranno definiti in un secondo momento.
-
-Sarà inoltre necessario aggiungere riferimenti agli URL per i dati di training e di test.
-
-* Per recuperare l'URL di firma di accesso condiviso per i dati di training del modello personalizzato, aprire Microsoft Azure Storage Explorer, fare clic con il pulsante destro del mouse sul contenitore e scegliere **Ottieni firma di accesso condiviso**. Assicurarsi che le autorizzazioni **Lettura** ed **Elenco** siano selezionate e fare clic su **Crea**. A questo punto, copiare il valore dalla sezione **URL**. Dovrebbe essere in questo formato: `https://<storage account>.blob.core.windows.net/<container name>?<SAS value>`.
-* Per ottenere un URL di un modulo da testare è possibile usare i passaggi precedenti per ottenere l'URL di firma di accesso condiviso di un singolo documento nell'archivio BLOB. In alternativa, prendere l'URL di un documento situato altrove.
-* Usare il metodo precedente per ottenere l'URL anche di un'immagine di una ricevuta.
-
-> [!NOTE]
-> I frammenti di codice di questa guida usano i moduli remoti a cui si accede tramite URL. Se invece si vogliono elaborare i documenti del modulo locale, vedere i metodi correlati nella [documentazione di riferimento](https://docs.microsoft.com/java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-preview).
-
-```java
-    String trainingDataUrl = "<SAS-URL-of-your-form-folder-in-blob-storage>";
-    String formUrl = "<SAS-URL-of-a-form-in-blob-storage>";
-    String receiptUrl = "https://docs.microsoft.com/azure/cognitive-services/form-recognizer/media"
-    + "/contoso-allinone.jpg";
-
-    // Call Form Recognizer scenarios:
-    System.out.println("Get form content...");
-    GetContent(recognizerClient, formUrl);
-
-    System.out.println("Analyze receipt...");
-    AnalyzeReceipt(recognizerClient, receiptUrl);
-
-    System.out.println("Train Model with training data...");
-    String modelId = TrainModel(trainingClient, trainingDataUrl);
-
-    System.out.println("Analyze PDF form...");
-    AnalyzePdfForm(recognizerClient, modelId, formUrl);
-
-    System.out.println("Manage models...");
-    ManageModels(trainingClient, trainingDataUrl);
-```
-
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_auth)]
 
 ## <a name="recognize-form-content"></a>Riconoscere il contenuto di un modulo
 
 È possibile usare Riconoscimento modulo per riconoscere tabelle, righe e parole nei documenti, senza dover eseguire il training di un modello.
 
-Per riconoscere il contenuto di un file all'interno di un URL specifico, usare il metodo **beginRecognizeContentFromUrl**.
+Per riconoscere il contenuto di un file all'interno di un URL specifico, usare il metodo **beginRecognizeContentFromUrl** .
 
-```java
-private static void GetContent(
-    FormRecognizerClient recognizerClient, String invoiceUri)
-{
-    String analyzeFilePath = invoiceUri;
-    SyncPoller<FormRecognizerOperationResult, List<FormPage>> recognizeContentPoller =
-        recognizerClient.beginRecognizeContentFromUrl(analyzeFilePath);
-    
-    List<FormPage> contentResult = recognizeContentPoller.getFinalResult();
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_call)]
 
-Il valore restituito è una raccolta di oggetti **FormPage**: uno per ogni pagina nel documento inviato. Il codice seguente esegue l'iterazione di questi oggetti e stampa le coppie chiave-valore estratte con i dati della tabella.
+> [!TIP]
+> È anche possibile ottenere contenuto da un file locale. Vedere i metodi [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable), ad esempio **beginRecognizeContent** . In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
 
-```java
-    contentResult.forEach(formPage -> {
-        // Table information
-        System.out.println("----Recognizing content ----");
-        System.out.printf("Has width: %f and height: %f, measured with unit: %s.%n", formPage.getWidth(),
-            formPage.getHeight(),
-            formPage.getUnit());
-        formPage.getTables().forEach(formTable -> {
-            System.out.printf("Table has %d rows and %d columns.%n", formTable.getRowCount(),
-                formTable.getColumnCount());
-            formTable.getCells().forEach(formTableCell -> {
-                System.out.printf("Cell has text %s.%n", formTableCell.getText());
-            });
-            System.out.println();
-        });
-    });
-}
-```
+Il valore restituito è una raccolta di oggetti **FormPage** : uno per ogni pagina nel documento inviato. Il codice seguente esegue l'iterazione di questi oggetti e stampa le coppie chiave-valore estratte con i dati della tabella.
 
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_getcontent_print)]
 ### <a name="output"></a>Output
 
 ```console
@@ -265,95 +190,20 @@ Cell has text ET.
 
 Questa sezione mostra come riconoscere ed estrarre i campi comuni dalle ricevute degli Stati Uniti, usando un modello di ricevuta con training preliminare.
 
-Per riconoscere le ricevute a partire da un URL, usare il metodo **beginRecognizeReceiptsFromUrl**. Il valore restituito è una raccolta di oggetti **RecognizedReceipt**, uno per ogni pagina del documento inviato.
+Per riconoscere le ricevute a partire da un URL, usare il metodo **beginRecognizeReceiptsFromUrl** . 
 
-```java
-private static void AnalyzeReceipt(
-    FormRecognizerClient recognizerClient, String receiptUri)
-{
-    SyncPoller<FormRecognizerOperationResult, List<RecognizedForm>> syncPoller =
-    recognizerClient.beginRecognizeReceiptsFromUrl(receiptUri);
-    List<RecognizedForm> receiptPageResults = syncPoller.getFinalResult();
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_call)]
 
-Il blocco di codice successivo esegue l'iterazione delle ricevute e nel stampa i dettagli nella console.
+> [!TIP]
+> È anche possibile ottenere le immagini di ricevute locali. Vedere i metodi [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable), ad esempio **beginRecognizeReceipts** . In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
 
-```java
-    for (int i = 0; i < receiptPageResults.size(); i++) {
-        RecognizedForm recognizedForm = receiptPageResults.get(i);
-        Map<String, FormField> recognizedFields = recognizedForm.getFields();
-        System.out.printf("----------- Recognized Receipt page %d -----------%n", i);
-        FormField merchantNameField = recognizedFields.get("MerchantName");
-        if (merchantNameField != null) {
-            if (FieldValueType.STRING == merchantNameField.getValue().getValueType()) {
-                String merchantName = merchantNameField.getValue().asString();
-                System.out.printf("Merchant Name: %s, confidence: %.2f%n",
-                    merchantName, merchantNameField.getConfidence());
-            }
-        }
-        FormField merchantAddressField = recognizedFields.get("MerchantAddress");
-        if (merchantAddressField != null) {
-            if (FieldValueType.STRING == merchantAddressField.getValue().getValueType()) {
-                String merchantAddress = merchantAddressField.getValue().asString();
-                System.out.printf("Merchant Address: %s, confidence: %.2f%n",
-                    merchantAddress, merchantAddressField.getConfidence());
-            }
-        }
-        FormField transactionDateField = recognizedFields.get("TransactionDate");
-        if (transactionDateField != null) {
-            if (FieldValueType.DATE == transactionDateField.getValue().getValueType()) {
-                LocalDate transactionDate = transactionDateField.getValue().asDate();
-                System.out.printf("Transaction Date: %s, confidence: %.2f%n",
-                    transactionDate, transactionDateField.getConfidence());
-            }
-        }
-```
+Il valore restituito è una raccolta di oggetti **RecognizedReceipt** , uno per ogni pagina del documento inviato. Il blocco di codice successivo esegue l'iterazione delle ricevute e nel stampa i dettagli nella console.
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print)]
+
 Il blocco di codice successivo esegue l'iterazione dei singoli elementi rilevati nella ricevuta e stampa i relativi dettagli nella console.
 
-```java
-        FormField receiptItemsField = recognizedFields.get("Items");
-        if (receiptItemsField != null) {
-            System.out.printf("Receipt Items: %n");
-            if (FieldValueType.LIST == receiptItemsField.getValue().getValueType()) {
-                List<FormField> receiptItems = receiptItemsField.getValue().asList();
-                receiptItems.stream()
-                    .filter(receiptItem -> FieldValueType.MAP == receiptItem.getValue().getValueType())
-                    .map(formField -> formField.getValue().asMap())
-                    .forEach(formFieldMap -> formFieldMap.forEach((key, formField) -> {
-                        if ("Name".equals(key)) {
-                            if (FieldValueType.STRING == formField.getValue().getValueType()) {
-                                String name = formField.getValue().asString();
-                                System.out.printf("Name: %s, confidence: %.2fs%n",
-                                    name, formField.getConfidence());
-                            }
-                        }
-                        if ("Quantity".equals(key)) {
-                            if (FieldValueType.FLOAT == formField.getValue().getValueType()) {
-                                Float quantity = formField.getValue().asFloat();
-                                System.out.printf("Quantity: %f, confidence: %.2f%n",
-                                    quantity, formField.getConfidence());
-                            }
-                        }
-                        if ("Price".equals(key)) {
-                            if (FieldValueType.FLOAT == formField.getValue().getValueType()) {
-                                Float price = formField.getValue().asFloat();
-                                System.out.printf("Price: %f, confidence: %.2f%n",
-                                    price, formField.getConfidence());
-                            }
-                        }
-                        if ("TotalPrice".equals(key)) {
-                            if (FieldValueType.FLOAT == formField.getValue().getValueType()) {
-                                Float totalPrice = formField.getValue().asFloat();
-                                System.out.printf("Total Price: %f, confidence: %.2f%n",
-                                    totalPrice, formField.getConfidence());
-                            }
-                        }
-                }));
-            }
-        }
-    }
-}
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_receipts_print_items)]
 
 ### <a name="output"></a>Output 
 
@@ -371,7 +221,6 @@ Name: BACON & EGGS, confidence: 0.94s
 Quantity: null, confidence: 0.927s]
 Total Price: null, confidence: 0.93
 ```
-
 ## <a name="train-a-custom-model"></a>Eseguire il training di un modello personalizzato
 
 Questa sezione illustra come eseguire il training di un modello con i dati personali. Un modello sottoposto a training restituisce dati strutturati che includono le relazioni chiave-valore del file originale. Dopo il training del modello, è possibile testarlo, ripeterne il training e infine usarlo per estrarre dati in modo affidabile da altri moduli in base alle proprie esigenze.
@@ -385,42 +234,17 @@ Eseguire il training di modelli personalizzati per riconoscere tutti i campi e i
 
 Il metodo seguente esegue il training di un modello su un set di documenti specificato e ne stampa lo stato nella console. 
 
-```java
-private static String TrainModel(
-    FormTrainingClient trainingClient, String trainingDataUrl)
-{
-    SyncPoller<FormRecognizerOperationResult, CustomFormModel> trainingPoller =
-        trainingClient.beginTraining(trainingDataUrl, false);
-    
-    CustomFormModel customFormModel = trainingPoller.getFinalResult();
-    
-    // Model Info
-    System.out.printf("Model Id: %s%n", customFormModel.getModelId());
-    System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
-    System.out.printf("Training started on: %s%n", customFormModel.getTrainingStartedOn());
-    System.out.printf("Training completed on: %s%n%n", customFormModel.getTrainingCompletedOn());
-```
+
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_call)]
+
 L'oggetto **CustomFormModel** restituito, contiene informazioni sui tipi di modulo che il modello è in grado di riconoscere e i campi che può estrarre da ogni tipo di modulo. Il blocco di codice seguente stampa queste informazioni all'interno della console.
 
-```java 
-    System.out.println("Recognized Fields:");
-    // looping through the subModels, which contains the fields they were trained on
-    // Since the given training documents are unlabeled, we still group them but they do not have a label.
-    customFormModel.getSubmodels().forEach(customFormSubmodel -> {
-        // Since the training data is unlabeled, we are unable to return the accuracy of this model
-        System.out.printf("The subModel has form type %s%n", customFormSubmodel.getFormType());
-        customFormSubmodel.getFields().forEach((field, customFormModelField) ->
-            System.out.printf("The model found field '%s' with label: %s%n",
-                field, customFormModelField.getLabel()));
-    });
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_print)]
 
 Infine, questo metodo restituisce l'ID univoco del modello.
 
-```java
-    return customFormModel.getModelId();
-}
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_train_return)]
+
 
 ### <a name="output"></a>Output
 
@@ -444,42 +268,15 @@ The model found field 'field-6' with label: VAT ID
 
 ### <a name="train-a-model-with-labels"></a>Eseguire il training di un modello con etichette
 
-È inoltre possibile eseguire il training di modelli personalizzati etichettando manualmente i documenti di training. Il training con etichette consente prestazioni migliori in alcuni scenari. Per eseguire il training con etichette, è necessario avere file speciali di informazioni sulle etichette ( *\<filename\>.pdf. labels.json*) nel contenitore di archiviazione BLOB insieme ai documenti di training. Lo [Strumento di etichettatura campioni Riconoscimento modulo](../../quickstarts/label-tool.md) fornisce un'interfaccia utente che consente di creare questi file di etichette. Una volta creati, è possibile chiamare il metodo **beginTraining** con il parametro *useTrainingLabels* impostato su `true`.
+È inoltre possibile eseguire il training di modelli personalizzati etichettando manualmente i documenti di training. Il training con etichette consente prestazioni migliori in alcuni scenari. Per eseguire il training con etichette, è necessario avere file speciali di informazioni sulle etichette ( *\<filename\>.pdf. labels.json* ) nel contenitore di archiviazione BLOB insieme ai documenti di training. Lo [Strumento di etichettatura campioni Riconoscimento modulo](../../quickstarts/label-tool.md) fornisce un'interfaccia utente che consente di creare questi file di etichette. Una volta creati, è possibile chiamare il metodo **beginTraining** con il parametro *useTrainingLabels* impostato su `true`.
 
-```java
-private static String TrainModelWithLabels(
-    FormTrainingClient trainingClient, String trainingDataUrl)
-{
-    // Train custom model
-    String trainingSetSource = trainingDataUrl;
-    SyncPoller<FormRecognizerOperationResult, CustomFormModel> trainingPoller = trainingClient.beginTraining(trainingSetSource, true);
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_call)]
 
-    CustomFormModel customFormModel = trainingPoller.getFinalResult();
-
-    // Model Info
-    System.out.printf("Model Id: %s%n", customFormModel.getModelId());
-    System.out.printf("Model Status: %s%n", customFormModel.getModelStatus());
-    System.out.printf("Training started on: %s%n", customFormModel.getTrainingStartedOn());
-    System.out.printf("Training completed on: %s%n%n", customFormModel.getTrainingCompletedOn());
-```
 
 L'oggetto **CustomFormModel** restituito indica i campi che il modello può estrarre, insieme alla relativa precisione stimata in ogni campo. Il blocco di codice seguente stampa queste informazioni all'interno della console.
 
-```java
-    // looping through the subModels, which contains the fields they were trained on
-    // The labels are based on the ones you gave the training document.
-    System.out.println("Recognized Fields:");
-    // Since the data is labeled, we are able to return the accuracy of the model
-    customFormModel.getSubmodels().forEach(customFormSubmodel -> {
-        System.out.printf("The subModel with form type %s has accuracy: %.2f%n",
-            customFormSubmodel.getFormType(), customFormSubmodel.getAccuracy());
-        customFormSubmodel.getFields().forEach((label, customFormModelField) ->
-            System.out.printf("The model found field '%s' to have name: %s with an accuracy: %.2f%n",
-                label, customFormModelField.getName(), customFormModelField.getAccuracy()));
-    });
-    return customFormModel.getModelId();
-}
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_trainlabels_print)]
+
 
 ### <a name="output"></a>Output
 
@@ -508,34 +305,17 @@ Questa sezione illustra come estrarre informazioni chiave-valore e altro contenu
 > [!IMPORTANT]
 > Per implementare questo scenario è necessario avere già eseguito il training di un modello in modo da poter passare il relativo ID al metodo seguente. Vedere la sezione [Eseguire il training di un modello](#train-a-model-without-labels).
 
-Si userà il metodo **beginRecognizeCustomFormsFromUrl**. Il valore restituito è una raccolta di oggetti **RecognizedForm**, uno per ogni pagina del documento inviato.
+Si userà il metodo **beginRecognizeCustomFormsFromUrl** . 
 
-```java
-// Analyze PDF form data
-private static void AnalyzePdfForm(
-    FormRecognizerClient formClient, String modelId, String pdfFormUrl)
-{    
-    SyncPoller<FormRecognizerOperationResult, List<RecognizedForm>> recognizeFormPoller =
-    formClient.beginRecognizeCustomFormsFromUrl(modelId, pdfFormUrl);
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_call)]
 
-    List<RecognizedForm> recognizedForms = recognizeFormPoller.getFinalResult();
-```
+> [!TIP]
+> È anche possibile analizzare un file locale. Vedere i metodi [FormRecognizerClient](https://docs.microsoft.com/java/api/com.azure.ai.formrecognizer.formrecognizerclient?view=azure-java-stable), ad esempio **beginRecognizeCustomForms** . In alternativa, per gli scenari con immagini locali, vedere il codice di esempio in [GitHub](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/formrecognizer/azure-ai-formrecognizer/src/samples/README.md).
 
-Il codice seguente stampa i risultati dell'analisi nella console. Stampa ogni campo riconosciuto e il valore corrispondente, insieme a un punteggio di attendibilità.
+Il valore restituito è una raccolta di oggetti **RecognizedForm** , uno per ogni pagina del documento inviato. Il codice seguente stampa i risultati dell'analisi nella console. Stampa ogni campo riconosciuto e il valore corrispondente, insieme a un punteggio di attendibilità.
 
-```java
-    for (int i = 0; i < recognizedForms.size(); i++) {
-        final RecognizedForm form = recognizedForms.get(i);
-        System.out.printf("----------- Recognized custom form info for page %d -----------%n", i);
-        System.out.printf("Form type: %s%n", form.getFormType());
-        form.getFields().forEach((label, formField) ->
-            // label data is populated if you are using a model trained with unlabeled data,
-            // since the service needs to make predictions for labels if not explicitly given to it.
-            System.out.printf("Field '%s' has label '%s' with a confidence "
-                + "score of %.2f.%n", label, formField.getLabelData().getText(), formField.getConfidence()));
-    }
-}
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_analyze_print)]
+
 
 ### <a name="output"></a>Output
 
@@ -557,24 +337,15 @@ Field 'field-6' has label 'VAT ID' with a confidence score of 1.00.
 
 Questa sezione illustra come gestire modelli personalizzati archiviati nell'account. Il codice seguente esegue tutte le attività di gestione dei modelli in un singolo metodo, come esempio. Per iniziare, copiare la firma del metodo seguente:
 
-```java
-private static void ManageModels(
-    FormTrainingClient trainingClient, String trainingFileUrl)
-{
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage)]
+
 
 ### <a name="check-the-number-of-models-in-the-formrecognizer-resource-account"></a>Verificare il numero dei modelli all'interno dell'account della risorsa FormRecognizer
 
 Il blocco di codice seguente consente di controllare il numero di modelli salvati nell'account di Riconoscimento modulo e di confrontarli con il limite dell'account.
 
-```java
-    AtomicReference<String> modelId = new AtomicReference<>();
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_count)]
 
-    // First, we see how many custom models we have, and what our limit is
-    AccountProperties accountProperties = trainingClient.getAccountProperties();
-    System.out.printf("The account has %s custom models, and we can have at most %s custom models",
-        accountProperties.getCustomModelCount(), accountProperties.getCustomModelLimit());
-```
 
 #### <a name="output"></a>Output 
 
@@ -586,31 +357,8 @@ The account has 12 custom models, and we can have at most 250 custom models
 
 Il blocco di codice seguente elenca i modelli attuali presenti nell'account e stampa i relativi dettagli nella console.
 
-```java    
-    // Next, we get a paged list of all of our custom models
-    PagedIterable<CustomFormModelInfo> customModels = trainingClient.listCustomModels();
-    System.out.println("We have following models in the account:");
-    customModels.forEach(customFormModelInfo -> {
-        System.out.printf("Model Id: %s%n", customFormModelInfo.getModelId());
-        // get custom model info
-        modelId.set(customFormModelInfo.getModelId());
-        CustomFormModel customModel = trainingClient.getCustomModel(customFormModelInfo.getModelId());
-        System.out.printf("Model Id: %s%n", customModel.getModelId());
-        System.out.printf("Model Status: %s%n", customModel.getModelStatus());
-        System.out.printf("Training started on: %s%n", customModel.getTrainingStartedOn());
-        System.out.printf("Training completed on: %s%n", customModel.getTrainingCompletedOn());
-        customModel.getSubmodels().forEach(customFormSubmodel -> {
-            System.out.printf("Custom Model Form type: %s%n", customFormSubmodel.getFormType());
-            System.out.printf("Custom Model Accuracy: %.2f%n", customFormSubmodel.getAccuracy());
-            if (customFormSubmodel.getFields() != null) {
-                customFormSubmodel.getFields().forEach((fieldText, customFormModelField) -> {
-                    System.out.printf("Field Text: %s%n", fieldText);
-                    System.out.printf("Field Accuracy: %.2f%n", customFormModelField.getAccuracy());
-                });
-            }
-        });
-    });
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_list)]
+
 
 #### <a name="output"></a>Output 
 
@@ -636,12 +384,8 @@ Field Accuracy: 1.00
 
 È inoltre possibile eliminare un modello dall'account facendo riferimento al relativo ID.
 
-```java
-    // Delete Custom Model
-    System.out.printf("Deleted model with model Id: %s, operation completed with status: %s%n", modelId.get(),
-    trainingClient.deleteModelWithResponse(modelId.get(), Context.NONE).getStatusCode());
-}
-```
+[!code-java[](~/cognitive-services-quickstart-code/java/FormRecognizer/FormRecognizer.java?name=snippet_manage_delete)]
+
 
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione

@@ -1,159 +1,151 @@
 ---
-author: areddish
-ms.author: areddish
+author: PatrickFarley
+ms.author: pafarley
 ms.service: cognitive-services
-ms.date: 09/15/2020
-ms.openlocfilehash: a091222b01669c6b83c599787c61dcd6b62b05d0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.date: 10/25/2020
+ms.openlocfilehash: 5b39e1988a798adde8a07a39d7724f50d7a4f851
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90605018"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755929"
 ---
-Questa guida fornisce istruzioni e codice di esempio per iniziare a usare la libreria client di Visione personalizzata per Python per creare un modello di classificazione immagini. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'applicazione di riconoscimento immagini personalizzata.
+Introduzione alla libreria client di Visione personalizzata per Python. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per creare un modello di classificazione immagini. Si creerà un progetto, si aggiungeranno tag, si eseguirà il training del progetto e si userà l'URL dell'endpoint di stima del progetto per testarlo a livello di codice. Usare questo esempio come modello per la creazione di un'app di riconoscimento immagini personalizzata.
 
 > [!NOTE]
 > Se si vuole creare un modello di classificazione ed eseguirne il training _senza_ scrivere codice, vedere invece le [istruzioni basate sul browser](../../getting-started-build-a-classifier.md).
 
-## <a name="prerequisites"></a>Prerequisiti 
+Usare la libreria client di Visione personalizzata per Python per:
 
-- [Python 2.7 o 3.5 e versioni successive](https://www.python.org/downloads/)
-- Strumento [pip](https://pip.pypa.io/en/stable/installing/)
-- [!INCLUDE [create-resources](../../includes/create-resources.md)]
+* Creare un nuovo progetto Visione personalizzata
+* Aggiungere tag al progetto
+* Caricare e contrassegnare le immagini
+* Eseguire il training del progetto
+* Pubblicare l'iterazione corrente
+* Testare l'endpoint di stima
 
-## <a name="install-the-custom-vision-client-library"></a>Installare la libreria client di Visione personalizzata
+[Documentazione di riferimento](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python) | [Codice sorgente della libreria](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/cognitiveservices/azure-cognitiveservices-vision-customvision/azure/cognitiveservices/vision/customvision) | [Pacchetto (PyPI)](https://pypi.org/project/azure-cognitiveservices-vision-customvision/) | [Esempi](https://docs.microsoft.com/samples/browse/?products=azure&term=vision&terms=vision&languages=python)
 
-Per scrivere un'app di analisi immagini con Visione personalizzata per Python, è necessaria la libreria client di Visione personalizzata. In PowerShell eseguire questo comando:
+## <a name="prerequisites"></a>Prerequisiti
+
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
+* [Python 3.x](https://www.python.org/)
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/?microsoft_azure_marketplace_ItemHideKey=microsoft_azure_cognitiveservices_customvision#create/Microsoft.CognitiveServicesCustomVision"  title="creare una risorsa Visione personalizzata"  target="_blank">creare una risorsa Visione personalizzata <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per creare la risorsa di training e di previsione e ottenere le chiavi e l'endpoint. Attendere che venga distribuita e fare clic sul pulsante **Vai alla risorsa** .
+    * La chiave e l'endpoint delle risorse create sono necessari per connettere l'applicazione a Visione personalizzata. Le chiavi e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
+    * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
+
+## <a name="setting-up"></a>Configurazione
+
+### <a name="install-the-client-library"></a>Installare la libreria client
+
+Per scrivere un'app di analisi immagini con Visione personalizzata per Python, è necessaria la libreria client di Visione personalizzata. Dopo l'installazione di Python, eseguire il comando seguente in PowerShell o in una finestra della console:
 
 ```powershell
 pip install azure-cognitiveservices-vision-customvision
 ```
 
-[!INCLUDE [get-keys](../../includes/get-keys.md)]
+### <a name="create-a-new-python-application"></a>Creare una nuova applicazione Python
 
-[!INCLUDE [python-get-images](../../includes/python-get-images.md)]
+Creare un nuovo file Python e importare le librerie seguenti.
 
-## <a name="add-the-code"></a>Aggiungere il codice
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_imports)]
 
-Creare un nuovo file denominato *sample.py* nella directory del progetto preferita.
+> [!TIP]
+> Si vuole visualizzare l'intero file di codice dell'argomento di avvio rapido? È possibile trovarlo [in GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ImageClassification/CustomVisionQuickstart.cs), che contiene gli esempi di codice di questo argomento.
 
-## <a name="create-the-custom-vision-project"></a>Creare il progetto di Visione personalizzata
+Creare le variabili per l'endpoint e le chiavi della sottoscrizione di Azure della risorsa.
 
-Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. Inserire le chiavi di sottoscrizione nelle definizioni appropriate. Inoltre, ottenere l'URL dell'endpoint dalla pagina Impostazioni del sito Visione personalizzata.
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_creds)]
+
+> [!IMPORTANT]
+> Accedere al portale di Azure. Se le risorse Visione personalizzata create nella sezione **Prerequisiti** sono state distribuite correttamente, fare clic sul pulsante **Vai alla risorsa** in **Passaggi successivi** . Le chiavi e l'endpoint saranno disponibili nella pagina **Chiavi ed endpoint** della risorsa in **Gestione risorse** . Sarà necessario recuperare sia la chiave di training che la chiave di previsione.
+>
+> È possibile trovare il valore dell'ID della risorsa di previsione nella scheda **Panoramica** della risorsa, indicato come **ID sottoscrizione** .
+>
+> Al termine, ricordarsi di rimuovere le chiavi dal codice e di non renderle mai pubbliche. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) di Servizi cognitivi.
+
+## <a name="object-model"></a>Modello a oggetti
+
+|Nome|Description|
+|---|---|
+|[CustomVisionTrainingClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) | Questa classe gestisce la creazione, il training e la pubblicazione dei modelli. |
+|[CustomVisionPredictionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python)| Questa classe gestisce l'esecuzione di query sui modelli per le previsioni di classificazione immagini.|
+|[ImagePrediction](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.models.imageprediction?view=azure-python)| Questa classe definisce una singola previsione di oggetto in una singola immagine. Include le proprietà per l'ID e il nome dell'oggetto, la posizione del rettangolo di delimitazione dell'oggetto e un punteggio di attendibilità.|
+
+## <a name="code-examples"></a>Esempi di codice
+
+Questi frammenti di codice mostrano come eseguire le attività seguenti con la libreria client di Visione personalizzata per Python:
+
+* [Autenticare il client](#authenticate-the-client)
+* [Creare un nuovo progetto Visione personalizzata](#create-a-new-custom-vision-project)
+* [Aggiungere tag al progetto](#add-tags-to-the-project)
+* [Caricare e contrassegnare le immagini](#upload-and-tag-images)
+* [Eseguire il training del progetto](#train-the-project)
+* [Pubblicare l'iterazione corrente](#publish-the-current-iteration)
+* [Testare l'endpoint di stima](#test-the-prediction-endpoint)
+
+## <a name="authenticate-the-client"></a>Autenticare il client
+
+Creare un'istanza dei client di training e di previsione con l'endpoint e le chiavi. Creare oggetti **ApiKeyServiceClientCredentials** con le chiavi e usarli con l'endpoint per creare un oggetto [CustomVisionTrainingClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.customvisiontrainingclient?view=azure-python) e [CustomVisionPredictionClient](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.prediction.customvisionpredictionclient?view=azure-python).
+
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_auth)]
+
+## <a name="create-a-new-custom-vision-project"></a>Creare un nuovo progetto Visione personalizzata
+
+Per creare un nuovo progetto di Servizio visione artificiale personalizzato, aggiungere il codice seguente allo script. 
 
 Per specificare altre opzioni quando si crea il progetto, come illustrato in [Creare un classificatore](../../getting-started-build-a-classifier.md) nella guida al portale Web, vedere il metodo [create_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#create-project-name--description-none--domain-id-none--classification-type-none--target-export-platforms-none--custom-headers-none--raw-false----operation-config-).  
 
-```Python
-from azure.cognitiveservices.vision.customvision.training import CustomVisionTrainingClient
-from azure.cognitiveservices.vision.customvision.training.models import ImageFileCreateBatch, ImageFileCreateEntry
-from msrest.authentication import ApiKeyCredentials
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_create)]
 
-ENDPOINT = "<your API endpoint>"
+## <a name="add-tags-to-the-project"></a>Aggiungere tag al progetto
 
-# Replace with a valid key
-training_key = "<your training key>"
-prediction_key = "<your prediction key>"
-prediction_resource_id = "<your prediction resource id>"
+Per aggiungere tag di classificazione al progetto, aggiungere il codice seguente:
 
-publish_iteration_name = "classifyModel"
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_tags)]
 
-credentials = ApiKeyCredentials(in_headers={"Training-key": training_key})
-trainer = CustomVisionTrainingClient(ENDPOINT, credentials)
-
-# Create a new project
-print ("Creating project...")
-project = trainer.create_project("My New Project")
-```
-
-## <a name="create-tags-in-the-project"></a>Creare tag nel progetto
-
-Per creare i tag di classificazione per il progetto, aggiungere il codice seguente alla fine del file *sample.py*:
-
-```Python
-# Make two tags in the new project
-hemlock_tag = trainer.create_tag(project.id, "Hemlock")
-cherry_tag = trainer.create_tag(project.id, "Japanese Cherry")
-```
 
 ## <a name="upload-and-tag-images"></a>Caricare e contrassegnare le immagini
 
+Scaricare prima di tutto le immagini di esempio per questo progetto. Salvare il contenuto della [cartella immagini di esempio](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/CustomVision/ImageClassification/Images) nel dispositivo locale.
+
 Per aggiungere le immagini di esempio al progetto, inserire il codice seguente dopo la creazione dei tag. Questo codice carica ogni immagine con il tag corrispondente. È possibile caricare fino a 64 immagini in un singolo batch.
 
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_tags)]
+
 > [!NOTE]
-> Occorrerà anche modificare il percorso delle immagini in base a dove è stato scaricato il repository di esempi di Python SDK per Servizi cognitivi.
+> Sarà necessario cambiare il percorso delle immagini in base a dove è stato scaricato il repository di esempi di Python SDK per Servizi cognitivi.
 
-```Python
-base_image_url = "<path to repo directory>/cognitive-services-python-sdk-samples/samples/vision/"
+## <a name="train-the-project"></a>Eseguire il training del progetto
 
-print("Adding images...")
+Questo codice crea la prima iterazione del modello di previsione. 
 
-image_list = []
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_train)]
 
-for image_num in range(1, 11):
-    file_name = "hemlock_{}.jpg".format(image_num)
-    with open(base_image_url + "images/Hemlock/" + file_name, "rb") as image_contents:
-        image_list.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), tag_ids=[hemlock_tag.id]))
+> [!TIP]
+> Eseguire il training con i tag selezionati
+>
+> Facoltativamente, è possibile eseguire il training solo su un subset dei tag applicati. Questa operazione può essere eseguita se non è ancora stato applicato un numero sufficiente di determinati tag, ma si dispone di un numero sufficiente di altri. Nella chiamata **[train_project](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-customvision/azure.cognitiveservices.vision.customvision.training.operations.customvisiontrainingclientoperationsmixin?view=azure-python#train-project-project-id--training-type-none--reserved-budget-in-hours-0--force-train-false--notification-email-address-none--selected-tags-none--custom-headers-none--raw-false----operation-config-&preserve-view=true)** impostare il parametro opzionale *selected_tags* su un elenco di stringhe di ID dei tag da usare. Il modello eseguirà il training in modo da riconoscere solo i tag nell'elenco.
 
-for image_num in range(1, 11):
-    file_name = "japanese_cherry_{}.jpg".format(image_num)
-    with open(base_image_url + "images/Japanese Cherry/" + file_name, "rb") as image_contents:
-        image_list.append(ImageFileCreateEntry(name=file_name, contents=image_contents.read(), tag_ids=[cherry_tag.id]))
+## <a name="publish-the-current-iteration"></a>Pubblicare l'iterazione corrente
 
-upload_result = trainer.create_images_from_files(project.id, ImageFileCreateBatch(images=image_list))
-if not upload_result.is_batch_successful:
-    print("Image batch upload failed.")
-    for image in upload_result.images:
-        print("Image status: ", image.status)
-    exit(-1)
-```
+L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata. Il codice seguente rende disponibile l'iterazione corrente del modello per l'esecuzione di query. 
 
-## <a name="train-and-publish-the-project"></a>Eseguire il training del progetto e pubblicarlo
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_publish)]
 
-Questo codice crea la prima iterazione del modello di previsione e quindi la pubblica nell'endpoint di previsione. Il nome assegnato all'iterazione pubblicata può essere usato per inviare le richieste di stima. L'iterazione è disponibile nell'endpoint di stima solo dopo che è stata pubblicata.
 
-```Python
-import time
-
-print ("Training...")
-iteration = trainer.train_project(project.id)
-while (iteration.status != "Completed"):
-    iteration = trainer.get_iteration(project.id, iteration.id)
-    print ("Training status: " + iteration.status)
-    time.sleep(1)
-
-# The iteration is now trained. Publish it to the project endpoint
-trainer.publish_iteration(project.id, iteration.id, publish_iteration_name, prediction_resource_id)
-print ("Done!")
-```
-
-## <a name="use-the-prediction-endpoint"></a>Usare l'endpoint di stima
+## <a name="test-the-prediction-endpoint"></a>Testare l'endpoint di stima
 
 Per inviare un'immagine all'endpoint di stima e recuperare la stima, aggiungere il codice seguente alla fine del file:
 
-```python
-from azure.cognitiveservices.vision.customvision.prediction import CustomVisionPredictionClient
-from msrest.authentication import ApiKeyCredentials
-
-# Now there is a trained endpoint that can be used to make a prediction
-prediction_credentials = ApiKeyCredentials(in_headers={"Prediction-key": prediction_key})
-predictor = CustomVisionPredictionClient(ENDPOINT, prediction_credentials)
-
-with open(base_image_url + "images/Test/test_image.jpg", "rb") as image_contents:
-    results = predictor.classify_image(
-        project.id, publish_iteration_name, image_contents.read())
-
-    # Display the results.
-    for prediction in results.predictions:
-        print("\t" + prediction.tag_name +
-              ": {0:.2f}%".format(prediction.probability * 100))
-```
+[!code-python[](~/cognitive-services-quickstart-code/python/CustomVision/ImageClassification/CustomVisionQuickstart.py?name=snippet_test)]
 
 ## <a name="run-the-application"></a>Eseguire l'applicazione
 
-Eseguire *sample.py*.
+Eseguire *CustomVisionQuickstart.py* .
 
 ```powershell
-python sample.py
+python CustomVisionQuickstart.py
 ```
 
 L'output dell'applicazione dovrebbe essere simile al testo seguente:
@@ -169,16 +161,17 @@ Done!
         Japanese Cherry: 0.01%
 ```
 
-Si può quindi verificare che all'immagine di test (disponibile in **<base_image_url>images/Test/**) siano stati applicati i tag appropriati. È anche possibile tornare al [sito Web di Visione personalizzata](https://customvision.ai) e vedere lo stato corrente del progetto appena creato.
+Si può quindi verificare che all'immagine di test (disponibile in **<url_immagine_base>/Images/Test** ) siano stati applicati i tag appropriati. È anche possibile tornare al [sito Web di Visione personalizzata](https://customvision.ai) e vedere lo stato corrente del progetto appena creato.
 
 [!INCLUDE [clean-ic-project](../../includes/clean-ic-project.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È stato illustrato come è possibile eseguire ogni passaggio del processo di rilevamento degli oggetti nel codice. Questo esempio esegue una sola iterazione del training, ma spesso è necessario eseguire il training e il test del modello più volte per ottenere una maggiore precisione.
+In questa guida si è appreso come eseguire ogni passaggio del processo di classificazione delle immagini nel codice. Questo esempio esegue una sola iterazione del training, ma spesso è necessario eseguire il training e il test del modello più volte per ottenere una maggiore precisione.
 
 > [!div class="nextstepaction"]
 > [Testare un modello e ripeterne il training](../../test-your-model.md)
 
 * Informazioni su Visione personalizzata
+* Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/CustomVision/ImageClassification/CustomVisionQuickstart.cs)
 * [Documentazione di riferimento sull'SDK](https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/customvision?view=azure-python)

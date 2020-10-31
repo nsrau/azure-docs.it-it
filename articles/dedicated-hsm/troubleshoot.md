@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.custom: mvc, seodec18
 ms.date: 12/07/2018
 ms.author: mbaldwin
-ms.openlocfilehash: 622ead2ab58075fe6edbe2c013f14391624fd2b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b911181abea06894873e64da51afbb8799f1066a
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88590456"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927839"
 ---
 # <a name="troubleshooting-the-azure-dedicated-hsm-service"></a>Risoluzione dei problemi relativi al servizio HSM dedicato di Azure
 
@@ -71,7 +71,7 @@ Quando per uno specifico stamp o per un'area viene effettuato il provisioning di
 ###  <a name="how-do-i-see-hsms-when-provisioned"></a>Come vengono visualizzati gli HSM dopo il provisioning?
 Dato che il servizio HSM dedicato è inserito nell'elenco elementi consentiti, nel portale di Azure viene considerato di tipo nascosto. Per visualizzare le risorse HSM, è necessario selezionare la casella di controllo "Mostra tipi nascosti" come illustrato di seguito. La risorsa scheda di interfaccia di rete segue sempre l'HSM e consente di trovare l'indirizzo IP dell'HSM prima di usare SSH per la connessione.
 
-![Delega per la subnet](./media/troubleshoot/hsm-provisioned.png)
+![Screenshot con la casella di controllo Mostra tipi nascosti evidenziata](./media/troubleshoot/hsm-provisioned.png)
 
 ## <a name="networking-resources"></a>Risorse di rete
 
@@ -85,7 +85,7 @@ Il servizio HSM dedicato usa il gateway ExpressRoute come tunnel per la comunica
 
 I modelli di esempio forniti per il servizio HSM dedicato presuppongono che l'indirizzo IP dell'HSM verrà acquisito automaticamente da un intervallo di subnet specificato. È possibile specificare un indirizzo IP esplicito per l'HSM tramite un attributo "NetworkInterfaces" nel modello di Resource Manager. 
 
-![Delega per la subnet](./media/troubleshoot/private-ip-address.png)
+![Screenshot che mostra il modello di esempio per HSM dedicato.](./media/troubleshoot/private-ip-address.png)
 
 ## <a name="hsm-initialization"></a>Inizializzazione di HSM
 

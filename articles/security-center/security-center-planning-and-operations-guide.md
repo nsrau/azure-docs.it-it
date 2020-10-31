@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: tutorial
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: de6a416666866a4089d22f2fa047dc860c922d3c
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 36c15907c0f45befacf35389652f6d91c0ab1958
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341244"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787908"
 ---
 # <a name="planning-and-operations-guide"></a>Guida alla pianificazione e alle operazioni
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud che intendono usare il Centro sicurezza di Azure.
@@ -71,8 +71,8 @@ Il Centro sicurezza consente a questi utenti di svolgere i relativi ruoli, Ad es
 
 Il Centro sicurezza usa il [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md), che fornisce [ruoli predefiniti](../role-based-access-control/built-in-roles.md) che possono essere assegnati a utenti, gruppi e servizi in Azure. Quando un utente apre il Centro sicurezza, visualizza solo informazioni correlate alle risorse a cui ha accesso. All'utente viene infatti assegnato il ruolo Proprietario, Collaboratore o Lettore per la sottoscrizione o il gruppo di risorse a cui appartiene la risorsa. Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:
 
-- **Ruolo con autorizzazioni di lettura per la sicurezza**: un utente che appartiene a questo ruolo può visualizzare solo le configurazioni del Centro sicurezza, inclusi avvisi, criteri, raccomandazioni e integrità, ma non potrà apportare modifiche.
-- **Amministratore della protezione**: come il ruolo con autorizzazioni di lettura per la sicurezza, ma è anche in grado di aggiornare i criteri di sicurezza e di ignorare raccomandazioni e avvisi.
+- **Ruolo con autorizzazioni di lettura per la sicurezza** : un utente che appartiene a questo ruolo può visualizzare solo le configurazioni del Centro sicurezza, inclusi avvisi, criteri, raccomandazioni e integrità, ma non potrà apportare modifiche.
+- **Amministratore della protezione** : come il ruolo con autorizzazioni di lettura per la sicurezza, ma è anche in grado di aggiornare i criteri di sicurezza e di ignorare raccomandazioni e avvisi.
 
 I ruoli del Centro sicurezza descritti in precedenza non hanno accesso ad altre aree del servizio di Azure come Archiviazione, Web e dispositivi mobili o Internet delle cose.
 
@@ -175,7 +175,7 @@ La panoramica del Centro sicurezza fornisce una visualizzazione unificata della 
 > [!NOTE]
 > Il Centro sicurezza non interferisce con le normali procedure operative, esegue un monitoraggio passivo delle distribuzioni e fornisce raccomandazioni in base ai criteri di sicurezza abilitati.
 
-Quando si acconsente esplicitamente per la prima volta all'uso del Centro sicurezza per l'ambiente Azure corrente, assicurarsi di esaminare tutte le raccomandazioni nella pagina **Raccomandazioni**.
+Quando si acconsente esplicitamente per la prima volta all'uso del Centro sicurezza per l'ambiente Azure corrente, assicurarsi di esaminare tutte le raccomandazioni nella pagina **Raccomandazioni** .
 
 Pianificare una verifica dell'opzione Intelligence per le minacce come parte delle operazioni di sicurezza giornaliere. Questa opzione consente di identificare le minacce alla sicurezza per l'ambiente specifico, ad esempio determinare se un computer specifico fa parre di un botnet.
 
@@ -207,9 +207,9 @@ Per quanto offrire una guida alla creazione di un piano di risposta agli eventi 
 
 È possibile usare gli avvisi del Centro sicurezza durante le fasi seguenti.
 
-* **Rilevamento**: identificazione di un'attività sospetta in una o più risorse.
-* **Valutazione**: esecuzione della valutazione iniziale per ottenere altre informazioni sull'attività sospetta.
-* **Diagnosi**: uso dei passaggi di correzione per completare la procedura tecnica per risolvere il problema.
+* **Rilevamento** : identificazione di un'attività sospetta in una o più risorse.
+* **Valutazione** : esecuzione della valutazione iniziale per ottenere altre informazioni sull'attività sospetta.
+* **Diagnosi** : uso dei passaggi di correzione per completare la procedura tecnica per risolvere il problema.
 
 Ogni avviso di sicurezza fornisce informazioni che possono essere usate per comprendere meglio la natura dell'attacco e trovare soluzioni di mitigazione. Alcuni avvisi forniscono anche collegamenti ad altre informazioni o fonti di informazioni all'interno di Azure. È possibile usare le informazioni fornite per ulteriori ricerche e per avviare la mitigazione dei rischi. È inoltre possibile eseguire ricerche nei dati relativi alla sicurezza archiviati nell'area di lavoro.
 

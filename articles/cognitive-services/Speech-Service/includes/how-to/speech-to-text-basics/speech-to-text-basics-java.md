@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.custom: devx-track-java
 ms.author: trbye
-ms.openlocfilehash: 3e4d1b090f1c639f41a54de11d9380a07db62e84
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: badc3cd372ca992a83678ef8d32ac76966ba9b94
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91376997"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92499253"
 ---
 Una delle principali funzionalità del servizio Voce è la possibilità di riconoscere e trascrivere la voce umana, ovvero di convertire la voce in testo scritto. Questa guida di avvio rapido illustra come usare Speech SDK in app e prodotti per eseguire la conversione della voce in testo scritto di alta qualità.
 
@@ -31,76 +31,67 @@ Prima di poter eseguire qualsiasi operazione, è necessario installare Speech SD
 
 ## <a name="create-a-speech-configuration"></a>Creare una configurazione di Voce
 
-Per chiamare il servizio Voce con Speech SDK, è necessario creare una classe [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable). Questa classe include informazioni sulla sottoscrizione, ad esempio la chiave e l'area associata, l'endpoint, l'host o il token di autorizzazione.
-
-> [!NOTE]
-> Sia che si esegua il riconoscimento vocale, la sintesi vocale, la traduzione o il riconoscimento finalità, sarà sempre necessario creare una configurazione.
-
-Esistono diversi modi per inizializzare [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable):
-
-* Con una sottoscrizione: passare una chiave e l'area associata.
-* Con un endpoint: passare un endpoint del servizio Voce. La chiave e il token di autorizzazione sono facoltativi.
-* Con un host: passare l'indirizzo di un host. La chiave e il token di autorizzazione sono facoltativi.
-* Con un token di autorizzazione: passare un token di autorizzazione e l'area associata.
-
-Vediamo come viene creata una classe [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) usando una chiave e un'area. Per trovare l'identificatore di area, vedere la pagina del [supporto a livello di area](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk).
-
-```java
-SpeechConfig config = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
-
-## <a name="initialize-a-recognizer"></a>Inizializzare lo strumento di riconoscimento
-
-Dopo aver creato una classe [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable), il passaggio successivo consiste nell'inizializzare [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable). Quando si inizializza [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable), si passa `SpeechConfig`. In questo modo vengono fornite le credenziali richieste dal servizio Voce per convalidare la richiesta.
-
-```java
-SpeechRecognizer recognizer = new SpeechRecognizer(config);
-```
-
-## <a name="recognize-from-microphone-or-file"></a>Riconoscimento da microfono o file
-
-Se si vuole specificare il dispositivo di input audio, è necessario creare un oggetto [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable) e passarlo come parametro quando si inizializza [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable).
-
-Per eseguire il riconoscimento vocale con il microfono del dispositivo, creare un oggetto `AudioConfig` usando `fromDefaultMicrophoneInput()`, quindi passare la configurazione audio quando si crea l'oggetto `SpeechRecognizer`.
+Per chiamare il servizio Voce con Speech SDK, è necessario creare una classe [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable). Questa classe include informazioni sulla sottoscrizione, ad esempio la chiave e l'area associata, l'endpoint, l'host o il token di autorizzazione. Creare una classe [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable) usando la chiave e l'area. Per trovare l'identificatore di area, vedere la pagina del [supporto a livello di area](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk).
 
 ```java
 import java.util.concurrent.Future;
 import com.microsoft.cognitiveservices.speech.*;
 
-AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
-SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
+SpeechConfig config = SpeechConfig.fromSubscription("YourSubscriptionKey", "YourServiceRegion");
 ```
 
-> [!TIP]
-> [Informazioni su come ottenere l'ID del dispositivo di input audio](../../../how-to-select-audio-input-devices.md).
+Esistono alcuni altri modi per inizializzare una classe [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable):
 
-Se si vuole specificare un file audio invece di usare un microfono per il riconoscimento vocale, è comunque necessario creare un oggetto `AudioConfig`. Tuttavia, quando si crea [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable), invece di chiamare `fromDefaultMicrophoneInput()`, si chiamerà `fromWavFileInput()` e si passerà il parametro `filename`.
+* Con un endpoint: passare un endpoint del servizio Voce. La chiave e il token di autorizzazione sono facoltativi.
+* Con un host: passare l'indirizzo di un host. La chiave e il token di autorizzazione sono facoltativi.
+* Con un token di autorizzazione: passare un token di autorizzazione e l'area associata.
+
+> [!NOTE]
+> Sia che si esegua il riconoscimento vocale, la sintesi vocale, la traduzione o il riconoscimento finalità, sarà sempre necessario creare una configurazione.
+
+## <a name="recognize-from-microphone"></a>Riconoscimento da microfono
+
+Per eseguire il riconoscimento vocale usando il microfono del dispositivo, creare un oggetto `AudioConfig` usando `fromDefaultMicrophoneInput()`. Quindi, inizializzare una classe [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable), passando la classe `audioConfig` e `config`.
+
+```java
+AudioConfig audioConfig = AudioConfig.fromDefaultMicrophoneInput();
+SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
+
+System.out.println("Speak into your microphone.");
+Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
+SpeechRecognitionResult result = task.get();
+System.out.println("RECOGNIZED: Text=" + result.getText());
+```
+
+Se si vuole usare un dispositivo di input audio *specifico* , è necessario specificare l'ID del dispositivo nella classe `AudioConfig`. Informazioni su [come ottenere l'ID del dispositivo](../../../how-to-select-audio-input-devices.md) di input audio.
+
+## <a name="recognize-from-file"></a>Riconoscimento da file
+
+Se si vuole specificare un file audio invece di usare un microfono per il riconoscimento vocale, è comunque necessario creare un oggetto `AudioConfig`. Tuttavia, quando si crea [`AudioConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-java-stable), invece di chiamare `fromDefaultMicrophoneInput()`, si chiamerà `fromWavFileInput()` e si passerà il percorso file.
 
 ```java
 AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
 SpeechRecognizer recognizer = new SpeechRecognizer(config, audioConfig);
+
+Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
+SpeechRecognitionResult result = task.get();
+System.out.println("RECOGNIZED: Text=" + result.getText());
 ```
 
 ## <a name="recognize-speech"></a>Riconoscimento vocale
 
-La [classe Recognizer](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable) per Speech SDK per Java espone alcuni metodi che è possibile usare per il riconoscimento vocale.
-
-* Riconoscimento singolo (asincrono): esegue il riconoscimento in modalità non bloccante (asincrona). Verrà riconosciuta una singola espressione. La fine di una singola espressione viene determinata restando in ascolto del silenzio al termine o finché non vengono elaborati al massimo 15 secondi di audio.
-* Riconoscimento continuo (asincrono): avvia in modo asincrono l'operazione di riconoscimento continuo. Se si vuole specificare un file audio invece di usare un microfono, è comunque necessario fornire `audioConfig`. Per arrestare il riconoscimento continuo asincrono, chiamare [stopContinuousRecognitionAsync](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync).
-
-> [!NOTE]
-> Per altre informazioni, vedere come [scegliere una modalità di riconoscimento vocale](../../../how-to-choose-recognition-mode.md).
+La [classe Recognizer](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable&preserve-view=true) per Speech SDK per Java espone alcuni metodi che è possibile usare per il riconoscimento vocale.
 
 ### <a name="single-shot-recognition"></a>Riconoscimento singolo
 
-Ecco un esempio di riconoscimento singolo asincrono usando [`recognizeOnceAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-java-stable):
+Il riconoscimento singolo riconosce in modo asincrono una singola espressione. La fine di una singola espressione viene determinata restando in ascolto del silenzio al termine o finché non vengono elaborati al massimo 15 secondi di audio. Ecco un esempio di riconoscimento singolo asincrono usando [`recognizeOnceAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-java-stable):
 
 ```java
 Future<SpeechRecognitionResult> task = recognizer.recognizeOnceAsync();
 SpeechRecognitionResult result = task.get();
 ```
 
-Per gestire il risultato è necessario scrivere del codice. Questo esempio valuta [`result.getReason()`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.resultreason?view=azure-java-stable):
+Per gestire il risultato è necessario scrivere del codice. Questo esempio valuta [`result.getReason()`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.resultreason?view=azure-java-stable&preserve-view=true):
 
 * Stampa il risultato del riconoscimento: `ResultReason.RecognizedSpeech`
 * Se non esiste una corrispondenza di riconoscimento, informa l'utente: `ResultReason.NoMatch`
@@ -133,7 +124,7 @@ switch (result.getReason()) {
 
 Il riconoscimento continuo è un po' più impegnativo rispetto al riconoscimento singolo. Per ottenere i risultati del riconoscimento, è necessario sottoscrivere gli eventi `recognizing`, `recognized` e `canceled`. Per arrestare il riconoscimento, è necessario chiamare [`stopContinuousRecognitionAsync`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync). Ecco un esempio di riconoscimento continuo eseguito su un file di input audio.
 
-Per iniziare, definire l'input e inizializzare [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable):
+Per iniziare, definire l'input e inizializzare [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable&preserve-view=true):
 
 ```java
 AudioConfig audioConfig = AudioConfig.fromWavFileInput("YourAudioFile.wav");
@@ -146,12 +137,12 @@ Successivamente, creare una variabile per gestire lo stato del riconoscimento vo
 private static Semaphore stopTranslationWithFileSemaphore;
 ```
 
-Verranno sottoscritti gli eventi inviati da [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable).
+Verranno sottoscritti gli eventi inviati da [`SpeechRecognizer`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer?view=azure-java-stable&preserve-view=true).
 
-* [`recognizing`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognizing?view=azure-java-stable): segnale per gli eventi contenenti i risultati del riconoscimento intermedio.
-* [`recognized`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognized?view=azure-java-stable): segnale per gli eventi contenenti i risultati del riconoscimento finale, che indicano un tentativo di riconoscimento riuscito.
-* [`sessionStopped`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.recognizer.sessionstopped?view=azure-java-stable): segnale per gli eventi che indicano la fine di una sessione di riconoscimento (operazione).
-* [`canceled`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.canceled?view=azure-java-stable): segnale per gli eventi contenenti risultati di riconoscimento annullati (a indicare un tentativo di riconoscimento annullato in seguito a una richiesta di annullamento diretta o, in alternativa, a un errore di trasporto o di protocollo).
+* [`recognizing`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognizing?view=azure-java-stable&preserve-view=true): segnale per gli eventi contenenti i risultati del riconoscimento intermedio.
+* [`recognized`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.recognized?view=azure-java-stable&preserve-view=true): segnale per gli eventi contenenti i risultati del riconoscimento finale, che indicano un tentativo di riconoscimento riuscito.
+* [`sessionStopped`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.recognizer.sessionstopped?view=azure-java-stable&preserve-view=true): segnale per gli eventi che indicano la fine di una sessione di riconoscimento (operazione).
+* [`canceled`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechrecognizer.canceled?view=azure-java-stable&preserve-view=true): segnale per gli eventi contenenti risultati di riconoscimento annullati (a indicare un tentativo di riconoscimento annullato in seguito a una richiesta di annullamento diretta o, in alternativa, a un errore di trasporto o di protocollo).
 
 ```java
 // First initialize the semaphore.
@@ -205,7 +196,7 @@ recognizer.stopContinuousRecognitionAsync().get();
 
 Quando si usa il riconoscimento continuo, è possibile abilitare l'elaborazione della dettatura usando la corrispondente funzione. In questa modalità l'istanza di SpeechConfig interpreta le descrizioni testuali delle strutture di frasi, ad esempio la punteggiatura. Ad esempio, l'espressione "Vivi in città punto interrogativo" verrebbe interpretata come "Vivi in città?".
 
-Per abilitare la modalità di dettatura, usare il metodo [`enableDictation`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-java-stable) in [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable).
+Per abilitare la modalità di dettatura, usare il metodo [`enableDictation`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-java-stable&preserve-view=true) in [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable&preserve-view=true).
 
 ```java
 config.enableDictation();
@@ -213,13 +204,13 @@ config.enableDictation();
 
 ## <a name="change-source-language"></a>Cambiare la lingua di origine
 
-Un'attività comune per il riconoscimento vocale è la specifica della lingua di input (o di origine). Vediamo come cambiare la lingua di input in francese. Nel codice trovare [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable), quindi aggiungere questa riga al di sotto.
+Un'attività comune per il riconoscimento vocale è la specifica della lingua di input (o di origine). Vediamo come cambiare la lingua di input in francese. Nel codice trovare [`SpeechConfig`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig?view=azure-java-stable&preserve-view=true), quindi aggiungere questa riga al di sotto.
 
 ```java
 config.setSpeechRecognitionLanguage("fr-FR");
 ```
 
-[`setSpeechRecognitionLanguage`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setspeechrecognitionlanguage?view=azure-java-stable) è un parametro che accetta una stringa come argomento. È possibile specificare qualsiasi valore nell'elenco di [impostazioni locali/lingue supportate](../../../language-support.md).
+[`setSpeechRecognitionLanguage`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setspeechrecognitionlanguage?view=azure-java-stable&preserve-view=true) è un parametro che accetta una stringa come argomento. È possibile specificare qualsiasi valore nell'elenco di [impostazioni locali/lingue supportate](../../../language-support.md).
 
 ## <a name="improve-recognition-accuracy"></a>Migliorare l'accuratezza del riconoscimento
 
@@ -228,9 +219,9 @@ config.setSpeechRecognitionLanguage("fr-FR");
 > [!IMPORTANT]
 > La funzionalità dell'elenco di frasi è disponibile solo in inglese.
 
-Per usare un elenco di frasi, creare prima di tutto un oggetto [`PhraseListGrammar`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar?view=azure-java-stable), quindi aggiungere parole o frasi specifiche con [`AddPhrase`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar.addphrase?view=azure-java-stable#com_microsoft_cognitiveservices_speech_PhraseListGrammar_addPhrase_String_).
+Per usare un elenco di frasi, creare prima di tutto un oggetto [`PhraseListGrammar`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar?view=azure-java-stable&preserve-view=true), quindi aggiungere parole o frasi specifiche con [`AddPhrase`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar.addphrase?view=azure-java-stable#com_microsoft_cognitiveservices_speech_PhraseListGrammar_addPhrase_String_).
 
-Tutte le modifiche apportate a [`PhraseListGrammar`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar?view=azure-java-stable) diventano effettive al successivo riconoscimento o dopo una riconnessione al servizio Voce.
+Tutte le modifiche apportate a [`PhraseListGrammar`](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.phraselistgrammar?view=azure-java-stable&preserve-view=true) diventano effettive al successivo riconoscimento o dopo una riconnessione al servizio Voce.
 
 ```java
 PhraseListGrammar phraseList = PhraseListGrammar.fromRecognizer(recognizer);

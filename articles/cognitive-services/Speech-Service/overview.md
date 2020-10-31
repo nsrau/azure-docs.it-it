@@ -10,19 +10,19 @@ ms.subservice: speech-service
 ms.topic: overview
 ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: b15a034a73882287e70afcbcaa9c72ee931c9f78
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 09641fb66d2f68054d23abbf8ee9f4324e19832f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91630203"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521510"
 ---
 # <a name="what-is-the-speech-service"></a>Informazioni sul Servizio di riconoscimento vocale
 
 Il servizio Voce di Azure combina il riconoscimento vocale, la sintesi vocale e la traduzione vocale in un'unica sottoscrizione di Azure. Con l'[interfaccia della riga di comando di Voce](spx-overview.md), [Speech SDK](speech-sdk-reference.md), [Speech Devices SDK](https://aka.ms/sdsdk-quickstart), [Speech Studio](https://speech.microsoft.com/) o le [API REST](rest-apis.md), è facile abilitare il riconoscimento vocale per applicazioni, strumenti e dispositivi.
 
 > [!IMPORTANT]
-> Il servizio Voce ha sostituito l'API Riconoscimento vocale Bing e Traduzione vocale. Vedere _Guide alle procedure > Migrazione_ per istruzioni relative alla migrazione.
+> Il servizio Voce ha sostituito l'API Riconoscimento vocale Bing e Traduzione vocale. Vedere la sezione _Migrazione_ per istruzioni relative alla migrazione.
 
 Le funzionalità seguenti fanno parte del servizio Voce. Per altre informazioni sui casi d'uso comuni per ogni funzionalità, usare i collegamenti in questa tabella o esplorare la documentazione di riferimento delle API.
 
@@ -44,9 +44,9 @@ Le funzionalità seguenti fanno parte del servizio Voce. Per altre informazioni 
 
 ## <a name="try-the-speech-service-for-free"></a>Provare gratuitamente il Servizio di riconoscimento vocale
 
-Per eseguire la procedura seguente sono necessari sia un account Microsoft che un account Azure. Se non si ha un account Microsoft, è possibile iscriversi per ottenerne uno gratuitamente nel [portale per gli account Microsoft](https://account.microsoft.com/account). Selezionare **Accedi con Microsoft** e quindi, quando viene chiesto di accedere, selezionare **Crea un account Microsoft**. Seguire i passaggi per creare e verificare il nuovo account Microsoft.
+Per eseguire la procedura seguente sono necessari sia un account Microsoft che un account Azure. Se non si ha un account Microsoft, è possibile iscriversi per ottenerne uno gratuitamente nel [portale per gli account Microsoft](https://account.microsoft.com/account). Selezionare **Accedi con Microsoft** e quindi, quando viene chiesto di accedere, selezionare **Crea un account Microsoft** . Seguire i passaggi per creare e verificare il nuovo account Microsoft.
 
-Una volta che si ha un account Microsoft, passare alla [pagina di iscrizione ad Azure](https://azure.microsoft.com/free/ai/), selezionare **Inizia gratuitamente**, quindi creare un nuovo account Azure usando l'account Microsoft.
+Una volta che si ha un account Microsoft, passare alla [pagina di iscrizione ad Azure](https://azure.microsoft.com/free/ai/), selezionare **Inizia gratuitamente** , quindi creare un nuovo account Azure usando l'account Microsoft.
 
 > [!NOTE]
 > Il servizio Voce ha due livelli di servizio: gratuito e con sottoscrizione, con limitazioni e vantaggi diversi. Quando si effettua l'iscrizione per un account Azure gratuito, si ottiene un credito che è possibile impiegare per una sottoscrizione a pagamento al servizio Voce, valida per un massimo di 30 giorni.
@@ -65,23 +65,37 @@ Per aggiungere una risorsa del servizio vocale (gratuita o a pagamento) al propr
 
 1. Nella finestra **Nuovo** digitare "voce" nella casella di ricerca e premere INVIO.
 
-1. Nei risultati della ricerca, selezionare **Voce**.
+1. Nei risultati della ricerca, selezionare **Voce** .
 
    ![Risultati della ricerca di voce](media/index/speech-search.png)
 
-1. Selezionare **Crea**, quindi:
+1. Selezionare **Crea** , quindi:
 
    - Assegnare un nome univoco alla nuova risorsa. Il nome consente di distinguere tra più sottoscrizioni collegate allo stesso servizio.
    - Scegliere la sottoscrizione di Azure a cui è associata la nuova risorsa per determinare le modalità di fatturazione.
    - Scegliere l'[area](regions.md) in cui verrà usata la risorsa.
-   - Scegliere un piano tariffario gratuito (F0) o a pagamento (S0). Per informazioni complete sulle quote di utilizzo e sui prezzi per ogni livello, selezionare **Visualizza i dettagli completi sui prezzi**. Per informazioni sui limiti relativi alle risorse che è possibile creare per ogni sottoscrizione, vedere [Limiti di Servizi cognitivi di Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
+   - Scegliere un piano tariffario gratuito (F0) o a pagamento (S0). Per informazioni complete sulle quote di utilizzo e sui prezzi per ogni livello, selezionare **Visualizza i dettagli completi sui prezzi** . Per informazioni sui limiti relativi alle risorse che è possibile creare per ogni sottoscrizione, vedere [Limiti di Servizi cognitivi di Azure](../../azure-resource-manager/management/azure-subscription-service-limits.md#azure-cognitive-services-limits).
    - Creare un nuovo gruppo di risorse per questa sottoscrizione di riconoscimento vocale o assegnarla a un gruppo di risorse esistente. I gruppi di risorse consentono di mantenere organizzate le diverse sottoscrizioni di Azure.
-   - Selezionare **Crea**. Si passerà alla pagina di panoramica della distribuzione e verranno visualizzati i messaggi sullo stato della distribuzione.
+   - Selezionare **Crea** . Si passerà alla pagina di panoramica della distribuzione e verranno visualizzati i messaggi sullo stato della distribuzione.
 <!--
 > [!NOTE]
 > You can create an unlimited number of standard-tier subscriptions in one or multiple regions. However, you can create only one free-tier subscription. Model deployments on the free tier that remain unused for 7 days will be decommissioned automatically.
 -->
-È necessario qualche secondo per distribuire la nuova risorsa del servizio Voce. Al termine della distribuzione, selezionare **Vai alla risorsa** e quindi nel riquadro di spostamento a sinistra selezionare **Chiavi** per visualizzare le chiavi di sottoscrizione del servizio Voce. Ogni sottoscrizione dispone di due chiavi, entrambi utilizzabili nell'applicazione. Per copiare e incollare rapidamente una chiave nell'editor di codice o in un'altra posizione, selezionare il pulsante Copia accanto a ogni chiave e cambiare finestra per incollare il contenuto degli Appunti nella posizione desiderata.
+È necessario qualche secondo per distribuire la nuova risorsa del servizio Voce. 
+
+### <a name="find-keys-and-region"></a>Trovare chiavi e area
+
+Per trovare le chiavi e l'area di una distribuzione completata, seguire questa procedura:
+
+1. Accedere al [portale di Azure](https://portal.azure.com/) con il proprio account Microsoft.
+
+2. Selezionare **Tutte le risorse** e quindi il nome della risorsa dei Servizi cognitivi.
+
+3. Nel riquadro a sinistra, in **GESTIONE RISORSE** , selezionare **Chiavi ed endpoint** .
+
+Ogni sottoscrizione dispone di due chiavi, entrambi utilizzabili nell'applicazione. Per copiare e incollare una chiave nell'editor di codice o in un'altra posizione, selezionare il pulsante Copia accanto a ogni chiave e cambiare finestra per incollare il contenuto degli Appunti nella posizione desiderata.
+
+Inoltre, copiare il valore `LOCATION`, che corrisponde all'ID dell'area (ad esempio, `westus`, `westeurope`) per le chiamate SDK.
 
 > [!IMPORTANT]
 > Queste chiavi di sottoscrizione vengono usate per accedere all'API di Servizi cognitivi. Non condividerle. Archiviarle in una posizione sicura, ad esempio usando Azure Key Vault. È inoltre consigliabile rigenerare queste chiavi regolarmente. Per effettuare una chiamata API è necessaria una sola chiave. Quando si rigenera la prima chiave, è possibile usare la seconda chiave per l'accesso continuato al servizio.

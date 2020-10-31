@@ -3,12 +3,12 @@ title: Rete e connettività della soluzione Azure VMware
 description: Descrizione delle funzionalità di rete e connettività della soluzione Azure VMware.
 ms.topic: include
 ms.date: 09/28/2020
-ms.openlocfilehash: 1d43a8a49fc56a6a5b534a89fd1dfc2f5ae2d478
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 47b5fab8430f4e462f1e4a0e8cb6ddb69ec38c02
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91574458"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92925034"
 ---
 <!-- Used in introduction.md and concepts-networking.md -->
 
@@ -16,7 +16,4 @@ La soluzione Azure VMware offre un ambiente cloud privato accessibile da risorse
 
 Quando si distribuisce un cloud privato, vengono create reti private per la gestione, il provisioning e vMotion. Usare queste reti private per accedere a vCenter e NSX-T Manager e per la distribuzione o la migrazione tramite vMotion delle macchine virtuali.  Per connettere i cloud privati agli ambienti locali viene usato il servizio Copertura globale di ExpressRoute. Per stabilire la connessione è necessaria una rete virtuale con un circuito ExpressRoute nella sottoscrizione.
 
-
-
->[!NOTE]
->Viene effettuato il provisioning dell'accesso a Internet e ai servizi di Azure per l'utilizzo delle macchine virtuali nelle reti di produzione durante la distribuzione di un cloud privato.  Per impostazione predefinita, l'accesso a Internet è disabilitato per i nuovi cloud privati e può essere abilitato o disabilitato in qualsiasi momento.
+Le risorse, ad esempio server Web e macchine virtuali, sono accessibili in Internet tramite la funzionalità degli indirizzi IP pubblici della rete WAN virtuale di Azure.  Per impostazione predefinita, l'accesso a Internet è disabilitato per i nuovi cloud privati. Per altre informazioni, vedere [Come usare la funzionalità degli indirizzi IP pubblici nella soluzione Azure VMware](../public-ip-usage.md).

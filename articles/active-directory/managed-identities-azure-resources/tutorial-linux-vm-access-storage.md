@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/14/2020
+ms.date: 10/23/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b61d3ed21d053fc7166b47c94a9ec61e355d199
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c093dcff46676dc5f8a25974c3c38c74ae7666b7
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89263162"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92546688"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure 
 
@@ -43,7 +43,7 @@ Questa esercitazione mostra come usare un'identità gestita assegnata dal sistem
 
 Per eseguire gli esempi di script dell'interfaccia della riga di comando in questa esercitazione sono disponibili due opzioni:
 
-- Usare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) tramite il portale di Azure o il pulsante **Prova**, che si trova nell'angolo in alto a destra di ogni blocco di codice.
+- Usare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) tramite il portale di Azure o il pulsante **Prova** , che si trova nell'angolo in alto a destra di ogni blocco di codice.
 - [Installare la versione più recente dell'interfaccia della riga di comando 2.0](/cli/azure/install-azure-cli) (2.0.23 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione 
@@ -51,11 +51,11 @@ Per eseguire gli esempi di script dell'interfaccia della riga di comando in ques
 In questa sezione, si crea un account di archiviazione. 
 
 1. Fare clic sul pulsante **+ Crea una risorsa** visualizzato nell'angolo in alto a sinistra nel portale di Azure.
-2. Selezionare **Archiviazione** e quindi **Account di archiviazione: BLOB, File, Tabelle, Code**.
-3. In **Nome**, immettere il nome dell'account di archiviazione.  
+2. Selezionare **Archiviazione** e quindi **Account di archiviazione: BLOB, File, Tabelle, Code** .
+3. In **Nome** , immettere il nome dell'account di archiviazione.  
 4. **Modello di distribuzione** e **Tipologia account** devono essere impostati su **Gestione di risorse** e **Archiviazione (utilizzo generico v1)** . 
 5. Verificare che le impostazioni in **Sottoscrizione** e **Gruppo di risorse** corrispondano a quelle specificate al momento della creazione della macchina virtuale nel passaggio precedente.
-6. Fare clic su **Crea**.
+6. Fare clic su **Crea** .
 
     ![Creare un nuovo account di archiviazione](./media/msi-tutorial-linux-vm-access-storage/msi-storage-create.png)
 
@@ -64,30 +64,33 @@ In questa sezione, si crea un account di archiviazione.
 Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenitore BLOB in cui archiviare il file. Nel contenitore BLOB caricare un file con il nuovo account di archiviazione.
 
 1. Tornare all'account di archiviazione appena creato.
-2. In **Servizio BLOB** fare clic su **Contenitori**.
-3. Nella parte superiore della pagina fare clic su **+ Contenitore**.
-4. In **Nuovo contenitore**, immettere il nome del contenitore e in **Livello di accesso pubblico** mantenere il valore predefinito.
+2. In **Servizio BLOB** fare clic su **Contenitori** .
+3. Nella parte superiore della pagina fare clic su **+ Contenitore** .
+4. In **Nuovo contenitore** , immettere il nome del contenitore e in **Livello di accesso pubblico** mantenere il valore predefinito.
 
     ![Creare un contenitore di archiviazione](./media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
 5. Utilizzando un editor di propria scelta, creare un file denominato *hello world.txt* nel computer locale.  Aprire il file e aggiungere il testo (senza virgolette) "Hello world! :)"e quindi salvare il file. 
 
 6. Per caricare un file nel nuovo contenitore creato, fare clic sul nome del contenitore, quindi fare clic su **Carica**
-7. Nel riquadro **Caricamento BLOB**, in **File**, fare clic sull'icona della cartella e individuare il file **hello_world.txt** nel computer locale, selezionare il file, quindi fare clic su **Carica**.
+7. Nel riquadro **Caricamento BLOB** , in **File** , fare clic sull'icona della cartella e individuare il file **hello_world.txt** nel computer locale, selezionare il file, quindi fare clic su **Carica** .
 
     ![Caricare un file di testo](./media/msi-tutorial-linux-vm-access-storage/upload-text-file.png)
 
 ## <a name="grant-your-vm-access-to-an-azure-storage-container"></a>Concedere alla macchina virtuale l'accesso a un contenitore di Archiviazione di Azure 
 
-È possibile utilizzare identità gestita della macchina virtuale per recuperare i dati nel BLOB di archiviazione di Azure.   
+È possibile utilizzare identità gestita della macchina virtuale per recuperare i dati nel BLOB di archiviazione di Azure.
+
+>[!NOTE]
+> Per altre informazioni sui vari ruoli che è possibile usare per concedere le autorizzazioni per accedere alle risorse di archiviazione, vedere [Autorizzare l'accesso a BLOB e code usando Azure Active Directory](../../storage/common/storage-auth-aad.md#assign-azure-roles-for-access-rights)
 
 1. Tornare all'account di archiviazione appena creato.  
 2. Fare clic sul collegamento **Controllo di accesso (IAM)** nel pannello di sinistra.  
 3. Fare clic su **+ Aggiungi assegnazione di ruolo** nella parte superiore della pagina per aggiungere una nuova assegnazione di ruolo per la macchina virtuale.
 4. In **Ruolo** scegliere **Lettore dei dati del BLOB di archiviazione** dall'elenco a discesa. 
-5. Dall'elenco a discesa, in **Assegna accesso a** selezionare **Macchina virtuale**.  
-6. Assicurarsi quindi che la sottoscrizione appropriata sia presente nell'elenco a discesa **Sottoscrizione** e quindi impostare **Gruppo di risorse** su **Tutti i gruppi di risorse**.  
-7. In **Seleziona**, scegliere la macchina virtuale e quindi fare clic su **Salva**.
+5. Dall'elenco a discesa, in **Assegna accesso a** selezionare **Macchina virtuale** .  
+6. Assicurarsi quindi che la sottoscrizione appropriata sia presente nell'elenco a discesa **Sottoscrizione** e quindi impostare **Gruppo di risorse** su **Tutti i gruppi di risorse** .  
+7. In **Seleziona** , scegliere la macchina virtuale e quindi fare clic su **Salva** .
 
     ![Assegnare le autorizzazioni](./media/tutorial-linux-vm-access-storage/access-storage-perms.png)
 
@@ -97,7 +100,7 @@ Archiviazione di Azure supporta in modo nativo l'autenticazione di Azure AD, per
 
 Per completare i passaggi seguenti, si deve operare dalla VM creata in precedenza ed è necessario un client SSH per la connessione. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](/windows/wsl/about). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
-1. Nel portale di Azure passare a **Macchine virtuali**, selezionare la macchina virtuale Linux e quindi nella pagina **Panoramica** fare clic su **Connetti**. Copiare la stringa di connessione alla macchina virtuale.
+1. Nel portale di Azure passare a **Macchine virtuali** , selezionare la macchina virtuale Linux e quindi nella pagina **Panoramica** fare clic su **Connetti** . Copiare la stringa di connessione alla macchina virtuale.
 2. **Connettersi** alla macchina virtuale usando un client SSH di propria scelta. 
 3. Nella finestra del terminale usare CURL per eseguire una richiesta all'endpoint locale dell'identità gestita per ottenere un token di accesso per Archiviazione di Azure.
     

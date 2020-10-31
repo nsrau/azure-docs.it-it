@@ -1,7 +1,7 @@
 ---
 title: Creare un gateway NAT - Modello di Resource Manager
 titleSuffix: Azure Virtual Network NAT
-description: Questo argomento di avvio rapido illustra come creare un gateway NAT con il modello di Resource Manager.
+description: Questo argomento di avvio rapido illustra come creare un gateway NAT con il modello di Resource Manager (modello di Resource Manager).
 services: load-balancer
 documentationcenter: na
 author: asudbring
@@ -13,72 +13,64 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/09/2020
+ms.date: 10/27/2020
 ms.author: allensu
 ms.custom: subject-armqs, devx-track-azurecli
-ms.openlocfilehash: 24577fd110ce944e12750a7380192d1a2d3cb4cd
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 95856db9288e5860dfab47dce506d1e7d6de1ffc
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736970"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913331"
 ---
-# <a name="create-a-nat-gateway---resource-manager-template"></a>Creare un gateway NAT - Modello di Resource Manager
+# <a name="quickstart-create-a-nat-gateway---arm-template"></a>Avvio rapido: Creare un gateway NAT - Modello di Azure Resource Manager
 
-Introduzione a NAT di rete virtuale con l'uso di un modello di Azure Resource Manager.  Questo modello distribuisce una rete virtuale, una risorsa gateway NAT e una macchina virtuale Ubuntu. La macchina virtuale Ubuntu viene distribuita in una subnet associata alla risorsa gateway NAT.
+Introduzione a NAT di rete virtuale con l'uso di un modello di Azure Resource Manager (modello di Resource Manager). Questo modello distribuisce una rete virtuale, una risorsa gateway NAT e una macchina virtuale Ubuntu. La macchina virtuale Ubuntu viene distribuita in una subnet associata alla risorsa gateway NAT.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-nat-gateway-1-vm%2Fazuredeploy.json)
+
+## <a name="prerequisites"></a>Prerequisiti
+
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-## <a name="create-a-nat-gateway-and-supporting-resources"></a>Creare un gateway NAT e le risorse di supporto
+## <a name="review-the-template"></a>Rivedere il modello
 
-Questo modello è configurato per la creazione di 
+Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-nat-gateway-1-vm).
 
-* Rete virtuale 
+Questo modello è configurato per la creazione di uno degli elementi seguenti:
+
+* Rete virtuale
 * Risorsa gateway NAT
 * Macchina virtuale Ubuntu
 
 La macchina virtuale Ubuntu viene distribuita in una subnet associata alla risorsa gateway NAT.
 
-### <a name="review-the-template"></a>Rivedere il modello
-
-Il modello usato in questo argomento di avvio rapido proviene dai [modelli di avvio rapido di Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-nat-gateway-1-vm/azuredeploy.json)
-
-:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json" range="1-335" highlight="256-282":::
+:::code language="json" source="~/quickstart-templates/101-nat-gateway-1-vm/azuredeploy.json":::
 
 Nel modello sono definite nove risorse di Azure:
 
-**Microsoft.Network**
+* **[Microsoft.Network/networkSecurityGroups](/azure/templates/microsoft.network/networksecuritygroups)** : Crea un gruppo di sicurezza di rete.
+* **[Microsoft.Network/networkSecurityGroups/securityRules](/azure/templates/microsoft.network/networksecuritygroups/securityrules)** : crea una regola di sicurezza.
+* **[Microsoft.Network/publicIPAddresses](/azure/templates/microsoft.network/publicipaddresses)** : Crea un indirizzo IP pubblico.
+* **[Microsoft.Network/publicIPPrefixes](/azure/templates/microsoft.network/publicipprefixes)** : crea un prefisso IP pubblico.
+* **[Microsoft.Compute/virtualMachines](/azure/templates/Microsoft.Compute/virtualMachines)** : Consente di creare una macchina virtuale.
+* **[Microsoft.Network/virtualNetworks](/azure/templates/microsoft.network/virtualnetworks)** : Crea una rete virtuale.
+* **[Microsoft.Network/natGateways](/azure/templates/microsoft.network/natgateways)** : creare una risorsa gateway NAT.
+* **[Microsoft.Network/virtualNetworks/subnets](/azure/templates/microsoft.network/virtualnetworks/subnets)** : crea una subnet della rete virtuale.
+* **[Microsoft.Network/networkinterfaces](/azure/templates/microsoft.network/networkinterfaces)** : Crea un'interfaccia di rete.
 
-* **[Microsoft.Network/natGateways](https://docs.microsoft.com/azure/templates/microsoft.network/natgateways)** : creare una risorsa gateway NAT.
-
-* **[Microsoft.Network/networkSecurityGroups](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups)** : Crea un gruppo di sicurezza di rete.
-
-    * **[Microsoft.Network/networkSecurityGroups/securityRules](https://docs.microsoft.com/azure/templates/microsoft.network/networksecuritygroups/securityrules)** : crea una regola di sicurezza.
-
-* **[Microsoft.Network/publicIPAddresses](https://docs.microsoft.com/azure/templates/microsoft.network/publicipaddresses)** : Crea un indirizzo IP pubblico.
-
-* **[Microsoft.Network/publicIPPrefixes](https://docs.microsoft.com/azure/templates/microsoft.network/publicipprefixes)** : crea un prefisso IP pubblico.
-
-* **[Microsoft.Network/virtualNetworks](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks)** : Crea una rete virtuale.
-
-    * **[Microsoft.Network/virtualNetworks/subnets](https://docs.microsoft.com/azure/templates/microsoft.network/virtualnetworks/subnets)** : crea una subnet della rete virtuale.
-
-* **[Microsoft.Network/networkinterfaces](https://docs.microsoft.com/azure/templates/microsoft.network/networkinterfaces)** : Crea un'interfaccia di rete.
-
-**Microsoft.Compute**
-
-* **[Microsoft.Compute/virtualMachines](https://docs.microsoft.com/azure/templates/Microsoft.Compute/virtualMachines)** : Consente di creare una macchina virtuale.
-
-### <a name="deploy-the-template"></a>Distribuire il modello
+## <a name="deploy-the-template"></a>Distribuire il modello
 
 **Interfaccia della riga di comando di Azure**
 
 ```azurecli-interactive
 read -p "Enter the location (i.e. westcentralus): " location
 resourceGroupName="myResourceGroupNAT"
-templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-nat-gateway-1-vm/azuredeploy.json" 
+templateUri="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-nat-gateway-1-vm/azuredeploy.json"
 
 az group create \
 --name $resourceGroupName \
@@ -109,11 +101,11 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Selezionare **Gruppi di risorse** nel riquadro sinistro.
+1. Selezionare **Gruppi di risorse** nel riquadro sinistro.
 
-3. Selezionare il gruppo di risorse creato nella sezione precedente. Il nome del gruppo di risorse predefinito è **myResourceGroupNAT**
+1. Selezionare il gruppo di risorse creato nella sezione precedente. Il nome del gruppo di risorse predefinito è **myResourceGroupNAT**
 
-4. Verificare che le risorse seguenti siano state create nel gruppo di risorse:
+1. Verificare che le risorse seguenti siano state create nel gruppo di risorse:
 
     ![Gruppo di risorse NAT di rete virtuale](./media/quick-create-template/nat-gateway-template-rg.png)
 
@@ -123,16 +115,16 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri
 
 Quando il gruppo di risorse e tutte le risorse al suo interno non sono più necessari, usare il comando [az group delete](/cli/azure/group#az-group-delete) per rimuoverli.
 
-```azurecli-interactive 
+```azurecli-interactive
   az group delete \
     --name myResourceGroupNAT
 ```
 
 **Azure PowerShell**
 
-Quando il gruppo di risorse e tutte le risorse al suo interno non sono più necessari, usare il comando [Remove-AzResourceGroup](https://docs.microsoft.com/powershell/module/az.resources/remove-azresourcegroup?view=latest) per rimuoverli.
+Quando il gruppo di risorse e tutte le risorse al suo interno non sono più necessari, usare il comando [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuoverli.
 
-```azurepowershell-interactive 
+```azurepowershell-interactive
 Remove-AzResourceGroup -Name myResourceGroupNAT
 ```
 
@@ -148,7 +140,7 @@ In questo argomento di avvio rapido sono stati creati questi componenti:
 * Rete virtuale
 * Macchina virtuale Ubuntu
 
-La macchina virtuale viene distribuita in una subnet della rete virtuale associata al gateway NAT. 
+La macchina virtuale viene distribuita in una subnet della rete virtuale associata al gateway NAT.
 
 Per altre informazioni su NAT di rete virtuale e Azure Resource Manager, continuare con gli articoli seguenti.
 

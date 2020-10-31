@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 081ed9675c10be8ea1db767567aa866442158086
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 0ece14fb1a96ac8cc66f4d35d027b9d93d1f800e
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207666"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92792821"
 ---
 # <a name="tutorial-add-an-on-premises-application-for-remote-access-through-application-proxy-in-azure-active-directory"></a>Esercitazione: Aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory
 
@@ -109,13 +109,14 @@ Se il firewall regola il traffico in base agli utenti di origine, aprire anche l
 
 Consentire l'accesso agli URL seguenti:
 
-| URL | Uso |
-| --- | --- |
-| \*.msappproxy.net<br>\*.servicebus.windows.net | Comunicazione tra il connettore e il servizio cloud proxy di applicazione |
-| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>www.d-trust.net<br>root-c3-ca2-2009.ocsp.d-trust.net<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | Il connettore usa questi URL per verificare i certificati. |
-| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>\*.microsoftonline.com<br>\*.microsoftonline-p.com<br>\*.msauth.net<br>\*.msauthimages.net<br>\*.msecnd.net<br>\*.msftauth.net<br>\*.msftauthimages.net<br>\*.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com:80 | Il connettore usa questi URL durante il processo di registrazione. |
+| URL | Porta | Uso |
+| --- | --- | --- |
+| &ast;.msappproxy.net<br>&ast;.servicebus.windows.net | 443/HTTPS | Comunicazione tra il connettore e il servizio cloud proxy di applicazione |
+| crl3.digicert.com<br>crl4.digicert.com<br>ocsp.digicert.com<br>crl.microsoft.com<br>oneocsp.microsoft.com<br>ocsp.msocsp.com<br> | 80/HTTP |Il connettore usa questi URL per verificare i certificati. |
+| login.windows.net<br>secure.aadcdn.microsoftonline-p.com<br>&ast;.microsoftonline.com<br>&ast;.microsoftonline-p.com<br>&ast;.msauth.net<br>&ast;.msauthimages.net<br>&ast;.msecnd.net<br>&ast;.msftauth.net<br>&ast;.msftauthimages.net<br>&ast;.phonefactor.net<br>enterpriseregistration.windows.net<br>management.azure.com<br>policykeyservice.dc.ad.msft.net<br>ctldl.windowsupdate.com | 443/HTTPS |Il connettore usa questi URL durante il processo di registrazione. |
+| ctldl.windowsupdate.com | 80/HTTP |Il connettore usa questo URL durante il processo di registrazione. |
 
-È possibile consentire le connessioni a \*.msappproxy.net e \*.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP e ai tag di servizio di Azure - Cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
+È possibile consentire le connessioni a &ast;.msappproxy.net e &ast;.servicebus.windows.net se il firewall o il proxy consente di configurare elenchi di elementi consentiti DNS. In caso contrario, è necessario consentire l'accesso agli [intervalli di indirizzi IP e ai tag di servizio di Azure - Cloud pubblico](https://www.microsoft.com/download/details.aspx?id=56519). Gli intervalli di indirizzi IP vengono aggiornati ogni settimana.
 
 ## <a name="install-and-register-a-connector"></a>Installare e registrare un connettore
 

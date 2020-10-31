@@ -3,16 +3,16 @@ title: 'Esercitazione: Dimensionare un cloud privato'
 description: In questa esercitazione si usa il portale di Azure per dimensionare un cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 09/21/2020
-ms.openlocfilehash: e1226eb98607a34869bda1f998c7cecea2e50919
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d49d973cc6d97280dc0c7ea6681f2602b871e1ba
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91254415"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791240"
 ---
 # <a name="tutorial-scale-an-azure-vmware-solution-private-cloud"></a>Esercitazione: Dimensionare un cloud privato della soluzione Azure VMware
 
-Per sfruttare al meglio l'esperienza del cloud privato della soluzione Azure VMware, dimensionare i cluster e gli host in base alle esigenze dei carichi di lavoro pianificati. È possibile ridimensionare il numero di cluster e il numero di host in un cloud privato, se necessario per il carico di lavoro dell'applicazione. È necessario risolvere le limitazioni relative a prestazioni e disponibilità per servizi specifici caso per caso all'interno dell'ambiente cloud privato della soluzione Azure VMware. I limiti relativi a cluster e host sono descritti nell'[articolo sui concetti del cloud privato](concepts-private-clouds-clusters.md).
+Per sfruttare al meglio l'esperienza del cloud privato della soluzione Azure VMware, dimensionare i cluster e gli host in base alle esigenze dei carichi di lavoro pianificati. È possibile ridimensionare i cluster e gli host in un cloud privato, se necessario per il carico di lavoro dell'applicazione. Le limitazioni relative alle prestazioni e alla disponibilità di servizi specifici dovranno essere risolte caso per caso. I limiti relativi a cluster e host sono descritti nell'[articolo sui concetti del cloud privato](concepts-private-clouds-clusters.md).
 
 In questa esercitazione verrà usato il portale di Azure per:
 
@@ -22,15 +22,15 @@ In questa esercitazione verrà usato il portale di Azure per:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare l'esercitazione, è necessario avere un cloud privato. Se non è ancora stato creato un cloud privato, seguire questa [esercitazione](tutorial-create-private-cloud.md) per creare un cloud privato VMware in Azure e configurare la rete virtuale necessaria.
+Un cloud privato per completare l'esercitazione. Se non è stato creato un cloud privato, usare l'esercitazione [Creare un cloud privato](tutorial-create-private-cloud.md) per crearne uno. Configurare la rete per il cloud privato VMware in Azure per impostare la rete virtuale richiesta.
 
 ## <a name="add-a-new-cluster"></a>Aggiungere un nuovo cluster
 
-1. Nella pagina Panoramica di un cloud privato esistente, in **Gestisci**, selezionare **Scale private cloud** (Ridimensiona cloud privato). Selezionare quindi **+ Aggiungi cluster**.
+1. Nella pagina Panoramica di un cloud privato esistente, in **Gestisci** , selezionare **Scale private cloud** (Ridimensiona cloud privato). Selezionare quindi **+ Aggiungi cluster** .
 
    :::image type="content" source="./media/tutorial-scale-private-cloud/ss2-select-add-cluster.png" alt-text="Selezionare Aggiungi cluster" border="true":::
 
-1. Nella pagina **Aggiungi cluster** usare il dispositivo di scorrimento per selezionare il numero di host. Selezionare **Salva**.
+1. Nella pagina **Aggiungi cluster** usare il dispositivo di scorrimento per selezionare il numero di host. Selezionare **Salva** .
 
    :::image type="content" source="./media/tutorial-scale-private-cloud/ss3-configure-new-cluster.png" alt-text="Selezionare Aggiungi cluster" border="true":::
 
@@ -42,7 +42,7 @@ Per completare l'esercitazione, è necessario avere un cloud privato. Se non è 
 
    :::image type="content" source="./media/tutorial-scale-private-cloud/ss4-select-scale-private-cloud-2.png" alt-text="Selezionare Aggiungi cluster" border="true":::
 
-1. Nella pagina **Modifica cluster** usare il dispositivo di scorrimento per selezionare il numero di host. Selezionare **Salva**.
+1. Nella pagina **Modifica cluster** usare il dispositivo di scorrimento per selezionare il numero di host. Selezionare **Salva** .
 
    :::image type="content" source="./media/tutorial-scale-private-cloud/ss5-scale-cluster.png" alt-text="Selezionare Aggiungi cluster" border="true":::
 

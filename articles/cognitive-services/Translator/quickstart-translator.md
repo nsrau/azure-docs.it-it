@@ -12,12 +12,12 @@ ms.date: 09/14/2020
 ms.author: erhopf
 ms.custom: cog-serv-seo-aug-2020
 keywords: traduttore, servizio traduttore, tradurre testo, eseguire la traslitterazione di testo, rilevamento della lingua
-ms.openlocfilehash: e5b0bc17e8df1d82fb23a098f857be4fea13b982
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ca86ce1dc015c8d7ee3bc83a6d7e3279a146f195
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91318841"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517039"
 ---
 # <a name="quickstart-get-started-with-translator"></a>Avvio rapido: Introduzione a Traduttore
 
@@ -32,7 +32,7 @@ In questo argomento di avvio rapido si apprenderà come usare il servizio Tradut
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
-* Dopo aver creato una sottoscrizione di Azure, [creare una risorsa Traduttore](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
+* Dopo aver creato una sottoscrizione di Azure, [creare una risorsa Traduttore](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation) nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa** .
   * La chiave e l'endpoint della risorsa sono necessari per connettere l'applicazione al servizio Traduttore. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
   * È possibile usare il piano tariffario gratuito (F0) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
 
@@ -59,7 +59,7 @@ In questo argomento di avvio rapido si apprenderà come usare il servizio Tradut
 # <a name="java"></a>[Java](#tab/java)
 
 * Creare una directory di lavoro per il progetto. Ad esempio: `mkdir sample-project`.
-* Inizializzare il progetto con Gradle: `gradle init --type basic`. Quando viene chiesto di scegliere un linguaggio **DSL**, selezionare **Kotlin**.
+* Inizializzare il progetto con Gradle: `gradle init --type basic`. Quando viene chiesto di scegliere un linguaggio **DSL** , selezionare **Kotlin** .
 * Aggiornare `build.gradle.kts`. Tenere presente che sarà necessario aggiornare il valore di `mainClassName` in base all'esempio.
   ```java
   plugins {
@@ -123,7 +123,7 @@ Quando si chiama il servizio Traduttore tramite REST, è necessario verificare c
 
 ## <a name="keys-and-endpoints"></a>Keys and endpoints (Chiavi ed endpoint)
 
-Gli esempi in questa pagina usano chiavi ed endpoint hardcoded per semplicità. Al termine, ricordarsi di **rimuovere la chiave dal codice** e **non renderlo mai pubblico**. Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) di Servizi cognitivi.
+Gli esempi in questa pagina usano chiavi ed endpoint hardcoded per semplicità. Al termine, ricordarsi di **rimuovere la chiave dal codice** e **non renderlo mai pubblico** . Per la produzione, è consigliabile usare un modo sicuro per archiviare e accedere alle credenziali, Per altre informazioni, vedere l'articolo sulla [sicurezza](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-security) di Servizi cognitivi.
 
 ## <a name="translate-text"></a>Traduci testo 
 
@@ -2440,6 +2440,12 @@ Dopo una chiamata riuscita, si dovrebbe vedere la risposta seguente. Per altre i
     }
 ]
 ```
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
+
+### <a name="java-users"></a>Utenti Java
+
+Se si riscontrano problemi di connessione, il certificato SSL potrebbe essere scaduto. Per risolvere questo problema, installare il certificato [DigiCertGlobalRootG2.crt](http://cacerts.digicert.com/DigiCertGlobalRootG2.crt) nell'archivio privato. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

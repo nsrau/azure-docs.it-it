@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/24/2020
 ms.topic: quickstart
 ms.service: digital-twins
-ms.openlocfilehash: 455cf921cfcd4ac5d0e81fb4e092ec165070a3f1
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 925a5000f9778689660765ef715dd8760d5340a2
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331567"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495973"
 ---
 # <a name="quickstart---explore-a-sample-azure-digital-twins-scenario-using-adt-explorer"></a>Avvio rapido: Esplorare uno scenario di Gemelli digitali di Azure di esempio con ADT Explorer
 
@@ -37,9 +37,7 @@ Per completare questa guida di avvio rapido è necessaria una sottoscrizione di 
 
 È anche necessario **Node.js** nel computer. È possibile scaricare la versione più recente da questo collegamento: [Node.js](https://nodejs.org/).
 
-Infine, occorre anche scaricare due esempi da usare durante la procedura descritta nell'argomento di avvio rapido:
-* L'applicazione di esempio **ADT Explorer** . Questo esempio contiene l'app principale usata nella guida di avvio rapido per caricare ed esplorare uno scenario di Gemelli digitali di Azure. È possibile ottenere l'app in [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Fare clic sul pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio nel computer. Verrà scaricata una cartella ZIP nel computer denominata _**Azure_Digital_Twins__ADT__explorer.zip**_ . Decomprimere la cartella ed estrarre i file.
-* Lo **scenario di esempio di Gemelli digitali di Azure** . È incluso un grafo predefinito di Gemelli digitali di Azure da caricare e usare in ADT Explorer. È possibile ottenere lo scenario in [Esempi end-to-end di Gemelli digitali di Azure](/samples/azure-samples/digital-twins-samples/digital-twins-samples). Fare clic sul pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio nel computer. Verrà scaricata una cartella ZIP nel computer denominata _**Azure_Digital_Twins_end_to_end_samples.zip**_ . Decomprimere la cartella ed estrarre i file.
+Infine, occorre anche scaricare due esempi da usare durante la procedura descritta nell'argomento di avvio rapido: l'applicazione di esempio **ADT Explorer** . Questo esempio contiene l'app usata nella guida di avvio rapido per caricare ed esplorare uno scenario di Gemelli digitali di Azure, oltre ai file dello scenario di esempio. Per ottenere l'esempio, spostarsi qui: [Azure Digital Twins (ADT) Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Fare clic sul pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio nel computer. Verrà scaricata una cartella ZIP nel computer denominata _**Azure_Digital_Twins__ADT__explorer.zip**_ . Decomprimere la cartella ed estrarre i file.
 
 ## <a name="set-up-azure-digital-twins-and-adt-explorer"></a>Configurare Gemelli digitali di Azure e ADT Explorer
 
@@ -115,9 +113,7 @@ Se viene visualizzata una finestra popup *Autorizzazioni richieste* da Microsoft
 
 ## <a name="add-the-sample-data"></a>Aggiungere i dati di esempio
 
-A questo punto occorre importare lo scenario e il grafo di esempio in ADT Explorer.
-
-Passare alla cartella _**Azure_Digital_Twins_end_to_end_samples**_ scaricata e decompressa, in cui si trova lo scenario di esempio.
+A questo punto occorre importare lo scenario e il grafo di esempio in ADT Explorer. Lo scenario di esempio si trova anche nella cartella **Azure_Digital_Twins__ADT__explorer** scaricata in precedenza.
 
 ### <a name="models"></a>Modelli
 
@@ -140,8 +136,8 @@ Nella casella *MODEL VIEW* (Visualizzazione modello) selezionare l'icona *Upload
 
 :::image type="content" source="media/quickstart-adt-explorer/upload-model.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta &quot;Floor1&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room1&quot;. Un cerchio con etichetta &quot;Floor0&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room0&quot;. 'Floor1' e 'Floor0' non sono connessi." lightbox="media/quickstart-adt-explorer/upload-model.png":::
  
-1. Nella casella di selezione file visualizzata passare alla cartella *Azure_Digital_Twins_end_to_end_samples/AdtSampleApp/SampleClientApp/models* nel repository scaricato.
-2. Selezionare *Room.json* e *Floor.json* e scegliere OK. Se si vuole è possibile caricare anche gli altri modelli, ma non verranno usati in questa guida di avvio rapido.
+1. Nella casella di selezione file visualizzata, passare alla cartella *Azure_Digital_Twins__ADT__explorer/client/examples* nel repository scaricato.
+2. Selezionare *Room.json* e *Floor.json* e scegliere OK. Se si vuole è possibile caricare anche altri modelli, che però non verranno usati in questa guida di avvio rapido.
 3. Seguire le istruzioni della finestra di dialogo popup in cui viene chiesto di accedere al proprio account Azure.
 
 >[!NOTE]
@@ -178,7 +174,7 @@ Nel riquadro *GRAPH VIEW* (Visualizzazione grafico) selezionare l'icona *Import 
 
 :::image type="content" source="media/quickstart-adt-explorer/import-graph.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta &quot;Floor1&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room1&quot;. Un cerchio con etichetta &quot;Floor0&quot; è connesso da una freccia con etichetta &quot;contains&quot; a un cerchio con etichetta &quot;Room0&quot;. 'Floor1' e 'Floor0' non sono connessi." lightbox="media/quickstart-adt-explorer/import-graph.png":::
 
-Nella casella di selezione file passare alla cartella *Azure_Digital_Twins_end_to_end_samples/AdtSampleApp/SampleClientApp* e scegliere il file del foglio di calcolo _**buildingScenario.xlsx**_ . Questo file contiene una descrizione del grafo di esempio. Scegliere OK.
+Nella casella di selezione file passare alla cartella *Azure_Digital_Twins_samples/AdtSampleApp/SampleClientApp* e scegliere il file di foglio di calcolo _**buildingScenario.xlsx**_ . Questo file contiene una descrizione del grafo di esempio. Scegliere OK.
 
 Dopo alcuni secondi ADT Explorer aprirà una visualizzazione *Import* che mostra un'anteprima del grafo che verrà caricato.
 
@@ -318,7 +314,13 @@ Se si prevede di continuare con le esercitazioni su Gemelli digitali di Azure, �
  
 [!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
-Infine, eliminare le cartelle di esempio del progetto scaricate nel computer locale ( _**Azure_Digital_Twins__ADT__explorer**_ e _**Azure_Digital_Twins_end_to_end_samples**_ ). Potrebbe essere necessario eliminare le versioni compresse e decompresse.
+Eliminare quindi la registrazione dell'app di Azure Active Directory creata per l'app client con questo comando:
+
+```azurecli-interactive
+az ad app delete --id <your-application-ID>
+```
+
+Infine, eliminare le cartelle di esempio del progetto scaricate nel computer locale ( _**Azure_Digital_Twins__ADT__explorer**_ ). Potrebbe essere necessario eliminare le versioni compresse e decompresse.
 
 ## <a name="next-steps"></a>Passaggi successivi 
 

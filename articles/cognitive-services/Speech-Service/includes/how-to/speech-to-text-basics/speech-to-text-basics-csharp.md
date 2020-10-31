@@ -5,12 +5,12 @@ ms.topic: include
 ms.date: 03/11/2020
 ms.author: trbye
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbca2cba2738da6733f6221db5d67a3b79675528
-ms.sourcegitcommit: d95cab0514dd0956c13b9d64d98fdae2bc3569a0
+ms.openlocfilehash: 74420f1a83792437a2779c9745fc52c22c5121d4
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91377507"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92886608"
 ---
 Una delle principali funzionalità del servizio Voce è la possibilità di riconoscere e trascrivere la voce umana, ovvero di convertire la voce in testo scritto. Questa guida di avvio rapido illustra come usare Speech SDK in app e prodotti per eseguire la conversione della voce in testo scritto di alta qualità.
 
@@ -24,7 +24,9 @@ Questo articolo presuppone che si abbia un account Azure e una sottoscrizione de
 
 ## <a name="install-the-speech-sdk"></a>Installare Speech SDK
 
-Prima di poter eseguire qualsiasi operazione, è necessario installare Speech SDK. A seconda della piattaforma, usare le istruzioni seguenti:
+Se si vuole solo il nome del pacchetto per iniziare, eseguire `Install-Package Microsoft.CognitiveServices.Speech` nella console NuGet.
+
+Per le istruzioni di installazione specifiche per la piattaforma, vedere i collegamenti seguenti:
 
 * <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnet&pivots=programming-language-csharp" target="_blank">.NET Framework <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 * <a href="https://docs.microsoft.com/azure/cognitive-services/speech-service/quickstarts/setup-platform?tabs=dotnetcore&pivots=programming-language-csharp" target="_blank">.NET Core <span class="docon docon-navigate-external x-hidden-focus"></span></a>
@@ -34,74 +36,145 @@ Prima di poter eseguire qualsiasi operazione, è necessario installare Speech SD
 
 ## <a name="create-a-speech-configuration"></a>Creare una configurazione di Voce
 
-Per chiamare il servizio Voce con Speech SDK, è necessario creare una classe [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet). Questa classe include informazioni sulla sottoscrizione, ad esempio la chiave e l'area associata, l'endpoint, l'host o il token di autorizzazione.
+Per chiamare il servizio Voce con Speech SDK, è necessario creare una classe [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet). Questa classe include informazioni sulla sottoscrizione, ad esempio la chiave e l'area associata, l'endpoint, l'host o il token di autorizzazione. Creare una classe [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) usando la chiave e l'area. Per trovare l'identificatore di area, vedere la pagina del [supporto a livello di area](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk).
 
-> [!NOTE]
-> Sia che si esegua il riconoscimento vocale, la sintesi vocale, la traduzione o il riconoscimento finalità, sarà sempre necessario creare una configurazione.
+```csharp
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
 
-Esistono diversi modi per inizializzare [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet):
+class Program 
+{
+    async static Task Main(string[] args)
+    {
+        var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+    }
+}
+```
 
-* Con una sottoscrizione: passare una chiave e l'area associata.
+Esistono alcuni altri modi per inizializzare una classe [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet):
+
 * Con un endpoint: passare un endpoint del servizio Voce. La chiave e il token di autorizzazione sono facoltativi.
 * Con un host: passare l'indirizzo di un host. La chiave e il token di autorizzazione sono facoltativi.
 * Con un token di autorizzazione: passare un token di autorizzazione e l'area associata.
 
-Vediamo come viene creata una classe [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet) usando una chiave e un'area. Per trovare l'identificatore di area, vedere la pagina del [supporto a livello di area](https://docs.microsoft.com/azure/cognitive-services/speech-service/regions#speech-sdk).
+> [!NOTE]
+> Sia che si esegua il riconoscimento vocale, la sintesi vocale, la traduzione o il riconoscimento finalità, sarà sempre necessario creare una configurazione.
+
+## <a name="recognize-from-microphone"></a>Riconoscimento da microfono
+
+Per eseguire il riconoscimento vocale usando il microfono del dispositivo, creare un oggetto `AudioConfig` usando `FromDefaultMicrophoneInput()`. Quindi, inizializzare una classe [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet), passando la classe `audioConfig` e `speechConfig`.
 
 ```csharp
-var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
-```
-
-## <a name="initialize-a-recognizer"></a>Inizializzare lo strumento di riconoscimento
-
-Dopo aver creato una classe [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet), il passaggio successivo consiste nell'inizializzare [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet). Quando si inizializza [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet), si passa `speechConfig`. In questo modo vengono fornite le credenziali richieste dal servizio Voce per convalidare la richiesta.
-
-```csharp
-using var recognizer = new SpeechRecognizer(speechConfig);
-```
-
-## <a name="recognize-from-microphone-or-file"></a>Riconoscimento da microfono o file
-
-Se si vuole specificare il dispositivo di input audio, è necessario creare un oggetto [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet) e passarlo come parametro quando si inizializza [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet).
-
-Per eseguire il riconoscimento vocale con il microfono del dispositivo, creare un oggetto `AudioConfig` usando `FromDefaultMicrophoneInput()`, quindi passare la configurazione audio quando si crea l'oggetto `SpeechRecognizer`.
-
-```csharp
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
 using Microsoft.CognitiveServices.Speech.Audio;
 
-using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
-using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+class Program 
+{
+    async static Task FromMic(SpeechConfig speechConfig)
+    {
+        using var audioConfig = AudioConfig.FromDefaultMicrophoneInput();
+        using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+
+        Console.WriteLine("Speak into your microphone.");
+        var result = await recognizer.RecognizeOnceAsync();
+        Console.WriteLine($"RECOGNIZED: Text={result.Text}");
+    }
+
+    async static Task Main(string[] args)
+    {
+        var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+        await FromMic(speechConfig);
+    }
+}
 ```
 
-> [!TIP]
-> [Informazioni su come ottenere l'ID del dispositivo di input audio](../../../how-to-select-audio-input-devices.md).
+Se si vuole usare un dispositivo di input audio *specifico* , è necessario specificare l'ID del dispositivo nella classe `AudioConfig`. Informazioni su [come ottenere l'ID del dispositivo](../../../how-to-select-audio-input-devices.md) di input audio.
 
-Se si vuole specificare un file audio invece di un microfono per il riconoscimento vocale, è comunque necessario creare un oggetto `AudioConfig`. Tuttavia, quando si crea [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet), invece di chiamare `FromDefaultMicrophoneInput()`, si chiamerà `FromWavFileInput()` e si passerà il parametro `filename`.
+## <a name="recognize-from-file"></a>Riconoscimento da file
+
+Se si vuole specificare un file audio invece di un microfono per il riconoscimento vocale, è comunque necessario creare un oggetto `AudioConfig`. Tuttavia, quando si crea [`AudioConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audioconfig?view=azure-dotnet), invece di chiamare `FromDefaultMicrophoneInput()`, si chiamerà `FromWavFileInput()` e si passerà il percorso file.
 
 ```csharp
-using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
-using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
+
+class Program 
+{
+    async static Task FromFile(SpeechConfig speechConfig)
+    {
+        using var audioConfig = AudioConfig.FromWavFileInput("PathToFile.wav");
+        using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+
+        var result = await recognizer.RecognizeOnceAsync();
+        Console.WriteLine($"RECOGNIZED: Text={result.Text}");
+    }
+
+    async static Task Main(string[] args)
+    {
+        var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+        await FromFile(speechConfig);
+    }
+}
 ```
 
-## <a name="recognize-speech"></a>Riconoscimento vocale
+## <a name="recognize-from-in-memory-stream"></a>Riconoscimento dal flusso in memoria
 
-La [classe Recognizer](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet) per Speech SDK per C# espone alcuni metodi che è possibile usare per il riconoscimento vocale.
+Per molti casi d'uso, è probabile che i dati audio provengano dall'archiviazione BLOB o che siano già in memoria come `byte[]` o una struttura di dati non elaborati simile. L'esempio seguente usa una classe [`PushAudioInputStream`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.pushaudioinputstream?view=azure-dotnet) per riconoscere la voce, cioè fondamentalmente un flusso di memoria astratto. Nel codice di esempio vengono eseguite le operazioni seguenti:
 
-* Riconoscimento singolo (asincrono): esegue il riconoscimento in modalità non bloccante (asincrona). Verrà riconosciuta una singola espressione. La fine di una singola espressione viene determinata restando in ascolto del silenzio al termine o finché non vengono elaborati al massimo 15 secondi di audio.
-* Riconoscimento continuo (asincrono): avvia in modo asincrono l'operazione di riconoscimento continuo. L'utente esegue la registrazione agli eventi e gestisce vari stati dell'applicazione. Per arrestare il riconoscimento continuo asincrono, chiamare [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync?view=azure-dotnet).
-
-> [!NOTE]
-> Per altre informazioni, vedere come [scegliere una modalità di riconoscimento vocale](../../../how-to-choose-recognition-mode.md).
-
-### <a name="single-shot-recognition"></a>Riconoscimento singolo
-
-Ecco un esempio di riconoscimento singolo asincrono usando [`RecognizeOnceAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizeonceasync?view=azure-dotnet):
+* Scrive i dati audio non elaborati (PCM) nella classe `PushAudioInputStream` usando la funzione `Write()`, che accetta un `byte[]`.
+* Legge un file `.wav` usando un `FileReader` a scopo dimostrativo, ma se si hanno già dati audio in un `byte[]`, è possibile passare direttamente alla scrittura del contenuto nel flusso di input.
+* Il formato predefinito è 16 bit, 16 KHz e PCM mono. Per personalizzare il formato, è possibile passare un oggetto [`AudioStreamFormat`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audio.audiostreamformat?view=azure-dotnet) alla classe `CreatePushStream()` usando la funzione statica `AudioStreamFormat.GetWaveFormatPCM(sampleRate, (byte)bitRate, (byte)channels)`.
 
 ```csharp
-var result = await recognizer.RecognizeOnceAsync();
+using System;
+using System.IO;
+using System.Threading.Tasks;
+using Microsoft.CognitiveServices.Speech;
+using Microsoft.CognitiveServices.Speech.Audio;
+
+class Program 
+{
+    async static Task FromStream(SpeechConfig speechConfig)
+    {
+        var reader = new BinaryReader(File.OpenRead("PathToFile.wav"));
+        using var audioInputStream = AudioInputStream.CreatePushStream();
+        using var audioConfig = AudioConfig.FromStreamInput(audioInputStream);
+        using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
+
+        byte[] readBytes;
+        do
+        {
+            readBytes = reader.ReadBytes(1024);
+            audioInputStream.Write(readBytes, readBytes.Length);
+        } while (readBytes.Length > 0);
+
+        var result = await recognizer.RecognizeOnceAsync();
+        Console.WriteLine($"RECOGNIZED: Text={result.Text}");
+    }
+
+    async static Task Main(string[] args)
+    {
+        var speechConfig = SpeechConfig.FromSubscription("YourSubscriptionKey", "YourServiceRegion");
+        await FromStream(speechConfig);
+    }
+}
 ```
 
-Per gestire il risultato è necessario scrivere del codice. Questo esempio valuta [`result.Reason`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.recognitionresult.reason?view=azure-dotnet):
+L'uso di un flusso push come input presuppone che i dati audio siano un PCM non elaborato, ad esempio ignorano le intestazioni.
+L'API continuerà a funzionare in determinati casi se l'intestazione non è stata ignorata, ma per ottenere risultati ottimali è consigliabile implementare la logica per leggere le intestazioni, in modo che il `byte[]` cominci all' *inizio dei dati audio* .
+
+## <a name="error-handling"></a>Gestione degli errori
+
+Gli esempi precedenti ottengono semplicemente il testo riconosciuto da `result.text`, ma per gestire gli errori e altre risposte è necessario scrivere del codice per elaborare il risultato. Il seguente codice valuta la proprietà [`result.Reason`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.recognitionresult.reason?view=azure-dotnet&preserve-view=true) e:
 
 * Stampa il risultato del riconoscimento: `ResultReason.RecognizedSpeech`
 * Se non esiste una corrispondenza di riconoscimento, informa l'utente: `ResultReason.NoMatch`
@@ -112,7 +185,6 @@ switch (result.Reason)
 {
     case ResultReason.RecognizedSpeech:
         Console.WriteLine($"RECOGNIZED: Text={result.Text}");
-        Console.WriteLine($"    Intent not recognized.");
         break;
     case ResultReason.NoMatch:
         Console.WriteLine($"NOMATCH: Speech could not be recognized.");
@@ -131,28 +203,31 @@ switch (result.Reason)
 }
 ```
 
-### <a name="continuous-recognition"></a>Riconoscimento continuo
+## <a name="continuous-recognition"></a>Riconoscimento continuo
 
-Il riconoscimento continuo è un po' più impegnativo rispetto al riconoscimento singolo. Per ottenere i risultati del riconoscimento, è necessario sottoscrivere gli eventi `Recognizing`, `Recognized` e `Canceled`. Per arrestare il riconoscimento, è necessario chiamare [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync?view=azure-dotnet). Ecco un esempio di riconoscimento continuo eseguito su un file di input audio.
+Gli esempi precedenti usano il riconoscimento singolo, che riconosce una singola espressione. La fine di una singola espressione viene determinata restando in ascolto del silenzio al termine o finché non vengono elaborati al massimo 15 secondi di audio.
 
-Per iniziare, definire l'input e inizializzare [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet):
+Al contrario, si usa il riconoscimento continuo quando si vuole **controllare** il momento in cui interrompere il riconoscimento. Per ottenere i risultati del riconoscimento, è necessario sottoscrivere gli eventi `Recognizing`, `Recognized` e `Canceled`. Per arrestare il riconoscimento, è necessario chiamare [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync?view=azure-dotnet&preserve-view=true). Ecco un esempio di riconoscimento continuo eseguito su un file di input audio.
+
+Per iniziare, definire l'input e inizializzare un [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet&preserve-view=true):
 
 ```csharp
 using var audioConfig = AudioConfig.FromWavFileInput("YourAudioFile.wav");
 using var recognizer = new SpeechRecognizer(speechConfig, audioConfig);
 ```
-Successivamente, creare una variabile per gestire lo stato del riconoscimento vocale. Per iniziare, verrà dichiarato un oggetto `TaskCompletionSource<int>` dopo le dichiarazioni precedenti.
+
+Quindi, creare una proprietà `TaskCompletionSource<int>` per gestire lo stato del riconoscimento vocale.
 
 ```csharp
 var stopRecognition = new TaskCompletionSource<int>();
 ```
 
-Verranno sottoscritti gli eventi inviati da [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet).
+Infine, sottoscrivere gli eventi inviati dal [`SpeechRecognizer`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer?view=azure-dotnet).
 
-* [`Recognizing`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizing?view=azure-dotnet): segnale per gli eventi contenenti i risultati del riconoscimento intermedio.
-* [`Recognized`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognized?view=azure-dotnet): segnale per gli eventi contenenti i risultati del riconoscimento finale, che indicano un tentativo di riconoscimento riuscito.
-* [`SessionStopped`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.recognizer.sessionstopped?view=azure-dotnet): segnale per gli eventi che indicano la fine di una sessione di riconoscimento (operazione).
-* [`Canceled`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.canceled?view=azure-dotnet): segnale per gli eventi contenenti risultati di riconoscimento annullati (a indicare un tentativo di riconoscimento annullato in seguito a una richiesta di annullamento diretta o, in alternativa, a un errore di trasporto o di protocollo).
+* [`Recognizing`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognizing?view=azure-dotnet&preserve-view=true): segnale per gli eventi contenenti i risultati del riconoscimento intermedio.
+* [`Recognized`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.recognized?view=azure-dotnet&preserve-view=true): segnale per gli eventi contenenti i risultati del riconoscimento finale, che indicano un tentativo di riconoscimento riuscito.
+* [`SessionStopped`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.recognizer.sessionstopped?view=azure-dotnet&preserve-view=true): segnale per gli eventi che indicano la fine di una sessione di riconoscimento (operazione).
+* [`Canceled`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.canceled?view=azure-dotnet&preserve-view=true): segnale per gli eventi contenenti risultati di riconoscimento annullati (a indicare un tentativo di riconoscimento annullato in seguito a una richiesta di annullamento diretta o, in alternativa, a un errore di trasporto o di protocollo).
 
 ```csharp
 recognizer.Recognizing += (s, e) =>
@@ -193,24 +268,23 @@ recognizer.SessionStopped += (s, e) =>
 };
 ```
 
-Con tutti gli elementi configurati, è possibile chiamare [`StopContinuousRecognitionAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechrecognizer.stopcontinuousrecognitionasync?view=azure-dotnet).
+Al termine della configurazione, chiamare `StartContinuousRecognitionAsync` per avviare il riconoscimento.
 
 ```csharp
-// Starts continuous recognition. Uses StopContinuousRecognitionAsync() to stop recognition.
 await recognizer.StartContinuousRecognitionAsync();
 
 // Waits for completion. Use Task.WaitAny to keep the task rooted.
 Task.WaitAny(new[] { stopRecognition.Task });
 
-// Stops recognition.
-await recognizer.StopContinuousRecognitionAsync();
+// make the following call at some point to stop recognition.
+// await recognizer.StopContinuousRecognitionAsync();
 ```
 
 ### <a name="dictation-mode"></a>Modalità dettatura
 
 Quando si usa il riconoscimento continuo, è possibile abilitare l'elaborazione della dettatura usando la corrispondente funzione. In questa modalità l'istanza di SpeechConfig interpreta le descrizioni testuali delle strutture di frasi, ad esempio la punteggiatura. Ad esempio, l'espressione "Vivi in città punto interrogativo" verrebbe interpretata come "Vivi in città?".
 
-Per abilitare la modalità di dettatura, usare il metodo [`EnableDictation`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet) in [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet).
+Per abilitare la modalità di dettatura, usare il metodo [`EnableDictation`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.enabledictation?view=azure-dotnet&preserve-view=true) in [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true).
 
 ```csharp
 speechConfig.EnableDictation();
@@ -218,13 +292,13 @@ speechConfig.EnableDictation();
 
 ## <a name="change-source-language"></a>Cambiare la lingua di origine
 
-Un'attività comune per il riconoscimento vocale è la specifica della lingua di input (o di origine). Vediamo come cambiare la lingua di input in italiano. Nel codice trovare [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet), quindi aggiungere questa riga al di sotto.
+Un'attività comune per il riconoscimento vocale è la specifica della lingua di input (o di origine). Vediamo come cambiare la lingua di input in italiano. Nel codice trovare [`SpeechConfig`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet&preserve-view=true), quindi aggiungere questa riga al di sotto.
 
 ```csharp
 speechConfig.SpeechRecognitionLanguage = "it-IT";
 ```
 
-La proprietà [`SpeechRecognitionLanguage`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage?view=azure-dotnet) si aspetta una stringa in formato è prevista una stringa di formato lingua-impostazioni locali. È possibile specificare qualsiasi valore nella colonna **Locale** nell'elenco di [impostazioni locali/lingue supportate](../../../language-support.md).
+La proprietà [`SpeechRecognitionLanguage`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.speechrecognitionlanguage?view=azure-dotnet&preserve-view=true) si aspetta una stringa in formato è prevista una stringa di formato lingua-impostazioni locali. È possibile specificare qualsiasi valore nella colonna **Locale** nell'elenco di [impostazioni locali/lingue supportate](../../../language-support.md).
 
 ## <a name="improve-recognition-accuracy"></a>Migliorare l'accuratezza del riconoscimento
 
@@ -233,9 +307,9 @@ La proprietà [`SpeechRecognitionLanguage`](https://docs.microsoft.com/dotnet/ap
 > [!IMPORTANT]
 > La funzionalità dell'elenco di frasi è disponibile solo in inglese.
 
-Per usare un elenco di frasi, creare prima di tutto un oggetto [`PhraseListGrammar`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?view=azure-dotnet), quindi aggiungere parole o frasi specifiche con [`AddPhrase`](https://docs.microsoft.com//dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase?view=azure-dotnet).
+Per usare un elenco di frasi, creare prima di tutto un oggetto [`PhraseListGrammar`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?view=azure-dotnet&preserve-view=true), quindi aggiungere parole o frasi specifiche con [`AddPhrase`](https://docs.microsoft.com//dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar.addphrase?view=azure-dotnet&preserve-view=true).
 
-Tutte le modifiche apportate a [`PhraseListGrammar`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?view=azure-dotnet) diventano effettive al successivo riconoscimento o dopo una riconnessione al servizio Voce.
+Tutte le modifiche apportate a [`PhraseListGrammar`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.phraselistgrammar?view=azure-dotnet&preserve-view=true) diventano effettive al successivo riconoscimento o dopo una riconnessione al servizio Voce.
 
 ```csharp
 var phraseList = PhraseListGrammar.FromRecognizer(recognizer);

@@ -6,70 +6,111 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 03/04/2020
+ms.date: 10/21/2020
 ms.author: aahi
-ms.openlocfilehash: 9c3bae9d2ad388409c40a8e8c89bcdd52f536cdb
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 122e44da7bbf4229f932eefdae4c70dc49f43bfe
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85805613"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92371282"
 ---
-Usare questa guida di avvio rapido per effettuare la prima ricerca di immagini tramite la libreria client di Ricerca immagini Bing, che consiste in un wrapper per l'API e contiene le stesse funzionalità. Questa semplice applicazione C# invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
+Usare questa guida di avvio rapido per effettuare la prima ricerca di immagini tramite la libreria client di Ricerca immagini Bing. 
+
+La libreria di ricerca client è un wrapper per l'API REST e contiene le stesse funzionalità. 
+
+Creare un'applicazione C# che invia una query di ricerca di immagini, analizza la risposta JSON e visualizza l'URL della prima immagine restituita.
 
 Il codice sorgente per questo esempio è disponibile in [GitHub](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingImageSearch) con annotazioni aggiuntive e altre informazioni sulla gestione degli errori.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Qualsiasi edizione di [Visual Studio 2017 o versioni successive](https://visualstudio.microsoft.com/vs/whatsnew/).
-* Il [pacchetto NuGet di ricerca cognitiva di immagini](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch/).
 
-Per installare la libreria client di Ricerca immagini Bing in Visual Studio, usare l'opzione **Gestisci pacchetti NuGet** da **Esplora soluzioni**.
+* Se si usa Windows, qualsiasi edizione di [Visual Studio 2017 o versione successiva](https://visualstudio.microsoft.com/vs/whatsnew/)
+* Se si usa macOS o Linux, [VS Code](https://code.visualstudio.com) con [.NET Core installato](https://dotnet.microsoft.com/learn/dotnet/hello-world-tutorial/install)
+* [Una sottoscrizione gratuita di Azure](https://azure.microsoft.com/free/dotnet)
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](~/includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
 Vedere anche [Prezzi di Servizi cognitivi - API di ricerca Bing](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/).
 
-## <a name="create-and-initialize-the-application"></a>Creare e inizializzare l'applicazione
+## <a name="create-a-console-project"></a>Creare un nuovo progetto console
 
-Creare prima una nuova applicazione console C# in Visual Studio. Aggiungere quindi i pacchetti seguenti al progetto.
+Prima di tutto, creare una nuova applicazione console C#.
 
-```csharp
-using System;
-using System.Linq;
-using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
-using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
-```
+## <a name="create-a-console-project"></a>Creare un nuovo progetto console
 
-Nel metodo principale del progetto, creare variabili per la chiave di sottoscrizione valida, i risultati immagini che devono essere restituiti da Bing e un termine di ricerca. Creare quindi un'istanza del client di ricerca delle immagini usando la chiave.
+# <a name="visual-studio"></a>[Visual Studio](#tab/visualstudio)
 
-```csharp
-//IMPORTANT: replace this variable with your Cognitive Services subscription key
-string subscriptionKey = "ENTER YOUR KEY HERE";
-//stores the image results returned by Bing
-Images imageResults = null;
-// the image search term to be used in the query
-string searchTerm = "canadian rockies";
+1. Creare una nuova soluzione console denominata *BingImageSearch* in Visual Studio.
+    
+1. Aggiungere il [pacchetto NuGet di ricerca cognitiva di immagini](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch)
+    1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** .
+    1. Scegliere **Gestisci pacchetti NuGet** .
+    1. Cercare e selezionare *Microsoft.Azure.CognitiveServices.Search.ImageSearch* , quindi installare il pacchetto.
+    
+# <a name="vs-code"></a>[Visual Studio Code](#tab/vscode)
 
-//initialize the client
-//NOTE: If you're using version 1.2.0 or below for the Bing Image Search client library, 
-// use ImageSearchAPI() instead of ImageSearchClient() to initialize your search client.
+1. Aprire la finestra del terminale in VS Code.
+1. Creare un nuovo progetto console denominato *BingImageSearch* immettendo il codice seguente nella finestra del terminale:
+    
+    ```bash
+    dotnet new console -n BingImageSearch
+    ```
+1. Aprire la cartella *BingImageSearch* in VS Code.
+1. Aggiungere il pacchetto NuGet [pacchetto NuGet di ricerca cognitiva di immagini](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.ImageSearch) immettendo il codice seguente nella finestra del terminale:
 
-var client = new ImageSearchClient(new ApiKeyServiceClientCredentials(subscriptionKey));
-```
+    ```bash
+    dotnet add package Microsoft.Azure.CognitiveServices.Search.ImageSearch
+    ```
 
+---
+
+## <a name="initialize-the-application"></a>Inizializzare l'applicazione
+
+
+1. Sostituire tutte le istruzioni `using` in *Program.cs* con il codice seguente:
+
+    ```csharp
+    using System;
+    using System.Linq;
+    using Microsoft.Azure.CognitiveServices.Search.ImageSearch;
+    using Microsoft.Azure.CognitiveServices.Search.ImageSearch.Models;
+    ```
+
+1. Nel metodo `Main` del progetto, creare variabili per la chiave di sottoscrizione valida, i risultati immagini che devono essere restituiti da Bing e un termine di ricerca. Creare quindi un'istanza del client di ricerca delle immagini usando la chiave.
+
+    ```csharp
+    static async Task Main(string[] args)
+    {
+        //IMPORTANT: replace this variable with your Cognitive Services subscription key
+        string subscriptionKey = "ENTER YOUR KEY HERE";
+        //stores the image results returned by Bing
+        Images imageResults = null;
+        // the image search term to be used in the query
+        string searchTerm = "canadian rockies";
+        
+        //initialize the client
+        //NOTE: If you're using version 1.2.0 or below for the Bing Image Search client library, 
+        // use ImageSearchAPI() instead of ImageSearchClient() to initialize your search client.
+        
+        var client = new ImageSearchClient(new ApiKeyServiceClientCredentials(subscriptionKey));
+    }
+    ```
+    
 ## <a name="send-a-search-query-using-the-client"></a>Inviare una query di ricerca tramite il client
-
-Usare il client per eseguire una ricerca con un testo di query:
-
+    
+Sempre con il metodo `Main`, usare il client per eseguire una ricerca con il testo della query:
+    
 ```csharp
 // make the search request to the Bing Image API, and get the results"
-imageResults = client.Images.SearchAsync(query: searchTerm).Result; //search query
+imageResults = await client.Images.SearchAsync(query: searchTerm).Result; //search query
 ```
 
 ## <a name="parse-and-view-the-first-image-result"></a>Analizzare e visualizzare la prima immagine dei risultati
 
-Analizzare le immagini restituite nella risposta.
-Se la risposta contiene i risultati della ricerca, archiviare il primo risultato e stamparne i dettagli, ad esempio l'URL di anteprima e l'URL originale, insieme al numero totale di immagini restituite.  
+Analizzare le immagini restituite nella risposta. 
+
+Se la risposta contiene risultati della ricerca, archiviare il primo risultato e stamparne alcuni dettagli.
 
 ```csharp
 if (imageResults != null)
@@ -80,6 +121,7 @@ if (imageResults != null)
     Console.WriteLine($"Copy the following URLs to view these images on your browser.\n");
     Console.WriteLine($"URL to the first image:\n\n {firstImageResult.ContentUrl}\n");
     Console.WriteLine($"Thumbnail URL for the first image:\n\n {firstImageResult.ThumbnailUrl}");
+    Console.WriteLine("Press any key to exit ...");
     Console.ReadKey();
 }
 ```

@@ -7,12 +7,12 @@ ms.date: 10/15/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6c1ccbfc221970980d5d0b15e82f9f8483c48bce
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 6ac4d0e0744bfc82a686671234e013b2dd717146
+ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92043766"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92927754"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Integrare Azure Key Vault con Criteri di Azure
 
@@ -29,9 +29,9 @@ Esempi di scenari d'uso
 
 ## <a name="types-of-policy-effects-and-guidance"></a>Tipi di effetti dei criteri e indicazioni
 
-**Controllo**. Quando l'effetto di un criterio è impostato su Controllo, il criterio non comporta alcuna modifica sostanziale dell'ambiente. Nel dashboard di conformità dei criteri vengono contrassegnati i componenti non conformi, ad esempio i certificati che non rispettano la conformità alle definizioni dei criteri in un ambito specificato. Il controllo è l'impostazione predefinita se non è selezionato alcun effetto dei criteri.
+**Controllo** . Quando l'effetto di un criterio è impostato su Controllo, il criterio non comporta alcuna modifica sostanziale dell'ambiente. Nel dashboard di conformità dei criteri vengono contrassegnati i componenti non conformi, ad esempio i certificati che non rispettano la conformità alle definizioni dei criteri in un ambito specificato. Il controllo è l'impostazione predefinita se non è selezionato alcun effetto dei criteri.
 
-**Nega**. Quando l'effetto di un criterio è impostato su Nega, il criterio blocca la creazione di nuovi componenti, ad esempio i certificati, nonché nuove versioni dei componenti esistenti non conformi alla definizione dei criteri. Le risorse non conformi esistenti in un insieme di credenziali delle chiavi non sono interessate. Le funzionalità di controllo continuano a essere attive.
+**Nega** . Quando l'effetto di un criterio è impostato su Nega, il criterio blocca la creazione di nuovi componenti, ad esempio i certificati, nonché nuove versioni dei componenti esistenti non conformi alla definizione dei criteri. Le risorse non conformi esistenti in un insieme di credenziali delle chiavi non sono interessate. Le funzionalità di controllo continuano a essere attive.
 
 ## <a name="available-built-in-policy-definitions"></a>Definizioni dei criteri predefinite disponibili
 
@@ -91,9 +91,9 @@ Il servizio può riscontrare un'interruzione se un certificato non monitorato in
 
 Per assicurarsi che le chiavi non rimangano attive per un periodo più lungo del numero di giorni specificato, è possibile usare questo criterio per controllare per quanto tempo sono state attive.
 
-**Se per la chiave è impostata una data di attivazione**, questo criterio calcolerà il numero di giorni trascorsi dalla **data di attivazione** della chiave alla data corrente. Se il numero di giorni supera la soglia impostata, la chiave verrà contrassegnata come non conforme al criterio.
+**Se per la chiave è impostata una data di attivazione** , questo criterio calcolerà il numero di giorni trascorsi dalla **data di attivazione** della chiave alla data corrente. Se il numero di giorni supera la soglia impostata, la chiave verrà contrassegnata come non conforme al criterio.
 
-**Se per la chiave non è impostata una data di attivazione**, questo criterio calcolerà il numero di giorni trascorsi dalla **data di creazione** della chiave alla data corrente. Se il numero di giorni supera la soglia impostata, la chiave verrà contrassegnata come non conforme al criterio.
+**Se per la chiave non è impostata una data di attivazione** , questo criterio calcolerà il numero di giorni trascorsi dalla **data di creazione** della chiave alla data corrente. Se il numero di giorni supera la soglia impostata, la chiave verrà contrassegnata come non conforme al criterio.
 
 ### <a name="keys-should-be-the-specified-cryptographic-type-rsa-or-ec-preview"></a>Le chiavi devono essere del tipo di crittografia RSA o EC specificato (anteprima)
 
@@ -139,9 +139,9 @@ L'uso di chiavi RSA di dimensioni inferiori non è una procedura di progettazion
 
 Per assicurarsi che i segreti non rimangano attivi per un periodo più lungo del numero di giorni specificato, è possibile usare questo criterio per controllare per quanto tempo sono stati attivi.
 
-**Se per il segreto è impostata una data di attivazione**, questo criterio calcolerà il numero di giorni trascorsi dalla **data di attivazione** del segreto alla data corrente. Se il numero di giorni supera la soglia impostata, il segrego verrà contrassegnato come non conforme al criterio.
+**Se per il segreto è impostata una data di attivazione** , questo criterio calcolerà il numero di giorni trascorsi dalla **data di attivazione** del segreto alla data corrente. Se il numero di giorni supera la soglia impostata, il segrego verrà contrassegnato come non conforme al criterio.
 
-**Se per il segreto non è impostata una data di attivazione**, questo criterio calcolerà il numero di giorni trascorsi dalla **data di creazione** del segreto alla data corrente. Se il numero di giorni supera la soglia impostata, il segrego verrà contrassegnato come non conforme al criterio.
+**Se per il segreto non è impostata una data di attivazione** , questo criterio calcolerà il numero di giorni trascorsi dalla **data di creazione** del segreto alla data corrente. Se il numero di giorni supera la soglia impostata, il segrego verrà contrassegnato come non conforme al criterio.
 
 ### <a name="secrets-should-have-content-type-set-preview"></a>I segreti devono avere un tipo di contenuto impostato (anteprima)
 
@@ -165,7 +165,7 @@ Se un segreto è troppo vicino alla scadenza, un ritardo dell'organizzazione nel
 
 Si gestisce un insieme di credenziali delle chiavi usato da più team che contiene 100 certificati e si vuole verificare che nessun certificato nell'insieme di credenziali delle chiavi sia valido per più di due anni.
 
-1. Si assegna il criterio **I certificati devono avere il periodo di validità massimo specificato**, si specifica che il periodo di validità massimo di un certificato sia di 24 mesi e si imposta l'effetto del criterio su "controllo". 
+1. Si assegna il criterio **I certificati devono avere il periodo di validità massimo specificato** , si specifica che il periodo di validità massimo di un certificato sia di 24 mesi e si imposta l'effetto del criterio su "controllo". 
 1. Nel [report di conformità nel portale di Azure](#view-compliance-results) viene rilevato che 20 certificati non sono conformi e che sono validi per più di due anni e che i certificati rimanenti sono conformi. 
 1. Si contattano i proprietari di questi certificati e si comunica il nuovo requisito di sicurezza, in base al quale i certificati non possono essere validi per più di due anni. Alcuni team rispondono e 15 certificati vengono rinnovati con un periodo di validità massimo di 2 anni o meno. Altri team non rispondono e nell'insieme di credenziali delle chiavi sono ancora presenti 5 certificati.
 1. L'effetto dei criteri assegnati viene impostato su "nega". I 5 certificati non conformi non vengono revocati e continuano a funzionare. Tali certificati, tuttavia, non possono essere rinnovati con un periodo di validità maggiore di 2 anni. 
@@ -175,51 +175,51 @@ Si gestisce un insieme di credenziali delle chiavi usato da più team che contie
 ### <a name="select-a-policy-definition"></a>Selezionare una definizione di criteri
 
 1. Accedere al portale di Azure. 
-1. Cercare "Criteri" nella barra di ricerca e selezionare **Criteri**.
+1. Cercare "Criteri" nella barra di ricerca e selezionare **Criteri** .
 
-    ![Panoramica del funzionamento di Azure Key Vault](../media/policy-img1.png)
+    ![Screenshot che mostra la barra di ricerca.](../media/policy-img1.png)
 
-1. Nella finestra Criteri selezionare **Definizioni**.
+1. Nella finestra Criteri selezionare **Definizioni** .
 
-    ![Panoramica del funzionamento di Azure Key Vault](../media/policy-img2.png)
+    ![Screenshot con l'opzione Definizioni evidenziata.](../media/policy-img2.png)
 
-1. Nel filtro Categoria deselezionare **Seleziona tutto** e quindi selezionare **Key Vault**. 
+1. Nel filtro Categoria deselezionare **Seleziona tutto** e quindi selezionare **Key Vault** . 
 
-    ![Panoramica del funzionamento di Azure Key Vault](../media/policy-img3.png)
+    ![Screenshot che mostra il filtro di categoria e la categoria di Key Vault selezionata.](../media/policy-img3.png)
 
 1. A questo punto dovrebbe essere possibile visualizzare tutti i criteri disponibili per l'anteprima pubblica, ad Azure Key Vault. Assicurarsi di aver letto e compreso la sezione delle linee guida precedente e selezionare i criteri da assegnare a un ambito.  
 
-    ![Panoramica del funzionamento di Azure Key Vault](../media/policy-img4.png)
+    ![Screenshot che mostra i criteri disponibili per l'anteprima pubblica.](../media/policy-img4.png)
 
 ### <a name="assign-a-policy-to-a-scope"></a>Assegnare criteri a un ambito 
 
-1. Selezionare i criteri da applicare. In questo esempio viene visualizzato il criterio **Gestisci periodo di validità del certificato**. Fare clic sul pulsante di assegnazione nell'angolo superiore sinistro.
+1. Selezionare i criteri da applicare. In questo esempio viene visualizzato il criterio **Gestisci periodo di validità del certificato** . Fare clic sul pulsante di assegnazione nell'angolo superiore sinistro.
 
-    ![Panoramica del funzionamento di Azure Key Vault](../media/policy-img5.png)
+    ![Screenshot che mostra il criterio Gestisci periodo di validità del certificato.](../media/policy-img5.png)
   
 1. Selezionare la sottoscrizione in cui si desidera applicare i criteri. È possibile scegliere di limitare l'ambito a un singolo gruppo di risorse in una sottoscrizione. Se si desidera applicare i criteri all'intera sottoscrizione ed escludere alcuni gruppi di risorse, è anche possibile configurare un elenco di esclusione. Impostare il selettore di imposizione dei criteri su **Abilitato** se si desidera che l'effetto del criterio (controllo o negazione) venga applicato o su **Disabilitato** per disattivarne l'applicazione. 
 
-    ![Panoramica del funzionamento di Azure Key Vault](../media/policy-img6.png)
+    ![Screenshot che mostra dove è possibile scegliere di limitare l'ambito a un singolo gruppo di risorse in una sottoscrizione.](../media/policy-img6.png)
 
 1. Fare clic sulla scheda dei parametri nella parte superiore della schermata per specificare il periodo di validità massimo desiderato (in mesi). Selezionare **Controllo** o **Nega** come effetto del criterio seguendo le indicazioni delle sezioni precedenti e quindi selezionare il pulsante Rivedi e crea. 
 
-    ![Panoramica del funzionamento di Azure Key Vault](../media/policy-img7.png)
+    ![Screenshot che mostra la scheda Parametri in cui è possibile specificare il periodo di validità massimo desiderato (in mesi).](../media/policy-img7.png)
 
 ### <a name="view-compliance-results"></a>Visualizzare i risultati di conformità
 
 1. Tornare al pannello dei criteri e selezionare la scheda relativa alla conformità. Fare clic sull'assegnazione di criteri per cui visualizzare i risultati di conformità.
 
-    ![Panoramica del funzionamento di Azure Key Vault](../media/policy-img8.png)
+    ![Screenshot che mostra la scheda Conformità in cui è possibile selezionare l'assegnazione di criteri per cui si vogliono visualizzare i risultati di conformità.](../media/policy-img8.png)
 
 1. In questa pagina è possibile filtrare i risultati in base a insiemi di credenziali conformi o non conformi. È possibile visualizzare anche un elenco di insiemi di credenziali delle chiavi non conformi nell'ambito dell'assegnazione dei criteri. Un insieme di credenziali viene considerato non conforme se uno dei componenti (certificati) presenti nell'insieme non è conforme. È possibile selezionare un singolo insieme di credenziali per visualizzare i singoli componenti non conformi (certificati). 
 
 
-    ![Panoramica del funzionamento di Azure Key Vault](../media/policy-img9.png)
+    ![Screenshot che mostra un elenco di insiemi di credenziali delle chiavi non conformi nell'ambito dell'assegnazione dei criteri.](../media/policy-img9.png)
 
 1. Visualizzare il nome dei componenti in un insieme di credenziali non conformi
 
 
-    ![Panoramica del funzionamento di Azure Key Vault](../media/policy-img10.png)
+    ![Screenshot che mostra dove è possibile visualizzare il nome dei componenti in un insieme di credenziali non conformi.](../media/policy-img10.png)
 
 1. Se è necessario controllare se agli utenti viene negata la possibilità di creare risorse nell'insieme di credenziali delle chiavi, fare clic sulla scheda **Eventi dei componenti (anteprima)** per visualizzare un riepilogo delle operazioni di certificato negate con il richiedente e i timestamp delle richieste. 
 
