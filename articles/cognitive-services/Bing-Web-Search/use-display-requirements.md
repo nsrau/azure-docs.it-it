@@ -10,14 +10,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 01/31/2019
 ms.author: aahi
-ms.openlocfilehash: 5575668f164b97142e7c4b2ddb2608c3173426a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 93be72f2afcda90dde1b74c5ee317a7ad3350be1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "60499886"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075688"
 ---
 # <a name="bing-search-api-use-and-display-requirements"></a>Requisiti per l'uso e la visualizzazione delle API di ricerca Bing
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Questi requisiti per l'uso e la visualizzazione si applicano a qualsiasi implementazione del contenuto e delle informazioni associate eseguita dalle API di ricerca Bing elencate di seguito, inclusi metadati, relazioni e altri segnali.
 
@@ -39,7 +44,7 @@ Questi requisiti per l'uso e la visualizzazione si applicano a qualsiasi impleme
 |Risposta     | Una categoria di risultati restituiti in una risposta. Una risposta dell'API Ricerca Web Bing può ad esempio includere riscontri delle categorie pagine Web, immagini, video e notizie. |
 |Risposta     | Tutti i riscontri e i dati associati ricevuti in risposta a una singola chiamata a un'API di ricerca. |
 |Risultato    | Un'informazione contenuta in un riscontro. Ad esempio, il set di dati collegato a un singolo articolo di notizie rappresenta un risultato in un riscontro relativo a notizie. |
-|API per la ricerca    | L'insieme delle API di ricerca Bing, che include Ricerca personalizzata, Ricerca entità, Ricerca immagini, Ricerca notizie, Ricerca video, Ricerca visiva, Ricerca aziende locali e Ricerca Web. |
+|API di ricerca    | L'insieme delle API di ricerca Bing, che include Ricerca personalizzata, Ricerca entità, Ricerca immagini, Ricerca notizie, Ricerca video, Ricerca visiva, Ricerca aziende locali e Ricerca Web. |
 
 ## <a name="bing-spell-check-and-bing-autosuggest-api-restrictions"></a>Restrizioni delle API Controllo ortografico Bing e Suggerimenti automatici Bing
 
@@ -99,7 +104,7 @@ Non:
 ### <a name="notices-and-branding"></a>Informative e marchio 
 Cosa fare
 
-- Includere in posizione prominente un collegamento ipertestuale funzionante all'[informativa sulla privacy Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), nelle vicinanze di qualsiasi punto nell'esperienza utente che offre all'utente la possibilità di immettere una query di ricerca. Etichettare il collegamento ipertestuale **Microsoft Privacy Statement**.
+- Includere in posizione prominente un collegamento ipertestuale funzionante all'[informativa sulla privacy Microsoft](https://go.microsoft.com/fwlink/?LinkId=521839), nelle vicinanze di qualsiasi punto nell'esperienza utente che offre all'utente la possibilità di immettere una query di ricerca. Etichettare il collegamento ipertestuale **Microsoft Privacy Statement** .
 
 - Visualizzare in posizione prominente il marchio Bing, coerentemente con le [linee guida per l'utilizzo del marchio Bing](https://go.microsoft.com/fwlink/?linkid=833278), nelle vicinanze di qualsiasi punto nell'esperienza utente che offre all'utente la possibilità di immettere una query di ricerca. Le informazioni di marchio devono indicare chiaramente all'utente che l'esperienza di ricerca Internet è offerta e gestita da Microsoft.
 

@@ -9,31 +9,30 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/23/2020
+ms.date: 10/29/2020
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40, content-perf, FY21Q1, contperfq1
 ms.reviewer: hirsin, jlu, annaba
-ms.openlocfilehash: 4accae27dc092a4900e6092c62c7f4978a46668a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 4dab75a4e95a7561bc86176816cb402c10de781e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503777"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077422"
 ---
 # <a name="configurable-token-lifetimes-in-microsoft-identity-platform-preview"></a>Durata del token configurabile nella piattaforma di identità Microsoft (anteprima)
 
-È possibile specificare la durata di un token emesso dalla piattaforma di identità Microsoft. La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione. Attualmente, tuttavia, non è supportata la configurazione delle durate dei token per le [entità servizio gestite di identità](../managed-identities-azure-resources/overview.md).
-
 > [!IMPORTANT]
-> Dopo il 30 gennaio 2021, i tenant non saranno più in grado di configurare la durata del token di sessione e di aggiornamento e Azure Active Directory smetterà di rispettare la configurazione del token di sessione e di aggiornamento esistente nei criteri dopo tale data. È comunque possibile configurare la durata dei token di accesso dopo il ritiro.
-> Sono state implementate le [funzionalità di gestione delle sessioni di autenticazione](../conditional-access/howto-conditional-access-session-lifetime.md)   in Azure ad l'accesso condizionale. È possibile usare questa nuova funzionalità per configurare la durata dei token di aggiornamento impostando la frequenza di accesso. L'accesso condizionale è una funzionalità Azure AD Premium P1 ed è possibile valutare se Premium è adatto alla propria Organzation nella [pagina dei prezzi Premium](https://azure.microsoft.com/en-us/pricing/details/active-directory/). 
-> 
-> Per i tenant che non usano la gestione delle sessioni di autenticazione nell'accesso condizionale dopo la data di ritiro, possono prevedere che Azure AD soddisferà la configurazione predefinita descritta nella sezione successiva.
+> Dopo il 30 gennaio 2021, i tenant non saranno più in grado di configurare la durata del token di sessione e di aggiornamento e Azure Active Directory smetterà di rispettare la configurazione del token di sessione e di aggiornamento nei criteri dopo tale data.
+>
+> Se è necessario continuare a definire il periodo di tempo prima che all'utente venga richiesto di eseguire di nuovo l'accesso, configurare la frequenza di accesso nell'accesso condizionale. Per ulteriori informazioni sull'accesso condizionale, visitare la pagina relativa ai [prezzi Azure ad](https://azure.microsoft.com/en-us/pricing/details/active-directory/).
+>
+> Per i tenant che non vogliono usare l'accesso condizionale dopo la data di ritiro, possono prevedere che Azure AD soddisferà la configurazione predefinita descritta nella sezione successiva.
 
 ## <a name="configurable-token-lifetime-properties-after-the-retirement"></a>Proprietà di durata dei token configurabili dopo il ritiro
-La configurazione del token di sessione e di aggiornamento sono influenzate dalle proprietà seguenti e dai rispettivi valori impostati rispettivamente. Dopo il ritiro della configurazione del token di aggiornamento e di sessione, Azure AD rispetterà solo il valore predefinito descritto di seguito, indipendentemente dal fatto che i criteri dispongano di valori personalizzati configurati con valori personalizzati.  
+La configurazione del token di sessione e di aggiornamento sono influenzate dalle proprietà seguenti e dai rispettivi valori impostati rispettivamente. Dopo il ritiro della configurazione del token di aggiornamento e di sessione, Azure AD rispetterà solo il valore predefinito descritto di seguito, indipendentemente dal fatto che i criteri dispongano di valori personalizzati configurati con valori personalizzati. È comunque possibile configurare la durata dei token di accesso dopo il ritiro. 
 
-|Proprietà   |Stringa proprietà criteri    |Impatto |Valore predefinito |
+|Proprietà   |Stringa proprietà criteri    |Impatto |Predefinito |
 |----------|-----------|------------|------------|
 |Tempo inattività massimo token di aggiornamento |MaxInactiveTime  |Token di aggiornamento |90 giorni  |
 |Validità massima token di aggiornamento a fattore singolo  |MaxAgeSingleFactor  |Token di aggiornamento (per tutti gli utenti)  |Fino a revoca  |
@@ -41,13 +40,34 @@ La configurazione del token di sessione e di aggiornamento sono influenzate dall
 |Validità massima token di sessione a fattore singolo  |MaxAgeSessionSingleFactor |Token di sessione (permanenti e non permanenti)  |Fino a revoca |
 |Validità massima token di sessione a più fattori  |MaxAgeSessionMultiFactor  |Token di sessione (permanenti e non permanenti)  |180 giorni |
 
-È possibile utilizzare il cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) per identificare i criteri di durata dei token i cui valori di proprietà sono diversi da quelli delle Azure ad predefinite.
+## <a name="identify-configuration-in-scope-of-retirement"></a>Identificare la configurazione nell'ambito del ritiro
 
-Per comprendere ulteriormente il modo in cui i criteri vengono usati nel tenant, è possibile usare il cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) per identificare le app e le entità servizio collegate ai criteri. 
+Per iniziare, seguire questa procedura:
 
-Se il tenant dispone di criteri che definiscono valori personalizzati per le proprietà di configurazione del token di sessione e di aggiornamento, Microsoft consiglia di aggiornare i criteri nell'ambito ai valori che riflettono le impostazioni predefinite descritte in precedenza. Se non viene apportata alcuna modifica, Azure AD rispetterà automaticamente i valori predefiniti.  
+1. Scaricare la [versione di anteprima pubblica del modulo Azure ad PowerShell](https://www.powershellgallery.com/packages/AzureADPreview)più recente.
+1. Eseguire il comando `Connect` per accedere all'account amministratore di Azure AD. Eseguire questo comando ogni volta che si avvia una nuova sessione.
+
+    ```powershell
+    Connect-AzureAD -Confirm
+    ```
+
+1. Per visualizzare tutti i criteri creati nell'organizzazione, eseguire il cmdlet [Get-AzureADPolicy](/powershell/module/azuread/get-azureadpolicy?view=azureadps-2.0-preview&preserve-view=true) .  I risultati con valori di proprietà definiti che differiscono dalle impostazioni predefinite elencate in precedenza rientrano nell'ambito del ritiro.
+
+    ```powershell
+    Get-AzureADPolicy -All
+    ```
+
+1. Per visualizzare le app e le entità servizio collegate a criteri specifici identificati, eseguire il cmdlet [Get-AzureADPolicyAppliedObject](/powershell/module/azuread/get-azureadpolicyappliedobject?view=azureadps-2.0-preview&preserve-view=true) seguente sostituendo **1a37dad8-5da7-4CC8-87C7-efbc0326cf20** con uno qualsiasi degli ID criterio. È quindi possibile decidere se configurare la frequenza di accesso con accesso condizionale o rimanere con i valori predefiniti Azure AD.
+
+    ```powershell
+    Get-AzureADPolicyAppliedObject -id 1a37dad8-5da7-4cc8-87c7-efbc0326cf20
+    ```
+
+Se il tenant dispone di criteri che definiscono valori personalizzati per le proprietà di configurazione del token di sessione e di aggiornamento, Microsoft consiglia di aggiornare tali criteri ai valori che riflettono le impostazioni predefinite descritte in precedenza. Se non viene apportata alcuna modifica, Azure AD rispetterà automaticamente i valori predefiniti.  
 
 ## <a name="overview"></a>Panoramica
+
+È possibile specificare la durata di un token emesso dalla piattaforma di identità Microsoft. La durata dei token può essere impostata per tutte le app di un'organizzazione, per un'applicazione multi-tenant (più organizzazioni) o per un'entità servizio specifica in un'organizzazione. Attualmente, tuttavia, non è supportata la configurazione delle durate dei token per le [entità servizio gestite di identità](../managed-identities-azure-resources/overview.md).
 
 In Azure AD, un oggetto criteri rappresenta un set di regole applicate a singole applicazioni o a tutte le applicazioni di un'organizzazione. Ogni tipo di criteri ha una struttura univoca con un set di proprietà che vengono applicate agli oggetti a cui sono assegnate.
 
@@ -77,7 +97,7 @@ Il NotOnOrAfter di conferma dell'oggetto specificato nell' `<SubjectConfirmation
 
 ### <a name="refresh-tokens"></a>Token di aggiornamento
 
-Quando un client acquisisce un token di accesso per accedere a una risorsa protetta, riceve anche un token di aggiornamento. Il token di aggiornamento consente di ottenere nuove coppie di token di accesso/aggiornamento alla scadenza del token di accesso attuale. Il token di aggiornamento è associato a una combinazione di utente e client e può essere [revocato in qualsiasi momento](access-tokens.md#token-revocation). La validità del token di aggiornamento viene quindi controllata ogni volta che viene usato.  I token di aggiornamento non sono revocati quando vengono usati per recuperare nuovi token di accesso. La procedura consigliata consiste, tuttavia, nell'eliminare in modo sicuro il token obsoleto quando se ne ottiene uno nuovo. 
+Quando un client acquisisce un token di accesso per accedere a una risorsa protetta, riceve anche un token di aggiornamento. Il token di aggiornamento consente di ottenere nuove coppie di token di accesso/aggiornamento alla scadenza del token di accesso attuale. Il token di aggiornamento è associato a una combinazione di utente e client e può essere [revocato in qualsiasi momento](access-tokens.md#token-revocation). La validità del token di aggiornamento viene quindi controllata ogni volta che viene usato.  I token di aggiornamento non sono revocati quando vengono usati per recuperare nuovi token di accesso. La procedura consigliata consiste, tuttavia, nell'eliminare in modo sicuro il token obsoleto quando se ne ottiene uno nuovo.
 
 È importante distinguere tra client riservati e client pubblici, perché questa caratteristica influisce sulla durata del periodo in cui i token di aggiornamento possono essere usati. Per altre informazioni sui diversi tipi di client, vedere la specifica [RFC 6749](https://tools.ietf.org/html/rfc6749#section-2.1).
 
@@ -97,7 +117,7 @@ I token ID vengono passati a siti Web e client nativi e contengono informazioni 
 ### <a name="single-sign-on-session-tokens"></a>Token di sessione Single Sign-On
 Quando un utente esegue l'autenticazione con Microsoft Identity Platform, viene stabilita una sessione di Single Sign-On (SSO) con il browser dell'utente e la piattaforma delle identità Microsoft. Questa sessione è rappresentata dal token di sessione SSO, sotto forma di cookie. Il token di sessione SSO non è associato a una risorsa/applicazione client specifica. I token di sessione SSO possono essere revocati e la relativa validità viene verificata ogni volta che vengono usati.
 
-Microsoft Identity Platform usa due tipi di token di sessione SSO, ovvero permanenti e non permanenti. I token di sessione permanenti vengono archiviati dal browser come cookie permanenti. I token di sessione non permanenti vengono archiviati come cookie di sessione I cookie di sessione vengono eliminati quando il browser viene chiuso. In genere, viene archiviato un token di sessione non permanente. Ma quando durante l'autenticazione l'utente seleziona la casella di controllo **Mantieni l'accesso**, viene archiviato un token di sessione permanente.
+Microsoft Identity Platform usa due tipi di token di sessione SSO, ovvero permanenti e non permanenti. I token di sessione permanenti vengono archiviati dal browser come cookie permanenti. I token di sessione non permanenti vengono archiviati come cookie di sessione I cookie di sessione vengono eliminati quando il browser viene chiuso. In genere, viene archiviato un token di sessione non permanente. Ma quando durante l'autenticazione l'utente seleziona la casella di controllo **Mantieni l'accesso** , viene archiviato un token di sessione permanente.
 
 I token di sessione non permanenti hanno una durata di 24 ore, I token permanenti hanno una durata di 90 giorni. Ogni volta che un token di sessione SSO viene usato entro il relativo periodo di validità, il periodo di validità viene esteso per altre 24 ore o 90 giorni, a seconda del tipo di token. Se un token di sessione SSO non viene usato entro il relativo periodo di validità, è considerato scaduto e non viene più accettato.
 
@@ -107,7 +127,7 @@ I token di sessione non permanenti hanno una durata di 24 ore, I token permanent
 I criteri per la durata dei token rappresentano un tipo di oggetto criteri contenente le regole di durata dei token. Usare le proprietà dei criteri per controllare la durata di token specifici. Se non si impostano criteri, il valore di durata predefinito viene applicato dal sistema.
 
 ### <a name="configurable-token-lifetime-properties"></a>Proprietà configurabili per la durata dei token
-| Proprietà | Stringa proprietà criteri | Impatto | Valore predefinito | Minima | Massimo |
+| Proprietà | Stringa proprietà criteri | Impatto | Predefinito | Minima | Massimo |
 | --- | --- | --- | --- | --- | --- |
 | Durata dei token di accesso |AccessTokenLifetime<sup>2</sup> |Token di accesso, token ID, token SAML2 |1 ora |10 minuti |1 giorno |
 | Tempo inattività massimo token di aggiornamento |MaxInactiveTime |Token di aggiornamento |90 giorni |10 minuti |90 giorni |
@@ -120,7 +140,7 @@ I criteri per la durata dei token rappresentano un tipo di oggetto criteri conte
 * <sup>2</sup> Per assicurarsi che il client Web Microsoft teams funzioni, è consigliabile mantenere AccessTokenLifetime a più di 15 minuti per Microsoft teams.
 
 ### <a name="exceptions"></a>Eccezioni
-| Proprietà | Impatto | Valore predefinito |
+| Proprietà | Impatto | Predefinito |
 | --- | --- | --- |
 | Validità massima dei token di aggiornamento (rilasciati a utenti federati con informazioni sulla revoca insufficienti<sup>1</sup>) |Token di aggiornamento (rilasciati a utenti federati con informazioni sulla revoca insufficienti<sup>1</sup>) |12 ore |
 | Tempo inattività massimo token di aggiornamento (rilasciata a client riservati) |Token di aggiornamento (rilasciati a client riservati) |90 giorni |

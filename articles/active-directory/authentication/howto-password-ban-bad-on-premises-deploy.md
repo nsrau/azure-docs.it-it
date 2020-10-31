@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f3aee10c0682feeea7c74133f908452d1c5595f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 66df1bbe531c072ff5aa2bebe7b197201e6931a2
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968600"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077728"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Pianificare e distribuire la protezione Azure Active Directory password locale
 
@@ -125,7 +125,7 @@ I requisiti seguenti si applicano al servizio proxy Azure AD password protection
     * .NET 4,7 dovrebbe essere già installato in un server Windows completamente aggiornato. Se necessario, scaricare ed eseguire il programma di installazione disponibile nel [programma di installazione di .NET Framework 4,7 offline per Windows](https://support.microsoft.com/help/3186497/the-net-framework-4-7-offline-installer-for-windows).
 * Tutti i computer che ospitano il servizio proxy Azure AD Password Protection devono essere configurati in modo da concedere ai controller di dominio la possibilità di accedere al servizio proxy. Questa possibilità viene controllata tramite l'assegnazione dei privilegi "accedi al computer dalla rete".
 * Tutti i computer che ospitano il servizio proxy Azure AD Password Protection devono essere configurati per consentire il traffico HTTP di TLS 1,2 in uscita.
-* Un account *amministratore globale* per la registrazione del servizio proxy Azure ad Password Protection e della foresta con Azure ad.
+* Un account amministratore *globale* o *amministratore della sicurezza* per registrare il servizio proxy Azure ad Password Protection e la foresta con Azure ad.
 * L'accesso alla rete deve essere abilitato per il set di porte e URL specificati nelle [procedure di configurazione dell'ambiente del proxy di applicazione](../manage-apps/application-proxy-add-on-premises-application.md#prepare-your-on-premises-environment).
 
 ### <a name="microsoft-azure-ad-connect-agent-updater-prerequisites"></a>Prerequisiti di Microsoft Azure AD Connect Agent Updater
@@ -142,8 +142,8 @@ Il servizio Microsoft Azure AD Connect Agent Updater è installato side-by-side 
 
 Sono disponibili due programmi di installazione necessari per una distribuzione di protezione Azure AD password locale:
 
-* Agente di controller di dominio Azure AD Password Protection (*AzureADPasswordProtectionDCAgentSetup.msi*)
-* Proxy di protezione Azure AD password (*AzureADPasswordProtectionProxySetup.exe*)
+* Agente di controller di dominio Azure AD Password Protection ( *AzureADPasswordProtectionDCAgentSetup.msi* )
+* Proxy di protezione Azure AD password ( *AzureADPasswordProtectionProxySetup.exe* )
 
 Scaricare entrambi i programmi di installazione dall' [area download Microsoft](https://www.microsoft.com/download/details.aspx?id=57071).
 
@@ -155,9 +155,11 @@ Nella sezione successiva si installeranno gli agenti di controller di dominio Az
 
 Scegliere uno o più server per ospitare il servizio proxy Azure AD password protection. Per i server sono valide le considerazioni seguenti:
 
-* Ogni servizio di questo tipo può fornire solo criteri password per una singola foresta. Il computer host deve essere aggiunto a un dominio nella foresta. Sono supportati entrambi i domini radice e figlio. È necessaria la connettività di rete tra almeno un controller di dominio in ogni dominio della foresta e il computer di protezione con password.
+* Ogni servizio di questo tipo può fornire solo criteri password per una singola foresta. Il computer host deve essere aggiunto a qualsiasi dominio nella foresta.
+* Supporta l'installazione del proxy del servizio nei domini radice o figlio o in una combinazione di questi.
+* È necessaria la connettività di rete tra almeno un controller di dominio in ogni dominio della foresta e un server proxy per la protezione delle password.
 * È possibile eseguire il Azure AD servizio proxy di protezione da password in un controller di dominio per il testing, ma tale controller di dominio richiede la connettività Internet. Questa connettività può costituire un problema di sicurezza. Questa configurazione è consigliata solo per i test.
-* Per la ridondanza sono consigliate almeno due Azure AD server proxy di protezione delle password, come indicato nella sezione precedente relativa alle [considerazioni sulla disponibilità elevata](#high-availability-considerations).
+* Per la ridondanza sono consigliate almeno due Azure AD server proxy per la protezione con password, come indicato nella sezione precedente relativa alle [considerazioni sulla disponibilità elevata](#high-availability-considerations).
 * Non è supportata l'esecuzione del servizio proxy Azure AD Password Protection in un controller di dominio di sola lettura.
 
 Per installare il servizio proxy Azure AD Password Protection, attenersi alla procedura seguente:
@@ -191,11 +193,11 @@ Per installare il servizio proxy Azure AD Password Protection, attenersi alla pr
     Get-Service AzureADPasswordProtectionProxy | fl
     ```
 
-    Il risultato dovrebbe mostrare **lo stato** *in esecuzione*.
+    Il risultato dovrebbe mostrare **lo stato** *in esecuzione* .
 
 1. Il servizio proxy è in esecuzione nel computer, ma non ha le credenziali per comunicare con Azure AD. Registrare il server proxy Azure AD Password Protection con Azure AD utilizzando il `Register-AzureADPasswordProtectionProxy` cmdlet.
 
-    Questo cmdlet richiede le credenziali di amministratore globale per il tenant di Azure. Sono necessari anche i privilegi di amministratore di dominio Active Directory locali nel dominio radice della foresta. Questo cmdlet deve essere eseguito anche usando un account con privilegi di amministratore locale:
+    Questo cmdlet richiede le credenziali di amministratore *globale* o di *amministratore della sicurezza* per il tenant di Azure. Questo cmdlet deve essere eseguito anche usando un account con privilegi di amministratore locale.
 
     Quando il comando ha esito positivo una volta per un servizio proxy Azure AD Password Protection, le chiamate aggiuntive hanno esito positivo, ma non sono necessarie.
 
@@ -233,7 +235,7 @@ Per installare il servizio proxy Azure AD Password Protection, attenersi alla pr
         >
         > È anche possibile vedere l'autenticazione a più fattori necessaria se la registrazione del dispositivo di Azure, che viene usata dietro le quinte da Azure AD la protezione delle password, è stata configurata in modo da richiedere a livello globale Per ovviare a questo requisito, è possibile usare un account diverso che supporta l'autenticazione a più fattori con una delle due modalità di autenticazione precedenti oppure è possibile anche disattivare temporaneamente il requisito di autenticazione a più fattori di registrazione dei dispositivi di Azure.
         >
-        > Per apportare questa modifica, cercare e selezionare **Azure Active Directory** nel portale di Azure, quindi selezionare **dispositivi > impostazioni dispositivo**. Impostare **Richiedi autenticazione a più fattori per aggiungere dispositivi** a *No*. Assicurarsi di riconfigurare nuovamente questa impostazione su *Sì* al termine della registrazione.
+        > Per apportare questa modifica, cercare e selezionare **Azure Active Directory** nel portale di Azure, quindi selezionare **dispositivi > impostazioni dispositivo** . Impostare **Richiedi autenticazione a più fattori per aggiungere dispositivi** a *No* . Assicurarsi di riconfigurare nuovamente questa impostazione su *Sì* al termine della registrazione.
         >
         > È consigliabile ignorare i requisiti dell'autenticazione a più fattori solo a scopo di test.
 
@@ -246,7 +248,9 @@ Per installare il servizio proxy Azure AD Password Protection, attenersi alla pr
     > [!NOTE]
     > Se nel proprio ambiente sono installati più server proxy di Azure AD Password Protection, non importa quale server proxy usare per registrare la foresta.
 
-    Il cmdlet richiede le credenziali di amministratore globale per il tenant di Azure. È inoltre necessario eseguire questo cmdlet utilizzando un account con privilegi di amministratore locale. Richiede anche privilegi di amministratore dell'organizzazione Active Directory locale. Questo passaggio viene eseguito una volta per ogni foresta.
+    Il cmdlet richiede le credenziali di amministratore *globale* o di *amministratore della sicurezza* per il tenant di Azure. Richiede anche privilegi di amministratore dell'organizzazione Active Directory locale. È inoltre necessario eseguire questo cmdlet utilizzando un account con privilegi di amministratore locale. L'account Azure usato per registrare la foresta può essere diverso dall'account Active Directory locale.
+    
+    Questo passaggio viene eseguito una volta per ogni foresta.
 
     Il `Register-AzureADPasswordProtectionForest` cmdlet supporta le tre modalità di autenticazione seguenti. Le prime due modalità supportano Azure Multi-Factor Authentication ma la terza modalità non lo è.
 
@@ -282,7 +286,7 @@ Per installare il servizio proxy Azure AD Password Protection, attenersi alla pr
         >
         > È anche possibile vedere l'autenticazione a più fattori necessaria se la registrazione del dispositivo di Azure, che viene usata dietro le quinte da Azure AD la protezione delle password, è stata configurata in modo da richiedere a livello globale Per ovviare a questo requisito, è possibile usare un account diverso che supporta l'autenticazione a più fattori con una delle due modalità di autenticazione precedenti oppure è possibile anche disattivare temporaneamente il requisito di autenticazione a più fattori di registrazione dei dispositivi di Azure.
         >
-        > Per apportare questa modifica, cercare e selezionare **Azure Active Directory** nel portale di Azure, quindi selezionare **dispositivi > impostazioni dispositivo**. Impostare **Richiedi autenticazione a più fattori per aggiungere dispositivi** a *No*. Assicurarsi di riconfigurare nuovamente questa impostazione su *Sì* al termine della registrazione.
+        > Per apportare questa modifica, cercare e selezionare **Azure Active Directory** nel portale di Azure, quindi selezionare **dispositivi > impostazioni dispositivo** . Impostare **Richiedi autenticazione a più fattori per aggiungere dispositivi** a *No* . Assicurarsi di riconfigurare nuovamente questa impostazione su *Sì* al termine della registrazione.
         >
         > È consigliabile ignorare i requisiti dell'autenticazione a più fattori solo a scopo di test.
 

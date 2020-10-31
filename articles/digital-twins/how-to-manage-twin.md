@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 4945e89232ee9a15b2700dac49ccd829b7a52dac
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 425ee90306de3961c64766f42bd28f668fc9396e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92494779"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077949"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -35,14 +35,19 @@ Per creare un dispositivo gemello digitale, è necessario fornire:
 * ID desiderato per il dispositivo gemello digitale
 * [Modello](concepts-models.md) che si desidera utilizzare
 
-Facoltativamente, è possibile fornire i valori iniziali per tutte le proprietà del dispositivo gemello digitale. 
+Facoltativamente, è possibile fornire i valori iniziali per tutte le proprietà del dispositivo gemello digitale. Le proprietà vengono considerate facoltative e possono essere impostate in un secondo momento, ma **non verranno visualizzate come parte di un gemello fino a quando non sono state impostate.**
 
-Il modello e i valori delle proprietà iniziali vengono forniti tramite il `initData` parametro, ovvero una stringa JSON contenente i dati rilevanti. Per ulteriori informazioni sulla strutturazione di questo oggetto, passare alla sezione successiva.
+>[!NOTE]
+>Sebbene non sia necessario inizializzare le proprietà dei dispositivi gemelli, è **necessario impostare** tutti i [componenti](concepts-models.md#elements-of-a-model) del dispositivo gemello quando viene creato il dispositivo gemello. Possono essere oggetti vuoti, ma devono esistere anche i componenti.
+
+Il modello ed eventuali valori di proprietà iniziali vengono forniti tramite il `initData` parametro, ovvero una stringa JSON contenente i dati rilevanti. Per ulteriori informazioni sulla strutturazione di questo oggetto, passare alla sezione successiva.
 
 > [!TIP]
 > Dopo la creazione o l'aggiornamento di un dispositivo gemello, è possibile che si verifichi una latenza di un massimo di 10 secondi prima che le modifiche vengano riflesse nelle [query](how-to-query-graph.md). L' `GetDigitalTwin` API, descritta [più avanti in questo articolo](#get-data-for-a-digital-twin), non riscontra questo ritardo, quindi se è necessaria una risposta immediata, usare la chiamata API anziché eseguire query per visualizzare i dispositivi gemelli appena creati. 
 
 ### <a name="initialize-model-and-properties"></a>Inizializzare il modello e le proprietà
+
+È possibile inizializzare le proprietà di un gemello al momento della creazione del dispositivo gemello. 
 
 L'API per la creazione di dispositivi gemelli accetta un oggetto che viene serializzato in una descrizione JSON valida delle proprietà dei dispositivi gemelli. Per una descrizione del formato JSON per un gemello, vedere [*concetti: dispositivi gemelli digitali e il grafico a gemelli*](concepts-twins-graph.md) . 
 
@@ -110,7 +115,7 @@ Quando si recupera un gemello con il metodo, vengono restituite solo le propriet
 
 Per recuperare più dispositivi gemelli usando una singola chiamata API, vedere gli esempi di API di query in [*procedura: eseguire una query sul grafico gemello*](how-to-query-graph.md).
 
-Si consideri il modello seguente (scritto in [Digital Gemini Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) che definisce una *Luna*:
+Si consideri il modello seguente (scritto in [Digital Gemini Definition Language (DTDL)](https://github.com/Azure/opendigitaltwins-dtdl/tree/master/DTDL)) che definisce una *Luna* :
 
 ```json
 {
@@ -133,7 +138,7 @@ Si consideri il modello seguente (scritto in [Digital Gemini Definition Language
     ]
 }
 ```
-Il risultato della chiamata `object result = await client.GetDigitalTwinAsync("my-moon");` su un gemello di tipo *Moon*potrebbe essere simile al seguente:
+Il risultato della chiamata `object result = await client.GetDigitalTwinAsync("my-moon");` su un gemello di tipo *Moon* potrebbe essere simile al seguente:
 
 ```json
 {
@@ -276,8 +281,8 @@ Si consideri, ad esempio, il documento di patch JSON seguente che sostituisce il
 Questa operazione avrà esito positivo solo se il dispositivo gemello digitale modificato dalla patch è conforme al nuovo modello. 
 
 Si consideri l'esempio seguente:
-1. Immaginate un dispositivo gemello digitale con un modello di *foo_old*. *foo_old* definisce una *massa*di proprietà obbligatoria.
-2. Il nuovo modello *foo_new* definisce una massa della proprietà e aggiunge una nuova *temperatura*della proprietà richiesta.
+1. Immaginate un dispositivo gemello digitale con un modello di *foo_old* . *foo_old* definisce una *massa* di proprietà obbligatoria.
+2. Il nuovo modello *foo_new* definisce una massa della proprietà e aggiunge una nuova *temperatura* della proprietà richiesta.
 3. Dopo la patch, il dispositivo gemello digitale deve avere una proprietà di massa e di temperatura. 
 
 La patch per questa situazione deve aggiornare sia il modello che la proprietà temperatura del dispositivo gemello, come indicato di seguito:

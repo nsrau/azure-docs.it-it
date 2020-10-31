@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: f49ba8a907a65180061ef3973ae30b4438a945a2
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 843e05a68a9fd9a72f14847a941d69c672094b66
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043005"
+ms.locfileid: "93077014"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Informazioni sugli input per Analisi di flusso di Azure
 
@@ -26,7 +26,7 @@ Analisi di flusso offre un'integrazione di prima classe con quattro tipi di riso
 
 Queste risorse di input possono risiedere nella stessa sottoscrizione di Azure del processo di analisi di flusso o in una sottoscrizione diversa.
 
-Per creare, modificare e testare gli input del processo di analisi di flusso, è possibile usare le [portale di Azure](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), l' [API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), l' [API REST](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-input)e [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) .
+Per creare, modificare e testare gli input del processo di analisi di flusso, è possibile usare le [portale di Azure](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), l' [API .NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), l' [API REST](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-define-inputs)e [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) .
 
 ## <a name="stream-and-reference-inputs"></a>Input del flusso e di riferimento
 Quando sono inviati tramite push a un'origine, i dati vengono utilizzati dal processo di Analisi di flusso ed elaborati in tempo reale. Gli input si dividono in due tipi: input del flusso dei dati e input dei dati di riferimento.

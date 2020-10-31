@@ -8,14 +8,15 @@ ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 3064672dc9eafbabda896f56f4881302980585b0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 53171fedac23401b7d696a9e611c53da86b1bb60
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475380"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078068"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-async-java-sdk-v2"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB Async Java SDK v2
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Java SDK v4](performance-tips-java-sdk-v4-sql.md)
@@ -46,7 +47,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
   
   La modalità Gateway è supportata in tutte le piattaforme SDK ed è l'impostazione predefinita configurata. Se le applicazioni vengono eseguite all'interno di una rete aziendale con restrizioni rigide del firewall, la modalità Gateway è la scelta migliore perché usa la porta HTTPS standard e un singolo endpoint.   Il compromesso in termini di prestazioni, tuttavia, è che la modalità Gateway prevede un hop di rete aggiuntivo ogni volta che i dati vengono letti o scritti in Azure Cosmos DB. La modalità diretta offre quindi prestazioni migliori grazie al numero minore di hop di rete.
   
-  L'impostazione *ConnectionMode* viene configurata durante la creazione dell'istanza di *DocumentClient* con il parametro *ConnectionPolicy*.
+  L'impostazione *ConnectionMode* viene configurata durante la creazione dell'istanza di *DocumentClient* con il parametro *ConnectionPolicy* .
 
 ### <a name="async-java-sdk-v2-maven-commicrosoftazureazure-cosmosdb"></a><a id="asyncjava2-connectionpolicy"></a>Async Java SDK V2 (Maven com.microsoft.azure::azure-cosmosdb)
 
@@ -84,13 +85,13 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
   In Azure Cosmos DB Async Java SDK v2, la modalità diretta è la scelta ottimale per migliorare le prestazioni del database con la maggior parte dei carichi di lavoro. 
 
-  * ***Panoramica della modalità diretta**_
+  * ***Panoramica della modalità diretta** _
 
   :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustrazione dei criteri di connessione di Azure Cosmos DB" border="false":::
   
-  L'architettura lato client utilizzata in modalità diretta consente l'utilizzo di rete prevedibile e l'accesso in multiplex alle repliche Azure Cosmos DB. Il diagramma precedente mostra in che modo la modalità diretta instrada le richieste dei client alle repliche nel back-end di Cosmos DB. L'architettura della modalità diretta alloca fino a 10 _*canali** sul lato client per replica di database. Un canale è una connessione TCP preceduta da un buffer di richiesta, ovvero 30 richieste approfondite. I canali appartenenti a una replica vengono allocati dinamicamente in base alle esigenze dell' **endpoint di servizio**della replica. Quando l'utente invia una richiesta in modalità diretta, il **TransportClient** instrada la richiesta all'endpoint di servizio appropriato in base alla chiave di partizione. La **coda delle richieste** memorizza le richieste nel buffer prima dell'endpoint di servizio.
+  L'architettura lato client utilizzata in modalità diretta consente l'utilizzo di rete prevedibile e l'accesso in multiplex alle repliche Azure Cosmos DB. Il diagramma precedente mostra in che modo la modalità diretta instrada le richieste dei client alle repliche nel back-end di Cosmos DB. L'architettura della modalità diretta alloca fino a 10 _ *canali* * sul lato client per replica di database. Un canale è una connessione TCP preceduta da un buffer di richiesta, ovvero 30 richieste approfondite. I canali appartenenti a una replica vengono allocati dinamicamente in base alle esigenze dell' **endpoint di servizio** della replica. Quando l'utente invia una richiesta in modalità diretta, il **TransportClient** instrada la richiesta all'endpoint di servizio appropriato in base alla chiave di partizione. La **coda delle richieste** memorizza le richieste nel buffer prima dell'endpoint di servizio.
 
-  * ***Opzioni di configurazione di ConnectionPolicy per la modalità diretta**_
+  * ***Opzioni di configurazione di ConnectionPolicy per la modalità diretta** _
 
     Come primo passaggio, usare le seguenti impostazioni di configurazione consigliate. In caso di problemi relativi a questo particolare argomento, contattare il [team di Azure Cosmos DB](mailto:CosmosDBPerformanceSupport@service.microsoft.com).
 
@@ -113,7 +114,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
     | sendHangDetectionTime      | "PT10S"    |
     | shutdownTimeout            | "PT15S"    |
 
-* ***Suggerimenti per la programmazione per la modalità diretta**_
+* ***Suggerimenti per la programmazione per la modalità diretta** _
 
   Esaminare l'articolo sulla [risoluzione dei](troubleshoot-java-async-sdk.md) problemi di Azure Cosmos DB Async Java SDK v2 come base per la risoluzione dei problemi relativi all'SDK.
   
@@ -125,7 +126,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
   
     * L'i/o di rete sottostante in Azure Cosmos DB Async Java SDK v2 è gestito da Netty. vedere questi [Suggerimenti per evitare i modelli di codifica che bloccano i thread di](troubleshoot-java-async-sdk.md#invalid-coding-pattern-blocking-netty-io-thread)i/o netti.
   
-  * **Modellazione dei dati**: il contratto di servizio per Azure Cosmos DB presuppone che le dimensioni dei documenti siano inferiori a 1 KB. Per ottimizzare il modello di dati e la programmazione in modo da ottimizzare le dimensioni del documento, è in genere possibile ridurre la latenza. Se è necessario l'archiviazione e il recupero di documenti di dimensioni maggiori di 1 KB, l'approccio consigliato consiste nel collegare i documenti ai dati nell'archiviazione BLOB di Azure.
+  * **Modellazione dei dati** : il contratto di servizio per Azure Cosmos DB presuppone che le dimensioni dei documenti siano inferiori a 1 KB. Per ottimizzare il modello di dati e la programmazione in modo da ottimizzare le dimensioni del documento, è in genere possibile ridurre la latenza. Se è necessario l'archiviazione e il recupero di documenti di dimensioni maggiori di 1 KB, l'approccio consigliato consiste nel collegare i documenti ai dati nell'archiviazione BLOB di Azure.
 
 * **Ottimizzazione delle query parallele per le raccolte partizionate**
 
@@ -137,7 +138,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     È importante notare che le query parallele producono i vantaggi migliori se i dati sono distribuiti uniformemente tra tutte le partizioni per quanto riguarda la query. Se la raccolta è partizionata in modo tale che tutti o la maggior parte dei dati restituiti da una query siano concentrati in alcune partizioni (una sola partizione nel peggiore dei casi), le prestazioni della query potrebbero essere limitate da tali partizioni.
 
-  _ ***Ottimizzazione setmaxbuffereditemcount sul \: **_
+  _ * **Ottimizzazione setmaxbuffereditemcount sul \:** _
     
     La query parallela è progettata per la prelettura dei risultati mentre il client elabora il batch di risultati corrente. La prelettura consente il miglioramento complessivo della latenza di una query. setMaxBufferedItemCount consente di limitare il numero di risultati di prelettura. L'impostazione di setMaxBufferedItemCount sul numero previsto di risultati restituiti (o un numero più alto) consente alla query di ottenere il massimo vantaggio dalla prelettura.
 

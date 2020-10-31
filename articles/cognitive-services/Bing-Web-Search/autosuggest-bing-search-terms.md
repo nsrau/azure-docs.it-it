@@ -10,18 +10,23 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/03/2019
 ms.author: aahi
-ms.openlocfilehash: 0fb62966c78eb19c1daf9294efba786a267ae200
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 15a2d3b433236d74f3fa3d09e38071bacae02508
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "66384867"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078833"
 ---
 # <a name="autosuggest-bing-search-terms-in-your-application"></a>Suggerimenti automatici per i termini di ricerca di Bing nell'applicazione
 
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+
 Se si fornisce una casella di ricerca in cui l'utente immette il termine di ricerca, usare l'[API Suggerimenti automatici Bing](../bing-autosuggest/get-suggested-search-terms.md) per migliorare l'esperienza. Mentre l'utente digita, l'API restituisce le stringhe di query suggerite, in base ai termini di ricerca parziali.
 
-Dopo che l'utente ha immesso un termine di ricerca, questo deve essere codificato come URL prima dell'impostazione del parametro di query [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query). Se ad esempio l'utente immette *sailing dinghies*, impostare `q` su `sailing+dinghies` o `sailing%20dinghies`.
+Dopo che l'utente ha immesso un termine di ricerca, questo deve essere codificato come URL prima dell'impostazione del parametro di query [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#query). Se ad esempio l'utente immette *sailing dinghies* , impostare `q` su `sailing+dinghies` o `sailing%20dinghies`.
 
 Se il termine di ricerca contiene un errore di ortografia, la risposta della ricerca include un oggetto [QueryContext](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#querycontext). L'oggetto mostra l'ortografia originale e l'ortografia corretta usata da Bing per la ricerca.
 

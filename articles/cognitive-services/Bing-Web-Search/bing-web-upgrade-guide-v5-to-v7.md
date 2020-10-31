@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 7ee8d05a542c6906d4ebe70f7e2a461752c6e3f3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95e80907220a58243844b80d81dc187f8dc4c8bc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85609453"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078697"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Aggiornare l'API Ricerca Web Bing dalla versione 5 alla versione 7
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Ricerca Web Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 
@@ -26,7 +31,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 
 ### <a name="endpoints"></a>Endpoint
 
-- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio, https:\/\/api.cognitive.microsoft.com/bing/**v7.0**/search.
+- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio, https:\/\/api.cognitive.microsoft.com/bing/ **v7.0** /search.
 
 ### <a name="error-response-objects-and-error-codes"></a>Oggetti di risposta di errore e codici di errore
 
@@ -73,7 +78,7 @@ Bloccato|InvalidRequest.Blocked
 
 ## <a name="non-breaking-changes"></a>Modifiche che non causano un'interruzione  
 
-### <a name="headers"></a>Headers
+### <a name="headers"></a>Intestazioni
 
 - È stata aggiunta l'intestazione di richiesta facoltativa [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma). Per impostazione predefinita, Bing restituisce il contenuto memorizzato nella cache, se disponibile. Per impedire a Bing di restituire il contenuto memorizzato nella cache, impostare l'intestazione Pragma su no-cache, ad esempio, Pragma: no-cache.
 
@@ -81,7 +86,7 @@ Bloccato|InvalidRequest.Blocked
 
 - È stato aggiunto il parametro di query [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount). Usare questo parametro per specificare il numero di riscontri che devono essere inclusi nella risposta. I riscontri vengono scelti in base alla classificazione. Ad esempio, se si imposta questo parametro su tre (3), la risposta include i primi tre riscontri classificati.  
 
-- È stato aggiunto il parametro di query [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Usare questo parametro insieme a `answerCount` per includere in modo esplicito uno o più tipi di riscontri, indipendentemente dalla classificazione. Ad esempio, per innalzare di livello video e immagini nella risposta, è necessario impostare Promuovi a *video, immagini*. L'elenco dei riscontri che si vuole promuovere non viene incluso nel calcolo del limite di `answerCount`. Ad esempio, se `answerCount` è 2 e `promote` è impostato su *video, immagini*, la risposta potrebbe includere pagine Web, notizie, video e immagini.
+- È stato aggiunto il parametro di query [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Usare questo parametro insieme a `answerCount` per includere in modo esplicito uno o più tipi di riscontri, indipendentemente dalla classificazione. Ad esempio, per innalzare di livello video e immagini nella risposta, è necessario impostare Promuovi a *video, immagini* . L'elenco dei riscontri che si vuole promuovere non viene incluso nel calcolo del limite di `answerCount`. Ad esempio, se `answerCount` è 2 e `promote` è impostato su *video, immagini* , la risposta potrebbe includere pagine Web, notizie, video e immagini.
 
 ### <a name="object-changes"></a>Modifiche agli oggetti
 

@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: 9342c0c10ed4f7287716d21823fddfe992e0568f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bb0510befecf384d7d1341fe1b07b78620dccc9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87432716"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077099"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Clausola limite OFFSET in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 La clausola LIMIT OFFSET è una clausola facoltativa da ignorare, quindi è necessario un certo numero di valori dalla query. Il numero di OFFSET e il numero di limiti sono necessari nella clausola limite di OFFSET.
 
@@ -43,7 +44,7 @@ OFFSET <offset_amount> LIMIT <limit_amount>
   
   È consigliabile usare `OFFSET LIMIT` nei casi in cui si desidera ignorare completamente gli elementi e salvare le risorse del client. Ad esempio, è consigliabile usare `OFFSET LIMIT` se si vuole passare al risultato della query 1000 e non è necessario visualizzare i risultati da 1 a 999. Nel back-end `OFFSET LIMIT` carica sempre ogni elemento, inclusi quelli che vengono ignorati. Il vantaggio in termini di prestazioni è un risparmio nelle risorse client evitando l'elaborazione di elementi che non sono necessari.
 
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
 
 Ad esempio, di seguito viene illustrata una query che ignora il primo valore e restituisce il secondo valore (in ordine di nome della città residente):
 

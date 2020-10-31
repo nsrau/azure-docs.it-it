@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/14/2020
 ms.author: apimpm
-ms.openlocfilehash: 7f2673bd181bc24d821b41ae1466c05a9593f154
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: fae4e349d46425c0c2b2b923d6a61e2e588708c1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315724"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077252"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Come autorizzare gli account per sviluppatori utilizzando OAuth 2.0 in Gestione API di Azure
 
@@ -38,49 +38,49 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 > [!NOTE]
 > Se non è ancora stata creata un'istanza del servizio Gestione API, vedere [Creare un'istanza di Gestione API][Create an API Management service instance].
 
-1. Fare clic sulla scheda OAuth 2.0 nel menu a sinistra e fare clic su **+ Aggiungi**.
+1. Fare clic sulla scheda OAuth 2.0 nel menu a sinistra e fare clic su **+ Aggiungi** .
 
     ![Menu di OAuth 2.0](./media/api-management-howto-oauth2/oauth-01.png)
 
-2. Immettere un nome ed eventualmente una descrizione nei campi **Nome** e **Descrizione**.
+2. Immettere un nome ed eventualmente una descrizione nei campi **Nome** e **Descrizione** .
 
     > [!NOTE]
     > Questi campi vengono usati per identificare il server autorizzazione OAuth 2.0 all'interno dell'istanza del servizio Gestione API corrente e i loro valori non provengono dal server OAuth 2.0.
 
-3. Immettere il **Client registration page URL**. In questa pagina gli utenti possono creare e gestire i loro account e il suo contenuto varia in base al provider OAuth 2.0 usato. L' **URL della pagina di registrazione del client** punta alla pagina che gli utenti possono usare per creare e configurare i propri account per i provider OAuth 2,0 che supportano la gestione degli account, ad esempio `https://contoso.com/login` . Alcune organizzazioni non configurano o usano questa funzionalità, anche se è supportata dal provider OAuth 2.0. Se nel provider OAuth 2.0 non è stata configurata la gestione degli account da parte degli utenti, immettere qui un URL segnaposto, ad esempio l'URL della propria azienda, oppure un URL analogo a `https://placeholder.contoso.com`.
+3. Immettere il **Client registration page URL** . In questa pagina gli utenti possono creare e gestire i loro account e il suo contenuto varia in base al provider OAuth 2.0 usato. L' **URL della pagina di registrazione del client** punta alla pagina che gli utenti possono usare per creare e configurare i propri account per i provider OAuth 2,0 che supportano la gestione degli account, ad esempio `https://contoso.com/login` . Alcune organizzazioni non configurano o usano questa funzionalità, anche se è supportata dal provider OAuth 2.0. Se nel provider OAuth 2.0 non è stata configurata la gestione degli account da parte degli utenti, immettere qui un URL segnaposto, ad esempio l'URL della propria azienda, oppure un URL analogo a `https://placeholder.contoso.com`.
 
     ![Nuovo server OAuth 2.0](./media/api-management-howto-oauth2/oauth-02.png)
 
-4. La sezione successiva del modulo contiene le impostazioni relative a **Tipi di concessione di autorizzazione**, **URL dell'endpoint di autorizzazione** e **Metodo di richiesta dell'autorizzazione**.
+4. La sezione successiva del modulo contiene le impostazioni relative a **Tipi di concessione di autorizzazione** , **URL dell'endpoint di autorizzazione** e **Metodo di richiesta dell'autorizzazione** .
 
-    Selezionare i tipi desiderati in **Tipi di concessione di autorizzazione**. **Authorization code** è specificato per impostazione predefinita.
+    Selezionare i tipi desiderati in **Tipi di concessione di autorizzazione** . **Authorization code** è specificato per impostazione predefinita.
 
-    Immettere il valore relativo a **Authorization endpoint URL**. Per Azure Active Directory, questo URL sarà simile all'URL seguente, dove `<tenant_id>` viene sostituito con l'ID del tenant di Azure ad.
+    Immettere il valore relativo a **Authorization endpoint URL** . Per Azure Active Directory, questo URL sarà simile all'URL seguente, dove `<tenant_id>` viene sostituito con l'ID del tenant di Azure ad.
 
     `https://login.microsoftonline.com/<tenant_id>/oauth2/authorize`
 
     L'impostazione **Authorization request method** specifica la modalità di invio della richiesta di autorizzazione al server OAuth 2.0. Il valore selezionato per impostazione predefinita è **GET** .
 
-5. È quindi necessario specificare **URL dell'endpoint token**, **Metodi di autenticazione client**, **Metodo di invio del token di accesso** e **Ambito predefinito**.
+5. È quindi necessario specificare **URL dell'endpoint token** , **Metodi di autenticazione client** , **Metodo di invio del token di accesso** e **Ambito predefinito** .
 
-    ![Nuovo server OAuth 2.0](./media/api-management-howto-oauth2/oauth-03.png)
+    ![Screenshot che mostra la schermata di aggiunta del servizio OAuth2.](./media/api-management-howto-oauth2/oauth-03.png)
 
     Per un server OAuth 2.0 di Azure Active Directory, il **Token endpoint URL** avrà il seguente formato, dove `<TenantID>` avrà il formato `yourapp.onmicrosoft.com`.
 
     `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
-    L'impostazione predefinita di **Client authentication methods** è **Basic**, mentre quella di **Access token sending method** è **Authorization header**. Questi valori vengono configurati in questa sezione del modulo, insieme a **Default scope**.
+    L'impostazione predefinita di **Client authentication methods** è **Basic** , mentre quella di **Access token sending method** è **Authorization header** . Questi valori vengono configurati in questa sezione del modulo, insieme a **Default scope** .
 
-6. La sezione **Credenziali client** contiene l'**ID client** e il **Segreto client**, che vengono ricavati durante il processo di creazione e configurazione del server OAuth 2.0. Una volta specificati l'**ID client** e il **Segreto client**, viene generato il **redirect_uri** per il **codice autorizzazione**. Questo URI viene usato per configurare l'URL di risposta nella configurazione del server OAuth 2.0.
+6. La sezione **Credenziali client** contiene l' **ID client** e il **Segreto client** , che vengono ricavati durante il processo di creazione e configurazione del server OAuth 2.0. Una volta specificati l' **ID client** e il **Segreto client** , viene generato il **redirect_uri** per il **codice autorizzazione** . Questo URI viene usato per configurare l'URL di risposta nella configurazione del server OAuth 2.0.
 
     Nel nuovo portale per sviluppatori il suffisso URI è di tipo:
 
     - `/signin-oauth/code/callback/{authServerName}` per il flusso di concessione del codice di autorizzazione
     - `/signin-oauth/implicit/callback` per il flusso di concessione implicita
 
-    ![Nuovo server OAuth 2.0](./media/api-management-howto-oauth2/oauth-04.png)
+    ![Screenshot che mostra dove aggiungere le credenziali client per il nuovo servizio OAuth2.](./media/api-management-howto-oauth2/oauth-04.png)
 
-    Se **Tipi di concessione di autorizzazione** è impostato su **Password del proprietario della risorsa**, la sezione **Credenziali password del proprietario della risorsa** viene usata per specificare le credenziali; in caso contrario è possibile lasciarla vuota.
+    Se **Tipi di concessione di autorizzazione** è impostato su **Password del proprietario della risorsa** , la sezione **Credenziali password del proprietario della risorsa** viene usata per specificare le credenziali; in caso contrario è possibile lasciarla vuota.
 
     Dopo aver completato il modulo, fare clic su **Crea** per salvare la configurazione del server di autorizzazione OAuth 2.0 di Gestione API. Dopo aver salvato la configurazione del server, è possibile configurare le API in modo che usino questa configurazione, come illustrato nella sezione successiva.
 
@@ -90,13 +90,13 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
     ![API OAuth 2.0](./media/api-management-howto-oauth2/oauth-05.png)
 
-2. Fare clic sul nome dell'API desiderata e quindi su **Impostazioni**. Scorrere fino alla sezione **Sicurezza** e quindi selezionare la casella **OAuth 2.0**.
+2. Fare clic sul nome dell'API desiderata e quindi su **Impostazioni** . Scorrere fino alla sezione **Sicurezza** e quindi selezionare la casella **OAuth 2.0** .
 
     ![Impostazioni OAuth 2.0](./media/api-management-howto-oauth2/oauth-06.png)
 
-3. Selezionare il **server autorizzazione** desiderato dall'elenco a discesa e fare clic su **Salva**.
+3. Selezionare il **server autorizzazione** desiderato dall'elenco a discesa e fare clic su **Salva** .
 
-    ![Impostazioni OAuth 2.0](./media/api-management-howto-oauth2/oauth-07.png)
+    ![Schermata che evidenzia il server di autorizzazione selezionato e il pulsante Salva.](./media/api-management-howto-oauth2/oauth-07.png)
 
 ## <a name="legacy-developer-portal---test-the-oauth-20-user-authorization"></a><a name="step3"> </a>Portale per sviluppatori Legacy: testare l'autorizzazione utente OAuth 2,0
 
@@ -104,14 +104,14 @@ Questa guida illustra come configurare un'istanza del servizio Gestione API per 
 
 Dopo aver configurato il server autorizzazione OAuth 2.0 e l'API per l'uso di tale server, è possibile testarlo andando al portale per sviluppatori e chiamando un'API. Fare clic su **portale per sviluppatori (legacy)** nel menu in alto nella pagina **Panoramica** dell'istanza di gestione API di Azure.
 
-Fare clic su **API** nel menu superiore e scegliere **API Echo**.
+Fare clic su **API** nel menu superiore e scegliere **API Echo** .
 
 ![API Echo][api-management-apis-echo-api]
 
 > [!NOTE]
 > Se è stata configurata una sola API o se ne è visibile solo una per l'account, facendo clic sulle API vengono visualizzate le operazioni per l'API.
 
-Selezionare l'operazione **GET su risorsa**, fare clic su **Apri console**, quindi selezionare **codice di autorizzazione** dal menu a discesa.
+Selezionare l'operazione **GET su risorsa** , fare clic su **Apri console** , quindi selezionare **codice di autorizzazione** dal menu a discesa.
 
 ![Open console][api-management-open-console]
 
@@ -120,7 +120,7 @@ Quando **Authorization code** è selezionato, viene visualizzata una finestra po
 > [!NOTE]
 > Se i popup sono stati disattivati, verrà richiesto di attivarli tramite il browser. Dopo averli attivati, selezionare di nuovo **Authorization code** per visualizzare il modulo di accesso.
 
-![Accesso][api-management-oauth2-signin]
+![Accedi][api-management-oauth2-signin]
 
 Dopo aver effettuato l'accesso, le **intestazioni della richiesta** vengono compilate con un'intestazione `Authorization : Bearer` che autorizza la richiesta.
 

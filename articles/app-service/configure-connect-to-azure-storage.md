@@ -6,24 +6,30 @@ ms.topic: article
 ms.date: 7/01/2019
 ms.author: msangapu
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: d435a33ba45daf2c8a6a42e51c3e0d58f3abc23b
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 7f177a7801e18bcdb2c2d6ef737f0c790cf6b1d1
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92057757"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075790"
 ---
-# <a name="access-azure-storage-as-a-network-share-from-a-container-in-app-service"></a>Accedere ad Archiviazione di Azure come una condivisione di rete da un contenitore nel servizio app
+# <a name="access-azure-storage-preview-as-a-network-share-from-a-container-in-app-service"></a>Accedere ad archiviazione di Azure (anteprima) come condivisione di rete da un contenitore nel servizio app
 
 ::: zone pivot="container-windows"
 
 Questa guida illustra come aggiungere i file di archiviazione di Azure come condivisione di rete a un contenitore di Windows nel servizio app. Sono supportate solo le condivisioni [file di Azure](../storage/files/storage-how-to-use-files-cli.md) e [i file Premium](../storage/files/storage-how-to-create-premium-fileshare.md) . I vantaggi includono la protezione e la portabilità del contenuto, l'accesso a più app e molteplici metodi di trasferimento.
+
+> [!NOTE]
+>Archiviazione di Azure nel servizio app è **in anteprima** e **non è supportata** per gli scenari di **produzione** .
 
 ::: zone-end
 
 ::: zone pivot="container-linux"
 
 Questa guida illustra come aggiungere archiviazione di Azure a un servizio app contenitore Linux. I vantaggi includono contenuto protetto, portabilità del contenuto, archiviazione persistente, accesso a più app e più metodi di trasferimento.
+
+> [!NOTE]
+>Archiviazione di Azure nel servizio app è **in anteprima** per il servizio app in Linux e app Web per contenitori. Non è **supportata** per gli **scenari di produzione** .
 
 ::: zone-end
 
@@ -53,7 +59,6 @@ Questa guida illustra come aggiungere archiviazione di Azure a un servizio app c
 
 ::: zone pivot="container-windows"
 
-- Archiviazione di Azure nel servizio app è **in anteprima** e **non è supportata** per gli scenari di **produzione**.
 - Archiviazione di Azure nel servizio app non è attualmente **supportata** per scenari Bring your own code (app di Windows non in contenitori).
 - Archiviazione di Azure nel servizio app **non supporta** l'uso della configurazione del **firewall di archiviazione** a causa di limitazioni dell'infrastruttura.
 - Archiviazione di Azure con il servizio app consente **di specificare fino a cinque punti di** montaggio per ogni app.
@@ -63,7 +68,6 @@ Questa guida illustra come aggiungere archiviazione di Azure a un servizio app c
 
 ::: zone pivot="container-linux"
 
-- Archiviazione di Azure nel servizio app è **in anteprima** per il servizio app in Linux e app Web per contenitori. Non è **supportata** per gli **scenari di produzione**.
 - Archiviazione di Azure nel servizio app supporta il montaggio di **contenitori di file di Azure** (lettura/scrittura) e **contenitori BLOB di Azure** (sola lettura)
 - Archiviazione di Azure nel servizio app consente **di specificare fino a cinque punti di** montaggio per ogni app.
 - L'archiviazione di Azure montata in un'app non è accessibile tramite gli endpoint FTP/FTPs del servizio app. Usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).

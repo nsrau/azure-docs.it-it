@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 67d542ffe0279abe72bc74ab207cd5fddd1a4362
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 96ae4162c78f66b75d8c1ef2a8cec16995a5f016
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92491037"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075705"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 In Azure Cosmos DB, i dati vengono indicizzati seguendo i [criteri di indicizzazione](index-policy.md) definiti per ogni contenitore. I criteri di indicizzazione predefiniti per i contenitori appena creati applicano indici di intervallo per qualsiasi stringa o numero. Questo criterio può essere sostituito con i criteri di indicizzazione personalizzati.
 
@@ -359,11 +360,11 @@ I contenitori di Azure Cosmos archiviano i criteri di indicizzazione come un doc
 
 1. Aprire il riquadro **Esplora dati** e selezionare il contenitore da usare.
 
-1. Fare clic su **Scalabilità e impostazioni**.
+1. Fare clic su **Scalabilità e impostazioni** .
 
 1. Modificare il documento JSON dei criteri di indicizzazione (vedere gli esempi [di seguito](#indexing-policy-examples))
 
-1. Al termine, fare clic su **Salva**.
+1. Al termine, fare clic su **Salva** .
 
 :::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Gestire l'indicizzazione con portale di Azure":::
 

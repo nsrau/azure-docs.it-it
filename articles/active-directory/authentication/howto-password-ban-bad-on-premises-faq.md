@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f2f24eb64a5418a9963fd58611314ccbc6b72ec4
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 27075af51c8deb886a060c81927f30bb70b5f638
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91968464"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077660"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Domande frequenti sulla protezione Azure AD password locale
 
@@ -32,9 +32,9 @@ Le indicazioni correnti di Microsoft su questo argomento sono disponibili nella 
 
 **D: la protezione delle password in locale Azure AD supportata in cloud non pubblici?**
 
-No, la protezione password di Azure AD locale è supportata solo nel cloud pubblico. Non è stata annunciata alcuna data per la disponibilità nei cloud non pubblici.
+La protezione Azure AD password locale è supportata nel cloud pubblico e nel cloud di Arlington. Non è stata annunciata alcuna data per la disponibilità in altri cloud.
 
-Il portale di Azure AD consente di modificare la configurazione di "Password Protection for Windows Server Active Directory" specifica locale anche in cloud non pubblici. tali modifiche verranno rese permanente, ma in caso contrario non saranno mai effettive. La registrazione degli agenti o delle foreste proxy locali non è supportata quando si usano credenziali di cloud non pubbliche e tutti questi tentativi di registrazione avranno sempre esito negativo.
+Il portale di Azure AD consente di modificare la configurazione di "Password Protection for Windows Server Active Directory" specifica locale anche in cloud non supportati. tali modifiche verranno rese permanente, ma in caso contrario non saranno mai effettive. La registrazione di foreste o agenti proxy locali non è supportata in cloud non supportati e i tentativi di registrazione avranno sempre esito negativo.
 
 **D: in che modo è possibile applicare Azure AD vantaggi della protezione delle password a un sottoinsieme di utenti locali?**
 

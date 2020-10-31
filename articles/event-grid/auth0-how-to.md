@@ -3,12 +3,12 @@ title: Come inviare eventi da Auth0 ad Azure usando Griglia di eventi di Azure
 description: Come terminare gli eventi da Auth0 ai servizi di Azure con Griglia di eventi di Azure.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 6cd440075c6400b58c23f879b53da26abe4f9e75
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a66a60cb926b933a6b0628a67506d0d52ab7a905
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86103281"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077864"
 ---
 # <a name="integrate-azure-event-grid-with-auth0"></a>Integrare Griglia di eventi di Azure con Auth0
 
@@ -90,5 +90,5 @@ Gli eventi Auth0 vengono recapitati ad Azure tramite un meccanismo di streaming.
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Argomento partner Auth0](auth0-overview.md)
-- [Panoramica degli argomenti partner](partner-topics-overview.md)
+- [Panoramica degli argomenti partner](partner-events-overview.md)
 - [Diventare un partner di Griglia di eventi](partner-onboarding-overview.md)

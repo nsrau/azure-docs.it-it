@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, jovanpop, sachinp
 ms.date: 09/14/2020
-ms.openlocfilehash: 34f71dfeb0b4e5f94d953137fd45777bf14baa4e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 11c3de703a4b37318b7b99f60d74190fe8ec8610
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790764"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077371"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse di Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -72,7 +72,7 @@ SQL Istanza gestita dispone di due livelli di servizio: [per utilizzo generico](
 | Dimensioni massime archiviazione istanze (riservate) | - 2 TB per 4 vCore (solo quinta generazione)<br/>- 8 TB per altre dimensioni | Quarta generazione: 1 TB <br/> Quinta generazione: <br/>- 1 TB per 4, 8, 16 vCore<br/>- 2 TB per 24 vCore<br/>- 4 TB per 32, 40, 64, 80 vCore |
 | Dimensioni massime del database | Fino alle dimensioni dell'istanza attualmente disponibili (max 2 TB - 8 TB, a seconda del numero di vCore). | Fino alle dimensioni dell'istanza attualmente disponibili (max 1 TB - 4 TB a seconda del numero di vCore). |
 | Dimensioni max di tempDB | Limitate a 24 GB/vCore (96 - 1.920 GB) e alle dimensioni dello spazio di archiviazione dell'istanza attualmente disponibile.<br/>Aggiungere altri vCore per ottenere più spazio in TempDB.<br/> Le dimensioni del file di log sono limitate a 120 GB.| Fino alle dimensioni dello spazio di archiviazione dell'istanza attualmente disponibile. |
-| Numero massimo di database per istanza | 100, a meno che non sia stato raggiunto il limite per le dimensioni di archiviazione dell'istanza. | 100, a meno che non sia stato raggiunto il limite per le dimensioni di archiviazione dell'istanza. |
+| Numero massimo di database per istanza | 100 database utente, a meno che non sia stato raggiunto il limite per le dimensioni di archiviazione dell'istanza. | 100 database utente, a meno che non sia stato raggiunto il limite per le dimensioni di archiviazione dell'istanza. |
 | Numero massimo di file di database per istanza | Fino a 280, a meno che non sia stato raggiunto il limite per le dimensioni di archiviazione dell'istanza o per lo [spazio di allocazione dell'archiviazione nel disco Premium di Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | 32.767 file per database, a meno che non sia stato raggiunto il limite per le dimensioni di archiviazione dell'istanza. |
 | Dimensioni massime dei file di dati | Limitate alle dimensioni dello spazio di archiviazione delle istanze attualmente disponibile (max 2 TB - 8 TB) e allo [spazio di allocazione dell'archiviazione nel disco Premium di Azure](../database/doc-changes-updates-release-notes.md#exceeding-storage-space-with-small-database-files). | Limitate alle dimensioni dello spazio di archiviazione dell'istanza attualmente disponibile (fino a 1 TB - 4 TB). |
 | Dimensioni massime del file di log | Limitate a 2 TB e alle dimensioni dello spazio di archiviazione dell'istanza attualmente disponibile. | Limitate a 2 TB e alle dimensioni dello spazio di archiviazione dell'istanza attualmente disponibile. |

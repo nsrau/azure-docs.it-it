@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: apimpm
-ms.openlocfilehash: 419de27ad87b113de62dacb0dc384702420afbd6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 980d3ca52016c65301ea72e4e669c4bafea4c053
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071116"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93077201"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Come proteggere i servizi back-end usando l'autenticazione con certificati client in Gestione API di Azure
 
@@ -43,15 +43,15 @@ Seguire questa procedura per caricare un nuovo certificato client. Se non è anc
 
 1. Passare all'istanza del servizio Gestione API di Azure nel portale di Azure.
 2. Selezionare **certificati** dal menu.
-3. Fare clic sul pulsante **+ Aggiungi**.
-    ![Aggiungere certificati client](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
+3. Fare clic sul pulsante **+ Aggiungi** .
+    ![Schermata che evidenzia il pulsante + Aggiungi.](media/api-management-howto-mutual-certificates/apim-client-cert-add.png)
 4. Selezionare il certificato, quindi specificarne ID e password.
-5. Fare clic su **Crea**.
+5. Fare clic su **Crea** .
 
 > [!NOTE]
 > Il certificato deve essere nel formato **.pfx** . Sono consentiti i certificati autofirmati.
 
-Una volta caricato, il certificato viene visualizzato nei **certificati**.  Se sono disponibili molti certificati, prendere nota dell'identificazione digitale del certificato desiderato per [configurare un'API per l'uso di un certificato client per l'autenticazione del gateway][Configure an API to use a client certificate for gateway authentication].
+Una volta caricato, il certificato viene visualizzato nei **certificati** .  Se sono disponibili molti certificati, prendere nota dell'identificazione digitale del certificato desiderato per [configurare un'API per l'uso di un certificato client per l'autenticazione del gateway][Configure an API to use a client certificate for gateway authentication].
 
 > [!NOTE]
 > Per disattivare la convalida della catena di certificati quando si usa, ad esempio, un certificato autofirmato, seguire i passaggi descritti in questa [voce](api-management-faq.md#can-i-use-a-self-signed-tlsssl-certificate-for-a-back-end) delle Domande frequenti.
@@ -71,11 +71,11 @@ Se il certificato è in uso da parte di un'API, verrà visualizzata una schermat
 1. Fare clic su **API** dal menu **Gestione API** sulla sinistra e passare all'API.
     ![Abilitare i certificati client](media/api-management-howto-mutual-certificates/apim-client-cert-enable.png)
 
-2. Nella scheda **Progettazione** fare clic sull'icona a forma di matita nella sezione **Back-end**.
+2. Nella scheda **Progettazione** fare clic sull'icona a forma di matita nella sezione **Back-end** .
 3. Modificare **Credenziali gateway** impostando **Certificato client** e selezionare il certificato nell'elenco a discesa.
-    ![Abilitare i certificati client](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
+    ![Screenshot che mostra dove modificare le credenziali del gateway e selezionare il certificato.](media/api-management-howto-mutual-certificates/apim-client-cert-enable-select.png)
 
-4. Fare clic su **Salva**.
+4. Fare clic su **Salva** .
 
 > [!WARNING]
 > Questa modifica ha effetto immediato e le chiamate alle operazioni di quell'API useranno il certificato per autenticarsi sul server back-end.

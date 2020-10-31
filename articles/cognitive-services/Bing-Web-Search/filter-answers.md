@@ -11,14 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/08/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6fa022f181e2061c6a7f3e08d1f2f501ddd9cac3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad021b4d219353a6037988c164bb34cac6761682
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84696712"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078629"
 ---
 # <a name="filtering-the-answers-that-the-search-response-includes"></a>Filtrare i riscontri inclusi nella risposta della ricerca  
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 Quando si eseguono query nel Web, Bing restituisce tutto il contenuto rilevante che trova per la ricerca. Ad esempio, se la query di ricerca è "sailing+dinghies" (derive), la risposta potrebbe contenere i riscontri seguenti:
 
@@ -131,7 +136,7 @@ I risultati possono includere pagine Web che non rientrano nel periodo specifica
 
 ## <a name="limiting-the-number-of-answers-in-the-response"></a>Limitazione del numero di riscontri nella risposta
 
-Bing può restituire più tipi di risposte nella risposta JSON. Se ad esempio si esegue una query su *Sailing + derive*, Bing potrebbe restituire `webpages` , `images` , `videos` e `relatedSearches` .
+Bing può restituire più tipi di risposte nella risposta JSON. Se ad esempio si esegue una query su *Sailing + derive* , Bing potrebbe restituire `webpages` , `images` , `videos` e `relatedSearches` .
 
 ```json
 {
