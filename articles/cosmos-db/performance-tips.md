@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 0fb783a6ad65ce17bff14b72e8d94d284769779f
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 824c48646ab32e02c627fb623dbab60c3050ad96
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475159"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080720"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET SDK v2
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET SDK v3](performance-tips-dotnet-sdk-v3-sql.md)
@@ -44,14 +45,14 @@ Per migliorare le prestazioni, è consigliabile l'elaborazione host Windows a 64
 
 - Per le applicazioni eseguibili, è possibile modificare l'elaborazione dell'host impostando la [destinazione della piattaforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) su **x64**  nella finestra delle **proprietà del progetto** , nella scheda **Compila** .
 
-- Per i progetti di test basati su VSTest, è possibile modificare l'elaborazione dell' **host selezionando**  >  **impostazioni test**di test  >  **Architettura processore predefinita come x64** nel menu **test** di Visual Studio.
+- Per i progetti di test basati su VSTest, è possibile modificare l'elaborazione dell' **host selezionando**  >  **impostazioni test** di test  >  **Architettura processore predefinita come x64** nel menu **test** di Visual Studio.
 
-- Per le applicazioni Web ASP.NET distribuite localmente, è possibile modificare l'elaborazione host selezionando **Usa la versione a 64 bit di IIS Express per siti e progetti web** in **strumenti**  >  **Opzioni**  >  **progetti e soluzioni**progetti  >  **Web**.
+- Per le applicazioni Web ASP.NET distribuite localmente, è possibile modificare l'elaborazione host selezionando **Usa la versione a 64 bit di IIS Express per siti e progetti web** in **strumenti**  >  **Opzioni**  >  **progetti e soluzioni** progetti  >  **Web** .
 
 - Per le applicazioni Web ASP.NET distribuite in Azure, è possibile modificare l'elaborazione degli host selezionando la piattaforma a **64 bit** nelle **impostazioni dell'applicazione** nel portale di Azure.
 
 > [!NOTE] 
-> Per impostazione predefinita, i nuovi progetti di Visual Studio sono impostati su **qualsiasi CPU**. Si consiglia di impostare il progetto su **x64** in modo che non passi a **x86**. Un progetto impostato su **qualsiasi CPU** può passare facilmente a **x86** se viene aggiunta una dipendenza solo x86.<br/>
+> Per impostazione predefinita, i nuovi progetti di Visual Studio sono impostati su **qualsiasi CPU** . Si consiglia di impostare il progetto su **x64** in modo che non passi a **x86** . Un progetto impostato su **qualsiasi CPU** può passare facilmente a **x86** se viene aggiunta una dipendenza solo x86.<br/>
 > ServiceInterop.dll deve trovarsi nella cartella da cui viene eseguita la DLL SDK. Questo dovrebbe essere un problema solo se si copiano le dll manualmente o si hanno sistemi di compilazione/distribuzione personalizzati.
     
 **Attivare Garbage Collection sul lato server (GC)**
@@ -135,7 +136,7 @@ SQL .NET SDK 1.9.0 e versioni successive supportano le query parallele, che cons
 - `MaxDegreeOfParallelism` Controlla il numero massimo di partizioni su cui è possibile eseguire query in parallelo. 
 - `MaxBufferedItemCount` Controlla il numero di risultati prerecuperati.
 
-**_Ottimizzazione del grado di parallelismo_*_
+**_Ottimizzazione del grado di parallelismo_* _
 
 La query parallela funziona eseguendo query su più partizioni in parallelo. Tuttavia, i dati di una singola partizione vengono recuperati in modo seriale rispetto alla query. L'impostazione di `MaxDegreeOfParallelism` [SDK v2](sql-api-sdk-dotnet.md) sul numero di partizioni ha la possibilità migliore di ottenere la query più efficiente, purché tutte le altre condizioni del sistema rimangano invariate. Se non si conosce il numero di partizioni, è possibile impostare il grado di parallelismo su un numero elevato. Il sistema sceglierà il numero minimo di partizioni, ovvero l'input fornito dall'utente, come grado di parallelismo.
 
@@ -147,7 +148,7 @@ La query parallela è progettata per la prelettura dei risultati mentre il clien
 
 Il recupero preliminare funziona allo stesso modo, indipendentemente dal grado di parallelismo, ed esiste un solo buffer per i dati di tutte le partizioni.  
 
-_*Implementare backoff a intervalli di RetryAfter**
+_ *Implementare backoff a intervalli di RetryAfter**
 
 Durante i test delle prestazioni, è necessario aumentare il carico fino a quando non viene limitata una piccola frequenza di richieste. Se le richieste sono limitate, l'applicazione client deve essere disattivata in caso di limitazione per l'intervallo tra tentativi specificato dal server. Il rispetto del backoff garantisce una quantità minima di tempo di attesa tra i tentativi. 
 

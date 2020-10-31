@@ -10,20 +10,25 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 5b2b8871d868e827532f23c7ef4f14fb00afb5bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74072799"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080975"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurare l'esperienza di Suggerimenti automatici personalizzati
+
+> [!WARNING]
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
 
 I suggerimenti automatici personalizzati restituiscono un elenco di stringhe di query di ricerca suggerite pertinenti per l'esperienza di ricerca. Le stringhe di query di ricerca sono basate su una stringa di query parziale fornita dall'utente nella casella di ricerca. L'elenco contiene un massimo di 10 suggerimenti. 
 
 È possibile specificare di restituire solo i suggerimenti personalizzati o di includere anche i suggerimenti di Bing. Se si includono i suggerimenti di Bing, questi vengono visualizzati dopo i suggerimenti personalizzati. Se si specifica un numero sufficiente di suggerimenti rilevanti, è possibile che l'elenco di suggerimenti restituito non includa i suggerimenti di Bing. I suggerimenti di Bing sono sempre nel contesto dell'istanza di Ricerca personalizzata. 
 
-Per configurare i suggerimenti per le query di ricerca per l'istanza, fare clic sulla scheda **Suggerimenti automatici**.  
+Per configurare i suggerimenti per le query di ricerca per l'istanza, fare clic sulla scheda **Suggerimenti automatici** .  
 
 > [!NOTE]
 > Per usare questa funzionalità, è necessaria la sottoscrizione di Ricerca personalizzata al livello appropriato (vedere [Prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)).

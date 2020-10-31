@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 06/18/2018
 ms.author: apimpm
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e907a3ec2e2521524cdf23e1403ae38a19275aa6
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: c7c002b57f2220ac0a9fba43a8081b2a4ed800e7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92071320"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081060"
 ---
 # <a name="capacity-of-an-azure-api-management-instance"></a>Capacità di un'istanza di Gestione API di Azure
 
@@ -42,7 +42,7 @@ Per eseguire i passaggi in questo articolo è necessario quanto segue:
 
 ## <a name="what-is-capacity"></a>Che cos'è la capacità
 
-![Metriche di capacità](./media/api-management-capacity/capacity-ingredients.png)
+![Diagramma che illustra la metrica della capacità.](./media/api-management-capacity/capacity-ingredients.png)
 
 La **capacità** è un indicatore del carico su un'istanza di gestione API. che indica l'utilizzo delle risorse (CPU, memoria) e le lunghezze delle code di rete. L'utilizzo di CPU e memoria indicano l'utilizzo delle risorse per:
 
@@ -52,17 +52,17 @@ La **capacità** è un indicatore del carico su un'istanza di gestione API. che 
 
 La **capacità** totale è una media dei valori per ogni unità di un'istanza di Gestione API.
 
-Sebbene la **metrica della capacità** sia progettata per la superficie di problemi con l'istanza di gestione API, esistono casi in cui i problemi non si riflettono nelle modifiche apportate alla **metrica della capacità**.
+Sebbene la **metrica della capacità** sia progettata per la superficie di problemi con l'istanza di gestione API, esistono casi in cui i problemi non si riflettono nelle modifiche apportate alla **metrica della capacità** .
 
 ## <a name="capacity-metric-behavior"></a>Comportamento delle metriche di capacità
 
-A causa di come è costruita, nel mondo reale sono molte le variabili che possono influire sulla **capacità**, ad esempio:
+A causa di come è costruita, nel mondo reale sono molte le variabili che possono influire sulla **capacità** , ad esempio:
 
 + Modelli di connessione (nuova connessione su richiesta o riutilizzo della connessione esistente)
 + Dimensioni di richiesta e risposta
 + Criteri configurati per ogni API o numero di client che inviano richieste.
 
-A una maggiore complessità delle operazioni sulle richieste corrisponde un utilizzo maggiore della **capacità**. Ad esempio, i criteri di trasformazione complessi usano molta più CPU rispetto a un semplice inoltro di richieste. La capacità aumenterà anche in presenza di risposte lente dal servizio back-end.
+A una maggiore complessità delle operazioni sulle richieste corrisponde un utilizzo maggiore della **capacità** . Ad esempio, i criteri di trasformazione complessi usano molta più CPU rispetto a un semplice inoltro di richieste. La capacità aumenterà anche in presenza di risposte lente dal servizio back-end.
 
 > [!IMPORTANT]
 > La **capacità** non è una misurazione diretta del numero di richieste elaborate.
@@ -78,8 +78,8 @@ La **metrica a capacità** ridotta non significa necessariamente che l'istanza d
 ![Metriche di capacità](./media/api-management-capacity/capacity-metric.png)  
 
 1. Passare all'istanza di gestione API nel [portale di Azure](https://portal.azure.com/).
-2. Selezionare **Metriche**.
-3. Dalla sezione viola selezionare la metrica**Capacità** tra le metriche disponibili e lasciare l'aggregazione predefinita **Media**.
+2. Selezionare **Metriche** .
+3. Dalla sezione viola selezionare la metrica **Capacità** tra le metriche disponibili e lasciare l'aggregazione predefinita **Media** .
 
     > [!TIP]
     > Per evitare interpretazioni errate, è sempre consigliabile esaminare una suddivisione delle metriche di **capacità** in base alla località.

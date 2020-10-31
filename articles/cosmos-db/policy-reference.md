@@ -7,14 +7,15 @@ author: SnehaGunda
 ms.author: sngun
 ms.service: cosmos-db
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 3e3e8cd7a505b6f445a1a72cb9d5b2b77583ff87
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 97458f17bcb74e54e0b0453c2a279703bb392f9f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92313071"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080635"
 ---
 # <a name="azure-policy-built-in-definitions-for-azure-cosmos-db"></a>Definizioni predefinite di Criteri di Azure per Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../governance/policy/overview.md) per Azure Cosmos DB. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md).
 

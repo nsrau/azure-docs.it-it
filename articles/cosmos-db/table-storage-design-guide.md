@@ -8,14 +8,15 @@ ms.date: 06/19/2020
 author: sakash279
 ms.author: akshanka
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 94aa699d8daab7e5e7ff4ae82e5d09ab1475c07e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 709b83ad3e71a932202cebb9c9cb6187feae4ed7
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92477590"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080006"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Guida alla progettazione delle tabelle per archiviazione tabelle di Azure: tabelle scalabili con prestazioni avanzate
+[!INCLUDE[appliesto-table-api](includes/appliesto-table-api.md)]
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
@@ -137,7 +138,7 @@ In archiviazione tabelle un solo nodo gestisce una o più partizioni complete e 
 Per altre informazioni sui dettagli interni di archiviazione tabelle, in particolare sulla gestione delle partizioni, vedere il documento [Archiviazione di Microsoft Azure: un servizio di archiviazione cloud a disponibilità elevata con coerenza assoluta](/archive/blogs/windowsazurestorage/sosp-paper-windows-azure-storage-a-highly-available-cloud-storage-service-with-strong-consistency).  
 
 ### <a name="entity-group-transactions"></a>Transazioni di gruppi di entità
-In archiviazione tabelle, le transazioni di gruppi di entità sono l'unico meccanismo predefinito per eseguire aggiornamenti atomici tra più entità. Le transazioni dei gruppi di entità sono chiamate anche *transazioni batch*. Le transazioni dei gruppi di entità possono agire solo su entità archiviate nella stessa partizione, ovvero che condividono la stessa chiave di partizione in una determinata tabella, quindi, ogni volta che è necessario un comportamento transazionale atomico tra più entità, bisogna assicurarsi che tali entità siano nella stessa partizione. Per questo motivo spesso si tengono tipi diversi di entità nella stessa tabella (e partizione) e non si usa una tabella multipla per ogni tipo di entità. Una sola EGT può agire al massimo su 100 entità.  Se si inviano più transazioni dei gruppi di entità simultanee per l'elaborazione, è importante garantire che tali transazioni non vengano usate con entità che sono comuni tra le transazioni dei gruppi di entità, altrimenti l'elaborazione potrebbe subire ritardi.
+In archiviazione tabelle, le transazioni di gruppi di entità sono l'unico meccanismo predefinito per eseguire aggiornamenti atomici tra più entità. Le transazioni dei gruppi di entità sono chiamate anche *transazioni batch* . Le transazioni dei gruppi di entità possono agire solo su entità archiviate nella stessa partizione, ovvero che condividono la stessa chiave di partizione in una determinata tabella, quindi, ogni volta che è necessario un comportamento transazionale atomico tra più entità, bisogna assicurarsi che tali entità siano nella stessa partizione. Per questo motivo spesso si tengono tipi diversi di entità nella stessa tabella (e partizione) e non si usa una tabella multipla per ogni tipo di entità. Una sola EGT può agire al massimo su 100 entità.  Se si inviano più transazioni dei gruppi di entità simultanee per l'elaborazione, è importante garantire che tali transazioni non vengano usate con entità che sono comuni tra le transazioni dei gruppi di entità, altrimenti l'elaborazione potrebbe subire ritardi.
 
 Le transazioni EGT richiedono anche la valutazione di un potenziale compromesso nella progettazione. L'uso di un maggior numero di partizioni aumenta la scalabilità dell'applicazione, in quanto Azure ha maggiori opportunità di bilanciamento del carico delle richieste tra i nodi. Questo, però, potrebbe limitare la capacità dell'applicazione di eseguire transazioni atomiche e mantenere la coerenza assoluta per i dati. Ci sono inoltre specifici obiettivi di scalabilità a livello di partizione, che potrebbero limitare la velocità effettiva delle transazioni prevista per un singolo nodo.
 
@@ -164,7 +165,7 @@ Anche se l'archiviazione tabelle è relativamente poco costosa, è consigliabile
 ## <a name="guidelines-for-table-design"></a>Linee guida per la progettazione di tabelle
 Questi elenchi riepilogano alcune delle linee guida principali da tenere presenti quando si progettano le tabelle. I dettagli verranno illustrati più avanti. Queste linee guida sono diverse dalle linee guida a cui in genere ci si attiene per la progettazione di database relazionali.  
 
-Progettazione di un'archiviazione tabelle efficiente nelle operazioni di *lettura*:
+Progettazione di un'archiviazione tabelle efficiente nelle operazioni di *lettura* :
 
 * **Progettazione per le query nelle applicazioni con intensa attività di lettura.** Quando si progettano le tabelle, considerare le query che si eseguiranno, soprattutto quelle sensibili alla latenza, prima di pensare a come si aggiorneranno le entità. Ciò comporta in genere una soluzione efficiente e ad alte prestazioni.  
 * **Specificare sia `PartitionKey` che `RowKey` nelle query.** Le *query di puntamento* come queste sono le query più efficienti di archiviazione tabelle.  
@@ -173,7 +174,7 @@ Progettazione di un'archiviazione tabelle efficiente nelle operazioni di *lettur
 * **Usare valori chiave composti.** Le uniche chiavi disponibili sono `PartitionKey` e `RowKey`. Ad esempio, per abilitare percorsi alternativi per l'accesso con chiave alle entità, ad esempio, utilizzare valori chiave composti.  
 * **Usare la proiezione di query.** È possibile ridurre la quantità di dati trasferiti tramite la rete usando query che selezionano solo i campi necessari.  
 
-Progettazione di un'archiviazione tabelle efficiente nelle operazioni di *scrittura*:  
+Progettazione di un'archiviazione tabelle efficiente nelle operazioni di *scrittura* :  
 
 * **Non creare partizioni ad accesso frequente.** Scegliere chiavi che consentono di distribuire le richieste tra più partizioni in qualsiasi momento.  
 * **Evitare picchi di traffico.** Distribuire il traffico in un intervallo di tempo ragionevole ed evitare i picchi di traffico.
@@ -205,12 +206,12 @@ Gli esempi seguenti presuppongono che in archiviazione tabelle vengano archiviat
 Ecco alcune linee guida generali per la progettazione delle query di archiviazione tabelle. La sintassi di filtro usata negli esempi seguenti deriva dall'API REST di archiviazione tabelle. Per altre informazioni, vedere [Entità di query](/rest/api/storageservices/Query-Entities).  
 
 * Una *query di puntamento* è il tipo di ricerca più efficiente da usare ed è consigliata per le ricerche con volumi elevati o per le ricerche che richiedono una latenza molto bassa. Una query di questo tipo può usare gli indici per individuare in modo efficiente una singola entità specificando entrambi i valori per `PartitionKey` e `RowKey`. Ad esempio: `$filter=(PartitionKey eq 'Sales') and (RowKey eq '2')`.  
-* La seconda query in termini di efficienza è la *query di intervallo*, che usa `PartitionKey` e applica un filtro in base a un intervallo di valori `RowKey` per restituire più di un'entità. Il valore di `PartitionKey` identifica una partizione specifica e i valori di `RowKey` identificano un subset delle entità in quella partizione. Ad esempio: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
-* La terza migliore query è l'*analisi della partizione*, che usa `PartitionKey` e applica un filtro in un'altra proprietà non principale e potrebbe restituire più di un'entità. Il valore `PartitionKey` identifica una partizione specifica e i valori della proprietà selezionano un subset delle entità in quella partizione. Ad esempio: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
+* La seconda query in termini di efficienza è la *query di intervallo* , che usa `PartitionKey` e applica un filtro in base a un intervallo di valori `RowKey` per restituire più di un'entità. Il valore di `PartitionKey` identifica una partizione specifica e i valori di `RowKey` identificano un subset delle entità in quella partizione. Ad esempio: `$filter=PartitionKey eq 'Sales' and RowKey ge 'S' and RowKey lt 'T'`.  
+* La terza migliore query è l' *analisi della partizione* , che usa `PartitionKey` e applica un filtro in un'altra proprietà non principale e potrebbe restituire più di un'entità. Il valore `PartitionKey` identifica una partizione specifica e i valori della proprietà selezionano un subset delle entità in quella partizione. Ad esempio: `$filter=PartitionKey eq 'Sales' and LastName eq 'Smith'`.  
 * Una *scansione di tabella* non include `PartitionKey` ed è inefficiente perché cerca le entità corrispondenti in tutte le partizioni della tabella. Esegue una scansione di tabella indipendentemente dal fatto che il filtro usi `RowKey` o meno. Ad esempio: `$filter=LastName eq 'Jones'`.  
 * Le query di archiviazione tabelle di Azure che restituiscono più entità vengono ordinate in base a `PartitionKey` e `RowKey`. Per non dover riordinare le entità nel client, scegliere un valore di `RowKey` che definisca l'ordinamento più comune. I risultati della query restituiti dall'API Tabella di Azure in Azure Cosmos DB non sono ordinati per chiave di riga o chiave di partizione. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](table-api-faq.md#table-api-vs-table-storage).
 
-Se si usa "**or**" per specificare un filtro basato su valori di `RowKey`, si ottiene un'analisi della partizione che non viene considerata come query di intervallo. Evitare pertanto le query che usano filtri come: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
+Se si usa " **or** " per specificare un filtro basato su valori di `RowKey`, si ottiene un'analisi della partizione che non viene considerata come query di intervallo. Evitare pertanto le query che usano filtri come: `$filter=PartitionKey eq 'Sales' and (RowKey eq '121' or RowKey eq '322')`.  
 
 Per esempi di codice lato client che usano la libreria client di archiviazione per eseguire query efficienti, vedere:  
 
@@ -252,7 +253,7 @@ Archiviazione tabelle restituisce i risultati delle query ordinati in ordine cre
 > [!NOTE]
 > I risultati della query restituiti dall'API Tabella di Azure in Azure Cosmos DB non sono ordinati per chiave di riga o chiave di partizione. Per un elenco dettagliato delle differenze di funzionalità, consultare le [differenze tra l'API Tabella in Azure Cosmos DB e archiviazione tabelle di Azure](table-api-faq.md#table-api-vs-table-storage).
 
-Le chiavi in archiviazione tabelle sono valori di stringa. Per essere certi che i valori numerici siano ordinati correttamente, è consigliabile convertirli in una lunghezza fissa aggiungendo degli zeri. Se, ad esempio, il valore dell'ID dipendente usato come `RowKey` è un valore intero, è consigliabile convertire l'ID dipendente **123** in **00000123**. 
+Le chiavi in archiviazione tabelle sono valori di stringa. Per essere certi che i valori numerici siano ordinati correttamente, è consigliabile convertirli in una lunghezza fissa aggiungendo degli zeri. Se, ad esempio, il valore dell'ID dipendente usato come `RowKey` è un valore intero, è consigliabile convertire l'ID dipendente **123** in **00000123** . 
 
 In molte applicazioni è necessario usare i dati ordinandoli in modo diverso, ad esempio ordinando i dipendenti per nome o per data di assunzione. I criteri seguenti nella sezione [Schemi progettuali per la tabella](#table-design-patterns) descrivono come alternare l'ordinamento per le entità:  
 
@@ -544,15 +545,15 @@ Le transazioni ETG consentono l'esecuzione di transazioni atomiche tra più enti
 #### <a name="solution"></a>Soluzione
 Usando le code di Azure, è possibile implementare una soluzione che offre coerenza finale tra due o più partizioni o sistemi di archiviazione.
 
-Per illustrare questo approccio, si supponga di dover archiviare le entità relative ai dipendenti precedenti. Queste entità sono raramente oggetto di query e devono essere escluse da tutte le attività associate ai dipendenti attuali. Per implementare questo requisito è necessario archiviare i dipendenti attivi nella tabella dei dipendenti **Correnti** e i dipendenti precedenti nella tabella **Archivio**. Per archiviare un dipendente è necessario eliminare l'entità dalla tabella **Correnti** e aggiungerla alla tabella **Archivio**.
+Per illustrare questo approccio, si supponga di dover archiviare le entità relative ai dipendenti precedenti. Queste entità sono raramente oggetto di query e devono essere escluse da tutte le attività associate ai dipendenti attuali. Per implementare questo requisito è necessario archiviare i dipendenti attivi nella tabella dei dipendenti **Correnti** e i dipendenti precedenti nella tabella **Archivio** . Per archiviare un dipendente è necessario eliminare l'entità dalla tabella **Correnti** e aggiungerla alla tabella **Archivio** .
 
 Tuttavia, non è possibile usare una transazione dei gruppi di entità per eseguire queste due operazioni. Per evitare il rischio che, a causa di un errore, un'entità venga visualizzata in entrambe le tabelle o in nessuna di esse, l'operazione di archiviazione deve garantire la coerenza finale. Il diagramma seguente illustra in sequenza i passaggi di questa operazione.  
 
 :::image type="content" source="./media/storage-table-design-guide/storage-table-design-IMAGE12.png" alt-text="Immagine che mostra un'entità reparto e un'entità dipendente":::
 
-Un client avvia l'operazione di archiviazione inserendo un messaggio in una coda di Azure, in questo esempio per l'archiviazione del dipendente 456. Un ruolo di lavoro esegue il polling della coda per individuare i nuovi messaggi. Quando ne trova uno, legge il messaggio e lascia una copia nascosta nella coda. Successivamente, il ruolo di lavoro recupera una copia dell'entità dalla tabella dei dipendenti **Correnti**, inserisce una copia nella tabella dei dipendenti **Archiviati** e quindi elimina l'originale dalla tabella dei dipendenti **Correnti**. Infine, se nei passaggi precedenti non si sono verificati errori, il ruolo di lavoro elimina il messaggio nascosto dalla coda.  
+Un client avvia l'operazione di archiviazione inserendo un messaggio in una coda di Azure, in questo esempio per l'archiviazione del dipendente 456. Un ruolo di lavoro esegue il polling della coda per individuare i nuovi messaggi. Quando ne trova uno, legge il messaggio e lascia una copia nascosta nella coda. Successivamente, il ruolo di lavoro recupera una copia dell'entità dalla tabella dei dipendenti **Correnti** , inserisce una copia nella tabella dei dipendenti **Archiviati** e quindi elimina l'originale dalla tabella dei dipendenti **Correnti** . Infine, se nei passaggi precedenti non si sono verificati errori, il ruolo di lavoro elimina il messaggio nascosto dalla coda.  
 
-In questo esempio, il passaggio 4 del diagramma inserisce il dipendente nella tabella **Archivio**. Potrebbe aggiungere il dipendente a un BLOB in archiviazione BLOB o un file in un file system.  
+In questo esempio, il passaggio 4 del diagramma inserisce il dipendente nella tabella **Archivio** . Potrebbe aggiungere il dipendente a un BLOB in archiviazione BLOB o un file in un file system.  
 
 #### <a name="recover-from-failures"></a>Ripristino da errori
 È importante che le operazioni nei passaggi 4-5 del diagramma siano *idempotenti* nei casi in cui il ruolo di lavoro deve riavviare l'operazione di archiviazione. Se si sta usando archiviazione tabelle, per il passaggio 4 usare un'operazione "insert or replace"; per il passaggio 5, usare un'operazione "delete if exists" nella libreria client in uso. Se si sta usando un altro sistema di archiviazione, usare un'operazione idempotente appropriata.  
@@ -700,7 +701,7 @@ $filter=(PartitionKey eq 'Sales') and (RowKey ge 'empid_000123') and (RowKey lt 
 #### <a name="issues-and-considerations"></a>Considerazioni e problemi
 Prima di decidere come implementare questo modello, considerare quanto segue:  
 
-* È consigliabile usare un carattere separatore appropriato che semplifichi l'analisi del valore `RowKey`, ad esempio **000123_2012**.  
+* È consigliabile usare un carattere separatore appropriato che semplifichi l'analisi del valore `RowKey`, ad esempio **000123_2012** .  
 * Si sta archiviando l'entità nella stessa partizione di altre entità che contengono dati correlati per lo stesso dipendente, dunque è possibile usare transazioni di gruppi di entità per mantenere la coerenza assoluta.
 * Per determinare se questo criterio è appropriato, considerare la frequenza con cui si eseguiranno query sui dati. Ad esempio, se si accede raramente ai dati di revisione e spesso ai dati principali sul dipendente, è consigliabile conservarli come entità separate.  
 
@@ -947,7 +948,7 @@ Questa sezione illustra alcune considerazioni da tenere presente quando si imple
 Come descritto nella sezione [Progettazione per le query](#design-for-querying), la query più efficiente è una query di tipo punto. Tuttavia, in alcuni scenari potrebbe essere necessario recuperare più entità. Questa sezione descrive alcuni approcci comuni al recupero di entità mediante la libreria client di archiviazione.  
 
 #### <a name="run-a-point-query-by-using-the-storage-client-library"></a>Eseguire una query di puntamento mediante la libreria client di archiviazione
-Il modo più semplice per eseguire una query di puntamento è usare l'operazione di tabella **Retrieve**. Come illustrato nel frammento di codice C# seguente, questa operazione recupera un'entità con un valore per `PartitionKey` "Sales" e per `RowKey` "212":  
+Il modo più semplice per eseguire una query di puntamento è usare l'operazione di tabella **Retrieve** . Come illustrato nel frammento di codice C# seguente, questa operazione recupera un'entità con un valore per `PartitionKey` "Sales" e per `RowKey` "212":  
 
 ```csharp
 TableOperation retrieveOperation = TableOperation.Retrieve<EmployeeEntity>("Sales", "212");
@@ -962,7 +963,7 @@ if (retrieveResult.Result != null)
 Si noti come in questo esempio l'entità recuperata prevista sia di tipo `EmployeeEntity`.  
 
 #### <a name="retrieve-multiple-entities-by-using-linq"></a>Recuperare più entità usando LINQ
-È possibile recuperare più entità usando LINQ con la libreria client di archiviazione e specificando una query con la clausola **where**. Per evitare una scansione di tabella, è consigliabile includere sempre il valore `PartitionKey` nella clausola where e, se possibile, il valore `RowKey` per evitare analisi di tabelle e partizioni. Archiviazione tabelle supporta un set limitato di operatori di confronto, maggiore di, maggiore di o uguale a, minore di, minore di o uguale a e non uguale a, da usare per determinare la clausola where. Il frammento di codice C# seguente consente di trovare tutti i dipendenti il cui cognome inizia con la lettera "B", presupponendo che il valore `RowKey` archivi il cognome, del reparto vendite, supponendo che il valore `PartitionKey` archivi il nome del reparto:  
+È possibile recuperare più entità usando LINQ con la libreria client di archiviazione e specificando una query con la clausola **where** . Per evitare una scansione di tabella, è consigliabile includere sempre il valore `PartitionKey` nella clausola where e, se possibile, il valore `RowKey` per evitare analisi di tabelle e partizioni. Archiviazione tabelle supporta un set limitato di operatori di confronto, maggiore di, maggiore di o uguale a, minore di, minore di o uguale a e non uguale a, da usare per determinare la clausola where. Il frammento di codice C# seguente consente di trovare tutti i dipendenti il cui cognome inizia con la lettera "B", presupponendo che il valore `RowKey` archivi il cognome, del reparto vendite, supponendo che il valore `PartitionKey` archivi il nome del reparto:  
 
 ```csharp
 TableQuery<EmployeeEntity> employeeQuery = employeeTable.CreateQuery<EmployeeEntity>();
@@ -1105,7 +1106,7 @@ Il metodo `Replace` della classe `TableOperation` sostituisce sempre l'entità c
 > 
 
 ### <a name="work-with-heterogeneous-entity-types"></a>Usare tipi di entità eterogenei
-Archiviazione tabelle è un archivio di tabelle *senza schema*. Ciò significa che una singola tabella può archiviare entità di più tipi, offrendo una grande flessibilità di progettazione. L'esempio seguente illustra una tabella che archivia entità dipendente ed entità reparto:  
+Archiviazione tabelle è un archivio di tabelle *senza schema* . Ciò significa che una singola tabella può archiviare entità di più tipi, offrendo una grande flessibilità di progettazione. L'esempio seguente illustra una tabella che archivia entità dipendente ed entità reparto:  
 
 <table>
 <tr>

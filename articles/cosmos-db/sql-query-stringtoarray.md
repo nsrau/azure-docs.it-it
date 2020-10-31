@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: b00fe7a515d1d27ce9be2ab62a96c719d5e045a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f9086aa89c2a3ec3ebfcb32025bace4f1db7d9e
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88798585"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079713"
 ---
 # <a name="stringtoarray-azure-cosmos-db"></a>StringToArray (Azure Cosmos DB)
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
  Restituisce l'espressione convertita in una matrice. Se l'espressione non può essere convertita, restituisce undefined.  
   
 ## <a name="syntax"></a>Sintassi
@@ -35,7 +37,7 @@ StringToArray(<str_expr>)
 ## <a name="remarks"></a>Commenti
   I valori stringa annidati devono essere scritti con virgolette doppie per essere JSON validi. Per informazioni dettagliate sul formato JSON, vedere [JSON.org](https://json.org/). Questa funzione di sistema non utilizzerà l'indice.
   
-## <a name="examples"></a>Esempi
+## <a name="examples"></a>Esempio
   
   Nell'esempio seguente viene illustrato il comportamento di `StringToArray` tra tipi diversi. 
   

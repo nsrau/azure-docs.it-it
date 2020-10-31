@@ -7,14 +7,15 @@ ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: thweiss
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c9821e53abcdf95c6cf235cb9d39cd310fcfb66f
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 4ba4e5f462a3cc88de5b23b32a5e749f9363e93f
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92279725"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081893"
 ---
 # <a name="configure-azure-private-link-for-an-azure-cosmos-account"></a>Configurare il collegamento privato di Azure per un account Azure Cosmos
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Con il collegamento privato di Azure è possibile connettersi a un account Azure Cosmos tramite un endpoint privato. L'endpoint privato è un set di indirizzi IP privati in una subnet all'interno della rete virtuale. È quindi possibile limitare l'accesso a un account Azure Cosmos tramite indirizzi IP privati. Quando è combinato con criteri di gruppo di sicurezza di rete limitati, il collegamento privato contribuisce a ridurre il rischio di esfiltrazione dei dati. Per altre informazioni sugli endpoint privati, vedere l'articolo [Collegamento privato di Azure](../private-link/private-link-overview.md).
 
@@ -33,7 +34,7 @@ Usare la procedura seguente per creare un endpoint privato per un account Azure 
 
 1. Dal riquadro **Tutte le risorse** scegliere un account Azure Cosmos.
 
-1. Selezionare **Connessioni a endpoint privato** dall'elenco delle impostazioni e quindi selezionare **Endpoint privato**:
+1. Selezionare **Connessioni a endpoint privato** dall'elenco delle impostazioni e quindi selezionare **Endpoint privato** :
 
    :::image type="content" source="./media/how-to-configure-private-endpoints/create-private-endpoint-portal.png" alt-text="Selezioni per la creazione di un endpoint privato nel portale di Azure":::
 
@@ -48,19 +49,19 @@ Usare la procedura seguente per creare un endpoint privato per un account Azure 
     | Nome | Immettere un nome per l'endpoint privato. Se il nome è già usato, creare un nome univoco. |
     |Region| Selezionare l'area in cui si vuole distribuire il collegamento privato. Creare l'endpoint privato nella stessa posizione in cui si trova la rete virtuale.|
     |||
-1. Selezionare **Avanti: Risorsa**.
+1. Selezionare **Avanti: Risorsa** .
 1. In **Crea un endpoint privato - Risorsa** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
-    |Metodo di connessione  | Selezionare **Connettersi a una risorsa di Azure nella directory**. <br/><br/> È quindi possibile scegliere una delle risorse per configurare il collegamento privato. Oppure connettersi alla risorsa di un altro utente usando un ID risorsa o un alias condiviso.|
+    |Metodo di connessione  | Selezionare **Connettersi a una risorsa di Azure nella directory** . <br/><br/> È quindi possibile scegliere una delle risorse per configurare il collegamento privato. Oppure connettersi alla risorsa di un altro utente usando un ID risorsa o un alias condiviso.|
     | Subscription| Selezionare la propria sottoscrizione. |
-    | Tipo di risorsa | Selezionare **Microsoft.AzureCosmosDB/databaseAccounts**. |
+    | Tipo di risorsa | Selezionare **Microsoft.AzureCosmosDB/databaseAccounts** . |
     | Risorsa |Selezionare l'account Azure Cosmos. |
     |Sottorisorsa di destinazione |Selezionare il tipo di API di Azure Cosmos DB di cui si vuole eseguire il mapping. Per impostazione predefinita viene selezionata un'unica opzione per le API SQL, MongoDB e Cassandra. Per le API Gremlin e Tabella, è anche possibile scegliere **SQL** poiché queste API sono interoperative con l'API SQL. |
     |||
 
-1. Selezionare **Avanti: Configurazione**.
+1. Selezionare **Avanti: Configurazione** .
 1. In **Crea un endpoint privato - Configurazione** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
@@ -69,12 +70,12 @@ Usare la procedura seguente per creare un endpoint privato per un account Azure 
     | Rete virtuale| Selezionare la rete virtuale. |
     | Subnet | Selezionare la subnet. |
     |**Integrazione DNS privato**||
-    |Integra con la zona DNS privato |Selezionare **Sì**. <br><br/> Per connettersi in privato con l'endpoint privato, è necessario un record DNS. È consigliabile integrare l'endpoint privato con una zona DNS privata. È anche possibile usare i propri server DNS o creare record DNS usando i file host delle macchine virtuali. |
-    |Zona DNS privato |Selezionare **privatelink.documents.azure.com**. <br><br/> La zona DNS privata viene determinata automaticamente. Non è possibile modificarla usando il portale di Azure.|
+    |Integra con la zona DNS privato |Selezionare **Sì** . <br><br/> Per connettersi in privato con l'endpoint privato, è necessario un record DNS. È consigliabile integrare l'endpoint privato con una zona DNS privata. È anche possibile usare i propri server DNS o creare record DNS usando i file host delle macchine virtuali. |
+    |Zona DNS privato |Selezionare **privatelink.documents.azure.com** . <br><br/> La zona DNS privata viene determinata automaticamente. Non è possibile modificarla usando il portale di Azure.|
     |||
 
-1. Selezionare **Rivedi e crea**. Nella pagina **Rivedi e crea** Azure convalida la configurazione.
-1. Quando viene visualizzato il messaggio **Convalida superata**, selezionare **Crea**.
+1. Selezionare **Rivedi e crea** . Nella pagina **Rivedi e crea** Azure convalida la configurazione.
+1. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea** .
 
 Quando è stato approvato il collegamento privato per un account Azure Cosmos, nel portale di Azure l'opzione **Tutte le reti** nel riquadro **Firewall e reti virtuali** non è disponibile.
 
@@ -94,8 +95,8 @@ La tabella seguente illustra il mapping tra i diversi tipi di API dell'account A
 
 Dopo aver eseguito il provisioning dell'endpoint privato, è possibile eseguire una query sugli indirizzi IP. Per visualizzare gli indirizzi IP dal portale di Azure:
 
-1. Selezionare **Tutte le risorse**.
-1. Cercare l'endpoint privato creato in precedenza. In questo caso, si tratta di **cdbPrivateEndpoint3**.
+1. Selezionare **Tutte le risorse** .
+1. Cercare l'endpoint privato creato in precedenza. In questo caso, si tratta di **cdbPrivateEndpoint3** .
 1. Selezionare la scheda **Panoramica** per visualizzare le impostazioni DNS e gli indirizzi IP.
 
 :::image type="content" source="./media/how-to-configure-private-endpoints/private-ip-addresses-portal.png" alt-text="Selezioni per la creazione di un endpoint privato nel portale di Azure":::

@@ -8,14 +8,16 @@ ms.author: jawilley
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: d5d66ca05390af5f6fef91ca959f1db3d547d3fb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fff9bc55b324875601a2c4e68835a17c61c3769b
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89014048"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079258"
 ---
 # <a name="diagnose-and-troubleshoot-azure-cosmos-db-request-header-too-large-message"></a>Diagnosticare e risolvere i problemi Azure Cosmos DB messaggio "intestazione richiesta troppo grande"
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
+
 Il messaggio "intestazione richiesta troppo grande" viene generato con un codice di errore HTTP 400. Questo errore si verifica se la dimensione dell'intestazione della richiesta è aumentata in modo tale che superi le dimensioni massime consentite. Si consiglia di usare la versione più recente dell'SDK. Usare almeno la versione 3. x o 2. x, perché queste versioni aggiungono la traccia delle dimensioni dell'intestazione al messaggio dell'eccezione.
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi

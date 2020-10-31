@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: f0dfa137e42d60246ce8f5281f002d5ca567c2ae
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ac134e6a371ea85a20094e688adc57da8550a03d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427535"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078986"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creare e gestire un'istanza di calcolo Azure Machine Learning
 
@@ -40,9 +40,9 @@ Le istanze di calcolo possono eseguire processi in modo sicuro in un [ambiente d
 
 * Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
-## <a name="create"></a>Create
+## <a name="create"></a>Crea
 
-**Tempo stimato**: circa 5 minuti.
+**Tempo stimato** : circa 5 minuti.
 
 La creazione di un'istanza di calcolo è un processo una volta per l'area di lavoro. È possibile riutilizzare questo calcolo come una workstation di sviluppo o come destinazione di calcolo per il training. È possibile avere più istanze di calcolo collegate all'area di lavoro.
 
@@ -147,7 +147,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     instance.stop(wait_for_completion=True, show_output=True)
     ```
 
-* Inizia
+* Avvio
 
     ```python
     # start() is used to start the ComputeInstance if it is in stopped state
@@ -161,7 +161,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* Delete
+* Elimina
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -180,7 +180,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
 
     Per ulteriori informazioni, vedere [AZ ml computetarget stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
 
-* Inizia 
+* Avvio 
 
     ```azurecli-interactive
     az ml computetarget start computeinstance -n instance -v
@@ -196,7 +196,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
 
     Per altre informazioni, vedere [AZ ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
-* Delete
+* Elimina
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v
@@ -206,7 +206,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
-Nell'area di lavoro in Azure Machine Learning Studio selezionare **Calcolo**, quindi selezionare **Istanza di calcolo** nella parte superiore.
+Nell'area di lavoro in Azure Machine Learning Studio selezionare **Calcolo** , quindi selezionare **Istanza di calcolo** nella parte superiore.
 
 ![Gestire un'istanza di calcolo](./media/concept-compute-instance/manage-compute-instance.png)
 
@@ -255,8 +255,10 @@ Usare la finestra del terminale per installare i pacchetti e creare kernel aggiu
 * RStudio: usare la scheda **Packages** (Pacchetti) in basso a sinistra o la scheda **Console** in alto a sinistra.  
 * Python: aggiungere il codice di installazione ed eseguire in una cella Jupyter Notebook.
 
-In alternativa, è possibile eseguire l'installazione da una finestra del terminale. Installare i pacchetti Python nell'ambiente **python 3,6-AzureML** .  Installare i pacchetti R nell'ambiente **R**.
-% PIP e% conda Magic Functions installa automaticamente i pacchetti nel kernel attualmente in esecuzione nella sessione Jupyter notebook.
+In alternativa, è possibile eseguire l'installazione da una finestra del terminale. Installare i pacchetti Python nell'ambiente **python 3,6-AzureML** .  Installare i pacchetti R nell'ambiente **R** .
+
+> [!NOTE]
+> Per la gestione dei pacchetti in un notebook, usare le funzioni **% PIP** o **% conda** Magic per installare automaticamente i pacchetti nel **kernel attualmente in esecuzione** , anziché **! PIP** o **! conda** , che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
 
 ## <a name="add-new-kernels"></a>Aggiungere nuovi kernel
 

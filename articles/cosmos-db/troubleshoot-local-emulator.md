@@ -7,14 +7,15 @@ author: markjbrown
 ms.author: mjbrown
 ms.date: 09/17/2020
 ms.custom: contperfq1
-ms.openlocfilehash: af9122aaa0233fe5248f31ffe805e01a98831eae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cf174d45f33c50ce93b45b19c6030cf42cb20983
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447429"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081451"
 ---
 # <a name="troubleshoot-issues-when-using-the-azure-cosmos-emulator"></a>Risolvere i problemi relativi all'uso dell'emulatore di Azure Cosmos
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos Emulator fornisce un ambiente locale che emula il servizio Azure Cosmos DB a scopo di sviluppo. Usare i suggerimenti di questo articolo per risolvere i problemi riscontrati durante l'installazione o l'uso dell'emulatore di Azure Cosmos. 
 
@@ -34,11 +35,11 @@ Se è stata installata una nuova versione dell'emulatore e si verificano errori,
 
 * In caso di problemi di connettività, [raccogliere i file di traccia](#trace-files), comprimerli e aprire un ticket di supporto nel [portale di Azure](https://portal.azure.com).
 
-* Se si riceve un messaggio di tipo **Servizio non disponibile**, è possibile che l'emulatore non riesca a inizializzare lo stack di rete. Controllare per verificare se è stato installato il client sicuro Pulse o il client di rete Juniper, perché è possibile che i rispettivi driver del filtro di rete provochino il problema. La disinstallazione dei driver filtro di rete di terze parti consente in genere di risolvere il problema. In alternativa, avviare l'emulatore con /DisableRIO. In questo modo, per la comunicazione di rete dell'emulatore, si passerà ai Winsock normali. 
+* Se si riceve un messaggio di tipo **Servizio non disponibile** , è possibile che l'emulatore non riesca a inizializzare lo stack di rete. Controllare per verificare se è stato installato il client sicuro Pulse o il client di rete Juniper, perché è possibile che i rispettivi driver del filtro di rete provochino il problema. La disinstallazione dei driver filtro di rete di terze parti consente in genere di risolvere il problema. In alternativa, avviare l'emulatore con /DisableRIO. In questo modo, per la comunicazione di rete dell'emulatore, si passerà ai Winsock normali. 
 
-* Se si riscontrano **"Forbidden", "message": "la richiesta viene effettuata con una crittografia non consentita nel protocollo di transito o nella crittografia. Controllare l'impostazione minima consentita del protocollo SSL/TLS... "** problemi di connettività. questa situazione potrebbe essere causata da modifiche globali nel sistema operativo (ad esempio, Insider Preview Build 20170) o dalle impostazioni del browser che abilitano TLS 1,3 come valore predefinito. Potrebbe verificarsi un errore simile quando si usa l'SDK per eseguire una richiesta nell'emulatore Cosmos, ad esempio **Microsoft.Azure.Documents.DocumentClientException: la richiesta viene effettuata con una crittografia non consentita nel protocollo di transito o nella crittografia. Controllare l'impostazione del protocollo minimo consentito SSL/TLS**. Questo problema è previsto in questo momento perché l'emulatore di Cosmos accetta e funziona solo con il protocollo TLS 1.2. La soluzione consigliata consiste nel modificare le impostazioni e il valore predefinito in TLS 1,2; ad esempio, in Gestione IIS passare a "siti"-> "siti Web predefiniti" e individuare i "binding del sito" per la porta 8081 e modificarli per disabilitare TLS 1,3. È possibile eseguire un'operazione simile per il Web browser tramite le opzioni di "Impostazioni".
+* Se si riscontrano **"Forbidden", "message": "la richiesta viene effettuata con una crittografia non consentita nel protocollo di transito o nella crittografia. Controllare l'impostazione minima consentita del protocollo SSL/TLS... "** problemi di connettività. questa situazione potrebbe essere causata da modifiche globali nel sistema operativo (ad esempio, Insider Preview Build 20170) o dalle impostazioni del browser che abilitano TLS 1,3 come valore predefinito. Potrebbe verificarsi un errore simile quando si usa l'SDK per eseguire una richiesta nell'emulatore Cosmos, ad esempio **Microsoft.Azure.Documents.DocumentClientException: la richiesta viene effettuata con una crittografia non consentita nel protocollo di transito o nella crittografia. Controllare l'impostazione del protocollo minimo consentito SSL/TLS** . Questo problema è previsto in questo momento perché l'emulatore di Cosmos accetta e funziona solo con il protocollo TLS 1.2. La soluzione consigliata consiste nel modificare le impostazioni e il valore predefinito in TLS 1,2; ad esempio, in Gestione IIS passare a "siti"-> "siti Web predefiniti" e individuare i "binding del sito" per la porta 8081 e modificarli per disabilitare TLS 1,3. È possibile eseguire un'operazione simile per il Web browser tramite le opzioni di "Impostazioni".
 
-* Mentre l'emulatore è in esecuzione, se il computer passa in modalità sospensione o esegue eventuali aggiornamenti del sistema operativo, potrebbe essere visualizzato il messaggio **Il servizio non è attualmente disponibile**. Reimpostare i dati dell'emulatore facendo clic con il pulsante destro del mouse sull'icona visualizzata nell'area di notifica di Windows e scegliendo **Reset Data** (Reimposta dati).
+* Mentre l'emulatore è in esecuzione, se il computer passa in modalità sospensione o esegue eventuali aggiornamenti del sistema operativo, potrebbe essere visualizzato il messaggio **Il servizio non è attualmente disponibile** . Reimpostare i dati dell'emulatore facendo clic con il pulsante destro del mouse sull'icona visualizzata nell'area di notifica di Windows e scegliendo **Reset Data** (Reimposta dati).
 
 ## <a name="collect-trace-files"></a><a id="trace-files"></a>Raccogliere i file di traccia
 

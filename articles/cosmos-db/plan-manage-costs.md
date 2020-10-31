@@ -7,14 +7,15 @@ ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 278603887fe7d47b4be52b04f9f0864be1a1b75b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 3a1bb36910b09d24c3328c8fc8ae94e1e3321642
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482248"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080703"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Pianificare e gestire i costi per Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Questo articolo descrive come pianificare e gestire i costi per Azure Cosmos DB:
 
@@ -56,7 +57,7 @@ Se si prevede di usare Azure Cosmos DB in modalità senza server, è necessario 
 > [!IMPORTANT] 
 > Prestare attenzione alle note della tabella precedente. Per una stima più accurata dei costi effettivi delle operazioni, è possibile usare l' [emulatore di Azure Cosmos](local-emulator.md) e [misurare il costo esatto delle UR delle operazioni](find-request-unit-charge.md). Sebbene l'emulatore di Azure Cosmos non supporti senza server, viene segnalato un addebito standard delle unità richiesta per le operazioni di database e può essere usato per questa stima.
 
-Una volta calcolato il numero totale di unità richiesta e GB di spazio di archiviazione che si utilizzeranno più di un mese, la formula seguente restituirà la stima dei costi: **([numero di unità richiesta]/1 milione * $0,25) + ([GB di archiviazione] * $0,25)**.
+Una volta calcolato il numero totale di unità richiesta e GB di spazio di archiviazione che si utilizzeranno più di un mese, la formula seguente restituirà la stima dei costi: **([numero di unità richiesta]/1 milione * $0,25) + ([GB di archiviazione] * $0,25)** .
 
 > [!NOTE]
 > I costi indicati nell'esempio precedente sono solo a scopo dimostrativo. Per le informazioni più aggiornate sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) .
@@ -87,11 +88,11 @@ Quando si usa l'analisi dei costi, è possibile visualizzare i costi Azure Cosmo
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Aprire la finestra **Gestione costi e fatturazione** , selezionare **Gestione costi** dal menu e quindi selezionare **analisi dei costi**. È quindi possibile modificare l'ambito per una sottoscrizione specifica dall'elenco a discesa **ambito** .
+1. Aprire la finestra **Gestione costi e fatturazione** , selezionare **Gestione costi** dal menu e quindi selezionare **analisi dei costi** . È quindi possibile modificare l'ambito per una sottoscrizione specifica dall'elenco a discesa **ambito** .
 
 1. Per impostazione predefinita, i costi per tutti i servizi vengono visualizzati nel primo grafico ad anello. Selezionare l'area nel grafico con l'etichetta "Azure Cosmos DB".
 
-1. Per limitare i costi per un singolo servizio, ad esempio Azure Cosmos DB, selezionare **Aggiungi filtro** e quindi selezionare **nome servizio**. Quindi, scegliere **Azure Cosmos DB** dall'elenco. Ecco un esempio che mostra i costi solo per Azure Cosmos DB:
+1. Per limitare i costi per un singolo servizio, ad esempio Azure Cosmos DB, selezionare **Aggiungi filtro** e quindi selezionare **nome servizio** . Quindi, scegliere **Azure Cosmos DB** dall'elenco. Ecco un esempio che mostra i costi solo per Azure Cosmos DB:
  
    :::image type="content" source="./media/plan-manage-costs/cost-analysis-pane.png" alt-text="Stima dei costi nel calcolatore di capacità Azure Cosmos DB":::
 

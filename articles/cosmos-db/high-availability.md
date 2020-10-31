@@ -7,20 +7,21 @@ ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 0bbb0da0ce39aab9fba843dda99b45ea59881ce2
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2fb8b24d5d44ced8f9e363008354acf5bc2fde40
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490544"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081876"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>In che modo Azure Cosmos DB fornisce disponibilità elevata
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB offre disponibilità elevata in due modi principali. In primo luogo, Azure Cosmos DB replica i dati tra le aree configurate in un account Cosmos. In secondo luogo, Azure Cosmos DB gestisce 4 repliche di dati all'interno di un'area.
 
 Azure Cosmos DB è un servizio di database distribuito a livello globale ed è un servizio di base in Azure. Per impostazione predefinita, è disponibile in [tutte le aree in cui è disponibile Azure](https://azure.microsoft.com/global-infrastructure/services/?products=cosmos-db&regions=all). È possibile associare un numero qualsiasi di aree di Azure al proprio account Azure Cosmos e i dati vengono replicati automaticamente e in modo trasparente. È possibile aggiungere o rimuovere un'area all'account Azure Cosmos in qualsiasi momento. Cosmos DB è disponibile in tutti i cinque ambienti cloud distinti di Azure disponibili per i clienti:
 
-* Cloud **Azure pubblico**, disponibile a livello globale.
+* Cloud **Azure pubblico** , disponibile a livello globale.
 
 * **Azure Cina 21ViaNet** è disponibile tramite una partnership univoca tra Microsoft e 21ViaNet, uno dei principali provider Internet in Cina.
 
@@ -73,7 +74,7 @@ Per i rari casi di interruzione a livello di area, Azure Cosmos DB garantisce ch
 * Una volta che viene ripristinata l'area di scrittura interessata in precedenza, diventa automaticamente disponibile come area di lettura. È possibile tornare all'area ripristinata come area di scrittura. È possibile cambiare le aree usando PowerShell, l'interfaccia della riga di comando di [Azure o portale di Azure](how-to-manage-database-account.md#manual-failover). Non sono presenti **dati o perdite di disponibilità** prima di, durante o dopo l'attivazione dell'area di scrittura e l'applicazione continua a essere a disponibilità elevata.
 
 > [!IMPORTANT]
-> Si consiglia vivamente di configurare gli account Azure Cosmos usati per i carichi di lavoro di produzione per **abilitare il failover automatico**. Il failover manuale richiede la connettività tra l'area di scrittura secondaria e quella primaria per completare una verifica della coerenza per assicurarsi che non si verifichino perdite di dati durante il failover. Se l'area primaria non è disponibile, la verifica di coerenza non è completa e il failover manuale non riesce, causando la perdita della disponibilità di scrittura per la durata dell'interruzione a livello di area.
+> Si consiglia vivamente di configurare gli account Azure Cosmos usati per i carichi di lavoro di produzione per **abilitare il failover automatico** . Il failover manuale richiede la connettività tra l'area di scrittura secondaria e quella primaria per completare una verifica della coerenza per assicurarsi che non si verifichino perdite di dati durante il failover. Se l'area primaria non è disponibile, la verifica di coerenza non è completa e il failover manuale non riesce, causando la perdita della disponibilità di scrittura per la durata dell'interruzione a livello di area.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Account a più aree con un'area a scrittura singola (interruzione dell'area di lettura)
 
@@ -89,7 +90,7 @@ Per i rari casi di interruzione a livello di area, Azure Cosmos DB garantisce ch
 
 * Le letture successive vengono reindirizzate all'area ripristinata senza richiedere alcuna modifica del codice dell'applicazione. Durante il failover e il join di un'area precedentemente non riuscita, le garanzie di coerenza di lettura continuano a essere rispettate dal Azure Cosmos DB.
 
-* Anche in un evento raro e sfortunato quando l'area di Azure è irreversibile definitivamente, non si verifica alcuna perdita di dati se l'account Azure Cosmos in *più* aree è configurato con coerenza assoluta. In caso di un'area di scrittura irreversibile in modo permanente, un account Azure Cosmos a più aree configurato con la coerenza con obsolescenza associata, la potenziale finestra di perdita di dati è limitata alla finestra di obsolescenza (*k* o *t*) in cui k = 100000 aggiornamenti e T = 5 minuti. Per la sessione, il prefisso coerente e i livelli di coerenza finali, la finestra potenziale di perdita di dati è limitata a un massimo di 15 minuti. Per altre informazioni sulle destinazioni RTO e RPO per Azure Cosmos DB, vedere [livelli di coerenza e durabilità dei dati](./consistency-levels.md#rto)
+* Anche in un evento raro e sfortunato quando l'area di Azure è irreversibile definitivamente, non si verifica alcuna perdita di dati se l'account Azure Cosmos in *più* aree è configurato con coerenza assoluta. In caso di un'area di scrittura irreversibile in modo permanente, un account Azure Cosmos a più aree configurato con la coerenza con obsolescenza associata, la potenziale finestra di perdita di dati è limitata alla finestra di obsolescenza ( *k* o *t* ) in cui k = 100000 aggiornamenti e T = 5 minuti. Per la sessione, il prefisso coerente e i livelli di coerenza finali, la finestra potenziale di perdita di dati è limitata a un massimo di 15 minuti. Per altre informazioni sulle destinazioni RTO e RPO per Azure Cosmos DB, vedere [livelli di coerenza e durabilità dei dati](./consistency-levels.md#rto)
 
 ## <a name="availability-zone-support"></a>Supporto per la zona di disponibilità
 

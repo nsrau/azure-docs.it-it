@@ -6,14 +6,15 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 0adb346a693beaa905438cfdc1249c1646c28811
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d16343864d9602d644b31d34a2b66e39211b6ece
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88608781"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079339"
 ---
 # <a name="how-to-choose-between-provisioned-throughput-and-serverless"></a>Come scegliere tra la velocità effettiva con provisioning e senza server
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB è disponibile in due modalità di capacità diverse: [velocità effettiva con provisioning](set-throughput.md) e senza [Server](serverless.md). È possibile eseguire esattamente le stesse operazioni di database in entrambe le modalità, ma il modo in cui vengono fatturate queste operazioni è radicalmente diverso. Il video seguente illustra le differenze principali tra queste modalità e il modo in cui si adattano a diversi tipi di carichi di lavoro:
 
@@ -42,20 +43,20 @@ Azure Cosmos DB è disponibile in due modalità di capacità diverse: [velocità
 In alcune situazioni, potrebbe non essere chiaro se la velocità effettiva con provisioning o senza server deve essere scelta per un determinato carico di lavoro. Per semplificare questa decisione, è possibile stimare quanto segue:
 
 - Requisito di espansione del **carico di lavoro** , ovvero la quantità massima di UR che può essere necessario utilizzare in un secondo
-- Il **consumo complessivo previsto**, ovvero il numero totale di UR che possono essere utilizzati più di un mese (è possibile stimare questo aspetto con l'aiuto della tabella riportata di [seguito](plan-manage-costs.md#estimating-serverless-costs))
+- Il **consumo complessivo previsto** , ovvero il numero totale di UR che possono essere utilizzati più di un mese (è possibile stimare questo aspetto con l'aiuto della tabella riportata di [seguito](plan-manage-costs.md#estimating-serverless-costs))
 
 Se il carico di lavoro richiede il superamento di 5.000 UR al secondo, è consigliabile scegliere la velocità effettiva con provisioning, perché i contenitori senza server non possono superare questo limite. In caso contrario, è possibile confrontare il costo di entrambe le modalità in base al consumo previsto.
 
-**Esempio 1**: si prevede che un carico di lavoro aumenti fino a un massimo di 10.000 UR/sec e utilizzerà un totale di 20 milioni ur per un mese.
+**Esempio 1** : si prevede che un carico di lavoro aumenti fino a un massimo di 10.000 UR/sec e utilizzerà un totale di 20 milioni ur per un mese.
 
 - Solo la modalità di velocità effettiva con provisioning può fornire una velocità effettiva di 10.000 UR/sec
 
-**Esempio 2**: si prevede che un carico di lavoro aumenti fino a un massimo di 500 UR/sec e utilizzerà un totale di 20 milioni ur per un mese.
+**Esempio 2** : si prevede che un carico di lavoro aumenti fino a un massimo di 500 UR/sec e utilizzerà un totale di 20 milioni ur per un mese.
 
 - In modalità di velocità effettiva con provisioning, è necessario effettuare il provisioning di un contenitore con 500 UR/sec per un costo mensile di: $0,008 * 5 * 730 = **$29,20**
 - In modalità senza server è necessario pagare per le UR utilizzate: $0,25 * 20 = **$5,00**
 
-**Esempio 3**: si prevede che un carico di lavoro aumenti fino a un massimo di 500 UR/sec e utilizzerà un totale di 250 milioni ur per un mese.
+**Esempio 3** : si prevede che un carico di lavoro aumenti fino a un massimo di 500 UR/sec e utilizzerà un totale di 250 milioni ur per un mese.
 
 - In modalità di velocità effettiva con provisioning, è necessario effettuare il provisioning di un contenitore con 500 UR/sec per un costo mensile di: $0,008 * 5 * 730 = **$29,20**
 - In modalità senza server è necessario pagare per le UR utilizzate: $0,25 * 250 = **$62,50**

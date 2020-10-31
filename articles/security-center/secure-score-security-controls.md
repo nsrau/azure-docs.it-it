@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/21/2020
 ms.author: memildin
-ms.openlocfilehash: 0bc8b4f7bd2bf02d4d034ebacc0fc45b17cd3e15
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 55a4e50e3a85eccb9517cf682b67268e633abecc
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92928094"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081230"
 ---
 # <a name="secure-score-in-azure-security-center"></a>Punteggio di sicurezza nel Centro sicurezza di Azure
 
@@ -190,7 +190,7 @@ Anche se l'iniziativa di sicurezza predefinita del Centro sicurezza è basata su
     <td class="tg-lboi"; width=55%>- Le porte di gestione delle macchine virtuali devono essere protette con il controllo di accesso di rete just-in-Time<br>- È necessario associare le macchine virtuali a un gruppo di sicurezza di rete<br>- È necessario chiudere le porte di gestione nelle macchine virtuali</td>
   </tr>
   <tr>
-    <td class="tg-lboi"><strong><p style="font-size: 16px">Applicare gli aggiornamenti del sistema (punteggio massimo 6)</p></strong>Gli aggiornamenti del sistema offrono alle organizzazioni la possibilità di mantenere l'efficienza operativa, ridurre le vulnerabilità di sicurezza e fornire un ambiente più stabile per gli utenti finali. La mancata applicazione degli aggiornamenti lascia vulnerabilità senza patch e produce ambienti vulnerabili ad attacchi. Queste vulnerabilità possono essere sfruttate e causare perdite di dati, esfiltrazioni di dati, ransomware e abusi di risorse. Per distribuire gli aggiornamenti del sistema, è possibile usare la <a href="/azure/automation/automation-update-management">soluzione Gestione aggiornamenti per gestire gli aggiornamenti e le patch</a> per le macchine virtuali. La gestione degli aggiornamenti è il processo di controllo della distribuzione e della manutenzione delle versioni software.</td>
+    <td class="tg-lboi"><strong><p style="font-size: 16px">Applicare gli aggiornamenti del sistema (punteggio massimo 6)</p></strong>Gli aggiornamenti del sistema offrono alle organizzazioni la possibilità di mantenere l'efficienza operativa, ridurre le vulnerabilità di sicurezza e fornire un ambiente più stabile per gli utenti finali. La mancata applicazione degli aggiornamenti lascia vulnerabilità senza patch e produce ambienti vulnerabili ad attacchi. Queste vulnerabilità possono essere sfruttate e causare perdite di dati, esfiltrazioni di dati, ransomware e abusi di risorse. Per distribuire gli aggiornamenti del sistema, è possibile usare la <a href="/azure/automation/update-management/overview">soluzione Gestione aggiornamenti per gestire gli aggiornamenti e le patch</a> per le macchine virtuali. La gestione degli aggiornamenti è il processo di controllo della distribuzione e della manutenzione delle versioni software.</td>
     <td class="tg-lboi"; width=55%>- È necessario risolvere i problemi di integrità dell'agente di monitoraggio nei computer<br>- È necessario installare l'agente di monitoraggio nei set di scalabilità di macchine virtuali<br>- È necessario installare l'agente di monitoraggio nei computer<br>- È necessario aggiornare la versione del sistema operativo per i ruoli del servizio cloud<br>- È necessario installare gli aggiornamenti del sistema nei set di scalabilità di macchine virtuali<br>- È necessario installare gli aggiornamenti nei computer<br>- È necessario riavviare i computer per applicare gli aggiornamenti del sistema<br>- È necessario aggiornare i servizi Kubernetes a una versione di Kubernetes non vulnerabile<br>- È necessario installare l'agente di monitoraggio nelle macchine virtuali<br>- Log Analytics Agent deve essere installato nei computer Azure Arc basati su Windows (anteprima)<br>- Log Analytics Agent deve essere installato nei computer Azure Arc basati su Linux (anteprima)</td>
   </tr>
   <tr>

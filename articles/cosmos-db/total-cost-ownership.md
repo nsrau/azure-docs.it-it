@@ -7,14 +7,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/01/2019
 ms.reviewer: sngun
-ms.openlocfilehash: a058e7a23c36dcaca16c3cce1be1ca826d472bc0
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: eb06d101170685bea5ff231612e9ffbf8df467da
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92476995"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93079292"
 ---
 # <a name="total-cost-of-ownership-tco-with-azure-cosmos-db"></a>Costo totale di proprietà (TCO) con Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB è stato progettato con la multi-tenancy con granularità fine e la governance delle risorse. Questa progettazione consente ad Azure Cosmos DB di funzionare a costi significativamente più bassi permettendo agli utenti di risparmiare. Attualmente Azure Cosmos DB supporta più di 280 carichi di lavoro dei clienti in un singolo computer con una densità in continuo aumento e migliaia di carichi di lavoro dei clienti all'interno di un cluster. Esegue il bilanciamento del carico delle repliche dei carichi di lavoro dei clienti in diversi computer di un cluster e in più cluster all'interno di un data center. Per altre informazioni, vedere [Azure Cosmos DB: push della frontiera dei database distribuiti a livello globale](https://azure.microsoft.com/blog/azure-cosmos-db-pushing-the-frontier-of-globally-distributed-databases/). Grazie alla governance delle risorse, alla multi-tenancy e all'integrazione nativa con il resto dell'infrastruttura di Azure, Azure Cosmos DB è in media da 4 a 6 volte più economico di MongoDB, Cassandra o di altri OSS NoSQL in esecuzione su IaaS e fino a 10 volte più economico dei motori di database in esecuzione in locale. Vedere il documento sul [costo totale di non proprietà di un servizio cloud di database NoSQL](https://documentdbportalstorage.blob.core.windows.net/papers/11.15.2017/NoSQL%20TCO%20paper.pdf).
 

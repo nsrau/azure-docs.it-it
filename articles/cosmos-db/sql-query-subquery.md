@@ -6,14 +6,15 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 42d9e8b190747a3ffaf0e46ea1eddda33d09bb24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 16be1b91d007ca2dbc88405cfc55ff519f51ee41
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "74870565"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93081537"
 ---
 # <a name="sql-subquery-examples-for-azure-cosmos-db"></a>Esempi di sottoquery SQL per Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Una sottoquery è una query nidificata all'interno di un'altra query. Una sottoquery è detta anche query interna o selezione interna. L'istruzione che contiene una sottoquery viene in genere chiamata query esterna.
 
@@ -23,16 +24,16 @@ Questo articolo descrive le sottoquery SQL e i casi d'uso comuni in Azure Cosmos
 
 Esistono due tipi principali di sottoquery:
 
-* **Correlato**: una sottoquery che fa riferimento a valori della query esterna. La sottoquery viene valutata una volta per ogni riga elaborata dalla query esterna.
-* **Non correlato**: una sottoquery indipendente dalla query esterna. Può essere eseguito autonomamente senza basarsi sulla query esterna.
+* **Correlato** : una sottoquery che fa riferimento a valori della query esterna. La sottoquery viene valutata una volta per ogni riga elaborata dalla query esterna.
+* **Non correlato** : una sottoquery indipendente dalla query esterna. Può essere eseguito autonomamente senza basarsi sulla query esterna.
 
 > [!NOTE]
 > Azure Cosmos DB supporta solo sottoquery correlate.
 
 Le sottoquery possono essere ulteriormente classificate in base al numero di righe e colonne restituite. Sono disponibili tre tipi:
-* **Table**: restituisce più righe e più colonne.
-* **Multi-value**: restituisce più righe e una singola colonna.
-* **Scalar**: restituisce una singola riga e una singola colonna.
+* **Table** : restituisce più righe e più colonne.
+* **Multi-value** : restituisce più righe e una singola colonna.
+* **Scalar** : restituisce una singola riga e una singola colonna.
 
 Le query SQL in Azure Cosmos DB restituiscono sempre una singola colonna (un semplice valore o un documento complesso). In Azure Cosmos DB sono pertanto applicabili solo sottoquery multivalore e scalare. È possibile utilizzare una sottoquery multivalore solo nella clausola FROM come espressione relazionale. È possibile utilizzare una sottoquery scalare come espressione scalare nella clausola SELECT o WHERE oppure come espressione relazionale nella clausola FROM.
 
@@ -140,7 +141,7 @@ Si consideri, ad esempio, questo set di dati di riferimento:
 | kJ       | Kilojoule           | 1.00 e + 03       | Joule         |
 | MJ       | Megajoule           | 1.00 e + 06       | Joule         |
 | GJ       | Gigajoule           | 1.00 e + 09       | Joule         |
-| cal      | Calorie             | 1.00 e + 00       | calorie       |
+| Cal      | Calorie             | 1.00 e + 00       | calorie       |
 | kcal     | Calorie             | 1.00 e + 03       | calorie       |
 | IU       | Unità internazionali |                |               |
 

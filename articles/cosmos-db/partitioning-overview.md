@@ -6,20 +6,21 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/12/2020
-ms.openlocfilehash: 353abe5ac55e49e01f6a99f72307b8525a72fc00
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 7c05ca6462d49d1d41791e5b93b7723ac681d448
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281155"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93080833"
 ---
 # <a name="partitioning-and-horizontal-scaling-in-azure-cosmos-db"></a>Partizionamento e scalabilità orizzontale in Azure Cosmos DB
+[!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB usa il partizionamento per ridimensionare i singoli contenitori di un database per soddisfare le esigenze di prestazioni dell'applicazione. Nel partizionamento gli elementi in un contenitore sono divisi in subset distinti denominati *partizioni logiche*. Le partizioni logiche vengono formate in base al valore di una *chiave di partizione* associata a ogni elemento in un contenitore. Tutti gli elementi in una partizione logica hanno lo stesso valore della chiave di partizione.
+Azure Cosmos DB usa il partizionamento per ridimensionare i singoli contenitori di un database per soddisfare le esigenze di prestazioni dell'applicazione. Nel partizionamento gli elementi in un contenitore sono divisi in subset distinti denominati *partizioni logiche* . Le partizioni logiche vengono formate in base al valore di una *chiave di partizione* associata a ogni elemento in un contenitore. Tutti gli elementi in una partizione logica hanno lo stesso valore della chiave di partizione.
 
 Un contenitore, ad esempio, include gli elementi. Ogni elemento ha un valore univoco per la `UserID` Proprietà. Se `UserID` funge da chiave di partizione per gli elementi nel contenitore e sono presenti 1.000 valori univoci `UserID` , vengono create 1.000 partizioni logiche per il contenitore.
 
-Oltre a una chiave di partizione che determina la partizione logica dell'elemento, ogni elemento in un contenitore dispone di un *ID elemento* (univoco all'interno di una partizione logica). Combinando la chiave di partizione e l' *ID* dell'elemento viene creato l' *Indice*dell'elemento, che identifica in modo univoco l'elemento. La [scelta di una chiave di partizione](#choose-partitionkey) è una decisione importante che influirà sulle prestazioni dell'applicazione.
+Oltre a una chiave di partizione che determina la partizione logica dell'elemento, ogni elemento in un contenitore dispone di un *ID elemento* (univoco all'interno di una partizione logica). Combinando la chiave di partizione e l' *ID* dell'elemento viene creato l' *Indice* dell'elemento, che identifica in modo univoco l'elemento. La [scelta di una chiave di partizione](#choose-partitionkey) è una decisione importante che influirà sulle prestazioni dell'applicazione.
 
 In questo articolo viene illustrata la relazione tra partizioni logiche e fisiche. Vengono inoltre illustrate le procedure consigliate per il partizionamento e viene fornita una visualizzazione approfondita del funzionamento del ridimensionamento orizzontale in Azure Cosmos DB. Non è necessario comprendere questi dettagli interni per selezionare la chiave di partizione, ma è stata analizzata in modo da ottenere chiarezza sul funzionamento di Azure Cosmos DB.
 
@@ -77,7 +78,7 @@ La figura seguente mostra come le partizioni logiche vengono mappate alle partiz
 
 ## <a name="choosing-a-partition-key"></a><a id="choose-partitionkey"></a>Scelta di una chiave di partizione
 
-Una chiave di partizione ha due componenti: il **percorso della chiave di partizione** e il valore della chiave di **partizione**. Si consideri, ad esempio, un elemento {"userId": "Andrew", "lavora per": "Microsoft"} Se si sceglie "userId" come chiave di partizione, di seguito sono riportati i due componenti chiave di partizione:
+Una chiave di partizione ha due componenti: il **percorso della chiave di partizione** e il valore della chiave di **partizione** . Si consideri, ad esempio, un elemento {"userId": "Andrew", "lavora per": "Microsoft"} Se si sceglie "userId" come chiave di partizione, di seguito sono riportati i due componenti chiave di partizione:
 
 * Percorso della chiave di partizione, ad esempio: "/userId". Il percorso della chiave di partizione accetta caratteri alfanumerici e di sottolineatura (_). È inoltre possibile utilizzare gli oggetti annidati utilizzando la notazione del percorso standard (/).
 
@@ -113,20 +114,20 @@ Se il contenitore può raggiungere più di alcune partizioni fisiche, è necessa
 
 ## <a name="using-item-id-as-the-partition-key"></a>Uso dell'ID elemento come chiave di partizione
 
-Se il contenitore dispone di una proprietà con un'ampia gamma di valori possibili, probabilmente si tratta di una scelta ottimale per la chiave di partizione. Un esempio possibile di tale proprietà è l' *ID dell'elemento*. Per i contenitori di piccole dimensioni o con un elevato numero di operazioni di scrittura, l' *ID dell'elemento* è naturalmente un'ottima scelta per la chiave di partizione.
+Se il contenitore dispone di una proprietà con un'ampia gamma di valori possibili, probabilmente si tratta di una scelta ottimale per la chiave di partizione. Un esempio possibile di tale proprietà è l' *ID dell'elemento* . Per i contenitori di piccole dimensioni o con un elevato numero di operazioni di scrittura, l' *ID dell'elemento* è naturalmente un'ottima scelta per la chiave di partizione.
 
-L' *ID elemento* della proprietà di sistema esiste in ogni elemento del contenitore. Potrebbero essere presenti altre proprietà che rappresentano un ID logico dell'elemento. In molti casi, si tratta anche di opzioni di chiave di partizione eccezionali per gli stessi motivi dell' *ID dell'elemento*.
+L' *ID elemento* della proprietà di sistema esiste in ogni elemento del contenitore. Potrebbero essere presenti altre proprietà che rappresentano un ID logico dell'elemento. In molti casi, si tratta anche di opzioni di chiave di partizione eccezionali per gli stessi motivi dell' *ID dell'elemento* .
 
 L' *ID dell'elemento* è un'ottima scelta per le chiavi di partizione per i motivi seguenti:
 
 * È disponibile un'ampia gamma di valori possibili, ovvero un *ID* univoco per ogni elemento.
 * Poiché è presente un *ID di elemento* univoco per ogni elemento, l' *ID dell'elemento* ha un ottimo lavoro per bilanciare uniformemente il consumo di ur e l'archiviazione dei dati.
-* È possibile eseguire facilmente letture di punti efficienti, poiché si conosce sempre la chiave di partizione di un elemento se si conosce l' *ID elemento*.
+* È possibile eseguire facilmente letture di punti efficienti, poiché si conosce sempre la chiave di partizione di un elemento se si conosce l' *ID elemento* .
 
 Di seguito sono riportati alcuni aspetti da considerare quando si seleziona l' *ID elemento* come chiave di partizione:
 
-* Se l' *ID dell'elemento* è la chiave di partizione, diventerà un identificatore univoco nell'intero contenitore. Non sarà possibile avere elementi con un *ID elemento*duplicato.
-* Se si dispone di un contenitore con elevato numero di operazioni di lettura con numerose [partizioni fisiche](partitioning-overview.md#physical-partitions), le query saranno più efficienti se hanno un filtro di uguaglianza con l' *ID dell'elemento*.
+* Se l' *ID dell'elemento* è la chiave di partizione, diventerà un identificatore univoco nell'intero contenitore. Non sarà possibile avere elementi con un *ID elemento* duplicato.
+* Se si dispone di un contenitore con elevato numero di operazioni di lettura con numerose [partizioni fisiche](partitioning-overview.md#physical-partitions), le query saranno più efficienti se hanno un filtro di uguaglianza con l' *ID dell'elemento* .
 * Non è possibile eseguire stored procedure o trigger su più partizioni logiche.
 
 ## <a name="next-steps"></a>Passaggi successivi
