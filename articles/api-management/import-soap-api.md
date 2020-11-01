@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: 58f2a102349baff0b70e2a0c9f72c8a4e0e44046
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81ded79ee72fb7c2d89898595602cb3e6d7ae5e2
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626820"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146978"
 ---
 # <a name="import-soap-api"></a>Importare un'API SOAP
 
@@ -50,7 +50,7 @@ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure]
 
     Nei campi seguenti verranno inserite le informazioni dell'API SOAP: nome visualizzato, nome e descrizione.
 6. Aggiungere un suffisso dell'URL dell'API. Il suffisso è un nome che identifica questa specifica API in questa istanza di Gestione API. Deve essere univoco nell'istanza di Gestione API.
-7. Pubblicare l'API associandola a un prodotto. In questo caso viene usato il prodotto "*Unlimited*".  Per fare in modo che l'API venga pubblicata e sia disponibile per gli sviluppatori, aggiungerla a un prodotto. È possibile eseguire questa operazione durante la creazione dell'API o in un secondo momento.
+7. Pubblicare l'API associandola a un prodotto. In questo caso viene usato il prodotto " *Unlimited* ".  Per fare in modo che l'API venga pubblicata e sia disponibile per gli sviluppatori, aggiungerla a un prodotto. È possibile eseguire questa operazione durante la creazione dell'API o in un secondo momento.
 
     I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. Se si è creata l'istanza di Gestione API, si è già un amministratore e la sottoscrizione a ogni prodotto è stata effettuata per impostazione predefinita.
 
@@ -58,7 +58,7 @@ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure]
 
     * **Starter**
     * **Illimitato**   
-8. Immettere altre impostazioni API. È possibile impostare i valori durante la creazione o configurarli successivamente passando alla scheda **Impostazioni**. Le impostazioni sono illustrate nell'esercitazione [Importare e pubblicare la prima API](import-and-publish.md#import-and-publish-a-backend-api).
+8. Immettere altre impostazioni API. È possibile impostare i valori durante la creazione o configurarli successivamente passando alla scheda **Impostazioni** . Le impostazioni sono illustrate nell'esercitazione [Importare e pubblicare la prima API](import-and-publish.md#import-and-publish-a-backend-api).
 9. Selezionare **Create** (Crea).
 
 ### <a name="test-the-new-api-in-the-administrative-portal"></a>Testare la nuova API nel portale amministrativo
@@ -66,11 +66,11 @@ Completare l'avvio rapido seguente: [Creare un'istanza di Gestione API di Azure]
 È possibile chiamare le operazioni direttamente dal portale amministrativo, che consente di visualizzare e testare le operazioni di un'API in tutta comodità.  
 
 1. Selezionare l'API creata nel passaggio precedente.
-2. Fare clic sulla scheda **Test**.
+2. Fare clic sulla scheda **Test** .
 3. Selezionare un'operazione.
 
     La pagina visualizza campi per le intestazioni e campi per i parametri di query. Una delle intestazioni è "Ocp-Apim-Subscription-Key", per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente. 
-1. Fare clic su **Invia**.
+1. Fare clic su **Invia** .
 
     Il back-end risponde con **200 OK** e alcuni dati.
 

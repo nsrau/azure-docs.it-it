@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e50c2bb73f56017a047e6c657c866b61e5eaa465
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5bcb6df1b03b0c1c835e198818813ad8d914c630
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130399"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147114"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
@@ -141,10 +141,9 @@ Al caricamento, i file di modello vengono convalidati dal servizio.
 È possibile elencare e recuperare i modelli archiviati nell'istanza di Azure Digital gemelli. 
 
 Ecco le opzioni seguenti:
-* Recupera tutti i modelli
 * Recuperare un singolo modello
-* Recuperare un singolo modello con dipendenze
-* Recuperare i metadati per i modelli
+* Recupera tutti i modelli
+* Recuperare i metadati e le dipendenze per i modelli
 
 Di seguito sono riportate alcune chiamate di esempio:
 
@@ -152,19 +151,16 @@ Di seguito sono riportate alcune chiamate di esempio:
 // 'client' is a valid DigitalTwinsClient object
 
 // Get a single model, metadata and data
-ModelData md1 = client.GetModel(id);
+DigitalTwinsModelData md1 = client.GetModel(id);
 
 // Get a list of the metadata of all available models
-Pageable<ModelData> pmd2 = client.GetModels();
-
-// Get a list of metadata and full model definitions
-Pageable<ModelData> pmd3 = client.GetModels(null, true);
+Pageable<DigitalTwinsModelData> pmd2 = client.GetModels();
 
 // Get models and metadata for a model ID, including all dependencies (models that it inherits from, components it references)
-Pageable<ModelData> pmd4 = client.GetModels(new string[] { modelId }, true);
+Pageable<DigitalTwinsModelData> pmd3 = client.GetModels(new GetModelsOptions { IncludeModelDefinition = true });
 ```
 
-Le chiamate API per recuperare i modelli restituiscono tutti `ModelData` gli oggetti. `ModelData` contiene i metadati relativi al modello archiviato nell'istanza di Azure Digital Twins, ad esempio nome, DTMI e data di creazione del modello. `ModelData`Inoltre, l'oggetto include facoltativamente il modello stesso. A seconda dei parametri, è quindi possibile utilizzare le chiamate di recupero per recuperare solo i metadati (utile negli scenari in cui si desidera visualizzare un elenco di interfacce utente di strumenti disponibili, ad esempio) o l'intero modello.
+Le chiamate API per recuperare i modelli restituiscono tutti `DigitalTwinsModelData` gli oggetti. `DigitalTwinsModelData` contiene i metadati relativi al modello archiviato nell'istanza di Azure Digital Twins, ad esempio nome, DTMI e data di creazione del modello. `DigitalTwinsModelData`Inoltre, l'oggetto include facoltativamente il modello stesso. A seconda dei parametri, è quindi possibile utilizzare le chiamate di recupero per recuperare solo i metadati (utile negli scenari in cui si desidera visualizzare un elenco di interfacce utente di strumenti disponibili, ad esempio) o l'intero modello.
 
 La `RetrieveModelWithDependencies` chiamata non restituisce solo il modello richiesto, ma anche tutti i modelli da cui dipende il modello richiesto.
 

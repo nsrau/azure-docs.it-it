@@ -7,13 +7,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/28/2020
-ms.openlocfilehash: 70787f1d918064b48d37ce051bfdd2aba49472ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 10/30/2020
+ms.openlocfilehash: 7ed1d9db09357b0702188c01a802600ff6350aff
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93040179"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147267"
 ---
 # <a name="lookup-transformation-in-mapping-data-flow"></a>Trasformazione della ricerca nel flusso di dati per mapping
 
@@ -68,6 +68,10 @@ Quando si testa la trasformazione della ricerca con anteprima dati in modalità 
 Nella trasformazione di join, ricerche ed exists, se uno o entrambi i flussi di dati rientrano nella memoria del nodo di lavoro, è possibile ottimizzare le prestazioni abilitando la **trasmissione** . Per impostazione predefinita, il motore Spark deciderà automaticamente se trasmettere o meno un lato. Per scegliere manualmente il lato da trasmettere, selezionare **Fisso** .
 
 Non è consigliabile disabilitare la trasmissione tramite l'opzione **Off** a meno che i join non siano in errore di timeout.
+
+## <a name="cached-lookup"></a>Ricerca nella cache
+
+Se si stanno eseguendo più ricerche più piccole sulla stessa origine, un sink memorizzato nella cache e una ricerca potrebbero essere un caso d'uso migliore rispetto alla trasformazione ricerca. Esempi comuni in cui un sink della cache può risultare migliore è la ricerca di un valore massimo in un archivio dati e la corrispondenza dei codici di errore con un database di messaggi di errore. Per ulteriori informazioni, vedere la pagina relativa ai [sink della cache](data-flow-sink.md#cache-sink) e alle [ricerche memorizzate nella cache](concepts-data-flow-expression-builder.md#cached-lookup).
 
 ## <a name="data-flow-script"></a>Script del flusso di dati
 

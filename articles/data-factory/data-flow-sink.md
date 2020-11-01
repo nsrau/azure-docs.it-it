@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/27/2020
-ms.openlocfilehash: 6354b0a1df9d8c331de0731b230d628ac4e435df
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.date: 10/30/2020
+ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92891405"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147232"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Trasformazione sink nel flusso di dati di mapping
 
@@ -72,6 +72,23 @@ Il video seguente illustra alcune opzioni di sink diverse per i tipi di file del
 **USA tempdb:** Per impostazione predefinita, Data Factory utilizzerà una tabella temporanea globale per archiviare i dati come parte del processo di caricamento. In alternativa, è possibile deselezionare l'opzione "USA TempDB" e invece chiedere Data Factory di archiviare la tabella temporanea in un database utente che si trova nel database usato per il sink.
 
 ![TempDB](media/data-flow/tempdb.png "TempDB")
+
+## <a name="cache-sink"></a>Sink della cache
+ 
+Un *sink della cache* si verifica quando un flusso di dati scrive i dati nella cache Spark anziché in un archivio dati. Nei flussi di dati di mapping, è possibile fare riferimento a questi dati nello stesso flusso più volte usando una *ricerca nella cache* . Questa operazione è utile quando si desidera fare riferimento ai dati come parte di un'espressione, ma non si desidera aggiungervi esplicitamente le colonne. Esempi comuni in cui un sink della cache può essere utile per cercare un valore massimo in un archivio dati e i codici di errore corrispondenti a un database di messaggi di errore. 
+
+Per scrivere in un sink della cache, aggiungere una trasformazione sink e selezionare **cache** come tipo di sink. A differenza di altri tipi di sink, non è necessario selezionare un set di dati o un servizio collegato perché non si sta scrivendo in un archivio esterno. 
+
+![Selezionare il sink della cache](media/data-flow/select-cache-sink.png "Selezionare il sink della cache")
+
+Nelle impostazioni del sink è possibile specificare facoltativamente le colonne chiave del sink della cache. Questi vengono usati come condizioni di corrispondenza quando si usa la `lookup()` funzione in una ricerca nella cache. Se si specificano colonne chiave, non è possibile usare la `outputs()` funzione in una ricerca nella cache. Per ulteriori informazioni sulla sintassi di ricerca nella cache, vedere [ricerche memorizzate nella cache](concepts-data-flow-expression-builder.md#cached-lookup).
+
+![Colonne chiave del sink della cache](media/data-flow/cache-sink-key-columns.png "Colonne chiave del sink della cache")
+
+Se, ad esempio, si specifica una singola colonna chiave di `column1` in un sink della cache denominato `cacheExample` , la chiamata a `cacheExample#lookup()` avrà un parametro che consente di specificare la riga nel sink della cache in base alla quale trovare la corrispondenza. La funzione restituisce una singola colonna complessa con le sottocolonne per ogni colonna mappata.
+
+> [!NOTE]
+> Un sink della cache deve trovarsi in un flusso di dati completamente indipendente da qualsiasi trasformazione che vi fa riferimento tramite una ricerca nella cache. Un sink della cache deve anche il primo sink scritto. 
 
 ## <a name="field-mapping"></a>Mapping campi
 
