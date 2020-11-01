@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.custom: ''
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 0b6233552501fbe1578f3abe4e203d725ecddb4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d2493a3a1e4fbb49c0b7f6dad29771b6e9faae8e
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707796"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146808"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Disponibilità elevata con servizi multimediali e video on demand (VOD)
 
@@ -26,7 +26,7 @@ ms.locfileid: "91707796"
 
 ## <a name="high-availability-for-vod"></a>Disponibilità elevata per VOD
 
-È disponibile un modello di progettazione a disponibilità elevata denominato [geodi](/azure/architecture/patterns/geodes) nella documentazione sull'architettura di Azure. Descrive il modo in cui vengono distribuite le risorse duplicate in aree geografiche diverse per garantire scalabilità e resilienza.  È possibile usare i servizi di Azure per creare un'architettura di questo tipo per coprire molte considerazioni sulla progettazione della disponibilità elevata, ad esempio ridondanza, monitoraggio dello stato, bilanciamento del carico e backup e ripristino dei dati.  Una di tali architetture è illustrata di seguito con i dettagli su ogni servizio usato nella soluzione, nonché su come i singoli servizi possono essere usati per creare un'architettura a disponibilità elevata per l'applicazione VOD.
+È disponibile un modello di progettazione a disponibilità elevata denominato [geodi](https://docs.microsoft.com/azure/architecture/patterns/geodes) nella documentazione sull'architettura di Azure. Descrive il modo in cui vengono distribuite le risorse duplicate in aree geografiche diverse per garantire scalabilità e resilienza.  È possibile usare i servizi di Azure per creare un'architettura di questo tipo per coprire molte considerazioni sulla progettazione della disponibilità elevata, ad esempio ridondanza, monitoraggio dello stato, bilanciamento del carico e backup e ripristino dei dati.  Una di tali architetture è illustrata di seguito con i dettagli su ogni servizio usato nella soluzione, nonché su come i singoli servizi possono essere usati per creare un'architettura a disponibilità elevata per l'applicazione VOD.
 
 ### <a name="sample"></a>Esempio
 
@@ -36,7 +36,7 @@ ms.locfileid: "91707796"
 
 I servizi usati in questa architettura di esempio includono:
 
-| Icona | Nome | Description |
+| Icona | Nome | Descrizione |
 | :--: | ---- | ----------- |
 |![Si tratta dell'icona dell'account di servizi multimediali.](media/media-services-high-availability-encoding/azure-media-services.svg)| Account servizi multimediali | **Descrizione:**<br>Un account di servizi multimediali è il punto di partenza per gestire, crittografare, codificare, analizzare e trasmettere contenuti multimediali in Azure. È associato a una risorsa dell'account di archiviazione di Azure. L'account e tutte le archiviazioni associate devono trovarsi nella stessa sottoscrizione di Azure.<br><br>**Uso VOD:**<br>Si tratta dei servizi usati per codificare e distribuire le risorse audio e video.  Per la disponibilità elevata, è necessario configurare almeno due account di servizi multimediali, ognuno in un'area diversa. [Scopri di più su servizi multimediali di Azure](media-services-overview.md). |
 |![Si tratta dell'icona dell'account di archiviazione.](media/media-services-high-availability-encoding/storage-account.svg)| Account di archiviazione | **Descrizione:**<br>Un account di archiviazione di Azure contiene tutti gli oggetti dati di archiviazione di Azure: BLOB, file, code, tabelle e dischi. I dati sono accessibili da qualsiasi parte del mondo tramite HTTP o HTTPS.<br><br>Ogni account di servizi multimediali, in ogni area, avrà un account di archiviazione nella stessa area.<br><br>**Uso VOD:**<br>È possibile archiviare i dati di input e di output per l'elaborazione e il flusso VOD. [Altre informazioni su archiviazione di Azure](../../storage/common/storage-introduction.md). |
@@ -49,7 +49,7 @@ I servizi usati in questa architettura di esempio includono:
 |![Si tratta dell'icona di sportello anteriore di Azure.](media/media-services-high-availability-encoding/azure-front-door.svg)| Frontdoor di Azure | **Descrizione:**<br>Il front-end di Azure viene usato per definire, gestire e monitorare il routing globale del traffico Web ottimizzando per ottenere prestazioni ottimali e un rapido failover globale per la disponibilità elevata.<br><br>**Uso VOD:**<br>Lo sportello anteriore di Azure può essere usato per instradare il traffico agli endpoint di streaming. [Altre informazioni su Azure front door](../../frontdoor/front-door-overview.md).  |
 |![Si tratta dell'icona di griglia di eventi di Azure.](media/media-services-high-availability-encoding/event-grid-subscription.svg)| Griglia di eventi di Azure | **Descrizione:**<br>Creato per le architetture basate su eventi, griglia di eventi include il supporto predefinito per gli eventi provenienti dai servizi di Azure, ad esempio BLOB di archiviazione e gruppi di risorse. Dispone inoltre del supporto per gli eventi di argomento personalizzati. I filtri possono essere usati per indirizzare eventi specifici a endpoint diversi, il multicast a più endpoint e per assicurarsi che gli eventi vengano recapitati in modo affidabile. Ottimizza la disponibilità con la distribuzione nativa tra più domini di errore in ogni area e tra le zone di disponibilità.<br><br>**Uso VOD:**<br>Griglia di eventi consente di tenere traccia di tutti gli eventi dell'applicazione e di archiviarli per salvare in modo permanente lo stato del processo. [Scopri di più su griglia di eventi di Azure](../../event-grid/overview.md). |
 |![Si tratta dell'icona Application Insights.](media/media-services-high-availability-encoding/application-insights.svg)| Application Insights | **Descrizione:** <br>Application Insights, una funzionalità di Monitoraggio di Azure, è un servizio di gestione delle prestazioni applicative (APM, Application Performance Management) estendibile per sviluppatori e professionisti DevOps. Viene usato per monitorare le applicazioni attive. Rileva le anomalie delle prestazioni e include gli strumenti di analisi per diagnosticare i problemi e per capire cosa fanno gli utenti con un'app. Il servizio è progettato per supportare il miglioramento continuo delle prestazioni e dell'usabilità.<br><br>**Uso VOD:**<br>Tutti i log possono essere inviati a Application Insights. Sarebbe possibile vedere quale istanza ha elaborato ogni processo cercando i messaggi di processo creati correttamente. Potrebbe contenere tutti i metadati del processo inviati, incluse le informazioni sull'identificatore univoco e sul nome dell'istanza. [Altre informazioni su Application Insights](../../azure-monitor/app/app-insights-overview.md). |
-## <a name="architecture"></a>Architettura
+## <a name="architecture"></a>Architecture
 
 Questo diagramma di alto livello Mostra l'architettura dell'esempio fornito per iniziare a usare servizi multimediali e disponibilità elevata.
 
@@ -87,4 +87,4 @@ Questo diagramma di alto livello Mostra l'architettura dell'esempio fornito per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Estrai [esempi di codice](/samples/browse/?products=azure-media-services)
+* Estrai [esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-media-services)

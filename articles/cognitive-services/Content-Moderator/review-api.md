@@ -10,22 +10,37 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.author: pafarley
-ms.openlocfilehash: 69a66c49d64ab9ba589050e1f20399f7f193b76e
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: d98f2390be3b3f4b3770125185cb33daa5ff6371
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92912957"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143640"
 ---
 # <a name="content-moderation-reviews-workflows-and-jobs"></a>Revisioni, flussi di lavoro e processi di moderazione dei contenuti
 
-Content Moderator combina la moderazione assistita da computer con funzionalità di ciclo umano per creare un processo di moderazione ottimale per scenari reali. Questa operazione viene eseguita tramite lo strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com)basato sul cloud. In questa guida vengono illustrati i concetti di base dello strumento di Revisione: revisioni, flussi di lavoro e processi.
+Content Moderator combina la moderazione assistita da computer con funzionalità di ciclo umano per creare un processo di moderazione ottimale per scenari reali. Questa operazione viene eseguita tramite lo strumento di [Revisione](https://contentmoderator.cognitive.microsoft.com)basato sul cloud. In questa guida verranno illustrati i concetti di base dello strumento di Revisione: recensioni, flussi di lavoro e processi.
 
 ## <a name="reviews"></a>Revisioni
 
-In una revisione, il contenuto viene caricato nello strumento di revisione e viene visualizzato nella scheda **Verifica** . Da qui gli utenti possono modificare i tag applicati e applicare i propri tag personalizzati in base alle esigenze. Quando un utente invia una revisione, i risultati vengono inviati a un endpoint di callback specificato e il contenuto viene rimosso dal sito.
+In una revisione, il contenuto viene caricato nello strumento di revisione. È possibile visualizzarlo facendo clic sul relativo tipo di contenuto nella scheda **Revisione** del dashboard. Dalla schermata di revisione è possibile modificare i tag applicati e applicare i tag personalizzati in base alle esigenze. Quando si invia una revisione, i risultati vengono inviati a un endpoint di callback specificato e il contenuto viene rimosso dal sito.
 
-![Sito Web dello strumento di verifica aperto in un browser, nella scheda Verifica](./Review-Tool-user-Guide/images/image-workflow-review.png)
+> [!div class="mx-imgBorder"]
+> ![Esaminare il sito dello strumento con la scheda verifica selezionata](./Review-Tool-user-Guide/images/review-tab.png)
+
+### <a name="manage-reviews"></a>Gestisci revisioni
+
+Dal Dashboard passare ad **Amministrazione**  ->  **Gestisci recensioni** per visualizzare la schermata di amministrazione. Qui è possibile visualizzare un elenco di tutte le revisioni (in sospeso e completate).
+
+Il pulsante **azioni** a tre punti in ogni verifica consente di passare alla schermata di revisione o controllare la cronologia di tale revisione.
+
+> [!div class="mx-imgBorder"]
+> ![Sito Web dello strumento di revisione, nella schermata di Revisione](./Review-Tool-user-Guide/images/manage-reviews.png)
+
+Utilizzare la barra degli strumenti di **ricerca** per ordinare le revisioni in base a un'ampia gamma di categorie, ad esempio stato di revisione, tag, tipo di contenuto, sottoteam, utenti assegnati e data di creazione/modifica.
+
+> [!div class="mx-imgBorder"]
+> ![Esaminare il sito dello strumento con la scheda verifica selezionata](./Review-Tool-user-Guide/images/review-search.png)
 
 Per informazioni su come eseguire questa operazione a livello di codice, vedere la [Guida dello strumento di revisione](./review-tool-user-guide/review-moderated-images.md) per iniziare a creare recensioni o vedere la [Guida dell'API REST](./try-review-api-review.md) .
 
@@ -35,11 +50,12 @@ Un flusso di lavoro è un filtro personalizzato basato sul cloud per il contenut
 
 ### <a name="view-workflows"></a>Visualizza flussi di lavoro
 
-Per visualizzare i flussi di lavoro esistenti, passare allo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) e selezionare **Impostazioni**  >  **flussi di lavoro** .
+Per visualizzare i flussi di lavoro esistenti, passare allo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com/) e selezionare **amministratori**  >  **flussi di lavoro** .
 
-![Flusso di lavoro predefinito](images/default-workflow-listed.PNG)
+> [!div class="mx-imgBorder"]
+> ![Flusso di lavoro predefinito](images/default-workflow-list.png)
 
-I flussi di lavoro possono essere descritti completamente come stringhe JSON, rendendoli accessibili a livello di codice. Se si seleziona l'opzione **modifica** per il flusso di lavoro e quindi si seleziona la scheda **JSON** , verrà visualizzata un'espressione JSON simile alla seguente:
+I flussi di lavoro sono definiti come stringhe JSON, rendendoli accessibili a livello di codice. Se si seleziona l'opzione **modifica** per il flusso di lavoro e quindi si seleziona la scheda **JSON** , verrà visualizzata un'espressione JSON simile alla seguente:
 
 ```json
 {

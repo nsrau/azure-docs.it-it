@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 1790ac666d77f14ccadfde56f7b86e05b2c563dd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9e1008f7acbfe0685b7a171176c7dc54592d1491
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90604683"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146473"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installare un server di destinazione master Linux per il failback
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -44,11 +44,11 @@ Commenti o domande possono essere inseriti in fondo a questo articolo o nella [p
 ## <a name="sizing-guidelines-for-creating-master-target-server"></a>Linee guida di ridimensionamento per la creazione del server di destinazione master
 
 Creare il server di destinazione master in base alle linee guida per il ridimensionamento seguenti:
-- **RAM**: almeno 6 GB
-- **Dimensioni disco sistema operativo**: almeno 100 GB (per installare il sistema operativo)
-- **Dimensioni disco aggiuntive per l'unità di conservazione**: 1 TB
-- **Core CPU**: almeno 4
-- **Kernel**: 4,16. *
+- **RAM** : almeno 6 GB
+- **Dimensioni disco sistema operativo** : almeno 100 GB (per installare il sistema operativo)
+- **Dimensioni disco aggiuntive per l'unità di conservazione** : 1 TB
+- **Core CPU** : almeno 4
+- **Kernel** : 4,16. *
 
 ## <a name="deploy-the-master-target-server"></a>Distribuire il server di destinazione master
 
@@ -59,27 +59,27 @@ Attenersi ai passaggi seguenti per installare il sistema operativo a 64 bit di U
 1.   Andare al [collegamento per il download](http://old-releases.ubuntu.com/releases/16.04.2/ubuntu-16.04.2-server-amd64.iso), scegliere il mirror più vicino e scaricare un file ISO di Ubuntu 16.04.2 Minimal a 64 bit.
 Mantenere l'ISO di Ubuntu 16.04.2 Minimal a 64 bit nell'unità DVD e avviare il sistema.
 
-1.  Selezionare **English** (Inglese) come lingua preferita e premere **Invio**.
+1.  Selezionare **English** (Inglese) come lingua preferita e premere **Invio** .
     
     ![Selezionare una lingua](./media/vmware-azure-install-linux-master-target/image1.png)
-1. Selezionare **Install Ubuntu Server** (Installa server Ubuntu) e premere **Invio**.
+1. Selezionare **Install Ubuntu Server** (Installa server Ubuntu) e premere **Invio** .
 
     ![Selezionare Installa server Ubuntu](./media/vmware-azure-install-linux-master-target/image2.png)
 
-1.  Selezionare **English** (Inglese) come lingua preferita e premere **Invio**.
+1.  Selezionare **English** (Inglese) come lingua preferita e premere **Invio** .
 
     ![Selezionare English (Inglese) come lingua preferita](./media/vmware-azure-install-linux-master-target/image3.png)
 
-1. Selezionare l'opzione appropriata nell'elenco di opzioni **Time Zone** (Fuso orario) e premere **Invio**.
+1. Selezionare l'opzione appropriata nell'elenco di opzioni **Time Zone** (Fuso orario) e premere **Invio** .
 
     ![Selezionare il fuso orario corretto](./media/vmware-azure-install-linux-master-target/image4.png)
 
-1. Selezionare **No** (opzione predefinita) e premere **Invio**.
+1. Selezionare **No** (opzione predefinita) e premere **Invio** .
 
      ![Configurare la tastiera](./media/vmware-azure-install-linux-master-target/image5.png)
-1. Selezionare **English (US)** (Inglese Stati Uniti) come paese di origine per la tastiera e premere **Invio**.
+1. Selezionare **English (US)** (Inglese Stati Uniti) come paese di origine per la tastiera e premere **Invio** .
 
-1. Selezionare **English (US)** (Inglese Stati Uniti) come layout per la tastiera e premere **Invio**.
+1. Selezionare **English (US)** (Inglese Stati Uniti) come layout per la tastiera e premere **Invio** .
 
 1. Immettere il nome host del server nella casella **Hostname** (Nome host) e quindi fare clic su **Continue** (Continua).
 
@@ -93,27 +93,27 @@ Mantenere l'ISO di Ubuntu 16.04.2 Minimal a 64 bit nell'unità DVD e avviare il 
 
     ![Confermare le password](./media/vmware-azure-install-linux-master-target/image11.png)
 
-1.  Nella selezione successiva per la crittografia della home directory selezionare **No** (opzione predefinita) e premere **Invio**.
+1.  Nella selezione successiva per la crittografia della home directory selezionare **No** (opzione predefinita) e premere **Invio** .
 
-1. Se il fuso orario visualizzato è corretto, selezionare **Yes** (Sì) (opzione predefinita) e premere **Invio**. Per riconfigurare il fuso orario, selezionare **No**.
+1. Se il fuso orario visualizzato è corretto, selezionare **Yes** (Sì) (opzione predefinita) e premere **Invio** . Per riconfigurare il fuso orario, selezionare **No** .
 
-1. Tra le opzioni per il metodo di partizionamento selezionare **Guided - use entire disk** (Guidato - Usare l'intero disco) e premere **Invio**.
+1. Tra le opzioni per il metodo di partizionamento selezionare **Guided - use entire disk** (Guidato - Usare l'intero disco) e premere **Invio** .
 
      ![Selezionare l'opzione per il metodo partizionamento](./media/vmware-azure-install-linux-master-target/image14.png)
 
-1.  Selezionare il disco appropriato tra le opzioni **Select disk to partition** (Selezionare il disco da partizionare) e premere **Invio**.
+1.  Selezionare il disco appropriato tra le opzioni **Select disk to partition** (Selezionare il disco da partizionare) e premere **Invio** .
 
     ![Selezionare il disco](./media/vmware-azure-install-linux-master-target/image15.png)
 
-1.  Selezionare **Yes** (Sì) per scrivere le modifiche su disco e premere **Invio**.
+1.  Selezionare **Yes** (Sì) per scrivere le modifiche su disco e premere **Invio** .
 
     ![Selezionare l'opzione predefinita](./media/vmware-azure-install-linux-master-target/image16-ubuntu.png)
 
-1.  Nella selezione per la configurazione del proxy selezionare l'opzione predefinita, selezionare **Continue** (Continua) e premere **Invio**.
+1.  Nella selezione per la configurazione del proxy selezionare l'opzione predefinita, selezionare **Continue** (Continua) e premere **Invio** .
      
-     ![Selezionare la modalità di gestione degli aggiornamenti](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
+     ![Screenshot che mostra dove selezionare continua, quindi premere INVIO.](./media/vmware-azure-install-linux-master-target/image17-ubuntu.png)
 
-1.  Selezionare l'opzione **No automatic updates** (Aggiornamenti automatici non consentiti) nella selezione per la gestione degli aggiornamenti del sistema e premere **Invio**.
+1.  Selezionare l'opzione **No automatic updates** (Aggiornamenti automatici non consentiti) nella selezione per la gestione degli aggiornamenti del sistema e premere **Invio** .
 
      ![Selezionare la modalità di gestione degli aggiornamenti](./media/vmware-azure-install-linux-master-target/image18-ubuntu.png)
 
@@ -124,12 +124,12 @@ Mantenere l'ISO di Ubuntu 16.04.2 Minimal a 64 bit nell'unità DVD e avviare il 
 
     ![Selezionare il software](./media/vmware-azure-install-linux-master-target/image19-ubuntu.png)
 
-1. Nella selezione per l'installazione del caricatore di avvio GRUB selezionare **Yes** (Sì) e premere **Invio**.
+1. Nella selezione per l'installazione del caricatore di avvio GRUB selezionare **Yes** (Sì) e premere **Invio** .
      
     ![Programma di installazione di avvio GRUB](./media/vmware-azure-install-linux-master-target/image20.png)
 
 
-1. Selezionare il dispositivo appropriato per l'installazione del caricatore di avvio (preferibilmente **/dev/sda**) e premere **Invio**.
+1. Selezionare il dispositivo appropriato per l'installazione del caricatore di avvio (preferibilmente **/dev/sda** ) e premere **Invio** .
      
     ![Selezionare il dispositivo appropriato](./media/vmware-azure-install-linux-master-target/image21.png)
 
@@ -150,7 +150,7 @@ Per ottenere l'ID per ogni disco rigido SCSI in una macchina virtuale Linux, il 
 
 1. Arrestare la macchina virtuale.
 
-2. Fare clic con il pulsante destro del mouse sulla voce della macchina virtuale nel riquadro a sinistra e quindi scegliere **Edit Settings**(Modifica impostazioni).
+2. Fare clic con il pulsante destro del mouse sulla voce della macchina virtuale nel riquadro a sinistra e quindi scegliere **Edit Settings** (Modifica impostazioni).
 
 3. Scegliere la scheda **Options** (Opzioni).
 
@@ -160,15 +160,15 @@ Per ottenere l'ID per ogni disco rigido SCSI in una macchina virtuale Linux, il 
 
     L'opzione **Configuration Parameters** (Parametri di configurazione) è disponibile solo quando il computer è in esecuzione. Per attivare la scheda, arrestare la macchina virtuale.
 
-5. Controllare se esiste già una riga con il valore **disk.EnableUUID**.
+5. Controllare se esiste già una riga con il valore **disk.EnableUUID** .
 
-   - Se il valore esiste ed è impostato su **False**, modificarlo in **True**. (I valori non fanno distinzione tra maiuscole e minuscole.)
+   - Se il valore esiste ed è impostato su **False** , modificarlo in **True** . (I valori non fanno distinzione tra maiuscole e minuscole.)
 
-   - Se il valore è presente ed è impostato su **True**, selezionare **Cancel** (Annulla).
+   - Se il valore è presente ed è impostato su **True** , selezionare **Cancel** (Annulla).
 
-   - Se il valore non esiste, selezionare **Add Row**(Aggiungi riga).
+   - Se il valore non esiste, selezionare **Add Row** (Aggiungi riga).
 
-   - Nella colonna del nome, aggiungere **disk.EnableUUID**, quindi impostare il valore su **TRUE**.
+   - Nella colonna del nome, aggiungere **disk.EnableUUID** , quindi impostare il valore su **TRUE** .
 
      ![Controllare se esiste già una riga con il valore disk.EnableUUID](./media/vmware-azure-install-linux-master-target/image25.png)
 
@@ -196,12 +196,12 @@ Per scaricarli usando Linux, digitare:
 `wget https://aka.ms/latestlinuxmobsvc -O latestlinuxmobsvc.tar.gz`
 
 > [!WARNING]
-> Verificare di scaricare e decomprimere il programma di installazione nella home directory. Se il file viene decompresso nel percorso **/usr/Locale**, l'installazione avrà esito negativo.
+> Verificare di scaricare e decomprimere il programma di installazione nella home directory. Se il file viene decompresso nel percorso **/usr/Locale** , l'installazione avrà esito negativo.
 
 
 #### <a name="access-the-installer-from-the-process-server"></a>Accedere al programma di installazione dal server di elaborazione
 
-1. Sul server di elaborazione passare alla directory **C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository**.
+1. Sul server di elaborazione passare alla directory **C:\Program Files (x86)\Microsoft Azure Site Recovery\home\svsystems\pushinstallsvc\repository** .
 
 2. Copiare il file del programma di installazione necessario dal server di elaborazione e salvarlo come **latestlinuxmobsvc.tar.gz** nella home directory.
 
@@ -234,11 +234,11 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 
 1. Collegare un nuovo disco da 1 TB alla macchina virtuale del server di destinazione master Linux e avviare il computer.
 
-2. Usare il comando **multipath -ll** per conoscere l'ID a percorsi multipli del disco di conservazione:**multipath -ll**
+2. Usare il comando **multipath -ll** per conoscere l'ID a percorsi multipli del disco di conservazione: **multipath -ll**
 
     ![ID percorsi multipli](./media/vmware-azure-install-linux-master-target/image27.png)
 
-3. Formattare l'unità e quindi creare un file system nella nuova unità: **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id> **.
+3. Formattare l'unità e quindi creare un file system nella nuova unità: **mkfs. ext4/dev/mapper/ \<Retention disk's multipath id>** .
     
     ![File system](./media/vmware-azure-install-linux-master-target/image23-centos.png)
 
@@ -257,7 +257,7 @@ Per creare un disco di conservazione, attenersi alla procedura seguente:
 
     **/dev/mapper/\<Retention disks multipath id> /mnt/retention ext4 rw 0 0**
 
-    Premere **Esc** e digitare **:wq**, che sta per scrivi ed esci, per chiudere la finestra dell'editor.
+    Premere **Esc** e digitare **:wq** , che sta per scrivi ed esci, per chiudere la finestra dell'editor.
 
 ### <a name="install-the-master-target"></a>Installare il server di destinazione master
 
@@ -300,7 +300,7 @@ Attendere il termine dello script. Se il server di destinazione master viene reg
 
 #### <a name="install-the-master-target-by-using-interactive-installation"></a>Installazione interattiva del server di destinazione master
 
-1. Eseguire il comando seguente per installare il server di destinazione master. Per il ruolo agente selezionare **Destinazione master**.
+1. Eseguire il comando seguente per installare il server di destinazione master. Per il ruolo agente selezionare **Destinazione master** .
 
     ```
     ./install

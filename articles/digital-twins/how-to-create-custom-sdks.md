@@ -8,19 +8,19 @@ ms.date: 4/24/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: devx-track-js
-ms.openlocfilehash: 53887b7487c3f0bb70c9f8cc7cd61246fabc0b37
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 158d22ffb3bc5486e0523c07cc2c022c49f2ee9c
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970130"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145600"
 ---
 # <a name="create-custom-sdks-for-azure-digital-twins-using-autorest"></a>Creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest
 
 Attualmente, gli unici SDK del piano dati pubblicati per interagire con le API dei dispositivi gemelli digitali di Azure sono per .NET (C#), JavaScript e Java. Per informazioni su questi SDK e sulle API in generale, vedere [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md). Se si lavora in un'altra lingua, in questo articolo viene illustrato come generare un SDK del piano dati personalizzato nel linguaggio desiderato, usando autorest.
 
 >[!NOTE]
-> È anche possibile usare autorest per generare un SDK del piano di controllo, se lo si desidera. A tale scopo, completare la procedura descritta in questo articolo usando il file openapi ( **Control Plan spavalderia** ) più recente della [cartella di controllo del piano di controllo]] ( https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) invece del piano dati uno.
+> È anche possibile usare autorest per generare un SDK del piano di controllo, se lo si desidera. A tale scopo, completare la procedura illustrata in questo articolo usando il file openapi ( **Control Plan spavalderia** ) più recente dalla [cartella spavalderia del piano di controllo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/resource-manager/Microsoft.DigitalTwins/) anziché il piano dati uno.
 
 ## <a name="set-up-your-machine"></a>Configurare il computer
 
@@ -47,7 +47,7 @@ Per eseguire autorest nel file con estensione per i gemelli digitali di Azure, s
 autorest --input-file=digitaltwins.json --<language> --output-folder=ADTApi --add-credentials --azure-arm --namespace=ADTApi
 ```
 
-Verrà quindi visualizzata una nuova cartella denominata *ADTApi* nella directory di lavoro. I file SDK generati avranno lo spazio dei nomi *ADTApi*. Lo spazio dei nomi continuerà a essere usato nei restanti esempi di utilizzo di questo articolo.
+Verrà quindi visualizzata una nuova cartella denominata *ADTApi* nella directory di lavoro. I file SDK generati avranno lo spazio dei nomi *ADTApi* . Lo spazio dei nomi continuerà a essere usato nei restanti esempi di utilizzo di questo articolo.
 
 Autorest supporta un'ampia gamma di generatori di codice della lingua.
 
@@ -64,7 +64,7 @@ Ecco i passaggi necessari:
 3. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto *ADTApi* della soluzione generata e scegliere *Aggiungi > elemento esistente...*
 4. Individuare la cartella in cui è stato generato l'SDK e selezionare i file a livello di radice
 5. Premere "OK"
-6. Aggiungere una cartella al progetto (fare clic con il pulsante destro del mouse sul progetto Esplora soluzioni e scegliere *aggiungi > nuova cartella*).
+6. Aggiungere una cartella al progetto (fare clic con il pulsante destro del mouse sul progetto Esplora soluzioni e scegliere *aggiungi > nuova cartella* ).
 7. Assegnare un nome ai *modelli* di cartella
 8. Fare clic con il pulsante destro del mouse sulla cartella *Models* in Esplora soluzioni e scegliere *Aggiungi > elemento esistente...*
 9. Selezionare i file nella cartella *modelli* dell'SDK generato e fare clic su "OK".
@@ -73,7 +73,7 @@ Per compilare l'SDK correttamente, il progetto richiederà i riferimenti seguent
 * `Microsoft.Rest.ClientRuntime`
 * `Microsoft.Rest.ClientRuntime.Azure`
 
-Per aggiungerli, aprire *strumenti > gestione pacchetti nuget > gestire i pacchetti NuGet per la soluzione...*.
+Per aggiungerli, aprire *strumenti > gestione pacchetti nuget > gestire i pacchetti NuGet per la soluzione...* .
 
 1. Nel pannello verificare che sia selezionata la scheda *Sfoglia* .
 2. Cerca *Microsoft. Rest*
@@ -117,40 +117,25 @@ Autorest genera due tipi di modelli di paging per l'SDK:
 * Uno per tutte le API, ad eccezione dell'API di query
 * Uno per l'API di query
 
-Nel modello di paging non di query sono disponibili due versioni di ciascuna chiamata:
-* Una versione per effettuare la chiamata iniziale (ad esempio `DigitalTwins.ListEdges()` )
-* Versione per ottenere le pagine seguenti. Queste chiamate hanno un suffisso "Next" (ad esempio `DigitalTwins.ListEdgesNext()` )
+Nel modello di paging non di query, di seguito è riportato un frammento di codice che illustra come recuperare un elenco di pagine di relazioni in uscita da dispositivi gemelli digitali di Azure:
 
-Ecco un frammento di codice che illustra come recuperare un elenco di pagine di relazioni in uscita da dispositivi gemelli digitali di Azure:
 ```csharp
-try
-{
-    // List to hold the results in
-    List<object> relList = new List<object>();
-    // Enumerate the IPage object returned to get the results
-    // ListAsync will throw if an error occurs
-    IPage<object> relPage = await client.DigitalTwins.ListEdgesAsync(id);
-    relList.AddRange(relPage);
-    // If there are more pages, the NextPageLink in the page is set
-    while (relPage.NextPageLink != null)
+ try 
+ {
+     // List the relationships.
+    AsyncPageable<BasicRelationship> results = client.GetRelationshipsAsync<BasicRelationship>(srcId);
+    Console.WriteLine($"Twin {srcId} is connected to:");
+    // Iterate through the relationships found.
+    int numberOfRelationships = 0;
+    await foreach (string rel in results)
     {
-        // Get more pages...
-        relPage = await client.DigitalTwins.ListEdgesNextAsync(relPage.NextPageLink);
-        relList.AddRange(relPage);
+         ++numberOfRelationships;
+         // Do something with each relationship found
+         Console.WriteLine($"Found relationship-{rel.Name}->{rel.TargetId}");
     }
-    Console.WriteLine($"Found {relList.Count} relationships on {id}");
-    // Do something with each object found
-    // As relationships are custom types, they are JSON.Net types
-    foreach (JObject r in relList)
-    {
-        string relId = r.Value<string>("$edgeId");
-        string relName = r.Value<string>("$relationship");
-        Console.WriteLine($"Found relationship {relId} from {id}");
-    }
-}
-catch (ErrorResponseException e)
-{
-    Console.WriteLine($"*** Error retrieving relationships on {id}: {e.Response.StatusCode}");
+    Console.WriteLine($"Found {numberOfRelationships} relationships on {srcId}");
+} catch (RequestFailedException rex) {
+    Console.WriteLine($"Relationship retrieval error: {rex.Status}:{rex.Message}");   
 }
 ```
 

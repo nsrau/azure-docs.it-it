@@ -7,12 +7,12 @@ ms.author: alkarche
 ms.date: 9/15/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1fa14c4341c449c32fd6a5f6b3274b057478c01c
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: d2606f793c7ab2e3ac29b1eb869e60a2c8e634ad
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495811"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145923"
 ---
 # <a name="ingest-iot-hub-telemetry-into-azure-digital-twins"></a>Inserire dati di telemetria dell'hub Internet in dispositivi gemelli digitali di Azure
 
@@ -25,7 +25,7 @@ Questo documento illustra il processo di scrittura di una funzione di Azure in g
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di continuare con questo esempio, è necessario configurare le risorse seguenti come prerequisiti:
-* **Un hub**Internet. Per istruzioni, vedere la sezione *creare un hub* per gli Internet in [questa Guida introduttiva sull'hub](../iot-hub/quickstart-send-telemetry-cli.md).
+* **Un hub** Internet. Per istruzioni, vedere la sezione *creare un hub* per gli Internet in [questa Guida introduttiva sull'hub](../iot-hub/quickstart-send-telemetry-cli.md).
 * **Funzione di Azure** con le autorizzazioni corrette per chiamare l'istanza di Digital Twin. Per istruzioni, vedere [*procedura: configurare una funzione di Azure per l'elaborazione dei dati*](how-to-create-azure-function.md). 
 * **Un'istanza di gemelli digitale di Azure** che riceverà i dati di telemetria del dispositivo. Per istruzioni, vedere [*procedura: configurare un'istanza di dispositivi gemelli digitali di Azure e l'autenticazione*](./how-to-set-up-instance-portal.md).
 
@@ -62,13 +62,13 @@ Il modello ha un aspetto simile al seguente:
 }
 ```
 
-Per **caricare il modello nell'istanza di dispositivi gemelli**, aprire l'interfaccia della riga di comando di Azure ed eseguire il comando seguente:
+Per **caricare il modello nell'istanza di dispositivi gemelli** , aprire l'interfaccia della riga di comando di Azure ed eseguire il comando seguente:
 
 ```azurecli-interactive
 az dt model create --models '{  "@id": "dtmi:contosocom:DigitalTwins:Thermostat;1",  "@type": "Interface",  "@context": "dtmi:dtdl:context;2",  "contents": [    {      "@type": "Property",      "name": "Temperature",      "schema": "double"    }  ]}' -n {digital_twins_instance_name}
 ```
 
-Sarà quindi necessario **creare un gemello usando questo modello**. Usare il comando seguente per creare un dispositivo gemello e impostare 0,0 come valore di temperatura iniziale.
+Sarà quindi necessario **creare un gemello usando questo modello** . Usare il comando seguente per creare un dispositivo gemello e impostare 0,0 come valore di temperatura iniziale.
 
 ```azurecli-interactive
 az dt twin create --dtmi "dtmi:contosocom:DigitalTwins:Thermostat;1" --twin-id thermostat67 --properties '{"Temperature": 0.0,}' --dt-name {digital_twins_instance_name}
@@ -117,9 +117,9 @@ L'esempio di codice successivo accetta l'ID e il valore della temperatura e li u
 
 ```csharp
 //Update twin using device temperature
-var uou = new UpdateOperationsUtility();
-uou.AppendReplaceOp("/Temperature", temperature.Value<double>());
-await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
+var updateTwinData = new JsonPatchDocument();
+updateTwinData.AppendReplace("/Temperature", temperature.Value<double>());
+await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
 ...
 ```
 
@@ -176,9 +176,9 @@ namespace IotHubtoTwins
                     log.LogInformation($"Device:{deviceId} Temperature is:{temperature}");
 
                     //Update twin using device temperature
-                    var uou = new UpdateOperationsUtility();
-                    uou.AppendReplaceOp("/Temperature", temperature.Value<double>());
-                    await client.UpdateDigitalTwinAsync(deviceId, uou.Serialize());
+                    var updateTwinData = new JsonPatchDocument();
+                    updateTwinData.AppendReplace("/Temperature", temperature.Value<double>());
+                    await client.UpdateDigitalTwinAsync(deviceId, updateTwinData);
                 }
             }
             catch (Exception e)
@@ -210,25 +210,25 @@ Dopo la pubblicazione corretta, l'output viene visualizzato nella finestra di co
 ## <a name="connect-your-function-to-iot-hub"></a>Connettere la funzione all'hub Internet
 
 Configurare una destinazione evento per i dati dell'hub.
-Nella [portale di Azure](https://portal.azure.com/)passare all'istanza dell'hub Internet delle cose creata nella sezione [*prerequisiti*](#prerequisites) . In **eventi**creare una sottoscrizione per la funzione di Azure.
+Nella [portale di Azure](https://portal.azure.com/)passare all'istanza dell'hub Internet delle cose creata nella sezione [*prerequisiti*](#prerequisites) . In **eventi** creare una sottoscrizione per la funzione di Azure.
 
 :::image type="content" source="media/how-to-ingest-iot-hub-data/add-event-subscription.png" alt-text="Diagramma che mostra un diagramma di flusso. Nel grafico, un dispositivo hub di Internet delle cose invia i dati di telemetria della temperatura attraverso l'hub delle cose a una funzione di Azure, che aggiorna una proprietà di temperatura in un gemello in Azure Digital gemelli.":::
 
 Nella pagina **Crea sottoscrizione evento** compilare i campi come indicato di seguito:
-  1. In **nome**assegnare un nome alla sottoscrizione come si desidera.
-  2. In **schema evento**scegliere _schema griglia di eventi_.
-  3. In **tipi di evento**scegliere la casella di controllo _telemetria del dispositivo_ e deselezionare altri tipi di evento.
-  4. In **tipo di endpoint**selezionare _funzione di Azure_.
-  5. In **endpoint**scegliere _selezionare un collegamento endpoint_ per creare un endpoint.
+  1. In **nome** assegnare un nome alla sottoscrizione come si desidera.
+  2. In **schema evento** scegliere _schema griglia di eventi_ .
+  3. In **tipi di evento** scegliere la casella di controllo _telemetria del dispositivo_ e deselezionare altri tipi di evento.
+  4. In **tipo di endpoint** selezionare _funzione di Azure_ .
+  5. In **endpoint** scegliere _selezionare un collegamento endpoint_ per creare un endpoint.
     
 :::image type="content" source="media/how-to-ingest-iot-hub-data/create-event-subscription.png" alt-text="Diagramma che mostra un diagramma di flusso. Nel grafico, un dispositivo hub di Internet delle cose invia i dati di telemetria della temperatura attraverso l'hub delle cose a una funzione di Azure, che aggiorna una proprietà di temperatura in un gemello in Azure Digital gemelli.":::
 
 Nella pagina _Seleziona funzione di Azure_ visualizzata verificare i dettagli seguenti.
- 1. **Sottoscrizione**: la propria sottoscrizione di Azure
- 2. **Gruppo di risorse**: gruppo di risorse
- 3. **App**per le funzioni: nome dell'app per le funzioni
- 4. **Slot**: _produzione_
- 5. **Funzione**: selezionare la funzione di Azure dall'elenco a discesa.
+ 1. **Sottoscrizione** : la propria sottoscrizione di Azure
+ 2. **Gruppo di risorse** : gruppo di risorse
+ 3. **App** per le funzioni: nome dell'app per le funzioni
+ 4. **Slot** : _produzione_
+ 5. **Funzione** : selezionare la funzione di Azure dall'elenco a discesa.
 
 Per salvare i dettagli, fare clic sul pulsante _conferma selezione_ .            
       

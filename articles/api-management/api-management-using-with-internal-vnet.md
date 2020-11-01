@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: 06d114c500722259d02a940633a76d043b83064a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 0832c975ecb410b97a24c975f9fc0f4799120abd
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92077491"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145515"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>Uso del servizio Gestione API di Azure con una rete virtuale interna
 Grazie alle reti virtuali di Azure, Gestione API è in grado di gestire API non accessibili su Internet. Sono disponibili varie tecnologie VPN per stabilire la connessione. È possibile distribuire Gestione API in due modalità principali all'interno di una rete virtuale:
@@ -43,11 +43,11 @@ Usando Gestione API in modalità interna è possibile implementare gli scenari s
 
 Per eseguire i passaggi descritti in questo articolo, è necessario disporre di:
 
-+ **Una sottoscrizione di Azure attiva**.
++ **Una sottoscrizione di Azure attiva** .
 
     [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-+ **Un'istanza di Gestione API**. Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
++ **Un'istanza di Gestione API** . Per altre informazioni, vedere [Create an Azure API Management instance](get-started-create-service-instance.md) (Creare un'istanza di Gestione API di Azure).
 + Quando un servizio gestione API viene distribuito in una rete virtuale, viene usato un [elenco di porte](./api-management-using-with-vnet.md#required-ports) che devono essere aperte. 
 
 ## <a name="creating-an-api-management-in-an-internal-virtual-network"></a><a name="enable-vpn"> </a>Creazione di un servizio Gestione API in una rete virtuale interna
@@ -56,21 +56,23 @@ Il servizio gestione API in una rete virtuale interna è ospitato dietro un serv
 ### <a name="enable-a-virtual-network-connection-using-the-azure-portal"></a>Abilitare la connessione a una rete virtuale usando il portale di Azure
 
 1. Selezionare l'istanza di Gestione API di Azure nel [portale di Azure](https://portal.azure.com/).
-2. Selezionare **Rete virtuale**.
+2. Selezionare **Rete virtuale** .
 3. Configurare l'istanza di Gestione API da distribuire all'interno della rete virtuale.
 
     ![Menu per la configurazione di Gestione API di Azure in una rete virtuale interna][api-management-using-internal-vnet-menu]
 
-4. Selezionare **Salva**.
+4. Selezionare **Salva** .
 
 Una volta completata la distribuzione, verranno visualizzati l'indirizzo IP virtuale **privato** e l'indirizzo IP virtuale **pubblico** del servizio gestione API nel pannello panoramica. L'indirizzo IP virtuale **privato** è un indirizzo IP con carico bilanciato dall'interno della subnet delegata di gestione API su cui è `gateway` `portal` `management` `scm` possibile accedere agli endpoint, e. L'indirizzo IP virtuale **pubblico** viene usato **solo** per il traffico del piano di controllo verso `management` l'endpoint sulla porta 3443 e può essere bloccato al serviceTag [ApiManagement][ServiceTags] .
 
 ![Dashboard di Gestione API con una rete virtuale interna configurata][api-management-internal-vnet-dashboard]
 
 > [!NOTE]
-> La console di test disponibile nel portale di Azure non funzionerà per il pacchetto distribuito VNET **interno**, poiché l'URL del gateway non è registrato nel DNS pubblico. In questo caso, è necessario usare la console di test disponibile nel **portale per sviluppatori**.
+> La console di test disponibile nel portale di Azure non funzionerà per il pacchetto distribuito VNET **interno** , poiché l'URL del gateway non è registrato nel DNS pubblico. In questo caso, è necessario usare la console di test disponibile nel **portale per sviluppatori** .
 
-### <a name="enable-a-virtual-network-connection-by-using-powershell-cmdlets"></a>Abilitare una connessione di rete virtuale tramite i cmdlet di PowerShell
+### <a name="deploy-api-management-into-virtual-network"></a><a name="deploy-apim-internal-vnet"> </a>Distribuire Gestione API nella rete virtuale
+
+[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F201-api-management-create-with-internal-vnet%2Fazuredeploy.json)
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

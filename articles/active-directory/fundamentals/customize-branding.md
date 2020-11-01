@@ -14,10 +14,10 @@ ms.reviewer: kexia
 ms.custom: it-pro, seodec18, fasttrack-edit
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: 04e1d35ab17a49dd1c4e9bd2bd19289de2b8658a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "89565855"
 ---
 # <a name="add-branding-to-your-organizations-azure-active-directory-sign-in-page"></a>Aggiungere informazioni personalizzate distintive dell'azienda alla pagina di accesso di Azure Active Directory
@@ -37,11 +37,11 @@ La personalizzazione personalizzata non verrà visualizzata immediatamente quand
 ### <a name="to-customize-your-branding"></a>Per personalizzare le informazioni personalizzate distintive
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un account amministratore globale per la directory.
 
-2. Selezionare **Azure Active Directory**, quindi selezionare **Informazioni personalizzate distintive dell'azienda** e selezionare **Configura**.
+2. Selezionare **Azure Active Directory** , quindi selezionare **Informazioni personalizzate distintive dell'azienda** e selezionare **Configura** .
 
     ![Contoso - Pagina delle informazioni personalizzate distintive dell'azienda, opzione Configura evidenziata](media/customize-branding/company-branding-configure-button.png)
 
-3. Nella pagina **Configurare le informazioni personalizzate distintive dell'azienda**, indicare una o tutte le informazioni seguenti.
+3. Nella pagina **Configurare le informazioni personalizzate distintive dell'azienda** , indicare una o tutte le informazioni seguenti.
 
     >[!IMPORTANT]
     >Tutte le immagini personalizzate che è possibile aggiungere in questa pagina hanno restrizioni relative alle dimensioni dell'immagine (pixel) e potenzialmente alle dimensioni del file (KB). A causa di queste restrizioni, sarà probabilmente necessario usare un editor di foto per creare immagini della giusta dimensione.
@@ -56,7 +56,7 @@ La personalizzazione personalizzata non verrà visualizzata immediatamente quand
         
             È consigliabile usare le immagini senza uno stato attivo, ad esempio, una casella bianca opaca viene visualizzata al centro dello schermo e può coprire qualsiasi parte dell'immagine in base alle dimensioni dello spazio visualizzabile.
 
-        - **Logo del banner.** Selezionare una versione .png o .jpg del logo da visualizzare nella pagina di accesso dopo che l'utente ha inserito un nome utente nella pagina del portale **My Apps (Le mie applicazioni)**.
+        - **Logo del banner.** Selezionare una versione .png o .jpg del logo da visualizzare nella pagina di accesso dopo che l'utente ha inserito un nome utente nella pagina del portale **My Apps (Le mie applicazioni)** .
             
             L'immagine non può essere più alta di 60 pixel o più ampia di 280 pixel. È consigliabile usare un'immagine trasparente poiché lo sfondo potrebbe non corrispondere allo sfondo del logo. È inoltre consigliabile non aggiungere una spaziatura interna intorno all'immagine perché potrebbe far sembrare piccolo il logo.
 
@@ -86,20 +86,20 @@ La personalizzazione personalizzata non verrà visualizzata immediatamente quand
     
         - **Immagine con logo quadrato, tema scuro.** Uguale all'immagine con logo quadrato precedente. Questa immagine del logo sostituisce l'immagine con logo quadrato quando viene utilizzata con uno sfondo scuro, come ad esempio con le schermate unite di Windows 10 Azure AD durante la configurazione guidata.  Se il logo sembra valido in background bianco, blu scuro e nero, non è necessario aggiungere questa immagine. 
         
-        - **Mostra l'opzione per mantenere l'accesso.** È possibile scegliere di consentire agli utenti di rimanere connessi per Azure AD fino a quando non viene disconnesso in modo esplicito. Se si sceglie **No**, questa opzione è nascosta e gli utenti devono accedere ogni volta che il browser viene chiuso e riaperto.
+        - **Mostra l'opzione per mantenere l'accesso.** È possibile scegliere di consentire agli utenti di rimanere connessi per Azure AD fino a quando non viene disconnesso in modo esplicito. Se si sceglie **No** , questa opzione è nascosta e gli utenti devono accedere ogni volta che il browser viene chiuso e riaperto.
 
             Questa funzionalità è disponibile solo per l'oggetto di personalizzazione predefinito e non per alcun oggetto specifico del linguaggio. Per altre informazioni sulla configurazione e la risoluzione dei problemi relativi all'opzione che consente di rimanere connessi, vedere [configurare la richiesta "Stay signed in?" per gli account di Azure ad](keep-me-signed-in.md)
         
             >[!NOTE]
-            >Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dal fatto che gli utenti possano o meno scegliere se restare connessi. Se si imposta l'opzione su **No**, gli utenti potrebbero visualizzare prompt aggiuntivi e imprevisti con richieste di accesso.
+            >Alcune funzionalità di SharePoint Online e di Office 2010 dipendono dal fatto che gli utenti possano o meno scegliere se restare connessi. Se si imposta l'opzione su **No** , gli utenti potrebbero visualizzare prompt aggiuntivi e imprevisti con richieste di accesso.
    
 
-3. Dopo aver aggiunto la personalizzazione, selezionare **Salva**.
+3. Dopo aver aggiunto la personalizzazione, selezionare **Salva** .
 
     Se questo processo crea la prima configurazione delle Informazioni personalizzate distintive dell'azienda, diventa il valore predefinito per il tenant. Se si dispone di configurazioni aggiuntive, sarà possibile scegliere la configurazione predefinita.
     
     >[!IMPORTANT]
-    >Per aggiungere ulteriori configurazioni di Informazioni personalizzate distintive dell'azienda al tenant, è necessario scegliere **Nuova lingua** nella pagina **Contoso - Informazioni personalizzate distintive dell'azienda**. Verrà visualizzata la pagina **Configurare le informazioni personalizzate distintive dell'azienda**, in cui è possibile seguire gli stessi passaggi riportati in precedenza.
+    >Per aggiungere ulteriori configurazioni di Informazioni personalizzate distintive dell'azienda al tenant, è necessario scegliere **Nuova lingua** nella pagina **Contoso - Informazioni personalizzate distintive dell'azienda** . Verrà visualizzata la pagina **Configurare le informazioni personalizzate distintive dell'azienda** , in cui è possibile seguire gli stessi passaggi riportati in precedenza.
 
 ## <a name="update-your-custom-branding"></a>Aggiornare le informazioni personalizzate distintive dell'azienda
 Dopo aver creato le informazioni personalizzate distintive dell'azienda, è possibile tornare indietro e modificare qualsiasi informazione.
@@ -107,13 +107,13 @@ Dopo aver creato le informazioni personalizzate distintive dell'azienda, è poss
 ### <a name="to-edit-your-custom-branding"></a>Per modificare le informazioni personalizzate distintive dell'azienda
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un account amministratore globale per la directory.
 
-2. Selezionare **Azure Active Directory**, quindi selezionare **Informazioni personalizzate distintive dell'azienda** e selezionare **Configura**.
+2. Selezionare **Azure Active Directory** , quindi selezionare **Informazioni personalizzate distintive dell'azienda** e selezionare **Configura** .
 
     ![Contoso - Informazioni personalizzate distintive dell'azienda, con la configurazione predefinita visualizzata](media/customize-branding/company-branding-default-config.png)
 
-3. Nella pagina **Configurare le informazioni personalizzate distintive dell'azienda**, aggiungere, rimuovere o modificare le informazioni, in base alle descrizioni riportate nella sezione [Personalizzare la pagina di accesso di Azure AD](#customize-your-azure-ad-sign-in-page) di questo articolo.
+3. Nella pagina **Configurare le informazioni personalizzate distintive dell'azienda** , aggiungere, rimuovere o modificare le informazioni, in base alle descrizioni riportate nella sezione [Personalizzare la pagina di accesso di Azure AD](#customize-your-azure-ad-sign-in-page) di questo articolo.
 
-4. Selezionare **Salva**.
+4. Selezionare **Salva** .
 
    Può trascorrere fino a un'ora prima che qualsiasi modifica apportata per la personalizzazione della pagina di accesso venga visualizzata.
 
@@ -124,13 +124,13 @@ Non è possibile modificare la lingua della configurazione originale dalla lingu
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) con un account amministratore globale per la directory.
 
-2. Selezionare **Azure Active Directory**, quindi selezionare **Informazioni personalizzate distintive dell'azienda** e selezionare **Nuova lingua**.
+2. Selezionare **Azure Active Directory** , quindi selezionare **Informazioni personalizzate distintive dell'azienda** e selezionare **Nuova lingua** .
 
     ![Contoso - Pagina delle informazioni personalizzate distintive dell'azienda con l'opzione Nuova lingua evidenziata](media/customize-branding/company-branding-new-language.png)
 
-3. Nella pagina **Configurare le informazioni personalizzate distintive dell'azienda**, selezionare la lingua (ad esempio francese) e aggiungere le informazioni tradotte, in base alle descrizioni riportate nella sezione [Personalizzare la pagina di accesso di Azure AD](#customize-your-azure-ad-sign-in-page) di questo articolo.
+3. Nella pagina **Configurare le informazioni personalizzate distintive dell'azienda** , selezionare la lingua (ad esempio francese) e aggiungere le informazioni tradotte, in base alle descrizioni riportate nella sezione [Personalizzare la pagina di accesso di Azure AD](#customize-your-azure-ad-sign-in-page) di questo articolo.
 
-4. Selezionare **Salva**.
+4. Selezionare **Salva** .
 
     La pagina **Contoso - Informazioni personalizzate distintive dell'azienda** viene aggiornata per indicare la nuova configurazione in francese.
 

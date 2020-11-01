@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 02/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4
-ms.openlocfilehash: 2e3544bee5158a855467f8cb142f176df2187ef5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64f1c83a570e936759d674f40db201fb2f2cd0e5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91318297"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146263"
 ---
 # <a name="trigger-a-run-of-a-machine-learning-pipeline-from-a-logic-app"></a>Attivare un'esecuzione di una pipeline di Machine Learning da un'app per la logica
 
@@ -49,7 +49,7 @@ Una volta eseguito il provisioning dell'app per la logica, seguire questa proced
     > [!div class="mx-imgBorder"]
     > ![Modello Vuoto](media/how-to-trigger-published-pipeline/blank-template.png)
 
-1. Nella finestra di progettazione cercare **BLOB**. Selezionare il trigger **quando un BLOB viene aggiunto o modificato (solo proprietà)** e aggiungere questo trigger all'app per la logica.
+1. Nella finestra di progettazione cercare **BLOB** . Selezionare il trigger **quando un BLOB viene aggiunto o modificato (solo proprietà)** e aggiungere questo trigger all'app per la logica.
     > [!div class="mx-imgBorder"]
     > ![Aggiunta di trigger](media/how-to-trigger-published-pipeline/add-trigger.png)
 
@@ -60,7 +60,7 @@ Una volta eseguito il provisioning dell'app per la logica, seguire questa proced
     > [!NOTE]
     > Questo trigger eseguirà il monitoraggio del contenitore selezionato, ma non eseguirà il monitoraggio delle sottocartelle.
 
-1. Aggiungere un'azione HTTP che verrà eseguita quando viene rilevato un BLOB nuovo o modificato. Selezionare **+ nuovo passaggio**, quindi cercare e selezionare l'azione http.
+1. Aggiungere un'azione HTTP che verrà eseguita quando viene rilevato un BLOB nuovo o modificato. Selezionare **+ nuovo passaggio** , quindi cercare e selezionare l'azione http.
 
   > [!div class="mx-imgBorder"]
   > ![Cerca azione HTTP](media/how-to-trigger-published-pipeline/search-http.png)
@@ -94,6 +94,9 @@ Una volta eseguito il provisioning dell'app per la logica, seguire questa proced
     > ![Impostazioni HTTP](media/how-to-trigger-published-pipeline/http-settings.png)
 
 1. Selezionare **Save (Salva** ). la pianificazione è ora pronta.
+
+> [!IMPORTANT]
+> Se si usa il controllo degli accessi in base al ruolo (RBAC) per gestire l'accesso alla pipeline, [impostare le autorizzazioni per lo scenario della pipeline (training o assegnazione dei punteggi)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

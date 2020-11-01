@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: ee82d3f35b6b2b50b001e065eb81447738526b1c
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.date: 10/30/2020
+ms.openlocfilehash: 8257be28344ac7a03738c80a003c1229282ae305
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635372"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145710"
 ---
 # <a name="build-expressions-in-mapping-data-flow"></a>Espressioni di compilazione nel flusso di dati di mapping
 
@@ -30,15 +30,15 @@ Per aprire il generatore di espressioni sono presenti più punti di ingresso. Tu
 
 In alcune trasformazioni come [filtro](data-flow-filter.md), facendo clic su una casella di testo espressione blu, viene aperto il generatore di espressioni. 
 
-![Casella espressione blu](media/data-flow/expressionbox.png "Generatore di espressioni")
+![Casella espressione blu](media/data-flow/expressionbox.png "Casella espressione blu")
 
 Quando si fa riferimento a colonne in una condizione di corrispondenza o di raggruppamento, un'espressione può estrarre valori dalle colonne. Per creare un'espressione, selezionare **colonna calcolata** .
 
-![Opzione della colonna calcolata](media/data-flow/computedcolumn.png "Generatore di espressioni")
+![Opzione della colonna calcolata](media/data-flow/computedcolumn.png "Opzione della colonna calcolata")
 
 Nei casi in cui un'espressione o un valore letterale sono input validi, selezionare **Aggiungi contenuto dinamico** per compilare un'espressione che restituisca un valore letterale.
 
-![Opzione Aggiungi contenuto dinamico](media/data-flow/add-dynamic-content.png "Generatore di espressioni")
+![Opzione Aggiungi contenuto dinamico](media/data-flow/add-dynamic-content.png "Opzione Aggiungi contenuto dinamico")
 
 ## <a name="expression-elements"></a>Elementi Expression
 
@@ -72,6 +72,16 @@ Quando sono presenti nomi di colonna che includono caratteri speciali o spazi, r
 ### <a name="parameters"></a>Parametri
 
 I parametri sono valori passati in un flusso di dati in fase di esecuzione da una pipeline. Per fare riferimento a un parametro, fare clic sul parametro nella visualizzazione **elementi espressione** o farvi riferimento con un segno di dollaro davanti al nome. Ad esempio, viene fatto riferimento a un parametro denominato parametro1 `$parameter1` . Per altre informazioni, vedere [parametrizzazione mapping di flussi di dati](parameters-data-flow.md).
+
+### <a name="cached-lookup"></a>Ricerca nella cache
+
+Una ricerca memorizzata nella cache consente di eseguire una ricerca inline dell'output di un sink memorizzato nella cache. Sono disponibili due funzioni da usare in ogni sink, `lookup()` e `outputs()` . La sintassi per fare riferimento a queste funzioni è `cacheSinkName#functionName()` . Per ulteriori informazioni, vedere [sink della cache](data-flow-sink.md#cache-sink).
+
+`lookup()` accetta come parametri le colonne corrispondenti nella trasformazione corrente e restituisce una colonna complessa uguale alla riga corrispondente alle colonne chiave nel sink della cache. La colonna complessa restituita contiene una sottocolonna per ogni colonna mappata nel sink della cache. Ad esempio, se si dispone di un sink di cache del codice di errore con `errorCodeCache` una colonna chiave corrispondente nel codice e una colonna denominata `Message` . `errorCodeCache#lookup(errorCode).Message`La chiamata a restituirebbe il messaggio corrispondente al codice passato. 
+
+`outputs()` non accetta parametri e restituisce l'intero sink della cache come matrice di colonne complesse. Questa operazione non può essere chiamata se le colonne chiave vengono specificate nel sink e devono essere usate solo se è presente un numero ridotto di righe nel sink della cache. Un caso d'uso comune è l'accodamento del valore massimo di una chiave di incremento. Se una singola riga aggregata memorizzata nella cache `CacheMaxKey` contiene una colonna `MaxKey` , è possibile fare riferimento al primo valore chiamando `CacheMaxKey#outputs()[1].MaxKey` .
+
+![Ricerca nella cache](media/data-flow/cached-lookup-example.png "Ricerca nella cache")
 
 ### <a name="locals"></a>Variabili locali
 

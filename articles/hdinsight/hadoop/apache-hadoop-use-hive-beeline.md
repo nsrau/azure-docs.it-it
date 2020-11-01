@@ -6,18 +6,20 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.date: 08/21/2020
-ms.custom: contperfq1
-ms.openlocfilehash: f6d8f804fa26383435d191af27289ffd2ecb3e0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/28/2020
+ms.custom: contperfq1, contperfq2
+ms.openlocfilehash: 756c87299db85e426b4793d51bea833aa694a830
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88755093"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145957"
 ---
 # <a name="use-the-apache-beeline-client-with-apache-hive"></a>Usare il client Apache Beeline con Apache Hive
 
-Informazioni su come usare [Apache Beeline](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) per eseguire query Apache Hive in HDInsight.
+Questo articolo descrive come usare il client [Apache](https://cwiki.apache.org/confluence/display/Hive/HiveServer2+Clients#HiveServer2Clients-Beeline–NewCommandLineShell) per la riga di comando per creare ed eseguire query di Apache hive su una connessione SSH.
+
+## <a name="background"></a>Background
 
 Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Per eseguire la connessione al client con estensione per il cluster HDInsight o installare l'oggetto con l'uso di una connessione locale, vedere la pagina relativa alla [connessione o all'installazione di Apache caeline](connect-install-beeline.md). Beeline usa JDBC per connettersi a HiveServer2, un servizio ospitato nel cluster HDInsight. È anche possibile usare Beeline per accedere in remoto a Hive in HDInsight tramite Internet. Gli esempi seguenti forniscono le stringhe di connessione più comuni usate per la connessione a HDInsight da deeline.
 
@@ -27,9 +29,7 @@ Beeline è un client Hive incluso nei nodi head del cluster HDInsight. Per esegu
 
 * Si noti lo schema URI per l'archiviazione primaria del cluster. Ad esempio,  `wasb://` per archiviazione di Azure, `abfs://` per Azure Data Lake storage Gen2 o `adl://` per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI è `wasbs://` . Per altre informazioni, vedere [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
 
-* Opzione 1: un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Per la maggior parte dei passaggi di questo documento si presuppone che si stia usando una sessione SSH nel cluster.
-
-* Opzione 2: un client di Oneline locale.
+* Un client SSH. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md). Per la maggior parte dei passaggi di questo documento si presuppone che si stia usando una sessione SSH nel cluster. È anche possibile usare un client di Oneline locale, ma questi passaggi non sono trattati in questo articolo.
 
 ## <a name="run-a-hive-query"></a>Eseguire una query Hive
 
@@ -56,7 +56,7 @@ Questo esempio si basa sull'uso del client con estensione da una connessione SSH
     show tables;
     ```
 
-    In un nuovo cluster viene elencata solo una tabella: **hivesampletable**.
+    In un nuovo cluster viene elencata solo una tabella: **hivesampletable** .
 
 4. Usare il comando seguente per visualizzare lo schema di hivesampletable:
 
@@ -113,7 +113,7 @@ Questo esempio si basa sull'uso del client con estensione da una connessione SSH
     |CREATE EXTERNAL TABLE|Crea una tabella **esterna** in hive. Le tabelle esterne archiviano solo la definizione della tabella in Hive. I dati rimangono nel percorso originale.|
     |FORMATO DI RIGA|Modalità di formattazione dei dati. In questo caso, i campi in ogni log sono separati da uno spazio.|
     |ARCHIVIATO COME PERCORSO DI TEXTFILE|Dove vengono archiviati i dati e in quale formato di file.|
-    |SELECT|Seleziona un conteggio di tutte le righe in cui la colonna **T4** contiene il valore **[Error]**. Questa query restituisce **3**, poiché sono presenti tre righe contenenti questo valore.|
+    |SELECT|Seleziona un conteggio di tutte le righe in cui la colonna **T4** contiene il valore **[Error]** . Questa query restituisce **3** , poiché sono presenti tre righe contenenti questo valore.|
     |INPUT__FILE__NAME LIKE '%. log '|Hive tenta di applicare lo schema a tutti i file nella directory. In questo caso, la directory contiene file che non corrispondono allo schema. Per evitare dati errati nei risultati, questa istruzione indica a Hive di restituire dati solo da file che terminano con .log.|
 
    > [!NOTE]  
@@ -157,13 +157,13 @@ Questo esempio si basa sull'uso del client con estensione da una connessione SSH
 
 Questo esempio è una continuazione dell'esempio precedente. Usare la procedura seguente per creare un file, quindi eseguirlo tramite Beeline.
 
-1. Usare il comando seguente per creare un file denominato **query.hql**:
+1. Usare il comando seguente per creare un file denominato **query.hql** :
 
     ```bash
     nano query.hql
     ```
 
-1. Usare il testo seguente come contenuto del file. Questa query crea una nuova tabella "interna" denominata **errorLogs**:
+1. Usare il testo seguente come contenuto del file. Questa query crea una nuova tabella "interna" denominata **errorLogs** :
 
     ```hiveql
     CREATE TABLE IF NOT EXISTS errorLogs (t1 string, t2 string, t3 string, t4 string, t5 string, t6 string, t7 string) STORED AS ORC;
@@ -176,12 +176,12 @@ Questo esempio è una continuazione dell'esempio precedente. Usare la procedura 
     |---|---|
     |CREATE TABLE SE NON ESISTE|Se la tabella non esiste già, viene creata. Poiché non viene usata la parola chiave **External** , questa istruzione crea una tabella interna. Le tabelle interne vengono archiviate nel data warehouse di Hive e sono totalmente gestite da Hive.|
     |ARCHIVIATO COME ORC|archivia i dati nel formato ORC (Optimized Row Columnar). ORC è un formato altamente ottimizzato ed efficiente per l'archiviazione di dati Hive.|
-    |INSERISCI SOVRASCRITTURA... Selezionare|seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]**, poi inserisce i dati nella tabella **errorLogs**.|
+    |INSERISCI SOVRASCRITTURA... Selezionare|seleziona dalla tabella **log4jLogs** le righe contenenti **[ERROR]** , poi inserisce i dati nella tabella **errorLogs** .|
 
     > [!NOTE]  
     > A differenza delle tabelle esterne, se si elimina una tabella interna, vengono eliminati anche i dati sottostanti.
 
-1. Per salvare il file, usare **CTRL** + **X**, quindi immettere **Y**e infine **premere invio**.
+1. Per salvare il file, usare **CTRL** + **X** , quindi immettere **Y** e infine **premere invio** .
 
 1. Usare il codice seguente per eseguire il file tramite Beeline:
 
@@ -192,7 +192,7 @@ Questo esempio è una continuazione dell'esempio precedente. Usare la procedura 
     > [!NOTE]  
     > Il parametro `-i` avvia Beeline ed esegue le istruzioni nel file `query.hql`. Dopo il completamento della query, viene visualizzato il prompt `jdbc:hive2://headnodehost:10001/>`. È anche possibile eseguire un file usando il parametro `-f`, che chiude Beeline dopo il completamento della query.
 
-1. Per verificare che la tabella **errorLogs** sia stata creata, usare l'istruzione seguente per restituire tutte le righe da **errorLogs**:
+1. Per verificare che la tabella **errorLogs** sia stata creata, usare l'istruzione seguente per restituire tutte le righe da **errorLogs** :
 
     ```hiveql
     SELECT * from errorLogs;

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 12/26/2019
 ms.author: mathoma
-ms.openlocfilehash: ebeee228d8c936732465359dfa264d822cbecb1e
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3a4b7d68d7cd21ccb4b7eb8b97e0d331fb236e96
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92793076"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146723"
 ---
 # <a name="storage-configuration-for-sql-server-vms"></a>Configurazione dell'archiviazione per le VM di SQL Server
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,7 +44,7 @@ Le sezioni seguenti descrivono come configurare l'archiviazione per le nuove mac
 
 Quando si esegue il provisioning di una VM di Azure usando un'immagine della raccolta di SQL Server, selezionare **Cambia la configurazione** nella scheda **Impostazioni di SQL Server** per aprire la pagina di configurazione dell'archiviazione ottimizzata per le prestazioni. È possibile lasciare i valori predefiniti o modificare il tipo di configurazione del disco più adatto alle proprie esigenze in base al carico di lavoro. 
 
-![Configurazione dell'archiviazione per le VM di SQL Server durante il provisioning](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
+![Screenshot che evidenzia la scheda Impostazioni SQL Server e l'opzione modifica configurazione.](./media/storage-configuration/sql-vm-storage-configuration-provisioning.png)
 
 Selezionare il tipo di carico di lavoro per cui si distribuisce SQL Server in **Ottimizzazione dell'archiviazione** . Con l'opzione di ottimizzazione **Generale** , per impostazione predefinita si otterrà un solo disco dati con max 5000 operazioni di I/O al secondo e si userà la stessa unità per i dati, il log delle transazioni e l'archiviazione TempDB. Se si seleziona **Elaborazione transazionale** o **Data warehousing** , viene creato un disco separato per i dati, un disco separato per il log delle transazioni e viene usata l'unità SSD locale per TempDB. Non esistono differenze in termini di archiviazione tra l' **elaborazione transazionale** e il **data warehousing** , ma cambiano la [configurazione di striping e i flag di traccia](#workload-optimization-settings). Se si sceglie l'archiviazione Premium, la memorizzazione nella cache viene impostata su *ReadOnly* per l'unità dati e su *None* per l'unità log in base alle [procedure consigliate per le prestazioni delle VM di SQL Server](performance-guidelines-best-practices.md). 
 
@@ -103,7 +103,7 @@ Per le VM di SQL Server esistenti, è possibile modificare alcune impostazioni d
 
 Per modificare le impostazioni di archiviazione, selezionare **Configura** in **Impostazioni** . 
 
-![Configurare l'archiviazione per le VM di SQL Server esistenti](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
+![Screenshot che evidenzia l'opzione Configura e la sezione utilizzo archiviazione.](./media/storage-configuration/sql-vm-storage-configuration-existing.png)
 
 È possibile modificare le impostazioni del disco per le unità configurate durante il processo di creazione della VM di SQL Server. Selezionando **Estendi unità** viene visualizzata la pagina di modifica dell'unità, che consente di modificare il tipo di disco, nonché di aggiungere altri dischi. 
 

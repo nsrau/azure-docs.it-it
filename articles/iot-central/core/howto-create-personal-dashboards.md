@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: f7dca7352a49e668231f64632371a445985e4de3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68bb4e2ac525270004a698471cd44955cd25fefc
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83634580"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146110"
 ---
 # <a name="create-and-manage-multiple-dashboards"></a>Creare e gestire più dashboard
 
@@ -23,7 +23,7 @@ Se si è un **amministratore** dell'applicazione, è anche possibile creare fino
 
 ## <a name="create-dashboard"></a>Creare un dashboard
 
-Lo screenshot seguente visualizza il dashboard di un'applicazione creata dal modello **Applicazione personalizzata**. È possibile sostituire il dashboard dell'applicazione predefinito con un dashboard personale oppure, se si è un amministratore, un altro dashboard a livello di applicazione. A tale scopo, selezionare **+ Nuovo** nella parte superiore sinistra della pagina.
+Lo screenshot seguente visualizza il dashboard di un'applicazione creata dal modello **Applicazione personalizzata** . È possibile sostituire il dashboard dell'applicazione predefinito con un dashboard personale oppure, se si è un amministratore, un altro dashboard a livello di applicazione. A tale scopo, selezionare **+ Nuovo** nella parte superiore sinistra della pagina.
 
 > [!div class="mx-imgBorder"]
 > ![Dashboard per le applicazioni basate sul modello "Applicazione personalizzata"](media/howto-create-personal-dashboards/dashboard-custom-app.png)
@@ -42,7 +42,7 @@ Se si è un **amministratore** dell'applicazione, verrà offerta la possibilità
 
 1. Selezionare un **modello di dispositivo**
 1. Selezionare un dispositivo da **Dispositivi** corrispondente al dispositivo che si vuole visualizzare in un riquadro del dashboard. Verrà quindi visualizzato l'elenco delle proprietà del dispositivo che possono essere usati nel riquadro.
-1. Per creare il riquadro nel dashboard, fare clic su **Temperatura** e trascinare il riquadro nell'area del dashboard. È anche possibile fare clic sulla casella di controllo accanto a **Temperatura** e fare clic su **Aggiungi riquadro**. Lo screenshot seguente illustra la selezione di un modello di dispositivo e di un dispositivo e la creazione di un riquadro di telemetria della temperatura nel dashboard.
+1. Per creare il riquadro nel dashboard, fare clic su **Temperatura** e trascinare il riquadro nell'area del dashboard. È anche possibile fare clic sulla casella di controllo accanto a **Temperatura** e fare clic su **Aggiungi riquadro** . Lo screenshot seguente illustra la selezione di un modello di dispositivo e di un dispositivo e la creazione di un riquadro di telemetria della temperatura nel dashboard.
 1. Selezionare **Salva** in alto a sinistra per salvare il riquadro nel dashboard.
 
 > [!div class="mx-imgBorder"]
@@ -51,7 +51,7 @@ Se si è un **amministratore** dell'applicazione, verrà offerta la possibilità
 A questo punto, quando si visualizza il dashboard personale, viene visualizzato il nuovo riquadro con l'impostazione **Temperatura** per il dispositivo:
 
 > [!div class="mx-imgBorder"]
-> ![Scheda "Dashboard" con i dettagli del riquadro Temperatura](media/howto-create-personal-dashboards/temperature-tile-complete.png)
+> ![Screenshot che mostra il nuovo riquadro con l'impostazione temperature per il dispositivo.](media/howto-create-personal-dashboards/temperature-tile-complete.png)
 
 È possibile esplorare altri tipi di riquadro nella libreria per scoprire come personalizzare ulteriormente i dashboard personali.
 
@@ -64,7 +64,7 @@ Per altre informazioni su come usare i riquadri in Azure IoT Central, vedere [Ag
 > [!div class="mx-imgBorder"]
 > ![Passare da un dashboard all'altro](media/howto-create-personal-dashboards/switch-dashboards.png)
 
-È possibile modificare i dashboard personali ed eliminare i dashboard che non sono più necessari. Se si è un **amministratore**, è anche possibile modificare o eliminare i dashboard a livello di applicazione.
+È possibile modificare i dashboard personali ed eliminare i dashboard che non sono più necessari. Se si è un **amministratore** , è anche possibile modificare o eliminare i dashboard a livello di applicazione.
 
 > [!div class="mx-imgBorder"]
 > ![Eliminare i dashboard](media/howto-create-personal-dashboards/delete-dashboards.png)

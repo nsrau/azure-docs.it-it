@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/03/2018
 ms.author: asnegi
 ms.custom: mvc, devcenter, devx-track-azurecli
-ms.openlocfilehash: 1db412a3b83da905475749deea0432fbeae06e8f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 66d0d3ebf9d5866039bbbac3171513b37330be7a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742771"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146791"
 ---
 # <a name="mount-highly-available-service-fabric-reliable-disk-based-volume-in-a-service-fabric-mesh-application"></a>Montare il volume basato su Reliable Disk di Service Fabric a disponibilità elevata in un'applicazione Service Fabric Mesh 
 Il metodo comune per rendere persistente lo stato con le app contenitore è usare una risorsa di archiviazione remota, ad esempio Archiviazione file di Azure o un database come Azure Cosmos DB. Ciò comporta un notevole latenza di rete per la lettura e la scrittura nell'archivio remoto.
@@ -45,6 +45,11 @@ az group create --name myResourceGroup --location eastus
 ```
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
+
+>[!NOTE]
+> A partire dal 2 novembre 2020, i [limiti di velocità di download si applicano](https://docs.docker.com/docker-hub/download-rate-limit/) alle richieste anonime e autenticate all'hub Docker dagli account dei piani gratuiti Docker e vengono applicati dall'indirizzo IP. 
+> 
+> Questo modello usa immagini pubbliche dall'hub docker. Si noti che è possibile che la frequenza sia limitata. Per altri dettagli, vedere [eseguire l'autenticazione con Docker Hub](https://docs.microsoft.com/azure/container-registry/buffer-gate-public-content#authenticate-with-docker-hub).
 
 Il comando seguente distribuisce un'applicazione Linux usando il [modello counter.sfreliablevolume.linux.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.linux.json). Per distribuire un'applicazione Windows, usare il [modello counter.sfreliablevolume.windows.json](https://github.com/Azure-Samples/service-fabric-mesh/blob/master/templates/counter/counter.sfreliablevolume.windows.json). Tenere presente che la distribuzione di immagini del contenitore di grandi dimensioni può richiedere più tempo.
 

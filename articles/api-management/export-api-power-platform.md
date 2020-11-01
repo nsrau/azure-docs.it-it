@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 05/01/2020
 ms.author: apimpm
-ms.openlocfilehash: 5814ff3909aa36ccfd9e14033f200fb4d3b8d32d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7c4d32dd63120a52fd7351977943574455e5cfad
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86252856"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146655"
 ---
 # <a name="export-apis-from-azure-api-management-to-the-power-platform"></a>Esportare API da Gestione API di Azure a Power Platform 
 
@@ -36,7 +36,7 @@ Questo articolo illustra i passaggi per esportare le API da Gestione API a Power
 1. Passare al servizio Gestione API nel portale di Azure e selezionare **API** dal menu.
 2. Fare clic sui tre puntini di sospensione accanto all'API che si vuole esportare. 
 3. Selezionare **Export** (Esporta).
-4. Selezionare **Power Apps e Power Automate**.
+4. Selezionare **Power Apps e Power Automate** .
 5. Scegliere un ambiente in cui esportare l'API. 
 6. Specificare un nome visualizzato, che verrà usato come nome del connettore personalizzato.  
 7. Facoltativamente, se l'API è protetta da un server OAuth 2.0, sarà necessario fornire anche dettagli aggiuntivi, tra cui `Client ID`, `Client secret`, `Authorization URL`, `Token URL` e `Refresh URL`.  

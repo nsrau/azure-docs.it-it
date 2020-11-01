@@ -1,5 +1,5 @@
 ---
-title: Moderazione video con revisione umana - Content Moderator
+title: Moderazione video con lo strumento di revisione-Content Moderator
 titleSuffix: Azure Cognitive Services
 description: Usare la moderazione video assistita da computer e lo strumento di revisione per moderare il contenuto non appropriato
 services: cognitive-services
@@ -8,97 +8,95 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 04/14/2020
+ms.date: 07/20/2020
 ms.author: pafarley
-ms.openlocfilehash: 0c031a890efc7fad7e5d9caefce3b0e66c515d90
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 392cc06c6e0bce7ec2304da61033fc508d940bbb
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81404245"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93143770"
 ---
-# <a name="video-moderation-with-human-review"></a>Moderazione video con revisione umana
+# <a name="video-moderation-with-the-review-tool"></a>Moderazione video con lo strumento di Revisione
 
 USA [lo strumento](Review-Tool-User-Guide/human-in-the-loop.md) di [moderazione](video-moderation-api.md) e revisione video assistito da computer di content moderator per moderare video e trascrizioni per contenuti per adulti (espliciti) e di velocità (indicativa) per ottenere i risultati migliori per la tua azienda.
 
-## <a name="video-trained-classifier-preview"></a>Classificatore con riconoscimento di video (anteprima)
+## <a name="view-videos-under-review"></a>Visualizza i video in Revisione
 
-La classificazione video con supporto di computer può essere eseguita con modelli per il riconoscimento di immagini o di video. A differenza dei classificatori video con riconoscimento di immagini, il classificatore di video con contenuti spinti e per adulti di Microsoft è sottoposto a un processo di riconoscimento video. Questo metodo comporta una migliore qualità della corrispondenza.
+Nel Dashboard selezionare una delle code di verifica all'interno del tipo di contenuto video. Verrà avviata una verifica e verrà aperta la pagina moderazione contenuto video.
 
-## <a name="shot-detection"></a>Rilevamento inquadratura
+> [!div class="mx-imgBorder"]
+> ![Visualizzazione dettagliata della moderazione video nello strumento di Revisione](./Review-Tool-User-Guide/images/video-moderation-detailed.png)
 
-Quando si producono i dettagli di classificazione, ulteriori funzionalità di video intelligence assicurano una maggiore flessibilità per l'analisi dei video. Invece di produrre solo i fotogrammi, il servizio di moderazione video di Microsoft fornisce anche informazioni a livello di inquadratura. È pertanto possibile analizzare i video a livello di inquadratura e di fotogramma.
+### <a name="review-count"></a>Review count
 
-## <a name="key-frame-detection"></a>Rilevamento di fotogrammi chiave
+Utilizzare il dispositivo di scorrimento in alto a destra per impostare il numero di revisioni che si desidera visualizzare nella pagina.
 
-Invece di produrre fotogrammi a intervalli regolari, il servizio di moderazione video identifica e restituisce solo i fotogrammi potenzialmente completi (validi). Questa funzionalità assicura una maggiore efficienza nella generazione dei fotogrammi per l'analisi dei contenuti spinti e per adulti a livello di fotogramma.
+### <a name="view-type"></a>Tipo di vista
 
-L'estratto seguente mostra una risposta parziale con potenziali inquadrature, fotogrammi chiave e punteggi di contenuti spinti e per adulti:
+È possibile visualizzare le diverse voci di contenuto come riquadri o in una visualizzazione dettagliata. La visualizzazione **Dettagli** consente di visualizzare i fotogrammi chiave e altre informazioni sul video selezionato. 
 
-```json
-"fragments":[  
-  {  
-    "start":0,
-    "duration":18000
-  },
-  {  
-    "start":18000,
-    "duration":3600,
-    "interval":3600,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":false,
-          "adultScore":0.00001,
-          "racyScore":0.03077,
-          "index":5,
-          "timestamp":18000,
-          "shotIndex":0
-        }
-      ]
-    ]
-  },
-  {  
-    "start":18386372,
-    "duration":119149,
-    "interval":119149,
-    "events":[  
-      [  
-        {  
-          "reviewRecommended":true,
-          "adultScore":0.00000,
-          "racyScore":0.91902,
-          "index":5085,
-          "timestamp":18386372,
-          "shotIndex":62
-        }
-      ]
-    ]
-```
+> [!NOTE]
+> Invece di produrre fotogrammi a intervalli regolari, il servizio di moderazione video identifica e restituisce solo i fotogrammi potenzialmente completi (validi). Questa funzionalità consente di generare in modo efficiente i frame per l'analisi a livello di frame e per adulti.
 
-## <a name="visualization-for-human-reviews"></a>Visualizzazione per le revisioni umane
+La visualizzazione **affiancata** visualizzerà ogni video come un unico riquadro. Selezionare il pulsante Espandi sopra un fotogramma video per ingrandire il video e nascondere gli altri.
 
-Per i casi meno netti, è indispensabile una soluzione di revisione umana per il rendering dei video, dei relativi fotogrammi e dei tag assegnati automaticamente. I moderatori umani che esaminano video e fotogrammi ottengono una visione completa delle informazioni, modificano i tag e inoltrano le loro decisioni.
+### <a name="content-obscuring-effects"></a>Effetti sul contenuto oscurato
 
-![Visualizzazione predefinita dello strumento di revisione di video](images/video-review-default-view.png)
+Usare gli interruttori **sfoca tutto** e **nero e bianco** per impostare questi effetti sul contenuto. Sono attivate per impostazione predefinita. Nella visualizzazione **affiancata** è possibile impostare gli effetti singolarmente per ogni video.
 
-## <a name="player-view-for-video-level-review"></a>Visualizzazione lettore per la revisione a livello video
+## <a name="check-video-details"></a>Controllare i dettagli del video
 
-Le decisioni binarie a livello video sono rese possibili grazie a una visualizzazione lettore video che mostra i potenziali fotogrammi con contenuto spinto e per adulti. I revisori umani scorrono il video con diverse opzioni di velocità per esaminare le scene e confermano le loro decisioni attivando e disattivando i tag.
+Nella visualizzazione **Dettagli** , nel riquadro destro vengono visualizzate diverse schede che forniscono informazioni dettagliate sul video.
 
-![Visualizzazione lettore dello strumento di revisione di video](images/video-review-player-view.PNG)
+* Selezionare la scheda **Note** per aggiungere note personalizzate ai video.
+* Selezionare la scheda **trascrizione** per visualizzare la trascrizione video &mdash; il servizio estrae automaticamente una trascrizione di qualsiasi voce del video. Quando si seleziona una sezione di testo, il lettore video passa a tale parte del video.
+* Selezionare la scheda **meta-data** per visualizzare i metadati del file video.
+* Selezionare la scheda **cronologia** per visualizzare la cronologia della revisione, ad esempio quando è stata creata e come è stata modificata.
 
-## <a name="frames-view-for-detailed-reviews"></a>Visualizzazione fotogrammi per revisioni dettagliate
+> [!div class="mx-imgBorder"]
+> ![Pulsante Tag bulk per moderazione video](./Review-Tool-User-Guide/images/video-moderation-video-details.png)
 
-La revisione dettagliata di un video per un'analisi fotogramma per fotogramma è resa possibile grazie a una visualizzazione basata su fotogrammi. I revisori umani esaminano e selezionano uno o più fotogrammi e attivano o disattivano i tag per confermare le loro decisioni. Un passaggio successivo facoltativo è l'offuscamento dei fotogrammi o dei contenuti offensivi.
+## <a name="apply-moderation-tags"></a>Applica tag di moderazione
 
-![Visualizzazione fotogrammi dello strumento di revisione di video](images/video-review-frames-view-apply-tags.PNG)
+L'attività principale di una revisione video consiste nell'applicare o rimuovere tag di moderazione nei video o nelle parti dei video.
 
-## <a name="transcript-moderation"></a>Moderazione delle trascrizioni
+### <a name="bulk-tagging"></a>Assegnazione di tag bulk
 
-In genere, i video contengono anche una voce fuori campo che necessita di moderazione in caso di commenti potenzialmente offensivi. È possibile usare il servizio Azure Media Indexer per il riconoscimento vocale e l'API di revisione di Content Moderator per inviare la trascrizione per la moderazione del testo all'interno dello strumento di revisione.
+La barra degli strumenti **tag bulk** consente di aggiungere tag a più video selezionati contemporaneamente. Selezionare uno o più video, quindi selezionare i tag che si desidera applicare e fare clic su **Invia** . 
 
-![Visualizzazione trascrizione dello strumento di revisione di video](images/video-review-transcript-view.png)
+> [!div class="mx-imgBorder"]
+> ![Pulsante Tag bulk per moderazione video](./Review-Tool-User-Guide/images/video-moderation-bulk-tags.png)
+
+
+### <a name="key-frame-tagging"></a>Tag del fotogramma chiave
+
+È anche possibile aggiungere tag di moderazione a fotogrammi chiave specifici. Selezionare i frame dal riquadro riquadro fotogramma chiave e quindi selezionare i **tag dei fotogrammi chiave +** per applicare i tag desiderati.
+
+> [!NOTE]
+> Se il servizio non è stato in grado di estrarre i fotogrammi chiave, nel riquadro della sezione del fotogramma chiave **non sarà disponibile alcun frame** e l'opzione per selezionare i fotogrammi chiave sarà disabilitata. In questo caso, è possibile applicare i tag al video nel suo complesso (usando i **tag video +** pulsante).
+
+> [!div class="mx-imgBorder"]
+> ![Visualizzazione dettagliata della moderazione video nello strumento di Revisione](./Review-Tool-User-Guide/images/video-moderation-tagging-options.png)
+
+## <a name="put-a-review-on-hold"></a>Inserire una recensione in attesa
+
+Il pulsante **Mantieni** nella parte inferiore del riquadro video consente di inserire una recensione in attesa per poterla recuperare e completarla in un secondo momento. Questa operazione può essere eseguita per una revisione che richiede un consulto da un altro membro del team o da un responsabile che attualmente non è disponibile. 
+
+È possibile visualizzare i video in attesa facendo clic sul pulsante di **attesa** nella parte superiore della schermata. Il riquadro di attesa viene visualizzato a destra. Da qui è possibile selezionare più verifiche in attesa e rilasciarle nella coda o impostare la data di scadenza. Dopo il periodo di tempo preconfigurato, le verifiche in attesa vengono rilasciate nella coda. Selezionare **Save (Salva** ) per avviare il conteggio a partire dall'ora di scadenza attualmente selezionata.
+
+> [!div class="mx-imgBorder"]
+> ![Visualizzazione dettagliata della moderazione video nello strumento di Revisione](./Review-Tool-User-Guide/images/video-moderation-hold.png)
+
+## <a name="submit-a-review"></a>Invia una recensione
+
+Dopo aver applicato i tag, selezionare il pulsante **Submit (Invia** ) nella parte inferiore del riquadro del video. Se sono stati contrassegnati più video, è possibile inviarli in un'unica recensione o come revisioni separate.
+
+## <a name="limbo-state"></a>Stato limbo
+
+Dopo aver inviato una recensione, il video viene spostato nello stato **limbo** , che è possibile visualizzare selezionando il pulsante **limbo** nella parte superiore della schermata. I video rimangono nello stato limbo per un periodo di tempo preconfigurato (che è possibile modificare nel menu in basso) o fino a quando non vengono rivisti o inviati manualmente.
+
+Una volta che i video scadono da limbo, le revisioni vengono contrassegnate come complete.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

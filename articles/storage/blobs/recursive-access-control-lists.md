@@ -9,12 +9,12 @@ ms.date: 10/29/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d4c30029a71935cd3b8817be9010ff0fd11fa61a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 56a797864b70cb1be4a1bc5d4b79c44348d43dae
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93077694"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93144427"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Impostare gli elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake Storage Gen2
 
@@ -614,7 +614,7 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> Se si desidera aggiornare una voce ACL **predefinita** , aggiungere il prefisso `default:` a ogni voce. Ad esempio `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`.
+> Se si desidera aggiornare una voce ACL **predefinita** , aggiungere il prefisso `default:` a ogni voce. Ad esempio: `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -749,7 +749,7 @@ az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> Se si desidera rimuovere una voce ACL **predefinita** , aggiungere il prefisso `default:` a ogni voce. Ad esempio `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+> Se si desidera rimuovere una voce ACL **predefinita** , aggiungere il prefisso `default:` a ogni voce. Ad esempio: `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -969,8 +969,6 @@ def resume_set_acl_recursive(continuation_token):
 Se si desidera che il processo venga completato senza interruzioni da errori di autorizzazione, è possibile specificarlo.
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-
-Per assicurarsi che il processo venga completato senza interruzioni, passare un oggetto **AccessControlChangedOptions** e impostare la proprietà **ContinueOnFailure** dell'oggetto su ``true`` .
 
 In questo esempio le voci ACL vengono impostate in modo ricorsivo. Se il codice rileva un errore di autorizzazione, registra l'errore e continua l'esecuzione. In questo esempio vengono stampati i risultati (incluso il numero di errori) nella console. 
 

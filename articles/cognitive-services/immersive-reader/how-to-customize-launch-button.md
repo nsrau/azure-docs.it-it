@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: metang
-ms.openlocfilehash: 6d6757af6619edd41709a4b8f06ef615cd35bf30
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: b24a9dcb7a369708b1374f367186dc4d9a6ce475
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636579"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146876"
 ---
 # <a name="how-to-customize-the-immersive-reader-button"></a>Come personalizzare il pulsante Lettore immersivo
 
@@ -41,7 +41,7 @@ Utilizzare l' `data-button-style` attributo per impostare lo stile del pulsante.
 
 Viene eseguito il rendering degli elementi seguenti:
 
-![Pulsante icona](./media/button-icon.png)
+![Pulsante testo sottoposto a rendering](./media/button-icon.png)
 
 ### <a name="text-button"></a>Pulsante testo
 
@@ -51,7 +51,7 @@ Viene eseguito il rendering degli elementi seguenti:
 
 Viene eseguito il rendering degli elementi seguenti:
 
-![Pulsante icona](./media/button-text.png)
+![Si tratta del pulsante Lettore immersivo di cui è stato eseguito il rendering.](./media/button-text.png)
 
 ### <a name="icon-and-text-button"></a>Pulsante icona e testo
 

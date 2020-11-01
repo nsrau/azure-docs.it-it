@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: juliako
-ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f7bf41bd864f6780eee00938f35bb34d2336eb5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89505339"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145753"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -29,6 +29,21 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Problemi noti
 * Correzioni di bug
 * Funzionalità deprecate
+
+## <a name="october-2020"></a>Ottobre 2020
+
+### <a name="animated-character-identification-improvements"></a>Miglioramenti all'identificazione di caratteri animati  
+
+Video Indexer supporta il rilevamento, il raggruppamento e il riconoscimento di caratteri nel contenuto animato tramite l'integrazione con la visione personalizzata di servizi cognitivi. È stato aggiunto un miglioramento significativo a questo algoritmo di intelligenza artificiale per il rilevamento e il riconoscimento dei caratteri, di conseguenza l'accuratezza delle informazioni e i caratteri identificati sono stati migliorati.
+
+### <a name="planned-video-indexer-website-authenticatication-changes"></a>Modifiche authenticatication sito Web pianificato Video Indexer
+
+A partire dal 1 ° gennaio 2021, non sarà più possibile iscriversi e accedere al sito Web di [video Indexer](https://www.videoindexer.ai/) (offerta di valutazione) con Facebook o LinkedIn.
+
+Sarà possibile effettuare l'iscrizione e l'accesso con uno di questi provider: Azure AD, Microsoft e Google.
+
+> [!NOTE]
+> Si consiglia di esportare il contenuto prima del 1 ° gennaio 2021, poiché gli account connessi a LinkedIn e Facebook verranno eliminati e il contenuto non sarà più accessibile.
 
 ## <a name="august-2020"></a>Agosto 2020
 
@@ -123,7 +138,7 @@ Nelle prossime settimane verrà modificato e restituito l'URL del [sito web vide
     * Sostituzione dell'URL con un URL che punta alle API widget Video Indexer (ad esempio, il [widget Insights](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Insights-Widget))
     * Uso del sito Web Video Indexer per generare un nuovo URL incorporato:
          
-         Premere **Play** per accedere alla pagina del video > fare clic sul pulsante ** &lt; / &gt; Embed (incorpora** ) > copiare l'URL nell'applicazione:
+         Premere **Play** per accedere alla pagina del video > fare clic sul pulsante **&lt; / &gt; Embed (incorpora** ) > copiare l'URL nell'applicazione:
    
     Gli URL locali non sono supportati e verranno bloccati nelle prossime settimane.
 

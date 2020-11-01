@@ -10,18 +10,16 @@ ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
 ms.author: pafarley
-ms.openlocfilehash: a23e6d46ee6e79fd7a5cabf4434c561f7d83b31b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ddf4d17cd2631f5bc299e392c46bd9065bb13744
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76169511"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146622"
 ---
 # <a name="content-moderator-review-tool"></a>Strumento di revisione Content Moderator
 
-Azure Content Moderator fornisce servizi per combinare la moderazione dei contenuti di Machine Learning con le revisioni umane e il sito Web dello [strumento di revisione](https://contentmoderator.cognitive.microsoft.com) è un front-end intuitivo che fornisce un accesso dettagliato a questi servizi.
-
-![Dashboard dello strumento di revisione in un browser](./images/0-dashboard.png)
+Azure Content Moderator fornisce servizi per combinare la moderazione del contenuto di Machine Learning con le revisioni umane. Il sito Web [dello strumento di revisione](https://contentmoderator.cognitive.microsoft.com) è un front-end intuitivo che fornisce un accesso dettagliato a questi servizi.
 
 ## <a name="what-it-does"></a>Funzione
 
@@ -32,20 +30,27 @@ Lo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com), s
 - Assegna o inoltra le revisioni del contenuto a più team di revisione, organizzati per categoria di contenuto o livello di esperienza.
 - Usare filtri per la logica predefiniti o personalizzati ([flussi di lavoro](../review-api.md#workflows)) per ordinare e tenere traccia del contenuto, senza scrivere codice.
 - Usare i [connettori](./configure.md#connectors) per elaborare il contenuto con i servizi Microsoft PhotoDNA, analisi del testo e Face oltre alle API content moderator.
-- Creare un connettore personalizzato per creare flussi di lavoro per qualsiasi API o processo di business.
 - Ottenere le metriche di prestazioni chiave relative ai processi di moderazione del contenuto.
 
 ## <a name="review-tool-dashboard"></a>Esaminare il Dashboard dello strumento
 
-Nella scheda **Dashboard** è possibile visualizzare le metriche chiave per le revisioni del contenuto eseguite nello strumento. Vedere il numero di revisioni totali, complete e in sospeso per il contenuto di immagini, testo e video. È anche possibile visualizzare la suddivisione degli utenti e dei team che hanno completato le verifiche, oltre ai tag di moderazione applicati.
+Nella scheda **Dashboard** è possibile visualizzare le metriche chiave per le revisioni del contenuto eseguite nello strumento. Vedere il numero di revisioni totali, complete e in sospeso per il contenuto di immagini, testo e video. 
 
-![Visualizzare il dashboard](images/0-dashboard.png)
+La tabella delle verifiche **in sospeso** Mostra la suddivisione degli utenti e dei sottoteam con revisioni in sospeso o completate, nonché il tempo di SLA rimanente. È possibile selezionare gli elementi della tabella per passare alle relative revisioni. La casella di ricerca sopra la tabella consente di filtrare i risultati in base al nome del team e l'icona del **filtro** consente di filtrare in base ad altre metriche.
+
+Passando alla scheda **revisioni completa** viene visualizzato il numero totale di elementi elaborati o completati da utenti e sottoteam. È possibile filtrare questi dati come le revisioni in sospeso.
+
+Facendo clic sul testo nell'angolo superiore destro del dashboard vengono visualizzate le metriche personali giornaliere, che segnala il numero di revisioni completate per ogni tipo di contenuto.
+
+> [!div class="mx-imgBorder"]
+> ![Dashboard dello strumento di revisione in un browser](images/0-dashboard.png)
 
 ## <a name="review-tool-credentials"></a>Verifica credenziali strumento
 
-Quando si esegue l'iscrizione con lo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com), verrà richiesto di selezionare un'area di Azure per l'account. Questo è dovuto al fatto che lo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com) genera una chiave di valutazione gratuita per i servizi content moderator di Azure. Questa chiave sarà necessaria per accedere ai servizi da una chiamata REST o da un SDK client. È possibile visualizzare la chiave e l'URL dell'endpoint API selezionando **Impostazioni**  >  **credenziali**.
+Quando si esegue l'iscrizione con lo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com), verrà richiesto di selezionare un'area di Azure per l'account. Questo perché lo [strumento di revisione](https://contentmoderator.cognitive.microsoft.com) genera una chiave di valutazione gratuita per i servizi content moderator di Azure. Questa chiave sarà necessaria per accedere ai servizi da una chiamata REST o da un SDK client. È possibile visualizzare la chiave e l'URL dell'endpoint API selezionando le credenziali di **amministratore**  >  **Credentials** .
 
-![Credenziali di Content Moderator](images/settings-6-credentials.png)
+> [!div class="mx-imgBorder"]
+> ![Credenziali di Content Moderator](images/settings-6-credentials.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

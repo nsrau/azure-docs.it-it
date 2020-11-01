@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ea12b3eb72ce05f2672f6ca0912cc67345413c3c
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 8aad0d9fde30a235903364d57a73c1c53f08ecce
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461278"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145787"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
@@ -50,18 +50,19 @@ WHERE ...
 È possibile contare il numero di elementi in un set di risultati utilizzando la `Select COUNT` clausola:
 
 ```sql
-SELECT COUNT() 
+SELECT COUNT()
 FROM DIGITALTWINS
-``` 
+```
 
 Aggiungere una `WHERE` clausola per contare il numero di elementi che soddisfano un determinato criterio. Di seguito sono riportati alcuni esempi di conteggio con un filtro applicato basato sul tipo di modello gemello (per altre informazioni su questa sintassi, vedere [*eseguire query in base al modello*](#query-by-model) ):
 
 ```sql
-SELECT COUNT() 
-FROM DIGITALTWINS 
-WHERE IS_OF_MODEL('dtmi:sample:Room;1') 
-SELECT COUNT() 
-FROM DIGITALTWINS c 
+SELECT COUNT()
+FROM DIGITALTWINS
+WHERE IS_OF_MODEL('dtmi:sample:Room;1')
+
+SELECT COUNT()
+FROM DIGITALTWINS c
 WHERE IS_OF_MODEL('dtmi:sample:Room;1') AND c.Capacity > 20
 ```
 
@@ -74,72 +75,73 @@ JOIN LightPanel RELATED Room.contains
 JOIN LightBulb RELATED LightPanel.contains  
 WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')  
 AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')  
-AND Room.$dtId IN ['room1', 'room2'] 
+AND Room.$dtId IN ['room1', 'room2']
 ```
 
 ### <a name="specify-return-set-with-projections"></a>Specificare il set restituito con le proiezioni
 
-Utilizzando le proiezioni è possibile scegliere le colonne restituite da una query. 
+Utilizzando le proiezioni è possibile scegliere le colonne restituite da una query.
 
 >[!NOTE]
->A questo punto, le proprietà complesse non sono supportate. Per assicurarsi che le proprietà di proiezione siano valide, combinare le proiezioni con un `IS_PRIMITIVE` controllo. 
+>A questo punto, le proprietà complesse non sono supportate. Per assicurarsi che le proprietà di proiezione siano valide, combinare le proiezioni con un `IS_PRIMITIVE` controllo.
 
-Di seguito è riportato un esempio di una query che usa la proiezione per restituire i gemelli e le relazioni. La query seguente proietta il *consumer*, la *Factory* e il *perimetro* da uno scenario in cui una *Factory* con ID *ABC* è correlata al *consumer* tramite una relazione di *Factory. Customer*e la relazione viene presentata come *Edge*.
+Di seguito è riportato un esempio di una query che usa la proiezione per restituire i gemelli e le relazioni. La query seguente proietta il *consumer* , la *Factory* e il *perimetro* da uno scenario in cui una *Factory* con ID *ABC* è correlata al *consumer* tramite una relazione di *Factory. Customer* e la relazione viene presentata come *Edge* .
 
 ```sql
-SELECT Consumer, Factory, Edge 
-FROM DIGITALTWINS Factory 
-JOIN Consumer RELATED Factory.customer Edge 
-WHERE Factory.$dtId = 'ABC' 
+SELECT Consumer, Factory, Edge
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
 ```
 
-È anche possibile usare la proiezione per restituire una proprietà di un dispositivo gemello. La query seguente proietta la proprietà *Name* dei *consumer* correlati alla *Factory* con ID *ABC* tramite una relazione di *Factory. Customer*. 
+È anche possibile usare la proiezione per restituire una proprietà di un dispositivo gemello. La query seguente proietta la proprietà *Name* dei *consumer* correlati alla *Factory* con ID *ABC* tramite una relazione di *Factory. Customer* .
 
 ```sql
-SELECT Consumer.name 
-FROM DIGITALTWINS Factory 
-JOIN Consumer RELATED Factory.customer Edge 
-WHERE Factory.$dtId = 'ABC' 
+SELECT Consumer.name
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Consumer.name)
 ```
 
-È inoltre possibile utilizzare la proiezione per restituire una proprietà di una relazione. Come nell'esempio precedente, la query seguente proietta la proprietà *Name* degli *utenti* correlati alla *Factory* con ID *ABC* tramite una relazione di *Factory. Customer*; ma ora restituisce anche due proprietà di tale relazione, *Prop1* e *prop2*. Questa operazione viene eseguita assegnando un nome al *bordo* della relazione e raccogliendo le relative proprietà.  
+È inoltre possibile utilizzare la proiezione per restituire una proprietà di una relazione. Come nell'esempio precedente, la query seguente proietta la proprietà *Name* degli *utenti* correlati alla *Factory* con ID *ABC* tramite una relazione di *Factory. Customer* ; ma ora restituisce anche due proprietà di tale relazione, *Prop1* e *prop2* . Questa operazione viene eseguita assegnando un nome al *bordo* della relazione e raccogliendo le relative proprietà.  
 
 ```sql
-SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area 
-FROM DIGITALTWINS Factory 
-JOIN Consumer RELATED Factory.customer Edge 
-WHERE Factory.$dtId = 'ABC' 
+SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)
 ```
 
 È anche possibile usare alias per semplificare la proiezione di query.
 
-La query seguente esegue le stesse operazioni dell'esempio precedente, ma alias i nomi di proprietà a `consumerName` , `first` `second` e `factoryArea` . 
- 
+La query seguente esegue le stesse operazioni dell'esempio precedente, ma alias i nomi di proprietà a `consumerName` , `first` `second` e `factoryArea` .
+
 ```sql
-SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea 
-FROM DIGITALTWINS Factory 
-JOIN Consumer RELATED Factory.customer Edge 
-WHERE Factory.$dtId = 'ABC' 
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)" 
+SELECT Consumer.name AS consumerName, Edge.prop1 AS first, Edge.prop2 AS second, Factory.area AS factoryArea
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) AND IS_PRIMITIVE(Edge.prop1) AND IS_PRIMITIVE(Edge.prop2)"
 ```
 
-Di seguito è riportata una query analoga che esegue una query sullo stesso set precedente, ma proietta solo la proprietà *consumer.Name* come `consumerName` e proietta la *Factory* completa come un gemello. 
+Di seguito è riportata una query analoga che esegue una query sullo stesso set precedente, ma proietta solo la proprietà *consumer.Name* come `consumerName` e proietta la *Factory* completa come un gemello.
 
 ```sql
-SELECT Consumer.name AS consumerName, Factory 
-FROM DIGITALTWINS Factory 
-JOIN Consumer RELATED Factory.customer Edge 
-WHERE Factory.$dtId = 'ABC' 
-AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name) 
+SELECT Consumer.name AS consumerName, Factory
+FROM DIGITALTWINS Factory
+JOIN Consumer RELATED Factory.customer Edge
+WHERE Factory.$dtId = 'ABC'
+AND IS_PRIMITIVE(Factory.area) AND IS_PRIMITIVE(Consumer.name)
 ```
 
 ### <a name="query-by-property"></a>Query per proprietà
 
 Ottenere i gemelli digitali per **Proprietà** (inclusi ID e metadati):
+
 ```sql
-SELECT  * 
+SELECT  *
 FROM DigitalTwins T  
 WHERE T.firmwareVersion = '1.1'
 AND T.$dtId in ['123', '456']
@@ -149,20 +151,20 @@ AND T.Temperature = 70
 > [!TIP]
 > Viene eseguita una query sull'ID di un dispositivo gemello digitale usando il campo dei metadati `$dtId` .
 
-È anche possibile ottenere i gemelli a seconda **che sia definita una determinata proprietà**. Ecco una query che ottiene i gemelli che hanno una proprietà *location* definita:
+È anche possibile ottenere i gemelli a seconda **che sia definita una determinata proprietà** . Ecco una query che ottiene i gemelli che hanno una proprietà *location* definita:
 
 ```sql
 SELECT *
 FROM DIGITALTWINS WHERE IS_DEFINED(Location)
 ```
 
-Ciò consente di ottenere i dispositivi gemelli in base alle proprietà dei *tag* , come descritto in [aggiungere tag ai dispositivi gemelli digitali](how-to-use-tags.md). Ecco una query che ottiene tutti i gemelli contrassegnati con *rosso*:
+Ciò consente di ottenere i dispositivi gemelli in base alle proprietà dei *tag* , come descritto in [aggiungere tag ai dispositivi gemelli digitali](how-to-use-tags.md). Ecco una query che ottiene tutti i gemelli contrassegnati con *rosso* :
 
 ```sql
-select * from digitaltwins where is_defined(tags.red) 
+select * from digitaltwins where is_defined(tags.red)
 ```
 
-È anche possibile ottenere i gemelli in base al **tipo di una proprietà**. Ecco una query che ottiene i gemelli la cui proprietà *temperature* è un numero:
+È anche possibile ottenere i gemelli in base al **tipo di una proprietà** . Ecco una query che ottiene i gemelli la cui proprietà *temperature* è un numero:
 
 ```sql
 SELECT * FROM DIGITALTWINS T
@@ -171,7 +173,14 @@ WHERE IS_NUMBER(T.Temperature)
 
 ### <a name="query-by-model"></a>Query per modello
 
-L' `IS_OF_MODEL` operatore può essere usato per filtrare in base al [**modello**](concepts-models.md)del gemello. Supporta l'ereditarietà e presenta diverse opzioni di overload.
+L' `IS_OF_MODEL` operatore può essere usato per filtrare in base al [**modello**](concepts-models.md)del gemello.
+
+Considera l' [ereditarietà](concepts-models.md#model-inheritance) e la semantica di [ordinamento della versione](how-to-manage-model.md#update-models) e restituisce **true** per un determinato gemello se il gemello soddisfa una delle condizioni seguenti:
+
+* Il dispositivo gemello implementa direttamente il modello fornito a `IS_OF_MODEL()` e il numero di versione del modello nel dispositivo gemello è *maggiore o uguale al* numero di versione del modello specificato
+* Il dispositivo gemello implementa un modello che *estende* il modello fornito a `IS_OF_MODEL()` e il numero di versione del modello esteso del gemello è *maggiore o uguale al* numero di versione del modello fornito.
+
+Questo metodo presenta diverse opzioni di overload.
 
 L'uso più semplice di `IS_OF_MODEL` accetta solo un `twinTypeName` parametro: `IS_OF_MODEL(twinTypeName)` .
 Di seguito è riportato un esempio di query che passa un valore in questo parametro:
@@ -203,12 +212,12 @@ SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', ex
 
 ### <a name="query-based-on-relationships"></a>Query basata su relazioni
 
-Quando si esegue una query in base alle **relazioni**dei gemelli digitali, il linguaggio di query di Azure Digital Twins presenta una sintassi speciale.
+Quando si esegue una query in base alle **relazioni** dei gemelli digitali, il linguaggio di query di Azure Digital Twins presenta una sintassi speciale.
 
-Le relazioni vengono estratte nell'ambito della query nella `FROM` clausola. Una differenza importante rispetto ai linguaggi di tipo SQL "classici" è che ogni espressione in questa `FROM` clausola non è una tabella, bensì che la `FROM` clausola esprime un'attraversamento di relazioni tra entità e viene scritta con una versione di dispositivi gemelli digitali di Azure di `JOIN` . 
+Le relazioni vengono estratte nell'ambito della query nella `FROM` clausola. Una differenza importante rispetto ai linguaggi di tipo SQL "classici" è che ogni espressione in questa `FROM` clausola non è una tabella, bensì che la `FROM` clausola esprime un'attraversamento di relazioni tra entità e viene scritta con una versione di dispositivi gemelli digitali di Azure di `JOIN` .
 
 Tenere presente che con le funzionalità del [modello](concepts-models.md) di Azure Digital Twins, le relazioni non esistono indipendentemente dai dispositivi gemelli. Ciò significa che il linguaggio di query di Azure Digital Twins `JOIN` è leggermente diverso da SQL generale `JOIN` , perché non è possibile eseguire query in modo indipendente e le relazioni devono essere collegate a un dispositivo gemello.
-Per incorporare questa differenza, la parola chiave `RELATED` viene utilizzata nella `JOIN` clausola per fare riferimento a un set di relazioni del gemello. 
+Per incorporare questa differenza, la parola chiave `RELATED` viene utilizzata nella `JOIN` clausola per fare riferimento a un set di relazioni del gemello.
 
 Nella sezione seguente vengono forniti alcuni esempi di questo aspetto.
 
@@ -219,22 +228,22 @@ Nella sezione seguente vengono forniti alcuni esempi di questo aspetto.
 
 Per ottenere un set di dati che includa relazioni, utilizzare una singola `FROM` istruzione seguita da N `JOIN` istruzioni, in cui le `JOIN` istruzioni esprimono le relazioni sul risultato di un' `FROM` istruzione o precedente `JOIN` .
 
-Ecco una query di esempio basata sulle relazioni. Questo frammento di codice seleziona tutti i dispositivi gemelli digitali con una proprietà *ID* ' ABC ' e tutti i dispositivi gemelli digitali correlati a questi gemelli digitali tramite una relazione *Contains* . 
+Ecco una query di esempio basata sulle relazioni. Questo frammento di codice seleziona tutti i dispositivi gemelli digitali con una proprietà *ID* ' ABC ' e tutti i dispositivi gemelli digitali correlati a questi gemelli digitali tramite una relazione *Contains* .
 
 ```sql
 SELECT T, CT
 FROM DIGITALTWINS T
 JOIN CT RELATED T.contains
-WHERE T.$dtId = 'ABC' 
+WHERE T.$dtId = 'ABC'
 ```
 
->[!NOTE] 
+>[!NOTE]
 > Lo sviluppatore non deve correlare questo `JOIN` oggetto con un valore di chiave nella `WHERE` clausola o specificare un valore di chiave inline con la `JOIN` definizione. Questa correlazione viene calcolata automaticamente dal sistema, in quanto le proprietà della relazione identificano l'entità di destinazione.
 
 #### <a name="query-the-properties-of-a-relationship"></a>Eseguire query sulle proprietà di una relazione
 
-Analogamente al modo in cui i dispositivi gemelli digitali hanno le proprietà descritte tramite DTDL, le relazioni possono avere anche proprietà. È possibile eseguire una query sui dispositivi gemelli **in base alle proprietà delle relazioni**.
-Il linguaggio di query di Azure Digital gemelli consente di filtrare e proiettare le relazioni, assegnando un alias alla relazione all'interno della `JOIN` clausola. 
+Analogamente al modo in cui i dispositivi gemelli digitali hanno le proprietà descritte tramite DTDL, le relazioni possono avere anche proprietà. È possibile eseguire una query sui dispositivi gemelli **in base alle proprietà delle relazioni** .
+Il linguaggio di query di Azure Digital gemelli consente di filtrare e proiettare le relazioni, assegnando un alias alla relazione all'interno della `JOIN` clausola.
 
 Si consideri ad esempio una relazione di *servicedBy* con una proprietà *reportedCondition* . Nella query seguente, a questa relazione viene assegnato un alias ' R ' per fare riferimento alla relativa proprietà.
 
@@ -242,7 +251,7 @@ Si consideri ad esempio una relazione di *servicedBy* con una proprietà *report
 SELECT T, SBT, R
 FROM DIGITALTWINS T
 JOIN SBT RELATED T.servicedBy R
-WHERE T.$dtId = 'ABC' 
+WHERE T.$dtId = 'ABC'
 AND R.reportedCondition = 'clean'
 ```
 
@@ -250,18 +259,18 @@ Nell'esempio precedente, si noti come *reportedCondition* è una proprietà dell
 
 ### <a name="query-with-multiple-joins"></a>Query con più JOIN
 
-Attualmente in anteprima, fino a cinque istanze `JOIN` di sono supportate in una singola query. In questo modo è possibile attraversare contemporaneamente più livelli di relazioni.
+`JOIN`In una singola query sono supportati fino a cinque istanze. In questo modo è possibile attraversare contemporaneamente più livelli di relazioni.
 
 Di seguito è riportato un esempio di query a più join, che consente di ottenere tutte le lampadine contenute nei pannelli di luce nelle stanze 1 e 2.
 
 ```sql
-SELECT LightBulb 
-FROM DIGITALTWINS Room 
-JOIN LightPanel RELATED Room.contains 
-JOIN LightBulb RELATED LightPanel.contains 
-WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1') 
-AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1') 
-AND Room.$dtId IN ['room1', 'room2'] 
+SELECT LightBulb
+FROM DIGITALTWINS Room
+JOIN LightPanel RELATED Room.contains
+JOIN LightBulb RELATED LightPanel.contains
+WHERE IS_OF_MODEL(LightPanel, 'dtmi:contoso:com:lightpanel;1')
+AND IS_OF_MODEL(LightBulb, 'dtmi:contoso:com:lightbulb ;1')
+AND Room.$dtId IN ['room1', 'room2']
 ```
 
 ### <a name="other-compound-query-examples"></a>Altri esempi di query composte
@@ -312,27 +321,30 @@ Sono supportate le funzioni stringa seguenti:
 
 ## <a name="run-queries-with-an-api-call"></a>Eseguire query con una chiamata API
 
-Una volta decisa una stringa di query, è possibile eseguirla effettuando una chiamata all' **API di query**.
+Una volta decisa una stringa di query, è possibile eseguirla effettuando una chiamata all' **API di query** .
 Il frammento di codice seguente illustra questa chiamata dall'app client:
 
 ```csharp
-var client = new AzureDigitalTwinsAPIClient(<your-credentials>);
-client.BaseUri = new Uri(<your-Azure-Digital-Twins-instance-URL>);
 
-QuerySpecification spec = new QuerySpecification("SELECT * FROM digitaltwins");
-QueryResult result = await client.Query.QueryTwinsAsync(spec);
+var adtInstanceEndpoint = new Uri(your-Azure-Digital-Twins-instance-URL>);
+var tokenCredential = new DefaultAzureCredential();
+
+var client = new DigitalTwinsClient(adtInstanceEndpoint, tokenCredential);
+
+string query = "SELECT * FROM digitaltwins";
+AsyncPageable<string> result = await client.QueryAsync<string>(query);
 ```
 
-Questa chiamata restituisce i risultati della query sotto forma di oggetto QueryResult. 
+Questa chiamata restituisce i risultati della query sotto forma di oggetto stringa.
 
-Le chiamate di query supportano il paging. Di seguito è riportato un esempio completo con la gestione e il paging degli errori:
+Le chiamate di query supportano il paging. Di seguito è riportato un esempio completo di utilizzo `BasicDigitalTwin` di come tipo di risultato della query con gestione e paging degli errori:
 
 ```csharp
 string query = "SELECT * FROM digitaltwins";
 try
 {
-    AsyncPageable<string> qresult = client.QueryAsync(query);
-    await foreach (string item in qresult) 
+    AsyncPageable<BasicDigitalTwin> qresult = client.QueryAsync<BasicDigitalTwin>(query);
+    await foreach (BasicDigitalTwin item in qresult)
     {
         // Do something with each result
     }
@@ -340,7 +352,7 @@ try
 catch (RequestFailedException e)
 {
     Log.Error($"Error {e.Status}: {e.Message}");
-    return null;
+    throw;
 }
 ```
 
@@ -348,10 +360,11 @@ catch (RequestFailedException e)
 
 Potrebbe verificarsi un ritardo di un massimo di 10 secondi prima che le modifiche nell'istanza vengano riflesse nelle query. Se, ad esempio, si completa un'operazione come la creazione o l'eliminazione di dispositivi gemelli con l'API DigitalTwins, il risultato potrebbe non essere immediatamente riflesso nelle richieste dell'API di query. È sufficiente attendere un breve periodo di tempo per la risoluzione.
 
-Esistono ulteriori limitazioni sull'utilizzo di `JOIN` durante l'anteprima.
+Esistono ulteriori limitazioni sull'utilizzo di `JOIN` .
+
 * Nessuna sottoquery supportata nell' `FROM` istruzione.
 * `OUTER JOIN` la semantica non è supportata, ovvero se la relazione ha un rango pari a zero, l'intera "riga" viene eliminata dal set di risultati di output.
-* Durante l'anteprima, la profondità di attraversamento del grafico è limitata a cinque `JOIN` livelli per query.
+* La profondità di attraversamento del grafico è limitata a cinque `JOIN` livelli per ogni query.
 * L'origine per `JOIN` le operazioni è limitata: la query deve dichiarare i dispositivi gemelli in cui inizia la query.
 
 ## <a name="query-best-practices"></a>Procedure consigliate per le query
@@ -360,30 +373,38 @@ Di seguito sono riportati alcuni suggerimenti per eseguire query con i dispositi
 
 * Si consideri il modello di query durante la fase di progettazione del modello. Provare a verificare che le relazioni che devono essere soddisfatte in una singola query siano modellate come una relazione a livello singolo.
 * Progettare le proprietà in modo da evitare set di risultati di grandi dimensioni dall'attraversamento del grafo.
-* È possibile ridurre significativamente il numero di query necessarie compilando una matrice di gemelli ed eseguendo query con l' `IN` operatore. Si consideri, ad esempio, uno scenario in cui gli *edifici* contengono *piani* e *pavimenti* che contengono *camere*. Per cercare le chat room all'interno di un edificio a caldo, è possibile:
+* È possibile ridurre significativamente il numero di query necessarie compilando una matrice di gemelli ed eseguendo query con l' `IN` operatore. Si consideri, ad esempio, uno scenario in cui gli *edifici* contengono *piani* e *pavimenti* che contengono *camere* . Per cercare le chat room all'interno di un edificio a caldo, è possibile:
 
     1. Trovare i piani nell'edificio in base alla `contains` relazione
+
         ```sql
         SELECT Floor
         FROM DIGITALTWINS Building
         JOIN Floor RELATED Building.contains
         WHERE Building.$dtId = @buildingId
-        ``` 
+        ```
+
     2. Per trovare le chat room, anziché prendere in considerazione i piani uno alla volta ed eseguire una `JOIN` query per trovare le chat per ognuno di essi, è possibile eseguire una query con una raccolta di piani nell'edificio (denominata *floor* nella query riportata di seguito).
 
         Nell'app client:
+
         ```csharp
         var floors = "['floor1','floor2', ..'floorn']"; 
         ```
+
         In query:
+
         ```sql
+
         SELECT Room
         FROM DIGITALTWINS Floor
         JOIN Room RELATED Floor.contains
         WHERE Floor.$dtId IN ['floor1','floor2', ..'floorn']
         AND Room. Temperature > 72
         AND IS_OF_MODEL(Room, 'dtmi:com:contoso:Room;1')
+
         ```
+
 * I nomi e i valori delle proprietà fanno distinzione tra maiuscole e minuscole, quindi prestare attenzione a utilizzare i nomi esatti definiti nei modelli. Se i nomi delle proprietà non sono stati digitati in modo errato o sono stati erroneamente configurati, il set di risultati è vuoto e non vengono restituiti errori.
 
 ## <a name="next-steps"></a>Passaggi successivi

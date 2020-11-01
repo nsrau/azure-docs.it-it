@@ -11,10 +11,10 @@ ms.topic: how-to
 ms.date: 11/03/2017
 ms.author: ghogen
 ms.openlocfilehash: bdc03e8c136606ab7768705b0c8dbcc97782966f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "87088394"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Pubblicare un'app Web ASP.NET in una macchina virtuale di Azure da Visual Studio
@@ -32,12 +32,12 @@ Per usare Visual Studio per pubblicare un progetto ASP.NET in una macchina virtu
 La sezione seguente descrive come pubblicare un'applicazione Web ASP.NET esistente in una macchina virtuale di Azure.
 
 1. Aprire la soluzione app Web in Visual Studio 2019.
-2. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Pubblica**.
-3. Usare la freccia a destra della pagina per scorrere le opzioni di pubblicazione fino a trovare **Macchine virtuali di Microsoft Azure**.  
+2. Fare clic con il pulsante destro del mouse sul progetto in Esplora soluzioni e scegliere **Pubblica** .
+3. Usare la freccia a destra della pagina per scorrere le opzioni di pubblicazione fino a trovare **Macchine virtuali di Microsoft Azure** .  
 
    ![Pagina di pubblicazione - Freccia a destra]
 
-4. Selezionare l'icona **Macchine virtuali di Microsoft Azure** e quindi **Pubblica**.
+4. Selezionare l'icona **Macchine virtuali di Microsoft Azure** e quindi **Pubblica** .
 
    ![Pagina di pubblicazione - Icona Macchine virtuali di Microsoft Azure]
 
@@ -87,7 +87,7 @@ Per pubblicare gli aggiornamenti all'applicazione Web, selezionare il pulsante *
 
 ### <a name="modify-publish-profile-settings"></a>Modificare le impostazioni del profilo di pubblicazione
 
-Per visualizzare e modificare le impostazioni del profilo di pubblicazione, selezionare **Impostazioni**.  
+Per visualizzare e modificare le impostazioni del profilo di pubblicazione, selezionare **Impostazioni** .  
 
 ![Pagina di pubblicazione - Pulsante Impostazioni]
 

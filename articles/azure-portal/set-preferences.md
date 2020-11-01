@@ -9,12 +9,12 @@ ms.date: 08/05/2020
 ms.topic: how-to
 ms.service: azure-portal
 manager: mtillman
-ms.openlocfilehash: 34750bcc2e9913b23daa3682d4fdea736f9c7a9a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f94f694163ba836091e522a29f73cabd64e22b5
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367432"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145940"
 ---
 # <a name="manage-azure-portal-settings-and-preferences"></a>Gestire impostazioni e preferenze del portale di Azure
 
@@ -44,13 +44,13 @@ ms.locfileid: "92367432"
 
 - Non è possibile personalizzare **Home** .  Visualizza i collegamenti ai servizi di Azure più diffusi ed elenca le risorse usate più di recente. Ti offriamo anche collegamenti utili a risorse come Microsoft Learn e la roadmap per Azure.
 
-- I dashboard possono essere personalizzati per creare un'area di lavoro progettata solo per l'utente. Ad esempio, è possibile compilare un dashboard con lo stato attivo per progetto, attività o ruolo. Se si seleziona **Dashboard**, la visualizzazione predefinita passerà al dashboard usato più di recente. Per altre informazioni, vedere [Creare e condividere dashboard nel portale di Azure](azure-portal-dashboards.md).
+- I dashboard possono essere personalizzati per creare un'area di lavoro progettata solo per l'utente. Ad esempio, è possibile compilare un dashboard con lo stato attivo per progetto, attività o ruolo. Se si seleziona **Dashboard** , la visualizzazione predefinita passerà al dashboard usato più di recente. Per altre informazioni, vedere [Creare e condividere dashboard nel portale di Azure](azure-portal-dashboards.md).
 
 ## <a name="choose-a-portal-menu-mode"></a>Scegliere una modalità del menu del portale
 
 La modalità predefinita per il menu del portale controlla la quantità di spazio occupata dal menu del portale nella pagina.
 
-![Screenshot che mostra le impostazioni di portale di Azure con i temi evidenziati](./media/set-preferences/menu-mode.png)
+![Screenshot che illustra come impostare la modalità predefinita per il menu del portale.](./media/set-preferences/menu-mode.png)
 
 - Quando il menu del portale è in modalità a **comparsa** , è nascosto fino a quando non è necessario. Selezionare l'icona del menu per aprire o chiudere il menu.
 
@@ -68,7 +68,7 @@ In alternativa, è possibile scegliere uno dei temi a contrasto elevato. I temi 
 
 Le notifiche sono messaggi di sistema correlati alla sessione corrente. Forniscono informazioni come il saldo del credito corrente, quando le risorse appena create diventano disponibili o confermano l'ultima azione, ad esempio. Quando le notifiche popup sono attivate, i messaggi vengono visualizzati brevemente nell'angolo superiore dello schermo. 
 
-Per abilitare o disabilitare le notifiche popup, selezionare o deselezionare **Abilita notifiche popup**.
+Per abilitare o disabilitare le notifiche popup, selezionare o deselezionare **Abilita notifiche popup** .
 
 ![Screenshot che mostra le impostazioni di portale di Azure con le notifiche popup evidenziate](./media/set-preferences/popup-notifications.png)
 
@@ -84,13 +84,13 @@ L'impostazione del timeout di inattività consente di proteggere le risorse da a
 
 ### <a name="change-your-individual-timeout-setting-user"></a>Modificare le impostazioni di timeout individuali (utente)
 
-Selezionare l'elenco a discesa in **Sign me out when inactive**. Scegliere il periodo di tempo dopo il quale la sessione di portale di Azure viene disattivata se si è inattiva.
+Selezionare l'elenco a discesa in **Sign me out when inactive** . Scegliere il periodo di tempo dopo il quale la sessione di portale di Azure viene disattivata se si è inattiva.
 
 ![Screenshot che mostra le impostazioni del portale con impostazioni di timeout inattive evidenziate](./media/set-preferences/inactive-signout-user.png)
 
 La modifica viene salvata automaticamente. Se il computer è inattivo, la sessione di portale di Azure verrà disconnessi dopo la durata impostata.
 
-Se l'amministratore ha abilitato un criterio di timeout di inattività, è comunque possibile impostarne uno personalizzato, purché sia minore dell'impostazione a livello di directory. Selezionare **Sostituisci i criteri di timeout di inattività directory**, quindi impostare un intervallo di tempo.
+Se l'amministratore ha abilitato un criterio di timeout di inattività, è comunque possibile impostarne uno personalizzato, purché sia minore dell'impostazione a livello di directory. Selezionare **Sostituisci i criteri di timeout di inattività directory** , quindi impostare un intervallo di tempo.
 
 ![Screenshot che mostra le impostazioni del portale con Sostituisci l'impostazione dei criteri di timeout inattività directory evidenziata](./media/set-preferences/inactive-signout-override.png)
 
@@ -100,7 +100,7 @@ Gli amministratori del [ruolo amministratore globale](../active-directory/roles/
 
 Se si è un amministratore globale e si desidera applicare un'impostazione di timeout di inattività per tutti gli utenti del portale di Azure, attenersi alla procedura seguente:
 
-1. Selezionare il testo del collegamento **Configura timeout a livello di directory**.
+1. Selezionare il testo del collegamento **Configura timeout a livello di directory** .
 
     ![Screenshot che mostra le impostazioni del portale con il testo del collegamento evidenziato](./media/set-preferences/settings-admin.png)
 
@@ -108,7 +108,7 @@ Se si è un amministratore globale e si desidera applicare un'impostazione di ti
 
 1. Immettere quindi le **ore** e i **minuti** per l'intervallo di tempo massimo durante il quale un utente può rimanere inattivo prima che la sessione venga disconnesso automaticamente.
 
-1. Selezionare **Applica**.
+1. Selezionare **Applica** .
 
     ![Screenshot che mostra la pagina per impostare il timeout di inattività a livello di directory](./media/set-preferences/configure.png)
 
@@ -118,7 +118,7 @@ Per verificare che i criteri di timeout di inattività siano impostati correttam
 
 ## <a name="restore-default-settings"></a>Ripristina impostazioni predefinite
 
-Se sono state apportate modifiche alle impostazioni portale di Azure e si desidera eliminarle, selezionare **Ripristina impostazioni predefinite**. Tutte le modifiche apportate alle impostazioni del portale andranno perse. Questa opzione non influisce sulle personalizzazioni del dashboard.
+Se sono state apportate modifiche alle impostazioni portale di Azure e si desidera eliminarle, selezionare **Ripristina impostazioni predefinite** . Tutte le modifiche apportate alle impostazioni del portale andranno perse. Questa opzione non influisce sulle personalizzazioni del dashboard.
 
 ![Screenshot che mostra il ripristino delle impostazioni predefinite](./media/set-preferences/useful-links-restore-defaults.png)
 
@@ -132,7 +132,7 @@ Le informazioni sulle impostazioni personalizzate vengono archiviate in Azure. �
 
 È consigliabile esportare ed esaminare le impostazioni se si prevede di eliminarle. La ricompilazione di dashboard o la reimpostazione delle impostazioni può richiedere molto tempo.
 
-Per esportare le impostazioni del portale, selezionare **Esporta tutte le impostazioni**.
+Per esportare le impostazioni del portale, selezionare **Esporta tutte le impostazioni** .
 
 ![Screenshot che mostra l'esportazione delle impostazioni](./media/set-preferences/useful-links-export-settings.png)
 
@@ -150,7 +150,7 @@ Le informazioni sulle impostazioni personalizzate vengono archiviate in Azure. �
 
 [!INCLUDE [GDPR-related guidance](../../includes/gdpr-intro-sentence.md)]
 
-Per eliminare le impostazioni del portale, selezionare **Elimina tutte le impostazioni e dashboard privati**.
+Per eliminare le impostazioni del portale, selezionare **Elimina tutte le impostazioni e dashboard privati** .
 
 ![Screenshot che mostra l'eliminazione di impostazioni](./media/set-preferences/useful-links-delete-settings.png)
 

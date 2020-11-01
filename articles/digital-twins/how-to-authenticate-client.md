@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f5ca063bcc784498dddf87f34f0f7974b95ecaf
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b929632318de41470412811885b9f1bd3054783a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93027314"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145974"
 ---
 # <a name="write-client-app-authentication-code"></a>Scrivere il codice di autenticazione dell'app client
 
@@ -31,12 +31,14 @@ Per continuare, sarà necessario un progetto di app client in cui si scrive il c
 ## <a name="common-authentication-methods-with-azureidentity"></a>Metodi di autenticazione comuni con Azure. Identity
 
 `Azure.Identity` è una libreria client che fornisce diversi metodi per ottenere le credenziali che è possibile usare per ottenere un bearer token ed eseguire l'autenticazione con l'SDK. Sebbene in questo articolo vengano forniti esempi in C#, è possibile visualizzare `Azure.Identity` diverse lingue, tra cui...
+
 * [.NET (C#)](/dotnet/api/azure.identity?preserve-view=true&view=azure-dotnet)
 * [Java](/java/api/overview/azure/identity-readme?preserve-view=true&view=azure-java-stable)
 * [JavaScript](/javascript/api/overview/azure/identity-readme?preserve-view=true&view=azure-node-latest)
 * [Python](/python/api/overview/azure/identity-readme?preserve-view=true&view=azure-python)
 
 Tre metodi comuni di recupero delle credenziali in `Azure.Identity` sono:
+
 * [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale** . È anche possibile abilitare per provare gli altri due metodi consigliati in questo articolo. esegue il wrapping `ManagedIdentityCredential` e può accedere `InteractiveBrowserCredential` con una variabile di configurazione.
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) funziona benissimo nei casi in cui sono necessarie [identità gestite (MSI)](../active-directory/managed-identities-azure-resources/overview.md)ed è un buon candidato per l'uso di funzioni di Azure e la distribuzione nei servizi di Azure.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) è destinato alle applicazioni interattive e può essere usato per creare un client SDK autenticato

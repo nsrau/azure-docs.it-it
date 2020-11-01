@@ -9,10 +9,10 @@ ms.date: 10/05/2020
 ms.author: duau
 ms.custom: seodec18
 ms.openlocfilehash: 843d0b8cfd75e8cbdf45ac535cc9486aa42442d6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91761802"
 ---
 # <a name="tutorial-configure-a-virtual-network-gateway-for-expressroute-using-the-azure-portal"></a>Esercitazione: Configurare un gateway di rete virtuale per ExpressRoute usando il portale di Azure
@@ -42,7 +42,7 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
     * Spazio degli indirizzi della subnet = "192.168.1.0/24"
 * Gruppo di risorse = "TestRG"
 * Località = "Stati Uniti orientali"
-* Nome subnet del gateway: "GatewaySubnet" Il nome della subnet del gateway deve sempre essere *GatewaySubnet*.
+* Nome subnet del gateway: "GatewaySubnet" Il nome della subnet del gateway deve sempre essere *GatewaySubnet* .
     * Spazio degli indirizzi della subnet gateway = "192.168.200.0/26"
 * Nome del gateway = "ERGW"
 * Nome IP pubblico del gateway = "MyERGWVIP"
@@ -64,7 +64,7 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 
 ## <a name="create-the-virtual-network-gateway"></a>Creare il gateway di rete virtuale
 
-1. Sul lato sinistro del portale fare clic su **Crea una risorsa** e digitare 'gateway di rete virtuale' nella casella di ricerca. Individuare **Gateway di rete virtuale** nei risultati della ricerca e selezionare la voce. Nella pagina **Gateway di rete virtuale** selezionare **Crea**.
+1. Sul lato sinistro del portale fare clic su **Crea una risorsa** e digitare 'gateway di rete virtuale' nella casella di ricerca. Individuare **Gateway di rete virtuale** nei risultati della ricerca e selezionare la voce. Nella pagina **Gateway di rete virtuale** selezionare **Crea** .
 1. Nella pagina **Crea gateway di rete virtuale** immettere o selezionare queste impostazioni:
 
     | Impostazione | Valore |
@@ -75,8 +75,8 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
     | Region | Cambiare il campo **Area** in modo che faccia riferimento alla località in cui si trova la rete virtuale. Se questa impostazione non punta all'area in cui si trova la rete virtuale, quest'ultima non comparirà nell'elenco a discesa 'Scegliere una rete virtuale'. |
     | Tipo gateway | Selezionare **ExpressRoute**|
     | SKU | selezionare lo SKU del gateway dall'elenco a discesa. |
-    | Rete virtuale | Selezionare *TestVNet*. |
-    | Indirizzo IP pubblico | Selezionare **Crea nuovo**.|
+    | Rete virtuale | Selezionare *TestVNet* . |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo** .|
     | Nome dell'indirizzo IP pubblico | Specificare un nome per l'indirizzo IP pubblico. |
 
 1. Selezionare **Rivedi e crea** e quindi **Crea** per avviare la creazione del gateway. Le impostazioni vengono convalidate e il gateway viene distribuito. La creazione di un gateway di rete virtuale può richiedere fino a 45 minuti.
@@ -85,7 +85,7 @@ Nei passaggi di questa attività viene usata una rete virtuale basata sui valori
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Se il gateway ExpressRoute non è più necessario, individuarlo nel gruppo di risorse della rete virtuale e selezionare **Elimina**. Verificare che il gateway non abbia connessioni con un circuito.
+Se il gateway ExpressRoute non è più necessario, individuarlo nel gruppo di risorse della rete virtuale e selezionare **Elimina** . Verificare che il gateway non abbia connessioni con un circuito.
 
 :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/delete-gateway.png" alt-text="Aggiungere la subnet del gateway":::
 

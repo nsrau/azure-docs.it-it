@@ -3,12 +3,12 @@ title: Informazioni su criteri di Azure per Kubernetes
 description: Informazioni su come il servizio Criteri di Azure usa Rego e Open Policy Agent per gestire i cluster che eseguono Kubernetes in Azure o in locale.
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: bd0dc08583b126b6260999ace14d8fc13c52c1f7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 1e85d7af26e52ea38c09ec0c052b5c6a2787bb80
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676708"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146297"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters"></a>Informazioni su Criteri di Azure per i cluster Kubernetes
 
@@ -37,7 +37,7 @@ Per abilitare e usare Criteri di Azure con il cluster Kubernetes, eseguire le op
    - [Motore del servizio Azure Kubernetes](#install-azure-policy-add-on-for-aks-engine)
 
    > [!NOTE]
-   > Per problemi comuni relativi all'installazione, vedere [risoluzione dei problemi-componente aggiuntivo criteri di Azure](../troubleshoot/general.md#add-on-installation-errors).
+   > Per problemi comuni relativi all'installazione, vedere [risoluzione dei problemi-componente aggiuntivo criteri di Azure](../troubleshoot/general.md#add-on-for-kubernetes-installation-errors).
 
 1. [Familiarizzare con il linguaggio di Criteri di Azure per Kubernetes](#policy-language)
 

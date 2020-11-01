@@ -7,12 +7,12 @@ services: firewall-manager
 ms.topic: conceptual
 ms.date: 10/30/2020
 ms.author: victorh
-ms.openlocfilehash: 759b8211aa8790e81c273f3d90d6679e70012ea4
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3c61dc689d19e1a7d6f9b6dbefae846e9458d750
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133662"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146859"
 ---
 # <a name="secure-virtual-hubs-using-check-point-cloudguard-connect"></a>Proteggere gli hub virtuali con check point Cloudguard Connect
 
@@ -30,7 +30,7 @@ L'emulazione delle minacce (sandboxing) protegge gli utenti da minacce sconosciu
 
 Vedere il video seguente per informazioni su come distribuire Check Point CloudGuard Connect come partner di sicurezza di Azure attendibile.
 
-> [!VIDEO https://youtu.be/C8AuN76DEmU]
+> [!VIDEO https://www.youtube.com/embed/C8AuN76DEmU]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

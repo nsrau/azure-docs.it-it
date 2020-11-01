@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/03/2020
+ms.date: 10/30/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9090c778771436a4fcf60139f3ee59812051057a
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89436851"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145617"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -42,7 +42,7 @@ Mentre le attestazioni facoltative sono supportate sia nei token di formato v1.0
 
 ## <a name="v10-and-v20-optional-claims-set"></a>Set di attestazioni facoltative v1.0 e v2.0
 
-Il set di attestazioni facoltative disponibili per impostazione predefinita per l'uso da parte delle applicazioni è riportato di seguito. Per aggiungere attestazioni facoltative personalizzate per l'applicazione, vedere le [estensioni della directory](#configuring-directory-extension-optional-claims) più avanti in questo articolo. Si noti che quando si aggiungono attestazioni al **token di accesso**, le attestazioni si applicano ai token di accesso richiesti *per* l'applicazione (un'API Web), non alle attestazioni richieste *dall*'applicazione. Indipendentemente dalla modalità di accesso del client all'API, i dati corretti sono presenti nel token di accesso usato per l'autenticazione con l'API.
+Il set di attestazioni facoltative disponibili per impostazione predefinita per l'uso da parte delle applicazioni è riportato di seguito. Per aggiungere attestazioni facoltative personalizzate per l'applicazione, vedere le [estensioni della directory](#configuring-directory-extension-optional-claims) più avanti in questo articolo. Si noti che quando si aggiungono attestazioni al **token di accesso** , le attestazioni si applicano ai token di accesso richiesti *per* l'applicazione (un'API Web), non alle attestazioni richieste *dall* 'applicazione. Indipendentemente dalla modalità di accesso del client all'API, i dati corretti sono presenti nel token di accesso usato per l'autenticazione con l'API.
 
 > [!NOTE]
 > La maggior parte di queste attestazioni può essere inclusa in token JWT per v1.0 e v2.0, ma non in token SAML, salvo dove diversamente indicato nella colonna Tipo di token. Gli account personali supportano un subset di tali attestazioni, come indicato nella colonna "Tipo utente".  Molte delle attestazioni elencate non si applicano agli utenti consumer (non hanno tenant, quindi `tenant_ctry` non presenta alcun valore).
@@ -67,7 +67,7 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `email`                    | Indirizzo di posta elettronica di riferimento, se l'utente ne ha uno.  | JWT, SAML | Account del servizio gestito, Azure AD | Questo valore è incluso per impostazione predefinita se l'utente è un ospite nel tenant.  Per gli utenti gestiti (gli utenti all'interno del tenant) deve essere richiesto tramite questa attestazione facoltativa oppure, solo per la versione 2.0, con l'ambito OpenID.  Per gli utenti gestiti, l'indirizzo di posta elettronica deve essere impostato nel [portale di amministrazione di Office](https://portal.office.com/adminportal/home#/users).|
 | `acct`                | Stato dell'account utente nel tenant | JWT, SAML | | Se l'utente è membro del tenant, il valore è `0`. Se si tratta di un utente guest, il valore è `1`. |
 | `groups`| Formattazione facoltativa per le attestazioni di gruppo |JWT, SAML| |Usato in combinazione con l'impostazione GroupMembershipClaims nel [manifesto dell'applicazione](reference-app-manifest.md), che deve anch'esso essere impostato. Per informazioni dettagliate, vedere [Attestazioni di gruppo](#configuring-groups-optional-claims). Per altre informazioni sulle attestazioni di gruppo, vedere [Come configurare le attestazioni di gruppo](../hybrid/how-to-connect-fed-group-claims.md)
-| `upn`                      | UserPrincipalName | JWT, SAML  |           | Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest.  |
+| `upn`                      | UserPrincipalName | JWT, SAML  |           | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non è un identificatore durevole per l'utente e non deve essere usato per identificare in modo univoco le informazioni utente, ad esempio come chiave del database. Utilizzare invece l'ID oggetto utente ( `oid` ) come chiave del database. Per gli utenti che accedono con un [ID di accesso alternativo](/azure/active-directory/authentication/howto-authentication-use-email-signin) non dovrebbe essere visualizzato il nome dell'entità utente (UPN). Usare invece le seguenti attestazioni del token ID per visualizzare lo stato di accesso all'utente: `preferred_username` o `unique_name` per i token V1 e `preferred_username` per i token V2. Benché questa attestazione sia inclusa automaticamente, è possibile specificarla come attestazione facoltativa per collegare proprietà aggiuntive in modo da modificarne il comportamento nel caso dell'utente guest.  |
 | `idtyp`                    | Tipo di token   | Token di accesso JWT | Speciale: solo nei token di accesso solo app |  Il valore è `app` quando il token è un token solo app. Questo è il modo più accurato per un'API per determinare se un token è un token dell'app o un token dell'utente e dell'app.|
 
 ## <a name="v20-specific-optional-claims-set"></a>Set di attestazioni facoltative specifiche per v2.0
@@ -85,7 +85,7 @@ Queste attestazioni sono sempre incluse nei token di Azure AD v1.0, ma non sono 
 | `in_corp`     | All'interno della rete aziendale        | Segnala se il client sta effettuando l'accesso dalla rete aziendale. In caso contrario, l'attestazione non è inclusa.   |  In base alle impostazioni degli [indirizzi IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips) nell'autenticazione a più fattori.    |
 | `family_name` | Cognome                       | Fornisce il cognome dell'utente, come definito nell'oggetto utente. <br>"family_name":"Miller" | Supportato nell'account del servizio gestito e in Azure AD. Richiede l'ambito `profile`.   |
 | `given_name`  | Nome                      | Fornisce il nome dell'utente, come impostato nell'oggetto utente.<br>"given_name": "Frank"                   | Supportato nell'account del servizio gestito e in Azure AD.  Richiede l'ambito `profile`. |
-| `upn`         | Nome entità utente | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non si tratta di un identificatore permanente per l'utente, pertanto non deve essere usato per inserire dati. | Per la configurazione dell'attestazione, vedere le [proprietà aggiuntive](#additional-properties-of-optional-claims) seguenti. Richiede l'ambito `profile`.|
+| `upn`         | Nome entità utente | Identificatore dell'utente che può essere usato con il parametro username_hint.  Non è un identificatore durevole per l'utente e non deve essere usato per identificare in modo univoco le informazioni utente, ad esempio come chiave del database. Utilizzare invece l'ID oggetto utente ( `oid` ) come chiave del database. Per gli utenti che accedono con un [ID di accesso alternativo](/azure/active-directory/authentication/howto-authentication-use-email-signin) non dovrebbe essere visualizzato il nome dell'entità utente (UPN). Usare invece le seguenti attestazioni del token ID per visualizzare lo stato di accesso all'utente: `preferred_username` o `unique_name` per i token V1 e `preferred_username` per i token V2. | Per la configurazione dell'attestazione, vedere le [proprietà aggiuntive](#additional-properties-of-optional-claims) seguenti. Richiede l'ambito `profile`.|
 
 ### <a name="additional-properties-of-optional-claims"></a>Proprietà aggiuntive delle attestazioni facoltative
 
@@ -124,25 +124,25 @@ Questo oggetto OptionalClaims fa in modo che il token ID restituito al client in
 
 È possibile configurare attestazioni facoltative per l'applicazione tramite l'interfaccia utente o il manifesto dell'applicazione.
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare **Azure Active Directory**.
-1. Nella sezione **Gestisci** selezionare **Registrazioni app**.
+1. Accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare **Azure Active Directory** .
+1. Nella sezione **Gestisci** selezionare **Registrazioni app** .
 1. Selezionare l'applicazione per cui si vogliono configurare le attestazioni facoltative nell'elenco.
 
 **Configurazione di attestazioni facoltative tramite l'interfaccia utente:**
 
 [![Configurare attestazioni facoltative nell'interfaccia utente](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
-1. Nella sezione **Gestisci** selezionare **Configurazione del token**.
-1. Selezionare **Aggiungi un'attestazione facoltativa**.
+1. Nella sezione **Gestisci** selezionare **Configurazione del token** .
+1. Selezionare **Aggiungi un'attestazione facoltativa** .
 1. Selezionare il tipo di token da configurare.
 1. Selezionare le attestazioni facoltative da aggiungere.
-1. Selezionare **Aggiungi**.
+1. Selezionare **Aggiungi** .
 
 **Configurazione di attestazioni facoltative tramite il manifesto dell'applicazione:**
 
 [![Mostra come configurare le attestazioni facoltative tramite il manifesto dell'app](./media/active-directory-optional-claims/app-manifest.png)](./media/active-directory-optional-claims/app-manifest.png)
 
-1. Nella sezione **Gestisci** selezionare **Manifesto**. Verrà aperto un editor manifesto basato sul Web che consente di modificare il manifesto. Facoltativamente è possibile selezionare **Scarica**, modificare il manifesto in locale e quindi usare **Carica** per riapplicarlo all'applicazione. Per altre informazioni sul manifesto dell'applicazione, vedere l'articolo [Informazioni sul manifesto dell'applicazione Azure AD](reference-app-manifest.md).
+1. Nella sezione **Gestisci** selezionare **Manifesto** . Verrà aperto un editor manifesto basato sul Web che consente di modificare il manifesto. Facoltativamente è possibile selezionare **Scarica** , modificare il manifesto in locale e quindi usare **Carica** per riapplicarlo all'applicazione. Per altre informazioni sul manifesto dell'applicazione, vedere l'articolo [Informazioni sul manifesto dell'applicazione Azure AD](reference-app-manifest.md).
 
     La voce del manifesto dell'applicazione seguente aggiunge le attestazioni facoltative auth_time, ipaddr e upn ai token ID, di accesso e SAML.
 
@@ -174,7 +174,7 @@ Questo oggetto OptionalClaims fa in modo che il token ID restituito al client in
     }
     ```
 
-2. Al termine, selezionare **Salva**. A questo punto, le attestazioni facoltative specificate verranno incluse nei token per l'applicazione.
+2. Al termine, selezionare **Salva** . A questo punto, le attestazioni facoltative specificate verranno incluse nei token per l'applicazione.
 
 ### <a name="optionalclaims-type"></a>Tipo OptionalClaims
 
@@ -238,7 +238,7 @@ In questa sezione vengono illustrate le opzioni di configurazione delle attestaz
 1. Selezionare l'applicazione per cui si vogliono configurare le attestazioni facoltative nell'elenco
 1. Nella sezione **Gestisci** selezionare **Configurazione del token**
 1. Selezionare **Aggiungi un'attestazione basata su gruppi**
-1. Selezionare i tipi di gruppo da restituire **(gruppi di sicurezza**o ruoli della **directory**, **tutti i gruppi**e/o i **gruppi assegnati all'applicazione**). I **gruppi assegnati all'** opzione dell'applicazione includono solo i gruppi assegnati all'applicazione. L' **opzione tutti i gruppi** include **SecurityGroup**, **DirectoryRole**e **Distribution**, ma non **i gruppi assegnati all'applicazione**. 
+1. Selezionare i tipi di gruppo da restituire **(gruppi di sicurezza** o ruoli della **directory** , **tutti i gruppi** e/o i **gruppi assegnati all'applicazione** ). I **gruppi assegnati all'** opzione dell'applicazione includono solo i gruppi assegnati all'applicazione. L' **opzione tutti i gruppi** include **SecurityGroup** , **DirectoryRole** e **Distribution** , ma non **i gruppi assegnati all'applicazione** . 
 1. Facoltativo: selezionare le proprietà specifiche del tipo di token per modificare il valore dell'attestazione dei gruppi in modo che contenga gli attributi del gruppo locale o per modificare il tipo di attestazione in un ruolo
 1. Selezionare **Salva**
 
@@ -381,19 +381,19 @@ Nell'esempio seguente si userà l'interfaccia utente di **Configurazione del tok
 
 1. Selezionare **Azure Active Directory** dal menu a sinistra.
 
-1. Nella sezione **Gestisci** selezionare **Registrazioni app**.
+1. Nella sezione **Gestisci** selezionare **Registrazioni app** .
 
 1. Trovare l'applicazione per cui si vogliono configurare le attestazioni facoltative nell'elenco e selezionarla.
 
-1. Nella sezione **Gestisci** selezionare **Configurazione del token**.
+1. Nella sezione **Gestisci** selezionare **Configurazione del token** .
 
-1. Selezionare **Aggiungi un'attestazione facoltativa**, selezionare il tipo di token **ID**, selezionare **upn** nell'elenco di attestazioni e infine fare clic su **Aggiungi**.
+1. Selezionare **Aggiungi un'attestazione facoltativa** , selezionare il tipo di token **ID** , selezionare **upn** nell'elenco di attestazioni e infine fare clic su **Aggiungi** .
 
-1. Selezionare **Aggiungi un'attestazione facoltativa**, selezionare il tipo di token **Accesso**, selezionare **auth_time** nell'elenco di attestazioni e infine fare clic su **Aggiungi**.
+1. Selezionare **Aggiungi un'attestazione facoltativa** , selezionare il tipo di token **Accesso** , selezionare **auth_time** nell'elenco di attestazioni e infine fare clic su **Aggiungi** .
 
-1. Nella schermata della panoramica di Configurazione del token selezionare l'icona della matita accanto a **upn**, selezionare l'interruttore **Con autenticazione esterna** e infine fare clic su **Salva**.
+1. Nella schermata della panoramica di Configurazione del token selezionare l'icona della matita accanto a **upn** , selezionare l'interruttore **Con autenticazione esterna** e infine fare clic su **Salva** .
 
-1. Selezionare **Aggiungi un'attestazione facoltativa**, selezionare il tipo di token **SAML**, selezionare **extn.skypeID** dall'elenco di attestazioni (applicabile solo se è stato creato un oggetto utente Azure AD denominato skypeID) e infine fare clic su **Aggiungi**.
+1. Selezionare **Aggiungi un'attestazione facoltativa** , selezionare il tipo di token **SAML** , selezionare **extn.skypeID** dall'elenco di attestazioni (applicabile solo se è stato creato un oggetto utente Azure AD denominato skypeID) e infine fare clic su **Aggiungi** .
 
     [![Attestazioni facoltative per il token SAML](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 

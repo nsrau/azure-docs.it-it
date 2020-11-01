@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 10/06/2020
-ms.openlocfilehash: 54775d7e9923505c6e68a47feed6726b9cb84c47
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0d22e10a71c3eee2026f55a73074ba02c68c2b78
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129933"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146178"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guida alla pubblicazione per tipo di offerta
 
@@ -39,10 +39,8 @@ La tabella seguente illustra i tipi di offerta del Marketplace commerciale nel c
 | [**Modulo IoT Edge**](iot-edge-module.md) | I moduli di Azure IoT Edge sono le unità di calcolo più piccole gestite da IoT Edge e possono contenere i servizi di Microsoft, ad esempio analisi di flusso, servizi di terze parti o il codice specifico per la soluzione. |
 | [**Servizio gestito**](partner-center-portal/create-new-managed-service-offer.md) | È possibile creare offerte di servizi gestiti e gestire sottoscrizioni o gruppi di risorse delegati dai clienti tramite [Azure Lighthouse](../lighthouse/overview.md).|
 | [**App Power bi** <br/> **Microsoft 365**](appsource-offer-publishing-guide.md) | È possibile pubblicare offerte AppSource che compilano o estendono Power BI e Microsoft 365.|
-| [**Software come servizio**](plan-saas-offer.md) | Usare il tipo di offerta Software as a Service (SaaS) per consentire al cliente di acquistare una soluzione tecnica basata su SaaS come sottoscrizione. |
+| [**Software come servizio**](plan-saas-offer.md) | Usare il tipo di offerta Software as a Service (SaaS) per consentire al cliente di acquistare una soluzione tecnica basata su SaaS come sottoscrizione. Per informazioni sui requisiti Single Sign-On per le offerte SaaS, vedere la pagina relativa alle [offerte saas Azure ad e transazionali nel Marketplace commerciale](azure-ad-saas.md). |
 
-
-Per informazioni sui requisiti di Single Sign-On elencando le opzioni e i tipi di offerta, vedere [**requisiti di Azure ad**](enable-appsource-marketplace-using-azure-ad.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

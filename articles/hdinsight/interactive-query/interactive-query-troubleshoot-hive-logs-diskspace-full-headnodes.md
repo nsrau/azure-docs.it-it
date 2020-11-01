@@ -1,32 +1,32 @@
 ---
-title: Log di Apache Hive riempimento dello spazio su disco-Azure HDInsight
-description: I log Apache Hive riempiono lo spazio su disco nei nodi head di Azure HDInsight.
+title: 'Risoluzione dei problemi: spazio su disco riempito da log Apache Hive-Azure HDInsight'
+description: Questo articolo fornisce le procedure per la risoluzione dei problemi da seguire quando Apache Hive i log riempiono lo spazio su disco nei nodi head di Azure HDInsight.
 ms.service: hdinsight
 ms.topic: troubleshooting
 author: nisgoel
 ms.author: nisgoel
 ms.reviewer: jasonh
 ms.date: 10/05/2020
-ms.openlocfilehash: 5554a66927fc70f22ec552b938ae62038a04acb9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 64bf5714f5eb99df9929a47fef414a827ec680af
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92533020"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145634"
 ---
 # <a name="scenario-apache-hive-logs-are-filling-up-the-disk-space-on-the-head-nodes-in-azure-hdinsight"></a>Scenario: i log di Apache Hive riempiono lo spazio su disco nei nodi head in Azure HDInsight
 
-Questo articolo descrive le procedure di risoluzione dei problemi e le possibili soluzioni per i problemi relativi allo spazio su disco insufficiente nei nodi head nei cluster HDInsight di Azure.
+Questo articolo descrive le procedure per la risoluzione dei problemi e le possibili soluzioni per i problemi relativi allo spazio su disco insufficiente nei nodi head nei cluster HDInsight di Azure.
 
 ## <a name="issue"></a>Problema
 
-In un cluster Apache Hive/LLAP, i log indesiderati occupano l'intero spazio su disco nei nodi head. A causa di ciò, è possibile che vengano visualizzati i problemi seguenti.
+In un cluster Apache Hive/LLAP, i log indesiderati occupano l'intero spazio su disco nei nodi head. Questa condizione può causare i problemi seguenti:
 
-1. L'accesso SSH ha esito negativo a causa della mancanza di spazio sul nodo head.
-2. Ambari restituisce un *errore http: 503 servizio non disponibile* .
-3. Il riavvio di HiveServer2 Interactive non riesce.
+- L'accesso SSH non riesce perché non è rimasto spazio sul nodo head.
+- Ambari genera un *errore http: 503 servizio non disponibile* .
+- Il riavvio di HiveServer2 Interactive non riesce.
 
-`ambari-agent`Quando si verifica il problema, nei log verrà visualizzato quanto segue.
+`ambari-agent`Quando si verifica il problema, i log includeranno le voci seguenti:
 ```
 ambari_agent - Controller.py - [54697] - Controller - ERROR - Error:[Errno 28] No space left on device
 ```
@@ -36,17 +36,17 @@ ambari_agent - HostCheckReportFileHandler.py - [54697] - ambari_agent.HostCheckR
 
 ## <a name="cause"></a>Causa
 
-Nelle configurazioni Advanced hive-log4j la pianificazione dell'eliminazione predefinita corrente è impostata per i file più vecchi di 30 giorni in base alla data dell'Ultima modifica.
+Nelle configurazioni Advanced hive log4j la pianificazione dell'eliminazione predefinita corrente prevede l'eliminazione dei file più vecchi di 30 giorni, in base alla data dell'Ultima modifica.
 
-## <a name="resolution"></a>Soluzione
+## <a name="resolution"></a>Risoluzione
 
-1. Passare a hive Component Summary (Riepilogo componenti hive) nel portale di Ambari e fare clic sulla `Configs` scheda.
+1. Passare al riepilogo dei componenti hive nel portale di Ambari e selezionare la scheda **configs (configurazioni** ).
 
-2. Passare alla `Advanced hive-log4j` sezione all'interno delle impostazioni avanzate.
+2. Passare alla `Advanced hive-log4j` sezione in **Impostazioni avanzate** .
 
-3. Impostare `appender.RFA.strategy.action.condition.age` il parametro su un'età di propria scelta. Esempio per 14 giorni: `appender.RFA.strategy.action.condition.age = 14D`
+3. Impostare il `appender.RFA.strategy.action.condition.age` parametro su un'età di propria scelta. In questo esempio l'età viene impostata su 14 giorni: `appender.RFA.strategy.action.condition.age = 14D`
 
-4. Se non vengono visualizzate impostazioni correlate, aggiungere le seguenti impostazioni.
+4. Se non vengono visualizzate impostazioni correlate, aggiungere le impostazioni seguenti:
     ```
     # automatically delete hive log
     appender.RFA.strategy.action.type = Delete
@@ -57,7 +57,7 @@ Nelle configurazioni Advanced hive-log4j la pianificazione dell'eliminazione pre
     appender.RFA.strategy.action.PathConditions.regex = hive*.*log.*
     ```
 
-5. Impostare `hive.root.logger` su `INFO,RFA` come indicato di seguito. L'impostazione predefinita è DEBUG, che consente di aumentare le dimensioni dei log.
+5. Impostare `hive.root.logger` su `INFO,RFA` , come illustrato nell'esempio seguente. L'impostazione predefinita è `DEBUG` , che rende i log di grandi dimensioni.
 
     ```
     # Define some default values that can be overridden by system properties

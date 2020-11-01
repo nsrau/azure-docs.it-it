@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 6164617c66401811715007548de59ebbf5ff253b
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: ec82ec6613b6d2e68d01815d5669bfb169037e72
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787483"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146570"
 ---
 # <a name="azure-queue-storage-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio dell'archiviazione code di Azure
 
@@ -26,7 +26,7 @@ Le tabelle seguenti elencano le metriche della piattaforma raccolte per Archivia
 
 ### <a name="capacity-metrics"></a>Metriche della capacità
 
-I valori delle metriche relative alla capacità vengono inviati a Monitoraggio di Azure ogni ora. I valori vengono aggiornati ogni giorno. L'intervallo di tempo definisce l'intervallo di tempo per cui vengono presentati i valori delle metriche. L'intervallo di tempo supportato per tutte le metriche relative alla capacità è un'ora (PT1H).
+I valori delle metriche di capacità vengono aggiornati quotidianamente (fino a 24 ore). L'intervallo di tempo definisce l'intervallo di tempo per cui vengono presentati i valori delle metriche. L'intervallo di tempo supportato per tutte le metriche relative alla capacità è un'ora (PT1H).
 
 Archiviazione di Azure fornisce le metriche seguenti relative alla capacità in Monitoraggio di Azure.
 

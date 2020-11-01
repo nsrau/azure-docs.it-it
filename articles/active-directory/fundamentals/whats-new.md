@@ -11,17 +11,17 @@ ms.service: active-directory
 ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/06/2020
+ms.date: 10/30/2020
 ms.author: ajburnle
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f08efc8a10c50dcfcc6da884396dea88695dbb2a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 74cb1e021049b7c36c4c23f2e9a6a7512fba1110
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096020"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146136"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Novità di Azure Active Directory
 
@@ -52,6 +52,257 @@ Questa modifica provocherà un'interferenza del servizio se non si esegue immedi
 
 Se si dispone di un ambiente con regole del firewall impostate per consentire le chiamate in uscita solo per il download di un elenco di revoche di certificati (CRL) specifico, sarà necessario consentire i seguenti URL CRL e OCSP. Per informazioni dettagliate sulla modifica e sugli URL CRL e OCSP per consentire l'accesso a, vedere  [modifiche ai certificati TLS di Azure](../../security/fundamentals/tls-certificate-changes.md).
 
+---
+
+### <a name="provisioning-events-will-be-removed-from-audit-logs-and-published-solely-to-provisioning-logs"></a>Gli eventi di provisioning verranno rimossi dai log di controllo e pubblicati esclusivamente nei log di provisioning
+
+**Tipo:** Modifica pianificata  
+**Categoria di servizio:** Creazione di report  
+**Funzionalità del prodotto:** Monitoraggio e creazione report
+ 
+L'attività da parte del [servizio di provisioning](../app-provisioning/user-provisioning.md) scim viene registrata sia nei log di controllo che nei log di provisioning. Sono incluse attività quali la creazione di un utente in ServiceNow, il gruppo in GSuite o l'importazione di un ruolo da AWS. In futuro, questi eventi verranno pubblicati solo nei log di provisioning. Questa modifica viene implementata per evitare eventi duplicati nei log e costi aggiuntivi sostenuti dai clienti che utilizzano i log in log Analytics. 
+
+Al termine di una data verrà fornito un aggiornamento. Questa deprecazione non è pianificata per l'anno di calendario 2020. 
+
+> [!NOTE]
+> Questa operazione non influisca sugli eventi nei log di controllo al di fuori degli eventi di sincronizzazione generati dal servizio di provisioning. Gli eventi come la creazione di un'applicazione, i criteri di accesso condizionale, un utente nella directory e così via continueranno a essere generati nei log di controllo. [Altre informazioni](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/app-provisioning/context/app-provisioning-context)
+ 
+
+---
+
+### <a name="azure-ad-on-premises-hybrid-agents-impacted-by-azure-transport-layer-security-tls-certificate-changes"></a>Azure AD agenti ibridi locali interessati dalle modifiche ai certificati di Azure Transport Layer Security (TLS)
+
+**Tipo:** Modifica pianificata  
+**Categoria di servizio:** N/D  
+**Funzionalità del prodotto:** Piattaforma
+ 
+Microsoft sta aggiornando i servizi di Azure per l'uso di certificati TLS emessi da un set diverso di autorità di certificazione (CA) radice. Verrà aggiornato a causa dei certificati correnti della CA che non seguono uno dei requisiti di base del forum CA/browser. Questa modifica avrà un effetto Azure AD gli agenti ibridi installati in locale che hanno ambienti con protezione avanzata con un elenco fisso di certificati radice. Questi agenti dovranno essere aggiornati per considerare attendibili le nuove autorità di certificazione.
+
+Questa modifica provocherà un'interferenza del servizio se non si esegue immediatamente un'azione. Questi agenti includono: 
+- [Connettori del proxy di applicazione](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AppProxy) per l'accesso remoto a locale 
+- Agenti di [autenticazione pass-through](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) che consentono agli utenti di accedere alle applicazioni usando le stesse password
+- Gli agenti di [anteprima del provisioning nel cloud](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AzureADConnect) che eseguono ad Azure ad la sincronizzazione. 
+
+Se si dispone di un ambiente con regole del firewall impostate per consentire le chiamate in uscita solo per il download di un elenco di revoche di certificati (CRL) specifico, è necessario consentire CRL e URL OCSP. Per informazioni dettagliate sulla modifica e sugli URL CRL e OCSP per consentire l'accesso a, vedere  [modifiche ai certificati TLS di Azure](../../security/fundamentals/tls-certificate-changes.md).
+ 
+---
+
+### <a name="azure-active-directory-tls-10-tls-11-and-3des-deprecation-in-us-gov-cloud"></a>Azure Active Directory la deprecazione di TLS 1,0, TLS 1,1 e 3DES in US Gov cloud
+
+**Tipo:** Modifica pianificata  
+**Categoria di servizio:** N/D  
+**Funzionalità del prodotto:** Standard
+ 
+Azure Active Directory depreca i protocolli seguenti entro il 31 marzo 2021:
+- TLS 1.0
+- TLS 1.1
+- pacchetto di crittografia 3DES (TLS_RSA_WITH_3DES_EDE_CBC_SHA)
+
+Tutte le combinazioni client-server e browser-server devono usare TLS 1,2 e i pacchetti di crittografia moderni per mantenere una connessione sicura a Azure Active Directory per Azure, Office 365 e Microsoft 365 Services.
+
+Gli ambienti interessati sono:
+- US Gov di Azure
+- [Office 365 GCC High & DoD](https://docs.microsoft.com/microsoft-365/compliance/tls-1-2-in-office-365-gcc?view=o365-worldwide)
+ 
+---
+
+### <a name="assign-applications-to-roles-on-au-and-object-scope"></a>Assegnare le applicazioni ai ruoli in AU e nell'ambito dell'oggetto
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** RBAC  
+**Funzionalità del prodotto:** Controllo di accesso
+ 
+Questa funzionalità consente di assegnare un'applicazione (SPN) a un ruolo di amministratore nell'ambito dell'unità amministrativa. Per altre informazioni, vedere [assegnare ruoli con ambito a un'unità amministrativa](../roles/admin-units-assign-roles.md).
+
+---
+
+### <a name="now-you-can-disable-and-delete-guest-users-when-theyre-denied-access-to-a-resource"></a>A questo punto è possibile disabilitare ed eliminare gli utenti Guest quando viene negato l'accesso a una risorsa
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Verifiche di accesso  
+**Funzionalità del prodotto:** Governance delle identità
+ 
+Disable ed Delete è un controllo avanzato delle verifiche di accesso Azure AD per aiutare le organizzazioni a gestire al meglio gli utenti esterni in gruppi e app. Se Guest viene negato in una verifica di accesso, **Disable ed Delete** li bloccherà automaticamente per 30 giorni. Dopo 30 giorni, verranno rimossi completamente dal tenant.
+
+Per altre informazioni su questa funzionalità, vedere [disabilitare ed eliminare identità esterne con le verifiche di accesso Azure ad (anteprima)](../governance/access-reviews-external-users.md#disable-and-delete-external-identities-with-azure-ad-access-reviews-preview).
+ 
+---
+
+### <a name="access-review-creators-can-add-custom-messages-in-emails-to-reviewers"></a>Gli autori della verifica di accesso possono aggiungere messaggi personalizzati nei messaggi di posta elettronica ai revisori
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Verifiche di accesso  
+**Funzionalità del prodotto:** Governance delle identità
+ 
+In Azure AD verifiche di accesso, gli amministratori che creano le recensioni possono ora scrivere un messaggio personalizzato nei revisori. I revisori visualizzeranno il messaggio nel messaggio di posta elettronica ricevuto che richiede di completare la revisione. Per ulteriori informazioni sull'utilizzo di questa funzionalità, vedere il passaggio 6 della sezione [Advanced Settings (impostazioni avanzate](../governance/create-access-review.md#advanced-settings) ).
+
+---
+
+### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---october-2020"></a>Nuovi connettori di provisioning nella raccolta di applicazioni Azure AD-ottobre 2020
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Provisioning di app  
+**Funzionalità del prodotto:** Integrazione con app di terze parti
+ 
+È ora possibile automatizzare la creazione, l'aggiornamento e l'eliminazione di account utente per queste app integrate di recente:
+
+- [Apple Business Manager](../saas-apps/apple-business-manager-provision-tutorial.md)
+- [Apple School Manager](../saas-apps/apple-school-manager-provision-tutorial.md)
+- [Code42](../saas-apps/code42-provisioning-tutorial.md)
+- [AlertMedia](../saas-apps/alertmedia-provisioning-tutorial.md)
+- [OpenText Directory Services](../saas-apps/open-text-directory-services-provisioning-tutorial.md)
+- [Cinode](../saas-apps/cinode-provisioning-tutorial.md)
+- [Global Relay Identity Sync](../saas-apps/global-relay-identity-sync-provisioning-tutorial.md)
+
+Per altre informazioni su come migliorare la sicurezza dell'organizzazione usando il provisioning automatico degli account utente, vedere [Automatizzare il provisioning utenti nelle applicazioni SaaS con Azure AD](../app-provisioning/user-provisioning.md).
+ 
+---
+
+### <a name="integration-assistant-for-azure-ad-b2c"></a>Integration Assistant per Azure AD B2C
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** B2C - Gestione delle identità degli utenti  
+**Funzionalità del prodotto:** B2B/B2C
+ 
+L'esperienza di Integration Assistant (anteprima) è ora disponibile per Azure AD B2C Registrazioni app. Questa esperienza consente di configurare l'applicazione per scenari comuni. Altre informazioni sulle procedure consigliate e sulle raccomandazioni per la [piattaforma di identità Microsoft](../develop/identity-platform-integration-checklist.md).
+ 
+---
+
+### <a name="view-role-template-id-in-azure-portal-ui"></a>Visualizzare l'ID del modello di ruolo nell'interfaccia utente portale di Azure
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Ruoli di Azure  
+**Funzionalità del prodotto:** Controllo di accesso
+ 
+
+È ora possibile visualizzare l'ID modello di ogni ruolo Azure AD nel portale di Azure. In Azure AD selezionare  **Descrizione** del ruolo selezionato. 
+
+È consigliabile che i clienti usino gli ID dei modelli di ruolo nel codice e nello script di PowerShell, anziché il nome visualizzato. L'ID del modello di ruolo è supportato per l'uso degli oggetti [directoryRoles](https://docs.microsoft.com/graph/api/resources/directoryrole?view=graph-rest-1.0) e [roleDefinition](https://docs.microsoft.com/graph/api/resources/unifiedroledefinition?view=graph-rest-beta) . Per ulteriori informazioni sugli ID dei modelli di ruolo, vedere [ID dei modelli di ruolo](../roles/permissions-reference.md#role-template-ids).
+
+---
+
+### <a name="api-connectors-for-azure-ad-b2c-sign-up-user-flows-is-now-in-public-preview"></a>I connettori API per Azure AD B2C i flussi utente di iscrizione sono ora in anteprima pubblica
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** B2C - Gestione delle identità degli utenti  
+**Funzionalità del prodotto:** B2B/B2C
+ 
+
+I connettori API sono ora disponibili per l'uso con Azure Active Directory B2C. I connettori API consentono di usare le API Web per personalizzare i flussi utente di iscrizione e l'integrazione con i sistemi cloud esterni. È possibile usare i connettori API per:
+
+- Integrazione con flussi di lavoro di approvazione personalizzati
+- Convalida dati di input utente
+- Sovrascrivi attributi utente 
+- Eseguire la logica di business personalizzata 
+
+ Per altre informazioni, vedere [usare i connettori API per personalizzare ed estendere](../../active-directory-b2c/api-connectors-overview.md) la documentazione di iscrizione.
+
+---
+
+### <a name="state-property-for-connected-organizations-in-entitlement-management"></a>Proprietà state per le organizzazioni connesse nella gestione dei diritti
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Funzionalità del **prodotto** per la gestione delle directory: gestione dei diritti
+ 
+
+ Tutte le organizzazioni connesse avranno ora una proprietà aggiuntiva denominata "state". Lo stato controllerà il modo in cui l'organizzazione connessa verrà usata nei criteri che fanno riferimento a "tutte le organizzazioni connesse configurate". Il valore sarà "configurata" (ovvero l'organizzazione è nell'ambito dei criteri che usano la clausola "All") o "proposed", ovvero l'organizzazione non è nell'ambito.  
+
+Le organizzazioni connesse create manualmente avranno un'impostazione predefinita "configurata". Nel frattempo, gli utenti creati automaticamente (creati tramite criteri che consentono a qualsiasi utente da Internet di richiedere l'accesso) verranno impostati per impostazione predefinita su "proposto".  Tutte le organizzazioni connesse create prima del 9 2020 settembre verranno impostate su "configurate". Gli amministratori possono aggiornare questa proprietà in base alle esigenze. [Altre informazioni](../governance/entitlement-management-organization.md#managing-a-connected-organization-programmatically)
+ 
+
+---
+
+### <a name="azure-active-directory-external-identities-now-has-premium-advanced-security-settings-for-b2c"></a>Azure Active Directory le identità esterne hanno ora impostazioni di sicurezza avanzate Premium per B2C
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** B2C - Gestione delle identità degli utenti  
+**Funzionalità del prodotto:** B2B/B2C
+ 
+Le funzionalità di accesso condizionale e di rilevamento dei rischi basate sul rischio di Identity Protection sono ora disponibili in [Azure ad B2C](../..//active-directory-b2c/conditional-access-identity-protection-overview.md). Con queste funzionalità di sicurezza avanzate, i clienti possono ora:
+- Usare Intelligent Insights per valutare i rischi con le app B2C e gli account degli utenti finali. I rilevamenti includono viaggi atipici, indirizzi IP anonimi, indirizzi IP collegati al malware e Azure AD Intelligence per le minacce. Sono disponibili anche i report basati sull'API e sul portale.
+- Risolvere automaticamente i rischi configurando criteri di autenticazione adattiva per gli utenti B2C. Gli sviluppatori e gli amministratori di app possono attenuare i rischi in tempo reale richiedendo l'autenticazione a più fattori o bloccando l'accesso a seconda del livello di rischio utente rilevato, con controlli aggiuntivi disponibili in base alla posizione, al gruppo e all'app.
+- Integrazione con Azure AD B2C flussi utente e criteri personalizzati. Le condizioni possono essere attivate da flussi utente predefiniti in Azure AD B2C o possono essere incorporati in criteri personalizzati B2C. Come per gli altri aspetti del flusso utente B2C, la messaggistica dell'esperienza utente finale può essere personalizzata. La personalizzazione è secondo le alternative per la voce, il marchio e la mitigazione dell'organizzazione.
+ 
+---
+
+### <a name="new-federated-apps-available-in-azure-ad-application-gallery---october-2020"></a>Nuove app federate disponibili nella raccolta di applicazioni Azure AD-ottobre 2020
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** App aziendali  
+**Funzionalità del prodotto:** Integrazione con app di terze parti
+ 
+Nel 2020 ottobre sono state aggiunte le seguenti 27 nuove applicazioni nella raccolta di app con supporto federativo:
+
+[Sentry](../saas-apps/sentry-tutorial.md), [Bumblebee-Productivity superapp](https://app.yellowmessenger.com/user/login), [ABBYY FlexiCapture cloud](../saas-apps/abbyy-flexicapture-cloud-tutorial.md), [EAComposer](../saas-apps/eacomposer-tutorial.md), [Genesys Cloud Integration for Azure](https://apps.mypurecloud.com/msteams-integration/), [zone Technologies Portal](https://portail.zonetechnologie.com/signin), [Beautiful.ai](../saas-apps/beautiful.ai-tutorial.md), [Datawiza Access broker](https://console.datawiza.com/), [ZOKRI](https://app.zokri.com/), [CheckProof](../saas-apps/checkproof-tutorial.md), [ecoChallenge.org](https://events.ecochallenge.org/users/login), [atSpoke](http://atspoke.com/login), [Reminder appuntamento](https://app.appointmentreminder.co.nz/account/login), [cloud. Market](https://cloud.market/), [TravelPerk](../saas-apps/travelperk-tutorial.md), [greetly](https://app.greetly.com/), [OrgVitality SSO} (.. /Saas-Apps/orgvitality-SSO-tutorial.MD), [Web Cargo Air](../saas-apps/web-cargo-air-tutorial.md), [flusso ciclo CRM](../saas-apps/loop-flow-crm-tutorial.md), [Starmind](../saas-apps/starmind-tutorial.md), [Workstem](https://hrm.workstem.com/login), [vendite al dettaglio Zipline](../saas-apps/retail-zipline-tutorial.md), [Hoxhunt](../saas-apps/hoxhunt-tutorial.md), [MEVISIO](../saas-apps/mevisio-tutorial.md), [Samsara](../saas-apps/samsara-tutorial.md), [Nimbus](../saas-apps/nimbus-tutorial.md), [Pulse Secure Virtual Traffic Manager](https://docs.microsoft.com/azure/active-directory/saas-apps/pulse-secure-virtual-traffic-manager-tutorial)
+
+È anche possibile trovare la documentazione di tutte le applicazioni da qui https://aka.ms/AppsTutorial
+
+Per elencare l'applicazione nella raccolta di app Azure AD, vedere qui i dettagli https://aka.ms/AzureADAppRequest
+
+---
+
+### <a name="provisioning-logs-can-now-be-streamed-to-log-analytics"></a>È ora possibile trasmettere i log di provisioning a log Analytics
+
+**Tipo:** Nuova funzionalità  
+**Categoria di servizio:** Creazione di report  
+**Funzionalità del prodotto:** Monitoraggio e creazione report
+ 
+
+Pubblicare i log di provisioning in log Analytics per:
+- Archiviare i log di provisioning per più di 30 giorni
+- Definire avvisi e notifiche personalizzati
+- Creare dashboard per visualizzare i log
+- Eseguire query complesse per analizzare i log 
+
+Per informazioni su come usare la funzionalità, vedere comprendere il modo in cui il [provisioning si integra con i log di monitoraggio di Azure](../app-provisioning/application-provisioning-log-analytics.md).
+ 
+---
+
+### <a name="provisioning-logs-can-now-be-viewed-by-application-owners"></a>I log di provisioning possono ora essere visualizzati dai proprietari delle applicazioni
+
+**Tipo:** Funzionalità modificata  
+**Categoria di servizio:** Creazione di report  
+**Funzionalità del prodotto:** Monitoraggio e creazione report
+ 
+È ora possibile consentire ai proprietari delle applicazioni di monitorare l'attività del servizio di provisioning e risolvere i problemi senza fornire loro un ruolo privilegiato o crearne un collo di bottiglia. [Altre informazioni](../reports-monitoring/concept-provisioning-logs.md)
+ 
+---
+
+### <a name="renaming-10-azure-active-directory-roles"></a>Ridenominazione di 10 ruoli Azure Active Directory
+
+**Tipo:** Funzionalità modificata  
+**Categoria di servizio:** Ruoli di Azure  
+**Funzionalità del prodotto:** Controllo di accesso
+ 
+Alcuni ruoli predefiniti di Azure Active Directory (AD) hanno nomi diversi da quelli visualizzati nell'interfaccia di amministrazione di Microsoft 365, nel portale di Azure AD e Microsoft Graph. Questa incoerenza può causare problemi nei processi automatizzati. Con questo aggiornamento, verranno rinominati 10 nomi di ruolo per renderli coerenti. Nella tabella seguente sono presenti i nuovi nomi di ruolo:
+
+![Tabella dei nuovi nomi di ruolo](media/whats-new/azure-role.png)
+
+---
+
+### <a name="azure-ad-b2c-support-for-auth-code-flow-for-spas-using-msal-js-2x"></a>Supporto di Azure AD B2C per il flusso del codice di autenticazione per le spa con MSAL JS 2. x
+
+**Tipo:** Funzionalità modificata  
+**Categoria di servizio:** B2C - Gestione delle identità degli utenti  
+**Funzionalità del prodotto:** B2B/B2C
+ 
+MSAL.js versione 2. x ora include il supporto per il flusso del codice di autorizzazione per le app Web a pagina singola (Spa). Azure AD B2C supporta ora l'uso del tipo di app SPA sul portale di Azure e l'uso del flusso del codice di autorizzazione MSAL.js con PKCE per le app a singola pagina. Questo consentirà alle Spa di usare Azure AD B2C per gestire l'accesso SSO con browser più recenti e rispettare le raccomandazioni del protocollo di autenticazione più recenti. Introduzione alla registrazione di [un'applicazione a singola pagina (Spa) in Azure Active Directory B2C](../../active-directory-b2c/tutorial-register-spa.md) esercitazione.
+
+---
+
+### <a name="updates-to-remember-multi-factor-authentication-mfa-on-a-trusted-device-setting"></a>Aggiornamenti da ricordare Multi-Factor Authentication (multi-factor authentication) in un'impostazione attendibile del dispositivo
+
+**Tipo:** Funzionalità modificata  
+**Categoria di servizio:** AMF  
+**Funzionalità del prodotto:** Protezione e sicurezza delle identità
+ 
+
+Recentemente è stato aggiornato il [ricordare multi-factor authentication (](../authentication/howto-mfa-mfasettings.md#remember-multi-factor-authentication) multi-factor authentication) in una funzionalità del dispositivo attendibile per estendere l'autenticazione per un massimo di 365 giorni. Le licenze Azure Active Directory (Azure AD) Premium possono anche usare i [criteri di frequenza di accesso condizionale](../conditional-access/howto-conditional-access-session-lifetime.md#user-sign-in-frequency) , che offrono maggiore flessibilità per le impostazioni di riautenticazione.
+
+Per un'esperienza utente ottimale, è consigliabile usare la frequenza di accesso con accesso condizionale per estendere le durate della sessione su dispositivi attendibili, posizioni o sessioni a basso rischio come alternativa all'autenticazione a più fattori in un'impostazione attendibile del dispositivo. Per iniziare, esaminare [le linee guida più recenti per ottimizzare l'esperienza di riautenticazione](../authentication/concepts-azure-multi-factor-authentication-prompts-session-lifetime.md).
+
+---
+
 ## <a name="september-2020"></a>Settembre 2020
 
 ### <a name="new-provisioning-connectors-in-the-azure-ad-application-gallery---september-2020"></a>Nuovi connettori di provisioning nella raccolta di applicazioni Azure AD-2020 settembre
@@ -79,7 +330,7 @@ Per altre informazioni su come migliorare la sicurezza dell'organizzazione usand
  
 Azure AD Connect aggiornamento dell'anteprima pubblica del provisioning nel cloud offre due miglioramenti principali sviluppati dai commenti dei clienti: 
 
-- Esperienza di mapping degli attributi tramite il portale di Azure
+- Esperienza di mapping degli attributi tramite portale di Azure
 
     Con questa funzionalità gli amministratori IT possono eseguire il mapping degli attributi utente, gruppo o contatto da AD a Azure AD usando diversi tipi di mapping attualmente presenti. Il mapping degli attributi è una funzionalità usata per standardizzare i valori degli attributi che fluiscono da Active Directory a Azure Active Directory. È possibile determinare se eseguire direttamente il mapping del valore dell'attributo come da AD a Azure AD o utilizzare espressioni per trasformare i valori dell'attributo durante il provisioning degli utenti. [Scopri di più](../cloud-provisioning/how-to-attribute-mapping.md)
 
@@ -1039,361 +1290,5 @@ La nuova esperienza Mostra tutte le registrazioni di app B2C e Azure AD le regis
 L'esperienza Azure AD B2C Registrazioni app si basa sull'esperienza di [registrazione delle app](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) generale per Azure ad tenant, ma è adattata per Azure ad B2C. L'esperienza "applicazioni" Legacy sarà deprecata in futuro.
 
 Per ulteriori informazioni, visitare [la nuova esperienza di registrazione delle app per Azure ad B2C](../../active-directory-b2c/app-registrations-training-guide.md).
-
----
-
-## <a name="april-2020"></a>Aprile 2020
-
-### <a name="combined-security-info-registration-experience-is-now-generally-available"></a>L'esperienza di registrazione delle informazioni di sicurezza combinata è ora disponibile a livello generale
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Autenticazioni (accessi)
-
-**Funzionalità del prodotto:** Protezione e sicurezza delle identità
-
-L'esperienza di registrazione combinata per Multi-Factor Authentication (multi-factor authentication) e la reimpostazione della password di Self-Service (SSPR) è ora disponibile a livello generale. Questa nuova esperienza di registrazione consente agli utenti di registrarsi per l'autenticazione a più fattori e SSPR in un unico processo dettagliato. Quando si distribuisce la nuova esperienza per l'organizzazione, gli utenti possono registrarsi in minor tempo e con meno problemi. Vedere il post di Blog [qui](https://bit.ly/3etiRyQ).
-
----
-
-### <a name="continuous-access-evaluation"></a>Valutazione dell'accesso continuo
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Autenticazioni (accessi)
-
-**Funzionalità del prodotto:** Protezione e sicurezza delle identità
-
-La valutazione dell'accesso continuo è una nuova funzionalità di sicurezza che consente di applicare in tempo quasi reale i criteri alle relying party che utilizzano Azure AD token di accesso quando si verificano eventi in Azure AD, ad esempio l'eliminazione di account utente. Questa funzionalità è stata implementata per prima per i team e i client Outlook. Per ulteriori informazioni, leggere il [Blog](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/moving-towards-real-time-policy-and-security-enforcement/ba-p/1276933) e la  [documentazione](../conditional-access/concept-continuous-access-evaluation.md).
-
----
-
-### <a name="sms-sign-in-firstline-workers-can-sign-in-to-azure-ad-backed-applications-with-their-phone-number-and-no-password"></a>Accesso SMS: i prima riga Worker possono accedere alle applicazioni con supporto di Azure AD con il numero di telefono e nessuna password
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Autenticazioni (accessi)
-
-**Funzionalità del prodotto:** Autenticazione utente
-
-Office sta avviando una serie di app aziendali per dispositivi mobili che soddisfano le organizzazioni non tradizionali e i dipendenti di organizzazioni di grandi dimensioni che non usano la posta elettronica come metodo di comunicazione principale. Queste app sono destinate a dipendenti di Frontline, lavoratori senza scrivania, agenti di campo o dipendenti al dettaglio che potrebbero non ricevere un indirizzo di posta elettronica dal proprio datore di lavoro, avere accesso a un computer o a esso. Questo progetto consente ai dipendenti di accedere alle applicazioni aziendali immettendo un numero di telefono e Roundtripping un codice. Per altri dettagli, vedere la [documentazione amministrativa](../authentication/howto-authentication-sms-signin.md) e la [documentazione per gli utenti finali](../user-help/sms-sign-in-explainer.md).
-
----
-
-### <a name="invite-internal-users-to-use-b2b-collaboration"></a>Invitare gli utenti interni a usare la collaborazione B2B
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** B2B
-
-**Funzionalità del prodotto:**
-
-Stiamo espandendo la funzionalità di invito B2B per consentire agli account interni esistenti di essere invitati a usare le credenziali di collaborazione B2B in futuro. Questa operazione viene eseguita passando l'oggetto utente all'API invite, oltre ai parametri tipici come l'indirizzo di posta elettronica invitato. L'ID oggetto, l'UPN, l'appartenenza al gruppo, l'assegnazione dell'app e così via sono intatti, ma in futuro utilizzeranno B2B per l'autenticazione con le credenziali del tenant principale, anziché le credenziali interne utilizzate prima dell'invito. Per informazioni dettagliate, vedere la [documentazione](../external-identities/invite-internal-users.md)di.
-
----
-
-### <a name="report-only-mode-for-conditional-access-is-now-generally-available"></a>La modalità di sola segnalazione per l'accesso condizionale è ora disponibile a livello generale
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Accesso condizionale
-
-**Funzionalità del prodotto:** Protezione e sicurezza delle identità
-
-La [modalità di sola segnalazione per Azure ad accesso condizionale](../conditional-access/concept-conditional-access-report-only.md) consente di valutare il risultato di un criterio senza applicare i controlli di accesso. È possibile testare i criteri di solo report nell'organizzazione e comprenderne l'effetto prima di abilitarli, rendendo la distribuzione più sicura e semplice. Negli ultimi mesi, abbiamo visto l'adozione avanzata della modalità solo report, con gli utenti di 26M già nell'ambito di un criterio di sola segnalazione. Con questo annuncio, i nuovi criteri di accesso condizionale di Azure AD verranno creati in modalità solo report per impostazione predefinita. Ciò significa che è possibile monitorare l'effetto dei criteri dal momento in cui sono stati creati. Per coloro che usano le API Graph di Microsoft, è inoltre possibile gestire i [criteri di solo report a livello di codice](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta). 
-
----
-
-### <a name="conditional-access-insights-and-reporting-workbook-is-generally-available"></a>Le informazioni dettagliate sull'accesso condizionale e la cartella di lavoro report sono disponibili a livello generale
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Accesso condizionale
-
-**Funzionalità del prodotto:** Protezione e sicurezza delle identità
-
-La cartella di [lavoro Insights e report](../conditional-access/howto-conditional-access-insights-reporting.md) di accesso condizionale offre agli amministratori una visualizzazione riepilogativa di Azure ad accesso condizionale nel tenant. Con la possibilità di selezionare un singolo criterio, gli amministratori possono comprendere meglio quali sono i criteri e monitorare le modifiche in tempo reale. La cartella di lavoro trasmette i dati archiviati in monitoraggio di Azure, che è possibile configurare in pochi minuti [seguendo queste istruzioni](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md). Per rendere il dashboard più individuabile, è stato spostato nella nuova scheda Insights and Reporting nel menu di Azure AD accesso condizionale.
-
----
-
-### <a name="policy-details-blade-for-conditional-access-is-in-public-preview"></a>Il pannello dei dettagli dei criteri per l'accesso condizionale è in versione di anteprima pubblica
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Accesso condizionale
-
-**Funzionalità del prodotto:** Protezione e sicurezza delle identità
-
-Il pannello nuovi [Dettagli criteri](../conditional-access/troubleshoot-conditional-access.md) Visualizza le assegnazioni, le condizioni e i controlli soddisfatti durante la valutazione dei criteri di accesso condizionale. È possibile accedere al pannello selezionando una riga nelle schede **accesso condizionale** o **solo report** dei dettagli di accesso.
-
----
-
-### <a name="new-federated-apps-available-in-azure-ad-app-gallery---april-2020"></a>Nuove app federate disponibili nella raccolta di App Azure AD-2020 aprile
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** App aziendali
-
-**Funzionalità del prodotto:** Integrazione con app di terze parti
-
-Nel 2020 aprile sono state aggiunte le 31 nuove app con supporto federativo per la raccolta di app: 
-
-[App SincroPool](https://www.sincropool.com/), [SmartDB](https://hibiki.dreamarts.co.jp/smartdb/trial/), [float](../saas-apps/float-tutorial.md), [LMS365](https://lms.365.systems/), [IWT Procurement Suite](../saas-apps/iwt-procurement-suite-tutorial.md), [Lunni](https://lunni.fi/), [EasySSO per JIRA](../saas-apps/easysso-for-jira-tutorial.md), [Virtual Training Academy](https://vta.c3p.ca/app/en/openid?authenticate_with=microsoft), dashboard di [Meraki](../saas-apps/meraki-dashboard-tutorial.md), [Microsoft 365 Mover](https://app.mover.io/login), [speaker Engage](https://speakerengage.com/login.php), [onestamente](../saas-apps/honestly-tutorial.md), [Ally](../saas-apps/ally-tutorial.md), [DutyFlow](https://app.dutyflow.nl/), [AlertMedia, gr8](../saas-apps/alertmedia-tutorial.md) [people](../saas-apps/gr8-people-tutorial.md), [Pending](../saas-apps/pendo-tutorial.md), [HighGround](../saas-apps/highground-tutorial.md), [Harmony](../saas-apps/harmony-tutorial.md), [orari Solutions](../saas-apps/timetabling-solutions-tutorial.md), il [fatto che fai clic su](../saas-apps/synchronet-click-tutorial.md)Empower, potenzia, [rafforza](https://www.made-in-office.com/en/) [cloud](../saas-apps/fortes-change-cloud-tutorial.md), [tornasole](../saas-apps/litmus-tutorial.md), [GroupTalk](https://recorder.grouptalk.com/), [Frontify](../saas-apps/frontify-tutorial.md), [MongoDB cloud](../saas-apps/mongodb-cloud-tutorial.md), [TickitLMS Learn](../saas-apps/tickitlms-learn-tutorial.md), [Coco](https://hexaware.com/partnerships-and-alliances/digital-transformation-using-microsoft-azure/), [Nitro Productivity Suite](../saas-apps/nitro-productivity-suite-tutorial.md) , [Trend Micro Web Security (TMWS)](https://review.docs.microsoft.com/azure/active-directory/saas-apps/trend-micro-tutorial)
-
-Per altre informazioni sulle app, vedere [Integrazione dell'applicazione SaaS con Azure Active Directory](../saas-apps/tutorial-list.md). Per altre informazioni su come inserire l'applicazione nella raccolta di app di Azure AD, vedere [Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory](../azuread-dev/howto-app-gallery-listing.md).
-
----
-
-### <a name="microsoft-graph-delta-query-support-for-oauth2permissiongrant-available-for-public-preview"></a>Supporto delle query Microsoft Graph Delta per oAuth2PermissionGrant disponibile per l'anteprima pubblica
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Grafico MS
-
-**Funzionalità del prodotto:** esperienza di sviluppo
-
-La query Delta per oAuth2PermissionGrant è disponibile per l'anteprima pubblica. È ora possibile tenere traccia delle modifiche senza dover eseguire continuamente il polling di Microsoft Graph. [Altre informazioni.](/graph/api/oAuth2PermissionGrant-delta?tabs=http&view=graph-rest-beta)
-
----
-
-### <a name="microsoft-graph-delta-query-support-for-organizational-contact-generally-available"></a>Supporto delle query Delta Microsoft Graph per il contatto aziendale disponibile a livello generale
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Grafico MS
-
-**Funzionalità del prodotto:** esperienza di sviluppo
-
-La query Delta per i contatti dell'organizzazione è disponibile a livello generale. È ora possibile tenere traccia delle modifiche nelle app di produzione senza dover eseguire continuamente il polling Microsoft Graph. Sostituire il codice esistente che esegue continuamente il polling dei dati di orgContact per query Delta per migliorare significativamente le prestazioni. [Altre informazioni.](/graph/api/orgcontact-delta?tabs=http&view=graph-rest-1.0)
-
----
-
-### <a name="microsoft-graph-delta-query-support-for-application-generally-available"></a>Supporto delle query Delta Microsoft Graph per l'applicazione disponibile a livello generale
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Grafico MS
-
-**Funzionalità del prodotto:** esperienza di sviluppo
-
-La query Delta per le applicazioni è disponibile a livello generale. È ora possibile tenere traccia delle modifiche nelle app di produzione senza dover eseguire continuamente il polling Microsoft Graph. Sostituire il codice esistente che esegue continuamente il polling dei dati delle applicazioni tramite una query Delta per migliorare significativamente le prestazioni. [Altre informazioni.](/graph/api/application-delta?view=graph-rest-1.0)
-
----
-
-### <a name="microsoft-graph-delta-query-support-for-administrative-units-available-for-public-preview"></a>Supporto delle query Delta Microsoft Graph per le unità amministrative disponibili per l'anteprima pubblica
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Grafico MS
-
-**Funzionalità del prodotto:** Per la versione di anteprima pubblica è disponibile la query differenziale esperienza sviluppatore per unità amministrative. È ora possibile tenere traccia delle modifiche senza dover eseguire continuamente il polling di Microsoft Graph. [Altre informazioni.](/graph/api/administrativeunit-delta?tabs=http&view=graph-rest-beta)
-
----
-
-### <a name="manage-authentication-phone-numbers-and-more-in-new-microsoft-graph-beta-apis"></a>Gestisci i numeri di telefono per l'autenticazione e altro ancora nelle nuove API Microsoft Graph beta
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Grafico MS
-
-**Funzionalità del prodotto:** esperienza di sviluppo
-
-Queste API sono uno strumento chiave per la gestione dei metodi di autenticazione degli utenti. È ora possibile pre-registrare e gestire a livello di codice gli autenticatori usati per l'autenticazione a più fattori e la reimpostazione della password self-service (SSPR). Questa è una delle funzionalità più richieste negli spazi di autenticazione a più fattori di Azure, SSPR e Microsoft Graph. Le nuove API rilasciate in questa fase offrono la possibilità di:
-
-- Leggere, aggiungere, aggiornare e rimuovere i telefoni di autenticazione di un utente
-- Reimpostare la password di un utente
-- Attivare e disattivare SMS-Sign-in
-
-Per ulteriori informazioni, vedere [Cenni preliminari sull'API dei metodi di autenticazione Azure ad](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
-
----
-
-### <a name="administrative-units-public-preview"></a>Anteprima pubblica unità amministrative
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Ruoli di Azure AD
-
-**Funzionalità del prodotto:** Controllo di accesso
-
-Le unità amministrative consentono di concedere autorizzazioni di amministratore limitate a un reparto, un'area o un altro segmento definito dell'organizzazione. È possibile usare le unità amministrative per delegare le autorizzazioni agli amministratori regionali o per impostare criteri a livello dettagliato. Ad esempio, un amministratore di account utente potrebbe aggiornare le informazioni sul profilo, reimpostare le password e assegnare le licenze agli utenti solo nella propria unità amministrativa.
-
-Usando le unità amministrative, un amministratore centrale può:
-
-- Creare un'unità amministrativa per la gestione decentralizzata delle risorse
-- Assegnare un ruolo con autorizzazioni amministrative solo Azure AD utenti in un'unità amministrativa
-- Popola le unità amministrative con utenti e gruppi in base alle esigenze
-
-Per ulteriori informazioni, vedere [gestione delle unità amministrative in Azure Active Directory (anteprima)](../users-groups-roles/directory-administrative-units.md).
-
----
-
-### <a name="printer-administrator-and-printer-technician-built-in-roles"></a>Ruoli predefiniti dell'amministratore della stampante e del tecnico della stampante
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Ruoli di Azure AD
-
-**Funzionalità del prodotto:** Controllo di accesso
-
-**Amministratore della stampante** : gli utenti con questo ruolo possono registrare le stampanti e gestire tutti gli aspetti di tutte le configurazioni della stampante nella soluzione di stampa universale Microsoft, incluse le impostazioni del connettore di stampa universale. Possono concedere il consenso a tutte le richieste di autorizzazione di stampa delegate. Gli amministratori stampante possono anche accedere ai report di stampa. 
-
-**Tecnico della stampante** : gli utenti con questo ruolo possono registrare le stampanti e gestire lo stato della stampante nella soluzione di stampa universale Microsoft. Possono anche leggere tutte le informazioni sul connettore. Le attività principali che un tecnico di stampa non può eseguire sono impostare le autorizzazioni utente sulle stampanti e condividere stampanti. [Altre informazioni.](../roles/permissions-reference.md#printer-administrator)
-
----
-
-### <a name="hybrid-identity-admin-built-in-role"></a>Ruolo predefinito amministratore identità ibrida
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Ruoli di Azure AD
-
-**Funzionalità del prodotto:** Controllo di accesso
-
-Gli utenti con questo ruolo possono abilitare, configurare e gestire i servizi e le impostazioni relative all'abilitazione dell'identità ibrida in Azure AD. Questo ruolo concede la possibilità di configurare Azure AD a uno dei tre metodi di autenticazione supportati&#8212;la sincronizzazione dell'hash delle password (pH), l'autenticazione pass-through (PTA) o la Federazione (AD FS o provider federativo di terze parti) &#8212;e di distribuire l'infrastruttura locale correlata per abilitarli. L'infrastruttura locale include il provisioning e gli agenti PTA. Questo ruolo concede la possibilità di abilitare l'accesso Single Sign-On facile (S-SSO) per consentire l'autenticazione semplice nei dispositivi non Windows 10 o nei computer non Windows Server 2016. Inoltre, questo ruolo concede la possibilità di visualizzare i log di accesso e di accedere a integrità e analisi per il monitoraggio e la risoluzione dei problemi. [Altre informazioni.](../roles/permissions-reference.md#hybrid-identity-administrator)
-
----
-
-### <a name="network-administrator-built-in-role"></a>Ruolo predefinito amministratore di rete
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Ruoli di Azure AD
-
-**Funzionalità del prodotto:** Controllo di accesso
-
-Gli utenti con questo ruolo possono esaminare le raccomandazioni relative all'architettura perimetrale di rete di Microsoft basate sui dati di telemetria di rete delle proprie sedi utente. Prestazioni di rete per Microsoft 365 si basa su un'attenta architettura perimetrale della rete del cliente aziendale, che in genere è specifica della posizione utente. Questo ruolo consente di modificare le posizioni utente individuate e la configurazione dei parametri di rete per tali posizioni per ottenere misurazioni di telemetria e raccomandazioni di progettazione migliori. [Altre informazioni.](../roles/permissions-reference.md#network-administrator)
-
----
-
-### <a name="bulk-activity-and-downloads-in-the-azure-ad-admin-portal-experience"></a>Attività e download bulk nell'esperienza del portale di amministrazione di Azure AD
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Gestione utenti
-
-**Funzionalità del prodotto:** Directory
-
-È ora possibile eseguire attività bulk su utenti e gruppi in Azure AD caricando un file CSV nell'esperienza Azure AD portale di amministrazione. È possibile creare utenti, eliminare utenti e invitare utenti guest. È possibile aggiungere e rimuovere membri da un gruppo.
-
-È anche possibile scaricare elenchi di risorse Azure AD dall'esperienza Azure AD portale di amministrazione. È possibile scaricare l'elenco di utenti nella directory, l'elenco dei gruppi nella directory e i membri di un gruppo specifico.
-
-Per ulteriori informazioni, vedere gli argomenti seguenti:
-
-- [Creare utenti](../enterprise-users/users-bulk-add.md) o [invitare utenti Guest](../external-identities/tutorial-bulk-invite.md)
-- [Eliminare utenti](../enterprise-users/users-bulk-delete.md) o [ripristinare utenti eliminati](../enterprise-users/users-bulk-restore.md)
-- [Scarica l'elenco di utenti](../enterprise-users/users-bulk-download.md) o [Scarica l'elenco di gruppi](../enterprise-users/groups-bulk-download.md)
-- [Aggiungere (importare) membri](../enterprise-users/groups-bulk-import-members.md) o [rimuovere membri](../enterprise-users/groups-bulk-remove-members.md) o [scaricare un elenco di membri](../enterprise-users/groups-bulk-download-members.md) per un gruppo
-
----
-
-### <a name="my-staff-delegated-user-management"></a>Gestione utenti delegati personale
-
-**Tipo:** Nuova funzionalità
-
-**Categoria di servizio:** Gestione utenti
-
-**Funzionalità del prodotto:**
-
-Il personale Abilita i Manager prima riga, ad esempio un responsabile del negozio, per garantire che i membri del personale siano in grado di accedere ai propri account Azure AD. Anziché affidarsi a un helpdesk centrale, le organizzazioni possono delegare attività comuni, come la reimpostazione delle password o la modifica dei numeri di telefono, a un prima riga Manager. Con il personale, un utente che non può accedere al proprio account può ottenere di nuovo l'accesso con pochi clic, senza richiedere supporto tecnico o personale IT. Per altre informazioni, vedere [gestire gli utenti con personale (anteprima)](../users-groups-roles/my-staff-configure.md) e [delegare la gestione degli utenti con il personale (anteprima)](../user-help/my-staff-team-manager.md).
-
----
-
-### <a name="an-upgraded-end-user-experience-in-access-reviews"></a>Esperienza dell'utente finale aggiornata nelle verifiche di accesso
-
-**Tipo:** Funzionalità modificata
-
-**Categoria di servizio:** Verifiche di accesso
-
-**Funzionalità del prodotto:** Governance delle identità
-
-È stata aggiornata l'esperienza revisore per Azure AD le verifiche di accesso nel portale app personali. Alla fine di aprile, i revisori che hanno eseguito l'accesso al Azure AD esperienza di revisore delle verifiche di accesso visualizzeranno un banner che consentirà loro di provare l'esperienza aggiornata nell'accesso. Si noti che l'esperienza di verifica dell'accesso aggiornata offre le stesse funzionalità dell'esperienza attuale, ma con un'interfaccia utente migliorata sulle nuove funzionalità per consentire agli utenti di essere produttivi. [Altre informazioni sull'esperienza aggiornata sono disponibili qui](../governance/perform-access-review.md). Questa anteprima pubblica durerà fino alla fine del 2020 luglio. Alla fine di luglio, i revisori che non hanno optato per l'esperienza di anteprima verranno automaticamente indirizzati al mio accesso per eseguire le verifiche di accesso. Se si vuole che i revisori passino in modo permanente all'esperienza di anteprima ora in accesso personale, [effettuare una richiesta qui](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR5dv-S62099HtxdeKIcgO-NUOFJaRDFDWUpHRk8zQ1BWVU1MMTcyQ1FFUi4u).
-
----
-
-### <a name="workday-inbound-user-provisioning-and-writeback-apps-now-support-the-latest-versions-of-workday-web-services-api"></a>Il provisioning utenti in ingresso e le app writeback del giorno lavorativo supportano ora le versioni più recenti dell'API dei servizi Web della giornata lavorativa
-
-**Tipo:** Funzionalità modificata
-
-**Categoria di servizio:** Provisioning di app
-
-**Funzionalità del prodotto:** 
-
-In base ai commenti e suggerimenti dei clienti, è stata aggiornata la giornata lavorativa per il provisioning utenti in ingresso e le app writeback nella raccolta di app aziendali per supportare le versioni più recenti dell'API dei servizi Web per la giornata lavorativa (WWS). Con questa modifica, i clienti possono specificare la versione dell'API WWS che si desidera utilizzare nella stringa di connessione. Ciò offre ai clienti la possibilità di recuperare più attributi HR disponibili nelle versioni della giornata lavorativa. L'app writeback dei giorni lavorativi USA ora il servizio Web Change_Work_Contact_Info giorni lavorativi consigliato per superare le limitazioni di Maintain_Contact_Info.
-
-Se nella stringa di connessione non è specificata alcuna versione, per impostazione predefinita, le app di provisioning in ingresso per la giornata lavorativa continueranno a usare WWS v 21.1 per passare alle API della giornata lavorativa più recente per il provisioning degli utenti in ingresso, i clienti devono aggiornare la stringa di connessione come descritto [nell'esercitazione](../saas-apps/workday-inbound-tutorial.md#which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles) e aggiornare anche gli XPath usati per gli attributi [di giornata](../app-provisioning/workday-attribute-reference.md#xpath-values-for-workday-web-services-wws-api-v30)lavorativa 
-
-Per usare la nuova API per il writeback, non sono necessarie modifiche nell'app di provisioning del writeback dei giorni lavorativi. Sul lato della giornata lavorativa, verificare che l'account dell'utente del sistema di integrazione lavorativa (ISU) disponga delle autorizzazioni per richiamare il processo di business Change_Work_Contact come illustrato nella sezione esercitazione [configurare le autorizzazioni dei criteri di sicurezza del processo di business](../saas-apps/workday-inbound-tutorial.md#configuring-business-process-security-policy-permissions). 
-
-La [Guida dell'esercitazione](../saas-apps/workday-inbound-tutorial.md) è stata aggiornata in modo da riflettere il supporto della nuova versione dell'API.
-
----
-
-### <a name="users-with-default-access-role-are-now-in-scope-for-provisioning"></a>Gli utenti con ruolo di accesso predefinito sono ora inclusi nell'ambito per il provisioning
-
-**Tipo:** Funzionalità modificata
-
-**Categoria di servizio:** Provisioning di app
-
-**Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
-
-In passato, gli utenti con il ruolo di accesso predefinito non rientrano nell'ambito del provisioning. Il feedback dei clienti desidera che gli utenti con questo ruolo siano nell'ambito del provisioning. A partire dal 16 aprile 2020, tutte le nuove configurazioni di provisioning consentono di effettuare il provisioning degli utenti con il ruolo di accesso predefinito. Gradualmente si modificherà il comportamento per le configurazioni di provisioning esistenti per supportare il provisioning degli utenti con questo ruolo. [Altre informazioni.](../app-provisioning/application-provisioning-config-problem-no-users-provisioned.md)
-
----
-
-### <a name="updated-provisioning-ui"></a>Interfaccia utente di provisioning aggiornata
-
-**Tipo:** Funzionalità modificata
-
-**Categoria di servizio:** Provisioning di app
-
-**Funzionalità del prodotto:** Gestione del ciclo di vita delle identità
-
-L'esperienza di provisioning è stata aggiornata per creare una vista di gestione più mirata. Quando si passa al pannello di provisioning per un'applicazione aziendale che è già stata configurata, sarà possibile monitorare facilmente lo stato di avanzamento del provisioning e gestire le azioni, ad esempio l'avvio, l'arresto e il riavvio del provisioning. [Altre informazioni.](../app-provisioning/configure-automatic-user-provisioning-portal.md)
-
----
-
-### <a name="dynamic-group-rule-validation-is-now-available-for-public-preview"></a>La convalida della regola di gruppo dinamica è ora disponibile per l'anteprima pubblica
-
-**Tipo:** Funzionalità modificata
-
-**Categoria di servizio:** Gestione gruppi
-
-**Funzionalità del prodotto:** Collaborazione
-
-Azure Active Directory (Azure AD) ora fornisce i mezzi per convalidare le regole dinamiche del gruppo. Nella scheda **Convalida regole** è possibile convalidare la regola dinamica rispetto ai membri del gruppo di esempio per confermare che la regola funziona come previsto. Quando si creano o si aggiornano le regole dinamiche del gruppo, gli amministratori desiderano sapere se un utente o un dispositivo sarà membro del gruppo. Questo consente di valutare se un utente o un dispositivo soddisfano i criteri di regola e gli aiuti per la risoluzione dei problemi quando l'appartenenza non è prevista.
-
-Per altre informazioni, vedere [convalida di una regola di appartenenza a un gruppo dinamico (anteprima)](../enterprise-users/groups-dynamic-rule-validation.md).
-
----
-
-### <a name="identity-secure-score---security-defaults-and-mfa-improvement-action-updates"></a>Punteggio sicuro identità-impostazioni predefinite di sicurezza e aggiornamenti dell'azione di miglioramento dell'autenticazione a più fattori
-
-**Tipo:** Funzionalità modificata
-
-**Categoria di servizio:** N/D
-
-**Funzionalità del prodotto:** Protezione e sicurezza delle identità
-
-**Supporto delle impostazioni predefinite di sicurezza per le azioni di miglioramento Azure ad:** Microsoft Secure Score aggiornerà le azioni di miglioramento per supportare i [valori predefiniti di sicurezza in Azure ad](./concept-fundamentals-security-defaults.md), che semplificano la protezione dell'organizzazione con impostazioni di sicurezza preconfigurate per gli attacchi comuni. Questo influirà sulle azioni di miglioramento seguenti:
-
-- Assicurarsi che tutti gli utenti siano in grado di completare l'autenticazione a più fattori per l'accesso sicuro
-- Richiedi autenticazione a più fattori per ruoli amministrativi
-- Abilitare i criteri per bloccare l'autenticazione legacy
- 
-**Aggiornamenti dell'azione di miglioramento** dell'autenticazione a più fattori: Per riflettere la necessità per le aziende di garantire la massima sicurezza durante l'applicazione di criteri che interagiscono con la propria azienda, Microsoft Secure Score ha rimosso tre azioni di miglioramento incentrate su autenticazione a più fattori e ne ha aggiunto due.
-
-Azioni di miglioramento rimosse:
-
-- Registrare tutti gli utenti per l'autenticazione a più fattori
-- Richiedere l'autenticazione a più fattori per tutti gli utenti
-- Richiedi autenticazione a più fattori per Azure AD ruoli con privilegi
-
-Aggiunta di azioni di miglioramento:
-
-- Assicurarsi che tutti gli utenti siano in grado di completare l'autenticazione a più fattori per l'accesso sicuro
-- Richiedi autenticazione a più fattori per ruoli amministrativi
-
-Queste nuove azioni di miglioramento richiedono la registrazione degli utenti o degli amministratori per l'autenticazione a più fattori (multi-factor authentication) nella directory e la definizione del giusto set di criteri che soddisfano le esigenze dell'organizzazione. L'obiettivo principale è quello di garantire flessibilità garantendo che tutti gli utenti e gli amministratori possano eseguire l'autenticazione con più fattori o richieste di verifica dell'identità basate sul rischio. Questo può assumere la forma di avere più criteri che applicano le decisioni con ambito o di impostare le impostazioni predefinite di sicurezza (a partire dal 16 marzo) che consentono a Microsoft di decidere quando sfidare gli utenti per l'autenticazione a più fattori. Scopri di [più sulle novità di Microsoft Secure Score](/microsoft-365/security/mtp/microsoft-secure-score?view=o365-worldwide#whats-new).
 
 ---

@@ -3,21 +3,21 @@ title: Creare trigger di pianificazione in Azure Data Factory
 description: Informazioni su come creare un trigger in Azure Data Factory per l'esecuzione di una pipeline in base a una pianificazione.
 services: data-factory
 documentationcenter: ''
-author: djpmsft
-ms.author: daperlov
+author: chez-charlie
+ms.author: chez
 manager: jroth
 ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 01/23/2018
+ms.date: 10/30/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5dd51f7bcaaa876285f6f514ea98603ff28e7ffa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0f147a317b16a4a581fad18bd48dbd38059e9a8c
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87872600"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146071"
 ---
 # <a name="create-a-trigger-that-runs-a-pipeline-on-a-schedule"></a>Creare un trigger per l'esecuzione di una pipeline in base a una pianificazione
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -38,28 +38,35 @@ Le sezioni successive illustrano la procedura per creare un trigger di pianifica
 
     ![Passare alla scheda Modifica](./media/how-to-create-schedule-trigger/switch-edit-tab.png)
 
-1. Selezionare **trigger** dal menu, quindi selezionare **nuovo/modifica**. 
+1. Selezionare **trigger** dal menu, quindi selezionare **nuovo/modifica** . 
 
     ![Menu Nuovo trigger](./media/how-to-create-schedule-trigger/new-trigger-menu.png)
 
-1. Nella pagina **Aggiungi trigger** selezionare **Scegli trigger**, quindi selezionare **+ nuovo**. 
+1. Nella pagina **Aggiungi trigger** selezionare **Scegli trigger** , quindi selezionare **+ nuovo** . 
 
     ![Add triggers (Aggiungi trigger) - Nuovo trigger](./media/how-to-create-schedule-trigger/add-trigger-new-button.png)
 
 1. Nella pagina **nuovo trigger** seguire questa procedura: 
 
-    1. Verificare che sia selezionata l'opzione **Pianificazione** per **Tipo**. 
-    1. Specificare il valore datetime di inizio del trigger per **Data di inizio (UTC)**. Per impostazione predefinita, questa opzione è impostata sul valore datetime corrente. 
+    1. Verificare che sia selezionata l'opzione **Pianificazione** per **Tipo** .
+    1. Specificare il valore DateTime di inizio del trigger per **Data di inizio** . Per impostazione predefinita, è impostato sul valore DateTime corrente nell'ora UTC (Coordinated Universal Time).
+    1. Specificare il fuso orario in cui verrà creato il trigger. L'impostazione relativa al fuso orario viene applicata ai tempi di esecuzione della **Data di inizio** , della **Data di fine** e della **pianificazione** nelle opzioni di ricorrenza avanzate. Se si modifica l'impostazione del fuso orario, la data di inizio non verrà modificata automaticamente. Verificare che la data di inizio sia corretta nel fuso orario specificato
+
+        > [!NOTE]
+        > Per i fusi orari che rispettano l'ora legale, l'ora di attivazione viene regolata automaticamente per il cambio di due anni. Per rifiutare esplicitamente la modifica dell'ora legale, selezionare un fuso orario che non osserva l'ora legale, ad esempio UTC
+
     1. Specificare **Ricorrenza** per il trigger. Selezionare uno dei valori dall'elenco a discesa (Ogni minuto, Ogni ora, Ogni giorno, Ogni settimana e Ogni mese). Immettere il moltiplicatore nella casella di testo. Ad esempio, se si vuole impostare l'esecuzione del trigger una volta ogni 15 minuti, selezionare **Ogni minuto** e immettere **15** nella casella di testo. 
-    1. Per il campo **Fine**, se non si vuole specificare un valore datetime di fine per il trigger, selezionare **No End** (Nessuna data di fine). Per specificare una data e un'ora di fine, selezionare **on date**, quindi specificare end DateTime, quindi fare clic su **OK**. Ogni esecuzione della pipeline è associata a un costo. Se si stanno eseguendo test, si consiglia di verificare che la pipeline sia attivata solo un paio di volte. Assicurarsi tuttavia che il tempo specificato tra l'ora di pubblicazione e l'ora di fine sia sufficiente per l'esecuzione della pipeline. Il trigger viene applicato solo dopo la pubblicazione della soluzione in Data Factory, non quando si salva il trigger nell'interfaccia utente.
+    1. Per specificare una data e un'ora di fine, selezionare **specificare una data di fine** e specificare _termina_ , quindi selezionare **OK** . Ogni esecuzione della pipeline è associata a un costo. Se si stanno eseguendo test, si consiglia di verificare che la pipeline sia attivata solo un paio di volte. Assicurarsi tuttavia che il tempo specificato tra l'ora di pubblicazione e l'ora di fine sia sufficiente per l'esecuzione della pipeline. Il trigger viene applicato solo dopo la pubblicazione della soluzione in Data Factory, non quando si salva il trigger nell'interfaccia utente.
 
-        ![Impostazioni di trigger](./media/how-to-create-schedule-trigger/trigger-settings.png)
+        ![Impostazioni di trigger](./media/how-to-create-schedule-trigger/trigger-settings-01.png)
 
-1. Nella finestra **nuovo trigger** selezionare **Sì** nell'opzione **attivato** e quindi fare clic su **OK**. È possibile usare questa casella di controllo per disattivare il trigger in un secondo momento. 
+        ![Impostazioni del trigger per la data di fine](./media/how-to-create-schedule-trigger/trigger-settings-02.png)
+
+1. Nella finestra **nuovo trigger** selezionare **Sì** nell'opzione **attivato** e quindi fare clic su **OK** . È possibile usare questa casella di controllo per disattivare il trigger in un secondo momento. 
 
     ![Impostazioni del trigger - Pulsante Avanti](./media/how-to-create-schedule-trigger/trigger-settings-next.png)
 
-1. Nella finestra **nuovo trigger** esaminare il messaggio di avviso e quindi fare clic su **OK**.
+1. Nella finestra **nuovo trigger** esaminare il messaggio di avviso e quindi fare clic su **OK** .
 
     ![Impostazioni del trigger - Pulsante Fine](./media/how-to-create-schedule-trigger/new-trigger-finish.png)
 
@@ -71,7 +78,7 @@ Le sezioni successive illustrano la procedura per creare un trigger di pianifica
 
     ![Monitorare le esecuzioni attivate](./media/how-to-create-schedule-trigger/monitor-triggered-runs.png)
 
-1. Passa alla visualizzazione **esecuzioni di trigger** . 
+1. Passa alla visualizzazione pianificazione delle **esecuzioni del trigger**  \  **Schedule** . 
 
     ![Monitorare le esecuzioni del trigger](./media/how-to-create-schedule-trigger/monitor-trigger-runs.png)
 
@@ -79,7 +86,7 @@ Le sezioni successive illustrano la procedura per creare un trigger di pianifica
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Questa sezione illustra come usare Azure PowerShell per creare, avviare e monitorare un trigger di pianificazione. Per vedere l'esempio in esecuzione, fare riferimento ad [Avvio rapido: Creare una data factory con Azure PowerShell](quickstart-create-data-factory-powershell.md). Quindi, aggiungere il codice seguente al metodo principale, che crea e avvia un trigger di pianificazione che viene eseguito ogni 15 minuti. Il trigger è associato a una pipeline denominata **Adfv2QuickStartPipeline**, creata come parte dell'Avvio rapido.
+Questa sezione illustra come usare Azure PowerShell per creare, avviare e monitorare un trigger di pianificazione. Per vedere l'esempio in esecuzione, fare riferimento ad [Avvio rapido: Creare una data factory con Azure PowerShell](quickstart-create-data-factory-powershell.md). Quindi, aggiungere il codice seguente al metodo principale, che crea e avvia un trigger di pianificazione che viene eseguito ogni 15 minuti. Il trigger è associato a una pipeline denominata **Adfv2QuickStartPipeline** , creata come parte dell'Avvio rapido.
 
 1. Creare un file JSON denominato **MyTrigger.json** nella cartella C:\ADFv2QuickStartPSH con il contenuto seguente:
 
@@ -95,8 +102,9 @@ Questa sezione illustra come usare Azure PowerShell per creare, avviare e monito
                 "recurrence": {
                     "frequency": "Minute",
                     "interval": 15,
-                    "startTime": "2017-12-08T00:00:00",
-                    "endTime": "2017-12-08T01:00:00"
+                    "startTime": "2017-12-08T00:00:00Z",
+                    "endTime": "2017-12-08T01:00:00Z",
+                    "timeZone": "UTC"
                 }
             },
             "pipelines": [{
@@ -115,11 +123,18 @@ Questa sezione illustra come usare Azure PowerShell per creare, avviare e monito
     ```
 
     Nel frammento di codice JSON:
-    - L'elemento **type** del trigger è impostato su "ScheduleTrigger".
-    - L'elemento **frequency** è impostato su "Minute" e l'elemento **interval** è impostato su 15. Pertanto, il trigger esegue la pipeline ogni 15 minuti tra le ore di inizio e di fine.
-    - L'elemento **endTime** è un'ora dopo il valore dell'elemento **startTime**. Pertanto, il trigger esegue la pipeline 15 minuti, 30 minuti e 45 minuti dopo l'ora di inizio. Non dimenticare di aggiornare l'ora di inizio impostandola sull'ora UTC corrente e l'ora di fine impostandola su un'ora dopo l'ora di inizio. 
-    - Il trigger è associato alla pipeline **Adfv2QuickStartPipeline**. Per associare più pipeline a un trigger, aggiungere più sezioni **pipelineReference**.
-    - La pipeline dell'Avvio rapido accetta due valori **parameters**: **inputPath** e **outputPath**. È pertanto possibile passare i valori per questi parametri dal trigger.
+    - L'elemento **Type** del trigger è impostato su "ScheduleTrigger".
+    - L'elemento **frequency** è impostato su "Minute" e l'elemento **interval** è impostato su 15. Di conseguenza, il trigger esegue la pipeline ogni 15 minuti tra l'ora di inizio e l'ora di fine.
+    - L'elemento **TimeZone** specifica il fuso orario in cui viene creato il trigger. Questa impostazione ha effetto sia su **StartTime** che su **EndTime** .
+    - L'elemento **endTime** è un'ora dopo il valore dell'elemento **startTime** . Di conseguenza, il trigger esegue la pipeline 15 minuti, 30 minuti e 45 minuti dopo l'ora di inizio. Non dimenticare di aggiornare l'ora di inizio impostandola sull'ora UTC corrente e l'ora di fine impostandola su un'ora dopo l'ora di inizio. 
+
+        > [!IMPORTANT]
+        > Per il fuso orario UTC, startTime e endTime devono seguire il formato "AAAA-MM-GGThh: mm: SS **Z** ", mentre per gli altri fusi orari, StartTime e EndTime seguono "aaaa-mm-ggThh: mm: SS". 
+        > 
+        > Per lo standard ISO 8601, il suffisso _Z_ per il timestamp contrassegna il valore DateTime sul fuso orario UTC e il campo TimeZone di rendering inutile. Sebbene il suffisso _Z_ mancante per il fuso orario UTC provochi un errore durante l' _attivazione_ del trigger.
+
+    - Il trigger è associato alla pipeline **Adfv2QuickStartPipeline** . Per associare più pipeline a un trigger, aggiungere più sezioni **pipelineReference** .
+    - La pipeline dell'Avvio rapido accetta due valori **parameters** : **inputPath** e **outputPath** . E si passano i valori per questi parametri dal trigger.
 
 1. Creare un trigger usando il cmdlet **set-AzDataFactoryV2Trigger** :
 
@@ -151,11 +166,15 @@ Questa sezione illustra come usare Azure PowerShell per creare, avviare e monito
     Get-AzDataFactoryV2TriggerRun -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -TriggerName "MyTrigger" -TriggerRunStartedAfter "2017-12-08T00:00:00" -TriggerRunStartedBefore "2017-12-08T01:00:00"
     ```
     
+    > [!NOTE]
+    > Il tempo di attivazione dei trigger di pianificazione è specificato nel timestamp UTC. _TriggerRunStartedAfter_ e _TriggerRunStartedBefore_ prevede anche timestamp UTC
+
     Per monitorare le esecuzioni di trigger e di pipeline nel portale di Azure, vedere [Monitorare le esecuzioni di pipeline](quickstart-create-data-factory-resource-manager-template.md#monitor-the-pipeline).
 
 
+
 ## <a name="net-sdk"></a>.NET SDK
-Questa sezione illustra come usare .NET SDK per creare, avviare e monitorare un trigger. Per vedere l'esempio in esecuzione, fare riferimento ad [Avvio rapido: Creare una data factory con .NET SDK](quickstart-create-data-factory-dot-net.md). Quindi, aggiungere il codice seguente al metodo principale, che crea e avvia un trigger di pianificazione che viene eseguito ogni 15 minuti. Il trigger è associato a una pipeline denominata **Adfv2QuickStartPipeline**, creata come parte dell'Avvio rapido.
+Questa sezione illustra come usare .NET SDK per creare, avviare e monitorare un trigger. Per vedere l'esempio in esecuzione, fare riferimento ad [Avvio rapido: Creare una data factory con .NET SDK](quickstart-create-data-factory-dot-net.md). Quindi, aggiungere il codice seguente al metodo principale, che crea e avvia un trigger di pianificazione che viene eseguito ogni 15 minuti. Il trigger è associato a una pipeline denominata **Adfv2QuickStartPipeline** , creata come parte dell'Avvio rapido.
 
 Per creare e avviare un trigger di pianificazione che viene eseguito ogni 15 minuti, aggiungere il codice seguente al metodo principale:
 
@@ -207,6 +226,16 @@ Per creare e avviare un trigger di pianificazione che viene eseguito ogni 15 min
             client.Triggers.Start(resourceGroup, dataFactoryName, triggerName);
 ```
 
+Per creare trigger in un fuso orario diverso, diverso dall'ora UTC, sono necessarie le impostazioni seguenti:
+```csharp
+<<ClientInstance>>.SerializationSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
+<<ClientInstance>>.SerializationSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Unspecified;
+<<ClientInstance>>.SerializationSettings.DateParseHandling = DateParseHandling.None;
+<<ClientInstance>>.DeserializationSettings.DateParseHandling = DateParseHandling.None;
+<<ClientInstance>>.DeserializationSettings.DateFormatHandling = Newtonsoft.Json.DateFormatHandling.IsoDateFormat;
+<<ClientInstance>>.DeserializationSettings.DateTimeZoneHandling = Newtonsoft.Json.DateTimeZoneHandling.Unspecified;
+```
+
 Per monitorare l'esecuzione di un trigger, aggiungere il codice seguente prima dell'ultima istruzione `Console.WriteLine` nell'esempio:
 
 ```csharp
@@ -240,7 +269,7 @@ Questa sezione illustra come usare Python SDK per creare, avviare e monitorare u
 ```python
     # Create a trigger
     tr_name = 'mytrigger'
-    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00', end_time='2017-12-12T05:00:00', time_zone='UTC')
+    scheduler_recurrence = ScheduleTriggerRecurrence(frequency='Minute', interval='15',start_time='2017-12-12T04:00:00Z', end_time='2017-12-12T05:00:00Z', time_zone='UTC')
     pipeline_parameters = {'inputPath':'adftutorial/input', 'outputPath':'adftutorial/output'}
     pipelines_to_run = []
     pipeline_reference = PipelineReference('copyPipeline')
@@ -258,7 +287,7 @@ Per monitorare le esecuzioni di trigger e di pipeline nel portale di Azure, vede
 È possibile usare un modello di Azure Resource Manager per creare un trigger. Per istruzioni dettagliate, vedere [Creare una data factory di Azure usando un modello di Azure Resource Manager](quickstart-create-data-factory-resource-manager-template.md).  
 
 ## <a name="pass-the-trigger-start-time-to-a-pipeline"></a>Passare l'ora di inizio del trigger a una pipeline
-Azure Data Factory versione 1 supporta la lettura o la scrittura di dati partizionati usando le variabili di sistema **SliceStart**, **SliceEnd**, **WindowStart** e **WindowEnd**. Nella versione corrente di Azure Data Factory è possibile ottenere questo comportamento usando un parametro della pipeline. L'ora di inizio e l'ora pianificata per il trigger vengono impostate come valore per il parametro della pipeline. Nell'esempio seguente l'ora pianificata per il trigger viene passata come valore al parametro **scheduledRunTime** della pipeline:
+Azure Data Factory versione 1 supporta la lettura o la scrittura di dati partizionati usando le variabili di sistema **SliceStart** , **SliceEnd** , **WindowStart** e **WindowEnd** . Nella versione corrente di Azure Data Factory è possibile ottenere questo comportamento usando un parametro della pipeline. L'ora di inizio e l'ora pianificata per il trigger vengono impostate come valore per il parametro della pipeline. Nell'esempio seguente l'ora pianificata per il trigger viene passata come valore al parametro **scheduledRunTime** della pipeline:
 
 ```json
 "parameters": {
@@ -314,7 +343,7 @@ La definizione JSON seguente illustra come creare un trigger di pianificazione c
 ```
 
 > [!IMPORTANT]
->  La proprietà **parameters** è una proprietà obbligatoria dell'elemento **pipelines**. Se la pipeline non accetta parametri, è necessario includere una definizione JSON vuota per la proprietà **parameters**.
+>  La proprietà **parameters** è una proprietà obbligatoria dell'elemento **pipelines** . Se la pipeline non accetta parametri, è necessario includere una definizione JSON vuota per la proprietà **parameters** .
 
 
 ### <a name="schema-overview"></a>Panoramica dello schema
@@ -322,24 +351,46 @@ La tabella seguente fornisce una panoramica generale degli elementi dello schema
 
 | Proprietà JSON | Descrizione |
 |:--- |:--- |
-| **startTime** | Valore di data e ora. Per le pianificazioni semplici, il valore della proprietà **startTime** si applica alla prima occorrenza. Per le pianificazioni complesse, il trigger viene attivato non prima del valore **startTime** specificato. |
-| **endTime** | Data e ora di fine per il trigger. Il trigger non viene eseguito dopo la data e l'ora di fine specificate. Il valore della proprietà non può essere nel passato. Questa proprietà è facoltativa. |
-| **Fuso orario** | Fuso orario. È attualmente supportato solo il fuso orario UTC. |
-| **ricorrenza** | Oggetto recurrence che specifica le regole di ricorrenza per il trigger. L'oggetto recurrence supporta gli elementi **frequency**, **interval**, **endTime**, **count** e **schedule**. Quando viene definito un oggetto recurrence, l'elemento **frequency** è obbligatorio. Gli altri elementi dell'oggetto recurrence sono facoltativi. |
+| **startTime** | Valore di data e ora. Per le pianificazioni semplici, il valore della proprietà **startTime** si applica alla prima occorrenza. Per le pianificazioni complesse, il trigger viene attivato non prima del valore **startTime** specificato. <br> Per il fuso orario UTC, format è `'yyyy-MM-ddTHH:mm:ssZ'` , per un altro fuso orario, format è `'yyyy-MM-ddTHH:mm:ss'` . |
+| **endTime** | Data e ora di fine per il trigger. Il trigger non viene eseguito dopo la data e l'ora di fine specificate. Il valore della proprietà non può essere nel passato. Questa proprietà è facoltativa.  <br> Per il fuso orario UTC, format è `'yyyy-MM-ddTHH:mm:ssZ'` , per un altro fuso orario, format è `'yyyy-MM-ddTHH:mm:ss'` . |
+| **Fuso orario** | Fuso orario in cui viene creato il trigger. Questa impostazione ha effetto su **StartTime** , **EndTime** e **Schedule** . Vedere l' [elenco di fusi orari supportati](#time-zone-option) |
+| **ricorrenza** | Oggetto recurrence che specifica le regole di ricorrenza per il trigger. L'oggetto recurrence supporta gli elementi **frequency** , **interval** , **endTime** , **count** e **schedule** . Quando viene definito un oggetto recurrence, l'elemento **frequency** è obbligatorio. Gli altri elementi dell'oggetto recurrence sono facoltativi. |
 | **frequenza** | Unità di frequenza con cui il trigger si ripete. I valori supportati includono "minute", "hour", "day", "week" e "month". |
-| **intervallo** | Numero intero positivo indicante l'intervallo per il valore **frequency**, che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "week", il trigger si ripete ogni 3 settimane. |
+| **intervallo** | Numero intero positivo indicante l'intervallo per il valore **frequency** , che determina la frequenza con cui viene eseguito il trigger. Se, ad esempio, **interval** è 3 e **frequency** è "week", il trigger si ripete ogni 3 settimane. |
 | **pianificazione** | Pianificazione della ricorrenza per il trigger. Un trigger con un valore **frequency** specificato modifica la ricorrenza in base a una pianificazione di ricorrenza. La proprietà **schedule** contiene modifiche per la ricorrenza basate su minuti, ore, giorni della settimana, giorni del mese e numero della settimana.
 
+> [!IMPORTANT]
+> Per il fuso orario UTC, startTime e endTime devono seguire il formato "AAAA-MM-GGThh: mm: SS **Z** ", mentre per gli altri fusi orari, StartTime e EndTime seguono "aaaa-mm-ggThh: mm: SS". 
+> 
+> Per lo standard ISO 8601, il suffisso _Z_ per il timestamp contrassegna il valore DateTime sul fuso orario UTC e il campo TimeZone di rendering inutile. Sebbene il suffisso _Z_ mancante per il fuso orario UTC provochi un errore durante l' _attivazione_ del trigger.
 
 ### <a name="schema-defaults-limits-and-examples"></a>Impostazioni predefinite dello schema, limiti ed esempi
 
 | Proprietà JSON | Type | Obbligatoria | Valore predefinito | Valori validi | Esempio |
 |:--- |:--- |:--- |:--- |:--- |:--- |
-| **startTime** | string | Sì | Nessuno | Date-Ore ISO-8601 | `"startTime" : "2013-01-09T09:30:00-08:00"` |
+| **startTime** | string | Sì | Nessuno | Date-Ore ISO-8601 | per il fuso orario UTC `"startTime" : "2013-01-09T09:30:00-08:00Z"` <br> per altro fuso orario `"2013-01-09T09:30:00-08:00"` |
+| **Fuso orario** | string | Sì | Nessuno | [Valori del fuso orario](#time-zone-option)  | `"UTC"` |
 | **ricorrenza** | Oggetto | Sì | Nessuno | Oggetto ricorrenza | `"recurrence" : { "frequency" : "monthly", "interval" : 1 }` |
 | **intervallo** | Numero | No | 1 | Da 1 a 1.000 | `"interval":10` |
-| **endTime** | string | Sì | Nessuno | Valore di data e ora che fa riferimento a un momento nel futuro. | `"endTime" : "2013-02-09T09:30:00-08:00"` |
+| **endTime** | string | Sì | Nessuno | Valore di data e ora che fa riferimento a un momento nel futuro. | per il fuso orario UTC `"endTime" : "2013-02-09T09:30:00-08:00Z"` <br> per altro fuso orario `"endTime" : "2013-02-09T09:30:00-08:00"`|
 | **pianificazione** | Oggetto | No | nessuno | Oggetto pianificazione | `"schedule" : { "minute" : [30], "hour" : [8,17] }` |
+
+### <a name="time-zone-option"></a>Opzione fuso orario
+
+Di seguito sono riportati alcuni dei fusi orari supportati per i trigger di pianificazione:
+
+| Fuso orario | Offset UTC (non Daylight Saving) | Valore fuso orario | Osservare l'ora legale | Formato timestamp |
+| :--- | :--- | :--- | :--- | :--- |
+| Ora UTC (Coordinated Universal Time) | 0 | `UTC` | No | `'yyyy-MM-ddTHH:mm:ssZ'`|
+| Fuso orario del Pacifico (PT) | -8 | `Pacific Standard Time` | Sì | `'yyyy-MM-ddTHH:mm:ss'` |
+| Ora centrale (CT) | -6 | `Central Standard Time` | Sì | `'yyyy-MM-ddTHH:mm:ss'` |
+| Fuso orientale (ET) | -5 | `Eastern Standard Time` | Sì | `'yyyy-MM-ddTHH:mm:ss'` |
+| Ora di Greenwich (GMT) | 0 | `GMT Standard Time` | Sì | `'yyyy-MM-ddTHH:mm:ss'` |
+| Ora solare Europa centrale | +1 | `W. Europe Standard Time` | Sì | `'yyyy-MM-ddTHH:mm:ss'` |
+| Ora solare India (IST) | + 5:30 | `India Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
+| Ora solare Cina | + 8 | `China Standard Time` | No | `'yyyy-MM-ddTHH:mm:ss'` |
+
+Questo elenco è incompleto. Per un elenco completo delle opzioni di fuso orario, esplorare nella [pagina di creazione del trigger](#data-factory-ui) del portale Data Factory
 
 ### <a name="starttime-property"></a>Proprietà startTime
 La tabella seguente illustra come la proprietà **startTime** controlla l'esecuzione di un trigger:
@@ -351,9 +402,9 @@ La tabella seguente illustra come la proprietà **startTime** controlla l'esecuz
 
 È possibile esaminare uno scenario in cui l'ora di inizio è nel passato, con una ricorrenza, ma nessuna pianificazione. Si supponga che l'ora corrente sia `2017-04-08 13:00`, l'ora di inizio sia `2017-04-07 14:00` e la ricorrenza sia ogni due giorni. Il valore di **ricorrenza** viene definito impostando la proprietà **Frequency** su "Day" e la proprietà **Interval** su 2. Si noti che il valore di **StartTime** è nel passato e si verifica prima dell'ora corrente.
 
-In queste condizioni, la prima esecuzione avviene alle `2017-04-09 at 14:00`. Il motore dell'utilità di pianificazione calcola le occorrenze dall'ora di inizio dell'esecuzione. Vengono eliminate tutte le istanze in passato. Il motore utilizza l'istanza successiva che si verifica in futuro. In questo scenario l'ora di inizio è `2017-04-07 at 2:00pm`, quindi l'istanza successiva viene eseguita due giorni dopo tale orario, ovvero il giorno `2017-04-09 at 2:00pm`.
+In queste condizioni, la prima esecuzione è all' `2017-04-09` indirizzo `14:00` . Il motore dell'utilità di pianificazione calcola le occorrenze dall'ora di inizio dell'esecuzione. Vengono eliminate tutte le istanze in passato. Il motore utilizza l'istanza successiva che si verifica in futuro. In questo scenario, l'ora di inizio è `2017-04-07` in `2:00pm` , quindi l'istanza successiva è di due giorni dall'ora, che corrisponde `2017-04-09` a `2:00pm` .
 
-Si noti che la prima esecuzione sarebbe la stessa anche se il valore **startTime** fosse `2017-04-05 14:00` o `2017-04-01 14:00`. Dopo la prima esecuzione, le esecuzioni successive vengono calcolate in base alla pianificazione. Le esecuzioni successive vengono quindi avviate il `2017-04-11 at 2:00pm`, poi il `2017-04-13 at 2:00pm`, quindi il `2017-04-15 at 2:00pm` e così via.
+Si noti che la prima esecuzione sarebbe la stessa anche se il valore **startTime** fosse `2017-04-05 14:00` o `2017-04-01 14:00`. Dopo la prima esecuzione, le esecuzioni successive vengono calcolate in base alla pianificazione. Le esecuzioni successive si trovano pertanto in `2017-04-11` corrispondenza di, `2:00pm` quindi `2017-04-13` in `2:00pm` , quindi in `2017-04-15` `2:00pm` e così via.
 
 Quando infine le ore o i minuti non sono impostati nella pianificazione di un trigger, le ore o i minuti della prima esecuzione vengono usati come impostazioni predefinite.
 
@@ -362,9 +413,9 @@ Da un lato, l'uso di una pianificazione può limitare il numero di esecuzioni di
 
 Un oggetto schedule può tuttavia anche aumentare il numero di esecuzioni di un trigger. Ad esempio, un trigger con una frequenza mensile la cui esecuzione è pianificata per i giorni 1 e 2 del mese viene eseguito il primo e il secondo giorno del mese, invece che una volta al mese.
 
-Se vengono specificati più elementi **schedule**, l'ordine di valutazione è dall'impostazione della pianificazione più grande alla più piccola. La valutazione inizia con il numero della settimana, quindi prosegue con il giorno del mese, il giorno della settimana, l'ora e infine il minuto.
+Se vengono specificati più elementi **schedule** , l'ordine di valutazione è dall'impostazione della pianificazione più grande alla più piccola. La valutazione inizia con il numero della settimana, quindi prosegue con il giorno del mese, il giorno della settimana, l'ora e infine il minuto.
 
-La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
+La tabella seguente illustra in modo dettagliato gli elementi **schedule** :
 
 
 | Elemento JSON | Descrizione | Valori validi |
@@ -372,14 +423,14 @@ La tabella seguente illustra in modo dettagliato gli elementi **schedule**:
 | **minuti** | Minuti dell'ora in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul>
 | **ore** | Ore del giorno in cui verrà eseguito il trigger. | <ul><li>Integer</li><li>Matrice di numeri interi</li></ul> |
 | **Giorni feriali** | Giorni della settimana in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza settimanale. | <ul><li>I valori consentiti sono Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday</li><li>Matrice di valori in giorni (la dimensione massima della matrice è 7)</li><li>I valori dei giorni non fanno distinzione tra maiuscole e minuscole</li></ul> |
-| **monthlyOccurrences** | Giorni del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. | <ul><li>Matrice di oggetti **monthlyOccurrence**: `{ "day": day,  "occurrence": occurrence }`.</li><li>L'attributo **day** è il giorno della settimana in cui verrà eseguito il trigger. Ad esempio, una proprietà **monthlyOccurrences** con un valore **day** uguale a `{Sunday}` indica ogni domenica del mese. L'attributo **day** è obbligatorio.</li><li>L'attributo **occurrence** indica l'occorrenza dell'attributo **day** specificato durante il mese. Ad esempio, una proprietà **monthlyOccurrences** con i valori **day** e **occurrence** uguali a `{Sunday, -1}` indica l'ultima domenica del mese. L'attributo **occurrence** è facoltativo.</li></ul> |
+| **monthlyOccurrences** | Giorni del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. | <ul><li>Matrice di oggetti **monthlyOccurrence** : `{ "day": day,  "occurrence": occurrence }`.</li><li>L'attributo **day** è il giorno della settimana in cui verrà eseguito il trigger. Ad esempio, una proprietà **monthlyOccurrences** con un valore **day** uguale a `{Sunday}` indica ogni domenica del mese. L'attributo **day** è obbligatorio.</li><li>L'attributo **occurrence** indica l'occorrenza dell'attributo **day** specificato durante il mese. Ad esempio, una proprietà **monthlyOccurrences** con i valori **day** e **occurrence** uguali a `{Sunday, -1}` indica l'ultima domenica del mese. L'attributo **occurrence** è facoltativo.</li></ul> |
 | **monthDays** | Giorno del mese in cui verrà eseguito il trigger. Il valore può essere specificato solo con una frequenza mensile. | <ul><li>Qualsiasi valore <= -1 e >= -31</li><li>Qualsiasi valore >= 1 e <= 31</li><li>Matrice di valori</li></ul> |
 
 
 ## <a name="examples-of-trigger-recurrence-schedules"></a>Esempi di pianificazioni di ricorrenza del trigger
 Questa sezione fornisce esempi di pianificazioni di ricorrenza con attenzione all'oggetto **schedule** e ai relativi elementi.
 
-Gli esempi presumono che il valore **interval** sia 1 e che il valore **frequency** sia corretto in base alla definizione della pianificazione. Non è ad esempio possibile avere un valore **frequency** uguale a "day" e anche una modifica "monthDays" nell'oggetto **schedule**. Restrizioni come queste sono indicate nella tabella nella sezione precedente.
+Gli esempi presumono che il valore **interval** sia 1 e che il valore **frequency** sia corretto in base alla definizione della pianificazione. Non è ad esempio possibile avere un valore **frequency** uguale a "day" e anche una modifica "monthDays" nell'oggetto **schedule** . Restrizioni come queste sono indicate nella tabella nella sezione precedente.
 
 | Esempio | Descrizione |
 |:--- |:--- |
@@ -388,8 +439,8 @@ Gli esempi presumono che il valore **interval** sia 1 e che il valore **frequenc
 | `{"minutes":[15], "hours":[5,17]}` | Viene eseguito alle 05:15 e alle 17:15 ogni giorno. |
 | `{"minutes":[15,45], "hours":[5,17]}` | Viene eseguito alle 05:15, alle 05:45, alle 17:15 e alle 17:45 ogni giorno. |
 | `{"minutes":[0,15,30,45]}` | Viene eseguito ogni 15 minuti. |
-| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Viene eseguito ogni ora. Il trigger viene eseguito ogni ora. I minuti vengono controllati dal valore **startTime**, se specificato. Se non è specificato un valore, i minuti vengono controllati dall'ora di creazione. Se ad esempio l'ora di inizio o l'ora di creazione (qualunque delle due si applichi) è 12:25, il trigger viene eseguito alle 00:25, 01:25, 02:25, ..., 23:25.<br/><br/>Questa pianificazione equivale a un trigger con un valore **frequency** pari a "hour", un valore **interval** di 1 e nessun oggetto **schedule**.  Questa pianificazione può essere usata con valori diversi per **frequency** e **interval** per creare altri trigger. Quando ad esempio il valore **frequency** è "month", la pianificazione viene eseguita solo una volta al mese, invece che ogni giorno, quando il valore **frequency** è "day". |
-| `{"minutes":[0]}` | Viene eseguito ogni ora all'inizio dell'ora. Questo trigger viene eseguito ogni ora con l'ora che inizia alle 00:00, 01:00, 02:00 e così via.<br/><br/>Questa pianificazione equivale a un trigger con un valore **frequency** pari a "hour" e un valore **startTime** di zero minuti oppure nessun oggetto **schedule**, ma un valore **frequency** pari a "day". Se il valore **frequency** è "week" o "month", la pianificazione viene eseguita rispettivamente solo una volta alla settimana o una volta al giorno. |
+| `{hours":[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]}` | Viene eseguito ogni ora. Il trigger viene eseguito ogni ora. I minuti vengono controllati dal valore **startTime** , se specificato. Se non è specificato un valore, i minuti vengono controllati dall'ora di creazione. Se ad esempio l'ora di inizio o l'ora di creazione (qualunque delle due si applichi) è 12:25, il trigger viene eseguito alle 00:25, 01:25, 02:25, ..., 23:25.<br/><br/>Questa pianificazione equivale a un trigger con un valore **frequency** pari a "hour", un valore **interval** di 1 e nessun oggetto **schedule** .  Questa pianificazione può essere usata con valori diversi per **frequency** e **interval** per creare altri trigger. Quando ad esempio il valore **frequency** è "month", la pianificazione viene eseguita solo una volta al mese, invece che ogni giorno, quando il valore **frequency** è "day". |
+| `{"minutes":[0]}` | Viene eseguito ogni ora all'inizio dell'ora. Questo trigger viene eseguito ogni ora con l'ora che inizia alle 00:00, 01:00, 02:00 e così via.<br/><br/>Questa pianificazione equivale a un trigger con un valore **frequency** pari a "hour" e un valore **startTime** di zero minuti oppure nessun oggetto **schedule** , ma un valore **frequency** pari a "day". Se il valore **frequency** è "week" o "month", la pianificazione viene eseguita rispettivamente solo una volta alla settimana o una volta al giorno. |
 | `{"minutes":[15]}` | Viene eseguito 15 minuti dopo l'inizio di ogni ora. Questo trigger viene eseguito ogni ora, 15 minuti dopo l'inizio dell'ora a partire dalle 00:15, 01:15, 02:15 e così via e terminando alle 23:15. |
 | `{"hours":[17], "weekDays":["saturday"]}` | Viene eseguito alle 17:00 di ogni sabato. |
 | `{"hours":[17], "weekDays":["monday", "wednesday", "friday"]}` | Viene eseguito alle 17:00 di ogni lunedì, mercoledì e venerdì. |

@@ -8,10 +8,10 @@ ms.custom:
 - devx-track-csharp
 - contperfq1
 ms.openlocfilehash: 1bacb0c71c05aeb983bfa9ebf71873a22fea39a1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "91277700"
 ---
 # <a name="deploy-applications-to-compute-nodes-with-batch-application-packages"></a>Distribuire le applicazioni nei nodi di calcolo con i pacchetti dell'applicazione Batch
@@ -33,7 +33,7 @@ Sono previste restrizioni al numero di applicazioni e di pacchetti dell'applicaz
 
 ## <a name="understand-applications-and-application-packages"></a>Informazioni sulle applicazioni e sui pacchetti dell'applicazione
 
-Per *applicazione* in Azure Batch si intende un set di file binari con versione che possono essere scaricati automaticamente nei nodi di calcolo del pool. Un'applicazione contiene uno o più *pacchetti dell'applicazione*, che rappresentano versioni diverse dell'applicazione.
+Per *applicazione* in Azure Batch si intende un set di file binari con versione che possono essere scaricati automaticamente nei nodi di calcolo del pool. Un'applicazione contiene uno o più *pacchetti dell'applicazione* , che rappresentano versioni diverse dell'applicazione.
 
 Ogni *pacchetto dell'applicazione* è un file zip che contiene i file binari dell'applicazione e tutti i file di supporto. È supportato solo il formato zip.
 
@@ -69,7 +69,7 @@ Se non è stato ancora configurato un account di archiviazione, nel portale di A
 Dopo aver collegato i due account, Batch può distribuire automaticamente i pacchetti archiviati nell'account di archiviazione collegato nei nodi di calcolo.
 
 > [!IMPORTANT]
-> Non è possibile usare i pacchetti dell'applicazione con account di archiviazione di Azure configurati con [regole del firewall](../storage/common/storage-network-security.md)o con **lo spazio dei nomi gerarchico** impostato su **abilitato**.
+> Non è possibile usare i pacchetti dell'applicazione con account di archiviazione di Azure configurati con [regole del firewall](../storage/common/storage-network-security.md)o con **lo spazio dei nomi gerarchico** impostato su **abilitato** .
 
 Il servizio Batch usa Archiviazione di Azure per archiviare i pacchetti dell'applicazione come BLOB in blocchi. L'[importo addebitato](https://azure.microsoft.com/pricing/details/storage/) è lo stesso calcolato per i dati BLOB in blocchi e la dimensione di ogni pacchetto non può superare la dimensione massima del BLOB in blocchi. Per altre informazioni, vedere [Obiettivi di scalabilità e prestazioni di Archiviazione di Azure per gli account di archiviazione](../storage/blobs/scalability-targets.md). Per ridurre al minimo i costi, assicurarsi di prendere in considerazione le dimensioni e il numero dei pacchetti dell'applicazione e rimuovere periodicamente i Pacchetti deprecati.
 
@@ -81,33 +81,33 @@ Per visualizzare le applicazioni nell'account batch, selezionare **applicazioni*
 
 Selezionando questa opzione di menu viene visualizzata la finestra **applicazioni** . La finestra visualizza l'ID di ogni applicazione nell'account e le proprietà seguenti:
 
-- **Pacchetti**: il numero delle versioni associate a questa applicazione.
-- **Versione predefinita**: se applicabile, la versione dell'applicazione che verrà installata se non viene specificata alcuna versione quando si distribuisce l'applicazione.
-- **Consenti aggiornamenti**: specifica se sono consentiti gli aggiornamenti e le eliminazioni del pacchetto.
+- **Pacchetti** : il numero delle versioni associate a questa applicazione.
+- **Versione predefinita** : se applicabile, la versione dell'applicazione che verrà installata se non viene specificata alcuna versione quando si distribuisce l'applicazione.
+- **Consenti aggiornamenti** : specifica se sono consentiti gli aggiornamenti e le eliminazioni del pacchetto.
 
-Per visualizzare la [struttura di file](files-and-directories.md) del pacchetto dell'applicazione in un nodo di calcolo, passare all'account Batch nel portale di Azure. Selezionare **pool**. quindi selezionare il pool che contiene il nodo di calcolo. Selezionare il nodo di calcolo in cui è installato il pacchetto dell'applicazione e aprire la cartella **applicazioni** .
+Per visualizzare la [struttura di file](files-and-directories.md) del pacchetto dell'applicazione in un nodo di calcolo, passare all'account Batch nel portale di Azure. Selezionare **pool** . quindi selezionare il pool che contiene il nodo di calcolo. Selezionare il nodo di calcolo in cui è installato il pacchetto dell'applicazione e aprire la cartella **applicazioni** .
 
 ### <a name="view-application-details"></a>Visualizzare i dettagli dell'applicazione
 
 Per visualizzare i dettagli di un'applicazione, selezionarla nella finestra **applicazioni** . È possibile configurare le impostazioni seguenti per l'applicazione.
 
-- **Consenti aggiornamenti**: indica se i pacchetti dell'applicazione possono essere [aggiornati o eliminati](#update-or-delete-an-application-package). Il valore predefinito è **Sì**. Se impostato su **No**, i pacchetti dell'applicazione esistenti non possono essere aggiornati o eliminati, ma è ancora possibile aggiungere nuove versioni del pacchetto dell'applicazione.
-- **Versione predefinita**: pacchetto dell'applicazione predefinito da usare quando viene distribuita l'applicazione, se non è specificata alcuna versione.
-- **Nome visualizzato**: nome descrittivo che la soluzione batch può usare per visualizzare informazioni sull'applicazione. Questo nome, ad esempio, può essere usato nell'interfaccia utente di un servizio fornito ai clienti tramite batch.
+- **Consenti aggiornamenti** : indica se i pacchetti dell'applicazione possono essere [aggiornati o eliminati](#update-or-delete-an-application-package). Il valore predefinito è **Sì** . Se impostato su **No** , i pacchetti dell'applicazione esistenti non possono essere aggiornati o eliminati, ma è ancora possibile aggiungere nuove versioni del pacchetto dell'applicazione.
+- **Versione predefinita** : pacchetto dell'applicazione predefinito da usare quando viene distribuita l'applicazione, se non è specificata alcuna versione.
+- **Nome visualizzato** : nome descrittivo che la soluzione batch può usare per visualizzare informazioni sull'applicazione. Questo nome, ad esempio, può essere usato nell'interfaccia utente di un servizio fornito ai clienti tramite batch.
 
 ### <a name="add-a-new-application"></a>Aggiungere un’applicazione nuova
 
 Per creare una nuova applicazione, è necessario aggiungere un pacchetto dell'applicazione e specificare un ID applicazione univoco.
 
-Nell'account batch selezionare **applicazioni** , quindi selezionare **Aggiungi**.
+Nell'account batch selezionare **applicazioni** , quindi selezionare **Aggiungi** .
 
 :::image type="content" source="media/batch-application-packages/app_pkg_05.png" alt-text="Diagramma che mostra una visualizzazione di alto livello di applicazioni e pacchetti dell'applicazione.":::
 
 Immettere le seguenti informazioni:
 
-- **ID applicazione**: ID della nuova applicazione.
-- **Version**": la versione per il pacchetto dell'applicazione che si sta caricando.
-- **Pacchetto dell'applicazione**: il file zip contenente i file binari dell'applicazione e i file di supporto necessari per eseguire l'applicazione.
+- **ID applicazione** : ID della nuova applicazione.
+- **Version** ": la versione per il pacchetto dell'applicazione che si sta caricando.
+- **Pacchetto dell'applicazione** : il file zip contenente i file binari dell'applicazione e i file di supporto necessari per eseguire l'applicazione.
 
 L' **ID** e la **versione** dell'applicazione immessi devono rispettare i requisiti seguenti:
 
@@ -116,13 +116,13 @@ L' **ID** e la **versione** dell'applicazione immessi devono rispettare i requis
 - Deve essere univoco nell’account Batch.
 - Gli ID eseguono il mantenimento del case e non fanno distinzione tra maiuscole e minuscole.
 
-Al termine, selezionare **Invia**. Dopo che il file zip è stato caricato nell'account di archiviazione di Azure, il portale Visualizza una notifica. A seconda delle dimensioni del file che si sta caricando e della velocità della connessione di rete, l'operazione potrebbe richiedere del tempo.
+Al termine, selezionare **Invia** . Dopo che il file zip è stato caricato nell'account di archiviazione di Azure, il portale Visualizza una notifica. A seconda delle dimensioni del file che si sta caricando e della velocità della connessione di rete, l'operazione potrebbe richiedere del tempo.
 
 ### <a name="add-a-new-application-package"></a>Aggiungere un nuovo pacchetto dell’applicazione
 
-Per aggiungere una versione del pacchetto dell'applicazione per un'applicazione esistente, selezionare l'applicazione nella sezione **applicazioni** dell'account batch, quindi selezionare **Aggiungi**.
+Per aggiungere una versione del pacchetto dell'applicazione per un'applicazione esistente, selezionare l'applicazione nella sezione **applicazioni** dell'account batch, quindi selezionare **Aggiungi** .
 
-Come per la nuova applicazione, specificare la **versione** del nuovo pacchetto, caricare il file con estensione zip nel campo **pacchetto dell'applicazione** e quindi selezionare **Invia**.
+Come per la nuova applicazione, specificare la **versione** del nuovo pacchetto, caricare il file con estensione zip nel campo **pacchetto dell'applicazione** e quindi selezionare **Invia** .
 
 ### <a name="update-or-delete-an-application-package"></a>Aggiornare o eliminare un pacchetto dell'applicazione
 
@@ -130,9 +130,9 @@ Per aggiornare o eliminare un pacchetto dell'applicazione esistente, selezionare
 
 :::image type="content" source="media/batch-application-packages/app_pkg_07.png" alt-text="Diagramma che mostra una visualizzazione di alto livello di applicazioni e pacchetti dell'applicazione.":::
 
-Se si seleziona **Aggiorna**, sarà possibile caricare un nuovo file con estensione zip. Verrà sostituito il file zip precedente caricato per la versione.
+Se si seleziona **Aggiorna** , sarà possibile caricare un nuovo file con estensione zip. Verrà sostituito il file zip precedente caricato per la versione.
 
-Se si seleziona **Elimina**, verrà richiesto di confermare l'eliminazione di tale versione. Dopo aver selezionato **OK**, batch eliminerà il file con estensione zip dall'account di archiviazione di Azure. Se si elimina la versione predefinita di un'applicazione, viene rimossa l'impostazione della **versione predefinita** per l'applicazione.
+Se si seleziona **Elimina** , verrà richiesto di confermare l'eliminazione di tale versione. Dopo aver selezionato **OK** , batch eliminerà il file con estensione zip dall'account di archiviazione di Azure. Se si elimina la versione predefinita di un'applicazione, viene rimossa l'impostazione della **versione predefinita** per l'applicazione.
 
 ## <a name="install-applications-on-compute-nodes"></a>Installare le applicazioni su nodi di calcolo
 

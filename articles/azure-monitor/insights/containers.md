@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 07/06/2020
-ms.openlocfilehash: b681e3fa4963a8fe899ccbad8dbf1bbdfbe452ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a02ea022bedd92e9deaa0730cc1be051a9d20c88
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87326903"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93145685"
 ---
 # <a name="container-monitoring-solution-in-azure-monitor"></a>Soluzione di monitoraggio dei contenitori in Monitoraggio di Azure
 
@@ -50,8 +50,8 @@ La tabella seguente illustra il supporto per l'orchestrazione e il monitoraggio 
 | Kubernetes | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
 | Mesosphere<br>Controller di dominio/sistema operativo | &#8226; | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; |
 | Docker<br>Swarm | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
-| Servizio<br>Infrastruttura | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
-| Red Hat Open<br>Turno | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
+| Service<br>Infrastruttura | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; |
+| Red Hat Open<br>MAIUSC | | &#8226; | | &#8226; | &#8226;| &#8226; | &#8226; | &#8226; | | &#8226; |
 | Windows Server<br>(autonomo) | | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 | Server Linux<br>(autonomo) | | &#8226; | | &#8226; | &#8226; | &#8226; | &#8226; | &#8226; | | &#8226; |
 
@@ -112,11 +112,11 @@ Usare le informazioni seguenti per installare e configurare la soluzione.
 Consultare l'articolo sul [motore Docker in Windows](/virtualization/windowscontainers/manage-docker/configure-docker-daemon) per altre informazioni su come installare e configurare i motori di Docker sui computer che eseguono Windows.
 
 > [!IMPORTANT]
-> Docker deve essere in esecuzione **prima** di installare l'[agente di Log Analytics per Linux](../learn/quick-collect-linux-computer.md) negli host di contenitori. Se l'agente era già stato installato prima di installare Docker, è necessario reinstallare l'agente di Log Analytics per Linux. Per altre informazioni su Docker, vedere il [sito Web di Docker](https://www.docker.com).
+> Docker deve essere in esecuzione **prima** di installare l' [agente di Log Analytics per Linux](../learn/quick-collect-linux-computer.md) negli host di contenitori. Se l'agente era già stato installato prima di installare Docker, è necessario reinstallare l'agente di Log Analytics per Linux. Per altre informazioni su Docker, vedere il [sito Web di Docker](https://www.docker.com).
 
 ### <a name="install-and-configure-linux-container-hosts"></a>Installare e configurare gli host del contenitore Linux
 
-Dopo aver installato Docker, usare le impostazioni seguenti per l'host di contenitori per configurare l'agente per l'uso con Docker. Sono necessari l'ID e la chiave dell'area di lavoro Log Analytics, che è possibile identificare nel portale di Azure. Nell'area di lavoro fare clic su **avvio rapido**  >  **computer** per visualizzare l'ID e la **chiave primaria**dell' **area di lavoro** .  Copiare e incollare entrambi i valori nell'editor predefinito.
+Dopo aver installato Docker, usare le impostazioni seguenti per l'host di contenitori per configurare l'agente per l'uso con Docker. Sono necessari l'ID e la chiave dell'area di lavoro Log Analytics, che è possibile identificare nel portale di Azure. Nell'area di lavoro fare clic su **avvio rapido**  >  **computer** per visualizzare l'ID e la **chiave primaria** dell' **area di lavoro** .  Copiare e incollare entrambi i valori nell'editor predefinito.
 
 **Per tutti gli host del contenitore Linux, ad eccezione di CoreOS:**
 
@@ -476,12 +476,12 @@ Per usare Helm al fine di distribuire l'agente di Log Analytics in ambiente Kube
  
     RESOURCES:
     ==> v1/Secret
-    NAME            TYPE    DATA  AGE
-    omsagent-msoms  Opaque  3     17m
+    NAME            TYPE    DATA  AGE
+    omsagent-msoms  Opaque  3     17m
  
     ==> v1beta1/DaemonSet
-    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
-    omsagent-msoms  3        3        3      3           3          <none>         17m
+    NAME            DESIRED  CURRENT  READY  UP-TO-DATE  AVAILABLE  NODE-SELECTOR  AGE
+    omsagent-msoms  3        3        3      3           3          <none>         17m
     ```
    
     Per altre informazioni, visitare il [grafico Helm della soluzione contenitore](https://aka.ms/omscontainerhelm).
@@ -513,11 +513,11 @@ Per abilitare il monitoraggio dei contenitori Windows e Hyper-V, installare Micr
 
 È possibile monitorare i contenitori Windows in esecuzione in Service Fabric. Solo le [macchine virtuali in esecuzione in Azure](../learn/quick-collect-azurevm.md) e i [computer che eseguono Windows nell'ambiente locale](../platform/agent-windows.md), tuttavia, sono attualmente supportati da Service Fabric.
 
-È possibile verificare che la soluzione Monitoraggio contenitori sia impostata correttamente per Windows. Per verificare che il Management Pack sia stato scaricato correttamente, cercare *ContainerManagement.xxx*. Il file dovrebbe trovarsi nella cartella C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
+È possibile verificare che la soluzione Monitoraggio contenitori sia impostata correttamente per Windows. Per verificare che il Management Pack sia stato scaricato correttamente, cercare *ContainerManagement.xxx* . Il file dovrebbe trovarsi nella cartella C:\Program Files\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs.
 
 ## <a name="solution-components"></a>Componenti della soluzione
 
-Nel portale di Azure passare alla *Raccolta soluzioni* e aggiungere la **soluzione Monitoraggio contenitori**. Se si usano agenti Windows, il Management Pack seguente viene installato in ogni computer con un agente quando si aggiunge questa soluzione. Per il Management Pack non è richiesta alcuna configurazione o manutenzione.
+Nel portale di Azure passare alla *Raccolta soluzioni* e aggiungere la **soluzione Monitoraggio contenitori** . Se si usano agenti Windows, il Management Pack seguente viene installato in ogni computer con un agente quando si aggiunge questa soluzione. Per il Management Pack non è richiesta alcuna configurazione o manutenzione.
 
 - *ContainerManagement.xxx* installato in C:\Programmi\Microsoft Monitoring Agent\Agent\Health Service State\Management Packs
 
@@ -560,21 +560,21 @@ Il riquadro visualizza una panoramica del numero di contenitori nell'ambiente e 
 
 Fare clic sul riquadro **Containers** (Contenitori). Le visualizzazioni sono organizzate in base agli elementi seguenti:
 
-- **Eventi del contenitore**: visualizza lo stato dei contenitori e i computer con contenitori non riusciti.
-- **Log contenitori**: visualizza un grafico dei file di log dei contenitori generati nel corso del tempo e un elenco di computer con il numero più elevato di file di log.
-- **Eventi Kubernetes**: visualizza un grafico degli eventi di Kubernetes generati nel corso del tempo e un elenco dei motivi per cui i pod hanno generato gli eventi. *Questo set di dati viene usato solo negli ambienti Linux.*
-- **Inventario degli spazi dei nomi Kubernetes**: visualizza il numero di spazi dei nomi e di pod e la gerarchia. *Questo set di dati viene usato solo negli ambienti Linux.*
-- **Inventario nodi del contenitore**: visualizza il numero di tipi di orchestrazioni usati nei nodi/host del contenitore. I nodi/host del computer vengono anche indicati dal numero di contenitori. *Questo set di dati viene usato solo negli ambienti Linux.*
-- **Inventario immagini contenitore**: visualizza il numero totale di immagini del contenitore usate e il numero di tipi di immagini. Il numero delle immagini è indicato anche dal tag immagine.
-- **Stato dei contenitori**: visualizza il numero totale di nodi contenitore/computer host con contenitori in esecuzione. I computer vengono anche indicati dal numero di host in esecuzione.
-- **Processi del contenitore**: visualizza un grafico a linee dei processi del contenitore in esecuzione nel corso del tempo. I contenitori vengono anche indicati dal comando/processo in esecuzione nei contenitori. *Questo set di dati viene usato solo negli ambienti Linux.*
-- **Prestazioni CPU contenitore**: visualizza un grafico a linee dell'utilizzo medio della CPU nel corso del tempo per i nodi/host del computer. Elenca anche i nodi/host del computer in base all'utilizzo medio della CPU.
-- **Prestazioni memoria contenitore**: visualizza un grafico a linee dell'utilizzo della memoria nel corso del tempo. Elenca anche l'utilizzo della memoria del computer in base al nome dell'istanza.
-- **Prestazioni computer**: visualizza i grafici a linee di percentuale di prestazioni della CPU nel corso del tempo, percentuale di utilizzo della memoria nel corso del tempo e megabyte di spazio su disco nel corso del tempo. È possibile passare il puntatore su una linea di un grafico per visualizzare altri dettagli.
+- **Eventi del contenitore** : visualizza lo stato dei contenitori e i computer con contenitori non riusciti.
+- **Log contenitori** : visualizza un grafico dei file di log dei contenitori generati nel corso del tempo e un elenco di computer con il numero più elevato di file di log.
+- **Eventi Kubernetes** : visualizza un grafico degli eventi di Kubernetes generati nel corso del tempo e un elenco dei motivi per cui i pod hanno generato gli eventi. *Questo set di dati viene usato solo negli ambienti Linux.*
+- **Inventario degli spazi dei nomi Kubernetes** : visualizza il numero di spazi dei nomi e di pod e la gerarchia. *Questo set di dati viene usato solo negli ambienti Linux.*
+- **Inventario nodi del contenitore** : visualizza il numero di tipi di orchestrazioni usati nei nodi/host del contenitore. I nodi/host del computer vengono anche indicati dal numero di contenitori. *Questo set di dati viene usato solo negli ambienti Linux.*
+- **Inventario immagini contenitore** : visualizza il numero totale di immagini del contenitore usate e il numero di tipi di immagini. Il numero delle immagini è indicato anche dal tag immagine.
+- **Stato dei contenitori** : visualizza il numero totale di nodi contenitore/computer host con contenitori in esecuzione. I computer vengono anche indicati dal numero di host in esecuzione.
+- **Processi del contenitore** : visualizza un grafico a linee dei processi del contenitore in esecuzione nel corso del tempo. I contenitori vengono anche indicati dal comando/processo in esecuzione nei contenitori. *Questo set di dati viene usato solo negli ambienti Linux.*
+- **Prestazioni CPU contenitore** : visualizza un grafico a linee dell'utilizzo medio della CPU nel corso del tempo per i nodi/host del computer. Elenca anche i nodi/host del computer in base all'utilizzo medio della CPU.
+- **Prestazioni memoria contenitore** : visualizza un grafico a linee dell'utilizzo della memoria nel corso del tempo. Elenca anche l'utilizzo della memoria del computer in base al nome dell'istanza.
+- **Prestazioni computer** : visualizza i grafici a linee di percentuale di prestazioni della CPU nel corso del tempo, percentuale di utilizzo della memoria nel corso del tempo e megabyte di spazio su disco nel corso del tempo. È possibile passare il puntatore su una linea di un grafico per visualizzare altri dettagli.
 
 Ogni area del dashboard è una rappresentazione visiva di una ricerca eseguita sui dati raccolti.
 
-![Dashboard Containers (Contenitori)](./media/containers/containers-dash01.png)
+![Screenshot che mostra un dashboard per visualizzare i dati raccolti. ](./media/containers/containers-dash01.png)
 
 ![Dashboard Containers (Contenitori)](./media/containers/containers-dash02.png)
 
@@ -590,18 +590,18 @@ A questo punto è possibile modificare la query di ricerca per trovare specifich
 
 ## <a name="troubleshoot-by-finding-a-failed-container"></a>Risolvere i problemi cercando un contenitore con errori
 
-Log Analytics contrassegna un contenitore come **Non riuscito** se il contenitore è stato terminato con un codice di uscita diverso da zero. È possibile visualizzare una panoramica degli errori nell'ambiente nell'area **Contenitori non riusciti**.
+Log Analytics contrassegna un contenitore come **Non riuscito** se il contenitore è stato terminato con un codice di uscita diverso da zero. È possibile visualizzare una panoramica degli errori nell'ambiente nell'area **Contenitori non riusciti** .
 
 ### <a name="to-find-failed-containers"></a>Per trovare i contenitori non riusciti
 
-1. Fare clic sull'area **Stato del contenitore**.  
+1. Fare clic sull'area **Stato del contenitore** .  
    ![Stato dei contenitori](./media/containers/containers-status.png)
 2. Log Analytics viene aperto e viene visualizzato lo stato dei contenitori, simile al seguente.  
    ![stato dei contenitori](./media/containers/containers-log-search.png)
 3. Espandere la riga non riuscita e fare clic su + per aggiungere i relativi criteri alla query. Quindi impostare come commento la riga di riepilogo nella query.
-   ![contenitori non riusciti](./media/containers/containers-state-failed-select.png)  
+   ![Screenshot che mostra la riga da impostare come commento.](./media/containers/containers-state-failed-select.png)  
 1. Eseguire la query e quindi espandere una riga nei risultati per visualizzare l'ID immagine.  
-   ![contenitori non riusciti](./media/containers/containers-state-failed.png)  
+   ![Screenshot che illustra come visualizzare l'ID immagine.](./media/containers/containers-state-failed.png)  
 1. Digitare quanto segue nella query di log. `ContainerImageInventory | where ImageID == <ImageID>` visualizza i dettagli dell'immagine, ad esempio dimensioni e numero di immagini arrestate e non riuscite.  
    ![contenitori non riusciti](./media/containers/containers-failed04.png)
 
@@ -609,18 +609,18 @@ Log Analytics contrassegna un contenitore come **Non riuscito** se il contenitor
 
 Nella risoluzione di un errore specifico può essere utile vedere dove l'errore si verifica nell'ambiente. I tipi di log seguenti consentono di creare query per ottenere le informazioni necessarie.
 
-- **ContainerImageInventory**: usare questo tipo per trovare informazioni organizzate per immagine e visualizzare le informazioni sulle immagini, ad esempio ID o dimensioni.
-- **ContainerInventory**: usare questo tipo per ottenere informazioni sul percorso dei contenitori, i relativi nomi e le immagini che eseguono.
-- **ContainerLog**: usare questo tipo per trovare informazioni e voci specifiche del registro errori.
+- **ContainerImageInventory** : usare questo tipo per trovare informazioni organizzate per immagine e visualizzare le informazioni sulle immagini, ad esempio ID o dimensioni.
+- **ContainerInventory** : usare questo tipo per ottenere informazioni sul percorso dei contenitori, i relativi nomi e le immagini che eseguono.
+- **ContainerLog** : usare questo tipo per trovare informazioni e voci specifiche del registro errori.
 - **ContainerNodeInventory_CL** Usare questo tipo quando sono necessarie le informazioni sull'host o sul nodo in cui si trovano i contenitori. Fornisce informazioni su versione di Docker, tipo di orchestrazione, risorsa di archiviazione e rete.
 - **ContainerProcess_CL** Usare questo tipo per visualizzare velocemente il processo in esecuzione nel contenitore.
-- **ContainerServiceLog**: usare questo tipo per trovare informazioni di audit trail per il daemon Docker, ad esempio comandi di avvio, arresto, eliminazione o pull.
+- **ContainerServiceLog** : usare questo tipo per trovare informazioni di audit trail per il daemon Docker, ad esempio comandi di avvio, arresto, eliminazione o pull.
 - **KubeEvents_CL** Usare questo tipo per visualizzare gli eventi di Kubernetes.
 - **KubePodInventory_CL** Usare questo tipo quando sono necessarie le informazioni sulla gerarchia dei cluster.
 
 ### <a name="to-query-logs-for-container-data"></a>Per eseguire query sui log per i dati del contenitore
 
-* Scegliere un'immagine non riuscita di recente e trovare i relativi log degli errori. Iniziare cercando il nome di un contenitore che esegue l'immagine con una ricerca **ContainerInventory**. Cercare ad esempio `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
+* Scegliere un'immagine non riuscita di recente e trovare i relativi log degli errori. Iniziare cercando il nome di un contenitore che esegue l'immagine con una ricerca **ContainerInventory** . Cercare ad esempio `ContainerInventory | where Image == "ubuntu" and ContainerState == "Failed"`  
     ![Cercare contenitori Ubuntu](./media/containers/search-ubuntu.png)
 
   Espandere una riga nei risultati per visualizzare i dettagli relativi al contenitore.
@@ -635,7 +635,7 @@ Spesso è utile compilare query iniziando con qualche esempio da modificare in f
 
 Il salvataggio delle query è una funzionalità standard di monitoraggio di Azure. Le query salvate potranno essere riusate rapidamente in futuro.
 
-Dopo aver creato una query che si ritiene utile, salvarla facendo clic su **Preferiti** nella parte superiore della pagina Ricerca log. Sarà possibile accedere facilmente alla query in seguito dalla pagina **Dashboard**.
+Dopo aver creato una query che si ritiene utile, salvarla facendo clic su **Preferiti** nella parte superiore della pagina Ricerca log. Sarà possibile accedere facilmente alla query in seguito dalla pagina **Dashboard** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
