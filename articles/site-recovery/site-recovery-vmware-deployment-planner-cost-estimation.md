@@ -1,18 +1,18 @@
 ---
 title: Esaminare le stime dei costi nell'Azure Site Recovery Deployment Planner
 description: Questo articolo descrive come rivedere le stime dei costi nell'Azure Site Recovery Deployment Planner per il ripristino di emergenza di VMware.
-author: mayurigupta13
+author: rajeswari-mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 7/29/2019
-ms.author: mayg
-ms.openlocfilehash: d7ee72b5f6441f2b3b3ea9a7eaa41a3e1b650745
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.author: ramamill
+ms.openlocfilehash: dba585fbadca479c146ad42ac1bc5aa9d5349f49
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86528962"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186706"
 ---
 # <a name="review-cost-estimations-in-the-vmware-deployment-planner"></a>Esaminare le stime dei costi nell'Deployment Planner VMware 
 
@@ -35,9 +35,9 @@ Il riepilogo consente di conoscere il costo che è necessario sostenere per arch
 
 **Cost by states** (Costo per stato). Il costo totale del ripristino di emergenza viene classificato in base a due diversi stati: Replication (Replica) e DR-Drill (Esercitazione sul ripristino di emergenza). 
 
-**Costo della replica**: costo che verrà addebitato durante la replica. Copre il costo dell'archiviazione, della rete e della licenza di Azure Site Recovery. 
+**Costo della replica** : costo che verrà addebitato durante la replica. Copre il costo dell'archiviazione, della rete e della licenza di Azure Site Recovery. 
 
-**Costo dell'esercitazione sul ripristino di emergenza**: costo che verrà addebitato durante i failover di test. Durante il failover di test, Azure Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione. 
+**Costo dell'esercitazione sul ripristino di emergenza** : costo che verrà addebitato durante i failover di test. Durante il failover di test, Azure Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione. 
 
 **Azure storage cost per Month/Year** (Costo di archiviazione di Azure al mese/all'anno). Mostra il costo di archiviazione totale che verrà addebitato per l'archiviazione Premium e Standard per la replica e l'esercitazione sul ripristino di emergenza.
 
@@ -62,9 +62,9 @@ Network (Rete): costo della connessione ExpressRoute e VPN da sito a sito per le
 ### <a name="overall-dr-cost-by-states"></a>Costo complessivo del ripristino di emergenza per stato
 Il costo totale del ripristino di emergenza viene classificato in base a due diversi stati: Replication (Replica) e DR-Drill (Esercitazione sul ripristino di emergenza).
 
-**Costo della replica**: il costo viene addebitato al momento della replica. Copre il costo dell'archiviazione, della rete e della licenza di Azure Site Recovery. 
+**Costo della replica** : il costo viene addebitato al momento della replica. Copre il costo dell'archiviazione, della rete e della licenza di Azure Site Recovery. 
 
-**Costo dell'esercitazione sul ripristino di emergenza**: il costo viene addebitato al momento delle esercitazioni sul ripristino di emergenza. Durante tali esercitazioni, Azure Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione.
+**Costo dell'esercitazione sul ripristino di emergenza** : il costo viene addebitato al momento delle esercitazioni sul ripristino di emergenza. Durante tali esercitazioni, Azure Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione.
 La durata totale delle esercitazioni sul ripristino di emergenza in un anno è uguale al numero di esercitazioni sul ripristino di emergenza moltiplicato per la durata di ognuna (in giorni). Il costo medio delle esercitazioni sul ripristino di emergenza (al mese) è uguale al costo totale delle esercitazioni sul ripristino di emergenza diviso 12.
 
 ### <a name="storage-cost-table"></a>Tabella del costo di archiviazione
@@ -73,9 +73,9 @@ Questa tabella mostra il costo di archiviazione Premium e Standard addebitato pe
 ### <a name="site-to-azure-network"></a>Rete da sito ad Azure
 Selezionare l'impostazione appropriata in base ai propri requisiti. 
 
-**ExpressRoute**: per impostazione predefinita, lo strumento seleziona il piano ExpressRoute più vicino corrispondente alla larghezza di banda di rete necessaria per la replica differenziale. È possibile modificare il piano in base ai propri requisiti.
+**ExpressRoute** : per impostazione predefinita, lo strumento seleziona il piano ExpressRoute più vicino corrispondente alla larghezza di banda di rete necessaria per la replica differenziale. È possibile modificare il piano in base ai propri requisiti.
 
-**Gateway VPN**: selezionare il gateway VPN, se presente nell'ambiente in uso. L'impostazione predefinita è NA (N/D).
+**Gateway VPN** : selezionare il gateway VPN, se presente nell'ambiente in uso. L'impostazione predefinita è NA (N/D).
 
 **Target Region** (Area di destinazione): area di Azure specificata per il ripristino di emergenza. Il prezzo usato nel report per il calcolo, l'archiviazione, la rete e la licenza è basato sui prezzi di Azure per tale area. 
 
@@ -122,7 +122,7 @@ Per aggiungere manualmente le VM:
 
 **Storage type** (Tipo di archiviazione): tipo di archiviazione usato dalla VM. L'archiviazione può essere Standard o Premium.
 
-**Dimensioni di archiviazione totali VM (GB)**: spazio di archiviazione totale della VM di origine.
+**Dimensioni di archiviazione totali VM (GB)** : spazio di archiviazione totale della VM di origine.
 
 **Number of DR-Drills in a year** (N. esercitazioni ripristino di emergenza in un anno): numero di esercitazioni sul ripristino di emergenza eseguite in un anno. Il valore predefinito è 4 volte in un anno. È possibile modificarlo per VM specifiche oppure applicare il nuovo valore a tutte le VM immettendolo nella prima riga e facendo clic sul pulsante "Apply to all" (Applica a tutte). Il costo totale delle esercitazioni sul ripristino di emergenza viene calcolato in base al numero di esercitazioni in un anno e alla durata di ognuna.  
 
@@ -132,7 +132,7 @@ Per aggiungere manualmente le VM:
 
 **Data redundancy** (Ridondanza dei dati): può corrispondere a LRS (Archiviazione con ridondanza locale), GRS (Archiviazione con ridondanza geografica) o RA-GRS (Archiviazione con ridondanza geografica e accesso in lettura). L'impostazione predefinita è LRS (Archiviazione con ridondanza locale). È possibile modificare il tipo in base al proprio account di archiviazione per VM specifiche oppure applicare il nuovo tipo a tutte le VM modificandolo nella prima riga e facendo clic sul pulsante "Apply to all" (Applica a tutte).  Il costo di archiviazione della replica viene calcolato in base al prezzo della ridondanza dei dati selezionata. 
 
-**Vantaggio Azure Hybrid**: il vantaggio Azure Hybrid può essere eventualmente applicato alle macchine virtuali Windows.  Il valore predefinito è Yes. È possibile modificare l'impostazione per VM specifiche oppure aggiornare tutte le VM facendo clic sul pulsante "Apply to all" (Applica a tutte).
+**Vantaggio Azure Hybrid** : il vantaggio Azure Hybrid può essere eventualmente applicato alle macchine virtuali Windows.  Il valore predefinito è Yes. È possibile modificare l'impostazione per VM specifiche oppure aggiornare tutte le VM facendo clic sul pulsante "Apply to all" (Applica a tutte).
 
 **Total Azure consumption** (Utilizzo totale di Azure): include il costo di calcolo, di archiviazione e della licenza di Azure Site Recovery per il ripristino di emergenza. Viene visualizzato il costo mensile o annuale in base alla selezione effettuata.
 

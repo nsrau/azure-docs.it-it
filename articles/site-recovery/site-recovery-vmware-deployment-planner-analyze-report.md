@@ -1,18 +1,18 @@
 ---
 title: Analizzare il report Deployment Planner per il ripristino di emergenza di VMware con Azure Site Recovery
 description: Questo articolo descrive come analizzare il report generato dalla Deployment Planner di ripristino per il ripristino di emergenza di VMware in Azure, usando Azure Site Recovery.
-author: mayurigupta13
+author: rajeswari-mamilla
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/4/2019
-ms.author: mayg
-ms.openlocfilehash: ef4baa4be7f6058ca704f8f499c47099de7c1a85
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.author: ramamill
+ms.openlocfilehash: 7e2db720bb37a25b8511bd1c42c0c18e139aa216
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92372090"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186604"
 ---
 # <a name="analyze-the-deployment-planner-report-for-vmware-disaster-recovery-to-azure"></a>Analizzare il report Deployment Planner per il ripristino di emergenza di VMware in Azure
 
@@ -40,7 +40,7 @@ Il foglio di lavoro On-premises summary (Riepilogo ambiente locale) offre una pa
 
 **Observed typical data churn per day (GB)** (Varianza dei dati giornaliera tipica osservata - GB): varianza media dei dati osservata in tutti i giorni di profilatura. Questo numero viene usato come uno degli input per stabilire il numero di server di configurazione e di server di elaborazione aggiuntivi da usare nella distribuzione.
 
-## <a name="recommendations"></a>Indicazioni
+## <a name="recommendations"></a>Consigli
 
 Il foglio Recommendations (Raccomandazioni) del report per lo scenario da VMware ad Azure contiene i dettagli seguenti, in base al valore RPO desiderato che è stato selezionato:
 
@@ -49,7 +49,7 @@ Il foglio Recommendations (Raccomandazioni) del report per lo scenario da VMware
 ### <a name="profiled-data"></a>Dati profilati
 ![Visualizzazione dei dati profilati in Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/profiled-data-v2a.png)
 
-**Profiled data period**(Periodo profilatura dati): periodo durante il quale la profilatura è stata in esecuzione. Per impostazione predefinita, lo strumento include tutti i dati profilati nel calcolo, a meno che non generi il report per un periodo specifico usando le opzioni StartDate ed EndDate durante la generazione del report.
+**Profiled data period** (Periodo profilatura dati): periodo durante il quale la profilatura è stata in esecuzione. Per impostazione predefinita, lo strumento include tutti i dati profilati nel calcolo, a meno che non generi il report per un periodo specifico usando le opzioni StartDate ed EndDate durante la generazione del report.
 
 **Server Name** (Nome server): nome o indirizzo IP del server VMware vCenter o dell'host ESXi contenente le VM per le quali viene generato il report.
 
@@ -113,7 +113,7 @@ In base a questa analisi è possibile stabilire se il numero di violazioni del v
 ![Analisi di simulazione in Deployment Planner](media/site-recovery-vmware-deployment-planner-analyze-report/what-if-analysis-v2a.png)
 
 ### <a name="recommended-vm-batch-size-for-initial-replication"></a>Dimensioni raccomandate per i batch di VM per la replica iniziale
-In questa sezione viene consigliato il numero di VM che possono essere protette in parallelo per completare la replica iniziale entro 72 ore con la larghezza di banda suggerita per soddisfare il valore RPO desiderato il 100% del tempo impostato. Questo valore è configurabile. Per modificarlo durante la generazione di report, usare il parametro *GoalToCompleteIR*.
+In questa sezione viene consigliato il numero di VM che possono essere protette in parallelo per completare la replica iniziale entro 72 ore con la larghezza di banda suggerita per soddisfare il valore RPO desiderato il 100% del tempo impostato. Questo valore è configurabile. Per modificarlo durante la generazione di report, usare il parametro *GoalToCompleteIR* .
 
 Il grafico mostra un intervallo di valori di larghezza di banda e un numero calcolato di VM per batch per completare la replica iniziale in 72 ore, in base alle dimensioni medie rilevate per tutte le VM compatibili.
 
@@ -134,9 +134,9 @@ Il riepilogo consente di conoscere il costo che è necessario sostenere per arch
 
 **Cost by states** (Costo per stato). Il costo totale del ripristino di emergenza viene classificato in base a due diversi stati: Replication (Replica) e DR-Drill (Esercitazione sul ripristino di emergenza).
 
-**Costo della replica**: costo che verrà addebitato durante la replica. Copre il costo dell'archiviazione, della rete e della licenza di Azure Site Recovery.
+**Costo della replica** : costo che verrà addebitato durante la replica. Copre il costo dell'archiviazione, della rete e della licenza di Azure Site Recovery.
 
-**Costo dell'esercitazione sul ripristino di emergenza**: costo che verrà addebitato durante i failover di test. Durante il failover di test, Azure Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione.
+**Costo dell'esercitazione sul ripristino di emergenza** : costo che verrà addebitato durante i failover di test. Durante il failover di test, Azure Site Recovery attiva macchine virtuali. Il costo dell'esercitazione sul ripristino di emergenza copre il costo di calcolo e di archiviazione delle VM in esecuzione.
 
 **Azure storage cost per Month/Year** (Costo di archiviazione di Azure al mese/all'anno). Mostra il costo di archiviazione totale che verrà addebitato per l'archiviazione Premium e Standard per la replica e l'esercitazione sul ripristino di emergenza.
 È possibile visualizzare un'analisi dettagliata dei costi per VM nel foglio [Cost Estimation](site-recovery-vmware-deployment-planner-cost-estimation.md) (Stima costi).
@@ -161,15 +161,15 @@ Si possono verificare situazioni in cui non è possibile impostare una larghezza
 
 ![Selezione host di archiviazione delle VM](media/site-recovery-vmware-deployment-planner-analyze-report/vm-storage-placement-v2a.png)
 
-**Tipo di archiviazione di replica**: un disco gestito standard o Premium, usato per replicare tutte le macchine virtuali corrispondenti indicate nella colonna **VM da inserire** .
+**Tipo di archiviazione di replica** : un disco gestito standard o Premium, usato per replicare tutte le macchine virtuali corrispondenti indicate nella colonna **VM da inserire** .
 
-**Tipo di account di archiviazione di log**: tutti i log di replica vengono archiviati in un account di archiviazione standard.
+**Tipo di account di archiviazione di log** : tutti i log di replica vengono archiviati in un account di archiviazione standard.
 
-**Prefisso suggerito per l'account di archiviazione**: il prefisso di tre caratteri suggerito che può essere usato per assegnare un nome all'account di archiviazione della cache. È possibile usare un prefisso personalizzato, ma il suggerimento dello strumento segue la [convenzione di denominazione delle partizioni per gli account di archiviazione](/en-in/azure/storage/blobs/storage-performance-checklist).
+**Prefisso suggerito per l'account di archiviazione** : il prefisso di tre caratteri suggerito che può essere usato per assegnare un nome all'account di archiviazione della cache. È possibile usare un prefisso personalizzato, ma il suggerimento dello strumento segue la [convenzione di denominazione delle partizioni per gli account di archiviazione](/en-in/azure/storage/blobs/storage-performance-checklist).
 
-**Nome dell'account di log suggerito**: il nome dell'account di archiviazione dopo avere incluso il prefisso suggerito. Sostituire il nome nelle parentesi acute (< e >) con l'input personalizzato.
+**Nome dell'account di log suggerito** : il nome dell'account di archiviazione dopo avere incluso il prefisso suggerito. Sostituire il nome nelle parentesi acute (< e >) con l'input personalizzato.
 
-**Selezione host**: riepilogo dei dischi necessari per proteggere le macchine virtuali in base al tipo di archiviazione. Include il numero totale di macchine virtuali, le dimensioni totali di cui è stato effettuato il provisioning in tutti i dischi e il numero totale di dischi.
+**Selezione host** : riepilogo dei dischi necessari per proteggere le macchine virtuali in base al tipo di archiviazione. Include il numero totale di macchine virtuali, le dimensioni totali di cui è stato effettuato il provisioning in tutti i dischi e il numero totale di dischi.
 
 **VMs to Place** (Macchine virtuali da inserire): elenco di tutte le VM da inserire nell'account di archiviazione specificato per ottenere uso e prestazioni ottimali.
 
@@ -178,7 +178,7 @@ Si possono verificare situazioni in cui non è possibile impostare una larghezza
 
 **VM Name** (Nome macchina virtuale): nome o indirizzo IP della VM usato in VMListFile quando viene generato un report. Questa colonna elenca anche i dischi (VMDK) collegati alle VM. Per distinguere le VM vCenter con nomi o indirizzi IP duplicati, i nomi includono il nome dell'host ESXi. L'host ESXi elencato è quello in cui la VM è stata inserita quando lo strumento l'ha rilevata durante il periodo di profilatura.
 
-**Compatibilità delle VM**: i valori sono **Yes** e **Yes \* *_. _* Yes** \* è per le istanze in cui la macchina virtuale è adatta per le unità [SSD Premium](../virtual-machines/disks-types.md). Qui, il disco con varianza elevata o operazioni di I/O al secondo profilato è idoneo per la categoria P20 o P30, ma le dimensioni del disco prevedono la mappatura alla categoria P10 o P20. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco. Esempio:
+**Compatibilità delle VM** : i valori sono **Yes** e **Yes \* *_. _* Yes** \* è per le istanze in cui la macchina virtuale è adatta per le unità [SSD Premium](../virtual-machines/disks-types.md). Qui, il disco con varianza elevata o operazioni di I/O al secondo profilato è idoneo per la categoria P20 o P30, ma le dimensioni del disco prevedono la mappatura alla categoria P10 o P20. In base alle dimensioni, l'account di archiviazione decide a quale tipo di disco di archiviazione Premium mappare un disco. Ad esempio:
 * <128 GB rientrano nella categoria P10.
 * Da 128 GB a 256 GB rientrano nella categoria P15.
 * Da 256 GB a 512 GB rientrano nella categoria P20.
@@ -190,7 +190,7 @@ Ad esempio, se le caratteristiche del carico di lavoro di un disco lo inseriscon
 
 **Storage Type** (Tipo di archiviazione): Standard o Premium.
 
-**Asrseeddisk (disco gestito) creato per la replica**: il nome del disco creato quando si Abilita la replica. Archivia i dati e i relativi snapshot in Azure.
+**Asrseeddisk (disco gestito) creato per la replica** : il nome del disco creato quando si Abilita la replica. Archivia i dati e i relativi snapshot in Azure.
 
 **Peak R/W IOPS (with Growth Factor)** (Picco operazioni di I/O al secondo in lettura/scrittura - con fattore di crescita): picco di operazioni di I/O al secondo in lettura/scrittura del carico di lavoro nel disco (il valore predefinito è 95° percentile), incluso il fattore di crescita futuro (il valore predefinito è 30%). Si noti che il numero totale di operazioni di I/O al secondo in lettura/scrittura di una VM non è sempre costituito dalla somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi della VM, perché il picco di operazioni di I/O al secondo in lettura/scrittura della VM è il picco della somma delle operazioni di I/O al secondo in lettura/scrittura dei singoli dischi per ogni minuto del periodo di profilatura.
 
@@ -255,7 +255,7 @@ Ad esempio, se le caratteristiche del carico di lavoro di un disco lo inseriscon
 
 **Boot Type** (Tipo di avvio): tipo di avvio della macchina virtuale. Può essere BIOS o EFI.  Attualmente Azure Site Recovery supporta VM Windows Server basate su EFI (Windows Server 2012, 2012 R2 e 2016), a condizione che il numero di partizioni nel disco di avvio sia inferiore a 4 e che i settori di avvio abbiano dimensioni di 512 byte. Per proteggere le VM basate su EFI, la versione del servizio Mobility di Azure Site Recovery deve essere la 9.13 o successive. Per le VM basate su EFI è supportato solo il failover. Il failback non è supportato.
 
-**Tipo di sistema operativo**: tipo di sistema operativo della macchina virtuale. Può essere Windows o Linux o un altro ancora, in base al modello scelto da VMware vSphere durante la creazione della VM.
+**Tipo di sistema operativo** : tipo di sistema operativo della macchina virtuale. Può essere Windows o Linux o un altro ancora, in base al modello scelto da VMware vSphere durante la creazione della VM.
 
 ## <a name="azure-site-recovery-limits"></a>Limiti di Azure Site Recovery
 La tabella seguente indica i limiti di Azure Site Recovery. Questi limiti si basano su test di Microsoft, ma non possono coprire tutte le possibili combinazioni di I/O delle applicazioni. I risultati effettivi possono variare in base alla combinazione di I/O delle applicazioni. Per risultati ottimali, anche dopo la pianificazione della distribuzione è sempre consigliabile eseguire test approfonditi delle applicazioni con un failover di test per ottenere il quadro reale delle prestazioni dell'applicazione.

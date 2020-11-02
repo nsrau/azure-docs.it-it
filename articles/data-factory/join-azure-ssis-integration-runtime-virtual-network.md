@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/02/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: 0e9c669f2994e896205762c5f3f4df1b5fe214ae
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: e73126cfc54294a7b9d54ff62c406d5e686ac470
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637225"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186774"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Aggiungere un runtime di integrazione SSIS di Azure a una rete virtuale
 
@@ -99,7 +99,7 @@ Configurare la rete virtuale in modo che soddisfi questi requisiti:
 
 - Verificare che il gruppo di risorse della rete virtuale (o il gruppo di risorse indirizzi IP pubblici se si portano i propri indirizzi IP pubblici) possa creare ed eliminare alcune risorse di rete di Azure. Per altre informazioni, vedere [configurare il gruppo di risorse](#resource-group). 
 
-- Se si Personalizza il Azure-SSIS IR come descritto in [installazione personalizzata per Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md), i nodi di Azure-SSIS IR otterranno indirizzi IP privati da un intervallo predefinito di 172.16.0.0 a 172.31.255.255. Assicurarsi quindi che gli intervalli di indirizzi IP privati delle reti virtuali o locali non entrino in conflitto con questo intervallo.
+- Se si Personalizza il Azure-SSIS IR come descritto in [installazione personalizzata per Azure-SSIS IR](./how-to-configure-azure-ssis-ir-custom-setup.md), il processo interno per gestire i relativi nodi utilizzerà indirizzi IP privati da un intervallo predefinito di 172.16.0.0 a 172.31.255.255. Assicurarsi quindi che gli intervalli di indirizzi IP privati delle reti virtuali o locali non entrino in conflitto con questo intervallo.
 
 Questo diagramma mostra le connessioni necessarie per il Azure-SSIS IR:
 
@@ -236,7 +236,7 @@ Per consentire al dispositivo firewall di consentire il traffico in uscita, è n
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Azure Public      | <ul><li><b>Azure Data Factory (gestione)</b><ul><li>\*. frontend.clouddatahub.net</li></ul></li><li><b>Archiviazione di Azure (gestione)</b><ul><li>\*.blob.core.windows.net</li><li>\*. table.core.windows.net</li></ul></li><li><b>Azure Container Registry (configurazione personalizzata)</b><ul><li>\*.azurecr.io</li></ul></li><li><b>Hub eventi (registrazione)</b><ul><li>\*.servicebus.windows.net</li></ul></li><li><b>Servizio di registrazione Microsoft (uso interno)</b><ul><li>gcs.prod.monitoring.core.windows.net</li><li>prod.warmpath.msftcloudes.com</li><li>azurewatsonanalysis-prod.core.windows.net</li></ul></li></ul> |
     | Azure Government  | <ul><li><b>Azure Data Factory (gestione)</b><ul><li>\*. frontend.datamovement.azure.us</li></ul></li><li><b>Archiviazione di Azure (gestione)</b><ul><li>\*.blob.core.usgovcloudapi.net</li><li>\*. table.core.usgovcloudapi.net</li></ul></li><li><b>Azure Container Registry (configurazione personalizzata)</b><ul><li>\*. azurecr.us</li></ul></li><li><b>Hub eventi (registrazione)</b><ul><li>\*. servicebus.usgovcloudapi.net</li></ul></li><li><b>Servizio di registrazione Microsoft (uso interno)</b><ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>azurewatsonanalysis.usgovcloudapp.net</li></ul></li></ul> |
-    | 21Vianet per Azure Cina     | <ul><li><b>Azure Data Factory (gestione)</b><ul><li>\*. frontend.datamovement.azure.cn</li></ul></li><li><b>Archiviazione di Azure (gestione)</b><ul><li>\*. blob.core.chinacloudapi.cn</li><li>\*. table.core.chinacloudapi.cn</li></ul></li><li><b>Azure Container Registry (configurazione personalizzata)</b><ul><li>\*. azurecr.cn</li></ul></li><li><b>Hub eventi (registrazione)</b><ul><li>\*. servicebus.chinacloudapi.cn</li></ul></li><li><b>Servizio di registrazione Microsoft (uso interno)</b><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul> |
+    | Azure Cina 21Vianet     | <ul><li><b>Azure Data Factory (gestione)</b><ul><li>\*. frontend.datamovement.azure.cn</li></ul></li><li><b>Archiviazione di Azure (gestione)</b><ul><li>\*. blob.core.chinacloudapi.cn</li><li>\*. table.core.chinacloudapi.cn</li></ul></li><li><b>Azure Container Registry (configurazione personalizzata)</b><ul><li>\*. azurecr.cn</li></ul></li><li><b>Hub eventi (registrazione)</b><ul><li>\*. servicebus.chinacloudapi.cn</li></ul></li><li><b>Servizio di registrazione Microsoft (uso interno)</b><ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>azurewatsonanalysis.chinacloudapp.cn</li></ul></li></ul> |
 
     Per quanto riguarda i nomi di dominio completi di archiviazione di Azure, Azure Container Registry e hub eventi, è anche possibile scegliere di abilitare gli endpoint di servizio seguenti per la rete virtuale in modo che il traffico di rete verso questi endpoint passi attraverso la rete backbone di Azure invece di essere instradato al dispositivo firewall:
     -  Microsoft.Storage

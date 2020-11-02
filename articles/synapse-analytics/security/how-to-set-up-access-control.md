@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f5b87fe313f7d152a80a35671bc7e0da3bb7c7
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92341550"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186621"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteggere l'area di lavoro Synapse (anteprima) 
 
@@ -48,11 +48,9 @@ Per semplificare le istruzioni, in questa documentazione vengono usati nomi stan
 
 Creare e popolare tre gruppi di sicurezza per l'area di lavoro:
 
-- **WS1\_WSAdmins**: per gli utenti che necessitano del controllo completo sull'area di lavoro
-- **WS1\_SparkAdmins**: per gli utenti che necessitano del controllo completo sugli aspetti Spark dell'area di lavoro
-- **WS1\_SQLAdmins**: per gli utenti che necessitano del controllo completo sugli aspetti SQL dell'area di lavoro
-- Aggiungere **WS1\_WSAdmins** a **WS1\_SQLAdmins**
-- Aggiungere **WS1\_WSAdmins** a **WS1\_SparkAdmins**
+- **WS1\_WSAdmins** : per gli utenti che necessitano del controllo completo sull'area di lavoro
+- **WS1\_SparkAdmins** : per gli utenti che necessitano del controllo completo sugli aspetti Spark dell'area di lavoro
+- **WS1\_SQLAdmins** : per gli utenti che necessitano del controllo completo sugli aspetti SQL dell'area di lavoro
 
 ## <a name="step-2-prepare-your-data-lake-storage-gen2-account"></a>PASSAGGIO 2: preparare l'account Data Lake Storage Gen2
 
@@ -98,7 +96,7 @@ L'area di lavoro Synapse deve accedere a STG1 e CNT1 per poter eseguire le pipel
 
 - Aprire il portale di Azure
 - Passare a WS1
-- In **Impostazioni**selezionare **amministratore di SQL Active Directory**
+- In **Impostazioni** selezionare **amministratore di SQL Active Directory**
 - Selezionare **imposta amministratore** e scegliere WS1 \_ sqladmins
 
 ## <a name="step-6-maintain-access-control"></a>PASSAGGIO 6: gestire il controllo di accesso
@@ -113,7 +111,7 @@ Sebbene sia possibile assegnare manualmente gli utenti ai ruoli Synapse, sceglie
 
 Gli utenti in ogni ruolo devono completare i passaggi seguenti:
 
-| Number | Passaggio | Amministratori dell'area di lavoro | Amministratori Spark | Amministratori SQL |
+| Numero | Passaggio | Amministratori dell'area di lavoro | Amministratori Spark | Amministratori SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Caricare un file parquet in CNT1 | YES | YES | YES |
 | 2 | Leggere il file parquet usando SQL su richiesta | YES | NO | YES |

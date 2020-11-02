@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: bffe69dd5b7d3cdfcba1df3420d494dcffc33f9a
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
+ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042664"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93186587"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -41,7 +41,7 @@ Le API BLOB e le API di Data Lake Storage Gen2 possono operare sugli stessi dati
 
 Questa sezione descrive i problemi e le limitazioni delle API BLOB e delle API di Data Lake Storage Gen2 quando vengono usate per operare sugli stessi dati.
 
-* Non è possibile usare API e API Data Lake Storage per scrivere nella stessa istanza di un file. Se si scrive in un file usando le API di Data Lake Storage Gen2, i blocchi di tale file non saranno visibili alle chiamate all'API BLOB [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list). L'unica eccezione è quando si usa la sovrascrittura. È possibile sovrascrivere un file o un BLOB usando una delle due API.
+* Non è possibile usare l'API BLOB e le API Data Lake Storage per scrivere nella stessa istanza di un file. Se si scrive in un file usando le API di Data Lake Storage Gen2, i blocchi di tale file non saranno visibili alle chiamate all'API BLOB [Get Block List](https://docs.microsoft.com/rest/api/storageservices/get-block-list). L'unica eccezione è quando si usa la sovrascrittura. È possibile sovrascrivere un file o un BLOB usando una delle due API.
 
 * Quando si usa l'operazione [Elenca BLOB](https://docs.microsoft.com/rest/api/storageservices/list-blobs) senza specificare un delimitatore, i risultati includeranno sia le directory che i BLOB. Se si sceglie di specificare un delimitatore, usare solo una barra (`/`). Si tratta dell'unico delimitatore supportato.
 
@@ -72,7 +72,7 @@ Usare solo la versione più recente di AzCopy ([AzCopy v10](https://docs.microso
 
 <a id="storage-explorer"></a>
 
-## <a name="azure-storage-explorer"></a>Azure Storage Explorer
+## <a name="azure-storage-explorer"></a>Esplora archivi Azure
 
 Usare solo versioni `1.6.0` o versioni successive.
 
