@@ -368,7 +368,7 @@
                     - name: .NET
                       href: storage-blob-user-delegation-sas-create-dotnet.md
                 - name: Creare un SAS di servizio
-                  href: storage-blob-service-sas-create-dotnet.md
+                  href: sas-service-create.md
                 - name: Creare una firma di accesso condiviso dell'account (.NET)
                   href: ../common/storage-account-sas-create-dotnet.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Definire criteri di accesso archiviati
