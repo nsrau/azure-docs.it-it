@@ -11,12 +11,12 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: cefc6cc72ed8d74663464f4ac2d672369cd9d31c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 368d43283d713b8d4e101c2ee26724242f29756c
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288665"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148253"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistiche in Synapse SQL
 
@@ -74,7 +74,7 @@ Per evitare una riduzione delle prestazioni, verificare che le statistiche siano
 > [!NOTE]
 > La creazione di statistiche viene registrata in [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) in un contesto utente diverso.
 
-Le statistiche automatiche create sono nel formato: _WA_Sys_<id colonna a 8 cifre in hex>_<id tabella a 8 cifre in hex>. È possibile visualizzare le statistiche già create con il comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
+Le statistiche automatiche create sono nel formato: _WA_Sys_ <id colonna a 8 cifre in hex>_<id tabella a 8 cifre in hex>. È possibile visualizzare le statistiche già create con il comando [DBCC SHOW_STATISTICS](/sql/t-sql/database-console-commands/dbcc-show-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true):
 
 ```sql
 DBCC SHOW_STATISTICS (<table_name>, <target>)
@@ -99,7 +99,7 @@ Di seguito sono forniti alcuni elementi consigliati per l'aggiornamento delle st
 
 ### <a name="determine-last-statistics-update"></a>Determinare l'ultimo aggiornamento delle statistiche
 
-Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate**.
+Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate** .
 
 Questa verifica non può essere basata sulla data di creazione dei dati. Un oggetto statistiche aggiornato può essere vecchio se non sono state apportate modifiche sostanziali ai dati sottostanti. È necessario aggiornare le statistiche *quando* vengono apportate modifiche importanti al numero di righe o modifiche sostanziali alla distribuzione dei valori per una colonna specifica.
 
@@ -245,7 +245,7 @@ Per creare un oggetto statistiche a più colonne, usare gli esempi precedenti, s
 > [!NOTE]
 > L'istogramma, che viene usato per stimare il numero di righe nei risultato della query, è disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
 
-In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche sulle colonne vengono calcolate su *product\_category* e *product\_sub_category*:
+In questo esempio l'istogramma è disponibile su *product\_category* . Le statistiche sulle colonne vengono calcolate su *product\_category* e *product\_sub_category* :
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -254,7 +254,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE = 50 PERCENT;
 ```
 
-Poiché esiste una correlazione tra *product\_category* e *product\_sub\_category*, un oggetto statistiche a più colonne può essere utile se si accede contemporaneamente a queste colonne.
+Poiché esiste una correlazione tra *product\_category* e *product\_sub\_category* , un oggetto statistiche a più colonne può essere utile se si accede contemporaneamente a queste colonne.
 
 #### <a name="create-statistics-on-all-columns-in-a-table"></a>Creare statistiche su tutte le colonne in una tabella
 
@@ -602,7 +602,7 @@ Le statistiche manuali non vengono mai dichiarate obsolete.
 > [!NOTE]
 > La ricreazione automatica delle statistiche è attivata per i file Parquet. Per i file CSV, invece, è necessario eliminare le statistiche esistenti e ricrearle manualmente fino a quando non sarà supportata la creazione automatica di statistiche sui file CSV. Vedere gli esempi seguenti su come eliminare e creare statistiche.
 
-Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate**.
+Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate** .
 
 È necessario aggiornare le statistiche *quando* vengono apportate modifiche importanti al numero di righe o modifiche sostanziali alla distribuzione dei valori per una colonna specifica.
 
@@ -616,7 +616,7 @@ Quando si risolvono i problemi di una query è essenziale verificare prima di tu
 Di seguito vengono illustrati i principi guida per l'aggiornamento delle statistiche:
 
 - Assicurarsi che ogni set di dati includa almeno un oggetto statistiche aggiornato. In questo modo, le informazioni sulle dimensioni delle tabelle (numero di righe e pagine) vengono aggiornate contestualmente all'aggiornamento delle statistiche.
-- Concentrarsi sulle colonne incluse nelle clausole JOIN, GROUP BY, ORDER BY e DISTINCT.
+- Concentrarsi sulle colonne che partecipano alle clausole WHERE, JOIN, GROUP BY, ORDER BY e DISTINCT.
 - Aggiornare con maggiore frequenza le colonne "chiave crescente", ad esempio le date delle transazioni, poiché questi valori non saranno inclusi nell'istogramma delle statistiche.
 - Aggiornare invece con minore frequenza le colonne relative alla distribuzione statica.
 
@@ -629,12 +629,12 @@ Nell'esempio seguente vengono illustrate le varie opzioni disponibili per la cre
 > [!NOTE]
 > È possibile creare statistiche a singola colonna solo in questo momento.
 >
-> La procedura sp_create_file_statistics verrà rinominata sp_create_openrowset_statistics. Al ruolo di server public è concessa l'autorizzazione ADMINISTER BULK OPERATIONS, mentre al ruolo di database public sono concesse le autorizzazioni EXECUTE sulle statistiche sp_create_file_statistics e sp_drop_file_statistics. Questo aspetto potrebbe tuttavia essere modificato in futuro.
+> Per eseguire sp_create_openrowset_statistics e sp_drop_openrowset_statistics, è necessario disporre delle autorizzazioni seguenti: AMMINISTRAre le operazioni BULK o AMMINISTRAre le operazioni BULK del DATABASE.
 
 Per la creazione di statistiche viene usata la stored procedure seguente:
 
 ```sql
-sys.sp_create_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_create_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 Argomenti: [ @stmt = ] N'statement_text' - Specifica un'istruzione Transact-SQL che restituirà i valori di colonna da usare per le statistiche. Con il comando TABLESAMPLE è possibile specificare eventuali campioni di dati da usare. Se TABLESAMPLE non viene specificato, verrà usato il comando FULLSCAN.
@@ -666,7 +666,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT year
+EXEC sys.sp_create_openrowset_statistics N'SELECT year
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/csv/population/population.csv'',
         FORMAT = ''CSV'',
@@ -698,7 +698,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -712,18 +712,18 @@ FROM OPENROWSET(
 Per aggiornare le statistiche, è necessario eliminare le statistiche precedenti e creare nuove statistiche. Per l'eliminazione di statistiche viene usata la stored procedure seguente:
 
 ```sql
-sys.sp_drop_file_statistics [ @stmt = ] N'statement_text'
+sys.sp_drop_openrowset_statistics [ @stmt = ] N'statement_text'
 ```
 
 > [!NOTE]
-> La procedura sp_drop_file_statistics verrà rinominata sp_drop_openrowset_statistics. Al ruolo di server public è concessa l'autorizzazione ADMINISTER BULK OPERATIONS, mentre al ruolo di database public sono concesse le autorizzazioni EXECUTE sulle statistiche sp_create_file_statistics e sp_drop_file_statistics. Questo aspetto potrebbe tuttavia essere modificato in futuro.
+> Per eseguire sp_create_openrowset_statistics e sp_drop_openrowset_statistics, è necessario disporre delle autorizzazioni seguenti: AMMINISTRAre le operazioni BULK o AMMINISTRAre le operazioni BULK del DATABASE.
 
 Argomenti: [ @stmt = ] N'statement_text' - Specifica la stessa istruzione Transact-SQL usata per la creazione delle statistiche.
 
 Per aggiornare le statistiche sulla colonna Year nel set di dati in base al file population.csv, è necessario eliminare le statistiche esistenti e crearne nuove:
 
 ```sql
-EXEC sys.sp_drop_file_statistics N'SELECT payment_type
+EXEC sys.sp_drop_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''
@@ -743,7 +743,7 @@ SECRET = ''
 GO
 */
 
-EXEC sys.sp_create_file_statistics N'SELECT payment_type
+EXEC sys.sp_create_openrowset_statistics N'SELECT payment_type
 FROM OPENROWSET(
         BULK ''https://sqlondemandstorage.blob.core.windows.net/parquet/taxi/year=2018/month=6/*.parquet'',
          FORMAT = ''PARQUET''

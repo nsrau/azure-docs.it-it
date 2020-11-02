@@ -6,6 +6,8 @@
     - name: Informazioni su Content Moderator
       href: overview.md
       expanded: true
+    - name: Novità
+      href: whats-new.md
 - name: Avvi rapidi
   items:
     - name: Provare Content Moderator sul Web

@@ -3,12 +3,12 @@ title: Gestire i lab per le classi in Azure Lab Services | Microsoft Docs
 description: Informazioni su come creare e configurare un lab per le classi, visualizzare tutti i lab per le classi, condividere il collegamento di registrazione con un utente del lab o eliminare un lab.
 ms.topic: how-to
 ms.date: 06/26/2020
-ms.openlocfilehash: 1a251f668508ee0b727c5e2ace65d1ea4eb5123e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dd05b13a34e2be1a9d6bdc011a9aa24e79bc8dd1
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91251678"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148372"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Gestire i lab per le classi in Azure Lab Services 
 Questo articolo descrive come creare ed eliminare un lab per le classi, nonché come visualizzare tutti i lab per le classi in un account lab. 
@@ -26,11 +26,11 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 1. Nella finestra **New Lab** (Nuovo lab) eseguire queste operazioni: 
     1. Specificare un **nome** per il lab. 
     1. Selezionare le **dimensioni delle macchine virtuali** necessarie per la classe. Per l'elenco delle dimensioni disponibili, vedere la sezione [dimensioni delle macchine virtuali](#vm-sizes). 
-    1. Selezionare l'**immagine della macchina virtuale** che si vuole usare per il lab per le classi. Se si seleziona un'immagine di Linux, viene visualizzata un'opzione che consente di **abilitare la connessione Desktop remoto**. Per informazioni, vedere [Abilitare Connessione desktop remoto per Linux](how-to-enable-remote-desktop-linux.md).
+    1. Selezionare l' **immagine della macchina virtuale** che si vuole usare per il lab per le classi. Se si seleziona un'immagine di Linux, viene visualizzata un'opzione che consente di **abilitare la connessione Desktop remoto** . Per informazioni, vedere [Abilitare Connessione desktop remoto per Linux](how-to-enable-remote-desktop-linux.md).
 
         Se è stato eseguito l'accesso con le credenziali del proprietario dell'account lab, viene visualizzata un'opzione per abilitare più immagini per il lab. Per altre informazioni, vedere [Abilitare le immagini al momento della creazione del lab](specify-marketplace-images.md#enable-images-at-the-time-of-lab-creation).
     1. Vedere il **prezzo totale all'ora** visualizzato nella pagina. 
-    1. Selezionare **Salva**.
+    1. Selezionare **Salva** .
 
         ![Screenshot che mostra la finestra "nuovo Lab".](./media/tutorial-setup-classroom-lab/new-lab-window.png)
 
@@ -42,16 +42,16 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 
         > [!IMPORTANT]
         > Prendere nota del nome utente e della password perché non verranno più visualizzati.
-    3. Disabilitare l'opzione **Usa la stessa password per tutte le macchine virtuali** se si vuole che gli studenti impostino le proprie password. Questo passaggio è **facoltativo**. 
+    3. Disabilitare l'opzione **Usa la stessa password per tutte le macchine virtuali** se si vuole che gli studenti impostino le proprie password. Questo passaggio è **facoltativo** . 
 
-        Un docente può scegliere di usare la stessa password per tutte le macchine virtuali del lab o consentire agli studenti di impostare le password per le proprie macchine virtuali. Per impostazione predefinita, questa impostazione è abilitata per tutte le immagini del sistema operativo Windows e Linux, ad eccezione di Ubuntu. Se si seleziona una macchina virtuale **Ubuntu**, questa impostazione è disabilitata, per cui agli studenti verrà richiesto di impostare una password quando accedono per la prima volta.  
+        Un docente può scegliere di usare la stessa password per tutte le macchine virtuali del lab o consentire agli studenti di impostare le password per le proprie macchine virtuali. Per impostazione predefinita, questa impostazione è abilitata per tutte le immagini del sistema operativo Windows e Linux, ad eccezione di Ubuntu. Se si seleziona una macchina virtuale **Ubuntu** , questa impostazione è disabilitata, per cui agli studenti verrà richiesto di impostare una password quando accedono per la prima volta.  
 
         ![Finestra New lab](./media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
-    4. Selezionare quindi **Avanti** nella pagina **Credenziali della macchina virtuale**. 
+    4. Selezionare quindi **Avanti** nella pagina **Credenziali della macchina virtuale** . 
 5. Nella pagina **Criteri del lab** procedere come segue:
-    1. Immettere il numero di ore allocate per ogni utente (**quota per ogni utente**) al di fuori del tempo pianificato per il lab. 
+    1. Immettere il numero di ore allocate per ogni utente ( **quota per ogni utente** ) al di fuori del tempo pianificato per il lab. 
     2. Per l'opzione **Arresto automatico delle macchine virtuali** specificare se si vuole che la macchina virtuale venga arrestata automaticamente quando l'utente si disconnette. È anche possibile specificare per quanto tempo la macchina virtuale deve attendere che l'utente si riconnetta prima di arrestarsi automaticamente. Per altre informazioni, vedere [Abilitare l'arresto automatico delle macchine virtuali al termine della connessione](how-to-enable-shutdown-disconnect.md).
-    3. Quindi selezionare **Fine**. 
+    3. Quindi selezionare **Fine** . 
 
         ![Quota per ogni utente](./media/tutorial-setup-classroom-lab/quota-for-each-user.png)
     
@@ -77,7 +77,7 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 11. Nella pagina viene visualizzato lo **stato di pubblicazione** del modello. Questo processo può richiedere fino a un'ora. 
 
     ![Pubblicazione del modello - stato](./media/tutorial-setup-classroom-lab/publish-template-progress.png)
-12. Passare alla pagina **Pool di macchine virtuali** scegliendo Macchine virtuali dal menu sinistro oppure selezionando il riquadro Macchine virtuali. Verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato**. Queste macchine virtuali non sono ancora assegnate agli studenti. Devono essere nello stato **Arrestato**. In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
+12. Passare alla pagina **Pool di macchine virtuali** scegliendo Macchine virtuali dal menu sinistro oppure selezionando il riquadro Macchine virtuali. Verificare che vengano visualizzate macchine virtuali con lo stato **Non assegnato** . Queste macchine virtuali non sono ancora assegnate agli studenti. Devono essere nello stato **Arrestato** . In questa pagina è possibile avviare la macchina virtuale di uno studente, connettersi alla macchina virtuale, arrestare la macchina virtuale ed eliminare la macchina virtuale. In questa pagina è possibile avviare le macchine virtuali o consentire agli studenti di avviarle. 
 
     ![Macchine virtuali nello stato arrestato](./media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)
 
@@ -103,22 +103,26 @@ Per configurare un lab per le classi in un account del lab, è necessario essere
 > [!NOTE]
 > È possibile che alcune di queste dimensioni di macchina virtuale non vengano visualizzate nell'elenco durante la creazione di un lab per le classi. L'elenco viene popolato in base alla capacità corrente della località del lab. Se l'autore dell'account lab [consente agli autori del lab di selezionare una località per il lab](allow-lab-creator-pick-lab-location.md), è possibile provare a scegliere una località diversa per il lab e verificare se le dimensioni della macchina virtuale sono disponibili. 
 
-
 ## <a name="view-all-classroom-labs"></a>Visualizzare tutti i lab per le classi
+
 1. Accedere al [portale di Azure Lab Services](https://labs.azure.com).
-2. Fare clic su **Accedi**. Selezionare o immettere un **ID utente** appartenente al ruolo **Autore di laboratori** nell'account lab e quindi immettere la password. Azure Lab Services supporta gli account aziendali e gli account Microsoft. 
-3. Confermare che sia possibile visualizzare tutti i lab dell'account del lab selezionato. Nel riquadro del lab viene visualizzato il numero di macchine virtuali nel lab e la quota per ogni utente (al di fuori del tempo pianificato).
+1. Fare clic su **Accedi** . Selezionare o immettere un **ID utente** appartenente al ruolo **Autore di laboratori** nell'account lab e quindi immettere la password. Azure Lab Services supporta gli account aziendali e gli account Microsoft. 
+
+    [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+1. Confermare che sia possibile visualizzare tutti i lab dell'account del lab selezionato. Nel riquadro del lab viene visualizzato il numero di macchine virtuali nel lab e la quota per ogni utente (al di fuori del tempo pianificato).
 
     ![Tutti i lab](./media/how-to-manage-classroom-labs/all-labs.png)
-3. Dall'elenco a discesa nella parte superiore, selezionare un account del lab differente. Tutti i lab dell'account selezionato sono visibili. 
+1. Dall'elenco a discesa nella parte superiore, selezionare un account del lab differente. Tutti i lab dell'account selezionato sono visibili. 
 
 ## <a name="delete-a-classroom-lab"></a>Eliminare un lab per le classi
-1. Nel riquadro del lab, selezionare l'icona con tre punti (...) nell'angolo e quindi selezionare **Elimina**. 
+
+1. Nel riquadro del lab, selezionare l'icona con tre punti (...) nell'angolo e quindi selezionare **Elimina** . 
 
     ![Pulsante Elimina](./media/how-to-manage-classroom-labs/delete-button.png)
-3. Nella finestra di dialogo **Elimina lab** selezionare **Elimina** per continuare con l'eliminazione. 
+1. Nella finestra di dialogo **Elimina lab** selezionare **Elimina** per continuare con l'eliminazione. 
 
 ## <a name="switch-to-another-classroom-lab"></a>Passare a un altro lab per le classi
+
 Per passare a un altro lab per le classi, in quello corrente selezionare l'elenco a discesa di lab nell'account del lab nella parte superiore.
 
 ![Selezionare il lab dall'elenco a discesa nella parte superiore](./media/how-to-manage-classroom-labs/switch-lab.png)

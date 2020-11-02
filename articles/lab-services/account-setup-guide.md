@@ -3,12 +3,12 @@ title: Guida alla configurazione dell'account Lab accelerato per Azure Lab Servi
 description: Questa guida consente agli amministratori di configurare rapidamente un account Lab da usare all'interno della scuola.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: c186560b27ebcb543a23785dc5fbc556614f64b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0855e59aced37e50c088cfe89ffeb3d0af9fcdca
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85445424"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148288"
 ---
 # <a name="lab-account-setup-guide"></a>Guida all'installazione dell'account Lab
 
@@ -29,6 +29,10 @@ Per iniziare rapidamente, creare un singolo account Lab e successivamente creare
 ### <a name="who-should-be-owners-and-contributors-of-the-lab-account"></a>Chi deve essere proprietari e collaboratori dell'account Lab?
 
 Gli amministratori sono in genere proprietari e collaboratori di un account Lab. Sono responsabili della gestione dei criteri che si applicano a tutti i Lab contenuti nell'account Lab. La persona che crea l'account Lab è automaticamente un proprietario. È possibile aggiungere altri proprietari e collaboratori, in genere dal tenant Azure Active Directory (Azure AD) associato alla sottoscrizione. Questo può essere utile per gestire un account Lab assegnando il ruolo di proprietario o collaboratore a livello di account Lab.
+
+[!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
+
+Gli utenti del Lab visualizzano un solo elenco delle macchine virtuali a cui hanno accesso tra i tenant all'interno Azure Lab Services.
 
 ### <a name="who-will-be-allowed-to-create-and-manage-labs"></a>Chi sarà autorizzato a creare e gestire i Lab?
 

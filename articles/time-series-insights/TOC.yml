@@ -97,12 +97,10 @@
           items:
             - name: Come effettuare il provisioning e gestire
               href: how-to-provision-manage.md
-            - name: Come diagnosticare e risolvere problemi
-              href: how-to-diagnose-troubleshoot.md
-        - name: Dati in ingresso e archiviazione
-          items:
             - name: Come selezionare un identificativo stazione trasmittente (IDST)
               href: how-to-select-tsid.md
+            - name: Come diagnosticare e risolvere problemi
+              href: how-to-diagnose-troubleshoot.md
         - name: Modello
           items:
             - name: Come modificare il modello
