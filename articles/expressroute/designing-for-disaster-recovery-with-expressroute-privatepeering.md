@@ -8,17 +8,17 @@ ms.topic: article
 ms.date: 05/25/2019
 ms.author: duau
 ms.openlocfilehash: 2a5730cd75ccb76d25897e9109555113f7355c2f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92202414"
 ---
 # <a name="designing-for-disaster-recovery-with-expressroute-private-peering"></a>Progettazione per il ripristino di emergenza con peering privato ExpressRoute
 
 ExpressRoute è progettato per garantire un'elevata disponibilità per la connettività di rete privata di livello vettore alle risorse Microsoft. In altre parole, non esiste un singolo punto di errore nel percorso ExpressRoute all'interno della rete Microsoft. Per considerazioni sulla progettazione per ottimizzare la disponibilità di un circuito ExpressRoute, vedere [progettazione per la disponibilità elevata con ExpressRoute][HA].
 
-Tuttavia, prendendo in considerazione l'Adagio più comune di*Murphy, in*questo articolo, in questo articolo ci concentreremo sulle soluzioni che vanno oltre gli errori che possono essere risolti usando un unico circuito ExpressRoute. In altre parole, in questo articolo vengono esaminate le considerazioni sull'architettura di rete per la creazione di una connettività di rete back-end affidabile per il ripristino di emergenza usando circuiti ExpressRoute con ridondanza geografica.
+Tuttavia, prendendo in considerazione l'Adagio più comune di *Murphy, in* questo articolo, in questo articolo ci concentreremo sulle soluzioni che vanno oltre gli errori che possono essere risolti usando un unico circuito ExpressRoute. In altre parole, in questo articolo vengono esaminate le considerazioni sull'architettura di rete per la creazione di una connettività di rete back-end affidabile per il ripristino di emergenza usando circuiti ExpressRoute con ridondanza geografica.
 
 >[!NOTE]
 >I concetti descritti in questo articolo si applicano ugualmente quando viene creato un circuito ExpressRoute in WAN virtuale o al di fuori di esso.
