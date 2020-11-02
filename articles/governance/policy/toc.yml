@@ -5,7 +5,7 @@
     - name: Informazioni su Criteri di Azure
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Assegnare un criterio - Portale
@@ -32,6 +32,9 @@
     - name: Assegnare un criterio - Modello di Resource Manager
       displayName: 'assign, compliance, resource manager'
       href: ./assign-policy-template.md
+    - name: Assegnare un criterio - Terraform
+      displayName: 'assign, compliance, hcl, provider'
+      href: ./assign-policy-terraform.md
 - name: Esercitazioni
   items:
     - name: Creare e gestire i criteri di Azure
@@ -191,7 +194,15 @@
           href: ../../azure-monitor/deploy-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
         - name: Abilitare Monitoraggio di Azure per le macchine virtuali (anteprima)
           displayName: 'monitor, insights, log analytics, builtin'
-          href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
+          href: ../../azure-monitor/insights/vminsights-enable-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+    - name: Integrazione di Archiviazione di Azure
+      items:
+        - name: Controllare TLS con Criteri di Azure
+          href: ../../storage/common/transport-layer-security-configure-minimum-version.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json#use-azure-policy-to-enforce-the-minimum-tls-version
+    - name: Integrazione di Web application firewall di Azure
+      items:
+        - name: Integrare WAF con Criteri di Azure
+          href: ../../web-application-firewall/shared/waf-azure-policy.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
 - name: Risolvere problemi
   items:
     - name: Problemi comuni
@@ -264,6 +275,16 @@
           href: /azure/templates/microsoft.authorization/policydefinitions
         - name: Definizioni delle iniziative
           href: /azure/templates/microsoft.authorization/policysetdefinitions
+    - name: Risorse Terraform
+      items:
+        - name: Assegnazione
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_assignment.html'
+        - name: Definizione
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_definition.html'
+        - name: Iniziativa (impostare la definizione)
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_set_definition.html'
+        - name: Soluzione
+          href: 'https://www.terraform.io/docs/providers/azurerm/r/policy_remediation.html'
 - name: Risorse
   items:
     - name: GitHub - Esempi di Criteri di Azure
@@ -280,6 +301,8 @@
           href: 'https://www.azadvertizer.net/'
         - name: Visualizzatore di governance di Azure
           href: 'https://github.com/julianhayward/azure-mg-sub-governance-reporting'
+        - name: Script di Criteri di Azure per Monitoraggio di Azure
+          href: 'https://github.com/JimGBritt/AzurePolicy/tree/master/AzureMonitor/Scripts'
     - name: Feedback e supporto
       items:
         - name: Domande e risposte Microsoft per Criteri di Azure

@@ -1,15 +1,17 @@
 - name: Panoramica
   href: overview.md
-- name: Guide di avvio rapido su Red Hat
-  items: null
-- name: Guida di avvio rapido - WildFly in CentOS
-  href: wildfly-on-centos.md
 - name: Immagini di Red Hat Enterprise Linux
   items:
-    - name: Panoramica delle immagini di Red Hat Enterprise Linux
+    - name: Panoramica delle immagini di RHEL
       href: redhat-images.md
-    - name: Elenco delle immagini di Red Hat Enterprise Linux
+    - name: Elenco di immagini di RHEL
       href: redhat-imagelist.md
+- name: Guide di avvio rapido su Red Hat Java
+  items:
+    - name: JBoss EAP + RHEL in VM/set di scalabilità di macchine virtuali
+      href: jboss-eap-on-rhel.md
+    - name: WildFly + CentOS in VM
+      href: wildfly-on-centos.md
 - name: Red Hat Update Infrastructure in Azure
   href: redhat-rhui.md
 - name: Offerta immagine BYOS Red Hat Enterprise Linux

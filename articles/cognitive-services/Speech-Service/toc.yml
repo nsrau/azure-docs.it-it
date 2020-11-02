@@ -39,6 +39,8 @@
           href: how-to-automatic-language-detection.md
         - name: Usare l'API di trascrizione batch
           href: batch-transcription.md
+        - name: Valutare la pronuncia
+          href: how-to-pronunciation-assessment.md
     - name: Esercitazioni
       items:
         - name: Riconoscimento della voce archiviata in archivio BLOB
@@ -552,7 +554,7 @@
       items:
         - name: Come configurare un array di microfoni
           href: how-to-devices-microphone-array-configuration.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: Usare Speech Devices SDK
           href: speech-devices-sdk-quickstart.md

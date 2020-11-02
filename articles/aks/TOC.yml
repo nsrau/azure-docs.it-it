@@ -142,7 +142,7 @@
           href: upgrade-cluster.md
         - name: Usare il contratto di servizio relativo al tempo di attività
           href: uptime-sla.md
-        - name: Usare i gruppi di posizionamento di prossimità (anteprima)
+        - name: Usare i gruppi di posizionamento di prossimità
           href: reduce-latency-ppg.md
         - name: Aggiornare l'immagine del nodo
           href: node-image-upgrade.md
@@ -166,7 +166,7 @@
           items:
             - name: Usare più pool di nodi
               href: use-multiple-node-pools.md
-            - name: Usare i pool di nodi spot (anteprima)
+            - name: Usare i pool di nodi spot
               href: spot-node-pool.md
             - name: Usare i pool di nodi di sistema
               href: use-system-pools.md

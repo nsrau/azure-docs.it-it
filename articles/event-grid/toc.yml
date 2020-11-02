@@ -106,7 +106,7 @@
       items:
         - name: Panoramica degli argomenti di sistema
           href: system-topics.md
-        - name: Origini eventi
+        - name: Origini di eventi (editori)
           items:
             - name: Configurazione app di Azure
               href: event-schema-app-configuration.md
@@ -138,13 +138,15 @@
               href: event-schema-azure-signalr.md
             - name: Sottoscrizioni Azure
               href: event-schema-subscriptions.md
-    - name: Argomenti per i partner
+    - name: Eventi partner
       items:
-        - name: Panoramica degli argomenti per i partner
-          href: partner-topics-overview.md
-        - name: Auth0
-          href: auth0-overview.md
-        - name: Diventare un partner di Griglia di eventi
+        - name: Panoramica degli eventi partner
+          href: partner-events-overview.md
+        - name: Origini di eventi (editori)
+          items:
+            - name: Auth0
+              href: auth0-overview.md
+        - name: Panoramica dell'onboarding di partner
           href: partner-onboarding-overview.md
     - name: Domini eventi
       href: event-domains.md
@@ -210,12 +212,16 @@
           href: create-view-manage-system-topics-cli.md
         - name: Modello di Azure Resource Manager
           href: create-view-manage-system-topics-arm.md
+    - name: Eventi partner
+      items:
+        - name: Eseguire l'onboarding come partner
+          href: onboard-partner.md
+        - name: Sottoscrivere eventi Auth0
+          href: auth0-how-to.md
     - name: Ottenere le chiavi di accesso per argomenti o domini
       href: get-access-keys.md
     - name: Inserire post sull'argomento personalizzato
       href: post-to-custom-topic.md
-    - name: Sottoscrivere eventi Auth0
-      href: auth0-how-to.md
     - name: Ricevere eventi in un endpoint HTTP
       href: receive-events.md
     - name: Impostare la posizione degli eventi non recapitabili e i criteri di ripetizione

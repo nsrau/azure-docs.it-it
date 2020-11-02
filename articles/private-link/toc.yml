@@ -37,6 +37,8 @@
       items:
         - name: Connettersi a SQL Server - Portale
           href: tutorial-private-endpoint-sql-portal.md
+        - name: Connettersi a SQL server - PowerShell
+          href: tutorial-private-endpoint-sql-powershell.md
 - name: Concetti
   items:
     - name: Endpoint privato

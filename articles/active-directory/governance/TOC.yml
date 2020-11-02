@@ -9,6 +9,8 @@
       href: entitlement-management-overview.md
     - name: Informazioni sulle verifiche di accesso
       href: access-reviews-overview.md
+    - name: Che cos'è la gestione del ciclo di vita delle identità?
+      href: what-is-identity-lifecycle-management.md
 - name: Esercitazioni
   expanded: true
   items:
@@ -23,6 +25,16 @@
           href: entitlement-management-delegate.md
         - name: Processo di richiesta e messaggi di posta elettronica
           href: entitlement-management-process.md
+    - name: Gestione del ciclo di vita delle identità
+      items:
+        - name: Cos'è il provisioning?
+          href: what-is-provisioning.md
+        - name: Che cos'è il provisioning basato su risorse umane?
+          href: what-is-hr-driven-provisioning.md
+        - name: Che cos'è il provisioning di app?
+          href: what-is-app-provisioning.md
+        - name: Che cos'è il provisioning tra directory?
+          href: what-is-inter-directory-provisioning.md
     - name: Verifiche di accesso
       items:
         - name: Gestire l'accesso guest con le verifiche

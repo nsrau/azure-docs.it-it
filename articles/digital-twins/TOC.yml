@@ -127,6 +127,8 @@
   items:
     - name: Limiti del servizio Gemelli digitali
       href: reference-service-limits.md
+    - name: Prezzi di Gemelli digitali
+      href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
     - name: API e SDK
       items:
         - name: Informazioni di riferimento sulle API REST
@@ -188,7 +190,7 @@
     - name: Interfaccia della riga di comando di Gemelli digitali
       items:
         - name: Informazioni di riferimento sull'interfaccia della riga di comando di Gemelli digitali
-          href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest
+          href: /cli/azure/ext/azure-iot/dt?view=azure-cli-latest&preserve-view=true
         - name: Pacchetto dell'interfaccia della riga di comando
           href: 'https://github.com/Azure/azure-iot-cli-extension/releases'
     - name: DTDL
