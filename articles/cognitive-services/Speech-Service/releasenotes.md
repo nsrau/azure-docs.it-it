@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: eb285f7ef536ac19d0ea7328a4428f33a47cd368
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e22400016eae0642c4e25fcfd4fcaaaab22a27a8
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129627"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280570"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
 
@@ -41,7 +41,7 @@ SPX è l'interfaccia della riga di comando per usare il servizio riconoscimento 
 https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream.fromfile).
 -  **C++/c #/Java/Python/Objective-C/Swift** : è stato aggiunto un `stopSpeakingAsync()` metodo per arrestare la sintesi da testo a discorso. Leggere qui la documentazione di riferimento [(C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), qui ( [C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), qui ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [qui (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)e [qui (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
 - **C#, C++, Java** : aggiunta `FromDialogServiceConnector()` di una funzione alla `Connection` classe che può essere usata per monitorare gli eventi di connessione e disconnessione per `DialogServiceConnector` . Leggere qui la documentazione di riferimento [(C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [qui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)e [qui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
-- **C++/c #/Java/Python/Objective-C/Swift** : è stato aggiunto il supporto per la valutazione della pronuncia, che valuta la pronuncia vocale e fornisce commenti e suggerimenti sull'accuratezza e la fluidità dell'audio parlato. Leggi la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment).
+<!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
 
 **Correzioni di bug**
 - **All** : correzione della regressione 1,13 nel `SetServiceProperty` punto in cui i valori con determinati caratteri speciali sono stati ignorati.
@@ -64,7 +64,7 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 **Esempi**
 - **ObjectiveC** : aggiunto esempio per [il riconoscimento delle](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/objective-c/ios/speech-samples)parole chiave.
 - **C#/JavaScript** : aggiunta di Guida introduttiva per la trascrizione delle conversazioni [qui (c#)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/dotnet/conversation-transcription) e [qui (JavaScript)](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/javascript/node/conversation-transcription).
-- **C++/c #/Java/Python/Swift/ObjectiveC** : è stato aggiunto un esempio per la valutazione della pronuncia [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples)
+<!-- - **C++/C#/Java/Python/Swift/ObjectiveC**: Added sample for pronunciation assessment [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples) -->
 - **Novell** : aggiornamento rapido aggiornato al modello più recente di Visual Studio [qui](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp/xamarin).
 
 **Problema noto**
@@ -78,11 +78,11 @@ Rimanere integro.
 
 ### <a name="new-features"></a>Nuove funzionalità
 
-* **TTS neurale: nuovo stile di pronuncia per `en-US` Voce aria** . AriaNeural può sembrare un cast di notizie durante la lettura delle notizie. Lo stile "telegiornale-formale" suona più grave, mentre lo stile "telegiornale-informale" è più rilassato e informale. Vedere [How to use the Speaking Styles in SSML](speech-synthesis-markup.md).
+* **TTS neurale: nuovo stile di pronuncia per `en-US` Voce aria**. AriaNeural può sembrare un cast di notizie durante la lettura delle notizie. Lo stile "telegiornale-formale" suona più grave, mentre lo stile "telegiornale-informale" è più rilassato e informale. Vedere [How to use the Speaking Styles in SSML](speech-synthesis-markup.md).
 
-* **Voce personalizzata: viene rilasciata una nuova funzionalità per verificare automaticamente la qualità dei dati di training** . Quando si caricano i dati, il sistema esamina i vari aspetti dei dati audio e trascrizioni e corregge o filtra automaticamente i problemi per migliorare la qualità del modello vocale. In questo modo si copre il volume dell'audio, il livello di disturbo, l'accuratezza della pronuncia del riconoscimento vocale, l'allineamento del parlato con il testo normalizzato, il silenzio nell'audio, oltre al formato audio e script. 
+* **Voce personalizzata: viene rilasciata una nuova funzionalità per verificare automaticamente la qualità dei dati di training**. Quando si caricano i dati, il sistema esamina i vari aspetti dei dati audio e trascrizioni e corregge o filtra automaticamente i problemi per migliorare la qualità del modello vocale. In questo modo si copre il volume dell'audio, il livello di disturbo, l'accuratezza della pronuncia del riconoscimento vocale, l'allineamento del parlato con il testo normalizzato, il silenzio nell'audio, oltre al formato audio e script. 
 
-* **Creazione di contenuti audio: un set di nuove funzionalità che consentono di ottimizzare le funzionalità di ottimizzazione vocale e di gestione audio** .
+* **Creazione di contenuti audio: un set di nuove funzionalità che consentono di ottimizzare le funzionalità di ottimizzazione vocale e di gestione audio**.
 
     * Pronuncia: la funzionalità di ottimizzazione della pronuncia viene aggiornata al set di fonemi più recente. È possibile scegliere l'elemento fonema corretto dalla libreria e perfezionare la pronuncia delle parole selezionate. 
 
@@ -92,7 +92,7 @@ Rimanere integro.
 
     * Documentazione di SSML: collegata al documento SSML per controllare le regole relative all'utilizzo di tutte le funzionalità di ottimizzazione.
 
-* **L'API elenco vocale viene aggiornata per includere un nome visualizzato intuitivo e gli stili di pronuncia supportati per le voci neurali** .
+* **L'API elenco vocale viene aggiornata per includere un nome visualizzato intuitivo e gli stili di pronuncia supportati per le voci neurali**.
 
 ### <a name="general-tts-voice-quality-improvements"></a>Miglioramenti alla qualità della voce TTS generale
 
