@@ -1,17 +1,17 @@
 ---
 title: Concetti server-server flessibile per database di Azure per MySQL
 description: Questo argomento fornisce considerazioni e linee guida per l'uso del server flessibile database di Azure per MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/21/2020
-ms.openlocfilehash: 7217817e9add6214c2da8362a2769cad0c2cf330
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2cce4810a9e1a4d7143e2bab384d4b26471b7238
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90939315"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240750"
 ---
 # <a name="server-concepts-in-azure-database-for-mysql-flexible-server-preview"></a>Concetti relativi ai server nel database di Azure per MySQL server flessibili (anteprima)
 
@@ -59,6 +59,6 @@ Nel momento in cui il server viene arrestato, non è possibile eseguire alcuna o
 
 ## <a name="next-steps"></a>Passaggi successivi
 
--   Informazioni su [create server](./quickstart-create-server-portal.md)
+-   Informazioni su [create server](./quickstart-create-server-portal.md)
 -   Informazioni sul [monitoraggio e sugli avvisi](./how-to-alert-on-metric.md)
 

@@ -1,17 +1,17 @@
 ---
 title: Configurazione TLS-portale di Azure-database di Azure per MySQL
 description: Informazioni su come impostare la configurazione di TLS usando portale di Azure per il database di Azure per MySQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: d94e589a19b29e68883c0217b62b883f9d026789
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 290752c0e577e6c2cd58d83f77fea8a5406388e4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902729"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240631"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mysql-using-azure-portal"></a>Configurazione delle impostazioni TLS nel database di Azure per MySQL con portale di Azure
 
@@ -31,9 +31,9 @@ Per impostare la versione minima di TLS del server MySQL, seguire questa procedu
 
 1. Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per il server MySQL esistente.
 
-1. Nella pagina server MySQL, in **Impostazioni**, fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
+1. Nella pagina server MySQL, in **Impostazioni** , fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
 
-1. Nella **versione minima di TLS**selezionare **1,2** per negare le connessioni con la versione tls inferiore a TLS 1,2 per il server MySQL.
+1. Nella **versione minima di TLS** selezionare **1,2** per negare le connessioni con la versione tls inferiore a TLS 1,2 per il server MySQL.
 
     :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Configurazione TLS per database di Azure per MySQL":::
 

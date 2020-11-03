@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 3ee7761d43710e0833eb8002851e286ce5449983
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: c56c52193f433571f16e4acf7bd6e7b89641b26f
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92636120"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233951"
 ---
 # <a name="transformation-functions-in-wrangling-data-flow"></a>Funzioni di trasformazione nell'attività del flusso di dati
 
@@ -25,7 +25,7 @@ La verifica del flusso di dati in Azure Data Factory ti permette di eseguire ope
 
 Attualmente non tutte le funzioni Power Query M sono supportate per data wrangling nonostante siano disponibili durante la creazione. Quando si compilano i flussi di dati in corso, verrà visualizzato il messaggio di errore seguente se una funzione non è supportata:
 
-`The wrangling data flow is invalid. Expression.Error: The transformation logic isn't supported. Please try a simpler expression`
+`The Wrangling Data Flow is invalid. Expression.Error: The transformation logic is not supported. Please try a simpler expression.`
 
 Di seguito è riportato un elenco delle funzioni di Power Query M supportate.
 
@@ -76,7 +76,7 @@ Le funzioni M seguenti aggiungono o trasformano colonne: [Table. AddColumn](/pow
 
 Utilizzare [Table. Group](/powerquery-m/table-group) per aggregare i valori.
 * Deve essere usato con una funzione di aggregazione
-* Funzioni di aggregazione supportate:   [Table. RowCount](/powerquery-m/table-rowcount),   [List. Sum](/powerquery-m/list-sum),   [List. Count](/powerquery-m/list-count),   [List. Average](/powerquery-m/list-average),   [List. min](/powerquery-m/list-min),   [List. max](/powerquery-m/list-max),   [List. StandardDeviation](/powerquery-m/list-standarddeviation),   [List. First](/powerquery-m/list-first), List.   [Last](/powerquery-m/list-last)
+* Funzioni di aggregazione supportate: list.   [Sum](/powerquery-m/list-sum),   [List. Count](/powerquery-m/list-count),   [List. Average](/powerquery-m/list-average),   [List. min](/powerquery-m/list-min),   [List. max](/powerquery-m/list-max),   [List. StandardDeviation](/powerquery-m/list-standarddeviation),   [List. First](/powerquery-m/list-first), List.   [Last](/powerquery-m/list-last)
 
 ## <a name="sorting"></a>Ordinamento
 
@@ -96,9 +96,9 @@ Mantieni e Rimuovi top, Mantieni intervallo (funzioni M corrispondenti, solo con
 | Table.NestedJoin | La semplice operazione di join comporterà un errore di convalida. Per il corretto funzionamento, le colonne devono essere espanse. |
 | Table.Distinct | La rimozione di righe duplicate non è supportata. |
 | Table.RemoveLastN | La rimozione delle righe in basso non è supportata. |
-| Table.RowCount | Non supportato, ma si può ottenere con una colonna Add con tutte le celle vuote (è possibile usare la colonna Condition) e quindi usare Group by su tale colonna. Table. Group è supportato. | 
+| Table.RowCount | Non supportato, ma è possibile ottenerlo aggiungendo una colonna personalizzata contenente il valore 1, quindi aggregando tale colonna con List. Sum. Table. Group è supportato. | 
 | Gestione degli errori a livello di riga | La gestione degli errori a livello di riga non è attualmente supportata. Per filtrare, ad esempio, i valori non numerici di una colonna, un approccio consiste nel trasformare la colonna di testo in un numero. Ogni cella che non riesce a trasformare sarà in uno stato di errore e dovrà essere filtrata. Questo scenario non è possibile nel flusso di dati. |
-| Table.Transpose | Non supportato |
+| Table.Transpose | Non supportate |
 | Table.Pivot | Non supportate |
 
 ## <a name="next-steps"></a>Passaggi successivi

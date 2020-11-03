@@ -1,18 +1,18 @@
 ---
 title: Collegamento privato-interfaccia della riga di comando di Azure-database di Azure per MySQL
 description: Informazioni su come configurare il collegamento privato per database di Azure per MySQL dall'interfaccia della riga di comando di Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b6c26c99d68e5b92477a4d7f2c6734190d112aba
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: a2ec1c609fc0562c6c8181a934e742daa9a5a4f9
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538766"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241549"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mysql-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per MySQL tramite l'interfaccia della riga di comando
 
@@ -169,11 +169,11 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
 4. In **nuova connessione** immettere o selezionare queste informazioni:
 
-    | Impostazione | valore |
+    | Impostazione | Valore |
     | ------- | ----- |
     | Connection Name (Nome connessione)| Selezionare il nome della connessione scelta.|
-    | nomehost | Seleziona *mydemoserver.privatelink.MySQL.database.Azure.com* |
-    | Username | Immettere username (nome utente) come *username@servername* specificato durante la creazione del server MySQL. |
+    | Nome host | Seleziona *mydemoserver.privatelink.MySQL.database.Azure.com* |
+    | Nome utente | Immettere username (nome utente) come *username@servername* specificato durante la creazione del server MySQL. |
     | Password | Immettere una password specificata durante la creazione del server MySQL. |
     ||
 

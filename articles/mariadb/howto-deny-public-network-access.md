@@ -1,17 +1,17 @@
 ---
 title: Negare l'accesso alla rete pubblica-portale di Azure-database di Azure per MariaDB
 description: Informazioni su come configurare l'accesso negato alla rete pubblica usando portale di Azure per il database di Azure per MariaDB
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: f33dbfa0b96d7f6d85443005ff7e8b1a780c75a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3117ebfd258c72bb97432871c2ea74d30c52f669
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86104385"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242191"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-mariadb-using-azure-portal"></a>Negare l'accesso alla rete pubblica nel database di Azure per MariaDB usando portale di Azure
 
@@ -29,7 +29,7 @@ Attenersi alla procedura seguente per impostare il server MariaDB per negare l'a
 
 1. Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per il server MariaDB esistente.
 
-1. Nella pagina Server MariaDB, in **Impostazioni**, fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
+1. Nella pagina Server MariaDB, in **Impostazioni** , fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
 
 1. In Nega accesso alla rete pubblica selezionare **Sì** per abilitare Nega accesso pubblico per il server MariaDB.
 

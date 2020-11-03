@@ -1,17 +1,17 @@
 ---
 title: Arrestare/avviare portale di Azure-database di Azure per il server MySQL
 description: Questo articolo descrive come arrestare/avviare le operazioni nel database di Azure per MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
-ms.openlocfilehash: 95be6aa576d9d059ce419443f8c7e32af5ff397a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047a24133dfdf68e2176b20cf31a871d11f0d4f9
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91826205"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241158"
 ---
 # <a name="stopstart-an-azure-database-for-mysql"></a>Arrestare/avviare un database di Azure per MySQL
 

@@ -1,17 +1,17 @@
 ---
 title: Configurazione TLS-portale di Azure-database di Azure per PostgreSQL-server singolo
 description: Informazioni su come impostare la configurazione di TLS usando portale di Azure per il server singolo del database di Azure per PostgreSQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: 26470709b37c2623c581499ec55572da402e96cb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 25be6b3c4e3172fc8ee14b97fd890b5948c284ba
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906456"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242365"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-postgresql-single---server-using-azure-portal"></a>Configurazione delle impostazioni TLS nel server singolo del database di Azure per PostgreSQL con portale di Azure
 
@@ -31,9 +31,9 @@ Seguire questa procedura per impostare la versione minima TLS di PostgreSQL:
 
 1. Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per PostgreSQL esistente.
 
-1.  Nella pagina database di Azure per PostgreSQL-server singolo, in **Impostazioni**, fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
+1.  Nella pagina database di Azure per PostgreSQL-server singolo, in **Impostazioni** , fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
 
-1. Nella **versione minima di TLS**selezionare **1,2** per negare le connessioni con la versione tls inferiore a TLS 1,2 per il server singolo PostgreSQL.
+1. Nella **versione minima di TLS** selezionare **1,2** per negare le connessioni con la versione tls inferiore a TLS 1,2 per il server singolo PostgreSQL.
 
     :::image type="content" source="./media/howto-tls-configurations/setting-tls-value.png" alt-text="Configurazione di TLS a server singolo per database di Azure per PostgreSQL":::
 

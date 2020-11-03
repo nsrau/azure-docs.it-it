@@ -1,17 +1,17 @@
 ---
 title: Crittografia doppia dell'infrastruttura-portale di Azure-database di Azure per PostgreSQL
 description: Informazioni su come configurare e gestire la crittografia doppia dell'infrastruttura per il database di Azure per PostgreSQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: 362c051cf1dd7e97430bd6afaf4821a9c960b71d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea486b534ac3e703849ddb3922d7c3a428dd076b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901542"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242229"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-postgresql"></a>Crittografia doppia infrastruttura per database di Azure per PostgreSQL
 
@@ -27,7 +27,7 @@ Seguire questa procedura per creare un database di Azure per il server MySQL con
 
 1. Nell'angolo in alto a sinistra del portale selezionare **Crea una risorsa** (+).
 
-2. Selezionare **Database** > **Database di Azure per PostgreSQL**. È anche possibile immettere PostgreSQL nella casella di ricerca per trovare il servizio. È stata abilitata l'opzione di distribuzione a **server singolo** .
+2. Selezionare **Database** > **Database di Azure per PostgreSQL** . È anche possibile immettere PostgreSQL nella casella di ricerca per trovare il servizio. È stata abilitata l'opzione di distribuzione a **server singolo** .
 
    :::image type="content" source="./media/quickstart-create-database-portal/1-create-database.png" alt-text="Database di Azure per PostgreSQL nel menu":::
 
@@ -52,7 +52,7 @@ Questo esempio crea un gruppo di risorse denominato `myresourcegroup` nella `wes
 ```azurecli-interactive
 az group create --name myresourcegroup --location westus
 ```
-L'esempio seguente crea un server PostgreSQL 11 negli Stati Uniti occidentali denominato `mydemoserver` nel gruppo di risorse `myresourcegroup` con l'account di accesso amministratore del server `myadmin` . Questo è un server per **utilizzo generico di ** **generazione 4** con **2 vCore**. Verrà abilitata anche la crittografia doppia dell'infrastruttura per il server creato. Sostituire `<server_admin_password>` con il proprio valore.
+L'esempio seguente crea un server PostgreSQL 11 negli Stati Uniti occidentali denominato `mydemoserver` nel gruppo di risorse `myresourcegroup` con l'account di accesso amministratore del server `myadmin` . Questo è un server per **utilizzo generico di** **generazione 4** con **2 vCore** . Verrà abilitata anche la crittografia doppia dell'infrastruttura per il server creato. Sostituire `<server_admin_password>` con il proprio valore.
 
 ```azurecli-interactive
 az postgres server create --resource-group myresourcegroup --name mydemoserver  --location westus --admin-user myadmin --admin-password <server_admin_password> --sku-name GP_Gen4_2 --version 11 --infrastructure-encryption >Enabled/Disabled>

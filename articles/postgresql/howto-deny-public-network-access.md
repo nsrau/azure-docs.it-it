@@ -1,17 +1,17 @@
 ---
 title: Negare l'accesso alla rete pubblica-portale di Azure-database di Azure per PostgreSQL-server singolo
 description: Informazioni su come configurare l'accesso negato alla rete pubblica usando portale di Azure per il server singolo database di Azure per PostgreSQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 1dfc8d473d0cfe663569d2508404bf190f2da841
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bd777fe42dc8fa3ec4643fa9607f5ca8b7aac795
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90901583"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240325"
 ---
 # <a name="deny-public-network-access-in-azure-database-for-postgresql-single-server-using-azure-portal"></a>Negare l'accesso alla rete pubblica nel server singolo database di Azure per PostgreSQL usando portale di Azure
 
@@ -29,9 +29,9 @@ Seguire questa procedura per impostare PostgreSQL Single Server Deny Public Netw
 
 1. Nella [portale di Azure](https://portal.azure.com/)selezionare il server singolo database di Azure per PostgreSQL.
 
-1. Nella pagina server singolo PostgreSQL, in **Impostazioni**, fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
+1. Nella pagina server singolo PostgreSQL, in **Impostazioni** , fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
 
-1. In **Nega accesso alla rete pubblica**selezionare **Sì** per abilitare Nega accesso pubblico per il server singolo PostgreSQL.
+1. In **Nega accesso alla rete pubblica** selezionare **Sì** per abilitare Nega accesso pubblico per il server singolo PostgreSQL.
 
     :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access.PNG" alt-text="Server singolo database di Azure per PostgreSQL Nega accesso alla rete":::
 

@@ -1,17 +1,17 @@
 ---
 title: Come garantire la convalida del database di Azure per MySQL-crittografia dei dati
 description: Informazioni su come convalidare la crittografia del database di Azure per MySQL-crittografia dei dati tramite la chiave gestita dei clienti.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: e7b747bd2babeeccb210bb30c3eb28f22d4befe7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f47b3d5679b70461eaba64b5815770162cb6fda
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905799"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241073"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Convalida della crittografia dei dati per database di Azure per MySQL
 
@@ -25,15 +25,15 @@ Questo articolo illustra come verificare che la crittografia dei dati tramite la
 
     * Nella portale di Azure passare al **Azure Key Vault**  ->  **chiavi**
     * Selezionare la chiave usata per la crittografia del server.
-    * Impostare lo stato **della chiave su** **No**.
+    * Impostare lo stato **della chiave su** **No** .
   
-       Dopo un certo periodo di tempo (**circa 15 minuti**), lo **stato** del database di Azure per il server MySQL non dovrebbe essere **accessibile**. Tutte le operazioni di I/O eseguite sul server avranno esito negativo e la convalida del server è effettivamente crittografata con la chiave Customers e la chiave non è attualmente valida.
+       Dopo un certo periodo di tempo ( **circa 15 minuti** ), lo **stato** del database di Azure per il server MySQL non dovrebbe essere **accessibile** . Tutte le operazioni di I/O eseguite sul server avranno esito negativo e la convalida del server è effettivamente crittografata con la chiave Customers e la chiave non è attualmente valida.
     
        Per rendere **disponibile** il server per, è possibile rivalidare la chiave. 
     
-    * Impostare lo stato della chiave nella Key Vault su **Sì**.
-    * In **crittografia dati**server selezionare **revalidate Key**.
-    * Dopo che la riconvalida della chiave ha avuto esito positivo, lo **stato** del server diventa **disponibile**.
+    * Impostare lo stato della chiave nella Key Vault su **Sì** .
+    * In **crittografia dati** server selezionare **revalidate Key** .
+    * Dopo che la riconvalida della chiave ha avuto esito positivo, lo **stato** del server diventa **disponibile** .
 
 2. Nel portale di Azure, se è possibile assicurarsi che sia impostata la chiave di crittografia, i dati vengono crittografati con la chiave Customers utilizzata nel portale di Azure.
 

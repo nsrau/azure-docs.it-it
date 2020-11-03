@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: aaafd3833c63458f8403dfeb3620d76f631315b5
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: cac7b169232bb43ba1b1893b59dac81ce4c39c49
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899180"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233884"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -111,7 +111,7 @@ Alcuni sistemi e applicazioni che supportano la personalizzazione dell'elenco di
 - Da SuccessFactors a Active Directory/SuccessFactors Azure Active Directory
 - Azure Active Directory (sono supportati gli [attributi predefiniti dell'API Graph di Azure AD](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e le estensione della directory personalizzate)
 - App che supportano [SCIM 2.0](https://tools.ietf.org/html/rfc7643), in cui devono essere aggiunti gli attributi definiti nello [schema di base](https://tools.ietf.org/html/rfc7643)
-- Per Azure Active Directory writeback per la giornata lavorativa o SuccessFactors, è supportato per aggiornare i metadati rilevanti per gli attributi supportati (XPATH e JSONPath), ma non è supportata l'aggiunta di nuovi attributi di giorni lavorativi o SuccessFactors oltre a quelli inclusi nello schema predefinito
+- Per Azure Active Directory writeback per la giornata lavorativa o SuccessFactors, è supportato l'aggiornamento dei metadati rilevanti per gli attributi supportati (XPATH e JSONPath), ma non è supportata l'aggiunta di nuovi attributi di giorno lavorativo o SuccessFactors oltre a quelli inclusi nello schema predefinito
 
 
 > [!NOTE]

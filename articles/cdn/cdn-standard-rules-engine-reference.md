@@ -7,12 +7,12 @@ ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
 ms.author: allensu
-ms.openlocfilehash: b272426f865636640e0a2fafde46cbebbe6eb363
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a0f4456f38939632026645500dd48acbf7dbc88
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91327494"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242209"
 ---
 # <a name="standard-rules-engine-reference-for-azure-cdn"></a>Informazioni di riferimento sul motore regole standard per la rete CDN di Azure
 
@@ -20,7 +20,7 @@ Nel [motore delle regole standard](cdn-standard-rules-engine.md) per la rete per
 
 Il motore regole è progettato per essere l'autorità finale sul modo in cui i tipi di richieste specifici vengono elaborati dalla rete CDN standard di Azure.
 
-**Usi comuni per le regole**:
+**Usi comuni per le regole** :
 
 - Eseguire l'override o definire un criterio della cache personalizzato.
 - Reindirizzare le richieste.
@@ -34,7 +34,10 @@ Per definire una regola nel motore regole, impostare [le condizioni](cdn-standar
 
 Ogni regola può avere fino a dieci condizioni di corrispondenza e cinque azioni. Ogni endpoint della rete CDN di Azure può avere fino a 25 regole. 
 
-Incluso in questo limite è una *regola globale*predefinita. La regola globale non presenta condizioni di corrispondenza; le azioni definite in una regola globale vengono sempre attivate.
+Incluso in questo limite è una *regola globale* predefinita. La regola globale non presenta condizioni di corrispondenza; le azioni definite in una regola globale vengono sempre attivate.
+
+   > [!IMPORTANT]
+   > L'ordine in cui sono elencate più regole influisce sulla modalità di gestione. Le azioni specificate in una regola potrebbero essere sovrascritte da una regola successiva.
 
 ## <a name="limits-and-pricing"></a>Limiti e prezzi 
 

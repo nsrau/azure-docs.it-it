@@ -3,12 +3,12 @@ title: CI/CD con Azure Pipelines e modelli
 description: Viene descritto come configurare l'integrazione continua in Azure Pipelines usando modelli Azure Resource Manager. Mostra come usare uno script di PowerShell o copiare i file in un percorso di gestione temporanea e distribuirli da questa posizione.
 ms.topic: conceptual
 ms.date: 10/01/2020
-ms.openlocfilehash: 6784df30340e4c54b8b1d6e82b45046666824315
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 86ad2839375b73bf9595cf3369960e614ec03e67
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91653401"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233815"
 ---
 # <a name="integrate-arm-templates-with-azure-pipelines"></a>Integrare i modelli di Azure Resource Manager con Azure Pipelines
 
@@ -16,17 +16,17 @@ ms.locfileid: "91653401"
 
 In questo articolo vengono illustrati altri due modi per distribuire i modelli con Azure Pipelines. Questo articolo illustra come:
 
-* **Aggiungere un'attività che esegue uno script Azure PowerShell**. Questa opzione offre il vantaggio di garantire la coerenza per tutto il ciclo di vita dello sviluppo, perché è possibile usare lo stesso script usato durante l'esecuzione di test locali. Lo script distribuisce il modello, ma può anche eseguire altre operazioni, ad esempio il recupero di valori da utilizzare come parametri.
+* **Aggiungere un'attività che esegue uno script Azure PowerShell** . Questa opzione offre il vantaggio di garantire la coerenza per tutto il ciclo di vita dello sviluppo, perché è possibile usare lo stesso script usato durante l'esecuzione di test locali. Lo script distribuisce il modello, ma può anche eseguire altre operazioni, ad esempio il recupero di valori da utilizzare come parametri.
 
    Visual Studio fornisce il [progetto gruppo di risorse di Azure](create-visual-studio-deployment-project.md) che include uno script di PowerShell. Lo script crea una fase di creazione degli artefatti dal progetto a un account di archiviazione a cui Gestione risorse può accedere. Gli artefatti sono elementi del progetto, ad esempio modelli collegati, script e file binari dell'applicazione. Se si vuole continuare a usare lo script dal progetto, usare l'attività script di PowerShell illustrata in questo articolo.
 
-* **Aggiunta di attività per la copia e la distribuzione di attività**. Questa opzione offre una comoda alternativa allo script del progetto. Si configurano due attività nella pipeline. Un'attività consente di eseguire la fase degli elementi in una posizione accessibile. L'altra attività distribuisce il modello da tale percorso.
+* **Aggiunta di attività per la copia e la distribuzione di attività** . Questa opzione offre una comoda alternativa allo script del progetto. Si configurano due attività nella pipeline. Un'attività consente di eseguire la fase degli elementi in una posizione accessibile. L'altra attività distribuisce il modello da tale percorso.
 
 ## <a name="prepare-your-project"></a>Preparare il progetto
 
 Questo articolo presuppone che il modello ARM e l'organizzazione DevOps di Azure siano pronti per la creazione della pipeline. I passaggi seguenti illustrano come assicurarsi di essere pronti:
 
-* Si dispone di un'organizzazione di Azure DevOps. Se non è disponibile, [crearne uno](/azure/devops/pipelines/get-started/pipelines-sign-up)gratuitamente. Se il team ha già un'organizzazione DevOps di Azure, assicurarsi di essere un amministratore del progetto Azure DevOps che si vuole usare.
+* Si dispone di un'organizzazione di Azure DevOps. Se non è disponibile, [crearne uno gratuitamente](/azure/devops/pipelines/get-started/pipelines-sign-up). Se il team ha già un'organizzazione DevOps di Azure, assicurarsi di essere un amministratore del progetto Azure DevOps che si vuole usare.
 
 * È stata configurata una [connessione al servizio](/azure/devops/pipelines/library/connect-to-azure) per la sottoscrizione di Azure. Le attività nella pipeline vengono eseguite con l'identità dell'entità servizio. Per i passaggi necessari per creare la connessione, vedere [creare un progetto DevOps](deployment-tutorial-pipeline.md#create-a-devops-project).
 
@@ -34,11 +34,11 @@ Questo articolo presuppone che il modello ARM e l'organizzazione DevOps di Azure
 
 ## <a name="create-pipeline"></a>Creare una pipeline
 
-1. Se non è stata aggiunta una pipeline in precedenza, è necessario creare una nuova pipeline. Dall'organizzazione DevOps di Azure selezionare **pipeline** e **nuova pipeline**.
+1. Se non è stata aggiunta una pipeline in precedenza, è necessario creare una nuova pipeline. Dall'organizzazione DevOps di Azure selezionare **pipeline** e **nuova pipeline** .
 
    ![Aggiungi nuova pipeline](./media/add-template-to-azure-pipelines/new-pipeline.png)
 
-1. Specificare la posizione in cui è archiviato il codice. La figura seguente mostra la selezione di **Azure Repos git**.
+1. Specificare la posizione in cui è archiviato il codice. La figura seguente mostra la selezione di **Azure Repos git** .
 
    ![Seleziona origine codice](./media/add-template-to-azure-pipelines/select-source.png)
 
@@ -46,7 +46,7 @@ Questo articolo presuppone che il modello ARM e l'organizzazione DevOps di Azure
 
    ![Seleziona repository](./media/add-template-to-azure-pipelines/select-repo.png)
 
-1. Consente di selezionare il tipo di pipeline da creare. È possibile selezionare **pipeline di avvio**.
+1. Consente di selezionare il tipo di pipeline da creare. È possibile selezionare **pipeline di avvio** .
 
    ![Seleziona pipeline](./media/add-template-to-azure-pipelines/select-pipeline.png)
 
@@ -70,7 +70,7 @@ steps:
   inputs:
     azureSubscription: 'script-connection'
     ScriptType: 'FilePath'
-    ScriptPath: './Deploy-Template.ps1'
+    ScriptPath: './Deploy-AzTemplate.ps1'
     ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
     azurePowerShellVersion: 'LatestVersion'
 ```
@@ -101,7 +101,7 @@ In `ScriptArguments` specificare tutti i parametri necessari per lo script. Nell
 ScriptArguments: -Location 'centralus' -ResourceGroupName 'demogroup' -TemplateFile templates\mainTemplate.json
 ```
 
-Quando si seleziona **Salva**, la pipeline di compilazione viene eseguita automaticamente. Tornare al riepilogo per la pipeline di compilazione e controllare lo stato.
+Quando si seleziona **Salva** , la pipeline di compilazione viene eseguita automaticamente. Tornare al riepilogo per la pipeline di compilazione e controllare lo stato.
 
 ![Visualizzazione dei risultati](./media/add-template-to-azure-pipelines/view-results.png)
 
@@ -226,7 +226,7 @@ steps:
     deploymentName: 'deploy1'
 ```
 
-Quando si seleziona **Salva**, la pipeline di compilazione viene eseguita automaticamente. Tornare al riepilogo per la pipeline di compilazione e controllare lo stato.
+Quando si seleziona **Salva** , la pipeline di compilazione viene eseguita automaticamente. Tornare al riepilogo per la pipeline di compilazione e controllare lo stato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

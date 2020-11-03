@@ -1,17 +1,17 @@
 ---
 title: Architettura di connettività-database di Azure per PostgreSQL-server singolo
 description: Descrive l'architettura di connettività del database di Azure per PostgreSQL-server singolo.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: 64be7f01cc9cc7ae77af5386be7a11cd16785dd1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a6e2bc93a589e0a3f709eb1a8956bf8ca3d8bf6b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90882408"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242059"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architettura di connettività nel database di Azure per PostgreSQL
 Questo articolo illustra l'architettura di connettività del database di Azure per PostgreSQL e il modo in cui il traffico viene indirizzato all'istanza del database di Azure per PostgreSQL dai client all'interno e all'esterno di Azure.
@@ -66,7 +66,7 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 | Regno Unito occidentale | 51.141.8.11  |
 | Stati Uniti centro-occidentali | 13.78.145.25     |
 | Europa occidentale | 40.68.37.158, 191.237.232.75, 13.69.105.208, 104.40.169.187  |
-| Stati Uniti Occidentali | 104.42.238.205, 23.99.34.75, 13.86.216.212, 13.86.217.212 |
+| Stati Uniti occidentali | 104.42.238.205, 23.99.34.75, 13.86.216.212, 13.86.217.212 |
 | West US 2 | 13.66.226.202  |
 ||||
 

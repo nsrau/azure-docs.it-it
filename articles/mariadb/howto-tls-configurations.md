@@ -1,17 +1,17 @@
 ---
 title: Configurazione TLS-portale di Azure-database di Azure per MariaDB
 description: Informazioni su come impostare la configurazione di TLS usando portale di Azure per il database di Azure per MariaDB
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 06/02/2020
-ms.openlocfilehash: fac719daf05e8b319db7c86d0dbc61c2814b0a0c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55a664ceb3524a0c545e037dcba7a2af90034ad4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86120348"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241985"
 ---
 # <a name="configuring-tls-settings-in-azure-database-for-mariadb-using-azure-portal"></a>Configurazione delle impostazioni TLS nel database di Azure per MariaDB con portale di Azure
 
@@ -31,9 +31,9 @@ Per impostare la versione minima di TLS del server MariaDB, seguire questa proce
 
 1. Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per il server MariaDB esistente.
 
-1. Nella pagina Server MariaDB, in **Impostazioni**, fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
+1. Nella pagina Server MariaDB, in **Impostazioni** , fare clic su **sicurezza connessione** per aprire la pagina Configurazione sicurezza connessione.
 
-1. Nella **versione minima di TLS**selezionare **1,2** per negare le connessioni con la versione tls inferiore a TLS 1,2 per il server MariaDB.
+1. Nella **versione minima di TLS** selezionare **1,2** per negare le connessioni con la versione tls inferiore a TLS 1,2 per il server MariaDB.
 
     ![Configurazione TLS per database di Azure per MariaDB](./media/howto-tls-configurations/tls-configurations.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c3107be1c36f1c15a1bcb27c5e0dcf851cfb946
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1485c2abd24022dbfa6476e3c5a530413b9cb4f2
+ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145530"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93233798"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Bloccare l'autenticazione legacy ad Azure AD con l'accesso condizionale   
 
@@ -80,8 +80,8 @@ Per altre informazioni su questi protocolli e servizi di autenticazione, vedere 
 
 Prima di poter bloccare l'autenticazione legacy nella directory, è necessario anzitutto capire se gli utenti usano app che sfruttano l'autenticazione legacy e il modo in cui questa influisce sulla directory complessiva. Per capire se viene usata l'autenticazione legacy è possibile usare i log di accesso di Azure AD.
 
-1. Passare al **portale di Azure** > **Azure Active Directory** > **Accessi**.
-1. Se non viene visualizzata, aggiungere la colonna App client facendo clic su **Colonne** > **App client**.
+1. Passare al **portale di Azure** > **Azure Active Directory** > **Accessi** .
+1. Se non viene visualizzata, aggiungere la colonna App client facendo clic su **Colonne** > **App client** .
 1. **Aggiungi filtri**  >  **App Client** > selezionare tutti i protocolli di autenticazione legacy. Selezionare all'esterno della finestra di dialogo filtro per applicare le selezioni e chiudere la finestra di dialogo.
 
 Applicando il filtro verranno visualizzati solo i tentativi di accesso eseguiti dai protocolli di autenticazione legacy. Facendo clic su ogni singolo tentativo di accesso vengono visualizzati altri dettagli. Nel campo **App client** nella scheda **Info di base** sarà indicato il protocollo di autenticazione legacy che è stato usato.
@@ -97,7 +97,7 @@ Esistono due modi per usare i criteri di accesso condizionale per bloccare l'aut
  
 ### <a name="directly-blocking-legacy-authentication"></a>Blocco diretto dell'autenticazione legacy
 
-Il modo più semplice per bloccare l'autenticazione legacy nell'intera organizzazione consiste nel configurare criteri di accesso condizionale che si applicano in modo specifico ai client di autenticazione legacy e blocca l'accesso. Quando si assegnano utenti e applicazioni ai criteri, assicurarsi di escludere gli utenti e gli account di servizio che devono ancora accedere usando l'autenticazione legacy. Configurare la condizione delle app client selezionando **client di Exchange ActiveSync** e **altri client**. Per bloccare l'accesso per queste app client, configurare i controlli di accesso per bloccare l'accesso.
+Il modo più semplice per bloccare l'autenticazione legacy nell'intera organizzazione consiste nel configurare criteri di accesso condizionale che si applicano in modo specifico ai client di autenticazione legacy e blocca l'accesso. Quando si assegnano utenti e applicazioni ai criteri, assicurarsi di escludere gli utenti e gli account di servizio che devono ancora accedere usando l'autenticazione legacy. Configurare la condizione delle app client selezionando **client di Exchange ActiveSync** e **altri client** . Per bloccare l'accesso per queste app client, configurare i controlli di accesso per bloccare l'accesso.
 
 ![Condizione delle app client configurata per bloccare l'autenticazione legacy](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 
@@ -115,7 +115,7 @@ La configurazione di un criterio per **Altri client** blocca l'intera organizzaz
 
 Perché il criterio abbia effetto, possono essere necessarie fino a 24 ore.
 
-È possibile selezionare tutti i controlli di concessione disponibili per la condizione **Altri client**, ma l'esperienza dell'utente finale sarà sempre la stessa: l'accesso è bloccato.
+È possibile selezionare tutti i controlli di concessione disponibili per la condizione **Altri client** , ma l'esperienza dell'utente finale sarà sempre la stessa: l'accesso è bloccato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

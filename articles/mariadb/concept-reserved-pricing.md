@@ -1,17 +1,17 @@
 ---
 title: Pagamento anticipato per il calcolo con capacità riservata-database di Azure per MariaDB
 description: Pagamento anticipato per le risorse di calcolo per database di Azure per MariaDB con capacità riservata
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 05/20/2020
-ms.openlocfilehash: b91ccb9f11740599ecf060c98f9fcc7a26d5b363
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c28abc882635f7cd0815952fe0ae183bef7138d2
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427810"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241617"
 ---
 # <a name="prepay-for-azure-database-for-mariadb-compute-resources-with-reserved-capacity"></a>Pagamento anticipato per le risorse di calcolo per database di Azure per MariaDB con capacità riservata
 
@@ -38,7 +38,7 @@ Si supponga, ad esempio, di eseguire un database quinta generazione-32 vCore Mar
 ## <a name="buy-azure-database-for-mariadb-reserved-capacity"></a>Acquistare la capacità riservata di database di Azure per MariaDB
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Selezionare **Tutti i servizi** > **Prenotazioni**.
+2. Selezionare **Tutti i servizi** > **Prenotazioni** .
 3.  Selezionare **Aggiungi** e quindi nel riquadro prenotazioni acquisti selezionare database di **Azure per MariaDB** per acquistare una nuova prenotazione per i database di MariaDB.
 4.  Compilare i campi obbligatori. I database nuovi o esistenti che corrispondono agli attributi selezionati sono idonei per ottenere lo sconto per la capacità riservata. Il numero effettivo del database di Azure per i server MariaDB che ottengono lo sconto dipendono dall'ambito e dalla quantità selezionati.
 
@@ -50,8 +50,8 @@ Nella tabella seguente vengono descritti i campi obbligatori.
 
 | Campo | Descrizione |
 | :------------ | :------- |
-| Sottoscrizione   | Sottoscrizione usata per pagare la prenotazione di capacità riservata per il database di Azure per MariaDB. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione di capacità riservata del database di Azure per MariaDB. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
-| Ambito | L'ambito della prenotazione vCore può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona: </br></br> **Condiviso**, lo sconto di prenotazione vCore viene applicato al database di Azure per i server MariaDB in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</br></br> **Sottoscrizione singola**, lo sconto di prenotazione vCore viene applicato al database di Azure per i server MariaDB in questa sottoscrizione. </br></br> **Gruppo di risorse singolo**, lo sconto relativo alla prenotazione viene applicato al database di Azure per i server MariaDB nella sottoscrizione selezionata e al gruppo di risorse selezionato all'interno di tale sottoscrizione.
+| Subscription   | Sottoscrizione usata per pagare la prenotazione di capacità riservata per il database di Azure per MariaDB. Il metodo di pagamento per la sottoscrizione viene addebitato ai costi iniziali per la prenotazione di capacità riservata del database di Azure per MariaDB. Il tipo di sottoscrizione deve essere un contratto Enterprise Agreement (numero offerta: MS-AZR-0017P o MS-AZR-0148P) o un contratto singolo con prezzi con pagamento in base al consumo (numeri di offerta: MS-AZR-0003P o MS-AZR-0023P). Se si dispone di una sottoscrizione Enterprise, il costo delle istanze riservate viene sottratto dal saldo dell'impegno monetario prescelto. Per una singola sottoscrizione con prezzi con pagamento in base al consumo, i costi vengono addebitati sulla carta di credito o sul metodo di pagamento della fattura per la sottoscrizione.
+| Ambito | L'ambito della prenotazione vCore può coprire una sottoscrizione o più sottoscrizioni (ambito condiviso). Se si seleziona: </br></br> **Condiviso** , lo sconto di prenotazione vCore viene applicato al database di Azure per i server MariaDB in esecuzione in tutte le sottoscrizioni all'interno del contesto di fatturazione. Per i clienti aziendali, l'ambito condiviso è la registrazione e include tutte le sottoscrizioni all'interno della registrazione. Per i clienti con pagamento in base al consumo, l'ambito condiviso copre tutte le sottoscrizioni con pagamento in base al consumo create dall'amministratore dell'account.</br></br> **Sottoscrizione singola** , lo sconto di prenotazione vCore viene applicato al database di Azure per i server MariaDB in questa sottoscrizione. </br></br> **Gruppo di risorse singolo** , lo sconto relativo alla prenotazione viene applicato al database di Azure per i server MariaDB nella sottoscrizione selezionata e al gruppo di risorse selezionato all'interno di tale sottoscrizione.
 | Area | Area di Azure coperta dalla prenotazione di capacità riservata del database di Azure per MariaDB.
 | Tipo di distribuzione | Tipo di risorsa del database di Azure per MariaDB per cui si vuole acquistare la prenotazione.
 | Livello di prestazioni | Livello di servizio per il database di Azure per i server MariaDB.

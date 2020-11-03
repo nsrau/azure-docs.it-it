@@ -12,12 +12,12 @@ ms.date: 04/30/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: a5cff53ee9e742e93a6183eb5d506bf8f1a08deb
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 4bd738197c84d7dce36f087d170f61a55d8e9f32
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130188"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241328"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Codici di errore di autenticazione e autorizzazione di Azure AD
 
@@ -251,7 +251,7 @@ Eseguire una ricerca nella parte numerica del codice di errore restituito.  Se, 
 | AADSTS90051 | InvalidNationalCloudId: l'identificatore del cloud nazionale contiene un identificatore del cloud non valido. |
 | AADSTS90055 | TenantThrottlingError: sono presenti troppe richieste in ingresso. Questa eccezione viene generata per i tenant bloccati. |
 | AADSTS90056 | BadResourceRequest: per riscattare il codice per un token di accesso, l'app deve inviare una richiesta POST all'endpoint `/token`. Prima di questa operazione, inoltre, è necessario fornire un codice di autorizzazione e inviarlo nella richiesta POST all'endpoint `/token`. Per una panoramica del flusso del codice di autorizzazione OAuth 2,0, fare riferimento a questo articolo [... /azuread-dev/V1-Protocols-OAuth-code.MD](../azuread-dev/v1-protocols-oauth-code.md). Reindirizzare l'utente all'endpoint `/authorize`, che restituirà un elemento authorization_code. Inviando una richiesta all'endpoint `/token`, l'utente ottiene il token di accesso. Accedere al portale di Azure e controllare **Registrazioni per l'app > Endpoint** per verificare che i due endpoint siano stati configurati correttamente. |
-| AADSTS90072 | PassThroughUserMfaError: l'account esterno usato dall'utente per accedere non esiste nel tenant in cui l'utente ha effettuato l'accesso. Di conseguenza, l'utente non può soddisfare i requisiti di MFA per il tenant. L'account deve essere prima di tutto aggiunto come utente esterno nel tenant. Disconnettersi e accedere con un account utente di Azure AD diverso. |
+| AADSTS90072 | PassThroughUserMfaError: l'account esterno usato dall'utente per accedere non esiste nel tenant in cui l'utente ha effettuato l'accesso. Di conseguenza, l'utente non può soddisfare i requisiti di MFA per il tenant. Questo errore può verificarsi anche se gli utenti vengono sincronizzati, ma esiste una mancata corrispondenza nell'attributo ImmutableID (sourceAnchor) tra Active Directory e Azure AD. L'account deve essere prima di tutto aggiunto come utente esterno nel tenant. Disconnettersi e accedere con un account utente di Azure AD diverso. |
 | AADSTS90081 | OrgIdWsFederationMessageInvalid: si è verificato un errore quando il servizio ha tentato di elaborare un messaggio WS-Federation. Il messaggio non è valido. |
 | AADSTS90082 | OrgIdWsFederationNotSupported: il criterio di autenticazione selezionato per la richiesta non è attualmente supportato. |
 | AADSTS90084 | OrgIdWsFederationGuestNotAllowed: gli account guest non sono consentiti per questo sito. |

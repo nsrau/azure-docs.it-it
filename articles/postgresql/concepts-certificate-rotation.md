@@ -1,17 +1,17 @@
 ---
 title: Rotazione dei certificati per il server singolo database di Azure per PostgreSQL
 description: Informazioni sulle modifiche imminenti delle modifiche apportate al certificato radice che influiranno sul server singolo del database di Azure per PostgreSQL
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 2f711ad269a4ea07cfbb1603b592b184779dcfdb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1bd02043183bd0477d8663300fcb7a1d7ac9ea55
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100746"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242076"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per il server singolo database di Azure per PostgreSQL
 

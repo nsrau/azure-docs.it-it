@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 422f8106ac52c85f0680d54e420d0f1b4d326910
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 185bb47677e978a3098f39024995da6399f90658
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92017693"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241770"
 ---
 # <a name="outbound-proxy-azure-load-balancer"></a>Azure Load Balancer proxy in uscita
 
 Un servizio di bilanciamento del carico di Azure può essere usato come proxy per la connettività Internet in uscita. Il servizio di bilanciamento del carico fornisce la connettività in uscita per le istanze back-end. 
 
-Questa configurazione utilizza la **Network Address Translation di origine (SNAT)**. SNAT riscrive l'indirizzo IP del back-end nell'indirizzo IP pubblico del servizio di bilanciamento del carico. 
+Questa configurazione utilizza la **Network Address Translation di origine (SNAT)** . SNAT riscrive l'indirizzo IP del back-end nell'indirizzo IP pubblico del servizio di bilanciamento del carico. 
 
 SNAT Abilita il **mascheramento IP** dell'istanza back-end. Questo mascheramento impedisce alle origini esterne di avere un indirizzo diretto per le istanze back-end. 
 
@@ -42,9 +42,9 @@ Se per le connessioni in ingresso viene usata una porta, sarà presente un **lis
 
 Per stabilire una connessione in uscita, è necessario usare una **porta temporanea** per fornire la destinazione con una porta per la comunicazione e la gestione di un flusso di traffico distinto. 
 
-Ogni indirizzo IP dispone di 65.535 porte. Le prime 1024 porte sono riservate come **porte di sistema**. Ogni porta può essere utilizzata per le connessioni in ingresso o in uscita per TCP e UDP. 
+Ogni indirizzo IP dispone di 65.535 porte. Le prime 1024 porte sono riservate come **porte di sistema** . Ogni porta può essere utilizzata per le connessioni in ingresso o in uscita per TCP e UDP. 
 
-Delle porte rimanenti, Azure fornisce 64.000 per l'uso come **porte**temporanee. Quando si aggiunge un indirizzo IP come configurazione IP front-end, è possibile usare queste porte temporanee per SNAT.
+Delle porte rimanenti, Azure fornisce 64.000 per l'uso come **porte** temporanee. Quando si aggiunge un indirizzo IP come configurazione IP front-end, è possibile usare queste porte temporanee per SNAT.
 
 Tramite le regole in uscita, queste porte SNAT possono essere distribuite alle istanze back-end per consentire loro di condividere gli IP pubblici del servizio di bilanciamento del carico per le connessioni in uscita.
 
@@ -52,7 +52,7 @@ La rete nell'host per ogni istanza di back-end eseguirà il SNAT dei pacchetti c
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> Porte esaurite
 
-Ogni connessione allo stesso indirizzo IP di destinazione e alla stessa porta di destinazione userà una porta SNAT. Questa connessione mantiene un **flusso di traffico** distinto dall'istanza o dal **client** back-end a un **server**. Questo processo fornisce al server una porta distinta su cui indirizzare il traffico. Senza questo processo, il computer client non è a conoscenza del flusso di cui fa parte un pacchetto.
+Ogni connessione allo stesso indirizzo IP di destinazione e alla stessa porta di destinazione userà una porta SNAT. Questa connessione mantiene un **flusso di traffico** distinto dall'istanza o dal **client** back-end a un **server** . Questo processo fornisce al server una porta distinta su cui indirizzare il traffico. Senza questo processo, il computer client non è a conoscenza del flusso di cui fa parte un pacchetto.
 
 Si supponga di avere a che fare con più browser https://www.microsoft.com , ovvero:
 
@@ -92,7 +92,7 @@ La <a name="snatporttable"></a> tabella seguente mostra le preallocazioni delle 
 | 801-1.000 | 32 | 
 
 >[!NOTE]
-> Se si dispone di un pool back-end con una dimensione massima di 6, ogni istanza può avere 64000/10 = 6.400 porte se si definisce una regola esplicita in uscita. In base alla tabella precedente, ognuno avrà 1.024 solo se si sceglie l'allocazione automatica.
+> Se si dispone di un pool back-end con una dimensione massima di 10, ogni istanza può avere 64000/10 = 6.400 porte se si definisce una regola esplicita in uscita. In base alla tabella precedente, ognuno avrà 1.024 solo se si sceglie l'allocazione automatica.
 
 ## <a name="outbound-rules-and-virtual-network-nat"></a><a name="outboundrules"></a> Regole in uscita e NAT della rete virtuale
 

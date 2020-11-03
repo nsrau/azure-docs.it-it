@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: e586e9acc9510dc1aaae511fa51e5a0c3255bd8f
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 4c2900ed5ebe0df3ed827acc1a16caff3beaf4d4
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026497"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241090"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Spostare un'istanza di Azure Digital Twins in un'altra area di Azure
 
@@ -80,9 +80,8 @@ Passare all'esempio qui: [Esplora risorse di Azure Digital gemelli (ADT)](/sampl
 
 Successivamente, configurare e configurare le autorizzazioni per ADT Explorer. A tale scopo, seguire le istruzioni riportate nella sezione [*set up Azure Digital gemells and ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) della Guida introduttiva a dispositivi digitali gemelli di Azure. Questa sezione illustra i passaggi seguenti:
 1. Configurare un'istanza di dispositivi gemelli digitali di Azure (è possibile ignorare questa parte perché è già presente un'istanza)
-2. Configurare una **registrazione dell'app Azure ad** per fornire l'accesso all'istanza
-3. Configurare le autorizzazioni per l'esecuzione di ADT Explorer nel computer
-4. Eseguire ADT Explorer e configurarlo per la connessione all'istanza di. Si userà il **nome host** dell'istanza di Azure Digital Twins originale che si sta muovendo e l'ID **client** e l' **ID tenant** dalla registrazione dell'app.
+2. Configurare le credenziali di Azure locali per consentire l'accesso all'istanza
+3. Eseguire ADT Explorer e configurarlo per la connessione all'istanza di. Si userà il **nome host** dell'istanza di Azure Digital Twins originale che si sta muovendo.
 
 A questo punto è necessario che l'app di esempio ADT Explorer sia in esecuzione in un browser nel computer. L'esempio deve essere connesso all'istanza originale di Azure Digital gemelli.
 
@@ -109,7 +108,7 @@ In questo modo verrà abilitato un collegamento di *download* nella *visualizzaz
 >[!NOTE]
 >Se il file scaricato sembra avere un'estensione di file diversa, provare a modificare l'estensione direttamente e a modificarla in *JSON* .
 
-## <a name="move"></a>Spostamento
+## <a name="move"></a>Sposta
 
 Successivamente, si completerà lo "spostamento" dell'istanza creando una nuova istanza nell'area di destinazione e inserendola con i dati e i componenti dell'istanza originale.
 
@@ -137,7 +136,7 @@ Attualmente, ADT Explorer è connesso all'istanza originale di Azure Digital gem
 
 :::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/sign-in.png":::
 
-È possibile riutilizzare la stessa registrazione dell'app, quindi è sufficiente sostituire l' *URL ADT* per riflettere la nuova istanza. Modificare questo valore in modo che legga *https://{new instance hostname}* .
+Sostituire l' *URL ADT* per riflettere la nuova istanza. Modificare questo valore in modo che legga *https://{new instance hostname}* .
 
 Premere *Connetti* . Potrebbe essere richiesto di eseguire di nuovo l'accesso con le credenziali di Azure e/o concedere il consenso dell'applicazione per l'istanza.
 
@@ -210,6 +209,7 @@ Le risorse esatte che è necessario modificare dipendono dallo scenario, ma di s
 * Mappe di Azure
 * Servizio Device provisioning (DPS)
 * App personali o aziendali esterne ad Azure, ad esempio l' **app client** creata in [*esercitazione: scrivere codice per un'app client*](tutorial-code.md), che si connette all'istanza e chiama le API di Azure Digital gemelli
+* **Non è necessario** ricreare le registrazioni dell'app Azure ad. Se si usa una [registrazione dell'app](how-to-create-app-registration.md) per connettersi alle API dei dispositivi gemelli digitali di Azure, è possibile riusare la stessa registrazione dell'app con la nuova istanza.
 
 Al termine di questo passaggio, la nuova istanza nell'area di destinazione deve essere una copia dell'istanza originale.
 

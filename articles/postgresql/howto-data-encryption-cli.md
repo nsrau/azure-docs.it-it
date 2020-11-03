@@ -1,18 +1,18 @@
 ---
 title: Crittografia dei dati-interfaccia della riga di comando di Azure-per database di Azure per PostgreSQL-server singolo
 description: Informazioni su come configurare e gestire la crittografia dei dati per il server singolo del database di Azure per PostgreSQL usando l'interfaccia della riga di comando di Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 7494135cd4912ec8e59a32592ebcca0e0a6813b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 757782e8842fbcaca9c8d95ec8086dd5791a817b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87797815"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240614"
 ---
 # <a name="data-encryption-for-azure-database-for-postgresql-single-server-by-using-the-azure-cli"></a>Crittografia dei dati per il server singolo di database di Azure per PostgreSQL tramite l'interfaccia della riga di comando di Azure
 
@@ -49,7 +49,7 @@ Informazioni su come usare l'interfaccia della riga di comando di Azure per conf
 * La chiave deve avere gli attributi seguenti da usare come chiave gestita dal cliente:
   * Nessuna data di scadenza
   * Non disabilitato
-  * Eseguire operazioni **Get**, **Wrap** e **Unwrap**
+  * Eseguire operazioni **Get** , **Wrap** e **Unwrap**
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Impostare le autorizzazioni appropriate per le operazioni chiave
 
@@ -67,7 +67,7 @@ Informazioni su come usare l'interfaccia della riga di comando di Azure per conf
     az postgres server update --resource-group <resource_group> --name <server_name> --assign-identity
     ```
 
-2. Impostare le **autorizzazioni chiave** (**Get**, **Wrap**, **Unwrap**) per l' **entità**, che corrisponde al nome del server a server singolo PostgreSQL.
+2. Impostare le **autorizzazioni chiave** ( **Get** , **Wrap** , **Unwrap** ) per l' **entità** , che corrisponde al nome del server a server singolo PostgreSQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

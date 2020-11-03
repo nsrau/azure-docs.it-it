@@ -1,18 +1,18 @@
 ---
 title: Gestire la disponibilità elevata con ridondanza della zona-portale di Azure-server flessibile per database di Azure per MySQL
 description: Questo articolo descrive come abilitare o disabilitare la disponibilità elevata con ridondanza della zona nel database di Azure per il server flessibile MySQL tramite il portale di Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 09/21/2020
 ms.custom: references_regions
-ms.openlocfilehash: 09cd7428519cbf84c785efa16b61b9507a3c0b94
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d65b074385311e74444929ef74901e402e29ec03
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940506"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241736"
 ---
 # <a name="manage-zone-redundant-high-availability-in-azure-database-for-mysql-flexible-server-preview"></a>Gestire la disponibilità elevata con ridondanza della zona nel server flessibile database di Azure per MySQL (anteprima)
 
@@ -32,18 +32,18 @@ In questa pagina vengono fornite le linee guida su come abilitare o disabilitare
 
 In questa sezione vengono fornite informazioni dettagliate specifiche per i campi correlati a disponibilità elevata. È possibile seguire questa procedura per distribuire la disponibilità elevata durante la creazione del server flessibile.
 
-1.  Nella [portale di Azure](https://portal.azure.com/)scegliere flessibile server e fare clic su **Crea**.  Per informazioni dettagliate su come compilare i dettagli, ad esempio **sottoscrizione**, **gruppo di risorse**, **nome del server**, **area**e altri campi, vedere la documentazione relativa alle procedure per la creazione del server.
+1.  Nella [portale di Azure](https://portal.azure.com/)scegliere flessibile server e fare clic su **Crea** .  Per informazioni dettagliate su come compilare i dettagli, ad esempio **sottoscrizione** , **gruppo di risorse** , **nome del server** , **area** e altri campi, vedere la documentazione relativa alle procedure per la creazione del server.
 
 2.  Fare clic sulla casella di controllo per la **disponibilità elevata con ridondanza della zona** nell'opzione disponibilità.
 
-3.  Se si desidera modificare il calcolo e l'archiviazione predefiniti, fare clic su  **Configura server**.
+3.  Se si desidera modificare il calcolo e l'archiviazione predefiniti, fare clic su  **Configura server** .
 
 4.  Se è selezionata l'opzione disponibilità elevata, il livello di espansione non sarà disponibile per la scelta. È possibile scegliere i livelli di calcolo per **utilizzo generico** o con ottimizzazione per la **memoria** .
 
     > [!IMPORTANT]
-    > È supportata solo la disponibilità elevata con ridondanza della zona per il piano tariffario ***utilizzo generico*** e con ottimizzazione per la ***memoria*** .
+    > È supportata solo la disponibilità elevata con ridondanza della zona per il piano tariffario * *_utilizzo generico_* e con ottimizzazione per la _*_memoria_*_ .
 
-5.  Selezionare le **dimensioni di calcolo** preferite nell'elenco a discesa.
+5.  Selezionare la *dimensione di calcolo* * desiderata dall'elenco a discesa.
 
 6.  Selezionare **dimensioni di archiviazione** in Gib usando la barra di scorrimento e selezionare il **periodo di conservazione dei backup** tra 7 giorni e 35 giorni.   
 
@@ -51,11 +51,11 @@ In questa sezione vengono fornite informazioni dettagliate specifiche per i camp
 
 Seguire questi passaggi per disabilitare la disponibilità elevata per il server flessibile già configurato con la ridondanza della zona.
 
-1.  Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per MySQL server flessibile.
+1.  Nella [portale di Azure](https://portal.azure.com/)selezionare il database di Azure per MySQL server flessibile.
 
-2.  Nella pagina server flessibile fare clic su **disponibilità elevata** nel pannello anteriore per aprire la pagina disponibilità elevata.
+2.  Nella pagina server flessibile fare clic su **disponibilità elevata** nel pannello anteriore per aprire la pagina disponibilità elevata.
 
-3.  Fare clic sulla casella di controllo **disponibilità elevata con ridondanza della zona** per disabilitare l'opzione e fare clic su **Salva**   per salvare la modifica.
+3.  Fare clic sulla casella di controllo **disponibilità elevata con ridondanza della zona** per disabilitare l'opzione e fare clic su **Salva** per salvare la modifica.
 
 4.  Verrà visualizzata una finestra di dialogo di conferma in cui è possibile confermare la disabilitazione della disponibilità elevata.
 
@@ -66,4 +66,4 @@ Seguire questi passaggi per disabilitare la disponibilità elevata per il server
 ## <a name="next-steps"></a>Passaggi successivi
 
 -   Scopri di più sulla [continuità aziendale](./concepts-business-continuity.md)
--   Informazioni sulla [disponibilità elevata con ridondanza della zona](./concepts-high-availability.md)
+-   Informazioni sulla [disponibilità elevata con ridondanza della zona](./concepts-high-availability.md)

@@ -1,18 +1,18 @@
 ---
 title: Collegamento privato-interfaccia della riga di comando di Azure-database di Azure per PostgreSQL-server singolo
 description: Informazioni su come configurare un collegamento privato per database di Azure per PostgreSQL-server singolo dall'interfaccia della riga di comando di Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 780ce6bed230ebbcf2a603962afc711fb9ab7f11
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 45f5a7e66c80dff5e78e575463becd95bcc7fca1
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92777929"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242178"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per PostgreSQL-server singolo con l'interfaccia della riga di comando
 

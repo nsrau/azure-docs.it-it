@@ -15,12 +15,12 @@ ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: fefa19e8dfee295d34231d36df079b80d1e82768
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d8eb450d2010bf2a525a26f1c5ff48f59732ce43
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92778594"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240971"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gestire la scadenza del contenuto Web nella rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -73,9 +73,9 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
 1. In **Regole di memorizzazione nella cache personalizzate** creare due condizioni di corrispondenza:
 
-     a. Per la prima condizione di corrispondenza impostare **Condizione di corrispondenza** su **Percorso** e immettere `/webfolder1/*` per **Valori di corrispondenza** . Impostare **Comportamento di memorizzazione nella cache** su **Ignora** e immettere 4 nella casella **Ore** .
+     a. Per la prima condizione di corrispondenza impostare **Condizione di corrispondenza** su **Percorso** e immettere `/webfolder1/*` per **Valori di corrispondenza** . Impostare il **comportamento di memorizzazione nella cache** su **Sostituisci** e immettere 4 nella casella **giorni** .
 
-     b. Per la seconda condizione di corrispondenza impostare **Condizione di corrispondenza** su **Percorso** e immettere `/webfolder1/file1.txt` per **Valori di corrispondenza** . Impostare **Comportamento di memorizzazione nella cache** su **Ignora** e immettere 2 nella casella **Ore** .
+     b. Per la seconda condizione di corrispondenza impostare **Condizione di corrispondenza** su **Percorso** e immettere `/webfolder1/file1.txt` per **Valori di corrispondenza** . Impostare il **comportamento di memorizzazione nella cache** su **Sostituisci** e immettere 2 nella casella **giorni** .
 
     ![Esempio di regole di memorizzazione nella cache personalizzate della rete CDN](./media/cdn-manage-expiration-of-cloud-service-content/cdn-custom-caching-rules-example.png)
 

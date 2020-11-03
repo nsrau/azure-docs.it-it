@@ -1,17 +1,17 @@
 ---
 title: Collegamento privato-database di Azure per MariaDB
 description: Informazioni sul funzionamento del collegamento privato per database di Azure per MariaDB.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 80bc77de30073b2872412f907251b1aad7e334d3
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: ec43fa995fc9772964db399baa0b6f8c2a7db1db
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425630"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241498"
 ---
 # <a name="private-link-for-azure-database-for-mariadb"></a>Collegamento privato per database di Azure per MariaDB
 
@@ -114,9 +114,9 @@ Quando si usa il collegamento privato in combinazione con le regole del firewall
 
 ## <a name="deny-public-access-for-azure-database-for-mariadb"></a>Negare l'accesso pubblico per il database di Azure per MariaDB
 
-Se si vuole basarsi completamente solo sugli endpoint privati per accedere al database di Azure per MariaDB, è possibile disabilitare l'impostazione di tutti gli endpoint pubblici ([regole del firewall](concepts-firewall-rules.md) ed endpoint di [servizio VNet](concepts-data-access-security-vnet.md)) impostando la configurazione di **accesso negato alla rete pubblica** sul server di database. 
+Se si vuole basarsi completamente solo sugli endpoint privati per accedere al database di Azure per MariaDB, è possibile disabilitare l'impostazione di tutti gli endpoint pubblici ( [regole del firewall](concepts-firewall-rules.md) ed endpoint di [servizio VNet](concepts-data-access-security-vnet.md)) impostando la configurazione di **accesso negato alla rete pubblica** sul server di database. 
 
-Quando questa impostazione è impostata su *Sì*, al database di Azure per MariaDB sono consentite solo le connessioni tramite endpoint privati. Quando questa impostazione è impostata su *No*, i client possono connettersi al database di Azure per MariaDB in base alle impostazioni del firewall o dell'endpoint del servizio VNet. Inoltre, una volta impostato il valore di accesso alla rete privata, i clienti non possono aggiungere e/o aggiornare le regole ' firewall rules ' è VNet service endpoint rules ' esistenti.
+Quando questa impostazione è impostata su *Sì* , al database di Azure per MariaDB sono consentite solo le connessioni tramite endpoint privati. Quando questa impostazione è impostata su *No* , i client possono connettersi al database di Azure per MariaDB in base alle impostazioni del firewall o dell'endpoint del servizio VNet. Inoltre, una volta impostato il valore di accesso alla rete privata, i clienti non possono aggiungere e/o aggiornare le regole ' firewall rules ' è VNet service endpoint rules ' esistenti.
 
 > [!Note]
 > Questa funzionalità è disponibile in tutte le aree di Azure in cui database di Azure per PostgreSQL-server singolo supporta i piani tariffari per utilizzo generico e con ottimizzazione per la memoria.

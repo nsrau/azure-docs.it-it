@@ -1,18 +1,18 @@
 ---
 title: Crittografia dei dati-interfaccia della riga di comando di Azure-database di Azure per MySQL
 description: Informazioni su come configurare e gestire la crittografia dei dati per il database di Azure per MySQL usando l'interfaccia della riga di comando di Azure.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb83cd4fe7e98b1cde6dcee5d3f25fa5e35f1d2c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07d2e9fa98c24695a119c651539d4003ecd8524a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87799820"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242093"
 ---
 # <a name="data-encryption-for-azure-database-for-mysql-by-using-the-azure-cli"></a>Crittografia dei dati per database di Azure per MySQL tramite l'interfaccia della riga di comando di Azure
 
@@ -50,7 +50,7 @@ Informazioni su come usare l'interfaccia della riga di comando di Azure per conf
 * La chiave deve avere gli attributi seguenti da usare come chiave gestita dal cliente:
   * Nessuna data di scadenza
   * Non disabilitato
-  * Eseguire operazioni **Get**, **Wrap**e **Unwrap**
+  * Eseguire operazioni **Get** , **Wrap** e **Unwrap**
 
 ## <a name="set-the-right-permissions-for-key-operations"></a>Impostare le autorizzazioni appropriate per le operazioni chiave
 
@@ -68,7 +68,7 @@ Informazioni su come usare l'interfaccia della riga di comando di Azure per conf
    az mysql server update --name  <server name>  -g <resource_group> --assign-identity
    ```
 
-2. Impostare le **autorizzazioni chiave** (**Get**, **Wrap**, **Unwrap**) per l' **entità**, che corrisponde al nome del server MySQL.
+2. Impostare le **autorizzazioni chiave** ( **Get** , **Wrap** , **Unwrap** ) per l' **entità** , che corrisponde al nome del server MySQL.
 
     ```azurecli-interactive
     az keyvault set-policy --name -g <resource_group> --key-permissions get unwrapKey wrapKey --object-id <principal id of the server>

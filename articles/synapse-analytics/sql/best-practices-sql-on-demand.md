@@ -10,12 +10,12 @@ ms.subservice: sql
 ms.date: 05/01/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 7bebfeba6da1493557d51777ba8438747e160750
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9de3e3503d63cf6dcaa98adc318d86df7700458d
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85476275"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241872"
 ---
 # <a name="best-practices-for-sql-on-demand-preview-in-azure-synapse-analytics"></a>Procedure consigliate per SQL su richiesta (anteprima) in Azure Synapse Analytics
 
@@ -60,17 +60,17 @@ I tipi di dati usati nella query influiscono sulle prestazioni. Per migliorare l
 
 - Usare le dimensioni di dati minime che supportano il valore massimo possibile.
   - Se la lunghezza massima del valore in caratteri è 30, usare un tipo di dati carattere di lunghezza 30.
-  - Se tutti i valori delle colonne carattere sono di dimensioni fisse, usare **char** o **nchar**. In caso contrario, usare **varchar** o **nvarchar**.
-  - Se il valore massimo di una colonna di numeri interi è 500, usare **smallint**, perché è il tipo di caratteri più piccolo in grado di supportare questo valore. Per informazioni sugli intervalli dei tipi di dati di numeri interi, vedere [questo articolo](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15).
-- Se possibile, usare **varchar** e **char** invece di **nvarchar** e **nchar**.
+  - Se tutti i valori delle colonne carattere sono di dimensioni fisse, usare **char** o **nchar** . In caso contrario, usare **varchar** o **nvarchar** .
+  - Se il valore massimo di una colonna di numeri interi è 500, usare **smallint** , perché è il tipo di caratteri più piccolo in grado di supportare questo valore. Per informazioni sugli intervalli dei tipi di dati di numeri interi, vedere [questo articolo](https://docs.microsoft.com/sql/t-sql/data-types/int-bigint-smallint-and-tinyint-transact-sql?view=sql-server-ver15&preserve-view=true).
+- Se possibile, usare **varchar** e **char** invece di **nvarchar** e **nchar** .
 - Se possibile, usare tipi di dati basati su integer. Le operazioni SORT, JOIN e GROUP BY vengono completate più velocemente su numeri interi che non su dati di tipo carattere.
 - Se si usa l'inferenza dello schema, [controllare i tipi di dati dedotti](#check-inferred-data-types).
 
 ## <a name="check-inferred-data-types"></a>Controllare i tipi di dati dedotti
 
-L'[inferenza dello schema](query-parquet-files.md#automatic-schema-inference) consente di scrivere rapidamente query e di esplorare i dati senza conoscere gli schemi dei file. Il costo di questa comodità è che i tipi di dati dedotti hanno dimensioni maggiori rispetto ai tipi di dati effettivi. Questa situazione si verifica quando nei file di origine non sono disponibili informazioni sufficienti per assicurare che venga usato il tipo di dati appropriato. Ad esempio, i file Parquet non contengono metadati sulla lunghezza massima delle colonne di caratteri. SQL su richiesta deduce quindi che si tratti di varchar (8000).
+L'[inferenza dello schema](query-parquet-files.md#automatic-schema-inference) consente di scrivere rapidamente query e di esplorare i dati senza conoscere gli schemi dei file. Il costo di questa praticità è che i tipi di dati dedotti possono essere più grandi dei tipi di dati effettivi. Questa situazione si verifica quando nei file di origine non sono disponibili informazioni sufficienti per assicurare che venga usato il tipo di dati appropriato. Ad esempio, i file Parquet non contengono metadati sulla lunghezza massima delle colonne di caratteri. SQL su richiesta deduce quindi che si tratti di varchar (8000).
 
-È possibile usare [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15) per controllare i tipi di dati risultanti della query.
+È possibile usare [sp_describe_first_results_set](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-describe-first-result-set-transact-sql?view=sql-server-ver15&preserve-view=true) per controllare i tipi di dati risultanti della query.
 
 L'esempio seguente mostra come ottimizzare i tipi di dati dedotti. Questa procedura viene usata per visualizzare i tipi di dati dedotti: 
 ```sql  

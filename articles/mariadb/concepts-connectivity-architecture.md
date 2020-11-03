@@ -1,17 +1,17 @@
 ---
 title: 'Architettura di connettività: database di Azure per MariaDB'
 description: Descrive l'architettura di connettività per il database di Azure per il server MariaDB.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: c3f557c757a46252b9fa0416cc62a827b233f1b2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c9c1331b7d868c29fddf7b709912e87d55d73c45
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88065353"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93241447"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Architettura di connettività nel database di Azure per MariaDB
 Questo articolo illustra l'architettura di connettività del database di Azure per MariaDB e il modo in cui il traffico viene indirizzato al database di Azure per l'istanza di MariaDB dai client all'interno e all'esterno di Azure.
@@ -68,13 +68,13 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 | Regno Unito occidentale | 51.141.8.11  |
 | Stati Uniti centro-occidentali | 13.78.145.25     |
 | Europa occidentale | 40.68.37.158, 191.237.232.75, 13.69.105.208, 104.40.169.187  |
-| Stati Uniti Occidentali | 104.42.238.205, 23.99.34.75, 13.86.216.212, 13.86.217.212 |
+| Stati Uniti occidentali | 104.42.238.205, 23.99.34.75, 13.86.216.212, 13.86.217.212 |
 | West US 2 | 13.66.226.202  |
 ||||
 
 ## <a name="connection-redirection"></a>Reindirizzamento della connessione
 
-Il database di Azure per MariaDB supporta un criterio di connessione aggiuntivo, il **Reindirizzamento**, che consente di ridurre la latenza di rete tra le applicazioni client e i server MariaDB. Con questa funzionalità, dopo che la sessione TCP iniziale viene stabilita nel database di Azure per il server MariaDB, il server restituisce l'indirizzo back-end del nodo che ospita il server MariaDB al client. Successivamente, tutti i pacchetti successivi fluiscono direttamente sul server, ignorando il gateway. Poiché i pacchetti vengono inviati direttamente al server, la latenza e la velocità effettiva hanno un miglioramento delle prestazioni.
+Il database di Azure per MariaDB supporta un criterio di connessione aggiuntivo, il **Reindirizzamento** , che consente di ridurre la latenza di rete tra le applicazioni client e i server MariaDB. Con questa funzionalità, dopo che la sessione TCP iniziale viene stabilita nel database di Azure per il server MariaDB, il server restituisce l'indirizzo back-end del nodo che ospita il server MariaDB al client. Successivamente, tutti i pacchetti successivi fluiscono direttamente sul server, ignorando il gateway. Poiché i pacchetti vengono inviati direttamente al server, la latenza e la velocità effettiva hanno un miglioramento delle prestazioni.
 
 Questa funzionalità è supportata nei server di database di Azure per MariaDB con le versioni del motore 10,2 e 10,3.
 
