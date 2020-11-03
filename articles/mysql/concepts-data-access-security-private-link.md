@@ -1,17 +1,17 @@
 ---
 title: Collegamento privato-database di Azure per MySQL
 description: Informazioni sul funzionamento del collegamento privato per database di Azure per MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: e6086aecc73f04b25e95d3c93c60abd2164a5610
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 1ae35d1ac35dacfab2690980d57973dce050382b
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544240"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242858"
 ---
 # <a name="private-link-for-azure-database-for-mysql"></a>Collegamento privato per database di Azure per MySQL
 
@@ -72,21 +72,21 @@ Quando l'amministratore di rete crea l'endpoint privato (PE), l'amministratore d
 
 * Selezionare una singola connessione di endpoint privato dall'elenco.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Selezionare il portale dell'endpoint privato":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Selezionare l'endpoint privato in attesa di approvazione":::
 
 * L'amministratore del server MySQL può scegliere di approvare o rifiutare un PEC e, facoltativamente, di aggiungere una risposta di testo breve.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Selezionare il portale dell'endpoint privato":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Selezionare il messaggio dell'endpoint privato":::
 
 * Dopo l'approvazione o il rifiuto, l'elenco riflette lo stato appropriato insieme al testo della risposta
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Selezionare il portale dell'endpoint privato":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Selezionare lo stato finale dell'endpoint privato":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-mysql"></a>Casi d'uso di collegamento privato per database di Azure per MySQL
 
 I client possono connettersi all'endpoint privato dallo stesso VNet, VNet con peering nella stessa area o tramite una connessione da VNet a VNet tra le aree. Inoltre, i client possono connettersi dall'ambiente locale tramite ExpressRoute, peering privato o tunneling VPN. Di seguito è riportato un diagramma semplificato che mostra i casi d'uso comuni.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selezionare il portale dell'endpoint privato":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selezionare la panoramica dell'endpoint privato":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Connessione da una VM di Azure in una rete virtuale con peering
 Configurare il [peering VNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) per stabilire la connettività al database di Azure per MySQL da una macchina virtuale di Azure in un VNet con peering.

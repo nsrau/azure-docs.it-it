@@ -1,0 +1,26 @@
+---
+author: IngridAtMicrosoft
+ms.service: media-services
+ms.topic: include
+ms.date: 10/28/2020
+ms.author: inhenkel
+ms.openlocfilehash: a472bbb4ac5dcf82a2aa70601563cd24def6032a
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242685"
+---
+<!--Feature availability in region-->
+
+## <a name="united-states"></a>Stati Uniti
+
+| Funzionalità | Stati Uniti centrali | Stati Uniti orientali | Stati Uniti orientali 2 | Stati Uniti centro-settentrionali | Stati Uniti centro-meridionali |
+| --- | :---: | :---: | :---: | :---: | :---: |
+| [Azure EventGrid](../reacting-to-media-services-events.md) | ![Disponibilità generale degli Stati Uniti centrali di Azure EventGrid](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale di Azure EventGrid East US](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale di Azure EventGrid East US 2](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale di Azure EventGrid Stati Uniti centro-settentrionali](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti centro-meridionali](../media/azure-clouds-regions/ga.svg) |
+| [VideoAnalyzerPreset](../analyzing-video-audio-files-concept.md) | ![Disponibilità generale degli Stati Uniti centrali VideoAnalyzerPreset](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti orientali VideoAnalyzerPreset](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale VideoAnalyzerPreset Stati Uniti orientali 2](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale di VideoAnalyzerPreset Stati Uniti centro-settentrionali](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti centro-meridionali VideoAnalyzerPreset](../media/azure-clouds-regions/ga.svg) |
+| [AudioAnalyzerPreset](../analyzing-video-audio-files-concept.md) | ![Disponibilità generale degli Stati Uniti centrali AudioAnalyzerPreset](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti orientali AudioAnalyzerPreset](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale AudioAnalyzerPreset Stati Uniti orientali 2](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale di AudioAnalyzerPreset Stati Uniti centro-settentrionali](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti centro-meridionali AudioAnalyzerPreset](../media/azure-clouds-regions/ga.svg) |
+| [StandardEncoderPreset](../encoding-concept.md) | ![Disponibilità generale degli Stati Uniti centrali StandardEncoderPreset](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti orientali StandardEncoderPreset](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale StandardEncoderPreset Stati Uniti orientali 2](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale di StandardEncoderPreset Stati Uniti centro-settentrionali](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti centro-meridionali StandardEncoderPreset](../media/azure-clouds-regions/ga.svg) |
+| [LiveEvents](../live-streaming-overview.md) | ![Disponibilità generale degli Stati Uniti centrali LiveEvents](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti orientali LiveEvents](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale LiveEvents Stati Uniti orientali 2](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale di LiveEvents Stati Uniti centro-settentrionali](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti centro-meridionali LiveEvents](../media/azure-clouds-regions/ga.svg) |
+| [StreamingEndpoints](../streaming-endpoint-concept.md) | ![Disponibilità generale degli Stati Uniti centrali le entità streamingendpoint](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti orientali le entità streamingendpoint](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale le entità streamingendpoint Stati Uniti orientali 2](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale di le entità streamingendpoint Stati Uniti centro-settentrionali](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti centro-meridionali le entità streamingendpoint](../media/azure-clouds-regions/ga.svg) |
+| [LiveTranscription](../live-transcription.md) | ![Disponibilità generale degli Stati Uniti centrali LiveTranscription](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti orientali LiveTranscription](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale LiveTranscription Stati Uniti orientali 2](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale di LiveTranscription Stati Uniti centro-settentrionali](../media/azure-clouds-regions/ga.svg) | ![Disponibilità generale degli Stati Uniti centro-meridionali LiveTranscription](../media/azure-clouds-regions/ga.svg) |
