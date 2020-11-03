@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 06/18/2020
 ms.author: jeedes
-ms.openlocfilehash: 1fa8f6f0382312951905476ad6fee06e180c6f35
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe8acfd1bfd14f339a0109cab215b8a9ab65256f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543144"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893880"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-segment"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Segment
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Segment con Azure Active Directory 
 * Abilitare gli utenti per l'accesso automatico a Segment con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,7 +42,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 * Segment supporta l'accesso SSO avviato da **SP e IDP**
 * Segment supporta il provisioning utenti **JIT**
 
-* Dopo aver configurato Segment, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Dopo aver configurato Segment, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-segment-from-the-gallery"></a>Aggiunta di Segment dalla raccolta
 
@@ -79,13 +79,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `urn:auth0:segment-prod:samlp-<CUSTOMER_VALUE>`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://segment-prod.auth0.com/login/callback?connection=<CUSTOMER_VALUE>`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     Nella casella di testo **URL di accesso** digitare l'URL: `https://app.segment.com`
 
@@ -104,7 +104,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -136,23 +136,23 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic sull'icona **Settings** (Impostazioni), scorrere verso il basso fino alla voce **AUTHENTICATION** (AUTENTICAZIONE) e fare clic su **Connections** (Connessioni).
 
-    ![Configurazione di Segment](./media/segment-tutorial/segment1.PNG)
+    ![Screenshot che mostra l'icona "Settings" selezionata e l'opzione "Connections" selezionata nel menu "Authentication".](./media/segment-tutorial/segment1.PNG)
 
 1. Fare clic su **Add new Connection** (Aggiungi nuova connessione).
 
-    ![Configurazione di Segment](./media/segment-tutorial/segment2.PNG)
+    ![Screenshot che mostra la sezione "Connections" con il pulsante "Add new Connection" selezionato.](./media/segment-tutorial/segment2.PNG)
 
 1. Selezionare **SAML 2.0** come connessione da configurare e fare clic sul pulsante **Select Connection** (Seleziona connessione).
 
-    ![Configurazione di Segment](./media/segment-tutorial/segment3.PNG)
+    ![Screenshot che mostra la sezione "Choose a Connection" con il pulsante l'opzione "SAML 2.0" e il pulsante "Select Connection" selezionati.](./media/segment-tutorial/segment3.PNG)
 
 1. Nella pagina successiva seguire questa procedura:
 
-    ![Configurazione di Segment](./media/segment-tutorial/segment4.PNG)
+    ![Screenshot che mostra la pagina "Configure Identity Provider" con le caselle di testo "Single Sign-On URL" e "Audience URL" evidenziate e il pulsante "Avanti" selezionato.](./media/segment-tutorial/segment4.PNG)
 
     a. Copiare il valore di **Single Sign-On URL** (URL di accesso SSO) e incollarlo nella casella **URL di risposta** nella finestra di dialogo **Configurazione SAML di base** del portale di Azure.
 
-    b. Copiare il valore di ****Audience URL**** (URL destinatari) e incollarlo nella casella dell'**URL identificatore** nella finestra di dialogo **Configurazione SAML di base** del portale di Azure.
+    b. Copiare il valore di ****Audience URL**** (URL destinatari) e incollarlo nella casella dell' **URL identificatore** nella finestra di dialogo **Configurazione SAML di base** del portale di Azure.
 
     c. Fare clic su **Avanti**.
 
@@ -172,19 +172,18 @@ In questa sezione viene creato un utente di nome B.Simon in Segment. Segment sup
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Segment nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Segment per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Segment nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Segment per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Segment con Azure AD](https://aad.portal.azure.com/)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
 
-- [Come proteggere Segment con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Come proteggere Segment con visibilità e controlli avanzati](/cloud-app-security/proxy-intro-aad)

@@ -10,12 +10,12 @@ ms.date: 12/06/2018
 ms.author: jopapa
 ms.custom: seodec18, devx-track-js
 ms.reviewer: sngun
-ms.openlocfilehash: c3026ac25d8da0e21c72ffa2d36f90e44a691aea
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 55370e7f279283e97f9baf736f22794e1d08e09d
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330503"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911801"
 ---
 # <a name="create-an-angular-app-with-azure-cosmos-dbs-api-for-mongodb---create-a-cosmos-account"></a>Creare un'app Angular con l'API di Azure Cosmos DB per MongoDB - Creare un account Cosmos
 
@@ -35,7 +35,7 @@ La Parte 4 dell'esercitazione è basata sulla [Parte 3](tutorial-develop-mongodb
 
 Prima di iniziare questa parte dell'esercitazione, assicurarsi di avere completato le procedure illustrate nella [Parte 3](tutorial-develop-mongodb-nodejs-part3.md) dell'esercitazione. 
 
-In questa sezione dell'esercitazione è possibile usare Azure Cloud Shell (nel browser Internet) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) installata in locale.
+In questa sezione dell'esercitazione è possibile usare Azure Cloud Shell (nel browser Internet) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) installata in locale.
 
 [!INCLUDE [cloud-shell-try-it](../../includes/cloud-shell-try-it.md)]
 
@@ -64,11 +64,11 @@ Dopo la creazione dell'account Azure Cosmos DB:
 1. Fare clic sul logo di Azure Cosmos DB :::image type="icon" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-icon.png"::: nella barra a sinistra per visualizzare tutte le istanze di Azure Cosmos DB disponibili.
 1. Fare clic sull'account Azure Cosmos DB appena creato, selezionare la scheda **Panoramica** e scorrere verso il basso per visualizzare la mappa con la posizione del database. 
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Nuovo account Azure Cosmos DB nel portale di Azure":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-angular-portal.png" alt-text="Screenshot che mostra la panoramica di un account Azure Cosmos DB.":::
 
 4. Scorrere verso il basso sulla barra di spostamento a sinistra e fare clic sulla scheda **Replica i dati a livello globale** per visualizzare una mappa con le diverse aree in cui è possibile eseguire la replica. È ad esempio possibile fare clic su Australia sud-orientale o su Australia orientale e replicare i dati in Australia. Per altre informazioni sulla replica globale, vedere [Come distribuire i dati a livello globale con Azure Cosmos DB](distribute-data-globally.md). Per il momento sarà sufficiente una sola istanza che sarà possibile replicare, se necessario.
 
-    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png" alt-text="Nuovo account Azure Cosmos DB nel portale di Azure":::
+    :::image type="content" source="./media/tutorial-develop-mongodb-nodejs-part4/azure-cosmos-db-replicate-portal.png" alt-text="Screenshot che mostra un account Azure Cosmos DB con l'opzione Replica i dati a livello globale selezionata.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

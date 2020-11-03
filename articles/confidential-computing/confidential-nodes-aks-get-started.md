@@ -6,12 +6,12 @@ ms.service: container-service
 ms.topic: quickstart
 ms.date: 9/22/2020
 ms.author: amgowda
-ms.openlocfilehash: 9343d3fa82302711311d8db3672713fa80fab1f7
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 994cf78a9a9b8c418d0f29f5d595f88f021659b4
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92122178"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341907"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-with-confidential-computing-nodes-using-azure-cli-preview"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes con nodi di confidential computing tramite l'interfaccia della riga di comando di Azure (anteprima)
 
@@ -27,11 +27,11 @@ Questa guida di avvio rapido illustra come distribuire un cluster del servizio A
 ### <a name="deployment-pre-requisites"></a>Prerequisiti di distribuzione
 
 1. Avere una sottoscrizione di Azure attiva. Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare
-1. Avere l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva installata e configurata nel computer di distribuzione (eseguire  `az --version` per trovare la versione). Se è necessario eseguire l'installazione o l'aggiornamento, vedere  [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli)
+1. Avere l'interfaccia della riga di comando di Azure versione 2.0.64 o successiva installata e configurata nel computer di distribuzione (eseguire `az --version` per trovare la versione). Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-azure-cli).
 1. [Estensione aks-preview](https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview) versione 0.4.62 o successiva 
-1. Avere almeno sei core DCSv2 disponibili per l'uso nella sottoscrizione. Per impostazione predefinita, la quota di core delle VM per il confidential computing per ogni sottoscrizione di Azure è 8 core. Se si prevede di effettuare il provisioning di un cluster che richiede più di 8 core, seguire [queste istruzioni](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) per generare un ticket di aumento della quota
+1. Avere almeno sei core **DC<x>s-v2** disponibili per l'uso nella sottoscrizione. Per impostazione predefinita, la quota di core delle VM per il confidential computing per ogni sottoscrizione di Azure è 8 core. Se si prevede di effettuare il provisioning di un cluster che richiede più di 8 core, seguire [queste istruzioni](https://docs.microsoft.com/azure/azure-portal/supportability/per-vm-quota-requests) per generare un ticket di aumento della quota
 
-### <a name="confidential-computing-node-features"></a>Funzionalità dei nodi di confidential computing
+### <a name="confidential-computing-node-features-dcxs-v2"></a>Funzionalità dei nodi di confidential computing (DC<x>s-v2)
 
 1. Nodi di lavoro Linux che supportano solo contenitori Linux
 1. Macchine virtuali Ubuntu 18.04 Gen 2
@@ -94,14 +94,14 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --aks-custom-headers usegen2vm=true
 ```
-Il comando riportato sopra dovrebbe effettuare il provisioning di un nuovo cluster del servizio Azure Kubernetes con pool di nodi DCSv2 e installare automaticamente due DaemonSet ([Plug-in del dispositivo SGX](confidential-nodes-aks-overview.md#sgx-plugin) & [Helper di citazioni SGX](confidential-nodes-aks-overview.md#sgx-quote))
+Il comando riportato sopra dovrebbe effettuare il provisioning di un nuovo cluster del servizio Azure Kubernetes con pool di nodi **DC<x>s-v2** e installare automaticamente due DaemonSet ([Plug-in del dispositivo SGX](confidential-nodes-aks-overview.md#sgx-plugin) & [Helper di citazioni SGX](confidential-nodes-aks-overview.md#sgx-quote))
 
 Ottenere le credenziali per il cluster servizio Azure Kubernetes usando il comando az servizio Azure Kubernetes get-credentials:
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
-Verificare che i nodi siano stati creati correttamente e che i DaemonSet correlati a SGX siano in esecuzione nei pool di nodi DCSv2 usando il comando kubectl get pods & nodes come illustrato di seguito:
+Verificare che i nodi siano stati creati correttamente e che i DaemonSet correlati a SGX siano in esecuzione nei pool di nodi **DC<x>s-v2** usando il comando kubectl get pods & nodes come illustrato di seguito:
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -130,9 +130,12 @@ Prima di tutto, abilitare i componenti aggiuntivi del servizio Azure Kubernetes 
 ```azurecli-interactive
 az aks enable-addons --addons confcom --name MyManagedCluster --resource-group MyResourceGroup 
 ```
-Aggiungere ora un pool di nodi DCSv2 al cluster.
-
-```azurecli-interactive
+Aggiungere ora un pool di nodi **DC<x>s-v2** al cluster.
+    
+> [!NOTE]
+> Per usare la funzionalità di confidential computing, il cluster del servizio Azure Kubernetes esistente deve avere almeno un pool di nodi basato su SKU di VM **DC<x>s-v2**. Per altre informazioni sugli SKU di VM DCsv2 con confidential computing, vedere [SKU disponibili e aree supportate](virtual-machine-solutions.md).
+    
+  ```azurecli-interactive
 az aks nodepool add --cluster-name myAKSCluster --name confcompool1 --resource-group myResourceGroup --node-count 1 --node-vm-size Standard_DC4s_v2 --aks-custom-headers usegen2vm=true
 
 output node pool added

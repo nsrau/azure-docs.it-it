@@ -8,12 +8,12 @@ ms.date: 05/14/2019
 ms.author: normesta
 ms.reviewer: seguler
 ms.subservice: common
-ms.openlocfilehash: 5b37417efdb99f6b90983b86954da70fa6f7c6a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 154a7b17fc09c55e83b65eef8d479904c36e87eb
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91716081"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791189"
 ---
 #  <a name="tutorial-migrate-on-premises-data-to-cloud-storage-with-azcopy"></a>Esercitazione: Eseguire la migrazione dei dati locali in una risorsa di archiviazione nel cloud con AzCopy
 
@@ -33,7 +33,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per completare questa esercitazione, scaricare l'ultima versione di AzCopy. Vedere [Introduzione ad AzCopy](storage-use-azcopy-v10.md).
 
-Se si usa Windows, è necessario [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) perché viene usato in questa esercitazione per pianificare un'attività. Gli utenti di Linux useranno invece il comando crontab.
+Se si usa Windows, è necessario [Schtasks](/windows/win32/taskschd/schtasks) perché viene usato in questa esercitazione per pianificare un'attività. Gli utenti di Linux useranno invece il comando crontab.
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
@@ -46,7 +46,7 @@ Per creare un contenitore, seguire questa procedura:
 1. Selezionare il pulsante **Account di archiviazione** nella pagina principale e scegliere l'account di archiviazione creato.
 2. Selezionare **BLOB** in **Servizi** e quindi selezionare **Contenitore**.
 
-   ![Creare un contenitore](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
+   ![Screenshot che mostra la creazione del contenitore](media/storage-azcopy-migrate-on-premises-data/CreateContainer.png)
  
 I nomi dei contenitori devono iniziare con una lettera o un numero e possono contenere solo lettere, numeri e il segno meno (-). Per altre informazioni sulla denominazione dei BLOB e dei contenitori, vedere l'articolo relativo alla [denominazione e riferimento a contenitori, BLOB e metadati](/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata).
 
@@ -62,7 +62,7 @@ Salvare il file di AzCopy in una posizione qualsiasi sul computer. Aggiungere la
 
 ## <a name="authenticate-with-azure-ad"></a>Eseguire l'autenticazione con Azure AD
 
-Assegnare per prima cosa il ruolo [Collaboratore ai dati dei BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-queue-data-contributor) alla propria identità. Vedere [Usare il portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di accodamento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-rbac-portal).
+Assegnare per prima cosa il ruolo [Collaboratore ai dati dei BLOB di archiviazione](../../role-based-access-control/built-in-roles.md#storage-queue-data-contributor) alla propria identità. Vedere [Usare il portale di Azure per assegnare un ruolo di Azure per l'accesso ai dati BLOB e di accodamento](./storage-auth-aad-rbac-portal.md).
 
 Aprire quindi un prompt dei comandi, digitare il comando seguente e premere INVIO.
 
@@ -72,13 +72,13 @@ azcopy login
 
 Questo comando restituisce un codice di autenticazione e l'URL di un sito Web. Aprire il sito Web, immettere il codice e quindi scegliere il pulsante **Avanti**.
 
-![Creare un contenitore](media/storage-use-azcopy-v10/azcopy-login.png)
+![Screenshot che mostra la richiesta di accesso](media/storage-use-azcopy-v10/azcopy-login.png)
 
 Verrà visualizzata una finestra di accesso. In tale finestra accedere al proprio account Azure usando le relative credenziali. Dopo aver completato l'accesso, è possibile chiudere la finestra del browser e iniziare a usare AzCopy.
 
 ## <a name="upload-contents-of-a-folder-to-blob-storage"></a>Caricare il contenuto di una cartella nell'archiviazione BLOB
 
-È possibile usare AzCopy per caricare tutti i file di una cartella nell'archiviazione BLOB di [Windows](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy) o [Linux](https://docs.microsoft.com/azure/storage/common/storage-use-azcopy-linux). Per caricare tutti i BLOB di una cartella, immettere il comando AzCopy seguente:
+È possibile usare AzCopy per caricare tutti i file di una cartella nell'archiviazione BLOB di [Windows](./storage-use-azcopy-v10.md) o [Linux](./storage-use-azcopy-v10.md). Per caricare tutti i BLOB di una cartella, immettere il comando AzCopy seguente:
 
 ```AzCopy
 azcopy copy "<local-folder-path>" "https://<storage-account-name>.<blob or dfs>.core.windows.net/<container-name>" --recursive=true
@@ -135,7 +135,7 @@ azcopy sync "C:\myFolder" "https://mystorageaccount.blob.core.windows.net/mycont
 
 ---
 
-In questa esercitazione viene usato il comando [Schtasks](https://msdn.microsoft.com/library/windows/desktop/bb736357(v=vs.85).aspx) per creare un'attività pianificata in Windows, il comando [Crontab](http://crontab.org/) per creare un processo cron in Linux.
+In questa esercitazione viene usato il comando [Schtasks](/windows/win32/taskschd/schtasks) per creare un'attività pianificata in Windows, il comando [Crontab](http://crontab.org/) per creare un processo cron in Linux.
 
  **Schtasks** consente agli amministratori di creare, eliminare, interrogare, modificare, eseguire e terminare attività pianificate in un computer locale o remoto. **Cron** consente agli utenti di Linux e Unix di eseguire comandi o script in una data e a un'ora specifiche usando [espressioni cron](https://en.wikipedia.org/wiki/Cron#CRON_expression).
 
@@ -166,7 +166,7 @@ Il comando usa:
 - Il parametro `/TN` per specificare il nome dell'attività.
 - Il parametro `/TR` per specificare il percorso al file `script.bat`.
 
-Per altre informazioni sulla creazione di un'attività pianificata in Windows, vedere [Schtasks](https://technet.microsoft.com/library/cc772785(v=ws.10).aspx#BKMK_minutes).
+Per altre informazioni sulla creazione di un'attività pianificata in Windows, vedere [Schtasks](/previous-versions/orphan-topics/ws.10/cc772785(v=ws.10)#BKMK_minutes).
 
 ---
 
@@ -176,7 +176,7 @@ Per verificare che l'attività pianificata o il processo cron venga eseguito cor
 
 Per altre informazioni sulle modalità disponibili per spostare dati locali in Archiviazione di Azure e viceversa, vedere l'articolo seguente:
 
-* [Spostamento dei dati da e verso Archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-moving-data?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).  
+* [Spostamento dei dati da e verso Archiviazione di Azure](./storage-choose-data-transfer-solution.md?toc=%252fazure%252fstorage%252ffiles%252ftoc.json).  
 
 Per altre informazioni su AzCopy, vedere gli articoli seguenti:
 

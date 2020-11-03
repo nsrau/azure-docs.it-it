@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2dbb47371197d07b45f9144e2be66e992df4c97
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 9ed8d645c5bedf6df087fa9c948415c6a1df24e9
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996526"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92783182"
 ---
 # <a name="what-is-identity-protection"></a>Informazioni su Identity Protection
 
@@ -39,9 +39,9 @@ Nel [post di blog di ottobre 2018](https://techcommunity.microsoft.com/t5/Azure-
 >
 > In occasione dell'evento Ignite l'anno scorso ho parlato dei tre attacchi più frequenti ai nostri sistemi di gestione dell'identità. Ecco il volume recente di questi attacchi
 >   
->   - **Ripetizione della violazione**: 4,6 miliardi di attacchi rilevati nel mese di maggio 2018
->   - **Password spraying**: 350.000 nel mese di aprile 2018
->   - **Phishing**: questo valore è difficilmente quantificabile con esattezza, ma abbiamo riscontrato 23 milioni di eventi di rischio nel mese di marzo 2018, molti dei quali sono correlati al phishing
+>   - **Ripetizione della violazione** : 4,6 miliardi di attacchi rilevati nel mese di maggio 2018
+>   - **Password spraying** : 350.000 nel mese di aprile 2018
+>   - **Phishing** : questo valore è difficilmente quantificabile con esattezza, ma abbiamo riscontrato 23 milioni di eventi di rischio nel mese di marzo 2018, molti dei quali sono correlati al phishing
 
 ## <a name="risk-detection-and-remediation"></a>Rilevamento e correzione dei rischi
 
@@ -107,9 +107,9 @@ Gli amministratori dell'accesso condizionale possono anche creare criteri che te
 | Criteri di rischio | Criteri di rischio utente (tramite Identity Protection)  | No | No |Sì | 
 | Criteri di rischio | Criteri di rischio di accesso (tramite Identity Protection o accesso condizionale)  | No |  No |Sì |
 | Report sulla sicurezza | Panoramica |  No | No |Sì |
-| Report sulla sicurezza | Utenti a rischio  | Informazioni limitate | Informazioni limitate | Accesso completo|
-| Report sulla sicurezza | Accessi a rischio  | Informazioni limitate | Informazioni limitate | Accesso completo|
-| Report sulla sicurezza | Rilevamenti dei rischi   | No | Informazioni limitate| Accesso completo|
+| Report sulla sicurezza | Utenti a rischio  | Informazioni limitate. Vengono visualizzati solo gli utenti con rischio medio ed elevato. Nessun pannello dei dettagli o cronologia dei rischi. | Informazioni limitate. Vengono visualizzati solo gli utenti con rischio medio ed elevato. Nessun pannello dei dettagli o cronologia dei rischi. | Accesso completo|
+| Report sulla sicurezza | Accessi a rischio  | Informazioni limitate. Non vengono visualizzati i dettagli del rischio né il livello di rischio. | Informazioni limitate. Non vengono visualizzati i dettagli del rischio né il livello di rischio. | Accesso completo|
+| Report sulla sicurezza | Rilevamenti dei rischi   | No | Informazioni limitate. Nessun pannello dei dettagli.| Accesso completo|
 | Notifiche | Avvisi relativi a utenti a rischio rilevati  | No | No |Sì |
 | Notifiche | Digest settimanale| No | No | Sì | 
 | | Criteri di registrazione MFA | No | No | Sì |

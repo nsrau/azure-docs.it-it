@@ -36,7 +36,7 @@ Per completare questa guida, è necessario:
 
 3.  Fare clic su **Sì** per confermare l'arresto del server.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Arrestare il server flessibile."::: 
+    :::image type="content" source="media/how-to-stop-start-server-portal/confirm-stop.png" alt-text="Confermare l'arresto del server flessibile."::: 
 
 > [!NOTE]
 > Una volta arrestato il server, le altre operazioni di gestione non sono disponibili per il server flessibile.
@@ -47,7 +47,7 @@ Per completare questa guida, è necessario:
 
 2.  Nella pagina **Panoramica** fare clic sul pulsante **Avvia** sulla barra degli strumenti.
 
-    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Arrestare il server flessibile.":::  
+    :::image type="content" source="media/how-to-stop-start-server-portal/start-server.png" alt-text="Avviare il server flessibile.":::  
 
 > [!NOTE]
 > Una volta avviato il server, tutte le operazioni di gestione sono ora disponibili per il server flessibile.

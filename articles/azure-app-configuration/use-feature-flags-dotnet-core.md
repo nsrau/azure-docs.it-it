@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/17/2020
 ms.author: lcozzens
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: f8ad2558c664d1a8b577f01b707200d416d5348a
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 6da2aa645549920cce2f5c0cfe8a32c98dc04708
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92078902"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746137"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>Esercitazione: Usare i flag di funzionalità in un'app ASP.NET Core
 
@@ -107,7 +107,7 @@ Per connettere semplicemente l'applicazione ASP.NET Core a Configurazione app, u
               .UseStartup<Startup>();
    ```
 
-2. Aprire *Startup.cs* e aggiornare il metodo `Configure` per aggiungere un middleware e consentire l'aggiornamento dei valori dei flag di funzionalità a intervalli ricorrenti mentre l'app Web ASP.NET Core continua a ricevere richieste.
+2. Aprire il file *Startup.cs* e aggiornare il metodo `Configure` per aggiungere il middleware predefinito `UseAzureAppConfiguration`. Questo middleware consente di aggiornare i valori dei flag delle funzionalità a intervalli ricorrenti mentre l'app Web ASP.NET Core continua a ricevere richieste.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -215,7 +215,7 @@ public class HomeController : Controller
 }
 ```
 
-Per poter eseguire l'azione `Index` seguente, il flag`FeatureA` deve essere *attivo*:
+Per poter eseguire l'azione `Index` seguente, il flag`FeatureA` deve essere *attivo* :
 
 ```csharp
 using Microsoft.FeatureManagement.Mvc;
@@ -227,7 +227,7 @@ public IActionResult Index()
 }
 ```
 
-Quando un controller o un'azione MVC viene bloccato perché il flag di funzionalità di controllo è *disattivato*, viene chiamata un'interfaccia `IDisabledFeaturesHandler` registrata. L'interfaccia `IDisabledFeaturesHandler` predefinita restituisce un codice di stato 404 al client senza alcun corpo della risposta.
+Quando un controller o un'azione MVC viene bloccato perché il flag di funzionalità di controllo è *disattivato* , viene chiamata un'interfaccia `IDisabledFeaturesHandler` registrata. L'interfaccia `IDisabledFeaturesHandler` predefinita restituisce un codice di stato 404 al client senza alcun corpo della risposta.
 
 ## <a name="mvc-views"></a>Viste MVC
 

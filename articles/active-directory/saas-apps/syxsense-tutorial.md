@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/07/2020
 ms.author: jeedes
-ms.openlocfilehash: 3bb03444062a5652e4e0aad24560b90acd2ce2d2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 32c1dd06186f3485fe48b2831516661fb5f05ef3
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544818"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517838"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-syxsense"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Syxsense
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Syxsense con Azure Active Directory
 * Abilitare gli utenti per l'accesso automatico a Syxsense con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +40,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Syxsense supporta l'accesso SSO avviato da **SP e IDP**
-* Dopo aver configurato Syxsense, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Dopo aver configurato Syxsense, è possibile applicare i controlli sessione che consentono di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-syxsense-from-the-gallery"></a>Aggiunta di Syxsense dalla raccolta
 
@@ -77,7 +77,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.cloudmanagementsuite.com/Saml2`
 
@@ -96,7 +96,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | ------------ | --------- |
     | Email | user.email |
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -104,7 +104,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -134,13 +134,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. In un'altra finestra del browser accedere al sito Web di Syxsense come amministratore.
 
-1. Fare clic sull'**icona delle impostazioni**.
+1. Fare clic sull' **icona delle impostazioni**.
 
-    ![Configurazione di Syxsense](./media/syxsense-tutorial/configure1.png)
+    ![Screenshot che mostra l'icona Settings.](./media/syxsense-tutorial/configure1.png)
 
-1. Fare clic su **External Authentication** (Autenticazione esterna) e specificare il valore di '**App Federation Metadata Url** (URL dei metadati di federazione dell'app) nella casella di testo **SAML2.0 Metadata** (Metadati SAML 2.0), infine fare clic su **Save** (Salva).
+1. Fare clic su **External Authentication** (Autenticazione esterna) e specificare il valore di ' **App Federation Metadata Url** (URL dei metadati di federazione dell'app) nella casella di testo **SAML2.0 Metadata** (Metadati SAML 2.0), infine fare clic su **Save** (Salva).
 
-    ![Configurazione di Syxsense](./media/syxsense-tutorial/configure2.png)
+    ![Screenshot che mostra la pagina External Authentication in cui è possibile immettere il valore App Federation Metadata URL.](./media/syxsense-tutorial/configure2.png)
 
 ### <a name="create-syxsense-test-user"></a>Creare l'utente di test di Syxsense
 
@@ -148,32 +148,32 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **User Accounts** (Account utente) nel pannello di spostamento sinistro.
 
-    ![Configurazione di Syxsense](./media/syxsense-tutorial/user1.png)
+    ![Screenshot che mostra l'opzione User Accounts selezionata nel riquadro di spostamento.](./media/syxsense-tutorial/user1.png)
 
 1. Scegliere **Aggiungi**.
 
-    ![Configurazione di Syxsense](./media/syxsense-tutorial/user2.png)
+    ![Screenshot che mostra il riquadro User Accounts in cui è possibile selezionare Add.](./media/syxsense-tutorial/user2.png)
 
 1. Specificare i dettagli dell'utente in base ai requisiti dell'organizzazione e fare clic su **Save** (Salva).
 
-    ![Configurazione di Syxsense](./media/syxsense-tutorial/user3.png)
+    ![Screenshot che mostra la pagina in cui è possibile immettere le informazioni.](./media/syxsense-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Syxsense nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Syxsense per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Syxsense nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Syxsense per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Syxsense con Azure AD](https://aad.portal.azure.com/)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
 
-- [Come proteggere Syxsense con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Come proteggere Syxsense con visibilità e controlli avanzati](/cloud-app-security/proxy-intro-aad)

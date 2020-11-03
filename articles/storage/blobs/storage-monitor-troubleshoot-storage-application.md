@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/20/2018
 ms.author: normesta
 ms.reviewer: fryu
-ms.openlocfilehash: 8554a78112d197ef8174ac9d18147d301745165e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5deece615e9d7de1e71e33164560c1c26212ec08
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83652169"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676784"
 ---
 # <a name="monitor-and-troubleshoot-a-cloud-storage-application"></a>Monitorare e risolvere i problemi relativi a un'applicazione di archiviazione cloud
 
@@ -37,13 +37,13 @@ Accedere al [portale di Azure](https://portal.azure.com)
 
 ## <a name="turn-on-logging-and-metrics"></a>Attivare le metriche e la registrazione
 
-Nel menu a sinistra selezionare **Gruppi di risorse**, scegliere **myResourceGroup**, quindi selezionare l'account di archiviazione nell'elenco di risorse.
+Nel menu a sinistra selezionare **Gruppi di risorse** , scegliere **myResourceGroup** , quindi selezionare l'account di archiviazione nell'elenco di risorse.
 
 In **Impostazioni di diagnostica (versione classica)** impostare **Stato** su **Attivo**. Assicurarsi che tutte le opzioni in **Proprietà BLOB** siano abilitate.
 
 Al termine, fare clic su **Salva**
 
-![Riquadro Diagnostica](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
+![Screenshot che evidenzia la sezione contenente le impostazioni di configurazione per attivare la registrazione e le metriche.](media/storage-monitor-troubleshoot-storage-application/enable-diagnostics.png)
 
 ## <a name="enable-alerts"></a>Attivare gli avvisi
 
@@ -97,7 +97,7 @@ Nella finestra di dialogo **File Selector** (Selettore file) selezionare **+ Add
 
 Dopo aver effettuato la connessione, espandere i contenitori nella vista della struttura di archiviazione per visualizzare i BLOB dei log. Selezionare il log più recente e fare clic su **OK**.
 
-![Analizzatore messaggi di Microsoft: finestra di dialogo Aggiungi connessione di Archiviazione di Azure](media/storage-monitor-troubleshoot-storage-application/figure4.png)
+![Screenshot che mostra Microsoft Message Analyzer ed evidenzia il file di log selezionato.](media/storage-monitor-troubleshoot-storage-application/figure4.png)
 
 Nella finestra di dialogo **Nuova sessione** fare clic su **Avvia** per visualizzare il log.
 

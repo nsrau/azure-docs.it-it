@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: 09de05325ed6c85954b4661a30113562bb98ea86
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: edee1948780b827eed5047c6c9c919b66eb619d0
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370492"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900223"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Raccomandazioni sulla sicurezza: una guida di riferimento
 
@@ -38,7 +38,7 @@ Il punteggio relativo alla sicurezza si basa sul numero di raccomandazioni del C
 |----|----|----|----|----|
 |**Le raccomandazioni di Protezione avanzata adattiva per la rete devono essere applicate alle macchine virtuali con connessione Internet**|Il Centro sicurezza di Azure ha analizzato i criteri di comunicazione del traffico Internet delle macchine virtuali elencate più avanti e ha determinato che le regole esistenti nei gruppi di sicurezza di rete associati a tali VM sono eccessivamente permissive e ciò comporta un incremento della superficie di attacco potenziale.<br>Questo problema si verifica in genere quando questo indirizzo IP non comunica regolarmente con questa risorsa. In alternativa, l'indirizzo IP è stato contrassegnato come dannoso dalle origini di Intelligence per le minacce del Centro sicurezza.<br>(Criterio correlato: le raccomandazioni per la protezione avanzata adattiva per la rete devono essere applicate alle macchine virtuali che si interfacciano a Internet)|Alto|N|Macchina virtuale|
 |**Tutto il traffico Internet deve essere instradato tramite il Firewall di Azure distribuito**|Il Centro sicurezza di Azure ha rilevato che alcune delle subnet non sono protette con un firewall di nuova generazione. Proteggere le subnet da potenziali minacce limitandone l'accesso con Firewall di Azure o un firewall di nuova generazione supportato.<br>Criterio correlato: [anteprima] Tutto il traffico Internet deve essere instradato tramite il Firewall di Azure distribuito|Alto|N|Subnet|
-|**È consigliabile limitare tutte le porte di rete nei gruppi di sicurezza di rete associati alla VM**|Finalizzare i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet limitando l'accesso delle regole di autorizzazione esistenti.<br>Questa raccomandazione viene attivata quando viene aperta una porta per *tutte* le origini (ad eccezione delle porte 22, 3389, 5985, 5986, 80 e 1443).<br>(Criterio correlato: l'accesso tramite endpoint con connessione Internet deve essere limitato)|Alto|N|Macchina virtuale|
+|**È consigliabile limitare tutte le porte di rete nei gruppi di sicurezza di rete associati alla macchina virtuale**|Finalizzare i gruppi di sicurezza di rete delle macchine virtuali con connessione Internet limitando l'accesso delle regole di autorizzazione esistenti.<br>Questa raccomandazione viene attivata quando viene aperta una porta per *tutte* le origini (ad eccezione delle porte 22, 3389, 5985, 5986, 80 e 1443).<br>(criterio correlato: È consigliabile limitare tutte le porte di rete nei gruppi di sicurezza di rete associati alla macchina virtuale)|Alto|N|Macchina virtuale|
 |**Lo standard di protezione DDoS deve essere abilitato**|Proteggere le reti virtuali contenenti applicazioni con IP pubblici abilitando lo standard del servizio Protezione DDOS. La protezione DDoS abilita la mitigazione di attacchi volumetrici e ai protocolli della rete.<br>(Criterio correlato: lo standard di protezione DDoS deve essere abilitato)|Alto|N|Rete virtuale|
 |**L'app per le funzioni deve essere accessibile solo tramite HTTPS**|Abilitare l'accesso "Solo HTTPS" per le app per le funzioni. L'uso di HTTPS assicura l'autenticazione di server/servizi e protegge i dati in transito da attacchi di intercettazione a livello rete.<br>(Criterio correlato: l'app per le funzioni deve essere accessibile solo tramite HTTPS)|Media|**S**|App per le funzioni|
 |**Le macchine virtuali con connessione Internet devono essere protette con i gruppi di sicurezza di rete**|Consente di abilitare i gruppi di sicurezza di rete per controllare l'accesso alla rete delle macchine virtuali.<br>(Criterio correlato: le macchine virtuali con connessione Internet devono essere protette con i gruppi di sicurezza di rete)|Alto/medio|N|Macchina virtuale|

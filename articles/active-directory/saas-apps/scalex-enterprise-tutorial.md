@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/16/2019
 ms.author: jeedes
-ms.openlocfilehash: c7033886d55e381445d99035115654332491441c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a2065286581b6e7de61e4d1a29382b98563cdbb8
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88547865"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895058"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-scalex-enterprise"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ScaleX Enterprise
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare ScaleX Enterprise con Azure Active 
 * Abilitare gli utenti per l'accesso automatico a ScaleX Enterprise con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -76,20 +76,20 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://platform.rescale.com/saml2/<company id>/`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://platform.rescale.com/saml2/<company id>/acs/`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://platform.rescale.com/saml2/<company id>/sso/`
 
     > [!NOTE]
     > Poiché questi non sono i valori reali, aggiornarli con l'identificatore, l'URL di risposta e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di ScaleX Enterprise](https://info.rescale.com/contact_sales). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. L'applicazione ScaleX Enterprise prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente illustra l'elenco degli attributi predefiniti in cui **emailaddress** è associato a **user.mail**. Dal momento che l'applicazione ScaleX Enterprise prevede che **emailaddress** sia associato a **user.userprincipalname**, è necessario modificare il mapping dell'attributo facendo clic sull'icona **Modifica**.
+1. L'applicazione ScaleX Enterprise prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente illustra l'elenco degli attributi predefiniti in cui **emailaddress** è associato a **user.mail**. Dal momento che l'applicazione ScaleX Enterprise prevede che **emailaddress** sia associato a **user.userprincipalname** , è necessario modificare il mapping dell'attributo facendo clic sull'icona **Modifica**.
 
     ![image](common/edit-attribute.png)
 
@@ -105,7 +105,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -133,7 +133,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-scalex-enterprise-sso"></a>Configurare l'accesso SSO di ScaleX Enterprise
 
-1. Per automatizzare la configurazione all'interno di ScaleX Enterprise, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
+1. Per automatizzare la configurazione all'interno di ScaleX Enterprise, è necessario installare l' **estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -148,11 +148,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
     > [!NOTE]
     > Contoso è solo un esempio. Deve essere il nome effettivo della società.
 
-    ![Configura accesso Single Sign-On](./media/scalex-enterprise-tutorial/Test_Admin.png)
+    ![Screenshot che mostra un nome di società di esempi selezionato nel menu in alto a destra.](./media/scalex-enterprise-tutorial/Test_Admin.png)
 
 1. Selezionare **Integrations** (Integrazioni) nel menu in alto e scegliere **Single Sign-On**.
 
-    ![Configura accesso Single Sign-On](./media/scalex-enterprise-tutorial/admin_sso.png) 
+    ![Screenshot che mostra l'opzione "Integrations" selezionata e la voce "Single Sign-On" selezionata nel menu a discesa.](./media/scalex-enterprise-tutorial/admin_sso.png) 
 
 1. Compilare il modulo come segue:
 
@@ -160,13 +160,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     a. Selezionare **Create any user who can authenticate with SSO** (Crea un utente qualsiasi che può eseguire l'autenticazione con SSO)
 
-    b. **Service Provider saml** (Provider del servizio SAML): incollare il valore ***urn:oasis:names:tc:SAML:2.0:nameid-format:persistent***
+    b. **Service Provider saml** (Provider del servizio SAML): Incollare il valore * *_urn:oasis:names:tc:SAML:2.0:nameid-format:persistent_* _
 
-    c. **Name of Identity Provider email field in ACS response** (Nome del campo e-mail del provider d'identità nella risposta ACS): incollare il valore `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
+    c. _*Name of Identity Provider email field in ACS response** (Nome del campo dell'indirizzo di posta elettronica del provider di identità nella risposta ACS): incollare il valore `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`
 
     d. **Identity Provider EntityDescriptor Entity ID** (ID entità EntityDescriptor del provider di identità): Incollare il valore di **Identificatore Azure AD**  copiato dal portale di Azure.
 
-    e. **Identity Provider SingleSignOnService URL** (URL servizio Single Sign-On del provider d'identità): Incollare l'**URL di accesso** copiato dal portale di Azure.
+    e. **Identity Provider SingleSignOnService URL** (URL servizio Single Sign-On del provider d'identità): Incollare l' **URL di accesso** copiato dal portale di Azure.
 
     f. **Identity Provider public X509 certificate** (Certificato X509 pubblico provider d'identità): aprire il certificato X509 scaricato da Azure nel blocco note e incollare i contenuti in questa casella. Verificare che non vi siano interruzioni di riga nella parte centrale dei contenuti del certificato.
 
@@ -182,14 +182,14 @@ Per consentire agli utenti di Azure AD di accedere a ScaleX Enterprise, è neces
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di ScaleX Enterprise nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di ScaleX Enterprise per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di ScaleX Enterprise nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di ScaleX Enterprise per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare ScaleX Enterprise con Azure AD](https://aad.portal.azure.com/)

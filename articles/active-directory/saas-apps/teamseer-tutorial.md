@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 815c738f1680c12f94aa97e91cd123237bf1b4f1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6085ba5091b2b9973354280175aeb01f93ad7e28
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542497"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521170"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-teamseer"></a>Esercitazione: Integrazione di Azure Active Directory con TeamSeer
 
@@ -27,7 +27,7 @@ L'integrazione di TeamSeer con Azure AD offre i vantaggi seguenti:
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a TeamSeer con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -61,7 +61,7 @@ Per configurare l'integrazione di TeamSeer in Azure AD, è necessario aggiungere
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **TeamSeer**, selezionare **TeamSeer** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **TeamSeer** , selezionare **TeamSeer** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![TeamSeer nell'elenco risultati](common/search-new-app.png)
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TeamSeer, seguire quest
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di TeamSeer](https://pages.theaccessgroup.com/solutions_business-suite_absence-management_contact.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -126,7 +126,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TeamSeer, seguire quest
 
 1. Passare a **HR Admin** (Amministratore risorse umane).
 
-    ![HR Admin](./media/teamseer-tutorial/ic789634.png "Amministratore risorse umane")
+    ![Screenshot che mostra l'opzione HR Admin selezionata nella finestra TeamSeer.](./media/teamseer-tutorial/ic789634.png "Amministratore risorse umane")
 
 1. Fare clic su **Configura**.
 
@@ -134,11 +134,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con TeamSeer, seguire quest
 
 1. Fare clic su **Configura dettagli del provider SAML**.
 
-    ![Impostazioni SAML](./media/teamseer-tutorial/ic789636.png "Impostazioni SAML")
+    ![Screenshot che mostra l'opzione shows Set up SAML provider details selezionata.](./media/teamseer-tutorial/ic789636.png "Impostazioni SAML")
 
 1. Nella sezione dei dettagli del provider SAML, eseguire la procedura seguente:
 
-    ![Impostazioni SAML](./media/teamseer-tutorial/ic789637.png "Impostazioni SAML")
+    ![Screenshot che mostra la sezione SAML provider details in cui è possibile immettere i valori indicati.](./media/teamseer-tutorial/ic789637.png "Impostazioni SAML")
 
     a. Nella casella di testo **URL** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
@@ -146,7 +146,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TeamSeer, seguire quest
 
 1. Per completare la configurazione del provider SAML eseguire la procedura seguente:
 
-    ![Impostazioni SAML](./media/teamseer-tutorial/ic789638.png "Impostazioni SAML")
+    ![Screenshot che mostra la sezione di configurazione del provider SAML in cui è possibile immettere i valori indicati.](./media/teamseer-tutorial/ic789638.png "Impostazioni SAML")
 
     a. In **Test indirizzi e-mail** digitare l'indirizzo di posta elettronica dell'utente di test.
   
@@ -158,7 +158,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con TeamSeer, seguire quest
 
 Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -183,7 +183,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a TeamSeer.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **TeamSeer**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **TeamSeer**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -215,13 +215,13 @@ Per consentire agli utenti di Azure AD di accedere a TeamSeer, è necessario eff
 
 1. Passare a **HR Admin \> Users** (Amministratore risorse umane > Utenti) e quindi fare clic su **Run the New User wizard** (Esegui la procedura guidata Nuovo utente).
 
-    ![HR Admin](./media/teamseer-tutorial/ic789640.png "Amministratore risorse umane")
+    ![Screenshot che mostra la scheda HR Admin in cui è possibile selezionare una procedura guidata da eseguire.](./media/teamseer-tutorial/ic789640.png "Amministratore risorse umane")
 
 1. Nella sezione **Dettagli utente** eseguire la procedura seguente:
 
     ![Dettagli utente](./media/teamseer-tutorial/ic789641.png "Dettagli utente")
 
-    a. Nelle caselle di testo correlate digitare **nome**, **cognome**, **nome utente (indirizzo di posta elettronica)** di un account Azure AD di cui effettuare il provisioning.
+    a. Nelle caselle di testo correlate digitare **nome** , **cognome** , **nome utente (indirizzo di posta elettronica)** di un account Azure AD di cui effettuare il provisioning.
   
     b. Fare clic su **Avanti**.
 
@@ -234,12 +234,12 @@ Per consentire agli utenti di Azure AD di accedere a TeamSeer, è necessario eff
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro TeamSeer nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di TeamSeer per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro TeamSeer nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di TeamSeer per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

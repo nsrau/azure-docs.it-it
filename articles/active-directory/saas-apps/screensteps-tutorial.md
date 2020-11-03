@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 8f23f9763d25d5edfebd0e4cff7f3b7772ef1554
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3816239798290318404980ded388b726d8134395
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543350"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895174"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-screensteps"></a>Esercitazione: Integrazione di Azure Active Directory con ScreenSteps
 
@@ -27,7 +27,7 @@ L'integrazione di ScreenSteps con Azure AD offre i vantaggi seguenti:
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a ScreenSteps con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -61,7 +61,7 @@ Per configurare l'integrazione di ScreenSteps in Azure AD, è necessario aggiung
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **ScreenSteps**, selezionare **ScreenSteps** dal pannello dei risultati quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **ScreenSteps** , selezionare **ScreenSteps** dal pannello dei risultati quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![ScreenSteps nell'elenco risultati](common/search-new-app.png)
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ScreenSteps, seguire qu
     > [!NOTE]
     > Poiché non è reale, Aggiornare questo valore con l'URL di accesso effettivo, come illustrato più avanti nell'esercitazione.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -130,7 +130,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ScreenSteps, seguire qu
 
 1. Fare clic su **Single Sign-On**.
 
-    ![Autenticazione remota](./media/screensteps-tutorial/ic778524.png "Remote Authentication")
+    ![Screenshot che mostra l'opzione "Single Sign-on" selezionata.](./media/screensteps-tutorial/ic778524.png "Remote Authentication")
 
 1. Fare clic su **Create Single Sign-on Endpoint** (Crea endpoint Single Sign-On).
 
@@ -156,7 +156,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ScreenSteps, seguire qu
 
     a. Fare clic su **Upload new SAML Certificate file** (Carica il nuovo file di certificato SAML) e quindi caricare il certificato scaricato dal portale di Azure.
 
-    b. Incollare il valore di **URL di accesso**, copiato dal portale di Azure, nella casella di testo **Remote Login URL** (URL di accesso remoto).
+    b. Incollare il valore di **URL di accesso** , copiato dal portale di Azure, nella casella di testo **Remote Login URL** (URL di accesso remoto).
 
     c. Incollare il valore di **URL di disconnessione** copiato dal portale di Azure nella casella di testo **Log out URL** (URL di disconnessione).
 
@@ -174,7 +174,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con ScreenSteps, seguire qu
 
 Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -199,7 +199,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a ScreenSteps.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **ScreenSteps**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **ScreenSteps**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -223,18 +223,18 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 ### <a name="create-screensteps-test-user"></a>Creare l'utente di test di ScreenSteps
 
-In questa sezione viene creato un utente di nome Britta Simon in ScreenSteps. Collaborare con il  [team di supporto clienti di ScreenSteps](https://www.screensteps.com/contact) per aggiungere gli utenti nella piattaforma ScreenSteps. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome Britta Simon in ScreenSteps. Collaborare con il [team di supporto clienti di ScreenSteps](https://www.screensteps.com/contact) per aggiungere gli utenti nella piattaforma ScreenSteps. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ### <a name="test-single-sign-on"></a>Testare l'accesso Single Sign-On
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di ScreenSteps nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di ScreenSteps per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di ScreenSteps nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di ScreenSteps per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

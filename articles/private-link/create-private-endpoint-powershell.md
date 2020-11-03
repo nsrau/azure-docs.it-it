@@ -235,13 +235,13 @@ In questa sezione si userà la macchina virtuale creata nel passaggio precedente
  
 2. Selezionare **Gruppi di risorse** nel riquadro di spostamento sinistro.
 
-3. Selezionare **CreatePrivateEndpointQS-rg** .
+3. Selezionare **CreatePrivateEndpointQS-rg**.
 
-4. Selezionare **myVM** .
+4. Selezionare **myVM**.
 
-5. Nella pagina di panoramica di **myVM** selezionare **Connetti** e quindi **Bastion** .
+5. Nella pagina di panoramica di **myVM** selezionare **Connetti** e quindi **Bastion**.
 
-6. Selezionare il pulsante blu **Usa Bastion** .
+6. Selezionare il pulsante blu **Usa Bastion**.
 
 7. Immettere il nome utente e la password specificati durante la creazione della macchina virtuale.
 
@@ -263,13 +263,13 @@ In questa sezione si userà la macchina virtuale creata nel passaggio precedente
 
 10. Nella connessione bastion a **myVM** aprire Internet Explorer.
 
-11. Immettere l'URL dell'app Web **https://\<your-webapp-name>.azurewebsites.net** .
+11. Immettere l'URL dell'app Web **https://\<your-webapp-name>.azurewebsites.net**.
 
 12. Se l'applicazione non è stata distribuita, si riceverà la pagina dell'app Web predefinita:
 
     :::image type="content" source="./media/create-private-endpoint-portal/web-app-default-page.png" alt-text="Pagina dell'app Web predefinita." border="true":::
 
-13. Chiudere la connessione a **myVM** .
+13. Chiudere la connessione a **myVM**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse 
 Al termine dell'uso dell'endpoint privato e della VM, usare [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) per rimuovere il gruppo di risorse e tutte le risorse disponibili:

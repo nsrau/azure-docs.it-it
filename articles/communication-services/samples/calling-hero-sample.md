@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: cfb6a7ba10c388cadb19268ee1431fe523a0cfa4
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: e6cbf840fa27755fa43eb2a81e752415562ce41f
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126327"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461142"
 ---
 # <a name="get-started-with-the-group-calling-hero-sample"></a>Introduzione all'esempio hero di chiamata di gruppo
 
@@ -25,38 +25,34 @@ ms.locfileid: "92126327"
 > Add links to our Hero Sample repo when the sample is publicly available.
 ---->
 
-L'**esempio hero di chiamata di gruppo** di Servizi di comunicazione di Azure illustra come usare la libreria client Web Chiamate di Servizi di comunicazione per creare un'esperienza di chiamata di gruppo.
-
-Questa guida di avvio rapido illustra il funzionamento dell'esempio prima che venga eseguito nel computer locale. L'esempio verrà quindi distribuito in Azure con le risorse di Servizi di comunicazione di Azure.
-
 > [!IMPORTANT]
-> [Scaricare l'esempio da GitHub](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+> [Questo esempio è disponibile su GitHub.](https://github.com/Azure-Samples/communication-services-web-calling-hero)
+
+L' **esempio hero di chiamata di gruppo** di Servizi di comunicazione di Azure illustra come usare la libreria client Web Chiamate di Servizi di comunicazione per creare un'esperienza di chiamata di gruppo.
+
+Questa guida di avvio rapido illustra il funzionamento dell'esempio prima che venga eseguito nel computer locale. Si passerà quindi alla distribuzione dell'esempio in Azure tramite le risorse dei Servizi di comunicazione di Azure.
 
 ## <a name="overview"></a>Panoramica
 
-L'esempio include sia un'applicazione lato client che un'applicazione lato server. L'**applicazione lato client** è un'applicazione Web React/Redux che usa il framework Fluent UI di Microsoft. Questa applicazione invia richieste a un'**applicazione lato server** ASP.NET Core tramite la quale l'applicazione lato client si connette ad Azure. 
+L'esempio include sia un'applicazione lato client che un'applicazione lato server. L' **applicazione lato client** è un'applicazione Web React/Redux che usa il framework Fluent UI di Microsoft. Questa applicazione invia richieste a un' **applicazione lato server** ASP.NET Core tramite la quale l'applicazione lato client si connette ad Azure. 
 
 L'esempio ha l'aspetto seguente:
 
-:::image type="content" source="./media/calling/landing-page.png" alt-text="Screenshot che mostra la pagina di destinazione dell'applicazione di esempio.&quot;:::
+:::image type="content" source="./media/calling/landing-page.png" alt-text="Screenshot che mostra la pagina di destinazione dell'applicazione di esempio.":::
 
-Quando si preme il pulsante &quot;Start a call" (Avvia una chiamata), l'applicazione Web recupera un token di accesso utente dall'applicazione lato server. Questo token viene quindi usato per connettere l'app client a Servizi di comunicazione di Azure. Una volta recuperato il token, verrà chiesto di specificare la fotocamera e il microfono da usare. Sarà possibile disabilitare o abilitare i dispositivi con gli appositi controlli:
+Quando si preme il pulsante "Start a call" (Avvia una chiamata), l'applicazione Web recupera un token di accesso utente dall'applicazione lato server. Questo token viene quindi usato per connettere l'app client a Servizi di comunicazione di Azure. Una volta recuperato il token, verrà chiesto di specificare la fotocamera e il microfono da usare. Sarà possibile disabilitare o abilitare i dispositivi con gli appositi controlli:
 
-:::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot che mostra la pagina di destinazione dell'applicazione di esempio.&quot;:::
-
-Quando si preme il pulsante &quot;Start a call":::
+:::image type="content" source="./media/calling/pre-call.png" alt-text="Screenshot che mostra la schermata di pre-chiamata dell'applicazione di esempio.":::
 
 Dopo aver configurato il nome visualizzato e i dispositivi, è possibile partecipare alla sessione di chiamata. A questo punto, verrà visualizzato il canvas principale in cui risiede l'esperienza principale della chiamata.
 
-:::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot che mostra la pagina di destinazione dell'applicazione di esempio.&quot;:::
-
-Quando si preme il pulsante &quot;Start a call":::
+:::image type="content" source="./media/calling/main-app.png" alt-text="Screenshot che mostra la schermata principale dell'applicazione di esempio.":::
 
 Componenti della schermata principale della chiamata:
 
-1. **Raccolta multimediale**: l'area principale in cui vengono visualizzati i partecipanti. Se un partecipante ha la fotocamera abilitata, il suo feed video viene visualizzato qui. A ogni partecipante è associato un singolo riquadro che mostra il nome visualizzato e il flusso video (se presente)
-2. **Intestazione**: l'area in cui si trovano i controlli principali per la chiamata, che consentono di attivare e disattivare le impostazioni e la barra laterale dei partecipanti, attivare e disattivare il video e il microfono, condividere lo schermo e abbandonare la chiamata.
-3. **Barra laterale**: questa barra mostra i partecipanti e le informazioni sulle impostazioni attivate con i controlli dell'intestazione. Il componente può essere rimosso usando la 'X' nell'angolo in alto a destra. La barra laterale dei partecipanti mostrerà l'elenco dei partecipanti e un collegamento per invitare altri utenti alla chat. La barra laterale delle impostazioni consente di configurare il microfono e la fotocamera.
+1. **Raccolta multimediale** : l'area principale in cui vengono visualizzati i partecipanti. Se un partecipante ha la fotocamera abilitata, il suo feed video viene visualizzato qui. A ogni partecipante è associato un singolo riquadro che mostra il nome visualizzato e il flusso video (se presente)
+2. **Intestazione** : l'area in cui si trovano i controlli principali per la chiamata, che consentono di attivare e disattivare le impostazioni e la barra laterale dei partecipanti, attivare e disattivare il video e il microfono, condividere lo schermo e abbandonare la chiamata.
+3. **Barra laterale** : questa barra mostra i partecipanti e le informazioni sulle impostazioni attivate con i controlli dell'intestazione. Il componente può essere rimosso usando la 'X' nell'angolo in alto a destra. La barra laterale dei partecipanti mostrerà l'elenco dei partecipanti e un collegamento per invitare altri utenti alla chat. La barra laterale delle impostazioni consente di configurare il microfono e la fotocamera.
 
 Di seguito sono disponibili ulteriori informazioni sui prerequisiti e i passaggi da seguire per configurare l'esempio.
 
@@ -112,7 +108,6 @@ Per pulire e rimuovere una sottoscrizione di Servizi di comunicazione, è possib
 Per altre informazioni, vedere gli articoli seguenti:
 
 - Acquisire familiarità con l'[uso della libreria client Chiamate](../quickstarts/voice-video-calling/calling-client-samples.md)
-- Leggere informazioni sulle [funzionalità della libreria client Chiamate](../quickstarts/voice-video-calling/calling-client-samples.md)
 - Leggere altre informazioni sul [funzionamento delle chiamate](../concepts/voice-video-calling/about-call-types.md)
 
 ## <a name="additional-reading"></a>Altre letture

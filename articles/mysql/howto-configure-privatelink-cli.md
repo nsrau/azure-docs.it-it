@@ -128,24 +128,24 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
 
 Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
-1. Nella barra di ricerca del portale immettere *myVm* .
+1. Nella barra di ricerca del portale immettere *myVm*.
 
-1. Scegliere il pulsante **Connetti** . Dopo aver selezionato il pulsante **Connetti** viene aperta la finestra **Connetti alla macchina virtuale** .
+1. Scegliere il pulsante **Connetti**. Dopo aver selezionato il pulsante **Connetti** viene aperta la finestra **Connetti alla macchina virtuale**.
 
-1. Selezionare **Scarica file RDP** . Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp* .
+1. Selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
 
-1. Aprire il file *downloaded.rdp* .
+1. Aprire il file *downloaded.rdp*.
 
-    1. Quando richiesto, selezionare **Connetti** .
+    1. Quando richiesto, selezionare **Connetti**.
 
     1. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale.
 
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Selezionare **OK** .
+1. Selezionare **OK**.
 
-1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua** .
+1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.  
 

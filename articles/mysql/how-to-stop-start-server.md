@@ -48,7 +48,7 @@ Per completare questa guida, è necessario:
 
 2.  Nella pagina **Panoramica** fare clic sul pulsante **Avvia** sulla barra degli strumenti.
 
-    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Server di arresto per database di Azure per MySQL":::
+    :::image type="content" source="./media/howto-stop-start-server/mysql-start-server.png" alt-text="Server di avvio del database di Azure per MySQL":::
 
     > [!NOTE]
     > Una volta avviato il server, tutte le operazioni di gestione sono ora disponibili per il singolo server.

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: tutorial
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 671809b9cdbe72c8f3091b0056897c2342a38b1f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: d425152f83821e1d157065370bd02e2d990ec876
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92089163"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426937"
 ---
 # <a name="tutorial-connect-an-iot-plug-and-play-module-c"></a>Esercitazione: Connettere un modulo Plug and Play IoT (C#)
 
@@ -35,13 +35,13 @@ Usare lo strumento Azure IoT Explorer per aggiungere un nuovo dispositivo denomi
 
 Aggiungere un modulo denominato **my-module** a **my-module-device** :
 
-1. Nello strumento Azure IoT Explorer passare al dispositivo **my-module-device** .
+1. Nello strumento Azure IoT Explorer passare al dispositivo **my-module-device**.
 
-1. Selezionare **Identità del modulo** , quindi selezionare **+ Aggiungi** .
+1. Selezionare **Identità del modulo** , quindi selezionare **+ Aggiungi**.
 
-1. Immettere **my-module** come nome dell'identità del modulo e selezionare **Salva** .
+1. Immettere **my-module** come nome dell'identità del modulo e selezionare **Salva**.
 
-1. Nell'elenco di identità di moduli selezionare **my-module** . Quindi copiare la stringa di connessione primaria. Questa stringa di connessione del modulo verrà usata più avanti nell'esercitazione.
+1. Nell'elenco di identità di moduli selezionare **my-module**. Quindi copiare la stringa di connessione primaria. Questa stringa di connessione del modulo verrà usata più avanti nell'esercitazione.
 
 1. Selezionare la scheda **Modulo gemello** e notare che non sono presenti proprietà desiderate o segnalate:
 
@@ -96,7 +96,7 @@ Per aprire e preparare il progetto di esempio:
 
 1. Aprire il file di progetto *azure-iot-sdk-csharp\iot-hub\Samples\device\PnpDeviceSamples\Thermostat\Thermostat.csproj* in Visual Studio 2019.
 
-1. In Visual Studio passare a **Progetto > Thermostat Properties (Proprietà termostato) > Debug** . Aggiungere quindi al progetto le variabili di ambiente seguenti:
+1. In Visual Studio passare a **Progetto > Thermostat Properties (Proprietà termostato) > Debug**. Aggiungere quindi al progetto le variabili di ambiente seguenti:
 
     | Nome | Valore |
     | ---- | ----- |
@@ -169,9 +169,9 @@ Se si esegue il codice e quindi si usa Azure IoT Explorer per visualizzare il mo
 
 Gli SDK di servizio consentono di recuperare l'ID modello dei dispositivi e dei moduli Plug and Play IoT connessi. È possibile usare gli SDK di servizio per impostare proprietà scrivibili e chiamare i comandi:
 
-1. In un'altra istanza di Visual Studio aprire il progetto *azure-iot-sdk-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj* .
+1. In un'altra istanza di Visual Studio aprire il progetto *azure-iot-sdk-csharp\iot-hub\Samples\service\PnpServiceSamples\Thermostat\Thermostat.csproj*.
 
-1. In Visual Studio passare a **Progetto > Thermostat Properties (Proprietà termostato) > Debug** . Aggiungere quindi al progetto le variabili di ambiente seguenti:
+1. In Visual Studio passare a **Progetto > Thermostat Properties (Proprietà termostato) > Debug**. Aggiungere quindi al progetto le variabili di ambiente seguenti:
 
     | Nome | valore |
     | ---- | ----- |

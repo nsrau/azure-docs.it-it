@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: bf89e99842efa726e6ca05a08998c9d058dc02e3
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 5eb392fdfc1ffdb6d7cfee64734cca32c9abcd33
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019376"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913280"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Esercitazione: Usare R per creare un modello di Machine Learning (anteprima)
 
@@ -45,12 +45,12 @@ Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di in
 
 Un'area di lavoro di Machine Learning è una risorsa cloud fondamentale usata per eseguire gli esperimenti, il training e la distribuzione di modelli di Machine Learning. Collega la sottoscrizione e il gruppo di risorse di Azure a un oggetto di facile utilizzo nel servizio. 
 
-Per creare un'area di lavoro è necessario usare il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure. 
+Esistono molti [modi per creare un'area di lavoro](how-to-manage-workspace.md). In questa esercitazione si creerà un'area di lavoro tramite il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure. 
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
-> Prendere nota dell'**area di lavoro** e della **sottoscrizione**. Si tratta di informazioni necessarie per assicurarsi di creare l'esperimento nel posto giusto. 
+> Prendere nota dell' **area di lavoro** e della **sottoscrizione**. Si tratta di informazioni necessarie per assicurarsi di creare l'esperimento nel posto giusto. 
 
 
 ## <a name="open-rstudio"></a><a name="open"></a>Aprire RStudio

@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 7b0db0f97531c60b3e809dd0dafa042dbcc2b542
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 31e129b9b1a4b5161ed33c27ea4da76168170dbe
+ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91667436"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92495981"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Che cos'è Azure Machine Learning Studio?
 
@@ -98,7 +98,9 @@ Nella tabella seguente sono riepilogate alcune delle differenze principali tra M
 ## <a name="next-steps"></a>Passaggi successivi
 
 Visitare lo [Studio](https://ml.azure.com) o esplorare le opzioni di creazione disponibili con le esercitazioni seguenti:  
-  + [Usare i notebook di Python per eseguire il training e la distribuzione di modelli](tutorial-1st-experiment-sdk-setup.md)
+
+- + [Introduzione ad Azure Machine Learning nel proprio ambiente di sviluppo](tutorial-1st-experiment-sdk-setup-local.md)
+  + [Usare notebook di Jupyter in un'istanza di ambiente di calcolo per eseguire il training e la distribuzione di modelli](tutorial-1st-experiment-sdk-setup.md)
   + [Usare il servizio Machine Learning automatizzato per eseguire il training e la distribuzione di modelli](tutorial-first-experiment-automated-ml.md)  
   + [Usare la finestra di progettazione per eseguire il training e la distribuzione di modelli](tutorial-designer-automobile-price-train-score.md)
 

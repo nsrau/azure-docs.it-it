@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 03/15/2020
 ms.author: cavoeg
-ms.openlocfilehash: f3b3430ef7669022e532166848cb16d6aa66efe8
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: cabacd5204f4a9ac5c17c7bd66924482b5bf688a
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92220789"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92339289"
 ---
 # <a name="quickstart-deploy-azure-api-for-fhir-using-azure-portal"></a>Avvio rapido: Distribuire l'API di Azure per FHIR con il portale di Azure
 
@@ -37,13 +37,13 @@ Aprire il [portale di Azure](https://portal.azure.com) e fare clic su **Crea una
 
 Selezionare **crea** per creare un nuovo account API di Azure per FHIR:
 
-:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Cercare le API per i servizi sanitari":::
+:::image type="content" source="media/quickstart-paas-portal/portal-create-healthcare-apis.png" alt-text="Creare l'account API di Azure per FHIR":::
 
 ## <a name="enter-account-details"></a>Immettere i dettagli dell'account
 
-Selezionare un gruppo di risorse esistente o crearne uno nuovo, scegliere un nome per l'account, infine fare clic su **Rivedi e crea**:
+Selezionare un gruppo di risorse esistente o crearne uno nuovo, scegliere un nome per l'account, infine fare clic su **Rivedi e crea** :
 
-:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Cercare le API per i servizi sanitari":::
+:::image type="content" source="media/quickstart-paas-portal/portal-new-healthcareapi-details.png" alt-text="Dettagli nuova API per i servizi sanitari":::
 
 Confermare la creazione e attendere la distribuzione dell'API FHIR.
 
@@ -51,7 +51,7 @@ Confermare la creazione e attendere la distribuzione dell'API FHIR.
 
 È anche possibile fare clic su **Avanti: Impostazioni aggiuntive** per visualizzare le impostazioni di autenticazione. La configurazione predefinita per l'API di Azure per FHIR consiste nell'[usare il Controllo degli accessi in base al ruolo Azure per l'assegnazione di ruoli del piano dati](configure-azure-rbac.md). Se viene usata questa modalità di configurazione, l'opzione "Autorità" per il servizio FHIR verrà impostata sul tenant di Azure Active Directory della sottoscrizione:
 
-:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Cercare le API per i servizi sanitari":::
+:::image type="content" source="media/rbac/confirm-azure-rbac-mode-create.png" alt-text="Impostazioni di autenticazione predefinite":::
 
 Si noti che la casella per l'immissione degli ID oggetto consentiti è disabilitata perché in questo caso viene usato Controllo degli accessi in base al ruolo Azure per la configurazione delle assegnazioni di ruolo.
 
@@ -63,11 +63,14 @@ Per verificare l'avvenuto provisioning del nuovo account API FHIR, recuperare un
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non servono più, è possibile eliminare il gruppo di risorse, l'API di Azure per FHIR e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse contenente l'API di Azure per FHIR, selezionare **Elimina gruppo di risorse**, quindi confermare il nome del gruppo di risorse da eliminare.
+Quando non servono più, è possibile eliminare il gruppo di risorse, l'API di Azure per FHIR e tutte le risorse correlate. A tale scopo, selezionare il gruppo di risorse contenente l'API di Azure per FHIR, selezionare **Elimina gruppo di risorse** , quindi confermare il nome del gruppo di risorse da eliminare.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa guida di avvio rapido è stata distribuita l'API di Azure per FHIR nella sottoscrizione. Per configurare le impostazioni aggiuntive nell'API di Azure per FHIR, passare alla guida pratica sulle impostazioni aggiuntive.
+In questa guida di avvio rapido è stata distribuita l'API di Azure per FHIR nella sottoscrizione. Per configurare le impostazioni aggiuntive nell'API di Azure per FHIR, passare alla guida pratica sulle impostazioni aggiuntive. Se si vuole iniziare a usare l'API di Azure per FHIR, leggere gli articoli relativi alla registrazione delle applicazioni.
 
 >[!div class="nextstepaction"]
 >[Impostazioni aggiuntive nell'API di Azure per FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Panoramica della registrazione di applicazioni](fhir-app-registration.md)

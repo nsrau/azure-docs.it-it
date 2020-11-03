@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/24/2019
 ms.author: jeedes
-ms.openlocfilehash: 17e2d04a39a2ef5a935ea6e56ef16958419eddb1
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: e676268abb9e1a4a597ef431ea6ba6593411711e
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91775623"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455222"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-coralogix"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Coralogix
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Coralogix con Azure Active Director
 * Abilitare gli utenti per l'accesso automatico a Coralogix con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -99,7 +99,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** modificare le attestazioni tramite l'icona **Modifica**. È anche possibile aggiungere le attestazioni usando **Aggiungi nuova attestazione** per configurare l'attributo del token SAML come illustrato nell'immagine precedente. Seguire quindi questa procedura:
     
-    a. Selezionare l'**icona Modifica** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
+    a. Selezionare l' **icona Modifica** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
     ![Screenshot che mostra la finestra di dialogo "Attributi utente e attestazioni" con il pulsante "Modifica" evidenziato.](./media/coralogix-tutorial/tutorial_usermail.png)
     ![image](./media/coralogix-tutorial/tutorial_usermailedit.png)
@@ -122,7 +122,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -150,25 +150,24 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-coralogix-sso"></a>Configurare l'accesso Single Sign-On di Coralogix
 
-Per configurare l'accesso Single Sign-On sul lato **Coralogix**, è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Coralogix](mailto:info@coralogix.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Coralogix** , è necessario inviare il file di **XML metadati federazione** scaricato e gli URL appropriati copiati dal portale di Azure al [team di supporto di Coralogix](mailto:info@coralogix.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-coralogix-test-user"></a>Creare un utente di test di Coralogix
 
-In questa sezione si crea un utente di nome Britta Simon in Coralogix. Per aggiungere utenti nella piattaforma Coralogix, rivolgersi al  [team di supporto di Coralogix](mailto:info@coralogix.com). Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione si crea un utente di nome Britta Simon in Coralogix. Collaborare con il [team di supporto di Coralogix](mailto:info@coralogix.com) per aggiungere gli utenti alla piattaforma Coralogix. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Facendo clic sul riquadro Coralogix nel pannello di accesso si dovrebbe accedere automaticamente all'applicazione Coralogix per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Facendo clic sul riquadro Coralogix nel pannello di accesso si dovrebbe accedere automaticamente all'applicazione Coralogix per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Coralogix con Azure AD](https://aad.portal.azure.com/)
-

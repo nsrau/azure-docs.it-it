@@ -32,24 +32,24 @@ In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macc
 ### <a name="create-the-virtual-network"></a>Creare la rete virtuale
 In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la VM usata per accedere alla risorsa Collegamento privato.
 
-1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **Networking**  >  **rete rete virtuale** .
+1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **Networking**  >  **rete rete virtuale**.
 2. In **Crea rete virtuale** immettere o selezionare queste informazioni:
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Nome | Immettere *MyVirtualNetwork* . |
-    | Spazio degli indirizzi | Immettere *10.1.0.0/16* . |
+    | Nome | Immettere *MyVirtualNetwork*. |
+    | Spazio degli indirizzi | Immettere *10.1.0.0/16*. |
     | Subscription | Selezionare la propria sottoscrizione.|
-    | Resource group | Selezionare **Crea nuovo** , immettere *myResourceGroup* e selezionare **OK** . |
-    | Località | Selezionare **Europa occidentale** .|
-    | Subnet - Nome | Immettere la *subnet* . |
-    | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24* . |
+    | Resource group | Selezionare **Crea nuovo** , immettere *myResourceGroup* e selezionare **OK**. |
+    | Località | Selezionare **Europa occidentale**.|
+    | Subnet - Nome | Immettere la *subnet*. |
+    | Subnet - Intervallo di indirizzi | Immettere *10.1.0.0/24*. |
     |||
-3. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea** .
+3. Lasciare le altre impostazioni sui valori predefiniti e selezionare **Crea**.
 
 ### <a name="create-virtual-machine"></a>Creare la macchina virtuale
 
-1. Nella parte superiore sinistra della schermata del portale di Azure selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale** .
+1. Nella parte superiore sinistra della schermata del portale di Azure selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale**.
 
 2. In **Creare una macchina virtuale - Informazioni di base** , immettere o selezionare queste informazioni:
 
@@ -57,49 +57,49 @@ In questa sezione si creeranno la rete virtuale e la subnet che ospiteranno la V
     | ------- | ----- |
     | **DETTAGLI DEL PROGETTO** | |
     | Subscription | Selezionare la propria sottoscrizione. |
-    | Resource group | Selezionare **myResourceGroup** . Questo gruppo è stato creato nella sezione precedente.  |
+    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.  |
     | **DETTAGLI DELL'ISTANZA** |  |
-    | Nome macchina virtuale | Immettere *myVm* . |
-    | Region | Selezionare **Europa occidentale** . |
-    | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria** . |
-    | Immagine | Selezionare **Windows Server 2019 Datacenter** . |
-    | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2** . |
+    | Nome macchina virtuale | Immettere *myVm*. |
+    | Region | Selezionare **Europa occidentale**. |
+    | Opzioni di disponibilità | Lasciare l'impostazione predefinita **Nessuna ridondanza dell'infrastruttura necessaria**. |
+    | Immagine | Selezionare **Windows Server 2019 Datacenter**. |
+    | Dimensione | Lasciare l'impostazione predefinita **DS1 Standard v2**. |
     | **ACCOUNT AMMINISTRATORE** |  |
     | Username | Immettere un nome utente a scelta. |
     | Password | Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     | Confirm Password | Reimmettere la password. |
     | **REGOLE PORTA IN INGRESSO** |  |
-    | Porte in ingresso pubbliche | Lasciare il valore predefinito **Nessuna** . |
+    | Porte in ingresso pubbliche | Lasciare il valore predefinito **Nessuna**. |
     | **RISPARMIA** |  |
-    | Già in possesso di una licenza di Windows? | Lasciare il valore predefinito **No** . |
+    | Già in possesso di una licenza di Windows? | Lasciare il valore predefinito **No**. |
     |||
 
-1. Selezionare **Avanti: Dischi** .
+1. Selezionare **Avanti: Dischi**.
 
-1. In **Crea macchina virtuale - Dischi** mantenere le impostazioni predefinite e selezionare **Avanti: Rete** .
+1. In **Crea macchina virtuale - Dischi** mantenere le impostazioni predefinite e selezionare **Avanti: Rete**.
 
 1. In **Creare una macchina virtuale - Rete** , selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
-    | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork** .  |
-    | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24** .|
+    | Rete virtuale | Lasciare l'impostazione predefinita **MyVirtualNetwork**.  |
+    | Spazio degli indirizzi | Lasciare l'impostazione predefinita **10.1.0.0/24**.|
     | Subnet | Lasciare l'impostazione predefinita **mySubnet (10.1.0.0/24)** .|
-    | IP pubblico | Lasciare l'impostazione predefinita **(nuovo) myVm-ip** . |
-    | Porte in ingresso pubbliche | Selezionare **Consenti porte selezionate** . |
-    | Selezionare le porte in ingresso | Selezionare **HTTP** e **RDP** .|
+    | IP pubblico | Lasciare l'impostazione predefinita **(nuovo) myVm-ip**. |
+    | Porte in ingresso pubbliche | Selezionare **Consenti porte selezionate**. |
+    | Selezionare le porte in ingresso | Selezionare **HTTP** e **RDP**.|
     |||
 
 
-1. Selezionare **Rivedi e crea** . Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione.
+1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione.
 
-1. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea** .
+1. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea**.
 
 ## <a name="create-an-azure-database-for-mariadb"></a>Creare un database di Azure per MariaDB
 
 In questa sezione verrà creato un database di Azure per il server MariaDB in Azure. 
 
-1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** database di  >  **Databases**  >  **Azure per MariaDB** .
+1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa** database di  >  **Databases**  >  **Azure per MariaDB**.
 
 1. In **database di Azure per MariaDB** fornire queste informazioni:
 
@@ -107,9 +107,9 @@ In questa sezione verrà creato un database di Azure per il server MariaDB in Az
     | ------- | ----- |
     | **Dettagli del progetto** | |
     | Subscription | Selezionare la propria sottoscrizione. |
-    | Resource group | Selezionare **myResourceGroup** . Questo gruppo è stato creato nella sezione precedente.|
+    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **Dettagli del server** |  |
-    |Nome server  | Immettere *myserver* . Se il nome è già usato, creare un nome univoco.|
+    |Nome server  | Immettere *myserver*. Se il nome è già usato, creare un nome univoco.|
     | Nome utente amministratore| Immettere un nome amministratore a scelta. |
     | Password | Immettere una password a scelta. La password deve contenere almeno 8 caratteri e soddisfare i requisiti definiti. |
     | Location | Selezionare un'area di Azure in cui si vuole che il server MariaDB risieda. |
@@ -117,9 +117,9 @@ In questa sezione verrà creato un database di Azure per il server MariaDB in Az
     | Calcolo e archiviazione| Selezionare il piano tariffario necessario per il server in base al carico di lavoro. |
     |||
 
-7. Selezionare **OK** . 
-8. Selezionare **Rivedi e crea** . Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
-9. Quando viene visualizzato il messaggio convalida superata, selezionare **Crea** . 
+7. Selezionare **OK**. 
+8. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
+9. Quando viene visualizzato il messaggio convalida superata, selezionare **Crea**. 
 10. Quando viene visualizzato il messaggio Convalida superata, selezionare Crea. 
 
 > [!NOTE]
@@ -130,8 +130,8 @@ In questa sezione verrà creato un database di Azure per il server MariaDB in Az
 
 In questa sezione si creerà un endpoint privato al server MariaDB. 
 
-1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa**  >  **rete**  >  **privato collegamento** .
-2. In **Centro collegamento privato - Informazioni generali** selezionare **Avvia** per l'opzione **Crea una connessione privata a un servizio** .
+1. Sul lato superiore sinistro della schermata nella portale di Azure selezionare **Crea una risorsa**  >  **rete**  >  **privato collegamento**.
+2. In **Centro collegamento privato - Informazioni generali** selezionare **Avvia** per l'opzione **Crea una connessione privata a un servizio**.
 
     ![Panoramica sul collegamento privato](media/concepts-data-access-and-security-private-link/privatelink-overview.png)
 
@@ -141,40 +141,40 @@ In questa sezione si creerà un endpoint privato al server MariaDB.
     | ------- | ----- |
     | **Dettagli del progetto** | |
     | Subscription | Selezionare la propria sottoscrizione. |
-    | Resource group | Selezionare **myResourceGroup** . Questo gruppo è stato creato nella sezione precedente.|
+    | Resource group | Selezionare **myResourceGroup**. Questo gruppo è stato creato nella sezione precedente.|
     | **Dettagli istanza** |  |
-    | Nome | Immettere *myPrivateEndpoint* . Se il nome è già usato, creare un nome univoco. |
-    |Region|Selezionare **Europa occidentale** .|
+    | Nome | Immettere *myPrivateEndpoint*. Se il nome è già usato, creare un nome univoco. |
+    |Region|Selezionare **Europa occidentale**.|
     |||
-5. Selezionare **Avanti: Risorsa** .
+5. Selezionare **Avanti: Risorsa**.
 6. In **Crea un endpoint privato - Risorsa** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
     |Metodo di connessione  | Selezionare Connettersi a una risorsa di Azure nella directory.|
     | Subscription| Selezionare la propria sottoscrizione. |
-    | Tipo di risorsa | Selezionare **Microsoft. DBforMariaDB/Servers** . |
-    | Risorsa |Selezionare *myServer* .|
+    | Tipo di risorsa | Selezionare **Microsoft. DBforMariaDB/Servers**. |
+    | Risorsa |Selezionare *myServer*.|
     |Sottorisorsa di destinazione |Seleziona *mariadbServer*|
     |||
-7. Selezionare **Avanti: Configurazione** .
+7. Selezionare **Avanti: Configurazione**.
 8. In **Crea un endpoint privato - Configurazione** immettere o selezionare queste informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
     |**RETE**| |
-    | Rete virtuale| Selezionare *MyVirtualNetwork* . |
-    | Subnet | Selezionare  *mySubnet* . |
+    | Rete virtuale| Selezionare *MyVirtualNetwork*. |
+    | Subnet | Selezionare  *mySubnet*. |
     |**INTEGRAZIONE DNS PRIVATO**||
-    |Integra con la zona DNS privato |Selezionare **Sì** . |
+    |Integra con la zona DNS privato |Selezionare **Sì**. |
     |Zona DNS privato |Select *(nuovo) privatelink. MariaDB. database. Azure. com* |
     |||
 
     > [!Note] 
     > Usare la zona DNS privata predefinita per il servizio o specificare il nome della zona DNS preferita. Per informazioni dettagliate, vedere la [configurazione della zona DNS dei servizi di Azure](../private-link/private-endpoint-dns.md) .
 
-1. Selezionare **Rivedi e crea** . Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
-2. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea** . 
+1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
+2. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea**. 
 
     ![Collegamento privato creato](media/concepts-data-access-and-security-private-link/show-mariadb-private-link.png)
 
@@ -186,24 +186,24 @@ In questa sezione si creerà un endpoint privato al server MariaDB.
 
 Dopo aver creato **myVm** , connettersi alla macchina virtuale da Internet come illustrato di seguito: 
 
-1. Nella barra di ricerca del portale immettere *myVm* .
+1. Nella barra di ricerca del portale immettere *myVm*.
 
-1. Scegliere il pulsante **Connetti** . Dopo aver selezionato il pulsante **Connetti** viene aperta la finestra **Connetti alla macchina virtuale** .
+1. Scegliere il pulsante **Connetti**. Dopo aver selezionato il pulsante **Connetti** viene aperta la finestra **Connetti alla macchina virtuale**.
 
-1. Selezionare **Scarica file RDP** . Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp* .
+1. Selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
 
-1. Aprire il file *downloaded.rdp* .
+1. Aprire il file *downloaded.rdp*.
 
-    1. Quando richiesto, selezionare **Connetti** .
+    1. Quando richiesto, selezionare **Connetti**.
 
     1. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale.
 
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Selezionare **OK** .
+1. Selezionare **OK**.
 
-1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua** .
+1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.
 
@@ -229,14 +229,14 @@ Dopo aver creato **myVm** , connettersi alla macchina virtuale da Internet come 
 
     | Impostazione | valore |
     | ------- | ----- |
-    | Tipo di server| Selezionare **MariaDB** .|
+    | Tipo di server| Selezionare **MariaDB**.|
     | Nome server| Seleziona *mydemoserver.privatelink.MariaDB.database.Azure.com* |
     | Nome utente | Immettere username (nome utente) come username@servername specificato durante la creazione del server MariaDB. |
     |Password |Immettere una password specificata durante la creazione del server MariaDB. |
-    |SSL|Selezionare **required** .|
+    |SSL|Selezionare **required**.|
     ||
 
-5. Selezionare **Test connessione** o **OK** .
+5. Selezionare **Test connessione** o **OK**.
 
 6. Facoltativamente Esplorare i database dal menu a sinistra e creare o eseguire query sulle informazioni dal database MariaDB
 
@@ -246,8 +246,8 @@ Dopo aver creato **myVm** , connettersi alla macchina virtuale da Internet come 
 Al termine dell'uso dell'endpoint privato, del server MariaDB e della VM, eliminare il gruppo di risorse e tutte le risorse in esso contenute:
 
 1. Immettere  *myResourceGroup*   nella casella di **ricerca** nella parte superiore del portale e selezionare  *myResourceGroup* nei   Risultati della ricerca.
-2. Selezionare **Elimina gruppo di risorse** .
-3. Immettere myResourceGroup per **digitare il nome del gruppo di risorse** e selezionare **Elimina** .
+2. Selezionare **Elimina gruppo di risorse**.
+3. Immettere myResourceGroup per **digitare il nome del gruppo di risorse** e selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -35,20 +35,20 @@ Attenersi alla procedura seguente per ripristinare il server flessibile utilizza
 
 2.  Fare clic su **Panoramica** nel pannello di sinistra.
 
-3.  Nella pagina Panoramica fare clic su **Ripristina** .
+3.  Nella pagina Panoramica fare clic su **Ripristina**.
 
     Segnaposto
 
 4.  Verrà visualizzata la pagina Ripristina con un'opzione che consente di scegliere tra il **punto di ripristino più recente** e il punto di ripristino personalizzato.
 
-5.  Selezionare il **punto di ripristino più recente** .
+5.  Selezionare il **punto di ripristino più recente**.
 
 
 6.  Consente di specificare un nuovo nome del server nel campo **Ripristina nel nuovo server** .
 
     :::image type="content" source="./media/concept-backup-restore/restore-blade-latest.png" alt-text="Tempo di ripristino più recente":::
 
-8.  Fare clic su **OK** .
+8.  Fare clic su **OK**.
 
 9.  Verrà visualizzata una notifica che l'operazione di ripristino è stata avviata.
 
@@ -58,13 +58,13 @@ Attenersi alla procedura seguente per ripristinare il server flessibile utilizza
 
 1.  Nella [portale di Azure](https://portal.azure.com/)scegliere il server flessibile da cui si desidera ripristinare il backup.
 
-2.  Nella pagina Panoramica fare clic su **Ripristina** .
+2.  Nella pagina Panoramica fare clic su **Ripristina**.
 
     Segnaposto
 
 3.  Verrà visualizzata la pagina Ripristina con un'opzione che consente di scegliere tra il primo punto di ripristino e il punto di ripristino personalizzato.
 
-4.  Scegliere **punto di ripristino personalizzato** .
+4.  Scegliere **punto di ripristino personalizzato**.
 
 5.  Selezionare data e ora.
 
@@ -72,9 +72,9 @@ Attenersi alla procedura seguente per ripristinare il server flessibile utilizza
 
 6.  Consente di specificare un nuovo nome del server nel campo **Ripristina nel nuovo server** . 
    
-    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="Tempo di ripristino più recente":::
+    :::image type="content" source="./media/concept-backup-restore/restore-blade-custom.png" alt-text="Visualizza panoramica":::
  
-7.  Fare clic su **OK** .
+7.  Fare clic su **OK**.
 
 8.  Verrà visualizzata una notifica che l'operazione di ripristino è stata avviata.
 

@@ -80,8 +80,8 @@ Per altre informazioni su questi protocolli e servizi di autenticazione, vedere 
 
 Prima di poter bloccare l'autenticazione legacy nella directory, è necessario anzitutto capire se gli utenti usano app che sfruttano l'autenticazione legacy e il modo in cui questa influisce sulla directory complessiva. Per capire se viene usata l'autenticazione legacy è possibile usare i log di accesso di Azure AD.
 
-1. Passare al **portale di Azure** > **Azure Active Directory** > **Accessi** .
-1. Se non viene visualizzata, aggiungere la colonna App client facendo clic su **Colonne** > **App client** .
+1. Passare al **portale di Azure** > **Azure Active Directory** > **Accessi**.
+1. Se non viene visualizzata, aggiungere la colonna App client facendo clic su **Colonne** > **App client**.
 1. **Aggiungi filtri**  >  **App Client** > selezionare tutti i protocolli di autenticazione legacy. Selezionare all'esterno della finestra di dialogo filtro per applicare le selezioni e chiudere la finestra di dialogo.
 
 Applicando il filtro verranno visualizzati solo i tentativi di accesso eseguiti dai protocolli di autenticazione legacy. Facendo clic su ogni singolo tentativo di accesso vengono visualizzati altri dettagli. Nel campo **App client** nella scheda **Info di base** sarà indicato il protocollo di autenticazione legacy che è stato usato.
@@ -97,7 +97,7 @@ Esistono due modi per usare i criteri di accesso condizionale per bloccare l'aut
  
 ### <a name="directly-blocking-legacy-authentication"></a>Blocco diretto dell'autenticazione legacy
 
-Il modo più semplice per bloccare l'autenticazione legacy nell'intera organizzazione consiste nel configurare criteri di accesso condizionale che si applicano in modo specifico ai client di autenticazione legacy e blocca l'accesso. Quando si assegnano utenti e applicazioni ai criteri, assicurarsi di escludere gli utenti e gli account di servizio che devono ancora accedere usando l'autenticazione legacy. Configurare la condizione delle app client selezionando **client di Exchange ActiveSync** e **altri client** . Per bloccare l'accesso per queste app client, configurare i controlli di accesso per bloccare l'accesso.
+Il modo più semplice per bloccare l'autenticazione legacy nell'intera organizzazione consiste nel configurare criteri di accesso condizionale che si applicano in modo specifico ai client di autenticazione legacy e blocca l'accesso. Quando si assegnano utenti e applicazioni ai criteri, assicurarsi di escludere gli utenti e gli account di servizio che devono ancora accedere usando l'autenticazione legacy. Configurare la condizione delle app client selezionando **client di Exchange ActiveSync** e **altri client**. Per bloccare l'accesso per queste app client, configurare i controlli di accesso per bloccare l'accesso.
 
 ![Condizione delle app client configurata per bloccare l'autenticazione legacy](./media/block-legacy-authentication/client-apps-condition-configured-yes.png)
 

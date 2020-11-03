@@ -7,12 +7,12 @@ ms.service: virtual-machines-linux
 ms.subservice: security
 ms.topic: quickstart
 ms.date: 10/02/2019
-ms.openlocfilehash: 2a5588940d4efacc08d89b72bde4433d725a4994
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 13e6077ee9bd24cdfc9a7c1f405199989546680f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91978408"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896023"
 ---
 # <a name="quickstart-create-and-encrypt-a-virtual-machine-with-the-azure-portal"></a>Guida introduttiva: Creare e crittografare una macchina virtuale con il portale di Azure
 
@@ -35,23 +35,16 @@ Accedere al [portale di Azure](https://portal.azure.com).
 1. Assicurarsi che l'opzione **Dimensioni** sia impostata su *D2s Standard v3*.
 1. In **Account amministratore** selezionare *Password* come **Tipo di autenticazione**. Immettere un nome utente e una password.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Schermata relativa alla creazione della macchina virtuale Linux&quot;:::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-linux-vm-creation.png" alt-text="Schermata relativa alla creazione della macchina virtuale Linux":::
 
     > [!WARNING]
-    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](../managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
+    > La scheda "Dischi" include un campo "Tipo di crittografia" in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](../managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
     >
     > Per evitare confusione, è consigliabile ignorare completamente la scheda *Dischi* durante il completamento dell'esercitazione.
 
-1. Selezionare la scheda &quot;Gestione&quot; e verificare di avere un account di archiviazione di diagnostica. Se non sono presenti account di archiviazione, selezionare *Crea nuovo*, assegnare all'account di archiviazione il nome *myStorageAccount* e fare clic su &quot;OK"
+1. Selezionare la scheda "Gestione" e verificare di avere un account di archiviazione di diagnostica. Se non sono presenti account di archiviazione, selezionare *Crea nuovo* , assegnare all'account di archiviazione il nome *myStorageAccount* e fare clic su "OK"
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Schermata relativa alla creazione della macchina virtuale Linux&quot;:::
-
-    > [!WARNING]
-    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](../managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
-    >
-    > Per evitare confusione, è consigliabile ignorare completamente la scheda *Dischi* durante il completamento dell'esercitazione.
-
-1. Selezionare la scheda &quot;Gestione&quot; e verificare di avere un account di archiviazione di diagnostica. Se non sono presenti account di archiviazione, selezionare *Crea nuovo*, assegnare all'account di archiviazione il nome *myStorageAccount* e fare clic su &quot;OK":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-vm-creation-storage.png" alt-text="Schermata di creazione del gruppo di risorse":::
 
 1. Fare clic su "Rivedi e crea".
 1. Nella pagina **Crea macchina virtuale** è possibile visualizzare i dettagli sulla macchina virtuale che si sta creando. Quando si è pronti, selezionare **Crea**.
@@ -65,40 +58,19 @@ La distribuzione della macchina virtuale richiederà alcuni minuti. Al termine d
 1. Sulla barra superiore selezionare **Impostazioni aggiuntive**.
 1. In **Impostazioni di crittografia** > **Dischi da crittografare** selezionare **Dischi dati e sistema operativo**.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Schermata relativa alla creazione della macchina virtuale Linux&quot;:::
-
-    > [!WARNING]
-    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](../managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
-    >
-    > Per evitare confusione, è consigliabile ignorare completamente la scheda *Dischi* durante il completamento dell'esercitazione.
-
-1. Selezionare la scheda &quot;Gestione&quot; e verificare di avere un account di archiviazione di diagnostica. Se non sono presenti account di archiviazione, selezionare *Crea nuovo*, assegnare all'account di archiviazione il nome *myStorageAccount* e fare clic su &quot;OK":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-disks-to-encryption.png" alt-text="Screenshot che evidenzia il sistema operativo e i dischi dati.":::
 
 1. In **Impostazioni di crittografia** scegliere **Selezionare l'insieme di credenziali delle chiavi e la chiave per la crittografia**.
 1. Nella schermata **Selezionare chiave da Azure Key Vault** selezionare **Crea nuovo**.
 
-    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Schermata relativa alla creazione della macchina virtuale Linux&quot;:::
-
-    > [!WARNING]
-    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](../managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
-    >
-    > Per evitare confusione, è consigliabile ignorare completamente la scheda *Dischi* durante il completamento dell'esercitazione.
-
-1. Selezionare la scheda &quot;Gestione&quot; e verificare di avere un account di archiviazione di diagnostica. Se non sono presenti account di archiviazione, selezionare *Crea nuovo*, assegnare all'account di archiviazione il nome *myStorageAccount* e fare clic su &quot;OK":::
+    :::image type="content" source="../media/disk-encryption/portal-qs-keyvault-create.png" alt-text="Screenshot che evidenzia l'opzione Crea nuovo.":::
 
 1. A sinistra di **Insieme di credenziali delle chiavi e chiave** selezionare **Fare clic per selezionare una chiave**.
 1. In **Selezionare chiave da Azure Key Vault** selezionare **Crea nuovo** nel campo **Insieme di credenziali delle chiavi**.
 1. Nella schermata **Crea un insieme di credenziali delle chiavi** assicurarsi che il valore di Gruppo di risorse sia *myResourceGroup* e assegnare un nome all'insieme di credenziali delle chiavi.  Ogni insieme di credenziali delle chiavi in Azure deve avere un nome univoco.
 1. Nella scheda **Criteri di accesso** selezionare la casella **Crittografa dischi di Azure per la crittografia dei volumi**.
 
-    :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Schermata relativa alla creazione della macchina virtuale Linux&quot;:::
-
-    > [!WARNING]
-    > La scheda &quot;Dischi&quot; include un campo &quot;Tipo di crittografia&quot; in **Opzioni disco**. Questo campo viene usato per specificare le opzioni di crittografia per [Managed Disks](../managed-disks-overview.md) + CMK, **non** per Crittografia dischi di Azure.
-    >
-    > Per evitare confusione, è consigliabile ignorare completamente la scheda *Dischi* durante il completamento dell'esercitazione.
-
-1. Selezionare la scheda &quot;Gestione&quot; e verificare di avere un account di archiviazione di diagnostica. Se non sono presenti account di archiviazione, selezionare *Crea nuovo*, assegnare all'account di archiviazione il nome *myStorageAccount* e fare clic su &quot;OK":::
+    :::image type="content" source="../media/disk-encryption/portal-quickstart-keyvault-enable.png" alt-text="Selezione di dischi e crittografia":::
 
 1. Selezionare **Rivedi e crea**.  
 1. Dopo che l'insieme di credenziali delle chiavi ha superato la convalida, selezionare **Crea**. Si tornerà nella schermata **Selezionare chiave da Azure Key Vault**.

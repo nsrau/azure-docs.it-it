@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: duau
 ms.date: 09/01/2020
-ms.openlocfilehash: dbdb6a255fdf0214103a0011f25b0a6d25014e69
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ec569781a6318062810358c2c5e17ba71efc4f71
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89299151"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92676000"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-using-an-arm-template"></a>Avvio rapido: Creare un profilo di Gestione traffico usando un modello di Resource Manager
 
@@ -43,7 +43,7 @@ Per trovare altri modelli correlati a Gestione traffico di Azure, vedere [Modell
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-1. Selezionare **Prova** per il blocco di codice seguente per aprire Azure Cloud Shell e seguire le istruzioni per la connessione ad Azure. 
+1. Selezionare **Prova** per il blocco di codice seguente per aprire Azure Cloud Shell e seguire le istruzioni per la connessione ad Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -66,7 +66,7 @@ Per trovare altri modelli correlati a Gestione traffico di Azure, vedere [Modell
 
 1. Immettere i valori desiderati.
 
-    La distribuzione del modello crea un profilo con due endpoint esterni. **Endpoint1** usa un endpoint di destinazione *w<span>ww.microsoft</span>.com* con località **Europa settentrionale**. **Endpoint2** usa un endpoint di destinazione *d<span>ocs.microsoft</span>.com* con località **Stati Uniti centro-meridionali**. 
+    La distribuzione del modello crea un profilo con due endpoint esterni. **Endpoint1** usa un endpoint di destinazione `www.microsoft.com` con località **Europa settentrionale**. **Endpoint2** usa un endpoint di destinazione `docs.microsoft.com` con località **Stati Uniti centro-meridionali**.
 
     Il nome del gruppo di risorse è il nome del progetto seguito da **rg**.
 
@@ -87,21 +87,23 @@ Per distribuire il modello viene usato Azure PowerShell. Oltre ad Azure PowerShe
     Get-AzTrafficManagerProfile -Name ExternalEndpointExample -ResourceGroupName $resourceGroupName | Select RelativeDnsName
     ```
 
-    Copiare il valore **RelativeDnsName**. Il nome DNS del profilo di Gestione traffico è *<* relativednsname *>.trafficmanager.net*. 
+    Copiare il valore **RelativeDnsName**. Il nome DNS del profilo di Gestione traffico è `<relativednsname>.trafficmanager.net`.
 
-1. Da un'istanza locale di PowerShell eseguire il comando seguente sostituendo la variabile **{relativeDNSname}** con *<* relativednsname *>.trafficmanager.net*.
+1. Da un'istanza locale di PowerShell eseguire il comando seguente sostituendo la variabile **{relativeDNSname}** con `<relativednsname>.trafficmanager.net`.
 
     ```powershell
     Resolve-DnsName -Name {relativeDNSname} | Select-Object NameHost | Select -First 1
     ```
-    Si dovrebbe ottenere il NameHost *w<span>ww.microsoft</span>.com* o *d<span>ocs.microsoft</span>.com*, in base all'area più vicina.
 
-1. Per verificare se è possibile risolvere l'altro endpoint, disabilitare l'endpoint per la destinazione ottenuta nel passaggio precedente. Sostituire **{endpointName}** con **endpoint1** o **endpoint2** per disabilitare la destinazione per *w<span>ww.microsoft</span>.com* o *d<span>ocs.microsoft</span>.com* rispettivamente.
+    Si dovrebbe ottenere il NameHost `www.microsoft.com` o `docs.microsoft.com`, in base all'area più vicina.
+
+1. Per verificare se è possibile risolvere l'altro endpoint, disabilitare l'endpoint per la destinazione ottenuta nel passaggio precedente. Sostituire **{endpointName}** con **endpoint1** o **endpoint2** per disabilitare la destinazione per `www.microsoft.com` o `docs.microsoft.com` rispettivamente.
 
     ```azurepowershell-interactive
     Disable-AzTrafficManagerEndpoint -Name {endpointName} -Type ExternalEndpoints -ProfileName ExternalEndpointExample -ResourceGroupName $resourceGroupName -Force
     ```
-1. Eseguire di nuovo il comando dal passaggio 2 in un'istanza locale di PowerShell. Questa volta si dovrebbe ottenere l'altro NameHost per l'altro endpoint. 
+
+1. Eseguire di nuovo il comando dal passaggio 2 in un'istanza locale di PowerShell. Questa volta si dovrebbe ottenere l'altro NameHost per l'altro endpoint.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -115,8 +117,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido sono stati creati questi componenti:
-* Profilo di Gestione traffico
+In questo argomento di avvio rapido è stato creato un profilo di Gestione traffico
 
 Per altre informazioni su come instradare il traffico, passare alle esercitazioni di Gestione traffico.
 

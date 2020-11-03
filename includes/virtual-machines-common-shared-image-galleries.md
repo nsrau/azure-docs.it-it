@@ -1,18 +1,17 @@
 ---
 title: includere file
-description: includere file
 author: axayjo
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/14/2020
 ms.author: olayemio
 ms.custom: include file
-ms.openlocfilehash: 3d5b57330775af60341cd65fddc65c10645f2573
-ms.sourcegitcommit: 93329b2fcdb9b4091dbd632ee031801f74beb05b
+ms.openlocfilehash: b17480c1a2a0bd8588289627a51780999e1f311c
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92116707"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897818"
 ---
 Raccolta immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini. Raccolte di immagini condivise fornisce:
 
@@ -46,7 +45,7 @@ La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
 Le definizioni dell'immagine rappresentano un raggruppamento logico per le versioni di un'immagine. La definizione dell'immagine detiene informazioni sui motivi per cui è stata creata l'immagine, sul sistema operativo per cui è stata creata e altre informazioni sull'uso. Una definizione dell'immagine è simile a un piano per tutti i dettagli che riguardano la creazione di un'immagine specifica. Non si distribuisce una macchina virtuale da una definizione dell'immagine, ma da versioni dell'immagine create dalla definizione.
 
-Sono disponibili tre parametri per ogni definizione dell'immagine usati in combinazione: **Editore**, **Offerta** e **SKU**. Questi parametri vengono usati per trovare una specifica definizione dell'immagine. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori.  Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
+Sono disponibili tre parametri per ogni definizione dell'immagine usati in combinazione: **Editore** , **Offerta** e **SKU**. Questi parametri vengono usati per trovare una specifica definizione dell'immagine. È possibile avere versioni delle immagini che condividono uno o due, ma non tutti e tre i valori.  Di seguito, un esempio di tre definizioni di immagini con i relativi valori:
 
 |Definizione delle immagini|Editore|Offerta|Sku|
 |---|---|---|---|
@@ -81,7 +80,7 @@ La **versione dell'immagine** è quella che si usa per creare una VM. È possibi
 
 Le proprietà di una versione dell'immagine sono:
 
-- Numero di versione. Viene usato come nome della versione dell'immagine. È sempre nel formato MajorVersion.MinorVersion.Patch. Quando si specifica di usare l'**ultima** versione quando si crea una VM, viene scelta l'immagine più recente in base al valore più alto di MajorVersion, quindi a quello di MinorVersion e infine a quello di Patch. 
+- Numero di versione. Viene usato come nome della versione dell'immagine. È sempre nel formato MajorVersion.MinorVersion.Patch. Quando si specifica di usare l' **ultima** versione quando si crea una VM, viene scelta l'immagine più recente in base al valore più alto di MajorVersion, quindi a quello di MinorVersion e infine a quello di Patch. 
 - Origine. L'origine può essere una VM, un disco gestito, uno snapshot, un'immagine gestita o un'altra versione di immagine. 
 - Escludi da versione più recente. È possibile impedire l'uso di una versione come versione più recente dell'immagine. 
 - Data di scadenza. La data dopo la quale non è possibile creare macchine virtuali da questa immagine.
@@ -116,7 +115,7 @@ Per altre informazioni, vedere [Controllare l'utilizzo delle risorse rispetto ai
 ## <a name="scaling"></a>Scalabilità
 Raccolta di immagini condivise consente di specificare il numero di repliche delle immagini che si desidera vengano conservate da Azure. Questa possibilità è particolarmente utile in scenari di distribuzione di più macchine virtuali, poiché le distribuzioni di macchine virtuali possono essere estese a diverse repliche, riducendo le possibilità che il processo di creazione di istanze venga limitato a causa dell'overload di una singola replica.
 
-Con Raccolta immagini condivise è ora possibile distribuire fino a 1.000 istanze di macchina virtuale in un set di scalabilità di macchine virtuali (fino a 600 con le immagini gestite). Le repliche di immagini offrono migliori prestazioni, affidabilità e coerenza per la distribuzione.  È possibile impostare un numero di repliche diverso in ogni area di destinazione, in base alle esigenze di ridimensionamento per l'area. Poiché ogni replica rappresenta una copia completa dell'immagine, questo consente di ridimensionare le distribuzioni in modo lineare con ogni replica aggiuntiva. Pur comprendendo che non ci siano due immagini o aree identiche, di seguito sono riportate le linee guida generali su come usare le repliche in 1 area:
+Con Raccolta immagini condivise è ora possibile distribuire fino a 1.000 istanze di macchina virtuale in un set di scalabilità di macchine virtuali (fino a 600 con le immagini gestite). Le repliche di immagini offrono migliori prestazioni, affidabilità e coerenza per la distribuzione.   È possibile impostare un numero di repliche diverso in ogni area di destinazione, in base alle esigenze di ridimensionamento per l'area. Poiché ogni replica rappresenta una copia completa dell'immagine, questo consente di ridimensionare le distribuzioni in modo lineare con ogni replica aggiuntiva. Pur comprendendo che non ci siano due immagini o aree identiche, di seguito sono riportate le linee guida generali su come usare le repliche in 1 area:
 
 - Per le distribuzioni di set di scalabilità di macchine non virtuali: per ogni 20 macchine virtuali create simultaneamente è consigliabile usare una replica. Se, ad esempio, si creano 120 macchine virtuali contemporaneamente usando la stessa immagine in un'area, si consiglia di mantenere almeno 6 repliche dell'immagine. 
 - Per le distribuzioni del set di scalabilità di macchine virtuali: per ogni distribuzione del set di scalabilità con un massimo di 600 istanze è consigliabile mantenere almeno una replica. Se, ad esempio, si creano 5 set di scalabilità contemporaneamente, ognuno con 600 istanze di macchine virtuali e usando la stessa immagine in un'area, si consiglia di mantenere almeno 5 repliche dell'immagine. 
@@ -155,8 +154,11 @@ Le immagini possono inoltre essere condivise su larga scala anche tra tenant usa
 
 ## <a name="billing"></a>Fatturazione
 Non sono previsti addebiti aggiuntivi per l'uso del servizio Raccolta di immagini condivise. Vengono addebitate le risorse seguenti:
-- Costi di archiviazione per le versioni di immagini condivise. Il costo dipende dal numero di repliche della versione dell'immagine e dal numero di aree in cui la versione viene replicata. Se, ad esempio, si hanno 2 immagini ed entrambe vengono replicate in 3 aree, verranno addebitati 6 dischi gestiti in base alla relativa dimensione. Per altre informazioni, vedere [Prezzi del servizio Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/).
-- Addebiti in uscita di rete per la replica della prima versione dell'immagine dall'area di origine alle aree replicate. Repliche successive vengono gestite tra le aree, così da non incorrere in nessun addebito aggiuntivo. 
+-   Costi di archiviazione di ogni replica. Il costo di archiviazione viene addebitato come snapshot e si basa sulle dimensioni occupate della versione dell'immagine, sul numero di repliche della versione dell'immagine e sul numero di aree in cui la versione viene replicata. 
+-   Addebiti in uscita di rete per la replica della prima versione dell'immagine dall'area di origine alle aree replicate. Repliche successive vengono gestite tra le aree, così da non incorrere in nessun addebito aggiuntivo. 
+
+Si supponga ad esempio di avere un'immagine di un disco del sistema operativo da 127 GB, che occupa solo 10 GB di spazio di archiviazione, e un disco dati da 32 GB vuoto. La dimensione occupata di ogni immagine sarebbe solo di 10 GB. L'immagine viene replicata in 3 aree e ogni area ha due repliche. Ne risulterà un totale di sei snapshot, ognuno dei quali usa 10 GB. Il costo di archiviazione di ogni snapshot verrà quindi addebitato in base alla dimensione occupata di 10 GB. Verranno addebitati i costi del traffico di rete in uscita per la prima replica da copiare nelle due aree aggiuntive. Per altre informazioni sui prezzi degli snapshot in ogni area, vedere [Prezzi di Managed Disks](https://azure.microsoft.com/pricing/details/managed-disks/). Per altre informazioni sul traffico di rete in uscita, vedere [Dettagli sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
+
 
 ## <a name="updating-resources"></a>Aggiornamento delle risorse
 
@@ -230,13 +232,13 @@ Per elencare tutte le risorse della raccolta di immagini condivise tra le sottos
    az account list -otsv --query "[].id" | xargs -n 1 az sig list --subscription
 ```
 
-Per altre informazioni, vedere **Gestire le risorse della raccolta** con l'[interfaccia della riga di comando di Azure](../articles/virtual-machines/update-image-resources-cli.md) o [PowerShell](../articles/virtual-machines/update-image-resources-powershell.md).
+Per altre informazioni, vedere **Gestire le risorse della raccolta** con l' [interfaccia della riga di comando di Azure](../articles/virtual-machines/update-image-resources-cli.md) o [PowerShell](../articles/virtual-machines/update-image-resources-powershell.md).
 
 ### <a name="can-i-move-my-existing-image-to-the-shared-image-gallery"></a>È possibile spostare l'immagine esistente nella raccolta di immagini condivise?
  
 Sì. Esistono tre scenari in base ai tipi di immagini che si possono avere.
 
- Scenario 1: se si dispone di un'immagine gestita, è possibile creare una definizione di immagine e una versione dell'immagine a partire da essa. Per altre informazioni, vedere **Eseguire la migrazione da un'immagine gestita a una versione dell'immagine** con l'[interfaccia della riga di comando di Azure](../articles/virtual-machines/image-version-managed-image-cli.md) o [PowerShell](../articles/virtual-machines/image-version-managed-image-powershell.md).
+ Scenario 1: se si dispone di un'immagine gestita, è possibile creare una definizione di immagine e una versione dell'immagine a partire da essa. Per altre informazioni, vedere **Eseguire la migrazione da un'immagine gestita a una versione dell'immagine** con l' [interfaccia della riga di comando di Azure](../articles/virtual-machines/image-version-managed-image-cli.md) o [PowerShell](../articles/virtual-machines/image-version-managed-image-powershell.md).
 
  Scenario 2: se si dispone di un'immagine non gestita, è possibile creare un'immagine gestita da quest'ultima e quindi creare una definizione di immagine e la versione dell'immagine da essa. 
 

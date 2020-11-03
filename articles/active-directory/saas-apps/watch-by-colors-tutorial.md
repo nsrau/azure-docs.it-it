@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 79fd6c5212b2ad956259f2cfbfb36ec3e7e92844
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fae276049ec3ff6c4bf96be38ff0d2a952731a15
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88523800"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636783"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-watch-by-colors"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Watch by Colors
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Watch by Colors con Azure Active Di
 * Abilitare gli utenti per l'accesso automatico a Watch by Colors con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -77,11 +77,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** l'applicazione è preconfigurata in modalità avviata da **IDP** e gli URL necessari sono già prepopolati con Azure. L'utente deve salvare la configurazione facendo clic sul pulsante **Salva**.
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     Nella casella di testo **URL di accesso** digitare un URL: `https://app.colorscorporation.com/login`
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -89,7 +89,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -117,7 +117,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-watch-by-colors-sso"></a>Configurare l'accesso Single Sign-On di Watch by Colors
 
-1. Per automatizzare la configurazione all'interno di Watch by Colors, è necessario installare l'**estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa l'estensione**.
+1. Per automatizzare la configurazione all'interno di Watch by Colors, è necessario installare l' **estensione del browser per l'accesso sicuro alle app personali** facendo clic su **Installa l'estensione**.
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -129,15 +129,15 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 4. Nell'angolo in alto a destra della pagina fare clic su **Profile** (Profilo)  > **Account Settings** (Impostazioni account) > **SSO (Single Sign-On)** .
 
-    ![Configurazione di Watch by Colors](./media/watch-by-colors-tutorial/config01.png)
+    ![Screenshot che mostra la pagina Account Settings con l'accesso SSO disabilitato.](./media/watch-by-colors-tutorial/config01.png)
 
 5. Nella pagina **SSO (Single Sign-On)** eseguire la procedura seguente:
 
-    ![Configurazione di Watch by Colors](./media/watch-by-colors-tutorial/config02.png)
+    ![Screenshot che mostra la scheda SAML Setup in cui è possibile abilitare SAML.](./media/watch-by-colors-tutorial/config02.png)
 
     a. Impostare **Enable SAML** (Abilita SAML) su **ON** (Attivato).
 
-    b. Nella casella di testo **URL** incollare l'**URL dei metadati di federazione** copiato dal portale di Azure.
+    b. Nella casella di testo **URL** incollare l' **URL dei metadati di federazione** copiato dal portale di Azure.
 
     c. Fare clic su **Import** (Importa) per popolare automaticamente nella pagina i campi seguenti.
 
@@ -153,11 +153,11 @@ Per consentire agli utenti di Azure AD di accedere a Watch by Colors, è necessa
 
 1. Nell'angolo in alto a destra della pagina fare clic su **Profile** (Profilo)  > **Users** (Utenti) > **Add User** (Aggiungi utente).
 
-    ![Configurazione di Watch by Colors](./media/watch-by-colors-tutorial/config03.png)
+    ![Screenshot che mostra la pagina Users.](./media/watch-by-colors-tutorial/config03.png)
 
 1. Nella pagina **User Details** (Dettagli utente) seguire questa procedura:
 
-    ![Configurazione di Watch by Colors](./media/watch-by-colors-tutorial/config04.png)
+    ![Screenshot che mostra la pagina User Details in cui è possibile immettere i valori indicati.](./media/watch-by-colors-tutorial/config04.png)
 
     a. Nella casella di testo **First name** (Nome) immettere il nome dell'utente, ad esempio **B**.
 
@@ -175,15 +175,14 @@ Per consentire agli utenti di Azure AD di accedere a Watch by Colors, è necessa
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Watch by Colors nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Watch by Colors per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Watch by Colors nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Watch by Colors per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Watch by Colors con Azure AD](https://aad.portal.azure.com/)
-

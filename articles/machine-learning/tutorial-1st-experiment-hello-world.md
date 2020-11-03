@@ -11,12 +11,12 @@ ms.author: amsaied
 ms.reviewer: sgilley
 ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 980347c658c65a0c08dfc50c08f50741fb9a00fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: afc851be08e6708efc0138dc45931cda147c67c1
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91372545"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92895886"
 ---
 # <a name="tutorial-run-a-hello-world-python-script-part-2-of-4"></a>Esercitazione: Eseguire uno script "Hello world!" di Python t (parte 2 di 4)
 
@@ -143,11 +143,14 @@ Eseguire lo script di controllo, che a sua volta esegue `hello.py` nel cluster d
 python 03-run-hello.py
 ```
 
+> [!TIP]
+> Se l'esecuzione di questo codice genera un messaggio di errore che indica che non si ha accesso alla sottoscrizione, vedere [Connettersi a un'area di lavoro](how-to-manage-workspace.md?tab=python#connect-multi-tenant) per informazioni sulle opzioni di autenticazione.
+
 ## <a name="monitor-your-code-in-the-cloud-by-using-the-studio"></a>Monitorare il codice nel cloud usando Studio
 
 L'output conterrà un collegamento a Studio simile al seguente: `https://ml.azure.com/experiments/hello-world/runs/<run-id>?wsid=/subscriptions/<subscription-id>/resourcegroups/<resource-group>/workspaces/<workspace-name>`.
 
-Seguire il collegamento e passare alla scheda **Output e log**, in cui è possibile vedere un file `70_driver_log.txt` simile al seguente:
+Seguire il collegamento e passare alla scheda **Output e log** , in cui è possibile vedere un file `70_driver_log.txt` simile al seguente:
 
 ```txt
  1: [2020-08-04T22:15:44.407305] Entering context manager injector.

@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: a7026757651d1b0510293101203f41a651c7b851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2ac4f41a36a2a18a65816be5ea74e88d0b364294
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850966"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789064"
 ---
 # <a name="introduction-to-azure-defender-for-app-service"></a>Introduzione ad Azure Defender per il servizio app
 
@@ -45,7 +45,7 @@ Per proteggere il piano di servizio app di Azure con Azure Defender per il servi
 
 - Verificare di avere un piano di servizio app supportato associato a computer dedicati. I piani supportati sono elencati sopra nella sezione [Disponibilità](#availability).
 
-- Abilitare **Azure Defender** nella sottoscrizione (se si vuole è possibile abilitare solo il piano **Azure Defender per il servizio app**) come descritto in [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
+- Abilitare **Azure Defender** nella sottoscrizione (se si vuole è possibile abilitare solo il piano **Azure Defender per il servizio app** ) come descritto in [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
 
 Il Centro sicurezza è integrato in modo nativo con il servizio app, eliminando la necessità di eseguire la distribuzione e l'onboarding; l'integrazione è trasparente.
 
@@ -64,7 +64,7 @@ In questo articolo sono state fornite informazioni su Azure Defender per il serv
 
 Per i materiali correlati, vedere gli articoli seguenti: 
 
-- Che un avviso venga generato dal Centro sicurezza o ricevuto dal Centro sicurezza da un prodotto di sicurezza diverso, è possibile esportarlo. Per esportare gli avvisi in Azure Sentinel, in qualsiasi soluzione SIEM di terze parti o in qualsiasi altro strumento esterno, seguire le istruzioni riportate in [Esportazione di avvisi in un sistema SIEM](continuous-export.md).
+- Che un avviso venga generato dal Centro sicurezza o ricevuto dal Centro sicurezza da un prodotto di sicurezza diverso, è possibile esportarlo. Per esportare gli avvisi in Azure Sentinel, in qualsiasi soluzione SIEM di terze parti o in qualsiasi altro strumento esterno, seguire le istruzioni riportate in [Trasmettere avvisi a una soluzione SIEM, SOAR o di gestione dei servizi IT](export-to-siem.md).
 - Per un elenco degli avvisi del servizio app di Azure, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-azureappserv).
 - Per altre informazioni sui piani di servizio app, vedere [Piani del servizio app](https://azure.microsoft.com/pricing/details/app-service/plans/).
 - > [!div class="nextstepaction"]

@@ -8,13 +8,13 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 08/17/2020
-ms.openlocfilehash: 4e7da02f7dd7e8fb19e031b814624b289730b3ee
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.date: 10/21/2020
+ms.openlocfilehash: 6231e4631c19aa3595fa85ca0aa7997861de65a3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367721"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92675029"
 ---
 # <a name="tutorial-create-azure-ad-users-using-azure-ad-applications"></a>Esercitazione: Creare utenti Azure AD con applicazioni di Azure AD
 
@@ -62,12 +62,12 @@ In questa esercitazione verranno illustrate le procedure per:
     Set-AzSqlServer -ResourceGroupName <resource group> -ServerName <server name> -AssignIdentity
     ```
 
-    Per altre informazioni, vedere il comando [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver).
+    Per altre informazioni, vedere il comando [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver).
 
     > [!IMPORTANT]
     > Se per il server logico SQL di Azure è configurata un'identità Azure AD, è necessario concedere all'identità l'autorizzazione [**Ruoli con autorizzazioni di lettura nella directory**](../../active-directory/roles/permissions-reference.md#directory-readers). Questo procedura verrà illustrata nella sezione seguente. **Non** ignorare questa procedura perché l'autenticazione Azure AD smetterà di funzionare.
 
-    - Se è stato usato precedentemente il comando [New-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/new-azsqlserver) con il parametro `AssignIdentity` per la creazione di un nuovo server SQL, sarà necessario eseguire successivamente [Set-AzSqlServer](https://docs.microsoft.com/powershell/module/az.sql/set-azsqlserver) come comando separato per abilitare questa proprietà nell'infrastruttura di Azure.
+    - Se è stato usato precedentemente il comando [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) con il parametro `AssignIdentity` per la creazione di un nuovo server SQL, sarà necessario eseguire successivamente [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) come comando separato per abilitare questa proprietà nell'infrastruttura di Azure.
 
 1. Verificare che l'identità del server sia stata assegnata correttamente. Eseguire questo comando PowerShell:
 
@@ -95,7 +95,7 @@ Per concedere questa autorizzazione obbligatoria, eseguire lo script seguente.
 > [!NOTE] 
 > Questo script deve essere eseguito da un utente `Global Administrator` o `Privileged Roles Administrator` di Azure AD.
 >
-> Nell'**anteprima pubblica** è possibile assegnare il ruolo `Directory Readers` a un gruppo in Azure AD. I proprietari del gruppo possono quindi aggiungere l'identità gestita come membro di questo gruppo, evitando così la necessità di un `Global Administrator` o `Privileged Roles Administrator` che conceda il ruolo `Directory Readers`. Per altre informazioni su questa funzionalità, vedere [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md).
+> Nell' **anteprima pubblica** è possibile assegnare il ruolo `Directory Readers` a un gruppo in Azure AD. I proprietari del gruppo possono quindi aggiungere l'identità gestita come membro di questo gruppo, evitando così la necessità di un `Global Administrator` o `Privileged Roles Administrator` che conceda il ruolo `Directory Readers`. Per altre informazioni su questa funzionalità, vedere [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md).
 
 - Sostituire `<TenantId>` con il valore `TenantId` raccolto in precedenza.
 - Sostituire `<server name>` con il nome del server logico SQL. Se il nome del server è `myserver.database.windows.net`, sostituire `<server name>` con `myserver`.
@@ -163,20 +163,30 @@ Per un approccio simile per l'impostazione dell'autorizzazione **Ruoli con autor
 
     Assicurarsi di aggiungere **Autorizzazioni dell'applicazione** nonché **Autorizzazioni delegate**.
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="object-id":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-apps.png" alt-text="Screenshot che mostra la pagina Registrazioni app per Azure Active Directory. Un'app con nome visualizzato AppSP è evidenziata.":::
 
-    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="object-id":::
+    :::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-app-registration-api-permissions.png" alt-text="api-permissions":::
 
-2. Sarà inoltre necessario creare un segreto client per l'accesso. Seguire le indicazioni fornite qui per [caricare un certificato o creare un segreto per l'accesso](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
+2. Sarà anche necessario creare un segreto client per l'accesso. Seguire le indicazioni fornite qui per [caricare un certificato o creare un segreto per l'accesso](../../active-directory/develop/howto-create-service-principal-portal.md#authentication-two-options).
 
-3. Registrare quanto segue dalla registrazione dell'applicazione. Dovrebbe essere disponibile nel riquadro **Panoramica**:
+3. Registrare quanto segue dalla registrazione dell'applicazione. Dovrebbe essere disponibile nel riquadro **Panoramica** :
     - **ID applicazione**
-    - **ID tenant**: deve essere come quello precedente
+    - **ID tenant** : deve essere come quello precedente
 
-In questa esercitazione verranno usate le applicazioni *AppSP* come entità servizio principale e *myapp* come utente della seconda entità servizio che verrà creato in Azure SQL da *AppSP*. Sarà necessario creare due applicazioni, *AppSP* e *myapp*.
+In questa esercitazione si useranno *AppSP* come entità servizio principale e *myapp* come secondo utente entità servizio che verrà creato in Azure SQL da *AppSP*. Sarà necessario creare due applicazioni, *AppSP* e *myapp*.
 
 Per altre informazioni su come creare un'applicazione di Azure AD, vedere l'articolo [ Procedura: Usare il portale per creare un'entità servizio e applicazione di Azure AD che possano accedere alle risorse](../../active-directory/develop/howto-create-service-principal-portal.md).
 
+### <a name="permissions-required-to-set-or-unset-the-azure-ad-admin"></a>Autorizzazioni necessarie per impostare o annullare l'impostazione dell'amministratore di Azure AD
+
+Per impostare o annullare l'impostazione di un amministratore di Azure AD per Azure SQL, l'entità servizio deve avere un'autorizzazione API aggiuntiva. L'autorizzazione per [Directory.Read.All](https://docs.microsoft.com/graph/permissions-reference#application-permissions-18) per l'API delle applicazioni dovrà essere aggiunta all'applicazione in Azure AD.
+
+:::image type="content" source="media/authentication-aad-service-principals-tutorial/aad-directory-reader-all-permissions.png" alt-text="Autorizzazioni Directory.Reader.All in Azure AD":::
+
+Per l'entità servizio è necessario anche il ruolo [**Collaboratore di SQL Server**](../../role-based-access-control/built-in-roles.md#sql-server-contributor) per Database SQL oppure il ruolo [**Collaboratore di Istanza gestita di SQL**](../../role-based-access-control/built-in-roles.md#sql-managed-instance-contributor) per Istanza gestita di SQL.
+
+> [!NOTE]
+> Anche se l'API Graph di Azure AD sta per essere deprecata, l'autorizzazione **Directory.Reader.All** si applica ancora a questa esercitazione. L'API Microsoft Graph non si applica a questa esercitazione.
 
 ## <a name="create-the-service-principal-user-in-azure-sql-database"></a>Creare l'utente dell'entità servizio nel database SQL di Azure
 
@@ -196,7 +206,7 @@ Una volta creata un'entità servizio in Azure AD, creare l'utente nel database S
     GO
     ```
 
-    Per altre informazioni, vedere [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
+    Per altre informazioni, vedere [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql).
 
     In alternativa, è possibile concedere l'autorizzazione `ALTER ANY USER` anziché assegnare il ruolo `db_owner`. In questo modo l'entità servizio potrà aggiungere altri utenti Azure AD.
 
@@ -301,5 +311,5 @@ Una volta creata un'entità servizio in Azure AD, creare l'utente nel database S
 - [Come usare le identità gestite nel servizio app e in Funzioni di Azure](../../app-service/overview-managed-identity.md)
 - [Azure AD Service Principal authentication to SQL DB - Code Sample](https://techcommunity.microsoft.com/t5/azure-sql-database/azure-ad-service-principal-authentication-to-sql-db-code-sample/ba-p/481467) (Autenticazione dell'entità servizio di Azure AD nel database SQL - Esempio di codice)
 - [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md)
-- [Creare un'entità servizio di Azure con Azure PowerShell](https://docs.microsoft.com/powershell/azure/create-azure-service-principal-azureps)
+- [Creare un'entità servizio di Azure con Azure PowerShell](/powershell/azure/create-azure-service-principal-azureps)
 - [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md)

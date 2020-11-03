@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 9e24a652bb4e577ff9b604b6b4f5284883723ee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 36c5f0103908ea150cbe6eb373e25f7d741127f5
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90906710"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913263"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Esercitazione: Creare un progetto di etichettatura per la classificazione delle immagini multi-classe 
 
@@ -42,7 +42,7 @@ In questa esercitazione si useranno immagini di gatti e cani.  Dato che ogni imm
 
 Un'area di lavoro di Machine Learning è una risorsa cloud fondamentale usata per eseguire gli esperimenti, il training e la distribuzione di modelli di Machine Learning. Collega la sottoscrizione e il gruppo di risorse di Azure a un oggetto di facile utilizzo nel servizio.
 
-Per creare un'area di lavoro è necessario usare il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure.
+Esistono molti [modi per creare un'area di lavoro](how-to-manage-workspace.md). In questa esercitazione si creerà un'area di lavoro tramite il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
@@ -67,7 +67,7 @@ Gli archivi dati di Azure Machine Learning vengono usati per archiviare le infor
     Campo|Descrizione 
     ---|---
     Nome dell'archivio dati | Assegnare un nome all'archivio dati.  Qui si userà **labeling_tutorial**.
-    Tipi di archivio dati | Selezionare il tipo di archivio.  Qui si userà **Archivio BLOB di Azure**, la risorsa di archiviazione preferita per le immagini.
+    Tipi di archivio dati | Selezionare il tipo di archivio.  Qui si userà **Archivio BLOB di Azure** , la risorsa di archiviazione preferita per le immagini.
     Metodo di selezione dell'account | Selezionare **Immetti manualmente**.
     URL | `https://azureopendatastorage.blob.core.windows.net/openimagescontainer`
     Tipo di autenticazione | Selezionare **Token di firma di accesso condiviso**.
@@ -118,7 +118,7 @@ Selezionare **Avanti** per continuare.
 
 ### <a name="label-classes"></a>Classi di etichette
 
-1. Nel modulo **Classi di etichette** digitare un nome di etichetta e quindi selezionare **+ Aggiungi etichetta** per digitare l'etichetta successiva.  Per questo progetto, le etichette sono **Cat**, **Dog** e **Uncertain**.
+1. Nel modulo **Classi di etichette** digitare un nome di etichetta e quindi selezionare **+ Aggiungi etichetta** per digitare l'etichetta successiva.  Per questo progetto, le etichette sono **Cat** , **Dog** e **Uncertain**.
 
 1. Dopo aver aggiunto tutte le etichette, selezionare **Avanti**.
 

@@ -90,7 +90,7 @@ Un numero selezionato di applicazioni, tra cui ServiceNow, Box e G Suite, suppor
 
 ![L'esempio illustra ServiceNow con oggetti gruppo e utente di cui è stato effettuato il provisioning](./media/customize-application-attributes/24.png)
 
-Il provisioning dei gruppi può essere facoltativamente abilitato o disabilitato selezionando il mapping dei gruppi in **Mapping** e impostando **Abilitato** su un'opzione nella schermata **Mapping attributi** .
+Il provisioning dei gruppi può essere facoltativamente abilitato o disabilitato selezionando il mapping dei gruppi in **Mapping** e impostando **Abilitato** su un'opzione nella schermata **Mapping attributi**.
 
 Gli attributi di cui viene effettuato il provisioning come parte di oggetti gruppo possono essere personalizzati allo stesso modo degli oggetti utente, descritto in precedenza. 
 
@@ -136,11 +136,11 @@ Quando si modifica l'elenco degli attributi supportati, vengono fornite le propr
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>Provisioning di un attributo di estensione personalizzato in un'applicazione conforme a SCIM
 SCIM RFC definisce uno schema di utenti e gruppi centrale, consentendo anche estensioni dello schema per soddisfare le esigenze dell'applicazione. Per aggiungere un attributo personalizzato a un'applicazione SCIM:
-   1. Accedere al [portale di Azure Active Directory](https://aad.portal.azure.com), selezionare **Applicazioni aziendali** , selezionare l'applicazione e quindi selezionare **Provisioning** .
+   1. Accedere al [portale di Azure Active Directory](https://aad.portal.azure.com), selezionare **Applicazioni aziendali** , selezionare l'applicazione e quindi selezionare **Provisioning**.
    2. In **Mapping** selezionare l'oggetto (utente o gruppo) per il quale si vuole aggiungere un attributo personalizzato.
-   3. Nella parte inferiore della pagina selezionare **Mostra opzioni avanzate** .
-   4. Selezionare **Modifica elenco attributi per AppName** .
-   5. Nella parte inferiore dell'elenco di attributi immettere le informazioni sull'attributo personalizzato nei campi disponibili. Quindi selezionare **Aggiungi attributo** .
+   3. Nella parte inferiore della pagina selezionare **Mostra opzioni avanzate**.
+   4. Selezionare **Modifica elenco attributi per AppName**.
+   5. Nella parte inferiore dell'elenco di attributi immettere le informazioni sull'attributo personalizzato nei campi disponibili. Quindi selezionare **Aggiungi attributo**.
 
 Per le applicazioni SCIM, il nome dell'attributo deve seguire il modello illustrato nell'esempio riportato di seguito. "CustomExtensionName" e "CustomAttribute" possono essere personalizzati in base ai requisiti dell'applicazione, ad esempio: urn: IETF: params: SCIM: schemas: Extension: CustomExtensionName: 2.0: User: CustomAttribute 
 

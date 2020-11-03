@@ -9,19 +9,19 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: a2e6111f2df5a8d7334a85ec5b6a9e514368ad6c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 708b8255f6cf7c60e2d2fc7fbd280b477c06a3d6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289481"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503284"
 ---
 # <a name="manage-access-to-workspaces-data-and-pipelines"></a>Gestire l'accesso ad aree di lavoro, dati e pipeline
 
 Informazioni su come gestire il controllo di accesso ad aree di lavoro, dati e pipeline in un'area di lavoro di Azure Synapse Analytics (anteprima).
 
 > [!NOTE]
-> Per la disponibilità generale, il controllo degli accessi in base al ruolo verrà ulteriormente sviluppato con l'introduzione di ruoli di Azure specifici di Synapse
+> Per la disponibilità generale, il controllo degli accessi in base al ruolo di Azure verrà ulteriormente sviluppato con l'introduzione di ruoli di Azure specifici di Synapse
 
 ## <a name="access-control-for-workspace"></a>Controllo di accesso per l'area di lavoro
 
@@ -62,7 +62,7 @@ Quando è stato effettuato il provisioning dell'area di lavoro, è stato necessa
 
 ### <a name="step-3-configure-the-workspace-admin-list"></a>Passaggio 3: Configurare l'elenco di amministratori dell'area di lavoro
 
-1. Passare all'[**interfaccia utente Web di Azure Synapse**](https://web.azuresynapse.net)
+1. Passare all' [**interfaccia utente Web di Azure Synapse**](https://web.azuresynapse.net)
 2. Passare a **Gestisci**  > **sicurezza** > **Controllo di accesso**
 3. Selezionare **Aggiungi amministratore** e quindi `Synapse_WORKSPACENAME_Admins`
 
@@ -144,7 +144,7 @@ Per concedere l'accesso a un utente a **tutti** i database SQL su richiesta, seg
 
 ```sql
 CREATE LOGIN [alias@domain.com] FROM EXTERNAL PROVIDER;
-ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
+ALTER SERVER ROLE  sysadmin  ADD MEMBER [alias@domain.com];
 ```
 
 ### <a name="sql-pools"></a>Pool SQL

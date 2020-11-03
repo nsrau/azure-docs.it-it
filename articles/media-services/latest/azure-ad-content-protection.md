@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-js
-ms.openlocfilehash: a6f1a5b532ba3d8d5ce24d6f9856d86719d35c6f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9415d66c49992bc31f773dec908a861f1126e714
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839538"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92427209"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Esercitazione: Protezione end-to-end del contenuto con Azure AD
 
@@ -155,7 +155,7 @@ Scegliere un tenant di Azure AD da usare per l'esempio end-to-end. Sono disponib
 1. Selezionare **Registrazioni app** dal menu.
 1. Fare clic su **+ Nuova registrazione**.
 1. Assegnare all'app il nome *LicenseDeliveryResource2* (dove 2 indica gli endpoint di AAD v2).
-1. Selezionare **Account solo in questa directory dell'organizzazione (Solo ([*nome tenant*] - Tenant singolo)** . Se si vuole consentire l'accesso a più tenant, selezionare una delle altre opzioni multi-tenant.
+1. Selezionare **Account solo in questa directory dell'organizzazione (Solo ([ *nome tenant* ] - Tenant singolo)** . Se si vuole consentire l'accesso a più tenant, selezionare una delle altre opzioni multi-tenant.
 1. L'opzione **URI di reindirizzamento** è facoltativa e può essere modificata in un secondo momento.
 1. Fare clic su **Register**. Si aprirà la visualizzazione Registrazioni app.
 1. Selezionare **Manifesto** dal menu. Si aprirà la visualizzazione Manifesto.
@@ -182,7 +182,7 @@ Scegliere un tenant di Azure AD da usare per l'esempio end-to-end. Sono disponib
 1. Selezionare **Registrazioni app** dal menu.
 1. Fare clic su **+ Nuova registrazione**.
 1. Assegnare un nome all'applicazione client, ad esempio *Protezione del contenuto AMS AAD*.
-1. Selezionare **Account solo in questa directory dell'organizzazione (Solo ([*nome tenant*] - Tenant singolo)** . Se si vuole consentire l'accesso a più tenant, selezionare una delle altre opzioni multi-tenant.
+1. Selezionare **Account solo in questa directory dell'organizzazione (Solo ([ *nome tenant* ] - Tenant singolo)** . Se si vuole consentire l'accesso a più tenant, selezionare una delle altre opzioni multi-tenant.
 1. L'opzione **URI di reindirizzamento** è facoltativa e può essere modificata in un secondo momento.
 1. Fare clic su **Registra**.
 1. Selezionare **Autorizzazioni API** dal menu.
@@ -250,7 +250,7 @@ Cambiare i valori di `ida_AADOpenIdDiscoveryDocument`, `ida_audience` e `ida_iss
 1. Selezionare il tenant di AAD usato in precedenza, fare clic su **Registrazioni app** nel menu, quindi fare clic sul collegamento **Endpoint**.
 1. Selezionare e copiare il valore del campo **Documento di metadati OpenIdConnect** e incollarlo nel codice come valore di `ida_AADOpenIdDiscoveryDocument`.
 1. Il valore di `ida_audience` è l'ID applicazione (client) dell'app registrata *LicenseDeliveryResource2*.
-1. Il valore di `ida_issuer` è l'URL `https://login.microsoftonline.com/[tenant_id]/v2.0`. Sostituire [*tenant_id*] con l'ID del tenant.
+1. Il valore di `ida_issuer` è l'URL `https://login.microsoftonline.com/[tenant_id]/v2.0`. Sostituire [ *tenant_id* ] con l'ID del tenant.
 
 ## <a name="set-up-the-sample-player-app"></a>Configurare l'app lettore di esempio
 
@@ -269,7 +269,7 @@ Sono disponibili due opzioni per configurare l'app lettore:
 1. Sostituire `OAUTH2_CONST.CLIENT_ID` con il `client_id` dell'applicazione client registrata nel tenant di AAD.  È possibile trovare il `client_id` nella sezione Panoramica dell'app registrata nel portale di Azure. Nota: è l'ID del client, non dell'oggetto.
 1. Sostituire `OAUTH2_CONST.TENANT_ID` con il `tenant_id` del tenant di Azure AD. È possibile trovare il `tenant_id` facendo clic sul menu Azure Active Directory. Il tenant_id verrà visualizzato nella sezione Panoramica.
 1. Sostituire `OAUTH2_CONST.SCOPE` con l'ambito aggiunto nell'app client registrata. È possibile trovare l'ambito passando all'app client registrata dal menu **Registrazioni app** e quindi selezionandola:
-    1. Selezionare l'app client, fare clic sul menu **Autorizzazioni API**, quindi selezionare l'ambito *DRM.License.Delivery* nell'autorizzazione API *LicenseDeliveryResource2*. Il formato dell'autorizzazione dovrebbe essere simile a *api://df4ed433-dbf0-4da6-b328-e1fe05786db5/DRM.License.Delivery*. **Importante**: mantenere lo spazio davanti a `offline_access` in `OAUTH2_CONST.SCOPE`.
+    1. Selezionare l'app client, fare clic sul menu **Autorizzazioni API** , quindi selezionare l'ambito *DRM.License.Delivery* nell'autorizzazione API *LicenseDeliveryResource2*. Il formato dell'autorizzazione dovrebbe essere simile a *api://df4ed433-dbf0-4da6-b328-e1fe05786db5/DRM.License.Delivery*. **Importante** : mantenere lo spazio davanti a `offline_access` in `OAUTH2_CONST.SCOPE`.
 1. Sostituire le due stringhe costanti per `AMS_CONST` come indicato di seguito. Una è l'URL di streaming protetto della risorsa di test e l'altra è l'URL del certificato dell'applicazione FPS se si vuole includere il test case FairPlay. Altrimenti è possibile lasciare invariato `AMS_CONST.APP_CERT_URL`. Fare quindi clic su **Salva**.
 
 ```javascript
@@ -313,7 +313,7 @@ Se si prevede di usare un altro IDE o un'altra piattaforma Web e/o un server Web
 
 Ora che l'esercitazione è stata completata e si dispone di un sottosistema funzionante, è possibile provare a modificarlo per gli scenari dei clienti seguenti:
 
-### <a name="role-based-access-control-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Controllo degli accessi in base al ruolo per la distribuzione delle licenze tramite l'appartenenza ai gruppi di Azure AD
+### <a name="azure-role-based-access-control-azure-rbac-for-license-delivery-via-azure-ad-group-membership"></a>Controllo degli accessi in base al ruolo di Azure per la distribuzione delle licenze tramite l'appartenenza ai gruppi di Azure AD
 
 Fino a questo punto, il sistema consente a tutti gli utenti che possono accedere di ottenere una licenza valida e riprodurre i contenuti protetti.
 
@@ -328,7 +328,7 @@ Tutti i clienti in genere esprimono l'esigenza che un sottoinsieme di utenti aut
 
 #### <a name="set-up-the-media-services-account"></a>Configurare l'account Servizi multimediali di Azure
 
-Modificare `ContentKeyPolicyRestriction` (come illustrato nella sezione precedente relativa alla configurazione dell'account di Servizi multimediali) aggiungendo un'attestazione denominata *groups*, dove `ida_EntitledGroupObjectId` ha come valore l'ID oggetto di *PremiumGroup*:
+Modificare `ContentKeyPolicyRestriction` (come illustrato nella sezione precedente relativa alla configurazione dell'account di Servizi multimediali) aggiungendo un'attestazione denominata *groups* , dove `ida_EntitledGroupObjectId` ha come valore l'ID oggetto di *PremiumGroup* :
 
 ```dotnetcli
 

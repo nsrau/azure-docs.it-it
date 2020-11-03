@@ -1,6 +1,6 @@
 ---
 title: "Avvio rapido: Distribuire l'API di Azure per FHIR tramite un modello di Resource Manager"
-description: Questo argomento di avvio rapido illustra come distribuire l'API di Azure per Fast Healthcare Interoperability Resources (FHIR®) usando un modello di Azure Resource Manager.
+description: Questo argomento di avvio rapido illustra come distribuire l'API di Azure per Fast Healthcare Interoperability Resources (FHIR®) usando un modello di Azure Resource Manager (ARM).
 author: mgblythe
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 10/06/2020
-ms.openlocfilehash: e9b2ec017ca985c1de739ee74c4d0732f39bdc1d
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 0d045aac63daf99bf67ec79438f55eedd5f200d9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91772737"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521442"
 ---
 # <a name="quickstart-use-an-arm-template-to-deploy-azure-api-for-fhir"></a>Avvio rapido: Usare un modello di Resource Manager per distribuire l'API di Azure per FHIR
 
@@ -69,19 +69,19 @@ Replace the line above with the following line once https://docs.microsoft.com/a
 
 Selezionare il collegamento seguente per distribuire l'API di Azure per FHIR usando il modello di Resource Manager nel portale di Azure:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuire in Azure un servizio API di Azure per FHIR usando un modello di Resource Manager nel portale di Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuire in Azure un servizio API di Azure per FHIR usando il modello di Resource Manager nel portale di Azure.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-azure-api-for-fhir%2fazuredeploy.json)
 
 Nella pagina **Deploy Azure API for FHIR** (Distribuisci API di Azure per FHIR):
 
 1. Se si vuole, in **Sottoscrizione** sostituire l'impostazione predefinita con un'altra sottoscrizione.
 
-2. In **Gruppo di risorse** selezionare **Crea nuovo**, immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
+2. In **Gruppo di risorse** selezionare **Crea nuovo** , immettere un nome per il nuovo gruppo di risorse e quindi fare clic su **OK**.
 
 3. Se è stato creato un nuovo gruppo di risorse, in **Area** selezionare un valore per il gruppo di risorse.
 
 4. Immettere un nuovo **nome del servizio** e scegliere la **località** dell'API di Azure per FHIR. La località può corrispondere o meno all'area del gruppo di risorse.
 
-    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Distribuire in Azure un servizio API di Azure per FHIR usando un modello di Resource Manager nel portale di Azure.":::
+    :::image type="content" source="./media/fhir-paas-arm-template-quickstart/deploy-azure-api-fhir.png" alt-text="Distribuire l'API di Azure per FHIR usando il modello di Resource Manager nel portale di Azure.":::
 
 5. Selezionare **Rivedi e crea**.
 
@@ -224,9 +224,14 @@ read -p "Press [ENTER] to continue: "
 
 ---
 
+Per un'esercitazione dettagliata che illustra il processo di creazione di un modello di Resource Manager, vedere [Esercitazione: Creare e distribuire il primo modello di Azure Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un'esercitazione dettagliata che illustra il processo di creazione di un modello di Resource Manager, vedere:
+In questa guida di avvio rapido è stata distribuita l'API di Azure per FHIR nella sottoscrizione. Per configurare le impostazioni aggiuntive nell'API di Azure per FHIR, passare alla guida pratica sulle impostazioni aggiuntive. Se si vuole iniziare a usare l'API di Azure per FHIR, leggere gli articoli relativi alla registrazione delle applicazioni.
 
-> [!div class="nextstepaction"]
-> [ Esercitazione: Creare e distribuire il primo modello di Resource Manager](../azure-resource-manager/templates/template-tutorial-create-first-template.md)
+>[!div class="nextstepaction"]
+>[Impostazioni aggiuntive nell'API di Azure per FHIR](azure-api-for-fhir-additional-settings.md)
+
+>[!div class="nextstepaction"]
+>[Panoramica della registrazione di applicazioni](fhir-app-registration.md)

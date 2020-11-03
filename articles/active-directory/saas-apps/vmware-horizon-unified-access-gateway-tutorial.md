@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 9e9d98e8b68b4e01d7e8f19e7c7d89a88d9bf69f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cfdcc39966e58a845be0096474cb8a3366f3dd7a
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89500572"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92503590"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-vmware-horizon---unified-access-gateway"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con VMware Horizon - Unified Access Gateway
 
@@ -74,13 +74,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<HORIZON_UAG_FQDN>/portal`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<HORIZON_UAG_FQDN>/portal/samlsso`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<HORIZON_UAG_FQDN>`
 
@@ -99,7 +99,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -121,11 +121,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-vmware-horizon-unified-access-gateway-sso"></a>Configurare l'accesso Single Sign-On di VMware Horizon - Unified Access Gateway
 
-Per configurare l'accesso Single Sign-On sul lato **VMware Horizon - Unified Access Gateway**, è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di VMware Horizon - Unified Access Gateway](mailto:support@vmware.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **VMware Horizon - Unified Access Gateway** , è necessario inviare il file **XML dei metadati della federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di VMware Horizon - Unified Access Gateway](mailto:support@vmware.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-vmware-horizon-unified-access-gateway-test-user"></a>Creare l'utente di test di VMware Horizon - Unified Access Gateway
 
-In questa sezione viene creato un utente di test di nome B.Simon in VMware Horizon - Unified Access Gateway. Collaborare con il  [team di supporto di VMware Horizon - Unified Access Gateway](mailto:support@vmware.com) per aggiungere gli utenti alla piattaforma VMware Horizon - Unified Access Gateway. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di test di nome B.Simon in VMware Horizon - Unified Access Gateway. Collaborare con il [team di supporto di VMware Horizon - Unified Access Gateway](mailto:support@vmware.com) per aggiungere gli utenti alla piattaforma VMware Horizon - Unified Access Gateway. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
@@ -141,8 +141,8 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 * Dopo aver fatto clic su **Test this application** (Testa questa applicazione) nel portale di Azure, si dovrebbe accedere automaticamente all'istanza di VMware Horizon - Unified Access Gateway per cui si è configurato l'accesso SSO 
 
-È anche possibile usare il pannello di accesso Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro di VMware Horizon - Unified Access Gateway nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di VMware Horizon - Unified Access Gateway per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+È anche possibile usare il pannello di accesso Microsoft per testare l'applicazione in qualsiasi modalità. Quando si fa clic sul riquadro di VMware Horizon - Unified Access Gateway nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di VMware Horizon - Unified Access Gateway per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver configurato VMware Horizon - Unified Access Gateway, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato VMware Horizon - Unified Access Gateway, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).

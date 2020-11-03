@@ -11,16 +11,16 @@ ms.topic: tutorial
 ms.custom: mvc, seodec18, devx-track-azurecli
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/11/2019
+ms.date: 10/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 63cdb27663cb1a2d8de1a97a2f352b05ff57a3f4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d175ac75ce76836d012cdd04d4dbd7d81ffda584
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89489885"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460700"
 ---
-# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-cli"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente con l'interfaccia della riga di comando
+# <a name="tutorial-deploying-hsms-into-an-existing-virtual-network-using-the-azure-cli"></a>Esercitazione: Distribuzione di moduli di protezione hardware in una rete virtuale esistente usando l'interfaccia della riga di comando di Azure
 
 HSM dedicato di Azure offre un dispositivo fisico ad uso esclusivo del cliente, con controllo amministrativo completo e piena responsabilità di gestione. Con l'uso di dispositivi fisici, per Microsoft diventa necessario controllarne l'allocazione per garantire una gestione efficace della capacità. Di conseguenza, il servizio HSM dedicato non sarà normalmente visibile per il provisioning delle risorse all'interno di una sottoscrizione di Azure. Per accedere al servizio HSM dedicato, i clienti di Azure dovranno prima contattare il rispettivo account executive Microsoft per richiedere la registrazione per tale servizio. Solo al termine di tale processo sarà possibile effettuare il provisioning. 
 
@@ -38,7 +38,7 @@ L'esercitazione è incentrata sull'integrazione di una coppia di moduli di prote
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-HSM dedicato di Azure non è attualmente disponibile nel portale di Azure. L'interazione con il servizio avverrà interamente tramite riga di comando o con PowerShell. In questa esercitazione verrà usata l'interfaccia della riga di comando in Azure Cloud Shell. Se non si ha familiarità con l'interfaccia della riga di comando di Azure, seguire le istruzioni introduttive disponibili nell'[introduzione all'interfaccia della riga di comando di Azure 2.0](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
+HSM dedicato di Azure non è attualmente disponibile nel portale di Azure. L'interazione con il servizio avverrà interamente tramite riga di comando o con PowerShell. In questa esercitazione verrà usata l'interfaccia della riga di comando in Azure Cloud Shell. Se non si ha familiarità con l'interfaccia della riga di comando di Azure, seguire le istruzioni introduttive disponibili nell'[introduzione all'interfaccia della riga di comando di Azure 2.0](/cli/azure/get-started-with-azure-cli?view=azure-cli-latest&preserve-view=true).
 
 Presupposti:
 
@@ -51,7 +51,7 @@ Tutte le istruzioni riportate di seguito presuppongono che si sia già passati a
 
 ## <a name="provisioning-a-dedicated-hsm"></a>Provisioning di un modulo di protezione hardware dedicato
 
-Il provisioning dei moduli di protezione hardware e la relativa integrazione in una rete virtuale esistente tramite gateway ExpressRoute verranno convalidati con ssh. Questa convalida consente di verificare la raggiungibilità e la disponibilità di base del dispositivo HSM per qualsiasi ulteriore attività di configurazione. I comandi riportati di seguito useranno un modello di Azure Resource Manager per creare le risorse HSM e le risorse di rete associate.
+Il provisioning dei moduli di protezione hardware e la relativa integrazione in una rete virtuale esistente tramite gateway ExpressRoute verranno convalidati con ssh. Questa convalida consente di verificare la raggiungibilità e la disponibilità di base del dispositivo HSM per qualsiasi ulteriore attività di configurazione.
 
 ### <a name="validating-feature-registration"></a>Convalida della registrazione della funzionalità
 
@@ -69,69 +69,14 @@ I comandi devono restituire lo stato "Registered", come illustrato di seguito. S
 
 ### <a name="creating-hsm-resources"></a>Creazione delle risorse HSM
 
-Poiché il provisioning di un modulo di protezione hardware viene effettuato nella rete virtuale di un cliente, sono necessarie una rete virtuale e una subnet. Per la comunicazione tra rete virtuale e dispositivo fisico, il modulo di protezione hardware dipende da un gateway ExpressRoute. È infine necessaria una macchina virtuale per accedere al dispositivo HSM usando il software client Gemalto. Queste risorse sono state raccolte in un file di modello, con il corrispondente file di parametri, per facilitare l'uso. Per ottenere i file, contattare direttamente Microsoft all'indirizzo HSMrequest@Microsoft.com.
-
-Dopo aver ottenuto i file, è necessario modificare il file di parametri per inserire i nomi preferiti per le risorse. Modificare le righe con "value": "".
-
-- `namingInfix`: prefisso per i nomi delle risorse HSM
-- `ExistingVirtualNetworkName`: nome della rete virtuale usata per i moduli di protezione hardware
-- `DedicatedHsmResourceName1`: nome della risorsa HSM nel data center 1
-- `DedicatedHsmResourceName2`: nome della risorsa HSM nel data center 2
-- `hsmSubnetRange`: intervallo di indirizzi IP della subnet per i moduli di protezione hardware
-- `ERSubnetRange`: intervallo di indirizzi IP della subnet per il gateway di rete virtuale
-
-Di seguito è riportato un esempio delle modifiche:
-
-```json
-{
-"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "namingInfix": {
-      "value": "MyHSM"
-    },
-    "ExistingVirtualNetworkName": {
-      "value": "MyHSM-vnet"
-    },
-    "DedicatedHsmResourceName1": {
-      "value": "HSM1"
-    },
-    "DedicatedHsmResourceName2": {
-      "value": "HSM2"
-    },
-    "hsmSubnetRange": {
-      "value": "10.0.2.0/24"
-    },
-    "ERSubnetRange": {
-      "value": "10.0.255.0/26"
-    },
-  }
-}
-```
-
-Con queste informazioni, il file del modello di Azure Resource Manager creerà 6 risorse:
-
-- Una subnet per i moduli di protezione hardware nella rete virtuale specificata
-- Una subnet per il gateway di rete virtuale
-- Un gateway di rete virtuale che connette la rete virtuale ai dispositivi HSM
-- Un indirizzo IP pubblico per il gateway
-- Un modulo di protezione hardware nel data center 1
-- Un modulo di protezione hardware nel data center 2
-
-Dopo l'impostazione dei valori dei parametri, per usare i file è necessario caricarli nella condivisione file di Cloud Shell nel portale di Azure. Nel portale di Azure fare clic sul simbolo di Cloud Shell "\>\_" in alto a destra. La parte inferiore della schermata si trasformerà in un ambiente di riga di comando. Le opzioni disponibili sono BASH e PowerShell. Se non è già impostato, selezionare BASH.
-
-Sulla barra degli strumenti della shell è disponibile un'opzione per il caricamento e il download. Selezionare questa opzione per caricare i file del modello e dei parametri nella condivisione file:
-
-![Condivisione file](media/tutorial-deploy-hsm-cli/file-share.png)
-
-Dopo aver caricato i file, è possibile creare le risorse. Prima di creare le nuove risorse HSM, verificare che siano presenti alcune risorse che ne costituiscono i prerequisiti. È necessario avere una rete virtuale con intervalli di subnet per il calcolo, i moduli di protezione hardware e il gateway. I comandi seguenti offrono un esempio di come creare una rete virtuale di questo tipo.
+Prima di creare risorse HSM, è necessario soddisfare alcuni prerequisiti di risorse. È necessario avere una rete virtuale con intervalli di subnet per il calcolo, i moduli di protezione hardware e il gateway. I comandi seguenti offrono un esempio di come creare una rete virtuale di questo tipo.
 
 ```azurecli
 az network vnet create \
   --name myHSM-vnet \
   --resource-group myRG \
-  --address-prefix 10.2.0.0/16
-  --subnet-name compute
+  --address-prefix 10.2.0.0/16 \
+  --subnet-name compute \
   --subnet-prefix 10.2.0.0/24
 ```
 
@@ -155,22 +100,47 @@ az network vnet subnet create \
 >[!NOTE]
 >La configurazione più importante da tenere presente per la rete virtuale è l'impostazione delle deleghe della subnet per il dispositivo modulo di protezione hardware su "Microsoft.HardwareSecurityModules/dedicatedHSMs".  Se questa opzione non è impostata, il provisioning dei moduli di protezione hardware non funzionerà.
 
-Quando tutti i prerequisiti sono presenti, eseguire questo comando per usare il modello di Azure Resource Manager, assicurandosi di aver aggiornato i valori con i propri nomi univoci (almeno per il nome del gruppo di risorse):
+Dopo aver configurato la rete, usare questi comandi dell'interfaccia della riga di comando di Azure per effettuare il provisioning dei moduli di protezione hardware.
+
+1. Usare il comando [az dedicated-hsm create](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_create) per effettuare il provisioning del primo modulo di protezione hardware. Il modulo di protezione hardware è denominato hsm1. Sostituire la sottoscrizione:
+
+   ```azurecli
+   az dedicated-hsm create --location westus --name hsm1 --resource-group myRG --network-profile-network-interfaces \
+        /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
+   ```
+
+   Il completamento di questa distribuzione richiederà circa 25-30 minuti, impiegati prevalentemente per i dispositivi HSM.
+
+1. Per visualizzare un modulo di protezione hardware corrente, eseguire il comando [az dedicated-hsm show](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_show):
+
+   ```azurecli
+   az dedicated-hsm show --resource group myRG --name hsm1
+   ```
+
+1. Effettuare il provisioning del secondo modulo di protezione hardware usando questo comando:
+
+   ```azurecli
+   az dedicated-hsm create --location westus --name hsm2 --resource-group myRG --network-profile-network-interfaces \
+        /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myRG/providers/Microsoft.Network/virtualNetworks/MyHSM-vnet/subnets/MyHSM-vnet
+   ```
+
+1. Eseguire il comando [az dedicated-hsm list](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_list) per visualizzare i dettagli dei moduli di protezione hardware correnti:
+
+   ```azurecli
+   az dedicated-hsm list --resource-group myRG
+   ```
+
+Sono disponibili altri comandi che potrebbero risultare utili. Usare il comando [az dedicated-hsm update](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_update) per aggiornare un modulo di protezione hardware:
 
 ```azurecli
-az group deployment create \
-   --resource-group myRG  \
-   --template-file ./Deploy-2HSM-toVNET-Template.json \
-   --parameters ./Deploy-2HSM-toVNET-Params.json \
-   --name HSMdeploy \
-   --verbose
+az dedicated-hsm update --resource-group myRG –name hsm1
 ```
 
-Il completamento di questa distribuzione richiederà circa 25-30 minuti, impiegati prevalentemente per i dispositivi HSM.
+Per eliminare un modulo di protezione hardware, usare il comando [az dedicated-hsm delete](/cli/azure/ext/hardware-security-modules/dedicated-hsm#ext_hardware_security_modules_az_dedicated_hsm_delete):
 
-![Stato del provisioning](media/tutorial-deploy-hsm-cli/progress-status.png)
-
-Al termine della distribuzione verrà visualizzata l'indicazione "provisioningState": "Succeeded". È possibile connettersi alla macchina virtuale esistente e usare ssh per verificare la disponibilità del dispositivo HSM.
+```azurecli
+az dedicated-hsm delete --resource-group myRG –name hsm1
+```
 
 ## <a name="verifying-the-deployment"></a>Verifica della distribuzione
 
@@ -184,7 +154,49 @@ az resource show \
    --ids /subscriptions/$subid/resourceGroups/myRG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSM2
 ```
 
-![output del provisioning](media/tutorial-deploy-hsm-cli/progress-status2.png)
+L'output sarà simile al seguente:
+
+```json
+{
+    "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/HSMl",
+    "identity": null,
+    "kind": null,
+    "location": "westus",
+    "managedBy": null,
+    "name": "HSM1",
+    "plan": null,
+    "properties": {
+        "networkProfile": {
+            "networkInterfaces": [
+            {
+            "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.Network/networkInterfaces/HSMl_HSMnic", "privatelpAddress": "10.0.2.5",
+            "resourceGroup": "HSM-RG"
+            }
+            L
+            "subnet": {
+                "id": n/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/HSM-RG/providers/Microsoft.Network/virtualNetworks/demo-vnet/subnets/hsmsubnet", "resourceGroup": "HSM-RG"
+            }
+        },
+        "provisioningState": "Succeeded",
+        "stampld": "stampl",
+        "statusMessage": "The Dedicated HSM device is provisioned successfully and ready to use."
+    },
+    "resourceGroup": "HSM-RG",
+    "sku": {
+        "capacity": null,
+        "family": null,
+        "model": null,
+        "name": "SafeNet Luna Network HSM A790",
+        "size": null,
+        "tier": null
+    },
+    "tags": {
+        "Environment": "prod",
+        "resourceType": "Hsm"
+    },
+    "type": "Microsoft.HardwareSecurityModules/dedicatedHSMs"
+}
+```
 
 Sarà ora possibile anche visualizzare le risorse con [Azure Resource Explorer](https://resources.azure.com/).   In Resource Explorer espandere "subscriptions" (sottoscrizioni) a sinistra, la sottoscrizione specifica per HSM dedicato, "resource groups" (gruppi di risorse) e quindi il gruppo di risorse usato e infine selezionare l'elemento "resources" (risorse).
 
@@ -219,7 +231,7 @@ Dopo aver stabilito la connessione al modulo di protezione hardware con ssh, ese
 
 L'output sarà simile a quello riportato nell'immagine seguente:
 
-![Elenco dei componenti](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
+![Screenshot che mostra l'output nella finestra di PowerShell.](media/tutorial-deploy-hsm-cli/hsm-show-output.png)
 
 A questo punto, sono state allocate tutte le risorse per una distribuzione a disponibilità elevata con due moduli di protezione hardware e sono stati convalidati l'accesso e lo stato operativo. Qualsiasi ulteriore configurazione o test prevede operazioni aggiuntive con il dispositivo HSM stesso. A tale scopo, seguire le istruzioni riportate nel capitolo 7 della guida all'amministrazione di Gemalto Luna Network HSM 7 per inizializzare il modulo di protezione hardware e creare partizioni. Tutta la documentazione e il software sono scaricabili direttamente da Gemalto dopo aver effettuato la registrazione nel portale di supporto tecnico di Gemalto e aver acquisito un ID cliente. Per ottenere tutti i componenti necessari, scaricare la versione 7.2 del software client.
 
@@ -230,21 +242,19 @@ Se il dispositivo HSM non è più necessario, può essere eliminato come risorsa
 > [!NOTE]
 > In caso di problemi con la configurazione del dispositivo Gemalto, contattare il [supporto tecnico di Gemalto](https://safenet.gemalto.com/technical-support/).
 
-
 Se tutte le risorse di questo gruppo di risorse non sono più necessarie, è possibile rimuoverle tutte con il comando seguente:
 
 ```azurecli
-az group deployment delete \
+az group delete \
    --resource-group myRG \
    --name HSMdeploy \
    --verbose
-
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Al termine dei passaggi di questa esercitazione, le risorse di HSM dedicato sono state sottoposte a provisioning e si ha una rete virtuale con i moduli di protezione hardware e gli ulteriori componenti di rete necessari per consentire la comunicazione con il modulo di protezione hardware.  Si è ora in condizione di completare la distribuzione con le altre risorse necessarie per l'architettura di distribuzione preferita. Per altre informazioni utili per la pianificazione della distribuzione, vedere i documenti della sezione relativa ai concetti.
-È consigliabile una progettazione con due moduli di protezione hardware in un'area primaria per la disponibilità a livello di rack e due moduli di protezione hardware in un'area secondaria per la disponibilità a livello di area. Il file di modello usato in questa esercitazione può essere facilmente sfruttato come base per una distribuzione con due moduli di protezione hardware, ma è necessario modificarne i parametri in base ai propri requisiti.
+È consigliabile una progettazione con due moduli di protezione hardware in un'area primaria per la disponibilità a livello di rack e due moduli di protezione hardware in un'area secondaria per la disponibilità a livello di area. 
 
 * [Disponibilità elevata](high-availability.md)
 * [Sicurezza fisica](physical-security.md)

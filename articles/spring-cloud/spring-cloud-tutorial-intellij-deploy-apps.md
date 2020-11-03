@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 03/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 6aa56eeab59dee3f080895d5f15285a2b2d41591
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 91edbbda43365b17b8276572804ba788dbee9f13
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088772"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426730"
 ---
 # <a name="use-intellij-to-deploy-azure-spring-cloud-applications"></a>Usare IntelliJ per distribuire applicazioni Azure Spring Cloud
 
@@ -25,10 +25,10 @@ Prima di eseguire questo esempio, è possibile provare la [guida di avvio rapido
 ## <a name="prerequisites"></a>Prerequisiti
 * [JDK 8 Azul Zulu](/java/azure/jdk/java-jdk-install?preserve-view=true&view=azure-java-stable)
 * [Maven 3.5.0+](https://maven.apache.org/download.cgi)
-* [IntelliJ IDEA, Community/Ultimate Edition, versione 2020.1/2019.3](https://www.jetbrains.com/idea/download/#section=windows)
+* [IntelliJ IDEA, Community/Ultimate Edition, versione 2020.1/2020.2](https://www.jetbrains.com/idea/download/#section=windows)
 
 ## <a name="install-the-plug-in"></a>Installare il plug-in
-È possibile aggiungere Azure Toolkit for IntelliJ IDEA 3.35.0 dall'interfaccia utente **Plugins** (Plug-in) di IntelliJ.
+È possibile aggiungere Azure Toolkit for IntelliJ IDEA 3.43.0 dall'interfaccia utente **Plugins** (Plug-in) di IntelliJ.
 
 1. Avviare IntelliJ.  Se è stato aperto un progetto in precedenza, chiudere il progetto per visualizzare la finestra di dialogo di benvenuto. Selezionare **Configure** (Configura) dal collegamento in basso a destra e quindi fare clic su **Plugins** (Plug-in) per aprire la finestra di dialogo di configurazione del plug-in e selezionare **Install Plugins from disk** (Installa plug-in da disco).
 
@@ -89,7 +89,7 @@ Per eseguire la distribuzione in Azure, è necessario accedere con l'account Azu
 
 ## <a name="show-streaming-logs"></a>Visualizzare i log in streaming
 Per ottenere i log:
-1. Selezionare **Azure Explorer**, quindi **Spring Cloud**.
+1. Selezionare **Azure Explorer** , quindi **Spring Cloud**.
 1. Fare clic con il pulsante destro del mouse sull'app in esecuzione.
 1. Selezionare **Streaming Logs** (Log in streaming) dall'elenco a discesa.
 

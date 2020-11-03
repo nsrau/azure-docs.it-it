@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/04/2019
 ms.author: jeedes
-ms.openlocfilehash: 2b99d5ea33693431fb3811af50385891684a366e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa3c5115a5255d30decbc66691878ffbe2579a06
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546458"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514589"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-thousandeyes"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con ThousandEyes
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare ThousandEyes con Azure Active Direc
 * Abilitare gli utenti per l'accesso automatico a ThousandEyes con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +40,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * ThousandEyes supporta l'accesso SSO avviato da **SP e IDP**
-* ThousandEyes supporta il [provisioning utenti **automatico**](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-provisioning-tutorial)
+* ThousandEyes supporta il [provisioning utenti **automatico**](./thousandeyes-provisioning-tutorial.md)
 
 > [!NOTE]
 > Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
@@ -81,7 +81,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** l'applicazione è preconfigurata e gli URL necessari sono già prepopolati con Azure. L'utente deve salvare la configurazione facendo clic sul pulsante **Salva**.
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     Nella casella di testo **URL di accesso** digitare un URL: `https://app.thousandeyes.com/login/sso`
 
@@ -97,7 +97,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -129,11 +129,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 2. Nel menu in alto fare clic su **Settings** (Impostazioni).
 
-    ![Settings](./media/thousandeyes-tutorial/ic790066.png "Impostazioni")
+    ![Screenshot che mostra il sito ThousandEyes con l'opzione Settings selezionata.](./media/thousandeyes-tutorial/ic790066.png "Impostazioni")
 
 3. Fare clic su **Account**
 
-    ![Account](./media/thousandeyes-tutorial/ic790067.png "Account")
+    ![Screenshot che mostra l'opzione Accounts selezionata nel menu Settings.](./media/thousandeyes-tutorial/ic790067.png "Account")
 
 4. Fare clic sulla scheda **Security & Authentication** (Sicurezza e autenticazione).
 
@@ -145,9 +145,9 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     a. Selezionare **Enable Single Sign-On**.
 
-    b. Nella casella di testo **Login Page URL** (URL della pagina di accesso) incollare l'**URL di accesso** copiato dal portale di Azure.
+    b. Nella casella di testo **Login Page URL** (URL della pagina di accesso) incollare l' **URL di accesso** copiato dal portale di Azure.
 
-    c. Nella casella di testo **Logout Page URL** (URL della pagina di disconnessione) incollare l'**URL di disconnessione** copiato dal portale di Azure.
+    c. Nella casella di testo **Logout Page URL** (URL della pagina di disconnessione) incollare l' **URL di disconnessione** copiato dal portale di Azure.
 
     d. Nella casella di testo **Identity Provider Issuer** (Autorità di certificazione del provider di identità) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
 
@@ -165,11 +165,11 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in ThousandE
 
 2. Fare clic su **Impostazioni**.
 
-    ![Impostazioni](./media/thousandeyes-tutorial/IC790066.png "Impostazioni")
+    ![Screenshot che mostra il sito ThousandEyes con l'opzione Settings selezionata.](./media/thousandeyes-tutorial/ic790066.png "Impostazioni")
 
 3. Fare clic su **Account**.
 
-    ![Account](./media/thousandeyes-tutorial/IC790067.png "Account")
+    ![Screenshot che mostra l'opzione Accounts selezionata nel menu Settings.](./media/thousandeyes-tutorial/ic790067.png "Account")
 
 4. Fare clic sulla scheda **Accounts & Users** (Account e utenti).
 
@@ -196,16 +196,16 @@ Questa sezione descrive come creare un utente chiamato Britta Simon in ThousandE
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di ThousandEyes nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di ThousandEyes per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di ThousandEyes nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di ThousandEyes per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare ThousandEyes con Azure AD](https://aad.portal.azure.com/)
 
-- [Configura provisioning utenti](https://docs.microsoft.com/azure/active-directory/saas-apps/thousandeyes-provisioning-tutorial)
+- [Configura provisioning utenti](./thousandeyes-provisioning-tutorial.md)

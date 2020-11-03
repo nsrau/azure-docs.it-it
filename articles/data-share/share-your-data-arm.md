@@ -1,26 +1,26 @@
 ---
 title: Condividere all'esterno dell'organizzazione (modello di Resource Manager) - Avvio rapido su Condivisione dati di Azure
-description: In questa guida di avvio rapido viene illustrato come condividere dati con clienti e partner usando Condivisione dati di Azure e un modello di Resource Manager.
+description: Questo argomento di avvio rapido illustra come condividere dati con clienti e partner usando Condivisione dati di Azure e un modello di Azure Resource Manager.
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 08/19/2020
-ms.openlocfilehash: f72fbad579bcb08a36c2dd29c387e18953f26c09
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 5abe92120c8b822ac86ced90658869a0858d4ff4
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92146148"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92487688"
 ---
-# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Avvio rapido: Condividere i dati usando Condivisione dati di Azure e modelli di Resource Manager
+# <a name="quickstart-share-data-using-azure-data-share-and-arm-template"></a>Avvio rapido: Condividere dati con Condivisione dati di Azure e un modello di Resource Manager
 
-Informazioni su come configurare una nuova condivisione dati di Azure da un account di archiviazione usando un modello di Resource Manager e come iniziare a condividere i dati con clienti e partner esterni all'organizzazione di Azure. Per un elenco degli archivi dati supportati, vedere [Archivi dati supportati in Condivisione dati di Azure](./supported-data-stores.md).
+Questo argomento di avvio rapido illustra come configurare una nuova condivisione dati di Azure da un account di archiviazione di Azure usando un modello di Azure Resource Manager e iniziare a condividere i dati con clienti e partner all'esterno dell'organizzazione di Azure. Per un elenco degli archivi dati supportati, vedere [Archivi dati supportati in Condivisione dati di Azure](./supported-data-stores.md).
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
 
 [![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-data-share-share-storage-account%2Fazuredeploy.json)
 
@@ -38,12 +38,12 @@ Nel modello sono definite le risorse seguenti:
 
 * [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts):
 * [Microsoft.Storage/storageAccounts/blobServices/containers](/azure/templates/microsoft.storage/storageaccounts/blobservices/containers)
+* [Microsoft.DataShare/accounts](/azure/templates/microsoft.datashare/accounts)
+* [Microsoft.DataShare/accounts/shares](/azure/templates/microsoft.datashare/accounts/shares)
 * [Microsoft.Storage/storageAccounts/providers/roleAssignments](/azure/templates/microsoft.authorization/roleassignments)
-* [Microsoft.DataShare/accounts](/rest/api/datashare/accounts/create)
-* [Microsoft.DataShare/accounts/shares](/rest/api/datashare/shares/create)
-* [Microsoft.DataShare/accounts/shares/dataSets](/rest/api/datashare/datasets/create)
-* [Microsoft.DataShare/accounts/shares/invitations](/rest/api/datashare/invitations/create)
-* [Microsoft.DataShare/accounts/shares/synchronizationSettings](/rest/api/datashare/synchronizationsettings/create)
+* [Microsoft.DataShare/accounts/shares/dataSets](/azure/templates/microsoft.datashare/accounts/shares/datasets)
+* [Microsoft.DataShare/accounts/shares/invitations](/azure/templates/microsoft.datashare/accounts/shares/invitations)
+* [Microsoft.DataShare/accounts/shares/synchronizationSettings](/azure/templates/microsoft.datashare/accounts/shares/synchronizationsettings)
 
 Il modello esegue le attività seguenti:
 
@@ -56,11 +56,11 @@ Il modello esegue le attività seguenti:
 
 Questo modello viene creato a scopo di apprendimento. Nella pratica, in genere si hanno alcuni dati in un account di archiviazione esistente. Prima di eseguire un modello o uno script per creare il set di dati, è necessario creare l'assegnazione di ruolo. In alcuni casi, quando si distribuisce il modello, è possibile che si riceva il messaggio di errore seguente:
 
-```error message
+```plaintext
 "Missing permissions for DataShareAcccount on resource 'subscriptions/<SUBSCRIPTION ID>/resourceGroups/<RESOURCE GROUP NAME>/providers/Microsoft.Storage/storageAccounts/<STORAGE ACCOUNT NAME>' (Code: 5006)"
 ```
 
-Il motivo è che la distribuzione prova a creare il set di dati prima che l'assegnazione del ruolo di Azure venga finalizzata. Nonostante il messaggio di errore, la distribuzione potrebbe riuscire.  Sarà comunque possibile completare l'attività descritta in [Esaminare le risorse distribuite](#review-deployed-resources).
+Il motivo di questo errore è che la distribuzione prova a creare il set di dati prima che l'assegnazione del ruolo di Azure venga finalizzata. Nonostante il messaggio di errore, la distribuzione potrebbe riuscire. Sarà comunque possibile completare l'attività descritta in [Esaminare le risorse distribuite](#review-deployed-resources).
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
@@ -77,7 +77,7 @@ Il motivo è che la distribuzione prova a creare il set di dati prima che l'asse
     * **Messaggio di posta elettronica di invito** : immettere l'indirizzo di posta elettronica del destinatario della condivisione dati usato per l'accesso ad Azure.  L'alias di posta elettronica non funziona.
 
     Per le impostazioni rimanenti, usare i valori predefiniti.
-1. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista** .
+1. Selezionare **Accetto le condizioni riportate sopra** e quindi **Acquista**.
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
@@ -87,7 +87,7 @@ Il motivo è che la distribuzione prova a creare il set di dati prima che l'asse
 1. Selezionare l'account di archiviazione.  In **Dettagli** verrà visualizzata l'impostazione di sincronizzazione configurata nel modello.
 
     ![Impostazioni di sincronizzazione dell'account di archiviazione di Condivisione dati di Azure](./media/share-your-data-arm/azure-data-share-storage-account-synchronization-settings.png)
-1. Selezionare **Inviti** nella parte superiore. Verrà visualizzato l'indirizzo di posta elettronica specificato durante la distribuzione del modello. Lo **stato** sarà **In sospeso** .
+1. Selezionare **Inviti** nella parte superiore. Verrà visualizzato l'indirizzo di posta elettronica specificato durante la distribuzione del modello. Lo **stato** sarà **In sospeso**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

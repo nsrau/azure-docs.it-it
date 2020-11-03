@@ -7,12 +7,12 @@ ms.author: allensu
 ms.service: private-link
 ms.topic: tutorial
 ms.date: 10/19/2020
-ms.openlocfilehash: 6d4d9fd901337b9c05c7d7d7f271974273e9fe37
-ms.sourcegitcommit: 94ca9e89501e65f4dcccc3789249357c7d5e27e5
+ms.openlocfilehash: 502c48a92f5b41c4434d03139335a0ce05fa451f
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92170076"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896974"
 ---
 # <a name="tutorial-connect-to-a-web-app-using-an-azure-private-endpoint"></a>Esercitazione: Connettersi a un'app Web con un endpoint privato di Azure
 
@@ -57,7 +57,7 @@ L'host bastion verrà usato per connettersi in modo sicuro alla macchina virtual
     | Gruppo di risorse   | Selezionare **MyResourceGroup** |
     | **Dettagli istanza** |                                                                 |
     | Nome             | Immettere **myVNet**                                    |
-    | Region           | Selezionare **Stati Uniti orientali** . |
+    | Region           | Selezionare **Europa occidentale** |
 
 3. Selezionare la scheda **Indirizzi IP** oppure il pulsante **Avanti: Indirizzi IP** nella parte inferiore della pagina.
 
@@ -67,7 +67,7 @@ L'host bastion verrà usato per connettersi in modo sicuro alla macchina virtual
     |--------------------|----------------------------|
     | Spazio indirizzi IPv4 | Immettere **10.1.0.0/16** |
 
-5. In **Nome subnet** selezionare la parola **predefinito** .
+5. In **Nome subnet** selezionare la parola **predefinito**.
 
 6. In **Modifica subnet** immettere queste informazioni:
 
@@ -76,20 +76,20 @@ L'host bastion verrà usato per connettersi in modo sicuro alla macchina virtual
     | Nome della subnet | Immettere **mySubnet** |
     | Intervallo di indirizzi subnet | Immettere **10.1.0.0/24** |
 
-7. Selezionare **Salva** .
+7. Selezionare **Salva**.
 
-8. Selezionare la scheda **Sicurezza** .
+8. Selezionare la scheda **Sicurezza**.
 
-9. In **BastionHost** selezionare **Abilita** . Immettere le informazioni seguenti:
+9. In **BastionHost** selezionare **Abilita**. Immettere le informazioni seguenti:
 
     | Impostazione            | valore                      |
     |--------------------|----------------------------|
     | Nome bastion | Immettere **myBastionHost** |
     | Spazio indirizzi della subnet AzureBastionSubnet | Immettere **10.1.1.0/24** |
-    | Indirizzo IP pubblico | Selezionare **Crea nuovo** . </br> Per **Nome** immettere **myBastionIP** . </br> Selezionare **OK** . |
+    | Indirizzo IP pubblico | Selezionare **Crea nuovo**. </br> Per **Nome** immettere **myBastionIP**. </br> Selezionare **OK**. |
 
 
-8. Selezionare la scheda **Rivedi e crea** oppure il pulsante **Rivedi e crea** .
+8. Selezionare la scheda **Rivedi e crea** oppure il pulsante **Rivedi e crea**.
 
 9. Selezionare **Create** (Crea).
 
@@ -109,7 +109,7 @@ In questa sezione si creerà una macchina virtuale che verrà usata per testare 
     | Gruppo di risorse | Selezionare **MyResourceGroup** |
     | **Dettagli istanza** |  |
     | Nome macchina virtuale | Immettere **myVM** |
-    | Area | Selezionare **Stati Uniti orientali** . |
+    | Area | Selezionare **Europa occidentale** |
     | Opzioni di disponibilità | Selezionare **La ridondanza dell'infrastruttura non è richiesta** |
     | Immagine | Selezionare **Windows Server 2019 Datacenter - Gen1** |
     | Istanza Spot di Azure | Selezionare **No** |
@@ -119,7 +119,7 @@ In questa sezione si creerà una macchina virtuale che verrà usata per testare 
     | Password | Immettere una password |
     | Conferma password | Reimmettere la password |
 
-3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete** .
+3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete**.
   
 4. Nella scheda Rete selezionare o immettere:
 
@@ -128,13 +128,13 @@ In questa sezione si creerà una macchina virtuale che verrà usata per testare 
     | **Interfaccia di rete** |  |
     | Rete virtuale | **myVNet** |
     | Subnet | **mySubnet** |
-    | IP pubblico | Selezionare **Nessuno** . |
+    | IP pubblico | Selezionare **Nessuno**. |
     | Gruppo di sicurezza di rete della scheda di interfaccia di rete | **Base**|
-    | Porte in ingresso pubbliche | Selezionare **Nessuno** . |
+    | Porte in ingresso pubbliche | Selezionare **Nessuno**. |
    
-5. Selezionare **Rivedi e crea** . 
+5. Selezionare **Rivedi e crea**. 
   
-6. Rivedere le impostazioni e quindi selezionare **Crea** .
+6. Rivedere le impostazioni e quindi selezionare **Crea**.
 
 ## <a name="create-web-app"></a>Crea app Web
 
@@ -150,16 +150,16 @@ In questa sezione si creerà un'app Web.
     | Subscription | Selezionare la sottoscrizione ad Azure |
     | Gruppo di risorse | Selezionare **MyResourceGroup** |
     | **Dettagli istanza** |  |
-    | Nome | Immettere **mywebapp** . Se il nome non è disponibile, immetterne un altro univoco. |
-    | Pubblica | Selezionare **Codice** . |
+    | Nome | Immettere **mywebapp**. Se il nome non è disponibile, immetterne un altro univoco. |
+    | Pubblica | Selezionare **Codice**. |
     | Stack di runtime | Selezionare **.NET Core 3.1 (LTS)** . |
-    | Sistema operativo | Selezionare **Windows** . |
-    | Area | Selezionare **Stati Uniti orientali** . |
+    | Sistema operativo | Selezionare **Windows**. |
+    | Area | Selezionare **Europa occidentale** |
     | **Piano di servizio app** |  |
-    | Piano di Windows (Stati Uniti orientali) | Selezionare **Crea nuovo** . </br> Immettere **myServicePlan** in **Nome** . |
-    | SKU e dimensioni | Selezionare **Modifica dimensioni** . </br> Selezionare **P2V2** nella schermata **Selezione specifiche** . </br> Selezionare **Applica** . |
+    | Piano Windows (Europa occidentale) | Selezionare **Crea nuovo**. </br> Immettere **myServicePlan** in **Nome**. |
+    | SKU e dimensioni | Selezionare **Modifica dimensioni**. </br> Selezionare **P2V2** nella schermata **Selezione specifiche**. </br> Selezionare **Applica**. |
    
-3. Selezionare **Rivedi e crea** .
+3. Selezionare **Rivedi e crea**.
 
 4. Selezionare **Create** (Crea).
 
@@ -169,23 +169,23 @@ In questa sezione si creerà un'app Web.
 
 1. Nel menu a sinistra selezionare **Tutte le risorse** > **mywebapp** o il nome scelto durante la creazione.
 
-2. Nella panoramica dell'app Web selezionare **Impostazioni** > **Rete** .
+2. Nella panoramica dell'app Web selezionare **Impostazioni** > **Rete**.
 
-3. In **Rete** selezionare **Configurare le connessioni endpoint privato** .
+3. In **Rete** selezionare **Configurare le connessioni endpoint privato**.
 
-4. Selezionare **+ Aggiungi** nella schermata **Connessioni endpoint privato** .
+4. Selezionare **+ Aggiungi** nella schermata **Connessioni endpoint privato**.
 
 5. Nella schermata **Aggiungi endpoint privato** immettere o selezionare le informazioni seguenti:
 
     | Impostazione | Valore |
     | ------- | ----- |
-    | Nome | Immettere **mywebappendpoint** . |
+    | Nome | Immettere **mywebappendpoint**. |
     | Subscription | Selezionare la propria sottoscrizione. |
-    | Rete virtuale | Selezionare **myVNET** . |
-    | Subnet | Selezionare **mySubnet** . |
-    | Integra con la zona DNS privato | Selezionare **Sì** . |
+    | Rete virtuale | Selezionare **myVNET**. |
+    | Subnet | Selezionare **mySubnet**. |
+    | Integra con la zona DNS privato | Selezionare **Sì**. |
 
-6. Selezionare **OK** .
+6. Selezionare **OK**.
     
 
 ## <a name="test-connectivity-to-private-endpoint"></a>Testare la connettività con l'endpoint privato
@@ -194,13 +194,13 @@ In questa sezione si userà la macchina virtuale creata nel passaggio precedente
 
 1. Selezionare **Gruppi di risorse** nel riquadro di spostamento sinistro.
 
-2. Selezionare **myResourceGroup** .
+2. Selezionare **myResourceGroup**.
 
-3. Selezionare **myVM** .
+3. Selezionare **myVM**.
 
-4. Nella pagina di panoramica di **myVM** selezionare **Connetti** e quindi **Bastion** .
+4. Nella pagina di panoramica di **myVM** selezionare **Connetti** e quindi **Bastion**.
 
-5. Selezionare il pulsante blu **Usa Bastion** .
+5. Selezionare il pulsante blu **Usa Bastion**.
 
 6. Immettere il nome utente e la password specificati durante la creazione della macchina virtuale.
 
@@ -218,37 +218,37 @@ In questa sezione si userà la macchina virtuale creata nel passaggio precedente
     Aliases:  mywebapp8675.azurewebsites.net
     ```
 
-    Per il nome dell'app Web viene restituito l'indirizzo IP privato **10.1.0.5** .  Questo indirizzo si trova nella subnet della rete virtuale creata in precedenza.
+    Per il nome dell'app Web viene restituito l'indirizzo IP privato **10.1.0.5**.  Questo indirizzo si trova nella subnet della rete virtuale creata in precedenza.
 
-9. Aprire un Web browser nel computer locale e immettere l'URL esterno dell'app Web **https://\<webapp-name>.azurewebsites.net** .
+9. Aprire un Web browser nel computer locale e immettere l'URL esterno dell'app Web **https://\<webapp-name>.azurewebsites.net**.
 
-10. Verificare di ricevere una pagina **403** . Questa pagina indica che l'app Web non è accessibile esternamente.
+10. Verificare di ricevere una pagina **403**. Questa pagina indica che l'app Web non è accessibile esternamente.
 
-    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="Scheda Informazioni di base dell'opzione Crea app Web nel portale di Azure." border="true":::
+    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-ext-403.png" alt-text="Pagina 403 per l'indirizzo esterno dell'app Web." border="true":::
 
 11. Nella connessione bastion a **myVM** aprire Internet Explorer.
 
-12. Immettere l'URL dell'app Web **https://\<webapp-name>.azurewebsites.net** .
+12. Immettere l'URL dell'app Web **https://\<webapp-name>.azurewebsites.net**.
 
 13. Verificare di ricevere la pagina dell'app Web predefinita.
 
-    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-default-page.png" alt-text="Scheda Informazioni di base dell'opzione Crea app Web nel portale di Azure." border="true":::
+    :::image type="content" source="./media/tutorial-private-endpoint-webapp-portal/web-app-default-page.png" alt-text="Pagina dell'app Web predefinita." border="true":::
 
-18. Chiudere la connessione a **myVM** .
+18. Chiudere la connessione a **myVM**.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
 Se non si intende continuare a usare questa applicazione, eliminare la rete virtuale, la macchina virtuale e l'app Web seguendo questa procedura:
 
-1. Nel menu a sinistra selezionare **Gruppi di risorse** .
+1. Nel menu a sinistra selezionare **Gruppi di risorse**.
 
-2. Selezionare **myResourceGroup** .
+2. Selezionare **myResourceGroup**.
 
-3. Selezionare **Elimina gruppo di risorse** .
+3. Selezionare **Elimina gruppo di risorse**.
 
-4. In **DIGITARE IL NOME DEL GRUPPO DI RISORSE** immettere **myResourceGroup** .
+4. In **DIGITARE IL NOME DEL GRUPPO DI RISORSE** immettere **myResourceGroup**.
 
-5. Selezionare **Elimina** .
+5. Selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

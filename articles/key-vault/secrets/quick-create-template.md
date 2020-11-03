@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.custom: mvc,subject-armqs
 ms.date: 02/27/2020
 ms.author: jgao
-ms.openlocfilehash: cff67e99d40b092341e89c96a9f1e037d8572248
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 68c10ba5581ffe404e8e3c1ac8ce92832cfcd6c4
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88690630"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896430"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-an-arm-template"></a>Avvio rapido: Impostare e recuperare un segreto da Azure Key Vault usando un modello di Resource Manager
 
@@ -82,15 +82,15 @@ Altri esempi di modelli per Azure Key Vault sono disponibili in [Modelli di avvi
 
     Se non diversamente specificato, usare il valore predefinito per creare l'insieme di credenziali delle chiavi e un segreto.
 
-    * **Sottoscrizione**: selezionare una sottoscrizione di Azure.
-    * **Gruppo di risorse**: selezionare **Crea nuovo**, immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**.
-    * **Località**: selezionare una località. Ad esempio **Stati Uniti centrali**.
-    * **Nome insieme di credenziali delle chiavi**: immettere un nome per l'insieme di credenziali delle chiavi. Il nome deve essere globalmente univoco all'interno dello spazio dei nomi .vault.azure.net. Sarà necessario nella sezione successiva per convalidare la distribuzione.
-    * **ID tenant**: viene recuperato automaticamente dalla funzione del modello. Non modificare il valore predefinito.
-    * **ID oggetto utente AD**: immettere l'ID oggetto utente di Azure AD recuperato nella sezione [Prerequisiti](#prerequisites).
-    * **Nome segreto**: immettere un nome per il segreto archiviato nell'insieme di credenziali delle chiavi, ad esempio **adminpassword**.
-    * **Valore del segreto**: immettere il valore del segreto. Se si archivia una password, è consigliabile usare la password generata che è stata creata nella sezione Prerequisiti.
-    * **Accetto le condizioni riportate sopra**: selezionare questa casella.
+    * **Sottoscrizione** : selezionare una sottoscrizione di Azure.
+    * **Gruppo di risorse** : selezionare **Crea nuovo** , immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**.
+    * **Località** : selezionare una località. Ad esempio **Stati Uniti centrali**.
+    * **Nome insieme di credenziali delle chiavi** : immettere un nome per l'insieme di credenziali delle chiavi. Il nome deve essere globalmente univoco all'interno dello spazio dei nomi .vault.azure.net. Sarà necessario nella sezione successiva per convalidare la distribuzione.
+    * **ID tenant** : viene recuperato automaticamente dalla funzione del modello. Non modificare il valore predefinito.
+    * **ID oggetto utente AD** : immettere l'ID oggetto utente di Azure AD recuperato nella sezione [Prerequisiti](#prerequisites).
+    * **Nome segreto** : immettere un nome per il segreto archiviato nell'insieme di credenziali delle chiavi, ad esempio **adminpassword**.
+    * **Valore del segreto** : immettere il valore del segreto. Se si archivia una password, è consigliabile usare la password generata che è stata creata nella sezione Prerequisiti.
+    * **Accetto le condizioni riportate sopra** : selezionare questa casella.
 3. Selezionare **Acquisto**. Al termine della distribuzione dell'insieme di credenziali delle chiavi, si riceverà una notifica:
 
     ![Modello di Resource Manager, integrazione di Key Vault, notifica nel portale per la distribuzione](../media/quick-create-template/resource-manager-template-portal-deployment-notification.png)
@@ -124,7 +124,7 @@ L'output sarà simile al seguente:
 
 # <a name="cli"></a>[CLI](#tab/CLI)
 
-![Modello di Resource Manager, integrazione di Key Vault, output della convalida nel portale per la distribuzione](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
+![Screenshot che mostra l'output di convalida della distribuzione nel portale nell'interfaccia della riga di comando.](../media/quick-create-template/resource-manager-template-portal-deployment-cli-output.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 

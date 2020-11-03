@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc, contperfq1
-ms.date: 09/24/2020
+ms.date: 10/19/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 24b30842bea51394a375cf48e09b7547e057405c
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 22b202d0ef54984ea2818112b49bbdf7f1098833
+ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91261737"
+ms.lasthandoff: 10/21/2020
+ms.locfileid: "92341618"
 ---
 # <a name="what-is-azure-firewall"></a>Informazioni sul firewall di Azure
 
@@ -50,13 +50,16 @@ Le regole di filtro di rete per i protocolli non TCP/UDP (ad esempio ICMP) non f
 |FTP attivo non è supportato|FTP attivo è disabilitato nel firewall di Azure per proteggere dagli attacchi di rimbalzo FTP tramite il comando FTP PORT.|In alternativa, è possibile usare FTP passivo. È comunque necessario aprire in modo esplicito le porte TCP 20 e 21 sul firewall.
 |Il valore visualizzato dalla metrica di utilizzo delle porte SNAT è 0%|La metrica di utilizzo delle porte SNAT di Firewall di Azure può mostrare un utilizzo dello 0% anche quando vengono usate porte SNAT. In questo caso, l'uso della metrica come parte della metrica di integrità del firewall fornisce un risultato non corretto.|Questo problema è stato risolto e l'implementazione nell'ambiente di produzione è prevista nel mese di maggio 2020. La ridistribuzione del firewall risolve il problema in alcuni casi, ma non in modo coerente. Come soluzione alternativa intermedia, usare lo stato di integrità del firewall per cercare solo lo stato *degradato* e non lo stato *non integro*. L'esaurimento delle porte viene visualizzato come stato *degradato*. Lo stato *non integro* è riservato per un uso futuro, quando saranno disponibili più metriche di impatto per l'integrità del firewall.
 |DNAT non è supportato con il tunneling forzato abilitato|I firewall distribuiti con il tunneling forzato abilitato non supportano l'accesso in ingresso da Internet a causa del routing simmetrico.|Si tratta di una scelta per progettazione. Il percorso di ritorno per le connessioni in ingresso passa attraverso il firewall locale, che non ha visto la connessione stabilita.
-|L’FTP passivo in uscita non funziona per i firewall con più indirizzi IP pubblici|FTP passivo stabilisce connessioni diverse per canali di controllo e dei dati. Quando un firewall con più indirizzi IP pubblici invia dati in uscita, seleziona in modo casuale uno degli indirizzi IP pubblici come indirizzo IP di origine. FTP ha esito negativo quando i canali di controllo e dei dati usano indirizzi IP di origine diversi.|È stata pianificata una configurazione SNAT esplicita. Nel frattempo, è consigliabile usare un singolo indirizzo IP in questa situazione.|
+|FTP passivo in uscita potrebbe non funzionare per i firewall con più indirizzi IP pubblici, a seconda della configurazione del server FTP.|FTP passivo stabilisce connessioni diverse per canali di controllo e dei dati. Quando un firewall con più indirizzi IP pubblici invia dati in uscita, seleziona in modo casuale uno degli indirizzi IP pubblici come indirizzo IP di origine. Potrebbe verificarsi un errore FTP quando i canali di controllo e dei dati usano indirizzi IP di origine diversi, a seconda della configurazione del server FTP.|È stata pianificata una configurazione SNAT esplicita. Nell'attesa, è possibile configurare il server FTP in modo che accetti i canali di dati e di controllo da indirizzi IP di origine diversi (vedere un [esempio per IIS](https://docs.microsoft.com/iis/configuration/system.applicationhost/sites/sitedefaults/ftpserver/security/datachannelsecurity)). In alternativa, è consigliabile usare un solo indirizzo IP in questa situazione.|
+|FTP passivo in entrata potrebbe non funzionare a seconda della configurazione del server FTP. |FTP passivo stabilisce connessioni diverse per canali di controllo e dei dati. Le connessioni in ingresso su Firewall di Azure sono inviate tramite SNAT a uno degli indirizzi IP privati del firewall per assicurare il routing simmetrico. Potrebbe verificarsi un errore FTP quando i canali di controllo e dei dati usano indirizzi IP di origine diversi, a seconda della configurazione del server FTP.|La possibilità di mantenere l'indirizzo IP di origine originale è in fase di analisi. Nel frattempo, è possibile configurare il server FTP in modo che accetti i canali di dati e di controllo da indirizzi IP di origine diversi.|
 |Per la metrica NetworkRuleHit manca una dimensione del protocollo|La metrica ApplicationRuleHit consente il protocollo basato su filtro, ma questa funzionalità non è presente nella metrica NetworkRuleHit corrispondente.|È in corso la ricerca di una correzione.|
 |Le regole NAT con porte comprese tra 64000 e 65535 non sono supportate|Firewall di Azure consente l'uso di qualsiasi porta compresa nell'intervallo 1-65535 nelle regole di rete e dell'applicazione, tuttavia le regole NAT supportano solo le porte comprese nell'intervallo 1-63999.|Si tratta di una limitazione corrente.
 |Gli aggiornamenti della configurazione possono richiedere in media cinque minuti|Un aggiornamento della configurazione di Firewall di Azure può richiedere in media da tre a cinque minuti e gli aggiornamenti paralleli non sono supportati.|È in corso la ricerca di una correzione.|
 |Firewall di Azure usa le intestazioni TLS di SNI per filtrare il traffico HTTPS e MSSQL|Se il software del browser o del server non supporta l'estensione SNI (Server Name Indicator), non sarà possibile connettersi tramite Firewall di Azure.|Se il software del browser o del server non supporta SNI, potrebbe essere possibile controllare la connessione utilizzando una regola di rete anziché una regola dell'applicazione. Vedere [Indicazione nome server](https://wikipedia.org/wiki/Server_Name_Indication) per il software che supporta SNI.|
 |Il DNS personalizzato (anteprima) non supporta il tunneling forzato|Se il tunneling forzato è abilitato, il DNS personalizzato (anteprima) non funziona.|È in corso la ricerca di una correzione.|
-|Supporto del nuovo indirizzo IP pubblico per più zone di disponibilità|Non è possibile aggiungere un nuovo indirizzo IP pubblico quando si distribuisce un firewall con due zona di disponibilità (1 e 2, 2 e 3 o 1 e 3)|Questa è una limitazione della risorsa indirizzo IP pubblico.
+|Supporto del nuovo indirizzo IP pubblico per più zone di disponibilità|Non è possibile aggiungere un nuovo indirizzo IP pubblico quando si distribuisce un firewall con due zona di disponibilità (1 e 2, 2 e 3 o 1 e 3)|Questa è una limitazione della risorsa indirizzo IP pubblico.|
+|L'avvio/arresto non funziona con un firewall configurato in modalità di tunneling forzato|L'avvio/arresto non funziona con Firewall di Azure configurato in modalità di tunneling forzato. Se si tenta di avviare Firewall di Azure con il tunneling forzato configurato, si verifica l'errore seguente:<br><br>*Set-AzFirewall: Non è possibile aggiungere la configurazione IP di gestione del Firewall di Azure FW-xx a un firewall esistente. Per usare il supporto del tunneling forzato, ridistribuire con una configurazione IP di gestione.<br>StatusCode: 400<br>ReasonPhrase: Richiesta non valida*|In fase di analisi.<br><br>Come soluzione alternativa, è possibile eliminare il firewall esistente e crearne uno nuovo con gli stessi parametri.|
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

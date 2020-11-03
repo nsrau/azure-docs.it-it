@@ -52,7 +52,7 @@ Per una spiegazione più approfondita di ogni passaggio dell'architettura, veder
 
 In questa sezione si collegherà il servizio Device provisioning a dispositivi digitali gemelli di Azure per eseguire il provisioning automatico dei dispositivi tramite il percorso riportato di seguito. Si tratta di un estratto dall'architettura completa illustrata in [precedenza](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Visualizzazione di un dispositivo e di diversi servizi di Azure in uno scenario end-to-end. I dati passano da un dispositivo termostato a un DP e viceversa. I dati passano anche da DPS nell'hub Internet e ai gemelli digitali di Azure tramite una funzione di Azure con etichetta &quot;Allocation&quot;. I dati provenienti da un'azione ' Elimina dispositivo ' manuale passano attraverso l'hub degli eventi > Hub eventi > funzioni di Azure > i dispositivi gemelli digitali di Azure.":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Provisioning del flusso: un estratto del diagramma dell'architettura della soluzione, con numeri che descrivono le sezioni del flusso. I dati passano tra un dispositivo termostato e un DPS (1 per il dispositivo > DPS e 5 per il dispositivo DPS >). I dati passano anche da DPS nell'hub Internet (4) e nei dispositivi gemelli digitali di Azure (3) tramite una funzione di Azure con etichetta &quot;Allocation&quot; (2).":::
 
 Ecco una descrizione del flusso del processo:
 1. Il dispositivo Contatta l'endpoint DPS, passando le informazioni di identificazione per dimostrare la propria identità.
@@ -246,9 +246,9 @@ Assicurarsi che le autorizzazioni e l'assegnazione di ruolo identità gestita si
 
 ### <a name="create-device-provisioning-enrollment"></a>Creare la registrazione del provisioning dei dispositivi
 
-Successivamente, sarà necessario creare una registrazione nel servizio Device provisioning usando una **funzione di allocazione personalizzata** . Seguire le istruzioni riportate nelle sezioni [*creare le*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) chiavi di registrazione e [*derivazione di chiavi univoche*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) del dispositivo dei servizi Device provisioning sui criteri di allocazione personalizzati.
+Successivamente, sarà necessario creare una registrazione nel servizio Device provisioning usando una **funzione di allocazione personalizzata**. Seguire le istruzioni riportate nelle sezioni [*creare le*](../iot-dps/how-to-use-custom-allocation-policies.md#create-the-enrollment) chiavi di registrazione e [*derivazione di chiavi univoche*](../iot-dps/how-to-use-custom-allocation-policies.md#derive-unique-device-keys) del dispositivo dei servizi Device provisioning sui criteri di allocazione personalizzati.
 
-Durante l'esecuzione di tale flusso, si collegherà la registrazione alla funzione appena creata selezionando la funzione durante il passaggio per **selezionare come assegnare i dispositivi agli hub** . Dopo la creazione della registrazione, il nome della registrazione e la chiave di firma di accesso condiviso primaria o secondaria verranno usati in un secondo momento per configurare il simulatore di dispositivi per questo articolo.
+Durante l'esecuzione di tale flusso, si collegherà la registrazione alla funzione appena creata selezionando la funzione durante il passaggio per **selezionare come assegnare i dispositivi agli hub**. Dopo la creazione della registrazione, il nome della registrazione e la chiave di firma di accesso condiviso primaria o secondaria verranno usati in un secondo momento per configurare il simulatore di dispositivi per questo articolo.
 
 ### <a name="set-up-the-device-simulator"></a>Configurare il simulatore di dispositivi
 
@@ -281,7 +281,7 @@ node .\adt_custom_register.js
 ```
 
 Si noterà che il dispositivo è registrato e connesso all'hub Internet e quindi inizia a inviare messaggi.
-:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="Visualizzazione di un dispositivo e di diversi servizi di Azure in uno scenario end-to-end. I dati passano da un dispositivo termostato a un DP e viceversa. I dati passano anche da DPS nell'hub Internet e ai gemelli digitali di Azure tramite una funzione di Azure con etichetta &quot;Allocation&quot;. I dati provenienti da un'azione ' Elimina dispositivo ' manuale passano attraverso l'hub degli eventi > Hub eventi > funzioni di Azure > i dispositivi gemelli digitali di Azure.":::
+:::image type="content" source="media/how-to-provision-using-dps/output.png" alt-text="finestra di comando visualizzazione della registrazione del dispositivo e dell'invio di messaggi":::
 
 ### <a name="validate"></a>Convalida
 
@@ -292,13 +292,13 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Si noterà che il dispositivo gemello si trova nell'istanza di Azure Digital gemelli.
-:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="Visualizzazione di un dispositivo e di diversi servizi di Azure in uno scenario end-to-end. I dati passano da un dispositivo termostato a un DP e viceversa. I dati passano anche da DPS nell'hub Internet e ai gemelli digitali di Azure tramite una funzione di Azure con etichetta &quot;Allocation&quot;. I dati provenienti da un'azione ' Elimina dispositivo ' manuale passano attraverso l'hub degli eventi > Hub eventi > funzioni di Azure > i dispositivi gemelli digitali di Azure.":::
+:::image type="content" source="media/how-to-provision-using-dps/show-provisioned-twin.png" alt-text="finestra di comando che mostra i dispositivi gemelli appena creati":::
 
 ## <a name="auto-retire-device-using-iot-hub-lifecycle-events"></a>Ritirare automaticamente il dispositivo usando gli eventi del ciclo di vita dell'hub
 
 In questa sezione verranno collegati gli eventi del ciclo di vita dell'hub per i dispositivi gemelli di Azure per disattivare automaticamente i dispositivi tramite il percorso riportato di seguito. Si tratta di un estratto dall'architettura completa illustrata in [precedenza](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Visualizzazione di un dispositivo e di diversi servizi di Azure in uno scenario end-to-end. I dati passano da un dispositivo termostato a un DP e viceversa. I dati passano anche da DPS nell'hub Internet e ai gemelli digitali di Azure tramite una funzione di Azure con etichetta &quot;Allocation&quot;. I dati provenienti da un'azione ' Elimina dispositivo ' manuale passano attraverso l'hub degli eventi > Hub eventi > funzioni di Azure > i dispositivi gemelli digitali di Azure.":::
+:::image type="content" source="media/how-to-provision-using-dps/retire.png" alt-text="Ritirare il flusso del dispositivo: un estratto del diagramma dell'architettura della soluzione, con i numeri che descrivono le sezioni del flusso. Il dispositivo termostato viene visualizzato senza connessioni ai servizi di Azure nel diagramma. I dati provenienti da un'azione ' Elimina dispositivo ' manuale passano attraverso l'hub Internet (1) > Hub eventi (2) > funzioni di Azure > i dispositivi gemelli digitali di Azure (3).":::
 
 Ecco una descrizione del flusso del processo:
 1. Un processo esterno o manuale attiva l'eliminazione di un dispositivo nell'hub.
@@ -464,7 +464,7 @@ Le istruzioni per la creazione di una route dell'hub Internet sono descritte in 
 La procedura da seguire per questa configurazione è la seguente:
 1. Creare un endpoint personalizzato dell'hub eventi dell'hub eventi. Questo endpoint deve avere come destinazione l'hub eventi creato nella sezione [*creare un hub eventi*](#create-an-event-hub) .
 2. Aggiungere una route *degli eventi del ciclo* di vita dei dispositivi. Usare l'endpoint creato nel passaggio precedente. È possibile limitare gli eventi del ciclo di vita dei dispositivi per inviare solo gli eventi di eliminazione aggiungendo la query di routing `opType='deleteDeviceIdentity'` .
-    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Visualizzazione di un dispositivo e di diversi servizi di Azure in uno scenario end-to-end. I dati passano da un dispositivo termostato a un DP e viceversa. I dati passano anche da DPS nell'hub Internet e ai gemelli digitali di Azure tramite una funzione di Azure con etichetta &quot;Allocation&quot;. I dati provenienti da un'azione ' Elimina dispositivo ' manuale passano attraverso l'hub degli eventi > Hub eventi > funzioni di Azure > i dispositivi gemelli digitali di Azure.":::
+    :::image type="content" source="media/how-to-provision-using-dps/lifecycle-route.png" alt-text="Aggiungere una route":::
 
 Una volta attraversato questo flusso, tutti gli elementi vengono impostati per ritirare i dispositivi end-to-end.
 
@@ -485,7 +485,7 @@ az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration 
 ```
 
 Si noterà che il gemello del dispositivo non è più disponibile nell'istanza di Azure Digital Twins.
-:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="Visualizzazione di un dispositivo e di diversi servizi di Azure in uno scenario end-to-end. I dati passano da un dispositivo termostato a un DP e viceversa. I dati passano anche da DPS nell'hub Internet e ai gemelli digitali di Azure tramite una funzione di Azure con etichetta &quot;Allocation&quot;. I dati provenienti da un'azione ' Elimina dispositivo ' manuale passano attraverso l'hub degli eventi > Hub eventi > funzioni di Azure > i dispositivi gemelli digitali di Azure.":::
+:::image type="content" source="media/how-to-provision-using-dps/show-retired-twin.png" alt-text="finestra di comando mostrando il gemello non trovato":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

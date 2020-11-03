@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/17/2020
+ms.date: 10/22/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: c8ead035b9ac47325b2237ebd4d248f09d2d22f5
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f7d9389eb0a0118f2c1be8375531f58b6bed94b6
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92047744"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92488096"
 ---
 # <a name="quickstart-create-a-public-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Avvio rapido: Creare un servizio di bilanciamento del carico pubblico per bilanciare il carico delle macchine virtuali con il portale di Azure
 
@@ -52,7 +52,7 @@ Quando si crea un servizio di bilanciamento del carico pubblico, viene creato un
     | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
-    | Resource group         | Selezionare **Crea nuovo** e immettere **myResourceGroupLB** nella casella di testo.|
+    | Resource group         | Selezionare **Crea nuovo** e immettere **CreatePubLBQS-rg** nella casella di testo.|
     | Nome                   | Immettere **myLoadBalancer**                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
@@ -138,7 +138,9 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
     | Porta back-end | Immettere **80**. |
     | Pool back-end | Selezionare **myBackendPool**.|
     | Probe di integrità | Selezionare **myHealthProbe**. |
-    | Crea regole in uscita implicite | Selezionare **No**.
+    | Timeout di inattività (minuti) | Spostare il dispositivo di scorrimento su **15** minuti. |
+    | Reimpostazione TCP | Selezionare **Enabled**. |
+    | SNAT (Network Address Translation) di origine in uscita | Selezionare **(Scelta consigliata) Usa regole in uscita per fornire l'accesso a Internet ai membri del pool back-end**. |
 
 4. Accettare tutte le impostazioni predefinite e quindi selezionare **OK**.
 
@@ -156,13 +158,13 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Rete virtuale** o cercare **Rete virtuale** nella casella di ricerca.
 
-2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
+2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale** :
 
     | **Impostazione**          | **Valore**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Dettagli del progetto**  |                                                                 |
     | Subscription     | Selezionare la sottoscrizione ad Azure                                  |
-    | Gruppo di risorse   | Selezionare **myResourceGroupLB** |
+    | Gruppo di risorse   | Selezionare **CreatePubLBQS-rg** |
     | **Dettagli istanza** |                                                                 |
     | Nome             | Immettere **myVNet**                                    |
     | Region           | Selezionare **Europa occidentale** |
@@ -203,19 +205,19 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-In questa sezione verranno create tre macchine virtuali (**myVM1**, **myVM2** e **myVM3**) in tre zone diverse (**Zona 1**, **Zona 2** e **Zona 3**). 
+In questa sezione verranno create tre macchine virtuali ( **myVM1** , **myVM2** e **myVM3** ) in tre zone diverse ( **Zona 1** , **Zona 2** e **Zona 3** ). 
 
 Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilanciamento del carico creato in precedenza.
 
 1. Nella parte superiore sinistra del portale selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale**. 
    
-2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
+2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base** :
 
-    | Impostazione | Valore                                          |
+    | Impostazione | valore                                          |
     |-----------------------|----------------------------------|
     | **Dettagli del progetto** |  |
     | Subscription | Selezionare la sottoscrizione ad Azure |
-    | Gruppo di risorse | Selezionare **myResourceGroupLB** |
+    | Gruppo di risorse | Selezionare **CreatePubLBQS-rg** |
     | **Dettagli istanza** |  |
     | Nome macchina virtuale | Immettere **myVM1** |
     | Region | Selezionare **Europa occidentale** |
@@ -231,11 +233,11 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | **Regole porta in ingresso** |  |
     | Porte in ingresso pubbliche | Selezionare **Nessuno** |
 
-3. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**.
+3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete**.
   
 4. Nella scheda Rete selezionare o immettere:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     |-|-|
     | **Interfaccia di rete** |  |
     | Rete virtuale | **myVNet** |
@@ -254,7 +256,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
 
 6. Nella scheda **Gestione** selezionare o immettere:
     
-    | Impostazione | Valore |
+    | Impostazione | valore |
     |-|-|
     | **Monitoring** |  |
     | Diagnostica di avvio | Selezionare **Disattivato** |
@@ -263,7 +265,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 8. Rivedere le impostazioni e quindi selezionare **Crea**.
 
-9. Seguire i passaggi da 1 a 8 per creare due macchine virtuali aggiuntive con i valori seguenti e tutte le altre impostazioni identiche a **myVM1**:
+9. Seguire i passaggi da 1 a 8 per creare due macchine virtuali aggiuntive con i valori seguenti e tutte le altre impostazioni identiche a **myVM1** :
 
     | Impostazione | VM 2| VM 3|
     | ------- | ----- |---|
@@ -284,7 +286,7 @@ Per altre informazioni sulle connessioni in uscita, vedere [Connessioni in uscit
 
 3. Usare questi valori per configurare le regole in uscita:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Name (Nome) | Immettere **myOutboundRule**. |
     | Indirizzo IP front-end | Selezionare **Crea nuovo**. </br> In **Nome** immettere **LoadBalancerFrontEndOutbound**. </br> Selezionare **Indirizzo IP** o **Prefisso IP**. </br> Selezionare **Crea nuovo** in **Indirizzo IP pubblico**  o **Prefisso IP pubblico**. </br> In Nome immettere **myPublicIPOutbound** o **myPublicIPPrefixOutbound**. </br> Selezionare **Aggiungi**.|
@@ -309,7 +311,7 @@ Per altre informazioni sulle connessioni in uscita, vedere [Connessioni in uscit
 
 5. In **Macchine virtuali** selezionare **+ Aggiungi**.
 
-6. Selezionare le caselle accanto a **myVM1**, **myVM2** e **myVM3**. 
+6. Selezionare le caselle accanto a **myVM1** , **myVM2** e **myVM3**. 
 
 7. Selezionare **Aggiungi**.
 
@@ -328,10 +330,10 @@ Quando si crea un servizio di bilanciamento del carico pubblico, viene creato un
 
 2. Nella scheda **Informazioni di base** della pagina **Crea servizio di bilanciamento del carico** immettere o selezionare le informazioni seguenti: 
 
-    | Impostazione                 | Valore                                              |
+    | Impostazione                 | valore                                              |
     | ---                     | ---                                                |
     | Subscription               | Selezionare la propria sottoscrizione.    |    
-    | Resource group         | Selezionare **Crea nuovo** e digitare **myResourceGroupLB** nella casella di testo.|
+    | Resource group         | Selezionare **Crea nuovo** e digitare **CreatePubLBQS-rg** nella casella di testo.|
     | Nome                   | Immettere **myLoadBalancer**                                   |
     | Region         | Selezionare **Europa occidentale**.                                        |
     | Type          | Selezionare **Pubblica**.                                        |
@@ -345,7 +347,7 @@ Quando si crea un servizio di bilanciamento del carico pubblico, viene creato un
 
 4. Nella scheda **Rivedi e crea** selezionare **Crea**.   
 
-    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Creare un'istanza di Load Balancer Standard" border="true":::
+    :::image type="content" source="./media/quickstart-load-balancer-standard-public-portal/create-basic-load-balancer.png" alt-text="Creare un servizio di bilanciamento del carico di base" border="true":::
 
 ## <a name="create-load-balancer-resources"></a>Creare risorse di bilanciamento del carico
 
@@ -362,13 +364,13 @@ In questa sezione si crea una rete virtuale e una subnet.
 
 1. In alto a sinistra nella schermata selezionare **Crea una risorsa > Rete > Rete virtuale** o cercare **Rete virtuale** nella casella di ricerca.
 
-2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale**:
+2. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda **Generale** :
 
     | **Impostazione**          | **Valore**                                                           |
     |------------------|-----------------------------------------------------------------|
     | **Dettagli del progetto**  |                                                                 |
     | Subscription     | Selezionare la sottoscrizione ad Azure                                  |
-    | Gruppo di risorse   | Selezionare **myResourceGroupLB** |
+    | Gruppo di risorse   | Selezionare **CreatePubLBQS-rg** |
     | **Dettagli istanza** |                                                                 |
     | Nome             | Immettere **myVNet**                                    |
     | Region           | Selezionare **Europa occidentale** |
@@ -418,7 +420,7 @@ Creare il pool di indirizzi back-end **myBackendPool** per includere le macchine
 
 3. Nella pagina **Aggiungi pool back-end** immettere o selezionare:
     
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome | Immettere **myBackendPool**. |
     | Rete virtuale | Selezionare **myVNET**. |
@@ -436,7 +438,7 @@ Creare un probe di integrità denominato **myHealthProbe** per monitorare l'inte
 
 2. In **Impostazioni** selezionare **Probe integrità** e quindi selezionare **Aggiungi**.
     
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome | Immettere **myHealthProbe**. |
     | Protocollo | Selezionare **HTTP**. |
@@ -464,7 +466,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
 
 3. Usare questi valori per configurare la regola di bilanciamento del carico:
     
-    | Impostazione | Valore |
+    | Impostazione | valore |
     | ------- | ----- |
     | Nome | Immettere **myHTTPRule**. |
     | Versione indirizzo IP | Selezionare **IPv4** |
@@ -474,6 +476,7 @@ In questa sezione verrà creata una regola di bilanciamento del carico:
     | Porta back-end | Immettere **80**. |
     | Pool back-end | Selezionare **myBackendPool**.|
     | Probe di integrità | Selezionare **myHealthProbe**. |
+    | Timeout di inattività (minuti) | Spostare il dispositivo di scorrimento su **15** minuti. |
  
 4. Accettare tutte le impostazioni predefinite e quindi selezionare **OK**.
 
@@ -487,7 +490,7 @@ In questa sezione verrà illustrato come:
 
 ### <a name="create-virtual-machines"></a>Creare macchine virtuali
 
-In questa sezione verranno create tre macchine virtuali (**myVM1**, **myVM2** e **myVM3**) con un indirizzo IP pubblico di base.  
+In questa sezione verranno create tre macchine virtuali ( **myVM1** , **myVM2** e **myVM3** ) con un indirizzo IP pubblico di base.  
 
 Le tre macchine virtuali verranno aggiunte a un set di disponibilità denominato **myAvailabilitySet**.
 
@@ -495,13 +498,13 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
 
 1. Nella parte superiore sinistra del portale selezionare **Crea una risorsa** > **Calcolo** > **Macchina virtuale**. 
    
-2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base**:
+2. In **Crea macchina virtuale** digitare o selezionare i valori nella scheda **Nozioni di base** :
 
-    | Impostazione | Valore                                          |
+    | Impostazione | valore                                          |
     |-----------------------|----------------------------------|
     | **Dettagli del progetto** |  |
     | Subscription | Selezionare la sottoscrizione ad Azure |
-    | Gruppo di risorse | Selezionare **myResourceGroupLB** |
+    | Gruppo di risorse | Selezionare **CreatePubLBQS-rg** |
     | **Dettagli istanza** |  |
     | Nome macchina virtuale | Immettere **myVM1** |
     | Region | Selezionare **Europa occidentale** |
@@ -515,11 +518,11 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
     | Password | Immettere una password |
     | Conferma password | Reimmettere la password |
 
-3. Selezionare la scheda **Rete**, oppure selezionare **Avanti: Dischi**, quindi **Avanti: Rete**.
+3. Selezionare la scheda **Rete** , oppure selezionare **Avanti: Dischi** , quindi **Avanti: Rete**.
   
 4. Nella scheda Rete selezionare o immettere:
 
-    | Impostazione | Valore |
+    | Impostazione | valore |
     |-|-|
     | **Interfaccia di rete** |  |
     | Rete virtuale | Selezionare **myVNet** |
@@ -534,7 +537,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
 
 6. Nella scheda **Gestione** selezionare o immettere:
     
-    | Impostazione | Valore |
+    | Impostazione | valore |
     |---|---|
     | **Monitoring** | |
     | Diagnostica di avvio | Selezionare **Disattivato** |
@@ -543,7 +546,7 @@ Queste macchine virtuali vengono aggiunte al pool back-end del servizio di bilan
   
 8. Rivedere le impostazioni e quindi selezionare **Crea**.
 
-9. Seguire i passaggi da 1 a 8 per creare due macchine virtuali aggiuntive con i valori seguenti e tutte le altre impostazioni identiche a **myVM1**:
+9. Seguire i passaggi da 1 a 8 per creare due macchine virtuali aggiuntive con i valori seguenti e tutte le altre impostazioni identiche a **myVM1** :
 
     | Impostazione | VM 2| VM 3|
     | ------- | ----- |---|
@@ -563,7 +566,7 @@ Le VM create nei passaggi precedenti devono essere aggiunte al pool back-end **m
 
 4. Nella sezione **Macchine virtuali** selezionare **+ Aggiungi**.
 
-5. Selezionare le caselle accanto a **myVM1**, **myVM2** e **myVM3**.
+5. Selezionare le caselle accanto a **myVM1** , **myVM2** e **myVM3**.
 
 6. Selezionare **Aggiungi**.
 
@@ -573,9 +576,9 @@ Le VM create nei passaggi precedenti devono essere aggiunte al pool back-end **m
 
 ## <a name="install-iis"></a>Installare IIS
 
-1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine nell'elenco di risorse selezionare **myVM1**, che si trova nel gruppo di risorse **myResourceGroupLB**.
+1. Selezionare **Tutti i servizi** nel menu a sinistra, quindi **Tutte le risorse** e infine nell'elenco di risorse selezionare **myVM1** , che si trova nel gruppo di risorse **CreateStdLBQS-rg**.
 
-2. Nella pagina **Panoramica** selezionare **Connetti**, quindi **Bastion**.
+2. Nella pagina **Panoramica** selezionare **Connetti** , quindi **Bastion**.
 
 4. Immettere il nome utente e la password specificati durante la creazione della VM.
 
@@ -616,7 +619,7 @@ Per visualizzare il servizio di bilanciamento del carico distribuire il traffico
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Quando non sono più necessari, eliminare il gruppo di risorse, il servizio di bilanciamento del carico e tutte le risorse correlate. A questo scopo, selezionare il gruppo di risorse **myResourceGroupLB** che contiene le risorse e quindi selezionare **Elimina**.
+Quando non sono più necessari, eliminare il gruppo di risorse, il servizio di bilanciamento del carico e tutte le risorse correlate. A questo scopo, selezionare il gruppo di risorse **CreatePubLBQS-rg** che contiene le risorse e quindi selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -626,6 +629,6 @@ In questo argomento di avvio rapido:
 * Sono state collegate tre macchine virtuali al servizio di bilanciamento del carico.
 * È stata configurata la regola del traffico di bilanciamento del carico, il probe di integrità e quindi è stato testato il servizio di bilanciamento del carico. 
 
-Per altre informazioni su Azure Load Balancer, passare a...
+Per altre informazioni su Azure Load Balancer, passare a:
 > [!div class="nextstepaction"]
 > [Informazioni su Azure Load Balancer](load-balancer-overview.md)

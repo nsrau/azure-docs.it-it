@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/02/2019
 ms.author: jeedes
-ms.openlocfilehash: bcda410e678e44916a4128d7ef097883e148ed79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fc1317ffce7c958f092ad01feff473e123581439
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551861"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521765"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con uniFLOW Online
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare uniFLOW Online con Azure Active Dir
 * Abilitare gli utenti per l'accesso a uniFLOW Online con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -109,7 +109,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
    > [!NOTE]
    > L'attributo `user.onpremisessamaccountname` conterrà un valore solo se gli utenti Azure AD vengono sincronizzati da un'istanza locale di Windows Active Directory.
 
-1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
@@ -117,7 +117,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -152,20 +152,19 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nel pannello di spostamento a sinistra selezionare la scheda **User** (Utente).
 
-    ![Configurazione di uniFLOW Online](./media/uniflow-online-tutorial/configure1.png)
+    ![Screenshot che mostra l'opzione User selezionata nel sito uniflow Online.](./media/uniflow-online-tutorial/configure1.png)
 
 1. Fare clic su **Provider di identità**.
 
-    ![Configurazione di uniFLOW Online](./media/uniflow-online-tutorial/configure2.png)
+    ![Screenshot che mostra l'opzione Identity Providers selezionata.](./media/uniflow-online-tutorial/configure2.png)
 
 1. Fare clic su **Add identity provider** (Aggiungi provider di identità).
 
-    ![Configurazione di uniFLOW Online](./media/uniflow-online-tutorial/configure3.png)
+    ![Screenshot che mostra l'opzione Add Identity Providers selezionata.](./media/uniflow-online-tutorial/configure3.png)
 
 1. Nella sezione **ADD IDENTITY PROVIDER** (AGGIUNGI PROVIDER DI IDENTITÀ) seguire questa procedura:
 
-
-    ![Configurazione di uniFLOW Online](./media/uniflow-online-tutorial/configure4.png)
+    ![Screenshot che mostra la sezione ADD IDENTITY PROVIDER in cui è possibile immettere i valori indicati.](./media/uniflow-online-tutorial/configure4.png)
 
     a. Immettere il nome visualizzato, ad esempio *AzureAD SSO*.
 
@@ -177,7 +176,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nella scheda **General** (Generale) seguire questa procedura:
 
-    ![Configurazione di uniFLOW Online](./media/uniflow-online-tutorial/configure5.png)
+    ![Screenshot che mostra la scheda General in cui è possibile immettere i valori indicati.](./media/uniflow-online-tutorial/configure5.png)
 
     a. Immettere il nome visualizzato, ad esempio *AzureAD SSO*.
 
@@ -201,10 +200,10 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare uniFLOW Online con Azure AD](https://aad.portal.azure.com/)

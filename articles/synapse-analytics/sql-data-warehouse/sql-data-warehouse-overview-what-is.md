@@ -10,16 +10,16 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 27311270c1383a54192d072d0e152c7cf1a58225
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ce4efe0250ea1b85e2e2d77b7ee69bdf3dbcab26
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "85200954"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92480396"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Che cos'è Azure Synapse Analytics (in precedenza SQL Data Warehouse)?
 
-> [!NOTE] 
+> [!NOTE]
 >Esplorare la [documentazione di Azure Synapse (anteprima per aree di lavoro)](../overview-what-is.md).
 >
 
@@ -40,7 +40,7 @@ Per pool SQL Synapse si intendono le funzionalità di data warehousing aziendali
 
 Il pool SQL rappresenta una raccolta di risorse analitiche di cui viene effettuato il provisioning durante l'uso di SQL Synapse. Le dimensioni del pool SQL sono determinate dalle unità Data Warehouse (DWU).
 
-Importare i Big Data con semplici query T-SQL [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e quindi sfruttare la potenza dell'elaborazione MPP per eseguire analisi ad alte prestazioni. Man mano che si procede con l'integrazione e l'analisi, il pool SQL Synapse diventerà il punto di riferimento dell'azienda da cui ricavare più rapidamente informazioni dettagliate più affidabili.  
+Importare i Big Data con semplici query T-SQL [PolyBase](/sql/relational-databases/polybase/polybase-guide?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e quindi sfruttare la potenza del motore di query distribuite per eseguire analisi ad alte prestazioni. Man mano che si procede con l'integrazione e l'analisi dei dati, Synapse SQL diventerà il punto di riferimento dell'azienda da cui ricavare più rapidamente informazioni dettagliate più affidabili. 
 
 ## <a name="key-component-of-a-big-data-solution"></a>Componente chiave di una soluzione per Big Data
 

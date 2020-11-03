@@ -25,14 +25,14 @@ Questo articolo illustra come verificare che la crittografia dei dati tramite la
 
     * Nella portale di Azure passare al **Azure Key Vault**  ->  **chiavi**
     * Selezionare la chiave usata per la crittografia del server.
-    * Impostare lo stato **della chiave su** **No** .
+    * Impostare lo stato **della chiave su** **No**.
   
-       Dopo un certo periodo di tempo ( **~ 15 min** ), lo **stato** del server del database di Azure per PostgreSQL non dovrebbe essere **accessibile** . Tutte le operazioni di I/O eseguite sul server avranno esito negativo e la convalida del server è effettivamente crittografata con la chiave Customers e la chiave non è attualmente valida.
+       Dopo un certo periodo di tempo ( **~ 15 min** ), lo **stato** del server del database di Azure per PostgreSQL non dovrebbe essere **accessibile**. Tutte le operazioni di I/O eseguite sul server avranno esito negativo e la convalida del server è effettivamente crittografata con la chiave Customers e la chiave non è attualmente valida.
     
         Per rendere **disponibile** il server per, è possibile rivalidare la chiave. 
     
-    * Impostare lo stato della chiave nella Key Vault su **Sì** .
-    * In **crittografia dati** server selezionare **revalidate Key** .
+    * Impostare lo stato della chiave nella Key Vault su **Sì**.
+    * In **crittografia dati** server selezionare **revalidate Key**.
     * Dopo che la riconvalida della chiave ha avuto esito positivo, lo **stato** del server diventa **disponibile**
 
 2. Nel portale di Azure, se è possibile assicurarsi che sia impostata la chiave di crittografia, i dati vengono crittografati con la chiave Customers utilizzata nel portale di Azure.

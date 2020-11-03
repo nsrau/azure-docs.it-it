@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: jeedes
-ms.openlocfilehash: 1a2139b7a0f7d51b6c759a98c93c5250666f15a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: dc9be41cd7975610f2779da09b94066c70a91652
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88525140"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460530"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-iamip-patent-platform"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con IamIP Patent Platform
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare IamIP Patent Platform con Azure Act
 * Abilitare gli utenti per l'accesso automatico a IamIP Patent Platform con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -41,7 +41,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 IamIP Patent Platform supporta l'accesso SSO avviato da SP e IDP.
 
-Dopo aver configurato IamIP Patent Platform, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+Dopo aver configurato IamIP Patent Platform, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. I controlli sessione costituiscono un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 
 ## <a name="add-iamip-patent-platform-from-the-gallery"></a>Aggiungere IamIP Patent Platform dalla raccolta
@@ -82,15 +82,15 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** seguire questa procedura se si dispone del file di metadati del provider di servizi e si vuole configurare l'applicazione in modalità avviata da IDP:
 
-    a. Selezionare **Carica il file di metadati**:
+    a. Selezionare **Carica il file di metadati** :
 
     ![Caricare file di metadati](common/upload-metadata.png)
 
-    b. Selezionare l'icona della cartella e quindi il file di metadati, infine fare clic su **Carica**:
+    b. Selezionare l'icona della cartella e quindi il file di metadati, infine fare clic su **Carica** :
 
     ![Pulsanti Cartella e Carica](common/browse-upload-metadata.png)
 
-    c. Dopo il caricamento del file di metadati, i valori per **Identificatore** e **URL di risposta** vengono inseriti automaticamente nella sezione **Configurazione SAML di base**:
+    c. Dopo il caricamento del file di metadati, i valori per **Identificatore** e **URL di risposta** vengono inseriti automaticamente nella sezione **Configurazione SAML di base** :
 
     ![Valori di Identificatore e URL di risposta](common/idp-intiated.png)
 
@@ -127,11 +127,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **IamIP Patent Platform**.
-1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi**:
+1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi** :
 
    ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 
-1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione**:
+1. Selezionare **Aggiungi utente** e quindi **Utenti e gruppi** nella finestra di dialogo **Aggiungi assegnazione** :
 
     ![Selezionare Aggiungi utente](common/add-assign-user.png)
 
@@ -151,16 +151,16 @@ Collaborare con il [team di supporto di IamIP Patent Platform](mailto:info@iamip
 
 In questa sezione viene testata la configurazione dell'accesso SSO di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di IamIP Patent Platform nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di IamIP Patent Platform per cui si è configurato l'accesso SSO. Per altre informazioni sul Pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di IamIP Patent Platform nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di IamIP Patent Platform per cui si è configurato l'accesso SSO. Per altre informazioni sul Pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Esercitazioni su come integrare le app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Esercitazioni su come integrare le app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare IamIP Patent Platform con Azure AD](https://aad.portal.azure.com/)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)

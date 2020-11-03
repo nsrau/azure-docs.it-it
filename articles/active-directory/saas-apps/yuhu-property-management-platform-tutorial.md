@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.author: jeedes
-ms.openlocfilehash: b2427d474f4a36dc518680518a10cace290c0136
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2b5e852e3a32c4fb40dbe7ebc50a00302b4b82b4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546126"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92519097"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-yuhu-property-management-platform"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Yuhu Property Management Platform
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Yuhu Property Management Platform c
 * Abilitare gli utenti per l'accesso automatico a Yuhu Property Management Platform con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -108,7 +108,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -136,24 +136,24 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-yuhu-property-management-platform-sso"></a>Configurare l'accesso Single Sign-On di Yuhu Property Management Platform
 
-Per configurare l'accesso Single Sign-On sul lato **Yuhu Property Management Platform**, è necessario inviare il file **Certificato (Base)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Yuhu Property Management Platform](mailto:hello@yuhu.io). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Yuhu Property Management Platform** , è necessario inviare il file **Certificato (Base)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Yuhu Property Management Platform](mailto:hello@yuhu.io). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-yuhu-property-management-platform-test-user"></a>Creare l'utente di test di Yuhu Property Management Platform
 
-In questa sezione viene creato un utente di nome B.Simon in Yuhu Property Management Platform. Collaborare con il [team di supporto di Yuhu Property Management Platform](mailto:hello@yuhu.io) per aggiungere gli utenti alla piattaforma Yuhu Property Management Platform. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome B.Simon in Yuhu Property Management Platform. Collaborare con il [team di supporto di Yuhu Property Management Platform](mailto:hello@yuhu.io) per aggiungere gli utenti alla piattaforma Yuhu Property Management Platform. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Yuhu Property Management Platform nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Yuhu Property Management Platform per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Yuhu Property Management Platform nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Yuhu Property Management Platform per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Yuhu Property Management Platform con Azure AD](https://aad.portal.azure.com/)

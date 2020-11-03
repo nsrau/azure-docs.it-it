@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 85dfa6b57171ce68c3d962bac27016434d587080
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81523a1c11b6a3da4e7d1db5d8249921ad5047ff
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88532654"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92635865"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-velpic-saml"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Velpic SAML
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Velpic SAML con Azure Active Direct
 * Abilitare gli utenti per l'accesso automatico a Velpic SAML con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -96,7 +96,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -124,7 +124,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-velpic-saml-sso"></a>Configurare l'accesso Single Sign-On di Velpic SAML
 
-1. Per automatizzare la configurazione all'interno di Velpic SAML, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
+1. Per automatizzare la configurazione all'interno di Velpic SAML, è necessario installare l' **estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -136,23 +136,23 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 4. Fare clic sulla scheda **Manage** (Gestisci), passare alla sezione **Integration** (Integrazione) e qui scegliere **Plugins** per creare un nuovo plug-in per l'accesso.
 
-    ![Plug-in](./media/velpicsaml-tutorial/velpic_1.png)
+    ![Screenshot che mostra la pagina Integration in cui è possibile selezionare Plugins.](./media/velpicsaml-tutorial/velpic_1.png)
 
 5. Fare clic sul pulsante **Add plugin** (Aggiungi plug-in).
     
-    ![Plug-in](./media/velpicsaml-tutorial/velpic_2.png)
+    ![Screenshot che mostra il pulsante Add Plugin selezionato.](./media/velpicsaml-tutorial/velpic_2.png)
 
 6. Fare clic sul riquadro **SAML** nella pagina Add plugin (Aggiungi plug-in).
     
-    ![Plug-in](./media/velpicsaml-tutorial/velpic_3.png)
+    ![Screenshot che mostra l'opzione SAML selezionata nella pagina Add Plugin.](./media/velpicsaml-tutorial/velpic_3.png)
 
 7. Immettere il nome del nuovo plug-in SAML e scegliere il pulsante **Add** (Aggiungi).
 
-    ![Plug-in](./media/velpicsaml-tutorial/velpic_4.png)
+    ![Screenshot che mostra la finestra di dialogo Add new SAML plugin con la voce Azure AD immessa.](./media/velpicsaml-tutorial/velpic_4.png)
 
 8. Immettere i dettagli seguenti:
 
-    ![Plug-in](./media/velpicsaml-tutorial/velpic_5.png)
+    ![Screenshot che mostra la pagina Azure AD cui è possibile immettere i valori indicati.](./media/velpicsaml-tutorial/velpic_5.png)
 
     a. Nella casella di testo **Name** (Nome) digitare il nome del plug-in SAML.
 
@@ -162,7 +162,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     d. È anche possibile scegliere di abilitare SAML al momento del provisioning selezionando la casella di controllo **Auto create new users** (Crea automaticamente nuovi utenti). Se un utente non esiste in Velpic e questo flag non è abilitato, l'accesso da Azure avrà esito negativo. Se il flag è abilitato, verrà automaticamente eseguito il provisioning dell'utente in Velpic al momento dell'accesso. 
 
-    e. Copiare l'**URL di Single Sign-On** dalla casella di testo e incollarlo nel portale di Azure.
+    e. Copiare l' **URL di Single Sign-On** dalla casella di testo e incollarlo nel portale di Azure.
     
     f. Fare clic su **Salva**.
 
@@ -198,17 +198,16 @@ In questa sezione viene testata la configurazione dell'accesso Single Sign-On di
 
 1. Quando si fa clic sul riquadro Velpic SAML nel Pannello di accesso, viene visualizzata la pagina di accesso dell'applicazione Velpic SAML, in cui dovrebbe apparire il pulsante **Log In With Azure AD** (Accedi con Azure AD).
 
-    ![Plug-in](./media/velpicsaml-tutorial/velpic_6.png)
+    ![Screenshot shows che mostra la sezione Learning Portal con l'opzione Log In With Azure AD selezionata.](./media/velpicsaml-tutorial/velpic_6.png)
 
 1. Fare clic sul pulsante **Log In With Azure AD** (Accedi con Azure AD) per accedere a Velpic usando il proprio account Azure AD.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Velpic SAML con Azure AD](https://aad.portal.azure.com/)
-

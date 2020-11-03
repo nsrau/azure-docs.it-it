@@ -9,16 +9,16 @@ ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
 ms.custom: mvc
-ms.openlocfilehash: 0fe9d59e97ebbc9aba17fea14aed43756300d56e
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 8b87d9d487257504a438cf13a5b94e3ca4f9233d
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90528594"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426376"
 ---
 # <a name="quickstart-provision-a-python-device-with-symmetric-keys"></a>Effettuare il provisioning di un dispositivo Python con chiavi simmetriche
 
-Questa guida di avvio rapido illustra come effettuare il provisioning di un computer di sviluppo Windows come un dispositivo in un hub IoT usando Python. Il dispositivo userà una chiave simmetrica per l'autenticazione con un'istanza del servizio Device Provisioning per poter essere assegnato a un hub IoT. Il dispositivo autenticato verrà riconosciuto dal servizio Device Provisioning in base a una registrazione singola e verrà assegnato a un hub IoT. Per effettuare il provisioning del dispositivo, verrà usato il codice di esempio di [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python). 
+Questa guida di avvio rapido illustra come effettuare il provisioning di un computer di sviluppo Windows come un dispositivo in un hub IoT usando Python. Il dispositivo userà una chiave simmetrica e una registrazione singola per l'autenticazione con un'istanza del servizio Device Provisioning per poter essere assegnato a un hub IoT. Per effettuare il provisioning del dispositivo, verrà usato il codice di esempio di [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python). 
 
 Questo articolo illustra il provisioning con una registrazione singola, ma è anche possibile usare gruppi di registrazioni. Esistono alcune differenze quando si usano i gruppi di registrazioni. È ad esempio necessario usare una chiave di dispositivo derivata con un ID registrazione univoco per il dispositivo. Anche se i gruppi di registrazione di chiave simmetrica non sono limitati per i dispositivi legacy, in [Come eseguire il provisioning di dispositivi legacy usando l'attestazione di chiave simmetrica](how-to-legacy-device-symm-key.md) viene fornito un esempio di gruppo di registrazione. Per altre informazioni, vedere [Attestazione con chiave simmetrica delle registrazioni di gruppo](concepts-symmetric-key-attestation.md#group-enrollments).
 
@@ -32,7 +32,7 @@ Questo articolo si riferisce a una workstation basata su Windows. Tuttavia, è p
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
-## <a name="prerequisites"></a>Prerequisiti 
+## <a name="prerequisites"></a>Prerequisiti
 
 * Verificare che nel computer basato su Windows sia installato [Python 3.7](https://www.python.org/downloads/) o versione successiva. Per controllare la versione di Python, eseguire `python --version`.
 
@@ -42,7 +42,7 @@ Questo articolo si riferisce a una workstation basata su Windows. Tuttavia, è p
 
 ## <a name="prepare-the-python-sdk-environment"></a>Preparare l'ambiente Python SDK 
 
-1. Verificare che Git sia installato nel computer e che venga aggiunto alle variabili di ambiente accessibili alla finestra di comando. Vedere gli [strumenti client Git di Software Freedom Conservancy](https://git-scm.com/download/) per la versione più recente degli strumenti `git` da installare, tra cui **Git Bash**, l'app da riga di comando che è possibile usare per interagire con il repository Git locale. 
+1. Verificare che Git sia installato nel computer e che venga aggiunto alle variabili di ambiente accessibili alla finestra di comando. Vedere gli [strumenti client Git di Software Freedom Conservancy](https://git-scm.com/download/) per la versione più recente degli strumenti `git` da installare, tra cui **Git Bash** , l'app da riga di comando che è possibile usare per interagire con il repository Git locale. 
 
 2. Aprire un prompt dei comandi. Clonare il repository GitHub per Azure IoT Python SDK:
     
@@ -71,9 +71,9 @@ Questo articolo si riferisce a una workstation basata su Windows. Tuttavia, è p
 
    - **Meccanismo:** selezionare **Chiave simmetrica** come *meccanismo* di attestazione dell'identità.
 
-   - **Genera chiavi automaticamente**: selezionare questa casella.
+   - **Genera chiavi automaticamente** : selezionare questa casella.
 
-   - **ID registrazione**: immettere un ID di registrazione per identificare la registrazione. Usare solo caratteri alfanumerici minuscoli e trattini ("-"). Ad esempio, **symm-key-python-device-008**.
+   - **ID registrazione** : immettere un ID di registrazione per identificare la registrazione. Usare solo caratteri alfanumerici minuscoli e trattini ("-"). Ad esempio, **symm-key-python-device-008**.
 
    - **ID dispositivo hub IoT:** immettere un identificatore di dispositivo. Ad esempio, **python-device-008**.
 
@@ -81,7 +81,7 @@ Questo articolo si riferisce a una workstation basata su Windows. Tuttavia, è p
 
 4. Dopo aver salvato la registrazione, la **chiave primaria** e la **chiave secondaria** verranno generate e aggiunte alla voce di registrazione. La registrazione del dispositivo con chiave simmetrica verrà visualizzata come **symm-key-python-device-008** nella colonna *ID registrazione* della scheda *Registrazioni singole*. 
 
-5. Aprire la registrazione e copiare il valore della **chiave primaria** generata. Questo valore di chiave e l'**ID registrazione** verranno usati successivamente, al momento dell'aggiunta delle variabili di ambiente da usare con il codice di esempio per il provisioning del dispositivo.
+5. Aprire la registrazione e copiare il valore della **chiave primaria** generata. Questo valore di chiave e l' **ID registrazione** verranno usati successivamente, al momento dell'aggiunta delle variabili di ambiente da usare con il codice di esempio per il provisioning del dispositivo.
 
 
 
@@ -178,8 +178,8 @@ Il codice di provisioning contatterà l'istanza del servizio Device Provisioning
 
 Se si prevede di continuare a usare ed esplorare l'esempio di client dispositivo, non eseguire la pulizia delle risorse create in questa guida di avvio rapido. Se non si intende continuare, seguire questa procedura per eliminare tutte le risorse create in questa guida.
 
-1. Nel portale di Azure selezionare **Tutte le risorse** nel menu a sinistra e quindi il servizio Device Provisioning. Aprire **Gestisci registrazioni** per il servizio e quindi selezionare la scheda **Registrazioni singole**. Selezionare la casella di controllo accanto all'*ID registrazione* del dispositivo registrato in questa guida di avvio rapido e fare clic sul pulsante **Elimina** nella parte superiore del riquadro. 
-1. Nel menu a sinistra nel portale di Azure selezionare **Tutte le risorse** e quindi selezionare l'hub IoT. Aprire il pannello **Dispositivi IoT** per l'hub, selezionare la casella di controllo accanto all'*ID dispositivo* del dispositivo registrato in questa guida di avvio rapido e quindi fare clic sul pulsante **Elimina** nella parte superiore del riquadro.
+1. Nel portale di Azure selezionare **Tutte le risorse** nel menu a sinistra e quindi il servizio Device Provisioning. Aprire **Gestisci registrazioni** per il servizio e quindi selezionare la scheda **Registrazioni singole**. Selezionare la casella di controllo accanto all' *ID registrazione* del dispositivo registrato in questa guida di avvio rapido e fare clic sul pulsante **Elimina** nella parte superiore del riquadro. 
+1. Nel menu a sinistra nel portale di Azure selezionare **Tutte le risorse** e quindi selezionare l'hub IoT. Aprire il pannello **Dispositivi IoT** per l'hub, selezionare la casella di controllo accanto all' *ID dispositivo* del dispositivo registrato in questa guida di avvio rapido e quindi fare clic sul pulsante **Elimina** nella parte superiore del riquadro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

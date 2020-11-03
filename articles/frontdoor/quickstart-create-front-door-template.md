@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/14/2020
 ms.author: duau
 ms.custom: subject-armqs
-ms.openlocfilehash: e7c3f2f50d9ac1fb1731f70f7b442ab4a2e44425
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 223006193219afe4179f3161d5e60e6439207b22
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088925"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896056"
 ---
 # <a name="quickstart-create-a-front-door-using-an-arm-template"></a>Avvio rapido: Creare una risorsa Frontdoor usando un modello ARM
 
@@ -40,7 +40,7 @@ Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-front-door-create-basic).
 
-In questo argomento di avvio rapido si creerà una configurazione Frontdoor con un unico back-end e un unico percorso predefinito corrispondente a "/*". 
+In questo argomento di avvio rapido si creerà una configurazione Frontdoor con un unico back-end e un unico percorso predefinito corrispondente a `/*`.
 
 :::code language="json" source="~/quickstart-templates/101-front-door-create-basic/azuredeploy.json":::
 
@@ -50,7 +50,7 @@ Nel modello è definita una risorsa di Azure:
 
 ## <a name="deploy-the-template"></a>Distribuire il modello
 
-1. Selezionare **Prova** per il blocco di codice seguente per aprire Azure Cloud Shell e seguire le istruzioni per la connessione ad Azure. 
+1. Selezionare **Prova** per il blocco di codice seguente per aprire Azure Cloud Shell e seguire le istruzioni per la connessione ad Azure.
 
     ```azurepowershell-interactive
     $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
@@ -73,7 +73,7 @@ Nel modello è definita una risorsa di Azure:
 
 1. Immettere i valori desiderati.
 
-    La distribuzione del modello crea una risorsa Frontdoor con un unico back-end. In questo esempio *<span>microsoft.</span>com* viene usato come **backendAddress**.
+    La distribuzione del modello crea una risorsa Frontdoor con un unico back-end. In questo esempio viene usato `microsoft.com` come **backendAddress**.
 
     Il nome del gruppo di risorse è il nome del progetto seguito da **rg**.
 
@@ -94,9 +94,9 @@ Per distribuire il modello viene usato Azure PowerShell. Oltre ad Azure PowerShe
 
 1. Selezionare il gruppo di risorse creato nella sezione precedente. Il nome del gruppo di risorse predefinito è il nome del progetto seguito da **rg**.
 
-1. Selezionare la risorsa Frontdoor creata in precedenza e fare clic sul collegamento dell'**host front-end**. Il collegamento aprirà un Web browser per reindirizzare l'utente al nome di dominio completo (FQDN) back-end definito durante la creazione.
+1. Selezionare la risorsa Frontdoor creata in precedenza e fare clic sul collegamento dell' **host front-end**. Il collegamento aprirà un Web browser per reindirizzare l'utente al nome di dominio completo (FQDN) back-end definito durante la creazione.
 
-    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Modello di Resource Manager per Frontdoor: output della distribuzione con PowerShell":::
+    :::image type="content" source="./media/quickstart-create-front-door-template/front-door-overview.png" alt-text="Panoramica del portale Frontdoor":::
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -110,8 +110,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo argomento di avvio rapido sono stati creati questi componenti:
-* Frontdoor
+In questo argomento di avvio rapido è stata creata una risorsa Frontdoor.
 
 Per informazioni su come aggiungere un dominio personalizzato alla risorsa Frontdoor, proseguire con le esercitazioni su Frontdoor.
 

@@ -9,12 +9,12 @@ ms.date: 08/20/2019
 ms.author: normesta
 ms.reviewer: sumameh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8df4de01750de92222bfa9021b66828927804e85
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f8b4b86656e7b1b4dfd8b69cbc8386f5b6ff6a8c
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89005480"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92674941"
 ---
 # <a name="tutorial-implement-the-data-lake-capture-pattern-to-update-a-databricks-delta-table"></a>Esercitazione: Implementare il modello di acquisizione data lake per aggiornare una tabella di Databricks Delta
 
@@ -126,7 +126,7 @@ Per altre informazioni sulla creazione di cluster, vedere [Create a Spark cluste
 
 2. Nella finestra di dialogo **Create Notebook** (Crea un notebook) immettere un nome per il notebook. Selezionare **Python** come linguaggio e quindi il cluster Spark creato in precedenza.
 
-    ![Creare un notebook in Databricks](./media/data-lake-storage-events/new-databricks-notebook.png "Creare un notebook in Databricks")
+    ![Screenshot che mostra la finestra di dialogo Crea notebook e la posizione in cui selezionare Python come linguaggio.](./media/data-lake-storage-events/new-databricks-notebook.png "Creare un notebook in Databricks")
 
     Selezionare **Create** (Crea).
 
@@ -268,7 +268,7 @@ Creare una funzione di Azure che esegue il processo.
 
 5. Nella pagina **Panoramica** dell'app per le funzioni fare clic su **Configurazione**.
 
-   ![Configurare l'app per le funzioni](./media/data-lake-storage-events/configure-function-app.png "Configurare l'app per le funzioni")
+   ![Screenshot che evidenzia l'opzione Configurazione in Funzionalità configurate.](./media/data-lake-storage-events/configure-function-app.png "Configurare l'app per le funzioni")
 
 6. Nella pagina **Impostazioni applicazione** scegliere il pulsante **Nuova impostazione applicazione** per aggiungere ogni impostazione.
 
@@ -287,13 +287,13 @@ Creare una funzione di Azure che esegue il processo.
 
 8. Scegliere **Trigger griglia di eventi**.
 
-   Installare l'estensione **Microsoft.Azure.WebJobs.Extensions.EventGrid**, se viene chiesto di farlo. Se è necessario installarla, scegliere di nuovo **Trigger griglia di eventi** per creare la funzione.
+   Installare l'estensione **Microsoft.Azure.WebJobs.Extensions.EventGrid** , se viene chiesto di farlo. Se è necessario installarla, scegliere di nuovo **Trigger griglia di eventi** per creare la funzione.
 
    Viene visualizzato il riquadro **Nuova funzione**.
 
 9. Nel riquadro **Nuova funzione** assegnare alla funzione il nome **UpsertOrder** e quindi fare clic sul pulsante **Crea**.
 
-10. Sostituire il contenuto del file di codice con questo codice e quindi fare clic sul pulsante **Salva**:
+10. Sostituire il contenuto del file di codice con questo codice e quindi fare clic sul pulsante **Salva** :
 
     ```cs
     using "Microsoft.Azure.EventGrid"
@@ -345,7 +345,7 @@ In questa sezione si creerà una sottoscrizione di Griglia di eventi che chiama 
 
 1. Nella tabella codici della funzione fare clic sul pulsante **Aggiungi sottoscrizione di Griglia di eventi**.
 
-   ![Nuova sottoscrizione di eventi](./media/data-lake-storage-events/new-event-subscription.png "Nuova sottoscrizione di eventi")
+   ![Screenshot che evidenzia il pulsante Aggiungi sottoscrizione di Griglia di eventi.](./media/data-lake-storage-events/new-event-subscription.png "Nuova sottoscrizione di eventi")
 
 2. Nella pagina **Crea sottoscrizione di eventi** assegnare un nome alla sottoscrizione e quindi usare i campi nella pagina per selezionare l'account di archiviazione.
 

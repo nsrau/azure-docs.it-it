@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f729828627fdb0be18f220d34227aac756ed4e13
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296873"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92894883"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Esercitazione: Integrazione di Azure Active Directory con XaitPorter
 
@@ -27,7 +27,7 @@ L'integrazione di XaitPorter con Azure AD offre i vantaggi seguenti:
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a XaitPorter con gli account Azure AD.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -61,7 +61,7 @@ Per configurare l'integrazione di XaitPorter in Azure AD, è necessario aggiunge
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **XaitPorter**, selezionare **XaitPorter** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **XaitPorter** , selezionare **XaitPorter** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![XaitPorter nell'elenco risultati](common/search-new-app.png)
 
@@ -108,15 +108,15 @@ Per configurare Single Sign-On di Azure AD con XaitPorter, completare i passaggi
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto clienti di XaitPorter](https://www.xait.com/support/). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic sul pulsante Copia per copiare l'**URL dei metadati di federazione dell'app** e salvarlo nel computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic sul pulsante Copia per copiare l' **URL dei metadati di federazione dell'app** e salvarlo nel computer.
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
-6. Fornire l'**Indirizzo IP** o l'**URL dei metadati di federazione dell'app** al [team di supporto di SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), in modo che XaitPorter possa garantire che l'indirizzo IP sia raggiungibile dall'istanza di XaitPorter configurando l'elenco elementi approvati. 
+6. Fornire l' **Indirizzo IP** o l' **URL dei metadati di federazione dell'app** al [team di supporto di SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), in modo che XaitPorter possa garantire che l'indirizzo IP sia raggiungibile dall'istanza di XaitPorter configurando l'elenco elementi approvati. 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>Configurare l'accesso Single Sign-On di XaitPorter
 
-1. Per automatizzare la configurazione all'interno di XaitPorter, è necessario installare l'**estensione del browser MyApps per l'accesso sicuro** facendo clic su **Installa l'estensione**.
+1. Per automatizzare la configurazione all'interno di XaitPorter, è necessario installare l' **estensione del browser MyApps per l'accesso sicuro** facendo clic su **Installa l'estensione**.
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -128,19 +128,19 @@ Per configurare Single Sign-On di Azure AD con XaitPorter, completare i passaggi
 
 4. Fare clic sul riquadro **Admin**.
 
-    ![Configure Single Sign-On](./media/xaitporter-tutorial/user1.png)
+    ![Screenshot che mostra l'opzione Admin selezionata nel sito XaitPorter.](./media/xaitporter-tutorial/user1.png)
 
 5. Selezionare **Manage Single Sign-On** dall'elenco a discesa **System Setup**.
 
-    ![Configure Single Sign-On](./media/xaitporter-tutorial/user2.png)
+    ![Screenshot che mostra l'opzione Manage Single Sign-On selezionata in System Setup.](./media/xaitporter-tutorial/user2.png)
 
 6. Nella sezione **MANAGE SINGLE SIGN-ON** seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/xaitporter-tutorial/user3.png)
+    ![Screenshot che mostra la sezione MANAGE SINGLE SIGN-ON in cui è possibile eseguire questi passaggi.](./media/xaitporter-tutorial/user3.png)
 
     a. Selezionare **Enable Single Sign-On Authentication**.
 
-    b. Nella casella di testo **Identity Provider Settings** (Impostazioni provider di identità) incollare l'**URL dei metadati di federazione dell'app** copiato dal portale di Azure e fare clic su **Fetch** (Recupera).
+    b. Nella casella di testo **Identity Provider Settings** (Impostazioni provider di identità) incollare l' **URL dei metadati di federazione dell'app** copiato dal portale di Azure e fare clic su **Fetch** (Recupera).
 
     c. Selezionare **Enable Autocreation of Users**.
 
@@ -150,7 +150,7 @@ Per configurare Single Sign-On di Azure AD con XaitPorter, completare i passaggi
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -174,7 +174,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a XaitPorter.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **XaitPorter**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **XaitPorter**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -204,12 +204,12 @@ In questa sezione viene creato un utente di nome Britta Simon in XaitPorter. Col
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro XaitPorter nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione XaitPorter per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro XaitPorter nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione XaitPorter per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

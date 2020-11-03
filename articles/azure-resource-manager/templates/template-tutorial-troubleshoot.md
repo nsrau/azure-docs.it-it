@@ -5,12 +5,12 @@ author: mumian
 ms.date: 01/15/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 68ddb5c07ffac2aad4e2dafd16301fa29f391797
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0da6c614572e73a00db1087621eaca3bd790aad6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119345"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92891806"
 ---
 # <a name="tutorial-troubleshoot-arm-template-deployments"></a>Esercitazione: Risolvere i problemi delle distribuzioni di modelli di Azure Resource Manager
 
@@ -96,14 +96,14 @@ New-AzResourceGroupDeployment : 4:48:50 PM - Resource Microsoft.Storage/storageA
 1. Accedere al [portale di Azure](https://portal.azure.com).
 2. Aprire il gruppo di risorse selezionando **Gruppi di risorse** e quindi il nome del gruppo di risorse. Sotto **Distribuzioni** verrà visualizzato **1 operazioni non riuscite**.
 
-    ![Esercitazione su Resource Manager: risoluzione dei problemi](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
+    ![Screenshot con la distribuzione non riuscita evidenziata.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error.png)
 3. Selezionare **Dettagli errore**.
 
-    ![Esercitazione su Resource Manager: risoluzione dei problemi](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
+    ![Screenshot con il collegamento Dettagli errore evidenziato.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-details.png)
 
     Il messaggio di errore è lo stesso visualizzato in precedenza:
 
-    ![Esercitazione su Resource Manager: risoluzione dei problemi](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
+    ![Screenshot che mostra i dettagli dell'errore.](./media/template-tutorial-troubleshoot/resource-manager-template-deployment-error-summary.png)
 
 L'errore si trova anche nei log attività:
 

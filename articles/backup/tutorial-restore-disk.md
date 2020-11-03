@@ -3,13 +3,13 @@ title: "Esercitazione: Ripristinare una macchina virtuale con l'interfaccia dell
 description: Informazioni su come ripristinare un disco e creare un ripristino di una macchina virtuale in Azure con i servizi di backup e ripristino.
 ms.topic: tutorial
 ms.date: 01/31/2019
-ms.custom: mvc
-ms.openlocfilehash: 861c911e84c9de02467d443751902e71d2504422
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.custom: mvc, devx-track-azurecli
+ms.openlocfilehash: 2d8ce7ab6d5a3ab244d0292ffe52847f18ea8795
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324987"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92746739"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Ripristinare una macchina virtuale con l'interfaccia della riga di comando di Azure
 
@@ -74,7 +74,7 @@ Se nella macchina virtuale di cui si esegue il backup sono presenti dischi gesti
         --sku Standard_LRS
     ```
 
-2. Ripristinare il disco dal punto di ripristino con [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Sostituire *mystorageaccount* con il nome dell'account di archiviazione creato con il comando precedente. Sostituire *myRecoveryPointName* con il nome del punto di ripristino ottenuto nell'output del comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) precedente. ***Specificare anche il gruppo di risorse in cui vengono ripristinati i dischi gestiti***.
+2. Ripristinare il disco dal punto di ripristino con [az backup restore restore-disks](/cli/azure/backup/restore#az-backup-restore-restore-disks). Sostituire *mystorageaccount* con il nome dell'account di archiviazione creato con il comando precedente. Sostituire *myRecoveryPointName* con il nome del punto di ripristino ottenuto nell'output del comando [az backup recoverypoint list](/cli/azure/backup/recoverypoint#az-backup-recoverypoint-list) precedente. ***Specificare anche il gruppo di risorse di destinazione in cui vengono ripristinati i dischi gestiti** _.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -88,7 +88,7 @@ Se nella macchina virtuale di cui si esegue il backup sono presenti dischi gesti
     ```
 
     > [!WARNING]
-    > Se il **gruppo di risorse di destinazione** non è indicato, i dischi gestiti verranno ripristinati come dischi non gestiti nell'account di archiviazione specificato. Le conseguenze per il tempo di ripristino saranno significative, dal momento che il tempo impiegato per ripristinare i dischi dipende esclusivamente dall'account di archiviazione specificato. Si otterrà il vantaggio del ripristino istantaneo solo quando viene specificato il parametro target-resource-group. Se si intende ripristinare i dischi gestiti come non gestiti, non specificare il parametro **target-resource-group** e fornire invece il parametro **restore-as-unmanaged-disk** come illustrato di seguito. Questo parametro è disponibile in az 3.4.0 e versioni successive.
+    > Se il _ *gruppo di risorse di destinazione* * non viene fornito, i dischi gestiti verranno ripristinati come dischi non gestiti nell'account di archiviazione specificato. Le conseguenze per il tempo di ripristino saranno significative, dal momento che il tempo impiegato per ripristinare i dischi dipende esclusivamente dall'account di archiviazione specificato. Si otterrà il vantaggio del ripristino istantaneo solo quando viene specificato il parametro target-resource-group. Se si intende ripristinare i dischi gestiti come non gestiti, non specificare il parametro **target-resource-group** e fornire invece il parametro **restore-as-unmanaged-disk** come illustrato di seguito. Questo parametro è disponibile in az 3.4.0 e versioni successive.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -154,7 +154,7 @@ az backup job list \
     --output table
 ```
 
-L'output è simile all'esempio seguente che mostra che il processo di ripristino è *In corso*:
+L'output è simile all'esempio seguente che mostra che il processo di ripristino è *In corso* :
 
 ```output
 Name      Operation        Status      Item Name    Start Time UTC       Duration
@@ -164,7 +164,7 @@ a0a8e5e6  Backup           Completed   myvm         2017-09-19T03:09:21  0:15:26
 fe5d0414  ConfigureBackup  Completed   myvm         2017-09-19T03:03:57  0:00:31.191807
 ```
 
-Quando lo *Stato* del processo di ripristino segnala *Completato*, le informazioni necessarie (configurazione della macchina virtuale e modello di distribuzione) sono state ripristinate nell'account di archiviazione.
+Quando lo *Stato* del processo di ripristino segnala *Completato* , le informazioni necessarie (configurazione della macchina virtuale e modello di distribuzione) sono state ripristinate nell'account di archiviazione.
 
 ## <a name="create-a-vm-from-the-restored-disk"></a>Creare una macchina virtuale dal disco ripristinato
 

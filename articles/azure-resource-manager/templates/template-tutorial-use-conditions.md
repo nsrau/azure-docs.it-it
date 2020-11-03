@@ -5,12 +5,12 @@ author: mumian
 ms.date: 04/23/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: d902258c80467380518df3b55583cea1efa76609
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64767f83dfad2b0c2909e8a89b55c849d5c5a9a9
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86119311"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896991"
 ---
 # <a name="tutorial-use-condition-in-arm-templates"></a>Esercitazione: Usare una condizione nei modelli di Azure Resource Manager
 
@@ -88,7 +88,7 @@ Di seguito è riportata la procedura per apportare le modifiche:
 1. Sostituire le tre occorrenze di **variables('storageAccountName')** con **parameters('storageAccountName')** nell'intero modello.
 1. Rimuovere la definizione di variabile seguente:
 
-    ![Diagramma dell'uso di una condizione nel modello di Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
+    ![Screenshot con le definizioni di variabile evidenziate che è necessario rimuovere.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template-remove-storageaccountname.png)
 
 1. Aggiungere i due parametri seguenti all'inizio della sezione Parameters:
 
@@ -117,11 +117,11 @@ Di seguito è riportata la procedura per apportare le modifiche:
     "condition": "[equals(parameters('newOrExisting'),'new')]",
     ```
 
-    La condizione controlla il valore di un parametro denominato **newOrExisting**. Se il valore del parametro è **new**, con la distribuzione viene creato l'account di archiviazione.
+    La condizione controlla il valore di un parametro denominato **newOrExisting**. Se il valore del parametro è **new** , con la distribuzione viene creato l'account di archiviazione.
 
     La definizione aggiornata dell'account di archiviazione si presenta come segue:
 
-    ![Usare una condizione in Resource Manager](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
+    ![Screenshot che mostra la definizione aggiornata dell'account di archiviazione.](./media/template-tutorial-use-conditions/resource-manager-tutorial-use-condition-template.png)
 1. Aggiornare la proprietà **storageUri** della definizione di risorsa di macchina virtuale con il valore seguente:
 
     ```json
@@ -172,7 +172,7 @@ Di seguito è riportata la procedura per apportare le modifiche:
     ```
 
     > [!NOTE]
-    > Se **newOrExisting** è **new**, ma l'account di archiviazione con il nome specificato esiste già, la distribuzione ha esito negativo.
+    > Se **newOrExisting** è **new** , ma l'account di archiviazione con il nome specificato esiste già, la distribuzione ha esito negativo.
 
 Provare a ripetere la distribuzione con il parametro **newOrExisting** impostato su "existing" e specificare un account di archiviazione esistente. Per creare prima un account di archiviazione, vedere [Creare un account di archiviazione](../../storage/common/storage-account-create.md).
 

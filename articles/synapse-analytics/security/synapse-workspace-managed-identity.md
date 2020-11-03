@@ -5,15 +5,15 @@ author: RonyMSFT
 ms.service: synapse-analytics
 ms.topic: overview
 ms.subservice: security
-ms.date: 04/15/2020
+ms.date: 10/16/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: e3c2b2ce5bd9af60d6d1fd4ac066681ee8473521
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 4100640fd619d9d971ac1c7083eedef8e2125fc3
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91249451"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738271"
 ---
 # <a name="azure-synapse-workspace-managed-identity-preview"></a>Identità gestita dell'area di lavoro di Azure Synapse (anteprima)
 
@@ -32,7 +32,7 @@ Quando si crea l'area di lavoro, viene creata un'identità gestita assegnata dal
 >[!NOTE]
 >A questa identità gestita dell'area di lavoro verrà fatto riferimento come identità gestita nel resto di questo documento.
 
-Azure Synapse usa l'identità gestita per orchestrare le pipeline. Il ciclo di vita dell'identità gestita è direttamente collegato all'area di lavoro di Azure Synapse. Se si elimina l'area di lavoro di Azure Synapse, viene cancellata anche l'identità gestita.
+Azure Synapse usa l'identità gestita per integrare le pipeline. Il ciclo di vita dell'identità gestita è direttamente collegato all'area di lavoro di Azure Synapse. Se si elimina l'area di lavoro di Azure Synapse, viene cancellata anche l'identità gestita.
 
 L'identità gestita dell'area di lavoro richiede autorizzazioni per eseguire operazioni nelle pipeline. È possibile usare l'ID oggetto o il nome dell'area di lavoro di Azure Synapse per trovare l'identità gestita quando si concedono le autorizzazioni.
 
@@ -52,7 +52,7 @@ Nella finestra **New linked service** (Nuovo servizio collegato) digitare *Azure
 
 ![Creazione del servizio collegato 2](./media/synapse-workspace-managed-identity/workspace-managed-identity-3.png)
 
-Nella finestra successiva scegliere **Identità gestita** in **Metodo di autenticazione**. Verranno visualizzati il **nome** e l'**ID oggetto** dell'identità gestita.
+Nella finestra successiva scegliere **Identità gestita** in **Metodo di autenticazione**. Verranno visualizzati il **nome** e l' **ID oggetto** dell'identità gestita.
 
 ![Creazione del servizio collegato 3](./media/synapse-workspace-managed-identity/workspace-managed-identity-4.png)
 

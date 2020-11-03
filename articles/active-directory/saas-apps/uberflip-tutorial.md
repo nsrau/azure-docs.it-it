@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/28/2019
 ms.author: jeedes
-ms.openlocfilehash: 8936c2150c32a22877f9b56736ecc4b8f3424b32
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6bf3eccec70619bf73397e315c6d851f753ec52f
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533147"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521833"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-uberflip"></a>Esercitazione: Integrazione di Azure Active Directory con Uberflip
 
@@ -28,7 +28,7 @@ L'integrazione di Uberflip con Azure AD offre i vantaggi seguenti:
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Uberflip con gli account Azure AD personali.
 * È possibile gestire gli account da una posizione centrale: il portale di Azure.
 
-Per dettagli sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per dettagli sull'integrazione di app SaaS (Software as a Service) con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisites
 
@@ -63,7 +63,7 @@ Per configurare l'integrazione di Uberflip in Azure AD, è necessario aggiungere
 
    ![Opzione Applicazione nuova](common/add-new-app.png)
 
-1. Nella casella di ricerca immettere **Uberflip**. Nei risultati della ricerca, selezionare **Uberflip**, quindi selezionare **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca immettere **Uberflip**. Nei risultati della ricerca, selezionare **Uberflip** , quindi selezionare **Aggiungi** per aggiungere l'applicazione.
 
    ![Uberflip nell'elenco risultati](common/search-new-app.png)
 
@@ -96,9 +96,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Uberflip, eseguire i se
 
 1. Nel riquadro **Configura l'accesso Single Sign-On con SAML** selezionare **Modifica** (l'icona a forma di matita) per aprire il riquadro **Configurazione SAML di base**.
 
-   ![Modificare la configurazione SAML di base](common/edit-urls.png)
+   ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere un URL di risposta.](common/edit-urls.png)
 
-1. Nel riquadro **Configurazione SAML base**, eseguire uno dei passaggi seguenti, a seconda della modalità SSO che si desidera configurare:
+1. Nel riquadro **Configurazione SAML base** , eseguire uno dei passaggi seguenti, a seconda della modalità SSO che si desidera configurare:
 
    * Per configurare l'applicazione in modalità Single Sign-On avviata da IDP, nella casella **URL di risposta (URL del servizio consumer di asserzione)** immettere un URL usando il criterio seguente:
 
@@ -113,9 +113,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Uberflip, eseguire i se
 
      `https://app.uberflip.com/users/login`
 
-     ![Informazioni su URL e dominio per l'accesso Single Sign-On di Uberflip](common/both-signonurl.png)
+     ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/both-signonurl.png)
 
-1. Nel riquadro **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, selezionare **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate e salvarlo nel computer.
+1. Nel riquadro **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , selezionare **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate e salvarlo nel computer.
 
    ![Opzione per il download del file XML dei metadati federazione](common/metadataxml.png)
 
@@ -167,7 +167,7 @@ In questa sezione B. Simon riceve l'abilitazione per l'uso dell'accesso Single S
 
     ![Uberflip nell'elenco delle applicazioni](common/all-applications.png)
 
-1. Nel riquadro sinistro in **GESTISCI**fare clic su **Utenti e gruppi**.
+1. Nel riquadro sinistro in **GESTISCI** fare clic su **Utenti e gruppi**.
 
     ![Opzione Utenti e gruppi](common/users-groups-blade.png)
 
@@ -192,12 +192,12 @@ A questo punto in Uberflip viene creato un utente denominato B. Simon. Non è ne
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD tramite il portale App personali.
 
-Quando si seleziona **Uberflip** nel portale App personali, si dovrebbe automaticamente accedere alla sottoscrizione Uberflip per la quale è stato impostato l'accesso Single Sign-On. Per altre informazioni sul portale App personali, vedere [Accedere e usare le app nel portale App personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona **Uberflip** nel portale App personali, si dovrebbe automaticamente accedere alla sottoscrizione Uberflip per la quale è stato impostato l'accesso Single Sign-On. Per altre informazioni sul portale App personali, vedere [Accedere e usare le app nel portale App personali](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-* [Un elenco di esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+* [Un elenco di esercitazioni per l'integrazione di applicazioni SaaS con Azure Active Directory](./tutorial-list.md)
 
-* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+* [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-* [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+* [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/09/2019
 ms.author: jeedes
-ms.openlocfilehash: 30971c9c5280bfba37f46aaab0aaf2c2506502c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8cf58f49cba1bcc77c96a0da2061a037bb62bf2
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88542344"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92504746"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-teamphoria"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Teamphoria
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Teamphoria con Azure Active Directo
 * Abilitare gli utenti per l'accesso automatico a Teamphoria con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -94,7 +94,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -122,7 +122,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-teamphoria-sso"></a>Configurare l'accesso Single Sign-On di Teamphoria
 
-1. Per automatizzare la configurazione all'interno di Teamphoria, è necessario installare l'**estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
+1. Per automatizzare la configurazione all'interno di Teamphoria, è necessario installare l' **estensione del browser per l'accesso sicuro ad App personali** facendo clic su **Installa l'estensione**.
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -134,23 +134,23 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 4. Passare all'opzione **ADMIN SETTINGS** (Impostazioni di amministrazione) nella barra degli strumenti di sinistra e scegliere **SINGLE SIGN-ON** nella scheda di configurazione per aprire la finestra di configurazione SSO.
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/admin_sso_configure.png)
+    ![Screenshot che mostra l'opzione ADMIN SETTINGS in cui è possibile selezionare SINGLE SIGN-ON.](./media/teamphoria-tutorial/admin_sso_configure.png)
 
 5. Fare clic sull'opzione **ADD NEW IDENTITY PROVIDER** (Aggiungi nuovo provider di identità) nell'angolo superiore destro per aprire il modulo e aggiungere le impostazioni per l'accesso Single Sign-On.
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/add_new_identity_provider.png)
+    ![Screenshot che mostra dove selezionare ADD IDENTITY PROVIDER.](./media/teamphoria-tutorial/add_new_identity_provider.png)
 
 6. Immettere i dettagli nei campi come descritto di seguito.
 
-    ![Configure Single Sign-On](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
+    ![Screenshot che mostra la pagina in cui è possibile immettere i valori descritti.](./media/teamphoria-tutorial/Teamphoria_sso_save.png)
 
-    a. **NOME VISUALIZZATO**: immettere il nome del plug-in visualizzato nella pagina di amministrazione.
+    a. **NOME VISUALIZZATO** : immettere il nome del plug-in visualizzato nella pagina di amministrazione.
 
-    b. **NOME PULSANTE**: il nome della scheda che verrà visualizzata nella pagina di accesso per l'accesso Single Sign-On.
+    b. **NOME PULSANTE** : il nome della scheda che verrà visualizzata nella pagina di accesso per l'accesso Single Sign-On.
 
-    c. **CERTIFICATO**: aprire il certificato scaricato in precedenza dal portale di Azure nel Blocco note, copiare il contenuto dello stesso e incollarlo qui nella casella.
+    c. **CERTIFICATO** : aprire il certificato scaricato in precedenza dal portale di Azure nel Blocco note, copiare il contenuto dello stesso e incollarlo qui nella casella.
 
-    d. **PUNTO DI INGRESSO**: incollare l'**URL di accesso** copiato in precedenza dal portale di Azure.
+    d. **PUNTO DI INGRESSO** : incollare l' **URL di accesso** copiato in precedenza dal portale di Azure.
 
     e. Posizionare il selettore dell'opzione su **ON** e fare clic su **SAVE** (Salva).
 
@@ -168,13 +168,13 @@ Per consentire agli utenti di Azure AD di accedere a Teamphoria, è necessario e
 
 1. Fare clic sull'opzione **MANUAL INVITE** (Invito manuale).
 
-    ![Invita persone](./media/teamphoria-tutorial/admin_manage_add_users.png)
+    ![Screenshot che mostra l'opzione MANUAL INVITE.](./media/teamphoria-tutorial/admin_manage_add_users.png)
 
 1. In questa pagina effettuare l'operazione seguente.
 
-    ![Invita persone](./media/teamphoria-tutorial/manual_user_invite.png)
+    ![Screenshot mostra la pagina MANUAL USER INVITE in cui è possibile immettere un nome e un indirizzo di posta elettronica.](./media/teamphoria-tutorial/manual_user_invite.png)
 
-    a. Nella casella di testo **EMAIL ADDRESS** (INDIRIZZO DI POSTA ELETTRONICA) immettere l'**indirizzo di posta elettronica** dell'utente, ad esempio B.Simon.
+    a. Nella casella di testo **EMAIL ADDRESS** (INDIRIZZO DI POSTA ELETTRONICA) immettere l' **indirizzo di posta elettronica** dell'utente, ad esempio B.Simon.
 
     b. Nella casella di testo **FIRST NAME** (NOME) immettere il nome dell'utente, ad esempio **B**.
 
@@ -186,15 +186,14 @@ Per consentire agli utenti di Azure AD di accedere a Teamphoria, è necessario e
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Teamphoria nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Teamphoria per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Teamphoria nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Teamphoria per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Teamphoria con Azure AD](https://aad.portal.azure.com/)
-

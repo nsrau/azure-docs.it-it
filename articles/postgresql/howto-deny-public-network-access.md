@@ -39,7 +39,7 @@ Seguire questa procedura per impostare PostgreSQL Single Server Deny Public Netw
 
 1. Una notifica conferma che l'impostazione di sicurezza della connessione è stata abilitata correttamente.
 
-    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Server singolo database di Azure per PostgreSQL Nega accesso alla rete":::
+    :::image type="content" source="./media/howto-deny-public-network-access/deny-public-network-access-success.png" alt-text="Il server singolo database di Azure per PostgreSQL nega l'accesso alla rete riuscito":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

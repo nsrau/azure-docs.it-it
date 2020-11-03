@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 323d6324bc99028a3df4cb9cada133ad8cd990aa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9bcda4affa19cf8793cd078fdc5b96d842eb42b
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543262"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893597"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sd-elements"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SD Elements
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare SD Elements con Azure Active Direct
 * Abilitare gli utenti per l'accesso automatico a SD Elements con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -109,7 +109,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -143,7 +143,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nel menu in alto fare clic su **System** (Sistema) e quindi su **Single Sign-On**.
 
-    ![Configure Single Sign-On](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
+    ![Screenshot che mostra l'opzione "System" selezionata e la voce "Single Sign-on" selezionata nel menu a discesa.](./media/sd-elements-tutorial/tutorial_sd-elements_09.png)
 
 1. Nella finestra di dialogo **Impostazioni Single Sign-On** seguire questa procedura:
 
@@ -167,11 +167,11 @@ Questa sezione descrive come creare un utente denominato B.Simon in SD Elements.
 
 1. Nel menu in alto fare clic su **User Management** (Gestione utenti) e quindi su **Users** (Utenti).
 
-    ![Creazione di un utente test di SD Elements](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
+    ![Screenshot che mostra l'opzione "Users" selezionata nel menu a discesa "User Management".](./media/sd-elements-tutorial/tutorial_sd-elements_11.png) 
 
 1. Fare clic su **Add new user**.
 
-    ![Creazione di un utente test di SD Elements](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
+    ![Screenshot che mostra il pulsante "Add New User" selezionato.](./media/sd-elements-tutorial/tutorial_sd-elements_12.png)
 
 1. Nella finestra di dialogo **Add New User** (Aggiungi nuovo utente) seguire questa procedura:
 
@@ -191,14 +191,14 @@ Questa sezione descrive come creare un utente denominato B.Simon in SD Elements.
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di SD Elements nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SD Elements per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di SD Elements nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione SD Elements per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare SD Elements con Azure AD](https://aad.portal.azure.com/)

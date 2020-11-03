@@ -7,12 +7,12 @@ services: azure-monitor
 ms.topic: sample
 ms.date: 05/18/2020
 ms.subservice: alerts
-ms.openlocfilehash: dad4262520da1ec88c634c98aa2af2bf66bab936
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4340bd0ffc4a060b1eb8884efa8078aaf18e1e28
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87322296"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893982"
 ---
 # <a name="resource-manager-template-samples-for-metric-alert-rules-in-azure-monitor"></a>Esempi di modelli di Resource Manager per le regole di avviso delle metriche in Monitoraggio di Azure
 
@@ -502,7 +502,7 @@ I vincoli seguenti si applicano quando si usano le dimensioni in una regola di a
 - È possibile selezionare un solo valore per dimensione all'interno di ogni criterio.
 - Non è possibile usare "\*" come valore di dimensione.
 - Quando le metriche configurate in criteri diversi supportano la stessa dimensione, è necessario impostare esplicitamente un valore di dimensione, allo stesso modo per tutte le metriche nei criteri pertinenti.
-    - Nelle esempio seguente, poiché sia le metriche **Transactions** che **SuccessE2ELatency** hanno una dimensione **ApiName** e *criterion1* specifica il valore *"GetBlob"* per la dimensione **ApiName**, anche *criterion2* deve impostare un valore *"GetBlob"* per la dimensione **ApiName**.
+    - Nelle esempio seguente, poiché sia le metriche **Transactions** che **SuccessE2ELatency** hanno una dimensione **ApiName** e *criterion1* specifica il valore *"GetBlob"* per la dimensione **ApiName** , anche *criterion2* deve impostare un valore *"GetBlob"* per la dimensione **ApiName**.
 
 ### <a name="template-file"></a>File modello
 
@@ -707,15 +707,15 @@ I vincoli seguenti si applicano quando si usano le dimensioni in una regola di a
 ## <a name="multiple-dimensions-static-threshold"></a>Più dimensioni, soglia statica
 Una singola regola di avviso può monitorare più serie temporali di metriche alla volta, riducendo così il numero di regole di avviso da gestire. L'esempio seguente crea una regola di avviso statica per metriche dimensionali.
 
-In questo esempio la regola di avviso monitora le combinazioni di valori delle dimensioni **ResponseType** e **ApiName** per la metrica **Transactions**:
-1. **ResponsType**: l'uso del carattere jolly "\*" significa che per ogni valore della dimensione **ResponseType**, inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
-2. **ApiName**: viene monitorata una serie temporale diversa solo per i valori delle dimensioni **GetBlob** e **PutBlob**.
+In questo esempio la regola di avviso monitora le combinazioni di valori delle dimensioni **ResponseType** e **ApiName** per la metrica **Transactions** :
+1. **ResponsType** : l'uso del carattere jolly "\*" significa che per ogni valore della dimensione **ResponseType** , inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
+2. **ApiName** : viene monitorata una serie temporale diversa solo per i valori delle dimensioni **GetBlob** e **PutBlob**.
 
 Ad esempio, alcune possibili serie temporali monitorate da questa regola di avviso sono:
-- Metrica = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
-- Metrica = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
-- Metrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
-- Metrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
+- Metrica = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
+- Metrica = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
+- Metrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
+- Metrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
 
 ### <a name="template-file"></a>File modello
 
@@ -898,15 +898,15 @@ Ad esempio, alcune possibili serie temporali monitorate da questa regola di avvi
 Una regola di avviso con soglie dinamiche può creare soglie personalizzate per centinaia di serie temporali di metriche (anche di tipi diversi) alla volta, riducendo così il numero di regole di avviso da gestire. L'esempio seguente crea una regola di avviso con soglie dinamiche per metriche dimensionali.
 
 
-In questo esempio la regola di avviso monitora le combinazioni di valori delle dimensioni **ResponseType** e **ApiName** per la metrica **Transactions**:
-1. **ResponsType**: per ogni valore della dimensione **ResponseType**, inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
-2. **ApiName**: viene monitorata una serie temporale diversa solo per i valori delle dimensioni **GetBlob** e **PutBlob**.
+In questo esempio la regola di avviso monitora le combinazioni di valori delle dimensioni **ResponseType** e **ApiName** per la metrica **Transactions** :
+1. **ResponsType** : per ogni valore della dimensione **ResponseType** , inclusi i valori futuri, viene monitorata singolarmente una serie temporale diversa.
+2. **ApiName** : viene monitorata una serie temporale diversa solo per i valori delle dimensioni **GetBlob** e **PutBlob**.
 
 Ad esempio, alcune possibili serie temporali monitorate da questa regola di avviso sono:
-- Metrica = *Transactions*, ResponseType = *Success*, ApiName = *GetBlob*
-- Metrica = *Transactions*, ResponseType = *Success*, ApiName = *PutBlob*
-- Metrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *GetBlob*
-- Metrica = *Transactions*, ResponseType = *Server Timeout*, ApiName = *PutBlob*
+- Metrica = *Transactions* , ResponseType = *Success* , ApiName = *GetBlob*
+- Metrica = *Transactions* , ResponseType = *Success* , ApiName = *PutBlob*
+- Metrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *GetBlob*
+- Metrica = *Transactions* , ResponseType = *Server Timeout* , ApiName = *PutBlob*
 
 >[!NOTE]
 > Attualmente per le regole di avviso delle metriche che usano soglie dinamiche non sono supportati più criteri.
@@ -3132,7 +3132,7 @@ I [test di disponibilità di Application Insights](../app/monitor-web-app-availa
 > [!NOTE]
 > `&amp`; è il riferimento all'entità HTML per &. I parametri URL sono ancora separati da un singolo carattere &, ma se si cita l'URL in HTML, è necessario codificarlo. Quindi, se nel valore del parametro pingURL è presente un carattere "&", è necessario eseguirne l'escape con "`&amp`;"
 
-### <a name="parameter-file"></a>File di parametri
+### <a name="template-file"></a>File modello
 
 ```json
 {
@@ -3234,8 +3234,6 @@ I [test di disponibilità di Application Insights](../app/monitor-web-app-availa
 }
 ```
 
-
-
 ### <a name="parameter-file"></a>File di parametri
 
 ```json
@@ -3254,12 +3252,53 @@ I [test di disponibilità di Application Insights](../app/monitor-web-app-availa
         },
         "location": {
             "value": "Replace with the location of your Application Insights resource"
-        }
+        },
+        "pingText": {
+            "defaultValue": "Optional parameter that allows you to perform a content-match for the presence of a specific string within the content returned from a pingURL response",
+            "type": "String"
+        },
     }
 }
 ```
 
+La configurazione aggiuntiva del parametro `pingText` di content-match è controllata nella parte `Configuration/Webtest` del file di modello. In particolare la sezione seguente:
 
+```xml
+<RuleParameter Name=\"FindText\" Value=\"',parameters('pingText'), '\" />
+<RuleParameter Name=\"IgnoreCase\" Value=\"False\" />
+<RuleParameter Name=\"UseRegularExpression\" Value=\"False\" /> 
+<RuleParameter Name=\"PassIfTextFound\" Value=\"True\" />
+```
+### <a name="test-locations"></a>Località di test
+
+|ID                  | Region           |
+|:-------------------|:-----------------|
+| `emea-nl-ams-azr`  | Europa occidentale      |
+| `us-ca-sjc-azr`    | Stati Uniti occidentali          |
+| `emea-ru-msa-edge` | Regno Unito meridionale         |
+| `emea-se-sto-edge` | Regno Unito occidentale          |
+| `apac-sg-sin-azr`  | Asia sud-orientale   |
+| `us-tx-sn1-azr`    | Stati Uniti centro-meridionali |
+| `us-il-ch1-azr`    | Stati Uniti centro-settentrionali |
+| `emea-gb-db3-azr`  | Europa settentrionale     |
+| `apac-jp-kaw-edge` | Giappone orientale       |
+| `emea-fr-pra-edge` | Francia centrale   |
+| `emea-ch-zrh-edge` | Francia meridionale     |
+| `us-va-ash-azr`    | Stati Uniti orientali          |
+| `apac-hk-hkn-azr`  | Asia orientale        |
+| `us-fl-mia-edge`   | Stati Uniti centrali       |
+| `latam-br-gru-edge`| Brasile meridionale      |
+| `emea-au-syd-edge` | Australia orientale   |
+
+### <a name="us-government-test-locations"></a>Località di test di US Government
+
+|ID                    | Area           |
+|----------------------|------------------|
+| `usgov-va-azr`       | `USGov Virginia` |
+| `usgov-phx-azr`      | `USGov Arizona`  |
+| `usgov-tx-azr`       | `USGov Texas`    |
+| `usgov-ddeast-azr`   | `USDoD East`     |
+| `usgov-ddcentral-azr`| `USDoD Central`  |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

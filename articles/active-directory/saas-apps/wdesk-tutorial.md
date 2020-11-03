@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/02/2020
 ms.author: jeedes
-ms.openlocfilehash: 9e64d76e29ba98181aac12e1e3167351a9c1aa95
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7eac2ed58608ac5814e1f907b863a2977df830d4
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88524018"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92636715"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-wdesk"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Wdesk
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Wdesk con Azure Active Directory (A
 * Abilitare gli utenti per l'accesso automatico a Wdesk con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +40,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * Wdesk supporta l'accesso SSO avviato da **SP** e **IDP**
-* Dopo aver configurato Wdesk, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+* Dopo aver configurato Wdesk, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-wdesk-from-the-gallery"></a>Aggiunta di Wdesk dalla raccolta
 
@@ -85,17 +85,17 @@ Per configurare l'accesso Single Sign-On di Azure AD con Wdesk, seguire questa p
 
     ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+4. Nella sezione **Configurazione SAML di base** seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **IDP** :
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Wdesk](common/idp-intiated.png)
+    ![Screenshot che mostra la sezione Configurazione SAML di base in cui è possibile immettere l'identificatore e l'URL di risposta prima di selezionare Salva.](common/idp-intiated.png)
 
     a. Nella casella di testo **Identificatore** digitare un URL nel formato seguente: `https://<subdomain>.wdesk.com/auth/saml/sp/metadata/<instancename>`
 
     b. Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<subdomain>.wdesk.com/auth/saml/sp/consumer/<instancename>`
 
-5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+5. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
-    ![Informazioni su URL e dominio per l'accesso Single Sign-On di Wdesk](common/metadata-upload-additional-signon.png)
+    ![Screenshot che mostra l'opzione Impostare URL aggiuntivi che consente di immettere un URL di accesso.](common/metadata-upload-additional-signon.png)
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<subdomain>.wdesk.com/auth/login/saml/<instancename>`
 
@@ -120,7 +120,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Wdesk, seguire questa p
 
 Questa sezione descrive come creare un utente di test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -144,7 +144,7 @@ Questa sezione descrive come creare un utente di test denominato Britta Simon ne
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Wdesk.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Wdesk**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Wdesk**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -170,41 +170,41 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 1. In un'altra finestra del Web browser accedere a Wdesk come amministratore della sicurezza.
 
-2. In basso a sinistra fare clic su **Amministratore** e scegliere **Amministratore dell'account**:
+2. In basso a sinistra fare clic su **Amministratore** e scegliere **Amministratore dell'account** :
  
-     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+     ![Screenshot che mostra l'opzione Account Admin selezionata nel menu Admin.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
 3. In Wdesk Admin passare a **Security** (Sicurezza) e quindi a **SAML** > **SAML Settings** (Impostazioni SAML):
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
+    ![Screenshot che mostra l'opzione SAMLS Settings selezionata nella scheda SAML.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig2.png)
 
 1. In **SAML User ID Settings** (Impostazioni ID utente SAML) selezionare **SAML User ID is Wdesk Username** (L'ID utente SAML corrisponde al nome utente Wdesk).
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/wdesk-username.png)
+    ![Screenshot che mostra la sezione SAML User ID Settings in cui è possibile selezionare SAML User ID is Wdesk Username.](./media/wdesk-tutorial/wdesk-username.png)
 
 4. In **General Settings** (Impostazioni generali) selezionare **Enable SAML Single Sign On** (Abilita SAML Single Sign On):
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
+    ![Screenshot che mostra la sezione Edit SAML Settings in cui è possibile selezionare l'opzione Enable SAML Single Sign-On.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig3.png)
 
 5. In **Service Provider Details** (Dettagli del provider di servizi) seguire questa procedura:
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
+    ![Screenshot che mostra la sezione Service Provider Details in cui è possibile immettere i valori indicati.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig4.png)
 
-      a. Copiare l'**URL di accesso** e incollarlo nella casella di testo **URL di accesso** nel portale di Azure.
+      a. Copiare l' **URL di accesso** e incollarlo nella casella di testo **URL di accesso** nel portale di Azure.
    
-      b. Copiare l'**URL dei metadati** e incollarlo nella casella di testo **Identificatore** nel portale di Azure.
+      b. Copiare l' **URL dei metadati** e incollarlo nella casella di testo **Identificatore** nel portale di Azure.
        
-      c. Copiare l'**URL del servizio consumer** e incollarlo nella casella di testo **URL di risposta** nel portale di Azure.
+      c. Copiare l' **URL del servizio consumer** e incollarlo nella casella di testo **URL di risposta** nel portale di Azure.
    
       d. Fare clic su **Salva** nel portale di Azure per salvare le modifiche.      
 
 6. Fare clic su **Configure IdP Settings** (Configura impostazioni IdP) per aprire la finestra di dialogo **Edit IdP Settings** (Modifica impostazioni IdP). Fare clic su **Choose File** (Scegli file) per trovare il file **Metadata.xml** salvato dal portale di Azure, quindi caricarlo.
     
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
+    ![Screenshot che mostra la sezione Edit IdP Settings in cui è possibile caricare i metadati.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig5.png)
   
 7. Fare clic su **Salva modifiche**.
 
-    ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
+    ![Screenshot che mostra il pulsante Save changes.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfigsavebutton.png)
 
 ### <a name="create-wdesk-test-user"></a>Creare l'utente di test di Wdesk
 
@@ -216,21 +216,21 @@ Per consentire agli utenti di Azure AD di accedere a Wdesk, è necessario effett
 
 2. Passare ad **Admin** (Amministratore) > **Account Admin** (Amministratore dell'account).
 
-     ![Configure Single Sign-On](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
+     ![Screenshot che mostra l'opzione Account Admin selezionata nel menu Admin.](./media/wdesk-tutorial/tutorial_wdesk_ssoconfig1.png)
 
 3. Fare clic su **Members** (Membri) in **People** (Persone).
 
 4. Fare clic su **Add Member** (Aggiungi membro) per aprire la finestra di dialogo **Add Member** (Aggiungi membro). 
    
-    ![Creazione di un utente di test di Azure AD](./media/wdesk-tutorial/createuser1.png)  
+    ![Screenshot che mostra la scheda Members in cui è possibile selezionare Add Member.](./media/wdesk-tutorial/createuser1.png)  
 
 5. Nella casella di testo **User** (Utente) immettere il nome utente dell'utente, ad esempio b.simon@contoso.com, quindi fare clic sul pulsante **Continua**.
 
-    ![Creazione di un utente di test di Azure AD](./media/wdesk-tutorial/createuser3.png)
+    ![Screenshot che mostra la finestra di dialogo Add Member in cui è possibile immettere un utente.](./media/wdesk-tutorial/createuser3.png)
 
 6.  Immettere i dettagli come mostrato di seguito:
   
-    ![Creazione di un utente di test di Azure AD](./media/wdesk-tutorial/createuser4.png)
+    ![Screenshot che mostra la finestra di dialogo Add Member in cui è possibile immettere aggiungere informazioni di base per un utente.](./media/wdesk-tutorial/createuser4.png)
  
     a. Nella casella di testo **E-mail** (Posta elettronica) immettere l'indirizzo di posta elettronica dell'utente, ad esempio b.simon@contoso.com.
 
@@ -240,20 +240,20 @@ Per consentire agli utenti di Azure AD di accedere a Wdesk, è necessario effett
 
 7. Fare clic sul pulsante **Save Member** (Salva membro).  
 
-    ![Creazione di un utente di test di Azure AD](./media/wdesk-tutorial/createuser5.png)
+    ![Screenshot che mostra la sezione Send welcome email con il pulsante Save Member.](./media/wdesk-tutorial/createuser5.png)
 
 ### <a name="test-sso"></a>Testare l'accesso SSO 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Wdesk nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Wdesk per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Wdesk nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Wdesk per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)

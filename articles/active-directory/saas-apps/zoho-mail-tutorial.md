@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 12/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 00b9df3ad5e4d2104051e5489138785b4ecde8e0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 89c703f6bb956409c97c36c6507519f4e884fcf2
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88546128"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92892724"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zoho"></a>Esercitazione: Integrazione di Azure Active Directory con Zoho
 
@@ -27,7 +27,7 @@ L'integrazione di Zoho con Azure AD offre i vantaggi seguenti:
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a Zoho con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -61,7 +61,7 @@ Per configurare l'integrazione di Zoho in Azure AD, è necessario aggiungere Zoh
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Zoho**, selezionare **Zoho** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Zoho** , selezionare **Zoho** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Zoho nell'elenco risultati](common/search-new-app.png)
 
@@ -106,7 +106,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zoho, eseguire la proce
     > [!NOTE]
     > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Zoho](https://www.zoho.com/mail/contact.html). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-4. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+4. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -136,11 +136,11 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zoho, eseguire la proce
    
     ![Dettagli dell'autenticazione SAML](./media/zoho-mail-tutorial/ic789609.png "SAML Authentication Details")
    
-    a. Nella casella di testo **Login URL** (URL di accesso) incollare l'**URL di accesso** copiato dal portale di Azure.
+    a. Nella casella di testo **Login URL** (URL di accesso) incollare l' **URL di accesso** copiato dal portale di Azure.
    
-    b. Nella casella di testo **Logout URL** (URL di disconnessione) incollare l'**URL di disconnessione** copiato dal portale di Azure.
+    b. Nella casella di testo **Logout URL** (URL di disconnessione) incollare l' **URL di disconnessione** copiato dal portale di Azure.
    
-    c. Nella casella di testo **Change Password URL** (URL di modifica password) incollare l'**URL di modifica password** copiato dal portale di Azure.
+    c. Nella casella di testo **Change Password URL** (URL di modifica password) incollare l' **URL di modifica password** copiato dal portale di Azure.
        
     d. Aprire nel Blocco note il certificato con codifica Base 64 scaricato dal portale di Azure, copiarne il contenuto negli Appunti e quindi incollarlo nella casella di testo **PublicKey** (Chiave pubblica).
    
@@ -152,7 +152,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zoho, eseguire la proce
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -177,7 +177,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zoho.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Zoho**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Zoho**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -214,11 +214,11 @@ Per consentire agli utenti di Azure AD di accedere a Zoho Mail, è necessario es
 
 1. Passare a **User Details \> Add User** (Dettagli utente > Aggiungi utente).
    
-    ![Add User](./media/zoho-mail-tutorial/ic789611.png "Aggiunta di un utente")
+    ![Screenshot che mostra il sito Zoho Mail con le opzioni User Details e Add User selezionate.](./media/zoho-mail-tutorial/ic789611.png "Aggiunta di un utente")
 
 1. Nella finestra di dialogo **Add users** seguire questa procedura:
    
-    ![Add User](./media/zoho-mail-tutorial/ic789612.png "Aggiunta di un utente")
+    ![Screenshot che mostra la finestra di dialogo Add users in cui è possibile immettere i valori descritti.](./media/zoho-mail-tutorial/ic789612.png "Aggiunta di un utente")
    
     a. Nella casella di testo **First Name** (Nome) digitare il nome dell'utente, ad esempio **Britta**.
 
@@ -237,13 +237,12 @@ Per consentire agli utenti di Azure AD di accedere a Zoho Mail, è necessario es
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Zoho nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zoho per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Zoho nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zoho per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

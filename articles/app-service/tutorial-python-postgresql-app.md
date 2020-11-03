@@ -11,12 +11,12 @@ ms.custom:
 - cli-validate
 - devx-track-python
 - devx-track-azurecli
-ms.openlocfilehash: e171ce1ab7d2b9d4a78399ee639945bde16b71ca
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: 63fdee6036580df42f7f965244b5f888c1ec082d
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92019410"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92540755"
 ---
 # <a name="tutorial-deploy-a-django-web-app-with-postgresql-in-azure-app-service"></a>Esercitazione: Distribuire un'app Web Django con PostgreSQL nel Servizio app di Azure
 
@@ -138,7 +138,7 @@ az postgres up --resource-group DjangoPostgres-tutorial-rg --location westus2 --
 ```
 
 - Sostituire *\<postgres-server-name>* con un nome univoco in tutto Azure (l'endpoint server diventa `https://<postgres-server-name>.postgres.database.azure.com`). Un criterio valido consiste nell'usare una combinazione del nome della società e di un altro valore univoco.
-- Per *\<admin-username>* e *\<admin-password>* specificare le credenziali per creare un utente amministratore per questo server Postgres.
+- Per *\<admin-username>* e *\<admin-password>* specificare le credenziali per creare un utente amministratore per questo server Postgres. Non usare il carattere `$` nel nome utente o nella password. Successivamente, si creano variabili di ambiente con questi valori, in cui il carattere `$` ha un significato speciale all'interno del contenitore Linux usato per eseguire le app Python.
 - Il [piano tariffario](../postgresql/concepts-pricing-tiers.md) B_Gen5_1 (Basic, Gen5, 1 core) usato qui è il meno costoso. Per i database di produzione, omettere l'argomento `--sku-name` per usare invece il piano tariffario GP_Gen5_2 (General Purpose, Gen5, 2 core).
 
 Questo comando esegue le azioni seguenti, che possono richiedere alcuni minuti:
@@ -153,7 +153,7 @@ Questo comando esegue le azioni seguenti, che possono richiedere alcuni minuti:
 
 È possibile eseguire tutti i passaggi separatamente con altri comandi `az postgres` e `psql`, ma `az postgres up` li esegue tutti insieme.
 
-Quando il comando viene completato, restituisce come output un oggetto JSON contenente diverse stringhe di connessione per il database insieme all'URL del server, un nome utente generato (ad esempio, "joyfulKoala@msdocs-djangodb-12345") e una password GUID. Copiare il nome utente e la password in un file di testo temporaneo, in quanto saranno necessari più avanti in questa esercitazione.
+Quando il comando viene completato, restituisce come output un oggetto JSON contenente diverse stringhe di connessione per il database insieme all'URL del server, un nome utente generato (ad esempio, "joyfulKoala@msdocs-djangodb-12345") e una password GUID. Copiare il nome utente breve (prima del carattere @) e la password in un file di testo temporaneo, in quanto saranno necessari più avanti in questa esercitazione.
 
 <!-- not all locations support az postgres up -->
 > [!TIP]
@@ -212,7 +212,7 @@ az webapp config appsettings set --settings DJANGO_ENV="production" DBHOST="<pos
 ```
 
 - Sostituire *\<postgres-server-name>* con il nome usato in precedenza con il comando `az postgres up`. Il codice in *azuresite/production.py* accoda automaticamente `.postgres.database.azure.com` per creare l'URL del server Postgres completo.
-- Sostituire *\<username>* e *\<password>* con le credenziali di amministratore usate con il comando `az postgres up` precedente o con quelle generate automaticamente da `az postgres up`. Il codice in *azuresite/production.py* costruisce automaticamente il nome utente Postgres completo da `DBUSER` e `DBHOST`.
+- Sostituire *\<username>* e *\<password>* con le credenziali di amministratore usate con il comando `az postgres up` precedente o con quelle generate automaticamente da `az postgres up`. Il codice in *azuresite/production.py* crea automaticamente il nome utente Postgres completo da `DBUSER` e `DBHOST`, quindi non includere la parte `@server`. Inoltre, come accennato in precedenza, non usare il carattere `$` in nessuno dei due valori, perché ha un significato speciale per le variabili di ambiente Linux.
 - I nomi del gruppo di risorse e dell'app vengono ricavati dai valori memorizzati nella cache nel file *.azure/config*.
 
 Nel codice Python è possibile accedere a queste impostazioni come variabili di ambiente con istruzioni come `os.environ.get('DJANGO_ENV')`. Per altre informazioni, vedere [Accedere alle variabili di ambiente](configure-language-python.md#access-environment-variables).
@@ -235,7 +235,7 @@ Le migrazioni di database Django assicurano che lo schema nel database PostgreSQ
 
     Se non è possibile connettersi alla sessione SSH, significa che l'avvio dell'app stessa non è riuscito. [Controllare i log di diagnostica](#stream-diagnostic-logs) per i dettagli. Ad esempio, se nella sezione precedente non sono state create le impostazioni dell'app necessarie, i log indicheranno `KeyError: 'DBNAME'`.
 
-1. Nella sessione SSH eseguire i comandi seguenti (è possibile incollare i comandi usando **CTRL**+**MAIUSC**+**V**):
+1. Nella sessione SSH eseguire i comandi seguenti (è possibile incollare i comandi usando **CTRL**+**MAIUSC**+**V** ):
 
     ```bash
     # Change to the folder where the app code is deployed
@@ -277,7 +277,7 @@ Le migrazioni di database Django assicurano che lo schema nel database PostgreSQ
 [Problemi? Segnalarli](https://aka.ms/DjangoCLITutorialHelp).
 
 > [!NOTE]
-> Il Servizio app rileva un progetto Django cercando in ogni sottocartella un file *wsgi.py*, che viene creato da `manage.py startproject` per impostazione predefinita. Quando trova tale file, il Servizio app carica l'app Web Django. Per altre informazioni, vedere [Configurare l'immagine Python predefinita](configure-language-python.md).
+> Il Servizio app rileva un progetto Django cercando in ogni sottocartella un file *wsgi.py* , che viene creato da `manage.py startproject` per impostazione predefinita. Quando trova tale file, il Servizio app carica l'app Web Django. Per altre informazioni, vedere [Configurare l'immagine Python predefinita](configure-language-python.md).
 
 ## <a name="make-code-changes-and-redeploy"></a>Apportare modifiche al codice e ripetere la distribuzione
 
@@ -374,7 +374,7 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-Eseguire di nuovo il server di sviluppo con `python manage.py runserver` e testare l'app in *http:\//localhost:8000/admin*:
+Eseguire di nuovo il server di sviluppo con `python manage.py runserver` e testare l'app in *http:\//localhost:8000/admin* :
 
 Arrestare di nuovo il server Web Django con **CTRL**+**C**.
 

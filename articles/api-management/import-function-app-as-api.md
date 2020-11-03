@@ -1,7 +1,7 @@
 ---
 title: Importare un'app per le funzioni di Azure come API in Gestione API
 titleSuffix: Azure API Management
-description: Questa esercitazione illustra come importare un'app per le funzioni di Azure in Gestione API di Azure come API.
+description: Questo articolo illustra come importare un'app per le funzioni di Azure in Gestione API di Azure come API.
 services: api-management
 documentationcenter: ''
 author: mikebudzynski
@@ -10,15 +10,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: be8a8f35ece946d1be907b2ca13a640bebbb4ee5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 01ac59ec435b19f5da56ca345840628964263a47
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627024"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93147029"
 ---
 # <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Importare un'app per le funzioni di Azure come API in Gestione API di Azure
 
@@ -50,23 +50,23 @@ Per creare una nuova API da un'app per le funzioni di Azure, seguire questa proc
 
 2. Nell'elenco **Add a new API** (Aggiungere una nuova API) selezionare **App per le funzioni**.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/add-01.png)
+    ![Screenshot che mostra il riquadro App per le funzioni.](./media/import-function-app-as-api/add-01.png)
 
 3. Fare clic su **Sfoglia** per selezionare le funzioni da importare.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/add-02.png)
+    ![Screenshot con il pulsante Salva evidenziato.](./media/import-function-app-as-api/add-02.png)
 
 4. Fare clic sulla sezione **App per le funzioni** per scegliere dall'elenco di App per le funzioni disponibili.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/add-03.png)
+    ![Screenshot con la sezione App per le funzioni evidenziata.](./media/import-function-app-as-api/add-03.png)
 
 5. Individuare l'app per le funzioni da cui si desidera importare funzioni, selezionarla e fare clic su **Seleziona**.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/add-04.png)
+    ![Screenshot con la sezione App per le funzioni evidenziata da cui importare funzioni e il pulsante Seleziona.](./media/import-function-app-as-api/add-04.png)
 
 6. Selezionare le funzioni che si desidera importare e fare clic su **Seleziona**.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/add-05.png)
+    ![Screenshot con le funzioni evidenziate da importare e il pulsante Seleziona.](./media/import-function-app-as-api/add-05.png)
 
     > [!NOTE]
     > È possibile importare solo funzioni basate su un trigger HTTP e il cui livello di autorizzazione è impostato su *Anonimo* o *Funzione*.
@@ -82,27 +82,27 @@ Per aggiungere l'app per le funzioni di Azure a un'API esistente, seguire questa
 
 2. Scegliere un'API in cui importare un'app per le funzioni di Azure. Fare clic su **...** e selezionare **Importa** dal menu di scelta rapida.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/append-01.png)
+    ![Screenshot con la voce di menu Importa evidenziata.](./media/import-function-app-as-api/append-01.png)
 
 3. Fare clic sul riquadro **App per le funzioni**.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/append-02.png)
+    ![Screenshot con il riquadro App per le funzioni evidenziato.](./media/import-function-app-as-api/append-02.png)
 
 4. Nella finestra popup fare clic su **Sfoglia**.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/append-03.png)
+    ![Screenshot del pulsante Sfoglia.](./media/import-function-app-as-api/append-03.png)
 
 5. Fare clic sulla sezione **App per le funzioni** per scegliere dall'elenco di App per le funzioni disponibili.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/add-03.png)
+    ![Screenshot con l'elenco di app per le funzioni evidenziato.](./media/import-function-app-as-api/add-03.png)
 
 6. Individuare l'app per le funzioni da cui si desidera importare funzioni, selezionarla e fare clic su **Seleziona**.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/add-04.png)
+    ![Screenshot con la sezione App per le funzioni evidenziata da cui importare funzioni.](./media/import-function-app-as-api/add-04.png)
 
 7. Selezionare le funzioni che si desidera importare e fare clic su **Seleziona**.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/add-05.png)
+    ![Schermata con le funzioni da importare evidenziate.](./media/import-function-app-as-api/add-05.png)
 
 8. Fare clic su **Importa**.
 
@@ -112,8 +112,8 @@ Per aggiungere l'app per le funzioni di Azure a un'API esistente, seguire questa
 
 L'importazione di un'app per le funzioni di Azure genera automaticamente:
 
-* la chiave host nell'app per le funzioni, con il nome apim-{*nome istanza del servizio Gestione API di Azure*},
-* il valore denominato nell'istanza di Gestione API di Azure, con il nome {*nome istanza dell'app per le funzioni di Azure*}-key, che contiene la chiave host creata.
+* la chiave host nell'app per le funzioni, con il nome apim-{ *nome istanza del servizio Gestione API di Azure* },
+* il valore denominato nell'istanza di Gestione API di Azure, con il nome { *nome istanza dell'app per le funzioni di Azure* }-key, che contiene la chiave host creata.
 
 Per le API create dopo il 4 aprile 2019, la chiave host viene passata nelle richieste HTTP da Gestione API all'app per le funzioni in un'intestazione. Le API precedenti passano la chiave host come [parametro di query](../azure-functions/functions-bindings-http-webhook-trigger.md#api-key-authorization). Questo comportamento può essere modificato tramite la [chiamata API REST](/rest/api/apimanagement/2019-12-01/backend/update#backendcredentialscontract) `PATCH Backend` sull'entità *Back-end* associata all'app per le funzioni.
 
@@ -128,11 +128,11 @@ Per le API create dopo il 4 aprile 2019, la chiave host viene passata nelle rich
 
 2. Selezionare **Impostazioni dell'app per le funzioni** dalla panoramica.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/keys-02-a.png)
+    ![Screenshot con l'opzione Impostazioni dell'app per le funzioni evidenziata.](./media/import-function-app-as-api/keys-02-a.png)
 
 3. La chiave si trova nella sezione **Chiavi host**.
 
-    ![Aggiungere da app per le funzioni](./media/import-function-app-as-api/keys-02-b.png)
+    ![Screenshot con la sezione Chiavi host evidenziata.](./media/import-function-app-as-api/keys-02-b.png)
 
 ### <a name="access-the-named-value-in-azure-api-management"></a>Accedere al valore denominato in Gestione API di Azure
 
@@ -150,7 +150,7 @@ Passare all'istanza di Gestione API di Azure e selezionare **Valori denominati**
 
 3. Selezionare un'operazione.
 
-    La pagina visualizza campi per le intestazioni e campi per i parametri di query. Una delle intestazioni è **Ocp-Apim-Subscription-Key**, per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente. 
+    La pagina visualizza campi per le intestazioni e campi per i parametri di query. Una delle intestazioni è **Ocp-Apim-Subscription-Key** , per la chiave di sottoscrizione del prodotto associato all'API. Se si è creata l'istanza di Gestione API, si è già un amministratore, quindi la chiave viene inserita automaticamente. 
 
 4. Selezionare **Send** (Invia).
 

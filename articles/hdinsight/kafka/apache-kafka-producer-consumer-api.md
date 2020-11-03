@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 260a3fbb8486a1e9eeaa87e920143615e5fae867
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b942fb321d2bceef64930bea0c660f66747508b6
+ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83681811"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92629307"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>Esercitazione: Usare le API Apache Kafka Producer e Consumer
 
@@ -34,7 +34,7 @@ Per altre informazioni sulle API, vedere la documentazione Apache sull'[API Prod
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Cluster Apache Kafka in HDInsight. Per informazioni su come creare il cluster, vedere [Iniziare a usare Apache Kafka in HDInsight](apache-kafka-get-started.md).
-* [Java Developer Kit (JDK) versione 8](https://aka.ms/azure-jdks) o equivalente, ad esempio OpenJDK.
+* [Java Developer Kit (JDK) versione 8](/azure/developer/java/fundamentals/java-jdk-long-term-support) o equivalente, ad esempio OpenJDK.
 * [Apache Maven](https://maven.apache.org/download.cgi) correttamente [installato](https://maven.apache.org/install.html) in base alle indicazioni di Apache.  Maven è un sistema di compilazione per progetti Java.
 * Un client SSH come Putty. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -213,13 +213,13 @@ Il consumo da parte dei client dello stesso gruppo viene gestito tramite le part
 > [!IMPORTANT]  
 > Un gruppo di consumer non può contenere un numero di istanze di consumer maggiore del numero di partizioni. In questo esempio, un gruppo di consumer può contenere fino a otto consumer perché è questo il numero di partizioni nell'argomento. In alternativa è possibile avere più gruppi di consumer, ognuno con al massimo otto consumer.
 
-I record vengono archiviati in Kafka nell'ordine in cui vengono ricevuti in una partizione. Per ottenere il recapito dei record nell'ordine *all'interno di una partizione*, creare un gruppo di consumer con un numero di istanze corrispondente al numero di partizioni. Per ottenere il recapito dei record nell'ordine *all'interno dell'argomento*, creare un gruppo di consumer con una sola istanza.
+I record vengono archiviati in Kafka nell'ordine in cui vengono ricevuti in una partizione. Per ottenere il recapito dei record nell'ordine *all'interno di una partizione* , creare un gruppo di consumer con un numero di istanze corrispondente al numero di partizioni. Per ottenere il recapito dei record nell'ordine *all'interno dell'argomento* , creare un gruppo di consumer con una sola istanza.
 
 ## <a name="common-issues-faced"></a>Problemi comuni rilevati
 
-1. **La creazione dell'argomento non riesce** Se il cluster è abilitato per Enterprise Security Pack, usare i [file JAR predefiniti per producer e consumer](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). Il file JAR ESP può essere compilato dal codice nella [sottodirectory `DomainJoined-Producer-Consumer`](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). Si noti che le proprietà producer e consumer hanno una proprietà aggiuntiva `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` per i cluster abilitati per ESP.
+1. **La creazione dell'argomento non riesce** Se il cluster è abilitato per Enterprise Security Pack, usare i [file JAR predefiniti per producer e consumer](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/blob/master/Prebuilt-Jars/kafka-producer-consumer-esp.jar). Il file JAR ESP può essere compilato dal codice nella [sottodirectory `DomainJoined-Producer-Consumer`](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started/tree/master/DomainJoined-Producer-Consumer). Le proprietà producer e consumer hanno una proprietà aggiuntiva `CommonClientConfigs.SECURITY_PROTOCOL_CONFIG` per i cluster abilitati per ESP.
 
-2. **Problema rilevato con i cluster abilitati per ESP** Se le operazioni di producer e consumer hanno esito negativo e si usa un cluster abilitato per ESP, verificare che l'utente `kafka` sia presente in tutti i criteri di Ranger. Se non è presente, aggiungerlo a tutti i criteri di Ranger.
+2. **Errore nei cluster abilitati per ESP** : se le operazioni di producer e consumer non riescono e si usa un cluster abilitato per ESP, verificare che l'utente `kafka` sia presente in tutti i criteri di Ranger. Se non è presente, aggiungerlo a tutti i criteri di Ranger.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

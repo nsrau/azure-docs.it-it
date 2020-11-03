@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/20/2019
 ms.author: jeedes
-ms.openlocfilehash: f9fd458ea19fa0dad2f630f94a67d5e1db96cee3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9b244d5e6aa9dd732aa670fd645b6bbc266c9535
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543313"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897280"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-cloud-for-customer"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SAP Cloud for Customer
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare SAP Cloud for Customer con Azure Ac
 * Abilitare gli utenti per l'accesso automatico a SAP Cloud for Customer con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -86,13 +86,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. L'applicazione SAP Cloud for Customer prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo Attributi utente.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra la finestra dialogo "User Attributes" con l'icona "Edit" selezionata.](common/edit-attribute.png)
 
 1. Nella sezione **Attributi utente** della finestra di dialogo **Attributi utente e attestazioni** eseguire questa procedura:
 
-    a. Fare clic sull'**icona Modifica** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
+    a. Fare clic sull' **icona Modifica** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![image](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
+    ![Screenshot che mostra la pagina "Attributi utente e attestazioni" con l'icona "Modifica" selezionata.](./media/sap-customer-cloud-tutorial/tutorial_usermail.png)
 
     ![image](./media/sap-customer-cloud-tutorial/tutorial_usermailedit.png)
 
@@ -117,7 +117,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -147,13 +147,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Aprire una nuova finestra del Web browser e accedere al sito aziendale di SAP Cloud for Customer come amministratore.
 
-2. Sul lato sinistro del menu fare clic su  **Identity Providers** (Provider di identità) > **Corporate Identity Providers** (Provider di identità aziendali) > **Add** (Aggiungi) e nella finestra popup aggiungere il nome del provider di identità, ad esempio **Azure AD**, fare clic su **Save** (Salva) e quindi fare clic su **SAML 2.0 Configuration** (Configurazione di SAML 2.0).
+2. Sul lato sinistro del menu fare clic su **Identity Providers** (Provider di identità) > **Corporate Identity Providers** (Provider di identità aziendali) > **Add (Aggiungi)** e nella finestra popup aggiungere il nome del provider di identità, ad esempio **Azure AD** , fare clic su **Save** (Salva) e quindi fare clic su **SAML 2.0 Configuration** (Configurazione di SAML 2.0).
 
-    ![Configurazione di SAP](./media/sap-customer-cloud-tutorial/configure01.png)
+    ![Screenshot che mostra la pagina "Identity Providers" con la casella di testo "Add Identity Provider" evidenziata e il pulsante "Save" selezionato.](./media/sap-customer-cloud-tutorial/configure01.png)
 
 3. Nella sezione **SAML 2.0 Configuration** (Configurazione di SAML 2.0) seguire questa procedura:
 
-    ![Configurazione di SAP](./media/sap-customer-cloud-tutorial/configure02.png)
+    ![Screenshot che mostra la finestra "SAML 2.0 Configuration" con il pulsante "Browse" selezionato.](./media/sap-customer-cloud-tutorial/configure02.png)
 
     a. Fare clic su **Browse** (Sfoglia) per caricare il file XML dei metadati della federazione scaricato dal portale di Azure.
 
@@ -167,9 +167,9 @@ Per consentire agli utenti di Azure AD di accedere a SAP Cloud for Customer, è 
 
 1. Accedere a SAP Cloud for Customer come amministratore della sicurezza.
 
-2. Sul lato sinistro del menu fare clic su  **Users & Authorizations** (Utenti e autorizzazioni)> **User Management** (Gestione utenti) > **Add User** (Aggiungi utente).
+2. Sul lato sinistro del menu fare clic su **Users & Authorizations** (Utenti e autorizzazioni) > **User Management** (Gestione utenti) > **Add User** (Aggiungi utente).
 
-    ![Configurazione di SAP](./media/sap-customer-cloud-tutorial/configure03.png)
+    ![Screenshot che mostra la pagina "User Management" con il pulsante "Add User" selezionato.](./media/sap-customer-cloud-tutorial/configure03.png)
 
 3. Nella sezione **Add New User** (Aggiungi nuovo utente) seguire questa procedura:
 
@@ -191,15 +191,14 @@ Per consentire agli utenti di Azure AD di accedere a SAP Cloud for Customer, è 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro SAP Cloud for Customer nel pannello di accesso, si accederà automaticamente all'applicazione SAP Cloud for Customer per cui è stato configurato l'accesso Single Sign-On. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro SAP Cloud for Customer nel pannello di accesso, si accederà automaticamente all'applicazione SAP Cloud for Customer per cui è stato configurato l'accesso Single Sign-On. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare SAP Cloud for Customer con Azure AD](https://aad.portal.azure.com/)
-

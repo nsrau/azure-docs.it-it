@@ -1,17 +1,17 @@
 ---
 title: Architettura di connettività-database di Azure per MySQL
 description: Descrive l'architettura di connettività per il database di Azure per il server MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 03/16/2020
-ms.openlocfilehash: 73178a9707d35fe7337210b11e76504794bc93ed
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d3842675cf4b36dfaa95ed6041bf8c6f0978a53
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90896397"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242875"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mysql"></a>Architettura di connettività nel database di Azure per MySQL
 Questo articolo illustra l'architettura di connettività del database di Azure per MySQL e il modo in cui il traffico viene indirizzato all'istanza di database di Azure per MySQL da client sia all'interno che all'esterno di Azure.
@@ -66,13 +66,13 @@ La tabella seguente elenca gli indirizzi IP primari e secondari del database di 
 | Regno Unito occidentale | 51.141.8.11  |
 | Stati Uniti centro-occidentali | 13.78.145.25     |
 | Europa occidentale | 40.68.37.158, 191.237.232.75, 13.69.105.208 ,104.40.169.187 |
-| Stati Uniti Occidentali | 104.42.238.205, 23.99.34.75 ,13.86.216.212, 13.86.217.212 |
+| Stati Uniti occidentali | 104.42.238.205, 23.99.34.75 ,13.86.216.212, 13.86.217.212 |
 | West US 2 | 13.66.226.202  |
 ||||
 
 ## <a name="connection-redirection"></a>Reindirizzamento della connessione
 
-Database di Azure per MySQL supporta un criterio di connessione aggiuntivo, il **Reindirizzamento**, che consente di ridurre la latenza di rete tra le applicazioni client e i server MySQL. Con questa funzionalità, dopo che la sessione TCP iniziale viene stabilita nel database di Azure per il server MySQL, il server restituisce l'indirizzo back-end del nodo che ospita il server MySQL al client. Successivamente, tutti i pacchetti successivi fluiscono direttamente sul server, ignorando il gateway. Poiché i pacchetti vengono inviati direttamente al server, la latenza e la velocità effettiva hanno un miglioramento delle prestazioni.
+Database di Azure per MySQL supporta un criterio di connessione aggiuntivo, il **Reindirizzamento** , che consente di ridurre la latenza di rete tra le applicazioni client e i server MySQL. Con questa funzionalità, dopo che la sessione TCP iniziale viene stabilita nel database di Azure per il server MySQL, il server restituisce l'indirizzo back-end del nodo che ospita il server MySQL al client. Successivamente, tutti i pacchetti successivi fluiscono direttamente sul server, ignorando il gateway. Poiché i pacchetti vengono inviati direttamente al server, la latenza e la velocità effettiva hanno un miglioramento delle prestazioni.
 
 Questa funzionalità è supportata nei server di database di Azure per MySQL con le versioni del motore 5,6, 5,7 e 8,0.
 

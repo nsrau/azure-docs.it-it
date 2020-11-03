@@ -1,17 +1,17 @@
 ---
 title: Crittografia doppia dell'infrastruttura-database di Azure per MySQL
 description: Informazioni sull'uso della crittografia a doppia infrastruttura per aggiungere un secondo livello di crittografia con chiavi gestite dal servizio.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 24ec674c35a4e218c105febf6471ae8427f3c1c3
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 233dcbeee0bccc714e3b4fe93e7c8b19aa9f2df0
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125731"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242450"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Crittografia doppia dell'infrastruttura del database di Azure per MySQL
 

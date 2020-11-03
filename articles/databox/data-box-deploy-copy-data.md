@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: tutorial
-ms.date: 09/29/2019
+ms.date: 10/20/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: 9427ec4530ac249d5b8059d04fc85f1183c0081c
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: ced33bb17e9c24faa127b27adacce9cab011e1d8
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123892"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426258"
 ---
 ::: zone target="docs"
 
@@ -74,11 +74,11 @@ Se si usa un computer host Windows Server, eseguire le operazioni seguenti per c
 
     ![Recuperare le credenziali per le condivisioni SMB](media/data-box-deploy-copy-data/get-share-credentials1.png)
 
-2. Nella finestra di dialogo Accedi alla condivisione e copia i dati copiare il **nome utente** e la **password** corrispondenti alla condivisione. Selezionare **OK**.
+2. Nella finestra di dialogo Accedi alla condivisione e copia i dati copiare il **nome utente** e la **password** corrispondenti alla condivisione. Se la password contiene caratteri speciali, racchiuderla tra virgolette doppie. Selezionare **OK**.
     
     ![Recuperare il nome utente e la password per una condivisione](media/data-box-deploy-copy-data/get-share-credentials2.png)
 
-3. Per accedere alle condivisioni associate all'account di archiviazione (*utsac1* nell'esempio seguente) dal computer host, aprire una finestra di comando. Al prompt dei comandi digitare:
+3. Per accedere alle condivisioni associate all'account di archiviazione ( *utsac1* nell'esempio seguente) dal computer host, aprire una finestra di comando. Al prompt dei comandi digitare:
 
     `net use \\<IP address of the device>\<share name>  /u:<user name for the share>`
 

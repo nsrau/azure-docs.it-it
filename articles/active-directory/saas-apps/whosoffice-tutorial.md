@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/21/2020
 ms.author: jeedes
-ms.openlocfilehash: c99d1359c1d354e7464d473c6d859afde51577a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 021497fa7766b7eecfa935d4186ecc98edef8d61
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88523372"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92633689"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-whosoffice"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con WhosOffice
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare WhosOffice con Azure Active Directo
 * Abilitare gli utenti per l'accesso automatico a WhosOffice con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +40,7 @@ Per iniziare, sono necessari gli elementi seguenti:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * WhosOffice supporta l'accesso SSO avviato da **SP e IDP**
-* Dopo aver configurato WhosOffice, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Dopo aver configurato WhosOffice, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
 
 > [!NOTE]
 > Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
@@ -80,11 +80,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
 
     Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.my.whosoffice.com/int/azure/consume.aspx`
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.my.whosoffice.com/int/azure`
 
@@ -103,7 +103,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -135,19 +135,19 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **Settings** (Impostazioni) e selezionare **Company** (Società).
 
-    ![Configurazione di WhosOffice](./media/whosoffice-tutorial/configuration1.png)
+    ![Screenshot che mostra l'opzione Company selezionata in Settings.](./media/whosoffice-tutorial/configuration1.png)
 
 1. Fare clic su **Apps/Integrations** (App/Integrazioni).
 
-    ![Configurazione di WhosOffice](./media/whosoffice-tutorial/configuration2.png)
+    ![Screenshot che mostra l'opzione Apps/Integrations selezionata nelle impostazioni di Company.](./media/whosoffice-tutorial/configuration2.png)
 
 1. Selezionare **Microsoft Azure** dall'elenco a discesa dei provider e fare clic su **Activate Login Provider** (Attiva provider di accesso).
 
-    ![Configurazione di WhosOffice](./media/whosoffice-tutorial/configuration3.png)
+    ![Screenshot che mostra l'opzione Activate Login Provider selezionata per Microsoft Azure.](./media/whosoffice-tutorial/configuration3.png)
 
 1. Caricare i file dei metadati della federazione scaricato dal portale di Azure facendo clic sull'opzione **Upload** (Carica).
     
-    ![Configurazione di WhosOffice](./media/whosoffice-tutorial/configuration4.png)
+    ![Screenshot mostra l'opzione di caricamento di un file di metadati.](./media/whosoffice-tutorial/configuration4.png)
 
 ### <a name="create-whosoffice-test-user"></a>Creare l'utente di test di WhosOffice
 
@@ -155,30 +155,30 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Fare clic su **Settings** (Impostazioni) e selezionare **Users** (Utenti).
 
-    ![Configurazione di WhosOffice](./media/whosoffice-tutorial/user1.png)
+    ![Screenshot che mostra l'opzione Users selezionata nelle impostazioni.](./media/whosoffice-tutorial/user1.png)
 
 1. Selezionare **Create new User** (Crea nuovo utente).
 
-    ![Configurazione di WhosOffice](./media/whosoffice-tutorial/user2.png)
+    ![Screenshot che mostra l'opzione Create new User selezionata.](./media/whosoffice-tutorial/user2.png)
 
 1. Specificare i dettagli necessari dell'utente in base ai requisiti dell'organizzazione.
 
-    ![Configurazione di WhosOffice](./media/whosoffice-tutorial/user3.png)
+    ![Screenshot che mostra la finestra di dialogo New User in cui è possibile immettere i dati dell'utente.](./media/whosoffice-tutorial/user3.png)
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di WhosOffice nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di WhosOffice per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di WhosOffice nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di WhosOffice per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](/azure/active-directory/manage-apps/what-is-single-sign-on)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare WhosOffice con Azure AD](https://aad.portal.azure.com/)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)

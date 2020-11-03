@@ -11,12 +11,12 @@ manager: shwang
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
-ms.openlocfilehash: e63180a3c4b8de06ab9e26afc8fff322188291cc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 27425717f6d96953326edde621966530d240c015
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81418984"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92632363"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Eseguire un notebook di Databricks con l'attività dei notebook di Databricks in Azure Data Factory
 
@@ -42,7 +42,7 @@ Per un'introduzione di undici minuti e una dimostrazione di questa funzionalità
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-  - **Area di lavoro di Azure Databricks**. [Creare un'area di lavoro di Databricks](https://docs.microsoft.com/azure/azure-databricks/quickstart-create-databricks-workspace-portal) o usarne una esistente. Creare un notebook Python nell'area di lavoro di Azure Databricks. Eseguire quindi il notebook e passare i parametri al notebook stesso usando Azure Data Factory.
+  - **Area di lavoro di Azure Databricks**. [Creare un'area di lavoro di Databricks](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) o usarne una esistente. Creare un notebook Python nell'area di lavoro di Azure Databricks. Eseguire quindi il notebook e passare i parametri al notebook stesso usando Azure Data Factory.
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 
@@ -54,7 +54,7 @@ Per un'introduzione di undici minuti e una dimostrazione di questa funzionalità
 
 1.  Nel riquadro **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome**.
 
-    Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato l'errore seguente, cambiare il nome della data factory. Usare, ad esempio **\<yourname\>ADFTutorialDataFactory**. Per le regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](https://docs.microsoft.com/azure/data-factory/naming-rules).
+    Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato l'errore seguente, cambiare il nome della data factory. Usare, ad esempio **\<yourname\>ADFTutorialDataFactory**. Per le regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](./naming-rules.md).
 
     ![Specificare un nome per la nuova data factory](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 
@@ -66,13 +66,13 @@ Per un'introduzione di undici minuti e una dimostrazione di questa funzionalità
     
     - Selezionare **Crea nuovo** e immettere un nome per il gruppo di risorse.
 
-    Alcuni dei passaggi di questa guida introduttiva presuppongono l'uso del nome **ADFTutorialResourceGroup** per il gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+    Alcuni dei passaggi di questa guida introduttiva presuppongono l'uso del nome **ADFTutorialResourceGroup** per il gruppo di risorse. Per informazioni sui gruppi di risorse, vedere l'articolo relativo all'[uso di gruppi di risorse per la gestione delle risorse di Azure](../azure-resource-manager/management/overview.md).
 
 1.  Per **Versione** selezionare **V2**.
 
 1.  Per **Località** selezionare la località per la data factory.
 
-    Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory**: [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio HDInsight) usati da Data Factory possono trovarsi in altre aree.
+    Per un elenco di aree di Azure in cui Data Factory è attualmente disponibile, selezionare le aree di interesse nella pagina seguente, quindi espandere **Analytics** per individuare **Data Factory** : [Prodotti disponibili in base all'area](https://azure.microsoft.com/global-infrastructure/services/). Gli archivi dati (ad esempio, Archiviazione di Azure e il database SQL di Azure) e le risorse di calcolo (ad esempio HDInsight) usati da Data Factory possono trovarsi in altre aree.
 1.  Selezionare **Create** (Crea).
 
 
@@ -100,9 +100,9 @@ In questa sezione viene creato un servizio collegato Databricks. Questo servizio
 
 1.  Nella finestra **New Linked Service** (Nuovo servizio collegato) completare questa procedura:
     
-    1.  In **Name** (Nome) immettere ***AzureDatabricks\_LinkedService***
+    1.  In **Name** (Nome) immettere * *_AzureDatabricks\_LinkedService_* _
     
-    1.  Selezionare l'**area di lavoro Databricks** appropriata in cui verrà eseguito il notebook.
+    1.  Selezionare l'_ *area di lavoro Databricks* * appropriata in cui verrà eseguito il notebook
 
     1.  In **Select cluster** (Seleziona cluster) selezionare **New job cluster** (Nuovo cluster di processo).
     
@@ -126,7 +126,7 @@ In questa sezione viene creato un servizio collegato Databricks. Questo servizio
 
     ![Pulsanti per la creazione di una nuova pipeline](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image9.png)
 
-1.  Creare un **parametro** da usare nella **pipeline**. Questo parametro verrà successivamente passato all'attività dei notebook di Databricks. Nella pipeline vuota fare clic sulla scheda **Parametri**, quindi su **Nuovo** e assegnare il nome '**name**'.
+1.  Creare un **parametro** da usare nella **pipeline**. Questo parametro verrà successivamente passato all'attività dei notebook di Databricks. Nella pipeline vuota fare clic sulla scheda **Parametri** , quindi su **Nuovo** e assegnare il nome ' **name** '.
 
     ![Creare un nuovo parametro](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image10.png)
 
@@ -173,7 +173,7 @@ In questa sezione viene creato un servizio collegato Databricks. Questo servizio
 
        1. In questo caso, il **percorso del notebook** è **adftutorial/mynotebook**
 
-1.  Tornare allo **strumento di creazione dell'interfaccia utente di Data Factory**. Passare alla scheda **Settings** (Impostazioni) nell'**attività Notebook1**.
+1.  Tornare allo **strumento di creazione dell'interfaccia utente di Data Factory**. Passare alla scheda **Settings** (Impostazioni) nell' **attività Notebook1**.
 
     a.  **Aggiungere un parametro** all'attività notebook. Usare lo stesso parametro aggiunto in precedenza alla **pipeline**.
 
@@ -215,7 +215,7 @@ La finestra di dialogo **Pipeline Run** (Esecuzione di pipeline) chiede il param
 
 ## <a name="verify-the-output"></a>Verificare l'output
 
-È possibile accedere all'**area di lavoro di Azure Databricks**, passare ai **cluster** e visualizzare lo stato del **processo** (*esecuzione in sospeso, in esecuzione o terminato*).
+È possibile accedere all' **area di lavoro di Azure Databricks** , passare ai **cluster** e visualizzare lo stato del **processo** ( *esecuzione in sospeso, in esecuzione o terminato* ).
 
 ![Visualizzare il cluster dei processi e il processo](media/transform-data-using-databricks-notebook/databricks-notebook-activity-image24.png)
 

@@ -4,12 +4,12 @@ description: Informazioni sulle novità e gli aggiornamenti recenti del servizio
 ms.topic: overview
 ms.date: 04/19/2020
 ms.custom: mvc
-ms.openlocfilehash: b03f3a7e10aa42f3393ecc22cb74f4e565587032
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: ed2347d2d322e272b4fb7f4dfd697f3499419124
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314568"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545175"
 ---
 # <a name="whats-new-in-azure-migrate"></a>Novità di Azure Migrate
 
@@ -22,6 +22,7 @@ ms.locfileid: "92314568"
 - L'analisi delle dipendenze (senza agente) può ora essere eseguita contemporaneamente su 1.000 VM.
 - L'analisi delle dipendenze (senza agente) può ora essere abilitata o disabilitata su larga scala tramite script di PowerShell. [Altre informazioni.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
 - È possibile visualizzare le connessioni di rete in Power BI usando i dati raccolti con l'analisi delle dipendenze (senza agente) [Altre informazioni.](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/dependencies-at-scale)
+- La migrazione di macchine virtuali VMware con dimensioni del disco dati fino a 32 TB è ora supportata con il metodo di migrazione VMware senza agente Azure Migrate: Migrazione server. 
 
 ## <a name="update-august-2020"></a>Aggiornamento (agosto 2020)
 
@@ -96,7 +97,7 @@ La versione corrente di Azure Migrate (rilasciata a luglio 2019) offre numerose 
 
 ## <a name="azure-migrate-previous-version"></a>Versione precedente di Azure Migrate
 
-se si usa la versione precedente di Azure Migrate (è supportata solo la valutazione delle macchine virtuali VMware locali), è ora consigliabile passare alla versione corrente. Nella versione precedente non è più possibile creare nuovi progetti di Azure Migrate o eseguire nuove individuazioni. È ancora possibile accedere ai progetti esistenti. Per effettuare questa operazione nel portale di Azure > **Tutti i servizi** , cercare **Azure Migrate** . Tra le notifiche di Azure Migrate è disponibile un collegamento per accedere ai progetti di Azure Migrate precedenti.
+se si usa la versione precedente di Azure Migrate (è supportata solo la valutazione delle macchine virtuali VMware locali), è ora consigliabile passare alla versione corrente. Nella versione precedente non è più possibile creare nuovi progetti di Azure Migrate o eseguire nuove individuazioni. È ancora possibile accedere ai progetti esistenti. Per effettuare questa operazione nel portale di Azure > **Tutti i servizi** , cercare **Azure Migrate**. Tra le notifiche di Azure Migrate è disponibile un collegamento per accedere ai progetti di Azure Migrate precedenti.
 
 
 

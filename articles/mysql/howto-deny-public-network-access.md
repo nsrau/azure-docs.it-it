@@ -39,7 +39,7 @@ Attenersi alla procedura seguente per impostare il server MySQL per negare l'acc
 
 1. Una notifica conferma che l'impostazione di sicurezza della connessione è stata abilitata correttamente.
 
-    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png" alt-text="Accesso alla rete negato per database di Azure per MySQL":::
+    :::image type="content" source="./media/howto-deny-public-network-access/setting-deny-public-network-access-success.png" alt-text="Il database di Azure per MySQL ha negato l'accesso alla rete":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

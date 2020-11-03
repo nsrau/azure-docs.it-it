@@ -1,18 +1,18 @@
 ---
 title: Collegamento privato-interfaccia della riga di comando di Azure-database di Azure per MariaDB
 description: Informazioni su come configurare il collegamento privato per il database di Azure per MariaDB dall'interfaccia della riga di comando di Azure
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 01/09/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: fb3ed4e41125131538957addce5bf935b897b581
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c7f95b2009521b054958be48e444a129b0a59ed3
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92537219"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93242892"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-using-cli"></a>Creare e gestire un collegamento privato per database di Azure per MariaDB tramite l'interfaccia della riga di comando
 
@@ -133,24 +133,24 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
 
-1. Nella barra di ricerca del portale immettere *myVm* .
+1. Nella barra di ricerca del portale immettere *myVm*.
 
-1. Scegliere il pulsante **Connetti** . Dopo aver selezionato il pulsante **Connetti** viene aperta la finestra **Connetti alla macchina virtuale** .
+1. Scegliere il pulsante **Connetti**. Dopo aver selezionato il pulsante **Connetti** viene aperta la finestra **Connetti alla macchina virtuale**.
 
-1. Selezionare **Scarica file RDP** . Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp* .
+1. Selezionare **Scarica file RDP**. Azure crea e scarica nel computer un file Remote Desktop Protocol con estensione *.rdp*.
 
-1. Aprire il file *downloaded.rdp* .
+1. Aprire il file *downloaded.rdp*.
 
-    1. Quando richiesto, selezionare **Connetti** .
+    1. Quando richiesto, selezionare **Connetti**.
 
     1. Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale.
 
         > [!NOTE]
         > Potrebbe essere necessario selezionare **Altre opzioni** > **Usa un altro account** per specificare le credenziali immesse al momento della creazione della macchina virtuale.
 
-1. Selezionare **OK** .
+1. Selezionare **OK**.
 
-1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua** .
+1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare **Sì** oppure **Continua**.
 
 1. Quando viene visualizzato il desktop della macchina virtuale, ridurlo a icona per tornare al desktop locale.  
 
@@ -176,12 +176,12 @@ Connettersi alla macchina virtuale *myVm* da Internet come indicato di seguito:
     | Impostazione | Valore |
     | ------- | ----- |
     | Connection Name (Nome connessione)| Selezionare il nome della connessione scelta.|
-    | nomehost | Seleziona *mydemoserver.privatelink.MariaDB.database.Azure.com* |
-    | Username | Immettere username (nome utente) come *username@servername* specificato durante la creazione del server MariaDB. |
+    | Nome host | Seleziona *mydemoserver.privatelink.MariaDB.database.Azure.com* |
+    | Nome utente | Immettere username (nome utente) come *username@servername* specificato durante la creazione del server MariaDB. |
     | Password | Immettere una password specificata durante la creazione del server MariaDB. |
     ||
 
-5. Selezionare **Test connessione** o **OK** .
+5. Selezionare **Test connessione** o **OK**.
 
 6. Facoltativamente Esplorare i database dal menu a sinistra e creare o eseguire query sulle informazioni dal database MariaDB
 

@@ -10,12 +10,12 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: ebc3899c98a09b64443b129dde52cb597fac9eff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3fd4dcfa4c01c39e4e6cab4915de807c3d19ae6
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90976650"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913858"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning
 
@@ -44,12 +44,12 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 
 Un'area di lavoro di Machine Learning è una risorsa cloud fondamentale usata per eseguire gli esperimenti, il training e la distribuzione di modelli di Machine Learning. Collega la sottoscrizione e il gruppo di risorse di Azure a un oggetto di facile utilizzo nel servizio. 
 
-Creare un'area di lavoro tramite il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure.
+Esistono molti [modi per creare un'area di lavoro](how-to-manage-workspace.md). In questa esercitazione si creerà un'area di lavoro tramite il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
-> Prendere nota dell'**area di lavoro** e della **sottoscrizione**. Si tratta di informazioni necessarie per assicurarsi di creare l'esperimento nel posto giusto. 
+> Prendere nota dell' **area di lavoro** e della **sottoscrizione**. Si tratta di informazioni necessarie per assicurarsi di creare l'esperimento nel posto giusto. 
 
 ## <a name="get-started-in-azure-machine-learning-studio"></a>Iniziare con Azure Machine Learning Studio
 
@@ -111,7 +111,7 @@ Prima di configurare l'esperimento, caricare il file di dati nell'area di lavoro
     
     1. Selezionare il set di dati quando viene visualizzato nell'elenco.
     
-    1. Esaminare l'**anteprima dati** per assicurarsi di non avere incluso **day_of_week** e quindi scegliere **OK**.
+    1. Esaminare l' **anteprima dati** per assicurarsi di non avere incluso **day_of_week** e quindi scegliere **OK**.
 
     1. Selezionare **Avanti**.
 

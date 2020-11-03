@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 04/21/2020
 ms.author: jeedes
-ms.openlocfilehash: f2a6598cc28c39719d73be333bd74c24fce9371b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b76c41787d7a35fb3024fa18c0122bc966243bbc
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88551899"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92514538"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-trend-micro-web-security-tmws"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Trend Micro Web Security (TMWS)
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Trend Micro Web Security (TMWS) con
 * Abilitare gli utenti per l'accesso automatico a TMWS con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,7 +40,7 @@ Per iniziare, è necessario:
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
 * TMWS supporta l'accesso SSO avviato da SP.
-* Dopo aver configurato TMWS, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. Per informazioni su come applicare il controllo sessione con Microsoft Cloud App Security, vedere [Eseguire l'onboarding e distribuire Controllo app per l'accesso condizionale per qualsiasi app](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+* Dopo aver configurato TMWS, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. Per informazioni su come applicare il controllo sessione con Microsoft Cloud App Security, vedere [Eseguire l'onboarding e distribuire Controllo app per l'accesso condizionale per qualsiasi app](/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="add-tmws-from-the-gallery"></a>Aggiungere TMWS dalla raccolta
 
@@ -116,7 +116,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nella casella **Nome** immettere `B.Simon`.  
-   1. Nella casella **Nome utente** immettere ***nomeutente *@* dominioaziendale *.* estensione***. Ad esempio: `B.Simon@contoso.com`.
+   1. Nella casella **Nome utente** immettere * *_nomeutente_@* dominioaziendale *.* estensione***. Ad esempio: `B.Simon@contoso.com`.
    1. Selezionare **Mostra password** e quindi prendere nota del valore visualizzato nella casella **Password**.
    1. Selezionare **Create** (Crea).
 
@@ -126,7 +126,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 1. Nell'elenco delle applicazioni selezionare **Trend Micro Web Security (TMWS)** .
-1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi**:
+1. Nella sezione **Gestione** della pagina di panoramica dell'app selezionare **Utenti e gruppi** :
 
    ![Selezionare Utenti e gruppi](common/users-groups-blade.png)
 
@@ -144,7 +144,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. In **Gestione** selezionare **Registrazioni app** e quindi fare clic sulla nuova applicazione aziendale in **Tutte le applicazioni**.
 
-1. In **Gestisci**, selezionare **Certificati e segreti**.
+1. In **Gestisci** , selezionare **Certificati e segreti**.
 
 1. Nell'area **Segreti client** selezionare **Nuovo segreto client**.
 
@@ -169,7 +169,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Selezionare **Panoramica**. 
 
-1. Prendere nota dell'**ID applicazione (client)** e dell'**ID directory (tenant)** visualizzati nel riquadro destro perché successivamente sarà necessario immetterli in TMWS. È anche possibile selezionare **Nomi di dominio personalizzati** in **Azure Active Directory > Gestisci** e prendere nota del nome di dominio visualizzato nel riquadro destro.
+1. Prendere nota dell' **ID applicazione (client)** e dell' **ID directory (tenant)** visualizzati nel riquadro destro perché successivamente sarà necessario immetterli in TMWS. È anche possibile selezionare **Nomi di dominio personalizzati** in **Azure Active Directory > Gestisci** e prendere nota del nome di dominio visualizzato nel riquadro destro.
 
 ## <a name="configure-tmws-sso"></a>Configurare l'accesso SSO di TMWS
 
@@ -224,21 +224,20 @@ Dopo aver configurato il servizio Azure AD e aver specificato Azure AD come meto
 
 1. Visitare qualsiasi sito Web Internet. TMWS reindirizzerà l'utente al portale TMWS di tipo Captive.
 
-1. Specificare un account Active Directory (formato: *dominio*\\*nomeaccountSAM* o *nomeaccountSAM*@*dominio*), indirizzo di posta elettronica o UPN e quindi selezionare **Log On** (Accedi). TMWS reindirizza l'utente alla finestra di accesso di Azure AD.
+1. Specificare un account Active Directory (formato: *dominio*\\*nomeaccountSAM* o *nomeaccountSAM*@*dominio* ), indirizzo di posta elettronica o UPN e quindi selezionare **Log On** (Accedi). TMWS reindirizza l'utente alla finestra di accesso di Azure AD.
 
 1. Nella finestra di accesso di Azure AD immettere le credenziali dell'account Azure AD. Ora dovrebbe essere stato effettuato l'accesso TMWS.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Esercitazioni su come integrare le app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Esercitazioni su come integrare le app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Trend Micro Web Security con Azure AD](https://aad.portal.azure.com/)
 
-- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [Informazioni sul controllo sessioni in Microsoft Cloud App Security](/cloud-app-security/proxy-intro-aad)
 
-- [Come proteggere Trend Micro Web Security con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
+- [Come proteggere Trend Micro Web Security con visibilità e controlli avanzati](/cloud-app-security/proxy-intro-aad)

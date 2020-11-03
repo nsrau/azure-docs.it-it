@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/23/2019
 ms.author: jeedes
-ms.openlocfilehash: a2c1ba8feb933be7c4970f061dd5acdc1ef68a16
-ms.sourcegitcommit: ef69245ca06aa16775d4232b790b142b53a0c248
+ms.openlocfilehash: 70c77caebfd8f9bfd36c7384255cf7b66416a379
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91775440"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92454984"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-darwinbox"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Darwinbox
 
@@ -25,7 +25,7 @@ Questa esercitazione descrive come integrare Darwinbox con Azure Active Director
 * Controllare in Azure AD chi può accedere a Darwinbox.
 * Abilitare gli utenti per l'accesso automatico a Darwinbox con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -64,8 +64,8 @@ Per configurare e testare l'accesso SSO di Azure AD con Darwinbox, completare le
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
     1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
-1. **[Configurare l'accesso Single Sign-On di Darwinbox](#configure-darwinbox-sso)**: per configurare le impostazioni di Single Sign-On sul lato applicazione.
-    1. **[Creare l'utente di test di Darwinbox](#create-darwinbox-test-user)**: per avere una controparte di B.Simon in Darwinbox collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Configurare l'accesso Single Sign-On di Darwinbox](#configure-darwinbox-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+    1. **[Creare l'utente di test di Darwinbox](#create-darwinbox-test-user)** : per avere una controparte di B.Simon in Darwinbox collegata alla rappresentazione dell'utente in Azure AD.
 1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ## <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
@@ -99,7 +99,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -127,17 +127,17 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-darwinbox-sso"></a>Configurare l'accesso Single Sign-On di Darwinbox
 
-Per configurare l'accesso Single Sign-On sul lato **Darwinbox**, è necessario inviare il file **XML metadati federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Darwinbox](https://darwinbox.com/contact-us.php). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **Darwinbox** , è necessario inviare il file **XML metadati federazione** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di Darwinbox](https://darwinbox.com/contact-us.php). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-darwinbox-test-user"></a>Creare l'utente di test di Darwinbox
 
-In questa sezione viene creato un utente di nome B.Simon in Darwinbox. Collaborare con il  [team di supporto di Darwinbox](https://darwinbox.com/contact-us.php) per aggiungere gli utenti alla piattaforma Darwinbox. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome B.Simon in Darwinbox. Collaborare con il [team di supporto di Darwinbox](https://darwinbox.com/contact-us.php) per aggiungere gli utenti alla piattaforma Darwinbox. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Darwinbox nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Darwinbox per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Darwinbox nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di Darwinbox per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="test-sso-for-darwinbox-mobile"></a>Testare l'accesso SSO per Darwinbox (per dispositivi mobili)
 
@@ -163,11 +163,10 @@ Quando si fa clic sul riquadro di Darwinbox nel pannello di accesso, si dovrebbe
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Darwinbox con Azure AD](https://aad.portal.azure.com/)
-

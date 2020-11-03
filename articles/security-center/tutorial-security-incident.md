@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/30/2020
 ms.author: memildin
-ms.openlocfilehash: 02b0ee4d572290436cc45bab73921ae1298bc72f
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: b9f0b3219a75900a44a73ca0fc3e453f023bddb8
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359000"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92787160"
 ---
 # <a name="tutorial-triage-investigate-and-respond-to-security-alerts"></a>Esercitazione: Valutare, analizzare e rispondere agli avvisi di sicurezza
 Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido usando funzionalità avanzate di analisi e intelligence sulle minacce per segnalare attività potenzialmente dannose nelle risorse cloud. Nel Centro sicurezza è anche possibile integrare gli avvisi di altri prodotti e servizi di sicurezza. Dopo che è stato generato un avviso, è necessaria un'azione rapida per l'analisi e la correzione del potenziale problema di sicurezza. 
@@ -49,7 +49,7 @@ Usare questa pagina per esaminare gli avvisi di sicurezza attivi nell'ambiente e
 Quando si valutano gli avvisi di sicurezza, assegnare priorità in base alla gravità e gestire prima quelli con la gravità più alta. Per altre informazioni sulla gravità, vedere [come vengono classificati gli avvisi](security-center-alerts-overview.md#how-are-alerts-classified).
 
 > [!TIP]
-> È possibile connettere il Centro sicurezza di Azure alle soluzioni SIEM più diffuse, tra cui Azure Sentinel, e gestire gli avvisi con uno strumento a scelta. Per altre informazioni, vedere [Esportazione degli avvisi in un sistema SIEM](continuous-export.md).
+> È possibile connettere il Centro sicurezza di Azure alle soluzioni SIEM più diffuse, tra cui Azure Sentinel, e gestire gli avvisi con uno strumento a scelta. Per altre informazioni, vedere [Trasmettere avvisi a una soluzione SIEM, SOAR o di gestione dei servizi IT](export-to-siem.md).
 
 
 ## <a name="investigate-a-security-alert"></a>Analizzare un avviso di sicurezza
@@ -60,7 +60,7 @@ Dopo aver stabilito quale avviso analizzare per primo:
 1. Nella pagina di panoramica degli avvisi selezionare la risorsa da analizzare per prima.
 1. Avviare l'analisi nel riquadro sinistro, che mostra informazioni generali sull'avviso di sicurezza.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Pagina Avvisi di sicurezza":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-left-pane.png" alt-text="Il riquadro sinistro dei dettagli dell'avviso evidenzia informazioni generali":::
 
     Questo riquadro mostra:
     - Gravità, stato e tempo di attività dell'avviso
@@ -68,7 +68,7 @@ Dopo aver stabilito quale avviso analizzare per primo:
     - Risorse interessate
     - Finalità dell'attività nel modello kill chain della matrice MITRE ATT&CK
 
-1. Per informazioni più dettagliate che possono risultare utili per analizzare l'attività sospetta, esaminare la scheda **Dettagli avviso** .
+1. Per informazioni più dettagliate che possono risultare utili per analizzare l'attività sospetta, esaminare la scheda **Dettagli avviso**.
 
 1. Una volta esaminate le informazioni in questa pagina, si avranno dati sufficienti per procedere con una risposta. Se invece sono necessari ulteriori dettagli:
 
@@ -80,24 +80,24 @@ Dopo aver analizzato un avviso e averne compreso l'ambito, è possibile risponde
 
 1.  Aprire la scheda **Intervieni** per visualizzare le risposte raccomandate.
 
-    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Pagina Avvisi di sicurezza" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
+    :::image type="content" source="./media/tutorial-security-incident/alert-details-take-action.png" alt-text="Scheda Intervieni per gli avvisi di sicurezza" lightbox="./media/tutorial-security-incident/alert-details-take-action.png":::
 
 1.  Esaminare la sezione **Mitiga la minaccia** per la procedura di analisi manuale da eseguire per mitigare il problema.
-1.  Per rafforzare le risorse ed evitare attacchi futuri di questo tipo, seguire le raccomandazioni per la sicurezza riportate nella sezione **Evita attacchi futuri** .
-1.  Per attivare un'app per la logica con passaggi di risposta automatizzati, usare la sezione **Attiva la risposta automatica** .
-1.  Se l'attività rilevata *non è* dannosa, è possibile eliminare gli avvisi futuri di questo tipo usando la sezione **Elimina avvisi simili** .
+1.  Per rafforzare le risorse ed evitare attacchi futuri di questo tipo, seguire le raccomandazioni per la sicurezza riportate nella sezione **Evita attacchi futuri**.
+1.  Per attivare un'app per la logica con passaggi di risposta automatizzati, usare la sezione **Attiva la risposta automatica**.
+1.  Se l'attività rilevata *non è* dannosa, è possibile eliminare gli avvisi futuri di questo tipo usando la sezione **Elimina avvisi simili**.
 
-1.  Dopo aver completato l'analisi dell'avviso e aver risposto nel modo appropriato, cambiare lo stato in **Ignorato** .
+1.  Dopo aver completato l'analisi dell'avviso e aver risposto nel modo appropriato, cambiare lo stato in **Ignorato**.
 
-    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Pagina Avvisi di sicurezza":::
+    :::image type="content" source="./media/tutorial-security-incident/set-status-dismissed.png" alt-text="Impostazione dello stato di un avviso":::
 
-    L'avviso verrà rimosso dall'elenco principale. È possibile usare il filtro nella pagina dell'elenco degli avvisi per visualizzare tutti gli avvisi con lo stato **Ignorato** .
+    L'avviso verrà rimosso dall'elenco principale. È possibile usare il filtro nella pagina dell'elenco degli avvisi per visualizzare tutti gli avvisi con lo stato **Ignorato**.
 
 1.  Microsoft incoraggia l'invio di feedback sull'avviso
-    1. contrassegnandolo come **utile** o **non utile** .
+    1. contrassegnandolo come **utile** o **non utile**.
     1. Selezionare un motivo e aggiungere un commento.
 
-        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Pagina Avvisi di sicurezza":::
+        :::image type="content" source="./media/tutorial-security-incident/alert-feedback.png" alt-text="Inviare feedback a Microsoft sull'utilità di un avviso":::
 
     > [!TIP]
     > Microsoft esamina il feedback per migliorare gli algoritmi e fornire avvisi di sicurezza più efficaci.
@@ -108,11 +108,11 @@ Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se
 
 Se non si prevede di continuare o si vogliono disabilitare queste funzionalità:
 
-1. Tornare al menu principale del Centro sicurezza e selezionare **Prezzi e impostazioni** .
+1. Tornare al menu principale del Centro sicurezza e selezionare **Prezzi e impostazioni**.
 1. Selezionare la sottoscrizione pertinente.
-1. Per effettuare il downgrade, selezionare **Azure Defender - Off** .
-1. Per disabilitare il provisioning automatico, aprire la pagina **Raccolta dati** e disattivare l'opzione **Provisioning automatico** .
-4. Selezionare **Salva** .
+1. Per effettuare il downgrade, selezionare **Azure Defender - Off**.
+1. Per disabilitare il provisioning automatico, aprire la pagina **Raccolta dati** e disattivare l'opzione **Provisioning automatico**.
+4. Selezionare **Salva**.
 
 >[!NOTE]
 > La disabilitazione del provisioning automatico non implica la rimozione dell'agente di Log Analytics dalle macchine virtuali di Azure che contengono già l'agente. La disabilitazione automatica del provisioning limita il monitoraggio delle risorse.

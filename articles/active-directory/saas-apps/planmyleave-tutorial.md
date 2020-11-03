@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 03/14/2019
 ms.author: jeedes
-ms.openlocfilehash: 35a6fc789c4ed24c2f950ccfa89880088b698a20
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c143a5af40097039c70c58adba4cb21f687d3fa6
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553751"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893166"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-planmyleave"></a>Esercitazione: Integrazione di Azure Active Directory con PlanMyLeave
 
@@ -27,7 +27,7 @@ L'integrazione di PlanMyLeave con Azure AD offre i vantaggi seguenti:
 * È possibile abilitare gli utenti per l'accesso automatico (Single Sign-On) a PlanMyLeave con gli account Azure AD personali.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisites
@@ -63,7 +63,7 @@ Per configurare l'integrazione di PlanMyLeave in Azure AD, è necessario aggiung
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **PlanMyLeave**, selezionare **PlanMyLeave** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **PlanMyLeave** , selezionare **PlanMyLeave** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![PlanMyLeave nell'elenco risultati](common/search-new-app.png)
 
@@ -110,7 +110,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PlanMyLeave, seguire qu
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'ID e l'URL di accesso effettivi. Per ottenere questi valori, contattare il [team di supporto di PlanMyLeave](mailto:support@planmyleave.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-5. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+5. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il file **XML metadati federazione** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/metadataxml.png)
 
@@ -130,21 +130,21 @@ Per configurare l'accesso Single Sign-On di Azure AD con PlanMyLeave, seguire qu
 
 2. Passare a **System Setup**. Quindi nella sezione **Gestione sicurezza** fare clic su **Company SAML settings** (Impostazioni SAML azienda).
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/planmyleave-tutorial/tutorial_planmyleave_002.png) 
+    ![Screenshot che mostra la pagina "System setup" con la sezione "Security Management" evidenziata e l'azione "Company SAML Settings" selezionata.](./media/planmyleave-tutorial/tutorial_planmyleave_002.png) 
 
 3. Nella sezione **SAML Settings** (Impostazioni SAML) fare clic sull'icona dell'editor.
 
-    ![Configurazione accesso Single Sign-On sul lato app](./media/planmyleave-tutorial/tutorial_planmyleave_003.png)
+    ![Screenshot che mostra la sezione "SAML Settings" con l'icona "editor" selezionata nell'angolo in alto a destra.](./media/planmyleave-tutorial/tutorial_planmyleave_003.png)
 
 4. Nella sezione **Update SAML Settings** (Aggiorna impostazioni SAML) eseguire i seguenti passaggi:
 
     ![Configurazione accesso Single Sign-On sul lato app](./media/planmyleave-tutorial/tutorial_planmyleave_004.png)
 
-    a.  Nella casella di testo **Login URL** (URL di accesso) incollare l'**URL di accesso** copiato dal portale di Azure.
+    a.  Nella casella di testo **Login URL** (URL di accesso) incollare l' **URL di accesso** copiato dal portale di Azure.
 
     b.  Aprire i metadati scaricati, copiare il valore **X509Certificate** e quindi incollarlo nella casella di testo **Certificato**.
 
-    c. Impostare "**Is Enable**" su "**Yes**".
+    c. Impostare " **Is Enable** " su " **Yes** ".
 
     d. Fare clic su **Salva**. 
 
@@ -152,7 +152,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con PlanMyLeave, seguire qu
 
 Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -177,7 +177,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendo l'accesso a PlanMyLeave.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **PlanMyLeave**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **PlanMyLeave**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -210,13 +210,12 @@ In questa sezione viene creato un utente di nome Britta Simon in PlanMyLeave. Pl
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di PlanMyLeave nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione PlanMyLeave per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di PlanMyLeave nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione PlanMyLeave per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

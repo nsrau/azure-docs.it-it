@@ -8,13 +8,13 @@ ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart
-ms.date: 04/15/2020
-ms.openlocfilehash: cf899962f6e62b0943f48494bf5c3fe27a6327a9
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.date: 10/16/2020
+ms.openlocfilehash: a4583e7fbf1eeaf4447e1e717c716159af645bfa
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91651718"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92742540"
 ---
 # <a name="quickstart-create-an-apache-spark-pool-in-azure-synapse-analytics-using-web-tools"></a>Avvio rapido: Creare un pool di Apache Spark in Azure Synapse Analytics con gli strumenti Web
 
@@ -42,9 +42,10 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 Un notebook è un ambiente interattivo che supporta diversi linguaggi di programmazione. Il notebook consente di interagire con i dati, combinare codice con markdown e testo ed eseguire visualizzazioni semplici.
 
 1. Nella visualizzazione del portale di Azure relativa all'area di lavoro di Azure Synapse che si vuole usare selezionare **Avvia Synapse Studio**.
-2. Dopo l'avvio di Synapse Studio, selezionare **Sviluppo**. Passare quindi il puntatore del mouse sulla voce **Notebook**. Selezionare i puntini di sospensione ( **...** ).
-3. Selezionare **Nuovo notebook**. Viene creato, e quindi aperto, un nuovo notebook con un nome generato automaticamente.
-  ![Nuovo notebook](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Nuovo notebook")
+2. Dopo l'avvio di Synapse Studio, selezionare **Sviluppo**. Quindi, selezionare l'icona " **+** " per aggiungere una nuova risorsa.
+3. Selezionare **Notebook**. Viene creato, e quindi aperto, un nuovo notebook con un nome generato automaticamente.
+ 
+     ![Nuovo notebook](./media/quickstart-apache-spark-notebook/spark-get-started-new-notebook.png "Nuovo notebook")
 
 4. Nella finestra **Proprietà** specificare un nome per il notebook.
 5. Fare clic su **Pubblica** sulla barra degli strumenti.
@@ -64,11 +65,11 @@ Un notebook è un ambiente interattivo che supporta diversi linguaggi di program
    - Selezionare l'icona di riproduzione blu a sinistra della cella.
    - Selezionare il pulsante **Run all** (Esegui tutto) sulla barra degli strumenti.
 
-   ![Creare l'oggetto DataFrame](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png "Output del processo Spark")
+       ![Creare l'oggetto DataFrame](./media/quickstart-apache-spark-notebook/spark-get-started-create-data-frame-object.png)
 
 10. Se l'istanza del pool di Apache Spark non è già in esecuzione, viene avviata automaticamente. È possibile visualizzare lo stato dell'istanza del pool di Apache Spark sotto la cella in esecuzione e anche nel pannello di stato nella parte inferiore del notebook. A seconda delle dimensioni del pool, l'avvio dovrebbe richiedere dai 2 ai 5 minuti. Al termine dell'esecuzione del codice, sotto la cella vengono visualizzate le informazioni sul tempo impiegato per l'esecuzione e sull'esecuzione stessa. Nella cella di output viene visualizzato l'output.
 
-    ![Output dell'esecuzione di una cella](./media/quickstart-apache-spark-notebook/run-cell-with-output.png "Output del processo Spark")
+    ![Output dell'esecuzione di una cella](./media/quickstart-apache-spark-notebook/run-cell-with-output.png)
 
 11. I dati sono ora disponibili in un oggetto DataFrame dove possono essere usati in molti modi diversi. Saranno necessari in formati diversi per la parte restante di questa guida di avvio rapido.
 12. Immettere il codice seguente in un'altra cella ed eseguirlo. Verranno creati una tabella Spark, un file CSV e un file Parquet, tutti con copie dei dati:
@@ -123,7 +124,7 @@ SQL (Structured Query Language) è il linguaggio più diffuso e più usato per l
 
    ![Output del grafico Spark in Azure Synapse](./media/quickstart-apache-spark-notebook/spark-get-started-query-chart-output.png "Output del grafico Spark in Azure Synapse")
 
-10. È possibile ottenere la stessa esperienza di esecuzione di SQL senza cambiare linguaggio. Basta sostituire la cella SQL riportata sopra con questa cella PySpark. L'esperienza di output è la stessa perché viene usato il comando **display**:
+10. È possibile ottenere la stessa esperienza di esecuzione di SQL senza cambiare linguaggio. Basta sostituire la cella SQL riportata sopra con questa cella PySpark. L'esperienza di output è la stessa perché viene usato il comando **display** :
 
     ```python
     display(spark.sql('SELECT * FROM demo_df'))

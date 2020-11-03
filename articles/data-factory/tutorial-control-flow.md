@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: seo-lt-2019; seo-dt-2019
 ms.date: 9/27/2019
-ms.openlocfilehash: 6eaf00679566aa8dfb7a90db95228349c81fcfec
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0a6fc68ddcb86c7ba768f59519cfb4273d381fab
+ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983414"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92637701"
 ---
 # <a name="branching-and-chaining-activities-in-a-data-factory-pipeline"></a>Diramazione e concatenamento delle attività in una pipeline di Data factory
 
@@ -40,7 +40,7 @@ L'esercitazione illustra come eseguire queste attività:
 > * Avviare un'esecuzione della pipeline
 > * Monitorare le esecuzioni di pipeline e attività
 
-In questa esercitazione viene usato .NET SDK. È possibile usare altri meccanismi per interagire con Azure Data Factory. Per le guide di avvio rapido relative a Data Factory, vedere [Guide di avvio rapido di 5 minuti](/azure/data-factory/quickstart-create-data-factory-portal).
+In questa esercitazione viene usato .NET SDK. È possibile usare altri meccanismi per interagire con Azure Data Factory. Per le guide di avvio rapido relative a Data Factory, vedere [Guide di avvio rapido di 5 minuti](./quickstart-create-data-factory-portal.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
@@ -148,7 +148,7 @@ Creare un'applicazione console .NET in C#:
 
 ### <a name="create-a-data-factory"></a>Creare una data factory
 
-1. Aggiungere un metodo `CreateOrUpdateDataFactory` al file *Program.cs*:
+1. Aggiungere un metodo `CreateOrUpdateDataFactory` al file *Program.cs* :
 
    ```csharp
    static Factory CreateOrUpdateDataFactory(DataFactoryManagementClient client)
@@ -181,7 +181,7 @@ Creare un'applicazione console .NET in C#:
 
 ## <a name="create-an-azure-storage-linked-service"></a>Creare un servizio collegato Archiviazione di Azure
 
-1. Aggiungere un metodo `StorageLinkedServiceDefinition` al file *Program.cs*:
+1. Aggiungere un metodo `StorageLinkedServiceDefinition` al file *Program.cs* :
 
    ```csharp
    static LinkedServiceResource StorageLinkedServiceDefinition(DataFactoryManagementClient client)
@@ -213,7 +213,7 @@ In questa sezione si creano due set di dati: uno per l'origine e uno per il sink
 
 Aggiungere un metodo per creare un *set di dati del BLOB di Azure*. Per altre informazioni sulle proprietà supportate e i dettagli, vedere [Proprietà del set di dati del BLOB di Azure](connector-azure-blob-storage.md#dataset-properties).
 
-Aggiungere un metodo `SourceBlobDatasetDefinition` al file *Program.cs*:
+Aggiungere un metodo `SourceBlobDatasetDefinition` al file *Program.cs* :
 
 ```csharp
 static DatasetResource SourceBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -240,7 +240,7 @@ Si noti l'uso dei parametri per *FolderPath*. `sourceBlobContainer` è il nome d
 
 ### <a name="create-a-dataset-for-a-sink-azure-blob"></a>Creare un set di dati per un BLOB di Azure sink
 
-1. Aggiungere un metodo `SourceBlobDatasetDefinition` al file *Program.cs*:
+1. Aggiungere un metodo `SourceBlobDatasetDefinition` al file *Program.cs* :
 
    ```csharp
    static DatasetResource SinkBlobDatasetDefinition(DataFactoryManagementClient client)
@@ -597,7 +597,7 @@ Compilare ed eseguire il programma per attivare un'esecuzione della pipeline.
 
 Compilare e avviare l'applicazione, quindi verificare l'esecuzione della pipeline.
 
-L'applicazione visualizza lo stato di avanzamento della creazione della data factory, del servizio collegato, dei set di dati, della pipeline e dell'esecuzione della pipeline. Controlla quindi lo stato di esecuzione della pipeline. Attendere fino a quando non vengono visualizzati i dettagli sull'esecuzione dell'attività di copia con le dimensioni dei dati letti/scritti. Usare quindi strumenti come Azure Storage Explorer per verificare che il BLOB sia stato copiato da *inputBlobPath* a *outputBlobPath*, come specificato nelle variabili.
+L'applicazione visualizza lo stato di avanzamento della creazione della data factory, del servizio collegato, dei set di dati, della pipeline e dell'esecuzione della pipeline. Controlla quindi lo stato di esecuzione della pipeline. Attendere fino a quando non vengono visualizzati i dettagli sull'esecuzione dell'attività di copia con le dimensioni dei dati letti/scritti. Usare quindi strumenti come Azure Storage Explorer per verificare che il BLOB sia stato copiato da *inputBlobPath* a *outputBlobPath* , come specificato nelle variabili.
 
 L'output sarà simile all'esempio seguente:
 
@@ -610,7 +610,7 @@ Creating linked service AzureStorageLinkedService...
 {
   "type": "AzureStorage",
   "typeProperties": {
-    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=***"
+    "connectionString": "DefaultEndpointsProtocol=https;AccountName=***;AccountKey=**_"
   }
 }
 Creating dataset SourceStorageDataset...
@@ -753,7 +753,7 @@ Press any key to exit...
 In questa esercitazione sono state completate le attività seguenti:
 
 > [!div class="checklist"]
-> * Creare una data factory
+> _ Creare una data factory
 > * Creare un servizio collegato Archiviazione di Azure
 > * Creare un set di dati del BLOB di Azure
 > * Creare una pipeline contenente un'attività di copia e un'attività Web

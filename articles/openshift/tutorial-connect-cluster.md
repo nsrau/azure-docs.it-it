@@ -6,12 +6,12 @@ ms.author: suvetriv
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 04/24/2020
-ms.openlocfilehash: 24990087507dee09bc38418f40c72911386e5efb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 132a9b7ad3eef17f4ca27fb76a0c05f94c82fd37
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89469117"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92428283"
 ---
 # <a name="tutorial-connect-to-an-azure-red-hat-openshift-4-cluster"></a>Esercitazione: Connettersi a un cluster di Azure Red Hat OpenShift 4
 
@@ -63,7 +63,7 @@ Avviare l'URL della console in un browser e accedere usando le credenziali `kube
 
 Dopo aver eseguito l'accesso alla console Web di OpenShift, fare clic su **?** in alto a destra e quindi su **Strumenti della riga di comando**. Scaricare la versione appropriata per il computer.
 
-![Schermata di accesso ad Azure Red Hat OpenShift](media/aro4-download-cli.png)
+![Screenshot che evidenzia l'opzione Strumenti della riga di comando nell'elenco quando si seleziona ? hamburger](media/aro4-download-cli.png)
 
 È anche possibile scaricare la versione più recente dell'interfaccia della riga di comando appropriata per il computer all'indirizzo <https://mirror.openshift.com/pub/openshift-v4/clients/ocp/latest/>.
 

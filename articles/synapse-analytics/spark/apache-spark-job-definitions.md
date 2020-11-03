@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: synapse-analytics
 ms.topic: tutorial
 ms.subservice: spark
-ms.date: 04/15/2020
-ms.openlocfilehash: 143713649afd7f9e42f517713b6b2365ee1605a3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/16/2020
+ms.openlocfilehash: f942525f1360a134f58f18e0ec76a84b0ceee50b
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260275"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92738190"
 ---
 # <a name="tutorial-create-apache-spark-job-definition-in-synapse-studio"></a>Esercitazione: Creare una definizione di processo Apache Spark in Synapse Studio
 
@@ -43,15 +43,15 @@ In questa sezione viene creata una definizione di processo Apache Spark per PySp
 
 1. Aprire [Azure Synapse Studio](https://web.azuresynapse.net/).
 
-2. È possibile passare ai [file di esempio per la creazione di definizioni di processo Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) per scaricare i **file di esempio per python.zip**, quindi decomprimere il pacchetto compresso ed estrarre i file **wordcount.py** e **shakespeare.txt**. 
+2. È possibile passare ai [file di esempio per la creazione di definizioni di processo Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Python) per scaricare i **file di esempio per python.zip** , quindi decomprimere il pacchetto compresso ed estrarre i file **wordcount.py** e **shakespeare.txt**. 
 
      ![File di esempio](./media/apache-spark-job-definitions/sample-files.png)
 
-3. Selezionare  **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2**, quindi caricare **wordcount.py** e **shakespeare.txt** nel file system di ADLS Gen2. 
+3. Selezionare **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2** , quindi caricare **wordcount.py** e **shakespeare.txt** nel file system di ADLS Gen2. 
 
      ![Caricamento del file Python](./media/apache-spark-job-definitions/upload-python-file.png)
 
-4. Selezionare l'hub **Sviluppo**, fare clic sull'icona '+' e selezionare **Definizione di processo Spark** per creare una nuova definizione di processo Spark. 
+4. Selezionare l'hub **Sviluppo** , fare clic sull'icona '+' e selezionare **Definizione di processo Spark** per creare una nuova definizione di processo Spark. 
 
      ![Creazione di una nuova definizione per Python](./media/apache-spark-job-definitions/create-new-definition.png)
 
@@ -85,15 +85,15 @@ In questa sezione viene creata una definizione di processo Apache Spark per Apac
 
  1. Aprire [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. È possibile passare ai [file di esempio per la creazione di definizioni di processo Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) per scaricare i **file di esempio per scala.zip**, quindi decomprimere il pacchetto compresso ed estrarre i file **wordcount.jar** e **shakespeare.txt**. 
+ 2. È possibile passare ai [file di esempio per la creazione di definizioni di processo Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/Scala) per scaricare i **file di esempio per scala.zip** , quindi decomprimere il pacchetto compresso ed estrarre i file **wordcount.jar** e **shakespeare.txt**. 
  
      ![File di esempio Scala](./media/apache-spark-job-definitions/sample-files-scala.png)
 
- 3. Selezionare  **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2**, quindi caricare **wordcount.jar** e **shakespeare.txt** nel file system di ADLS Gen2.
+ 3. Selezionare **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2** , quindi caricare **wordcount.jar** e **shakespeare.txt** nel file system di ADLS Gen2.
  
      ![Preparazione della struttura di Scala](./media/apache-spark-job-definitions/prepare-scala-structure.png)
 
- 4. Selezionare l'hub **Sviluppo**, fare clic sull'icona '+' e selezionare **Definizione di processo Spark** per creare una nuova definizione di processo Spark. L'immagine di esempio è identica a quella del passaggio 4 di **Creare una definizione di processo Apache Spark (Python) per PySpark**.
+ 4. Selezionare l'hub **Sviluppo** , fare clic sull'icona '+' e selezionare **Definizione di processo Spark** per creare una nuova definizione di processo Spark. L'immagine di esempio è identica a quella del passaggio 4 di **Creare una definizione di processo Apache Spark (Python) per PySpark**.
 
  5. Selezionare **Spark (Scala)** nell'elenco a discesa del linguaggio nella finestra principale della definizione di processo Apache Spark.
 
@@ -125,15 +125,15 @@ In questa sezione viene creata una definizione di processo Apache Spark per Apac
 In questa sezione viene creata una definizione di processo Apache Spark per .NET Spark(C#/F#).
  1. Aprire [Azure Synapse Studio](https://web.azuresynapse.net/).
 
- 2. È possibile passare ai [file di esempio per la creazione di definizioni di processo Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) per scaricare i **file di esempio per dotnet.zip**, quindi decomprimere il pacchetto compresso ed estrarre i file **wordcount.zip** e **shakespeare.txt**. 
+ 2. È possibile passare ai [file di esempio per la creazione di definizioni di processo Apache Spark](https://github.com/Azure-Samples/Synapse/tree/master/Spark/DotNET) per scaricare i **file di esempio per dotnet.zip** , quindi decomprimere il pacchetto compresso ed estrarre i file **wordcount.zip** e **shakespeare.txt**. 
 
      ![Esempio di .NET](./media/apache-spark-job-definitions/sample-dotnet.png)
 
- 3. Selezionare  **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2**, quindi caricare **wordcount.zip** e **shakespeare.txt** nel file system di ADLS Gen2.
+ 3. Selezionare **Dati** -> **Collegati** -> **Azure Data Lake Storage Gen2** , quindi caricare **wordcount.zip** e **shakespeare.txt** nel file system di ADLS Gen2.
  
      ![Preparazione della struttura di DotNet](./media/apache-spark-job-definitions/prepare-dotnet-structure.png)
 
- 4. Selezionare l'hub **Sviluppo**, fare clic sull'icona '+' e selezionare **Definizione di processo Spark** per creare una nuova definizione di processo Spark. L'immagine di esempio è identica a quella del passaggio 4 di **Creare una definizione di processo Apache Spark (Python) per PySpark**.
+ 4. Selezionare l'hub **Sviluppo** , fare clic sull'icona '+' e selezionare **Definizione di processo Spark** per creare una nuova definizione di processo Spark. L'immagine di esempio è identica a quella del passaggio 4 di **Creare una definizione di processo Apache Spark (Python) per PySpark**.
 
  5. Selezionare **.NET Spark (C#/F#)** nell'elenco a discesa del linguaggio nella finestra principale della definizione di processo Apache Spark.
 

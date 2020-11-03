@@ -7,12 +7,12 @@ ms.date: 9/30/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: c354447625d58f65615f8d3efb596e7a723e0bbf
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 002c718466b9e13d2f92fbea6dd055eb13d4d3a7
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92331686"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92789115"
 ---
 # <a name="introduction-to-azure-defender"></a>Introduzione ad Azure Defender
 
@@ -65,7 +65,7 @@ Per estendere la protezione a macchine virtuali e database SQL presenti in local
 
 Quando Azure Defender rileva una minaccia in qualsiasi area dell'ambiente, genera un avviso. Questi avvisi descrivono i dettagli sulle risorse interessate, le procedure di correzione consigliate e, in alcuni casi, un'opzione per attivare un'app per la logica in risposta.
 
-È possibile esportare tutti gli avvisi, sia quelli generati dal Centro sicurezza che quelli inviati al Centro sicurezza da un prodotto di sicurezza integrato. Per esportare gli avvisi in Azure Sentinel, in qualsiasi soluzione SIEM di terze parti o in qualsiasi altro strumento esterno, seguire le istruzioni riportate in [Esportazione di avvisi in un sistema SIEM](continuous-export.md).
+È possibile esportare tutti gli avvisi, sia quelli generati dal Centro sicurezza che quelli inviati al Centro sicurezza da un prodotto di sicurezza integrato. Per esportare gli avvisi in Azure Sentinel, in qualsiasi soluzione SIEM di terze parti o in qualsiasi altro strumento esterno, seguire le istruzioni riportate in [Trasmettere avvisi a una soluzione SIEM, SOAR o di gestione dei servizi IT](export-to-siem.md).
 
 > [!NOTE]
 > Gli avvisi provenienti da origini diverse potrebbero comparire in tempi diversi. Ad esempio, la visualizzazione degli avvisi che richiedono l'analisi del traffico di rete potrebbe richiedere più tempo rispetto agli avvisi correlati a processi sospetti in esecuzione sulle macchine virtuali.

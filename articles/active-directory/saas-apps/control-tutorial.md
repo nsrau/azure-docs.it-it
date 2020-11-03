@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/16/2019
 ms.author: jeedes
-ms.openlocfilehash: 46686818f9a5b7a0ef287843887440331f5ac24e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d6b752b2c562944748d21aa1a28a177163a95aee
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88548124"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92455290"
 ---
 # <a name="tutorial-integrate-continuity-control-with-azure-active-directory"></a>Esercitazione: Integrare Continuity Control con Azure Active Directory
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Continuity Control con Azure Active
 * Abilitare gli utenti per l'accesso automatico a Control con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -94,13 +94,13 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 ### <a name="configure-control-sso"></a>Configurare l'accesso Single Sign-On di Control
 
-Per configurare il Single Sign-On su lato di **Control**, è necessario aggiornare le impostazioni di autenticazione SSO in [Control Authentication Strategies](https://control.continuity.net/settings/account_profile#tab/security) (Strategie di autenticazione di Control). Aggiornare l'**URL SSO SAML** con il valore dell'**URL di accesso** e **Certificate Fingerprint** (Impronta digitale certificato) con il **valore di identificazione personale** dal portale di Azure.
+Per configurare il Single Sign-On su lato di **Control** , è necessario aggiornare le impostazioni di autenticazione SSO in [Control Authentication Strategies](https://control.continuity.net/settings/account_profile#tab/security) (Strategie di autenticazione di Control). Aggiornare l' **URL SSO SAML** con il valore dell' **URL di accesso** e **Certificate Fingerprint** (Impronta digitale certificato) con il **valore di identificazione personale** dal portale di Azure.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
 In questa sezione verrà creato un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `Britta Simon`.  
@@ -128,16 +128,16 @@ In questa sezione Britta Simon verrà abilitata per l'uso dell'accesso Single Si
 
 ### <a name="create-control-test-user"></a>Creare l'utente di test di Control
 
-In questa sezione viene creato un utente chiamato Britta Simon in Control. Collaborare con il  [team di supporto di Control](mailto:help@continuity.net) per aggiungere gli utenti alla piattaforma Control. Usare il **nome utente** di Azure AD di Britta Simon per popolare il campo **Identity Provider User ID** (ID utente del provider di identità) in Control. Prima che gli utenti possano usare l'accesso Single Sign-On, è necessario crearli e impostare il relativo valore **Identity Provider User ID** (ID utente del provider di identità) in Control.
+In questa sezione viene creato un utente chiamato Britta Simon in Control. Collaborare con il [team di supporto di Control](mailto:help@continuity.net) per aggiungere gli utenti alla piattaforma Control. Usare il **nome utente** di Azure AD di Britta Simon per popolare il campo **Identity Provider User ID** (ID utente del provider di identità) in Control. Prima che gli utenti possano usare l'accesso Single Sign-On, è necessario crearli e impostare il relativo valore **Identity Provider User ID** (ID utente del provider di identità) in Control.
 
 ### <a name="test-sso"></a>Testare l'accesso SSO
 
-Quando si seleziona il riquadro di Control nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Control per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si seleziona il riquadro di Control nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Control per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 09/29/2020
+ms.date: 10/21/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to prepare the portal to deploy Azure Stack Edge Pro so I can use it to transfer data to Azure.
-ms.openlocfilehash: 1d207e7cc052af32917eb6c871f332136580e56c
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 46c5271c8ded970442d1ae4022573473997d98af
+ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743267"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92426980"
 ---
 # <a name="tutorial-prepare-to-deploy-azure-stack-edge-pro-with-gpu"></a>Esercitazione: Preparare la distribuzione di Azure Stack Edge Pro con GPU 
 
@@ -137,7 +137,6 @@ Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di
 
     ![Creare una risorsa 5](media/azure-stack-edge-gpu-deploy-prep/create-resource-5.png)
 
-
 8. Selezionare **Avanti: Indirizzo di spedizione**.
 
     - Se si ha già un dispositivo, selezionare la casella combinata **Ho un dispositivo Azure Stack Edge Pro**.
@@ -150,7 +149,7 @@ Per creare una risorsa Azure Stack Edge, seguire questa procedura nel portale di
 
 9. Selezionare **Avanti: Tag**. Facoltativamente, specificare i tag per classificare le risorse e consolidare la fatturazione. Selezionare **Avanti: Rivedi e crea**.
 
-10. Nella scheda **Rivedi e crea** esaminare i **dettagli sui prezzi**, le **condizioni per l'utilizzo** e i dettagli della risorsa. Selezionare la casella combinata **Dichiaro di aver esaminato le informazioni fornite e di accettare le condizioni relative alla privacy**.
+10. Nella scheda **Rivedi e crea** esaminare i **dettagli sui prezzi** , le **condizioni per l'utilizzo** e i dettagli della risorsa. Selezionare la casella combinata **Dichiaro di aver esaminato le informazioni fornite e di accettare le condizioni relative alla privacy**.
 
     ![Creare una risorsa 8](media/azure-stack-edge-gpu-deploy-prep/create-resource-8.png) 
 
@@ -167,6 +166,9 @@ Al termine della creazione e della distribuzione della risorsa, si riceverà una
 Dopo che l'ordine è stato inviato, Microsoft lo verifica e invia quindi all'utente un messaggio di posta elettronica con i dettagli della spedizione.
 
 <!--![Notification for review of the Azure Stack Edge Pro order](media/azure-stack-edge-gpu-deploy-prep/azure-stack-edge-resource-2.png)-->
+
+> [!NOTE]
+>Per creare più ordini contemporaneamente o clonare un ordine esistente, è possibile usare gli [script negli esempi di Azure](https://github.com/Azure-Samples/azure-stack-edge-order). Per altre informazioni, vedere il file README.
 
 Se si verificano problemi durante il processo di ordine, vedere [Risolvere i problemi relativi all'ordine](azure-stack-edge-troubleshoot-ordering.md).
 

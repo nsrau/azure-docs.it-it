@@ -7,15 +7,15 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/23/2020
+ms.date: 10/26/2020
 ms.author: banders
-ms.custom: contperfq1
-ms.openlocfilehash: be3de838e340400da09ad261d82328f6793aed2e
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.custom: contperfq2
+ms.openlocfilehash: 05b93fd02ec229306d4e3e150b1e8baab072b597
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91297726"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92671995"
 ---
 # <a name="change-contact-information-for-an-azure-billing-account"></a>Modificare le informazioni di contatto per un account di fatturazione di Azure
 
@@ -23,15 +23,15 @@ Questo articolo illustra come aggiornare le informazioni di contatto per un *acc
 
 Per aggiornare le informazioni del profilo utente di Azure Active Directory, tenere presente che solo un amministratore utenti può apportare le modifiche. Se non è stato assegnato il ruolo di amministratore utenti, contattare l'amministratore utenti. Per altre informazioni sulla modifica del profilo utente, vedere [Aggiungere o aggiornare informazioni di un profilo utente con Azure Active Directory](../../active-directory/fundamentals/active-directory-users-profile-azure-portal.md).
 
-*Indirizzo acquirente*: corrisponde all'indirizzo e alle informazioni di contatto dell'organizzazione o della persona responsabile di un account di fatturazione. Viene visualizzato in tutte le fatture generate per l'account di fatturazione.
+*Indirizzo acquirente* : corrisponde all'indirizzo e alle informazioni di contatto dell'organizzazione o della persona responsabile di un account di fatturazione. Viene visualizzato in tutte le fatture generate per l'account di fatturazione.
 
-*Indirizzo di fatturazione*: corrisponde all'indirizzo e alle informazioni di contatto dell'organizzazione o della persona responsabile delle fatture generate per un account di fatturazione. Per un account di fatturazione per un Programma Sottoscrizione Microsoft Online è previsto un unico indirizzo di fatturazione, visualizzato in tutte le fatture generate per l'account. Per un account di fatturazione per un Contratto del cliente Microsoft è previsto un indirizzo di fatturazione per ogni profilo di fatturazione, visualizzato nella fattura generata per il profilo di fatturazione.
+*Indirizzo di fatturazione* : corrisponde all'indirizzo e alle informazioni di contatto dell'organizzazione o della persona responsabile delle fatture generate per un account di fatturazione. Per un account di fatturazione per un Programma Sottoscrizione Microsoft Online è previsto un unico indirizzo di fatturazione, visualizzato in tutte le fatture generate per l'account. Per un account di fatturazione per un Contratto del cliente Microsoft è previsto un indirizzo di fatturazione per ogni profilo di fatturazione, visualizzato nella fattura generata per il profilo di fatturazione.
 
-*Indirizzo di posta elettronica di contatto per i messaggi di marketing e sul servizio*: è possibile specificare un indirizzo di posta elettronica diverso da quello con cui si accede per ricevere importanti notifiche relative a fatturazione, servizio e raccomandazioni sull'account Azure. I messaggi di posta elettronica di notifica del servizio, ad esempio relativi a problemi di sicurezza urgenti, variazioni di prezzo o modifiche che causano un'interruzione dei servizi usati dall'account, vengono sempre inviati all'indirizzo di accesso.
+*Indirizzo di posta elettronica di contatto per i messaggi di marketing e sul servizio* : è possibile specificare un indirizzo di posta elettronica diverso da quello con cui si accede per ricevere importanti notifiche relative a fatturazione, servizio e raccomandazioni sull'account Azure. I messaggi di posta elettronica di notifica del servizio, ad esempio relativi a problemi di sicurezza urgenti, variazioni di prezzo o modifiche che causano un'interruzione dei servizi usati dall'account, vengono sempre inviati all'indirizzo di accesso.
 
 ## <a name="update-an-mosp-billing-account-address"></a>Aggiornare l'indirizzo di un account di fatturazione per un Programma Sottoscrizione Microsoft Online
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) usando l'indirizzo di posta elettronica con l'autorizzazione di amministratore per l'account.
+1. Accedere al portale di Azure usando l'indirizzo di posta elettronica con l'autorizzazione di amministratore per l'account.
 1. Cercare **Gestione dei costi e fatturazione**.  
     ![Screenshot che illustra dove cercare Gestione dei costi e fatturazione nel portale di Azure](./media/change-azure-account-profile/search-cmb.png)
 1. Selezionare **Proprietà** sul lato sinistro.  
@@ -41,7 +41,7 @@ Per aggiornare le informazioni del profilo utente di Azure Active Directory, ten
 
 ## <a name="update-an-mca-billing-account-sold-to-address"></a>Aggiornare l'indirizzo dell'acquirente di un account di fatturazione per un Contratto del cliente Microsoft
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) usando l'indirizzo di posta elettronica con un ruolo di proprietario o di collaboratore per l'account di fatturazione per un Contratto del cliente Microsoft.
+1. Accedere al portale di Azure usando l'indirizzo di posta elettronica con un ruolo di proprietario o di collaboratore per l'account di fatturazione per un Contratto del cliente Microsoft.
 1. Cercare **Gestione dei costi e fatturazione**.  
     ![Screenshot che illustra dove eseguire la ricerca nel portale di Azure](./media/change-azure-account-profile/search-cmb.png)
 1. Selezionare **Proprietà** sul lato sinistro, quindi selezionare **Aggiorna il valore di Venduto a**.  
@@ -54,7 +54,7 @@ Per aggiornare le informazioni del profilo utente di Azure Active Directory, ten
 
 ## <a name="update-an-mca-billing-account-address"></a>Aggiornare l'indirizzo di un account di fatturazione per un Contratto del cliente Microsoft
 
-1. Accedere al [portale di Azure](https://portal.azure.com/) usando l'indirizzo di posta elettronica con un ruolo di proprietario o di collaboratore per un account di fatturazione o un profilo di fatturazione per un Contratto del cliente Microsoft.
+1. Accedere al portale di Azure usando l'indirizzo di posta elettronica con un ruolo di proprietario o di collaboratore per un account di fatturazione o un profilo di fatturazione per un Contratto del cliente Microsoft.
 1. Cercare **Gestione dei costi e fatturazione**.  
 1. Selezionare **Profili di fatturazione** sul lato sinistro.
 1. Selezionare un profilo di fatturazione per aggiornare l'indirizzo di fatturazione.  
@@ -67,7 +67,7 @@ Per aggiornare le informazioni del profilo utente di Azure Active Directory, ten
 
 ## <a name="service-and-marketing-emails"></a>Messaggi di posta elettronica di servizio e di marketing
 
-Nel [portale di Azure](https://portal.azure.com) viene chiesto di verificare o aggiornare l'indirizzo di posta elettronica ogni 90 giorni. Microsoft invia messaggi di posta elettronica a questo indirizzo con informazioni relative all'account Microsoft per:
+Nel portale di Azure viene chiesto di verificare o aggiornare l'indirizzo di posta elettronica ogni 90 giorni. Microsoft invia messaggi di posta elettronica a questo indirizzo con informazioni relative all'account Microsoft per:
 
 - Notifiche del servizio
 - Avvisi di sicurezza
@@ -86,7 +86,7 @@ Immettere l'indirizzo di posta elettronica a cui ricevere le comunicazioni relat
 
 1. Se si è un amministratore account per un Programma Sottoscrizione Microsoft Online, seguire le istruzioni riportate in [Aggiornare l'indirizzo di un account di fatturazione per un Programma Sottoscrizione Microsoft Online](#update-an-mosp-billing-account-address) e selezionare **Aggiorna le informazioni di contatto** nell'ultimo passaggio. Immettere quindi il nuovo indirizzo di posta elettronica.
 1. Passare all'area [Informazioni contatto](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) nel portale di Azure e immettere il nuovo indirizzo di posta elettronica. 
-1. Nel [portale di Azure](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) selezionare l'icona con le proprie iniziali o con l'immagine. Quindi selezionare il menu di scelta rapida ( **...** ). Scegliere quindi **Informazioni di contatto** dal menu e immettere il nuovo indirizzo di posta elettronica.
+1. Nel portale di Azure selezionare l'icona con le proprie iniziali o con l'immagine. Quindi selezionare il menu di scelta rapida ( **...** ). Scegliere quindi **Informazioni di contatto** dal menu e immettere il nuovo indirizzo di posta elettronica.
 
 ![Esempio di aggiornamento di un indirizzo di posta elettronica in Azure](./media/change-azure-account-profile/azure-contact-information.png)
 
@@ -102,7 +102,7 @@ Quando si rifiuta esplicitamente di ricevere comunicazioni di marketing, si cont
 
 ## <a name="update-the-email-address-that-you-sign-in-with"></a>Aggiornare l'indirizzo di posta elettronica con cui si accede
 
-Non è possibile aggiornare l'indirizzo di posta elettronica usato per accedere all'account. Tuttavia, se si ha un account di fatturazione per un Programma Sottoscrizione Microsoft Online è possibile iscriversi per richiedere un altro account con il nuovo indirizzo di posta elettronica e trasferire la proprietà delle sottoscrizioni al nuovo account. Per un account di fatturazione per un Contratto del cliente Microsoft, [è possibile assegnare le autorizzazioni per il nuovo indirizzo di posta elettronica per l'account](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal).
+Non è possibile aggiornare l'indirizzo di posta elettronica usato per accedere all'account. Tuttavia, se si ha un account di fatturazione per un Programma Sottoscrizione Microsoft Online è possibile iscriversi per richiedere un altro account con il nuovo indirizzo di posta elettronica e trasferire la proprietà delle sottoscrizioni al nuovo account. Per un account di fatturazione per un Contratto del cliente Microsoft, è possibile assegnare le autorizzazioni per il nuovo indirizzo di posta elettronica per l'account.
 
 ## <a name="update-your-credit-card"></a>Aggiornare la carta di credito
 
@@ -114,7 +114,7 @@ Non è possibile cambiare il paese o l'area geografica per un account esistente.
 
 ## <a name="change-the-subscription-name"></a>Cambiare il nome della sottoscrizione
 
-1. Accedere al [portale di Azure](https://portal.azure.com), selezionare **Sottoscrizione** nel riquadro sinistro e quindi selezionare la sottoscrizione da rinominare.
+1. Accedere al portale di Azure, selezionare **Sottoscrizione** nel riquadro sinistro e quindi selezionare la sottoscrizione da rinominare.
 1. Selezionare **Panoramica** e quindi **Rinomina** sulla barra dei comandi.  
     ![Esempio di ridenominazione della sottoscrizione di Azure](./media/change-azure-account-profile/rename-sub.png)
 1. Dopo aver cambiato il nome, selezionare **Salva**.

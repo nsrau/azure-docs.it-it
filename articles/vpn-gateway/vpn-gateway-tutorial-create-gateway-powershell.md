@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: tutorial
 ms.date: 10/13/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8e4c0174e9f5e1a15fe85d5744ddcb6ee21c4a86
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 91004b9cb545275746f75dbd6ad46981fe4b04d5
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048271"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461159"
 ---
 # <a name="tutorial-create-and-manage-a-vpn-gateway-using-powershell"></a>Esercitazione: Creare e gestire un gateway VPN usando PowerShell
 
@@ -26,7 +26,7 @@ I gateway VPN di Azure offrono connettività cross-premise tra l'infrastruttura 
 
 Il diagramma seguente mostra la rete virtuale e il gateway VPN creati nell'ambito di questa esercitazione.
 
-![Rete virtuale e gateway VPN](./media/vpn-gateway-tutorial-create-gateway-powershell/vnet1-gateway.png)
+:::image type="content" source="./media/vpn-gateway-tutorial-create-gateway-powershell/gateway-diagram.png" alt-text="Diagramma della rete virtuale e del gateway VPN":::
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -74,7 +74,7 @@ $GwIPConf1   = "gwipconf1"
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
-Creare un gruppo di risorse con il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. È prima necessario creare un gruppo di risorse. Nell'esempio seguente viene creato un gruppo di risorse denominato *TestRG1* nell'area *Stati Uniti orientali*:
+Creare un gruppo di risorse con il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. È prima necessario creare un gruppo di risorse. Nell'esempio seguente viene creato un gruppo di risorse denominato *TestRG1* nell'area *Stati Uniti orientali* :
 
 ```azurepowershell-interactive
 New-AzResourceGroup -ResourceGroupName $RG1 -Location $Location1
@@ -187,4 +187,4 @@ In questa esercitazione sono state illustrate le operazioni di base di creazione
 Procedere quindi con l'esercitazione seguente:
 
 > [!div class="nextstepaction"]
-> * [Creare una connessione](vpn-gateway-tutorial-vpnconnection-powershell.md)
+> * [Creare una connessione da sito a sito](vpn-gateway-create-site-to-site-rm-powershell.md)

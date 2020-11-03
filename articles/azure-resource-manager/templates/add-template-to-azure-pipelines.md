@@ -16,11 +16,11 @@ ms.locfileid: "93233815"
 
 In questo articolo vengono illustrati altri due modi per distribuire i modelli con Azure Pipelines. Questo articolo illustra come:
 
-* **Aggiungere un'attività che esegue uno script Azure PowerShell** . Questa opzione offre il vantaggio di garantire la coerenza per tutto il ciclo di vita dello sviluppo, perché è possibile usare lo stesso script usato durante l'esecuzione di test locali. Lo script distribuisce il modello, ma può anche eseguire altre operazioni, ad esempio il recupero di valori da utilizzare come parametri.
+* **Aggiungere un'attività che esegue uno script Azure PowerShell**. Questa opzione offre il vantaggio di garantire la coerenza per tutto il ciclo di vita dello sviluppo, perché è possibile usare lo stesso script usato durante l'esecuzione di test locali. Lo script distribuisce il modello, ma può anche eseguire altre operazioni, ad esempio il recupero di valori da utilizzare come parametri.
 
    Visual Studio fornisce il [progetto gruppo di risorse di Azure](create-visual-studio-deployment-project.md) che include uno script di PowerShell. Lo script crea una fase di creazione degli artefatti dal progetto a un account di archiviazione a cui Gestione risorse può accedere. Gli artefatti sono elementi del progetto, ad esempio modelli collegati, script e file binari dell'applicazione. Se si vuole continuare a usare lo script dal progetto, usare l'attività script di PowerShell illustrata in questo articolo.
 
-* **Aggiunta di attività per la copia e la distribuzione di attività** . Questa opzione offre una comoda alternativa allo script del progetto. Si configurano due attività nella pipeline. Un'attività consente di eseguire la fase degli elementi in una posizione accessibile. L'altra attività distribuisce il modello da tale percorso.
+* **Aggiunta di attività per la copia e la distribuzione di attività**. Questa opzione offre una comoda alternativa allo script del progetto. Si configurano due attività nella pipeline. Un'attività consente di eseguire la fase degli elementi in una posizione accessibile. L'altra attività distribuisce il modello da tale percorso.
 
 ## <a name="prepare-your-project"></a>Preparare il progetto
 
@@ -34,11 +34,11 @@ Questo articolo presuppone che il modello ARM e l'organizzazione DevOps di Azure
 
 ## <a name="create-pipeline"></a>Creare una pipeline
 
-1. Se non è stata aggiunta una pipeline in precedenza, è necessario creare una nuova pipeline. Dall'organizzazione DevOps di Azure selezionare **pipeline** e **nuova pipeline** .
+1. Se non è stata aggiunta una pipeline in precedenza, è necessario creare una nuova pipeline. Dall'organizzazione DevOps di Azure selezionare **pipeline** e **nuova pipeline**.
 
    ![Aggiungi nuova pipeline](./media/add-template-to-azure-pipelines/new-pipeline.png)
 
-1. Specificare la posizione in cui è archiviato il codice. La figura seguente mostra la selezione di **Azure Repos git** .
+1. Specificare la posizione in cui è archiviato il codice. La figura seguente mostra la selezione di **Azure Repos git**.
 
    ![Seleziona origine codice](./media/add-template-to-azure-pipelines/select-source.png)
 
@@ -46,7 +46,7 @@ Questo articolo presuppone che il modello ARM e l'organizzazione DevOps di Azure
 
    ![Seleziona repository](./media/add-template-to-azure-pipelines/select-repo.png)
 
-1. Consente di selezionare il tipo di pipeline da creare. È possibile selezionare **pipeline di avvio** .
+1. Consente di selezionare il tipo di pipeline da creare. È possibile selezionare **pipeline di avvio**.
 
    ![Seleziona pipeline](./media/add-template-to-azure-pipelines/select-pipeline.png)
 

@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: overview
 ms.date: 09/15/2020
 ms.author: memildin
-ms.openlocfilehash: 63b93db314701d281f3f4fff195671f43cdb9dbc
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: 0b80db15e4fafd5e5c63a4194039fbeca21d429b
+ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92340887"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92900389"
 ---
 # <a name="additional-threat-protections-in-azure-security-center"></a>Funzionalità di protezione dalle minacce aggiuntive nel Centro sicurezza di Azure
 Oltre alle [protezioni di Azure Defender](azure-defender.md) integrate, il Centro sicurezza di Azure offre anche le funzionalità di protezione dalle minacce seguenti.
@@ -32,7 +32,6 @@ L'analisi a livello di rete del Centro sicurezza si basa su [dati IPFIX](https:/
 Alcune configurazioni di rete potrebbero impedire al Centro sicurezza di generare avvisi sulle attività di rete sospette. Per consentire al Centro sicurezza di generare avvisi di rete, verificare che:
 - La macchina virtuale abbia un indirizzo IP pubblico o si trovi in un servizio di bilanciamento del carico con un indirizzo IP pubblico.
 - Il traffico di rete in uscita della macchina virtuale non sia bloccato da una soluzione IDS esterna.
-- Alla macchina virtuale fosse assegnato lo stesso indirizzo IP per l'intera ora in cui si sono verificate le comunicazioni sospette. Questo vale anche per le macchine virtuali create come parte di un servizio gestito, ad esempio servizio Azure Kubernetes o Databricks.
 
 Per un elenco degli avvisi a livello di rete di Azure, vedere la [tabella di riferimento degli avvisi](alerts-reference.md#alerts-azurenetlayer).
 
@@ -59,7 +58,7 @@ Per un elenco degli avvisi di Azure Resource Manager (anteprima), vedere la [tab
 
 1. Impostare l'area di lavoro in cui si installa l'agente. Assicurarsi che l'area di lavoro si trovi nella stessa sottoscrizione che si usa nel Centro sicurezza e di disporre delle autorizzazioni di lettura/scrittura nell'area di lavoro.
 
-1. Abilitare **Azure Defender**, quindi selezionare **Salva**.
+1. Abilitare **Azure Defender** , quindi selezionare **Salva**.
 
 
 ## <a name="threat-protection-for-azure-cosmos-db-preview"></a>Protezione dalle minacce per Azure Cosmos DB (anteprima)<a name="cosmos-db"></a>
@@ -101,4 +100,4 @@ Per altre informazioni sugli avvisi di sicurezza generati da queste funzionalit�
 * [Tabella di riferimento per tutti gli avvisi del Centro sicurezza di Azure](alerts-reference.md)
 * [Avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-overview.md)
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)
-* [Esportare avvisi e raccomandazioni sulla sicurezza (anteprima)](continuous-export.md)
+* [Esportazione continua dei dati del Centro sicurezza](continuous-export.md)

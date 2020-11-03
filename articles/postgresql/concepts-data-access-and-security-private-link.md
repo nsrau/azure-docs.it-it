@@ -72,21 +72,21 @@ Quando l'amministratore di rete crea l'endpoint privato (PE), l'amministratore d
 
 * Selezionare una singola connessione di endpoint privato dall'elenco.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Selezionare il portale dell'endpoint privato":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link.png" alt-text="Selezionare l'endpoint privato in attesa di approvazione":::
 
 * L'amministratore del server PostgreSQL può scegliere di approvare o rifiutare un PEC e, facoltativamente, di aggiungere una risposta di testo breve.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Selezionare il portale dell'endpoint privato":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/select-private-link-message.png" alt-text="Selezionare il messaggio dell'endpoint privato":::
 
 * Dopo l'approvazione o il rifiuto, l'elenco riflette lo stato appropriato insieme al testo della risposta
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Selezionare il portale dell'endpoint privato":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-approved-connection.png" alt-text="Selezionare lo stato finale dell'endpoint privato":::
 
 ## <a name="use-cases-of-private-link-for-azure-database-for-postgresql"></a>Casi d'uso di collegamento privato per database di Azure per PostgreSQL
 
 I client possono connettersi all'endpoint privato dallo stesso VNet, VNet con peering nella stessa area o tramite una connessione da VNet a VNet tra le aree. Inoltre, i client possono connettersi dall'ambiente locale tramite ExpressRoute, peering privato o tunneling VPN. Di seguito è riportato un diagramma semplificato che mostra i casi d'uso comuni.
 
-:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selezionare il portale dell'endpoint privato":::
+:::image type="content" source="media/concepts-data-access-and-security-private-link/show-private-link-overview.png" alt-text="Selezionare la panoramica dell'endpoint privato":::
 
 ### <a name="connecting-from-an-azure-vm-in-peered-virtual-network-vnet"></a>Connessione da una VM di Azure in una rete virtuale con peering
 Configurare il [peering VNet](../virtual-network/tutorial-connect-virtual-networks-powershell.md) per stabilire la connettività al database di Azure per PostgreSQL: server singolo da una macchina virtuale di Azure in un VNet con peering.

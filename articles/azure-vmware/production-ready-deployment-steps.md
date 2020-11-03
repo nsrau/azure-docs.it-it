@@ -3,18 +3,18 @@ title: Pianificazione della distribuzione della soluzione Azure VMware
 description: Questo articolo illustra un flusso di lavoro di distribuzione della soluzione Azure VMware.  Il risultato finale è un ambiente pronto per la creazione e la migrazione di macchine virtuali.
 ms.topic: tutorial
 ms.date: 10/16/2020
-ms.openlocfilehash: 7914176174a38fef2336fc52eae7501780057452
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: e30692f26af786097f3cdb81690be617bfea0c79
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147984"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517362"
 ---
 # <a name="planning-the-azure-vmware-solution-deployment"></a>Pianificazione della distribuzione della soluzione Azure VMware
 
-In questo articolo viene illustrato il processo di pianificazione per identificare e raccogliere i dati usati durante la distribuzione. Nell'ambito della pianificazione della distribuzione, assicurarsi di documentare le informazioni raccolte per potervi fare riferimento facilmente durante la distribuzione.
+Questo articolo illustra il processo di pianificazione per identificare e raccogliere i dati usati durante la distribuzione. Nell'ambito della pianificazione della distribuzione, assicurarsi di documentare le informazioni raccolte per potervi fare riferimento facilmente durante la distribuzione.
 
-I processi di questo avvio rapido consentono di ottenere un ambiente pronto per la produzione per la creazione di macchine virtuali e la migrazione. 
+I processi di questa guida di avvio rapido consentono di ottenere un ambiente pronto per la produzione per la creazione di macchine virtuali e la migrazione. 
 
 >[!IMPORTANT]
 >Prima di creare la risorsa della soluzione Azure VMware, seguire l'articolo [Come abilitare la risorsa della soluzione Azure VMware](enable-azure-vmware-solution.md) per inviare un ticket di supporto per ottenere l'allocazione dei nodi. Dopo la ricezione della richiesta da parte del team di supporto, sono necessari fino a cinque giorni per completare la richiesta e allocare i nodi. Se è disponibile un cloud privato della soluzione Azure VMware ed è necessaria l'allocazione di altri nodi, sarà necessario seguire lo stesso processo. 
@@ -73,13 +73,13 @@ Per altre informazioni, vedere l'[Elenco di controllo di pianificazione della re
 
 Identificare un segmento IP per creare la prima rete (segmento NSX) nel cloud privato.  In altre parole, si vuole creare un segmento di rete nella soluzione Azure VMware per consentire la distribuzione di VM nella soluzione Azure VMware.   
 
-Anche se si prevede di estendere le reti L2, creare un segmento di rete che risulterà utile per convalidare l'ambiente.
+Anche se si prevede di estendere le reti L2, creare un segmento di rete che consentirà di convalidare l'ambiente.
 
 Occorre ricordare che eventuali segmenti IP creati devono essere univoci in Azure e nel footprint locale.  
 
 **Esempio:** 10.0.4.0/24
 
-:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identificazione - Segmento dell'indirizzo IP" border="false":::     
+:::image type="content" source="media/pre-deployment/nsx-segment-diagram.png" alt-text="Identificazione - Segmento dell'indirizzo IP per carichi di lavoro di macchine virtuali" border="false":::     
 
 ## <a name="optional-extend-networks"></a>(Facoltativo) Estendere le reti
 
@@ -96,7 +96,7 @@ Identificare un blocco di indirizzi di rete CIDR `/29`, necessario per il peerin
 
 **Esempio:** 10.1.0.0/29
 
-:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificazione - Segmento dell'indirizzo IP" border="false":::
+:::image type="content" source="media/pre-deployment/expressroute-global-reach-ip-diagram.png" alt-text="Identificazione - Rete di peering di Copertura globale ExpressRoute" border="false":::
 
 ## <a name="azure-virtual-network-to-attach-azure-vmware-solution"></a>Rete virtuale di Azure da collegare alla soluzione Azure VMware
 
@@ -119,7 +119,7 @@ In entrambi i casi, è necessario documentare le operazioni da eseguire in quest
 >[!NOTE]
 >Questa rete virtuale viene visualizzata dall'ambiente locale e dalla soluzione Azure VMware, quindi è necessario assicurarsi che non siano presenti sovrapposizioni per il segmento IP usato in questa rete virtuale e nelle subnet.
 
-:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identificazione - Segmento dell'indirizzo IP" border="false":::
+:::image type="content" source="media/pre-deployment/azure-vmware-solution-expressroute-diagram.png" alt-text="Identificazione - Rete virtuale di Azure da collegare alla soluzione Azure VMware" border="false":::
 
 ## <a name="vmware-hcx-network-segments"></a>Segmenti di rete di VMware HCX
 

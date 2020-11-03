@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 02/10/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: df8e4c2728bd7487520164553d26dfd42e38b647
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 601e124c1ad87724babfabffc95e9265bc962d87
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841851"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92913297"
 ---
 # <a name="tutorial-get-started-with-azure-machine-learning-in-jupyter-notebooks"></a>Esercitazione: Introduzione al servizio Azure Machine Learning nei notebook di Jupyter
 
@@ -34,12 +34,14 @@ Se non è disponibile una sottoscrizione di Azure, creare un account gratuito pr
 
 Un'area di lavoro di Machine Learning è una risorsa cloud fondamentale usata per eseguire gli esperimenti, il training e la distribuzione di modelli di Machine Learning. Collega la sottoscrizione e il gruppo di risorse di Azure a un oggetto di facile utilizzo nel servizio.
 
-Per creare un'area di lavoro è necessario usare il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure.
+Se si ha già un'area di lavoro di Azure Machine Learning, passare a [Clonare una cartella del notebook](#clone).  
+
+Esistono molti [modi per creare un'area di lavoro](how-to-manage-workspace.md).  In questa esercitazione si creerà un'area di lavoro tramite il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure.
 
 [!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT]
-> Prendere nota dell'*area di lavoro* e della *sottoscrizione*. Queste informazioni saranno necessarie per assicurarsi che l'esperimento venga creato nel posto giusto.
+> Prendere nota dell' *area di lavoro* e della *sottoscrizione*. Queste informazioni saranno necessarie per assicurarsi che l'esperimento venga creato nel posto giusto.
 
 ## <a name="run-a-notebook-in-your-workspace"></a><a name="azure"></a>Eseguire un notebook nell'area di lavoro
 
@@ -49,7 +51,7 @@ Azure Machine Learning include un server notebook cloud nell'area di lavoro per 
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4mTUr]
 
-### <a name="clone-a-notebook-folder"></a>Clonare una cartella del notebook
+### <a name="clone-a-notebook-folder"></a><a name="clone"></a> Clonare una cartella del notebook
 
 Completare la configurazione dell'esperimento seguente ed eseguire i passaggi in Azure Machine Learning Studio. Questa interfaccia consolidata include gli strumenti di Machine Learning per eseguire scenari di data science per professionisti con tutti i livelli di competenze.
 
@@ -80,7 +82,7 @@ Completare la configurazione dell'esperimento seguente ed eseguire i passaggi in
     
 1. Selezionare il file **tutorial-1st-experiment-sdk-train.ipynb** nella cartella **tutorials/image-classification-mnist-data**.
 
-    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Screenshot che mostra la clonazione della cartella di esercitazioni.":::
+    :::image type="content" source="media/tutorial-1st-experiment-sdk-setup/expand-user-folder.png" alt-text="Screenshot che mostra l'apertura della cartella di esercitazioni.":::
 
 1. Sulla barra superiore selezionare un'istanza di calcolo da usare per eseguire il notebook. Queste macchine virtuali (VM) sono preconfigurate con [tutti i componenti necessari per eseguire Azure Machine Learning](concept-compute-instance.md#contents).
 

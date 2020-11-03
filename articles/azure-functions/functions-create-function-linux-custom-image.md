@@ -3,14 +3,14 @@ title: Creare funzioni di Azure in Linux tramite un'immagine personalizzata
 description: Informazioni su come creare Funzioni di Azure in esecuzione in un'immagine personalizzata di Linux.
 ms.date: 03/30/2020
 ms.topic: tutorial
-ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell
+ms.custom: devx-track-csharp, mvc, devx-track-python, devx-track-azurepowershell, devx-track-azurecli
 zone_pivot_groups: programming-languages-set-functions
-ms.openlocfilehash: 7940e0f90e29e5c69ccde79dfbec889dbe31fe63
-ms.sourcegitcommit: 6a4687b86b7aabaeb6aacdfa6c2a1229073254de
+ms.openlocfilehash: 846599414c0bca95a3f41e127dc01e06d0fd43f9
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/06/2020
-ms.locfileid: "91758983"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92747111"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>Creare una funzione in Linux tramite un contenitore personalizzato
 
@@ -95,7 +95,10 @@ mvn archetype:generate "-DarchetypeGroupId=com.microsoft.azure" "-DarchetypeArti
 ```
 ---
 
-Il parametro `-DjavaVersion` indica al runtime di Funzioni la versione di Java da usare. Usare `-DjavaVersion=11` se si vuole che le funzioni vengano eseguite in Java 11, disponibile in anteprima. Quando non si specifica `-DjavaVersion`, Maven usa per impostazione predefinita Java 8. Per altre informazioni, vedere [Versioni di Java](functions-reference-java.md#java-versions).
+Il parametro `-DjavaVersion` indica al runtime di Funzioni la versione di Java da usare. Usare `-DjavaVersion=11` per eseguire le funzioni in Java 11. Quando non si specifica `-DjavaVersion`, Maven usa per impostazione predefinita Java 8. Per altre informazioni, vedere [Versioni di Java](functions-reference-java.md#java-versions).
+
+> [!IMPORTANT]
+> Per completare questo articolo, è necessario impostare la variabile di ambiente `JAVA_HOME` sul percorso di installazione della versione corretta di JDK.
 
 Maven chiede i valori necessari per completare la generazione del progetto nella distribuzione.   
 Quando richiesto, specificare i valori seguenti:
@@ -109,7 +112,7 @@ Quando richiesto, specificare i valori seguenti:
 
 Digitare `Y` o premere INVIO per confermare.
 
-Maven crea i file di progetto in una nuova cartella denominata _artifactId_, che in questo esempio è `fabrikam-functions`. 
+Maven crea i file di progetto in una nuova cartella denominata _artifactId_ , che in questo esempio è `fabrikam-functions`. 
 ::: zone-end
 L'opzione `--docker` genera un `Dockerfile` per il progetto, che definisce un contenitore personalizzato adatto da usare con Funzioni di Azure e con il runtime selezionato.
 
@@ -347,7 +350,7 @@ Con l'immagine distribuita nell'app per le funzioni in Azure, è ora possibile r
     1. L'output del comando è la chiave di funzione. L'URL completo della funzione è quindi `https://<app_name>.azurewebsites.net/api/<function_name>?code=<key>`, sostituendo `<app_name>`, `<function_name>` e `<key>` con i valori specifici.
     
         > [!NOTE]
-        > La chiave recuperata qui è la chiave *host*, che è valida per tutte le funzioni nell'app per le funzioni. Il metodo illustrato per il portale recupera la chiave solo per un'unica funzione.
+        > La chiave recuperata qui è la chiave *host* , che è valida per tutte le funzioni nell'app per le funzioni. Il metodo illustrato per il portale recupera la chiave solo per un'unica funzione.
 
     ---
 
@@ -372,7 +375,7 @@ Con l'immagine distribuita nell'app per le funzioni in Azure, è ora possibile r
 
 1. Copiare l'URL del webhook della distribuzione negli Appunti.
 
-1. Aprire [Docker Hub](https://hub.docker.com/), accedere e selezionare **Repository** sulla barra di spostamento. Individuare e selezionare l'immagine, selezionare la scheda **Webhook**, specificare un valore per **Nome webhook**, incollare l'URL in **URL webhook** e quindi selezionare **Crea**:
+1. Aprire [Docker Hub](https://hub.docker.com/), accedere e selezionare **Repository** sulla barra di spostamento. Individuare e selezionare l'immagine, selezionare la scheda **Webhook** , specificare un valore per **Nome webhook** , incollare l'URL in **URL webhook** e quindi selezionare **Crea** :
 
     ![Aggiungere il webhook nel repository DockerHub](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
 
@@ -438,7 +441,7 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Con SSH abi
 
 ## <a name="write-to-an-azure-storage-queue"></a>Scrivere in una coda dell'account di archiviazione di Azure
 
-La soluzione Funzioni di Azure consente di connettere le funzioni ad altri servizi e risorse di Azure senza la necessità di scrivere codice di integrazione personalizzato. Questi *binding*, che rappresentano sia input che output, vengono dichiarati all'interno della definizione di funzione. I dati dei binding vengono forniti alla funzione come parametri. Un *trigger* è un tipo speciale di binding di input. Anche se una funzione include un solo trigger, può avere più binding di input e output. Per altre informazioni, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
+La soluzione Funzioni di Azure consente di connettere le funzioni ad altri servizi e risorse di Azure senza la necessità di scrivere codice di integrazione personalizzato. Questi *binding* , che rappresentano sia input che output, vengono dichiarati all'interno della definizione di funzione. I dati dei binding vengono forniti alla funzione come parametri. Un *trigger* è un tipo speciale di binding di input. Anche se una funzione include un solo trigger, può avere più binding di input e output. Per altre informazioni, vedere [Concetti su trigger e binding di Funzioni di Azure](functions-triggers-bindings.md).
 
 Questa sezione illustra come integrare la funzione con una coda di archiviazione di Azure. Il binding di output che si aggiunge a questa funzione scrive i dati di una richiesta HTTP in un messaggio della coda.
 

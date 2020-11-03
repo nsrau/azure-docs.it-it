@@ -41,7 +41,7 @@ Seguire questa procedura per impostare la versione minima TLS di PostgreSQL:
 
 1. Una notifica conferma che l'impostazione di sicurezza della connessione è stata abilitata correttamente.
 
-    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Configurazione di TLS a server singolo per database di Azure per PostgreSQL":::
+    :::image type="content" source="./media/howto-tls-configurations/setting-tls-value-success.png" alt-text="Database di Azure per PostgreSQL-configurazione TLS a server singolo riuscita":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

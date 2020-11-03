@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/06/2019
 ms.author: jeedes
-ms.openlocfilehash: cee76d78e934931e6f2d0ff6787d755717ea8b0b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ef219ca147fe96fc65f14bbf3ba6a565adc95ec
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88549025"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92520915"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-ms-azure-sso-access-for-ethidex-compliance-office"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con MS Azure SSO Access for Ethidex Compliance Office™
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare MS Azure SSO Access for Ethidex Com
 * Abilitare gli utenti per l'accesso automatico a MS Azure SSO Access for Ethidex Compliance Office™ con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -84,7 +84,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > [!NOTE]
     > Poiché questi non sono i valori reali, è necessario aggiornarli con l'identificatore e l'URL di risposta effettivi. Contattare il [team di supporto di MS Azure SSO Access for Ethidex Compliance Office™](mailto:support@ethidex.com) per ottenere questi valori. È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
-1. L'applicazione MS Azure SSO Access for Ethidex Compliance Office™ prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione MS Azure SSO Access for Ethidex Compliance Office™ prevede che **nameidentifier** sia associato a **user.mail**, di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e modificare il mapping.
+1. L'applicazione MS Azure SSO Access for Ethidex Compliance Office™ prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. La schermata seguente illustra l'elenco degli attributi predefiniti in cui **nameidentifier** è associato a **user.userprincipalname**. L'applicazione MS Azure SSO Access for Ethidex Compliance Office™ prevede che **nameidentifier** sia associato a **user.mail** , di conseguenza è necessario modificare il mapping dell'attributo. A questo scopo, fare clic sull'icona **Modifica** e modificare il mapping.
 
     ![image](common/edit-attribute.png)
 
@@ -100,7 +100,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -128,25 +128,24 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-ms-azure-sso-access-for-ethidex-compliance-office-sso"></a>Configurare l'accesso Single Sign-On di MS Azure SSO Access for Ethidex Compliance Office
 
-Per configurare l'accesso Single Sign-On sul lato **MS Azure SSO Access for Ethidex Compliance Office™**, è necessario inviare il **Certificato (base)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di MS Azure SSO Access for Ethidex Compliance Office™](mailto:support@ethidex.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
+Per configurare l'accesso Single Sign-On sul lato **MS Azure SSO Access for Ethidex Compliance Office™** , è necessario inviare il **Certificato (base)** scaricato e gli URL appropriati, copiati dal portale di Azure, al [team di supporto di MS Azure SSO Access for Ethidex Compliance Office™](mailto:support@ethidex.com). La configurazione viene eseguita in modo che la connessione SSO SAML sia impostata correttamente su entrambi i lati.
 
 ### <a name="create-ms-azure-sso-access-for-ethidex-compliance-office-test-user"></a>Creare l'utente di test di MS Azure SSO Access for Ethidex Compliance Office
 
-In questa sezione viene creato un utente di nome B.Simon in MS Azure SSO Access for Ethidex Compliance Office™. Collaborare con il  [team di supporto di MS Azure SSO Access for Ethidex Compliance Office™](mailto:support@ethidex.com) per aggiungere gli utenti alla piattaforma MS Azure SSO Access for Ethidex Compliance Office™. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome B.Simon in MS Azure SSO Access for Ethidex Compliance Office™. Collaborare con il [team di supporto di MS Azure SSO Access for Ethidex Compliance Office™](mailto:support@ethidex.com) per aggiungere gli utenti alla piattaforma MS Azure SSO Access for Ethidex Compliance Office™. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di MS Azure SSO Access for Ethidex Compliance Office™ nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di MS Azure SSO Access for Ethidex Compliance Office™ per cui si è configurato l'accesso Single Sign-On. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di MS Azure SSO Access for Ethidex Compliance Office™ nel pannello di accesso, si dovrebbe accedere automaticamente all'istanza di MS Azure SSO Access for Ethidex Compliance Office™ per cui si è configurato l'accesso Single Sign-On. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare MS Azure SSO Access for Ethidex Compliance Office™ con Azure AD](https://aad.portal.azure.com/)
-

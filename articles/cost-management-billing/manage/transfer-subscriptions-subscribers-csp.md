@@ -6,18 +6,22 @@ ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 09/24/2020
+ms.date: 10/22/2020
 ms.author: banders
-ms.openlocfilehash: ae504072e2a2cc481217933478ccbfb7bc3372b3
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 69d6544485e356741634749dd91ba6485cfbb31c
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92132364"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92460683"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP
 
 Questo articolo illustra i passaggi generali necessari per trasferire le sottoscrizioni di Azure tra i partner Cloud Solution Provider (CSP) e i clienti. Le informazioni qui contenute sono destinate al sottoscrittore di Azure per consentire il coordinamento con il partner. Le informazioni usate dai partner Microsoft per il processo di trasferimento sono descritte in [Informazioni su come trasferire sottoscrizioni di Azure di un cliente a un altro partner](/partner-center/switch-azure-subscriptions-to-a-different-partner).
+
+Prima di avviare una richiesta di trasferimento, è necessario scaricare o esportare le informazioni relative ai costi e alla fatturazione da conservare. Le informazioni di fatturazione e le informazioni sull'utilizzo non vengono infatti trasferite con la sottoscrizione. Per altre informazioni sull'esportazione dei dati di gestione dei costi, vedere [Creare e gestire dati esportati](../costs/tutorial-export-acm-data.md). Per altre informazioni sul download delle fatture e dei dati sull'utilizzo, vedere [Scaricare o visualizzare la fattura e i dati di uso giornalieri di Azure](download-azure-invoice-daily-usage-date.md).
+
+Se sono presenti delle prenotazioni, non vengono più applicate dopo il trasferimento della sottoscrizione. Assicurarsi quindi di [annullare le eventuali prenotazioni e di rimborsarle](../reservations/exchange-and-refund-azure-reservations.md) prima di trasferire una sottoscrizione.
 
 ## <a name="transfer-ea-subscriptions-to-a-csp-partner"></a>Trasferire sottoscrizioni con contratto Enterprise a un partner CSP
 

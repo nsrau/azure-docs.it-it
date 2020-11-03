@@ -11,18 +11,18 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 126df6e7f4d227c20c2173a1e2d4c0d7361b043f
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 080e2daf5065c0762fb039a84e62580e5c915ddb
+ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91962446"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92735168"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>Guida introduttiva: Impostare e recuperare un segreto da Azure Key Vault usando il portale di Azure
 
 Azure Key Vault è un servizio cloud che funziona come archivio protetto dei segreti. È possibile archiviare in modo sicuro chiavi, password, certificati e altri segreti. È possibile creare e gestire istanze di Azure Key Vault tramite il portale di Azure. In questo avvio rapido viene creato un insieme di credenziali delle chiavi che viene poi usato per archiviare un segreto. Per altre informazioni su Key Vault, vedere la relativa [panoramica](../general/overview.md).
 
-Per altre informazioni sui segreti, vedere (about-secrets.md).
+Per altre informazioni sui segreti, vedere [Informazioni sui segreti](about-secrets.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,7 +39,7 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 3. Nell'elenco dei risultati scegliere **Key Vault**.
 4. Nella sezione Key Vault scegliere **Crea**.
 5. Nella pagina **Crea insieme di credenziali delle chiavi** specificare le informazioni seguenti:
-    - **Name**: è necessario un nome univoco. Per questo argomento di avvio rapido si usa **Contoso-vault2**. 
+    - **Name** : è necessario un nome univoco. Per questo argomento di avvio rapido si usa **Contoso-vault2**. 
     - **Sottoscrizione** Scegliere una sottoscrizione.
     - In **Gruppo di risorse** scegliere **Crea nuovo** e immettere il nome del gruppo di risorse.
     - Scegliere un percorso nel menu a discesa **Percorso**.
@@ -48,11 +48,12 @@ Accedere al portale di Azure all'indirizzo https://portal.azure.com.
 
 Prendere nota delle due proprietà elencate di seguito:
 
-* **Vault Name**: nell'esempio corrisponde a **Contoso-Vault2**. Questo nome verrà usato per altri passaggi.
+* **Vault Name** : nell'esempio corrisponde a **Contoso-Vault2**. Questo nome verrà usato per altri passaggi.
 * **Vault URI** (URI dell'insieme di credenziali): in questo esempio corrisponde a https://contoso-vault2.vault.azure.net/. Le applicazioni che usano l'insieme di credenziali tramite l'API REST devono usare questo URI.
 
-È anche possibile creare un'istanza di Key Vault con l'interfaccia della riga di comando di Azure e PowerShell: [Creare un'istanza di Key Vault usando PowerShell](../general/quick-create-powershell.md)
-[Creare un'istanza di Key Vault usando l'interfaccia della riga di comando di Azure](../general/quick-create-cli.md)
+È anche possibile creare un'istanza di Key Vault con l'interfaccia della riga di comando di Azure e PowerShell:
+- [Creare un insieme di credenziali delle chiavi con PowerShell](../general/quick-create-powershell.md)
+- [Creare un insieme di credenziali delle chiavi con l'interfaccia della riga di comando di Azure](../general/quick-create-cli.md)
 
 A questo punto, l'account Azure è l'unico autorizzato a eseguire operazioni su questo nuovo insieme di credenziali.
 
@@ -65,9 +66,9 @@ Per aggiungere un segreto all'insieme di credenziali, sono sufficienti un paio d
 1. Nella pagina delle proprietà di Key Vault selezionare **Segreti**.
 2. Fare clic su **Genera/Importa**.
 3. Nella schermata **Crea un segreto** selezionare i seguenti valori:
-    - **Opzioni di caricamento**: manuale.
-    - **Name**: ExamplePassword.
-    - **Valore**: hVFkk965BuUv
+    - **Opzioni di caricamento** : manuale.
+    - **Name** : ExamplePassword.
+    - **Valore** : hVFkk965BuUv
     - Lasciare invariati gli altri valori predefiniti. Fare clic su **Crea**.
 
 Dopo avere ricevuto il messaggio che indica che il segreto è stato creato, è possibile fare clic sul segreto nell'elenco. 

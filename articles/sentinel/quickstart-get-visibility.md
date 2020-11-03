@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
 ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: bdd3f543c948ac2825b836fdbedd4c0f0d713b2c
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: affefb302d602e9069a903fa5f6a0fbae78992b9
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92208227"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92516954"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Avvio rapido: Introduzione ad Azure Sentinel
 
@@ -54,7 +54,7 @@ Il corpo principale della pagina di panoramica offre informazioni dettagliate a 
 
 Le cartelle di lavoro predefinite offrono dati integrati provenienti dalle origini dati connesse e consentono quindi di esaminare in modo approfondito gli eventi generati in tali servizi. Sono disponibili cartelle di lavoro predefinite per Azure AD, eventi relativi ad attività di Azure ed eventi locali, che possono essere dati di eventi di Windows provenienti da server, avvisi proprietari, eventuali terze parti, inclusi i log del traffico firewall, Office 365 e protocolli non sicuri basati su eventi di Windows. Le cartelle di lavoro sono basate sulle cartelle di lavoro di Monitoraggio di Azure per offrire una maggiore personalizzazione e flessibilità durante la progettazione di una cartella di lavoro personalizzata. Per altre informazioni, vedere l'articolo sulle [cartelle di lavoro](../azure-monitor/platform/workbooks-overview.md).
 
-1. In **Impostazioni** selezionare **Cartelle di lavoro** . In **Installate** è possibile visualizzare tutte le cartelle di lavoro installate. In **Tutte** è possibile visualizzare l'intera raccolta di cartelle di lavoro predefinite disponibili per l'installazione. 
+1. In **Impostazioni** selezionare **Cartelle di lavoro**. In **Installate** è possibile visualizzare tutte le cartelle di lavoro installate. In **Tutte** è possibile visualizzare l'intera raccolta di cartelle di lavoro predefinite disponibili per l'installazione. 
 2. Cercare una cartella di lavoro specifica per visualizzare l'elenco completo e una descrizione delle caratteristiche di ognuna. 
 3. Supponendo che si usi Azure AD, per iniziare a usare Azure Sentinel è consigliabile installare almeno le cartelle di lavoro seguenti:
    - **Azure AD** : usare uno dei seguenti o entrambi:
@@ -79,11 +79,11 @@ Se si vuole aggiungere un nuovo riquadro, è possibile aggiungerlo a una cartell
 ## <a name="create-new-workbooks"></a>Creare nuove cartelle di lavoro
 È possibile creare una nuova cartella di lavoro da zero o usarne una predefinita come base per la nuova cartella di lavoro.
 
-1. Per creare una nuova cartella di lavoro da zero, selezionare **Cartelle di lavoro** e quindi **+Nuova cartella di lavoro** .
-2. Selezionare la sottoscrizione in cui creare la cartella di lavoro e assegnargli un nome descrittivo. Ogni cartella di lavoro è una normale risorsa di Azure, ed è possibile assegnargli ruoli (controllo degli accessi in base al ruolo) per definire e limitare gli accessi. 
-3. Per fare in modo che sia visualizzata tra le cartelle di lavoro disponibili e potervi aggiungere visualizzazioni, è necessario condividerla. Fare clic su **Condividi** e quindi su **Gestisci utenti** . 
+1. Per creare una nuova cartella di lavoro da zero, selezionare **Cartelle di lavoro** e quindi **+Nuova cartella di lavoro**.
+2. Selezionare la sottoscrizione in cui creare la cartella di lavoro e assegnargli un nome descrittivo. Ogni cartella di lavoro è una normale risorsa di Azure ed è possibile assegnarle ruoli di controllo degli accessi in base al ruolo di Azure per definire e limitare gli accessi. 
+3. Per fare in modo che sia visualizzata tra le cartelle di lavoro disponibili e potervi aggiungere visualizzazioni, è necessario condividerla. Fare clic su **Condividi** e quindi su **Gestisci utenti**. 
  
-1. Usare **Verifica l'accesso** e le **Assegnazioni di ruolo** come si farebbe per qualsiasi altra risorsa di Azure. Per altre informazioni, vedere [Condividere le cartelle di lavoro di Azure tramite il Controllo degli accessi in base al ruolo](../azure-portal/azure-portal-dashboard-share-access.md).
+1. Usare **Verifica l'accesso** e le **Assegnazioni di ruolo** come si farebbe per qualsiasi altra risorsa di Azure. Per altre informazioni, vedere [Condividere le cartelle di lavoro di Azure tramite il controllo degli accessi in base al ruolo di Azure](../azure-portal/azure-portal-dashboard-share-access.md).
 
 
 ## <a name="new-workbook-examples"></a>Esempi di nuove cartelle di lavoro

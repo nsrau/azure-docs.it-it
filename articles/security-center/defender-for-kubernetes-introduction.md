@@ -7,12 +7,12 @@ ms.date: 9/12/2020
 ms.topic: overview
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: dd92e1529b889671bc29939f7e9611eceac7ee20
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a815295c4f2ab78cbd3aff82949d7c28197afd82
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370509"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791920"
 ---
 # <a name="introduction-to-azure-defender-for-kubernetes"></a>Introduzione ad Azure Defender per Kubernetes
 
@@ -20,7 +20,7 @@ Il servizio Azure Kubernetes è il servizio gestito da Microsoft per lo sviluppo
 
 Insieme, il Centro sicurezza di Azure e il servizio Azure Kubernetes formano la migliore offerta di sicurezza Kubernetes nativa del cloud e forniscono protezione avanzata dell'ambiente, protezione dei carichi di lavoro e protezione in fase di esecuzione, come descritto di seguito.
 
-Per rilevare le minacce per i cluster Kubernetes, abilitare **Azure Defender per Kubernetes** .
+Per rilevare le minacce per i cluster Kubernetes, abilitare **Azure Defender per Kubernetes**.
 
 Per abilitare il rilevamento delle minacce a livello di host per i nodi del servizio Azure Kubernetes per Linux, abilitare [Azure Defender per server](defender-for-servers-introduction.md).
 
@@ -114,5 +114,5 @@ In questo articolo sono state fornite informazioni sulla protezione di Kubernete
 Per i materiali correlati, vedere gli articoli seguenti: 
 
 - [Abilitare Azure Defender](security-center-pricing.md)
-- [Esportare gli avvisi in un sistema di informazioni di sicurezza e gestione degli eventi Azure Sentinel o di terze parti](continuous-export.md)
+- [Trasmettere avvisi a una soluzione SIEM, SOAR o di gestione dei servizi IT](export-to-siem.md)
 - [Tabella di riferimento degli avvisi](alerts-reference.md)

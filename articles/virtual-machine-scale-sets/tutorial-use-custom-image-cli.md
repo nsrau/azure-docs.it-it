@@ -9,12 +9,12 @@ ms.date: 05/01/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.reviewer: akjosh
-ms.openlocfilehash: dd0cf450ca63349d29aba3d65f3c76f40a44be2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2e1f94b5a8e361a6bbd34f3f12756377dd1713f4
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87503634"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518713"
 ---
 # <a name="tutorial-create-and-use-a-custom-image-for-virtual-machine-scale-sets-with-the-azure-cli"></a>Esercitazione: Creare e usare un'immagine personalizzata per i set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure
 Quando si crea un set di scalabilità, si specifica un'immagine da usare quando vengono distribuite le istanze di macchina virtuale. Per ridurre il numero di attività dopo la distribuzione delle istanze di macchina virtuale, è possibile usare un'immagine di VM personalizzata. Questa immagine di VM personalizzata include le installazioni o le configurazioni delle applicazioni necessarie. Le istanze di macchina virtuale create nel set di scalabilità usano l'immagine di VM personalizzata e sono pronte per gestire il traffico delle applicazioni. In questa esercitazione si apprenderà come:
@@ -41,7 +41,7 @@ La raccolta di immagini condivise consente di condividere le immagini di VM pers
 
 ## <a name="create-and-configure-a-source-vm"></a>Creare e configurare una macchina virtuale di origine
 
-Creare prima un gruppo di risorse con il comando [az group create](/cli/azure/group), quindi creare una VM con [az vm create](/cli/azure/vm). Questa macchina virtuale viene quindi usata come origine per l'immagine. L'esempio seguente crea una VM denominata *myVM* nel gruppo di risorse denominato *myResourceGroup*:
+Creare prima un gruppo di risorse con il comando [az group create](/cli/azure/group), quindi creare una VM con [az vm create](/cli/azure/vm). Questa macchina virtuale viene quindi usata come origine per l'immagine. L'esempio seguente crea una VM denominata *myVM* nel gruppo di risorse denominato *myResourceGroup* :
 
 ```azurecli-interactive
 az group create --name myResourceGroup --location eastus
@@ -55,7 +55,7 @@ az vm create \
 ```
 
 > [!IMPORTANT]
-> L'**ID** della VM viene mostrato nell'output del comando [az vm create](/cli/azure/vm). Copiare questo valore in un posto sicuro, in modo da poterlo usare più avanti in questa esercitazione.
+> L' **ID** della VM viene mostrato nell'output del comando [az vm create](/cli/azure/vm). Copiare questo valore in un posto sicuro, in modo da poterlo usare più avanti in questa esercitazione.
 
 Anche l'indirizzo IP pubblico della VM viene mostrato nell'output del comando [az vm create](/cli/azure/vm). Connettersi all'indirizzo IP pubblico della macchina virtuale tramite SSH, come segue:
 
@@ -111,16 +111,16 @@ az sig image-definition create \
 ```
 
 > [!IMPORTANT]
-> L'**ID** della definizione di immagine viene mostrato nell'output del comando. Copiare questo valore in un posto sicuro, in modo da poterlo usare più avanti in questa esercitazione.
+> L' **ID** della definizione di immagine viene mostrato nell'output del comando. Copiare questo valore in un posto sicuro, in modo da poterlo usare più avanti in questa esercitazione.
 
 
 ## <a name="create-the-image-version"></a>Creare una versione di immagine
 
 Creare una versione di immagine dalla VM usando [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create).  
 
-I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
+I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*. *MinorVersion*. *Patch*.
 
-In questo esempio la versione dell'immagine è*1.0.0* e verranno create una replica nell'area *Stati Uniti centro-meridionali* e una replica nell'area *Stati Uniti orientali 2*. Le aree di replica devono includere l'area in cui si trova la macchina virtuale di origine.
+In questo esempio la versione dell'immagine è *1.0.0* e verranno create una replica nell'area *Stati Uniti centro-meridionali* e una replica nell'area *Stati Uniti orientali 2*. Le aree di replica devono includere l'area in cui si trova la macchina virtuale di origine.
 
 Sostituire il valore di `--managed-image` in questo esempio con l'ID della macchina virtuale del passaggio precedente.
 
@@ -150,7 +150,7 @@ Creare il set di scalabilità usando [`az vmss create`](/cli/azure/vmss#az-vmss-
 
 Usare l'ID definizione immagine per `--image` per creare le istanze del set di scalabilità dalla versione più recente dell'immagine disponibile. È anche possibile creare le istanze del set di scalabilità da una versione specifica fornendo l'ID versione dell'immagine per `--image`. 
 
-Creare un set di scalabilità denominato *myScaleSet*, la versione più recente dell'immagine *myImageDefinition* creata in precedenza.
+Creare un set di scalabilità denominato *myScaleSet* , la versione più recente dell'immagine *myImageDefinition* creata in precedenza.
 
 ```azurecli
 az group create --name myResourceGroup --location eastus
@@ -165,7 +165,7 @@ La creazione e la configurazione di tutte le macchine virtuali e risorse del set
 
 
 ## <a name="test-your-scale-set"></a>Testare il set di scalabilità
-Per consentire al traffico di raggiungere il set di scalabilità e verificare che il server Web funzioni correttamente, creare una regola del servizio di bilanciamento del carico con [az network lb rule create](/cli/azure/network/lb/rule). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb* che consente il traffico sulla porta *TCP* *80*:
+Per consentire al traffico di raggiungere il set di scalabilità e verificare che il server Web funzioni correttamente, creare una regola del servizio di bilanciamento del carico con [az network lb rule create](/cli/azure/network/lb/rule). Nell'esempio seguente viene creata una regola denominata *myLoadBalancerRuleWeb* che consente il traffico sulla porta *TCP* *80* :
 
 ```azurecli-interactive
 az network lb rule create \
@@ -197,7 +197,7 @@ Digitare l'indirizzo IP pubblico nel Web browser. La pagina Web NGINX predefinit
 
 ## <a name="share-the-gallery"></a>Condividere la raccolta
 
-È possibile condividere immagini tra sottoscrizioni usando il Controllo di accesso in base al ruolo (RBAC). È possibile condividere immagini nella raccolta, definizioni di immagini o versioni di immagini. Qualsiasi utente che abbia autorizzazioni di lettura per una versione di immagine, anche tra sottoscrizioni diverse, potrà distribuire una VM usando la versione dell'immagine.
+È possibile condividere immagini tra sottoscrizioni usando il controllo degli accessi in base al ruolo di Azure. È possibile condividere immagini nella raccolta, definizioni di immagini o versioni di immagini. Qualsiasi utente che abbia autorizzazioni di lettura per una versione di immagine, anche tra sottoscrizioni diverse, potrà distribuire una VM usando la versione dell'immagine.
 
 È consigliabile condividere con altri utenti a livello di raccolta. Per ottenere l'ID oggetto della raccolta, usare [az sig show](/cli/azure/sig#az-sig-show).
 
@@ -217,7 +217,7 @@ az role assignment create \
    --scope <gallery ID>
 ```
 
-Per altre informazioni su come condividere risorse usando RBCA, vedere [Gestione dell'accesso usando RBCA e L'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md).
+Per altre informazioni su come condividere risorse usando il controllo degli accessi in base al ruolo di Azure, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure tramite l'interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md).
 
 
 ## <a name="clean-up-resources"></a>Pulire le risorse

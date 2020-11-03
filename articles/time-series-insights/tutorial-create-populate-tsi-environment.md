@@ -9,12 +9,12 @@ ms.service: time-series-insights
 ms.topic: tutorial
 ms.date: 10/01/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6037ece7f4cbe0edc9cf44bded3ee34815f76a48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d504cbe9c2ac9046a34187d4a5576385b1f73bbe
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91620206"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92518110"
 ---
 # <a name="tutorial-create-an-azure-time-series-insights-gen1-environment"></a>Esercitazione: Creare un ambiente Azure Time Series Insights Gen1
 
@@ -36,7 +36,7 @@ Questa esercitazione illustra come creare un ambiente Azure Time Series Insights
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* L'account di accesso di Azure deve anche essere membro del ruolo **Proprietario** della sottoscrizione. Per altre informazioni, vedere [Gestire l'accesso mediante il controllo degli accessi in base al ruolo e il portale di Azure](../role-based-access-control/role-assignments-portal.md).
+* L'account di accesso di Azure deve anche essere membro del ruolo **Proprietario** della sottoscrizione. Per altre informazioni, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="review-video"></a>Vedere il video
 
@@ -162,7 +162,7 @@ In questa sezione finale verrà verificato che i dati di telemetria siano stati 
 
    [![Gruppo di risorse e ambiente dell'ambiente Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-rg.png#lightbox)
 
-1. Nella pagina **Panoramica** dell'ambiente Azure Time Series Insights selezionare l'**URL dello strumento di esplorazione di Azure Time Series Insights** per aprire tale strumento.
+1. Nella pagina **Panoramica** dell'ambiente Azure Time Series Insights selezionare l' **URL dello strumento di esplorazione di Azure Time Series Insights** per aprire tale strumento.
 
    [![Strumento di esplorazione di Azure Time Series Insights](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png)](media/tutorial-create-populate-tsi-environment/ap-view-tsi-env-explorer-url.png#lightbox)
 
@@ -184,9 +184,9 @@ Questa esercitazione consente di creare diversi servizi di Azure in esecuzione p
 
 Dal menu a sinistra nel portale di Azure:
 
-1. Selezionare l'icona **Gruppi di risorse**. Selezionare quindi il gruppo di risorse creato per l'ambiente Azure Time Series Insights. Nella parte superiore della pagina selezionare **Elimina gruppo di risorse**, immettere il nome del gruppo di risorse e quindi selezionare **Elimina**.
+1. Selezionare l'icona **Gruppi di risorse**. Selezionare quindi il gruppo di risorse creato per l'ambiente Azure Time Series Insights. Nella parte superiore della pagina selezionare **Elimina gruppo di risorse** , immettere il nome del gruppo di risorse e quindi selezionare **Elimina**.
 
-1. Selezionare l'icona **Gruppi di risorse**. Quindi selezionare il gruppo di risorse creato dall'acceleratore di soluzione per la simulazione del dispositivo. Nella parte superiore della pagina selezionare **Elimina gruppo di risorse**, immettere il nome del gruppo di risorse e quindi selezionare **Elimina**.
+1. Selezionare l'icona **Gruppi di risorse**. Quindi selezionare il gruppo di risorse creato dall'acceleratore di soluzione per la simulazione del dispositivo. Nella parte superiore della pagina selezionare **Elimina gruppo di risorse** , immettere il nome del gruppo di risorse e quindi selezionare **Elimina**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

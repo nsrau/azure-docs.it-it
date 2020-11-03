@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: eliotgra
-ms.openlocfilehash: 957cea854b9894b3149a0e292b8072b73875cae5
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 5175575bcd968ab9d9bb9db7e284eb332bc7f675
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127081"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92542421"
 ---
 # <a name="tutorial-build-a-power-bi-provider-dashboard"></a>Esercitazione: Creare un dashboard del provider Power BI
 
@@ -164,11 +164,11 @@ Il passaggio successivo consiste nell'analizzare i dati provenienti dall'hub eve
     >[!div class="mx-imgBorder"] 
     >![Controllo Split (Dividi)](media/split-by-interface.png)
 
-8. Nel caso della **patch intelligente per i segni vitali**, aggiungere un'azione **Parse JSON** (Analizza JSON). Come contenuto, scegliere il **Contenuto** proveniente dall'hub eventi. Copiare e incollare i payload di esempio per la patch intelligente per i segni vitali precedente per generare lo schema.
+8. Nel caso della **patch intelligente per i segni vitali** , aggiungere un'azione **Parse JSON** (Analizza JSON). Come contenuto, scegliere il **Contenuto** proveniente dall'hub eventi. Copiare e incollare i payload di esempio per la patch intelligente per i segni vitali precedente per generare lo schema.
 
 9. Aggiungere un'azione **Set variable** (Imposta variabile) e aggiornare la variabile **Body** (Corpo) con il **Corpo** proveniente dal codice JSON analizzato nel passaggio 7.
 
-10. Aggiungere un controllo **Condition** (Condizione) come azione successiva e impostare la condizione su **Body**, **contains**, **HeartRate**. In questo modo, si ha la garanzia di disporre del set di dati corretto, proveniente dalla patch intelligente per i segni vitali, prima di popolare il set di dati Power BI. I passaggi da 7 a 9 saranno simili ai seguenti:
+10. Aggiungere un controllo **Condition** (Condizione) come azione successiva e impostare la condizione su **Body** , **contains** , **HeartRate**. In questo modo, si ha la garanzia di disporre del set di dati corretto, proveniente dalla patch intelligente per i segni vitali, prima di popolare il set di dati Power BI. I passaggi da 7 a 9 saranno simili ai seguenti:
 
     >[!div class="mx-imgBorder"] 
     >![Aggiunta di una condizione per la patch intelligente per i segni vitali](media/smart-vitals-pbi.png)
@@ -180,10 +180,10 @@ Il passaggio successivo consiste nell'analizzare i dati provenienti dall'hub eve
     >[!div class="mx-imgBorder"] 
     >![Aggiungere righe a Power BI](media/add-rows-yesenia.png)
 
-13. Per il caso Switch (Passa a) del **tutore intelligente per il ginocchio**, aggiungere un'azione **Parse JSON** (Analizza JSON) per analizzare il contenuto, in modo analogo al passaggio 7. Usare quindi **Add rows to a dataset** (Aggiungi righe a un set di dati) per aggiornare il set di dati di Teddy Silvers in Power BI.
+13. Per il caso Switch (Passa a) del **tutore intelligente per il ginocchio** , aggiungere un'azione **Parse JSON** (Analizza JSON) per analizzare il contenuto, in modo analogo al passaggio 7. Usare quindi **Add rows to a dataset** (Aggiungi righe a un set di dati) per aggiornare il set di dati di Teddy Silvers in Power BI.
 
     >[!div class="mx-imgBorder"] 
-    >![Aggiunta di una condizione per la patch intelligente per i segni vitali](media/knee-brace-pbi.png)
+    >![Screenshot che mostra come aggiungere righe a un set di dati.](media/knee-brace-pbi.png)
 
 14. Premere **Salva** e quindi eseguire l'app per la logica.
 

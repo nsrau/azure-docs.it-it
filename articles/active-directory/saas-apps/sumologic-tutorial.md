@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/03/2020
 ms.author: jeedes
-ms.openlocfilehash: a14235cb4fc20147accc8eb8a0e421cbc4df90f8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2dcc52688cabebaa6eb813e3240150ea8774e716
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88533635"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92521896"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sumologic"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SumoLogic
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare SumoLogic con Azure Active Director
 * Abilitare gli utenti per l'accesso automatico a SumoLogic con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -114,7 +114,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     | Ruoli | user.assignedroles |
 
     > [!NOTE]
-    > Fare clic [qui](https://docs.microsoft.com/azure/active-directory/develop/active-directory-enterprise-app-role-management) per sapere come configurare **Ruolo** in Azure AD.
+    > Fare clic [qui](../develop/active-directory-enterprise-app-role-management.md) per sapere come configurare **Ruolo** in Azure AD.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -128,7 +128,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -166,13 +166,13 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Impostazioni di sicurezza globali](./media/sumologic-tutorial/ic778557.png "Impostazioni di sicurezza globale")
 
-1. Dall'elenco **Select a configuration or create a new one** (Selezionare o creare una configurazione) selezionare **Azure AD**, quindi fare clic su **Configure** (Configura).
+1. Dall'elenco **Select a configuration or create a new one** (Selezionare o creare una configurazione) selezionare **Azure AD** , quindi fare clic su **Configure** (Configura).
 
-    ![Configure SAML 2.0](./media/sumologic-tutorial/ic778558.png "Configura SAML 2.0")
+    ![Screenshot che mostra la sezione Configure SAML 2.0 in cui è possibile selezionare Azure AD.](./media/sumologic-tutorial/ic778558.png "Configura SAML 2.0")
 
 1. Nella finestra di dialogo **Configura SAML 2.0** , eseguire la procedura seguente:
 
-    ![Configure SAML 2.0](./media/sumologic-tutorial/ic778559.png "Configura SAML 2.0")
+    ![Screenshot che mostra la finestra di dialogo Configure SAML 2.0 in cui è possibile immettere i valori indicati.](./media/sumologic-tutorial/ic778559.png "Configura SAML 2.0")
 
     a. Nella casella di testo **Configuration Name** (Nome configurazione) digitare **Azure AD**.
 
@@ -200,11 +200,11 @@ Per consentire agli utenti di Azure AD di accedere a SumoLogic, è necessario ef
 
 1. Passare a **Manage (Gestisci) \> Users (Utenti)** .
 
-    ![Utenti](./media/sumologic-tutorial/ic778561.png "Utenti")
+    ![Screenshot che mostra l'opzione Users selezionata nel menu Manage.](./media/sumologic-tutorial/ic778561.png "Utenti")
 
 1. Scegliere **Aggiungi**.
 
-    ![Utenti](./media/sumologic-tutorial/ic778562.png "Utenti")
+    ![Screenshot che mostra il pulsante Add per Users.](./media/sumologic-tutorial/ic778562.png "Utenti")
 
 1. Nella finestra di dialogo **New User** , eseguire la procedura seguente:
 
@@ -225,14 +225,14 @@ Per consentire agli utenti di Azure AD di accedere a SumoLogic, è necessario ef
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Facendo clic sul riquadro SumoLogic nel pannello di accesso si dovrebbe accedere automaticamente all'applicazione SumoLogic per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Facendo clic sul riquadro SumoLogic nel pannello di accesso si dovrebbe accedere automaticamente all'applicazione SumoLogic per cui è stato configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare SumoLogic con Azure AD](https://aad.portal.azure.com/)

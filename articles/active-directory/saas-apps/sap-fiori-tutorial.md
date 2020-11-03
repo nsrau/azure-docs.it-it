@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
-ms.openlocfilehash: 4d2f6766fa32beb9cebaa8f77c04f6865e15e14d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 35bb05eb019a1284a8a418df0197960130e8d013
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88543394"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92897297"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-sap-fiori"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con SAP Fiori
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare SAP Fiori con Azure Active Director
 * Abilitare gli utenti per l'accesso automatico a SAP Fiori con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,7 +42,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 * SAP Fiori supporta l'accesso SSO avviato da **SP**
 
 > [!NOTE]
-> Per l'autenticazione iFrame avviata da SAP Fiori, è consigliabile usare il parametro **IsPassive** in SAML AuthnRequest per l'autenticazione invisibile all'utente. Per altri dettagli sul parametro **IsPassive**, vedere le informazioni relative all'[accesso Single Sign-On SAML di Azure AD](https://docs.microsoft.com/azure/active-directory/develop/single-sign-on-saml-protocol).
+> Per l'autenticazione iFrame avviata da SAP Fiori, è consigliabile usare il parametro **IsPassive** in SAML AuthnRequest per l'autenticazione invisibile all'utente. Per altri dettagli sul parametro **IsPassive** , vedere le informazioni relative all' [accesso Single Sign-On SAML di Azure AD](../develop/single-sign-on-saml-protocol.md).
 
 ## <a name="adding-sap-fiori-from-the-gallery"></a>Aggiunta di SAP Fiori dalla raccolta
 
@@ -76,7 +76,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Assicurarsi che i servizi **http** e **https** siano attivi e che le relative porte siano assegnate al codice di transazione **SMICM**.
 
-1. Accedere al client SAP aziendale per il sistema SAP **T01**, in cui è obbligatorio l’accesso Single Sign-On. Attivare quindi la gestione della sessione di sicurezza HTTP.
+1. Accedere al client SAP aziendale per il sistema SAP **T01** , in cui è obbligatorio l’accesso Single Sign-On. Attivare quindi la gestione della sessione di sicurezza HTTP.
 
     1. Selezionare il codice di transazione **SICF_SESSIONS**. Verranno visualizzati tutti i parametri di profilo rilevanti con i valori correnti. Il risultato dovrebbe essere simile al seguente:
 
@@ -110,7 +110,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
         /sap/bc/webdynpro/sap/sec_diag_tool (This is only to enable / disable trace)
         ```
 
-1. Selezionare il codice di transazione **SAML2** nel client aziendale del sistema SAP [**T01/122**]. L’interfaccia utente di configurazione viene aperta in una nuova finestra del browser. In questo esempio, utilizziamo il client aziendale per il sistema SAP 122.
+1. Selezionare il codice di transazione **SAML2** nel client aziendale del sistema SAP [ **T01/122** ]. L’interfaccia utente di configurazione viene aperta in una nuova finestra del browser. In questo esempio, utilizziamo il client aziendale per il sistema SAP 122.
 
     ![Pagina di accesso del client SAP Fiori aziendale](./media/sapfiori-tutorial/tutorial-sapnetweaver-sapbusinessclient.png)
 
@@ -118,7 +118,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     ![Pagina di configurazione del sistema T01/122 ABAP di SAML 2.0 in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-userpwd.png)
 
-1. Nella casella **Nome del provider**, sostituire **T01122** con **http:\//T01122**, quindi selezionare **Salva**.
+1. Nella casella **Nome del provider** , sostituire **T01122** con **http:\//T01122** , quindi selezionare **Salva**.
 
     > [!NOTE]
     > Per impostazione predefinita, il nome del provider viene specificato nel formato \<sid>\<client>. Azure AD prevede che il nome sia specificato nel formato \<protocol>://\<name>. È consigliabile specificare il nome del provider nel formato https\://\<sid>\<client> in modo da poter configurare più motori ABAP SAP Fiori in Azure AD.
@@ -127,7 +127,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Selezionare la secheda **Provider locale** > **Metadati**.
 
-1. Nella finestra di dialogo **Metadati SAML 2.0**, scaricare il file XML con i metadati generati e salvarlo nel computer.
+1. Nella finestra di dialogo **Metadati SAML 2.0** , scaricare il file XML con i metadati generati e salvarlo nel computer.
 
     ![Collegamento Scarica metadati nella finestra di dialogo Metadati SAML 2.0 di SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-generatesp.png)
 
@@ -137,7 +137,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base**, se si dispone di un **file di metadati di un provider di servizi**, seguire questa procedura:
+1. Nella sezione **Configurazione SAML di base** , se si dispone di un **file di metadati di un provider di servizi** , seguire questa procedura:
 
     a. Fare clic su **Carica il file di metadati**.
 
@@ -158,15 +158,15 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     > 
     > È possibile impostare l’ID oggetto `ServicePrincipal` prima di eseguire lo script oppure in questo momento.
 
-1. L'applicazione SAP Fiori prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. Per gestire questi valori di attributo, nel riquadro **Configura l'accesso Single Sign-On con SAML**, selezionare **Modifica**.
+1. L'applicazione SAP Fiori prevede un formato specifico per le asserzioni SAML. Configurare le attestazioni seguenti per questa applicazione. Per gestire questi valori di attributo, nel riquadro **Configura l'accesso Single Sign-On con SAML** , selezionare **Modifica**.
 
     ![Riquadro Attributi utente](common/edit-attribute.png)
 
-1. Nel riquadro **Attributi utente e attestazioni**, configurare gli attributi del token SAML come illustrato nell'immagine precedente. Completare quindi i passaggi seguenti:
+1. Nel riquadro **Attributi utente e attestazioni** , configurare gli attributi del token SAML come illustrato nell'immagine precedente. Completare quindi i passaggi seguenti:
 
     1. Selezionare **Modifica** per aprire il riquadro **Gestisci attestazioni utente**.
 
-    1. Nell'elenco **Trasformazione**, selezionare **ExtractMailPrefix()** .
+    1. Nell'elenco **Trasformazione** , selezionare **ExtractMailPrefix()** .
 
     1. Nell'elenco **Parametro 1** selezionare **user.userprincipalname**.
 
@@ -188,7 +188,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -230,7 +230,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Selezionare il file di metadati da caricare in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-metadatafile.png)
 
-1. Nella pagina successiva, nella casella **Alias**, immettere il nome di alias. Ad esempio, **aadsts**. Selezionare **Avanti**.
+1. Nella pagina successiva, nella casella **Alias** , immettere il nome di alias. Ad esempio, **aadsts**. Selezionare **Avanti**.
 
     ![Casella Alias in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-aliasname.png)
 
@@ -238,11 +238,11 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Verificare il valore di Algoritmo con classificazione in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-identityprovider.png)
 
-1. In **Endpoint Single Sign-On**, selezionare **HTTP POST**, quindi **Avanti**.
+1. In **Endpoint Single Sign-On** , selezionare **HTTP POST** , quindi **Avanti**.
 
     ![Opzioni Endpoint Single Sign-On in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect.png)
 
-1. In **Single Logout Endpoints** (Endpoint di disconnessione singolo), selezionare **Reindirizzamento HTTP**, quindi **Avanti**.
+1. In **Single Logout Endpoints** (Endpoint di disconnessione singolo), selezionare **Reindirizzamento HTTP** , quindi **Avanti**.
 
     ![Opzioni Endpoint di disconnessione singolo in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-httpredirect1.png)
 
@@ -250,7 +250,7 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     ![Opzioni Artifact Endpoints (Endpoint artefatto) in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-artifactendpoint.png)
 
-1. In **Requisiti per l’autenticazione**, selezionare **Fine**.
+1. In **Requisiti per l’autenticazione** , selezionare **Fine**.
 
     ![Opzioni Requisiti per l’autenticazione e Fine in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-authentication.png)
 
@@ -272,23 +272,23 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     1. In SAP, sotto **Details of NameID Format "Unspecified"** (Dettagli formato NameID "Non specificato"), annotare i dettagli:
 
-        ![Finestra di dialogo Details of NameID Format "Unspecified" (Dettagli formato NameID "Non specificato") in SAP](./media/sapfiori-tutorial/nameiddetails.png)
+        ![Screenshot che mostra la finestra di dialogo 'Details of NameID Format "Unspecified"' in SAP.](./media/sapfiori-tutorial/nameiddetails.png)
 
-    1. Nel portale di Azure, sotto **Attributi utente e attestazioni**, annotare le attestazioni necessarie da Azure AD.
+    1. Nel portale di Azure, sotto **Attributi utente e attestazioni** , annotare le attestazioni necessarie da Azure AD.
 
-        ![Finestra di dialogo Attributi utente e attestazioni nel portale di Azure](./media/sapfiori-tutorial/claimsaad1.png)
+        ![Screenshot che mostra la finestra di dialogo "Attributi utente e attestazioni".](./media/sapfiori-tutorial/claimsaad1.png)
 
-    **Scenario 2**: Selezionare l'ID utente SAP usando l'indirizzo di posta elettronica configurato in SU01. In questo caso l'ID posta elettronica deve essere configurato in SU01 per ogni utente che richiede l'accesso SSO.
+    **Scenario 2** : Selezionare l'ID utente SAP usando l'indirizzo di posta elettronica configurato in SU01. In questo caso l'ID posta elettronica deve essere configurato in SU01 per ogni utente che richiede l'accesso SSO.
 
     1.  In SAP, sotto **Details of NameID Format "Unspecified"** (Dettagli formato NameID "Non specificato"), annotare i dettagli:
 
         ![Finestra di dialogo Details of NameID Format "Unspecified" (Dettagli formato NameID "Non specificato") in SAP](./media/sapfiori-tutorial/tutorial-sapnetweaver-nameiddetails1.png)
 
-    1. Nel portale di Azure, sotto **Attributi utente e attestazioni**, annotare le attestazioni necessarie da Azure AD.
+    1. Nel portale di Azure, sotto **Attributi utente e attestazioni** , annotare le attestazioni necessarie da Azure AD.
 
        ![Finestra di dialogo Attributi utente e attestazioni nel portale di Azure](./media/sapfiori-tutorial/claimsaad2.png)
 
-1. Fare clic su **Salva**, quindi su **Abilita** per abilitare il provider di identità.
+1. Fare clic su **Salva** , quindi su **Abilita** per abilitare il provider di identità.
 
     ![Opzioni Salva e Abilita in SAP](./media/sapfiori-tutorial/configuration1.png)
 
@@ -318,10 +318,10 @@ In questa sezione viene creato un utente di nome Britta Simon in SAP Fiori. Coll
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare SAP Fiori con Azure AD](https://aad.portal.azure.com/)

@@ -43,17 +43,17 @@ Prima di creare un processo di esportazione per trasferire dati da Archiviazione
 Per creare un processo di esportazione nel portale di Azure, eseguire le operazioni seguenti.
 
 1. Accedere all'indirizzo <https://portal.azure.com/>.
-2. Passare a **Tutti i servizi > Archiviazione > Processi di importazione/esportazione** .
+2. Passare a **Tutti i servizi > Archiviazione > Processi di importazione/esportazione**.
 
     ![Passare a Processi di importazione/esportazione](./media/storage-import-export-data-from-blobs/export-from-blob1.png)
 
-3. Fare clic su **Crea processo di importazione/esportazione** .
+3. Fare clic su **Crea processo di importazione/esportazione**.
 
     ![Fare clic su Processo di importazione/esportazione](./media/storage-import-export-data-from-blobs/export-from-blob2.png)
 
 4. In **Nozioni di base** :
 
-    - Selezionare **Esporta da Azure** .
+    - Selezionare **Esporta da Azure**.
     - Immettere un nome descrittivo per il processo di esportazione. Usare il nome scelto per tenere traccia dello stato dei processi.
         - Il nome può contenere solo lettere minuscole, numeri, trattini e caratteri di sottolineatura.
         - Il nome deve iniziare con una lettera e non può contenere spazi.
@@ -72,8 +72,8 @@ Per creare un processo di esportazione nel portale di Azure, eseguire le operazi
          ![Esporta tutti](./media/storage-import-export-data-from-blobs/export-from-blob4.png)
 
     - È possibile specificare i contenitori e i BLOB da esportare.
-        - **Per specificare un BLOB da esportare** : usare il selettore **Uguale a** . Specificare il percorso relativo del BLOB, iniziando con il nome del contenitore. Utilizzare *$root* per specificare il contenitore radice.
-        - **Per specificare tutti i BLOB che iniziano con un prefisso** : usare il selettore **Inizia con** . Specificare il prefisso, iniziando con una barra '/'. Il prefisso può essere il prefisso del nome del contenitore, il nome del contenitore completo o il nome del contenitore completo seguito dal prefisso del nome BLOB. I percorsi BLOB devono essere specificati in un formato valido per evitare errori durante l'elaborazione, come mostrato in questo screenshot. Per altre informazioni, vedere [Esempi di percorsi BLOB validi](#examples-of-valid-blob-paths).
+        - **Per specificare un BLOB da esportare** : usare il selettore **Uguale a**. Specificare il percorso relativo del BLOB, iniziando con il nome del contenitore. Utilizzare *$root* per specificare il contenitore radice.
+        - **Per specificare tutti i BLOB che iniziano con un prefisso** : usare il selettore **Inizia con**. Specificare il prefisso, iniziando con una barra '/'. Il prefisso può essere il prefisso del nome del contenitore, il nome del contenitore completo o il nome del contenitore completo seguito dal prefisso del nome BLOB. I percorsi BLOB devono essere specificati in un formato valido per evitare errori durante l'elaborazione, come mostrato in questo screenshot. Per altre informazioni, vedere [Esempi di percorsi BLOB validi](#examples-of-valid-blob-paths).
 
            ![Esportare contenitori e BLOB selezionati](./media/storage-import-export-data-from-blobs/export-from-blob5.png)
 
@@ -283,7 +283,7 @@ In caso di dubbi sul numero di unità necessarie, passare a [Controllare il nume
 
 Quando il dashboard segnala che il processo è completo, i dischi vengono spediti all'utente e il numero di tracciabilità per la spedizione è disponibile nel portale.
 
-1. Dopo aver ricevuto le unità con i dati esportati, è necessario ottenere le chiavi BitLocker per sbloccare le unità. Passare al processo di esportazione nel portale di Azure. Fare clic sulla scheda **Importazione/Esportazione** .
+1. Dopo aver ricevuto le unità con i dati esportati, è necessario ottenere le chiavi BitLocker per sbloccare le unità. Passare al processo di esportazione nel portale di Azure. Fare clic sulla scheda **Importazione/Esportazione**.
 2. Selezionare e fare clic sul processo di esportazione nell'elenco. Passare a **crittografia** e copiare le chiavi.
 
    ![Visualizzare le chiavi BitLocker per il processo di esportazione](./media/storage-import-export-data-from-blobs/export-from-blob-7.png)

@@ -76,7 +76,7 @@ Se l'esempio non è in grado di gestire le dimensioni del grafo, è possibile es
 
 Per procedere con ADT Explorer, scaricare prima di tutto il codice dell'applicazione di esempio e configurarlo per l'esecuzione nel computer. 
 
-Passare all'esempio qui: [Esplora risorse di Azure Digital gemelli (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selezionare il pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio con il nome _**Azure_Digital_Twins__ADT__explorer.zip**_ . Decomprimere i file.
+Passare all'esempio qui: [Esplora risorse di Azure Digital gemelli (ADT)](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Selezionare il pulsante *Scarica ZIP* per scaricare nel computer un file *ZIP* di questo codice di esempio con il nome _**Azure_Digital_Twins__ADT__explorer.zip**_. Decomprimere i file.
 
 Successivamente, configurare e configurare le autorizzazioni per ADT Explorer. A tale scopo, seguire le istruzioni riportate nella sezione [*set up Azure Digital gemells and ADT Explorer*](quickstart-adt-explorer.md#set-up-azure-digital-twins-and-adt-explorer) della Guida introduttiva a dispositivi digitali gemelli di Azure. Questa sezione illustra i passaggi seguenti:
 1. Configurare un'istanza di dispositivi gemelli digitali di Azure (è possibile ignorare questa parte perché è già presente un'istanza)
@@ -89,7 +89,7 @@ A questo punto è necessario che l'app di esempio ADT Explorer sia in esecuzione
 
 Per verificare la connessione, è possibile fare clic sul pulsante *Esegui query* per eseguire la query predefinita che Visualizza tutti i gemelli e le relazioni nel grafico nella casella *Esplora grafico* .
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Pulsante &quot;Run Query&quot; evidenziato nella parte superiore del riquadro" lightbox="media/how-to-move-regions/run-query.png":::
 
 È possibile lasciare la finestra di esplorazione di ADT in esecuzione, perché verrà usata di nuovo più avanti in questo articolo per caricare nuovamente questi elementi nella nuova istanza nell'area di destinazione.
 
@@ -101,12 +101,12 @@ Per scaricare tutti questi in una sola volta, assicurarsi che il grafico complet
  
 Quindi, fare clic sull'icona *Esporta grafico* nella casella di *visualizzazione grafico* .
 
-:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/export-graph.png":::
+:::image type="content" source="media/how-to-move-regions/export-graph.png" alt-text="Nella casella visualizzazione grafico viene evidenziata un'icona. Mostra una freccia rivolta verso il basso da un cloud." lightbox="media/how-to-move-regions/export-graph.png":::
 
-In questo modo verrà abilitato un collegamento di *download* nella *visualizzazione grafico* . Selezionarlo per scaricare una rappresentazione basata su JSON del risultato della query, inclusi i modelli, i gemelli e le relazioni. Questa operazione dovrebbe scaricare un file con *estensione JSON* nel computer.
+In questo modo verrà abilitato un collegamento di *download* nella *visualizzazione grafico*. Selezionarlo per scaricare una rappresentazione basata su JSON del risultato della query, inclusi i modelli, i gemelli e le relazioni. Questa operazione dovrebbe scaricare un file con *estensione JSON* nel computer.
 
 >[!NOTE]
->Se il file scaricato sembra avere un'estensione di file diversa, provare a modificare l'estensione direttamente e a modificarla in *JSON* .
+>Se il file scaricato sembra avere un'estensione di file diversa, provare a modificare l'estensione direttamente e a modificarla in *JSON*.
 
 ## <a name="move"></a>Sposta
 
@@ -114,7 +114,7 @@ Successivamente, si completerà lo "spostamento" dell'istanza creando una nuova 
 
 ### <a name="create-a-new-instance"></a>Crea una nuova istanza
 
-Per prima cosa, **creare una nuova istanza di Azure Digital gemelli nell'area di destinazione** . A tale scopo, seguire la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md), tenendo conto di questi puntatori:
+Per prima cosa, **creare una nuova istanza di Azure Digital gemelli nell'area di destinazione**. A tale scopo, seguire la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md), tenendo conto di questi puntatori:
 * **Se** si trova in un gruppo di risorse diverso, è possibile usare lo stesso nome per la nuova istanza. Se è necessario usare lo stesso gruppo di risorse che contiene l'istanza originale, la nuova istanza dovrà avere un proprio nome distinto.
 * Quando viene richiesta una località, immettere la nuova area di destinazione.
 
@@ -134,11 +134,11 @@ In caso contrario, per continuare, tornare alla finestra del browser in cui è i
 
 Attualmente, ADT Explorer è connesso all'istanza originale di Azure Digital gemelli. Impostare la connessione in modo che punti alla nuova istanza facendo clic sul pulsante *Accedi* nella parte superiore della finestra. 
 
-:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/sign-in.png":::
+:::image type="content" source="media/how-to-move-regions/sign-in.png" alt-text="ADT Explorer con l'icona di accesso evidenziata nella parte superiore della finestra. L'icona mostra la semplice silhouette di una persona a cui è sovrapposta la silhouette di una chiave." lightbox="media/how-to-move-regions/sign-in.png":::
 
-Sostituire l' *URL ADT* per riflettere la nuova istanza. Modificare questo valore in modo che legga *https://{new instance hostname}* .
+Sostituire l' *URL ADT* per riflettere la nuova istanza. Modificare questo valore in modo che legga *https://{new instance hostname}*.
 
-Premere *Connetti* . Potrebbe essere richiesto di eseguire di nuovo l'accesso con le credenziali di Azure e/o concedere il consenso dell'applicazione per l'istanza.
+Premere *Connetti*. Potrebbe essere richiesto di eseguire di nuovo l'accesso con le credenziali di Azure e/o concedere il consenso dell'applicazione per l'istanza.
 
 ##### <a name="upload-models-twins-and-graph"></a>Caricare modelli, gemelli e Graph
 
@@ -146,9 +146,9 @@ Caricare quindi i componenti della soluzione scaricati in precedenza nella nuova
 
 Per caricare i **modelli, i dispositivi gemelli e il grafo** , fare clic sull'icona *Importa grafico* nella casella di *visualizzazione grafico* . Questa opzione consente di caricare contemporaneamente tutti e tre i componenti (anche quelli non attualmente in uso nel grafico).
 
-:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/import-graph.png":::
+:::image type="content" source="media/how-to-move-regions/import-graph.png" alt-text="Nel riquadro Graph View è evidenziata un'icona. Mostra una freccia che punta verso l'alto in una nuvola." lightbox="media/how-to-move-regions/import-graph.png":::
 
-Nella casella Selettore file passare al grafico scaricato. Selezionare il file Graph *. JSON* e fare clic su *Apri* .
+Nella casella Selettore file passare al grafico scaricato. Selezionare il file Graph *. JSON* e fare clic su *Apri*.
 
 Dopo alcuni secondi ADT Explorer aprirà una visualizzazione *Import* che mostra un'anteprima del grafo che verrà caricato.
 
@@ -156,7 +156,7 @@ Per confermare il caricamento del grafico, selezionare l'icona *Save* (Salva) ne
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/graph-preview-save.png":::
+        :::image type="content" source="media/how-to-move-regions/graph-preview-save.png" alt-text="Icona di salvataggio evidenziata nel riquadro di anteprima del grafo" lightbox="media/how-to-move-regions/graph-preview-save.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -166,7 +166,7 @@ ADT Explorer caricherà ora i modelli e il grafo (inclusi i gemelli e le relazio
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/import-success.png":::
+        :::image type="content" source="media/how-to-move-regions/import-success.png" alt-text="Finestra di dialogo che indica la riuscita dell'importazione del grafico. Indica che l'importazione è riuscita. 2 modelli importati. 4 gemelli importati. 2 relazioni importate." lightbox="media/how-to-move-regions/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -174,13 +174,13 @@ ADT Explorer caricherà ora i modelli e il grafo (inclusi i gemelli e le relazio
     :::column-end:::
 :::row-end:::
 
-Per verificare che tutto sia stato caricato correttamente, fare clic sul pulsante *Esegui query* nella casella *Esplora grafico* per eseguire la query predefinita che Visualizza tutti i dispositivi gemelli e le relazioni nel grafico. Verrà inoltre aggiornato l'elenco dei modelli nella *vista modello* .
+Per verificare che tutto sia stato caricato correttamente, fare clic sul pulsante *Esegui query* nella casella *Esplora grafico* per eseguire la query predefinita che Visualizza tutti i dispositivi gemelli e le relazioni nel grafico. Verrà inoltre aggiornato l'elenco dei modelli nella *vista modello*.
 
-:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/run-query.png":::
+:::image type="content" source="media/how-to-move-regions/run-query.png" alt-text="Evidenziare intorno allo stesso pulsante ' Esegui query ' precedente, nella parte superiore della finestra" lightbox="media/how-to-move-regions/run-query.png":::
 
 Il grafo dovrebbe essere visualizzato con tutti i gemelli e le relazioni visualizzate nella casella *Esplora grafico* . È anche possibile visualizzare i modelli elencati nella casella *vista modello* .
 
-:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo." lightbox="media/how-to-move-regions/post-upload.png":::
+:::image type="content" source="media/how-to-move-regions/post-upload.png" alt-text="Visualizzazione di ADT Explorer che mostra 2 modelli evidenziati nella casella &quot;visualizzazione modello&quot; e un grafico evidenziato nella casella &quot;Esplora grafico&quot;" lightbox="media/how-to-move-regions/post-upload.png":::
 
 In questo modo viene confermato che i modelli, i dispositivi gemelli e i grafici sono stati caricati nuovamente nella nuova istanza nell'area di destinazione.
 
@@ -225,7 +225,7 @@ Per verificare che la nuova istanza sia stata configurata correttamente, è poss
 
 ## <a name="clean-up-source-resources"></a>Pulire le risorse di origine
 
-Ora che la nuova istanza è configurata nell'area di destinazione con una copia dei dati e delle connessioni dell'istanza originale, è possibile **eliminare l'istanza originale** .
+Ora che la nuova istanza è configurata nell'area di destinazione con una copia dei dati e delle connessioni dell'istanza originale, è possibile **eliminare l'istanza originale**.
 
 Questa operazione può essere eseguita nel [portale di Azure](https://portal.azure.com), con l' [interfaccia](how-to-use-cli.md)della riga di comando o con le [API del piano di controllo](how-to-use-apis-sdks.md#overview-control-plane-apis).
 
@@ -233,4 +233,4 @@ Per eliminare l'istanza usando il portale di Azure, [aprire il portale](https://
 
 Premere il pulsante *Elimina* e seguire le istruzioni per completare l'eliminazione.
 
-:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Finestra del browser che mostra un'app in esecuzione all'indirizzo localhost:3000. L'app è denominata ADT Explorer e contiene le caselle per Query Explorer, Model View, Graph View e Property Explorer. Non sono ancora presenti dati sullo schermo.":::
+:::image type="content" source="media/how-to-move-regions/delete-instance.png" alt-text="Visualizzare i dettagli dell'istanza di Azure Digital gemelli nella portale di Azure nella scheda Panoramica. Il pulsante Elimina è evidenziato":::

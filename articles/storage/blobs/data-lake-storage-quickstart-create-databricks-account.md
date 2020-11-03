@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/12/2020
 ms.reviewer: jeking
-ms.openlocfilehash: 482d703689ca6cfc34dd5d78574ae52e4def2b1f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 908bf21d2fe101731b11e3a8ad783f17728c8ed3
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "86109774"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677337"
 ---
 # <a name="quickstart-analyze-data-with-databricks"></a>Guida introduttiva: Analizzare i dati con Databricks
 
@@ -86,7 +86,7 @@ In questa sezione viene creato un notebook nell'area di lavoro di Azure Databric
 
 2. Nel riquadro a sinistra selezionare **Workspace** (Area di lavoro). Nell'elenco a discesa **Workspace** (Area di lavoro) selezionare **Create (Crea)**  > **Notebook**.
 
-    ![Creare un notebook in Databricks](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Creare un notebook in Databricks")
+    ![Screenshot che mostra come creare un notebook in Databricks ed evidenzia l'opzione di menu Crea > Notebook.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-create-notebook.png "Creare un notebook in Databricks")
 
 3. Nella finestra di dialogo **Create Notebook** (Crea un notebook) immettere un nome per il notebook. Selezionare **Scala** come linguaggio e quindi selezionare il cluster Spark creato in precedenza.
 
@@ -162,7 +162,7 @@ Eseguire le attività seguenti per eseguire un processo Spark SQL sui dati.
 
     ![Dati JSON di esempio](./media/data-lake-storage-quickstart-create-databricks-account/databricks-sample-csv-data.png "Dati JSON di esempio")
 
-    Tra i vari dettagli, i dati di esempio acquisiscono il sesso del pubblico di un canale radio (nome colonna **gender**) e se l'abbonamento è gratuito o a pagamento (nome colonna **level**).
+    Tra i vari dettagli, i dati di esempio acquisiscono il sesso del pubblico di un canale radio (nome colonna **gender** ) e se l'abbonamento è gratuito o a pagamento (nome colonna **level** ).
 
 4. È ora possibile creare una rappresentazione visiva dei dati da visualizzare in base al sesso, con l'indicazione di quanti utenti usano un account gratuito e quanti sono abbonati a pagamento. Nella parte inferiore della tabella dei risultati fare clic sull'icona del **grafico a barre** e quindi su **Plot Options** (Opzioni grafico).
 
@@ -170,7 +170,7 @@ Eseguire le attività seguenti per eseguire un processo Spark SQL sui dati.
 
 5. In **Customize Plot** (Personalizza grafico) trascinare i valori come illustrato nello screenshot.
 
-    ![Personalizzare un grafico a barre](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Personalizzare un grafico a barre")
+    ![Screenshot che mostra la schermata Customize Plot e i valori che è possibile trascinare.](./media/data-lake-storage-quickstart-create-databricks-account/databricks-notebook-customize-plot.png "Personalizzare un grafico a barre")
 
     - Impostare **Keys** (Chiavi) su **gender**.
     - Impostare **Series groupings** (Raggruppamenti di serie) su **level**.

@@ -1,6 +1,6 @@
 ---
 title: Importare un'app per la logica come API con il portale di Azure | Microsoft Docs
-description: Questa esercitazione illustra come usare Gestione API per importare un'app per la logica come API.
+description: Questo articolo illustra come usare Gestione API per importare un'app per la logica come API.
 services: api-management
 documentationcenter: ''
 author: vladvino
@@ -9,15 +9,15 @@ editor: ''
 ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
-ms.topic: tutorial
+ms.topic: article
 ms.date: 04/22/2020
 ms.author: apimpm
-ms.openlocfilehash: b107b4a54b7d013da160119b16bd646a79cce696
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0dd460bce01b86c72d0b8fd70351fdcc85c69bd4
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91626837"
+ms.lasthandoff: 11/01/2020
+ms.locfileid: "93146961"
 ---
 # <a name="import-a-logic-app-as-an-api"></a>Importare un'app per la logica come API
 
@@ -48,7 +48,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 3. Fare clic su **Sfoglia** per visualizzare l'elenco di App per la logica con trigger HTTP nella sottoscrizione. Si noti che le App per la logica senza trigger HTTP non verranno visualizzate nell'elenco.
 4. Selezionare l'app. Gestione API trova lo swagger associato all'app selezionata, lo recupera e lo importa.
 5. Aggiungere un suffisso dell'URL dell'API. Il suffisso è un nome che identifica questa specifica API in questa istanza di Gestione API. Deve essere univoco nell'istanza di Gestione API.
-6. Pubblicare l'API associandola a un prodotto. In questo caso viene usato il prodotto "_Unlimited_". Per fare in modo che l'API venga pubblicata e sia disponibile per gli sviluppatori, aggiungerla a un prodotto. È possibile eseguire questa operazione durante la creazione dell'API o in un secondo momento.
+6. Pubblicare l'API associandola a un prodotto. In questo caso viene usato il prodotto " _Unlimited_ ". Per fare in modo che l'API venga pubblicata e sia disponibile per gli sviluppatori, aggiungerla a un prodotto. È possibile eseguire questa operazione durante la creazione dell'API o in un secondo momento.
 
     I prodotti sono associazioni di una o più API. È possibile includere diverse API e proporle agli sviluppatori tramite il portale per sviluppatori. Per avere accesso all'API, gli sviluppatori devono prima sottoscrivere un prodotto. In questo modo ottengono una chiave di sottoscrizione valida per tutte le API nel prodotto. Se si è creata l'istanza di Gestione API, si è già un amministratore e la sottoscrizione a ogni prodotto è stata effettuata per impostazione predefinita.
 

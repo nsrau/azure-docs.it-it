@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 9c1b4bd0cd4a96c3ae1e95480fe0bd485afe7111
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 428f2958aba4baedb0ae5371eb29528f7bdca7b1
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545370"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92456741"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-braze"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Braze
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Braze con Azure Active Directory (A
 * Abilitare gli utenti per l'accesso automatico a Braze con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -75,11 +75,11 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
    ![Modificare la configurazione SAML di base](common/edit-urls.png)
 
-1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP**:
+1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti se si vuole configurare l'applicazione in modalità avviata da **IDP** :
 
     Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.braze.com/auth/saml/callback `
 
-1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP**:
+1. Fare clic su **Impostare URL aggiuntivi** e seguire questa procedura se si vuole configurare l'applicazione in modalità avviata da **SP** :
 
     Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://<SUBDOMAIN>.braze.com/sign_in`
 
@@ -110,7 +110,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -138,24 +138,24 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 ## <a name="configure-braze-sso"></a>Configurare l'accesso Single Sign-On di Braze
 
-Per configurare l'accesso Single Sign-on sul lato **Braze**, è necessario assicurarsi che un account manager di Braze abbia abilitato l'accesso SSO SAML per l'account. Dopo l'abilitazione è possibile passare a Company Settings (Impostazioni società) > Security Settings (Impostazioni di sicurezza) e attivare la sezione dell'accesso SSO SAML. In questa sezione è necessario copiare e incollare il **Certificato (Base 64)** scaricato, oltre ad aggiungere un nome SAML.
+Per configurare l'accesso Single Sign-on sul lato **Braze** , è necessario assicurarsi che un account manager di Braze abbia abilitato l'accesso SSO SAML per l'account. Dopo l'abilitazione è possibile passare a Company Settings (Impostazioni società) > Security Settings (Impostazioni di sicurezza) e attivare la sezione dell'accesso SSO SAML. In questa sezione è necessario copiare e incollare il **Certificato (Base 64)** scaricato, oltre ad aggiungere un nome SAML.
 
 ### <a name="create-braze-test-user"></a>Creare l'utente di test di Braze
 
-In questa sezione viene creato un utente di nome B.Simon in Braze. Collaborare con il  [team di supporto di Braze](mailto:support@braze.com) per aggiungere gli utenti alla piattaforma Braze. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+In questa sezione viene creato un utente di nome B.Simon in Braze. Collaborare con il [team di supporto di Braze](mailto:support@braze.com) per aggiungere gli utenti alla piattaforma Braze. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Braze nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Braze per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Braze nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Braze per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Braze con Azure AD](https://aad.portal.azure.com/)

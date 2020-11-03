@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.date: 09/16/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: 659e7fcdbd2284110282d14fc89bd4d8d5ac2472
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 050252718e4796ff20d57be3fdeac98f0cf04fdf
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91267024"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92785222"
 ---
 # <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Che cos'è Azure web application firewall nel gateway applicazione di Azure?
 
@@ -65,8 +65,8 @@ Questa sezione descrive i vantaggi principali offerti da WAF nel gateway applica
 - Protezione da attacchi SQL injection.
 - Protezione da attacchi tramite script da altri siti.
 - Protezione da altri attacchi Web comuni, come command injection, HTTP Request Smuggling, HTTP Response Splitting e Remote File Inclusion.
-- Protezione da violazioni del protocollo HTTP.
-- Protezione da anomalie del protocollo HTTP, ad esempio agente utente host e intestazioni accept mancanti.
+- Protezione dalle violazioni del protocollo HTTP.
+- Protezione contro eventuali anomalie del protocollo HTTP, ad esempio user agent host mancante e accept header.
 - Protezione da crawler e scanner.
 - Rilevamento di errori di configurazione comuni dell'applicazione, ad esempio Apache e IIS.
 - Limiti inferiori e superiori configurabili per le dimensioni delle richieste.
@@ -74,6 +74,7 @@ Questa sezione descrive i vantaggi principali offerti da WAF nel gateway applica
 - Creazione di regole personalizzate per soddisfare le esigenze delle applicazioni.
 - Traffico con filtro basato sull'area geografica per consentire o impedire a determinati paesi/aree geografiche di accedere alle applicazioni. (anteprima)
 - Protezione delle applicazioni dai bot con il set di regole di mitigazione dei bot. (anteprima)
+- Analisi del codice JSON e XML nel corpo della richiesta
 
 ## <a name="waf-policy-and-rules"></a>Regole e criteri di WAF
 
@@ -121,8 +122,8 @@ Se la protezione dai bot è abilitata, le richieste in ingresso che corrispondon
 
 WAF nel gateway applicazione può essere configurato per l'esecuzione nelle due modalità seguenti:
 
-* **Modalità di rilevamento**: monitora e registra tutti gli avvisi sulle minacce. Attivare la registrazione diagnostica per il gateway applicazione usando la sezione **Diagnostica**. È anche necessario assicurarsi che il log di WAF sia selezionato e attivato. Quando viene eseguito in modalità di rilevamento, Web Application Firewall non blocca le richieste in ingresso.
-* **Modalità di prevenzione**: blocca le intrusioni e gli attacchi rilevati dalle regole. L'autore dell'attacco riceve un'eccezione di "accesso non autorizzato 403" e la connessione viene chiusa. La modalità di prevenzione registra tali attacchi nei log di WAF.
+* **Modalità di rilevamento** : monitora e registra tutti gli avvisi sulle minacce. Attivare la registrazione diagnostica per il gateway applicazione usando la sezione **Diagnostica**. È anche necessario assicurarsi che il log di WAF sia selezionato e attivato. Quando viene eseguito in modalità di rilevamento, Web Application Firewall non blocca le richieste in ingresso.
+* **Modalità di prevenzione** : blocca le intrusioni e gli attacchi rilevati dalle regole. L'autore dell'attacco riceve un'eccezione di "accesso non autorizzato 403" e la connessione viene chiusa. La modalità di prevenzione registra tali attacchi nei log di WAF.
 
 > [!NOTE]
 > Negli ambienti di produzione è consigliabile eseguire una nuova distribuzione di WAF in modalità di rilevamento per un breve periodo di tempo. In questo modo è possibile ottenere i [log del firewall](../../application-gateway/application-gateway-diagnostics.md#firewall-log) e aggiornare eventuali eccezioni o [regole personalizzate](./custom-waf-rules-overview.md) prima della transizione alla modalità di prevenzione. Ciò consente di ridurre la possibilità che il traffico venga bloccato in modo imprevisto.
@@ -131,9 +132,9 @@ WAF nel gateway applicazione può essere configurato per l'esecuzione nelle due 
 
 OWASP prevede due modalità per decidere se bloccare o meno il traffico: la modalità tradizionale e la modalità di assegnazione di punteggi di anomalia.
 
-In modalità tradizionale, il traffico che corrisponde a qualsiasi regola viene considerato in modo indipendente da qualsiasi altra regola corrispondente. Questa modalità è facile da comprendere. Ma la mancanza di informazioni sul numero di regole che corrispondono a una specifica richiesta costituisce una limitazione. Per questo motivo, è stata introdotta la modalità di assegnazione di punteggi di anomalia. Si tratta dell'impostazione predefinita per OWASP 3.*x*.
+In modalità tradizionale, il traffico che corrisponde a qualsiasi regola viene considerato in modo indipendente da qualsiasi altra regola corrispondente. Questa modalità è facile da comprendere. Ma la mancanza di informazioni sul numero di regole che corrispondono a una specifica richiesta costituisce una limitazione. Per questo motivo, è stata introdotta la modalità di assegnazione di punteggi di anomalia. Si tratta dell'impostazione predefinita per OWASP 3. *x*.
 
-In questa modalità, il traffico che corrisponde a qualsiasi regola non viene immediatamente bloccato se il firewall è in modalità di prevenzione. Le regole hanno uno specifico livello di gravità: *critico*, *errore*, *avviso* o *notifica*. Questo livello determina un valore numerico per la richiesta, ossia il punteggio di anomalia. Ad esempio, una regola di tipo *avviso* aggiunge 3 al punteggio. Una regola di livello *critico* aggiunge 5.
+In questa modalità, il traffico che corrisponde a qualsiasi regola non viene immediatamente bloccato se il firewall è in modalità di prevenzione. Le regole hanno uno specifico livello di gravità: *critico* , *errore* , *avviso* o *notifica*. Questo livello determina un valore numerico per la richiesta, ossia il punteggio di anomalia. Ad esempio, una regola di tipo *avviso* aggiunge 3 al punteggio. Una regola di livello *critico* aggiunge 5.
 
 |Gravità  |valore  |
 |---------|---------|

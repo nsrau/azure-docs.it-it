@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 08/13/2019
 ms.author: jeedes
-ms.openlocfilehash: e22d86f85b82af1109e79789073d7e442c51cf24
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9d16f8cbb3da98a96f97a85d65672cc7ef70f65
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545761"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92893638"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zscaler"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Zscaler
 
@@ -26,7 +26,7 @@ Questa esercitazione descrive come integrare Zscaler con Azure Active Directory 
 * Abilitare gli utenti per l'accesso automatico a Zscaler con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -85,7 +85,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. L'applicazione Zscaler prevede un formato specifico per le asserzioni SAML. È quindi necessario aggiungere mapping di attributi personalizzati alla configurazione degli attributi del token SAML. Lo screenshot seguente mostra l'elenco degli attributi predefiniti. Fare clic su **Modifica** per aprire la finestra di dialogo **Attributi utente**.
 
-    ![image](common/edit-attribute.png)
+    ![Screenshot che mostra il riquadro Attributi utente con l'icona di modifica selezionata.](common/edit-attribute.png)
 
 1. Oltre quelli elencati in precedenza, l'applicazione Zscaler prevede il passaggio di altri attributi nella risposta SAML. Nella sezione **Attestazioni utente** della finestra di dialogo **Attributi utente** eseguire la procedura seguente per aggiungere l'attributo del token SAML come illustrato nella tabella seguente:
 
@@ -106,7 +106,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     f. Fare clic su **Salva**.
 
     > [!NOTE]
-    > Fare clic [qui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) per sapere come configurare un Ruolo in Azure AD
+    > Fare clic [qui](../develop/active-directory-enterprise-app-role-management.md) per sapere come configurare un Ruolo in Azure AD
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -120,7 +120,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 In questa sezione verrà creato un utente di test di nome B.Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 1. Selezionare **Nuovo utente** in alto nella schermata.
 1. In **Proprietà utente** seguire questa procedura:
    1. Nel campo **Nome** immettere `B.Simon`.  
@@ -132,7 +132,7 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Zscaler.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Zscaler**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Zscaler**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -150,19 +150,19 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 5. Nella finestra di dialogo **Utenti e gruppi** selezionare l'utente **Britta Simon** nell'elenco e quindi fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-    ![image](./media/zscaler-tutorial/tutorial_zscaler_users.png)
+    ![Screenshot che mostra la finestra di dialogo Utenti e gruppi in cui è possibile selezionare un utente.](./media/zscaler-tutorial/tutorial_zscaler_users.png)
 
 6. Nella finestra di dialogo **Seleziona ruolo** scegliere il ruolo utente appropriato dall'elenco e fare clic sul pulsante **Seleziona** in basso nella schermata.
 
-    ![image](./media/zscaler-tutorial/tutorial_zscaler_roles.png)
+    ![Screenshot che mostra la finestra di dialogo Seleziona ruolo in cui è possibile selezionare un ruolo utente.](./media/zscaler-tutorial/tutorial_zscaler_roles.png)
 
 7. Nella finestra di dialogo **Aggiungi assegnazione** selezionare il pulsante **Assegna**.
 
-    ![image](./media/zscaler-tutorial/tutorial_zscaler_assign.png)
+    ![Screenshot che mostra la finestra di dialogo Aggiungi assegnazione in cui è possibile selezionare Assegna.](./media/zscaler-tutorial/tutorial_zscaler_assign.png)
 
 ## <a name="configure-zscaler-sso"></a>Configurare l'accesso Single Sign-On di Zscaler
 
-1. Per automatizzare la configurazione all'interno di Zscaler, è necessario installare l'**estensione del browser per l'accesso sicuro MyApps** facendo clic su **Install the extension** (Installa l'estensione).
+1. Per automatizzare la configurazione all'interno di Zscaler, è necessario installare l' **estensione del browser per l'accesso sicuro MyApps** facendo clic su **Install the extension** (Installa l'estensione).
 
     ![Estensione MyApps](common/install-myappssecure-extension.png)
 
@@ -174,7 +174,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 1. Passare a **Amministrazione > Autenticazione > Impostazioni di autenticazione** ed eseguire i passaggi seguenti:
 
-    ![Amministrazione](./media/zscaler-tutorial/ic800206.png "Amministrazione")
+    ![Screenshot che mostra il sito Zscaler One con i passaggi descritti.](./media/zscaler-tutorial/ic800206.png "Amministrazione")
 
     a. In Tipo di autenticazione scegliere **SAML**.
 
@@ -202,7 +202,7 @@ In questa sezione si abilita Britta Simon all'uso dell'accesso Single Sign-On di
 
 1. Nella pagina della finestra di dialogo **Configure User Authentication** seguire questa procedura:
 
-    ![Amministrazione](./media/zscaler-tutorial/ic800207.png)
+    ![Screenshot che mostra la finestra di dialogo Configure User Authentication con l'opzione Attiva selezionata.](./media/zscaler-tutorial/ic800207.png)
 
     a. Passare il mouse sul menu **Attivazione** nella parte inferiore sinistra.
 
@@ -251,14 +251,14 @@ In questa sezione viene creato un utente di nome Britta Simon in Zscaler. Zscale
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Zscaler nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zscaler per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Zscaler nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zscaler per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)
 
 - [Provare Zscaler con Azure AD](https://aad.portal.azure.com/)

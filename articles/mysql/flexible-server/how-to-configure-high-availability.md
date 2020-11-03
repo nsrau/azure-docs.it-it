@@ -32,11 +32,11 @@ In questa pagina vengono fornite le linee guida su come abilitare o disabilitare
 
 In questa sezione vengono fornite informazioni dettagliate specifiche per i campi correlati a disponibilità elevata. È possibile seguire questa procedura per distribuire la disponibilità elevata durante la creazione del server flessibile.
 
-1.  Nella [portale di Azure](https://portal.azure.com/)scegliere flessibile server e fare clic su **Crea** .  Per informazioni dettagliate su come compilare i dettagli, ad esempio **sottoscrizione** , **gruppo di risorse** , **nome del server** , **area** e altri campi, vedere la documentazione relativa alle procedure per la creazione del server.
+1.  Nella [portale di Azure](https://portal.azure.com/)scegliere flessibile server e fare clic su **Crea**.  Per informazioni dettagliate su come compilare i dettagli, ad esempio **sottoscrizione** , **gruppo di risorse** , **nome del server** , **area** e altri campi, vedere la documentazione relativa alle procedure per la creazione del server.
 
 2.  Fare clic sulla casella di controllo per la **disponibilità elevata con ridondanza della zona** nell'opzione disponibilità.
 
-3.  Se si desidera modificare il calcolo e l'archiviazione predefiniti, fare clic su  **Configura server** .
+3.  Se si desidera modificare il calcolo e l'archiviazione predefiniti, fare clic su  **Configura server**.
 
 4.  Se è selezionata l'opzione disponibilità elevata, il livello di espansione non sarà disponibile per la scelta. È possibile scegliere i livelli di calcolo per **utilizzo generico** o con ottimizzazione per la **memoria** .
 

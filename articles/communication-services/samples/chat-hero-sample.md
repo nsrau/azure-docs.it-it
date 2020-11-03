@@ -9,12 +9,12 @@ ms.author: dademath
 ms.date: 07/20/2020
 ms.topic: overview
 ms.service: azure-communication-services
-ms.openlocfilehash: d244ed92cceb385f9f80690ae630e617e952c481
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 8349654650ff0c85fb7c9c1af6ab5dabc4f5c3ac
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124586"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92677412"
 ---
 # <a name="get-started-with-the-group-chat-hero-sample"></a>Introduzione al banner della chat di gruppo di esempio
 
@@ -25,16 +25,18 @@ ms.locfileid: "92124586"
 > links to our Hero Sample repo need to be updated when the sample is publicly available.
 ---->
 
+> [!IMPORTANT]
+> [Questo esempio è disponibile su GitHub.](https://github.com/Azure-Samples/communication-services-web-chat-hero)
+
+
 Il **banner della chat di gruppo di esempio** dei Servizi di comunicazione di Azure illustra come usare la libreria client Web della chat dei Servizi di comunicazione per creare un'esperienza di chiamata di gruppo.
 
 In questo avvio rapido viene illustrato il funzionamento dell'esempio prima dell'esecuzione sul computer locale. Si passerà quindi alla distribuzione dell'esempio in Azure tramite le risorse dei Servizi di comunicazione di Azure.
 
-> [!IMPORTANT]
-> [È possibile scaricare l'esempio da GitHub](https://github.com/Azure-Samples/communication-services-web-chat-hero)
 
 ## <a name="overview"></a>Panoramica
 
-Nell'esempio sono presenti sia un'applicazione lato client che un'applicazione lato server. L'**applicazione lato client** è un'applicazione Web React/Redux che usa il framework dell'interfaccia utente Fluent di Microsoft. Questa applicazione invia richieste a un'**applicazione lato server** ASP.NET Core che consente all'applicazione lato client di connettersi ad Azure. 
+Nell'esempio sono presenti sia un'applicazione lato client che un'applicazione lato server. L' **applicazione lato client** è un'applicazione Web React/Redux che usa il framework dell'interfaccia utente Fluent di Microsoft. Questa applicazione invia richieste a un' **applicazione lato server** ASP.NET Core che consente all'applicazione lato client di connettersi ad Azure. 
 
 L'esempio ha l'aspetto seguente:
 
@@ -42,17 +44,17 @@ L'esempio ha l'aspetto seguente:
 
 Quando si preme il pulsante "Avvia una chat", l'applicazione Web recupera un token di accesso dell'utente dall'applicazione lato server. Questo token viene quindi usato per connettere l'applicazione client ai Servizi di comunicazione di Azure. Dopo aver recuperato il token, verrà chiesto all'utente di specificare il proprio nome e un'emoji che lo rappresenterà nella chat. 
 
-:::image type="content" source="./media/chat/pre-chat.png" alt-text="Screenshot che mostra la pagina di destinazione dell'applicazione di esempio.":::
+:::image type="content" source="./media/chat/pre-chat.png" alt-text="Screenshot che mostra la schermata precedente alla chat dell'applicazione.":::
 
 Dopo aver configurato il nome visualizzato e l'emoji, è possibile partecipare alla sessione di chat. A questo punto, verrà visualizzato il canvas principale della chat in cui risiede l'esperienza principale di chat.
 
-:::image type="content" source="./media/chat/main-app.png" alt-text="Screenshot che mostra la pagina di destinazione dell'applicazione di esempio.":::
+:::image type="content" source="./media/chat/main-app.png" alt-text="Screenshot che mostra la schermata principale dell'applicazione di esempio.":::
 
 Componenti della schermata principale della chat:
 
-- **Area di chat principale**: si tratta dell'esperienza principale di chat, dove gli utenti possono inviare e ricevere messaggi. Per inviare messaggi, è possibile usare l'area di input e premere Invio (oppure il pulsante Invia). I messaggi di chat ricevuti vengono suddivisi in categorie in base al mittente con il nome e l'emoji corretti. Nell'area della chat vengono visualizzati due tipi di notifiche: 1) notifiche di digitazione quando un utente sta digitando un messaggio e 2) notifiche di invio e lettura dei messaggi.
-- **Intestazione**: qui l'utente visualizza il titolo del thread di chat, i controlli per l'attivazione/disattivazione delle barre laterali dei partecipanti e delle impostazioni e il pulsante per uscire dalla sessione di chat.
-- **Barra laterale**: qui sono visualizzate le informazioni sui partecipanti e le impostazioni quando vengono attivate tramite i controlli nell'intestazione. Nella barra laterale dei partecipanti è possibile visualizzare un elenco dei partecipanti alla chat e un collegamento per invitare i partecipanti alla sessione di chat. Tramite la barra laterale delle impostazioni è possibile configurare il titolo del thread della chat. 
+- **Area di chat principale** : si tratta dell'esperienza principale di chat, dove gli utenti possono inviare e ricevere messaggi. Per inviare messaggi, è possibile usare l'area di input e premere Invio (oppure il pulsante Invia). I messaggi di chat ricevuti vengono suddivisi in categorie in base al mittente con il nome e l'emoji corretti. Nell'area della chat vengono visualizzati due tipi di notifiche: 1) notifiche di digitazione quando un utente sta digitando un messaggio e 2) notifiche di invio e lettura dei messaggi.
+- **Intestazione** : qui l'utente visualizza il titolo del thread di chat, i controlli per l'attivazione/disattivazione delle barre laterali dei partecipanti e delle impostazioni e il pulsante per uscire dalla sessione di chat.
+- **Barra laterale** : qui sono visualizzate le informazioni sui partecipanti e le impostazioni quando vengono attivate tramite i controlli nell'intestazione. Nella barra laterale dei partecipanti è possibile visualizzare un elenco dei partecipanti alla chat e un collegamento per invitare i partecipanti alla sessione di chat. Tramite la barra laterale delle impostazioni è possibile configurare il titolo del thread della chat. 
 
 Di seguito sono disponibili ulteriori informazioni sui prerequisiti e i passaggi da seguire per configurare l'esempio.
 
@@ -75,7 +77,7 @@ Aprire Visual Studio in chat.csproj ed eseguirlo in modalità di debug per avvia
 ## <a name="before-running-the-sample-for-the-first-time"></a>Prima di eseguire l'esempio per la prima volta
 
 1. Aprire un'istanza di PowerShell, un Terminale Windows, un prompt dei comandi o un equivalente e passare alla directory in cui si desidera clonare l'esempio.
-2. `git clone https://github.com/Azure/Communication.git`
+2. `git clone https://github.com/Azure-Samples/communication-services-web-chat-hero.git`
 3. Ottenere la `Connection String` dal portale di Azure. Per altre informazioni sulle stringhe di connessione, vedere [Creare risorse di comunicazione di Azure](../quickstarts/create-communication-resource.md)
 4. Dopo aver ottenuto la `Connection String`, aggiungere la stringa di connessione al file **Chat/appsettings.json** nella cartella Chat. Immettere la stringa di connessione nella variabile: `ResourceConnectionString`.
 

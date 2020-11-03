@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/07/2020
 ms.author: memildin
-ms.openlocfilehash: ac50b17826f9f3d06d01d3cce9704094fddf1b1d
-ms.sourcegitcommit: ba7fafe5b3f84b053ecbeeddfb0d3ff07e509e40
+ms.openlocfilehash: 6b54f02b39e233dcf35f0d18682ca102883d76c3
+ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91945618"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92791869"
 ---
 # <a name="configure-email-notifications-for-security-alerts"></a>Configurare le notifiche tramite posta elettronica per gli avvisi di sicurezza 
 
@@ -26,8 +26,8 @@ Gli avvisi di sicurezza devono essere inviati alle persone giuste dell'organizza
 
 Per definire le proprie preferenze per le notifiche tramite posta elettronica, la pagina di impostazioni **Notifiche tramite posta elettronica** del Centro sicurezza di Azure consente di scegliere:
 
-- ***Chi* deve ricevere una notifica**: i messaggi di posta elettronica possono essere inviati a utenti selezionati o a chiunque abbia un ruolo di Azure specificato per una sottoscrizione. 
-- ***Cosa* deve essere notificato**: modificare i livelli di gravità per cui il Centro sicurezza dovrà inviare notifiche.
+- **_Chi_ deve ricevere una notifica** : i messaggi di posta elettronica possono essere inviati a utenti selezionati o a chiunque abbia un ruolo di Azure specificato per una sottoscrizione. 
+- **_Cosa_ deve essere notificato** : modificare i livelli di gravità per cui il Centro sicurezza dovrà inviare notifiche.
 
 Per evitare un sovraccarico di avvisi, il Centro sicurezza limita il volume dei messaggi di posta elettronica in uscita. Per ogni sottoscrizione, il Centro sicurezza invia:
 
@@ -62,9 +62,10 @@ Per evitare un sovraccarico di avvisi, il Centro sicurezza limita il volume dei 
 1. Per applicare le informazioni di contatto per la sicurezza nella sottoscrizione, selezionare **Salva**.
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
+
 Per altre informazioni sugli avvisi di sicurezza, vedere le pagine seguenti:
 
 - [Guida di riferimento sugli avvisi di sicurezza](alerts-reference.md): informazioni sugli avvisi di sicurezza che possono essere visualizzati nel modulo Protezione dalle minacce del Centro sicurezza di Azure
 - [Gestire e rispondere agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza
-- [Automazione del flusso di lavoro](workflow-automation.md): informazioni su come automatizzare le risposte agli avvisi con la logica delle notifiche personalizzate
+- [Automatizzare le risposte ai trigger del Centro sicurezza](workflow-automation.md): usare l'automazione per rispondere ai trigger del Centro sicurezza con la logica di notifica personalizzata

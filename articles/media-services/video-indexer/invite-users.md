@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: quickstart
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: e9a4575ce2f353d61654263aea8d968c650a689e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 4023f8584e7b901a19906235d98982abbbfbaaf8
+ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "79499755"
+ms.lasthandoff: 10/22/2020
+ms.locfileid: "92364142"
 ---
 # <a name="quickstart-invite-users-to-video-indexer"></a>Guida introduttiva: Invitare gli utenti a Video Indexer
 
@@ -27,10 +27,9 @@ Per collaborare con i colleghi, è possibile invitarli all'account Video Indexer
 ## <a name="invite-new-users"></a>Invitare nuovi utenti
 
 1. Accedere al sito Web di [Video Indexer](https://www.videoindexer.ai/). Assicurarsi di essere connessi con un account amministratore.
-1. Fare clic sul pulsante **Invita altri** nel menu principale:
+1. Se si è amministratori, si vedrà il pulsante **Condividi account** nell'angolo in alto a destra. Fare clic sul pulsante per invitare utenti. 
 
-   ![Invitare nuovi utenti](./media/invite-users/invite-users.png)
-
+   ![Invitare nuovi utenti](./media/invite-users/share-account.png)
 1. Aggiungere gli indirizzi di posta elettronica delle persone che si desidera aggiungere all'account Video Indexer:
 
     ![Invitare gli utenti a questo account](./media/invite-users/invite-to-account.png)

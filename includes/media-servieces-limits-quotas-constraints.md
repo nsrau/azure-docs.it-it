@@ -1,39 +1,39 @@
 ---
-author: Juliako
+author: IngridAtMicrosoft
 ms.service: media-services
 ms.topic: include
-ms.date: 03/31/2020
-ms.author: juliako
-ms.openlocfilehash: d6ff823951e6474a35a514036f02c0aabb17bf01
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/26/2020
+ms.author: inhenkel
+ms.openlocfilehash: 84aa07ef282dd7100043f7e9bfcc97cb3b3673a5
+ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82997694"
+ms.lasthandoff: 10/27/2020
+ms.locfileid: "92755745"
 ---
 > [!NOTE]
 > Per le risorse non fisse aprire un ticket di supporto e richiedere l'aumento delle quote. Non creare altri account di Servizi multimediali di Azure per provare a ottenere limiti superiori.
 
 ### <a name="account-limits"></a>Limiti per account
 
-| Risorsa | Limite predefinito | 
-| --- | --- | 
-| Account di Servizi multimediali in una singola sottoscrizione | 25 (fisso) |
+| Risorsa | Limite predefinito |
+| --- | --- |
+| Account di Servizi multimediali in una singola sottoscrizione | 100 (fisso) |
 
 ### <a name="asset-limits"></a>Limiti per asset
 
-| Risorsa | Limite predefinito | 
-| --- | --- | 
+| Risorsa | Limite predefinito |
+| --- | --- |
 | Asset per ogni account di Servizi multimediali | 1\.000.000|
 
 ### <a name="storage-media-limits"></a>Limiti per supporti di archiviazione
 
-| Risorsa | Limite predefinito | 
-| --- | --- | 
+| Risorsa | Limite predefinito |
+| --- | --- |
 | Dimensione del file| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>(1)</sup> |
 | Account di archiviazione | 100<sup>(2)</sup> (fisso) |
 
-<sup>1</sup> Le dimensioni massime supportate per un BLOB singolo corrispondono a 5 TB in Archiviazione BLOB di Azure. Vengono applicati altri limiti in Servizi multimediali in base alle dimensioni delle macchine virtuali usate dal servizio. Il limite delle dimensioni si applica ai file caricati, nonché ai file generati come risultato dell'elaborazione di Servizi multimediali (codifica o analisi). Se le dimensioni del file di origine sono maggiori di 260 GB, è probabile che il processo abbia esito negativo. 
+<sup>1</sup> Le dimensioni massime supportate per un BLOB singolo corrispondono a 5 TB in Archiviazione BLOB di Azure. Vengono applicati altri limiti in Servizi multimediali in base alle dimensioni delle macchine virtuali usate dal servizio. Il limite delle dimensioni si applica ai file caricati, nonché ai file generati come risultato dell'elaborazione di Servizi multimediali (codifica o analisi). Se le dimensioni del file di origine sono maggiori di 260 GB, è probabile che il processo abbia esito negativo.
 
 La tabella seguente mostra i limiti per le unità riservata di codifica S1, S2 e S3. Se le dimensioni del file di origine superano i limiti definiti nella tabella, il processo di codifica non riesce. Se si esegue la codifica di origini risoluzione 4K di lunga durata, è necessario usare unità riservate di codifica S3 per ottenere le prestazioni necessarie. Se le dimensioni dei contenuti 4K superano il limite di 260 GB per le unità riservate di codifica S3, aprire un ticket di supporto.
 
@@ -47,8 +47,8 @@ La tabella seguente mostra i limiti per le unità riservata di codifica S1, S2 e
 
 ### <a name="jobs-encoding--analyzing-limits"></a>Limiti per processi (codifica e analisi)
 
-| Risorsa | Limite predefinito | 
-| --- | --- | 
+| Risorsa | Limite predefinito |
+| --- | --- |
 | Job per ogni account di Servizi multimediali | 500.000 <sup>(3)</sup> (fisso)|
 | Input di processi per processo | 50 (fisso)|
 | Output di processi per processo | 20 (fisso) |
@@ -62,8 +62,8 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 
 ### <a name="live-streaming-limits"></a>Limiti per lo streaming live
 
-| Risorsa | Limite predefinito | 
-| --- | --- | 
+| Risorsa | Limite predefinito |
+| --- | --- |
 | Eventi live <sup>(4)</sup> per account di Servizi multimediali |5|
 | Output live per evento live |3 <sup>(5)</sup> |
 | Durata max degli output live | [Dimensioni della finestra DVR](../articles/media-services/latest/live-event-cloud-dvr.md) |
@@ -74,9 +74,9 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 
 ### <a name="packaging--delivery-limits"></a>Limiti per la creazione e la distribuzione di pacchetti
 
-| Risorsa | Limite predefinito | 
-| --- | --- | 
-| Endpoint di streaming (interrotti o in esecuzione) per account di Servizi multimediali|2 (fisso)|
+| Risorsa | Limite predefinito |
+| --- | --- |
+| Endpoint di streaming (interrotti o in esecuzione) per account di Servizi multimediali| 2 |
 | Filtri manifesto dinamico|100|
 | Criteri di streaming | 100 <sup>(6)</sup> |
 | Localizzatori di streaming univoci associati contemporaneamente a un asset | 100<sup>(7)</sup> (fisso) |
@@ -87,9 +87,9 @@ Tutti i record di processo presenti nell'account e in esecuzione da almeno 90 gi
 
 ### <a name="protection-limits"></a>Limiti di protezione
 
-| Risorsa | Limite predefinito | 
-| --- | --- | 
-| Options per i criteri di chiave simmetrica |30 | 
+| Risorsa | Limite predefinito |
+| --- | --- |
+| Options per i criteri di chiave simmetrica | 30 |
 | Licenze al mese per ogni tipo di DRM nel servizio di distribuzione di chiavi di Servizi multimediali per account|1\.000.000|
 
 ### <a name="support-ticket"></a>Ticket di supporto

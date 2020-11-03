@@ -4,16 +4,20 @@ ms.date: 09/10/2020
 author: dbradish-microsoft
 ms.author: dbradish
 manager: barbkess
-ms.openlocfilehash: d4e8b8d6a23648b3c8eb5dedcd4ae041c8fbcf4b
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 1aa344d80df6bfc22d0c94c6d5c61d305ace8d0c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875028"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93073544"
 ---
-## <a name="prepare-your-environment"></a>Preparare l'ambiente
+## <a name="prerequisites"></a>Prerequisiti
 
-- Per eseguire i comandi dell'interfaccia della riga di comando di Azure, eseguire un'[installazione locale](/cli/azure/install-azure-cli) dell'interfaccia della riga di comando di Azure o avviare [Azure Cloud Shell](/azure/cloud-shell/quickstart) usando l'ambiente bash.
+- Usare [Azure Cloud Shell](/azure/cloud-shell/quickstart) tramite l'ambiente bash.
 
-- Se si usa un'installazione locale, accedere all'interfaccia della riga di comando usando il comando [az login](/cli/azure/reference-index#az-login).  Seguire le istruzioni visualizzate nel terminale per completare il processo di autenticazione.  Per altre opzioni di accesso, vedere [Accedere tramite l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
-- Quando richiesto, installare le estensioni dell'interfaccia della riga di comando di Azure al primo utilizzo.  Per altre informazioni sulle estensioni, vedere [Usare le estensioni con l'interfaccia della riga di comando di Azure](/cli/azure/azure-cli-extensions-overview).
+   [![Incorpora avvio](https://shell.azure.com/images/launchcloudshell.png "Avviare Azure Cloud Shell")](https://shell.azure.com)  
+- Se si preferisce, eseguire una [installazione locale](/cli/azure/install-azure-cli) dell'interfaccia della riga di comando di Azure per eseguire i relativi comandi di riferimento.
+   - Se si usa un'installazione locale, accedere all'interfaccia della riga di comando usando il comando [az login](/cli/azure/reference-index#az-login).  Seguire le istruzioni visualizzate nel terminale per completare il processo di autenticazione.  Per altre opzioni di accesso, vedere [Accedere tramite l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli).
+  - Quando richiesto, installare le estensioni dell'interfaccia della riga di comando di Azure al primo utilizzo.  Per altre informazioni sulle estensioni, vedere [Usare le estensioni con l'interfaccia della riga di comando di Azure](/cli/azure/azure-cli-extensions-overview).
+  - Eseguire [az version](/cli/azure/reference-index?#az_version) per trovare la versione e le librerie dipendenti installate. Per eseguire l'aggiornamento alla versione più recente, eseguire [az upgrade](/cli/azure/reference-index?#az_upgrade).
+

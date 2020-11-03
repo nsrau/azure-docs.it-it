@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
-ms.openlocfilehash: 0cbcfb65d7c7ac71b17e38dd72545a3d8fd2f162
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cb3417cf765cd703d72d4a2db7a649400ab2d4de
+ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88545880"
+ms.lasthandoff: 10/28/2020
+ms.locfileid: "92896770"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-zscaler-internet-access-administrator"></a>Esercitazione: Integrazione di Azure Active Directory con Zscaler Internet Access Administrator
 
@@ -27,7 +27,7 @@ L'integrazione di Zscaler Internet Access Administrator con Azure AD offre i van
 * È possibile abilitare gli utenti per l'accesso automatico a Zscaler Internet Access Administrator (Single Sign-On) con i propri account Azure AD.
 * È possibile gestire gli account in un'unica posizione centrale: il portale di Azure.
 
-Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
+Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -64,7 +64,7 @@ Per configurare l'integrazione di Zscaler Internet Access Administrator in Azure
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca, digitare **Zscaler Internet Access Administrator**, selezionare **Zscaler Internet Access Administrator** dal pannello dei risultati, quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca, digitare **Zscaler Internet Access Administrator** , selezionare **Zscaler Internet Access Administrator** dal pannello dei risultati, quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
      ![Zscaler Internet Access Administrator nell'elenco dei risultati](common/search-new-app.png)
 
@@ -138,9 +138,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Internet Access
 
     a. Fare clic su **Aggiungi nuova attestazione** per aprire la finestra di dialogo **Gestisci attestazioni utente**.
 
-    ![image](./common/new-save-attribute.png)
+    ![Screenshot che mostra il riquadro Attestazioni utente con l'opzione per aggiungere una nuova attestazione.](./common/new-save-attribute.png)
     
-    ![image](./common/new-attribute-details.png)
+    ![Screenshot che mostra la finestra di dialogo Gestisci attestazioni utente in cui è possibile immettere i valori descritti.](./common/new-attribute-details.png)
 
     b. Nell'elenco **Attributo di origine** selezionare il valore dell'attributo.
 
@@ -149,9 +149,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Internet Access
     d. Fare clic su **Salva**.
 
     > [!NOTE]
-    > Fare clic [qui](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-app-role-management) per sapere come configurare un Ruolo in Azure AD
+    > Fare clic [qui](../develop/active-directory-enterprise-app-role-management.md) per sapere come configurare un Ruolo in Azure AD
 
-7. Nella pagina **Configura l'accesso Single Sign-On con SAML**, nella sezione **Certificato di firma SAML**, fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
+7. Nella pagina **Configura l'accesso Single Sign-On con SAML** , nella sezione **Certificato di firma SAML** , fare clic su **Scarica** per scaricare il **Certificato (Base64)** definito dalle opzioni specificate in base ai propri requisiti e salvarlo in questo computer.
 
     ![Collegamento di download del certificato](common/certificatebase64.png)
 
@@ -169,19 +169,19 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Internet Access
 
 1. In un'altra finestra del Web browser accedere all'interfaccia utente di amministrazione di Zscaler Internet Access Administrator.
 
-2. Passare a **Amministrazione > Gestione amministratori**, eseguire i passaggi seguenti e fare clic su Salva:
+2. Passare a **Amministrazione > Gestione amministratori** , eseguire i passaggi seguenti e fare clic su Salva:
 
-    ![Amministrazione](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Amministrazione")
+    ![Screenshot che mostra la sezione Administrator Management con le opzioni per abilitare l'autenticazione SAML, caricare il certificato SSL e specificare un'autorità di certificazione.](./media/zscaler-internet-access-administrator-tutorial/AdminSSO.png "Amministrazione")
 
     a. Selezionare **Abilita autenticazione SAML**.
 
     b. Fare clic su **Carica** per caricare il certificato di firma di Azure SAML scaricato dal portale di Azure nel **certificato pubblico SSL**.
 
-    c. Facoltativamente, per maggiore sicurezza, aggiungere i dettagli dell'**autorità emittente** per verificare l'autorità emittente della risposta SAML.
+    c. Facoltativamente, per maggiore sicurezza, aggiungere i dettagli dell' **autorità emittente** per verificare l'autorità emittente della risposta SAML.
 
 3. Nell'interfaccia utente di amministrazione seguire questa procedura:
 
-    ![Amministrazione](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
+    ![Screenshot che mostra l'interfaccia utente di amministrazione in cui è possibile eseguire i passaggi.](./media/zscaler-internet-access-administrator-tutorial/ic800207.png)
 
     a. Passare il mouse sul menu **Attivazione** nella parte inferiore sinistra.
 
@@ -191,7 +191,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Zscaler Internet Access
 
 Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
-1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory**, **Utenti** e quindi **Tutti gli utenti**.
+1. Nel riquadro sinistro del portale di Azure, selezionare **Azure Active Directory** , **Utenti** e quindi **Tutti gli utenti**.
 
     ![Collegamenti "Utenti e gruppi" e "Tutti gli utenti"](common/users.png)
 
@@ -216,7 +216,7 @@ Questa sezione descrive come creare un utente di test di nome Britta Simon nel p
 
 In questa sezione Britta Simon viene abilitata per l'uso dell'accesso Single Sign-On di Azure, concedendole l'accesso a Zscaler Internet Access Administrator.
 
-1. Nel portale di Azure selezionare **Applicazioni aziendali**, quindi **Tutte le applicazioni** e infine **Zscaler Internet Access Administrator**.
+1. Nel portale di Azure selezionare **Applicazioni aziendali** , quindi **Tutte le applicazioni** e infine **Zscaler Internet Access Administrator**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -249,12 +249,12 @@ https://help.zscaler.com/zia/adding-admins
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Zscaler Internet Access Administrator nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zscaler Internet Access Administrator per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Zscaler Internet Access Administrator nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Zscaler Internet Access Administrator per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
+- [Elenco di esercitazioni sulla procedura di integrazione delle app SaaS con Azure Active Directory](./tutorial-list.md)
 
-- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](../manage-apps/what-is-single-sign-on.md)
 
-- [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
+- [Che cos'è l'accesso condizionale in Azure Active Directory?](../conditional-access/overview.md)

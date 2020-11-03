@@ -9,12 +9,12 @@ ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.openlocfilehash: 9780a2adb60c690abda6880157252aaa0c562f18
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: d06d1b0553161523708f4bb142f1c715a77eb2dd
+ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171776"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92461108"
 ---
 # <a name="quickstart-create-a-synapse-workspace"></a>Avvio rapido: Creare un'area di lavoro di Synapse
 Questo argomento di avvio rapido descrive la procedura per creare un'area di lavoro di Azure Synapse Analytics con il portale di Azure.
@@ -23,13 +23,8 @@ Questo argomento di avvio rapido descrive la procedura per creare un'area di lav
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e nella parte superiore cercare **Synapse**.
 1. Nei risultati della ricerca, in **Servizi** selezionare **Azure Synapse Analytics (anteprima delle aree di lavoro)** .
-1. Selezionare **Aggiungi** per creare un'area di lavoro usando queste impostazioni:
-
-    |Scheda|Impostazione | Valore consigliato | Descrizione |
-    |---|---|---|---|
-    |Nozioni di base|**Nome area di lavoro**|È possibile assegnare un nome qualsiasi.| In questo documento verrà usato il nome **myworkspace**.|
-    |Nozioni di base|**Area**|Usare la stessa area dell'account di archiviazione.|
-
+1. Selezionare **Aggiungi** per creare un'area di lavoro.
+1. Nella scheda **Informazioni di base** assegnare un nome univoco all'area di lavoro. In questo documento si userà il nome **myworkspace**.
 1. Per creare un'area di lavoro, è necessario un account ADLSGEN2. La soluzione più semplice consiste nel crearne una nuova. Se si vuole riutilizzarne una esistente, sarà necessario eseguire alcune operazioni di configurazione aggiuntive. 
 1. OPZIONE 1 Creazione di un nuovo account ADLSGEN2 
     1. In **Seleziona account Data Lake Storage Gen2** fare clic su **Crea nuovo** e denominarlo **contosolake**.
@@ -54,7 +49,7 @@ Dopo aver creato l'area di lavoro di Azure Synapse, è possibile aprire Synapse 
     * Assegnare a se stessi il ruolo **Proprietario dei dati dei BLOB di archiviazione**.
 1. Nel riquadro a sinistra selezionare **Contenitori** e creare un contenitore.
 1. È possibile assegnare al contenitore il nome desiderato. In questo documento verrà assegnato il nome **users**.
-1. Accettare l'impostazione predefinita **Livello di accesso pubblico**, quindi selezionare **Crea**.
+1. Accettare l'impostazione predefinita **Livello di accesso pubblico** , quindi selezionare **Crea**.
 
 ### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Configurare l'accesso all'account di archiviazione dall'area di lavoro
 

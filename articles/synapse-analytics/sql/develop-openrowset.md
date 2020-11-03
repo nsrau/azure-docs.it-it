@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 05/07/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: e541a5620d4f263e5e1379b364d7c7dd9a97a331
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 355e300ec9f3671cf29ccc763e211a9bb3806f64
+ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91289022"
+ms.lasthandoff: 10/23/2020
+ms.locfileid: "92474785"
 ---
 # <a name="how-to-use-openrowset-with-sql-on-demand-preview"></a>Come usare OPENROWSET con SQL su richiesta (anteprima)
 
@@ -127,7 +127,7 @@ L'elemento unstructured_data_path che stabilisce un percorso dei dati può esser
  Specifica un percorso all'interno dell'archiviazione che punta alla cartella o al file da leggere. Se il percorso punta a un contenitore o a una cartella, tutti i file verranno letti da quel particolare contenitore o cartella. I file nelle sottocartelle non verranno inclusi. 
 
  È possibile usare i caratteri jolly per scegliere più file o cartelle come destinazione. È consentito l'utilizzo di più caratteri jolly non consecutivi.
-Di seguito è riportato un esempio che legge tutti i file *CSV* che iniziano con *population* da tutte le cartelle che iniziano con */csv/population*:  
+Di seguito è riportato un esempio che legge tutti i file *CSV* che iniziano con *population* da tutte le cartelle che iniziano con */csv/population* :  
 `https://sqlondemandstorage.blob.core.windows.net/csv/population*/population*.csv`
 
 Se si specifica l'elemento unstructured_data_path come cartella, una query di SQL su richiesta recupererà i file da tale cartella. 
@@ -192,9 +192,9 @@ Specifica il carattere da usare come carattere virgolette nel file CSV. Se non s
 
 DATA_COMPRESSION = 'data_compression_method'
 
-Specifica il metodo di compressione. È supportato il metodo di compressione seguente:
+Specifica il metodo di compressione. Supportato solo in PARSER_VERSION='1.0'. È supportato il metodo di compressione seguente:
 
-- org.apache.hadoop.io.compress.GzipCodec
+- GZIP
 
 PARSER_VERSION = 'parser_version'
 

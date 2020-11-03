@@ -1,6 +1,6 @@
 ---
-title: Usare il modello di Resource Manager per pubblicare l'hub IoT e l'account di archiviazione e instradare i messaggi
-description: Usare il modello di Resource Manager per pubblicare l'hub IoT e l'account di archiviazione e instradare i messaggi
+title: Usare un modello di Resource Manager per pubblicare l'hub IoT di Azure e l'account di archiviazione e instradare i messaggi
+description: Usare un modello di Resource Manager per pubblicare l'hub IoT di Azure e l'account di archiviazione e instradare i messaggi
 author: robinsh
 ms.service: iot-hub
 services: iot-hub
@@ -8,18 +8,22 @@ ms.topic: quickstart
 ms.date: 08/24/2020
 ms.author: robinsh
 ms.custom: mvc, subject-armqs
-ms.openlocfilehash: 7c53d720aef029d79d95cacd558c3bf9d35b4af6
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1b9c576ce03d808fe6a4d0cac5196dfcd1b73eab
+ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148917"
+ms.lasthandoff: 10/26/2020
+ms.locfileid: "92545481"
 ---
 # <a name="quickstart-deploy-an-azure-iot-hub-and-a-storage-account-using-an-arm-template"></a>Avvio rapido: Distribuire un hub IoT di Azure e un account di archiviazione con un modello di Resource Manager
 
 In questo argomento di avvio rapido si usa un modello di Azure Resource Manager per creare un hub IoT per l'instradamento dei messaggi ad Archiviazione di Azure e un account di archiviazione per la conservazione dei messaggi. Dopo aver aggiunto manualmente un dispositivo IoT virtuale all'hub per l'invio dei messaggi, è necessario configurare tali informazioni di connessione in un'applicazione denominata *arm-read-write* per inviare i messaggi dal dispositivo all'hub. L'hub viene configurato in modo che i messaggi inviati all'hub vengano instradati automaticamente all'account di archiviazione. Al termine di questo argomento di avvio rapido, è possibile aprire l'account di archiviazione e visualizzare i messaggi inviati.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
+
+[![Distribuzione in Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-iothub-auto-route-messages%2Fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -31,9 +35,10 @@ Il modello usato in questo argomento di avvio rapido è denominato `101-iothub-a
 
 :::code language="json" source="~/quickstart-templates/101-iothub-auto-route-messages/azuredeploy.json":::
 
-Nel modello sono definite due risorse di Azure: 
-* [Microsoft.Devices/Iothubs](/azure/templates/microsoft.devices/iothubs)
-* [Microsoft.Storage/](/azure/templates/microsoft.storage/allversions)
+Nel modello sono definite due risorse di Azure:
+
+- [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts)
+- [Microsoft.Devices/IotHubs](/azure/templates/microsoft.devices/iothubs)
 
 ## <a name="deploy-the-template-and-run-the-sample-app"></a>Distribuire il modello ed eseguire l'app di esempio
 
@@ -48,7 +53,7 @@ Questa sezione illustra la procedura per distribuire il modello, creare un dispo
 
 1. Scaricare e decomprimere gli [esempi C# per IoT](/samples/azure-samples/azure-iot-samples-csharp/azure-iot-samples-for-csharp-net/).
 
-1. Aprire una finestra di comando e passare alla cartella in cui sono stati decompressi gli esempi di C# per IoT. Trovare la cartella con il file arm-read-write.csproj. Le variabili di ambiente vengono create in questa finestra di comando. Accedere al [portale di Azure](https://portal.azure.com ) per ottenere le chiavi. Selezionare **Gruppi di risorse** e quindi il gruppo di risorse usato per questo argomento di avvio rapido.
+1. Aprire una finestra di comando e passare alla cartella in cui sono stati decompressi gli esempi di C# per IoT. Trovare la cartella con il file arm-read-write.csproj. Le variabili di ambiente vengono create in questa finestra di comando. Accedere al [portale di Azure](https://portal.azure.com) per ottenere le chiavi. Selezionare **Gruppi di risorse** e quindi il gruppo di risorse usato per questo argomento di avvio rapido.
 
    ![Selezionare il gruppo di risorse](./media/horizontal-arm-route-messages/01-select-resource-group.png)
 
@@ -56,12 +61,12 @@ Questa sezione illustra la procedura per distribuire il modello, creare un dispo
 
    ![Visualizzare le risorse nel gruppo di risorse](./media/horizontal-arm-route-messages/02-view-resources-in-group.png)
 
-1. È necessario il **nome dell'hub**. Selezionare l'hub nell'elenco delle risorse. Copiare negli Appunti di Windows il nome dell'hub visualizzato nella parte superiore della sezione Hub IoT. 
- 
+1. È necessario il **nome dell'hub**. Selezionare l'hub nell'elenco delle risorse. Copiare negli Appunti di Windows il nome dell'hub visualizzato nella parte superiore della sezione Hub IoT.
+
    ![Copiare il nome dell'hub](./media/horizontal-arm-route-messages/03-copy-hub-name.png)
 
     Sostituire il nome dell'hub in questo comando dove indicato e quindi eseguire questo comando nella finestra di comando:
-   
+
     ```cmd
     SET IOT_HUB_URI=<hub name goes here>.azure-devices-net;
     ```
@@ -72,11 +77,11 @@ Questa sezione illustra la procedura per distribuire il modello, creare un dispo
    SET IOT_HUB_URI=ContosoTestHubdlxlud5h.azure-devices-net;
    ```
 
-1. La variabile di ambiente successiva è la chiave del dispositivo IoT. Per aggiungere un nuovo dispositivo all'hub, selezionare **Dispositivi IoT** nel menu Hub IoT per l'hub. 
+1. La variabile di ambiente successiva è la chiave del dispositivo IoT. Per aggiungere un nuovo dispositivo all'hub, selezionare **Dispositivi IoT** nel menu Hub IoT per l'hub.
 
    ![Selezionare i dispositivi IoT](./media/horizontal-arm-route-messages/04-select-iot-devices.png)
 
-1. Nella parte destra della schermata selezionare **+ NUOVO** per aggiungere un nuovo dispositivo. 
+1. Nella parte destra della schermata selezionare **+ NUOVO** per aggiungere un nuovo dispositivo.
 
    Immettere il nome del nuovo dispositivo. In questo argomento di avvio rapido si usa un nome che inizia con **Contoso-Test-Device**. Salvare il dispositivo e quindi aprire di nuovo la schermata per recuperare la chiave del dispositivo. La chiave viene generata automaticamente quando si chiude il riquadro. Selezionare la chiave primaria o secondaria e copiarla negli Appunti di Windows. Nella finestra di comando impostare il comando da eseguire e quindi premere **INVIO**. Il comando dovrebbe essere simile al seguente, ma contenere anche la chiave del dispositivo incollata:
 
@@ -84,10 +89,10 @@ Questa sezione illustra la procedura per distribuire il modello, creare un dispo
    SET IOT_DEVICE_KEY=<device-key-goes-here>
    ```
 
-1. L'ultima variabile di ambiente è l'**ID dispositivo**. Nella finestra di comando configurare il comando ed eseguirlo. 
-   
+1. L'ultima variabile di ambiente è l' **ID dispositivo**. Nella finestra di comando configurare il comando ed eseguirlo.
+
    ```cms
-   SET IOT_DEVICE_ID=<device-id-goes-here> 
+   SET IOT_DEVICE_ID=<device-id-goes-here>
    ```
 
    che sarà simile a questo esempio:
@@ -100,13 +105,13 @@ Questa sezione illustra la procedura per distribuire il modello, creare un dispo
 
    ![Visualizzare le variabili di ambiente](./media/horizontal-arm-route-messages/06-environment-variables.png)
 
-Dopo aver impostato le variabili di ambiente eseguire l'applicazione dalla stessa finestra di comando. Dal momento che si usa la stessa finestra, le variabili saranno accessibili in memoria quando si esegue l'applicazione.
+    Dopo aver impostato le variabili di ambiente eseguire l'applicazione dalla stessa finestra di comando. Dal momento che si usa la stessa finestra, le variabili saranno accessibili in memoria quando si esegue l'applicazione.
 
 1. Per eseguire l'applicazione, digitare il comando seguente nella finestra di comando e premere **INVIO**.
 
     `dotnet run arm-read-write`
 
-   L'applicazione genera e visualizza i messaggi nella console ogni volta che invia un messaggio all'hub IoT. Nel modello di Resource Manager l'hub è stato configurato per il routing automatizzato. I messaggi che contengono il testo "level = storage" vengono instradati automaticamente all'account di archiviazione. Lasciare in esecuzione l'app per 10-15 minuti e quindi premere **INVIO** una o due volte finché l'esecuzione non viene arrestata.
+   L'applicazione genera e visualizza i messaggi nella console ogni volta che invia un messaggio all'hub IoT. Nel modello di Resource Manager l'hub è stato configurato per il routing automatizzato. I messaggi che contengono il testo `level = storage` vengono instradati automaticamente all'account di archiviazione. Lasciare in esecuzione l'app per 10-15 minuti e quindi premere **INVIO** una o due volte finché l'esecuzione non viene arrestata.
 
 ## <a name="review-deployed-resources"></a>Esaminare le risorse distribuite
 
@@ -116,7 +121,7 @@ Dopo aver impostato le variabili di ambiente eseguire l'applicazione dalla stess
 
    ![Esaminare i file dell'account di archiviazione](./media/horizontal-arm-route-messages/07-see-storage.png)
 
-1. Selezionare uno dei file, scegliere **Scarica** e scaricare il file in un percorso accessibile in un secondo momento. Il nome del file sarà numerico, ad esempio 47. Aggiungere ". txt" alla fine del nome e quindi fare doppio clic sul file per aprirlo.
+1. Selezionare uno dei file, scegliere **Scarica** e scaricare il file in un percorso accessibile in un secondo momento. Il nome del file sarà numerico, ad esempio 47. Aggiungere _. txt_ alla fine del nome e quindi fare doppio clic sul file per aprirlo.
 
 1. Quando si apre il file, ogni riga è riferita a un messaggio diverso. Viene crittografato anche il corpo dei singoli messaggi. Questa operazione è necessaria per consentire l'esecuzione di query sul corpo del messaggio.
 

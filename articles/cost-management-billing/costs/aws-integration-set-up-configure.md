@@ -3,17 +3,17 @@ title: Configurare l'integrazione di AWS con Gestione costi di Azure
 description: Questo articolo illustra come impostare e configurare l'integrazione del report di costi e utilizzo di AWS con Gestione costi di Azure.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/28/2020
+ms.date: 10/23/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
-ms.openlocfilehash: 8bf3df25d4702b4a0cc6361f20ad08e618e7d62b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e900d63ba7e521cbf7e63d8580d22b08726d1ef6
+ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266094"
+ms.lasthandoff: 10/24/2020
+ms.locfileid: "92517345"
 ---
 # <a name="set-up-and-configure-aws-cost-and-usage-report-integration"></a>Impostare e configurare l'integrazione del report di costi e utilizzo di AWS
 
@@ -39,14 +39,12 @@ Usare la pagina **Cost & Usage Reports** (Report di costi e utilizzo) della cons
 6. In **Data refresh settings** (Impostazioni aggiornamento dati) selezionare se si vuole aggiornare il report di costi e utilizzo di AWS quando quest'ultimo applica all'account rimborsi, crediti o costi di supporto dopo la finalizzazione della fattura. Quando un report viene aggiornato, un nuovo report viene caricato in Amazon S3. È consigliabile lasciare selezionata l'impostazione.
 7. Selezionare **Avanti**.
 8. Per **S3 bucket** (Bucket S3), scegliere **Configure** (Configura).
-9. Nella finestra di dialogo Configure S3 Bucket (Configura bucket S3) eseguire una di queste operazioni:
-    1. Selezionare un bucket esistente dall'elenco a discesa e scegliere **Next** (Avanti).
-    2. Immettere un nome di bucket e l'area in cui si vuole creare un nuovo bucket, quindi scegliere **Next** (Avanti).
-10.    Selezionare **I have confirmed that this policy is correct** (Ho confermato che il criterio è corretto) e scegliere **Save** (Salva).
-11.    (Facoltativo) In Report path prefix (Prefisso percorso report) immettere il prefisso del percorso del report che si vuole anteporre al nome del report.
+9. Nella finestra di dialogo Configure S3 Bucket (Configura bucket S3) immettere un nome per il bucket e l'area in cui si vuole creare un nuovo bucket, quindi scegliere **Next** (Avanti).
+10. Selezionare **I have confirmed that this policy is correct** (Ho confermato che il criterio è corretto) e scegliere **Save** (Salva).
+11. (Facoltativo) In Report path prefix (Prefisso percorso report) immettere il prefisso del percorso del report che si vuole anteporre al nome del report.
 Se non si specifica un prefisso, quello predefinito è il nome specificato per il report. L'intervallo di date ha il formato `/report-name/date-range/`.
 12. In **Time unit** (Unità di tempo) scegliere  **Hourly** (Ogni ora).
-13.    In **Report versioning** (Controllo delle versioni del report) scegliere se si vuole che ogni versione del report sovrascriva quella precedente o se si vuole creare nuovi report aggiuntivi.
+13. In **Report versioning** (Controllo delle versioni del report) scegliere se si vuole che ogni versione del report sovrascriva quella precedente o se si vuole creare nuovi report aggiuntivi.
 14. In **Enable data integration for** (Abilita integrazione dei dati per) non è necessaria alcuna selezione.
 15. In **Compression** (Compressione) selezionare **GZIP**.
 16. Selezionare **Avanti**.
@@ -60,7 +58,7 @@ Possono essere necessarie fino a 24 ore prima che AWS inizi a recapitare i repor
 
 Gestione costi di Azure accede più volte al giorno al bucket S3 in cui si trova il report di costi e utilizzo. Il servizio necessita dell'accesso alle credenziali per verificare la presenza di nuovi dati. Per consentire a Gestione costi di accedere, creare un ruolo e un criterio in AWS.
 
-Per abilitare l'accesso in base al ruolo a un account AWS in Gestione costi, il ruolo viene creato nella console di AWS. È necessario ottenere il _ruolo ARN_ e l'_ID esterno_ dalla console di AWS. Verranno usati più avanti nella pagina **Crea un connettore AWS** in Gestione costi.
+Per abilitare l'accesso in base al ruolo a un account AWS in Gestione costi, il ruolo viene creato nella console di AWS. È necessario ottenere il _ruolo ARN_ e l' _ID esterno_ dalla console di AWS. Verranno usati più avanti nella pagina **Crea un connettore AWS** in Gestione costi.
 
 Usare la procedura guidata Create a New Role (Crea un nuovo ruolo):
 
@@ -182,7 +180,7 @@ L'assegnazione delle autorizzazioni per il connettore agli utenti dopo l'individ
 
 ## <a name="manage-aws-connectors"></a>Gestire i connettori AWS
 
-Quando si seleziona un connettore nella pagina **Connettori per AWS**, è possibile:
+Quando si seleziona un connettore nella pagina **Connettori per AWS** , è possibile:
 
 - Selezionare **Vai all'account di fatturazione** per visualizzare le informazioni relative all'account AWS consolidato.
 - Selezionare **Controllo di accesso** per gestire l'assegnazione di ruolo per il connettore.
