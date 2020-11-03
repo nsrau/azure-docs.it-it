@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another region.
-ms.openlocfilehash: 7d58cd26b6e4ca77da98f8c2f82dbdb481ccbb50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 54a1894c88d12cfac1a2d8062425de9549c4292e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88585753"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285210"
 ---
 # <a name="move-an-azure-key-vault-across-regions"></a>Spostare un insieme di credenziali delle chiavi di Azure tra aree
 
@@ -35,7 +35,7 @@ Prima di iniziare, tenere presenti i concetti seguenti:
 
 ## <a name="option-1-use-the-key-vault-backup-and-restore-commands"></a>Opzione 1: usare i comandi di backup e ripristino dell'insieme di credenziali delle chiavi
 
-È possibile eseguire il backup di ogni segreto, chiave e certificato nell'insieme di credenziali usando il comando backup. I segreti vengono scaricati come BLOB crittografato. Si può quindi ripristinare il BLOB nel nuovo insieme di credenziali delle chiavi. Per un elenco dei comandi, vedere [Comandi di Azure Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
+È possibile eseguire il backup di ogni segreto, chiave e certificato nell'insieme di credenziali usando il comando backup. I segreti vengono scaricati come BLOB crittografato. Si può quindi ripristinare il BLOB nel nuovo insieme di credenziali delle chiavi. Per un elenco dei comandi, vedere [Comandi di Azure Key Vault](/powershell/module/azurerm.keyvault/?view=azurermps-6.13.0#key_vault).
 
 L'uso dei comandi di backup e ripristino presenta due limitazioni:
 

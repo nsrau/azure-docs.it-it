@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: aa4b55cb0700a47d9235a1d526ef1b1678d6db8b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 11e4b79bf76a4612728992f7c16000d840b9c639
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91333818"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285959"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorare e visualizzare i log e le metriche per l'esecuzione di ML
 
@@ -93,7 +93,7 @@ RunDetails(run).show()
 
 ## <a name="show-output-upon-completion"></a>Mostra output al completamento
 
-Quando si usa **ScriptRunConfig**, è possibile usare ```run.wait_for_completion(show_output = True)``` per visualizzare quando viene completato il training del modello. Il flag ```show_output``` fornisce output dettagliato. Per ulteriori informazioni, vedere la sezione ScriptRunConfig di [come abilitare la registrazione](how-to-track-experiments.md#scriptrun-logs).
+Quando si usa **ScriptRunConfig** , è possibile usare ```run.wait_for_completion(show_output = True)``` per visualizzare quando viene completato il training del modello. Il flag ```show_output``` fornisce output dettagliato. Per ulteriori informazioni, vedere la sezione ScriptRunConfig di [come abilitare la registrazione](how-to-track-experiments.md#scriptrun-logs).
 
 <a id="queryrunmetrics"></a>
 ## <a name="query-run-metrics"></a>Eseguire query sulle metriche di esecuzione
@@ -105,7 +105,9 @@ Quando si usa **ScriptRunConfig**, è possibile usare ```run.wait_for_completion
 
 È possibile esplorare i record di esecuzione completati, incluse le metriche registrate, in [Azure Machine Learning Studio](https://ml.azure.com).
 
-Passare alla scheda **esperimenti** e selezionare l'esperimento. Nel dashboard dell'esperimento è possibile visualizzare le metriche e i log rilevati per ogni esecuzione. 
+Passare alla scheda **esperimenti** . Per visualizzare tutte le esecuzioni nell'area di lavoro tra gli esperimenti, selezionare la scheda **tutte le esecuzioni** . È possibile eseguire il drill-down delle esecuzioni per esperimenti specifici applicando il filtro dell'esperimento sulla barra dei menu superiore. 
+
+Per la singola visualizzazione esperimento, selezionare la scheda **tutti gli esperimenti** . Nel dashboard dell'esperimento è possibile visualizzare le metriche e i log rilevati per ogni esecuzione. 
 
 Eseguire il drill-down fino a un'esecuzione specifica per visualizzare i relativi output o log oppure scaricare lo snapshot dell'esperimento in modo che sia possibile condividere la cartella dell'esperimento con altri utenti.
 

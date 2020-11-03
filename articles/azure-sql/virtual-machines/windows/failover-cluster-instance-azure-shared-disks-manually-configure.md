@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/26/2020
 ms.author: mathoma
-ms.openlocfilehash: dd9b84c379f368e4cb4bcf1b5122e394456cd9e8
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: c78899bff39f37c63c7db0eeb12690ab2a90cac4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789761"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285382"
 ---
 # <a name="create-an-fci-with-azure-shared-disks-sql-server-on-azure-vms"></a>Creare un'istanza FCI con i dischi condivisi di Azure (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -151,12 +151,12 @@ Convalidare il cluster nell'interfaccia utente o usando PowerShell.
 
 Per convalidare il cluster usando l'interfaccia utente, eseguire le operazioni seguenti in una delle macchine virtuali:
 
-1. In **Server Manager** selezionare **Strumenti** e quindi selezionare **Gestione cluster di failover** .
-1. In **Gestione cluster di failover** selezionare **Azione** e quindi selezionare **Convalida configurazione** .
-1. Selezionare **Avanti** .
+1. In **Server Manager** selezionare **Strumenti** e quindi selezionare **Gestione cluster di failover**.
+1. In **Gestione cluster di failover** selezionare **Azione** e quindi selezionare **Convalida configurazione**.
+1. Selezionare **Avanti**.
 1. In **Selezione di server o di un cluster** immettere i nomi di entrambe le macchine virtuali.
-1. In **Opzioni di testing** selezionare **Esegui solo test selezionati** . 
-1. Selezionare **Avanti** .
+1. In **Opzioni di testing** selezionare **Esegui solo test selezionati**. 
+1. Selezionare **Avanti**.
 1. In **selezione test** selezionare tutti i test *eccetto* **archiviazione**
 
 ## <a name="test-cluster-failover"></a>Test del failover del cluster
@@ -175,11 +175,11 @@ Dopo aver configurato il cluster di failover e tutti i componenti del cluster, i
 
 1. Individuare i supporti di installazione. Se la macchina virtuale usa una delle immagini di Azure Marketplace, i supporti si trovano in `C:\SQLServer_<version number>_Full`. 
 
-1. Selezionare **Imposta** .
+1. Selezionare **Imposta**.
 
-1. In **Centro installazione SQL Server** selezionare **Installazione** .
+1. In **Centro installazione SQL Server** selezionare **Installazione**.
 
-1. Selezionare **Installazione di un nuovo cluster di failover di SQL Server** . Seguire le istruzioni della procedura guidata per installare l'istanza del cluster di failover di SQL Server.
+1. Selezionare **Installazione di un nuovo cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare l'istanza del cluster di failover di SQL Server.
 
 Le directory dei dati FCI devono trovarsi nei dischi condivisi di Azure. 
 
@@ -187,9 +187,9 @@ Le directory dei dati FCI devono trovarsi nei dischi condivisi di Azure.
 
 1. Al termine dell'installazione dell'istanza del cluster di failover nel primo nodo, connettersi al secondo nodo usando RDP.
 
-1. Aprire **Centro installazione SQL Server** , quindi selezionare **installazione** .
+1. Aprire **Centro installazione SQL Server** , quindi selezionare **installazione**.
 
-1. Selezionare **Aggiungi nodo a cluster di failover di SQL Server** . Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere il server all'istanza del cluster di failover.
+1. Selezionare **Aggiungi nodo a cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere il server all'istanza del cluster di failover.
 
    >[!NOTE]
    >Se è stata usata un'immagine della raccolta di Azure Marketplace che contiene SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Per altre informazioni, vedere [Scaricare SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -217,7 +217,7 @@ Per instradare il traffico in modo appropriato al nodo primario corrente, config
 
 ## <a name="limitations"></a>Limitazioni
 
-- È supportata solo la registrazione con il provider di risorse VM SQL in [modalità di gestione semplice](sql-vm-resource-provider-register.md#management-modes) .
+- È supportata solo la registrazione con il provider di risorse VM SQL in [modalità di gestione semplice](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

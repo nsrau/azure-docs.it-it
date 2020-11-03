@@ -9,12 +9,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 06/13/2020
 ms.author: mbaldwin
-ms.openlocfilehash: c4c8d1101bd83b580c010132dd70284b78569392
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 9c1a08161dafa500e9cab2038621c2329cfe6d27
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92124222"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286891"
 ---
 # <a name="get-started-with-key-vault-certificates"></a>Introduzione ai certificati di Key Vault
 Gli scenari seguenti illustrano diversi utilizzi primari del servizio di gestione dei certificati di Key Vault, includendo i passaggi aggiuntivi necessari per creare il primo certificato in un insieme di credenziali delle chiavi.
@@ -37,7 +37,7 @@ I certificati sono costituiti da tre risorse correlate che collegate tra loro fo
 
 **Passaggio 1**. Provider autorità di certificazione (CA)  
 -   L'onboarding come amministratore IT o PKI o altro utente responsabile della gestione degli account con le CA per una determinata azienda (ad esempio, Contoso) è un prerequisito per usare i certificati di Key Vault.  
-    Le CA seguenti sono i provider partner correnti con Key Vault. Fare clic [qui](https://docs.microsoft.com/azure/key-vault/certificates/create-certificate#partnered-ca-providers) per altre informazioni   
+    Le CA seguenti sono i provider partner correnti con Key Vault. Fare clic [qui](./create-certificate.md#partnered-ca-providers) per altre informazioni   
     -   DigiCert-Key Vault offre certificati di protezione/SSL OV con DigiCert.  
     -   GlobalSign-Key Vault offre certificati di protezione/SSL OV con GlobalSign.  
 
@@ -50,7 +50,7 @@ I certificati sono costituiti da tre risorse correlate che collegate tra loro fo
     -   Provider  
     -   Credenziali: credenziali dell'account CA. Ogni autorità di certificazione ha dati specifici.  
 
-    Per altre informazioni sulla creazione di account con i provider CA, vedere il relativo post nel [blog su Key Vault](https://aka.ms/kvcertsblog).  
+    Per altre informazioni sulla creazione di account con i provider CA, vedere il relativo post nel [blog su Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault).  
 
 **Passaggio 3,1** : configurare i [contatti dei certificati](/rest/api/keyvault/setcertificatecontacts/setcertificatecontacts) per le notifiche. Questi costituiscono il contatto per l'utente di Key Vault. Questo passaggio non viene applicato da Key Vault.  
 
@@ -82,7 +82,7 @@ Nota: questo processo, fino al passaggio 3.1, è un'operazione una tantum.
       -   A causa del ritardo nella creazione può essere avviata un'operazione di annullamento. L'annullamento può essere applicato o meno.  
 
 ### <a name="network-security-and-access-policies-associated-with-integrated-ca"></a>Criteri di accesso e sicurezza di rete associati alla CA integrata
-Il servizio Key Vault invia richieste all'autorità di certificazione (traffico in uscita). Pertanto, è completamente compatibile con gli insiemi di credenziali delle chiavi abilitati per il firewall. Il Key Vault non condivide i criteri di accesso con la CA. La CA deve essere configurata per accettare le richieste di firma in modo indipendente. [Guida all'integrazione di autorità di certificazione attendibili](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+Il servizio Key Vault invia richieste all'autorità di certificazione (traffico in uscita). Pertanto, è completamente compatibile con gli insiemi di credenziali delle chiavi abilitati per il firewall. Il Key Vault non condivide i criteri di accesso con la CA. La CA deve essere configurata per accettare le richieste di firma in modo indipendente. [Guida all'integrazione di autorità di certificazione attendibili](./how-to-integrate-certificate-authority.md)
 
 ## <a name="import-a-certificate"></a>Importazione di un certificato  
  In alternativa, è possibile importare un certificato, PFX o PEM, in Key Vault.  

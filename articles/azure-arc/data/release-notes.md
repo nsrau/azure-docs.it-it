@@ -9,18 +9,20 @@ ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.date: 10/29/2020
 ms.topic: conceptual
-ms.openlocfilehash: e7312ffd4d55f0403359f8aad2d0a8433a716f77
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 2da8bd0b36b553a4b5f85b6f79987ab1a7b8d5a7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280379"
+ms.locfileid: "93286571"
 ---
 # <a name="release-notes---azure-arc-enabled-data-services-preview"></a>Note sulla versione-Azure Arc Enabled Data Services (anteprima)
 
 [!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## <a name="october-2020"></a>Ottobre 2020 
+
+Numero di versione dell'interfaccia della riga di comando di Azure ( `azdata` ): 20.2.3. Scarica all'indirizzo [https://aka.ms/azdata](https://aka.ms/azdata) .
 
 ### <a name="breaking-changes"></a>Modifiche di rilievo
 
@@ -32,7 +34,7 @@ Questa versione introduce le modifiche di rilievo seguenti:
 
 ### <a name="additional-changes"></a>Modifiche aggiuntive
 
-* È stato aggiunto un nuovo parametro facoltativo a `azdata arc postgres server create` chiamato `--volume-claim mounts` . Il valore è un elenco delimitato da virgole di montaggi di attestazioni del volume. Un montaggio di attestazioni volume è una coppia di tipo di volume e il nome del PVC. Il tipo di volume per ora consente solo `backup` .  In PostgreSQL, quando il tipo di volume è `backup` , il PVC viene montato in `/mnt/db-backups` .  Ciò consente di condividere i backup tra le istanze Postgres, in modo che il backup di un'istanza di Postgres possa essere ripristinato in un altro.
+* È stato aggiunto un nuovo parametro facoltativo a `azdata arc postgres server create` chiamato `--volume-claim mounts` . Il valore è un elenco delimitato da virgole di montaggi di attestazioni del volume. Un montaggio di attestazioni volume è una coppia di tipo di volume e il nome del PVC. L'unico tipo di volume attualmente supportato è `backup` .  In PostgreSQL, quando il tipo di volume è `backup` , il PVC viene montato in `/mnt/db-backups` .  Ciò consente di condividere i backup tra le istanze di PostgreSQL in modo che sia possibile ripristinare il backup di un'istanza di PostgreSQL in un'altra istanza.
 
 * Nuovi nomi brevi per le definizioni di risorse personalizzate PostgreSQL: 
 
@@ -56,7 +58,9 @@ Questa versione introduce le modifiche di rilievo seguenti:
 
 * La proprietà nome amministratore di SQL Istanza gestita è stata aggiunta alla colonna destra del pannello panoramica nel portale di Azure.
 
+* Azure Data Studio supporta la configurazione del numero di nodi del ruolo di lavoro, della vCore e delle impostazioni di memoria per un gruppo di server. 
 
+* L'anteprima supporta il backup/ripristino per Postgres versione 11 e 12.
 
 ## <a name="september-2020"></a>Settembre 2020
 
@@ -69,7 +73,7 @@ Per istruzioni, vedere [quali sono i servizi dati abilitati per Azure Arc?](over
 
 ## <a name="known-limitations-and-issues"></a>Limitazioni e problemi noti
 
-- I nomi delle istanze gestite di SQL non possono contenere più di 13 caratteri
+- I nomi di istanza non possono contenere più di 13 caratteri
 - Nessun aggiornamento sul posto per il controller dati di Azure Arc o le istanze di database.
 - Le immagini del contenitore di servizi dati abilitati per Arc non sono firmate.  Potrebbe essere necessario configurare i nodi di Kubernetes per consentire il pull delle immagini del contenitore senza firma.  Se ad esempio si usa Docker come runtime del contenitore, è possibile impostare la variabile di ambiente DOCKER_CONTENT_TRUST = 0 e riavviare.  Altri runtime del contenitore hanno opzioni simili, ad esempio in [OpenShift](https://docs.openshift.com/container-platform/4.5/openshift_images/image-configuration.html#images-configuration-file_image-configuration).
 - Non è possibile creare istanze gestite di SQL Azure Arc abilitate o gruppi di server con iperscalabilità PostgreSQL dalla portale di Azure.
@@ -78,10 +82,20 @@ Per istruzioni, vedere [quali sono i servizi dati abilitati per Azure Arc?](over
 - Per la creazione di un controller di dati in OpenShift sono necessari vincoli di sicurezza rilassati.  Per informazioni dettagliate, vedere la documentazione.
 - Il ridimensionamento del numero _di nodi del_ ruolo di lavoro con iperscalabilità di PostgreSQL non è supportato.
 - Se si usa il motore del servizio Kubernetes di Azure (motore AKS) nell'hub Azure Stack con il controller di dati di Azure Arc e le istanze di database, l'aggiornamento a una versione di Kubernetes più recente non è supportato. Disinstallare Azure Arc data controller e tutte le istanze di database prima di aggiornare il cluster Kubernetes.
-- L'anteprima non supporta il backup/ripristino per il motore Postgres versione 11. Supporta solo backup/ripristino per Postgres versione 12.
+- L'anteprima non supporta il backup/ripristino per il motore Postgres versione 11. (Risolto nel 2020 ottobre) Supporta solo backup/ripristino per Postgres versione 12.
 - Azure Kubernetes Service (AKS), i cluster che si estendono su [più zone di disponibilità](../../aks/availability-zones.md) non sono attualmente supportati per Azure Arc Enabled Data Services. Per evitare questo problema, quando si crea il cluster AKS in portale di Azure, se si seleziona un'area in cui sono disponibili le zone, deselezionare tutte le zone dal controllo di selezione. Vedere l'immagine seguente:
 
    :::image type="content" source="media/release-notes/aks-zone-selector.png" alt-text="Deselezionare le caselle di controllo per ogni zona per specificare nessuna.":::
+
+
+### <a name="known-issues-for-azure-arc-enabled-postgresql-hyperscale"></a>Problemi noti per l'iperscalabilità di PostgreSQL abilitata per Azure Arc   
+
+- La ricreazione di un gruppo di server con il nome di un gruppo di server appena eliminato potrebbe non riuscire o bloccarsi. 
+   - **Soluzione alternativa** Non riutilizzare lo stesso nome quando si ricrea un gruppo di server o si attende il servizio di bilanciamento del carico/servizio esterno del gruppo di server eliminato in precedenza. Supponendo che il nome del gruppo di server eliminato sia stato `postgres01` ospitato in uno spazio dei nomi `arc` , prima di ricreare un gruppo di server con lo stesso nome, attendere finché `postgres01-external-svc` non viene visualizzato nell'output del comando kubectl `kubectl get svc -n arc` .
+ 
+- Il caricamento della pagina di panoramica e della pagina di configurazione di calcolo e archiviazione in Azure Data Studio è lento. 
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
   

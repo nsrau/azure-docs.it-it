@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/5/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 1f62e0b3a40382c911cd07c777c521adb3649c4d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6f3d2051790ba02f5e4ea1687830ccbdf6dcf21
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92282315"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285146"
 ---
 # <a name="how-to-create-an-azure-key-vault-and-vault-access-policy-by-using-a-resource-manager-template"></a>Come creare un insieme di credenziali delle chiavi di Azure e i criteri di accesso all'insieme di credenziali usando un modello di Gestione risorse
 
@@ -84,7 +84,7 @@ Il modello seguente mostra un metodo di base per creare un insieme di credenzial
 
 ```
 
-Per altre informazioni sulle impostazioni del modello di Key Vault, vedere informazioni di [riferimento sui modelli ARM di Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults).
+Per altre informazioni sulle impostazioni del modello di Key Vault, vedere informazioni di [riferimento sui modelli ARM di Key Vault](/azure/templates/microsoft.keyvault/vaults).
 
 > [!IMPORTANT]
 > Se viene ridistribuito un modello, eventuali criteri di accesso esistenti nell'insieme di credenziali delle chiavi verranno sostituiti. Si consiglia di popolare la `accessPolicies` proprietà con i criteri di accesso esistenti per evitare di perdere l'accesso all'insieme di credenziali delle chiavi. 
@@ -160,7 +160,7 @@ Per altre informazioni sulle impostazioni del modello di Key Vault, vedere infor
 }
 
 ```
-Per altre informazioni sulle impostazioni del modello di Key Vault, vedere informazioni di [riferimento sui modelli ARM di Key Vault](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/accesspolicies).
+Per altre informazioni sulle impostazioni del modello di Key Vault, vedere informazioni di [riferimento sui modelli ARM di Key Vault](/azure/templates/microsoft.keyvault/vaults/accesspolicies).
 
 ## <a name="more-key-vault-resource-manager-templates"></a>Altri modelli di Key Vault Gestione risorse
 
@@ -168,13 +168,13 @@ Per gli oggetti Key Vault sono disponibili altri modelli di Gestione risorse:
 
 | Segreti | Chiavi | Certificati |
 |--|--|--|
-|<ul><li>[Guida introduttiva](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-template)<li>[Riferimento](https://docs.microsoft.com/azure/templates/microsoft.keyvault/vaults/secrets)|N/D|N/D|
+|<ul><li>[Guida introduttiva](../secrets/quick-create-template.md)<li>[Riferimento](/azure/templates/microsoft.keyvault/vaults/secrets)|N/D|N/D|
 
-Qui è possibile trovare altri modelli di Key Vault: [Key Vault gestione risorse Reference](https://docs.microsoft.com/azure/templates/microsoft.keyvault/allversions).
+Qui è possibile trovare altri modelli di Key Vault: [Key Vault gestione risorse Reference](/azure/templates/microsoft.keyvault/allversions).
 
 ## <a name="deploy-the-templates"></a>Distribuire i modelli
 
-È possibile usare il portale di Azure per distribuire i modelli precedenti usando l'opzione **Compila un modello personalizzato nell'editor** , come descritto qui: [distribuire le risorse da un modello personalizzato](https://docs.microsoft.com/azure/azure-resource-manager/templates/deploy-portal#deploy-resources-from-custom-template).
+È possibile usare il portale di Azure per distribuire i modelli precedenti usando l'opzione **Compila un modello personalizzato nell'editor** , come descritto qui: [distribuire le risorse da un modello personalizzato](../../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
 È anche possibile salvare i modelli precedenti in file e usare questi comandi:  [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) e [AZ Group Deployment create](/cli/azure/group/deployment#az-group-deployment-create):
 
@@ -219,4 +219,4 @@ Write-Host "Press [ENTER] to continue..."
 
 - [Proteggere l'accesso a un insieme di credenziali delle chiavi](secure-your-key-vault.md)
 - [Eseguire l'autenticazione in un insieme di credenziali delle chiavi](authentication.md)
-- [Guida per gli sviluppatori di Azure Key Vault](developers-guide.md)
+- [Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure](developers-guide.md)

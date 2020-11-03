@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: d16d14ff51cb9a7e71193d93c6755a8e4cb93ed0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9277d100eb6744adfc20fbba9f96b822654e64a3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89481410"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287702"
 ---
 # <a name="assign-a-key-vault-access-policy-using-the-azure-portal"></a>Assegnare un criterio di accesso Key Vault usando il portale di Azure
 
@@ -23,21 +23,21 @@ Un criterio di accesso Key Vault determina se una determinata entità servizio, 
 
 [!INCLUDE [key-vault-access-policy-limits.md](../../../includes/key-vault-access-policy-limits.md)]
 
-Per ulteriori informazioni sulla creazione di gruppi in Azure Active Directory tramite portale di Azure, vedere [creare un gruppo di base e aggiungere membri](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal)
+Per ulteriori informazioni sulla creazione di gruppi in Azure Active Directory tramite portale di Azure, vedere [creare un gruppo di base e aggiungere membri](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md)
 
 ## <a name="assign-an-access-policy"></a>Assegnare un criterio di accesso
 
 1.  Nella [portale di Azure](https://portal.azure.com)passare alla risorsa key Vault. 
 
-1.  In **Impostazioni**selezionare **criteri di accesso**, quindi selezionare **Aggiungi criteri di accesso**:
+1.  In **Impostazioni** selezionare **criteri di accesso** , quindi selezionare **Aggiungi criteri di accesso** :
 
     ![Selezionare criteri di accesso e selezionare Aggiungi assegnazione ruolo](../media/authentication/assign-policy-portal-01.png)
 
-1.  Selezionare le autorizzazioni desiderate in autorizzazioni **certificato**, **autorizzazioni chiave**e **autorizzazioni segrete**. È anche possibile selezionare un modello che contiene combinazioni di autorizzazioni comuni:
+1.  Selezionare le autorizzazioni desiderate in autorizzazioni **certificato** , **autorizzazioni chiave** e **autorizzazioni segrete**. È anche possibile selezionare un modello che contiene combinazioni di autorizzazioni comuni:
 
     ![Specifica delle autorizzazioni dei criteri di accesso](../media/authentication/assign-policy-portal-02.png)
 
-1. In **Seleziona entità**scegliere il collegamento **Nessuno selezionato** per aprire il riquadro di selezione **principale** . Immettere il nome dell'app o dell'entità servizio nel campo di ricerca, selezionare il risultato appropriato, quindi scegliere **Seleziona**.
+1. In **Seleziona entità** scegliere il collegamento **Nessuno selezionato** per aprire il riquadro di selezione **principale** . Immettere il nome dell'app o dell'entità servizio nel campo di ricerca, selezionare il risultato appropriato, quindi scegliere **Seleziona**.
 
     ![Selezione dell'entità servizio per i criteri di accesso](../media/authentication/assign-policy-portal-03.png)
 
@@ -47,7 +47,7 @@ Per ulteriori informazioni sulla creazione di gruppi in Azure Active Directory t
 
     ![Aggiunta dei criteri di accesso con l'entità servizio assegnata](../media/authentication/assign-policy-portal-04.png)
 
-1. Tornare alla pagina **criteri di accesso** , verificare che il criterio di accesso sia elencato in **criteri di accesso correnti**, quindi selezionare **Salva**. I criteri di accesso non vengono applicati fino a quando non vengono salvati.
+1. Tornare alla pagina **criteri di accesso** , verificare che il criterio di accesso sia elencato in **criteri di accesso correnti** , quindi selezionare **Salva**. I criteri di accesso non vengono applicati fino a quando non vengono salvati.
 
     ![Salvataggio delle modifiche ai criteri di accesso](../media/authentication/assign-policy-portal-05.png)
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: troubleshooting
 ms.custom: seoapr2020
 ms.date: 04/22/2020
-ms.openlocfilehash: a47781bcdf60d863d6dcf77d70bc0ee496a51388
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 2e9f6898dba559f557f49cc0ee9ff39644da243f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92538800"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287344"
 ---
 # <a name="troubleshoot-resource-creation-failures-in-azure-hdinsight"></a>Risolvere gli errori di creazione di risorse in Azure HDInsight
 
@@ -33,24 +33,18 @@ La sottoscrizione potrebbe essere configurata in modo da limitare il numero di c
 
 Per richiedere un aumento delle quote, seguire questi passaggi:
 
-1. Passare alla [portale di Azure](https://portal.azure.com)e selezionare Guida e **supporto** .
+1. Passare alla [portale di Azure](https://portal.azure.com)e selezionare Guida e **supporto**.
 
-1. Selezionare **Nuova richiesta di supporto** .
+1. Selezionare **Nuova richiesta di supporto**.
 
 1. Nella scheda informazioni di **base** della pagina **nuova richiesta di supporto** specificare le informazioni seguenti:
 
-   * **Tipo di problema:** Selezionare i **limiti del servizio e della sottoscrizione (quote)** .
+   * **Tipo di problema:** Selezionare i **limiti del servizio e della sottoscrizione (quote)**.
    * **Sottoscrizione:** Selezionare la sottoscrizione che si desidera modificare.
-   * **Tipo di quota:** Selezionare **HDInsight** .
+   * **Tipo di quota:** Selezionare **HDInsight**.
 
 Per altre informazioni, vedere [Creare un ticket di supporto per aumentare i core](hdinsight-capacity-planning.md#quotas).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se il problema riscontrato non è presente in questo elenco o se non si riesce a risolverlo, visitare uno dei canali seguenti per ottenere ulteriore assistenza:
-
-* Ricevere risposte dagli esperti di Azure tramite la pagina [Supporto della community per Azure](https://azure.microsoft.com/support/community/).
-
-* Contattare [@AzureSupport](https://twitter.com/azuresupport), l'account ufficiale Microsoft Azure per migliorare l'esperienza del cliente. Mette in contatto la community di Azure con le risorse giuste: risposte, supporto ed esperti.
-
-* Se serve ulteriore assistenza, è possibile inviare una richiesta di supporto dal [portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Selezionare **Supporto** nella barra dei menu o aprire l'hub **Guida e supporto** . Per informazioni più dettagliate, vedere [Come creare una richiesta di supporto in Azure](../azure-portal/supportability/how-to-create-azure-support-request.md). L'accesso al supporto per la gestione delle sottoscrizioni e la fatturazione è incluso nella sottoscrizione di Microsoft Azure e il supporto tecnico viene fornito tramite uno dei [piani di supporto di Azure](https://azure.microsoft.com/support/plans/).
+[!INCLUDE [troubleshooting next steps](../../includes/hdinsight-troubleshooting-next-steps.md)]

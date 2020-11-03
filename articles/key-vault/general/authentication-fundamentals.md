@@ -7,12 +7,12 @@ ms.date: 09/25/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: c8d2304017a8fccd83c9c64559b8c5edf48481b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1e8f1d2964f42c480026d13bed59921dd3f07610
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91604445"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286223"
 ---
 # <a name="key-vault-authentication-fundamentals"></a>Nozioni fondamentali sull'autenticazione di Key Vault
 
@@ -24,8 +24,8 @@ Come amministratore, è possibile controllare in modo rigoroso quali utenti e ap
 
 In questo documento si presuppone che l'utente abbia familiarità con i concetti seguenti. Se non si ha familiarità con nessuno di questi concetti, seguire i collegamenti della guida prima di procedere.
 
-* [Collegamento](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) Azure Active Directory
-* [Collegamento](https://docs.microsoft.com/azure/key-vault/general/authentication#app-identity-and-security-principals) entità di sicurezza
+* [Collegamento](../../active-directory/fundamentals/active-directory-whatis.md) Azure Active Directory
+* [Collegamento](./authentication.md#app-identity-and-security-principals) entità di sicurezza
 
 ## <a name="key-vault-configuration-steps-summary"></a>Riepilogo della procedura di configurazione Key Vault
 
@@ -42,8 +42,8 @@ Quando un utente o un'applicazione effettua una richiesta all'insieme di credenz
 Per informazioni su come registrare un utente o un'applicazione in Azure Active Directory, seguire i collegamenti alla documentazione riportata di seguito.
 **Assicurarsi di creare una password per la registrazione dell'utente e un segreto client o le credenziali del certificato client per le applicazioni.**
 
-* Registrazione di un utente nel [collegamento](https://docs.microsoft.com/azure/active-directory/fundamentals/add-users-azure-active-directory) Azure Active Directory
-* Registrazione di un'applicazione nel [collegamento](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app) Azure Active Directory
+* Registrazione di un utente nel [collegamento](../../active-directory/fundamentals/add-users-azure-active-directory.md) Azure Active Directory
+* Registrazione di un'applicazione nel [collegamento](../../active-directory/develop/quickstart-register-app.md) Azure Active Directory
 
 ## <a name="assign-your-security-principal-a-role-in-azure-active-directory"></a>Assegnare un ruolo all'entità di sicurezza in Azure Active Directory
 
@@ -57,8 +57,8 @@ Nel contesto di Key Vault, queste assegnazioni di ruolo determinano il livello d
 >[!NOTE]
 > Quando si assegna un'assegnazione di ruolo a un utente a livello di Azure Active Directory tenant, questo set di autorizzazioni produrrà a tutte le sottoscrizioni, i gruppi di risorse e le risorse nell'ambito dell'assegnazione. Per seguire l'entità dei privilegi minimi, è possibile eseguire questa assegnazione di ruolo in un ambito più granulare. Ad esempio, è possibile assegnare a un utente un ruolo di lettore a livello di sottoscrizione e un ruolo proprietario per un singolo insieme di credenziali delle chiavi. Per eseguire un'assegnazione di ruolo in un ambito più granulare, passare alle impostazioni IAM (Identity Access Management) di una sottoscrizione, un gruppo di risorse o un insieme di credenziali delle chiavi.
 
-* Per ulteriori informazioni sul [collegamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles) Azure Active Directory Roles
-* Per altre informazioni sull'assegnazione o la rimozione di assegnazioni di ruolo, vedere [collegamento](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* Per ulteriori informazioni sul [collegamento](../../role-based-access-control/built-in-roles.md) Azure Active Directory Roles
+* Per altre informazioni sull'assegnazione o la rimozione di assegnazioni di ruolo, vedere [collegamento](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="configure-key-vault-access-policies-for-your-security-principal"></a>Configurare i criteri di accesso dell'insieme di credenziali delle chiavi per l'entità di sicurezza
 
@@ -121,8 +121,8 @@ Key Vault le assegnazioni di ruolo sono un set di assegnazioni di ruolo predefin
 
 Per ulteriori informazioni su Key Vault RBAC, vedere i documenti seguenti:
 
-* [Collegamento](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#management-plane-and-azure-rbac) Azure Key Vault RBAC
-* [Collegamento](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#key-vault-administrator-preview) Azure Key Vault ruoli RBAC (anteprima)
+* [Collegamento](./secure-your-key-vault.md#management-plane-and-azure-rbac) Azure Key Vault RBAC
+* [Collegamento](../../role-based-access-control/built-in-roles.md#key-vault-administrator-preview) Azure Key Vault ruoli RBAC (anteprima)
 
 ## <a name="configure-key-vault-firewall"></a>Configurare Key Vault firewall
 
@@ -132,9 +132,9 @@ Per abilitare il firewall di Key Vault, fare clic sulla scheda rete nel portale 
 
 * Aggiungere indirizzi IPv4 all'elenco Consenti del firewall di Key Vault. Questa opzione è ottimale per le applicazioni che dispongono di indirizzi IP statici.
 
-* Aggiungere una rete virtuale al firewall di Key Vault. Questa opzione funziona meglio per le risorse di Azure con indirizzi IP dinamici, ad esempio macchine virtuali. È possibile aggiungere risorse di Azure a una rete virtuale e aggiungere la rete virtuale all'elenco Consenti del firewall del Key Vault. Questa opzione Usa un endpoint del servizio che è un indirizzo IP privato all'interno della rete virtuale. Questo offre un livello aggiuntivo di protezione, in modo che nessun traffico tra l'insieme di credenziali delle chiavi e la rete virtuale venga instradato attraverso la rete Internet pubblica. Per ulteriori informazioni sull'endpoint di servizio, vedere la documentazione seguente. [collegamento](https://docs.microsoft.com/azure/key-vault/general/network-security)
+* Aggiungere una rete virtuale al firewall di Key Vault. Questa opzione funziona meglio per le risorse di Azure con indirizzi IP dinamici, ad esempio macchine virtuali. È possibile aggiungere risorse di Azure a una rete virtuale e aggiungere la rete virtuale all'elenco Consenti del firewall del Key Vault. Questa opzione Usa un endpoint del servizio che è un indirizzo IP privato all'interno della rete virtuale. Questo offre un livello aggiuntivo di protezione, in modo che nessun traffico tra l'insieme di credenziali delle chiavi e la rete virtuale venga instradato attraverso la rete Internet pubblica. Per ulteriori informazioni sull'endpoint di servizio, vedere la documentazione seguente. [collegamento](./network-security.md)
 
-* Aggiungere una connessione di collegamento privato all'insieme di credenziali delle chiavi. Questa opzione connette la rete virtuale direttamente a una particolare istanza dell'insieme di credenziali delle chiavi, inserendo in effetti l'insieme di credenziali delle chiavi all'interno della rete virtuale. Per altre informazioni sulla configurazione di una connessione di un endpoint privato a Key Vault, vedere il [collegamento](https://docs.microsoft.com/azure/key-vault/general/private-link-service) seguente.
+* Aggiungere una connessione di collegamento privato all'insieme di credenziali delle chiavi. Questa opzione connette la rete virtuale direttamente a una particolare istanza dell'insieme di credenziali delle chiavi, inserendo in effetti l'insieme di credenziali delle chiavi all'interno della rete virtuale. Per altre informazioni sulla configurazione di una connessione di un endpoint privato a Key Vault, vedere il [collegamento](./private-link-service.md) seguente.
 
 ## <a name="test-your-service-principals-ability-to-access-key-vault"></a>Testare la capacità dell'entità servizio di accedere all'insieme di credenziali delle chiavi
 
@@ -142,11 +142,11 @@ Dopo aver seguito tutti i passaggi precedenti, sarà possibile impostare e recup
 
 ### <a name="authentication-process-for-users-examples"></a>Processo di autenticazione per gli utenti (esempi)
 
-* Gli utenti possono accedere al portale di Azure per usare Key Vault. [Guida introduttiva al portale Key Vault](https://docs.microsoft.com/azure/key-vault/general/quick-create-portal)
+* Gli utenti possono accedere al portale di Azure per usare Key Vault. [Guida introduttiva al portale Key Vault](./quick-create-portal.md)
 
-* L'utente può usare l'interfaccia della riga di comando di Azure per usare Key Vault. [Guida introduttiva di Key Vault CLI di Azure](https://docs.microsoft.com/azure/key-vault/general/quick-create-cli)
+* L'utente può usare l'interfaccia della riga di comando di Azure per usare Key Vault. [Guida introduttiva di Key Vault CLI di Azure](./quick-create-cli.md)
 
-* L'utente può usare Azure PowerShell per usare Key Vault. [Guida introduttiva a Key Vault Azure PowerShell](https://docs.microsoft.com/azure/key-vault/general/quick-create-powershell)
+* L'utente può usare Azure PowerShell per usare Key Vault. [Guida introduttiva a Key Vault Azure PowerShell](./quick-create-powershell.md)
 
 ### <a name="azure-active-directory-authentication-process-for-applications-or-services-examples"></a>Azure Active Directory processo di autenticazione per applicazioni o servizi (esempi)
 
@@ -156,7 +156,7 @@ Dopo aver seguito tutti i passaggi precedenti, sarà possibile impostare e recup
 
 * Una risorsa di Azure usa l'autenticazione MSI per ottenere un token di Azure Active Directory. 
 
-* Altre informazioni sul [collegamento](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) di autenticazione MSI
+* Altre informazioni sul [collegamento](../../active-directory/managed-identities-azure-resources/overview.md) di autenticazione MSI
 
 ### <a name="authentication-process-for-application-python-example"></a>Processo di autenticazione per l'applicazione (esempio Python)
 
@@ -196,4 +196,4 @@ if __name__ == "__main__":
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni più dettagliate sull'autenticazione dell'insieme di credenziali delle chiavi, vedere il documento seguente. [Autenticazione dell'insieme di credenziali delle chiavi](https://docs.microsoft.com/azure/key-vault/general/authentication)
+Per informazioni più dettagliate sull'autenticazione dell'insieme di credenziali delle chiavi, vedere il documento seguente. [Autenticazione dell'insieme di credenziali delle chiavi](./authentication.md)

@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/22/2020
 ms.author: sudbalas
-ms.openlocfilehash: 931aea02d0a3c26bb5c2e7158f9c4360976d3af5
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: c55c87cd8ab1b2cd1dbaf2c877eb341744d822ef
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92440519"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287463"
 ---
 # <a name="azure-key-vault-backup"></a>Backup di Azure Key Vault
 
@@ -25,9 +25,9 @@ Questo documento spiega come eseguire il backup di segreti, chiavi e certificati
 
 Azure Key Vault fornisce automaticamente diverse funzionalità che aiutano a mantenere la disponibilità ed evitare la perdita di dati. Il backup dei segreti deve essere eseguito solo in presenza di una motivazione aziendale critica. Il backup dei segreti nell'insieme di credenziali delle chiavi può infatti comportare una serie di problemi operativi, come la gestione di più set di log, autorizzazioni e backup quando i segreti scadono o ruotano.
 
-Key Vault mantiene la disponibilità in scenari di emergenza ed esegue automaticamente il failover delle richieste a un'area associata senza che sia necessario l'intervento di un utente. Per altre informazioni, vedere [Disponibilità e ridondanza in Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/disaster-recovery-guidance).
+Key Vault mantiene la disponibilità in scenari di emergenza ed esegue automaticamente il failover delle richieste a un'area associata senza che sia necessario l'intervento di un utente. Per altre informazioni, vedere [Disponibilità e ridondanza in Azure Key Vault](./disaster-recovery-guidance.md).
 
-Per proteggere i segreti da eliminazioni accidentali o dannose, configurare l'eliminazione temporanea e la protezione dall'eliminazione nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Panoramica dell'eliminazione temporanea di Azure Key Vault](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview).
+Per proteggere i segreti da eliminazioni accidentali o dannose, configurare l'eliminazione temporanea e la protezione dall'eliminazione nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Panoramica dell'eliminazione temporanea di Azure Key Vault](./soft-delete-overview.md).
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -67,11 +67,11 @@ Per eseguire il backup e il ripristino di oggetti usando il portale di Azure, se
     ![Screenshot che mostra dove selezionare l'impostazione Chiavi e un oggetto in un insieme di credenziali delle chiavi.](../media/backup-1.png)
 
 4. Selezionare l'oggetto.
-5. Selezionare **Scarica il backup** .
+5. Selezionare **Scarica il backup**.
 
     ![Screenshot che mostra dove selezionare il pulsante Scarica il backup in un insieme di credenziali delle chiavi.](../media/backup-2.png)
     
-6. Selezionare **Download** .
+6. Selezionare **Download**.
 
     ![Screenshot che mostra dove selezionare il pulsante Scarica in un insieme di credenziali delle chiavi.](../media/backup-3.png)
     
@@ -82,12 +82,12 @@ Per eseguire il backup e il ripristino di oggetti usando il portale di Azure, se
 1. Accedere al portale di Azure.
 2. Selezionare l'insieme di credenziali delle chiavi.
 3. Passare al tipo di oggetto (segreto, chiave o certificato) di cui si vuole eseguire il ripristino.
-4. Selezionare **Ripristina il backup** .
+4. Selezionare **Ripristina il backup**.
 
     ![Screenshot che mostra dove selezionare il pulsante Ripristina il backup in un insieme di credenziali delle chiavi.](../media/backup-4.png)
     
 5. Passare al percorso in cui è stato archiviato il BLOB crittografato.
-6. Selezionare **OK** .
+6. Selezionare **OK**.
 
 ## <a name="back-up-and-restore-from-the-azure-cli"></a>Eseguire il backup e il ripristino dall'interfaccia della riga di comando di Azure
 
@@ -123,4 +123,4 @@ az keyvault secret restore --file {File Path} --vault-name {Key Vault Name} --su
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Attivare la [registrazione e il monitoraggio](https://docs.microsoft.com/azure/key-vault/general/logging) per Azure Key Vault.
+Attivare la [registrazione e il monitoraggio](./logging.md) per Azure Key Vault.

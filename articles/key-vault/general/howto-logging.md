@@ -9,14 +9,14 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/01/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8a975673bec3b3579eaa699f873fe8c4b1481d38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e0007f3b0dad8a68e9d81cebbe9fe24b5a7db3c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91744880"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285640"
 ---
-# <a name="how-to-enable-key-vault-logging"></a>Come abilitare la registrazione Key Vault
+# <a name="how-to-enable-key-vault-logging"></a>Come abilitare la registrazione di Key Vault
 
 Dopo aver creato una o più insiemi di credenziali delle chiavi, può essere utile monitorare come, quando e da chi vengono usate. Per informazioni dettagliate sulla funzionalità, vedere [Key Vault registrazione](logging.md).
 
@@ -64,7 +64,7 @@ Set-AzContext -SubscriptionId "<subscriptionID>"
 
 Sebbene sia possibile usare un account di archiviazione esistente per i log, verrà creato un nuovo account di archiviazione dedicato ai log Key Vault. 
 
-Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di risorse che contiene l'insieme di credenziali delle chiavi. Nella [Guida introduttiva dell'interfaccia](quick-create-cli.md) della riga di comando di Azure e [Azure PowerShell avvio rapido](quick-create-powershell.md)questo gruppo di risorse è denominato **myResourceGroup**e il percorso è *eastus*. Sostituire questi valori con quelli personalizzati, come applicabile. 
+Per rendere la gestione ancora più facile, si userà anche lo stesso gruppo di risorse che contiene l'insieme di credenziali delle chiavi. Nella [Guida introduttiva dell'interfaccia](quick-create-cli.md) della riga di comando di Azure e [Azure PowerShell avvio rapido](quick-create-powershell.md)questo gruppo di risorse è denominato **myResourceGroup** e il percorso è *eastus*. Sostituire questi valori con quelli personalizzati, come applicabile. 
 
 È anche necessario specificare un nome di account di archiviazione. I nomi degli account di archiviazione devono essere univoci, con una lunghezza compresa tra 3 e 24 caratteri e usare solo numeri e lettere minuscole.  Infine, verrà creato un account di archiviazione dello SKU "Standard_LRS".
 
@@ -147,7 +147,7 @@ Cosa viene registrato:
   * Creazione, modifica o eliminazione di queste chiavi o segreti.
   * Firma, verifica, crittografia, decrittografia, wrapping e annullamento del wrapping delle chiavi, recupero di segreti ed elenco di chiavi e segreti (e delle relative versioni).
 * Richieste non autenticate che generano una risposta 401. Alcuni esempi sono le richieste che non hanno un token di connessione, hanno un formato non valido, sono scadute o hanno un token non valido.  
-* Eventi di notifica di modifica di Griglia di eventi per i criteri di accesso all'insieme di credenziali delle chiavi vicini alla scadenza o scaduti (l'evento su nuove versioni non viene registrato). Gli eventi vengono registrati indipendentemente dalla disponibilità di una sottoscrizione di eventi creata nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Schema di eventi di Griglia di eventi per Key Vault](https://docs.microsoft.com/azure/event-grid/event-schema-key-vault)
+* Eventi di notifica di modifica di Griglia di eventi per i criteri di accesso all'insieme di credenziali delle chiavi vicini alla scadenza o scaduti (l'evento su nuove versioni non viene registrato). Gli eventi vengono registrati indipendentemente dalla disponibilità di una sottoscrizione di eventi creata nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Schema di eventi di Griglia di eventi per Key Vault](../../event-grid/event-schema-key-vault.md)
 
 ## <a name="access-your-logs"></a>Accedere ai log
 

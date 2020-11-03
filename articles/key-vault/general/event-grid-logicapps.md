@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2781ef69ce85e82dab45a9f890ef5e6862949d98
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c522d870a25b3df34ab6a0cf1c1e944a6462685
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90087984"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93284491"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Usare App per la logica per ricevere messaggi di posta elettronica sulle modifiche dello stato dei segreti dell'insieme di credenziali delle chiavi
 
@@ -28,7 +28,7 @@ Per una panoramica dell'integrazione tra Azure Key Vault e Griglia di eventi di 
 - Un account di un provider di posta elettronica supportato da App per la logica di Azure, come Office 365 Outlook. Questo account di posta elettronica viene usato per inviare le notifiche degli eventi. Per un elenco completo dei connettori per App per la logica supportati, vedere [Panoramica dei connettori](/connectors).
 - Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 - Un insieme di credenziali delle chiavi nella sottoscrizione di Azure. È possibile creare rapidamente un nuovo insieme di credenziali delle chiavi seguendo la procedura descritta in [Impostare e recuperare un segreto da Azure Key Vault usando l'interfaccia della riga di comando di Azure](../secrets/quick-create-cli.md).
-- Griglia di eventi registrata come provider di risorse, vedere [Registrazioni dei provider di risorse](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types)
+- Griglia di eventi registrata come provider di risorse, vedere [Registrazioni dei provider di risorse](../../azure-resource-manager/management/resource-providers-and-types.md)
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Creare un'app per la logica tramite Griglia di eventi
 
@@ -60,7 +60,7 @@ Per creare una sottoscrizione di Griglia di eventi di Azure, seguire questa proc
 
 1. Creare il modello di messaggio di posta elettronica:
     - **A:** immettere l'indirizzo di posta elettronica per ricevere i messaggi di notifica. Per questa esercitazione, usare un account di posta elettronica a cui è possibile accedere per i test.
-    - **Oggetto** e **Corpo**: scrivere il testo del messaggio di posta elettronica. Selezionare le proprietà JSON dallo strumento selettore per includere il contenuto dinamico in base ai dati dell'evento. È possibile recuperare i dati dell'evento usando `@{triggerBody()?['Data']}`.
+    - **Oggetto** e **Corpo** : scrivere il testo del messaggio di posta elettronica. Selezionare le proprietà JSON dallo strumento selettore per includere il contenuto dinamico in base ai dati dell'evento. È possibile recuperare i dati dell'evento usando `@{triggerBody()?['Data']}`.
 
     Il modello di messaggio di posta elettronica creato sarà simile all'esempio seguente.
 

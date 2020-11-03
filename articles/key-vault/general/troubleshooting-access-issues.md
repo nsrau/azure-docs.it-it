@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 155837802bd19ec1bb4e41484e229e1f5daef658
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 1437ef8675d0ddc96eb7fc641b3663b66c3ea11b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92125253"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285235"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Risoluzione dei problemi relativi ai criteri di accesso di Azure Key Vault
 
@@ -20,11 +20,11 @@ ms.locfileid: "92125253"
 
 ### <a name="how-can-i-identify-how-and-when-key-vaults-are-accessed"></a>In che modo è possibile identificare le tempistiche e le modalità di accesso agli insiemi di credenziali delle chiavi?
 
-Dopo aver creato una o più insiemi di credenziali delle chiavi, può essere utile monitorare come, quando e da chi vengono usate. È possibile eseguire il monitoraggio abilitando la registrazione per Azure Key Vault. Per una guida dettagliata per abilitare la registrazione, [leggere altre informazioni](https://docs.microsoft.com/azure/key-vault/general/logging).
+Dopo aver creato una o più insiemi di credenziali delle chiavi, può essere utile monitorare come, quando e da chi vengono usate. È possibile eseguire il monitoraggio abilitando la registrazione per Azure Key Vault. Per una guida dettagliata per abilitare la registrazione, [leggere altre informazioni](./logging.md).
 
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>Come è possibile monitorare la disponibilità, i periodi di latenza del servizio o altre metriche delle prestazioni per l'insieme di credenziali?
 
-Quando si inizia a ridimensionare il servizio, il numero di richieste inviate all'insieme di credenziali delle chiavi aumenta. Con questa domanda può aumentare anche la latenza delle richieste e, in casi estremi, le richieste possono venire limitate, con un impatto sulle prestazioni del servizio. È possibile monitorare le metriche delle prestazioni dell'insieme di credenziali delle chiavi e ricevere avvisi per soglie specifiche. Per una guida dettagliata per configurare il monitoraggio, [leggere altre informazioni](https://docs.microsoft.com/azure/key-vault/general/alert).
+Quando si inizia a ridimensionare il servizio, il numero di richieste inviate all'insieme di credenziali delle chiavi aumenta. Con questa domanda può aumentare anche la latenza delle richieste e, in casi estremi, le richieste possono venire limitate, con un impatto sulle prestazioni del servizio. È possibile monitorare le metriche delle prestazioni dell'insieme di credenziali delle chiavi e ricevere avvisi per soglie specifiche. Per una guida dettagliata per configurare il monitoraggio, [leggere altre informazioni](./alert.md).
 
 ### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Non si riesce a modificare i criteri di accesso. Che cosa bisogna fare per abilitarla?
 Per modificare i criteri di accesso, l'utente deve avere autorizzazioni AAD sufficienti. In questo caso l'utente deve avere il ruolo di collaboratore di livello superiore.
@@ -53,7 +53,7 @@ L'applicazione necessita anche che sia assegnato almeno un ruolo di gestione del
 
 Attualmente, la ridistribuzione di Key Vault comporta l'eliminazione degli eventuali criteri di accesso in Key Vault, che vengono sostituiti con quelli nel modello di Azure Resource Manager. Non è disponibile alcuna opzione incrementale per i criteri di accesso di Key Vault. Per mantenere i criteri di accesso in Key Vault, è necessario leggere i criteri di accesso esistenti in Key Vault e usarli per popolare il modello di Azure Resource Manager per evitare interruzioni dell'accesso.
 
-Un'altra opzione che può essere utile per questo scenario consiste nell'usare i ruoli Controllo degli accessi in base al ruolo come alternativa ai criteri di accesso. Con il controllo degli accessi in base al ruolo è possibile ridistribuire l'insieme di credenziali delle chiavi senza specificare di nuovo il criterio. Altre informazioni su questa soluzione sono disponibili [qui](https://docs.microsoft.com/azure/key-vault/general/rbac-guide).
+Un'altra opzione che può essere utile per questo scenario consiste nell'usare i ruoli Controllo degli accessi in base al ruolo come alternativa ai criteri di accesso. Con il controllo degli accessi in base al ruolo è possibile ridistribuire l'insieme di credenziali delle chiavi senza specificare di nuovo il criterio. Altre informazioni su questa soluzione sono disponibili [qui](./rbac-guide.md).
 
 ### <a name="recommended-troubleshooting-steps-for-following-error-types"></a>Procedure consigliate per la risoluzione dei problemi per i tipi di errore seguenti
 

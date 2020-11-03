@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 162e40555e11dff716b58eec4b1168728257693e
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 5423fc27ecc58bcd79b36a845e4b7569f342f712
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131174"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286698"
 ---
 # <a name="azure-key-vault-logging"></a>Registrazione di Azure Key Vault
 
@@ -26,7 +26,7 @@ Dopo aver creato una o più insiemi di credenziali delle chiavi, può essere uti
 * Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitando l'accesso agli utenti specificati.
 * Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
 
-Per informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](overview.md). Per informazioni sulla disponibilità di Key Vault, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/key-vault/). Per informazioni sull'uso, vedere [Monitoraggio di Azure per Key Vault](https://docs.microsoft.com/azure/azure-monitor/insights/key-vault-insights-overview).
+Per informazioni generali su Key Vault, vedere [Cos'è Azure Key Vault?](overview.md). Per informazioni sulla disponibilità di Key Vault, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/key-vault/). Per informazioni sull'uso, vedere [Monitoraggio di Azure per Key Vault](../../azure-monitor/insights/key-vault-insights-overview.md).
 
 ## <a name="interpret-your-key-vault-logs"></a>Interpretare i log dell'insieme di credenziali delle chiavi
 
@@ -73,7 +73,7 @@ La tabella seguente elenca i nomi dei campi e le descrizioni:
 | **callerIpAddress** |Indirizzo IP del client che ha eseguito la richiesta. |
 | **correlationId** |GUID facoltativo che il client può passare per correlare i log sul lato client con quelli sul lato servizio (insieme di credenziali delle chiavi). |
 | **identity** |Identità del token presentato nella richiesta API REST. In genere si tratta di un "utente", una "entità servizio" o una combinazione "utente+appId", come nel caso di una richiesta generata da un cmdlet di Azure PowerShell. |
-| **properties** |Informazioni diverse in base all'operazione (**operationName**). Nella maggior parte dei casi, questo campo contiene informazioni sul client (la stringa agente dell'utente passata dal client), l'URI esatto della richiesta dell'API REST e il codice di stato HTTP. Inoltre, quando un oggetto viene restituito come risultato di una richiesta, ad esempio **KeyCreate** o **VaultGet**, conterrà anche l'URI della chiave (come `id`), l'URI dell'insieme di credenziali o l'URI del segreto. |
+| **properties** |Informazioni diverse in base all'operazione ( **operationName** ). Nella maggior parte dei casi, questo campo contiene informazioni sul client (la stringa agente dell'utente passata dal client), l'URI esatto della richiesta dell'API REST e il codice di stato HTTP. Inoltre, quando un oggetto viene restituito come risultato di una richiesta, ad esempio **KeyCreate** o **VaultGet** , conterrà anche l'URI della chiave (come `id`), l'URI dell'insieme di credenziali o l'URI del segreto. |
 
 I valori del campo **operationName** sono nel formato *OggettoVerbo*. Ad esempio:
 
@@ -88,32 +88,32 @@ La tabella seguente include un elenco di valori **operationName** con il comando
 | operationName | Comando API REST |
 | --- | --- |
 | **autenticazione** |Eseguire l'autenticazione tramite l'endpoint di Azure Active Directory |
-| **VaultGet** |[Ottenere informazioni su un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620026.aspx) |
-| **VaultPut** |[Creare o aggiornare un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultDelete** |[Eliminare un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620022.aspx) |
-| **VaultPatch** |[Aggiornare un insieme di credenziali delle chiavi](https://msdn.microsoft.com/library/azure/mt620025.aspx) |
-| **VaultList** |[Elencare tutti gli insiemi di credenziali delle chiavi in un gruppo di risorse](https://msdn.microsoft.com/library/azure/mt620027.aspx) |
-| **KeyCreate** |[Creare una chiave](https://msdn.microsoft.com/library/azure/dn903634.aspx) |
-| **KeyGet** |[Ottenere informazioni su una chiave](https://msdn.microsoft.com/library/azure/dn878080.aspx) |
-| **KeyImport** |[Importare una chiave in un insieme di credenziali](https://msdn.microsoft.com/library/azure/dn903626.aspx) |
-| **KeyBackup** |[Eseguire il backup di una chiave](https://msdn.microsoft.com/library/azure/dn878058.aspx) |
-| **KeyDelete** |[Eliminare una chiave](https://msdn.microsoft.com/library/azure/dn903611.aspx) |
-| **KeyRestore** |[Ripristinare una chiave](https://msdn.microsoft.com/library/azure/dn878106.aspx) |
-| **KeySign** |[Firmare con una chiave](https://msdn.microsoft.com/library/azure/dn878096.aspx) |
-| **KeyVerify** |[Verificare con una chiave](https://msdn.microsoft.com/library/azure/dn878082.aspx) |
-| **KeyWrap** |[Eseguire il wrapping di una chiave](https://msdn.microsoft.com/library/azure/dn878066.aspx) |
-| **KeyUnwrap** |[Annullare il wrapping di una chiave](https://msdn.microsoft.com/library/azure/dn878079.aspx) |
-| **KeyEncrypt** |[Crittografare con una chiave](https://msdn.microsoft.com/library/azure/dn878060.aspx) |
-| **KeyDecrypt** |[Decrittografare con una chiave](https://msdn.microsoft.com/library/azure/dn878097.aspx) |
-| **KeyUpdate** |[Aggiornare una chiave](https://msdn.microsoft.com/library/azure/dn903616.aspx) |
-| **KeyList** |[Elencare le chiavi in un insieme di credenziali](https://msdn.microsoft.com/library/azure/dn903629.aspx) |
-| **KeyListVersions** |[Elencare le versioni di una chiave](https://msdn.microsoft.com/library/azure/dn986822.aspx) |
-| **SecretSet** |[Creare un segreto](https://msdn.microsoft.com/library/azure/dn903618.aspx) |
-| **SecretGet** |[Ottenere un segreto](https://msdn.microsoft.com/library/azure/dn903633.aspx) |
-| **SecretUpdate** |[Aggiornare un segreto](https://msdn.microsoft.com/library/azure/dn986818.aspx) |
-| **SecretDelete** |[Eliminare un segreto](https://msdn.microsoft.com/library/azure/dn903613.aspx) |
-| **SecretList** |[Elencare i segreti in un insieme di credenziali](https://msdn.microsoft.com/library/azure/dn903614.aspx) |
-| **SecretListVersions** |[Elencare le versioni di un segreto](https://msdn.microsoft.com/library/azure/dn986824.aspx) |
+| **VaultGet** |[Ottenere informazioni su un insieme di credenziali delle chiavi](/rest/api/keyvault/vaults) |
+| **VaultPut** |[Creare o aggiornare un insieme di credenziali delle chiavi](/rest/api/keyvault/vaults) |
+| **VaultDelete** |[Eliminare un insieme di credenziali delle chiavi](/rest/api/keyvault/vaults) |
+| **VaultPatch** |[Aggiornare un insieme di credenziali delle chiavi](/rest/api/keyvault/vaults) |
+| **VaultList** |[Elencare tutti gli insiemi di credenziali delle chiavi in un gruppo di risorse](/rest/api/keyvault/vaults) |
+| **KeyCreate** |[Creare una chiave](/rest/api/keyvault/createkey) |
+| **KeyGet** |[Ottenere informazioni su una chiave](/rest/api/keyvault/getkey) |
+| **KeyImport** |[Importare una chiave in un insieme di credenziali](/rest/api/keyvault/vaults) |
+| **KeyBackup** |[Eseguire il backup di una chiave](/rest/api/keyvault/backupkey) |
+| **KeyDelete** |[Eliminare una chiave](/rest/api/keyvault/deletekey) |
+| **KeyRestore** |[Ripristinare una chiave](/rest/api/keyvault/restorekey) |
+| **KeySign** |[Firmare con una chiave](/rest/api/keyvault/sign) |
+| **KeyVerify** |[Verificare con una chiave](/rest/api/keyvault/vaults) |
+| **KeyWrap** |[Eseguire il wrapping di una chiave](/rest/api/keyvault/wrapkey) |
+| **KeyUnwrap** |[Annullare il wrapping di una chiave](/rest/api/keyvault/unwrapkey) |
+| **KeyEncrypt** |[Crittografare con una chiave](/rest/api/keyvault/encrypt) |
+| **KeyDecrypt** |[Decrittografare con una chiave](/rest/api/keyvault/decrypt) |
+| **KeyUpdate** |[Aggiornare una chiave](/rest/api/keyvault/updatekey) |
+| **KeyList** |[Elencare le chiavi in un insieme di credenziali](/rest/api/keyvault/vaults) |
+| **KeyListVersions** |[Elencare le versioni di una chiave](/rest/api/keyvault/getkeyversions) |
+| **SecretSet** |[Creare un segreto](/rest/api/keyvault/updatecertificate) |
+| **SecretGet** |[Ottenere un segreto](/rest/api/keyvault/getsecret) |
+| **SecretUpdate** |[Aggiornare un segreto](/rest/api/keyvault/updatesecret) |
+| **SecretDelete** |[Eliminare un segreto](/rest/api/keyvault/deletesecret) |
+| **SecretList** |[Elencare i segreti in un insieme di credenziali](/rest/api/keyvault/vaults) |
+| **SecretListVersions** |[Elencare le versioni di un segreto](/rest/api/keyvault/getsecretversions) |
 | **VaultAccessPolicyChangedEventGridNotification** | Evento di modifica dei criteri di accesso all'insieme di credenziali pubblicato |
 | **SecretNearExpiryEventGridNotification** |Evento di segreto vicino alla scadenza pubblicato |
 | **SecretExpiredEventGridNotification** |Evento di segreto scaduto pubblicato |

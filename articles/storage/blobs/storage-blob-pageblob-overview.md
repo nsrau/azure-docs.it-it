@@ -10,12 +10,12 @@ ms.author: tamram
 ms.reviewer: wielriac
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: add94fe05eecd2fb77ba0d6d79fe6765afe3baaa
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 5558a57812414f6f1bb1be053a089af98533155a
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091016"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288338"
 ---
 # <a name="overview-of-azure-page-blobs"></a>Panoramica dei BLOB di pagine di Azure
 
@@ -24,6 +24,10 @@ Archiviazione di Azure offre tre tipi di archivio BLOB: BLOB in blocchi, BLOB di
 I BLOB di pagine sono una raccolta di pagine da 512 byte, che offrono la possibilità di leggere/scrivere intervalli arbitrari di byte. I BLOB di pagine sono quindi ideali per l'archiviazione di strutture di dati di tipo sparse e basati sull'indice, ad esempio i dischi del sistema operativo e di dati per le macchine virtuali e i database. Il database SQL di Azure, ad esempio, usa i BLOB di pagine come risorsa di archiviazione permanente sottostante per i database. I BLOB di pagine vengono spesso usati anche per i file con aggiornamenti basati su intervalli.  
 
 Le funzionalità principali dei BLOB di pagine di Azure sono l'interfaccia REST, la durabilità della risorsa di archiviazione sottostante e le funzionalità di migrazione senza problemi in Azure. Queste funzionalità sono illustrate in modo più dettagliato nella sezione successiva. I BLOB di pagine di Azure sono inoltre attualmente supportati in due tipi di risorsa di archiviazione: Archiviazione Premium e Archiviazione Standard. Archiviazione Premium è progettata specificamente per i carichi di lavoro che richiedono prestazioni elevate e bassa latenza coerenti, rendendo i BLOB di pagine Premium ideali per scenari di archiviazione ad alte prestazioni. Gli account di archiviazione standard sono più convenienti per l'esecuzione di carichi di lavoro non sensibili alla latenza.
+
+## <a name="restrictions"></a>Restrizioni
+
+I BLOB di pagine possono usare solo il livello **di accesso frequente** , non possono usare i livelli di accesso sporadico **o** **Archivio** . Per altre informazioni sui livelli di accesso, vedere [livelli di accesso per l'archiviazione BLOB di Azure: frequente,](storage-blob-storage-tiers.md)accesso sporadico e archivio.
 
 ## <a name="sample-use-cases"></a>Caso d'uso di esempio
 
@@ -59,7 +63,7 @@ Per prima cosa, ottenere un riferimento a un contenitore. Per creare un BLOB di 
 
 # <a name="net-v11"></a>[V11 .NET](#tab/dotnet11)
 
-Per creare un BLOB di pagine, viene prima creato un oggetto **CloudBlobClient**, con l'URI di base per l'accesso all'archivio BLOB per l'account di archiviazione (*pbaccount* nella figura 1) con l'oggetto **StorageCredentialsAccountAndKey**, come illustrato nell'esempio seguente. Nell'esempio viene quindi illustrata la creazione di un riferimento a un oggetto **CloudBlobContainer** e quindi la creazione del contenitore (*testvhds*) se non esiste già. Usando l'oggetto **CloudBlobContainer**, creare un riferimento a un oggetto **CloudPageBlob** specificando il nome del BLOB di pagine (os4.vhd) a cui accedere. Per creare il BLOB di pagine, chiamare [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), passando le dimensioni massime per il BLOB da creare. *BlobSize* deve essere un multiplo di 512 byte.
+Per creare un BLOB di pagine, viene prima creato un oggetto **CloudBlobClient** , con l'URI di base per l'accesso all'archivio BLOB per l'account di archiviazione ( *pbaccount* nella figura 1) con l'oggetto **StorageCredentialsAccountAndKey** , come illustrato nell'esempio seguente. Nell'esempio viene quindi illustrata la creazione di un riferimento a un oggetto **CloudBlobContainer** e quindi la creazione del contenitore ( *testvhds* ) se non esiste già. Usando l'oggetto **CloudBlobContainer** , creare un riferimento a un oggetto **CloudPageBlob** specificando il nome del BLOB di pagine (os4.vhd) a cui accedere. Per creare il BLOB di pagine, chiamare [CloudPageBlob. Create](/dotnet/api/microsoft.azure.storage.blob.cloudpageblob.create), passando le dimensioni massime per il BLOB da creare. *BlobSize* deve essere un multiplo di 512 byte.
 
 ```csharp
 using Microsoft.Azure;

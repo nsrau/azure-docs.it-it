@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09460e4e38ea1842d58ecf3a9b3cd00a072c271e
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89596040"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286899"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticazione e autorizzazione nel servizio app Azure e funzioni di Azure
 
@@ -33,7 +33,7 @@ Per consentire processi sicuri di autenticazione e autorizzazione, è necessario
 
 Per informazioni specifiche per le app per dispositivi mobili native, vedere [Autenticazione e autorizzazione per le app per dispositivi mobili in Servizio app di Azure](/previous-versions/azure/app-service-mobile/app-service-mobile-auth).
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 ### <a name="on-windows"></a>In Windows
 
@@ -140,12 +140,15 @@ Questa opzione offre maggiore flessibilità nella gestione delle richieste anoni
 
 ### <a name="allow-only-authenticated-requests"></a>Consentire solo le richieste autenticate
 
-L'opzione è **accesso con \<provider> **. Il servizio app reindirizza tutte le richieste anonime a `/.auth/login/<provider>` per il provider scelto. Se la richiesta anonima proviene da un'app per dispositivi mobili nativa, verrà restituita la risposta `HTTP 401 Unauthorized`.
+L'opzione è **accesso con \<provider>**. Il servizio app reindirizza tutte le richieste anonime a `/.auth/login/<provider>` per il provider scelto. Se la richiesta anonima proviene da un'app per dispositivi mobili nativa, verrà restituita la risposta `HTTP 401 Unauthorized`.
 
 Con questa opzione non è necessario scrivere codice di autenticazione nell'app. È possibile gestire un livello di autorizzazione più specifico, ad esempio l'autorizzazione specifica dei ruoli, esaminando le attestazioni utente (vedere [Accedere alle attestazioni utente](app-service-authentication-how-to.md#access-user-claims)).
 
 > [!CAUTION]
 > La limitazione dell'accesso in questo modo si applica a tutte le chiamate all'app, che potrebbero non essere desiderate per le app che vogliono un home page disponibile pubblicamente, come in molte applicazioni a singola pagina.
+
+> [!NOTE]
+> Per impostazione predefinita, qualsiasi utente nel tenant di Azure AD può richiedere un token per l'applicazione da Azure AD. È possibile [configurare l'applicazione in Azure ad](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md) se si vuole limitare l'accesso all'app a un set di utenti definito.
 
 ## <a name="more-resources"></a>Altre risorse
 

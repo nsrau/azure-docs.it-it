@@ -7,32 +7,33 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 09/23/2020
+ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 1db3b224d23664c83f21e77dcb445b0fb043a4c3
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 607060851a8afa48b9570dfcb17732279a3629ee
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737860"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286662"
 ---
 # <a name="use-stored-procedures-in-synapse-sql"></a>Usare stored procedure in sinapsi SQL
 
-Suggerimenti per l'implementazione di stored procedure nel pool SQL sinapsi per lo sviluppo di soluzioni.
+Il provisioning e i pool senza server di sinapsi SQL consentono di inserire logica di elaborazione dati complessa in stored procedure SQL. Le stored procedure sono un ottimo modo per incapsulare il codice SQL e archiviarlo vicino ai dati nell'data warehouse. Le stored procedure consentono agli sviluppatori di modularizzare le proprie soluzioni incapsulando il codice in unità gestibili e facilitando una maggiore riusabilità del codice. Ogni stored procedure può anche accettare parametri per essere ancora più flessibile.
+In questo articolo sono disponibili alcuni suggerimenti per l'implementazione di stored procedure nel pool SQL sinapsi per lo sviluppo di soluzioni.
 
 ## <a name="what-to-expect"></a>Risultati previsti
 
-Sinapsi SQL supporta molte delle funzionalità T-SQL usate in SQL Server. Ancora più importanti sono le funzionalità di scale-out specifiche, che si possono usare per migliorare le prestazioni della soluzione.
+Sinapsi SQL supporta molte delle funzionalità T-SQL usate in SQL Server. Ancora più importanti sono le funzionalità di scale-out specifiche, che si possono usare per migliorare le prestazioni della soluzione. In questo articolo vengono illustrate le funzionalità che è possibile inserire nelle stored procedure.
 
 > [!NOTE]
-> Nel corpo della procedura è possibile usare solo le funzionalità supportate nella superficie di attacco di SQL sinapsi. Esaminare [questo articolo](overview-features.md) per identificare gli oggetti, ovvero l'istruzione che può essere utilizzata nelle stored procedure. Negli esempi riportati in questi articoli vengono usate funzionalità generiche disponibili sia nella superficie di attacco senza server che in quella con provisioning.
+> Nel corpo della procedura è possibile usare solo le funzionalità supportate nella superficie di attacco di SQL sinapsi. Esaminare [questo articolo](overview-features.md) per identificare gli oggetti, ovvero l'istruzione che può essere utilizzata nelle stored procedure. Negli esempi riportati in questi articoli vengono usate funzionalità generiche disponibili sia nella superficie di attacco senza server che in quella con provisioning. Vedere [limitazioni aggiuntive nei pool SQL sinapsi con provisioning e senza server](#limitations) alla fine di questo articolo.
 
 Per mantenere la scalabilità e le prestazioni del pool SQL, esistono anche alcune caratteristiche e funzionalità con differenze comportamentali e altre che non sono supportate.
 
 ## <a name="stored-procedures-in-synapse-sql"></a>Stored procedure in sinapsi SQL
 
-Le stored procedure sono un ottimo modo per incapsulare il codice SQL e archiviarlo vicino ai dati nell'data warehouse. Le stored procedure consentono agli sviluppatori di modularizzare le proprie soluzioni incapsulando il codice in unità gestibili, facilitando una maggiore riusabilità del codice. Ogni stored procedure può anche accettare parametri per essere ancora più flessibile. Nell'esempio seguente, è possibile visualizzare le procedure che eliminano gli oggetti esterni se sono presenti nel database:
+Nell'esempio seguente, è possibile visualizzare le procedure che eliminano gli oggetti esterni se sono presenti nel database:
 
 ```sql
 CREATE PROCEDURE drop_external_table_if_exists @name SYSNAME
@@ -184,23 +185,26 @@ EXEC clean_up 'mytest'  -- This call is nest level 1
 
 ## <a name="insertexecute"></a>INSERT..EXECUTE
 
-Sinapsi SQL non consente di utilizzare il set di risultati di un stored procedure con un'istruzione INSERT. È possibile usare un approccio alternativo. Per un esempio, vedere l'articolo sulle [tabelle temporanee](develop-tables-temporary.md) per il pool di SQL sinapsi con provisioning.
+Il pool SQL della sinapsi di cui è stato effettuato il provisioning non consente di utilizzare il set di risultati di un stored procedure con un'istruzione INSERT. È possibile usare un approccio alternativo. Per un esempio, vedere l'articolo sulle [tabelle temporanee](develop-tables-temporary.md) per il pool di SQL sinapsi con provisioning.
 
 ## <a name="limitations"></a>Limitazioni
 
 Esistono alcuni aspetti delle stored procedure Transact-SQL che non sono implementate in sinapsi SQL, ad esempio:
 
-* Stored procedure temporanee
-* Stored procedure numerate
-* Stored procedure estese
-* Stored procedure CLR
-* Opzione di crittografia
-* Opzione di replica
-* Parametri con valori di tabella
-* Parametri di sola lettura
-* parametri predefiniti (nel pool di cui è stato effettuato il provisioning)
-* Contesti di esecuzione
-* Istruzione return
+| Funzionalità/opzione | Sottoposto a provisioning | Senza server |
+| --- | --- |
+| Stored procedure temporanee | No | Sì |
+| Stored procedure numerate | No | No |
+| Stored procedure estese | No | No |
+| Stored procedure CLR | No | No |
+| Opzione di crittografia | No | Sì |
+| Opzione di replica | No | No |
+| Parametri con valori di tabella | No | No |
+| Parametri di sola lettura | No | No |
+| Parametri predefiniti | No | Sì |
+| Contesti di esecuzione | No | No |
+| Return (istruzione) | No | Sì |
+| INSERISCI IN. EXEC | No | Sì |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

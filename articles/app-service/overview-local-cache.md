@@ -6,12 +6,12 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: b3c8f6015b4627d86a0665865fba2f3fdd39589d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b9e43cb9188df8274d5bafa7fd9bc90c24339237
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88080712"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286833"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Panoramica della cache locale del servizio app di Azure
 
@@ -45,10 +45,14 @@ La funzionalità cache locale del servizio app di Azure offre una visualizzazion
 * La distribuzione di app con un qualsiasi metodo supportato implica la pubblicazione direttamente nell'archivio durevole del contenuto condiviso. Per aggiornare le cartelle _D:\home\site_ e _D:\home\siteextensions_ nella cache locale, è necessario riavviare l'app. vedere le informazioni più avanti in questo articolo per rendere il ciclo di vita più lineare.
 * La visualizzazione del contenuto predefinita del sito SCM continua a essere quella dell'archivio del contenuto condiviso.
 
-## <a name="enable-local-cache-in-app-service"></a>Abilitare la cache locale nel servizio app
+## <a name="enable-local-cache-in-app-service"></a>Abilitare la cache locale nel servizio app 
+
+> [!NOTE]
+> La cache locale non è supportata nel livello **F1** o **D1** . 
+
 La cache locale viene configurata mediante una combinazione di impostazioni delle app riservate. Queste impostazioni delle app possono essere configurate usando i metodi seguenti:
 
-* [Portale di Azure](#Configure-Local-Cache-Portal)
+* [Azure portal](#Configure-Local-Cache-Portal)
 * [Azure Resource Manager](#Configure-Local-Cache-ARM)
 
 ### <a name="configure-local-cache-by-using-the-azure-portal"></a>Configurare la cache locale tramite il portale di Azure

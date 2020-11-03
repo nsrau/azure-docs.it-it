@@ -13,12 +13,12 @@ ms.date: 04/15/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: sureshja
-ms.openlocfilehash: 6971e62b20dc1155b875f69eb1d4da9d7b6e6887
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1f4e1def81fc79ec159ce6be825793a9bd8d0ce7
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627007"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286959"
 ---
 # <a name="azure-active-directory-app-manifest"></a>Manifesto dell'app Azure Active Directory
 
@@ -36,7 +36,7 @@ Per configurare il manifesto dell'applicazione:
 1. Accedere al [portale di Azure](https://portal.azure.com). Cercare e selezionare il servizio **Azure Active Directory**.
 1. Selezionare **Registrazioni per l'app**.
 1. Selezionare l'applicazione da configurare.
-1. Nella pagina **Panoramica** dell'app selezionare la sezione **Manifesto**. Si apre un editor di manifesto basato sul Web che consente di modificare il manifesto all'interno del portale. Facoltativamente è possibile selezionare **Scarica**, modificare il manifesto in locale e quindi usare **Carica** per riapplicarlo all'applicazione.
+1. Nella pagina **Panoramica** dell'app selezionare la sezione **Manifesto**. Si apre un editor di manifesto basato sul Web che consente di modificare il manifesto all'interno del portale. Facoltativamente è possibile selezionare **Scarica** , modificare il manifesto in locale e quindi usare **Carica** per riapplicarlo all'applicazione.
 
 ## <a name="manifest-reference"></a>Riferimento del manifesto
 
@@ -194,6 +194,7 @@ Configura l'attestazione `groups` rilasciata in un token di accesso utente oppur
 
 - `"None"`
 - `"SecurityGroup"` (per gruppi di sicurezza e ruoli di Azure AD)
+- `"ApplicationGroup"` Questa opzione include solo i gruppi assegnati all'applicazione.
 - `"All"` (verranno restituiti tutti i gruppi di sicurezza, i gruppi di distribuzione e i ruoli della directory di Azure AD a cui appartiene l'utente connesso).
 
 Esempio:

@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 26f0c18fee8fe56a9bc0fa163ef59dfe0977cad5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fac22305e64e2f6bc2ec61bc65f7e92f1b1af1bf
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91825331"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287528"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -417,7 +417,7 @@ Per l'accesso di un utente di dominio a un dominio o a un computer aggiunto ad A
 
 ### <a name="constraints"></a>Vincoli
 
-- L'autenticazione integrata di Windows è utilizzabile solo per gli utenti *federati*, ovvero gli utenti creati in Active Directory e supportati da Azure AD. Gli utenti creati direttamente in Azure AD senza supporto per Active Directory, noti anche come utenti *gestiti* non possono usare questo flusso di autenticazione. Questa limitazione non influisce sul flusso di nome utente e password.
+- L'autenticazione integrata di Windows è utilizzabile solo per gli utenti *federati* , ovvero gli utenti creati in Active Directory e supportati da Azure AD. Gli utenti creati direttamente in Azure AD senza supporto per Active Directory, noti anche come utenti *gestiti* non possono usare questo flusso di autenticazione. Questa limitazione non influisce sul flusso di nome utente e password.
 - L'autenticazione integrata di Windows è destinata alle app scritte per .NET Framework, .NET Core e piattaforme UWP (Universal Windows Platform).
 - L'autenticazione integrata di Windows non ignora l'[autenticazione a più fattori (MFA)](../authentication/concept-mfa-howitworks.md). Se è configurata l'autenticazione a più fattori, l'autenticazione integrata di Windows potrebbe avere esito negativo se è necessaria una richiesta di verifica di autenticazione a più fattori, in quanto richiede l'interazione dell'utente.
   > [!NOTE]
@@ -954,7 +954,7 @@ Il codice di esempio seguente presenta il caso più recente, con spiegazioni sul
 ```csharp
 private const string ClientId = "<client_guid>";
 private const string Authority = "https://login.microsoftonline.com/contoso.com";
-private readonly string[] Scopes = new string[] { "user.read" };
+private readonly string[] scopes = new string[] { "user.read" };
 
 static async Task<AuthenticationResult> GetATokenForGraph()
 {
@@ -969,7 +969,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
     // All AcquireToken* methods store the tokens in the cache, so check the cache first
     try
     {
-        return await pca.AcquireTokenSilent(Scopes, accounts.FirstOrDefault())
+        return await pca.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
             .ExecuteAsync();
     }
     catch (MsalUiRequiredException ex)

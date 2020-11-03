@@ -4,12 +4,12 @@ description: Informazioni su come individuare e risolvere i problemi comuni quan
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: dcbfed4fc83b980b3e54a808406b8d27e1e6c919
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: d15e381baf3abdb77f63b17cbd1d33b24f5d3321
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92074414"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286766"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -157,7 +157,7 @@ Le restrizioni di denominazione sono implementate sia dalla piattaforma Azure ch
 * Il nodo del servizio Azure Kubernetes o il nome del gruppo di risorse *MC_* combina il nome del gruppo di risorse e il nome della risorsa. La sintassi generata automaticamente di `MC_resourceGroupName_resourceName_AzureRegion` non deve superare gli 80 caratteri. Se necessario, ridurre la lunghezza del nome del gruppo di risorse o del cluster del servizio Azure Kubernetes. È anche possibile [personalizzare il nome del gruppo di risorse del nodo](cluster-configuration.md#custom-resource-group-name).
 * Il prefisso *dnsPrefix* deve iniziare e terminare con valori alfanumerici e deve avere una lunghezza compresa tra 1 e 54 caratteri. I caratteri validi includono valori alfanumerici e trattini (-). Il prefisso *dnsPrefix* non può includere caratteri speciali, ad esempio un punto (.).
 * I nomi dei pool di nodi del servizio Azure Kubernetes devono contenere tutti caratteri minuscoli e devono avere una lunghezza compresa tra 1 e 11 caratteri per i pool di nodi Linux e tra 1 e 6 caratteri per i pool di nodi Windows. Il nome deve iniziare con una lettera e gli unici caratteri consentiti sono lettere e numeri.
-* Il *nome utente*amministratore, che imposta il nome utente dell'amministratore per i nodi Linux, deve iniziare con una lettera, può contenere solo lettere, numeri, trattini e caratteri di sottolineatura e deve avere una lunghezza massima di 64 caratteri.
+* Il *nome utente* amministratore, che imposta il nome utente dell'amministratore per i nodi Linux, deve iniziare con una lettera, può contenere solo lettere, numeri, trattini e caratteri di sottolineatura e deve avere una lunghezza massima di 64 caratteri.
 
 ## <a name="im-receiving-errors-when-trying-to-create-update-scale-delete-or-upgrade-cluster-that-operation-is-not-allowed-as-another-operation-is-in-progress"></a>Errori durante il tentativo di creare, aggiornare, ridimensionare o eliminare il cluster. Operazione non consentita quando è in corso un'altra operazione
 
@@ -167,7 +167,7 @@ Le operazioni del cluster sono limitate quando è ancora in corso un'operazione 
 
 In base all'output dello stato del cluster:
 
-* Se il cluster si trova in uno stato di provisioning diverso da *Riuscito* o *Non riuscito*, attendere il completamento dell'operazione (*aggiornamento/creazione/ridimensionamento/eliminazione/migrazione*). Al termine dell'operazione precedente, ripetere l'ultima operazione del cluster.
+* Se il cluster si trova in uno stato di provisioning diverso da *Riuscito* o *Non riuscito* , attendere il completamento dell'operazione ( *aggiornamento/creazione/ridimensionamento/eliminazione/migrazione* ). Al termine dell'operazione precedente, ripetere l'ultima operazione del cluster.
 
 * Se l'aggiornamento del cluster ha esito negativo, seguire i passaggi descritti in [Errori relativi al fatto che il cluster è in stato di errore e che l'aggiornamento o il ridimensionamento non funzioneranno finché il problema non verrà risolto](#im-receiving-errors-that-my-cluster-is-in-failed-state-and-upgrading-or-scaling-will-not-work-until-it-is-fixed).
 
@@ -198,7 +198,7 @@ Quando si limita il traffico in uscita da un cluster del servizio Azure Kubernet
 
 Verificare che le impostazioni non siano in conflitto con le regole per le porte in uscita, le regole di rete, le regole di FQDN e dell'applicazione necessarie o facoltative consigliate.
 
-## <a name="im-receiving-429---too-many-requests-errors"></a>Si ricevono errori di "429-troppe richieste" 
+## <a name="im-receiving-429---too-many-requests-errors"></a>Si ricevono errori di "429-troppe richieste"
 
 Quando un cluster kubernetes in Azure (AKS o no) esegue una scalabilità verticale o orizzontale frequente o usa il servizio di scalabilità automatica (CA) del cluster, tali operazioni possono comportare un numero elevato di chiamate HTTP che a loro volta superano la quota di sottoscrizione assegnata, causando un errore. Gli errori appariranno come
 
@@ -213,6 +213,12 @@ Il recommanding del team di progettazione di AKS è quello di verificare che sia
 Dato che questi errori di limitazione sono misurati a livello di sottoscrizione, possono comunque verificarsi se:
 - Sono disponibili applicazioni di terze parti che eseguono richieste GET, ad esempio monitoraggio delle applicazioni e così via...). È consigliabile ridurre la frequenza di queste chiamate.
 - Sono presenti numerosi cluster AKS/nodepools in VMSS. Il solito consiglio consiste nel disporre di un numero di cluster inferiore a 20-30 in una determinata sottoscrizione.
+
+## <a name="my-clusters-provisioning-status-changed-from-ready-to-failed-with-or-without-me-performing-an-operation-what-should-i-do"></a>Lo stato di provisioning del cluster è stato modificato da pronto a non riuscito con o senza l'esecuzione di un'operazione. Cosa devo fare?
+
+Se lo stato del provisioning del cluster passa da *pronto* a *non riuscito* con o senza eseguire alcuna operazione, ma le applicazioni nel cluster continuano a essere eseguite, questo problema può essere risolto automaticamente dal servizio e le applicazioni non devono essere interessate.
+
+Se lo stato del provisioning del cluster rimane *errato* o se le applicazioni nel cluster non funzionano, [inviare una richiesta di supporto](https://azure.microsoft.com/support/options/#submit).
 
 
 ## <a name="azure-storage-and-aks-troubleshooting"></a>Risoluzione dei problemi del servizio Azure Kubernetes e di Archiviazione di Azure
@@ -359,7 +365,7 @@ Impostazioni consigliate:
 | 1.12.0 - 1.12.1 | 0755 |
 | 1.12.2 e successive | 0777 |
 
-È possibile specificare le opzioni di montaggio nell'oggetto della classe di archiviazione. L'esempio seguente imposta *0777*:
+È possibile specificare le opzioni di montaggio nell'oggetto della classe di archiviazione. L'esempio seguente imposta *0777* :
 
 ```yaml
 kind: StorageClass
@@ -379,10 +385,10 @@ parameters:
   skuName: Standard_LRS
 ```
 
-Di seguito sono riportate altre impostazioni utili di *mountOptions*:
+Di seguito sono riportate altre impostazioni utili di *mountOptions* :
 
 * *mfsymlinks* consente che il montaggio di File di Azure (cifs) supporti i collegamenti simbolici
-* *nobrl* impedisce l'invio di richieste di blocco di intervalli di byte al server. Questa impostazione è necessaria per alcune applicazioni che si interrompono con blocchi di intervallo di byte obbligatori in stile cifs. La maggior parte dei server cifs non supporta ancora la richiesta di blocchi di intervallo di byte di avviso. Se non si usa *nobrl*, le applicazioni che si interrompono con blocchi di intervallo di byte obbligatori in stile cifs possono causare messaggi di errore simili al seguente:
+* *nobrl* impedisce l'invio di richieste di blocco di intervalli di byte al server. Questa impostazione è necessaria per alcune applicazioni che si interrompono con blocchi di intervallo di byte obbligatori in stile cifs. La maggior parte dei server cifs non supporta ancora la richiesta di blocchi di intervallo di byte di avviso. Se non si usa *nobrl* , le applicazioni che si interrompono con blocchi di intervallo di byte obbligatori in stile cifs possono causare messaggi di errore simili al seguente:
     ```console
     Error: SQLITE_BUSY: database is locked
     ```
@@ -470,11 +476,8 @@ Questo errore è dovuto a una race condition di scalabilità automatica del clus
 
 ### <a name="slow-disk-attachment-getazuredisklun-takes-10-to-15-minutes-and-you-receive-an-error"></a>Collegamento lento del disco, GetAzureDiskLun richiede da 10 a 15 minuti e viene visualizzato un errore
 
-Nelle versioni di Kubernetes **precedenti a 1.15.0**, è possibile che venga visualizzato un errore simile a **Errore WaitForAttach non riesce a trovare il numero di unità logica per il disco**.  La soluzione alternativa per questo problema consiste nell'attendere circa 15 minuti e riprovare.
+Nelle versioni di Kubernetes **precedenti a 1.15.0** , è possibile che venga visualizzato un errore simile a **Errore WaitForAttach non riesce a trovare il numero di unità logica per il disco**.  La soluzione alternativa per questo problema consiste nell'attendere circa 15 minuti e riprovare.
 
-<!-- LINKS - internal -->
-[view-master-logs]: view-master-logs.md
-[cluster-autoscaler]: cluster-autoscaler.md
 
 ### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Perché gli aggiornamenti a Kubernetes 1,16 hanno esito negativo quando si usano etichette di nodo con un prefisso kubernetes.io
 
@@ -487,3 +490,9 @@ Di conseguenza, per mitigare questo problema, è possibile:
 3. Elimina il nodepool precedente
 
 AKS sta esaminando la funzionalità per mutare le etichette attive in una nodepool per migliorare questa attenuazione.
+
+
+
+<!-- LINKS - internal -->
+[view-master-logs]: view-master-logs.md
+[cluster-autoscaler]: cluster-autoscaler.md

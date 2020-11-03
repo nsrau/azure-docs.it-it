@@ -3,14 +3,14 @@ title: Elaborazione di eventi affidabili di funzioni di Azure
 description: Evitare i messaggi dell'hub eventi mancanti in funzioni di Azure
 author: craigshoemaker
 ms.topic: conceptual
-ms.date: 09/12/2019
+ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: 93a12d40e876293eb587ffba865a1d3b1f5f4983
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aaafe6d4080d85822ec5af9639c27fc8c55c2ce6
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86506027"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287226"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Elaborazione di eventi affidabili di funzioni di Azure
 
@@ -50,7 +50,7 @@ Funzioni di Azure usa eventi dell'hub eventi durante il ciclo nei passaggi segue
 
 Questo comportamento rivela alcuni aspetti importanti:
 
-- *Le eccezioni non gestite possono causare la perdita di messaggi.* Le esecuzioni che generano un'eccezione continueranno a avanzare il puntatore.
+- *Le eccezioni non gestite possono causare la perdita di messaggi.* Le esecuzioni che generano un'eccezione continueranno a avanzare il puntatore.  L'impostazione di un [criterio di ripetizione](./functions-bindings-error-pages.md#retry-policies) ritarda l'avanzamento del puntatore fino a quando non viene valutato l'intero criterio di ripetizione dei tentativi.
 - *Funzioni garantisce il recapito at-least-once.* Il codice e i sistemi dipendenti potrebbero dover [tenere conto del fatto che lo stesso messaggio potrebbe essere ricevuto due volte](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Gestione delle eccezioni
@@ -59,9 +59,9 @@ Come regola generale, ogni funzione deve includere un [blocco try/catch](./funct
 
 ### <a name="retry-mechanisms-and-policies"></a>Meccanismi di ripetizione dei tentativi e criteri
 
-Alcune eccezioni sono di natura temporanea e non vengono visualizzate nuovamente quando un'operazione viene ritentata in un secondo momento. Questo è il motivo per cui il primo passaggio consiste sempre nell'eseguire di nuovo l'operazione. È possibile scrivere le regole di elaborazione dei tentativi manualmente, ma sono così comuni che sono disponibili diversi strumenti. L'uso di queste librerie consente di definire criteri affidabili per i tentativi, che consentono anche di mantenere l'ordine di elaborazione.
+Alcune eccezioni sono di natura temporanea e non vengono visualizzate nuovamente quando un'operazione viene ritentata in un secondo momento. Questo è il motivo per cui il primo passaggio consiste sempre nell'eseguire di nuovo l'operazione.  È possibile utilizzare i criteri per i [tentativi](./functions-bindings-error-pages.md#retry-policies) dell'app per le funzioni o la logica di ripetizione dei tentativi nell'esecuzione della funzione.
 
-L'introduzione delle librerie di gestione degli errori alle funzioni consente di definire criteri di ripetizione dei tentativi di base e avanzati. Ad esempio, è possibile implementare un criterio che segue un flusso di lavoro illustrato dalle regole seguenti:
+L'introduzione dei comportamenti di gestione degli errori alle funzioni consente di definire criteri di ripetizione dei tentativi di base e avanzati. Ad esempio, è possibile implementare un criterio che segue un flusso di lavoro illustrato dalle regole seguenti:
 
 - Provare a inserire un messaggio tre volte (potenzialmente con un ritardo tra i tentativi).
 - Se il risultato finale di tutti i tentativi è un errore, aggiungere un messaggio a una coda in modo che l'elaborazione possa continuare nel flusso.
@@ -69,10 +69,6 @@ L'introduzione delle librerie di gestione degli errori alle funzioni consente di
 
 > [!NOTE]
 > [Polly](https://github.com/App-vNext/Polly) è un esempio di una libreria di gestione degli errori temporanei e di resilienza per le applicazioni C#.
-
-Quando si utilizzano librerie di classi C# precompilate, i [filtri eccezioni](/dotnet/csharp/language-reference/keywords/try-catch) consentono di eseguire codice ogni volta che si verifica un'eccezione non gestita.
-
-Gli esempi che illustrano come usare i filtri eccezioni sono disponibili nel repository di [Azure Webjobs SDK](https://github.com/Azure/azure-webjobs-sdk/wiki) .
 
 ## <a name="non-exception-errors"></a>Errori non eccezioni
 

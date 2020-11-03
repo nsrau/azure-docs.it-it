@@ -7,14 +7,14 @@ author: NatiNimni
 ms.author: natinimn
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/26/2020
+ms.date: 11/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: fdc0ae3fef2fb70b7372ab4fb28497ea6a6400a4
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: dfea03270dfea3699f7c3508b9f5275a2dd26372
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635463"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93287153"
 ---
 # <a name="configure-customer-managed-keys-for-data-encryption-in-azure-cognitive-search"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati in Azure ricerca cognitiva
 
@@ -43,13 +43,11 @@ Se si usa un'area diversa o un servizio creato prima del 1 ° agosto, la crittog
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-In questo esempio vengono usati gli strumenti e i servizi seguenti. 
+In questo scenario vengono usati gli strumenti e i servizi seguenti.
 
-+ [Creare un servizio ricerca cognitiva](search-create-service-portal.md) o [trovarne uno esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 
-
-+ [Creare una risorsa Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) o trovarne una esistente. Sia Key Vault che ricerca cognitiva devono trovarsi nella stessa sottoscrizione. Per l'insieme di credenziali delle chiavi deve essere abilitata la protezione **eliminazione** temporanea e **ripulitura** .
-
-+ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) per registrare un'applicazione e creare una stringa segreta usata dall'applicazione per l'autenticazione. Se non si dispone di un [nuovo tenant, configurare un nuovo tenant](../active-directory/develop/quickstart-create-new-tenant.md).
++ [Azure ricerca cognitiva](search-create-service-portal.md) su un [livello fatturabile](search-sku-tier.md#tiers) (Basic o superiore, in qualsiasi area).
++ [Azure Key Vault](../key-vault/secrets/quick-create-portal.md#create-a-vault) nella stessa sottoscrizione di Azure ricerca cognitiva. Per l'insieme di credenziali delle chiavi deve essere abilitata la protezione **eliminazione** temporanea e **ripulitura** .
++ [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md). Se non si dispone di un [nuovo tenant, configurare un nuovo tenant](../active-directory/develop/quickstart-create-new-tenant.md).
 
 È necessario disporre di un'applicazione di ricerca in grado di creare l'oggetto crittografato. In questo codice si farà riferimento a una chiave dell'insieme di credenziali delle chiavi e Active Directory informazioni di registrazione. Questo codice può essere un'app funzionante o un codice del prototipo, ad esempio il codice [C# DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK).
 
@@ -66,7 +64,7 @@ A causa della natura della crittografia con chiavi gestite dal cliente, nessuno 
 
 1. [Accedere a portale di Azure](https://portal.azure.com) e aprire la pagina Panoramica di Key Vault.
 
-1. Nella pagina **Overview** in **Essentials** abilitare l' **eliminazione** temporanea e l' **eliminazione della protezione** .
+1. Nella pagina **Overview** in **Essentials** abilitare l' **eliminazione** temporanea e l' **eliminazione della protezione**.
 
 ### <a name="using-powershell"></a>Uso di PowerShell
 
@@ -110,7 +108,7 @@ Ignorare questo passaggio se si dispone già di una chiave in Azure Key Vault.
 
 1. [Accedere a portale di Azure](https://portal.azure.com) e aprire la pagina Panoramica di Key Vault.
 
-1. Selezionare **chiavi** a sinistra e quindi selezionare **+ genera/importa** .
+1. Selezionare **chiavi** a sinistra e quindi selezionare **+ genera/importa**.
 
 1. Nell'elenco di **Opzioni** del riquadro **Crea chiave** scegliere il metodo che si desidera utilizzare per creare una chiave. È possibile **generare** una nuova chiave, **caricare** una chiave esistente o usare **Restore backup** per selezionare un backup di una chiave.
 
@@ -118,7 +116,7 @@ Ignorare questo passaggio se si dispone già di una chiave in Azure Key Vault.
 
 1. Selezionare **Crea** per avviare la distribuzione.
 
-1. Prendere nota dell'identificatore di chiave, composto dall'URI del valore della **chiave** , dal nome della **chiave** e dalla versione della **chiave** . È necessario l'identificatore per definire un indice crittografato in ricerca cognitiva di Azure.
+1. Prendere nota dell'identificatore di chiave, composto dall'URI del valore della **chiave** , dal nome della **chiave** e dalla versione della **chiave**. È necessario l'identificatore per definire un indice crittografato in ricerca cognitiva di Azure.
 
    :::image type="content" source="media/search-manage-encryption-keys/cmk-key-identifier.png" alt-text="Creare una nuova chiave di Key Vault":::
 
@@ -126,23 +124,23 @@ Ignorare questo passaggio se si dispone già di una chiave in Azure Key Vault.
 
 1. In [portale di Azure](https://portal.azure.com)trovare la risorsa Azure Active Directory per la sottoscrizione.
 
-1. A sinistra, in **Gestisci** selezionare **registrazioni app** , quindi selezionare **nuova registrazione** .
+1. A sinistra, in **Gestisci** selezionare **registrazioni app** , quindi selezionare **nuova registrazione**.
 
-1. Assegnare un nome alla registrazione, ad esempio un nome simile al nome dell'applicazione di ricerca. Selezionare **Registra** .
+1. Assegnare un nome alla registrazione, ad esempio un nome simile al nome dell'applicazione di ricerca. Selezionare **Registra**.
 
 1. Dopo la creazione della registrazione dell'app, copiare l'ID applicazione. Sarà necessario specificare questa stringa per l'applicazione. 
 
    Se si esegue l'istruzione/routine di [DotNetHowToEncryptionUsingCMK](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToEncryptionUsingCMK), incollare questo valore nel **appsettings.jssu** file.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="Creare una nuova chiave di Key Vault":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-id.png" alt-text="ID applicazione nella sezione Essentials":::
 
 1. Selezionare quindi **certificati & segreti** a sinistra.
 
-1. Selezionare **Nuovo segreto client** . Assegnare al segreto un nome visualizzato e selezionare **Aggiungi** .
+1. Selezionare **Nuovo segreto client**. Assegnare al segreto un nome visualizzato e selezionare **Aggiungi**.
 
 1. Copiare il segreto dell'applicazione. Se si esegue l'istruzione nell'esempio, incollare questo valore nella **appsettings.jssu** file.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="Creare una nuova chiave di Key Vault":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-application-secret.png" alt-text="Segreto dell'applicazione":::
 
 ## <a name="4---grant-key-access-permissions"></a>4-concedere le autorizzazioni di accesso alla chiave
 
@@ -152,21 +150,21 @@ In questo passaggio verrà creato un criterio di accesso in Key Vault. Questo cr
 
 1. Sempre nella portale di Azure aprire la pagina **Panoramica** di Key Vault. 
 
-1. Selezionare i **criteri di accesso** a sinistra e selezionare **+ Aggiungi criteri di accesso** .
+1. Selezionare i **criteri di accesso** a sinistra e selezionare **+ Aggiungi criteri di accesso**.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="Creare una nuova chiave di Key Vault":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-add-access-policy.png" alt-text="Aggiungere nuovi criteri di accesso di Key Vault":::
 
 1. Scegliere **Seleziona entità** e selezionare l'applicazione registrata con Active Directory. È possibile cercarlo in base al nome.
 
-   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="Creare una nuova chiave di Key Vault":::
+   :::image type="content" source="media/search-manage-encryption-keys/cmk-access-policy-permissions.png" alt-text="Selezionare l'entità criteri di accesso dell'insieme di credenziali delle chiavi":::
 
-1. In **autorizzazioni chiave** scegliere *Get* , *Unwrap Key* e *Wrap Key* .
+1. In **autorizzazioni chiave** scegliere *Get* , *Unwrap Key* e *Wrap Key*.
 
-1. In **autorizzazioni segrete** selezionare *Get* .
+1. In **autorizzazioni segrete** selezionare *Get*.
 
-1. In **autorizzazioni certificato** selezionare *Get* .
+1. In **autorizzazioni certificato** selezionare *Get*.
 
-1. Selezionare **Aggiungi** e quindi **Salva** .
+1. Selezionare **Aggiungi** e quindi **Salva**.
 
 > [!Important]
 > Il contenuto crittografato in ricerca cognitiva di Azure è configurato per l'uso di una chiave di Azure Key Vault specifica con una **versione** specifica. Se si modifica la chiave o la versione, è necessario aggiornare la mappa degli indici o dei sinonimi per usare il nuovo key\version **prima** di eliminare il key\version. precedente In caso contrario, il rendering dell'indice o della mappa dei sinonimi sarà inutilizzabile e non sarà possibile decrittografare il contenuto quando l'accesso alla chiave viene perso.

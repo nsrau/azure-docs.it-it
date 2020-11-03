@@ -11,30 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42b1c0ef42454b085c5d4dbcdc14162b2c829c6a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ec45ce7634b7bc0a8f38f354112cdc2e172f1e17
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074815"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288372"
 ---
 # <a name="frequently-asked-questions-identity-protection-in-azure-active-directory"></a>Domande frequenti sulla protezione delle identità in Azure Active Directory
 
 ## <a name="dismiss-user-risk-known-issues"></a>Ignora problemi noti relativi al rischio utente
 
-**Ignorare i rischi** per gli utenti in classica Identity Protection imposta l'attore nella cronologia dei rischi dell'utente in Identity protection per **Azure ad** .
+**Ignorare i rischi** per gli utenti in classica Identity Protection imposta l'attore nella cronologia dei rischi dell'utente in Identity protection per **Azure ad**.
 
 **Ignorare i rischi** per gli utenti in Identity Protection imposta l'attore nella cronologia dei rischi dell'utente in Identity Protection su **\<Admin’s name with a hyperlink pointing to user’s blade\>** .
 
 Si è verificato un problema noto corrente che causa la latenza nel flusso di rischio dell'utente. Se si hanno "criteri di rischio utente", questi criteri smetteranno di venire applicati agli utenti rimossi entro alcuni minuti da quando si fa clic su "Ignora rischio utente". Tuttavia, ci sono ritardi noti nell'esperienza utente di aggiornamento dello "stato del rischio" degli utenti rimossi. Come soluzione alternativa, aggiornare la pagina a livello di browser per visualizzare lo "stato del rischio" più recente per l'utente.
-
-## <a name="risky-users-report-known-issues"></a>Segnalazione di problemi noti da parte degli utenti rischiosi
-
-Le query sul campo del **nome utente** fanno distinzione tra maiuscole e minuscole, mentre le query sul campo del **Nome** non fanno distinzione tra maiuscole e minuscole.
-
-Attivando **Visualizza date come** viene nascosta la colonna **ULTIMO AGGIORNAMENTO RISCHIO** . Per aggiungere nuovamente la colonna fare clic su **Colonne** nella parte superiore del pannello Utenti a rischio.
-
-**Ignora tutti gli eventi** in classica Identity Protection imposta lo stato dei rilevamenti dei rischi su **chiuso (risolto)** .
 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
@@ -79,16 +71,16 @@ Tutti i rilevamenti dei rischi sono documentati nell'articolo relativo al [risch
 
 **Conferma compromesso** (in fase di accesso) - indica ad Azure Active Directory Identity Protection che l'accesso non è stato eseguito dal proprietario dell'identità e indica un compromesso.
 
-- Dopo aver ricevuto il feedback, lo stato di rischio di accesso e di rischio utente verrà modificato in **Confermato compromesso** e il livello di rischio in **Elevato** .
+- Dopo aver ricevuto il feedback, lo stato di rischio di accesso e di rischio utente verrà modificato in **Confermato compromesso** e il livello di rischio in **Elevato**.
 
 - Inoltre, offriamo le informazioni ai sistemi di Machine Learning per futuri miglioramenti nella valutazione dei rischi.
 
     > [!NOTE]
-    > Se l'utente è già stato salvaguardato, non fare clic su **Conferma compromesso** poiché modificherà lo stato di rischio di accesso e di rischio utente in **Confermato compromesso** , e il livello di rischio in **Elevato** .
+    > Se l'utente è già stato salvaguardato, non fare clic su **Conferma compromesso** poiché modificherà lo stato di rischio di accesso e di rischio utente in **Confermato compromesso** , e il livello di rischio in **Elevato**.
 
 **Conferma sicuro** (in fase di accesso) - indica ad Azure Active Directory Identity Protection che l'accesso è stato eseguito dal proprietario dell'identità e non indica un compromesso.
 
-- Dopo aver ricevuto il feedback, lo stato di rischio di accesso (non di rischio utente) verrà modificato in **Confermato sicuro** e il livello di rischio in **-** .
+- Dopo aver ricevuto il feedback, lo stato di rischio di accesso (non di rischio utente) verrà modificato in **Confermato sicuro** e il livello di rischio in **-**.
 
 - Inoltre, offriamo le informazioni ai sistemi di Machine Learning per futuri miglioramenti nella valutazione dei rischi.
 
