@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: c5a442a3d3711b85c0bad30218cb1ffab92558d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8dcddcd3d928758557074bf01d92e4bcc57ee1d
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403722"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279435"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Soluzione Monitoraggio prestazioni rete in Azure
 
@@ -42,7 +42,7 @@ NPM consente di monitorare la connettività tra reti e applicazioni in qualsiasi
 * Francia centrale
 * Sudafrica settentrionale
 * Canada centrale
-* Stati Uniti Occidentali
+* Stati Uniti occidentali
 * Stati Uniti centro-occidentali
 * Stati Uniti centro-settentrionali
 * Stati Uniti centro-meridionali
@@ -74,7 +74,7 @@ L'elenco delle aree supportate per Monitoraggio di ExpressRoute è disponibile n
 
 ### <a name="install-and-configure-agents"></a>Installare e configurare agenti 
 
-Usare i processi di base per installare gli agenti in [connettere i computer Windows a monitoraggio di Azure](../platform/agent-windows.md) e [connettere Operations Manager a monitoraggio di Azure](../platform/om-agents.md).
+Usare i processi di base per installare gli agenti in [connettere i computer Windows a monitoraggio di Azure](../platform/agent-windows.md), [connettere i computer Linux a monitoraggio di Azure (anteprima)](../../virtual-machines/extensions/oms-linux.md) e [connettersi Operations Manager a monitoraggio di Azure](../platform/om-agents.md).
 
 ### <a name="where-to-install-the-agents"></a>Dove installare gli agenti 
 
@@ -84,25 +84,31 @@ Usare i processi di base per installare gli agenti in [connettere i computer Win
 
 * **Monitoraggio connettività servizio:** installare un agente di Log Analytics in ogni nodo da cui si vuole monitorare la connettività di rete all'endpoint di servizio. Un esempio è se si vuole monitorare la connettività di rete per Microsoft 365 dai siti di Office con etichetta O1, O2 e O3. Installare l'agente di Log Analytics in almeno un nodo ciascuno in O1, O2 e O3. 
 
-* **Monitoraggio di ExpressRoute**: installare almeno un agente di Log Analytics nella rete virtuale di Azure. Installare anche almeno un agente nella subnet locale, connessa attraverso il peering privato di ExpressRoute.  
+* **Monitoraggio di ExpressRoute** : installare almeno un agente di Log Analytics nella rete virtuale di Azure. Installare anche almeno un agente nella subnet locale, connessa attraverso il peering privato di ExpressRoute.  
 
 ### <a name="configure-log-analytics-agents-for-monitoring"></a>Configurare gli agenti di Log Analytics per il monitoraggio 
 
 Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le prestazioni di rete tra gli agenti di origine e di destinazione. È possibile scegliere tra TCP e ICMP come protocollo di monitoraggio per le funzionalità Monitoraggio prestazioni e Monitoraggio connettività servizio. Per Monitoraggio di ExpressRoute è disponibile solo il protocollo di monitoraggio TCP. Assicurarsi che il firewall consenta la comunicazione tra gli agenti di Log Analytics usati per il monitoraggio sul protocollo scelto. 
 
-* **Protocollo TCP:** se si è scelto TCP come protocollo di monitoraggio, aprire la porta del firewall sugli agenti usati per le funzionalità Monitoraggio prestazioni rete e Monitoraggio di ExpressRoute per assicurarsi che gli agenti possano connettersi tra loro. Per aprire la porta, eseguire lo script di PowerShell [EnableRules.ps1](https://aka.ms/npmpowershellscript) senza alcun parametro nella finestra di PowerShell con privilegi di amministratore.
+* **Protocollo TCP:** se si è scelto TCP come protocollo di monitoraggio, aprire la porta del firewall sugli agenti usati per le funzionalità Monitoraggio prestazioni rete e Monitoraggio di ExpressRoute per assicurarsi che gli agenti possano connettersi tra loro. Per i computer Windows, per aprire la porta, eseguire lo script [EnableRules.ps1](https://aka.ms/npmpowershellscript) PowerShell senza parametri in una finestra di PowerShell con privilegi amministrativi.
+Per i computer Linux, l'uso di portNumbers deve essere modificato manualmente. 
+* Passare a percorso:/var/opt/Microsoft/omsagent/npm_state. 
+* Apri file: npmdregistry
+* Modificare il valore per il numero di porta ```“PortNumber:<port of your choice>”```
 
-    Lo script crea le chiavi del Registro di sistema richieste dalla soluzione. Crea anche le regole di Windows Firewall per consentire agli agenti di creare connessioni TCP tra loro. Le chiavi del Registro di sistema create dallo script specificano se registrare i log di debug e il percorso del file dei log. Lo script definisce anche la porta TCP dell'agente usata per la comunicazione. I valori per queste chiavi vengono impostati automaticamente dallo script. Non modificare manualmente queste chiavi. La porta aperta per impostazione predefinita è 8084. È possibile usare una porta personalizzata fornendo il parametro portNumber allo script. Usare la stessa porta in tutti i computer in cui viene eseguito lo script. 
+ Si noti che i numeri di porta usati devono essere uguali in tutti gli agenti usati in un'area di lavoro. 
+
+Lo script crea le chiavi del Registro di sistema richieste dalla soluzione. Crea anche le regole di Windows Firewall per consentire agli agenti di creare connessioni TCP tra loro. Le chiavi del Registro di sistema create dallo script specificano se registrare i log di debug e il percorso del file dei log. Lo script definisce anche la porta TCP dell'agente usata per la comunicazione. I valori per queste chiavi vengono impostati automaticamente dallo script. Non modificare manualmente queste chiavi. La porta aperta per impostazione predefinita è 8084. È possibile usare una porta personalizzata fornendo il parametro portNumber allo script. Usare la stessa porta in tutti i computer in cui viene eseguito lo script. 
 
     >[!NOTE]
-    > Lo script configura Windows Firewall solo in locale. Se si dispone di un firewall di rete, assicurarsi che consenta il traffico destinato alla porta TCP usata da Monitoraggio prestazioni rete.
+    > The script configures only Windows Firewall locally. If you have a network firewall, make sure that it allows traffic destined for the TCP port used by Network Performance Monitor.
 
     >[!NOTE]
-    > Non è necessario eseguire lo script di [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell per il monitoraggio della connettività del servizio.
+    > You don't need to run the [EnableRules.ps1](https://aka.ms/npmpowershellscript ) PowerShell script for Service Connectivity Monitor.
 
     
 
-* **Protocollo ICMP**: se si è scelto ICMP come protocollo di monitoraggio, abilitare le seguenti regole del firewall per usare ICMP in modo affidabile:
+* **Protocollo ICMP** : se si è scelto ICMP come protocollo di monitoraggio, abilitare le seguenti regole del firewall per usare ICMP in modo affidabile:
     
    ```
    netsh advfirewall firewall add rule name="NPMDICMPV4Echo" protocol="icmpv4:8,any" dir=in action=allow 
@@ -124,15 +130,15 @@ Monitoraggio prestazioni rete usa le transazioni sintetiche per monitorare le pr
 
 4. Nella pagina **Installazione** viene visualizzata l'opzione per installare gli agenti di Log Analytics e configurare gli agenti per il monitoraggio nella visualizzazione **Impostazioni comuni**. Come descritto in precedenza, se sono stati installati e configurati agenti di Log Analytics, selezionare la visualizzazione **Installazione** per configurare la funzionalità che si desidera usare. 
 
-   **Monitoraggio prestazioni**: scegliere il protocollo da usare per le transazioni sintetiche nella regola di Monitoraggio prestazioni **predefinita** e selezionare **Salva e continua**. La selezione di questo protocollo viene mantenuta solo per la regola predefinita generata dal sistema. È necessario scegliere il protocollo ogni volta che si crea in modo esplicito una regola di Monitoraggio prestazioni. È sempre possibile passare alle impostazioni della regola **predefinita** nella scheda **Monitoraggio prestazioni** (visualizzata dopo avere completato la configurazione del giorno 0) e modificare il protocollo in seguito. Se non si è interessati alla funzionalità Monitoraggio prestazioni, è possibile disabilitare la regola predefinita dalle impostazioni della regola **predefinita** nella scheda **Monitoraggio prestazioni**.
+   **Monitoraggio prestazioni** : scegliere il protocollo da usare per le transazioni sintetiche nella regola di Monitoraggio prestazioni **predefinita** e selezionare **Salva e continua**. La selezione di questo protocollo viene mantenuta solo per la regola predefinita generata dal sistema. È necessario scegliere il protocollo ogni volta che si crea in modo esplicito una regola di Monitoraggio prestazioni. È sempre possibile passare alle impostazioni della regola **predefinita** nella scheda **Monitoraggio prestazioni** (visualizzata dopo avere completato la configurazione del giorno 0) e modificare il protocollo in seguito. Se non si è interessati alla funzionalità Monitoraggio prestazioni, è possibile disabilitare la regola predefinita dalle impostazioni della regola **predefinita** nella scheda **Monitoraggio prestazioni**.
 
    ![Visualizzazione Monitoraggio prestazioni](media/network-performance-monitor/npm-synthetic-transactions.png)
     
-   **Monitoraggio della connettività del servizio**: la funzionalità fornisce test preconfigurati predefiniti per monitorare la connettività di rete a Microsoft 365 e Dynamics 365 dagli agenti. Scegliere i servizi Microsoft 365 e Dynamics 365 che si desidera monitorare selezionando le caselle di controllo accanto a essi. Per scegliere gli agenti da cui eseguire il monitoraggio, selezionare **Aggiungi agenti**. Se non si desidera utilizzare questa funzionalità o si desidera configurarla in un secondo momento, non scegliere nulla e selezionare **Salva e continua**.
+   **Monitoraggio della connettività del servizio** : la funzionalità fornisce test preconfigurati predefiniti per monitorare la connettività di rete a Microsoft 365 e Dynamics 365 dagli agenti. Scegliere i servizi Microsoft 365 e Dynamics 365 che si desidera monitorare selezionando le caselle di controllo accanto a essi. Per scegliere gli agenti da cui eseguire il monitoraggio, selezionare **Aggiungi agenti**. Se non si desidera utilizzare questa funzionalità o si desidera configurarla in un secondo momento, non scegliere nulla e selezionare **Salva e continua**.
 
    ![Visualizzazione Monitoraggio connettività del servizio](media/network-performance-monitor/npm-service-endpoint-monitor.png)
 
-   **Monitoraggio di ExpressRoute**: selezionare **Individua adesso** per individuare tutti i peering privati di ExpressRoute connessi alle reti virtuali nella sottoscrizione di Azure collegata a questa area di lavoro Log Analytics. 
+   **Monitoraggio di ExpressRoute** : selezionare **Individua adesso** per individuare tutti i peering privati di ExpressRoute connessi alle reti virtuali nella sottoscrizione di Azure collegata a questa area di lavoro Log Analytics. 
 
    ![Visualizzazione Monitoraggio di ExpressRoute](media/network-performance-monitor/npm-express-route.png)
 
@@ -151,7 +157,7 @@ Tutte le subnet con almeno un agente installato sono elencate nella scheda **sub
 
 Per abilitare o disabilitare il monitoraggio di subnet specifiche:
 
-1. Selezionare o deselezionare la casella di controllo accanto all'**ID subnet**. Assicurarsi quindi che la casella **Usa per il monitoraggio** sia selezionata o deselezionata a seconda delle esigenze. È possibile selezionare o deselezionare più subnet. Se disabilitate, le subnet non vengono monitorate e gli agenti vengono aggiornati in modo da interrompere l'invio di ping ad altri agenti. 
+1. Selezionare o deselezionare la casella di controllo accanto all' **ID subnet**. Assicurarsi quindi che la casella **Usa per il monitoraggio** sia selezionata o deselezionata a seconda delle esigenze. È possibile selezionare o deselezionare più subnet. Se disabilitate, le subnet non vengono monitorate e gli agenti vengono aggiornati in modo da interrompere l'invio di ping ad altri agenti. 
 2. Scegliere i nodi che si desidera monitorare in una subnet specifica. Selezionare la subnet dall'elenco e spostare i nodi necessari tra gli elenchi che contengono nodi non monitorati e monitorati. È possibile aggiungere una descrizione personalizzata alla subnet.
 3. Selezionare **Save (Salva** ) per salvare la configurazione. 
 
@@ -160,13 +166,13 @@ Per abilitare o disabilitare il monitoraggio di subnet specifiche:
 Tutti i nodi su cui è installato un agente sono elencati nella scheda **Nodi**. 
 
 1. Selezionare o deselezionare i nodi per cui si desidera abilitare o interrompere il monitoraggio. 
-2. Selezionare o deselezionare **Usa per il monitoraggio**, secondo le esigenze. 
+2. Selezionare o deselezionare **Usa per il monitoraggio** , secondo le esigenze. 
 3. Selezionare **Salva**. 
 
 
 Configurare le funzionalità desiderate:
 
-- [Performance Monitor](network-performance-monitor-performance-monitor.md#configuration)
+- [Monitoraggio delle prestazioni](network-performance-monitor-performance-monitor.md#configuration)
 - [Monitoraggio connettività servizio](network-performance-monitor-performance-monitor.md#configuration)
 - [Monitoraggio di ExpressRoute](network-performance-monitor-expressroute.md#configuration)
 
@@ -200,15 +206,15 @@ Dopo aver abilitato la soluzione Monitoraggio prestazioni rete, il riquadro dell
 
 ### <a name="network-performance-monitor-dashboard"></a>Dashboard di monitoraggio delle prestazioni di rete 
 
-* **Principali eventi di integrità della rete**: questa pagina fornisce un elenco dei più recenti avvisi ed eventi di integrità nel sistema e specifica da quanto tempo è attivo l'evento. Un evento o avviso di integrità viene generato quando il valore della metrica scelta (perdita, latenza, tempo di risposta o utilizzo della larghezza di banda) per la regola di monitoraggio supera la soglia. 
+* **Principali eventi di integrità della rete** : questa pagina fornisce un elenco dei più recenti avvisi ed eventi di integrità nel sistema e specifica da quanto tempo è attivo l'evento. Un evento o avviso di integrità viene generato quando il valore della metrica scelta (perdita, latenza, tempo di risposta o utilizzo della larghezza di banda) per la regola di monitoraggio supera la soglia. 
 
-* **Monitoraggio di ExpressRoute**: questa pagina fornisce riepiloghi sull'integrità per le diverse connessioni di peering ExpressRoute monitorate dalla soluzione. Il riquadro **Topologia** mostra il numero di percorsi di rete attraverso i circuiti di ExpressRoute monitorati nella rete. Selezionare questo riquadro per andare alla visualizzazione **Topologia**.
+* **Monitoraggio di ExpressRoute** : questa pagina fornisce riepiloghi sull'integrità per le diverse connessioni di peering ExpressRoute monitorate dalla soluzione. Il riquadro **Topologia** mostra il numero di percorsi di rete attraverso i circuiti di ExpressRoute monitorati nella rete. Selezionare questo riquadro per andare alla visualizzazione **Topologia**.
 
-* **Monitoraggio connettività servizio**: questa pagina fornisce riepiloghi sull'integrità per i diversi test creati. Il riquadro **Topologia** mostra il numero di endpoint monitorati. Selezionare questo riquadro per andare alla visualizzazione **Topologia**.
+* **Monitoraggio connettività servizio** : questa pagina fornisce riepiloghi sull'integrità per i diversi test creati. Il riquadro **Topologia** mostra il numero di endpoint monitorati. Selezionare questo riquadro per andare alla visualizzazione **Topologia**.
 
-* **Monitoraggio prestazioni**: questa pagina fornisce riepiloghi sull'integrità per i collegamenti **Rete** e **Subnet** monitorati dalla soluzione. Il riquadro **Topologia** mostra il numero di percorsi di rete monitorati nella rete. Selezionare questo riquadro per andare alla visualizzazione **Topologia**. 
+* **Monitoraggio prestazioni** : questa pagina fornisce riepiloghi sull'integrità per i collegamenti **Rete** e **Subnet** monitorati dalla soluzione. Il riquadro **Topologia** mostra il numero di percorsi di rete monitorati nella rete. Selezionare questo riquadro per andare alla visualizzazione **Topologia**. 
 
-* **Query comuni**: questa pagina contiene una serie di query di ricerca che recuperano direttamente i dati di monitoraggio di rete non elaborati. È possibile usare queste query come punto di partenza per creare proprie query per report personalizzati. 
+* **Query comuni** : questa pagina contiene una serie di query di ricerca che recuperano direttamente i dati di monitoraggio di rete non elaborati. È possibile usare queste query come punto di partenza per creare proprie query per report personalizzati. 
 
    ![Dashboard di monitoraggio delle prestazioni di rete](media/network-performance-monitor/npm-dashboard.png)
 
@@ -286,9 +292,9 @@ Le notifiche vengono addebitate separatamente in base ai [prezzi per le notifich
 
 Le informazioni sui prezzi sono disponibili [online](network-performance-monitor-pricing-faq.md).
 
-## <a name="provide-feedback"></a>Inviare feedback 
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti 
 
-* **UserVoice**: è possibile pubblicare le proprie idee sulle funzionalità di Monitoraggio prestazioni rete che si ritiene possano essere migliorate. Visitare la [pagina UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
+* **UserVoice** : è possibile pubblicare le proprie idee sulle funzionalità di Monitoraggio prestazioni rete che si ritiene possano essere migliorate. Visitare la [pagina UserVoice](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring). 
 
 * **Unisciti alla coorte:** Siamo sempre interessati a far partecipare i nuovi clienti alla coorte. In questo contesto si avrà accesso in anteprima alle nuove funzionalità e si avrà l'opportunità di contribuire a migliorare Monitoraggio prestazioni rete. Se si è interessati a partecipare, compilare questo [sondaggio rapido](https://aka.ms/npmcohort). 
 

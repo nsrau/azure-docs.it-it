@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 0851838b89a9a2bdc54526ac40014f645f3d88a2
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: f8eae6381a438f6820f525a4d66cb5dc388eefb0
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146587"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280392"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
-Le entità nell'ambiente sono rappresentate da dispositivi [gemelli digitali](concepts-twins-graph.md). La gestione dei dispositivi gemelli digitali può includere la creazione, la modifica e la rimozione. Per eseguire queste operazioni, è possibile usare le [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
+Le entità nell'ambiente sono rappresentate da dispositivi [gemelli digitali](concepts-twins-graph.md). La gestione dei dispositivi gemelli digitali può includere la creazione, la modifica e la rimozione. Per eseguire queste operazioni, è possibile usare le [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
 Questo articolo è incentrato sulla gestione di dispositivi gemelli digitali; per lavorare con le relazioni e il [grafo gemello](concepts-twins-graph.md) nel suo complesso, vedere [*How-to: Manage The Twin Graph with Relationships*](how-to-manage-graph.md).
 
@@ -264,8 +264,8 @@ Si consideri, ad esempio, il documento di patch JSON seguente che sostituisce il
 
 Questa operazione avrà esito positivo solo se il dispositivo gemello digitale modificato dalla patch è conforme al nuovo modello. 
 
-Si consideri l'esempio seguente:
-1. Immaginate un dispositivo gemello digitale con un modello di *foo_old* . *foo_old* definisce una *massa* di proprietà obbligatoria.
+Prendere in considerazione gli esempi seguenti:
+1. Immaginate un dispositivo gemello digitale con un modello di *foo_old*. *foo_old* definisce una *massa* di proprietà obbligatoria.
 2. Il nuovo modello *foo_new* definisce una massa della proprietà e aggiunge una nuova *temperatura* della proprietà richiesta.
 3. Dopo la patch, il dispositivo gemello digitale deve avere una proprietà di massa e di temperatura. 
 

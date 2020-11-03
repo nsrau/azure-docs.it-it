@@ -6,15 +6,15 @@ author: djpmsft
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
-ms.date: 04/15/2020
+ms.date: 11/03/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: 02efaf3f0382a7af63717e777036637de2bbec25
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40f8834a69101682abaaa7eac8ec9cafe8ef3d9e
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033201"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279368"
 ---
 # <a name="ingest-data-into-a-sql-pool"></a>Inserire i dati in un pool SQL
 
@@ -22,9 +22,9 @@ In questo articolo si apprenderà come inserire dati da un account di archiviazi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: si usa Azure Data Lake storage generazione 2 come archivio dati di *origine* . Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per informazioni su come crearne uno.
-* **Analisi delle sinapsi di Azure**: si usa un pool SQL come archivio dati *sink* . Se non si ha un'istanza di Azure sinapsi Analytics, vedere [creare un pool SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per i passaggi da eseguire per crearne uno.
+* **Sottoscrizione di Azure** : se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Account di archiviazione di Azure** : si usa Azure Data Lake storage generazione 2 come archivio dati di *origine* . Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per informazioni su come crearne uno.
+* **Analisi delle sinapsi di Azure** : si usa un pool SQL come archivio dati *sink* . Se non si ha un'istanza di Azure sinapsi Analytics, vedere [creare un pool SQL](../../azure-sql/database/single-database-create-quickstart.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per i passaggi da eseguire per crearne uno.
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
@@ -41,7 +41,7 @@ In Azure Synapse Analytics si usano i servizi collegati per definire le informaz
 
 Una pipeline contiene il flusso logico per un'esecuzione di un set di attività. In questa sezione verrà creata una pipeline contenente un'attività di copia che inserisce i dati da ADLS Gen2 in un pool SQL.
 
-1. Passare alla scheda **orchestrazione** . Selezionare l'icona più accanto all'intestazione pipeline e selezionare **pipeline**.
+1. Passare alla scheda **integrazione** . Selezionare l'icona più accanto all'intestazione pipeline e selezionare **pipeline**.
 1. In **Move and Transform** (Sposta e trasforma) nel riquadro delle attività trascinare **Copia dati** sul canvas della pipeline.
 1. Selezionare nell'attività di copia e passare alla scheda **origine** . Selezionare **nuovo** per creare un nuovo set di dati di origine.
 1. Selezionare Azure Data Lake Storage Gen2 come archivio dati e selezionare continua.

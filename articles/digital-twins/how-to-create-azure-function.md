@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: c169f10ac0444f5bca67d76e8e8ebc0f0b145ee1
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5352a95b865851be937af7b9f19268afd23148db
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93124262"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93280035"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Connettere le app di funzioni di Azure per l'elaborazione dei dati
 
@@ -36,25 +36,25 @@ Ecco una panoramica dei passaggi che contiene:
 
 ## <a name="create-an-azure-functions-app-in-visual-studio"></a>Creare un'app funzioni di Azure in Visual Studio
 
-In Visual Studio 2019 selezionare _File > nuovo progetto >_ e cercare il modello _funzioni di Azure_ , quindi fare clic su _Avanti_ .
+In Visual Studio 2019 selezionare _File > nuovo progetto >_ e cercare il modello _funzioni di Azure_ , quindi fare clic su _Avanti_.
 
 :::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
 
-Specificare un nome per l'app per le funzioni e selezionare _Crea_ .
+Specificare un nome per l'app per le funzioni e selezionare _Crea_.
 
-:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: configurare un nuovo progetto":::
 
-Selezionare il tipo di *trigger griglia di eventi* dell'app per le funzioni e selezionare _Crea_ .
+Selezionare il tipo di *trigger griglia di eventi* dell'app per le funzioni e selezionare _Crea_.
 
-:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: finestra di dialogo trigger del progetto di funzione di Azure":::
 
 Una volta creata l'app per le funzioni, in Visual Studio verrà eseguito l'esempio di codice con popolamento automatico nel file **Function.cs** nella cartella del progetto. Questa breve funzione di Azure viene usata per registrare gli eventi.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: finestra del progetto con codice di esempio":::
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Scrivere una funzione di Azure con un trigger di griglia di eventi
 
-È possibile scrivere una funzione di Azure aggiungendo SDK all'app per le funzioni. L'app per le funzioni interagisce con i dispositivi gemelli digitali di Azure con [Azure Digital Twins SDK per .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true). 
+È possibile scrivere una funzione di Azure aggiungendo SDK all'app per le funzioni. L'app per le funzioni interagisce con i dispositivi gemelli digitali di Azure con [Azure Digital Twins SDK per .NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 
 Per usare l'SDK, è necessario includere nel progetto i pacchetti seguenti. È possibile installare i pacchetti usando Gestione pacchetti NuGet di Visual Studio o aggiungere i pacchetti usando `dotnet` lo strumento da riga di comando. Scegliere uno di questi metodi: 
 
@@ -159,24 +159,24 @@ namespace adtIngestFunctionSample
 
 ## <a name="publish-the-function-app-to-azure"></a>Pubblicare l'app per le funzioni in Azure
 
-Per pubblicare l'app per le funzioni in Azure, fare clic con il pulsante destro del mouse sul progetto di funzione (non sulla soluzione) in Esplora soluzioni e scegliere **pubblica** .
+Per pubblicare l'app per le funzioni in Azure, fare clic con il pulsante destro del mouse sul progetto di funzione (non sulla soluzione) in Esplora soluzioni e scegliere **pubblica**.
 
 > [!IMPORTANT] 
 > La pubblicazione di una funzione di Azure comporta costi aggiuntivi per la sottoscrizione, indipendentemente dai dispositivi gemelli digitali di Azure.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: pubblicare la funzione di Azure ":::
 
-Selezionare **Azure** come destinazione di pubblicazione e fare clic su **Avanti** .
+Selezionare **Azure** come destinazione di pubblicazione e fare clic su **Avanti**.
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: finestra di dialogo pubblica funzione di Azure, selezionare Azure ":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: finestra di dialogo pubblica funzione, selezionare Azure app per le funzioni (Windows) o (Linux) in base al computer":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: finestra di dialogo pubblica funzione, creare una nuova funzione di Azure":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: finestra di dialogo pubblica funzione, compilare i campi e selezionare Crea":::
 
-:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: finestra di dialogo pubblica funzione, selezionare l'app per le funzioni dall'elenco e terminare":::
 
 Nella pagina seguente immettere il nome desiderato per la nuova app per le funzioni, per un gruppo di risorse e per altri dettagli.
 Per consentire all'app per le funzioni di accedere ai dispositivi gemelli digitali di Azure, è necessario disporre di un'identità gestita dal sistema e avere le autorizzazioni per accedere all'istanza di Azure Digital gemelli.
@@ -220,27 +220,27 @@ Un'identità gestita assegnata dal sistema consente alle risorse di Azure di ese
 
 Nella [portale di Azure](https://portal.azure.com/)cercare app per le _funzioni_ nella barra di ricerca con il nome dell'app per le funzioni creato in precedenza. Selezionare il *app per le funzioni* dall'elenco. 
 
-:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Portale di Azure: cerca app per le funzioni":::
 
 Nella finestra app per le funzioni selezionare _Identity_ nella barra di spostamento a sinistra per abilitare identità gestita.
-Nella scheda _sistema assegnato_ , impostare lo _stato_ su attivato e _salvarlo_ . Viene visualizzato un popup per _abilitare l'identità gestita assegnata dal sistema_ .
+Nella scheda _sistema assegnato_ , impostare lo _stato_ su attivato e _salvarlo_ . Viene visualizzato un popup per _abilitare l'identità gestita assegnata dal sistema_.
 Selezionare il pulsante _Sì_ . 
 
-:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Portale di Azure: abilitare l'identità gestita dal sistema":::
 
 È possibile verificare nelle notifiche che la funzione sia stata registrata correttamente con Azure Active Directory.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Portale di Azure: notifiche":::
 
 Si noti anche l' **ID oggetto** visualizzato nella pagina _identità_ , che verrà usato nella sezione successiva.
 
-:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Copiare l'ID oggetto da usare in futuro":::
 
 ### <a name="assign-access-roles-using-azure-portal"></a>Assegnare i ruoli di accesso utilizzando portale di Azure
 
-Selezionare il pulsante _assegnazioni di ruolo di Azure_ , che consente di aprire la pagina *assegnazioni di ruolo di Azure* . Quindi selezionare _+ Aggiungi assegnazione ruolo (anteprima)_ .
+Selezionare il pulsante _assegnazioni di ruolo di Azure_ , che consente di aprire la pagina *assegnazioni di ruolo di Azure* . Quindi selezionare _+ Aggiungi assegnazione ruolo (anteprima)_.
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Portale di Azure: aggiungere un'assegnazione di ruolo":::
 
 Nella pagina _Aggiungi assegnazione ruolo (anteprima)_ visualizzata selezionare:
 
@@ -251,7 +251,7 @@ Nella pagina _Aggiungi assegnazione ruolo (anteprima)_ visualizzata selezionare:
 
 Salvare quindi i dettagli facendo clic sul pulsante _Salva_ .
 
-:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Portale di Azure: aggiungere un'assegnazione di ruolo (anteprima) ":::
 
 ### <a name="configure-application-settings-using-azure-portal"></a>Configurare le impostazioni dell'applicazione tramite portale di Azure
 
@@ -259,9 +259,9 @@ Salvare quindi i dettagli facendo clic sul pulsante _Salva_ .
 
 È necessario ADT_INSTANCE_URL per creare un'impostazione dell'applicazione.
 
-È possibile ottenere ADT_INSTANCE_URL aggiungendo **_https://_** al nome host dell'istanza. Nella portale di Azure è possibile trovare il nome host dell'istanza di Digital gemelli cercando l'istanza nella barra di ricerca. Selezionare quindi _Panoramica_ sulla barra di spostamento a sinistra per visualizzare il _nome host_ . Copiare questo valore per creare un'impostazione dell'applicazione.
+È possibile ottenere ADT_INSTANCE_URL aggiungendo **_https://_** al nome host dell'istanza. Nella portale di Azure è possibile trovare il nome host dell'istanza di Digital gemelli cercando l'istanza nella barra di ricerca. Selezionare quindi _Panoramica_ sulla barra di spostamento a sinistra per visualizzare il _nome host_. Copiare questo valore per creare un'impostazione dell'applicazione.
 
-:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Portale di Azure: Panoramica-> copiare il nome host da usare nel campo _Value_.":::
 
 È ora possibile creare un'impostazione dell'applicazione seguendo questa procedura:
 
@@ -269,9 +269,9 @@ Salvare quindi i dettagli facendo clic sul pulsante _Salva_ .
 * Selezionare _configurazione_ nella barra di spostamento a sinistra per creare una nuova impostazione dell'applicazione
 * Nella scheda _Impostazioni applicazione_ selezionare _+ nuova impostazione applicazione_
 
-:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Portale di Azure: ricerca di funzioni di Azure esistenti":::
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Portale di Azure: configurare le impostazioni dell'applicazione":::
 
 Nella finestra visualizzata, usare il valore copiato da sopra per creare un'impostazione dell'applicazione. \
 _Nome_  : ADT_SERVICE_URL \
@@ -279,19 +279,19 @@ _Valore_ : https://{Your-Azure-Digital-Twins-hostname}
 
 Selezionare _OK_ per creare un'impostazione dell'applicazione.
 
-:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Portale di Azure: aggiungere le impostazioni dell'applicazione.":::
 
 È possibile visualizzare le impostazioni dell'applicazione con il nome dell'applicazione nel campo _nome_ . Salvare quindi le impostazioni dell'applicazione selezionando il pulsante _Salva_ .
 
-:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Portale di Azure: visualizzare l'applicazione creata e riavviare l'applicazione":::
 
 Per tutte le modifiche apportate alle impostazioni dell'applicazione è necessario riavviare l'applicazione. Selezionare _continua_ per riavviare l'applicazione.
 
-:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Portale di Azure: salvare le impostazioni dell'applicazione":::
 
 È possibile visualizzare le impostazioni dell'applicazione aggiornate selezionando l'icona _notifiche_ . Se non viene creata l'impostazione dell'applicazione, è possibile riprovare ad aggiungere un'impostazione dell'applicazione attenendosi al processo precedente.
 
-:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Portale di Azure: notifiche per l'aggiornamento delle impostazioni dell'applicazione":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

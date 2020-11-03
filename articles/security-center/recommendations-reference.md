@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/20/2020
 ms.author: memildin
-ms.openlocfilehash: edee1948780b827eed5047c6c9c919b66eb619d0
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: 553f83151289adf6f0f4420d106af7ae37047bda
+ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900223"
+ms.lasthandoff: 11/02/2020
+ms.locfileid: "93148321"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Raccomandazioni sulla sicurezza: una guida di riferimento
 
@@ -217,6 +217,5 @@ Il punteggio relativo alla sicurezza si basa sul numero di raccomandazioni del C
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sulle raccomandazioni, vedere quanto segue:
 
-* [Il modulo Microsoft Learn per analizzare le raccomandazioni effettuate dal Centro sicurezza](/learn/modules/identify-threats-with-azure-security-center/)
 * [Raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md)
 * [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md)

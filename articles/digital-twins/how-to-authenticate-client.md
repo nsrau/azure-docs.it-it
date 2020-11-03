@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/7/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: b929632318de41470412811885b9f1bd3054783a
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: bf7b829d70af27850affe619d47ed4a4f5ec1bea
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145974"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279917"
 ---
 # <a name="write-client-app-authentication-code"></a>Scrivere il codice di autenticazione dell'app client
 
@@ -20,7 +20,7 @@ Dopo aver [configurato un'istanza di dispositivi gemelli digitali di Azure e l'a
 
 I dispositivi gemelli digitali di Azure eseguono l'autenticazione usando [Azure ad token di sicurezza basati su OAUTH 2,0](../active-directory/develop/security-tokens.md#json-web-tokens-jwts-and-claims). Per autenticare l'SDK, è necessario ottenere una bearer token con le autorizzazioni appropriate per i dispositivi gemelli digitali di Azure e passarla insieme alle chiamate API. 
 
-Questo articolo descrive come ottenere le credenziali usando la `Azure.Identity` libreria client. Questo articolo illustra esempi di codice in C#, ad esempio quello che si scriverebbe per [.NET (c#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true), è possibile usare una versione di `Azure.Identity` indipendentemente dall'SDK in uso. per altre informazioni sugli SDK disponibili per i dispositivi gemelli digitali di Azure, vedere [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md).
+Questo articolo descrive come ottenere le credenziali usando la `Azure.Identity` libreria client. Questo articolo illustra esempi di codice in C#, ad esempio quello che si scriverebbe per [.NET (c#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), è possibile usare una versione di `Azure.Identity` indipendentemente dall'SDK in uso. per altre informazioni sugli SDK disponibili per i dispositivi gemelli digitali di Azure, vedere [*procedura: usare le API e gli SDK di dispositivi digitali gemelli di Azure*](how-to-use-apis-sdks.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,7 +39,7 @@ Per continuare, sarà necessario un progetto di app client in cui si scrive il c
 
 Tre metodi comuni di recupero delle credenziali in `Azure.Identity` sono:
 
-* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale** . È anche possibile abilitare per provare gli altri due metodi consigliati in questo articolo. esegue il wrapping `ManagedIdentityCredential` e può accedere `InteractiveBrowserCredential` con una variabile di configurazione.
+* [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale**. È anche possibile abilitare per provare gli altri due metodi consigliati in questo articolo. esegue il wrapping `ManagedIdentityCredential` e può accedere `InteractiveBrowserCredential` con una variabile di configurazione.
 * [ManagedIdentityCredential](/dotnet/api/azure.identity.managedidentitycredential?preserve-view=true&view=azure-dotnet) funziona benissimo nei casi in cui sono necessarie [identità gestite (MSI)](../active-directory/managed-identities-azure-resources/overview.md)ed è un buon candidato per l'uso di funzioni di Azure e la distribuzione nei servizi di Azure.
 * [InteractiveBrowserCredential](/dotnet/api/azure.identity.interactivebrowsercredential?preserve-view=true&view=azure-dotnet) è destinato alle applicazioni interattive e può essere usato per creare un client SDK autenticato
 
@@ -62,7 +62,7 @@ Aggiungere quindi il codice per ottenere le credenziali utilizzando uno dei meto
 
 ### <a name="defaultazurecredential-method"></a>Metodo DefaultAzureCredential
 
-[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale** .
+[DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?preserve-view=true&view=azure-dotnet) fornisce un `TokenCredential` flusso di autenticazione predefinito per le applicazioni che verranno distribuite in Azure ed è **la scelta consigliata per lo sviluppo locale**.
 
 Per usare le credenziali di Azure predefinite, è necessario l'URL dell'istanza di Azure Digital Twins ([istruzioni per la ricerca](how-to-set-up-instance-portal.md#verify-success-and-collect-important-values)).
 

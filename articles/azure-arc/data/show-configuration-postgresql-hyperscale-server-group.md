@@ -10,12 +10,12 @@ ms.author: jeanyd
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 716759fd6542cd473c236992ac88b69bfe5d0a66
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a268cd6b2fa3da6846554e3d1b170298abec7f18
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148013"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279402"
 ---
 # <a name="show-the-configuration-of-an-arc-enabled-postgresql-hyperscale-server-group"></a>Mostra la configurazione di un gruppo di server con iperscalabilità PostgreSQL abilitata per Arc
 
@@ -210,7 +210,7 @@ Spec:
       Name:  citus
       Name:  pg_stat_statements
   Scale:
-    Shards:  2
+    Workers:  2
   Scheduling:
     Default:
       Resources:
@@ -236,20 +236,50 @@ Status:
 Events:               <none>
 ```
 
+>[!NOTE]
+>Prima della versione di ottobre 2020, `Workers` era `Shards` nell'esempio precedente. Per altre informazioni, vedere [Note sulla versione-Azure Arc Enabled Data Services (anteprima)](release-notes.md) .
+
 Si espostano alcuni punti di interesse specifici nella descrizione della `servergroup` figura precedente. Che cosa indica questo gruppo di server?
 
 - È della versione 12 di Postgres: 
-   > Tipo         `postgresql-12`
+   > ```json
+   > Kind:         `postgresql-12`
+   > ```
 - È stato creato durante il mese di agosto 2020:
-   > Timestamp di creazione:  `2020-08-31T21:01:07Z`
+   > ```json
+   > Creation Timestamp:  `2020-08-31T21:01:07Z`
+   > ```
 - In questo gruppo di server sono state create due estensioni Postgres: `citus` e `pg_stat_statements`
-   > Motore: Extensions: Nome:  `citus` Nome:  `pg_stat_statements`
+   > ```json
+   > Engine:
+   >    Extensions:
+   >      Name:  `citus`
+   >      Name:  `pg_stat_statements`
+   > ```
 - USA due nodi del ruolo di lavoro
-   > Ridimensiona: partizionamenti:  `2`
+   > ```json
+   > Scale:
+   >    Workers:  `2`
+   > ```
 - Si prevede di usare 1 CPU/vCore e 512 MB di RAM per ogni nodo. Utilizzerà più di 4 CPU/Vcore e 1024MB di memoria:
-   > Pianificazione: impostazione predefinita: risorse: limiti: CPU: 4 memoria: 1024Mi richieste: CPU: 1 memoria: 512Mi
+   > ```json
+   > Scheduling:
+   >    Default: 
+   >      Resources:
+   >        Limits:
+   >          Cpu:     4
+   >          Memory:  1024Mi
+   >        Requests:
+   >          Cpu:     1
+   >          Memory:  512Mi
+   > ```
  - È disponibile per le query e non presenta alcun problema. Tutti i nodi sono operativi:
-   > Stato:... Pod pronti: 3/3 stato: pronto
+   > ```json
+   > Status:
+   >  ...
+   >  Ready Pods:         3/3
+   >  State:              Ready
+   > ```
 
 **Con azdata:**
 
@@ -292,7 +322,7 @@ Restituisce l'output seguente in un formato e contenuto molto simile a quello re
       ]
     },
     "scale": {
-      "shards": 2
+      "workers": 2
     },
     "scheduling": {
       "default": {

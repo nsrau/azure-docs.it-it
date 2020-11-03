@@ -7,16 +7,16 @@ ms.author: baanders
 ms.date: 3/18/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 6784ca9dbc32811a02f4454be94d220c634318f5
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 349f57299387b616373bb5fb4d295da8df8ee493
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92503318"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279887"
 ---
 # <a name="secure-azure-digital-twins"></a>Proteggere i dispositivi gemelli digitali di Azure
 
-Per la sicurezza, i dispositivi gemelli digitali di Azure consentono un controllo di accesso preciso su dati, risorse e azioni specifici nella distribuzione. Questa operazione viene eseguita tramite un ruolo granulare e una strategia di gestione delle autorizzazioni denominata **controllo degli accessi in base al ruolo di Azure (RBAC di Azure)** . [Qui](../role-based-access-control/overview.md)è possibile leggere i principi generali di controllo degli accessi in base al ruolo di Azure.
+Per la sicurezza, i dispositivi gemelli digitali di Azure consentono un controllo di accesso preciso su dati, risorse e azioni specifici nella distribuzione. Questa operazione viene eseguita tramite un ruolo granulare e una strategia di gestione delle autorizzazioni denominata **controllo degli accessi in base al ruolo di Azure (RBAC di Azure)**. [Qui](../role-based-access-control/overview.md)è possibile leggere i principi generali di controllo degli accessi in base al ruolo di Azure.
 
 I dispositivi gemelli digitali di Azure supportano anche la crittografia dei dati inattivi.
 
@@ -56,8 +56,8 @@ Azure fornisce **due ruoli predefiniti di Azure** per autorizzare l'accesso alle
 
 >[!NOTE]
 > Questi ruoli sono stati recentemente rinominati dai nomi precedenti nell'anteprima:
-> * Il *proprietario dei dati di Azure Digital gemelli* era in precedenza *proprietario di Azure Digital gemelli (anteprima)* .
-> * Il *lettore di dati di Azure Digital gemelli* era in precedenza lettore di dispositivi *gemelli di Azure (anteprima)* .
+> * Il ruolo *Proprietario dei dati di Gemelli digitali di Azure* era in precedenza *Proprietario di Gemelli digitali di Azure (anteprima)* .
+> * Il *lettore di dati di Azure Digital gemelli* era in precedenza lettore di dispositivi *gemelli di Azure (anteprima)*.
 
 È possibile assegnare i ruoli in due modi:
 * tramite il riquadro controllo di accesso (IAM) per i dispositivi gemelli digitali di Azure nella portale di Azure (vedere [*aggiungere o rimuovere assegnazioni di ruolo di Azure con il portale di Azure*](../role-based-access-control/role-assignments-portal.md))
@@ -72,7 +72,7 @@ Per altre informazioni sul modo in cui vengono definiti i ruoli predefiniti, ved
 Quando si fa riferimento ai ruoli negli scenari automatici, è consigliabile fare riferimento a essi in base ai relativi **ID** anziché ai rispettivi nomi. I nomi possono variare tra le versioni, ma non gli ID, rendendoli un riferimento più stabile in automazione.
 
 > [!TIP]
-> Se si assiging ruoli con un cmdlet, ad esempio `New-AzRoleAssignment` ([riferimento](/powershell/module/az.resources/new-azroleassignment?view=azps-4.8.0)), è possibile usare il `-RoleDefinitionId` parametro anziché `-RoleDefinitionName` per passare un ID anziché un nome per il ruolo.
+> Se si assiging ruoli con un cmdlet, ad esempio `New-AzRoleAssignment` ([riferimento](/powershell/module/az.resources/new-azroleassignment)), è possibile usare il `-RoleDefinitionId` parametro anziché `-RoleDefinitionName` per passare un ID anziché un nome per il ruolo.
 
 ### <a name="permission-scopes"></a>Ambiti delle autorizzazioni
 
@@ -89,13 +89,39 @@ L'elenco seguente descrive i livelli in cui è possibile definire l'ambito di ac
 
 Se un utente tenta di eseguire un'azione non consentita dal ruolo, può ricevere un errore dalla lettura della richiesta di servizio `403 (Forbidden)` . Per ulteriori informazioni e procedure per la risoluzione dei problemi, vedere [*risoluzione dei problemi: richiesta di Azure Digital Twins non riuscita con stato: 403 (accesso negato)*](troubleshoot-error-403.md).
 
+## <a name="service-tags"></a>Tag di servizio
+
+Un **tag di servizio** rappresenta un gruppo di prefissi di indirizzi IP da un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete. Per ulteriori informazioni sui tag di servizio, vedere la pagina relativa ai  [*tag della rete virtuale*](../virtual-network/service-tags-overview.md). 
+
+È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza](../virtual-network/network-security-groups-overview.md#security-rules)   di rete o nel [firewall di Azure](../firewall/service-tags.md), usando i tag del servizio al posto di indirizzi IP specifici quando si creano le regole di sicurezza. Specificando il nome del tag di servizio (in questo caso, **AzureDigitalTwins** ) nel *source*   campo di origine o *destinazione* appropriato   di una regola, è possibile consentire o negare il traffico per il servizio corrispondente. 
+
+Di seguito sono riportati i dettagli del tag del servizio **AzureDigitalTwins** .
+
+| Tag | Scopo | È possibile usare in ingresso o in uscita? | Può essere regionale? | È possibile usarlo con Firewall di Azure? |
+| --- | --- | --- | --- | --- |
+| AzureDigitalTwins | Gemelli digitali di Azure<br>Nota: questo tag o gli indirizzi IP trattati da questo tag possono essere usati per limitare l'accesso agli endpoint configurati per le [route degli eventi](concepts-route-events.md). | In ingresso | No | Sì |
+
+### <a name="using-service-tags-for-accessing-event-route-endpoints"></a>Uso dei tag del servizio per l'accesso agli endpoint della route di eventi 
+
+Ecco i passaggi per accedere agli endpoint della [route degli eventi](concepts-route-events.md) usando i tag di servizio con i dispositivi gemelli digitali di Azure.
+
+1. Per prima cosa, scaricare questo riferimento al file JSON che Mostra gli intervalli IP e i tag di servizio di Azure: [*intervalli IP di Azure e tag del servizio*](https://www.microsoft.com/download/details.aspx?id=56519). 
+
+2. Cercare gli intervalli IP "AzureDigitalTwins" nel file JSON.  
+
+3. Per informazioni su come impostare i filtri IP per tale risorsa, vedere la documentazione della risorsa esterna connessa all'endpoint, ad esempio [griglia di eventi](../event-grid/overview.md), [Hub eventi](../event-hubs/event-hubs-about.md), [bus di servizio](../service-bus-messaging/service-bus-messaging-overview.md)o archiviazione di [Azure](../storage/blobs/storage-blobs-overview.md) per gli eventi di messaggi non [recapitabili](concepts-route-events.md#dead-letter-events).
+
+4. Impostare i filtri IP sulle risorse esterne usando gli intervalli IP del *passaggio 2*.  
+
+5. Aggiornare periodicamente gli intervalli IP come richiesto. È possibile che gli intervalli cambino nel tempo, quindi è consigliabile verificarli regolarmente e aggiornarli quando necessario. La frequenza di questi aggiornamenti può variare, ma è consigliabile controllarli una volta alla settimana.
+
 ## <a name="encryption-of-data-at-rest"></a>Crittografia dei dati inattivi
 
 I dispositivi gemelli digitali di Azure forniscono la crittografia dei dati inattivi e in transito come sono scritti nei data center e li decrittografa per l'accesso. Questa crittografia viene eseguita usando una chiave di crittografia gestita da Microsoft.
 
 ## <a name="cross-origin-resource-sharing-cors"></a>Condivisione risorse tra le origini (CORS)
 
-I dispositivi gemelli digitali di Azure attualmente non supportano la **condivisione di risorse tra le origini (CORS)** . Di conseguenza, se si chiama un'API REST da un'app browser, un'interfaccia di [gestione API (gestione API)](../api-management/api-management-key-concepts.md) o un connettore [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) , è possibile che venga visualizzato un errore del criterio.
+I dispositivi gemelli digitali di Azure attualmente non supportano la **condivisione di risorse tra le origini (CORS)**. Di conseguenza, se si chiama un'API REST da un'app browser, un'interfaccia di [gestione API (gestione API)](../api-management/api-management-key-concepts.md) o un connettore [Power Apps](https://docs.microsoft.com/powerapps/powerapps-overview) , è possibile che venga visualizzato un errore del criterio.
 
 Per risolvere questo errore, esegui una delle operazioni seguenti:
 * Rimuovere l'intestazione CORS `Access-Control-Allow-Origin` dal messaggio. Questa intestazione indica se la risposta può essere condivisa. 

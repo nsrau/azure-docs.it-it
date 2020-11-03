@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/22/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 6b1f53226b82a5342efda8665b6a366a3a7fd310
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 21188f473cbd5a6fd2a1ee549f47ad9b0e5b8af3
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92461414"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279491"
 ---
 # <a name="manage-endpoints-and-routes-in-azure-digital-twins-portal"></a>Gestire endpoint e route nei dispositivi gemelli digitali di Azure (portale)
 
@@ -22,14 +22,14 @@ Nei dispositivi gemelli digitali di Azure è possibile instradare le [notifiche 
 
 Questo articolo illustra il processo di creazione di endpoint e route usando il [portale di Azure](https://portal.azure.com).
 
-È anche possibile gestire endpoint e route con le [API route di eventi](/rest/api/digital-twins/dataplane/eventroutes), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Per una versione di questo articolo che usa questi meccanismi anziché il portale, vedere [*How-to: Manage Endpoints and routes (API e CLI)*](how-to-manage-routes-apis-cli.md).
+È anche possibile gestire endpoint e route con le [API route di eventi](/rest/api/digital-twins/dataplane/eventroutes), [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md). Per una versione di questo articolo che usa questi meccanismi anziché il portale, vedere [*How-to: Manage Endpoints and routes (API e CLI)*](how-to-manage-routes-apis-cli.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * È necessario un **account Azure** (è possibile impostarne uno gratuitamente [qui](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
 * È necessaria un' **istanza di Azure Digital Twins** nella sottoscrizione di Azure. Se non si dispone già di un'istanza, è possibile crearne una usando la procedura descritta in [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-portal.md). Per usare più avanti in questo articolo, è possibile usare i valori seguenti del programma di installazione:
     - Nome istanza
-    - Gruppo di risorse
+    - Resource group
 
 È possibile trovare questi dettagli nell' [portale di Azure](https://portal.azure.com) dopo aver configurato l'istanza di. Accedere al portale e cercare il nome dell'istanza nella barra di ricerca del portale.
  
@@ -37,7 +37,7 @@ Questo articolo illustra il processo di creazione di endpoint e route usando il 
 
 Selezionare l'istanza dai risultati per visualizzare la pagina dei dettagli per l'istanza:
 
-:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Screenshot della barra di ricerca portale di Azure." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/instance-details.png" alt-text="Schermata dei dettagli dell'istanza di ADT." border="false":::
 
 ## <a name="create-an-endpoint-for-azure-digital-twins"></a>Creare un endpoint per i dispositivi gemelli digitali di Azure
 
@@ -52,71 +52,71 @@ Per collegare un endpoint ai dispositivi gemelli digitali di Azure, è necessari
 
 ### <a name="create-an-event-grid-endpoint"></a>Creare un endpoint di griglia di eventi
 
-**Prerequisito**: creare un argomento di griglia di eventi attenendosi alla procedura descritta nella [sezione *creare un argomento personalizzato* ](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) della Guida introduttiva *agli eventi personalizzati* di griglia di eventi.
+**Prerequisito** : creare un argomento di griglia di eventi attenendosi alla procedura descritta nella [sezione *creare un argomento personalizzato*](../event-grid/custom-event-quickstart-portal.md#create-a-custom-topic) della Guida introduttiva *agli eventi personalizzati* di griglia di eventi.
 
 Dopo aver creato l'argomento, è possibile collegarlo a dispositivi gemelli digitali di Azure dalla pagina dell'istanza di Azure Digital gemelli nella [portale di Azure](https://portal.azure.com) (è possibile trovare l'istanza inserendone il nome nella barra di ricerca del portale).
 
-Scegliere _endpoint_dal menu istanza. Quindi, dalla pagina *endpoint* che segue, selezionare *+ Crea un endpoint*. 
+Scegliere _endpoint_ dal menu istanza. Quindi, dalla pagina *endpoint* che segue, selezionare *+ Crea un endpoint*. 
 
 Nella pagina *Crea un endpoint* visualizzato è possibile creare un endpoint di tipo _griglia di eventi_ selezionando il pulsante di opzione corrispondente. Completare gli altri dettagli: immettere un nome per l'endpoint nel campo _nome_ , scegliere la _sottoscrizione_ dall'elenco a discesa e scegliere l'argomento di griglia di  _eventi_ creato in precedenza dal terzo elenco a discesa.
 
 Quindi, creare l'endpoint colpendo _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot della barra di ricerca portale di Azure.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-grid.png" alt-text="Screenshot della creazione di un endpoint di tipo griglia di eventi.":::
 
 È possibile verificare che l'endpoint sia stato creato correttamente selezionando l'icona di notifica nella barra portale di Azure superiore: 
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot della barra di ricerca portale di Azure." border="false":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-notifications.png" alt-text="Screenshot della notifica per verificare la creazione dell'endpoint." border="false":::
 
 È anche possibile visualizzare l'endpoint che è stato creato nuovamente nella pagina *endpoint* per l'istanza di Azure Digital gemelli.
 
 Se la creazione dell'endpoint ha esito negativo, osservare il messaggio di errore e riprovare dopo alcuni minuti.
 
-A questo punto, l'argomento di griglia di eventi è disponibile come endpoint all'interno di dispositivi gemelli digitali di Azure, con il nome specificato nel campo _nome_ . Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#create-an-event-route).
+A questo punto, l'argomento di griglia di eventi è disponibile come endpoint all'interno di dispositivi gemelli digitali di Azure, con il nome specificato nel campo _nome_ . Questo nome viene in genere usato come destinazione di una **Route di eventi** , che verrà creata [più avanti in questo articolo](#create-an-event-route).
 
 ### <a name="create-an-event-hubs-endpoint"></a>Creare un endpoint di hub eventi
 
-**Prerequisiti**: 
+**Prerequisiti** : 
 * Sono necessari uno _spazio dei nomi di hub eventi_ e un _Hub eventi_. Per creare entrambi i passaggi, attenersi alla procedura descritta in hub eventi creare una guida introduttiva a [*Hub eventi*](../event-hubs/event-hubs-create.md) .
 * È necessaria una _regola di autorizzazione_. Per crearlo, vedere l'articolo relativo all' [*autorizzazione dell'accesso alle risorse di hub eventi tramite firme di accesso condiviso*](../event-hubs/authorize-access-shared-access-signature.md) .
 
 Passare alla pagina dei dettagli per l'istanza di Azure Digital Twins nel [portale di Azure](https://portal.azure.com) (è possibile trovarla immettendo il relativo nome nella barra di ricerca del portale).
 
-Scegliere _endpoint_dal menu istanza. Quindi, dalla pagina *endpoint* che segue, selezionare *+ Crea un endpoint*. 
+Scegliere _endpoint_ dal menu istanza. Quindi, dalla pagina *endpoint* che segue, selezionare *+ Crea un endpoint*. 
 
-Nella pagina *Crea un endpoint* visualizzato è possibile creare un endpoint di tipo _Hub eventi_ selezionando il pulsante di opzione corrispondente. Immettere un nome per l'endpoint nel campo _nome_ . Selezionare quindi la _sottoscrizione_e lo _spazio dei nomi dell'hub eventi_, l' _Hub eventi_e la _regola di autorizzazione_ creati in precedenza dai rispettivi elenchi a discesa.
+Nella pagina *Crea un endpoint* visualizzato è possibile creare un endpoint di tipo _Hub eventi_ selezionando il pulsante di opzione corrispondente. Immettere un nome per l'endpoint nel campo _nome_ . Selezionare quindi la _sottoscrizione_ e lo _spazio dei nomi dell'hub eventi_ , l' _Hub eventi_ e la _regola di autorizzazione_ creati in precedenza dai rispettivi elenchi a discesa.
 
 Quindi, creare l'endpoint colpendo _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Screenshot della barra di ricerca portale di Azure.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-event-hub.png" alt-text="Screenshot della creazione di un endpoint di tipo hub eventi.":::
 
 È possibile verificare che l'endpoint venga creato correttamente selezionando l'icona di notifica nella parte superiore della barra portale di Azure. 
 
 Se la creazione dell'endpoint ha esito negativo, osservare il messaggio di errore e riprovare dopo alcuni minuti.
 
-A questo punto, l'hub eventi è disponibile come endpoint all'interno di dispositivi gemelli digitali di Azure, con il nome specificato nel campo _nome_ . Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#create-an-event-route).
+A questo punto, l'hub eventi è disponibile come endpoint all'interno di dispositivi gemelli digitali di Azure, con il nome specificato nel campo _nome_ . Questo nome viene in genere usato come destinazione di una **Route di eventi** , che verrà creata [più avanti in questo articolo](#create-an-event-route).
 
 ### <a name="create-a-service-bus-endpoint"></a>Creare un endpoint del bus di servizio
 
-**Prerequisiti**: 
+**Prerequisiti** : 
 * Sono necessari uno _spazio dei nomi del bus di servizio_ e un argomento del bus di _servizio_. Per crearli, seguire i passaggi descritti nella Guida introduttiva [*creare argomenti e sottoscrizioni*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md) del bus di servizio. Non è necessario completare la sezione [*creare sottoscrizioni per l'argomento*](../service-bus-messaging/service-bus-quickstart-topics-subscriptions-portal.md#create-subscriptions-to-the-topic) .
 * È necessaria una _regola di autorizzazione_. Per crearlo, vedere l'articolo [*autenticazione e autorizzazione*](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature) del bus di servizio.
 
 Passare alla pagina dei dettagli per l'istanza di Azure Digital Twins nel [portale di Azure](https://portal.azure.com) (è possibile trovarla immettendo il relativo nome nella barra di ricerca del portale).
 
-Scegliere _endpoint_dal menu istanza. Quindi, dalla pagina *endpoint* che segue, selezionare *+ Crea un endpoint*. 
+Scegliere _endpoint_ dal menu istanza. Quindi, dalla pagina *endpoint* che segue, selezionare *+ Crea un endpoint*. 
 
-Nella pagina *Crea un endpoint* visualizzato è possibile creare un endpoint di tipo _bus di servizio_ selezionando il pulsante di opzione corrispondente. Immettere un nome per l'endpoint nel campo _nome_ . Selezionare quindi la _sottoscrizione_e lo _spazio dei nomi del bus di servizio_, l' _argomento del bus di servizio_e la regola di _autorizzazione_ creati in precedenza dai rispettivi elenchi a discesa.
+Nella pagina *Crea un endpoint* visualizzato è possibile creare un endpoint di tipo _bus di servizio_ selezionando il pulsante di opzione corrispondente. Immettere un nome per l'endpoint nel campo _nome_ . Selezionare quindi la _sottoscrizione_ e lo _spazio dei nomi del bus di servizio_ , l' _argomento del bus di servizio_ e la regola di _autorizzazione_ creati in precedenza dai rispettivi elenchi a discesa.
 
 Quindi, creare l'endpoint colpendo _Save_.
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Screenshot della barra di ricerca portale di Azure.":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-endpoint-service-bus.png" alt-text="Screenshot della creazione di un endpoint di tipo bus di servizio.":::
 
 È possibile verificare che l'endpoint venga creato correttamente selezionando l'icona di notifica nella parte superiore della barra portale di Azure. 
 
 Se la creazione dell'endpoint ha esito negativo, osservare il messaggio di errore e riprovare dopo alcuni minuti.
 
-A questo punto, l'argomento del bus di servizio è disponibile come endpoint all'interno di dispositivi gemelli digitali di Azure, con il nome specificato nel campo _nome_ . Questo nome viene in genere usato come destinazione di una **Route di eventi**, che verrà creata [più avanti in questo articolo](#create-an-event-route).
+A questo punto, l'argomento del bus di servizio è disponibile come endpoint all'interno di dispositivi gemelli digitali di Azure, con il nome specificato nel campo _nome_ . Questo nome viene in genere usato come destinazione di una **Route di eventi** , che verrà creata [più avanti in questo articolo](#create-an-event-route).
 
 ### <a name="create-an-endpoint-with-dead-lettering"></a>Creazione di un endpoint con messaggi non recapitabili
 
@@ -130,7 +130,7 @@ Per istruzioni su come eseguire questa operazione con le API, vedere le [*API e*
 
 Per inviare effettivamente i dati dai dispositivi gemelli digitali di Azure a un endpoint, è necessario definire una **route dell'evento**. Queste route consentono agli sviluppatori di collegare il flusso degli eventi, in tutto il sistema e ai servizi downstream. Per altre informazioni sulle route di eventi, vedere [*concetti relativi al routing di eventi gemelli digitali di Azure*](concepts-route-events.md).
 
-**Prerequisito**: è necessario creare endpoint come descritto in precedenza in questo articolo prima di poter passare alla creazione di una route. È possibile procedere alla creazione di una route di eventi al termine della configurazione degli endpoint.
+**Prerequisito** : è necessario creare endpoint come descritto in precedenza in questo articolo prima di poter passare alla creazione di una route. È possibile procedere alla creazione di una route di eventi al termine della configurazione degli endpoint.
 
 >[!NOTE]
 >Se gli endpoint sono stati distribuiti di recente, verificare che la distribuzione sia terminata **prima** di provare a usarli per una nuova route di eventi. Se non si è in grado di configurare la route perché gli endpoint non sono pronti, attendere qualche minuto e riprovare.
@@ -149,7 +149,7 @@ Una singola route può consentire la selezione di più notifiche e tipi di event
 
 Per creare una route di eventi, passare alla pagina dei dettagli per l'istanza di Azure Digital Twins nel [portale di Azure](https://portal.azure.com) (è possibile trovare l'istanza inserendo il nome nella barra di ricerca del portale).
 
-Scegliere _Route eventi_dal menu istanza. Dalla pagina *Route eventi* seguente selezionare *+ Crea una route*per gli eventi. 
+Scegliere _Route eventi_ dal menu istanza. Dalla pagina *Route eventi* seguente selezionare *+ Crea una route* per gli eventi. 
 
 Nella pagina *Crea una route di evento* visualizzata, scegliere almeno:
 * Nome della route nel campo del _nome_
@@ -157,7 +157,7 @@ Nella pagina *Crea una route di evento* visualizzata, scegliere almeno:
 
 Per abilitare la route, è necessario **aggiungere anche un filtro di route di un evento** almeno `true` . Se si lascia il valore predefinito `false` , verrà creata la route, ma non verrà inviato alcun evento. A tale scopo, attivare l'opzione _Editor avanzato_ per abilitarla e scrivere `true` nella casella *filtro* .
 
-:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot della barra di ricerca portale di Azure." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
+:::image type="content" source="media/how-to-manage-routes-portal/create-event-route-no-filter.png" alt-text="Screenshot della creazione della route dell'evento per l'istanza." lightbox="media/how-to-manage-routes-portal/create-event-route-no-filter.png":::
 
 Al termine, fare clic sul pulsante _Salva_ per creare la route dell'evento.
 
@@ -182,7 +182,7 @@ Per usare i filtri di base, espandere l'opzione _tipi di evento_ e selezionare l
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot della barra di ricerca portale di Azure.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-1.png" alt-text="Screenshot della creazione di una route di eventi con un filtro di base. Selezione delle caselle di controllo degli eventi.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -192,7 +192,7 @@ La casella di testo filtro verrà popolata automaticamente con il testo del filt
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot della barra di ricerca portale di Azure.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-basic-2.png" alt-text="Screenshot della creazione di una route di eventi con un filtro di base. Visualizzazione del testo del filtro popolato automaticamente dopo aver selezionato gli eventi.":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -206,7 +206,7 @@ Per creare una route di eventi con opzioni di filtro avanzate, attivare o disatt
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot della barra di ricerca portale di Azure.":::
+        :::image type="content" source="media/how-to-manage-routes-portal/create-event-route-filter-advanced.png" alt-text="Screenshot della creazione di una route di eventi con un filtro avanzato.":::
     :::column-end:::
     :::column:::
     :::column-end:::

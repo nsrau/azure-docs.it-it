@@ -7,18 +7,18 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 62deca7ed1c34bbefed7fb76224db6ec8ab12dae
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 947a0c9a0af3c38d6c4d6f66da691d62530a69e7
+ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147131"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93279507"
 ---
 # <a name="manage-a-graph-of-digital-twins-using-relationships"></a>Gestire un grafico di gemelli digitali usando relazioni
 
-Il cuore di Azure Digital gemelli è il [grafo gemello](concepts-twins-graph.md) che rappresenta l'intero ambiente. Il grafo gemello è costituito da singoli gemelli digitali connessi tramite **relazioni** . 
+Il cuore di Azure Digital gemelli è il [grafo gemello](concepts-twins-graph.md) che rappresenta l'intero ambiente. Il grafo gemello è costituito da singoli gemelli digitali connessi tramite **relazioni**. 
 
-Quando si ha un' [istanza di Azure Digital Twins](how-to-set-up-instance-portal.md) funzionante e si è configurato il codice di [autenticazione](how-to-authenticate-client.md) nell'app client, è possibile usare le [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) per creare, modificare ed eliminare i dispositivi gemelli digitali e le relative relazioni in un'istanza di Azure Digital gemelli. È anche possibile usare [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet-preview&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
+Quando si ha un' [istanza di Azure Digital Twins](how-to-set-up-instance-portal.md) funzionante e si è configurato il codice di [autenticazione](how-to-authenticate-client.md) nell'app client, è possibile usare le [**API DigitalTwins**](/rest/api/digital-twins/dataplane/twins) per creare, modificare ed eliminare i dispositivi gemelli digitali e le relative relazioni in un'istanza di Azure Digital gemelli. È anche possibile usare [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true)o l'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md).
 
 Questo articolo è incentrato sulla gestione delle relazioni e del grafo nel suo complesso; per lavorare con singoli dispositivi gemelli digitali, vedere [*How-to: Manage Digital gemells*](how-to-manage-twin.md).
 
@@ -37,8 +37,8 @@ Le relazioni vengono create utilizzando la `CreateRelationship()` chiamata.
 Per creare una relazione, è necessario specificare:
 * ID del dispositivo gemello `srcId` di origine (nell'esempio di codice riportato di seguito): ID del gemello in cui ha origine la relazione.
 * ID del gemello di destinazione ( `targetId` nell'esempio di codice riportato di seguito): l'ID del gemello in cui arriva la relazione.
-* Un nome di relazione ( `relName` nell'esempio di codice riportato di seguito): tipo generico di relazione, simile a _Contains_ .
-* Un ID relazione ( `relId` nell'esempio di codice riportato di seguito): il nome specifico per la relazione, ad esempio _Relationship1_ .
+* Un nome di relazione ( `relName` nell'esempio di codice riportato di seguito): tipo generico di relazione, simile a _Contains_.
+* Un ID relazione ( `relId` nell'esempio di codice riportato di seguito): il nome specifico per la relazione, ad esempio _Relationship1_.
 
 L'ID relazione deve essere univoco all'interno del gemello di origine specificato. Non è necessario che sia globalmente univoco.
 Per il *foo* gemello, ad esempio, ogni ID relazione specifico deve essere univoco. Tuttavia, un'altra *barra* gemella può avere una relazione in uscita che corrisponde allo stesso ID di una relazione *foo* .
@@ -85,7 +85,7 @@ Le relazioni possono essere classificate come una delle seguenti:
 
 Non esiste alcuna restrizione al numero di relazioni che è possibile avere tra due gemelli. è possibile avere tutte le relazioni tra i dispositivi gemelli. 
 
-Ciò significa che è possibile esprimere più tipi diversi di relazioni tra due gemelli in una sola volta. Ad esempio, *il gemello A* può avere una relazione *archiviata* e una relazione *prodotta* con il *gemello B* .
+Ciò significa che è possibile esprimere più tipi diversi di relazioni tra due gemelli in una sola volta. Ad esempio, *il gemello A* può avere una relazione *archiviata* e una relazione *prodotta* con il *gemello B*.
 
 Se lo si desidera, è anche possibile creare più istanze dello stesso tipo di relazione tra gli stessi due gemelli. In questo esempio, il *gemello a* può avere due relazioni *archiviate* diverse con il *gemello B* , purché le relazioni abbiano ID relazione diversi.
 
