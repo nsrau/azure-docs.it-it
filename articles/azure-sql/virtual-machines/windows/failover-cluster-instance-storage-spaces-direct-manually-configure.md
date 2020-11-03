@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/18/2020
 ms.author: mathoma
-ms.openlocfilehash: 848f3cd2d5719d62e39f46c166d51e09ec89bd4c
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9b90d13d6f4fa5a33bff38aaa66728a5d0f3d70f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792515"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289944"
 ---
 # <a name="create-an-fci-with-storage-spaces-direct-sql-server-on-azure-vms"></a>Creare un'istanza FCI con Spazi di archiviazione diretta (SQL Server in macchine virtuali di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Il diagramma seguente illustra la soluzione completa, che usa Spazi di archiviaz
 
 Il diagramma precedente mostra le risorse seguenti nello stesso gruppo di risorse:
 
-- Due macchine virtuali in un cluster di failover di Windows Server. Una macchina virtuale in un cluster di failover è detta anche *nodo del cluster* o *nodo* .
+- Due macchine virtuali in un cluster di failover di Windows Server. Una macchina virtuale in un cluster di failover è detta anche *nodo del cluster* o *nodo*.
 - Ogni macchina virtuale ha due o più dischi dati.
 - Spazi di archiviazione diretta sincronizza i dati nei dischi dati e presenta le risorse di archiviazione sincronizzate sotto forma di pool di archiviazione.
 - Il pool di archiviazione presenta un volume condiviso cluster per il cluster di failover.
@@ -68,10 +68,10 @@ Prima di completare le istruzioni riportate in questo articolo, è necessario av
 
    Per installare il clustering di failover dall'interfaccia utente, eseguire le operazioni seguenti in entrambe le macchine virtuali:
 
-   1. In **Server Manager** selezionare **Gestione** e quindi **Aggiungi ruoli e funzionalità** .
-   1. Nell' **Aggiunta guidata ruoli e funzionalità** selezionare **Avanti** fino a quando non si ottengono le **funzionalità selezionate** .
-   1. In **Seleziona funzionalità** selezionare **Clustering di failover** . Includere tutte le funzionalità necessarie e gli strumenti di gestione. 
-   1. Selezionare **Aggiungi funzionalità** .
+   1. In **Server Manager** selezionare **Gestione** e quindi **Aggiungi ruoli e funzionalità**.
+   1. Nell' **Aggiunta guidata ruoli e funzionalità** selezionare **Avanti** fino a quando non si ottengono le **funzionalità selezionate**.
+   1. In **Seleziona funzionalità** selezionare **Clustering di failover**. Includere tutte le funzionalità necessarie e gli strumenti di gestione. 
+   1. Selezionare **Aggiungi funzionalità**.
    1. Selezionare **Avanti** e quindi selezionare **Fine** per installare le funzionalità.
 
    Per installare il clustering di failover tramite PowerShell, eseguire lo script seguente da una sessione di PowerShell amministratore in una delle macchine virtuali:
@@ -90,18 +90,18 @@ Convalidare il cluster nell'interfaccia utente o usando PowerShell.
 
 Per convalidare il cluster usando l'interfaccia utente, eseguire le operazioni seguenti in una delle macchine virtuali:
 
-1. In **Server Manager** selezionare **Strumenti** e quindi selezionare **Gestione cluster di failover** .
-1. In **Gestione cluster di failover** selezionare **Azione** e quindi selezionare **Convalida configurazione** .
-1. Selezionare **Avanti** .
+1. In **Server Manager** selezionare **Strumenti** e quindi selezionare **Gestione cluster di failover**.
+1. In **Gestione cluster di failover** selezionare **Azione** e quindi selezionare **Convalida configurazione**.
+1. Selezionare **Avanti**.
 1. In **Selezione di server o di un cluster** immettere i nomi di entrambe le macchine virtuali.
-1. In **Opzioni di testing** selezionare **Esegui solo test selezionati** . 
-1. Selezionare **Avanti** .
+1. In **Opzioni di testing** selezionare **Esegui solo test selezionati**. 
+1. Selezionare **Avanti**.
 1. In **Selezione dei test** selezionare tutti i test tranne **Archiviazione** , come illustrato di seguito:
 
    ![Selezionare i test di convalida del cluster](./media/failover-cluster-instance-storage-spaces-direct-manually-configure/10-validate-cluster-test.png)
 
-1. Selezionare **Avanti** .
-1. In **Conferma** selezionare **Avanti** .
+1. Selezionare **Avanti**.
+1. In **Conferma** selezionare **Avanti**.
 
     La convalida guidata **configurazione** esegue i test di convalida.
 
@@ -192,11 +192,11 @@ Dopo aver configurato il cluster di failover e tutti i componenti del cluster, i
 
 1. In **Gestione cluster di failover** assicurarsi che tutte le risorse del cluster di base si trovino nella prima macchina virtuale. Se necessario, spostare tutte le risorse in tale macchina virtuale.
 
-1. Individuare i supporti di installazione. Se la macchina virtuale usa una delle immagini di Azure Marketplace, i supporti si trovano in `C:\SQLServer_<version number>_Full`. Selezionare **Imposta** .
+1. Individuare i supporti di installazione. Se la macchina virtuale usa una delle immagini di Azure Marketplace, i supporti si trovano in `C:\SQLServer_<version number>_Full`. Selezionare **Imposta**.
 
-1. In **Centro installazione SQL Server** selezionare **Installazione** .
+1. In **Centro installazione SQL Server** selezionare **Installazione**.
 
-1. Selezionare **Installazione di un nuovo cluster di failover di SQL Server** . Seguire le istruzioni della procedura guidata per installare l'istanza del cluster di failover di SQL Server.
+1. Selezionare **Installazione di un nuovo cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare l'istanza del cluster di failover di SQL Server.
 
    Le directory di dati dell'istanza del cluster di failover devono trovarsi nelle risorse di archiviazione del cluster. Con Spazi di archiviazione diretta, non si tratta di un disco condiviso, ma di un punto di montaggio su un volume in ogni server. Spazi di archiviazione diretta sincronizza il volume tra i due nodi. Il volume viene presentato al cluster come un volume CSV. Usare il punto di montaggio del volume condiviso cluster per le directory di dati.
 
@@ -206,9 +206,9 @@ Dopo aver configurato il cluster di failover e tutti i componenti del cluster, i
 
 1. Al termine dell'installazione dell'istanza del cluster di failover nel primo nodo, connettersi al secondo nodo usando RDP.
 
-1. Aprire il **Centro installazione SQL Server** . Selezionare **Installazione** .
+1. Aprire il **Centro installazione SQL Server**. Selezionare **Installazione**.
 
-1. Selezionare **Aggiungi nodo a cluster di failover di SQL Server** . Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere il server all'istanza del cluster di failover.
+1. Selezionare **Aggiungi nodo a cluster di failover di SQL Server**. Seguire le istruzioni della procedura guidata per installare SQL Server e aggiungere il server all'istanza del cluster di failover.
 
    >[!NOTE]
    >Se è stata usata un'immagine della raccolta di Azure Marketplace che contiene SQL Server, gli strumenti di SQL Server sono stati inclusi con l'immagine. In caso contrario, installare gli strumenti di SQL Server separatamente. Per altre informazioni, vedere [Scaricare SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -239,7 +239,7 @@ Per instradare il traffico in modo appropriato al nodo primario corrente, config
 
 - Le macchine virtuali di Azure supportano Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019 con archiviazione su CSVs e un servizio di [bilanciamento del carico standard](../../../load-balancer/load-balancer-overview.md).
 - I dischi che sono stati collegati come dischi formattati NTFS possono essere usati con Spazi di archiviazione diretta solo se l'opzione di idoneità del disco è deselezionata o cancellata quando è in corso l'aggiunta dell'archiviazione al cluster. 
-- È supportata solo la registrazione con il provider di risorse VM SQL in [modalità di gestione semplice](sql-vm-resource-provider-register.md#management-modes) .
+- È supportata solo la registrazione con il provider di risorse VM SQL in [modalità di gestione semplice](sql-server-iaas-agent-extension-automate-management.md#management-modes) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

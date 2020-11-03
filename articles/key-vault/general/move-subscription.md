@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: c92671028f851a456b3222100e33958c9e26466a
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e0cd4cad74257dbf83ec8d30405eacca341a8d31
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785324"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289521"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Trasferimento di un Azure Key Vault a un'altra sottoscrizione
 
@@ -100,9 +100,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Ora che l'insieme di credenziali è associato all'ID tenant corretto e che le voci dei criteri di accesso precedenti sono state rimosse, impostare le nuove voci dei criteri di accesso con il cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) di Azure PowerShell o il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) dell'interfaccia della riga di comando di Azure.
 
-Se si usa un'identità gestita per le risorse di Azure, sarà necessario aggiornarla anche alla nuova Azure Active Directory tenant. Per altre informazioni sulle identità gestite, [Panoramica dell'identità gestita](/azure/active-directory/managed-identities-azure-resources/overview).
+Se si usa un'identità gestita per le risorse di Azure, sarà necessario aggiornarla anche alla nuova Azure Active Directory tenant. Per altre informazioni sulle identità gestite, [Panoramica dell'identità gestita](../../active-directory/managed-identities-azure-resources/overview.md).
 
 Se si usa l'identità gestita, sarà necessario aggiornare anche l'identità perché l'identità precedente non sarà più nel tenant Azure Active Directory corretto. Per risolvere il problema, vedere i documenti seguenti. 
 
-* [Aggiornamento di MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
-* [Trasferisce la sottoscrizione alla nuova directory](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
+* [Aggiornamento di MSI](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)
+* [Trasferisce la sottoscrizione alla nuova directory](../../role-based-access-control/transfer-subscription.md)

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7aa33bb062abf748031b27df46d42e8f13aabfc3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b60f290f6d3ca184e25edd2984ad5b2d1ff2bdf
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91819958"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289675"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Guida alla limitazione delle richieste per Azure Key Vault
 
@@ -30,7 +30,7 @@ Key Vault è stato originariamente progettato per essere usato per archiviare e 
 
 Key Vault è stato creato in origine con i limiti specificati nei [limiti di Azure Key Vault servizio](service-limits.md).  Per ottimizzare la Key Vault tramite le tariffe put, di seguito sono riportate alcune linee guida consigliate e procedure consigliate per massimizzare la velocità effettiva:
 1. Assicurarsi di aver installato la limitazione delle richieste.  Il client deve rispettare i criteri di disattivazione esponenziale per 429 e assicurarsi di eseguire nuovi tentativi in base alle indicazioni riportate di seguito.
-1. Dividere il traffico Key Vault tra più insiemi di credenziali e aree diverse.   Usare un insieme di credenziali separato per ogni dominio di sicurezza/disponibilità.   Se si dispone di cinque app, ciascuna in due aree, si consiglia di utilizzare 10 insiemi di credenziali, ognuno dei quali contiene i segreti esclusivi dell'app e dell'area.  Un limite a livello di sottoscrizione per tutti i tipi di transazione è cinque volte il limite del singolo insieme di credenziali delle chiavi. Ad esempio, le transazioni HSM-other per ogni sottoscrizione sono limitate a 5.000 transazioni in 10 secondi per sottoscrizione. Si consiglia di memorizzare nella cache il segreto all'interno del servizio o dell'app per ridurre anche il RPS direttamente all'insieme di credenziali delle chiavi e/o gestire il traffico basato su picchi.  È anche possibile dividere il traffico tra aree diverse per ridurre al minimo la latenza e usare una sottoscrizione o un insieme di credenziali diverso.  Non inviare più del limite di sottoscrizione al servizio Key Vault in una singola area di Azure.
+1. Dividere il traffico Key Vault tra più insiemi di credenziali e aree diverse.   Usare un insieme di credenziali separato per ogni dominio di sicurezza/disponibilità.   Se si dispone di cinque app, ciascuna in due aree, si consiglia di utilizzare 10 insiemi di credenziali, ognuno dei quali contiene i segreti esclusivi dell'app e dell'area.  Un limite a livello di sottoscrizione per tutti i tipi di transazione è cinque volte il limite del singolo insieme di credenziali delle chiavi. Ad esempio, le transazioni diverse da HSM hanno un limite di 5.000 transazioni ogni 10 secondi per sottoscrizione. Si consiglia di memorizzare nella cache il segreto all'interno del servizio o dell'app per ridurre anche il RPS direttamente all'insieme di credenziali delle chiavi e/o gestire il traffico basato su picchi.  È anche possibile dividere il traffico tra aree diverse per ridurre al minimo la latenza e usare una sottoscrizione o un insieme di credenziali diverso.  Non inviare più del limite di sottoscrizione al servizio Key Vault in una singola area di Azure.
 1. Memorizzare nella cache i segreti recuperati dal Azure Key Vault in memoria e riutilizzare la memoria quando possibile.  Ripetere la lettura da Azure Key Vault solo quando la copia memorizzata nella cache smette di funzionare, ad esempio perché è stata ruotata nell'origine. 
 1. Key Vault è progettato per i segreti dei propri servizi.   Se si archiviano i segreti dei clienti (soprattutto per gli scenari di archiviazione chiavi a velocità effettiva elevata), è consigliabile inserire le chiavi in un account di archiviazione o database con crittografia e archiviare solo la chiave master in Azure Key Vault.
 1. Le operazioni di crittografia, wrapping e verifica della chiave pubblica possono essere eseguite senza l'accesso alle Key Vault, che non solo riduce il rischio di limitazione, ma migliora anche l'affidabilità (purché il materiale della chiave pubblica venga memorizzato correttamente nella cache).
@@ -47,8 +47,8 @@ Se si ritiene che il precedente non soddisfi le proprie esigenze, compilare la t
 
 Se è stata approvata una capacità aggiuntiva, tenere presente quanto segue in seguito all'aumento della capacità:
 1. Il modello di coerenza dei dati cambia. Quando un insieme di credenziali è consentito nell'elenco con capacità di velocità effettiva aggiuntiva, la coerenza dei dati del servizio Key Vault garantisce modifiche (necessario per soddisfare un volume RPS superiore perché il servizio di archiviazione di Azure sottostante non può rimanere attivo).  In pratica
-  1. **Senza Allow Listing**: il servizio Key Vault rifletterà i risultati di un'operazione di scrittura (ad esempio, Secrett, CreateKey) immediatamente nelle chiamate successive, ad esempio SecretGet, segno di firma.
-  1. **Con Allow Listing**: il servizio Key Vault rifletterà i risultati di un'operazione di scrittura (ad esempio, Secrett, CreateKey) entro 60 secondi nelle chiamate successive, ad esempio SecretGet, segno di firma.
+  1. **Senza Allow Listing** : il servizio Key Vault rifletterà i risultati di un'operazione di scrittura (ad esempio, Secrett, CreateKey) immediatamente nelle chiamate successive, ad esempio SecretGet, segno di firma.
+  1. **Con Allow Listing** : il servizio Key Vault rifletterà i risultati di un'operazione di scrittura (ad esempio, Secrett, CreateKey) entro 60 secondi nelle chiamate successive, ad esempio SecretGet, segno di firma.
 1. Il codice client deve rispettare i criteri di backup per 429 tentativi. Il codice client che chiama il servizio Key Vault non deve ritentare immediatamente Key Vault richieste quando riceve un codice di risposta 429.  Il Azure Key Vault linee guida per la limitazione delle richieste pubblicate qui consiglia di applicare backoff esponenziali quando si riceve un codice di risposta http 429.
 
 Nel caso l'utente abbia delle esigenze aziendali per cui sono necessarie delle limitazioni maggiori, contattare Microsoft.
@@ -98,5 +98,4 @@ A questo punto, il codice di risposta HTTP 429 dovrebbe non essere più visualiz
 
 ## <a name="see-also"></a>Vedere anche
 
-Per un approfondimento sulla limitazione delle richieste nel cloud di Microsoft, vedere [Throttling Pattern](https://docs.microsoft.com/azure/architecture/patterns/throttling) (Modello di limitazione delle richieste).
-
+Per un approfondimento sulla limitazione delle richieste nel cloud di Microsoft, vedere [Throttling Pattern](/azure/architecture/patterns/throttling) (Modello di limitazione delle richieste).

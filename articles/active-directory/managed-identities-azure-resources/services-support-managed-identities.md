@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: 7e971b4afe0719d74c8aa32c5f5103c4be971d9b
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 37a17105be0b6754bbdfd935c6c17933314114d4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426448"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289592"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -202,8 +202,8 @@ Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Az
 
 | Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | :-: | :-: | :-: | :-: |
-| Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | ![Disponibile][check] | 
-| Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | ![Disponibile][check] |
+| Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Non disponibile | Non disponibile | 
+| Assegnata dall'utente | Anteprima | Non disponibile | Non disponibile | Non disponibile |
 
 
 Per altre informazioni, vedere [Usare le identità gestite nel servizio Azure Kubernetes](../../aks/use-managed-identity.md).
@@ -240,7 +240,7 @@ Per altre informazioni, vedere [usare identità gestite con Azure Machine Learni
 
 Vedere l'elenco seguente per configurare l'identità gestita per i criteri di Azure (nelle aree in cui sono disponibili):
 
-- [Portale di Azure](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
+- [Azure portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
 - [Interfaccia della riga di comando di Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
 - [Modelli di Gestione risorse di Azure](/azure/templates/microsoft.authorization/policyassignments)
@@ -281,8 +281,8 @@ Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Az
 
 |Tipo di identità gestita | Disponibile a livello generale<br>Aree globali di Azure | Azure Government | Azure Germania | 21Vianet per Azure Cina |
 | --- | :-: | :-: | :-: | :-: |
-| Assegnata dal sistema | ![Disponibile][check] | Anteprima | Anteprima | Anteprima |
-| Assegnata dall'utente | ![Disponibile][check] | Anteprima | Anteprima | Anteprima |
+| Assegnata dal sistema | ![Disponibile][check] | ![Disponibile][check] | Anteprima | Anteprima |
+| Assegnata dall'utente | ![Disponibile][check] | ![Disponibile][check] | Anteprima | Anteprima |
 
 Vedere l'elenco seguente per configurare l'identità gestita per il set di scalabilità di macchine virtuali di Azure (nelle aree in cui è disponibile):
 

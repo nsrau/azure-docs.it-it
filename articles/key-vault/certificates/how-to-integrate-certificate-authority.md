@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 06/02/2020
 ms.author: sebansal
-ms.openlocfilehash: d5370343ac83d75df94e7291d26c87ce0c419d0e
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: d36c6e8ebbb86f9027a4822daa4481b5481523c2
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92327417"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289547"
 ---
 # <a name="integrating-key-vault-with-digicert-certificate-authority"></a>Integrazione di Key Vault con l'autorità di certificazione DigiCert
 
@@ -23,7 +23,7 @@ Azure Key Vault consente di effettuare facilmente il provisioning, la gestione e
 
 Gli utenti di Azure Key Vault possono generare certificati DigiCert direttamente dalla loro istanza del servizio. Key Vault assicura la gestione end-to-end del ciclo di vita dei certificati emessi da DigiCert tramite una partnership di trust stabilita con l'autorità di certificazione DigiCert.
 
-Per informazioni più generali sui certificati, vedere [Certificati di Azure Key Vault](/azure/key-vault/certificates/about-certificates).
+Per informazioni più generali sui certificati, vedere [Certificati di Azure Key Vault](./about-certificates.md).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -51,9 +51,9 @@ Dopo aver raccolto le informazioni sopra riportate dall'account CertCentral di D
 ### <a name="azure-portal"></a>Portale di Azure
 
 1.  Per aggiungere l'autorità di certificazione DigiCert, passare all'insieme di credenziali delle chiavi in cui inserirla. 
-2.  Nella pagina delle proprietà di Key Vault selezionare **Certificati** .
-3.  Selezionare la scheda **Autorità di certificazione** . ![Selezionare Autorità di certificazione](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
-4.  Selezionare l'opzione **Aggiungi** .
+2.  Nella pagina delle proprietà di Key Vault selezionare **Certificati**.
+3.  Selezionare la scheda **Autorità di certificazione**. ![Selezionare Autorità di certificazione](../media/certificates/how-to-integrate-certificate-authority/select-certificate-authorities.png)
+4.  Selezionare l'opzione **Aggiungi**.
  ![Aggiungere autorità di certificazione](../media/certificates/how-to-integrate-certificate-authority/add-certificate-authority.png)
 5.  Nella schermata **Crea un'autorità di certificazione** scegliere i valori seguenti:
     -   **Name** : aggiungere un nome di autorità emittente identificabile. Esempio: DigicertCA
@@ -61,7 +61,7 @@ Dopo aver raccolto le informazioni sopra riportate dall'account CertCentral di D
     -   **ID account** : immettere l'ID dell'account CertCentral di DigiCert
     -   **Password account** : immettere la chiave API generata nell'account CertCentral di DigiCert
     -   **ID organizzazione** : immettere l'ID organizzazione raccolto dall'account CertCentral di DigiCert 
-    -   Fare clic su **Crea** .
+    -   Fare clic su **Crea**.
    
 6.  Si noterà che DigicertCA è stata aggiunta all'elenco delle autorità di certificazione.
 
@@ -108,7 +108,7 @@ $org = New-AzKeyVaultCertificateOrganizationDetail -Id OrganizationIDfromDigiCer
 $secureApiKey = ConvertTo-SecureString DigiCertCertCentralAPIKey -AsPlainText –Force
 ```
 
-4. Impostare **Autorità emittente** . Nell'insieme di credenziali delle chiavi verrà aggiunta DigiCert come autorità di certificazione. Per altre informazioni sui parametri, [vedere qui](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
+4. Impostare **Autorità emittente**. Nell'insieme di credenziali delle chiavi verrà aggiunta DigiCert come autorità di certificazione. Per altre informazioni sui parametri, [vedere qui](https://docs.microsoft.com/powershell/module/az.keyvault/Set-AzKeyVaultCertificateIssuer)
 ```azurepowershell-interactive
 Set-AzKeyVaultCertificateIssuer -VaultName "Contoso-Vaultname" -Name "TestIssuer01" -IssuerProvider DigiCert -AccountId $accountId -ApiKey $secureApiKey -OrganizationDetails $org -PassThru
 ```

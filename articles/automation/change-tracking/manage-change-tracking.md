@@ -3,14 +3,14 @@ title: Gestire Rilevamento modifiche e inventario in Automazione di Azure
 description: Questo articolo illustra come usare Rilevamento modifiche e inventario per tenere traccia delle modifiche apportate al software e ai servizi Microsoft nell'ambiente in uso.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 10/14/2020
+ms.date: 11/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: a599bb6f07683540f5b12c6a69d6565161f89a4f
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 99cdc4191320efb37b37e4ec38e808f3961a1207
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92210335"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288746"
 ---
 # <a name="manage-change-tracking-and-inventory"></a>Gestire il rilevamento modifiche e l'inventario
 
@@ -45,7 +45,7 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Win
 
 5. Selezionare **Modifica impostazioni** (simbolo dell'ingranaggio).
 
-6. Nella pagina Configurazione dell'area di lavoro selezionare **File Windows**, quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
+6. Nella pagina Configurazione dell'area di lavoro selezionare **File Windows** , quindi fare clic su **+ Aggiungi** per aggiungere un nuovo file da rilevare.
 
 7. Nel riquadro Aggiungi file Windows per Rilevamento modifiche immettere le informazioni per il file o la cartella da rilevare e fare clic su **Salva**. La tabella seguente definisce le proprietà che è possibile usare per le informazioni.
 
@@ -59,6 +59,13 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Win
     |Ricorsione     | True se viene usata la ricorsione per la ricerca dell'elemento da rilevare, False in caso contrario.        |    
     |Carica contenuto file | True per caricare il contenuto del file nelle modifiche rilevate e False in caso contrario.|
 
+    Se si prevede di configurare il monitoraggio di file e cartelle usando caratteri jolly, tenere presente quanto segue:
+
+    - I caratteri jolly sono necessari per il rilevamento di più file.
+    - I caratteri jolly possono essere usati solo nell'ultimo segmento di un percorso, ad esempio *C:\folder\file* o */etc/*. conf *
+    - Se una variabile di ambiente include un percorso non valido, la convalida avrà esito positivo ma il percorso avrà esito negativo quando si esegue l'inventario.
+    - Quando si imposta il percorso, evitare i percorsi generali, ad esempio *c:*. * *, che comporteranno l'attraversamento di un numero eccessivo di cartelle.
+
 8. Assicurarsi di specificare True per **Carica contenuto file**. Questa impostazione abilita il rilevamento del contenuto del file solo per il percorso indicato.
 
 ### <a name="configure-file-tracking-on-linux"></a>Configurare il rilevamento dei file in Linux
@@ -67,7 +74,7 @@ Seguire questa procedura per configurare il rilevamento dei file in computer Lin
 
 1. Selezionare **Modifica impostazioni** (simbolo dell'ingranaggio).
 
-2. Nella pagina di configurazione dell'area di lavoro selezionare **file Linux**e quindi **+ Aggiungi** per aggiungere un nuovo file da rilevare.
+2. Nella pagina di configurazione dell'area di lavoro selezionare **file Linux** e quindi **+ Aggiungi** per aggiungere un nuovo file da rilevare.
 
 3. Nella pagina **Aggiungi file Linux per rilevamento modifiche** immettere le informazioni per il file o la directory da rilevare e quindi selezionare **Salva**. La tabella seguente definisce le proprietà che è possibile usare per le informazioni.
 
@@ -138,7 +145,7 @@ Seguire questa procedura per configurare il rilevamento delle chiavi del Registr
 
 3. Selezionare **+ Aggiungi** per aggiungere una nuova chiave del registro di sistema da rilevare.
 
-4. Nella pagina **Aggiungi registro di sistema di Windows per rilevamento modifiche** immettere le informazioni per la chiave da rilevare e quindi selezionare **Salva**. La tabella seguente definisce le proprietà che è possibile usare per le informazioni.
+4. Nella pagina **Aggiungi registro di sistema di Windows per rilevamento modifiche** immettere le informazioni per la chiave da rilevare e quindi selezionare **Salva**. La tabella seguente definisce le proprietà che è possibile usare per le informazioni. Quando si specifica un percorso del registro di sistema, deve essere la chiave e non un valore.
 
     |Proprietà  |Descrizione  |
     |---------|---------|

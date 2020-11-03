@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: f916fdcf632cc369d1fb7e2faefad6dddafd1e15
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: dde6cf40e7609e902540e08fcaff65d9fe32c85c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677240"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289648"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Controllo per la scrittura in un account di archiviazione dietro rete virtuale e firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ Perché il controllo possa scrivere in un account di archiviazione dietro una re
 > [!div class="checklist"]
 >
 > * Un account di archiviazione per utilizzo generico v2. Se si dispone di un account di archiviazione per utilizzo generico v1 o un account di archiviazione BLOB, [eseguire l’aggiornamento a un account di archiviazione per utilizzo generico v2](../../storage/common/storage-account-upgrade.md). Per altre informazioni, vedere [Tipi di account di archiviazione](../../storage/common/storage-account-overview.md#types-of-storage-accounts).
-> * L'account di archiviazione deve trovarsi nella stessa sottoscrizione e nello stesso percorso del [server SQL logico](logical-servers.md).
+> * L'account di archiviazione deve trovarsi nella stessa sottoscrizione e nello stesso percorso del [SQL Server logico](logical-servers.md).
 > * L'account di archiviazione di Azure richiede `Allow trusted Microsoft services to access this storage account`. Effettuare questa impostazione in **Firewall e reti virtuali** dell’account di archiviazione.
 > * È necessaria l’autorizzazione `Microsoft.Authorization/roleAssignments/write` per l'account di archiviazione selezionato. Per altre informazioni, vedere [Ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
 
@@ -48,9 +48,9 @@ Perché il controllo possa scrivere in un account di archiviazione dietro una re
 
 Connettersi al [portale di Azure](https://portal.azure.com) con la propria sottoscrizione. Passare al gruppo di risorse e al server.
 
-1. Fare clic su **Controllo** sotto l'intestazione Sicurezza. Selezionare **Attivato** .
+1. Fare clic su **Controllo** sotto l'intestazione Sicurezza. Selezionare **Attivato**.
 
-2. Selezionare **Archiviazione** . Selezionare l'account di archiviazione in cui verranno salvati i log. L'account di archiviazione deve essere conforme ai requisiti elencati in [Prerequisiti](#prerequisites).
+2. Selezionare **Archiviazione**. Selezionare l'account di archiviazione in cui verranno salvati i log. L'account di archiviazione deve essere conforme ai requisiti elencati in [Prerequisiti](#prerequisites).
 
 3. Aprire **Dettagli archiviazione**
 
@@ -61,7 +61,7 @@ Connettersi al [portale di Azure](https://portal.azure.com) con la propria sotto
   >
   >Se questo messaggio non viene visualizzato, l'account di archiviazione non si trova dietro una rete virtuale.
 
-4. Selezionare il numero di giorni per il periodo di conservazione. Fare quindi clic su **OK** . I log antecedenti al periodo di conservazione vengono eliminati.
+4. Selezionare il numero di giorni per il periodo di conservazione. Fare quindi clic su **OK**. I log antecedenti al periodo di conservazione vengono eliminati.
 
 5. Selezionare **Salva** nelle impostazioni di controllo.
 
@@ -77,7 +77,7 @@ Per gli script di esempio di questa sezione, è necessario aggiornare lo script 
 |:-----|:-----|
 |`<subscriptionId>`| ID sottoscrizione di Azure|
 |`<resource group>`| Resource group|
-|`<logical SQL server>`| Nome server|
+|`<logical SQL Server>`| Nome server|
 |`<administrator login>`| Account amministratore |
 |`<complex password>`| Password complessa dell'account amministratore|
 
@@ -117,7 +117,7 @@ Per configurare il controllo SQL per la scrittura di eventi in un account di arc
    }
    ```
 
-2. Aprire il [portale di Azure](https://portal.azure.com). Passare all'account di archiviazione. Individuare **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo** . Assegnare il ruolo di Azure **collaboratore dati BLOB di archiviazione** al server che ospita il database registrato con Azure Active Directory (Azure ad) come nel passaggio precedente.
+2. Aprire il [portale di Azure](https://portal.azure.com). Passare all'account di archiviazione. Individuare **Controllo di accesso (IAM)** e fare clic su **Aggiungi un'assegnazione di ruolo**. Assegnare il ruolo di Azure **collaboratore dati BLOB di archiviazione** al server che ospita il database registrato con Azure Active Directory (Azure ad) come nel passaggio precedente.
 
    > [!NOTE]
    > Solo i membri con il privilegio di proprietario possono eseguire questo passaggio. Per i vari ruoli predefiniti di Azure, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
@@ -153,7 +153,7 @@ Per configurare il controllo SQL per la scrittura di eventi in un account di arc
 > [!IMPORTANT]
 > Per usare l'account di archiviazione dietro la rete virtuale e il firewall, è necessario impostare il parametro **isStorageBehindVnet** su true
 
-- [Distribuire un server SQL di Azure con il controllo abilitato per scrivere i log di controllo in un archivio BLOB](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
+- [Distribuire un SQL Server di Azure con il controllo abilitato per scrivere i log di controllo in un archivio BLOB](https://azure.microsoft.com/resources/templates/201-sql-auditing-server-policy-to-blob-storage)
 
 > [!NOTE]
 > L'esempio collegato si trova in un repository pubblico esterno e viene fornito "così com'è", senza garanzia e non è supportato in alcun programma o servizio di supporto tecnico Microsoft.

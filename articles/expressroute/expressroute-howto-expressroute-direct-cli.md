@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 09/28/2020
 ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 0bdf2c4dda3e272ae04681f886f6e4da31dcebd8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7931ad9e55d62d5fa2b1828d276e56f7c8cd02e1
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91569840"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286474"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Configurare ExpressRoute Direct usando l'interfaccia della riga di comando di Azure
 
@@ -209,19 +209,11 @@ ExpressRoute Direct offre la possibilità di connettersi direttamente alla rete 
    }  
    ```
 
-## <a name="generate-the-letter-of-authorization-loa"></a><a name="authorization"></a>Genera la lettera di autorizzazione (LOA)
-
-Immettere il nome della risorsa ExpressRoute, il nome del gruppo di risorse e il nome del cliente creati di recente per scrivere la LOA in e (facoltativamente) definire un percorso di file in cui archiviare il documento. Se non viene fatto riferimento a un percorso di file, il documento verrà scaricato nella directory corrente.
-
-```azurecli
-az network express-route port generate-loa -n Contoso-Direct -g Contoso-Direct-rg --customer-name Contoso --destination C:\Users\SampleUser\Downloads\LOA.pdf
-```
-
 ## <a name="change-adminstate-for-links"></a><a name="state"></a>Modificare AdminState per i collegamenti
 
 Usare questo processo per eseguire un test di livello 1. Assicurarsi che ogni Cross Connection sia correttamente trasferita a ciascun router per le porte primaria e secondaria.
 
-1. Impostare i collegamenti su s**Enabled**. Ripetere questo passaggio per impostare ogni collegamento su **Enabled**.
+1. Impostare i collegamenti su s **Enabled**. Ripetere questo passaggio per impostare ogni collegamento su **Enabled**.
 
    Links[0] è la porta primaria e Links[1] è la porta secondaria.
 

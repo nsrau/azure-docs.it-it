@@ -7,15 +7,16 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 07/22/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: cfe4b92dbed69440ee2c07cff758faad7e01293f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f03016c9a44968db49cd68bfec025c328861fc07
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91707915"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286425"
 ---
 # <a name="supported-postgresql-major-versions"></a>Versioni principali di PostgreSQL supportate
-Microsoft mira a supportare le versioni n-2 del motore PostgreSQL nel database di Azure per PostgreSQL: singolo server. Le versioni sono la versione principale attuale in Azure (n) e le due versioni principali precedenti (-2).
+
+Per informazioni sui criteri di supporto, vedere [criteri di controllo delle versioni di database di Azure per PostgreSQL](concepts-version-policy.md) .
 
 Database di Azure per PostgreSQL supporta attualmente le versioni principali seguenti:
 
@@ -35,6 +36,7 @@ La versione secondaria corrente è 9.5.20. Per informazioni sui miglioramenti e 
 Il progetto PostgreSQL rilascia periodicamente versioni secondarie per correggere i bug segnalati. Database di Azure per PostgreSQL applica automaticamente patch ai server con versioni minori durante le distribuzioni mensili del servizio. 
 
 Gli aggiornamenti sul posto automatici per le versioni principali non sono supportati. Per eseguire l'aggiornamento alla versione principale successiva, è possibile 
+   * Vedere [aggiornamenti della versione principale con dump e ripristino](./how-to-upgrade-using-dump-and-restore.md)
    * Usare [pg_dump e pg_restore](./howto-migrate-using-dump-and-restore.md) per spostare un database in un server creato con la nuova versione del motore
    * In alternativa, è possibile eseguire l'aggiornamento da PostgreSQL 10 a 11 usando il [servizio migrazione del database di Azure](..\dms\tutorial-azure-postgresql-to-azure-postgresql-online-portal.md)
 

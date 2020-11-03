@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 1ab5ae7bf9f1d13458e3bbeeec564fe642eb3303
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca5842fb268c20f8ae58eb5f683229c4ae3919f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88588729"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289171"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>Accedere a Insieme di credenziali delle chiavi di Azure protetto da firewall
 
@@ -43,7 +43,7 @@ Le applicazioni client dell'insieme di credenziali delle chiavi dovrà accedere 
 | Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione con Azure AD (ad esempio, user@contoso.com) |**Globale:**<br> login.microsoftonline.com:443<br><br> **Azure per la Cina:**<br> login.chinacloudapi.cn:443<br><br>**Azure US Gov:**<br> login.microsoftonline.us:443<br><br>**Azure per la Germania:**<br> login.microsoftonline.de:443 |
 | Utente o entità servizio che usa un account aziendale o dell'istituto di istruzione oltre ad Active Directory Federation Services (AD FS) o un altro endpoint federato (ad esempio, user@contoso.com) |Tutti gli endpoint per un account aziendale o dell'istituto di istruzione oltre ad AD FS o altri endpoint federati |
 
-Esistono altri possibili scenari complessi. Per altre informazioni, vedere [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-scenarios.md) (Flussi di autenticazione di Azure Active Directory), [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) e [Active Directory Authentication Protocols](https://msdn.microsoft.com/library/azure/dn151124.aspx) (Protocolli di autenticazione di Active Directory Authentication).  
+Esistono altri possibili scenari complessi. Per altre informazioni, vedere [Azure Active Directory Authentication Flow](../../active-directory/develop/authentication-vs-authorization.md) (Flussi di autenticazione di Azure Active Directory), [Integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/active-directory-how-to-integrate.md) e [Active Directory Authentication Protocols](/previous-versions/azure/dn151124(v=azure.100)) (Protocolli di autenticazione di Active Directory Authentication).  
 
 ## <a name="key-vault-management"></a>Gestione dell'insieme di credenziali delle chiavi
 
@@ -56,7 +56,7 @@ Per la gestione dell'insieme di credenziali delle chiavi (CRUD e impostazione de
 
 ## <a name="key-vault-operations"></a>Operazioni dell'insieme di credenziali delle chiavi
 
-Per tutte le operazioni di gestione e crittografia degli oggetti (chiavi e segreti) dell'insieme di credenziali delle chiavi, il client dell'insieme di credenziali delle chiavi deve accedere all'endpoint dell'insieme stesso. Il suffisso DNS dell'endpoint varia a seconda della posizione dell'insieme di credenziali delle chiavi. Il formato dell'endpoint dell'insieme di credenziali delle chiavi è *nome-insiemecredenziali*.*suffisso-dns-area-geografica*, come descritto nella tabella seguente.  
+Per tutte le operazioni di gestione e crittografia degli oggetti (chiavi e segreti) dell'insieme di credenziali delle chiavi, il client dell'insieme di credenziali delle chiavi deve accedere all'endpoint dell'insieme stesso. Il suffisso DNS dell'endpoint varia a seconda della posizione dell'insieme di credenziali delle chiavi. Il formato dell'endpoint dell'insieme di credenziali delle chiavi è *nome-insiemecredenziali*. *suffisso-dns-area-geografica* , come descritto nella tabella seguente.  
 
 | Tipo di operazione | Endpoint:porta |
 | --- | --- |
@@ -74,4 +74,4 @@ Autenticazione e identità (Azure Active Directory) è un servizio globale e pu�
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In caso di domande su Key Vault, vedere la [Pagina delle domande di Domande e risposte Microsoft per Azure Key Vault](https://docs.microsoft.com/answers/topics/azure-key-vault.html).
+In caso di domande su Key Vault, vedere la [Pagina delle domande di Domande e risposte Microsoft per Azure Key Vault](/answers/topics/azure-key-vault.html).

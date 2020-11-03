@@ -1,5 +1,5 @@
 ---
-title: Diagnosticare i problemi di configurazione dei collegamenti privati nei Azure Key Vault
+title: Diagnosticare i problemi di configurazione dei collegamenti privati in Azure Key Vault
 description: Risolvere i problemi comuni dei collegamenti privati con Key Vault e approfondire la configurazione
 author: msfcolombo
 ms.author: fcolombo
@@ -7,14 +7,14 @@ ms.date: 09/30/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 156edbeda225b5457d6f5e7d29482e393b510736
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: c4873bded750186f072dd39ddcb8d78941848586
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998401"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289368"
 ---
-# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticare i problemi di configurazione dei collegamenti privati nei Azure Key Vault
+# <a name="diagnose-private-links-configuration-issues-on-azure-key-vault"></a>Diagnosticare i problemi di configurazione dei collegamenti privati in Azure Key Vault
 
 ## <a name="introduction"></a>Introduzione
 
@@ -56,7 +56,7 @@ Se l'applicazione, lo script o il portale viene eseguito in una rete connessa a 
 
 Questa guida non è applicabile alle soluzioni gestite da Microsoft, in cui l'insieme di credenziali delle chiavi è accessibile da un prodotto Azure esistente indipendentemente dalla rete virtuale del cliente. Esempi di scenari di questo tipo sono archiviazione di Azure o Azure SQL configurato per la crittografia dei dati inattivi, l'hub eventi di Azure crittografia dei dati con chiavi fornite dal cliente, Azure Data Factory l'accesso alle credenziali del servizio archiviate in Key Vault, Azure Pipelines il recupero di segreti da Key Vault e altri scenari simili. In questi casi, *è necessario controllare se il prodotto supporta gli insiemi di credenziali delle chiavi con il firewall abilitato*. Questo supporto viene in genere eseguito con la funzionalità [Servizi attendibili](overview-vnet-service-endpoints.md#trusted-services) di Key Vault firewall. Tuttavia, molti prodotti non sono inclusi nell'elenco dei servizi attendibili per diversi motivi. In tal caso, raggiungere il supporto specifico del prodotto.
 
-Un numero ridotto di prodotti Azure supporta il concetto di *VNET Injection*. In termini semplici, il prodotto aggiunge un dispositivo di rete alla rete virtuale del cliente, consentendo di inviare richieste come se fosse stato distribuito alla rete virtuale. Un esempio importante è [Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). I prodotti di questo tipo possono eseguire richieste all'insieme di credenziali delle chiavi usando i collegamenti privati. questa guida alla risoluzione dei problemi può essere utile.
+Un numero ridotto di prodotti Azure supporta il concetto di *VNET Injection*. In termini semplici, il prodotto aggiunge un dispositivo di rete alla rete virtuale del cliente, consentendo di inviare richieste come se fosse stato distribuito alla rete virtuale. Un esempio importante è [Azure Databricks](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject). I prodotti di questo tipo possono eseguire richieste all'insieme di credenziali delle chiavi usando i collegamenti privati. questa guida alla risoluzione dei problemi può essere utile.
 
 ## <a name="2-confirm-that-the-connection-is-approved-and-succeeded"></a>2. Verificare che la connessione sia approvata e completata
 
@@ -65,7 +65,7 @@ I passaggi seguenti convalidano che la connessione all'endpoint privato sia appr
 1. Aprire il portale di Azure e aprire la risorsa di Key Vault.
 2. Nel menu a sinistra selezionare **rete**.
 3. Fare clic sulla scheda **connessioni endpoint private** . In questo modo vengono visualizzate tutte le connessioni agli endpoint privati e i rispettivi Stati. Se non sono presenti connessioni o se la connessione per la rete virtuale non è presente, è necessario creare un nuovo endpoint privato. Questo verrà trattato in seguito.
-4. Sempre in **connessioni a endpoint privati**individuare quello da diagnosticare e verificare che "stato della connessione" sia **approvato** e che lo stato di provisioning sia **completato**.
+4. Sempre in **connessioni a endpoint privati** individuare quello da diagnosticare e verificare che "stato della connessione" sia **approvato** e che lo stato di provisioning sia **completato**.
     - Se lo stato della connessione è "in sospeso", potrebbe essere sufficiente approvarlo.
     - Se la connessione "rejected", "failed", "Error", "Disconnected" o un altro stato, non è affatto efficace, è necessario creare una nuova risorsa endpoint privata.
 
@@ -278,7 +278,7 @@ Come si può notare, la risoluzione dei nomi è sotto il proprio controllo. Le l
 
 ### <a name="query-the-healthstatus-endpoint-of-the-key-vault"></a>Eseguire una query sull' `/healthstatus` endpoint dell'insieme di credenziali delle chiavi
 
-L'insieme di credenziali delle chiavi fornisce l' `/healthstatus` endpoint, che può essere usato per la diagnostica. Le intestazioni di risposta includono l'indirizzo IP di origine, come visto dal servizio Key Vault. È possibile chiamare l'endpoint con il comando seguente (**ricordare di usare il nome host**dell'insieme di credenziali delle chiavi):
+L'insieme di credenziali delle chiavi fornisce l' `/healthstatus` endpoint, che può essere usato per la diagnostica. Le intestazioni di risposta includono l'indirizzo IP di origine, come visto dal servizio Key Vault. È possibile chiamare l'endpoint con il comando seguente ( **ricordare di usare il nome host** dell'insieme di credenziali delle chiavi):
 
 Windows (PowerShell):
 

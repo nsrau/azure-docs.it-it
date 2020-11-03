@@ -4,15 +4,15 @@ description: Informazioni su come gestire i criteri di indicizzazione, includere
 author: timsander1
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 08/04/2020
+ms.date: 11/02/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 96ae4162c78f66b75d8c1ef2a8cec16995a5f016
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 335eac64bd5dff5b466fd97f5b2e093f2f56ee79
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93075705"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289935"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Gestire i criteri di indicizzazione in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,7 +47,7 @@ Di seguito sono riportati alcuni esempi di criteri di indicizzazione mostrati ne
     }
 ```
 
-Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente i ```kind``` ```dataType``` ```precision``` valori predefiniti, e. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
+Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente i ```kind``` ```dataType``` ```precision``` valori predefiniti, e. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è necessario ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
 
 ```json
     {
@@ -101,7 +101,7 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito, 
     }
 ```
 
-Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente i ```kind``` ```dataType``` ```precision``` valori predefiniti, e. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è possibile ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
+Questo criterio di indicizzazione è equivalente a quello riportato di seguito, che imposta manualmente i ```kind``` ```dataType``` ```precision``` valori predefiniti, e. Queste proprietà non sono più necessarie per impostare in modo esplicito ed è necessario ometterle completamente dal criterio di indicizzazione (come illustrato nell'esempio precedente).
 
 ```json
     {
@@ -143,7 +143,7 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito, 
 ```
 
 > [!NOTE]
-> È in genere consigliabile usare un criterio di indicizzazione di **esclusione** per consentire ad Azure Cosmos DB di indicizzare in modo proattivo qualsiasi nuova proprietà che può essere aggiunta al modello.
+> È in genere consigliabile usare un criterio di indicizzazione di tipo **rifiuto esplicito** per consentire a Azure Cosmos DB di indicizzare in modo proattivo tutte le nuove proprietà che possono essere aggiunte al modello di dati.
 
 ### <a name="using-a-spatial-index-on-a-specific-property-path-only"></a>Usare un indice spaziale solo in un percorso di proprietà specifico
 
@@ -177,7 +177,7 @@ Questo criterio di indicizzazione è equivalente a quello riportato di seguito, 
 
 ## <a name="composite-indexing-policy-examples"></a>Esempi di criteri di indicizzazione composti
 
-Oltre a includere o escludere i percorsi per le singole proprietà, è anche possibile specificare un indice composto. Se si desidera eseguire una query con una clausola `ORDER BY` per più proprietà, è obbligatorio un [indice composto](index-policy.md#composite-indexes) su queste proprietà. Inoltre, gli indici compositi avranno un vantaggio in materia di prestazioni per le query che hanno un filtro e hanno una clausola ORDER BY su proprietà diverse.
+Oltre a includere o escludere i percorsi per le singole proprietà, è anche possibile specificare un indice composto. Se si desidera eseguire una query con una clausola `ORDER BY` per più proprietà, è obbligatorio un [indice composto](index-policy.md#composite-indexes) su queste proprietà. Inoltre, gli indici compositi avranno un vantaggio a livello di prestazioni per le query con più filtri o con un filtro e una clausola ORDER BY.
 
 > [!NOTE]
 > I percorsi composti hanno un implicito `/?` perché solo il valore scalare in quel percorso è indicizzato. Il `/*` carattere jolly non è supportato nei percorsi compositi. Non specificare `/?` né `/*` in un percorso composito.
@@ -314,7 +314,7 @@ WHERE c.name = "Tim" AND c.age > 18
 
 ### <a name="excluding-all-property-paths-but-keeping-indexing-active"></a>Escludere tutti i percorsi delle proprietà mantenendo però l'indicizzazione attiva
 
-Questo criterio può essere usato in situazioni in cui la funzionalità [Time-to-Live (TTL)](time-to-live.md) è attiva ma non è richiesto alcun indice secondario (per usare Azure Cosmos DB come puro archivio chiave-valore).
+Questo criterio può essere usato nelle situazioni in cui la [funzionalità TTL (time-to-Live)](time-to-live.md) è attiva, ma non sono necessari indici aggiuntivi (per usare Azure Cosmos DB come archivio chiave-valore puro).
 
 ```json
     {
@@ -360,11 +360,11 @@ I contenitori di Azure Cosmos archiviano i criteri di indicizzazione come un doc
 
 1. Aprire il riquadro **Esplora dati** e selezionare il contenitore da usare.
 
-1. Fare clic su **Scalabilità e impostazioni** .
+1. Fare clic su **Scalabilità e impostazioni**.
 
 1. Modificare il documento JSON dei criteri di indicizzazione (vedere gli esempi [di seguito](#indexing-policy-examples))
 
-1. Al termine, fare clic su **Salva** .
+1. Al termine, fare clic su **Salva**.
 
 :::image type="content" source="./media/how-to-manage-indexing-policy/indexing-policy-portal.png" alt-text="Gestire l'indicizzazione con portale di Azure":::
 

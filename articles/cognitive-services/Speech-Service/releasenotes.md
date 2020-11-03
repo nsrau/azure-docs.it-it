@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: oliversc
 ms.custom: seodec18
-ms.openlocfilehash: e22400016eae0642c4e25fcfd4fcaaaab22a27a8
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 8faf9c913ea9bab2feaf698efeb6fd5b3ca63179
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280570"
+ms.locfileid: "93289621"
 ---
 # <a name="speech-service-release-notes"></a>Note sulla versione del Servizio di riconoscimento vocale
 
@@ -24,21 +24,13 @@ ms.locfileid: "93280570"
 
 **Nota** : l'SDK di riconoscimento vocale in Windows dipende dal Microsoft Visual C++ ridistribuibile condiviso per Visual Studio 2015, 2017 e 2019. Scaricarla [qui](https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads).
 
-**INTERFACCIA della riga di comando vocale (anche nota come SPX)**<br>
-SPX è l'interfaccia della riga di comando per usare il servizio riconoscimento vocale di Azure senza scrivere codice. Scaricare la versione più recente [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics).
-- `spx csr dataset upload --kind audio|language|acoustic` : creare set di dati da dati locali, non solo da URL.
-- `spx csr evaluation create|status|list|update|delete` : Confronta i nuovi modelli con i modelli di base verità/altri modelli.
-- `spx * list` : supporta l'esperienza non di paging (non richiede--Top X--Skip X).
-- `spx * --http header A=B` : supporta le intestazioni personalizzate (aggiunte per Office per l'autenticazione personalizzata). 
-- `spx help` : testo migliorato e colore del testo con segno di inverso (blu).
-
 **Nuove funzionalità**
 - **Linux** : è stato aggiunto il supporto per Debian 10 e Ubuntu 20,04 LTS.
 - **Python/Objective-C** : è stato aggiunto il supporto per l' `KeywordRecognizer` API. La documentazione sarà disponibile [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-keyword-basics).
 - **C++/Java/C #** : è stato aggiunto il supporto per impostare qualsiasi `HttpHeader` chiave/valore tramite `ServicePropertyChannel::HttpHeader` .
 - **JavaScript** : è stato aggiunto il supporto per l' `ConversationTranscriber` API. Leggi la documentazione [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-use-conversation-transcription?pivots=programming-language-javascript). 
-- **C++/c #** : aggiunto nuovo `AudioDataStream FromFile` Metodo (per la lettura. File WAV) [qui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audio-audiodatastream) e [qui (C#)](
-https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream.fromfile).
+- **C++/c #** : aggiunto nuovo `AudioDataStream FromWavFileInput` Metodo (per la lettura. File WAV) [qui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/audiodatastream) e [qui (C#)](
+https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audiodatastream?view=azure-dotnet).
 -  **C++/c #/Java/Python/Objective-C/Swift** : è stato aggiunto un `stopSpeakingAsync()` metodo per arrestare la sintesi da testo a discorso. Leggere qui la documentazione di riferimento [(C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/microsoft-cognitiveservices-speech-namespace), qui ( [C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech?view=azure-dotnet), qui ( [Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech?view=azure-java-stable), [qui (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech?view=azure-python)e [qui (Objective-C/Swift)](https://docs.microsoft.com/objectivec/cognitive-services/speech/).
 - **C#, C++, Java** : aggiunta `FromDialogServiceConnector()` di una funzione alla `Connection` classe che può essere usata per monitorare gli eventi di connessione e disconnessione per `DialogServiceConnector` . Leggere qui la documentazione di riferimento [(C#)](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.connection?view=azure-dotnet), [qui (C++)](https://docs.microsoft.com/cpp/cognitive-services/speech/connection)e [qui (Java)](https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.connection?view=azure-java-stable).
 <!-- - **C++/C#/Java/Python/Objective-C/Swift**: Added support for Pronunciation Assessment, which evaluates speech pronunciation and gives speakers feedback on the accuracy and fluency of spoken audio. Read the documentation [here](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-pronunciation-assessment). -->
@@ -72,6 +64,16 @@ https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.audioda
 
 **COVID-19 test abbreviato:** A causa del funzionamento remoto nelle ultime settimane, non è stato possibile eseguire il test di verifica manuale come in genere. Non sono state apportate modifiche che potrebbero essere state interrotte e i test automatizzati sono stati superati. Nel caso improbabile in cui si è verificato un problema, inviare informazioni su [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Rimanere integro.
+
+## <a name="speech-cli-also-known-as-spx-2020-october-release"></a>INTERFACCIA della riga di comando vocale (anche nota come SPX): 2020-versione di ottobre
+SPX è l'interfaccia della riga di comando per usare il servizio riconoscimento vocale di Azure senza scrivere codice. Scaricare la versione più recente [qui](https://docs.microsoft.com/azure/cognitive-services/speech-service/spx-basics). <br>
+
+**Nuove funzionalità**
+- `spx csr dataset upload --kind audio|language|acoustic` : creare set di dati da dati locali, non solo da URL.
+- `spx csr evaluation create|status|list|update|delete` : Confronta i nuovi modelli con i modelli di base verità/altri modelli.
+- `spx * list` : supporta l'esperienza non di paging (non richiede--Top X--Skip X).
+- `spx * --http header A=B` : supporta le intestazioni personalizzate (aggiunte per Office per l'autenticazione personalizzata). 
+- `spx help` : testo migliorato e colore del testo con segno di inverso (blu).
 
 
 ## <a name="text-to-speech-2020-august-release"></a>Sintesi vocale 2020-versione di agosto

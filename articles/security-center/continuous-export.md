@@ -8,14 +8,14 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 10/27/2020
 ms.author: memildin
-ms.openlocfilehash: cd4f2198721e0d92abe22b1b6d95dceda2dc874d
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 59cfe7b990523e5cb165d1037291b3c1b1301624
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789183"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289227"
 ---
-# <a name="continuously-export-security-center-data"></a>Esporta continuamente i dati del Centro sicurezza
+# <a name="continuously-export-security-center-data"></a>Esportazione continua dei dati del Centro sicurezza
 
 Il Centro sicurezza di Azure genera avvisi e raccomandazioni di sicurezza dettagliati. È possibile visualizzarli nel portale o tramite gli strumenti programmatici. Potrebbe anche essere necessario esportare alcune o tutte queste informazioni per tenere traccia con altri strumenti di monitoraggio nell'ambiente in uso. 
 
@@ -41,7 +41,7 @@ Questo articolo descrive come configurare l'esportazione continua in Log Analyti
 |Stato della versione:|Disponibile a livello generale|
 |Prezzi:|Livello gratuito|
 |Autorizzazioni e ruoli obbligatori:|<ul><li>**Amministratore della sicurezza** o **proprietario** del gruppo di risorse</li><li>Autorizzazioni di scrittura per la risorsa di destinazione</li><li>Se si usano i criteri di Azure ' DeployIfNotExist ' descritti di seguito, sono necessarie anche le autorizzazioni per l'assegnazione di criteri</li></ul>|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![Sì](./media/icons/yes-icon.png) Gov Cina (per hub eventi), altri gov|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov, altro gov<br>![Sì](./media/icons/yes-icon.png) Gov Cina (per hub eventi)|
 |||
 
 
@@ -58,9 +58,9 @@ Questo articolo descrive come configurare l'esportazione continua in Log Analyti
 
 I passaggi seguenti sono necessari se si sta configurando un'esportazione continua in Log Analytics area di lavoro o hub eventi di Azure.
 
-1. Dall'intestazione laterale del Centro sicurezza selezionare **prezzi & impostazioni** .
+1. Dall'intestazione laterale del Centro sicurezza selezionare **prezzi & impostazioni**.
 1. Selezionare la sottoscrizione specifica per la quale si desidera configurare l'esportazione dei dati.
-1. Dall'intestazione laterale della pagina impostazioni per la sottoscrizione selezionare **esportazione continua** .
+1. Dall'intestazione laterale della pagina impostazioni per la sottoscrizione selezionare **esportazione continua**.
     [ ![ Opzioni di esportazione nel centro sicurezza di Azure](media/continuous-export/continuous-export-options-page.png)](media/continuous-export/continuous-export-options-page.png#lightbox) qui è possibile visualizzare le opzioni di esportazione. È disponibile una scheda per ogni destinazione di esportazione disponibile. 
 1. Selezionare il tipo di dati che si desidera esportare e scegliere tra i filtri in ogni tipo (ad esempio, esportare solo gli avvisi con livello di gravità elevato).
 1. Facoltativamente, se la selezione include una di queste quattro raccomandazioni, è possibile includere i risultati della valutazione della vulnerabilità insieme ad essi:
@@ -71,10 +71,10 @@ I passaggi seguenti sono necessari se si sta configurando un'esportazione contin
 
     Per includere i risultati con questi consigli, abilitare l'opzione **Includi risultati di sicurezza** .
 
-    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua&quot; :::
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua" :::
 
-1. Dall'area &quot;Esporta destinazione" scegliere il percorso in cui salvare i dati. I dati possono essere salvati in una destinazione in una sottoscrizione diversa, ad esempio in un'istanza centrale dell'hub eventi o in un'area di lavoro centrale Log Analytics.
-1. Selezionare **Salva** .
+1. Dall'area "Esporta destinazione" scegliere il percorso in cui salvare i dati. I dati possono essere salvati in una destinazione in una sottoscrizione diversa, ad esempio in un'istanza centrale dell'hub eventi o in un'area di lavoro centrale Log Analytics.
+1. Selezionare **Salva**.
 
 ### <a name="use-the-rest-api"></a>[**Usare l'API REST**](#tab/rest-api)
 
@@ -124,15 +124,11 @@ Per distribuire le configurazioni di esportazione continua nell'organizzazione, 
     > [!TIP]
     > È anche possibile trovarli cercando criteri di Azure:
     > 1. Aprire Criteri di Azure.
-    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua&quot; :::
-
-1. Dall'area &quot;Esporta destinazione":::
+    > :::image type="content" source="./media/continuous-export/opening-azure-policy.png" alt-text="Accesso a criteri di Azure":::
     > 2. Dal menu criteri di Azure selezionare **definizioni** e cercarle in base al nome. 
 
-1. Nella pagina Criteri di Azure pertinente selezionare **assegna** .
-    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua&quot; :::
-
-1. Dall'area &quot;Esporta destinazione":::
+1. Nella pagina Criteri di Azure pertinente selezionare **assegna**.
+    :::image type="content" source="./media/continuous-export/export-policy-assign.png" alt-text="Assegnazione dei criteri di Azure":::
 
 1. Aprire ogni scheda e impostare i parametri nel modo desiderato:
     1. Nella scheda **nozioni di base** impostare l'ambito per il criterio. Per utilizzare la gestione centralizzata, assegnare il criterio al gruppo di gestione contenente le sottoscrizioni che utilizzeranno la configurazione dell'esportazione continua. 
@@ -141,11 +137,9 @@ Per distribuire le configurazioni di esportazione continua nell'organizzazione, 
         > Ogni parametro presenta una descrizione comando che illustra le opzioni disponibili.
         >
         > La scheda parametri di criteri di Azure (1) consente di accedere a opzioni di configurazione simili come pagina di esportazione continua del Centro sicurezza (2).
-        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Interruttore Includi i risultati per la sicurezza nella configurazione dell'esportazione continua&quot; :::
-
-1. Dall'area &quot;Esporta destinazione" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
+        > :::image type="content" source="./media/continuous-export/azure-policy-next-to-continuous-export.png" alt-text="Confronto dei parametri nell'esportazione continua con criteri di Azure" lightbox="./media/continuous-export/azure-policy-next-to-continuous-export.png":::
     1. Facoltativamente, per applicare questa assegnazione alle sottoscrizioni esistenti, aprire la scheda **monitoraggio e aggiornamento** e selezionare l'opzione per creare un'attività di correzione.
-1. Esaminare la pagina Riepilogo e selezionare **Crea** .
+1. Esaminare la pagina Riepilogo e selezionare **Crea**.
 
 --- 
 
@@ -160,7 +154,7 @@ Gli avvisi di sicurezza e le raccomandazioni vengono archiviati rispettivamente 
 Il nome della soluzione Log Analytics contenente queste tabelle varia a seconda che Azure Defender sia abilitato: Security (' Sicurezza e controllo ') o SecurityCenterFree. 
 
 > [!TIP]
-> Per visualizzare i dati nell'area di lavoro di destinazione, è necessario abilitare una di queste soluzioni **sicurezza e controllo** o **SecurityCenterFree** .
+> Per visualizzare i dati nell'area di lavoro di destinazione, è necessario abilitare una di queste soluzioni **sicurezza e controllo** o **SecurityCenterFree**.
 
 ![La tabella * SecurityAlert * in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 
@@ -175,7 +169,7 @@ Monitoraggio di Azure offre un'esperienza unificata per gli avvisi per un'ampia 
 
 Per visualizzare gli avvisi e le raccomandazioni dal centro sicurezza in monitoraggio di Azure, configurare una regola di avviso basata su query Log Analytics (avviso log):
 
-1. Dalla pagina degli **avvisi** di monitoraggio di Azure selezionare **nuova regola di avviso** .
+1. Dalla pagina degli **avvisi** di monitoraggio di Azure selezionare **nuova regola di avviso**.
 
     ![Pagina degli avvisi di monitoraggio di Azure](./media/continuous-export/azure-monitor-alerts.png)
 
@@ -183,7 +177,7 @@ Per visualizzare gli avvisi e le raccomandazioni dal centro sicurezza in monitor
 
     * Per **risorsa** selezionare l'area di lavoro log Analytics alla quale sono stati esportati gli avvisi di sicurezza e le raccomandazioni.
 
-    * In **condizione** selezionare **Ricerca log personalizzata** . Nella pagina visualizzata configurare la query, il periodo lookback e il periodo di frequenza. Nella query di ricerca è possibile digitare *SecurityAlert* o *SecurityRecommendation* per eseguire una query sui tipi di dati a cui il Centro sicurezza Esporta continuamente quando si Abilita l'esportazione continua in log Analytics funzionalità. 
+    * In **condizione** selezionare **Ricerca log personalizzata**. Nella pagina visualizzata configurare la query, il periodo lookback e il periodo di frequenza. Nella query di ricerca è possibile digitare *SecurityAlert* o *SecurityRecommendation* per eseguire una query sui tipi di dati a cui il Centro sicurezza Esporta continuamente quando si Abilita l'esportazione continua in log Analytics funzionalità. 
     
     * Facoltativamente, configurare il [gruppo di azioni](../azure-monitor/platform/action-groups.md) che si vuole attivare. I gruppi di azioni possono attivare l'invio di posta elettronica, i ticket ITSM, i webhook e altro ancora.
     ![Regola di avviso di monitoraggio di Azure](./media/continuous-export/azure-monitor-alert-rule.png)

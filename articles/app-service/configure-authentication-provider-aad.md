@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 4022ca97f88e2f06d3b4c1eeb103bb60d1856eda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2968fd84febdd3b98aa5d8b42cbf3fb66cad2036
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88962146"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289792"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurare un'app del servizio app o di Funzioni di Azure per l'uso dell'account di accesso di Azure AD
 
@@ -35,7 +35,7 @@ Seguire queste procedure consigliate per la configurazione dell'app e dell'auten
 > [!NOTE]
 > L'opzione **Rapida** non è disponibile per i cloud per enti pubblici.
 
-1. Nel [Azure portal] cercare e selezionare **Servizi app**, quindi selezionare la propria app.
+1. Nel [Azure portal] cercare e selezionare **Servizi app** , quindi selezionare la propria app.
 2. Nel riquadro di spostamento sinistro selezionare **Autenticazione/Autorizzazione** > **Sì**.
 3. Selezionare **Azure Active Directory** > **Rapida**.
 
@@ -72,7 +72,7 @@ Per configurare l'app del servizio app, è necessario avere le informazioni segu
 
 Eseguire la procedura seguente:
 
-1. Accedere al [Azure portal], cercare e selezionare **Servizi app** e quindi selezionare la propria app. Prendere nota dell'**URL** dell'app. Verrà usato per configurare la registrazione dell'app di Azure Active Directory.
+1. Accedere al [Azure portal], cercare e selezionare **Servizi app** e quindi selezionare la propria app. Prendere nota dell' **URL** dell'app. Verrà usato per configurare la registrazione dell'app di Azure Active Directory.
 1. Selezionare **Azure Active Directory** > **Registrazioni app** > **Nuova registrazione**.
 1. Nella pagina **Registra un'applicazione** immettere un valore per **Nome** per la registrazione dell'app.
 1. In **URI di reindirizzamento** selezionare **Web** e digitare `<app-url>/.auth/login/aad/callback`. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
@@ -80,7 +80,7 @@ Eseguire la procedura seguente:
 1. Una volta creata la registrazione dell'app, copiare i valori di **ID applicazione (client)** e **ID della directory (tenant)** , che serviranno più avanti.
 1. Selezionare **Autenticazione**. In **Concessione implicita** abilitare **Token ID** per consentire gli accessi utente OpenID Connect dal servizio app.
 1. (Facoltativo) Selezionare **Personalizzazione**. In **URL pagina iniziale** immettere l'URL dell'app del servizio app e selezionare **Salva**.
-1. Selezionare **Esporre un'API** > **Imposta**. Per l'app a singolo tenant, incollare l'URL dell'app del servizio app e selezionare **Salva**, mentre per l'app multi-tenant, incollare l'URL basato su uno dei domini verificati del tenant e quindi selezionare **Salva**.
+1. Selezionare **Esporre un'API** > **Imposta**. Per l'app a singolo tenant, incollare l'URL dell'app del servizio app e selezionare **Salva** , mentre per l'app multi-tenant, incollare l'URL basato su uno dei domini verificati del tenant e quindi selezionare **Salva**.
 
    > [!NOTE]
    > Questo valore corrisponde a **URI ID applicazione** della registrazione dell'app. Se l'app Web richiede l'accesso a un'API nel cloud, il valore di **URI ID applicazione** dell'app Web è necessario quando si configura la risorsa del servizio app cloud. È possibile usare questo valore se ad esempio si vuole che il servizio cloud conceda esplicitamente l'accesso all'app Web.
@@ -90,12 +90,12 @@ Eseguire la procedura seguente:
    1. Nelle caselle di testo immettere il nome dell'ambito del consenso e la descrizione da mostrare agli utenti nella pagina del consenso. Immettere ad esempio *Accesso alla mia app*.
    1. Selezionare **Aggiungi ambito**.
 1. (Facoltativo) Per creare un segreto client, selezionare **Certificati e segreti** > **Nuovo segreto client** > **Aggiungi**. Copiare il valore del segreto client visualizzato nella pagina. Non verrà più visualizzato.
-1. (Facoltativo) Per aggiungere più valori per **URL di risposta**, selezionare **Autenticazione**.
+1. (Facoltativo) Per aggiungere più valori per **URL di risposta** , selezionare **Autenticazione**.
 
 ### <a name="enable-azure-active-directory-in-your-app-service-app"></a><a name="secrets"> </a>Abilitare Azure Active Directory nell'app del servizio app
 
-1. Nel [Azure portal] cercare e selezionare **Servizi app**, quindi selezionare la propria app.
-1. Nel riquadro sinistro, in **Impostazioni**, selezionare **Autenticazione/Autorizzazione** > **Sì**.
+1. Nel [Azure portal] cercare e selezionare **Servizi app** , quindi selezionare la propria app.
+1. Nel riquadro sinistro, in **Impostazioni** , selezionare **Autenticazione/Autorizzazione** > **Sì**.
 1. (Facoltativo) Per impostazione predefinita, l'autenticazione del servizio app consente l'accesso non autenticato all'app. Per applicare l'autenticazione degli utenti, impostare **Azione da eseguire quando la richiesta non è autenticata** su **Accedi con Azure Active Directory**.
 1. In **Provider di autenticazione** fare clic su **Azure Active Directory**.
 1. In **Modalità di gestione** selezionare **Avanzata** e configurare l'autenticazione del servizio app in base alla tabella seguente:
@@ -103,9 +103,9 @@ Eseguire la procedura seguente:
     |Campo|Descrizione|
     |-|-|
     |ID client| Usare il valore di **ID applicazione (client)** della registrazione dell'app. |
-    |URL autorità di certificazione| Usare `<authentication-endpoint>/<tenant-id>/v2.0` e sostituire *\<authentication-endpoint>* con l' [endpoint di autenticazione per l'ambiente cloud](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) , ad esempio " https://login.microsoft.com " per Azure globale, sostituendo anche *\<tenant-id>* con l'ID di **Directory (tenant)** in cui è stata creata la registrazione dell'app. Questo valore viene usato per reindirizzare gli utenti al tenant di Azure AD corretto, oltre che per scaricare i metadati appropriati in modo da determinare, ad esempio, i valori corretti delle chiavi di firma del token e dell'attestazione dell'autorità emittente del token corretti. Per le applicazioni che usano Azure AD V1 e per le app di funzioni di Azure, omettere `/v2.0` nell'URL.|
+    |URL autorità di certificazione| Usare `<authentication-endpoint>/<tenant-id>/v2.0` e sostituire *\<authentication-endpoint>* con l' [endpoint di autenticazione per l'ambiente cloud](../active-directory/develop/authentication-national-cloud.md#azure-ad-authentication-endpoints) , ad esempio " https://login.microsoftonline.com " per Azure globale, sostituendo anche *\<tenant-id>* con l'ID di **Directory (tenant)** in cui è stata creata la registrazione dell'app. Questo valore viene usato per reindirizzare gli utenti al tenant di Azure AD corretto, oltre che per scaricare i metadati appropriati in modo da determinare, ad esempio, i valori corretti delle chiavi di firma del token e dell'attestazione dell'autorità emittente del token corretti. Per le applicazioni che usano Azure AD V1 e per le app di funzioni di Azure, omettere `/v2.0` nell'URL.|
     |Segreto client (facoltativo)| Usare il segreto client generato nella registrazione dell'app.|
-    |Destinatari token consentiti| Se si tratta di un'app cloud o server e si vogliono consentire i token di autenticazione di un'app Web, aggiungere qui il valore di **URI dell'ID applicazione** dell'app Web. L'**ID client** configurato viene *sempre* considerato implicitamente come destinatario consentito. |
+    |Destinatari token consentiti| Se si tratta di un'app cloud o server e si vogliono consentire i token di autenticazione di un'app Web, aggiungere qui il valore di **URI dell'ID applicazione** dell'app Web. L' **ID client** configurato viene *sempre* considerato implicitamente come destinatario consentito. |
 
 2. Selezionare **OK** e quindi **Salva**.
 
@@ -125,7 +125,7 @@ Eseguire la procedura seguente:
 1. Dopo la creazione della registrazione dell'app, copiare il valore di **ID applicazione (client)** .
 1. Selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione** > **Le mie API**.
 1. Selezionare la registrazione creata in precedenza per l'app del servizio app. Se la registrazione dell'app non è visibile, verificare di aver aggiunto l'ambito **user_impersonation** in [Creare una registrazione di app in Azure AD per l'app del servizio app](#register).
-1. Selezionare **user_impersonation** in **Autorizzazioni delegate**, quindi selezionare **Aggiungi autorizzazioni**.
+1. Selezionare **user_impersonation** in **Autorizzazioni delegate** , quindi selezionare **Aggiungi autorizzazioni**.
 
 È stata configurata un'applicazione client nativa che può accedere all'app del servizio app per conto dell'utente.
 
@@ -140,9 +140,9 @@ L'applicazione può acquisire un token per chiamare un'API Web ospitata nel serv
 1. Dopo la creazione della registrazione dell'app, copiare il valore di **ID applicazione (client)** .
 1. Selezionare **Certificati e segreti** > **Nuovo segreto client** > **Aggiungi**. Copiare il valore del segreto client visualizzato nella pagina. Non verrà più visualizzato.
 
-È ora possibile [richiedere un token di accesso usando l'ID client e il segreto client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) impostando il parametro `resource` sull'**URI ID applicazione** dell'app di destinazione. Il token di accesso generato può quindi essere presentato all'app di destinazione usando l'[intestazione dell'autorizzazione OAuth 2.0](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#use-the-access-token-to-access-the-secured-resource) standard e l'autenticazione/autorizzazione del servizio app convaliderà e userà il token come di consueto per indicare che il chiamante (in questo caso un'applicazione, non un utente) è autenticato.
+È ora possibile [richiedere un token di accesso usando l'ID client e il segreto client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#first-case-access-token-request-with-a-shared-secret) impostando il parametro `resource` sull' **URI ID applicazione** dell'app di destinazione. Il token di accesso generato può quindi essere presentato all'app di destinazione usando l'[intestazione dell'autorizzazione OAuth 2.0](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md#use-the-access-token-to-access-the-secured-resource) standard e l'autenticazione/autorizzazione del servizio app convaliderà e userà il token come di consueto per indicare che il chiamante (in questo caso un'applicazione, non un utente) è autenticato.
 
-Al momento, questo consente a _qualsiasi_ applicazione client nel tenant di Azure AD di richiedere un token di accesso ed eseguire l'autenticazione all'app di destinazione. Per imporre all'_autorizzazione_ di consentire solo determinate applicazioni client, è necessario eseguire alcune operazioni di configurazione aggiuntive.
+Al momento, questo consente a _qualsiasi_ applicazione client nel tenant di Azure AD di richiedere un token di accesso ed eseguire l'autenticazione all'app di destinazione. Per imporre all' _autorizzazione_ di consentire solo determinate applicazioni client, è necessario eseguire alcune operazioni di configurazione aggiuntive.
 
 1. [Definire un ruolo dell'app](../active-directory/develop/howto-add-app-roles-in-azure-ad-apps.md) nel manifesto della registrazione dell'app che rappresenta il servizio app o l'app per le funzioni che si vuole proteggere.
 1. Nella registrazione app che rappresenta il client che deve essere autorizzato selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione** > **API personali**.

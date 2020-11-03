@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 71d8961af372f927fab909073daa715766542f87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9545c040809331a5556b11f6cc7536931e2d421
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88606673"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289574"
 ---
 # <a name="certificate-creation-methods"></a>Metodi di creazione dei certificati
 
@@ -82,7 +82,7 @@ La creazione del certificato può essere completata manualmente oppure usando un
 
 |Provider|Tipo di certificato|Configurazione configurazione  
 |--------------|----------------------|------------------|  
-|DigiCert|Key Vault offre certificati SSL OV o EV con DigiCert| [Guida all'integrazione](https://docs.microsoft.com/azure/key-vault/certificates/how-to-integrate-certificate-authority)
+|DigiCert|Key Vault offre certificati SSL OV o EV con DigiCert| [Guida all'integrazione](./how-to-integrate-certificate-authority.md)
 |GlobalSign|Key Vault offre certificati SSL OV o EV con GlobalSign| [Guida all'integrazione](https://support.globalsign.com/digital-certificates/digital-certificate-installation/generating-and-importing-certificate-microsoft-azure-key-vault)
 
  Un'autorità di certificazione è un'entità rappresentata in Azure Key Vault come risorsa CertificateIssuer. Viene usata per rendere disponibili informazioni sull'origine di un certificato di un insieme di credenziali delle chiavi: nome dell'autorità di certificazione, provider, credenziali e altri dettagli amministrativi.

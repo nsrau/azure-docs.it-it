@@ -4,12 +4,12 @@ description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMwar
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 64b2955b1417d6931172b41f83f05d5f1b560708
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 68eee2d55e3c22b502d17a91f4ba4509c292c31c
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92911886"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93288680"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -65,7 +65,7 @@ Microsoft e Red Hat condividono un team di supporto integrato che fornisce un pu
 
 #### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition è disponibile e, in caso affermativo, qual è il costo?
 
-VMware HCX Enterprise Edition (EE) è disponibile con la soluzione Azure VMware come funzione/servizio in *anteprima* . Mentre la soluzione VMware HCX EE per Azure VMware è in anteprima, si tratta di una funzione/servizio gratuita, soggetta a termini e condizioni del servizio in anteprima. Dopo il passaggio del servizio VMware HCX EE alla disponibilità generale, si riceverà un preavviso di 30 giorni relativo al passaggio alla fatturazione. È possibile disattivare o rifiutare esplicitamente il servizio.
+VMware HCX Enterprise Edition (EE) è disponibile con la soluzione Azure VMware come funzione/servizio in *anteprima*. Mentre la soluzione VMware HCX EE per Azure VMware è in anteprima, si tratta di una funzione/servizio gratuita, soggetta a termini e condizioni del servizio in anteprima. Dopo il passaggio del servizio VMware HCX EE alla disponibilità generale, si riceverà un preavviso di 30 giorni relativo al passaggio alla fatturazione. È possibile disattivare o rifiutare esplicitamente il servizio.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Le macchine virtuali della soluzione VMware di Azure possono essere gestite da VMRC?
 Sì, a condizione che il sistema su cui è installato possa accedere al cloud privato vCenter e usa DNS pubblico per risolvere i nomi host ESXi.
@@ -78,6 +78,9 @@ No, a causa dei requisiti di larghezza di banda e latenza.
 
 #### <a name="can-azure-bastion-be-used-for-connecting-to-azure-vmware-solution-vms"></a>È possibile usare Azure Bastion per la connessione alle macchine virtuali della soluzione VMware di Azure?
 Azure Bastion è il servizio consigliato per connettersi alla casella di salto per impedire l'esposizione della soluzione VMware di Azure a Internet. Non è possibile usare Azure Bastion per connettersi alle macchine virtuali della soluzione VMware di Azure perché non sono oggetti IaaS di Azure.
+
+#### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>Può Azure Load Balancer essere usato internamente per le macchine virtuali della soluzione VMware di Azure?
+No. Azure Load Balancer Internal supporta solo le macchine virtuali IaaS di Azure. Azure Load Balancer non supporta i pool back-end basati su IP; solo le VM di Azure o gli oggetti del set di scalabilità di macchine virtuali (VMSS) in cui le macchine virtuali della soluzione VMware di Azure non sono oggetti
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>È possibile usare un gateway ExpressRoute esistente per connettersi alla soluzione VMware di Azure?
 Sì, è possibile usare un gateway ExpressRoute esistente per connettersi alla soluzione VMware di Azure, purché non superi il limite di quattro circuiti ExpressRoute per ogni rete virtuale.  Tuttavia, per accedere alla soluzione Azure VMware dall'ambiente locale tramite ExpressRoute è necessario avere Copertura globale ExpressRoute, in quanto il gateway ExpressRoute non fornisce il routing transitivo tra i circuiti connessi.
@@ -118,7 +121,7 @@ Poiché queste soluzioni di backup sono installate e gestite dai clienti, posson
 
 #### <a name="what-is-the-correct-storage-policy-for-the-dedupe-setup"></a>Quali sono i criteri di archiviazione corretti per l'installazione del deduplicato?
 
-Usare i criteri di archiviazione *thin_provision* per il modello di macchina virtuale.  Il valore predefinito è *thick_provision* .
+Usare i criteri di archiviazione *thin_provision* per il modello di macchina virtuale.  Il valore predefinito è *thick_provision*.
 
 #### <a name="are-the-snmp-infrastructure-logs-shared"></a>I log dell'infrastruttura SNMP sono condivisi?
 

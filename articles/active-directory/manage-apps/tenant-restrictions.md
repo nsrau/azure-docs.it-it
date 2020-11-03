@@ -12,12 +12,12 @@ ms.date: 10/26/2020
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce96eb5e91ccc4cb9f69711f9e6fd8fd59ce65bc
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: d69755c36bf37dd591e81bea7983e25905798d4d
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669932"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286204"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso delle restrizioni del tenant per gestire l'accesso alle applicazioni cloud SaaS
 
@@ -33,7 +33,7 @@ Questo articolo è incentrato sulle restrizioni dei tenant per Microsoft 365, ma
 
 La soluzione globale è composta dai seguenti elementi:
 
-1. **Azure AD** : se `Restrict-Access-To-Tenants: <permitted tenant list>` è presente, Azure AD genera unicamente token di sicurezza per i tenant autorizzati.
+1. **Azure ad** : se l' `Restrict-Access-To-Tenants: <permitted tenant list>` intestazione è presente, Azure ad emette solo i token di sicurezza per i tenant autorizzati.
 
 2. **Infrastruttura di server proxy locale** : questa infrastruttura è un dispositivo proxy idoneo per l'ispezione Transport Layer Security (TLS). Per inserire l'intestazione contenente l'elenco dei tenant consentiti nel traffico destinato a Azure AD è necessario configurare il proxy.
 
@@ -63,11 +63,11 @@ Per abilitare Restrizioni del tenant nell'infrastruttura proxy è necessaria la 
 
 - I client devono considerare attendibile la catena di certificati presentata dal proxy per le comunicazioni TLS. Ad esempio, se vengono usati certificati da un'[infrastruttura a chiave pubblica (PKI) interna](/windows/desktop/seccertenroll/public-key-infrastructure), deve essere considerato attendibile il certificato interno dell'autorità di certificazione interna.
 
-- Questa funzionalità è inclusa in Microsoft 365 sottoscrizioni, ma se si vogliono usare le restrizioni del tenant per controllare l'accesso ad altre app SaaS, sono necessarie Azure AD Premium 1 licenze.
+- Per l'uso delle restrizioni dei tenant sono necessarie licenze Azure AD Premium 1. 
 
 #### <a name="configuration"></a>Configurazione
 
-Per ogni richiesta in ingresso a login.microsoftonline.com, login.microsoft.com e login.windows.net, inserire due intestazioni HTTP: *Restrict-Access-To-Tenants* e *Restrict-Access-Context* .
+Per ogni richiesta in ingresso a login.microsoftonline.com, login.microsoft.com e login.windows.net, inserire due intestazioni HTTP: *Restrict-Access-To-Tenants* e *Restrict-Access-Context*.
 
 > [!NOTE]
 > Quando si configurano l'intercettazione e l'inserimento di intestazioni SSL, assicurarsi che il traffico a https://device.login.microsoftonline.com venga escluso. Questo URL viene usato per l'autenticazione del dispositivo e l'esecuzione di interruzioni e ispezione TLS può interferire con l'autenticazione del certificato client, che può causare problemi di registrazione del dispositivo e di accesso condizionale basato su dispositivo.
@@ -81,7 +81,7 @@ Le intestazioni devono includere gli elementi seguenti:
 - Per *Restrict-Access-Context* , usare un valore ID di directory singola, dichiarando quale tenant imposta Restrizioni del tenant. Per dichiarare Contoso come tenant che ha impostato i criteri di restrizione dei tenant, ad esempio, la coppia nome/valore è simile alla seguente: `Restrict-Access-Context: 456ff232-35l2-5h23-b3b3-3236w0826f3d` .  In questo punto è **necessario** usare il proprio ID directory.
 
 > [!TIP]
-> L'ID della directory si trova nel [Portale di Azure Active Directory](https://aad.portal.azure.com/). Accedere come amministratore, selezionare **Azure Active Directory** , quindi selezionare **Proprietà** . 
+> L'ID della directory si trova nel [Portale di Azure Active Directory](https://aad.portal.azure.com/). Accedere come amministratore, selezionare **Azure Active Directory** , quindi selezionare **Proprietà**. 
 >
 > Per verificare che un ID directory o un nome di dominio faccia riferimento allo stesso tenant, utilizzare tale ID o dominio al posto di <tenant> in questo URL: `https://login.microsoftonline.com/<tenant>/v2.0/.well-known/openid-configuration` .  Se i risultati con il dominio e l'ID sono uguali, fanno riferimento allo stesso tenant. 
 
@@ -104,11 +104,11 @@ Un utente di esempio si trova nella rete Contoso ma tenta di accedere online all
 
 La configurazione di Restrizioni del tenant viene eseguita nell'infrastruttura del proxy aziendale, ma gli amministratori possono accedere direttamente ai relativi report nel portale di Azure. Per visualizzare i report:
 
-1. Accedere al [portale di Azure Active Directory](https://aad.portal.azure.com/). Viene visualizzato il dashboard **Interfaccia di amministrazione di Azure Active Directory** .
+1. Accedere al [portale di Azure Active Directory](https://aad.portal.azure.com/). Viene visualizzato il dashboard **Interfaccia di amministrazione di Azure Active Directory**.
 
-2. Nel riquadro sinistro selezionare **Azure Active Directory** . Viene visualizzata la pagina di panoramica di Azure Active Directory.
+2. Nel riquadro sinistro selezionare **Azure Active Directory**. Viene visualizzata la pagina di panoramica di Azure Active Directory.
 
-3. Nella pagina Panoramica selezionare **restrizioni tenant** .
+3. Nella pagina Panoramica selezionare **restrizioni tenant**.
 
 L'amministratore per il tenant specificato come tenant Restricted-Access-Context può usare questo report per visualizzare gli accessi bloccati a causa dei criteri di Restrizioni del tenant, inclusi l'ID della directory di destinazione e le identità usate. Gli accessi sono inclusi se nelle impostazioni del tenant la restrizione di accesso è impostata sul tenant dell'utente o sul tenant della risorsa.
 

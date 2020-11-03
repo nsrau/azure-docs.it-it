@@ -2,13 +2,13 @@
 title: Concetti-archiviazione
 description: Informazioni sulle funzionalità di archiviazione chiavi in cloud privati della soluzione VMware di Azure.
 ms.topic: conceptual
-ms.date: 05/04/2020
-ms.openlocfilehash: 02378040061080d3c9abbfafb26180c9d22e9073
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: 394b755f5dc8fdbcaa6092419e9451ae1691aa67
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91316818"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289249"
 ---
 #  <a name="azure-vmware-solution-storage-concepts"></a>Concetti relativi all'archiviazione della soluzione VMware di Azure
 
@@ -28,7 +28,7 @@ L'archiviazione locale negli host del cluster viene usata nell'archivio dati ret
 
 ## <a name="data-at-rest-encryption"></a>Crittografia dei dati inattivi
 
-per impostazione predefinita, i datastore rete VSAN usano la crittografia dei dati inattivi. La soluzione di crittografia è basata sul KMS e supporta le operazioni vCenter per la gestione delle chiavi. Le chiavi vengono archiviate crittografate da una chiave master Azure Key Vault basata sul modulo di protezione hardware. Quando un host viene rimosso da un cluster per qualsiasi motivo, i dati nelle unità SSD vengono invalidati immediatamente.
+per impostazione predefinita, i datastore rete VSAN usano la crittografia dei dati inattivi. La soluzione di crittografia è basata sul KMS e supporta le operazioni vCenter per la gestione delle chiavi. Le chiavi vengono archiviate crittografate da una chiave master Azure Key Vault. Quando un host viene rimosso da un cluster per qualsiasi motivo, i dati nelle unità SSD vengono invalidati immediatamente.
 
 ## <a name="scaling"></a>Scalabilità
 

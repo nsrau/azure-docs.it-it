@@ -13,34 +13,34 @@ ms.workload: iaas-sql-server
 ms.date: 09/21/2020
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: b83a44db98907f505c7bf0d8302470cf3031a967
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0d6900d0fdf656fa8309b18971691bb35587f7f4
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91761261"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286068"
 ---
 # <a name="register-multiple-sql-virtual-machines-in-azure-with-the-sql-vm-resource-provider"></a>Registrare più macchine virtuali SQL in Azure con il provider di risorse per VM SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Questo articolo descrive come registrare in blocco le macchine virtuali (VM) di SQL Server in Azure con il provider di risorse per macchine virtuali SQL usando il cmdlet `Register-SqlVMs` di PowerShell.
+Questo articolo descrive come registrare in blocco le macchine virtuali (VM) di SQL Server in Azure con il provider di risorse per macchine virtuali SQL usando il cmdlet `Register-SqlVMs` di PowerShell. La registrazione con il provider di risorse VM SQL installa l' [estensione SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md).
 
 Questo articolo illustra come registrare SQL Server VM in blocco. In alternativa, è possibile registrare [tutte le vm SQL Server automaticamente](sql-vm-resource-provider-automatic-registration.md) o [singole SQL Server VM](sql-vm-resource-provider-register.md). 
 
 ## <a name="overview"></a>Panoramica
 
-Il cmdlet `Register-SqlVMs` può essere usato per registrare tutte le macchine virtuali in un elenco specifico di sottoscrizioni, gruppi di risorse o un elenco di macchine virtuali specifiche. Il cmdlet registrerà le macchine virtuali in modalità di gestione _leggera_, quindi genererà sia un [report che un file di log](#output-description). 
+Il cmdlet `Register-SqlVMs` può essere usato per registrare tutte le macchine virtuali in un elenco specifico di sottoscrizioni, gruppi di risorse o un elenco di macchine virtuali specifiche. Il cmdlet registrerà le macchine virtuali in modalità di gestione _leggera_ , quindi genererà sia un [report che un file di log](#output-description). 
 
 Il processo di registrazione non comporta alcun rischio, non ha tempi di inattività e non riavvia SQL Server o la macchina virtuale. 
 
-Per altre informazioni sul provider di risorse, vedere l'articolo relativo al [provider di risorse per VM SQL](sql-vm-resource-provider-register.md). 
+Per ulteriori informazioni, vedere [provider di risorse VM SQL](sql-vm-resource-provider-register.md). 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per registrare la macchina virtuale di SQL Server con il provider di risorse, è necessario quanto segue: 
 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/) che sia [registrata con il provider di risorse](sql-vm-resource-provider-register.md#register-subscription-with-rp) e contenga macchine virtuali di SQL Server non registrate. 
-- Le credenziali client usate per registrare le macchine virtuali sono disponibili in uno dei seguenti ruoli di Azure: **collaboratore macchina virtuale**, **collaboratore**o **proprietario**. 
+- Le credenziali client usate per registrare le macchine virtuali sono disponibili in uno dei seguenti ruoli di Azure: **collaboratore macchina virtuale** , **collaboratore** o **proprietario**. 
 - La versione più recente di [Az PowerShell](/powershell/azure/new-azureps-module-az). 
 - La versione più recente di [Az.SqlVirtualMachine](https://www.powershellgallery.com/packages/Az.SqlVirtualMachine/0.1.0).
 
@@ -227,7 +227,7 @@ Gli errori vengono registrati nel file di log denominato `VMsNotRegisteredDueToE
 
 Quando si registrano le VM di SQL Server con il provider di risorse usando lo script a disposizione, tenere presente quanto segue:
 
-- La registrazione con il provider di risorse richiede un agente guest in esecuzione nella VM di SQL Server. Le immagini di Windows Server 2008 non hanno un agente guest, pertanto queste macchine virtuali avranno esito negativo e dovranno essere registrate manualmente usando la [modalità di gestione NoAgent](sql-vm-resource-provider-register.md#management-modes).
+- La registrazione con il provider di risorse richiede un agente guest in esecuzione nella VM di SQL Server. Le immagini di Windows Server 2008 non hanno un agente guest, pertanto queste macchine virtuali avranno esito negativo e dovranno essere registrate manualmente usando la [modalità di gestione NoAgent](sql-server-iaas-agent-extension-automate-management.md#management-modes).
 - Per superare gli errori trasparenti, è incorporata una logica di ripetizione dei tentativi. Se la macchina virtuale è stata registrata correttamente, si tratta di un'operazione rapida. Tuttavia, se la registrazione ha esito negativo, viene eseguito un nuovo tentativo per ogni macchina virtuale.  Di conseguenza, è necessario concedere un tempo significativo per il completamento del processo di registrazione, sebbene il requisito di tempo effettivo dipenda dal tipo e dal numero di errori. 
 
 ## <a name="full-script"></a>Script completo

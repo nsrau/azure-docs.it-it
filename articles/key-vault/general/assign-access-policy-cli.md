@@ -10,12 +10,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/27/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 32a323e8cc56a8c45b18737bb55ebe19d4be27c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 59ba81944ecdf4f2b6322f4298e61df33f5b1da8
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381049"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289190"
 ---
 # <a name="assign-a-key-vault-access-policy"></a>Assegnare un criterio di accesso Key Vault
 
@@ -29,7 +29,7 @@ Per altre informazioni sulla creazione di gruppi in Azure Active Directory usand
 
 1. Per eseguire i comandi di Azure CLI localmente, installare l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
  
-    Per eseguire i comandi direttamente nel cloud, usare il [Azure cloud Shell](/azure/cloud-shell/overview).
+    Per eseguire i comandi direttamente nel cloud, usare il [Azure cloud Shell](../../cloud-shell/overview.md).
 
 1. Solo interfaccia della riga di comando locale: accedere ad Azure usando `az login` :
 

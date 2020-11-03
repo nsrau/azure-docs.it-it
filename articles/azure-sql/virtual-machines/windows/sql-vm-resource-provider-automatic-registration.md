@@ -9,37 +9,40 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: b986832e5febbb2a0f88b65213f9acf0dd4c5ab5
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 23ecc3bdfb0ca85caf219fc262348937923f53c3
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996889"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286132"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>Registrazione automatica con il provider di risorse VM SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-Abilitare la funzionalità di registrazione automatica nel portale di Azure per registrare automaticamente tutti i SQL Server correnti e futuri nelle macchine virtuali di Azure con il provider di risorse VM SQL in modalità lightweight.
+Abilitare la funzionalità di registrazione automatica nel portale di Azure per registrare automaticamente tutti i SQL Server attuali e futuri nelle macchine virtuali di Azure con il provider di risorse VM SQL in modalità lightweight. La registrazione con il provider di risorse VM SQL installa l' [estensione SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md).
 
 Questo articolo illustra come abilitare la funzionalità di registrazione automatica. In alternativa, è possibile [registrare una singola macchina virtuale](sql-vm-resource-provider-register.md)o [registrare le VM in blocco](sql-vm-resource-provider-bulk-register.md) con il provider di risorse della macchina virtuale SQL. 
 
 ## <a name="overview"></a>Panoramica
 
-Il [provider di risorse VM SQL](sql-vm-resource-provider-register.md#overview) consente di gestire la macchina virtuale SQL Server dalla portale di Azure. Inoltre, il provider di risorse consente un set di funzionalità affidabili, tra cui l'applicazione [automatica di patch](automated-patching.md), il [backup automatizzato](automated-backup.md), nonché le funzionalità di monitoraggio e gestibilità. Sblocca anche flessibilità per [licenze](licensing-model-azure-hybrid-benefit-ahb-change.md) ed [edizioni](change-sql-server-edition.md). In precedenza, queste funzionalità erano disponibili solo per le immagini di macchine virtuali di SQL Server distribuite da Azure Marketplace. 
+La registrazione della macchina virtuale SQL Server con il provider di risorse VM SQL installa l' [estensione SQL IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). 
 
-La funzionalità di registrazione automatica consente ai clienti di registrare automaticamente tutte le macchine virtuali SQL Server correnti e future nella propria sottoscrizione di Azure con il provider di risorse VM SQL. Questa operazione è diversa dalla registrazione manuale, che è focalizzata solo sulle VM SQL Server correnti. 
+Quando è abilitata la registrazione automatica, un processo viene eseguito ogni giorno per rilevare se SQL Server è installato o meno in tutte le macchine virtuali non registrate nella sottoscrizione. Questa operazione viene eseguita copiando i file binari dell'estensione SQL IaaS Agent nella macchina virtuale, quindi eseguendo un'utilità monouso che verifica la presenza dell'hive del registro di sistema SQL Server. Se viene rilevato il SQL Server hive, la macchina virtuale viene registrata con il [provider di risorse VM SQL](sql-vm-resource-provider-register.md) in modalità lightweight. Se nel registro di sistema non è presente alcun hive SQL Server, i file binari vengono rimossi.
 
-La registrazione automatica registra le macchine virtuali SQL Server in modalità lightweight. È comunque necessario eseguire [manualmente l'aggiornamento alla modalità di gestibilità completa](sql-vm-resource-provider-register.md#upgrade-to-full) per sfruttare il set completo di funzionalità. 
+Una volta abilitata la registrazione automatica per una sottoscrizione, tutte le VM correnti e future con SQL Server installato verranno registrate con il provider di risorse VM SQL in modalità lightweight. È comunque necessario eseguire [manualmente l'aggiornamento alla modalità di gestibilità completa](sql-vm-resource-provider-register.md#upgrade-to-full) per sfruttare il set completo di funzionalità. 
+
+> [!IMPORTANT]
+> L'estensione SQL IaaS Agent raccoglie i dati per lo scopo esplicito di fornire ai clienti vantaggi facoltativi quando si usa SQL Server all'interno di macchine virtuali di Azure. Microsoft non utilizzerà questi dati per i controlli delle licenze senza il consenso anticipato del cliente. Per ulteriori informazioni, vedere la [SQL Server supplemento sulla privacy](/sql/sql-server/sql-server-privacy#non-personal-data) .
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Per registrare la macchina virtuale di SQL Server con il provider di risorse, è necessario quanto segue: 
 
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
-- Una [macchina virtuale Windows](../../../virtual-machines/windows/quick-create-portal.md) del modello di risorse di azure con [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) distribuita nel cloud pubblico o Azure per enti pubblici. 
+- Una macchina virtuale modello di risorse di Azure [Windows Server 2008 R2 (o versione successiva)](../../../virtual-machines/windows/quick-create-portal.md) con [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) distribuita nel cloud pubblico o Azure per enti pubblici. Windows Server 2008 non è supportato. 
 
 
-## <a name="enable"></a>Abilita
+## <a name="enable"></a>Abilitare
 
 Per abilitare la registrazione automatica delle macchine virtuali SQL Server nel portale di Azure, seguire questa procedura:
 
@@ -67,7 +70,7 @@ Per disabilitare la registrazione automatica usando l'interfaccia della riga di 
 az feature unregister --namespace Microsoft.SqlVirtualMachine --name BulkRegistration
 ```
 
-# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
 
 Per disabilitare la registrazione automatica usando Azure PowerShell, eseguire il comando seguente: 
 
@@ -81,7 +84,7 @@ Unregister-AzProviderFeature -FeatureName BulkRegistration -ProviderNamespace Mi
 
 È possibile abilitare la funzionalità di registrazione automatica per più sottoscrizioni di Azure tramite PowerShell. 
 
-A tale scopo, seguire questa procedura:
+A questo scopo, attenersi alla procedura seguente:
 
 1. Salvare lo [script](https://github.com/microsoft/tigertoolbox/blob/master/AzureSQLVM/RegisterSubscriptionsToSqlVmAutomaticRegistration.ps1) in un `.ps1` file, ad esempio `EnableBySubscription.ps1` . 
 1. Passare al percorso in cui è stato salvato lo script usando un prompt dei comandi amministrativo o una finestra di PowerShell. 

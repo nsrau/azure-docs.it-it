@@ -8,23 +8,23 @@ ms.author: mbaldwin
 ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
-ms.openlocfilehash: 1a6ec20d860a409bbe7d3114c54e1e46a75968a0
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: ac3ee108fc63441b2a9381b9e7624631bdca4e5b
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91970113"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289837"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
 > [!NOTE]
-> **Microsoft. Azure. Services. AppAuthentication** non è più consigliabile usare con la nuova Key Vault SDK. Viene sostituita con la nuova **libreria client di identità di Azure** disponibile per .NET, Java, typescript e Python e deve essere usata per tutti i nuovi sviluppi. Altre informazioni sono disponibili qui: [autenticazione per Key Vault nel codice](https://docs.microsoft.com/azure/key-vault/general/developers-guide#azure-identity-client-libraries).
+> **Microsoft. Azure. Services. AppAuthentication** non è più consigliabile usare con la nuova Key Vault SDK. Viene sostituita con la nuova **libreria client di identità di Azure** disponibile per .NET, Java, typescript e Python e deve essere usata per tutti i nuovi sviluppi. Altre informazioni sono disponibili qui: [autenticazione per Key Vault nel codice](./developers-guide.md#azure-identity-client-libraries).
 
 Per eseguire l'autenticazione in Azure Key Vault, è necessario disporre di una credenziale di Azure Active Directory (Azure AD), ovvero un segreto condiviso o un certificato.
 
 La gestione di tali credenziali può essere difficile. Si tenta di aggregare le credenziali in un'app, inserendole nei file di origine o di configurazione. `Microsoft.Azure.Services.AppAuthentication` per la libreria .NET semplifica questo aspetto. Usa le credenziali per lo sviluppatore per eseguire l'autenticazione durante lo sviluppo locale. Quando in un secondo momento la soluzione viene distribuita in Azure, la libreria passa automaticamente alle credenziali dell'applicazione. L'uso delle credenziali dello sviluppatore durante lo sviluppo locale è più sicuro perché non è necessario creare credenziali di Azure AD o condividere le credenziali tra gli sviluppatori.
 
-La `Microsoft.Azure.Services.AppAuthentication` libreria gestisce automaticamente l'autenticazione, che a sua volta consente di concentrarsi sulla soluzione, anziché sulle credenziali. Supporta lo sviluppo locale con Microsoft Visual Studio, l'interfaccia della riga di comando di Azure o Azure AD l'autenticazione integrata. Quando viene distribuita in una risorsa di Azure che supporta un'identità gestita, la libreria usa automaticamente le [identità gestite per le risorse di Azure](../../active-directory/msi-overview.md). Non sono necessarie modifiche di codice o di configurazione. La libreria supporta anche l'uso diretto delle [credenziali client](../../azure-resource-manager/resource-group-authenticate-service-principal.md) di Azure ad quando un'identità gestita non è disponibile o quando il contesto di sicurezza dello sviluppatore non può essere determinato durante lo sviluppo locale.
+La `Microsoft.Azure.Services.AppAuthentication` libreria gestisce automaticamente l'autenticazione, che a sua volta consente di concentrarsi sulla soluzione, anziché sulle credenziali. Supporta lo sviluppo locale con Microsoft Visual Studio, l'interfaccia della riga di comando di Azure o Azure AD l'autenticazione integrata. Quando viene distribuita in una risorsa di Azure che supporta un'identità gestita, la libreria usa automaticamente le [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md). Non sono necessarie modifiche di codice o di configurazione. La libreria supporta anche l'uso diretto delle [credenziali client](../../active-directory/develop/howto-authenticate-service-principal-powershell.md) di Azure ad quando un'identità gestita non è disponibile o quando il contesto di sicurezza dello sviluppatore non può essere determinato durante lo sviluppo locale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -55,7 +55,7 @@ Per le applicazioni .NET, il modo più semplice per usare l'identità del serviz
 
 La classe thread-safe `AzureServiceTokenProvider` memorizza nella cache il token in memoria e lo recupera da Azure ad immediatamente prima della scadenza. Ciò significa che non è mai necessario controllare la scadenza del token prima di chiamare il `GetAccessTokenAsync` metodo. 
 
-Il metodo `GetAccessTokenAsync` richiede un identificatore di risorsa. Per altre informazioni sui servizi di Microsoft Azure, vedere informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/msi-overview.md).
+Il metodo `GetAccessTokenAsync` richiede un identificatore di risorsa. Per altre informazioni sui servizi di Microsoft Azure, vedere informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md).
 
 ## <a name="local-development-authentication"></a>Autenticazione per lo sviluppo locale
 
@@ -65,7 +65,7 @@ Per lo sviluppo locale, esistono due scenari di autenticazione principali: auten
 
 I computer locali non supportano le identità gestite per le risorse di Azure. Di conseguenza, la libreria `Microsoft.Azure.Services.AppAuthentication` usa le credenziali per lo sviluppatore per l'esecuzione nell'ambiente di sviluppo locale. Quando la soluzione viene distribuita in Azure, la libreria usa l'autenticazione del servizio gestito per passare a un flusso di concessione delle credenziali client di OAuth 2.0. Questo approccio significa che è possibile testare lo stesso codice in locale e in remoto senza preoccuparsi.
 
-Per lo sviluppo locale, `AzureServiceTokenProvider` recupera i token usando **Visual Studio**, l'**interfaccia della riga di comando di Azure** o l'**autenticazione integrata di Azure AD**. Ogni opzione viene provata in sequenza e la libreria usa la prima opzione con esito positivo. Se nessuna opzione funziona, viene generata un'eccezione `AzureServiceTokenProviderException` con informazioni dettagliate.
+Per lo sviluppo locale, `AzureServiceTokenProvider` recupera i token usando **Visual Studio** , l' **interfaccia della riga di comando di Azure** o l' **autenticazione integrata di Azure AD**. Ogni opzione viene provata in sequenza e la libreria usa la prima opzione con esito positivo. Se nessuna opzione funziona, viene generata un'eccezione `AzureServiceTokenProviderException` con informazioni dettagliate.
 
 #### <a name="authenticating-with-visual-studio"></a>Autenticazione con Visual Studio
 
@@ -73,11 +73,11 @@ Per eseguire l'autenticazione usando Visual Studio:
 
 1. Accedere a Visual Studio e usare **gli strumenti** &nbsp; > &nbsp; **Opzioni** per aprire le **Opzioni**.
 
-1. Selezionare **autenticazione dei servizi di Azure**, scegliere un account per lo sviluppo locale e fare clic su **OK**.
+1. Selezionare **autenticazione dei servizi di Azure** , scegliere un account per lo sviluppo locale e fare clic su **OK**.
 
 Se si verificano problemi con Visual Studio, ad esempio errori che coinvolgono il file del provider di token, esaminare attentamente i passaggi precedenti.
 
-Potrebbe essere necessario autenticare nuovamente il token dello sviluppatore. A tale scopo, selezionare **strumenti** &nbsp; > &nbsp; **Opzioni**, quindi selezionare ** &nbsp; &nbsp; autenticazione servizio di Azure**. Cercare un collegamento per la **ripetizione dell'autenticazione** nell'account selezionato. Selezionare il collegamento per eseguire l'autenticazione.
+Potrebbe essere necessario autenticare nuovamente il token dello sviluppatore. A tale scopo, selezionare **strumenti** &nbsp; > &nbsp; **Opzioni** , quindi selezionare **&nbsp; &nbsp; autenticazione servizio di Azure**. Cercare un collegamento per la **ripetizione dell'autenticazione** nell'account selezionato. Selezionare il collegamento per eseguire l'autenticazione.
 
 #### <a name="authenticating-with-azure-cli"></a>Autenticazione con l'interfaccia della riga di comando di Azure
 
@@ -91,7 +91,7 @@ Per usare l'interfaccia della riga di comando di Azure:
 
 1. Verificare l'accesso immettendo *AZ account Get-Access-token--Resource https: \/ /Vault.Azure.NET*. Se viene visualizzato un errore, verificare che la versione corretta dell'interfaccia della riga di comando di Azure sia installata correttamente.
 
-   Se l'interfaccia della riga di comando di Azure non è installata nella directory predefinita, è possibile che venga visualizzato un messaggio di errore che non è in `AzureServiceTokenProvider` grado di trovare il percorso dell'interfaccia Usare la variabile di ambiente **AzureCLIPath** per definire la cartella di installazione dell'interfaccia della riga di comando di Azure. `AzureServiceTokenProvider` aggiunge la directory specificata nella variabile di ambiente **AzureCLIPath** alla variabile di ambiente **Path**, quando è necessario.
+   Se l'interfaccia della riga di comando di Azure non è installata nella directory predefinita, è possibile che venga visualizzato un messaggio di errore che non è in `AzureServiceTokenProvider` grado di trovare il percorso dell'interfaccia Usare la variabile di ambiente **AzureCLIPath** per definire la cartella di installazione dell'interfaccia della riga di comando di Azure. `AzureServiceTokenProvider` aggiunge la directory specificata nella variabile di ambiente **AzureCLIPath** alla variabile di ambiente **Path** , quando è necessario.
 
 1. Se è stato eseguito l'accesso all'interfaccia della riga di comando di Azure usando più account o se l'account ha accesso a più sottoscrizioni, è necessario specificare la sottoscrizione da usare. Immettere il comando *AZ account set--subscription <subscription-id>*.
 
@@ -101,7 +101,7 @@ Questo comando genera l'output solo in caso di errore. Per verificare le imposta
 
 Per usare l'autenticazione di Azure AD, verificare che:
 
-- Il Active Directory locale viene sincronizzato con Azure AD. Per ulteriori informazioni, vedere la pagina relativa all' [identità ibrida con Azure Active Directory](../../active-directory/connect/active-directory-aadconnect.md).
+- Il Active Directory locale viene sincronizzato con Azure AD. Per ulteriori informazioni, vedere la pagina relativa all' [identità ibrida con Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
 - Il codice è in esecuzione in un computer aggiunto al dominio.
 
@@ -131,7 +131,7 @@ Questo approccio è valido solo per lo sviluppo locale. Quando la soluzione vien
 
 ## <a name="running-the-application-using-managed-identity-or-user-assigned-identity"></a>Esecuzione dell'applicazione mediante identità gestita o identità assegnata dall'utente
 
-Quando si esegue il codice in un Servizio app di Azure o in una macchina virtuale di Azure con l'identità gestita abilitata, la libreria usa automaticamente l'identità gestita. Non sono necessarie modifiche al codice, ma l'identità gestita deve avere le autorizzazioni *Get* per l'insieme di credenziali delle chiavi. È possibile assegnare all'identità gestita le autorizzazioni *Get* tramite i criteri di *accesso*dell'insieme di credenziali delle chiavi.
+Quando si esegue il codice in un Servizio app di Azure o in una macchina virtuale di Azure con l'identità gestita abilitata, la libreria usa automaticamente l'identità gestita. Non sono necessarie modifiche al codice, ma l'identità gestita deve avere le autorizzazioni *Get* per l'insieme di credenziali delle chiavi. È possibile assegnare all'identità gestita le autorizzazioni *Get* tramite i criteri di *accesso* dell'insieme di credenziali delle chiavi.
 
 In alternativa, è possibile eseguire l'autenticazione con un'identità assegnata dall'utente. Per altre informazioni sulle identità assegnate dall'utente, vedere [informazioni sulle identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). Per eseguire l'autenticazione con un'identità assegnata dall'utente, è necessario specificare l'ID client dell'identità assegnata dall'utente nella stringa di connessione. La stringa di connessione viene specificata nel [supporto della stringa di connessione](#connection-string-support).
 
@@ -167,7 +167,7 @@ Sono disponibili tre metodi principali per l'uso di un'entità servizio per l'es
           CertificateStoreLocation={CertificateStore}
     ```
 
-    Sostituire *{AppId}*, *{TenantId}* e *{Thumbprint}* con i valori generati nel passaggio 1. Sostituire *{CertificateStore}* con *LocalMachine*' o *CurrentUser*, in base al piano di distribuzione.
+    Sostituire *{AppId}* , *{TenantId}* e *{Thumbprint}* con i valori generati nel passaggio 1. Sostituire *{CertificateStore}* con *LocalMachine* ' o *CurrentUser* , in base al piano di distribuzione.
 
 1. Eseguire l'applicazione.
 
@@ -185,7 +185,7 @@ Sono disponibili tre metodi principali per l'uso di un'entità servizio per l'es
     RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}
     ```
 
-    Sostituire _{AppId}_, _{TenantId}_ e _{ClientSecret}_ con i valori generati nel passaggio 1.
+    Sostituire _{AppId}_ , _{TenantId}_ e _{ClientSecret}_ con i valori generati nel passaggio 1.
 
 1. Eseguire l'applicazione.
 
@@ -217,7 +217,7 @@ Per usare un certificato client per l'autenticazione dell'entità servizio:
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier={KeyVaultCertificateSecretIdentifier}
     ```
 
-    Ad esempio, se l'insieme di credenziali delle chiavi è denominato *myKeyVault* ed è stato creato un certificato denominato *CERT*, l'identificatore del certificato sarà:
+    Ad esempio, se l'insieme di credenziali delle chiavi è denominato *myKeyVault* ed è stato creato un certificato denominato *CERT* , l'identificatore del certificato sarà:
 
     ```azurecli
     RunAs=App;AppId={TestAppId};KeyVaultCertificateSecretIdentifier=https://myKeyVault.vault.azure.net/secrets/myCert
@@ -229,7 +229,7 @@ Per impostazione predefinita, `AzureServiceTokenProvider` tenta di recuperare un
 
 - [Identità gestita per le risorse di Azure](../..//active-directory/managed-identities-azure-resources/overview.md)
 - Autenticazione di Visual Studio
-- [Autenticazione CLI di Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
+- [Autenticazione CLI di Azure](/cli/azure/authenticate-azure-cli?view=azure-cli-latest)
 - [Autenticazione integrata di Windows](/aspnet/web-api/overview/security/integrated-windows-authentication)
 
 Per controllare il processo, usare una stringa di connessione passata al costruttore `AzureServiceTokenProvider` o specificata nella variabile di ambiente *AzureServicesAuthConnectionString*.  Sono supportate le opzioni seguenti:
@@ -262,7 +262,7 @@ Per visualizzare la `Microsoft.Azure.Services.AppAuthentication` libreria in azi
 
 #### <a name="azure-cli-is-not-installed-youre-not-logged-in-or-you-dont-have-the-latest-version"></a>L'interfaccia della riga di comando di Azure non è installata, non è stato effettuato l'accesso oppure non si dispone della versione più recente
 
-Eseguire *AZ account Get-Access-token* per verificare se l'interfaccia della riga di comando di Azure Mostra un token per l'utente. Se non è stato **trovato alcun programma di questo tipo**, installare la [versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Potrebbe essere necessario effettuare l'accesso.
+Eseguire *AZ account Get-Access-token* per verificare se l'interfaccia della riga di comando di Azure Mostra un token per l'utente. Se non è stato **trovato alcun programma di questo tipo** , installare la [versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest). Potrebbe essere necessario effettuare l'accesso.
 
 #### <a name="azureservicetokenprovider-cant-find-the-path-for-azure-cli"></a>AzureServiceTokenProvider non trova il percorso dell'interfaccia della riga di comando di Azure
 
@@ -276,7 +276,7 @@ Usando l'interfaccia della riga di comando di Azure, impostare la sottoscrizione
 
 #### <a name="unauthorized-access-access-denied-forbidden-or-similar-error"></a>Accesso non autorizzato, accesso negato, non consentito o errore simile
 
-L'entità di sicurezza usata non ha accesso alla risorsa a cui sta tentando di accedere. Concedere all'account utente o all'accesso "collaboratore" MSI del servizio app a una risorsa. Quale dipende dal fatto che l'esempio sia in esecuzione nel computer locale o distribuito in Azure al servizio app. Alcune risorse, ad esempio gli insiemi di credenziali delle chiavi, hanno anche [criteri di accesso](https://docs.microsoft.com/azure/key-vault/general/secure-your-key-vault#data-plane-and-access-policies) propri che si usano per concedere l'accesso alle entità, ad esempio utenti, app e gruppi.
+L'entità di sicurezza usata non ha accesso alla risorsa a cui sta tentando di accedere. Concedere all'account utente o all'accesso "collaboratore" MSI del servizio app a una risorsa. Quale dipende dal fatto che l'esempio sia in esecuzione nel computer locale o distribuito in Azure al servizio app. Alcune risorse, ad esempio gli insiemi di credenziali delle chiavi, hanno anche [criteri di accesso](./secure-your-key-vault.md#data-plane-and-access-policies) propri che si usano per concedere l'accesso alle entità, ad esempio utenti, app e gruppi.
 
 ### <a name="common-issues-when-deployed-to-azure-app-service"></a>Problemi comuni durante la distribuzione nel servizio app Azure
 
@@ -289,11 +289,11 @@ Controllare le variabili di ambiente MSI_ENDPOINT e MSI_SECRET esistere usando l
 #### <a name="cant-retrieve-tokens-when-debugging-app-in-iis"></a>Non è possibile recuperare i token durante il debug dell'app in IIS
 
 Per impostazione predefinita, AppAuth viene eseguito in un contesto utente diverso in IIS. Questo è il motivo per cui non è possibile usare l'identità dello sviluppatore per recuperare i token di accesso. È possibile configurare IIS per l'esecuzione con il contesto utente con i due passaggi seguenti:
-- Configurare il pool di applicazioni per l'esecuzione dell'app Web con l'account utente corrente. Ulteriori informazioni sono disponibili [qui](https://docs.microsoft.com/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities).
-- Configurare "setProfileEnvironment" su "true". Per altre informazioni, vedere [qui](https://docs.microsoft.com/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
+- Configurare il pool di applicazioni per l'esecuzione dell'app Web con l'account utente corrente. Ulteriori informazioni sono disponibili [qui](/iis/manage/configuring-security/application-pool-identities#configuring-iis-application-pool-identities).
+- Configurare "setProfileEnvironment" su "true". Per altre informazioni, vedere [qui](/iis/configuration/system.applicationhost/applicationpools/add/processmodel#configuration). 
 
     - Vai a% windir% \System32\inetsrv\config\applicationHost.config
     - Cercare "setProfileEnvironment". Se è impostato su "false", modificarlo in "true". Se non è presente, aggiungerlo come attributo all'elemento processModel ( /configuration/system.applicationHost/applicationPools/applicationPoolDefaults/processModel/@setProfileEnvironment ) e impostarlo su "true".
 
 - Altre informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/index.yml).
-- Altre informazioni sugli [scenari di autenticazione di Azure AD](../../active-directory/develop/active-directory-authentication-scenarios.md).
+- Altre informazioni sugli [scenari di autenticazione di Azure AD](../../active-directory/develop/authentication-vs-authorization.md).

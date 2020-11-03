@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: 6f216a7f0851661efc61a771fc35feb71e77fd1f
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 1b8dae471729b42b1c302c6c45033ddc808c7b43
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792481"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289311"
 ---
 # <a name="failover-cluster-instances-with-sql-server-on-azure-virtual-machines"></a>Istanze del cluster di failover con SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -149,7 +149,7 @@ Per altre informazioni sulle opzioni di connettività del cluster, vedere [Instr
 Per le istanze del cluster di failover con SQL Server in macchine virtuali di Azure, considerare le limitazioni seguenti. 
 
 ### <a name="lightweight-resource-provider"></a>Provider di risorse leggero   
-Al momento le istanze del cluster di failover di SQL Server in macchine virtuali di Azure sono supportate solo con la [modalità di gestione leggera](sql-vm-resource-provider-register.md#management-modes) dell'[estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Per passare dalla modalità di estensione completa a quella leggera, eliminare la risorsa **Macchina virtuale SQL** per le VM corrispondenti e quindi registrarle con il provider di risorse macchine virtuali di SQL in modalità leggera. Per eliminare la risorsa **Macchina virtuale SQL** tramite il portale di Azure, deselezionare la casella di controllo accanto alla macchina virtuale corretta. 
+Al momento le istanze del cluster di failover di SQL Server in macchine virtuali di Azure sono supportate solo con la [modalità di gestione leggera](sql-server-iaas-agent-extension-automate-management.md#management-modes) dell'[estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Per passare dalla modalità di estensione completa a quella leggera, eliminare la risorsa **Macchina virtuale SQL** per le VM corrispondenti e quindi registrarle con il provider di risorse macchine virtuali di SQL in modalità leggera. Per eliminare la risorsa **Macchina virtuale SQL** tramite il portale di Azure, deselezionare la casella di controllo accanto alla macchina virtuale corretta. 
 
 L'estensione completa supporta funzionalità quali backup automatizzato, applicazione di patch e gestione avanzata del portale. Queste funzionalità non verranno eseguite correttamente per le VM di SQL Server dopo la reinstallazione dell'agente in modalità di gestione leggera.
 

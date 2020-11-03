@@ -8,12 +8,12 @@ ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 07be83527fa781f87ed1de06fa41bd6d08ee9dc4
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 74669036a40048ca21aae56856981197defe1c35
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426573"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93286528"
 ---
 # <a name="integrate-key-vault-with-azure-private-link"></a>Integrare Key Vault con Collegamento privato di Azure
 
@@ -243,14 +243,14 @@ Aliases:  <your-key-vault-name>.vault.azure.net
 
 * Verificare che sia presente una risorsa Zona DNS privato. 
     1. Deve essere presente una risorsa Zona DNS privato con il nome esatto privatelink.vaultcore.azure.net. 
-    2. Per informazioni su come configurare questa risorsa, vedere il collegamento seguente. [Zone DNS privato](https://docs.microsoft.com/azure/dns/private-dns-privatednszone)
+    2. Per informazioni su come configurare questa risorsa, vedere il collegamento seguente. [Zone DNS privato](../../dns/private-dns-privatednszone.md)
     
 * Verificare che la zona DNS privato non sia collegata alla rete virtuale. Se continua a essere restituito l'indirizzo IP pubblico, la causa potrebbe essere questa. 
     1. Se il DNS della zona privata non è collegato alla rete virtuale, la query DNS originata dalla rete virtuale restituirà l'indirizzo IP pubblico dell'insieme di credenziali delle chiavi. 
     2. Passare alla risorsa Zona DNS privato nel portale di Azure e fare clic sull'opzione Collegamenti di rete virtuale. 
     4. La rete virtuale che effettuerà le chiamate all'insieme di credenziali delle chiavi deve essere elencata. 
     5. Se non lo è, aggiungerla. 
-    6. Per la procedura dettagliata, vedere [Collegare la rete virtuale alla zona DNS privato](https://docs.microsoft.com/azure/dns/private-dns-getstarted-portal#link-the-virtual-network).
+    6. Per la procedura dettagliata, vedere [Collegare la rete virtuale alla zona DNS privato](../../dns/private-dns-getstarted-portal.md#link-the-virtual-network).
 
 * Verificare che nella zona DNS privato non manchi un record A per l'insieme di credenziali delle chiavi. 
     1. Passare alla pagina Zona DNS privato. 

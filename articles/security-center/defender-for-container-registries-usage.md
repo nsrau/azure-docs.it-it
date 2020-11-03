@@ -7,18 +7,18 @@ ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: b46c72730922a977dd754d8422d07db479a62b6c
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: a1357f263c450605025b6f1e9b7bdea47d0d4f58
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370543"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289219"
 ---
 # <a name="use-azure-defender-for-container-registries-to-scan-your-images-for-vulnerabilities"></a>Usare Azure Defender per registri contenitori per analizzare le vulnerabilità delle immagini
 
 Questa pagina illustra come usare lo scanner di vulnerabilità integrato per analizzare le immagini del contenitore archiviate nel Container Registry Azure basato su Azure Resource Manager.
 
-Quando **Azure Defender per i registri contenitori** è abilitato, tutte le immagini sottoposte a push nel registro verranno analizzate immediatamente. Inoltre, viene eseguita l'analisi di qualsiasi immagine pull negli ultimi 30 giorni. 
+Quando **Azure Defender per registri contenitori** è abilitato, tutte le immagini di cui eseguire il push nel registro verranno analizzate immediatamente. Inoltre, viene eseguita l'analisi di qualsiasi immagine pull negli ultimi 30 giorni. 
 
 Quando lo scanner segnala le vulnerabilità al centro sicurezza, il Centro sicurezza presenta i risultati e le informazioni correlate come raccomandazioni. Inoltre, i risultati includono informazioni correlate, ad esempio passaggi di correzione, CVEs rilevanti, punteggi CVSS e altro ancora. È possibile visualizzare le vulnerabilità identificate per una o più sottoscrizioni o per uno specifico registro di sistema.
 
@@ -31,7 +31,7 @@ Quando lo scanner segnala le vulnerabilità al centro sicurezza, il Centro sicur
 |Registri e immagini supportati:|Immagini Linux nei registri ACR accessibili dalla rete Internet pubblica con accesso alla shell|
 |Registri e immagini non supportati:|Immagini di Windows<br>Registri ' privati '<br>Registri con accesso limitato con un firewall, un endpoint del servizio o endpoint privati come il collegamento privato di Azure<br>Immagini estremamente minimaliste, ad esempio immagini di [Scratch Docker](https://hub.docker.com/_/scratch/) o immagini "senza distribuzione" che contengono solo un'applicazione e le relative dipendenze di runtime senza gestione pacchetti, Shell o sistema operativo|
 |Autorizzazioni e ruoli obbligatori:|Ruolo lettore di **sicurezza** e [lettore di container Registry di Azure](../container-registry/container-registry-roles.md)|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
+|Cloud:|![Sì ](./media/icons/yes-icon.png) cloud commerciali<br>![Sì ](./media/icons/yes-icon.png) US gov-solo la funzionalità di analisi su push è attualmente supportata. Scopri di più in [quando vengono analizzate le immagini?](defender-for-container-registries-introduction.md#when-are-images-scanned)<br>![Nessun ](./media/icons/no-icon.png) gov per la Cina, altro gov|
 |||
 
 
@@ -139,7 +139,7 @@ Quando un risultato corrisponde ai criteri definiti nelle regole di disabilitazi
 
 Per creare una regola:
 
-1. Dalla pagina dei dettagli delle raccomandazioni per le **vulnerabilità in Azure container Registry le immagini devono essere corrette**, selezionare **Disabilita regola**.
+1. Dalla pagina dei dettagli delle raccomandazioni per le **vulnerabilità in Azure container Registry le immagini devono essere corrette** , selezionare **Disabilita regola**.
 1. Selezionare l'ambito pertinente.
 1. Definire i criteri.
 1. Selezionare **Applica regola**.
@@ -149,7 +149,7 @@ Per creare una regola:
 1. Per visualizzare, eseguire l'override o eliminare una regola: 
     1. Selezionare **Disabilita regola**.
     1. Dall'elenco ambito, le sottoscrizioni con regole attive vengono visualizzate come **regole applicate**.
-        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Creare una regola di disabilitazione per i risultati di VA nel registro di sistema":::
+        :::image type="content" source="./media/remediate-vulnerability-findings-vm/modify-rule.png" alt-text="Modificare o eliminare una regola esistente":::
     1. Per visualizzare o eliminare la regola, selezionare il menu con i puntini di sospensione ("...").
 
 

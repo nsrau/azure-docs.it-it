@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: b40afce24fad6bd793a625b11dc5a84f1f021ace
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: d3d8908739d6dda76f4c3d44540c36b36115d6f5
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92786497"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289398"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Domande frequenti per SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -169,15 +169,15 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **È possibile disinstallare l'istanza predefinita di SQL Server?**
 
-   Sì, ma ci sono alcune considerazioni di cui tenere conto. Per prima cosa, la fatturazione associata a SQL Server può continuare a essere eseguita in base al modello di licenza della macchina virtuale. Come indicato nella risposta precedente, esistono funzionalità che si basano sull'[estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Se si disinstalla l'istanza predefinita senza rimuovere anche l'estensione IaaS, l'estensione continua a cercare l'istanza predefinita e può generare errori del log eventi. Questi errori provengono dalle due origini seguenti: **Microsoft SQL Server Credential Management** e **Microsoft SQL Server IaaS Agent** . Uno degli errori potrebbe essere simile al seguente:
+   Sì, ma ci sono alcune considerazioni di cui tenere conto. Per prima cosa, la fatturazione associata a SQL Server può continuare a essere eseguita in base al modello di licenza della macchina virtuale. Come indicato nella risposta precedente, esistono funzionalità che si basano sull'[estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Se si disinstalla l'istanza predefinita senza rimuovere anche l'estensione IaaS, l'estensione continua a cercare l'istanza predefinita e può generare errori del log eventi. Questi errori provengono dalle due origini seguenti: **Microsoft SQL Server Credential Management** e **Microsoft SQL Server IaaS Agent**. Uno degli errori potrebbe essere simile al seguente:
 
       Si è verificato un errore di rete o specifico dell'istanza mentre veniva stabilita la connessione a SQL Server. Il server non è stato trovato o non è accessibile.
 
    Se si decide di disinstallare l'istanza predefinita, disinstallare anche l'[estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). 
 
-1. **È possibile usare un'istanza denominata di SQL Server con l'estensione IaaS** ?
+1. **È possibile utilizzare un'istanza denominata di SQL Server con l'estensione IaaS?**
    
-   Sì, se l'istanza denominata è l'unica istanza di SQL Server e se l'istanza predefinita originale è stata [disinstallata correttamente](sql-server-iaas-agent-extension-automate-management.md#install-on-a-vm-with-a-single-named-sql-server-instance). Se non è presente un'istanza predefinita e sono presenti più istanze denominate in una singola macchina virtuale di SQL Server, l'installazione dell'estensione SQL Server IaaS Agent non verrà completata. 
+   Sì, se l'istanza denominata è l'unica istanza di SQL Server e se l'istanza predefinita originale è stata [disinstallata correttamente](sql-server-iaas-agent-extension-automate-management.md#named-instance-support). Se non è presente un'istanza predefinita e sono presenti più istanze denominate in una singola macchina virtuale di SQL Server, l'installazione dell'estensione SQL Server IaaS Agent non verrà completata.  
 
 1. **È possibile rimuovere SQL Server e la fatturazione della licenza associata da una macchina virtuale SQL Server?**
 
@@ -210,7 +210,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
 1. **È possibile aggiornare l'istanza di SQL Server 2008/2008 R2 dopo averla registrata con il provider di risorse di VM di SQL Server?**
 
-   Sì. È possibile usare qualsiasi supporto di configurazione per aggiornare la versione e l'edizione di SQL Server, quindi è possibile aggiornare la [modalità di estensione SQL IaaS](sql-vm-resource-provider-register.md#management-modes) da _nessun agente_ a _estesa_ . In questo modo si otterrà l'accesso a tutti i vantaggi dell'estensione SQL IaaS, ad esempio la gestibilità del portale, i backup automatici e l'applicazione automatica delle patch. 
+   Se il sistema operativo è Windows Server 2008 R2 o versione successiva, sì. È possibile usare qualsiasi supporto di configurazione per aggiornare la versione e l'edizione di SQL Server, quindi è possibile aggiornare la [modalità di estensione SQL IaaS](sql-server-iaas-agent-extension-automate-management.md#management-modes) da _nessun agente_ a _estesa_. In questo modo si otterrà l'accesso a tutti i vantaggi dell'estensione SQL IaaS, ad esempio la gestibilità del portale, i backup automatici e l'applicazione automatica delle patch. Se la versione del sistema operativo è Windows Server 2008, è supportata solo la modalità noagent. 
 
 1. **Come posso ottenere aggiornamenti della sicurezza estesi e gratuiti per la fine del supporto di SQL Server 2008 e le istanze di SQL Server 2008 R2?**
 
@@ -225,7 +225,7 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
    Sì. È possibile installare un'istanza del cluster di failover usando [condivisioni file Premium (PFS)](failover-cluster-instance-premium-file-share-manually-configure.md) o [Spazi di archiviazione diretta (S2D)](failover-cluster-instance-storage-spaces-direct-manually-configure.md) per il sottosistema di archiviazione. Le condivisioni file Premium offrono capacità di operazioni di I/O al secondo e velocità effettiva in grado di soddisfare le esigenze di molti carichi di lavoro. Per i carichi di lavoro con I/O elevato, è consigliabile usare spazi di archiviazione diretta in base a dischi Premium o Ultra gestiti. In alternativa, è possibile usare soluzioni di clustering o archiviazione di terze parti come descritto in [disponibilità elevata e ripristino di emergenza per SQL Server in macchine virtuali di Azure](business-continuity-high-availability-disaster-recovery-hadr-overview.md#azure-only-high-availability-solutions).
 
    > [!IMPORTANT]
-   > A questo punto, l' [estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) in modalità _estesa_ è supportato per le istanze del cluster di failover di SQL Server in Azure. Si consiglia di disinstallare l'estensione in modalità _estesa_ dalle macchine virtuali che fanno parte dell'istanza del cluster di failover e di installare l'estensione in modalità _leggera_ . Questa estensione supporta funzionalità quali Backup automatizzato, Applicazione automatica delle patch e alcune funzionalità del portale per SQL Server. Queste funzionalità non funzioneranno per le macchine virtuali di SQL Server dopo la disinstallazione dell'agente in modalità _estesa_ .
+   > A questo punto, l' [estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md) in modalità _estesa_ è supportato per le istanze del cluster di failover di SQL Server in Azure. Si consiglia di disinstallare l'estensione in modalità _estesa_ dalle macchine virtuali che fanno parte dell'istanza del cluster di failover e di installare l'estensione in modalità _leggera_. Questa estensione supporta funzionalità quali Backup automatizzato, Applicazione automatica delle patch e alcune funzionalità del portale per SQL Server. Queste funzionalità non funzioneranno per le macchine virtuali di SQL Server dopo la disinstallazione dell'agente in modalità _estesa_.
 
 1. **Qual è la differenza tra VM di SQL Server e servizio Database SQL?**
 

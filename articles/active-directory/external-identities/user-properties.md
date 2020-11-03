@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1052ad06400eb70fe41617421b54978bddd9e50
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: cd0a2b44fd54eb716b5e1b8f9eabc923ccd7977f
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92441369"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93285853"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
@@ -59,7 +59,7 @@ Per gli utenti guest nello stato 2, la proprietà **Source** è impostata su **A
 
 ![Utente guest nello stato 2 dopo il riscatto dell'offerta](media/user-properties/after-redemption-state2.png)
 
-Per gli utenti guest negli stati 3 e 4, la proprietà **Source** è impostata su **Azure Active Directory** o **Windows Server Active Directory**, come descritto nella sezione successiva.
+Per gli utenti guest negli stati 3 e 4, la proprietà **Source** è impostata su **Azure Active Directory** o **Windows Server Active Directory** , come descritto nella sezione successiva.
 
 ## <a name="key-properties-of-the-azure-ad-b2b-collaboration-user"></a>Proprietà chiave dell'utente di Collaborazione B2B di Azure AD
 ### <a name="usertype"></a>UserType
@@ -71,7 +71,9 @@ Questa proprietà indica la relazione tra l'utente e la tenancy host. I valori p
   > [!NOTE]
   > La proprietà UserType non ha alcun legame con la modalità di accesso, con il ruolo della directory dell'utente e così via. Questa proprietà indica semplicemente la relazione dell'utente con l'organizzazione host e consente all'organizzazione di applicare i criteri che dipendono da questa proprietà.
 
-### <a name="source"></a>Source (Sorgente)
+Per informazioni dettagliate sui prezzi, fare riferimento [Azure Active Directory prezzi](https://azure.microsoft.com/pricing/details/active-directory).
+
+### <a name="source"></a>Origine
 Questa proprietà indica la modalità di accesso dell'utente.
 
 - Utente invitato: l'utente è stato invitato ma non ha ancora riscattato l'invito.
