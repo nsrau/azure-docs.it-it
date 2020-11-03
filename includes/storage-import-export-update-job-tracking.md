@@ -1,6 +1,6 @@
 ---
-title: includere il file
-description: Includere file
+title: includere file
+description: includere file
 author: alkohli
 services: storage
 ms.service: storage

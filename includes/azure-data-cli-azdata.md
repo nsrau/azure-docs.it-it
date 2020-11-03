@@ -11,4 +11,4 @@ ms.contentlocale: it-IT
 ms.lasthandoff: 10/21/2020
 ms.locfileid: "92309488"
 ---
-Interfaccia della riga di comando di Azure Data (`azdata`)
+Azure Data CLI (`azdata`)

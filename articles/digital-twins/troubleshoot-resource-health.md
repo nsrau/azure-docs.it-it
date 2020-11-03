@@ -28,7 +28,7 @@ Per verificare l'integrità dell'istanza, attenersi alla procedura seguente:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e passare all'istanza di Azure Digital gemelli. È possibile trovarlo digitando il relativo nome nella barra di ricerca del portale. 
 
-2. Dal menu dell'istanza selezionare _**integrità risorse**_ in supporto e *risoluzione dei problemi* . Verrà visualizzata la pagina per visualizzare la cronologia di integrità delle risorse. 
+2. Dal menu dell'istanza selezionare _**integrità risorse**_ in supporto e *risoluzione dei problemi*. Verrà visualizzata la pagina per visualizzare la cronologia di integrità delle risorse. 
 
     :::image type="content" source="media/troubleshoot-resource-health/resource-health.png" alt-text="Screenshot che mostra la pagina &quot;integrità risorse&quot;. È presente una sezione &quot;cronologia di integrità&quot; che mostra un report giornaliero degli ultimi nove giorni. Ogni giorno Visualizza lo stato &quot;disponibile&quot;.":::
 
