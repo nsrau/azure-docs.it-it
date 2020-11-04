@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: d21b59b8822684598ac2fc3fd813278c1cf0c698
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8aae75aca585c30c0678c88247a8ecfe8a0b801d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319806"
+ms.locfileid: "93340261"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -84,7 +84,6 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **DataFactory**  | Azure Data Factory | Entrambe | No | No |
 | **DataFactoryManagement** | Traffico di gestione per Azure Data Factory. | In uscita | No | No |
 | **Dynamics365ForMarketingEmail** | Intervalli di indirizzi per il servizio di posta elettronica di marketing di Dynamics 365. | In uscita | Sì | No |
-| **ElasticAFD** | Servizio Frontdoor di Azure elastico. | Entrambe | No | No |
 | **EventHub** | Hub eventi di Azure. | In uscita | Sì | Sì |
 | **GatewayManager** | Traffico di gestione per le distribuzioni dedicate al Gateway VPN di Azure e al gateway applicazione. | In ingresso | No | No |
 | **GuestAndHybridManagement** | Automazione di Azure e configurazione guest. | In uscita | No | Sì |

@@ -3,23 +3,24 @@ title: Funzioni di sistema nel linguaggio di query Azure Cosmos DB
 description: Informazioni sulle funzioni di sistema SQL predefinite e definite dall'utente in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/15/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: fc8473f1caf4a17aea926d2729e7db7918db40d7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b8883d7040ad5c73a376838f7cb1aaa1b558bfbd
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094048"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340830"
 ---
 # <a name="system-functions-azure-cosmos-db"></a>Funzioni di sistema (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
  In Cosmos DB sono disponibili molte funzioni SQL predefinite. Le categorie di funzioni predefinite sono elencate di seguito.  
   
-|Gruppo di funzioni|Descrizione|Operazioni|  
+|Gruppo di funzioni|Descrizione|Gestione operativa|  
 |--------------|-----------------|-----------------| 
 |[Funzioni di matrice](sql-query-array-functions.md)|Le funzioni di matrice eseguono un'operazione su un valore di input di matrice e restituiscono un valore numerico, booleano o matrice. | [ARRAY_CONCAT](sql-query-array-concat.md), [ARRAY_CONTAINS](sql-query-array-contains.md), [ARRAY_LENGTH](sql-query-array-length.md), [ARRAY_SLICE](sql-query-array-slice.md) |
 |[Funzioni di data e ora](sql-query-date-time-functions.md)|Le funzioni di data e ora consentono di ottenere la data e l'ora UTC correnti in due formati; timestamp numerico il cui valore è l'EPOCH UNIX in millisecondi o come stringa conforme al formato ISO 8601. | [GetCurrentDateTime](sql-query-getcurrentdatetime.md), [GetCurrentTimestamp](sql-query-getcurrenttimestamp.md) |

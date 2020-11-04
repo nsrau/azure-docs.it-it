@@ -4,15 +4,16 @@ description: Con l'impostazione TTL, Microsoft Azure Cosmos DB offre la possibil
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/02/2020
 ms.reviewer: sngun
-ms.openlocfilehash: d4815f4be3c8ef1a2c262d6715756776a537eac1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f439fcd8b2aa1c75e1aff2c6b775921beabbcddf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101052"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340553"
 ---
 # <a name="time-to-live-ttl-in-azure-cosmos-db"></a>Durata (TTL) in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -49,7 +50,7 @@ Il valore di durata (TTL) viene impostato in secondi e viene interpretato come u
 
 * Se la durata per un contenitore è impostata su -1, un elemento all'interno del contenitore la cui durata è impostata su n scadrà dopo n secondi, mentre gli elementi rimanenti non scadono.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Questa sezione illustra alcuni esempi con valori di durata (TTL) diversi assegnati a contenitori ed elementi:
 
@@ -75,7 +76,7 @@ TTL sul contenitore è impostato su-1 (DefaultTimeToLive =-1)
 |TTL = 2000 |TTL è abilitato. L'elemento scadrà dopo 2000 secondi.|
 
 
-### <a name="example-3"></a>Esempio 3:
+### <a name="example-3"></a>Esempio 3
 
 TTL sul contenitore è impostato su 1000 (DefaultTimeToLive = 1000)
 

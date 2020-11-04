@@ -3,16 +3,17 @@ title: Utilizzare stored procedure, trigger e funzioni definite dall'utente in A
 description: Questo articolo illustra concetti quali stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 7dc81581846f8abdae81fa3552d9fa4645f32a05
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0bd572da9bba9048e2c8b9c4b426056620c4c265
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101307"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340703"
 ---
 # <a name="stored-procedures-triggers-and-user-defined-functions"></a>Stored procedure, trigger e funzioni definite dall'utente
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,7 +43,7 @@ La scrittura di stored procedure, trigger e funzioni definite dall'utente (UDF) 
 
 ## <a name="transactions"></a>Transazioni
 
-Una transazione in un tipico database può essere definita come una sequenza di operazioni eseguite come singola unità di lavoro logica. Ogni transazione offre **garanzie di proprietà ACID** . ACID è un acronimo noto che sta per **: tomicity,** **C** onsistency, **I** solation e **D** urability. 
+Una transazione in un tipico database può essere definita come una sequenza di operazioni eseguite come singola unità di lavoro logica. Ogni transazione offre **garanzie di proprietà ACID**. ACID è un acronimo noto che sta per **: tomicity,** **C** onsistency, **I** solation e **D** urability. 
 
 * L'atomicità garantisce che tutte le operazioni eseguite nell'ambito di una transazione siano trattate come unità singola e che venga eseguito il commit di tutte le operazioni o di nessuna di esse. 
 

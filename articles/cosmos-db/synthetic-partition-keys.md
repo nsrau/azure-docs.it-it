@@ -2,21 +2,22 @@
 title: Creare una chiave di partizione sintetica in Azure Cosmos DB
 description: Informazioni su come usare le chiavi di partizione sintetiche nei contenitori di Azure Cosmos per distribuire i dati e il carico di lavoro in modo uniforme tra le chiavi di partizione
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 12/03/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: d6868859247fc430ee96581ae85fb7077af04999
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6b8bc44f1ba5624c37620205aaa574e618ef395f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098026"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340652"
 ---
 # <a name="create-a-synthetic-partition-key"></a>Creare una chiave di partizione sintetica
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-È consigliabile avere una chiave di partizione con molti valori distinti, ad esempio centinaia o migliaia. L'obiettivo è quello di distribuire il carico di lavoro e i dati in modo uniforme tra gli elementi associati a tali valori di chiave. Se tale proprietà non esiste nei dati, è possibile costruire una chiave di *partizione sintetica* . Questo documento descrive diverse tecniche di base per la generazione di una chiave di partizione sintetica per il contenitore Cosmos.
+È consigliabile avere una chiave di partizione con molti valori distinti, ad esempio centinaia o migliaia. L'obiettivo è quello di distribuire il carico di lavoro e i dati in modo uniforme tra gli elementi associati a tali valori di chiave. Se tale proprietà non esiste nei dati, è possibile costruire una chiave di *partizione sintetica*. Questo documento descrive diverse tecniche di base per la generazione di una chiave di partizione sintetica per il contenitore Cosmos.
 
 ## <a name="concatenate-multiple-properties-of-an-item"></a>Concatenare più proprietà di un elemento
 

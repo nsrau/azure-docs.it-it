@@ -6,15 +6,15 @@ ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/09/2020
-ms.openlocfilehash: 30f139c92fe426369c609dabd826a7bff1617e72
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 0791ed6882feedeab47b75eff6a69bf0a49ab7ee
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098043"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341291"
 ---
 # <a name="frequently-asked-questions-about-azure-synapse-link-for-azure-cosmos-db"></a>Domande frequenti su Collegamento ad Azure Synapse per Azure Cosmos DB
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 Collegamento ad Azure Synapse per Azure Cosmos DB crea una stretta integrazione tra Azure Cosmos DB e Azure Synapse Analytics. Consente ai clienti di eseguire analisi quasi in tempo reale sui dati operativi con l'isolamento completo delle prestazioni dai carichi di lavoro transazionali e senza una pipeline ETL. Questo articolo contiene le risposte alle domande frequenti su Collegamento a Synapse per Azure Cosmos DB.
 
@@ -157,7 +157,7 @@ Un contenitore Azure Cosmos DB abilitato con l'archivio analitico presenta l'ico
 
 Un contenitore dell'archivio transazione sarà rappresentato dall'icona seguente:
 
-:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Icona del contenitore Azure Cosmos DB abilitato con l'archivio analitico":::
+:::image type="content" source="./media/synapse-link-frequently-asked-questions/transactional-store-icon.png" alt-text="Icona del contenitore Azure Cosmos DB abilitato con l'archivio transazionale":::
  
 ### <a name="how-do-you-pass-azure-cosmos-db-credentials-from-azure-synapse-studio"></a>Come si passano le credenziali Azure Cosmos DB da Azure sinapsi Studio?
 

@@ -3,16 +3,17 @@ title: Sottostringa nel linguaggio di query Azure Cosmos DB
 description: Informazioni sulla sottostringa della funzione di sistema SQL in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 6cb96270d1db970230e3abb528b58b7341d652f0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 17888ccd8fc51ed96f7fc92a0f9275d2c8cb56f8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081468"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340831"
 ---
 # <a name="substring-azure-cosmos-db"></a>Sottostringa (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +32,7 @@ SUBSTRING(<str_expr>, <num_expr1>, <num_expr2>)
    Espressione stringa.
   
 *num_expr1*  
-   Espressione numerica che indica il carattere iniziale. Il valore 0 è il primo carattere di *str_expr* .
+   Espressione numerica che indica il carattere iniziale. Il valore 0 è il primo carattere di *str_expr*.
   
 *num_expr2*  
    Espressione numerica che indica il numero massimo di caratteri di *str_expr* da restituire. Il valore 0 o less restituisce una stringa vuota.
@@ -40,7 +41,7 @@ SUBSTRING(<str_expr>, <num_expr1>, <num_expr2>)
   
   Restituisce un'espressione di stringa.  
   
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
   
   L'esempio seguente restituisce la sottostringa di "abc" a partire da 1 e per una lunghezza di 1 carattere.  
   

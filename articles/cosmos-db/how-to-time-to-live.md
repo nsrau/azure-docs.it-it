@@ -3,16 +3,17 @@ title: Configurare e gestire il time to Live in Azure Cosmos DB
 description: Informazioni su come configurare e gestire la durata (TTL) in un contenitore e un elemento in Azure Cosmos DB
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-js, devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 7cf0f91a655901373b02a51004cf77eb25c8cf8e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2ddba95f9ccc25d536638dbc68c41027d26e71c7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085888"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341009"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurare la durata (TTL) in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,12 +30,12 @@ Usare la procedura seguente per abilitare la durata (TTL) in un contenitore senz
 
 2. Creare un nuovo account Azure Cosmos o selezionare un account esistente.
 
-3. Aprire il riquadro **Esplora dati** .
+3. Aprire il riquadro **Esplora dati**.
 
 4. Selezionare un contenitore esistente, espanderlo e modificare i valori seguenti:
 
-   * Aprire la finestra **Scalabilità e impostazioni** .
-   * In **Impostazione** trovare **Durata (TTL)** .
+   * Aprire la finestra **Scalabilità e impostazioni**.
+   * In **Impostazione** trovare **Durata (TTL)**.
    * Selezionare **Sì (nessun valore predefinito)** oppure selezionare **Sì** e impostare un valore TTL
    * È consigliabile fare clic su **Salva** per salvare le modifiche.
 
@@ -213,16 +214,16 @@ Usare la procedura seguente per abilitare la durata (TTL) in un elemento:
 
 2. Creare un nuovo account Azure Cosmos o selezionare un account esistente.
 
-3. Aprire il riquadro **Esplora dati** .
+3. Aprire il riquadro **Esplora dati**.
 
 4. Selezionare un contenitore esistente, espanderlo e modificare i valori seguenti:
 
-   * Aprire la finestra **Scalabilità e impostazioni** .
-   * In **Impostazione** trovare **Durata (TTL)** .
+   * Aprire la finestra **Scalabilità e impostazioni**.
+   * In **Impostazione** trovare **Durata (TTL)**.
    * Selezionare **on (nessun valore predefinito)** o selezionare **on** e impostare un valore TTL. 
    * Fare clic su **Salva** per salvare le modifiche.
 
-5. Passare quindi all'elemento per cui si desidera impostare la durata, aggiungere la proprietà `ttl` e selezionare **Aggiorna** . 
+5. Passare quindi all'elemento per cui si desidera impostare la durata, aggiungere la proprietà `ttl` e selezionare **Aggiorna**. 
 
    ```json
    {

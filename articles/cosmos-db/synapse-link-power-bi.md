@@ -6,16 +6,15 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/22/2020
 ms.author: acomet
-ms.openlocfilehash: 38077dca1b8a27098e8db17354b82340a651b880
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 55a73ada39f4f48aeb22c5482bd85d1092d54c35
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305176"
+ms.locfileid: "93342250"
 ---
-# <a name="use-power-bi-and-serverless-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Usare Power BI e il pool SQL senza server per analizzare i dati Azure Cosmos DB con il collegamento sinapsi (anteprima)
-
-[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
+# <a name="use-power-bi-and-serverless-synapse-sql-pool-to-analyze-azure-cosmos-db-data-with-synapse-link-preview"></a>Usare Power BI e il pool SQL sinapsi senza server per analizzare i dati Azure Cosmos DB con il collegamento sinapsi (anteprima) 
+[!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
 
 In questo articolo si apprenderà come creare un database del pool SQL senza server e le visualizzazioni sul collegamento sinapsi per Azure Cosmos DB. Si eseguirà una query sui contenitori di Azure Cosmos DB e quindi si compilerà un modello con Power BI su tali viste per riflettere tale query.
 

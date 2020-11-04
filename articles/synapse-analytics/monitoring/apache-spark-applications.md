@@ -9,12 +9,12 @@ ms.subservice: monitoring
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: mahi
-ms.openlocfilehash: 9f55d65b215c03769caa7c812dcda138f8e83595
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 16b37258d922db59f520d4e30c45773f6d1108cf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322460"
+ms.locfileid: "93341071"
 ---
 # <a name="use-synapse-studio-to-monitor-your-apache-spark-applications"></a>Usare sinapsi Studio per monitorare le applicazioni di Apache Spark
 
@@ -35,27 +35,11 @@ Prima di iniziare l'esercitazione, verificare che siano soddisfatti i requisiti 
 
 - Un'area di lavoro di sinapsi Studio. Per istruzioni, vedere [creare un'area di lavoro di sinapsi Studio](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace).
 
-- Un pool di Apache Spark senza server.
+- Un pool di Apache Spark.
 
-## <a name="monitor-running-apache-spark-application"></a>Eseguire il monitoraggio dell'applicazione Apache Spark
-
-Aprire **monitoraggio** , quindi selezionare **Apache Spark applicazioni**. Per visualizzare i dettagli relativi alle applicazioni Apache Spark in esecuzione, selezionare l'applicazione Apache Spark di invio e visualizzare i dettagli. Se il Apache Spark applicazione è ancora in esecuzione, è possibile monitorare lo stato di avanzamento.
-
-  ![Seleziona processo in esecuzione](./media/how-to-monitor-spark-applications/select-running-job.png)
-
-1. Controllare le attività, **lo stato** e la **durata totali** **completati**.
-
-2. Annullare l'applicazione Apache Spark.
-
-3. Aggiornare la query del log.
-
-4. Visualizzare il grafico.
-
-5. Controllare le informazioni di **Riepilogo** .
-
-6. Controllare i **log**. Le informazioni sul log sono vuote durante l'esecuzione.
-
-    ![Visualizza processo in esecuzione](./media/how-to-monitor-spark-applications/view-running-job.png)
+## <a name="view-apache-spark-applications"></a>Visualizza applicazioni Apache Spark 
+È possibile visualizzare tutte le applicazioni Apache Spark da **monitoraggio**  ->  **Apache Spark applicazioni**.
+   ![applicazioni Apache Spark](./media/how-to-monitor-spark-applications/apache-spark-applications.png)
 
 ## <a name="view-completed-apache-spark-application"></a>Visualizza applicazione Apache Spark completata
 
@@ -69,17 +53,17 @@ Aprire **monitoraggio** , quindi selezionare **Apache Spark applicazioni**. Per 
 
 3. Aprire il collegamento del server di cronologia di Apache Spark facendo clic su **Server cronologia Spark**.
 
-4. Controllare le informazioni di **Riepilogo** facendo clic sull'icona nel grafico.
+4. Controllare le informazioni di **Riepilogo** .
 
-5. Controllare i **log**. È possibile selezionare diversi tipi di log nell'elenco a discesa ed è possibile scaricare le informazioni di log facendo clic su **Scarica log**.
+5. Controllare i **log**. È possibile selezionare diversi tipi di log nell'elenco a discesa ed è possibile scaricare le informazioni di log facendo clic su **Scarica log** e selezionare la casella di controllo per filtrare gli **errori e gli avvisi** per filtrare gli errori e gli avvisi necessari.
 
 6. È possibile visualizzare una panoramica del processo nel grafico del processo generato. Per impostazione predefinita, il grafico Mostra tutti i processi. È possibile filtrare la visualizzazione in base all' **ID del processo**.
 
-7. Per impostazione predefinita, è selezionata la visualizzazione **stato** . È possibile controllare il flusso di dati selezionando **Leggi** o **scritto** nell'elenco a discesa **Visualizza** .
+7. Per impostazione predefinita, è selezionata la visualizzazione **stato** . È possibile controllare il flusso di dati selezionando lo **stato** di / **lettura** della / **Written** / **durata** scritta nell'elenco a discesa **Visualizza** .
 
-8. Per riprodurre il processo, selezionare **riproduzione**. È possibile selezionare **Arresta** in qualsiasi momento per arrestare.
+8. Per riprodurre il processo, fare clic sul pulsante di **riproduzione** . È possibile fare clic sul pulsante **Arresta** in qualsiasi momento per arrestare.
 
-9. Usare lo scorrimento del mouse per eseguire lo zoom avanti e indietro nel grafico del processo oppure selezionare **zoom per adattarlo** allo schermo.
+9. Usare lo scorrimento o la barra di scorrimento del mouse per ingrandire e ridurre il grafico del processo. è anche possibile selezionare **zoom per adattarlo** allo schermo.
 
 10. Nel nodo del grafico del processo vengono visualizzate le informazioni seguenti di ogni fase:
 
@@ -101,9 +85,34 @@ Aprire **monitoraggio** , quindi selezionare **Apache Spark applicazioni**. Per 
 
      ![Visualizza processo completato](./media/how-to-monitor-spark-applications/view-completed-job.png)
     
-11. Fare clic sul grafico, quindi i dettagli per la fase vengono visualizzati.
+11. Fare clic su **Visualizza dettagli** nel grafico, quindi i dettagli per la fase vengono visualizzati.
 
-   ![dettagli per la fase](./media/how-to-monitor-spark-applications/details-for-stage.png)
+    ![dettagli per la fase](./media/how-to-monitor-spark-applications/details-for-stage.png)
+
+
+## <a name="monitor-running-apache-spark-application"></a>Eseguire il monitoraggio dell'applicazione Apache Spark
+
+Aprire **monitoraggio** , quindi selezionare **Apache Spark applicazioni**. Per visualizzare i dettagli relativi alle applicazioni Apache Spark in esecuzione, selezionare l'applicazione Apache Spark di invio e visualizzare i dettagli. Se il Apache Spark applicazione è ancora in esecuzione, è possibile monitorare lo stato di avanzamento.
+
+   ![Seleziona processo in esecuzione](./media/how-to-monitor-spark-applications/select-running-job.png)
+
+1. Controllare le attività, **lo stato** e la **durata totali** **completati**.
+
+2. **Annullare** l'applicazione Apache Spark.
+
+3. **Aggiorna** Query di log.
+
+4. Fare clic sul pulsante **dell'interfaccia utente di Spark** per passare alla pagina del processo Spark.
+
+5. Visualizzare il grafico. È possibile visualizzare una panoramica del processo nel grafico del processo generato. Fare riferimento al passaggio 6, 7, 8, 9, 10 di [visualizzazione completata Apache Spark applicazione](#view-completed-apache-spark-application).
+
+6. Controllare le informazioni di **Riepilogo** .
+
+7. Controllare la diagnostica nella scheda **diagnostica** .
+
+8. Controllare i **log** in questa scheda. È possibile selezionare diversi tipi di log nell'elenco a discesa ed è possibile scaricare le informazioni di log facendo clic su **Scarica log** e selezionare la casella di controllo per filtrare gli **errori e gli avvisi** per filtrare gli errori e gli avvisi necessari.
+
+    ![Visualizza processo in esecuzione](./media/how-to-monitor-spark-applications/view-running-job.png)
 
 ## <a name="view-canceled-apache-spark-application"></a>Visualizza Apache Spark applicazione annullata
 
@@ -117,11 +126,13 @@ Aprire **monitoraggio** , quindi selezionare **Apache Spark applicazioni**. Per 
 
 3. Aprire il collegamento Server cronologia Apache facendo clic su **Server cronologia Spark**.
 
-4. Visualizzare il grafico.
+4. Visualizzare il grafico. È possibile visualizzare una panoramica del processo nel grafico del processo generato. Fare riferimento al passaggio 6, 7, 8, 9, 10 di [visualizzazione completata Apache Spark applicazione](#view-completed-apache-spark-application).
 
 5. Controllare le informazioni di **Riepilogo** .
 
-6. Controllare i **log**. È possibile selezionare diversi tipi di log nell'elenco a discesa ed è possibile scaricare le informazioni di log facendo clic su **Scarica log**.
+6. Controllare i **log**. È possibile selezionare diversi tipi di log nell'elenco a discesa ed è possibile scaricare le informazioni di log facendo clic su **Scarica** log e selezionare la casella di controllo per filtrare gli **errori e gli avvisi** per filtrare gli errori e gli avvisi necessari.
+
+7. Fare clic su **Visualizza dettagli** nel grafico, quindi i dettagli per la fase vengono visualizzati.
 
    ![Visualizza processo annullato](./media/how-to-monitor-spark-applications/view-cancelled-job.png)
 
@@ -137,7 +148,7 @@ Aprire **monitoraggio** , quindi selezionare **Apache Spark applicazioni**. Per 
 
 3. Aprire il collegamento del server di cronologia di Apache Spark facendo clic su **Server cronologia Spark**.
 
-4. Visualizzare il grafico.
+4. Visualizzare il grafico. È possibile visualizzare una panoramica del processo nel grafico del processo generato. Fare riferimento al passaggio 6, 7, 8, 9, 10 di [visualizzazione Apache Spark applicazione completata](#view-completed-apache-spark-application)
 
 5. Controllare le informazioni di **Riepilogo** .
 

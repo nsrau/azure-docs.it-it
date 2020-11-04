@@ -3,15 +3,16 @@ title: Condivisione di risorse tra le origini (CORS) in Azure Cosmos DB
 description: Questo articolo descrive come configurare la condivisione di risorse tra le origini (CORS) in Azure Cosmos DB usando il portale di Azure e i modelli di Azure Resource Manager.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/11/2019
 ms.author: dech
-ms.openlocfilehash: 863c31ecac13337ea3f91d7a7ced49b0f7141e58
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: eba49ff45ba9ab1f5cfaa1d75973d656ac32ca6a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086415"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339899"
 ---
 # <a name="configure-cross-origin-resource-sharing-cors"></a>Configurare Condivisione di risorse tra le origini (CORS)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,9 +28,9 @@ Condivisione risorse tra le origini (CORS, Cross Origin Resource Sharing) è una
 
 Seguire questa procedura per abilitare Condivisione di risorse tra le origini usando il portale di Azure:
 
-1. Accedere all'account Azure Cosmos DB. Aprire il pannello **CORS** .
+1. Accedere all'account Azure Cosmos DB. Aprire il pannello **CORS**.
 
-2. Specificare un elenco separato da virgole di origini che potranno effettuare chiamate multiorigine all'account Azure Cosmos DB. Ad esempio `https://www.mydomain.com`, `https://mydomain.com`, `https://api.mydomain.com`. È anche possibile usare un carattere jolly "\*" per consentire tutte le origini, quindi selezionare **Invia** . 
+2. Specificare un elenco separato da virgole di origini che potranno effettuare chiamate multiorigine all'account Azure Cosmos DB. Ad esempio `https://www.mydomain.com`, `https://mydomain.com`, `https://api.mydomain.com`. È anche possibile usare un carattere jolly "\*" per consentire tutte le origini, quindi selezionare **Invia**. 
 
    > [!NOTE]
    > Attualmente non è possibile usare i caratteri jolly come parte del nome di dominio. Ad esempio il formato `https://*.mydomain.net` non è ancora supportato. 

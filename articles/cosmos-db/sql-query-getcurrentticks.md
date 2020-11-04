@@ -3,16 +3,17 @@ title: GetCurrentTicks in linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL GetCurrentTicks in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 4841c374454dea9afdf0dbc4094311ded54cfbb6
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 610c545bf25822d27e0a641a1b2631f899502420
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098519"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340159"
 ---
 # <a name="getcurrentticks-azure-cosmos-db"></a>GetCurrentTicks (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -35,7 +36,7 @@ GetCurrentTicks () è una funzione non deterministica. Il risultato restituito �
 
 Questa funzione di sistema non utilizzerà l'indice.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Di seguito è riportato un esempio che restituisce l'ora corrente, misurata in cicli:
 

@@ -4,17 +4,16 @@ description: Usare Azure Key Vault per archiviare e accedere alla stringa di con
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: how-to
 ms.date: 05/23/2019
 ms.reviewer: sngun
-ms.openlocfilehash: bd67f9641a644d3302e1f8bc1e53ad14a3801e47
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6c5ef4f0ee0d68e2eae755f000423db4620b834d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93092841"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341383"
 ---
 # <a name="secure-azure-cosmos-keys-using-azure-key-vault"></a>Proteggere le chiavi di Azure Cosmos con Azure Key Vault 
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -42,15 +41,15 @@ Per archiviare e leggere le chiavi di accesso di Azure Cosmos DB da Key Vault so
    * In **gruppo di risorse** scegliere **Crea nuovo** e immettere un nome per il gruppo di risorse.  
    * Scegliere un percorso nel menu a discesa Percorso.  
    * Lasciare invariati i valori predefiniti delle altre opzioni.  
-4. Dopo avere specificato le informazioni, selezionare **Crea** .  
+4. Dopo avere specificato le informazioni, selezionare **Crea**.  
 
 ## <a name="add-azure-cosmos-db-access-keys-to-the-key-vault"></a>Aggiungere chiavi di accesso di Azure Cosmos DB all'insieme di credenziali delle chiavi.
-1. Passare all'insieme di credenziali delle chiavi creato nel passaggio precedente e aprire la scheda **Segreti** .  
-2. Selezionare **+ genera/importa** . 
+1. Passare all'insieme di credenziali delle chiavi creato nel passaggio precedente e aprire la scheda **Segreti**.  
+2. Selezionare **+ genera/importa**. 
 
-   * Selezionare **Manuale** per **Opzioni di caricamento** .
+   * Selezionare **Manuale** per **Opzioni di caricamento**.
    * Fornire un **Nome** al segreto
-   * Specificare la stringa di connessione dell'account Cosmos DB nel campo **Valore** . Selezionare quindi **Crea** .
+   * Specificare la stringa di connessione dell'account Cosmos DB nel campo **Valore**. Selezionare quindi **Crea**.
 
    :::image type="content" source="./media/access-secrets-from-keyvault/create-a-secret.png" alt-text="Creare un segreto":::
 
@@ -62,20 +61,20 @@ Per archiviare e leggere le chiavi di accesso di Azure Cosmos DB da Key Vault so
 
 1. Creare un'applicazione Web di Azure oppure scaricarla dal [repository GitHub](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). È una semplice applicazione MVC.  
 
-2. Decomprimere l'applicazione scaricata e aprire il file **HomeController.cs** . Aggiornare l'ID del segreto nella riga seguente:
+2. Decomprimere l'applicazione scaricata e aprire il file **HomeController.cs**. Aggiornare l'ID del segreto nella riga seguente:
 
    `var secret = await keyVaultClient.GetSecretAsync("<Your Key Vault’s secret identifier>")`
 
 3. **Salvare** il file, **compilare** la soluzione.  
-4. Distribuire quindi l'applicazione in Azure. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica** . Creare un nuovo profilo di servizio app (è possibile denominare l'app WebAppKeyVault1) e selezionare **Pubblica** .   
+4. Distribuire quindi l'applicazione in Azure. Fare clic con il pulsante destro del mouse sul progetto e scegliere **Pubblica**. Creare un nuovo profilo di servizio app (è possibile denominare l'app WebAppKeyVault1) e selezionare **Pubblica**.   
 
 5. Una volta distribuita l'applicazione, dal portale di Azure passare all'app Web distribuita e attivare l' **Identità del servizio gestita** dell'applicazione.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Creare un segreto":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/turn-on-managed-service-identity.png" alt-text="Identità del servizio gestita":::
 
 Se si esegue ora l'applicazione, verrà visualizzato l'errore seguente poiché non è stata concessa alcuna autorizzazione per l'applicazione in Key Vault.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="Creare un segreto":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-without-access.png" alt-text="App distribuita senza accesso":::
 
 ## <a name="register-the-application--grant-permissions-to-read-the-key-vault"></a>Registrare l'applicazione e concedere le autorizzazioni per leggere l'insieme di credenziali delle chiavi
 
@@ -83,13 +82,13 @@ In questa sezione viene registrata l'applicazione con Azure Active Directory e v
 
 1. Passare al portale di Azure, aprire l' **insieme di credenziali delle chiavi** creato nella sezione precedente.  
 
-2. Aprire **Criteri di accesso** , selezionare **+Aggiungi nuovo** trovare l'app Web distribuita, selezionare le autorizzazioni e selezionare **OK** .  
+2. Aprire **Criteri di accesso** , selezionare **+Aggiungi nuovo** trovare l'app Web distribuita, selezionare le autorizzazioni e selezionare **OK**.  
 
-   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Creare un segreto":::
+   :::image type="content" source="./media/access-secrets-from-keyvault/add-access-policy.png" alt-text="Aggiungere un criterio di accesso":::
 
 A questo punto, se si esegue l'applicazione, è possibile leggere il segreto da Key Vault.
 
-:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="Creare un segreto":::
+:::image type="content" source="./media/access-secrets-from-keyvault/app-deployed-with-access.png" alt-text="Applicazione distribuita con il segreto":::
  
 Analogamente, è possibile aggiungere un utente per l'accesso all'insieme di credenziali delle chiavi. È necessario aggiungersi manualmente all'insieme di credenziali delle chiavi selezionando **Criteri di accesso** e quindi fornire tutte le autorizzazioni necessarie per eseguire l'applicazione da Visual studio. Quando questa applicazione è in esecuzione sul desktop, assume l'identità dell'utente.
 

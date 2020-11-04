@@ -3,15 +3,16 @@ title: Usare i comandi e le funzionalità predefiniti dei notebook Python in Azu
 description: Informazioni su come usare i comandi e le funzionalità predefiniti per eseguire operazioni comuni con i notebook Python predefiniti di Azure Cosmos DB.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: dech
-ms.openlocfilehash: 32c433455e1075045323dc466b41ad19ac68f454
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 381aa88326440aba91e02393cfe2bdb1e2c38097
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93074353"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340414"
 ---
 # <a name="use-built-in-notebook-commands-and-features-in-azure-cosmos-db-python-notebooks-preview"></a>Usare i comandi e le funzionalità predefiniti dei notebook Python in Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -201,7 +202,7 @@ primary_key = COSMOS.KEY
 ## <a name="reset-notebooks-workspace"></a>Reimpostare l'area di lavoro dei notebook
 Per ripristinare le impostazioni predefinite dell'area di lavoro dei notebook, selezionare **Reimposta area di lavoro** sulla barra dei comandi. I pacchetti installati personalizzati verranno rimossi e il server Jupyter verrà riavviato. I notebook, i file e le risorse di Azure Cosmos non saranno interessati.  
 
-:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="nteract data explorer":::
+:::image type="content" source="media/use-notebook-features-and-commands/reset-workspace.png" alt-text="Reimpostare l'area di lavoro dei notebook":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

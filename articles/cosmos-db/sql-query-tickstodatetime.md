@@ -3,16 +3,17 @@ title: TicksToDateTime in linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL TicksToDateTime in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/18/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 12d286fb5c8cf6d602d95da53ef8de376f9a49cf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f40286a39694307ac43ecd60f6861d509f760990
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093861"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340797"
 ---
 # <a name="tickstodatetime-azure-cosmos-db"></a>TicksToDateTime (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -53,7 +54,7 @@ Restituisce il valore della stringa ISO 8601 di data e ora UTC nel formato in `Y
 
 TicksToDateTime restituirà `undefined` se il valore dei cicli specificato non è valido.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
   
 Nell'esempio seguente i cicli vengono convertiti in un valore DateTime:
 

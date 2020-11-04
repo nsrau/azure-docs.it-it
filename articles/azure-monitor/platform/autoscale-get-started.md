@@ -4,12 +4,12 @@ description: Informazioni su come applicare la scalabilità della risorsa app We
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: b43b7488f2bb3fec810e8a9de67829a676f6b599
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369268"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342216"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
@@ -32,9 +32,9 @@ La scalabilità automatica di Monitoraggio di Azure si applica solo a [set di sc
 
 Per ogni risorsa verranno indicati il numero di istanze corrente e lo stato di scalabilità automatica. Lo stato di scalabilità automatica può essere:
 
-- **Non configurato**: non è stata ancora abilitata la scalabilità automatica per questa risorsa.
-- **Configurato**: è stata abilitata la scalabilità automatica per questa risorsa.
-- **Disattivato**: è stata disattivata la scalabilità automatica per questa risorsa.
+- **Non configurato** : non è stata ancora abilitata la scalabilità automatica per questa risorsa.
+- **Configurato** : è stata abilitata la scalabilità automatica per questa risorsa.
+- **Disattivato** : è stata disattivata la scalabilità automatica per questa risorsa.
 
 ## <a name="create-your-first-autoscale-setting"></a>Creare la prima impostazione di scalabilità automatica
 
@@ -59,7 +59,7 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
    ![Scalabilità in base alla CPU][8]
 1. Fare clic su **Salva**.
 
-La procedura è stata completata. A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
+Congratulazioni! A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
 
 > [!NOTE]
 > Gli stessi passaggi sono applicabili ai set di scalabilità di macchine virtuali e al ruolo del servizio cloud.
@@ -121,7 +121,7 @@ Per abilitare la funzionalità con i modelli ARM, impostare la `healthcheckpath`
 
 ### <a name="health-check-path"></a>Percorso controllo integrità
 
-Il percorso deve rispondere entro un minuto con un codice di stato compreso tra 200 e 299 (inclusi). Se il percorso non risponde entro un minuto o restituisce un codice di stato non compreso nell'intervallo, l'istanza viene considerata "non integra". Il servizio app non segue i reindirizzamenti 302 nel percorso di controllo integrità. Il controllo dell'integrità si integra con le funzionalità di autenticazione e autorizzazione del servizio app. il sistema raggiungerà l'endpoint anche se queste funzionalità Secuity sono abilitate. Se si usa il proprio sistema di autenticazione, il percorso di controllo integrità deve consentire l'accesso anonimo. Se nel sito è abilitato solo HTTP**s**, la richiesta Healthcheck verrà inviata tramite http**s**.
+Il percorso deve rispondere entro un minuto con un codice di stato compreso tra 200 e 299 (inclusi). Se il percorso non risponde entro un minuto o restituisce un codice di stato non compreso nell'intervallo, l'istanza viene considerata "non integra". Il servizio app non segue i reindirizzamenti 302 nel percorso di controllo integrità. Il controllo dell'integrità si integra con le funzionalità di autenticazione e autorizzazione del servizio app. il sistema raggiungerà l'endpoint anche se queste funzionalità Secuity sono abilitate. Se si usa il proprio sistema di autenticazione, il percorso di controllo integrità deve consentire l'accesso anonimo. Se nel sito è abilitato solo HTTP **s** , la richiesta Healthcheck verrà inviata tramite http **s**.
 
 Il percorso di controllo integrità deve controllare i componenti critici dell'applicazione. Se, ad esempio, l'applicazione dipende da un database e da un sistema di messaggistica, l'endpoint di controllo integrità deve connettersi a tali componenti. Se l'applicazione non è in grado di connettersi a un componente critico, il percorso deve restituire un codice di risposta a 500 per indicare che l'app non è integra.
 
@@ -131,7 +131,7 @@ I team di sviluppo di grandi imprese spesso devono rispettare i requisiti di sic
 
 ### <a name="behavior"></a>Comportamento
 
-Quando viene fornito il percorso di controllo integrità, il servizio app effettuerà il ping del percorso in tutte le istanze. Se dopo 5 ping non viene ricevuto un codice di risposta con esito positivo, l'istanza viene considerata "non integra". Le istanze non integre verranno escluse dalla rotazione del servizio di bilanciamento del carico. Inoltre, quando si esegue la scalabilità orizzontale, il servizio app effettuerà il ping del percorso di controllo integrità per assicurarsi che le nuove istanze siano pronte per le richieste.
+Quando viene fornito il percorso di controllo integrità, il servizio app effettuerà il ping del percorso in tutte le istanze. Se dopo 5 ping non viene ricevuto un codice di risposta con esito positivo, l'istanza viene considerata "non integra". Le istanze non integre verranno escluse dalla rotazione del servizio di bilanciamento del carico. È possibile configurare il numero necessario di ping non riusciti con l' `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` impostazione dell'app. Questa impostazione dell'app può essere impostata su qualsiasi numero intero compreso tra 2 e 10. Se, ad esempio, è impostato su `2` , le istanze verranno rimosse dal servizio di bilanciamento del carico dopo due ping non riusciti. Inoltre, quando si esegue la scalabilità verticale o orizzontale, il servizio app effettuerà il ping del percorso di controllo integrità per assicurarsi che le nuove istanze siano pronte per le richieste prima di essere aggiunte al servizio di bilanciamento del carico.
 
 Le istanze rimanenti integre potrebbero riscontrare un aumento del carico. Per evitare di sovraccaricare le istanze rimanenti, non verranno escluse più della metà delle istanze. Se, ad esempio, un piano di servizio app viene scalato in orizzontale a 4 istanze e 3 di quelle non integre, al massimo 2 verranno escluse dalla rotazione del LoadBalancer. Le altre 2 istanze (1 integro e 1 non integro) continueranno a ricevere le richieste. Nello scenario peggiore in cui tutte le istanze non sono integre, nessuna verrà esclusa. Se si vuole eseguire l'override di questo comportamento, è possibile impostare l' `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` impostazione dell'app su un valore compreso tra `0` e `100` . Se si imposta questa opzione su un valore più alto, verranno rimosse più istanze non integre (il valore predefinito è 50).
 

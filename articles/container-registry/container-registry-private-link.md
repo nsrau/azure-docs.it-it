@@ -3,19 +3,19 @@ title: Configurare un collegamento privato
 description: Configurare un endpoint privato in un registro contenitori e abilitare l'accesso tramite un collegamento privato in una rete virtuale locale. L'accesso ai collegamenti privati è una funzionalità del livello di servizio Premium.
 ms.topic: article
 ms.date: 10/01/2020
-ms.openlocfilehash: d5193efc1b1def2dc51411630ab6a2305d369cf4
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 3193c65a2021d29f03bd9ae6cbc00fd6c349d9bf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026123"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342301"
 ---
 # <a name="connect-privately-to-an-azure-container-registry-using-azure-private-link"></a>Connettersi privatamente a un registro contenitori di Azure usando il collegamento privato di Azure
 
 
 Limitare l'accesso a un registro di sistema assegnando indirizzi IP privati della rete virtuale agli endpoint del registro di sistema e usando il [collegamento privato di Azure](../private-link/private-link-overview.md). Il traffico di rete tra i client nella rete virtuale e gli endpoint privati del registro di sistema attraversa la rete virtuale e un collegamento privato sulla rete dorsale Microsoft, eliminando l'esposizione dalla rete Internet pubblica. Il collegamento privato consente anche l'accesso al registro privato dall'ambiente locale tramite il peering privato di [Azure ExpressRoute](../expressroute/expressroute-introduction.MD) o un [gateway VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md).
 
-È possibile [configurare le impostazioni DNS](../private-link/private-endpoint-overview.md#dns-configuration) per gli endpoint privati del registro di sistema, in modo che le impostazioni vengano risolte nell'indirizzo IP privato allocato del registro di sistema. Con la configurazione DNS, i client e i servizi all'interno della rete possono continuare ad accedere al registro con il nome di dominio completo di questo, ad esempio *myregistry.azurecr.io* . 
+È possibile [configurare le impostazioni DNS](../private-link/private-endpoint-overview.md#dns-configuration) per gli endpoint privati del registro di sistema, in modo che le impostazioni vengano risolte nell'indirizzo IP privato allocato del registro di sistema. Con la configurazione DNS, i client e i servizi all'interno della rete possono continuare ad accedere al registro con il nome di dominio completo di questo, ad esempio *myregistry.azurecr.io*. 
 
 Questa funzionalità è disponibile per il livello di servizio **Premium** del registro contenitori. Attualmente, per un registro di sistema è possibile configurare un massimo di 10 endpoint privati. Per informazioni sui livelli di servizio del registro e sui limiti, vedere [livelli di Registro Azure Container](container-registry-skus.md).
 
@@ -50,7 +50,7 @@ VM_NAME=<virtual-machine-name>
 
 Se non sono ancora noti, è necessario ottenere i nomi della rete virtuale e della subnet per cui configurare il collegamento privato. In questo esempio si usa la stessa subnet per la macchina virtuale e l'endpoint privato del registro. In molti scenari, tuttavia, è necessario configurare l'endpoint in una subnet separata. 
 
-Quando si crea una macchina virtuale, per impostazione predefinita Azure crea una rete virtuale nello stesso gruppo di risorse. Il nome della rete virtuale si basa sul nome della macchina virtuale. Se, ad esempio, si rinomina la macchina virtuale in *myDockerVM* , il nome della rete virtuale predefinito sarà *myDockerVMVNET* , con una subnet denominata *myDockerVMSubnet* . Per impostare questi valori nelle variabili di ambiente, eseguire il comando [az network vnet list][az-network-vnet-list]:
+Quando si crea una macchina virtuale, per impostazione predefinita Azure crea una rete virtuale nello stesso gruppo di risorse. Il nome della rete virtuale si basa sul nome della macchina virtuale. Se, ad esempio, si rinomina la macchina virtuale in *myDockerVM* , il nome della rete virtuale predefinito sarà *myDockerVMVNET* , con una subnet denominata *myDockerVMSubnet*. Per impostare questi valori nelle variabili di ambiente, eseguire il comando [az network vnet list][az-network-vnet-list]:
 
 ```azurecli
 NETWORK_NAME=$(az network vnet list \
@@ -81,7 +81,7 @@ az network vnet subnet update \
 
 Creare una [zona DNS privata](../dns/private-dns-privatednszone.md) per il dominio del registro contenitori di Azure privato. In passaggi successivi si creeranno record DNS per il dominio del registro in questa zona DNS.
 
-Per usare una zona privata allo scopo di sostituire la risoluzione DNS predefinita per il registro contenitori di Azure, la zona deve essere denominata **privatelink.azurecr.io** . Eseguire il comando [az network private-dns zone create][az-network-private-dns-zone-create] seguente per creare la zona privata:
+Per usare una zona privata allo scopo di sostituire la risoluzione DNS predefinita per il registro contenitori di Azure, la zona deve essere denominata **privatelink.azurecr.io**. Eseguire il comando [az network private-dns zone create][az-network-private-dns-zone-create] seguente per creare la zona privata:
 
 ```azurecli
 az network private-dns zone create \
@@ -91,7 +91,7 @@ az network private-dns zone create \
 
 ### <a name="create-an-association-link"></a>Creare un collegamento di associazione
 
-Eseguire [az network private-dns link vnet create][az-network-private-dns-link-vnet-create] per associare la zona privata alla rete virtuale. Questo esempio crea un collegamento denominato *myDNSLink* .
+Eseguire [az network private-dns link vnet create][az-network-private-dns-link-vnet-create] per associare la zona privata alla rete virtuale. Questo esempio crea un collegamento denominato *myDNSLink*.
 
 ```azurecli
 az network private-dns link vnet create \
@@ -113,7 +113,7 @@ REGISTRY_ID=$(az acr show --name $REGISTRY_NAME \
 
 Eseguire il comando [az network private-endpoint create][az-network-private-endpoint-create] per creare l'endpoint privato del registro.
 
-L'esempio seguente crea l'endpoint *myPrivateEndpoint* e la connessione al servizio *myConnection* . Per specificare una risorsa del registro contenitori per l'endpoint, passare `--group-ids registry`:
+L'esempio seguente crea l'endpoint *myPrivateEndpoint* e la connessione al servizio *myConnection*. Per specificare una risorsa del registro contenitori per l'endpoint, passare `--group-ids registry`:
 
 ```azurecli
 az network private-endpoint create \
@@ -204,9 +204,9 @@ Configurare un collegamento privato durante la creazione di un registro o aggiun
 
 ### <a name="create-a-private-endpoint---new-registry"></a>Creare un endpoint privato - Nuovo registro
 
-1. Quando si crea un registro nel portale, nella scheda **Informazioni di base** , in **SKU** , selezionare **Premium** .
-1. Selezionare la scheda **Rete** .
-1. In **Connettività di rete** selezionare **Endpoint privato** >  **+ Aggiungi** .
+1. Quando si crea un registro nel portale, nella scheda **Informazioni di base** , in **SKU** , selezionare **Premium**.
+1. Selezionare la scheda **Rete**.
+1. In **Connettività di rete** selezionare **Endpoint privato** >  **+ Aggiungi**.
 1. Immettere o selezionare le informazioni seguenti:
 
     | Impostazione | Valore |
@@ -216,21 +216,21 @@ Configurare un collegamento privato durante la creazione di un registro o aggiun
     | Nome | Immettere un nome univoco. |
     | Sottorisorsa |Selezionare **Registro**|
     | **Rete** | |
-    | Rete virtuale| Selezionare la rete virtuale in cui è distribuita la macchina virtuale, ad esempio *myDockerVMVNET* . |
+    | Rete virtuale| Selezionare la rete virtuale in cui è distribuita la macchina virtuale, ad esempio *myDockerVMVNET*. |
     | Subnet | Selezionare la subnet, ad esempio *myDockerVMSubnet* in cui è distribuita la macchina virtuale. |
     |**Integrazione DNS privato**||
-    |Integra con la zona DNS privato |Selezionare **Sì** . |
+    |Integra con la zona DNS privato |Selezionare **Sì**. |
     |Zona DNS privato |Selezionare *(Nuova) privatelink.azurecr.io* |
     |||
-1. Configurare le impostazioni del registro rimanenti e quindi selezionare **Rivedi e crea** .
+1. Configurare le impostazioni del registro rimanenti e quindi selezionare **Rivedi e crea**.
 
   ![Creare un registro con un endpoint privato](./media/container-registry-private-link/private-link-create-portal.png)
 
 ### <a name="create-a-private-endpoint---existing-registry"></a>Creare un endpoint privato - Registro esistente
 
 1. Nel portale passare al registro contenitori.
-1. In **Impostazioni** selezionare **Rete** .
-1. Nella scheda **Endpoint privati** selezionare **+ Endpoint privato** .
+1. In **Impostazioni** selezionare **Rete**.
+1. Nella scheda **Endpoint privati** selezionare **+ Endpoint privato**.
 1. Nella scheda **Informazioni di base** immettere o selezionare le informazioni seguenti:
 
     | Impostazione | valore |
@@ -242,36 +242,36 @@ Configurare un collegamento privato durante la creazione di un registro o aggiun
     | Nome | Immettere un nome. |
     |Region|Scegliere un'area,|
     |||
-5. Selezionare **Avanti: Risorsa** .
+5. Selezionare **Avanti: Risorsa**.
 6. Immettere o selezionare le informazioni seguenti:
 
     | Impostazione | valore |
     | ------- | ----- |
-    |Metodo di connessione  | Selezionare **Connettersi a una risorsa di Azure nella directory** .|
+    |Metodo di connessione  | Selezionare **Connettersi a una risorsa di Azure nella directory**.|
     | Subscription| Selezionare la propria sottoscrizione. |
-    | Tipo di risorsa | Selezionare **Microsoft.ContainerRegistry/registries** . |
+    | Tipo di risorsa | Selezionare **Microsoft.ContainerRegistry/registries**. |
     | Risorsa |Selezionare il nome del registro|
     |Sottorisorsa di destinazione |Selezionare **Registro**|
     |||
-7. Selezionare **Avanti: Configurazione** .
+7. Selezionare **Avanti: Configurazione**.
 8. Immettere o selezionare le informazioni:
 
     | Impostazione | valore |
     | ------- | ----- |
     |**Rete**| |
-    | Rete virtuale| Selezionare la rete virtuale in cui è distribuita la macchina virtuale, ad esempio *myDockerVMVNET* . |
+    | Rete virtuale| Selezionare la rete virtuale in cui è distribuita la macchina virtuale, ad esempio *myDockerVMVNET*. |
     | Subnet | Selezionare la subnet, ad esempio *myDockerVMSubnet* in cui è distribuita la macchina virtuale. |
     |**Integrazione DNS privato**||
-    |Integra con la zona DNS privato |Selezionare **Sì** . |
+    |Integra con la zona DNS privato |Selezionare **Sì**. |
     |Zona DNS privato |Selezionare *(Nuova) privatelink.azurecr.io* |
     |||
 
-1. Selezionare **Rivedi e crea** . Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
-2. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea** .
+1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla pagina **Rivedi e crea** dove Azure convalida la configurazione. 
+2. Quando viene visualizzato il messaggio **Convalida superata** , selezionare **Crea**.
 
 Dopo la creazione dell'endpoint privato, le impostazioni DNS nella zona privata vengono visualizzate nella pagina **Endpoint privati** del portale:
 
-1. Nel portale passare al registro contenitori e selezionare **Impostazioni > Rete** .
+1. Nel portale passare al registro contenitori e selezionare **Impostazioni > Rete**.
 1. Nella scheda **Endpoint privati** selezionare l'endpoint privato creato.
 1. Nella pagina **Panoramica** rivedere le impostazioni del collegamento e le impostazioni DNS personalizzate.
 
@@ -297,8 +297,8 @@ az acr update --name $REGISTRY_NAME --public-network-enabled false
 
 ### <a name="disable-public-access---portal"></a>Disabilitare l'accesso pubblico - Portale
 
-1. Nel portale passare al registro contenitori e selezionare **Impostazioni > Rete** .
-1. Nella scheda **Accesso pubblico** in **Consenti l'accesso alla rete pubblica** selezionare **Disabilitato** . Selezionare quindi **Salva** .
+1. Nel portale passare al registro contenitori e selezionare **Impostazioni > Rete**.
+1. Nella scheda **Accesso pubblico** in **Consenti l'accesso alla rete pubblica** selezionare **Disabilitato**. Selezionare quindi **Salva**.
 
 ## <a name="validate-private-link-connection"></a>Convalidare una connessione di collegamento privato
 
@@ -387,7 +387,12 @@ Se in seguito si aggiunge una nuova replica, è necessario aggiungere manualment
 
 L'endpoint privato in questo esempio si integra con una zona DNS privata associata a una rete virtuale di base. Questa installazione usa direttamente il servizio DNS fornito da Azure per risolvere il nome di dominio completo (FQDN) pubblico del registro di sistema nell'indirizzo IP privato nella rete virtuale. 
 
-Il collegamento privato supporta scenari di configurazione DNS aggiuntivi che usano la zona privata, incluse le soluzioni DNS personalizzate. Ad esempio, si potrebbe avere una soluzione DNS personalizzata distribuita nella rete virtuale o in locale in una rete che si connette alla rete virtuale usando un gateway VPN. Per risolvere il nome di dominio completo (FQDN) pubblico del registro di sistema nell'indirizzo IP privato in questi scenari, è necessario configurare un server d'inoltre a livello di server per il servizio DNS di Azure (168.63.129.16). Le opzioni e i passaggi di configurazione esatti dipendono dalle reti esistenti e dal DNS. Per esempi, vedere [configurazione DNS dell'endpoint privato di Azure](../private-link/private-endpoint-dns.md).
+Il collegamento privato supporta scenari di configurazione DNS aggiuntivi che usano la zona privata, incluse le soluzioni DNS personalizzate. Ad esempio, si potrebbe avere una soluzione DNS personalizzata distribuita nella rete virtuale o in locale in una rete che si connette alla rete virtuale usando un gateway VPN o Azure ExpressRoute. 
+
+Per risolvere il nome di dominio completo (FQDN) pubblico del registro di sistema nell'indirizzo IP privato in questi scenari, è necessario configurare un server d'inoltre a livello di server per il servizio DNS di Azure (168.63.129.16). Le opzioni e i passaggi di configurazione esatti dipendono dalle reti esistenti e dal DNS. Per esempi, vedere [configurazione DNS dell'endpoint privato di Azure](../private-link/private-endpoint-dns.md).
+
+> [!IMPORTANT]
+> Se per la disponibilità elevata sono stati creati endpoint privati in diverse aree, si consiglia di usare un gruppo di risorse distinto in ogni area e inserire la rete virtuale e la zona DNS privata associata al suo interno. Questa configurazione impedisce anche la risoluzione DNS non prevedibile causata dalla condivisione della stessa zona DNS privata.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

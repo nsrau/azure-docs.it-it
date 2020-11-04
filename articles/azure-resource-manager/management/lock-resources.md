@@ -2,14 +2,14 @@
 title: Bloccare le risorse per impedire modifiche
 description: Impedire agli utenti di aggiornare o eliminare le risorse critiche di Azure applicando un blocco per tutti gli utenti e i ruoli.
 ms.topic: conceptual
-ms.date: 10/20/2020
+ms.date: 11/03/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 3830c7e78cf3cc607c7abfca63e6ae74f89b7aff
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 57b4fecd0293c714dfd910ae2ad4866397646ce8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92281738"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340142"
 ---
 # <a name="lock-resources-to-prevent-unexpected-changes"></a>Bloccare le risorse per impedire modifiche impreviste
 
@@ -24,7 +24,7 @@ Quando si applica un blocco in un ambito padre, tutte le risorse in tale ambito 
 
 Diversamente dal controllo degli accessi in base al ruolo, i blocchi di gestione consentono di applicare una restrizione a tutti gli utenti e i ruoli. Per informazioni sull'impostazione delle autorizzazioni per utenti e ruoli, vedere [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md).
 
-I blocchi di Resource Manager si applicano solo alle operazioni che si verificano nel piano di gestione, costituito da operazioni inviate a `https://management.azure.com`. I blocchi non limitano il modo in cui le risorse eseguono le proprie funzioni. Vengono limitate le modifiche alle risorse, ma non le operazioni delle risorse. Ad esempio, un blocco ReadOnly applicato a un database SQL impedisce l'eliminazione o la modifica del database. Non impedisce la creazione, l'aggiornamento o l'eliminazione di dati nel database. Le transazioni di dati sono consentite in quanto tali operazioni non vengono inviate a `https://management.azure.com`.
+I blocchi di Resource Manager si applicano solo alle operazioni che si verificano nel piano di gestione, costituito da operazioni inviate a `https://management.azure.com`. I blocchi non limitano il modo in cui le risorse eseguono le proprie funzioni. Vengono limitate le modifiche alle risorse, ma non le operazioni delle risorse. Un blocco ReadOnly in un server logico del database SQL, ad esempio, impedisce l'eliminazione o la modifica del server. Non impedisce la creazione, l'aggiornamento o l'eliminazione dei dati nei database di tale server. Le transazioni di dati sono consentite in quanto tali operazioni non vengono inviate a `https://management.azure.com`.
 
 ## <a name="considerations-before-applying-locks"></a>Considerazioni prima di applicare i blocchi
 
@@ -76,12 +76,12 @@ Per eliminare tutti gli elementi per il servizio, incluso il gruppo di risorse d
 
 Quando si usa un modello di Resource Manager per distribuire un blocco, si usano valori diversi per il nome e il tipo, a seconda dell'ambito del blocco.
 
-Quando si applica un blocco a una **risorsa**, usare i formati seguenti:
+Quando si applica un blocco a una **risorsa** , usare i formati seguenti:
 
 * nome - `{resourceName}/Microsoft.Authorization/{lockName}`
 * tipo - `{resourceProviderNamespace}/{resourceType}/providers/locks`
 
-Quando si applica un blocco a un **gruppo di risorse** o a una **sottoscrizione**, usare i formati seguenti:
+Quando si applica un blocco a un **gruppo di risorse** o a una **sottoscrizione** , usare i formati seguenti:
 
 * nome - `{lockName}`
 * tipo - `Microsoft.Authorization/locks`

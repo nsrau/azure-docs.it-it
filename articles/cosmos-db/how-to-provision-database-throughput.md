@@ -3,16 +3,17 @@ title: Provisioning della velocità effettiva del database in Azure Cosmos DB AP
 description: Informazioni su come effettuare il provisioning della velocità effettiva a livello di database in Azure Cosmos DB API SQL con portale di Azure, CLI, PowerShell e vari altri SDK.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/15/2020
 ms.author: mjbrown
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: 63de1c970a118ddf24c52e7e14a0632a4eee7fba
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4ecbee2260da735cd6ba74d3b9ffb55b4a652e9e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086296"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341996"
 ---
 # <a name="provision-standard-manual-throughput-on-a-database-in-azure-cosmos-db---sql-api"></a>Eseguire il provisioning della velocità effettiva standard (manuale) in un database nell'API Azure Cosmos DB-SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,12 +28,12 @@ Se si usa un'API diversa, vedere l'articolo relativo alle API [per MongoDB](how-
 
 1. [Creare un nuovo account Azure Cosmos](create-sql-api-dotnet.md#create-account) o selezionarne uno esistente.
 
-1. Aprire il riquadro **Esplora dati** e selezionare **Nuovo database** . Specificare i dettagli seguenti:
+1. Aprire il riquadro **Esplora dati** e selezionare **Nuovo database**. Specificare i dettagli seguenti:
 
    * Immettere un ID database.
    * Selezionare l'opzione **provisioning database throughput** .
    * Immettere una velocità effettiva, ad esempio 1000 UR/sec.
-   * Selezionare **OK** .
+   * Selezionare **OK**.
 
     :::image type="content" source="./media/how-to-provision-database-throughput/provision-database-throughput-portal-sql-api.png" alt-text="Screenshot della finestra di dialogo Nuovo database":::
 

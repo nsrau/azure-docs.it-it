@@ -4,16 +4,18 @@ description: Informazioni su come usare TransactionalBatch in Azure Cosmos DB .N
 author: stefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/27/2020
-ms.openlocfilehash: c27eb2b4e0dc0d269e1cffc9e213cebeb93443e2
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 1f541b947c04619892291e47002ea9b0dbb6d38d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93328702"
+ms.locfileid: "93340565"
 ---
 # <a name="transactional-batch-operations-in-azure-cosmos-db-using-the-net-sdk"></a>Operazioni batch transazionali in Azure Cosmos DB con .NET SDK
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Batch transazionale descrive un gruppo di operazioni punto che devono avere esito positivo o negativo insieme alla stessa chiave di partizione in un contenitore. In .NET SDK, la `TranscationalBatch` classe viene usata per definire questo batch di operazioni. Se tutte le operazioni vengono eseguite correttamente nell'ordine in cui sono descritte nell'operazione batch transazionale, verrà eseguito il commit della transazione. Tuttavia, se un'operazione ha esito negativo, viene eseguito il rollback dell'intera transazione.
 

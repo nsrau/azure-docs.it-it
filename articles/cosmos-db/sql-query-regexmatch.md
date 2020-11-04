@@ -3,16 +3,17 @@ title: RegexMatch in linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema RegexMatch SQL in Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/13/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: 16004ece7877358be54ba67c2f72eb3210f16fb0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7f5b2831f45e902b312636e4133557a16ee7ec95
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098128"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341638"
 ---
 # <a name="regexmatch-azure-cosmos-db"></a>REGEXMATCH (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -51,7 +52,7 @@ Azure Cosmos DB supporta i quattro modificatori seguenti:
   
   Restituisce un'espressione booleana. Restituisce undefined se l'espressione stringa da cercare, l'espressione regolare o i modificatori selezionati non sono validi.
   
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
   
 L'esempio di RegexMatch semplice seguente controlla la stringa "abcd" per la corrispondenza di espressioni regolari usando alcuni modificatori diversi.
   

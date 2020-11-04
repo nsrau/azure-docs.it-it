@@ -3,16 +3,17 @@ title: Come convertire i formati di token di sessione in .NET SDK-Azure Cosmos D
 description: Informazioni su come convertire i formati di token di sessione per garantire la compatibilità tra diverse versioni di .NET SDK
 author: vinhms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 04/30/2020
 ms.author: vitrinh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ece181d06c7d3dbd00ba2f1262a3887ad966d088
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7ed06eeb7330989b4a251dc77e516eb8ac578bff
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101664"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342046"
 ---
 # <a name="convert-session-token-formats-in-net-sdk"></a>Convertire i formati di token di sessione in .NET SDK
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +28,7 @@ Questo articolo illustra come eseguire la conversione tra formati di token di se
 
 ## <a name="session-token-formats"></a>Formati di token di sessione
 
-Sono disponibili due formati di token di sessione: **semplice** e **vettore** .  Questi due formati non sono interscambiabili, pertanto è necessario convertire il formato quando si passa all'applicazione client con versioni diverse.
+Sono disponibili due formati di token di sessione: **semplice** e **vettore**.  Questi due formati non sono interscambiabili, pertanto è necessario convertire il formato quando si passa all'applicazione client con versioni diverse.
 - Il formato del token di sessione **semplice** viene usato da .NET SDK V1 (Microsoft.Azure.DocumentDB-Version 1. x)
 - Il formato del token di sessione **vector** viene usato da .NET SDK V2 (Microsoft.Azure.DocumentDB-Version 2. x)
 

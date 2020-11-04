@@ -4,15 +4,16 @@ description: Informazioni sui concetti relativi al controllo di accesso in Azure
 author: thomasweiss
 ms.author: thweiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 68f3fd34081868884782e007885befff59fa05da
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 936e98b3efa27f2d0a85c373ccae0ab223f4fd95
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096122"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340907"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteggere l'accesso ai dati in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -90,7 +91,7 @@ Di seguito è riportato un tipico schema progettuale in cui i token delle risors
 7. L'app per il telefono può continuare a usare il token delle risorse per accedere direttamente alle risorse di Cosmos DB con le autorizzazioni definite dal token delle risorse e per l'intervallo consentito dal token delle risorse.
 8. Quando il token delle risorse scade, le richieste successive ricevono un'eccezione 401 Non autorizzato.  A questo punto, l'app per il telefono ristabilisce l'identità e richiede un nuovo token delle risorse.
 
-    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Rotazione delle chiavi primarie nell'portale di Azure-dimostrazione della sicurezza del database NoSQL" border="false":::
+    :::image type="content" source="./media/secure-access-to-data/resourcekeyworkflow.png" alt-text="Flusso di lavoro dei token delle risorse di Azure Cosmos DB" border="false":::
 
 La generazione e la gestione dei token delle risorse vengono gestite dalle librerie client Cosmos DB Native; Tuttavia, se si usa REST è necessario creare le intestazioni di richiesta/autenticazione. Per altre informazioni sulla creazione di intestazioni di autenticazione per REST, vedere [controllo di accesso sulle risorse di Cosmos DB](/rest/api/cosmos-db/access-control-on-cosmosdb-resources) o il codice sorgente per [.net SDK](https://github.com/Azure/azure-cosmos-dotnet-v3/blob/master/Microsoft.Azure.Cosmos/src/Authorization/AuthorizationHelper.cs) o [Node.js SDK](https://github.com/Azure/azure-cosmos-js/blob/master/src/auth.ts).
 
@@ -157,12 +158,12 @@ CosmosClient client = new CosmosClient(accountEndpoint: "MyEndpoint", authKeyOrR
 Per aggiungere l'accesso in lettura dell'account Azure Cosmos DB al proprio account utente, è necessario che il proprietario di una sottoscrizione esegua la procedura seguente nel portale di Azure.
 
 1. Aprire il portale di Azure e selezionare l'account Azure Cosmos DB.
-2. Fare clic sulla scheda **Controllo di accesso (IAM)** e quindi su **+ Aggiungi assegnazione di ruolo** .
-3. Nel riquadro **Aggiungi assegnazione di ruolo** , nella casella **Ruolo** , selezionare **Ruolo Lettore dell'account Cosmos DB** .
-4. Nella **casella assegna accesso a** selezionare **Azure ad utente, gruppo o applicazione** .
+2. Fare clic sulla scheda **Controllo di accesso (IAM)** e quindi su **+ Aggiungi assegnazione di ruolo**.
+3. Nel riquadro **Aggiungi assegnazione di ruolo** , nella casella **Ruolo** , selezionare **Ruolo Lettore dell'account Cosmos DB**.
+4. Nella **casella assegna accesso a** selezionare **Azure ad utente, gruppo o applicazione**.
 5. Selezionare l'utente, il gruppo o l'applicazione nella directory a cui si vuole concedere l'accesso.  È possibile eseguire ricerche nella directory in base al nome visualizzato, all'indirizzo di posta elettronica o all'identificatore dell'oggetto.
     L'applicazione, il gruppo o l'utente selezionato viene visualizzato nell'elenco dei membri selezionati.
-6. Fare clic su **Salva** .
+6. Fare clic su **Salva**.
 
 L'entità può ora leggere le risorse di Azure Cosmos DB.
 

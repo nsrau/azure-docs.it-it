@@ -3,15 +3,16 @@ title: Stimare i costi con Azure Cosmos DB Capacity Planner
 description: Il Azure Cosmos DB Capacity Planner consente di stimare la velocità effettiva (UR/sec) richiesta e i costi del carico di lavoro. Questo articolo descrive come usare la nuova versione di Capacity Planner per stimare la velocità effettiva e i costi richiesti.
 author: deborahc
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/30/2019
 ms.author: dech
-ms.openlocfilehash: 460f47ce453f183821ec0f49c38865c44b15ba9f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 017aeaaa24e8ac2d493d0de81a7abb655bae5611
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096717"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93342080"
 ---
 # <a name="estimate-rus-using-the-azure-cosmos-db-capacity-planner"></a>Stimare ur/sec usando Azure Cosmos DB Capacity Planner
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -24,7 +25,7 @@ Capacity Planner può essere usato in due modalità.
 
 |**Modalità**  |**Descrizione**  |
 |---------|---------|
-|Base|Fornisce una stima dei costi e delle UR veloce, ad alto livello. Questa modalità presuppone le impostazioni predefinite di Azure Cosmos DB per i criteri di indicizzazione, la coerenza e altri parametri. <br/><br/>Utilizzare la modalità di base per una stima rapida e di alto livello quando si valuta un potenziale carico di lavoro da eseguire su Azure Cosmos DB.|
+|Basic|Fornisce una stima dei costi e delle UR veloce, ad alto livello. Questa modalità presuppone le impostazioni predefinite di Azure Cosmos DB per i criteri di indicizzazione, la coerenza e altri parametri. <br/><br/>Utilizzare la modalità di base per una stima rapida e di alto livello quando si valuta un potenziale carico di lavoro da eseguire su Azure Cosmos DB.|
 |Avanzato|Fornisce una stima dei costi e delle UR più dettagliata, con la possibilità di ottimizzare le impostazioni aggiuntive, ovvero i criteri di indicizzazione, il livello di coerenza e altri parametri che influiscono sul costo e sulla velocità effettiva. <br/><br/>Utilizzare la modalità avanzata quando si stimano le UR/sec per un nuovo progetto o si desidera una stima più dettagliata. |
 
 
@@ -40,7 +41,7 @@ Per ottenere una rapida stima del carico di lavoro usando la modalità di base, 
 |Letture/sec per area|Numero di letture previste al secondo. |
 |Scritture/sec per area|Numero di scritture previste al secondo. |
 
-Dopo aver compilato i dettagli richiesti, selezionare **Calcola** . La scheda **stima costo** Mostra il costo totale per l'archiviazione e la velocità effettiva con provisioning. È possibile espandere il collegamento **Mostra dettagli** in questa scheda per ottenere la suddivisione della velocità effettiva necessaria per le richieste di lettura e scrittura. Ogni volta che si modifica il valore di qualsiasi campo, selezionare **Calcola** per calcolare nuovamente il costo stimato. 
+Dopo aver compilato i dettagli richiesti, selezionare **Calcola**. La scheda **stima costo** Mostra il costo totale per l'archiviazione e la velocità effettiva con provisioning. È possibile espandere il collegamento **Mostra dettagli** in questa scheda per ottenere la suddivisione della velocità effettiva necessaria per le richieste di lettura e scrittura. Ogni volta che si modifica il valore di qualsiasi campo, selezionare **Calcola** per calcolare nuovamente il costo stimato. 
 
 :::image type="content" source="./media/estimate-ru-with-capacity-planner/basic-mode.png" alt-text="Modalità di base di Capacity Planner":::
 
@@ -63,7 +64,7 @@ Dopo aver eseguito l'accesso, è possibile visualizzare campi aggiuntivi rispett
 
 È anche possibile usare il pulsante **Salva stima** per scaricare un file CSV contenente la stima corrente. 
 
-:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Modalità di base di Capacity Planner":::
+:::image type="content" source="./media/estimate-ru-with-capacity-planner/advanced-mode.png" alt-text="Modalità avanzata di Capacity Planner":::
 
 I prezzi indicati in Azure Cosmos DB Capacity Planner sono stime basate sulle tariffe pubbliche dei prezzi per la velocità effettiva e l'archiviazione. Tutti i prezzi sono indicati in dollari statunitensi. Per visualizzare tutte le tariffe per area, fare riferimento alla [pagina dei prezzi Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) .  
 

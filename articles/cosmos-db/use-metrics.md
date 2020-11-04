@@ -5,15 +5,16 @@ author: kanshiG
 ms.author: govindk
 ms.reviewer: sngun
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/22/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8694a884b26194c61cc77d00848692a24e3009be
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 243f6f26be592e2db82d8f46df3de9aafcd2078b
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073707"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340467"
 ---
 # <a name="monitor-and-debug-with-metrics-in-azure-cosmos-db"></a>Eseguire il monitoraggio e il debug con le metriche in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -48,17 +49,17 @@ Le sezioni seguenti illustrano scenari comuni in cui è possibile usare Azure Co
 
 ## <a name="understand-how-many-requests-are-succeeding-or-causing-errors"></a>Scoprire il numero di richieste che riesce o causa errori
 
-Per iniziare, accedere al [portale di Azure](https://portal.azure.com) e passare al pannello **Metriche** . Nel pannello, trovare il * * numero di richieste che hanno superato la capacità per ogni grafico di 1 minuto. Questo grafico mostra un minuto delle richieste totali per minuto segmentate in base al codice di stato. Per ulteriori informazioni sui codici di stato HTTP, vedere [codici di stato HTTP per Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
+Per iniziare, accedere al [portale di Azure](https://portal.azure.com) e passare al pannello **Metriche**. Nel pannello, trovare il * * numero di richieste che hanno superato la capacità per ogni grafico di 1 minuto. Questo grafico mostra un minuto delle richieste totali per minuto segmentate in base al codice di stato. Per ulteriori informazioni sui codici di stato HTTP, vedere [codici di stato HTTP per Azure Cosmos DB](/rest/api/cosmos-db/http-status-codes-for-cosmosdb).
 
 Il codice di stato di errore più comune è 429 (limitazione della velocità/limitazione). Questo errore indica che le richieste ad Azure Cosmos DB sono maggiori rispetto alle UR di cui è stato effettuato provisioning. La soluzione più comune per questo problema consiste nell'[aumentare il numero di UR](./set-throughput.md) per la raccolta specificata.
 
-:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Cosmos DB le metriche delle prestazioni in portale di Azure":::
+:::image type="content" source="media/use-metrics/metrics-12.png" alt-text="Numero di richieste al minuto":::
 
 ## <a name="determine-the-throughput-distribution-across-partitions"></a>Determinare la distribuzione della velocità effettiva tra le partizioni
 
-Avere una buona cardinalità delle chiavi di partizione è essenziale per qualsiasi applicazione scalabile. Per determinare la distribuzione della velocità effettiva di un contenitore partizionato suddiviso per partizione, passare al **pannello Metriche** nel [portale di Azure](https://portal.azure.com). Nella scheda **Velocità effettiva** la scomposizione di archiviazione viene mostrata nel grafico **Numero massimo di unità richiesta al secondo utilizzate da ogni partizione fisica** . Il grafico seguente illustra un esempio di distribuzione non efficace dei dati come evidenziato dalla deviazione della partizione all'estrema sinistra.
+Avere una buona cardinalità delle chiavi di partizione è essenziale per qualsiasi applicazione scalabile. Per determinare la distribuzione della velocità effettiva di un contenitore partizionato suddiviso per partizione, passare al **pannello Metriche** nel [portale di Azure](https://portal.azure.com). Nella scheda **Velocità effettiva** la scomposizione di archiviazione viene mostrata nel grafico **Numero massimo di unità richiesta al secondo utilizzate da ogni partizione fisica**. Il grafico seguente illustra un esempio di distribuzione non efficace dei dati come evidenziato dalla deviazione della partizione all'estrema sinistra.
 
-:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Cosmos DB le metriche delle prestazioni in portale di Azure":::
+:::image type="content" source="media/use-metrics/metrics-17.png" alt-text="Singola partizione che vede un utilizzo intensivo":::
 
 Una distribuzione non uniforme della velocità effettiva può generare partizioni *critiche* , che possono ridurre le richieste e potrebbero richiedere una nuova ripartizione. Per altre informazioni sul partizionamento in Azure Cosmos DB, vedere [Partizionamento e ridimensionamento in Azure Cosmos DB](./partitioning-overview.md).
 
@@ -66,11 +67,11 @@ Una distribuzione non uniforme della velocità effettiva può generare partizion
 
 Avere una buona cardinalità della partizione è essenziale per qualsiasi applicazione scalabile. Per determinare la distribuzione dell'archiviazione di un contenitore partizionato suddiviso per partizione, passare al pannello Metriche nel [portale di Azure](https://portal.azure.com). Nella scheda Archiviazione la scomposizione dell'archiviazione viene mostrata nel grafico della risorsa di archiviazione dati + indice utilizzata dalle chiavi di partizione principali. Il grafico seguente illustra una distribuzione non efficace della risorsa di archiviazione dati come evidenziato dalla deviazione della partizione all'estrema sinistra.
 
-:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Cosmos DB le metriche delle prestazioni in portale di Azure":::
+:::image type="content" source="media/use-metrics/metrics-07.png" alt-text="Esempio di distribuzione dei dati ridotta":::
 
 È possibile capire quale chiave di partizione riduce la distribuzione facendo clic sulla partizione nel grafico.
 
-:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Cosmos DB le metriche delle prestazioni in portale di Azure":::
+:::image type="content" source="media/use-metrics/metrics-05.png" alt-text="Chiave di partizione che riduce la distribuzione":::
 
 Dopo aver identificato la chiave di partizione che riduce la distribuzione, è possibile che sia necessario ripartizionare il contenitore con una chiave di partizione più distribuita. Per altre informazioni sul partizionamento in Azure Cosmos DB, vedere [Partizionamento e ridimensionamento in Azure Cosmos DB](./partitioning-overview.md).
 

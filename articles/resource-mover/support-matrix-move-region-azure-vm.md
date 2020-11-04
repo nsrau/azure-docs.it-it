@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 10/11/2020
 ms.author: raynew
-ms.openlocfilehash: 4ee442d1983e4f7c1825690e1c780454272971aa
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b59bc33698be516ec5a2e289b52dafcb9e9efcbe
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521306"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341859"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Supporto per lo trasferimento di VM di Azure tra aree di Azure
 
@@ -101,7 +101,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 |  Sono supportati tutti i kernel SUSE 
 **Impostazione** | **Supporto** | **Dettagli**
 --- | --- | ---
 Dimensione | Qualsiasi dimensione di VM di Azure con almeno due core CPU e 1 GB di RAM | Verificare le [dimensioni delle macchine virtuali in Azure](../virtual-machines/sizes-general.md).
-Set di disponibilità | Attualmente non supportato | Se si aggiunge una macchina virtuale di Azure con un set di disponibilità alla raccolta di spostamento con le opzioni predefinite, il processo di preparazione ha esito negativo. È possibile scegliere di spostare la macchina virtuale in una zona di disponibilità in o per spostarla come macchina virtuale a istanza singola. È possibile modificare queste impostazioni nella pagina Modifica proprietà di destinazione.
+Set di disponibilità | Supportato | Supportata.
 Zone di disponibilità | Supportato | Supportato, a seconda del supporto dell'area di destinazione.
 Immagini della raccolta di Azure (pubblicate da Microsoft) | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
 Immagini della raccolta di Azure (pubblicate da terze parti)  | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
@@ -170,7 +170,7 @@ Per le macchine virtuali di Azure che si desidera spostare è necessario l'acces
 
  Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, consentire l'accesso a questi URL:
 
-**Nome** | **Cloud pubblico di Azure** | **Dettagli** 
+**Nome** | **Cloud pubblico di Azure** | **Informazioni dettagliate** 
 --- | --- | --- 
 Archiviazione | `*.blob.core.windows.net`  | Consente la scrittura di dati dalla macchina virtuale nell'account di archiviazione della cache all'area di origine. 
 Azure Active Directory | `login.microsoftonline.com`  | Fornisce l'autenticazione e l'autorizzazione per gli URL del servizio Site Recovery. 

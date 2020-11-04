@@ -3,15 +3,16 @@ title: Scalabilità elastica con l'API Cassandra in Azure Cosmos DB
 description: Informazioni sulle opzioni disponibili per la scalabilità di un account dell'API Cassandra di Azure Cosmos DB e i relativi vantaggi e svantaggi
 author: TheovanKraay
 ms.service: cosmos-db
+ms.subservice: cosmosdb-cassandra
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: thvankra
-ms.openlocfilehash: 0d5aded62c9c3990a3fa102863f4850bbfda6702
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aad2e80598146be7b45a8a7b8a02cfe050163102
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088681"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340958"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Scalabilità elastica di un account dell'API Cassandra di Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
@@ -63,7 +64,7 @@ Il vantaggio di questo approccio è che consente di rispondere in modo dinamico 
 
 Oltre alla modalità standard (manuale) o a livello di codice per il provisioning della velocità effettiva, è anche possibile configurare i contenitori di Azure Cosmos nella velocità effettiva con provisioning a scalabilità automatica. La scalabilità automatica verrà automaticamente dimensionata in base alle esigenze di consumo entro gli intervalli di UR specificati senza compromettere i contratti di servizio. Per altre informazioni, vedere l'articolo [Creare contenitori e database di Azure Cosmos in scalabilità automatica](provision-throughput-autoscale.md).
 
-Il vantaggio di questo approccio è che è il modo più semplice per gestire le esigenze di scalabilità nel sistema. Non verrà applicata **la limitazione della frequenza negli intervalli di ur configurati** . Lo svantaggio è che, se le esigenze di dimensionamento nel sistema sono prevedibili, la scalabilità automatica può essere un modo meno conveniente per gestire le esigenze di scalabilità rispetto all'uso del piano di controllo o degli approcci a livello di SDK indicati in precedenza.
+Il vantaggio di questo approccio è che è il modo più semplice per gestire le esigenze di scalabilità nel sistema. Non verrà applicata **la limitazione della frequenza negli intervalli di ur configurati**. Lo svantaggio è che, se le esigenze di dimensionamento nel sistema sono prevedibili, la scalabilità automatica può essere un modo meno conveniente per gestire le esigenze di scalabilità rispetto all'uso del piano di controllo o degli approcci a livello di SDK indicati in precedenza.
 
 Per impostare o modificare la velocità effettiva massima (UR) per la scalabilità automatica usando CQL, usare il comando seguente (sostituendo il nome keyspace/tabella di conseguenza):
 

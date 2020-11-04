@@ -4,16 +4,15 @@ description: Questo articolo descrive Azure Cosmos DB modello di risorse che inc
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
-ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 23adbd289ae2be484f1aef86b2224097c6ba489c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 37f1c9f59b6ffb45e1b874d2a6969bf263d2d5eb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93087928"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341366"
 ---
 # <a name="azure-cosmos-db-resource-model"></a>Modello di risorsa di Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -34,7 +33,7 @@ Dopo aver creato un account nella sottoscrizione di Azure, è possibile gestire 
 
 Nell'immagine seguente viene illustrata la gerarchia di entità diverse in un account Azure Cosmos DB:
 
-:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Gerarchia di un account Azure Cosmos" border="false":::
+:::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entità dell'account Azure Cosmos DB" border="false":::
 
 ## <a name="azure-cosmos-databases"></a>Database Azure Cosmos DB
 
@@ -73,7 +72,7 @@ Quando si crea un contenitore, la velocità effettiva viene configurata in una d
 
 Un contenitore Azure Cosmos può essere ridimensionato in modo elastico, indipendentemente dal fatto che i contenitori vengano creati usando modalità di velocità effettiva con provisioning dedicato o condiviso.
 
-Un contenitore è un contenitore di elementi indipendente dallo schema. Gli elementi in un contenitore possono avere schemi arbitrari. Ad esempio, un elemento che rappresenta una persona e un elemento che rappresenta un'automobile può essere inserito nello *stesso contenitore* . Per impostazione predefinita, tutti gli elementi aggiunti a un contenitore vengono indicizzati automaticamente senza richiedere la gestione esplicita di indici o schemi. È possibile personalizzare il comportamento di indicizzazione configurando i [criteri di indicizzazione](index-overview.md) in un contenitore. 
+Un contenitore è un contenitore di elementi indipendente dallo schema. Gli elementi in un contenitore possono avere schemi arbitrari. Ad esempio, un elemento che rappresenta una persona e un elemento che rappresenta un'automobile può essere inserito nello *stesso contenitore*. Per impostazione predefinita, tutti gli elementi aggiunti a un contenitore vengono indicizzati automaticamente senza richiedere la gestione esplicita di indici o schemi. È possibile personalizzare il comportamento di indicizzazione configurando i [criteri di indicizzazione](index-overview.md) in un contenitore. 
 
 È possibile impostare la [durata (TTL)](time-to-live.md) per gli elementi selezionati in un contenitore o l'intero contenitore per eliminare normalmente tali elementi dal sistema. Azure Cosmos DB Elimina automaticamente gli elementi alla scadenza. Garantisce inoltre che una query eseguita sul contenitore non restituisca gli elementi scaduti in un limite fisso. Per altre informazioni, vedere [configurare la durata (TTL) nel contenitore](how-to-time-to-live.md).
 

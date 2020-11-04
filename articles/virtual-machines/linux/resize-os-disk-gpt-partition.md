@@ -14,12 +14,12 @@ ms.devlang: azurecli
 ms.date: 05/03/2020
 ms.author: kaib
 ms.custom: seodec18
-ms.openlocfilehash: 30a960c3ed76788158b15022947fec49a95ae299
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: baa260e911673ea99b292ab5dc9895840d0098ef
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89375211"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340308"
 ---
 # <a name="resize-an-os-disk-that-has-a-gpt-partition"></a>Ridimensionare un disco del sistema operativo con una partizione GPT
 
@@ -177,7 +177,7 @@ Una volta riavviata la VM, seguire questa procedura:
 
 1. In base al tipo di file system, usare i comandi appropriati per ridimensionarlo.
    
-   Per **xfs**, usare il comando seguente:
+   Per **xfs** , usare il comando seguente:
    
    ```
    #xfs_growfs /
@@ -200,7 +200,7 @@ Una volta riavviata la VM, seguire questa procedura:
    data blocks changed from 7470331 to 12188923
    ```
    
-   Per **ext4**, usare il comando seguente:
+   Per **ext4** , usare il comando seguente:
    
    ```
    #resize2fs /dev/sda4
@@ -231,7 +231,7 @@ Una volta riavviata la VM, seguire questa procedura:
    
    Nell'esempio precedente è possibile osservare che le dimensioni file system per il disco del sistema operativo sono aumentate.
 
-### <a name="rhel"></a>RHEL
+### <a name="rhel-lvm"></a>LVM RHEL
 
 Per aumentare le dimensioni del disco del sistema operativo in RHEL 7.x con LVM:
 
@@ -247,7 +247,7 @@ Una volta riavviata la VM, seguire questa procedura:
    #sudo su
    ```
 
-1. Installare il pacchetto **gptfdisk**, necessario per aumentare le dimensioni del disco del sistema operativo.
+1. Installare il pacchetto **gptfdisk** , necessario per aumentare le dimensioni del disco del sistema operativo.
 
    ```
    #yum install gdisk -y
@@ -351,6 +351,129 @@ Una volta riavviata la VM, seguire questa procedura:
 
 > [!NOTE]
 > Per usare la stessa procedura per ridimensionare qualsiasi altro volume logico, cambiare il nome **lv** nel passaggio 7.
+
+### <a name="rhel-raw"></a>RAW RHEL
+>[!NOTE]
+>Eseguire sempre uno snapshot della macchina virtuale prima di aumentare le dimensioni del disco del sistema operativo.
+
+Per aumentare le dimensioni del disco del sistema operativo in RHEL con una partizione non ELABORAta:
+
+Arrestare la VM.
+Aumentare le dimensioni del disco del sistema operativo dal portale.
+Avviare la VM.
+Una volta riavviata la VM, seguire questa procedura:
+
+1. Accedere alla macchina virtuale come utente **radice** usando il comando seguente:
+ 
+   ```
+   sudo su
+   ```
+
+1. Installare il pacchetto **gptfdisk** , necessario per aumentare le dimensioni del disco del sistema operativo.
+
+   ```
+   yum install gdisk -y
+   ```
+
+1.  Per visualizzare tutti i settori disponibili sul disco, eseguire il comando seguente:
+    ```
+    gdisk -l /dev/sda
+    ```
+
+1. Vengono visualizzati i dettagli che informano il tipo di partizione. Verificare che sia GPT. Identificare la partizione radice. Non modificare o eliminare la partizione di avvio (partizione di avvio BIOS) e la partizione di sistema ("partizione di sistema EFI")
+
+1. Usare il comando seguente per avviare il partizionamento per la prima volta. 
+    ```
+    gdisk /dev/sda
+    ```
+
+1. A questo punto verrà visualizzato un messaggio che richiede il comando successivo (' Command:? per la Guida di. 
+
+   ```
+   w
+   ```
+
+1. Verrà visualizzato un messaggio di avviso che informa che L'intestazione secondaria è posizionata troppo presto sul disco. Risolvere il problema? (S/N): ". È necessario premere ' Y '
+
+   ```
+   Y
+   ```
+
+1. Verrà visualizzato un messaggio che informa che i controlli finali sono stati completati e viene richiesta una conferma. Premere ' Y '
+
+   ```
+   Y
+   ```
+
+1. Controllare se il problema si è verificato correttamente usando il comando partprobe
+
+   ```
+   partprobe
+   ```
+
+1. I passaggi precedenti hanno verificato che l'intestazione GPT secondaria venga posizionata alla fine. Il passaggio successivo consiste nell'avviare il processo di ridimensionamento utilizzando di nuovo lo strumento gdisk. Usare il comando seguente.
+
+   ```
+   gdisk /dev/sda
+   ```
+1. Nel menu dei comandi premere "p" per visualizzare l'elenco di partizioni. Identificare la partizione radice (nei passaggi, sda2 è considerato la partizione radice) e la partizione di avvio (nei passaggi, sda3 viene considerata come partizione di avvio) 
+
+   ```
+   p
+   ```
+    ![Partizione radice e partizione di avvio](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw1.png)
+
+1. Premere ' d'per eliminare la partizione e selezionare il numero di partizione assegnato all'avvio (in questo esempio è' 3')
+   ```
+   d
+   3
+   ```
+1. Premere ' d'per eliminare la partizione e selezionare il numero di partizione assegnato all'avvio (in questo esempio è' 2')
+   ```
+   d
+   2
+   ```
+    ![Elimina partizione radice e partizione di avvio](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw2.png)
+
+1. Per ricreare la partizione radice con dimensioni maggiori, premere ' n', immettere il numero di partizione eliminato in precedenza per la radice (' 2' per questo esempio) e scegliere il primo settore come ' valore predefinito ', ultimo settore come ' ultimo valore settore-dimensioni avvio settore ' (' 4096 in questo caso ' corrispondente a 2MB di avvio) e codice esadecimale come ' 8300'
+   ```
+   n
+   2
+   (Enter default)
+   (Calculateed value of Last sector value - 4096)
+   8300
+   ```
+1. Per ricreare la partizione di avvio, premere ' n', immettere il numero di partizione eliminato in precedenza per l'avvio (' 3' per questo esempio) e scegliere il primo settore come ' valore predefinito ', ultimo settore come ' valore predefinito ' e codice esadecimale come ' EF02'
+   ```
+   n
+   3
+   (Enter default)
+   (Enter default)
+   EF02
+   ```
+
+1. Scrivere le modifiche con il comando ' w ' e premere ' Y ' per confermare
+   ```
+   w
+   Y
+   ```
+1. Eseguire il comando ' partprobe ' per verificare la stabilità del disco
+   ```
+   partprobe
+   ```
+1. Riavviare la macchina virtuale e le dimensioni della partizione radice aumentano
+   ```
+   reboot
+   ```
+
+   ![Nuova partizione radice e partizione di avvio](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw3.png)
+
+1. Eseguire il comando xfs_growfs sulla partizione per ridimensionarlo
+   ```
+   xfs_growfs /dev/sda2
+   ```
+
+   ![XFS Grow FS](./media/resize-os-disk-rhelraw/resize-os-disk-rhelraw4.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

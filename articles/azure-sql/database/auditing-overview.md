@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 04/28/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 8fd794822e9e4fe282d6ef8a8ccf1eb908c03560
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321658"
+ms.locfileid: "93340037"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Controllo per il database SQL di Azure e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -105,6 +105,13 @@ Per abilitare il controllo delle operazioni di supporto tecnico Microsoft (antep
 
 ![Screenshot delle operazioni di supporto tecnico Microsoft](./media/auditing-overview/support-operations.png)
 
+Per esaminare i log di controllo delle operazioni supporto tecnico Microsoft nell'area di lavoro Log Analytics, usare la query seguente:
+
+```kusto
+AzureDiagnostics
+| where Category == "DevOpsOperationsAudit"
+```
+
 ### <a name="audit-to-storage-destination"></a><a id="audit-storage-destination"></a>Controllo nella destinazione di archiviazione
 
 Per configurare la scrittura dei log per un account di archiviazione, selezionare **memorizzazione** e aprire **dettagli archiviazione**. Selezionare l'account di archiviazione di Azure in cui verranno salvati i log e quindi selezionare il periodo di conservazione. Fare quindi clic su **OK**. I log antecedenti al periodo di conservazione vengono eliminati.
@@ -114,7 +121,7 @@ Per configurare la scrittura dei log per un account di archiviazione, selezionar
 
   ![archiviazione di Azure](./media/auditing-overview/auditing_select_storage.png)
 
-#### <a name="remarks"></a>Osservazioni
+#### <a name="remarks"></a>Commenti
 
 - I log di controllo vengono scritti per **aggiungere BLOB** in un archivio BLOB di Azure nella sottoscrizione di Azure
 - I log di controllo sono in formato XEL e possono essere aperti usando [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
@@ -205,9 +212,7 @@ Se si sceglie di scrivere i log di controllo in un account di archiviazione di A
 - Altri metodi:
 
   - Dopo avere scaricato diversi file o una sottocartella contenente i file di log, è possibile unirli in locale come descritto nelle istruzioni relative all'unione di file di controllo in SSMS riportate in precedenza.
-  - Visualizzare i log del controllo BLOB a livello di codice:
-
-    - [Eseguire query sui file di eventi estesi](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) con PowerShell.
+  - Visualizzare i log di controllo BLOB a livello di codice: [eseguire query sui file di eventi estesi](https://sqlscope.wordpress.com/2014/11/15/reading-extended-event-files-using-client-side-tools-only/) usando PowerShell.
 
 ## <a name="production-practices"></a><a id="production-practices"></a>Procedure nell'ambiente di produzione
 

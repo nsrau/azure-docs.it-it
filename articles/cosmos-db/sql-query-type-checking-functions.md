@@ -3,16 +3,17 @@ title: Funzioni di controllo dei tipi nel linguaggio di query Azure Cosmos DB
 description: Informazioni sul controllo dei tipi funzioni di sistema SQL in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: bafc599ddb502d5714b08ff58ed942e9c17557a8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 96fea7cb53c89c02583a6dba8434cd33641d6a09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93093759"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341502"
 ---
 # <a name="type-checking-functions-azure-cosmos-db"></a>Funzioni di controllo del tipo (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

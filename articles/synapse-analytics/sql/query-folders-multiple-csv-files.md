@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 71ed590440a8c7e37a071b4eadfc09977ef91d5e
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 424a1ef7a73b5abbdba0d89ededb44cb9efdd116
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93310833"
+ms.locfileid: "93340989"
 ---
 # <a name="query-folders-and-multiple-files"></a>Eseguire query su cartelle e più file  
 
@@ -29,7 +29,7 @@ Il primo passaggio consiste nel **creare un database** in cui verranno eseguite 
 Per seguire le query di esempio, si userà la cartella *CSV/taxi* . Contiene i dati di NYC Taxi-yellow taxi trip da luglio 2016 a giugno 2018. I file in *formato CSV/taxi* sono denominati dopo l'anno e il mese usando il modello seguente: yellow_tripdata_ <year> - <month> . csv
 
 ## <a name="read-all-files-in-folder"></a>Leggi tutti i file nella cartella
-    
+
 Nell'esempio seguente vengono letti tutti i file di dati di NYC yellow taxi dalla cartella *CSV/taxi* e viene restituito il numero totale di passeggeri e corse all'anno. Viene inoltre illustrato l'utilizzo delle funzioni di aggregazione.
 
 ```sql
@@ -180,6 +180,49 @@ ORDER BY
 > Tutti i file a cui si accede con l'unico OPENROWSET devono avere la stessa struttura, ad esempio il numero di colonne e i relativi tipi di dati.
 
 Poiché è presente una sola cartella che soddisfa i criteri, il risultato della query corrisponde a [quello di tutti i file nella cartella](#read-all-files-in-folder).
+
+## <a name="traverse-folders-recursively"></a>Attraversare le cartelle in modo ricorsivo
+
+Il pool SQL senza server può attraversare in modo ricorsivo le cartelle se si specifica/* * alla fine del percorso. Nella query seguente vengono letti tutti i file di tutte le cartelle e le sottocartelle presenti nella cartella *CSV* .
+
+```sql
+SELECT
+    YEAR(pickup_datetime) as [year],
+    SUM(passenger_count) AS passengers_total,
+    COUNT(*) AS [rides_total]
+FROM OPENROWSET(
+        BULK 'csv/taxi/**', 
+        DATA_SOURCE = 'sqlondemanddemo',
+        FORMAT = 'CSV', PARSER_VERSION = '2.0',
+        FIRSTROW = 2
+    )
+    WITH (
+        vendor_id VARCHAR(100) COLLATE Latin1_General_BIN2, 
+        pickup_datetime DATETIME2, 
+        dropoff_datetime DATETIME2,
+        passenger_count INT,
+        trip_distance FLOAT,
+        rate_code INT,
+        store_and_fwd_flag VARCHAR(100) COLLATE Latin1_General_BIN2,
+        pickup_location_id INT,
+        dropoff_location_id INT,
+        payment_type INT,
+        fare_amount FLOAT,
+        extra FLOAT,
+        mta_tax FLOAT,
+        tip_amount FLOAT,
+        tolls_amount FLOAT,
+        improvement_surcharge FLOAT,
+        total_amount FLOAT
+    ) AS nyc
+GROUP BY
+    YEAR(pickup_datetime)
+ORDER BY
+    YEAR(pickup_datetime);
+```
+
+> [!NOTE]
+> Tutti i file a cui si accede con l'unico OPENROWSET devono avere la stessa struttura, ad esempio il numero di colonne e i relativi tipi di dati.
 
 ## <a name="multiple-wildcards"></a>Più caratteri jolly
 

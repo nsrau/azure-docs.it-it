@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 10/15/2020
 ms.author: apimpm
-ms.openlocfilehash: 76b82d3c008ede99e69f3a19a56911fbfecd5642
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 54193c9333c75fd8b973ebe33470fca3617e2f2d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148767"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341842"
 ---
 # <a name="how-to-delegate-user-registration-and-product-subscription"></a>Come delegare la registrazione utente e la sottoscrizione ai prodotti
 
@@ -42,9 +42,9 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
 ![Pagina Delega][api-management-delegation-signin-up]
 
 * Stabilire l'URL dell'endpoint di delega speciale e immetterlo nel campo **URL dell'endpoint delega** . 
-* Nel campo Delegation authentication key (Chiave di autenticazione delega) immettere una chiave privata da usare per calcolare una firma fornita per la verifica in modo da garantire che la richiesta provenga effettivamente da Gestione API di Azure. Facendo clic sul pulsante **Genera**, Gestione API genererà una chiave in modo casuale.
+* Nel campo Delegation authentication key (Chiave di autenticazione delega) immettere una chiave privata da usare per calcolare una firma fornita per la verifica in modo da garantire che la richiesta provenga effettivamente da Gestione API di Azure. Facendo clic sul pulsante **Genera** , Gestione API genererà una chiave in modo casuale.
 
-È ora necessario creare l'**endpoint di delega**, che dovrà eseguire diverse operazioni:
+È ora necessario creare l' **endpoint di delega** , che dovrà eseguire diverse operazioni:
 
 1. Ricevere una richiesta nel formato seguente:
    
@@ -52,18 +52,18 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
    
     Parametri di query per l'accesso o l'iscrizione:
    
-   * **operation**: identifica il tipo di richiesta di delega; in questo caso può essere solo di tipo **SignIn**
-   * **returnUrl**: URL della pagina in cui l'utente ha selezionato il collegamento per l'accesso o l'iscrizione
-   * **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza
-   * **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
+   * **operation** : identifica il tipo di richiesta di delega; in questo caso può essere solo di tipo **SignIn**
+   * **returnUrl** : URL della pagina in cui l'utente ha selezionato il collegamento per l'accesso o l'iscrizione
+   * **salt** : stringa salt speciale usata per il calcolo di un hash di sicurezza
+   * **sig** : hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 2. Verificare che la richiesta provenga da Gestione API di Azure. Questa operazione è facoltativa ma altamente consigliata per motivi di sicurezza.
    
-   * Calcolare un hash HMAC-SHA512 di una stringa in base ai parametri di query **returnUrl** e **salt** ([il codice di esempio è fornito di seguito]):
+   * Calcolare un hash HMAC-SHA512 di una stringa in base ai parametri di query **returnUrl** e **salt** ( [il codice di esempio è fornito di seguito]):
      
-     > HMAC(**salt** + '\n' + **returnUrl**)
+     > HMAC( **salt** + '\n' + **returnUrl** )
 
    * Confrontare l'hash sopra calcolato con il valore del parametro di query **sig** . Se i due hash corrispondono, procedere con il passaggio successivo; in caso contrario, negare la richiesta.
-3. Verificare la ricezione di una richiesta di accesso o iscrizione: il parametro di query **operation** verrà impostato su "**SignIn**".
+3. Verificare la ricezione di una richiesta di accesso o iscrizione: il parametro di query **operation** verrà impostato su " **SignIn** ".
 4. Visualizzare l'interfaccia utente per eseguire l'accesso o l'iscrizione
 5. Se l'utente sta effettuando un'iscrizione, è necessario creare un account corrispondente in Gestione API. [Creare un utente] con l'API REST di Gestione API. Quando si esegue questa operazione, assicurarsi di impostare l'ID utente sullo stesso valore presente nell'archivio utenti o su un ID di cui è possibile tenere traccia.
 6. Quando l'utente viene autenticato correttamente:
@@ -71,11 +71,11 @@ Per iniziare, configurare innanzitutto Gestione API per indirizzare le richieste
    * [Richiedere un token di accesso condiviso] tramite l'API REST di gestione API
    * Aggiungere un parametro di query returnUrl all'URL SSO ricevuto dalla chiamata API precedente:
      
-     > ad esempio `https://customer.portal.azure-api.net/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
+     > ad esempio `https://<developer portal domain, for example: contoso.developer.azure-api.net>/signin-sso?token=<URL-encoded token>&returnUrl=<URL-encoded URL, for example: %2Freturn%2Furl>` 
      
    * Reindirizza l'utente all'URL prodotto in precedenza
 
-Oltre all'operazione **SignIn**, è anche possibile eseguire la gestione degli account seguendo i passaggi precedenti e usando una delle operazioni seguenti:
+Oltre all'operazione **SignIn** , è anche possibile eseguire la gestione degli account seguendo i passaggi precedenti e usando una delle operazioni seguenti:
 
 * **ChangePassword**
 * **ChangeProfile**
@@ -84,10 +84,10 @@ Oltre all'operazione **SignIn**, è anche possibile eseguire la gestione degli a
 
 È necessario passare i parametri di query seguenti per le operazioni di gestione di account.
 
-* **operation**: identifica il tipo di richiesta di delega (ChangePassword, ChangeProfile o CloseAccount)
-* **userId**: ID utente dell'account da gestire
-* **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza
-* **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
+* **operation** : identifica il tipo di richiesta di delega (ChangePassword, ChangeProfile o CloseAccount)
+* **userId** : ID utente dell'account da gestire
+* **salt** : stringa salt speciale usata per il calcolo di un hash di sicurezza
+* **sig** : hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 
 ## <a name="delegating-product-subscription"></a><a name="delegate-product-subscription"> </a>Delega della sottoscrizione ai prodotti
 
@@ -108,32 +108,32 @@ Assicurarsi quindi che l'endpoint di delega esegua le operazioni seguenti:
    
     Parametri di query per la sottoscrizione ai prodotti:
    
-   * **operation**: identifica il tipo di richiesta di delega. Per le richieste di sottoscrizione ai prodotti le opzioni valide sono:
+   * **operation** : identifica il tipo di richiesta di delega. Per le richieste di sottoscrizione ai prodotti le opzioni valide sono:
      * "Subscribe": richiesta di sottoscrizione a un prodotto specifico con l'ID fornito (vedere sotto)
      * "Unsubscribe": richiesta di annullamento della sottoscrizione a un prodotto
      * "Renew": richiesta di rinnovo di una sottoscrizione, ad esempio perché è scaduta
-   * **ProductID**: su *Subscribe* : ID del prodotto a cui l'utente ha richiesto la sottoscrizione
-   * **subscriptionId**: per *Unsubscribe* e *Renew* - ID della sottoscrizione del prodotto
-   * **userid**: su *Subscribe* -ID dell'utente per cui viene effettuata la richiesta
-   * **salt**: stringa salt speciale usata per il calcolo di un hash di sicurezza
-   * **sig**: hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
+   * **ProductID** : su *Subscribe* : ID del prodotto a cui l'utente ha richiesto la sottoscrizione
+   * **subscriptionId** : per *Unsubscribe* e *Renew* - ID della sottoscrizione del prodotto
+   * **userid** : su *Subscribe* -ID dell'utente per cui viene effettuata la richiesta
+   * **salt** : stringa salt speciale usata per il calcolo di un hash di sicurezza
+   * **sig** : hash di sicurezza calcolato da usare per il confronto con il proprio hash calcolato
 
 2. Verificare che la richiesta provenga da Gestione API di Azure. Questa operazione è facoltativa ma altamente consigliata per motivi di sicurezza.
    
-   * Calcolare un hash HMAC-SHA512 di una stringa in base ai parametri di query **productId**, **userId** e **salt**:
+   * Calcolare un hash HMAC-SHA512 di una stringa in base ai parametri di query **productId** , **userId** e **salt** :
      
-     > HMAC(**salt** + '\n' + **productId** + '\n' + **userId**)
+     > HMAC( **salt** + '\n' + **productId** + '\n' + **userId** )
      > 
      > 
    * Confrontare l'hash sopra calcolato con il valore del parametro di query **sig** . Se i due hash corrispondono, procedere con il passaggio successivo; in caso contrario, negare la richiesta.
-3. Elaborare la sottoscrizione del prodotto in base al tipo di operazione richiesta in **operation**, ad esempio fatturazione, altre domande e così via.
+3. Elaborare la sottoscrizione del prodotto in base al tipo di operazione richiesta in **operation** , ad esempio fatturazione, altre domande e così via.
 4. Dopo la corretta sottoscrizione del prodotto in locale, effettuare la sottoscrizione del prodotto in Gestione API [Chiamata dell'API REST per le sottoscrizioni].
 
 ## <a name="example-code"></a><a name="delegate-example-code"> </a> Codice di esempio
 
 Questi esempi di codice illustrano come:
 
-* Prendere la *chiave di convalida della delega*, impostata nella schermata Delega del portale di pubblicazione
+* Prendere la *chiave di convalida della delega* , impostata nella schermata Delega del portale di pubblicazione
 * Creare un HMAC, che viene quindi usato per convalidare la firma, dimostrando la validità del returnUrl passato.
 
 Lo stesso codice funziona per productId e userId con leggeri modifiche.

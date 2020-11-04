@@ -4,17 +4,18 @@ description: Informazioni su come usare il processore dei feed di modifiche Azur
 author: timsander1
 ms.author: tisande
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 10/12/2020
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dfd96e7c62d700ccec2ecd4b223668d7aca4f18f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 409b51682700a8b13b2840f171642bdcbee6f6d2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072807"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93340227"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Processore dei feed di modifiche in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +32,7 @@ Ci sono quattro componenti principali per l'implementazione del processore del f
 
 1. **Contenitore di lease:** Il contenitore di lease agisce come una risorsa di archiviazione di stato e coordina l'elaborazione dei feed di modifiche tra più ruoli di lavoro. Il contenitore di lease può essere archiviato nello stesso account del contenitore monitorato o in un account diverso.
 
-1. **Host** : Un host è un'istanza dell'applicazione che usa il processore del feed di modifiche per restare in ascolto delle modifiche. È possibile eseguire in parallelo più istanze con la stessa configurazione di lease, ma ogni istanza deve avere un nome di istanza **diverso** .
+1. **Host** : Un host è un'istanza dell'applicazione che usa il processore del feed di modifiche per restare in ascolto delle modifiche. È possibile eseguire in parallelo più istanze con la stessa configurazione di lease, ma ogni istanza deve avere un nome di istanza **diverso**.
 
 1. **Delegato** : Il delegato è il codice che definisce le operazioni che lo sviluppatore desidera eseguire con ogni batch di modifiche letto dal processore del feed di modifiche. 
 
@@ -62,7 +63,7 @@ Il normale ciclo di vita di un'istanza dell'host è:
 
 1. Leggere il feed di modifiche.
 1. Se non sono state apportate modifiche, sospendere per un periodo di tempo predefinito personalizzabile con `WithPollInterval` nel generatore e passare a #1.
-1. Se ci sono modifiche, inviarle al **delegato** .
+1. Se ci sono modifiche, inviarle al **delegato**.
 1. Quando il delegato termina **correttamente** l'elaborazione delle modifiche, aggiornare l'archivio dei lease con l'ultimo punto nel tempo elaborato e passare a #1.
 
 ## <a name="error-handling"></a>Gestione degli errori
@@ -113,7 +114,7 @@ Il processore dei feed di modifiche verrà inizializzato per la data e l'ora spe
 
 ### <a name="reading-from-the-beginning"></a>Lettura dall'inizio
 
-In altri scenari, ad esempio la migrazione dei dati o l'analisi dell'intera cronologia di un contenitore, è necessario leggere il feed di modifiche dall' **inizio della durata del contenitore** . A tale scopo, è possibile usare `WithStartTime` sull'estensione del generatore, ma passando `DateTime.MinValue.ToUniversalTime()`, che genererebbe la rappresentazione UTC del valore minimo `DateTime`, come segue:
+In altri scenari, ad esempio la migrazione dei dati o l'analisi dell'intera cronologia di un contenitore, è necessario leggere il feed di modifiche dall' **inizio della durata del contenitore**. A tale scopo, è possibile usare `WithStartTime` sull'estensione del generatore, ma passando `DateTime.MinValue.ToUniversalTime()`, che genererebbe la rappresentazione UTC del valore minimo `DateTime`, come segue:
 
 [!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
 
