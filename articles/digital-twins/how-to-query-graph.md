@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 8aad0d9fde30a235903364d57a73c1c53f08ecce
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: 7bb38824f2071e2575877940795f9b90a2a384b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145787"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325762"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
@@ -85,7 +85,7 @@ Utilizzando le proiezioni è possibile scegliere le colonne restituite da una qu
 >[!NOTE]
 >A questo punto, le proprietà complesse non sono supportate. Per assicurarsi che le proprietà di proiezione siano valide, combinare le proiezioni con un `IS_PRIMITIVE` controllo.
 
-Di seguito è riportato un esempio di una query che usa la proiezione per restituire i gemelli e le relazioni. La query seguente proietta il *consumer* , la *Factory* e il *perimetro* da uno scenario in cui una *Factory* con ID *ABC* è correlata al *consumer* tramite una relazione di *Factory. Customer* e la relazione viene presentata come *Edge* .
+Di seguito è riportato un esempio di una query che usa la proiezione per restituire i gemelli e le relazioni. La query seguente proietta il *consumer* , la *Factory* e il *perimetro* da uno scenario in cui una *Factory* con ID *ABC* è correlata al *consumer* tramite una relazione di *Factory. Customer* e la relazione viene presentata come *Edge*.
 
 ```sql
 SELECT Consumer, Factory, Edge
@@ -94,7 +94,7 @@ JOIN Consumer RELATED Factory.customer Edge
 WHERE Factory.$dtId = 'ABC'
 ```
 
-È anche possibile usare la proiezione per restituire una proprietà di un dispositivo gemello. La query seguente proietta la proprietà *Name* dei *consumer* correlati alla *Factory* con ID *ABC* tramite una relazione di *Factory. Customer* .
+È anche possibile usare la proiezione per restituire una proprietà di un dispositivo gemello. La query seguente proietta la proprietà *Name* dei *consumer* correlati alla *Factory* con ID *ABC* tramite una relazione di *Factory. Customer*.
 
 ```sql
 SELECT Consumer.name
@@ -104,7 +104,7 @@ WHERE Factory.$dtId = 'ABC'
 AND IS_PRIMITIVE(Consumer.name)
 ```
 
-È inoltre possibile utilizzare la proiezione per restituire una proprietà di una relazione. Come nell'esempio precedente, la query seguente proietta la proprietà *Name* degli *utenti* correlati alla *Factory* con ID *ABC* tramite una relazione di *Factory. Customer* ; ma ora restituisce anche due proprietà di tale relazione, *Prop1* e *prop2* . Questa operazione viene eseguita assegnando un nome al *bordo* della relazione e raccogliendo le relative proprietà.  
+È inoltre possibile utilizzare la proiezione per restituire una proprietà di una relazione. Come nell'esempio precedente, la query seguente proietta la proprietà *Name* degli *utenti* correlati alla *Factory* con ID *ABC* tramite una relazione di *Factory. Customer* ; ma ora restituisce anche due proprietà di tale relazione, *Prop1* e *prop2*. Questa operazione viene eseguita assegnando un nome al *bordo* della relazione e raccogliendo le relative proprietà.  
 
 ```sql
 SELECT Consumer.name, Edge.prop1, Edge.prop2, Factory.area
@@ -151,7 +151,7 @@ AND T.Temperature = 70
 > [!TIP]
 > Viene eseguita una query sull'ID di un dispositivo gemello digitale usando il campo dei metadati `$dtId` .
 
-È anche possibile ottenere i gemelli a seconda **che sia definita una determinata proprietà** . Ecco una query che ottiene i gemelli che hanno una proprietà *location* definita:
+È anche possibile ottenere i gemelli a seconda **che sia definita una determinata proprietà**. Ecco una query che ottiene i gemelli che hanno una proprietà *location* definita:
 
 ```sql
 SELECT *
@@ -164,7 +164,7 @@ Ciò consente di ottenere i dispositivi gemelli in base alle proprietà dei *tag
 select * from digitaltwins where is_defined(tags.red)
 ```
 
-È anche possibile ottenere i gemelli in base al **tipo di una proprietà** . Ecco una query che ottiene i gemelli la cui proprietà *temperature* è un numero:
+È anche possibile ottenere i gemelli in base al **tipo di una proprietà**. Ecco una query che ottiene i gemelli la cui proprietà *temperature* è un numero:
 
 ```sql
 SELECT * FROM DIGITALTWINS T
@@ -175,39 +175,41 @@ WHERE IS_NUMBER(T.Temperature)
 
 L' `IS_OF_MODEL` operatore può essere usato per filtrare in base al [**modello**](concepts-models.md)del gemello.
 
-Considera l' [ereditarietà](concepts-models.md#model-inheritance) e la semantica di [ordinamento della versione](how-to-manage-model.md#update-models) e restituisce **true** per un determinato gemello se il gemello soddisfa una delle condizioni seguenti:
+Considera l' [ereditarietà](concepts-models.md#model-inheritance) e il [controllo delle versioni](how-to-manage-model.md#update-models)dei modelli e restituisce **true** per un determinato gemello se il gemello soddisfa una delle condizioni seguenti:
 
 * Il dispositivo gemello implementa direttamente il modello fornito a `IS_OF_MODEL()` e il numero di versione del modello nel dispositivo gemello è *maggiore o uguale al* numero di versione del modello specificato
 * Il dispositivo gemello implementa un modello che *estende* il modello fornito a `IS_OF_MODEL()` e il numero di versione del modello esteso del gemello è *maggiore o uguale al* numero di versione del modello fornito.
 
-Questo metodo presenta diverse opzioni di overload.
+Se, ad esempio, si esegue una query per i dispositivi gemelli del modello `dtmi:example:widget;4` , la query restituirà tutti i gemelli in base alla **versione 4 o successiva** del modello di **widget** e anche i gemelli basati sulla versione **4 o successiva** di tutti i **modelli che ereditano da widget**.
+
+`IS_OF_MODEL` può assumere parametri diversi e la parte restante di questa sezione è dedicata alle diverse opzioni di overload.
 
 L'uso più semplice di `IS_OF_MODEL` accetta solo un `twinTypeName` parametro: `IS_OF_MODEL(twinTypeName)` .
 Di seguito è riportato un esempio di query che passa un valore in questo parametro:
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1')
 ```
 
 Per specificare una raccolta di dispositivi gemelli in cui eseguire la ricerca quando ne esiste più di una, ad esempio quando `JOIN` viene usato un oggetto, aggiungere il `twinCollection` parametro: `IS_OF_MODEL(twinCollection, twinTypeName)` .
 Di seguito è riportato un esempio di query che aggiunge un valore per questo parametro:
 
 ```sql
-SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1')
+SELECT * FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1')
 ```
 
 Per eseguire una corrispondenza esatta, aggiungere il `exact` parametro: `IS_OF_MODEL(twinTypeName, exact)` .
 Di seguito è riportato un esempio di query che aggiunge un valore per questo parametro:
 
 ```sql
-SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:sample:thing;1', exact)
+SELECT * FROM DIGITALTWINS WHERE IS_OF_MODEL('dtmi:example:thing;1', exact)
 ```
 
 È anche possibile passare tutti e tre gli argomenti insieme: `IS_OF_MODEL(twinCollection, twinTypeName, exact)` .
 Di seguito è riportato un esempio di query che specifica un valore per tutti e tre i parametri:
 
 ```sql
-SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:sample:thing;1', exact)
+SELECT ROOM FROM DIGITALTWINS DT WHERE IS_OF_MODEL(DT, 'dtmi:example:thing;1', exact)
 ```
 
 ### <a name="query-based-on-relationships"></a>Query basata su relazioni
@@ -242,7 +244,7 @@ WHERE T.$dtId = 'ABC'
 
 #### <a name="query-the-properties-of-a-relationship"></a>Eseguire query sulle proprietà di una relazione
 
-Analogamente al modo in cui i dispositivi gemelli digitali hanno le proprietà descritte tramite DTDL, le relazioni possono avere anche proprietà. È possibile eseguire una query sui dispositivi gemelli **in base alle proprietà delle relazioni** .
+Analogamente al modo in cui i dispositivi gemelli digitali hanno le proprietà descritte tramite DTDL, le relazioni possono avere anche proprietà. È possibile eseguire una query sui dispositivi gemelli **in base alle proprietà delle relazioni**.
 Il linguaggio di query di Azure Digital gemelli consente di filtrare e proiettare le relazioni, assegnando un alias alla relazione all'interno della `JOIN` clausola.
 
 Si consideri ad esempio una relazione di *servicedBy* con una proprietà *reportedCondition* . Nella query seguente, a questa relazione viene assegnato un alias ' R ' per fare riferimento alla relativa proprietà.
@@ -321,7 +323,7 @@ Sono supportate le funzioni stringa seguenti:
 
 ## <a name="run-queries-with-an-api-call"></a>Eseguire query con una chiamata API
 
-Una volta decisa una stringa di query, è possibile eseguirla effettuando una chiamata all' **API di query** .
+Una volta decisa una stringa di query, è possibile eseguirla effettuando una chiamata all' **API di query**.
 Il frammento di codice seguente illustra questa chiamata dall'app client:
 
 ```csharp
@@ -373,7 +375,7 @@ Di seguito sono riportati alcuni suggerimenti per eseguire query con i dispositi
 
 * Si consideri il modello di query durante la fase di progettazione del modello. Provare a verificare che le relazioni che devono essere soddisfatte in una singola query siano modellate come una relazione a livello singolo.
 * Progettare le proprietà in modo da evitare set di risultati di grandi dimensioni dall'attraversamento del grafo.
-* È possibile ridurre significativamente il numero di query necessarie compilando una matrice di gemelli ed eseguendo query con l' `IN` operatore. Si consideri, ad esempio, uno scenario in cui gli *edifici* contengono *piani* e *pavimenti* che contengono *camere* . Per cercare le chat room all'interno di un edificio a caldo, è possibile:
+* È possibile ridurre significativamente il numero di query necessarie compilando una matrice di gemelli ed eseguendo query con l' `IN` operatore. Si consideri, ad esempio, uno scenario in cui gli *edifici* contengono *piani* e *pavimenti* che contengono *camere*. Per cercare le chat room all'interno di un edificio a caldo, è possibile:
 
     1. Trovare i piani nell'edificio in base alla `contains` relazione
 

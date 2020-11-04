@@ -9,23 +9,23 @@ author: peterclu
 ms.author: peterlu
 ms.custom: seodec18, previous-ms.author=yahajiza, previous-author=YasinMSFT, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 0064509c1158d8b016413046cb528bfd125b5f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 158541d34568b7ea02ea82dbfe90f5801824716f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362317"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325784"
 ---
 # <a name="retrain-and-deploy-a-classic-studio-classic-web-service"></a>Ripetere il training e distribuire un servizio Web classico in studio (classico)
 
-**si applica a:** ![ Segno di spunta verde. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ X che indica No.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**si applica a:** ![ Segno di spunta verde. ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ X che indica No. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)  
 
 
 La ripetizione del training dei modelli di Machine Learning è un modo per garantire che rimangano accurati e si basino sui dati più rilevanti disponibili. In questo articolo viene illustrato come ripetere il training di un servizio Web classico di studio (classico). Per una guida su come ripetere il training di un nuovo servizio Web di studio (classico), [vedere questo articolo sulle procedure.](retrain-machine-learning-model.md)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che si disponga già di un esperimento di ripetizione del training e di un esperimento predittivo. La procedura è illustrata in [Ripetere il training e distribuire un modello di Machine Learning](/azure/machine-learning/studio/retrain-machine-learning-model). Tuttavia, invece di distribuire il modello di Machine Learning come nuovo servizio Web, si distribuirà l'esperimento predittivo come servizio Web classico.
+Questo articolo presuppone che si disponga già di un esperimento di ripetizione del training e di un esperimento predittivo. La procedura è illustrata in [Ripetere il training e distribuire un modello di Machine Learning](./retrain-machine-learning-model.md). Tuttavia, invece di distribuire il modello di Machine Learning come nuovo servizio Web, si distribuirà l'esperimento predittivo come servizio Web classico.
      
 ## <a name="add-a-new-endpoint"></a>Aggiungere un nuovo endpoint
 
@@ -76,7 +76,7 @@ La pagina della guida di PATCH contiene l'URL PATCH da usare e fornisce il codic
 
 Ora è possibile usare il modello con training per aggiornare l'endpoint dei punteggi creato prima.
 
-Il codice di esempio seguente mostra come usare *BaseLocation*, *RelativeLocation*, *SasBlobToken* e l'URL PATCH per aggiornare l'endpoint.
+Il codice di esempio seguente mostra come usare *BaseLocation* , *RelativeLocation* , *SasBlobToken* e l'URL PATCH per aggiornare l'endpoint.
 
 ```csharp
 private async Task OverwriteModel()
