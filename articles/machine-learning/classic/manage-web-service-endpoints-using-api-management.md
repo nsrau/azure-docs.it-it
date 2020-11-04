@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 45f63aed410c4d140259808044872cbbecfaa95b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b00e75c5fda8a05f4ed0f3a756ba20cca570ba5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91355568"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305985"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>Gestire i servizi Web di Azure Machine Learning Studio (versione classica) con Gestione API
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 ## <a name="overview"></a>Panoramica
 Questa guida illustra le procedure per iniziare subito a usare Gestione API per gestire i servizi Web di Azure Machine Learning Studio (versione classica).
 
 ## <a name="what-is-azure-api-management"></a>Cos'è Gestione API di Azure?
-Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per altri dettagli, vedere il [sito per la gestione delle API di Azure ](https://azure.microsoft.com/services/api-management/). Per iniziare a usare Gestione API di Azure, vedere la [guida all'importazione e alla pubblicazione](/azure/api-management/import-and-publish). L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'uso.
+Gestione API di Azure è un servizio di Azure che consente di gestire gli endpoint dell'API REST definendo l'accesso utente, la limitazione all'utilizzo e il monitoraggio del dashboard. Per altri dettagli, vedere il [sito per la gestione delle API di Azure ](https://azure.microsoft.com/services/api-management/). Per iniziare a usare Gestione API di Azure, vedere la [guida all'importazione e alla pubblicazione](../../api-management/import-and-publish.md). L'altra guida, su cui è basata questa, tratta più argomenti, tra cui le configurazioni delle notifiche, il livello di prezzo, la gestione delle risposte, l'autenticazione utente, la creazione di prodotti, le sottoscrizioni per sviluppatori e il dashboarding dell'uso.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa guida, è necessario:
@@ -43,7 +43,7 @@ Per completare questa guida, è necessario:
 3. Nella casella di ricerca digitare "Gestione API" e quindi selezionare la risorsa "Gestione API".
 4. Fare clic su **Crea**.
 5. Il valore del campo **Nome** verrà usato per creare un URL univoco (in questo esempio viene usato "demoazureml").
-6. Scegliere un valore nei campi **Sottoscrizione**, **Gruppo di risorse** e **Area** per l'istanza del servizio.
+6. Scegliere un valore nei campi **Sottoscrizione** , **Gruppo di risorse** e **Area** per l'istanza del servizio.
 7. Specificare un valore per **Nome organizzazione** (in questo esempio viene usato "demoazureml").
 8. Immettere un valore nel campo **Indirizzo di posta elettronica dell'amministratore**. L'indirizzo specificato verrà usato per le notifiche del sistema Gestione API.
 9. Fare clic su **Crea**.
@@ -74,7 +74,7 @@ Per creare l'API:
 
 ## <a name="add-the-operations"></a>Aggiungere le operazioni
 
-Le operazioni vengono aggiunte e configurate in un'API nel portale di pubblicazione. Per accedere al portale di pubblicazione, fare clic su **Portale di pubblicazione** nel portale di Azure per il servizio Gestione API, selezionare **API**, **Operazioni** e quindi fare clic su **Aggiungi operazione**.
+Le operazioni vengono aggiunte e configurate in un'API nel portale di pubblicazione. Per accedere al portale di pubblicazione, fare clic su **Portale di pubblicazione** nel portale di Azure per il servizio Gestione API, selezionare **API** , **Operazioni** e quindi fare clic su **Aggiungi operazione**.
 
 ![add-operation](./media/manage-web-service-endpoints-using-api-management/add-an-operation.png)
 
@@ -137,7 +137,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>Chiamare un'operazione dal portale per sviluppatori
 
-È possibile chiamare le operazioni direttamente dal portale per sviluppatori, che consente di visualizzare e testare le operazioni di un'API in tutta comodità. In questa procedura si chiamerà il metodo **RRS Execute** aggiunto all'**AzureML Demo API**. 
+È possibile chiamare le operazioni direttamente dal portale per sviluppatori, che consente di visualizzare e testare le operazioni di un'API in tutta comodità. In questa procedura si chiamerà il metodo **RRS Execute** aggiunto all' **AzureML Demo API**. 
 
 1. Fare clic su **Portale per sviluppatori**.
 
@@ -151,7 +151,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 
    ![Screenshot mostra la finestra di dialogo Azure M L demo A P I con post R R S Execute Selected e un pulsante try it.](./media/manage-web-service-endpoints-using-api-management/try-it.png)
 
-4. Per i **parametri della richiesta** immettere l'**area di lavoro** e il **servizio**, digitare 2.0 per la **versione API** e "true" per i **dettagli**. È possibile trovare l'**area di lavoro** e il **servizio** nel dashboard del servizio Web di AzureML (vedere **Testare il servizio Web** nell'Appendice A).
+4. Per i **parametri della richiesta** immettere l' **area di lavoro** e il **servizio** , digitare 2.0 per la **versione API** e "true" per i **dettagli**. È possibile trovare l' **area di lavoro** e il **servizio** nel dashboard del servizio Web di AzureML (vedere **Testare il servizio Web** nell'Appendice A).
 
    Per **Intestazioni della richiesta** fare clic su **Aggiungi intestazione** e digitare "Tipo contenuto" e "application/json". Fare di nuovo clic su **Aggiungi intestazione** e digitare "Autorizzazione" e "Token di connessione *\<your service API-KEY\>* ". È possibile trovare la chiave API nel dashboard del servizio Web di AzureML (vedere **Testare il servizio Web** nell'Appendice A).
 
@@ -163,7 +163,7 @@ Creare prima un'operazione per il servizio RRS di AzureML:
 
    ![Screenshot che mostra un pulsante Invia.](./media/manage-web-service-endpoints-using-api-management/send.png)
 
-Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati l'**URL richiesto** restituito dal servizio back-end, lo **Stato della risposta**, le **Intestazioni della risposta** e l'eventuale **Contenuto della risposta**.
+Una volta richiamata un'operazione, nel portale per sviluppatori vengono visualizzati l' **URL richiesto** restituito dal servizio back-end, lo **Stato della risposta** , le **Intestazioni della risposta** e l'eventuale **Contenuto della risposta**.
 
 ![Screenshot mostra il portale per sviluppatori che visualizza lo stato della risposta, la latenza della risposta, le intestazioni di risposta e il contenuto della risposta.](./media/manage-web-service-endpoints-using-api-management/response-status.png)
 
@@ -219,7 +219,7 @@ Fare clic su **Yes** per pubblicare l'esperimento.
 ### <a name="test-the-web-service"></a>Testare il servizio Web
 Un servizio Web di AzureML è costituito dagli endpoint RSS (servizio di richiesta/risposta) e BES (servizio di esecuzione batch). RSS è per l'esecuzione sincrona. BES è per l'esecuzione di processi asincrona. Per testare il servizio Web con la seguente origine Python di esempio, potrebbe essere necessario scaricare e installare Azure SDK per Python (vedere: [Come installare Python](/azure/developer/python/azure-sdk-install)).
 
-Per la seguente origine di esempio, saranno necessari anche l'**area di lavoro**, il **servizio** e la **chiave API** dell'esperimento. È possibile trovare l'area di lavoro e il servizio facendo clic su **Richiesta/risposta** o su **Esecuzione batch** per l'esperimento nel dashboard del servizio Web.
+Per la seguente origine di esempio, saranno necessari anche l' **area di lavoro** , il **servizio** e la **chiave API** dell'esperimento. È possibile trovare l'area di lavoro e il servizio facendo clic su **Richiesta/risposta** o su **Esecuzione batch** per l'esperimento nel dashboard del servizio Web.
 
 ![Screenshot che mostra il riquadro delle richieste in cui è possibile trovare i valori dell'area di lavoro e del servizio.](./media/manage-web-service-endpoints-using-api-management/find-workspace-and-service.png)
 
@@ -244,7 +244,7 @@ Verrà visualizzato qualcosa di simile a quanto segue
 ##### <a name="sample-code"></a>Codice di esempio
 È possibile testare RRS anche dal codice client. Se si fa clic su **Richiesta/risposta** sul dashboard e si scorre fino in fondo, si vedrà il codice di esempio per C#, Python e R. Si vedrà anche la sintassi della richiesta RRS, incluso l'URI della richiesta, le intestazioni e il corpo.
 
-Questa guida mostra un esempio di Python funzionante. Sarà necessario modificarlo con l'**area di lavoro**, il **servizio** e la **chiave API** dell'esperimento.
+Questa guida mostra un esempio di Python funzionante. Sarà necessario modificarlo con l' **area di lavoro** , il **servizio** e la **chiave API** dell'esperimento.
 
 ```python
 import urllib2
@@ -278,7 +278,7 @@ try:
 #### <a name="test-bes-endpoint"></a>Testare l'endpoint BES
 Fare clic su **Esecuzione batch** sul dashboard e scorrere fino in fondo. Si vedrà il codice di esempio per C#, Python e R. Si vedrà anche la sintassi delle richieste BES per inviare un processo, avviare un processo, ottenere lo stato o i risultati di un processo ed eliminare un processo.
 
-Questa guida mostra un esempio di Python funzionante. È necessario modificarlo con l'**area di lavoro**, il **servizio** e la **chiave API** dell'esperimento. È anche necessario modificare il **nome account di archiviazione**, la **chiave dell'account di archiviazione** e il **nome del contenitore di archiviazione**. Infine sarà necessario modificare il percorso del **file di input** e il percorso del **file di output**.
+Questa guida mostra un esempio di Python funzionante. È necessario modificarlo con l' **area di lavoro** , il **servizio** e la **chiave API** dell'esperimento. È anche necessario modificare il **nome account di archiviazione** , la **chiave dell'account di archiviazione** e il **nome del contenitore di archiviazione**. Infine sarà necessario modificare il percorso del **file di input** e il percorso del **file di output**.
 
 ```python
 import urllib2

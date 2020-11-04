@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 7224a7bb26ef491915df9fcb9b6b84ff171a9fc0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2294ccb1d958b229a71e45bb502b8134d8d5c7f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76720521"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305662"
 ---
 # <a name="customer-acceptance-stage-of-the-team-data-science-process-lifecycle"></a>Fase di accettazione del cliente del ciclo di vita del processo di data science per i team
 
@@ -34,13 +34,13 @@ Ecco una rappresentazione visiva del ciclo di vita del processo TDSP:
 
 
 ## <a name="goal"></a>Obiettivo
-**Finalizzare i risultati del progetto**: verificare che la pipeline, il modello e la relativa distribuzione in un ambiente di produzione soddisfino gli obiettivi del cliente.
+**Finalizzare i risultati del progetto** : verificare che la pipeline, il modello e la relativa distribuzione in un ambiente di produzione soddisfino gli obiettivi del cliente.
 
 ## <a name="how-to-do-it"></a>Come eseguirla
 Questa fase comprende due attività principali:
 
-   * **Convalida del sistema**: verificare che il modello e la pipeline distribuiti soddisfino le esigenze del cliente.
-   * **Consegna del progetto**: consegnare il progetto all'entità che eseguirà il sistema nell'ambiente di produzione.
+   * **Convalida del sistema** : verificare che il modello e la pipeline distribuiti soddisfino le esigenze del cliente.
+   * **Consegna del progetto** : consegnare il progetto all'entità che eseguirà il sistema nell'ambiente di produzione.
 
 Il cliente deve verificare che il sistema soddisfi le esigenze aziendali e che risponda alle domande con un'accuratezza accettabile per la distribuzione del sistema nell'ambiente di produzione per l'utilizzo da parte delle applicazioni client. Tutta la documentazione viene finalizzata ed esaminata. Il progetto viene consegnato all'entità responsabile delle operazioni. Questa entità potrebbe essere, ad esempio, un team IT, un team di data science o un agente del cliente responsabile dell'esecuzione del sistema nell'ambiente di produzione. 
 
@@ -60,4 +60,4 @@ Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data scie
 
 Vengono fornite procedure dettagliate complete che illustrano tutti i passaggi del processo per scenari specifici. L'articolo sulle [procedure dettagliate di esempio](walkthroughs.md) include un elenco degli scenari con i collegamenti e le descrizioni di anteprima. Le procedure dettagliate illustrano come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
 
-Per esempi su come eseguire i passaggi nei processi di data science per i team (TDSP) che usano Azure Machine Learning Studio, vedere [Uso del processo di analisi scientifica dei dati per i team con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Per esempi su come eseguire i passaggi nei processi di data science per i team (TDSP) che usano Azure Machine Learning Studio, vedere [Uso del processo di analisi scientifica dei dati per i team con Azure Machine Learning](./index.yml).

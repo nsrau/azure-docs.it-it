@@ -1,7 +1,7 @@
 ---
 title: Distribuire un modello da usare con Ricerca cognitiva
 titleSuffix: Azure Machine Learning
-description: Questo articolo illustra come usare Azure Machine Learning per distribuire un modello da usare con ricerca cognitiva di Azure. Ricerca cognitiva possibile utilizzare i modelli distribuiti da Azure Machine Learning come abilità personalizzata per migliorare l'esperienza di ricerca.
+description: Informazioni su come usare Azure Machine Learning per distribuire un modello da usare con ricerca cognitiva. Il modello viene usato come abilità personalizzata per migliorare l'esperienza di ricerca.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: cjgronlund
 ms.reviewer: larryfr
 ms.date: 06/11/2020
 ms.custom: deploy
-ms.openlocfilehash: 5d198a27d7aeca679f1ee17f35d3f4384283f13c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: e1eebf88b72c87ce9db02760c5c44a0aa25c57cc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998904"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305921"
 ---
 # <a name="deploy-a-model-for-use-with-cognitive-search"></a>Distribuire un modello da usare con Ricerca cognitiva
 
@@ -25,7 +25,7 @@ Questo articolo illustra come usare Azure Machine Learning per distribuire un mo
 
 Ricerca cognitiva esegue l'elaborazione del contenuto sul contenuto eterogeneo, per renderlo queryable da esseri umani o da applicazioni. Questo processo può essere migliorato usando un modello distribuito da Azure Machine Learning.
 
-Azure Machine Learning possibile distribuire un modello sottoposto a training come servizio Web. Il servizio Web viene quindi incorporato in una ricerca cognitiva _skill_, che diventa parte della pipeline di elaborazione.
+Azure Machine Learning possibile distribuire un modello sottoposto a training come servizio Web. Il servizio Web viene quindi incorporato in una ricerca cognitiva _skill_ , che diventa parte della pipeline di elaborazione.
 
 > [!IMPORTANT]
 > Le informazioni contenute in questo articolo sono specifiche per la distribuzione del modello. Vengono fornite informazioni sulle configurazioni di distribuzione supportate che consentono di utilizzare il modello in ricerca cognitiva.
@@ -46,7 +46,7 @@ Quando si distribuisce un modello per l'uso con ricerca cognitiva di Azure, la d
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
-* Ambiente di sviluppo Python con Azure Machine Learning SDK installato. Per ulteriori informazioni, vedere [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).  
+* Ambiente di sviluppo Python con Azure Machine Learning SDK installato. Per ulteriori informazioni, vedere [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
 
 * Modello registrato. Se non si dispone di un modello, utilizzare il notebook di esempio all'indirizzo [https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/AzureML-Custom-Skill) .
 
@@ -75,7 +75,7 @@ except:
 
 ## <a name="create-a-kubernetes-cluster"></a>Creare un cluster Kubernetes
 
-**Tempo stimato**: circa 20 minuti.
+**Tempo stimato** : circa 20 minuti.
 
 Un cluster Kubernetes è un set di istanze di macchine virtuali, denominate nodi, che vengono usate per l'esecuzione di applicazioni in contenitori.
 
@@ -252,7 +252,7 @@ from azureml.core.model import InferenceConfig
 inf_config = InferenceConfig(entry_script='score.py', environment=myenv)
 ```
 
-Per ulteriori informazioni, vedere la documentazione di riferimento per [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true).
+Per ulteriori informazioni, vedere la documentazione di riferimento per [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
 
 ## <a name="deploy-the-model"></a>Distribuire il modello
 
@@ -277,7 +277,7 @@ aks_service.wait_for_deployment(show_output = True)
 print(aks_service.state)
 ```
 
-Per ulteriori informazioni, vedere la documentazione di riferimento per il [modello](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true).
+Per ulteriori informazioni, vedere la documentazione di riferimento per il [modello](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
 
 ## <a name="issue-a-sample-query-to-your-service"></a>Eseguire una query di esempio per il servizio
 

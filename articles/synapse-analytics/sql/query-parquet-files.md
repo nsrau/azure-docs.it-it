@@ -1,6 +1,6 @@
 ---
-title: Eseguire query su file Parquet con SQL su richiesta (anteprima)
-description: In questo articolo si apprenderà come eseguire query su file Parquet con SQL su richiesta (anteprima).
+title: Eseguire query sui file parquet usando un pool SQL senza server (anteprima)
+description: Questo articolo illustra come eseguire query su file parquet usando un pool SQL senza server (anteprima).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 2e00ecd6048239683951a2d1e60d3bcb0eb5aa68
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: 3559b3724d14be6aade07c4884190afce30c0715
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93242433"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93306863"
 ---
-# <a name="query-parquet-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query su file Parquet con SQL su richiesta (anteprima) in Azure Synapse Analytics
+# <a name="query-parquet-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Eseguire query sui file parquet usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics
 
-In questo articolo si apprenderà come scrivere una query con SQL su richiesta (anteprima) che legga file Parquet.
+In questo articolo verrà illustrato come scrivere una query usando un pool SQL senza server (anteprima) che leggerà i file parquet.
 
 ## <a name="quickstart-example"></a>Esempio di Guida introduttiva
 
@@ -111,7 +111,7 @@ Quando si leggono file Parquet, non è necessario usare la clausola OPENROWSET W
 L'esempio seguente illustra le funzionalità di inferenza automatica dello schema per i file Parquet. L'esempio restituisce il numero di righe per settembre 2017 senza specificare uno schema.
 
 > [!NOTE]
-> Quando si leggono file Parquet, non è necessario specificare colonne nella clausola OPENROWSET WITH. In questo caso, il Servizio Query di SQL su richiesta usa i metadati del file Parquet e associa le colonne in base al nome.
+> Quando si leggono file Parquet, non è necessario specificare colonne nella clausola OPENROWSET WITH. In tal caso, il servizio query del pool SQL senza server utilizzerà i metadati nel file parquet e legherà le colonne in base al nome.
 
 ```sql
 SELECT TOP 10 *
@@ -128,7 +128,7 @@ FROM
 Il set di dati usato in questo esempio è diviso (partizionato) in sottocartelle separate. È possibile indicare come destinazione partizioni specifiche usando la funzione filepath. Questo esempio illustra gli importi delle tariffe per anno, mese e payment_type per i primi tre mesi del 2017.
 
 > [!NOTE]
-> La query SQL su richiesta è compatibile con lo schema di partizione Hive/Hadoop.
+> La query del pool SQL senza server è compatibile con lo schema di partizionamento hive/Hadoop.
 
 ```sql
 SELECT

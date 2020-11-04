@@ -6,12 +6,12 @@ author: mamccrea
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: f963f4c3538146b7f9929960092a18294659be5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 61d6556467bc6f1494e11ce3a01bf5266b740f3f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86045247"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305782"
 ---
 # <a name="azure-stream-analytics-external-error-codes"></a>Codici errore esterni di Analisi di flusso di Azure
 
@@ -19,77 +19,77 @@ ms.locfileid: "86045247"
 
 ## <a name="adapterinitializationerror"></a>AdapterInitializationError
 
-* **Causa**: Si è verificato un errore durante l'inizializzazione di un adattatore.
+* **Causa** : Si è verificato un errore durante l'inizializzazione di un adattatore.
 
 ## <a name="adapterfailedtowriteevents"></a>AdapterFailedToWriteEvents
 
-* **Causa**: Si è verificato un errore durante la scrittura di dati in un adattatore.
+* **Causa** : Si è verificato un errore durante la scrittura di dati in un adattatore.
 
 ## <a name="azurefunctionhttperror"></a>AzureFunctionHttpError
 
-* **Causa**: Un errore HTTP è stato restituito da Funzioni di Azure.
+* **Causa** : Un errore HTTP è stato restituito da Funzioni di Azure.
 
 ## <a name="azurefunctionfailedtosendmessage"></a>AzureFunctionFailedToSendMessage
 
-* **Causa**: Analisi di flusso non è riuscito a scrivere gli eventi in Funzioni di Azure.
+* **Causa** : Analisi di flusso non è riuscito a scrivere gli eventi in Funzioni di Azure.
 
 ## <a name="azurefunctionredirecterror"></a>AzureFunctionRedirectError
 
-* **Causa**: Si verifica un errore di reindirizzamento quando si esegue l'output in Funzioni di Azure.
+* **Causa** : Si verifica un errore di reindirizzamento quando si esegue l'output in Funzioni di Azure.
 
 ## <a name="azurefunctionclienterror"></a>AzureFunctionClientError
 
-* **Causa**: Si verifica un errore client quando si esegue l'output in Funzioni di Azure.
+* **Causa** : Si verifica un errore client quando si esegue l'output in Funzioni di Azure.
 
 ## <a name="azurefunctionservererror"></a>AzureFunctionServerError
 
-* **Causa**: Si verifica un errore server quando si esegue l'output in Funzioni di Azure.
+* **Causa** : Si verifica un errore server quando si esegue l'output in Funzioni di Azure.
 
 ## <a name="azurefunctionhttptimeouterror"></a>AzureFunctionHttpTimeOutError
 
-* **Causa**: La scrittura in funzioni di Azure non è riuscita perché la richiesta HTTP ha superato il timeout. 
-* **Raccomandazione**: Controllare i log di Funzioni di Azure per rilevare potenziali ritardi.
+* **Causa** : La scrittura in funzioni di Azure non è riuscita perché la richiesta HTTP ha superato il timeout. 
+* **Raccomandazione** : Controllare i log di Funzioni di Azure per rilevare potenziali ritardi.
 
 ## <a name="eventhubargumenterror"></a>EventHubArgumentError
 
-* **Causa**: Gli offset di input non sono validi. Questo problema può essere dovuto a un failover.
-* **Raccomandazione**: Riavviare il processo di Analisi di flusso di Azure dall'ora dell'ultimo output.
+* **Causa** : Gli offset di input non sono validi. Questo problema può essere dovuto a un failover.
+* **Raccomandazione** : Riavviare il processo di Analisi di flusso di Azure dall'ora dell'ultimo output.
 
 ## <a name="eventhubfailedtowriteevents"></a>EventHubFailedToWriteEvents
 
-* **Causa**: Si è verificato un errore durante l'invio di dati all'hub eventi.
+* **Causa** : Si è verificato un errore durante l'invio di dati all'hub eventi.
 
 ## <a name="cosmosdbconnectionfailureaftermaxretries"></a>CosmosDBConnectionFailureAfterMaxRetries
 
-* **Causa**: Analisi di flusso non è riuscito a connettersi a un account Cosmos DB dopo aver raggiunto il numero massimo di tentativi.
+* **Causa** : Analisi di flusso non è riuscito a connettersi a un account Cosmos DB dopo aver raggiunto il numero massimo di tentativi.
 
 ## <a name="cosmosdbfailureaftermaxretries"></a>CosmosDBFailureAfterMaxRetries
 
-* **Causa**: Analisi di flusso non è riuscito a eseguire una query sul database e sulla raccolta Cosmos DB dopo aver raggiunto il numero massimo di tentativi.
+* **Causa** : Analisi di flusso non è riuscito a eseguire una query sul database e sulla raccolta Cosmos DB dopo aver raggiunto il numero massimo di tentativi.
 
 ## <a name="cosmosdbfailedtocreatestoredprocedure"></a>CosmosDBFailedToCreateStoredProcedure
 
-* **Causa**: CosmosDB non è riuscito a creare una stored procedure dopo diversi tentativi.
+* **Causa** : CosmosDB non è riuscito a creare una stored procedure dopo diversi tentativi.
 
 ## <a name="cosmosdboutputrequesttimeout"></a>CosmosDBOutputRequestTimeout
 
-* **Causa**: La stored procedure upsert ha restituito un errore. 
+* **Causa** : La stored procedure upsert ha restituito un errore. 
 
 ## <a name="sqldatabaseoutputinitializationerror"></a>SQLDatabaseOutputInitializationError
 
-* **Causa**: Analisi di flusso non è riuscito a inizializzare l'output del database SQL.
+* **Causa** : Analisi di flusso non è riuscito a inizializzare l'output del database SQL.
 
 ## <a name="sqldatabaseoutputwriteerror"></a>SQLDatabaseOutputWriteError
 
-* **Causa**: Analisi di flusso non è riuscito a scrivere eventi nell'output del database SQL.
+* **Causa** : Analisi di flusso non è riuscito a scrivere eventi nell'output del database SQL.
 
 ## <a name="sqldwoutputinitializationerror"></a>SQLDWOutputInitializationError
 
-* **Causa**: Si è verificato un errore durante l'inizializzazione di un output del pool Synapse SQL.
+* **Motivo** : si è verificato un errore durante l'inizializzazione di un output del pool SQL dedicato.
 
 ## <a name="sqldwoutputwriteerror"></a>SQLDWOutputWriteError
 
-* **Causa**: Si è verificato un errore durante la scrittura di un output nel pool Synapse SQL.
+* **Motivo** : si è verificato un errore durante la scrittura dell'output in un pool SQL dedicato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,30 +11,30 @@ ms.date: 04/19/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 368d43283d713b8d4e101c2ee26724242f29756c
-ms.sourcegitcommit: 8ad5761333b53e85c8c4dabee40eaf497430db70
+ms.openlocfilehash: 6d59d64c861b74610e82b962ddd5db2331d3db64
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93148253"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305017"
 ---
 # <a name="statistics-in-synapse-sql"></a>Statistiche in Synapse SQL
 
-In questo articolo vengono forniti consigli ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query tramite risorse di Synapse SQL: Pool SQL e SQL su richiesta (anteprima).
+In questo articolo vengono forniti consigli ed esempi per la creazione e l'aggiornamento delle statistiche di ottimizzazione delle query tramite le risorse SQL di sinapsi: pool SQL dedicato e pool SQL senza server (anteprima).
 
-## <a name="statistics-in-sql-pool"></a>Statistiche nel pool SQL
+## <a name="statistics-in-dedicated-sql-pool"></a>Statistiche nel pool SQL dedicato
 
 ### <a name="why-use-statistics"></a>Perché usare le statistiche?
 
-Più informazioni sui dati sono a disposizione del pool SQL, più rapidamente può eseguire le query. Dopo aver caricato i dati nel pool SQL, raccogliere le statistiche sui dati è una delle prime attività da compiere per ottimizzare le query.  
+Il pool SQL più dedicato conosce i dati, più rapidamente può eseguire query. Dopo il caricamento dei dati in un pool SQL dedicato, la raccolta delle statistiche sui dati è una delle operazioni più importanti che è possibile eseguire per l'ottimizzazione delle query.  
 
-Query Optimizer del pool SQL è un ottimizzatore basato sui costi. Esegue un confronto fra i costi dei vari piani di query e poi sceglie quello che costa meno, che in molti casi è il piano eseguito più velocemente.
+Il Query Optimizer del pool SQL dedicato è un ottimizzatore basato sui costi. Esegue un confronto fra i costi dei vari piani di query e poi sceglie quello che costa meno, che in molti casi è il piano eseguito più velocemente.
 
 Se, ad esempio, l'ottimizzatore stima che la data in base alla quale si sta filtrando la query restituirà una riga, verrà scelto un piano. Se invece stima che la data selezionata restituirà un milione righe, verrà restituito un piano diverso.
 
 ### <a name="automatic-creation-of-statistics"></a>Creazione automatica di statistiche
 
-Se l'opzione AUTO_CREATE_STATISTICS del database è impostata su `ON`, il pool SQL controllerà le query utente in ingresso per verificare se siano presenti le statistiche mancanti.  Se non sono presenti, Query Optimizer creerà statistiche su singole colonne nel predicato della query o nella condizione di join, 
+Il motore del pool SQL dedicato analizzerà le query utente in entrata per le statistiche mancanti quando l'opzione database AUTO_CREATE_STATISTICS è impostata su `ON` .  Se non sono presenti, Query Optimizer creerà statistiche su singole colonne nel predicato della query o nella condizione di join, 
 
 in modo da migliorare le stime di cardinalità del piano di query.
 
@@ -99,7 +99,7 @@ Di seguito sono forniti alcuni elementi consigliati per l'aggiornamento delle st
 
 ### <a name="determine-last-statistics-update"></a>Determinare l'ultimo aggiornamento delle statistiche
 
-Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate** .
+Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate**.
 
 Questa verifica non può essere basata sulla data di creazione dei dati. Un oggetto statistiche aggiornato può essere vecchio se non sono state apportate modifiche sostanziali ai dati sottostanti. È necessario aggiornare le statistiche *quando* vengono apportate modifiche importanti al numero di righe o modifiche sostanziali alla distribuzione dei valori per una colonna specifica.
 
@@ -166,7 +166,7 @@ Questi esempi illustrano come usare diverse opzioni per la creazione delle stati
 #### <a name="create-single-column-statistics-with-default-options"></a>Creare statistiche a colonna singola con opzioni predefinite
 
 Per creare statistiche su una colonna, fornire un nome per l'oggetto statistiche e il nome della colonna.
-Questa sintassi usa tutte le opzioni predefinite. Per impostazione predefinita, il pool SQL esegue il campionamento del **20%** della tabella quando crea le statistiche.
+Questa sintassi usa tutte le opzioni predefinite. Per impostazione predefinita, il pool SQL dedicato campiona il **20%** della tabella durante la creazione delle statistiche.
 
 ```sql
 CREATE STATISTICS [statistics_name]
@@ -245,7 +245,7 @@ Per creare un oggetto statistiche a più colonne, usare gli esempi precedenti, s
 > [!NOTE]
 > L'istogramma, che viene usato per stimare il numero di righe nei risultato della query, è disponibile solo per la prima colonna elencata nella definizione dell'oggetto statistiche.
 
-In questo esempio l'istogramma è disponibile su *product\_category* . Le statistiche sulle colonne vengono calcolate su *product\_category* e *product\_sub_category* :
+In questo esempio l'istogramma è disponibile su *product\_category*. Le statistiche sulle colonne vengono calcolate su *product\_category* e *product\_sub_category* :
 
 ```sql
 CREATE STATISTICS stats_2cols
@@ -430,7 +430,7 @@ L'istruzione UPDATE STATISTICS è facile da usare. Occorre ricordare che aggiorn
 Se le prestazioni non sono un problema, questo è il metodo più semplice e più completo per garantire l'aggiornamento delle statistiche.
 
 > [!NOTE]
-> Quando si aggiornano tutte le statistiche in una tabella, il pool SQL esegue un'analisi per campionare la tabella per ogni oggetto statistiche. Se si tratta di una tabella di grandi dimensioni, che include molte colonne e molte statistiche, potrebbe risultare più efficiente aggiornare le singole statistiche in base alle necessità.
+> Quando si aggiornano tutte le statistiche in una tabella, il pool SQL dedicato esegue un'analisi per campionare la tabella per ogni oggetto statistiche. Se si tratta di una tabella di grandi dimensioni, che include molte colonne e molte statistiche, potrebbe risultare più efficiente aggiornare le singole statistiche in base alle necessità.
 
 Per l'implementazione di una procedura `UPDATE STATISTICS`, vedere [Tabelle temporanee](develop-tables-temporary.md). Il metodo di implementazione è leggermente diverso rispetto alla procedura `CREATE STATISTICS` precedente, ma il risultato è lo stesso.
 Per la sintassi completa, vedere [Aggiornare le statistiche](/sql/t-sql/statements/update-statistics-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
@@ -512,7 +512,7 @@ DBCC SHOW_STATISTICS() mostra i dati inclusi in un oggetto statistiche. Questi d
 
 L'intestazione contiene i metadati sulle statistiche. L'istogramma mostra la distribuzione dei valori nella prima colonna chiave dell'oggetto statistiche. 
 
-Il vettore di densità misura la correlazione tra le colonne. Il pool SQL calcola le stime di cardinalità con tutti i dati nell'oggetto statistiche.
+Il vettore di densità misura la correlazione tra le colonne. Il pool SQL dedicato calcola le stime della cardinalità con tutti i dati nell'oggetto statistiche.
 
 #### <a name="show-header-density-and-histogram"></a>Mostrare l'intestazione, la densità e l'istogramma
 
@@ -546,7 +546,7 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 
 ### <a name="dbcc-show_statistics-differences"></a>Differenze di DBCC SHOW_STATISTICS()
 
-`DBCC SHOW_STATISTICS()` viene implementato in modo più rigoroso nel pool SQL rispetto a SQL Server:
+`DBCC SHOW_STATISTICS()` viene implementato in modo più rigoroso nel pool SQL dedicato rispetto a SQL Server:
 
 - Non sono supportate funzionalità non documentate.
 - Non è possibile usare Stats_stream.
@@ -556,25 +556,22 @@ DBCC SHOW_STATISTICS (dbo.table1, stats_col1)
 - Non è possibile usare i nomi di colonna per identificare gli oggetti statistiche.
 - Non è supportato l'errore personalizzato 2767.
 
-### <a name="next-steps"></a>Passaggi successivi
 
-Per ottimizzare ulteriormente le prestazioni delle query, vedere [Monitorare il carico di lavoro](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
-
-## <a name="statistics-in-sql-on-demand-preview"></a>Statistiche in SQL su richiesta (anteprima)
+## <a name="statistics-in-serverless-sql-pool-preview"></a>Statistiche nel pool SQL senza server (anteprima)
 
 Le statistiche vengono create per una determinata colonna in un determinato set di dati (percorso di archiviazione).
 
 ### <a name="why-use-statistics"></a>Perché usare le statistiche?
 
-Più informazioni sui dati sono a disposizione di SQL su richiesta (anteprima), più rapidamente può eseguire le query. Raccogliere le statistiche sui dati è una delle prime attività da compiere per ottimizzare le query. 
+Il maggior numero di pool SQL senza server (anteprima) conosce i dati, più velocemente è possibile eseguire query su di esso. Raccogliere le statistiche sui dati è una delle prime attività da compiere per ottimizzare le query. 
 
-Query Optimizer di SQL su richiesta è un ottimizzatore basato sui costi. Esegue un confronto fra i costi dei vari piani di query e poi sceglie quello che costa meno, che in molti casi è il piano eseguito più velocemente. 
+Il Query Optimizer del pool SQL senza server è un ottimizzatore basato sui costi. Esegue un confronto fra i costi dei vari piani di query e poi sceglie quello che costa meno, che in molti casi è il piano eseguito più velocemente. 
 
 Se, ad esempio, l'ottimizzatore stima che la data in base alla quale si sta filtrando la query restituirà una riga, verrà scelto un piano. Se invece stima che la data selezionata restituirà un milione righe, verrà restituito un piano diverso.
 
 ### <a name="automatic-creation-of-statistics"></a>Creazione automatica di statistiche
 
-SQL su richiesta controlla le query utente in ingresso per verificare se siano presenti le statistiche mancanti. Se non sono presenti, Query Optimizer creerà statistiche su singole colonne nel predicato della query o nella condizione di join per migliorare le stime di cardinalità del piano di query.
+Il pool SQL senza server analizza le query utente in ingresso per le statistiche mancanti. Se non sono presenti, Query Optimizer creerà statistiche su singole colonne nel predicato della query o nella condizione di join per migliorare le stime di cardinalità del piano di query.
 
 L'istruzione SELECT attiverà la creazione automatica di statistiche.
 
@@ -585,7 +582,7 @@ La creazione automatica di statistiche viene generata in modo sincrono; se nelle
 
 ### <a name="manual-creation-of-statistics"></a>Creazione manuale di statistiche
 
-SQL su richiesta consente di creare le statistiche manualmente. Per i file CSV, è necessario creare manualmente le statistiche perché la creazione automatica di statistiche non è ancora attivata per questi file. 
+Il pool SQL senza server consente di creare manualmente le statistiche. Per i file CSV, è necessario creare manualmente le statistiche perché la creazione automatica di statistiche non è ancora attivata per questi file. 
 
 Per istruzioni su come creare manualmente le statistiche, vedere gli esempi seguenti.
 
@@ -593,7 +590,7 @@ Per istruzioni su come creare manualmente le statistiche, vedere gli esempi segu
 
 Qualsiasi modifica ai dati nei file, nonché eliminazione o aggiunta di file, comporta modifiche alla distribuzione dei dati e rende le statistiche obsolete. In questo caso, le statistiche devono essere aggiornate.
 
-Ogni volta che i dati vengono modificati in modo significativo, SQL su richiesta ricrea automaticamente le statistiche e, contemporaneamente, salva lo stato corrente del set di dati: percorsi di file, dimensioni, data dell'ultima modifica.
+Il pool SQL senza server ricrea automaticamente le statistiche se i dati vengono modificati in modo significativo. contemporaneamente, salva lo stato corrente del set di dati: percorsi di file, dimensioni, data dell'ultima modifica.
 
 Vengono create nuove statistiche anche quando le statistiche esistenti diventano obsolete. L'algoritmo analizza i dati e li confronta con lo stato corrente del set di dati. Se le dimensioni delle modifiche superano una determinata soglia, le statistiche precedenti vengono eliminate e vengono ricreate rispetto al nuovo set di dati.
 
@@ -602,7 +599,7 @@ Le statistiche manuali non vengono mai dichiarate obsolete.
 > [!NOTE]
 > La ricreazione automatica delle statistiche è attivata per i file Parquet. Per i file CSV, invece, è necessario eliminare le statistiche esistenti e ricrearle manualmente fino a quando non sarà supportata la creazione automatica di statistiche sui file CSV. Vedere gli esempi seguenti su come eliminare e creare statistiche.
 
-Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate** .
+Quando si risolvono i problemi di una query è essenziale verificare prima di tutto che **le statistiche siano aggiornate**.
 
 È necessario aggiornare le statistiche *quando* vengono apportate modifiche importanti al numero di righe o modifiche sostanziali alla distribuzione dei valori per una colonna specifica.
 
@@ -650,7 +647,7 @@ Argomenti: [ @stmt = ] N'statement_text' - Specifica un'istruzione Transact-SQL 
 
 Per creare statistiche su una colonna, fornire una query che restituisca la colonna per la quale sono necessarie le statistiche.
 
-Se non diversamente specificato, SQL su richiesta usa automaticamente il 100% dei dati contenuti nel set di dati per la creazione delle statistiche.
+Per impostazione predefinita, se non si specifica diversamente, il pool SQL senza server usa il 100% dei dati forniti nel DataSet durante la creazione delle statistiche.
 
 Ad esempio, per creare le statistiche relative a una colonna Year del set di dati in base al file population.csv usando le opzioni predefinite (FULLSCAN), è necessario seguire questa procedura:
 
@@ -816,4 +813,6 @@ CREATE STATISTICS sState
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sui miglioramenti delle prestazioni delle query, vedere [Procedure consigliate per il pool SQL](best-practices-sql-pool.md#maintain-statistics).
+Per migliorare ulteriormente le prestazioni delle query per il pool SQL dedicato, vedere [monitorare il carico di lavoro e le](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) procedure consigliate [per il pool SQL dedicato](best-practices-sql-pool.md#maintain-statistics).
+
+Per migliorare ulteriormente le prestazioni delle query per il pool SQL senza server, vedere [procedure consigliate per il pool SQL senza server](best-practices-sql-on-demand.md)

@@ -10,16 +10,16 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: 9f786a791fda1f601df2a94d9f38edcbfe9dc401
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: d10b7084cfc49d60e9d14c3c857d1ade839398ac
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92474768"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305099"
 ---
-# <a name="performance-tuning-with-materialized-views"></a>Ottimizzazione delle prestazioni con le viste materializzate
+# <a name="performance-tuning-with-materialized-views-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Ottimizzazione delle prestazioni con viste materializzate con pool SQL dedicato in Azure sinapsi Analytics
 
-Nel pool Synapse SQL le viste materializzate offrono un metodo a bassa manutenzione per le query analitiche complesse, che consente di ottenere prestazioni veloci senza bisogno di modificare le query. Questo articolo illustra le linee guida generali sull'uso delle viste materializzate.
+Nel pool SQL dedicato, le viste materializzate forniscono un metodo di manutenzione basso per le query analitiche complesse per ottenere prestazioni rapide senza alcuna modifica alle query. Questo articolo illustra le linee guida generali sull'uso delle viste materializzate.
 
 ## <a name="materialized-views-vs-standard-views"></a>Confronto tra viste materializzate e viste standard
 
@@ -27,7 +27,7 @@ Il pool SQL supporta le viste standard e le viste materializzate.  Entrambe sono
 
 Una vista standard calcola i dati ogni volta che viene usata.  Non sono presenti dati archiviati su disco. Le viste standard vengono in genere usate come strumento per organizzare gli oggetti logici e le query in un database.  Per usare una vista standard, una query deve farvi riferimento diretto.
 
-Una vista materializzata precalcola, archivia e gestisce i dati nel pool SQL esattamente come una tabella.  Non è necessario ricalcolare una vista materializzata a ogni utilizzo.  Per questo motivo, le query che usano tutti i dati o un subset di dati contenuti in viste materializzate possono ottenere prestazioni più veloci.  Ancor meglio, le query possono usare una vista materializzata senza farvi riferimento diretto, pertanto non è necessario modificare il codice dell'applicazione.  
+Una vista materializzata consente di pre-calcolare, archiviare e mantenere i dati in un pool SQL dedicato come una tabella.  Non è necessario ricalcolare una vista materializzata a ogni utilizzo.  Per questo motivo, le query che usano tutti i dati o un subset di dati contenuti in viste materializzate possono ottenere prestazioni più veloci.  Ancor meglio, le query possono usare una vista materializzata senza farvi riferimento diretto, pertanto non è necessario modificare il codice dell'applicazione.  
 
 La maggior parte dei requisiti di una vista standard è applicabile a una vista materializzata. Per informazioni dettagliate sulla sintassi e sugli altri requisiti delle viste materializzate, vedere [CREATE MATERIALIZED VIEW AS SELECT](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
@@ -46,13 +46,13 @@ Una vista materializzata progettata in modo corretto offre i vantaggi seguenti:
 
 - Il tempo di esecuzione è ridotto per le query complesse con JOIN e funzioni di aggregazione. Più complessa è la query, maggiore è il potenziale di risparmio in fase di esecuzione. Il vantaggio maggiore si ottiene quando il costo di calcolo di una query è elevato e il set di dati risultante è di dimensioni ridotte.  
 
-- L'utilità di ottimizzazione nel pool SQL può usare automaticamente le viste materializzate distribuite per migliorare i piani di esecuzione delle query.  Questo processo è trasparente per gli utenti, fornendo prestazioni di query più veloci. Inoltre, non è necessario che le query facciano riferimento direttamente alle viste materializzate.
+- Il Query Optimizer nel pool SQL dedicato può utilizzare automaticamente viste materializzate distribuite per migliorare i piani di esecuzione delle query.  Questo processo è trasparente per gli utenti, fornendo prestazioni di query più veloci. Inoltre, non è necessario che le query facciano riferimento direttamente alle viste materializzate.
 
 - Le viste richiedono poca manutenzione.  Una vista materializzata archivia i dati in due posizioni, un indice columnstore cluster per i dati iniziali al momento della creazione della vista e un archivio delta per le modifiche incrementali ai dati.  Tutte le modifiche ai dati delle tabelle di base vengono aggiunte automaticamente all'archivio delta in modo sincrono.  Un processo in background (motore di tuple) sposta periodicamente i dati dall'archivio delta all'indice columnstore della vista.  Grazie a questa progettazione, le query sulle viste materializzate restituiscono gli stessi dati di una query diretta sulle tabelle di base.
 - I dati in una vista materializzata possono essere distribuiti in modo diverso rispetto alle tabelle di base.  
 - I dati nelle viste materializzate presentano gli stessi vantaggi, in termini di disponibilità elevata e resilienza, dei dati nelle normali tabelle.  
 
-Rispetto ad altri provider di data warehouse, le viste materializzate implementate nel pool SQL offrono anche i vantaggi seguenti:
+Rispetto ad altri provider di data warehouse, le viste materializzate implementate nel pool SQL dedicato forniscono anche i seguenti vantaggi aggiuntivi:
 
 - Aggiornamento automatico e sincrono dei dati con le modifiche apportate ai dati nelle tabelle di base. Non è richiesta alcuna azione da parte dell'utente.
 - Ampio supporto delle funzioni di aggregazione. Vedere [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
@@ -151,7 +151,7 @@ Per evitare la riduzione del livello delle prestazioni delle query, è consiglia
 
 **Vista materializzata e memorizzazione nella cache del set di risultati**
 
-Queste due funzionalità si introducono nel pool SQL pressappoco nello stesso momento per ottimizzare le prestazioni delle query. La memorizzazione nella cache del set di risultati si usa per ottenere una concorrenza elevata e tempi di risposta rapidi dalle query ripetitive sui dati statici.  
+Queste due funzionalità sono state introdotte in un pool SQL dedicato attorno allo stesso tempo per l'ottimizzazione delle prestazioni delle query. La memorizzazione nella cache del set di risultati si usa per ottenere una concorrenza elevata e tempi di risposta rapidi dalle query ripetitive sui dati statici.  
 
 Per usare il risultato memorizzato nella cache, la forma della query di richiesta della cache deve corrispondere alla query che ha generato la cache.  Inoltre, il risultato memorizzato nella cache deve essere applicabile all'intera query.  
 

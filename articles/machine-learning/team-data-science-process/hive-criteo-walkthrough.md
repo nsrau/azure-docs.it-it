@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99595e27b17db716b09325d5dd80633bf44ffb02
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e66bd0a4e56f63185d8361355d6cf8e0e29bc30b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336650"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305941"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>Processo di analisi scientifica dei dati per i team in azione: uso di un cluster Azure HDInsight Hadoop in un set di dati da 1 TB
 
@@ -50,11 +50,11 @@ Il set di dati presenta valori mancanti sia nelle colonne numeriche sia in quell
 ## <a name="examples-of-prediction-tasks"></a><a name="mltasks"></a>Esempi di attività di stima
 Questa procedura dettagliata illustra due problemi di stima di esempio:
 
-1. **Classificazione binaria**: stima se un utente ha fatto clic su un annuncio:
+1. **Classificazione binaria** : stima se un utente ha fatto clic su un annuncio:
 
    * Classe 0: nessun clic
    * Classe 1: clic
-2. **Regressione**: stima la probabilità di un clic su un annuncio in base alle caratteristiche dell'utente.
+2. **Regressione** : stima la probabilità di un clic su un annuncio in base alle caratteristiche dell'utente.
 
 ## <a name="set-up-an-hdinsight-hadoop-cluster-for-data-science"></a><a name="setup"></a>Configurare un cluster Hadoop di HDInsight per l'analisi scientifica
 > [!NOTE]
@@ -63,7 +63,7 @@ Questa procedura dettagliata illustra due problemi di stima di esempio:
 Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creazione di soluzioni di analisi predittiva con i cluster HDInsight, sono necessari tre passaggi:
 
 1. [Creare un account di archiviazione](../../storage/common/storage-account-create.md): l'account di archiviazione viene usato per archiviare i dati nell'archivio BLOB di Azure. I dati usati nei cluster HDInsight vengono archiviati in questa posizione.
-2. [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](customize-hadoop-cluster.md): questo passaggio consente di creare un cluster Hadoop di Azure HDInsight con la versione a 64 bit di Anaconda Python 2.7 installata in tutti i nodi. Quando si personalizza il cluster HDInsight, occorre completare due importanti passaggi descritti in questo argomento.
+2. [Personalizzare i cluster Hadoop di Azure HDInsight per l'analisi scientifica dei dati](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md): questo passaggio consente di creare un cluster Hadoop di Azure HDInsight con la versione a 64 bit di Anaconda Python 2.7 installata in tutti i nodi. Quando si personalizza il cluster HDInsight, occorre completare due importanti passaggi descritti in questo argomento.
 
    * Collegare l'account di archiviazione creato nel passaggio 1 al cluster HDInsight al momento della creazione. Questo account di archiviazione viene usato per accedere ai dati che possono essere elaborati all'interno del cluster.
    * Abilitare l'accesso remoto al nodo head del cluster dopo che è stato creato. Ricordare le credenziali di accesso remoto specificate qui, diverse dalle credenziali specificate durante la creazione del cluster: completare le procedure riportate di seguito.
@@ -76,7 +76,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure per la creaz
 
 Fare clic su **Continue to Download** (Continuare per il download) per leggere altre informazioni sul set di dati e sulla relativa disponibilità.
 
-I dati si trovano in un percorso di [archiviazione BLOB di Azure](../../storage/blobs/storage-dotnet-how-to-use-blobs.md) : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/ . La sintassi "wasb" indica la posizione di archiviazione BLOB di Azure.
+I dati si trovano in un percorso di [archiviazione BLOB di Azure](../../storage/blobs/storage-quickstart-blobs-dotnet.md) : wasb://criteo@azuremlsampleexperiments.blob.core.windows.net/raw/ . La sintassi "wasb" indica la posizione di archiviazione BLOB di Azure.
 
 1. I dati in questo archivio BLOB di Azure sono costituiti da tre sottocartelle di dati non compressi.
 
@@ -99,7 +99,7 @@ A sinistra è presente la "riga di comando di Hadoop", usata per l'esplorazione 
 Ora che la configurazione è stata completata, è possibile iniziare la prima parte della procedura dettagliata, ovvero l'esplorazione dei dati tramite Hive e la loro preparazione per Azure Machine Learning.
 
 ## <a name="create-hive-database-and-tables"></a><a name="hive-db-tables"></a> Creare database e tabelle hive
-Per creare le tabelle Hive per il set di dati Criteo, aprire la ***riga di comando di Hadoop*** sul desktop del nodo head e specificare la directory Hive immettendo il comando
+Per creare tabelle hive per il set di dati Criteo, aprire la *_riga di comando * Hadoop_* _ sul desktop del nodo Head e immettere la directory hive immettendo il comando
 
 ```console
 cd %hive_home%\bin
@@ -118,7 +118,7 @@ Dopo che viene visualizzata la shell REPL Hive con l'indicazione "hive >", è su
 
 Il codice seguente crea un database "Criteo" e quindi genera quattro tabelle:
 
-* una *tabella per la generazione di conteggi* compilata nei giorni compresi tra day\_00 e day\_20
+_ una *tabella per la generazione dei conteggi* compilata sui giorni \_ 00 al giorno \_ 20,
 * una *tabella da usare come set di dati di training* compilata il giorno day\_21
 * due *tabelle da usare come set di dati di test* compilate rispettivamente nei giorni day\_22 e day\_23
 
@@ -161,7 +161,7 @@ Tutte queste tabelle sono esterne per poter puntare ai percorsi di archiviazione
 
 **Esistono due modi per eseguire QUALSIASI query Hive:**
 
-* **Usando la riga di comando di hive REPL**: il primo consiste nell'eseguire un comando "hive" e copiare e incollare una query nella riga di comando di hive REPL:
+* **Usando la riga di comando di hive REPL** : il primo consiste nell'eseguire un comando "hive" e copiare e incollare una query nella riga di comando di hive REPL:
 
   ```console
   cd %hive_home%\bin
@@ -169,7 +169,7 @@ Tutte queste tabelle sono esterne per poter puntare ai percorsi di archiviazione
   ```
 
      A questo punto, alla riga di comando di REPL, tagliare e incollare la query lo esegue.
-* **Salvataggio di query in un file ed esecuzione del comando**: il secondo consiste nel salvare le query in un file ". HQL" (ad[esempio&#95;hive&#95;creare&#95;criteo&#95;database&#95;e&#95;Tables. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), quindi eseguire il comando seguente per eseguire la query:
+* **Salvataggio di query in un file ed esecuzione del comando** : il secondo consiste nel salvare le query in un file ". HQL" (ad [esempio&#95;hive&#95;creare&#95;criteo&#95;database&#95;e&#95;Tables. HQL](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_create_criteo_database_and_tables.hql)), quindi eseguire il comando seguente per eseguire la query:
 
   ```console
   hive -f C:\temp\sample_hive_create_criteo_database_and_tables.hql
@@ -354,7 +354,7 @@ Il risultato è il seguente:
 Time taken: 448.116 seconds, Fetched: 1 row(s)
 ```
 
-Col15 dispone di valori univoci di 19 milioni. Non è possibile usare tecniche di base come la "codifica one-hot" per codificare variabili categoriche con dimensionalità così elevata. In particolare, viene spiegata e illustrata una tecnica avanzata e affidabile di [apprendimento in base ai conteggi](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx) per affrontare il problema in modo efficiente.
+Col15 dispone di valori univoci di 19 milioni. Non è possibile usare tecniche di base come la "codifica one-hot" per codificare variabili categoriche con dimensionalità così elevata. In particolare, viene spiegata e illustrata una tecnica avanzata e affidabile di [apprendimento in base ai conteggi](/archive/blogs/machinelearning/big-learning-made-easy-with-counts) per affrontare il problema in modo efficiente.
 
 Come ultima operazione, viene esaminato il numero di valori univoci per altre colonne categoriche. Il contenuto di [sample&#95;hive&#95;criteo&#95;unique&#95;values&#95;multiple&#95;categoricals.hql](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/DataScienceProcess/DataScienceScripts/sample_hive_criteo_unique_values_multiple_categoricals.hql) è il seguente:
 
@@ -472,7 +472,7 @@ A questo punto, è possibile usare i set di dati di training e di test sottocamp
 Prima di passare ad Azure Machine Learning, è importante considerare un ultimo componente importante, costituito dalla tabella di conteggio. Nella sottosezione successiva la tabella Count viene discussa in dettaglio.
 
 ## <a name="a-brief-discussion-on-the-count-table"></a><a name="count"></a> Breve discussione sulla tabella di conteggio
-Come si è visto, diverse variabili categoriche hanno una dimensionalità elevata. Nella procedura dettagliata viene presentata una tecnica avanzata, denominata tecnica di [apprendimento in base ai conteggi](https://blogs.technet.com/b/machinelearning/archive/2015/02/17/big-learning-made-easy-with-counts.aspx), che consente di codificare queste variabili in modo affidabile ed efficiente. Altre informazioni su questa tecnica sono disponibili facendo clic sul relativo collegamento.
+Come si è visto, diverse variabili categoriche hanno una dimensionalità elevata. Nella procedura dettagliata viene presentata una tecnica avanzata, denominata tecnica di [apprendimento in base ai conteggi](/archive/blogs/machinelearning/big-learning-made-easy-with-counts), che consente di codificare queste variabili in modo affidabile ed efficiente. Altre informazioni su questa tecnica sono disponibili facendo clic sul relativo collegamento.
 
 >[!NOTE]
 >In questa procedura dettagliata viene esaminato l'uso di tabelle di conteggio per produrre rappresentazioni compatte di funzionalità di tipo categorico con dimensionalità elevata. Questa tecnica non è l'unico modo disponibile per codificare le funzionalità categoriche. Per altre informazioni su tecniche diverse, è possibile vedere gli argomenti relativi alla [codifica one-hot](https://en.wikipedia.org/wiki/One-hot) e all'[hashing delle funzioni](https://en.wikipedia.org/wiki/Feature_hashing).
@@ -502,13 +502,13 @@ Per il modulo **Import Data** i valori dei parametri forniti nel grafico sono so
 
 1. In **Data Source**
 2. Nella casella **Hive database query** (Query di database Hive) è sufficiente specificare l'istruzione SELECT * FROM <nome\_del\_database.nome\_della\_tabella>.
-3. **URI del server Hcatalog**: se il cluster è "ABC", questo è semplicemente: https: \/ /ABC.azurehdinsight.NET
+3. **URI del server Hcatalog** : se il cluster è "ABC", questo è semplicemente: https: \/ /ABC.azurehdinsight.NET
 4. **Hadoop user account name** (Nome dell'account utente Hadoop): nome utente scelto al momento dell'autorizzazione del cluster (NON il nome utente di accesso remoto).
 5. **Hadoop user account password** (Password dell'account utente Hadoop): password per il nome utente scelta al momento dell'autorizzazione del cluster (NON la password di accesso remoto).
-6. **Location of output data**: scegliere "Azure".
-7. **Nome dell'account di archiviazione di Azure**: account di archiviazione associato al cluster
-8. **Chiave dell'account di archiviazione di Azure**: la chiave dell'account di archiviazione associato al cluster.
-9. **Azure container name**: se il nome del cluster è "abc", in genere questo valore è semplicemente "abc".
+6. **Location of output data** : scegliere "Azure".
+7. **Nome dell'account di archiviazione di Azure** : account di archiviazione associato al cluster
+8. **Chiave dell'account di archiviazione di Azure** : la chiave dell'account di archiviazione associato al cluster.
+9. **Azure container name** : se il nome del cluster è "abc", in genere questo valore è semplicemente "abc".
 
 Quando il modulo **Import Data** termina il recupero dei dati, il completamento è indicato da un segno di spunta verde nel modulo, salvarli come set di dati con un nome a propria scelta. L'aspetto è il seguente:
 
@@ -617,7 +617,7 @@ Per il training, è sufficiente richiamare un modulo **Train Model**. I due inpu
 ![Modulo Train Model](./media/hive-criteo-walkthrough/2bZDZTy.png)
 
 #### <a name="score-the-model"></a>Assegnare un punteggio al modello
-Una volta disponibile un modello con training, è possibile assegnare un punteggio al set di dati di test e valutarne le prestazioni. A questo scopo, usare il modulo **Score Model** illustrato nella figura seguente, insieme a un modulo **Evaluate Model**:
+Una volta disponibile un modello con training, è possibile assegnare un punteggio al set di dati di test e valutarne le prestazioni. A questo scopo, usare il modulo **Score Model** illustrato nella figura seguente, insieme a un modulo **Evaluate Model** :
 
 ![Modulo Score Model](./media/hive-criteo-walkthrough/fydcv6u.png)
 

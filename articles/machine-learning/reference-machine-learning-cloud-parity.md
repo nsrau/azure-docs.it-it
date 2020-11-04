@@ -1,7 +1,7 @@
 ---
 title: Parità tra aree pubbliche e sovrane
 titleSuffix: Azure Machine Learning
-description: Alcune funzionalità di Azure Machine Learning, ad esempio le funzionalità di anteprima pubblica, possono essere disponibili solo nelle aree del cloud pubblico. Questo articolo elenca le funzionalità disponibili anche nelle aree 21Vianet di Azure per enti pubblici, Azure Germania e Azure Cina.
+description: Questo articolo elenca la parità di funzionalità tra il cloud pubblico e le aree 21Vianet di Azure per enti pubblici, Azure Germania e Azure Cina.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: ddfe1344b235500f0f1ea69b6e3d8c537f96b855
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 0300dab1fa7d0ef0d20c4236cc452135b3ade20e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426532"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305751"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Parità di Azure Machine Learning del cloud sovrano
 
@@ -63,7 +63,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | **Supporto SDK** |  |  | | 
 | Supporto per R SDK                                                              | Anteprima pubblica       | YES                | YES         |
 | Supporto per Python SDK                                                         | GA                   | YES                | YES         |
-| **Security** |   | | | 
+| **Sicurezza** |   | | | 
 | Supporto della rete virtuale (VNet) per il training                                | GA                   | YES                | YES         |
 | Supporto della rete virtuale (VNet) per l'inferenza                               | GA                   | YES                | YES         |
 | Assegnazione di punteggi all'autenticazione dell'endpoint                                            | Anteprima pubblica       | YES                | YES         |
@@ -104,7 +104,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | **Inferenza** |   | | |
 | Inferenza batch                                                          | GA                   | YES                | YES         |
 | Data Box Edge con FPGA                                                    | Anteprima pubblica       | NO                 | NO          |
-| **Altri** |   | | |
+| **Altro** |   | | |
 | Set di dati aperti                                                              | Anteprima pubblica       | YES                | YES         |
 | ricerca cognitiva personalizzati                                                    | Anteprima pubblica       | YES                | YES         |
 | Molti modelli                                                                | Anteprima pubblica       | NO                 | NO          |
@@ -176,7 +176,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | **Supporto SDK** |    | | |
 | Supporto per R SDK                                                              | Anteprima pubblica   | YES       | N/D        |
 | Supporto per Python SDK                                                         | GA               | YES       | N/D        |
-| **Security** |   | | |
+| **Sicurezza** |   | | |
 | Supporto della rete virtuale (VNet) per il training                                | GA               | YES       | N/D        |
 | Supporto della rete virtuale (VNet) per l'inferenza                               | GA               | YES       | N/D        |
 | Assegnazione di punteggi all'autenticazione dell'endpoint                                            | Anteprima pubblica   | YES       | N/D        |
@@ -217,7 +217,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | **Inferenza** |   | | |
 | Inferenza batch                                                          | GA               | YES       | N/D        |
 | Data Box Edge con FPGA                                                    | Anteprima pubblica   | NO        | N/D        |
-| **Altri** |    | | |
+| **Altro** |    | | |
 | Set di dati aperti                                                              | Anteprima pubblica   | YES       | N/D        |
 | ricerca cognitiva personalizzati                                                    | Anteprima pubblica   | YES       | N/D        |
 | Molti modelli                                                                | Anteprima pubblica   | NO        | N/D        |

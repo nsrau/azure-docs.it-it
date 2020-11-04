@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c3406b28c44644053fa984f2cf7739bb53ccf6c8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3845c5e5d7cf6bb372744fb3c740c44aa2b94236
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336446"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305613"
 ---
 # <a name="modeling-stage-of-the-team-data-science-process-lifecycle"></a>Fase di modellazione del ciclo di vita del processo di data science per i team
 
@@ -41,8 +41,8 @@ Ecco una rappresentazione visiva del ciclo di vita del processo TDSP:
 ## <a name="how-to-do-it"></a>Come eseguirla
 Questa fase comprende tre attività principali:
 
-  * **Progettazione delle funzionalità**: creare le funzionalità dei dati dai dati non elaborati per facilitare il training del modello.
-  * **Training del modello**: trovare il modello che risponde alla domanda in modo più accurato confrontando le metriche di successo.
+  * **Progettazione delle funzionalità** : creare le funzionalità dei dati dai dati non elaborati per facilitare il training del modello.
+  * **Training del modello** : trovare il modello che risponde alla domanda in modo più accurato confrontando le metriche di successo.
   * Determinare se il modello è **adatto per la produzione.**
 
 ### <a name="feature-engineering"></a>Progettazione delle funzioni
@@ -59,11 +59,11 @@ Il processo di training del modello include i passaggi seguenti:
 
    * **Suddividere i dati di input** in modo casuale per la modellazione in un set di dati di training e un set di dati di test.
    * **Compilare i modelli** usando il set di dati di training.
-   * **Valutare** il set di dati di test e di training. Usare una serie di algoritmi di Machine Learning concorrenti insieme a diversi parametri di regolazione associati (noti come *sweep parametrico*), pensati per rispondere alle domande di interesse con i dati correnti.
+   * **Valutare** il set di dati di test e di training. Usare una serie di algoritmi di Machine Learning concorrenti insieme a diversi parametri di regolazione associati (noti come *sweep parametrico* ), pensati per rispondere alle domande di interesse con i dati correnti.
    * **Determinare la soluzione "migliore"** per rispondere alla domanda confrontando la metrica di riuscita tra metodi alternativi.
 
 > [!NOTE]
-> **Evitare perdite**: la perdita di dati può essere causata dall'inclusione di dati dall'esterno del set di dati di training che consente a un modello o a un algoritmo di Machine Learning di eseguire stime estremamente valide. La perdita è il motivo comune che infastidisce gli esperti di dati quando ottengono risultati predittivi che appaiono troppo validi per essere reali. Queste dipendenze possono essere difficili da rilevare. Per evitare la perdita, spesso è necessaria l'iterazione della compilazione di un set di dati di analisi, della creazione di un modello e della valutazione dell'accuratezza dei risultati. 
+> **Evitare perdite** : la perdita di dati può essere causata dall'inclusione di dati dall'esterno del set di dati di training che consente a un modello o a un algoritmo di Machine Learning di eseguire stime estremamente valide. La perdita è il motivo comune che infastidisce gli esperti di dati quando ottengono risultati predittivi che appaiono troppo validi per essere reali. Queste dipendenze possono essere difficili da rilevare. Per evitare la perdita, spesso è necessaria l'iterazione della compilazione di un set di dati di analisi, della creazione di un modello e della valutazione dell'accuratezza dei risultati. 
 > 
 > 
 
@@ -74,7 +74,7 @@ Gli elementi generati in questa fase includono:
 
    * [Set di funzionalità](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): le funzionalità sviluppate per la modellazione sono descritte nella sezione **set di funzionalità** del report di **definizione dei dati** . Il report contiene i puntatori al codice per generare le funzionalità e una descrizione della modalità di generazione della funzionalità.
    * [Report dei modelli](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Model/Model%201/Model%20Report.md): per ogni modello provato, viene generato un report standard basato su modelli che fornisce dettagli su ogni esperimento.
-   * **Decisione di checkpoint**: valutare se il modello viene eseguito in modo sufficiente per la produzione. Alcune domande chiave da porsi:
+   * **Decisione di checkpoint** : valutare se il modello viene eseguito in modo sufficiente per la produzione. Alcune domande chiave da porsi:
      * Il modello risponde alla domanda con sufficiente certezza rispetto ai dati del test? 
      * È consigliabile tentare approcci alternativi? È consigliabile raccogliere dati aggiuntivi, eseguire nuove progettazioni di funzionalità o provare con altri algoritmi?
 
@@ -90,4 +90,4 @@ Ecco i collegamenti a ogni passaggio del ciclo di vita del processo di data scie
 
 Sono disponibili esercitazioni dettagliate complete che illustrano tutti i passaggi del processo per scenari specifici. L'articolo sulle [procedure dettagliate di esempio](walkthroughs.md) include un elenco degli scenari con i collegamenti e le descrizioni di anteprima. Le procedure dettagliate illustrano come combinare strumenti cloud, strumenti locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
 
-Per esempi su come eseguire i passaggi nei processi di data science per i team (TDSP) che usano Azure Machine Learning Studio, vedere [Uso del processo di analisi scientifica dei dati per i team con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/). 
+Per esempi su come eseguire i passaggi nei processi di data science per i team (TDSP) che usano Azure Machine Learning Studio, vedere [Uso del processo di analisi scientifica dei dati per i team con Azure Machine Learning](./index.yml).

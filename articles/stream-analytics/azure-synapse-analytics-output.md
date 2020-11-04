@@ -7,20 +7,20 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 04c315f593b90204faaeaec562c18e9e4be301d8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0b3bec9c4d4476b95279e35953ff89177f4488d4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90881896"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305840"
 ---
 # <a name="azure-synapse-analytics-output-from-azure-stream-analytics"></a>Output di analisi di sinapsi di Azure da analisi di flusso di Azure
 
 [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) (in precedenza SQL Data Warehouse) è un servizio di analisi senza limiti che riunisce funzionalità aziendali di data warehousing e analisi di Big Data. 
 
-I processi di Analisi di flusso di Azure possono inviare l'output a una tabella del pool SQL in Azure Synapse Analytics e possono elaborare velocità effettive fino a 200 MB/sec. In questo modo, vengono soddisfatte le più elevate esigenze di analisi in tempo reale e di elaborazione dei dati del percorso critico tipiche di carichi di lavoro quali la creazione di report e dashboard.  
+I processi di analisi di flusso di Azure possono restituire una tabella del pool SQL dedicata in Azure sinapsi Analytics e possono elaborare velocità effettiva fino a 200 MB/sec. Questo supporta l'analisi in tempo reale e le esigenze di elaborazione dei dati con percorso critico più esigenti per i carichi di lavoro, come la creazione di report e il dashboard.  
 
-La tabella del pool SQL deve esistere prima che sia possibile aggiungerla come output al processo di Analisi di flusso. Lo schema della tabella deve corrispondere ai campi e ai relativi tipi nell'output del processo. 
+La tabella del pool SQL dedicata deve esistere prima che sia possibile aggiungerla come output al processo di analisi di flusso. Lo schema della tabella deve corrispondere ai campi e ai relativi tipi nell'output del processo. 
 
 Per usare Azure Synapse come output, è necessario assicurarsi di aver configurato l'account di archiviazione. Per configurare l'account di archiviazione, passare alle impostazioni dell'account di archiviazione. Sono consentiti solo i tipi di account di archiviazione che supportano le tabelle: Utilizzo generico v2 e utilizzo generico v1. Abilitare solo il livello Standard. Il livello Premium non è supportato.
 
@@ -31,7 +31,7 @@ La tabella seguente elenca i nomi delle proprietà e la relativa descrizione per
 |Nome proprietà|Descrizione|
 |-|-|
 |Alias di output |Nome descrittivo usato nelle query per indirizzare l'output delle query a questo database. |
-|Database |Nome del pool SQL in cui si sta inviando l'output. |
+|Database |nome del pool SQL dedicato a cui si sta inviando l'output. |
 |Nome server |Nome del server di Azure Synapse.  |
 |Username |Nome utente con accesso in scrittura al database. Analisi di flusso supporta solo l'autenticazione SQL. |
 |Password |Password per la connessione al database. |

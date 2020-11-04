@@ -6,12 +6,12 @@ author: mamccrea
 ms.topic: troubleshooting
 ms.date: 05/07/2020
 ms.service: stream-analytics
-ms.openlocfilehash: de8eefd099f3691ae5e5eb5234ae8f76015dd68f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 80179506c133de92b56d476c9aa99d55c3e3bbd9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86041116"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305798"
 ---
 # <a name="azure-stream-analytics-configuration-error-codes"></a>Codici errore di configurazione di Analisi di flusso di Azure
 
@@ -19,82 +19,82 @@ ms.locfileid: "86041116"
 
 ## <a name="eventhubunauthorizedaccess"></a>EventHubUnauthorizedAccess
 
-* **Causa**: L'hub eventi ha generato un errore di *accesso non autorizzato*.
+* **Causa** : L'hub eventi ha generato un errore di *accesso non autorizzato*.
 
 ## <a name="eventhubreceiverepochconflict"></a>EventHubReceiverEpochConflict
 
-* **Causa**: Sono presenti più destinatari di hub eventi con valori epoch diversi.
-* **Raccomandazione**: Assicurarsi che *Service Bus Explorer* o un'applicazione *EventProcessorHost* non siano connessi durante l'esecuzione del processo di Analisi di flusso.
+* **Causa** : Sono presenti più destinatari di hub eventi con valori epoch diversi.
+* **Raccomandazione** : Assicurarsi che *Service Bus Explorer* o un'applicazione *EventProcessorHost* non siano connessi durante l'esecuzione del processo di Analisi di flusso.
 
 ## <a name="eventhubreceiverquotaexceeded"></a>EventHubReceiverQuotaExceeded
 
-* **Causa**: Analisi di flusso non è in grado di connettersi a una partizione perché è stato raggiunto il numero massimo di destinatari consentiti per partizione in un gruppo di consumer.
-* **Raccomandazione**: Assicurarsi che altri processi di Analisi di flusso o Service Bus Explorer non stiano usando lo stesso gruppo di consumer.
+* **Causa** : Analisi di flusso non è in grado di connettersi a una partizione perché è stato raggiunto il numero massimo di destinatari consentiti per partizione in un gruppo di consumer.
+* **Raccomandazione** : Assicurarsi che altri processi di Analisi di flusso o Service Bus Explorer non stiano usando lo stesso gruppo di consumer.
 
 ## <a name="eventhuboutputthrottled"></a>EventHubOutputThrottled
 
-* **Causa**: Si è verificato un errore durante la scrittura dei dati nell'hub eventi a causa della limitazione.
-* **Raccomandazione**: Se questa situazione si verifica costantemente, aggiornare la velocità effettiva.
+* **Causa** : Si è verificato un errore durante la scrittura dei dati nell'hub eventi a causa della limitazione.
+* **Raccomandazione** : Se questa situazione si verifica costantemente, aggiornare la velocità effettiva.
 
 ## <a name="eventhuboutputinvalidconnectionconfig"></a>EventHubOutputInvalidConnectionConfig
 
-* **Causa**: La configurazione della connessione specificata non è corretta.
-* **Raccomandazione**: Correggere la configurazione e riavviare il processo.
+* **Causa** : La configurazione della connessione specificata non è corretta.
+* **Raccomandazione** : Correggere la configurazione e riavviare il processo.
 
 ## <a name="eventhuboutputinvalidhostname"></a>EventHubOutputInvalidHostname
 
-* **Causa**: L'host dell'hub eventi non è raggiungibile.
-* **Raccomandazione**: Verificare che il nome host specificato sia corretto.
+* **Causa** : L'host dell'hub eventi non è raggiungibile.
+* **Raccomandazione** : Verificare che il nome host specificato sia corretto.
 
 ## <a name="eventhuboutputunexpectedpartitioncount"></a>EventHubOutputUnexpectedPartitionCount
 
-* **Causa**: Il mittente EventHub ha rilevato un conteggio delle partizioni di EventHub imprevisto.
-* **Raccomandazione**: Riavviare il processo di Analisi di flusso se il conteggio delle partizioni di EventHub è stato modificato.
+* **Causa** : Il mittente EventHub ha rilevato un conteggio delle partizioni di EventHub imprevisto.
+* **Raccomandazione** : Riavviare il processo di Analisi di flusso se il conteggio delle partizioni di EventHub è stato modificato.
 
 ## <a name="cosmosdbpartitionkeynotfound"></a>CosmosDBPartitionKeyNotFound
 
-* **Causa**: Analisi di flusso non è riuscito a trovare la chiave di partizione di una particolare raccolta di Cosmos DB nel database.
-* **Raccomandazione**: Verificare che sia stata specificata una chiave di partizione valida per la raccolta in Cosmos DB.
+* **Causa** : Analisi di flusso non è riuscito a trovare la chiave di partizione di una particolare raccolta di Cosmos DB nel database.
+* **Raccomandazione** : Verificare che sia stata specificata una chiave di partizione valida per la raccolta in Cosmos DB.
 
 ## <a name="cosmosdbinvalidpartitionkeycolumn"></a>CosmosDBInvalidPartitionKeyColumn
 
-* **Causa**: Questo errore viene generato quando una chiave di partizione non è né un nodo foglia né al livello principale.
+* **Causa** : Questo errore viene generato quando una chiave di partizione non è né un nodo foglia né al livello principale.
 
 ## <a name="cosmosdbinvalididcolumn"></a>CosmosDBInvalidIdColumn
 
-* **Causa**: L'output della query non può contenere la colonna \[id] se viene scelta una colonna diversa come proprietà della chiave primaria.
+* **Causa** : L'output della query non può contenere la colonna \[id] se viene scelta una colonna diversa come proprietà della chiave primaria.
 
 ## <a name="cosmosdbdatabasenotfound"></a>CosmosDBDatabaseNotFound
 
-* **Causa**: Analisi di flusso non riesce a trovare un database CosmosDB.
+* **Causa** : Analisi di flusso non riesce a trovare un database CosmosDB.
 
 ## <a name="cosmosdbcollectionnotfound"></a>CosmosDBCollectionNotFound
 
-* **Causa**: Analisi di flusso non riesce a trovare una specifica raccolta di Cosmos DB in un database.
+* **Causa** : Analisi di flusso non riesce a trovare una specifica raccolta di Cosmos DB in un database.
 
 ## <a name="cosmosdboutputwritethrottling"></a>CosmosDBOutputWriteThrottling
 
-* **Causa**: Si è verificato un errore durante la scrittura dei dati a causa della limitazione da parte di Cosmos DB.
-* **Raccomandazione**: Aggiornare il livello di prestazioni della raccolta e ottimizzare le prestazioni del database.
+* **Causa** : Si è verificato un errore durante la scrittura dei dati a causa della limitazione da parte di Cosmos DB.
+* **Raccomandazione** : Aggiornare il livello di prestazioni della raccolta e ottimizzare le prestazioni del database.
 
 ## <a name="sqldatabaseconnectionstringerror"></a>SQLDatabaseConnectionStringError
 
-* **Causa**: Si è verificato un errore di autenticazione nel processo di Analisi di flusso.
-* **Raccomandazione**: Verificare che la stringa di connessione del database SQL sia corretta.
+* **Causa** : Si è verificato un errore di autenticazione nel processo di Analisi di flusso.
+* **Raccomandazione** : Verificare che la stringa di connessione del database SQL sia corretta.
 
 ## <a name="sqldatabasemanagedidentityauthenticationerror"></a>SQLDatabaseManagedIdentityAuthenticationError
 
-* **Causa**: Si è verificato un errore di autenticazione nel processo di Analisi di flusso. 
-* **Raccomandazione**: Verificare che il nome dell'account sia configurato correttamente e che l'identità gestita del processo abbia accesso al database SQL.
+* **Causa** : Si è verificato un errore di autenticazione nel processo di Analisi di flusso. 
+* **Raccomandazione** : Verificare che il nome dell'account sia configurato correttamente e che l'identità gestita del processo abbia accesso al database SQL.
 
 ## <a name="sqldatabaseoutputnotableerror"></a>SQLDatabaseOutputNoTableError
 
-* **Causa**: Analisi di flusso non riesce a trovare le informazioni sullo schema per una tabella specifica.
+* **Causa** : Analisi di flusso non riesce a trovare le informazioni sullo schema per una tabella specifica.
 
 ## <a name="sqldwoutputinvalidserviceedition"></a>SQLDWOutputInvalidServiceEdition
 
-* **Causa**: Il database SQL non è supportato.
-* **Raccomandazione**: Usare il pool Synapse SQL.
+* **Causa** : Il database SQL non è supportato.
+* **Raccomandazione** : usare un pool SQL dedicato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

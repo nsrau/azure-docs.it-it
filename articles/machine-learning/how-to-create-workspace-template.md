@@ -10,12 +10,12 @@ ms.custom: how-to, devx-track-azurecli, devx-track-azurepowershell
 ms.author: larryfr
 author: Blackmist
 ms.date: 09/30/2020
-ms.openlocfilehash: 4a80b1f9bfa5d477c47e340f1dec1b37e4c69258
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 70e3185257c7c70d74fdc8492cf0a2b4970c03b1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92631046"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93305474"
 ---
 # <a name="use-an-azure-resource-manager-template-to-create-a-workspace-for-azure-machine-learning"></a>Usare un modello di Azure Resource Manager per creare un'area di lavoro per Azure Machine Learning
 
@@ -28,9 +28,9 @@ Per altre informazioni, vedere [Distribuire un'applicazione con il modello di Ge
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una **sottoscrizione di Azure** . Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+* Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Per usare un modello da un'interfaccia della riga di comando, è necessario [Azure PowerShell](https://docs.microsoft.com/powershell/azure/?view=azps-1.2.0) o l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* Per usare un modello da un'interfaccia della riga di comando, è necessario [Azure PowerShell](/powershell/azure/?view=azps-1.2.0) o l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 * Per alcuni scenari è necessario aprire un ticket di supporto. Questi scenari sono:
 
@@ -69,7 +69,7 @@ Il modello di esempio include due parametri **obbligatori** :
 > [!TIP]
 > Sebbene il modello associato a questo documento crei un nuovo Registro Container di Azure, è possibile creare una nuova area di lavoro anche senza creare il registro contenitori. Ne verrà creato uno quando si eseguirà un'operazione che lo richiederà, ad esempio quando si addestrerà o si distribuirà un modello.
 >
-> È anche possibile fare riferimento a un registro contenitori o a un account di archiviazione esistente nel modello di Azure Resource Manager, invece di crearne uno nuovo. Tuttavia, nel registro contenitori usato deve essere abilitato l' __account amministratore__ . Per informazioni sull'abilitazione dell'account amministratore, vedere [account amministratore](/azure/container-registry/container-registry-authentication#admin-account).
+> È anche possibile fare riferimento a un registro contenitori o a un account di archiviazione esistente nel modello di Azure Resource Manager, invece di crearne uno nuovo. Tuttavia, nel registro contenitori usato deve essere abilitato l' __account amministratore__ . Per informazioni sull'abilitazione dell'account amministratore, vedere [account amministratore](../container-registry/container-registry-authentication.md#admin-account).
 
 [!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
@@ -77,7 +77,7 @@ Per altre informazioni sui modelli, vedere gli articoli indicati di seguito:
 
 * [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/templates/template-syntax.md)
 * [Distribuire un'applicazione con i modelli di Azure Resource Manager](../azure-resource-manager/templates/deploy-powershell.md)
-* [Tipi di risorse Microsoft.MachineLearningServices](https://docs.microsoft.com/azure/templates/microsoft.machinelearningservices/allversions)
+* [Tipi di risorse Microsoft.MachineLearningServices](/azure/templates/microsoft.machinelearningservices/allversions)
 
 ## <a name="deploy-template"></a>Distribuire il modello
 
@@ -219,7 +219,7 @@ __Per ottenere i valori__ per i parametri `cmk_keyvault` (ID dell’insieme di c
 
 Per abilitare l'utilizzo delle chiavi gestite dal cliente, impostare i parametri seguenti durante la distribuzione del modello:
 
-* **Encryption_status** **abilitata** .
+* **Encryption_status** **abilitata**.
 * **cmk_keyvault** al `cmk_keyvault` valore ottenuto nei passaggi precedenti.
 * **resource_cmk_uri** al `resource_cmk_uri` valore ottenuto nei passaggi precedenti.
 
@@ -254,7 +254,7 @@ New-AzResourceGroupDeployment `
 
 Quando si usa una chiave gestita dal cliente, Azure Machine Learning crea un gruppo di risorse secondario che contiene l'istanza di Cosmos DB. Per ulteriori informazioni, vedere [crittografia](concept-enterprise-security.md#encryption-at-rest)dei dati inattivi Cosmos DB.
 
-Una configurazione aggiuntiva che è possibile fornire ai dati consiste nell'impostare il parametro **confidential_data** su **true** . In questo modo, effettua le seguenti operazioni:
+Una configurazione aggiuntiva che è possibile fornire ai dati consiste nell'impostare il parametro **confidential_data** su **true**. In questo modo, effettua le seguenti operazioni:
 
 * Avvia la crittografia del disco scratch locale per Azure Machine Learning cluster di calcolo, a condizione che non siano stati creati cluster precedenti nella sottoscrizione. Se in precedenza è stato creato un cluster nella sottoscrizione, aprire un ticket di supporto per avere la crittografia del disco scratch abilitato per i cluster di elaborazione.
 * Pulisce il disco scratch locale tra le esecuzioni.
@@ -541,7 +541,7 @@ New-AzResourceGroupDeployment `
 
 ## <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-1. Seguire i passaggi in [Distribuire risorse da un modello personalizzato](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-template-deploy-portal#deploy-resources-from-custom-template). Quando si arriva alla schermata __selezionare un modello__ , scegliere il modello **201-Machine-Learning-Advanced** dall'elenco a discesa.
+1. Seguire i passaggi in [Distribuire risorse da un modello personalizzato](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template). Quando si arriva alla schermata __selezionare un modello__ , scegliere il modello **201-Machine-Learning-Advanced** dall'elenco a discesa.
 1. Selezionare __Seleziona modello__ per usare il modello. Fornire le seguenti informazioni obbligatorie e qualsiasi altro parametro a seconda dello scenario di distribuzione.
 
    * Sottoscrizione: Selezionare la sottoscrizione Azure da usare per queste risorse.
@@ -549,8 +549,8 @@ New-AzResourceGroupDeployment `
    * Area: selezionare l'area di Azure in cui verranno create le risorse.
    * Nome dell'area di lavoro: Il nome da utilizzare per l'area di lavoro Azure Machine Learning che verrà creato. Il nome dell'area di lavoro deve avere una lunghezza compresa tra 3 e 33 caratteri. Può contenere solo caratteri alfanumerici e '-'.
    * Percorso: Selezionare la posizione in cui verranno create le risorse.
-1. Selezionare __Rivedi e crea__ .
-1. Nella schermata __Verifica e crea__ accettare i termini e le condizioni elencati e selezionare __Crea__ .
+1. Selezionare __Rivedi e crea__.
+1. Nella schermata __Verifica e crea__ accettare i termini e le condizioni elencati e selezionare __Crea__.
 
 Per altre informazioni, vedere [Distribuire risorse da un modello personalizzato](../azure-resource-manager/templates/deploy-portal.md#deploy-resources-from-custom-template).
 
@@ -576,7 +576,7 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
     az keyvault show --name mykeyvault --resource-group myresourcegroup --query properties.accessPolicies
     ```
 
-    Per altre informazioni sull’uso della sezione `accessPolicies` del modello, vedere il [riferimento all’oggetto AccessPolicyEntry](https://docs.microsoft.com/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
+    Per altre informazioni sull’uso della sezione `accessPolicies` del modello, vedere il [riferimento all’oggetto AccessPolicyEntry](/azure/templates/Microsoft.KeyVault/2018-02-14/vaults#AccessPolicyEntry).
 
 * Verificare se la risorsa insieme di credenziali delle chiavi esiste già. In caso negativo, non ricrearla tramite il modello. Ad esempio, per usare l’insieme di credenziali delle chiavi esistente invece di crearne uno nuovo, apportare le modifiche seguenti al modello:
 
@@ -655,7 +655,7 @@ Per evitare questo problema, è consigliabile usare uno degli approcci seguenti:
 
 ### <a name="virtual-network-not-linked-to-private-dns-zone"></a>Rete virtuale non collegata alla zona DNS privata
 
-Quando si crea un'area di lavoro con un endpoint privato, il modello crea una zona DNS privato denominata __privatelink.API.azureml.ms__ . Un __collegamento di rete virtuale__ viene aggiunto automaticamente a questa zona DNS privata. Il collegamento viene aggiunto solo per la prima area di lavoro e l'endpoint privato creato in un gruppo di risorse. Se si crea un'altra rete virtuale e un'area di lavoro con un endpoint privato nello stesso gruppo di risorse, è possibile che la seconda rete virtuale non venga aggiunta alla zona DNS privata.
+Quando si crea un'area di lavoro con un endpoint privato, il modello crea una zona DNS privato denominata __privatelink.API.azureml.ms__. Un __collegamento di rete virtuale__ viene aggiunto automaticamente a questa zona DNS privata. Il collegamento viene aggiunto solo per la prima area di lavoro e l'endpoint privato creato in un gruppo di risorse. Se si crea un'altra rete virtuale e un'area di lavoro con un endpoint privato nello stesso gruppo di risorse, è possibile che la seconda rete virtuale non venga aggiunta alla zona DNS privata.
 
 Per visualizzare i collegamenti alla rete virtuale già esistenti per la zona DNS privata, usare il comando dell'interfaccia della riga di comando di Azure seguente:
 
