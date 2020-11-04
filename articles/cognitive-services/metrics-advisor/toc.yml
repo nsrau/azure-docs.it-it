@@ -5,12 +5,14 @@
   items:
     - name: Che cos'è Advisor metriche?
       href: overview.md
-- name: Guide rapide introduttive
+    - name: Novità
+      href: whats-new.md
+- name: Avvi rapidi
   items:
     - name: Usare il portale Web
       href: quickstarts/web-portal.md
-    - name: Usare l'API REST
-      href: quickstarts/rest-api.md
+    - name: Usare l'API REST o le librerie client
+      href: quickstarts/rest-api-and-client-library.md
 - name: Procedure
   items:
     - name: Eseguire l'onboarding dei dati

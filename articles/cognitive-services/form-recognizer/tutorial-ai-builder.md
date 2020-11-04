@@ -7,21 +7,21 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 07/01/2020
+ms.date: 10/23/2020
 ms.author: pafarley
-ms.openlocfilehash: 981c6f6bb2b0eb597b32ce8e428ef0aa7d19929b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bb4b69902f73a22cbd2b0fd5ad97c547ceb76a5c
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88003359"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92912328"
 ---
 # <a name="tutorial-create-a-form-processing-app-with-ai-builder"></a>Esercitazione: Creare un'app di elaborazione moduli con AI Builder
 
-[AI Builder](https://docs.microsoft.com/ai-builder/overview) è una funzionalità di Power Platform che consente di automatizzare i processi e prevedere i risultati per migliorare le prestazioni aziendali. È possibile usare l'elaborazione dei moduli in AI Builder per creare modelli di intelligenza artificiale che identificano ed estraggono coppie chiave-valore e dati di tabella da documenti modulo.
+[AI Builder](/ai-builder/overview) è una funzionalità di Power Platform che consente di automatizzare i processi e prevedere i risultati per migliorare le prestazioni aziendali. È possibile usare l'elaborazione dei moduli in AI Builder per creare modelli di intelligenza artificiale che identificano ed estraggono coppie chiave-valore e dati di tabella da documenti modulo.
 
 > [!NOTE]
-> Questo progetto è disponibile anche come [modulo Microsoft Learn](https://docs.microsoft.com/learn/modules/get-started-with-form-processing/).
+> Questo progetto è disponibile anche come [modulo Microsoft Learn](/learn/modules/get-started-with-form-processing/).
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -33,7 +33,7 @@ In questa esercitazione verranno illustrate le procedure per:
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Set di almeno cinque moduli dello stesso tipo da usare per i dati di training/test. Per suggerimenti e informazioni sulle opzioni per la creazione di un set di dati di training, vedere [Creare un set di dati di training](./build-training-data-set.md). Per questo argomento di avvio rapido, è possibile usare i file inclusi nella cartella **Train** del [set di dati di esempio](https://go.microsoft.com/fwlink/?linkid=2128080).
-* Licenza di Power Apps o Power Automate. Vedere la [guida alle licenze](https://go.microsoft.com/fwlink/?linkid=2085130). La licenza deve includere [Common Data Service](https://powerplatform.microsoft.com/en-us/common-data-service/).
+* Licenza di Power Apps o Power Automate. Vedere la [guida alle licenze](https://go.microsoft.com/fwlink/?linkid=2085130). La licenza deve includere [Common Data Service](https://powerplatform.microsoft.com/common-data-service/).
 * [Componente aggiuntivo o versione di valutazione](https://go.microsoft.com/fwlink/?LinkId=2113956&clcid=0x409) di AI Builder.
 
 
@@ -69,7 +69,7 @@ Nella pagina **Aggiungi documenti** è necessario specificare i documenti di ese
 > Dopo aver caricato questi documenti, è comunque possibile rimuoverne alcuni o caricarne altri.
 
 > [!div class="mx-imgBorder"]
-> ![Pagina per l'aggiunta di documenti](./media/tutorial-ai-builder/add-documents-page.png)
+> ![Screenshot con il pulsante Aggiungi documenti evidenziato.](./media/tutorial-ai-builder/add-documents-page.png)
 
 ### <a name="analyze-your-documents"></a>Analizzare i documenti
 
@@ -89,11 +89,11 @@ Nella pagina di selezione dei campi scegliere i campi a cui si è interessati:
 
     Facendo clic su un campo rilevato, vengono visualizzate le informazioni seguenti.
 
-    - **Nome del campo**: nome dell'etichetta del campo rilevato.
-    - **Valore del campo**: valore del campo rilevato.
+    - **Nome del campo** : nome dell'etichetta del campo rilevato.
+    - **Valore del campo** : valore del campo rilevato.
 
 > [!div class="mx-imgBorder"]
-> ![Pagina per l'aggiunta di documenti](./media/tutorial-ai-builder/select-fields-page.png)
+> ![pagina assegnazione di tag](./media/tutorial-ai-builder/select-fields-page.png)
 
 ### <a name="label-undetected-fields"></a>Etichettare i campi non rilevati
 
@@ -104,7 +104,7 @@ Se il campo che si vuole etichettare non è stato rilevato automaticamente dal m
 1. Selezionare **Avanti** per verificare i campi del modulo selezionati. Se tutto risulta corretto, selezionare **Esegui il training** per eseguire il training del modello.
 
     > [!div class="mx-imgBorder"]
-    > ![Pagina per l'aggiunta di documenti](./media/tutorial-ai-builder/summary-train-page.png)
+    > ![pagina di training](./media/tutorial-ai-builder/summary-train-page.png)
 1. Al termine del training, selezionare **Vai alla pagina Dettagli** nella schermata **Il training è stato completato**.
 ## <a name="quick-test-your-model"></a>Eseguire il test rapido del modello
 
@@ -127,13 +127,13 @@ Se si ottengono risultati non validi o punteggi di attendibilità bassi per dete
 Se si è soddisfatti del modello, selezionare **Pubblica** per pubblicarlo. Al termine della pubblicazione, il modello viene alzato al livello **Pubblicazione completata** ed è pronto per essere usato.
 
 > [!div class="mx-imgBorder"]
-> ![Pagina per l'aggiunta di documenti](./media/tutorial-ai-builder/model-page.png)
+> ![pagina modello di pubblicazione](./media/tutorial-ai-builder/model-page.png)
 
-Dopo la pubblicazione, il modello di elaborazione moduli può essere usato in un'[app canvas di Power Apps](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps) o in [Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow).
+Dopo la pubblicazione, il modello di elaborazione moduli può essere usato in un'[app canvas di Power Apps](/ai-builder/form-processor-component-in-powerapps) o in [Power Automate](/ai-builder/form-processing-model-in-flow).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Vedere la documentazione di AI Builder per l'uso di un modello di elaborazione moduli.
 
-* [Utilizzare il componente di elaborazione moduli in Power Apps](https://docs.microsoft.com/ai-builder/form-processor-component-in-powerapps)
-* [Utilizzare un modello di elaborazione moduli in Power Automate](https://docs.microsoft.com/ai-builder/form-processing-model-in-flow)
+* [Utilizzare il componente di elaborazione moduli in Power Apps](/ai-builder/form-processor-component-in-powerapps)
+* [Utilizzare un modello di elaborazione moduli in Power Automate](/ai-builder/form-processing-model-in-flow)
