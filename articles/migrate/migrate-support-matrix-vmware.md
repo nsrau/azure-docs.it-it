@@ -3,12 +3,12 @@ title: Supporto per la valutazione VMware in Azure Migrate
 description: 'Informazioni sul supporto per la valutazione delle macchine virtuali VMware con lo strumento Azure Migrate: valutazione server.'
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 0fd884a7d95edaf6586e7eecd644400c05c15e5a
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 9d5c954be2a6f05e5132a5f57f8169f436719a8d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92315803"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332271"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione di VMware 
 
@@ -34,7 +34,7 @@ Per eseguire la migrazione di macchine virtuali VMware in Azure, vedere la [matr
 **VMware** | **Dettagli**
 --- | ---
 **Server vCenter** | I computer che si desidera individuare e valutare devono essere gestiti da server vCenter versione 5,5, 6,0, 6,5, 6,7 o 7,0.<br/><br/> L'individuazione delle macchine virtuali VMware fornendo i dettagli dell'host ESXi nell'appliance non è attualmente supportata.
-**Autorizzazioni** | Per la valutazione del server è necessaria una server vCenter account di sola lettura per l'individuazione e la valutazione.<br/><br/> Se si vuole eseguire l'individuazione delle applicazioni o la visualizzazione delle dipendenze, l'account deve **Virtual Machines**abilitare i privilegi per  >  **le operazioni Guest**delle macchine virtuali.
+**Autorizzazioni** | Per la valutazione del server è necessaria una server vCenter account di sola lettura per l'individuazione e la valutazione.<br/><br/> Se si vuole eseguire l'individuazione delle applicazioni o la visualizzazione delle dipendenze, l'account deve **Virtual Machines** abilitare i privilegi per  >  **le operazioni Guest** delle macchine virtuali.
 
 ## <a name="vm-requirements"></a>Requisiti della macchina virtuale
 **VMware** | **Dettagli**
@@ -66,14 +66,14 @@ Oltre a individuare i computer, server assessment può individuare app, ruoli e 
 
 **Supporto** | **Dettagli**
 --- | ---
-**Computer supportati** | L'individuazione delle app è attualmente supportata solo per le macchine virtuali VMware.
+**Computer supportati** | L'individuazione delle app è attualmente supportata solo per le macchine virtuali VMware. È possibile individuare le app installate in un massimo di 10000 VM VMware da ogni appliance Azure Migrate.
 **Individuazione** | L'individuazione di app è senza agente. Essa usa le credenziali guest del computer e accede in remoto ai computer tramite chiamate WMI e SSH.
 **Supporto per macchine virtuali** | App-Discovery è supportato per le macchine virtuali che eseguono tutte le versioni di Windows e Linux.
-**vCenter** | Il server vCenter account di sola lettura usato per la valutazione, richiede i privilegi **Virtual Machines**abilitati per  >  **le operazioni Guest**delle macchine virtuali, in modo da interagire con la macchina virtuale per l'individuazione delle applicazioni.
+**vCenter** | Il server vCenter account di sola lettura usato per la valutazione, richiede i privilegi **Virtual Machines** abilitati per  >  **le operazioni Guest** delle macchine virtuali, in modo da interagire con la macchina virtuale per l'individuazione delle applicazioni.
 **Accesso alla macchina virtuale** | App Discovery necessita di un account utente locale nella macchina virtuale per l'individuazione delle applicazioni.<br/><br/> Azure Migrate attualmente supporta l'utilizzo di una credenziale per tutti i server Windows e una credenziale per tutti i server Linux.<br/><br/> Si crea un account utente Guest per macchine virtuali Windows e un account utente regolare/normale (accesso non sudo) per tutte le macchine virtuali Linux.
 **Strumenti VMware** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali che si desidera individuare. <br/><br/> La versione degli strumenti VMware deve essere successiva alla 10.2.0.
 **PowerShell** | Sulle macchine virtuali deve essere installato PowerShell 2.0 o versioni successive.
-**Accesso alla porta** | Negli host ESXi che eseguono macchine virtuali da individuare, l'appliance di Azure Migrate deve essere in grado di connettersi alla porta TCP 443.
+**Accesso alla porta** | Il dispositivo di Azure Migrate deve essere in grado di connettersi alla porta TCP 443 negli host ESXi che eseguono macchine virtuali in cui si desidera individuare le app. Il server vCenter restituisce una connessione all'host ESXI, per scaricare il file contenente le informazioni sull'app.
 **Limiti** | Per l'individuazione delle app è possibile individuare fino a 10.000 macchine virtuali in ogni appliance di Azure Migrate.
 
 

@@ -30,7 +30,7 @@
           href: 'https://azure.microsoft.com/updates/azure-iot-central-april-2020-updates/'
         - name: Marzo 2020
           href: 'https://azure.microsoft.com/updates/azure-iot-central-march-2020-updates/'
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: 1. Creare una nuova applicazione
@@ -221,6 +221,8 @@
           href: ../../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks
     - name: Informazioni di riferimento sulle API di IoT Central
       href: /rest/api/iotcentral/
+    - name: Residenza dei dati dei clienti
+      href: iot-central-customer-data-residency.md
     - name: Richieste di dati del cliente
       href: iot-central-customer-data-requests.md
     - name: Browser supportati

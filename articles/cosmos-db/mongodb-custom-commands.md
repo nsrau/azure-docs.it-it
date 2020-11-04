@@ -3,16 +3,17 @@ title: Comandi di estensione MongoDB per gestire i dati nell'API Azure Cosmos DB
 description: Questo articolo descrive come usare i comandi di estensione MongoDB per gestire i dati archiviati nell'API Azure Cosmos DB per MongoDB.
 author: jasonwhowell
 ms.service: cosmos-db
+ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 05/28/2020
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: 68f7c9331423fa4ef350bd7915ad85e3152c6885
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: db230dc0bd1d5cdddf9446b22d8ae682c019c438
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096547"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333009"
 ---
 # <a name="use-mongodb-extension-commands-to-manage-data-stored-in-azure-cosmos-dbs-api-for-mongodb"></a>Usare i comandi di estensione MongoDB per gestire i dati archiviati nell'API Azure Cosmos DB per MongoDB 
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -27,7 +28,7 @@ L'API di Azure Cosmos DB per MongoDB è compatibile con il server MongoDB versio
 
 I seguenti comandi di estensione consentono di creare e modificare risorse specifiche di Azure Cosmos DB tramite richieste di database:
 
-* [Crea database](#create-database)
+* [Creazione del database](#create-database)
 * [Aggiorna database](#update-database)
 * [Ottieni database](#get-database)
 * [Crea raccolta](#create-collection)
@@ -54,7 +55,7 @@ Se il comando ha esito positivo, verrà restituita la risposta seguente:
 
 Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="create-a-database"></a>Creazione di un database
 
@@ -109,7 +110,7 @@ Se il comando ha esito positivo, verrà restituita la risposta seguente:
 
 Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="update-the-provisioned-throughput-associated-with-a-database"></a>Aggiornare la velocità effettiva con provisioning associata a un database
 
@@ -160,7 +161,7 @@ Se il comando ha esito positivo, la risposta contiene un documento con i campi s
 
 Se il comando ha esito negativo, viene restituita una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="get-the-database"></a>Ottenere il database
 
@@ -224,7 +225,7 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 Restituisce una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="create-a-collection-with-the-minimum-configuration"></a>Creare una raccolta con la configurazione minima
 
@@ -314,7 +315,7 @@ Nella tabella seguente vengono descritti i parametri all'interno del comando:
 
 Restituisce una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="update-the-provisioned-throughput-associated-with-a-collection"></a>Aggiornare la velocità effettiva con provisioning associata a una raccolta
 
@@ -360,7 +361,7 @@ Se il comando ha esito positivo, la risposta contiene un documento con i campi s
 
 Se il comando ha esito negativo, viene restituita una risposta predefinita del comando personalizzato. Vedere l' [output predefinito](#default-output) del comando personalizzato per i parametri nell'output.
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 
 #### <a name="get-the-collection"></a>Ottenere la raccolta
 

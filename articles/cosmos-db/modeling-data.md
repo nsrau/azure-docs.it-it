@@ -5,14 +5,15 @@ description: Informazioni sulla modellazione dei dati nei database NoSQL e sulle
 author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/23/2019
-ms.openlocfilehash: 0868b0d3e917b857d09c89e3a35d03872c42a23e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a141177846def9c94216684c1083d0d336eeda1e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096649"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333241"
 ---
 # <a name="data-modeling-in-azure-cosmos-db"></a>Modellazione dei dati in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -36,7 +37,7 @@ Per il confronto, è possibile vedere prima di tutto come modellare i dati in un
 
 :::image type="content" source="./media/sql-api-modeling-data/relational-data-model.png" alt-text="Database relazionale" border="false":::
 
-Quando si lavora con i database relazionali, la strategia consiste nel normalizzare tutti i dati. La normalizzazione dei dati comporta in genere l'assunzione di un'entità, ad esempio una persona, e la suddivisione in componenti discreti. Nell'esempio precedente, una persona può avere più record di dettagli di contatto, oltre a più record di indirizzi. I dettagli del contatto possono essere suddivisi ulteriormente estraendo i campi comuni come un tipo. Lo stesso vale per l'indirizzo, ogni record può essere di tipo *Home* o *Business* .
+Quando si lavora con i database relazionali, la strategia consiste nel normalizzare tutti i dati. La normalizzazione dei dati comporta in genere l'assunzione di un'entità, ad esempio una persona, e la suddivisione in componenti discreti. Nell'esempio precedente, una persona può avere più record di dettagli di contatto, oltre a più record di indirizzi. I dettagli del contatto possono essere suddivisi ulteriormente estraendo i campi comuni come un tipo. Lo stesso vale per l'indirizzo, ogni record può essere di tipo *Home* o *Business*.
 
 Il presupposto principale quando si normalizzano i dati è **evitare di archiviare i dati ridondanti** in ogni record e fare invece riferimento ai dati. In questo esempio, per leggere una persona, con tutti i relativi dettagli di contatto e gli indirizzi, è necessario usare JOIN per comporre in modo efficace i dati in fase di esecuzione o denormalizzarli.
 
@@ -86,9 +87,9 @@ In generale, usare i modelli di dati incorporati quando:
 
 * Esistono relazioni **contenute** tra le entità.
 * Esistono relazioni **one-to-few** tra le entità.
-* Esistono dati incorporati che **cambiano raramente** .
-* Sono presenti dati incorporati che non aumenteranno **senza limiti** .
-* Sono presenti dati incorporati di cui viene **eseguita una query spesso insieme** .
+* Esistono dati incorporati che **cambiano raramente**.
+* Sono presenti dati incorporati che non aumenteranno **senza limiti**.
+* Sono presenti dati incorporati di cui viene **eseguita una query spesso insieme**.
 
 > [!NOTE]
 > I modelli di dati denormalizzati garantiscono di solito prestazioni di **lettura** più elevate.
@@ -242,8 +243,8 @@ In generale, usare i modelli di dati normalizzati quando:
 
 * Si rappresentano relazioni **uno a molti** .
 * Si rappresentano relazioni **molti a molti** .
-* I dati correlati **cambiano spesso** .
-* È possibile che i dati a cui si fa riferimento **non siamo limitati** .
+* I dati correlati **cambiano spesso**.
+* È possibile che i dati a cui si fa riferimento **non siamo limitati**.
 
 > [!NOTE]
 > La normalizzazione offre di solito migliori prestazioni di **scrittura** .
@@ -300,7 +301,7 @@ Nell'esempio precedente, abbiamo eliminato la raccolta illimitata nel documento 
 In un database relazionale le relazioni *molti a molti* vengono spesso modellate con le tabelle join, che creano un join dei record delle altre tabelle.
 
 
-:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Database relazionale" border="false":::
+:::image type="content" source="./media/sql-api-modeling-data/join-table.png" alt-text="Unione di tabelle" border="false":::
 
 Si potrebbe essere tentati di replicare la stessa cosa con i documenti e di generare un modello di dati simile al seguente.
 
@@ -403,7 +404,7 @@ Certo, se il nome dell'autore è cambiato o vuole aggiornare la foto, è necessa
 
 Nell'esempio sono presenti valori di **aggregazioni precalcolate** , che consentono di evitare l'elaborazione di costose operazioni di lettura. Nell'esempio, alcuni dati incorporati nel documento dell'autore vengono calcolati in fase di esecuzione. Ogni volta che viene pubblicato un nuovo libro, viene creato un documento per il libro **e** il campo countOfBooks viene impostato su un valore calcolato in base al numero di documenti dei libri esistenti per un determinato autore. Questa ottimizzazione andrebbe bene nei sistemi che eseguono un'intensa attività di lettura, in cui si è disposti a effettuare calcoli nelle scritture per ottimizzare le letture.
 
-Azure Cosmos DB supporta le transazioni in più documenti e consente quindi di usare **transazioni su più documenti** . Molti archivi NoSQL non possono eseguire le transazioni nei documenti e, a causa di questa limitazione, inducono a prendere decisioni di progettazione, ad esempio "incorporare sempre tutto". Con Azure Cosmos DB è possibile usare trigger lato server, o stored procedure, che inseriscono i libri e aggiornano gli autori in una sola transazione ACID. Ora non è **necessario** incorporare tutto in un unico documento solo per essere sicuri che i dati rimangano coerenti.
+Azure Cosmos DB supporta le transazioni in più documenti e consente quindi di usare **transazioni su più documenti**. Molti archivi NoSQL non possono eseguire le transazioni nei documenti e, a causa di questa limitazione, inducono a prendere decisioni di progettazione, ad esempio "incorporare sempre tutto". Con Azure Cosmos DB è possibile usare trigger lato server, o stored procedure, che inseriscono i libri e aggiornano gli autori in una sola transazione ACID. Ora non è **necessario** incorporare tutto in un unico documento solo per essere sicuri che i dati rimangano coerenti.
 
 ## <a name="distinguishing-between-different-document-types"></a>Distinzione tra tipi di documento diversi
 

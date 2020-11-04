@@ -3,16 +3,17 @@ title: ARRAY_CONTAINS nel linguaggio di query Azure Cosmos DB
 description: Informazioni sul modo in cui la matrice contiene la funzione di sistema SQL in Azure Cosmos DB restituisce un valore booleano che indica se la matrice contiene il valore specificato.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 35136bbcf8ada90681ea72d8396a58ab1bc02828
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ff88d66ee6d1ceee4f1cf4e7b6501ab323dbc79e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090903"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332662"
 ---
 # <a name="array_contains-azure-cosmos-db"></a>ARRAY_CONTAINS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,7 +41,7 @@ ARRAY_CONTAINS (<arr_expr>, <expr> [, bool_expr])
   
   Restituisce un valore booleano.  
   
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
   
   Nell'esempio seguente viene illustrato come verificare l'appartenenza a una matrice utilizzando `ARRAY_CONTAINS` .  
   

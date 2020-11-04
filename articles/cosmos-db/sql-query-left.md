@@ -3,16 +3,17 @@ title: LEFT in Azure Cosmos DB linguaggio di query
 description: Informazioni sulla funzione di sistema SQL LASCIAta in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: f7bf72e17e778babb5022db514b12d8c17011417
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 647bee87283f26b0d1ce832b2b2aaac690c05b92
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091957"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333733"
 ---
 # <a name="left-azure-cosmos-db"></a>A sinistra (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -37,7 +38,7 @@ LEFT(<str_expr>, <num_expr>)
   
   Restituisce un'espressione di stringa.  
   
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
   
   L'esempio seguente restituisce la parte sinistra di "abc" per diversi valori di lunghezza.  
   

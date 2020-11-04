@@ -3,15 +3,16 @@ title: Distribuire un'app Web con un modello - Azure Cosmos DB
 description: Informazioni su come distribuire un account Azure Cosmos, app Azure app Web del servizio e un'applicazione Web di esempio usando un modello di Azure Resource Manager.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/19/2020
 ms.author: mjbrown
-ms.openlocfilehash: c206c89bf8e9abae219ce863a8b08f4b0e7041c3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 55d58a6c4724bd01325db029ed75d77ccc96d0f8
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089917"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333580"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-with-a-web-app-from-github-using-an-azure-resource-manager-template"></a>Distribuire Azure Cosmos DB e app Azure servizio con un'app Web da GitHub usando un modello di Azure Resource Manager
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -41,7 +42,7 @@ Per prima cosa, selezionare il pulsante **Distribuisci in Azure** per aprire il 
 
 Una volta nel portale di Azure, selezionare la sottoscrizione in cui eseguire la distribuzione e selezionare o creare un nuovo gruppo di risorse. Inserire quindi i valori seguenti.
 
-:::image type="content" source="./media/create-website/template-deployment.png" alt-text="Distribuzione in Azure":::
+:::image type="content" source="./media/create-website/template-deployment.png" alt-text="Screenshot dell'interfaccia utente della distribuzione del modello":::
 
 * **Region** : questa operazione è richiesta dal gestione risorse. Immettere la stessa area usata dal parametro location in cui si trovano le risorse.
 * **Nome applicazione** : questo nome viene usato da tutte le risorse per la distribuzione. Assicurarsi di scegliere un nome univoco per evitare conflitti con gli account di Azure Cosmos DB e del servizio app esistenti.
@@ -65,31 +66,31 @@ Dopo aver compilato i valori, selezionare il pulsante **Crea** per avviare la di
 
 Dopo che il modello ha distribuito le risorse, è ora possibile visualizzarle ognuna nel gruppo di risorse.
 
-:::image type="content" source="./media/create-website/resource-group.png" alt-text="Distribuzione in Azure":::
+:::image type="content" source="./media/create-website/resource-group.png" alt-text="Gruppo di risorse":::
 
 ### <a name="view-cosmos-db-endpoint-and-keys"></a>Visualizza Cosmos DB endpoint e le chiavi
 
 Aprire quindi l'account Azure Cosmos nel portale. La schermata seguente mostra l'endpoint e le chiavi per un account Azure Cosmos.
 
-:::image type="content" source="./media/create-website/cosmos-keys.png" alt-text="Distribuzione in Azure":::
+:::image type="content" source="./media/create-website/cosmos-keys.png" alt-text="Chiavi Cosmos":::
 
 ### <a name="view-the-azure-cosmos-db-keys-in-application-settings"></a>Visualizzare le chiavi Azure Cosmos DB nelle impostazioni dell'applicazione
 
 Passare quindi al servizio app Azure nel gruppo di risorse. Fare clic sulla scheda configurazione per visualizzare le impostazioni dell'applicazione per il servizio app. Le impostazioni dell'applicazione contengono l'account Cosmos DB e i valori di chiave primaria necessari per connettersi ai Cosmos DB, nonché i nomi di database e di contenitori passati dalla distribuzione del modello.
 
-:::image type="content" source="./media/create-website/application-settings.png" alt-text="Distribuzione in Azure":::
+:::image type="content" source="./media/create-website/application-settings.png" alt-text="Impostazioni dell'applicazione":::
 
 ### <a name="view-web-app-in-deployment-center"></a>Visualizza app Web nel centro distribuzione
 
 Passare quindi al centro distribuzione per il servizio app. Qui vengono visualizzati i punti di repository nel repository GitHub passato al modello. Lo stato seguente indica anche esito positivo (attivo), ovvero l'applicazione è stata distribuita e avviata correttamente.
 
-:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Distribuzione in Azure":::
+:::image type="content" source="./media/create-website/deployment-center.png" alt-text="Centro distribuzione":::
 
 ### <a name="run-the-web-application"></a>Eseguire l'applicazione Web
 
 Fare clic su **Sfoglia** nella parte superiore del centro distribuzione per aprire l'applicazione Web. L'applicazione Web viene visualizzata nella schermata iniziale. Fare clic su **Crea nuovo** e immettere alcuni dati nei campi e fare clic su Salva. La schermata risultante Mostra i dati salvati in Cosmos DB.
 
-:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Distribuzione in Azure":::
+:::image type="content" source="./media/create-website/app-home-screen.png" alt-text="Schermata Home":::
 
 ## <a name="step-3-how-does-it-work"></a>Passaggio 3: funzionamento
 
@@ -99,19 +100,19 @@ Per il corretto funzionamento di questa soluzione sono necessari tre elementi.
 
 In primo luogo, l'applicazione deve richiedere l'endpoint Cosmos DB e la chiave nella `Startup` classe nell'applicazione Web MVC ASP.NET. Il [Cosmos DB](https://github.com/Azure-Samples/cosmos-dotnet-core-todo-app) eseguire l'esempio può essere eseguito localmente, in cui è possibile immettere le informazioni di connessione nel appsettings.js. Tuttavia, quando viene distribuito, questo file viene distribuito con l'app. Se queste righe in rosso non sono in grado di accedere alle impostazioni da appsettings.js, il tentativo verrà eseguito dalle impostazioni dell'applicazione in app Azure servizio.
 
-:::image type="content" source="./media/create-website/startup.png" alt-text="Distribuzione in Azure":::
+:::image type="content" source="./media/create-website/startup.png" alt-text="Screenshot mostra un metodo con diverse variabili di stringa contrassegnate in rosso, tra cui DatabaseName, ContainerName, account e Key.":::
 
 ### <a name="using-special-azure-resource-management-functions"></a>Uso di funzioni speciali di gestione delle risorse di Azure
 
-Perché questi valori siano disponibili per l'applicazione al momento della distribuzione, il modello di Azure Resource Manager può richiedere tali valori dall'account Cosmos DB usando funzioni speciali di gestione delle risorse di Azure, tra cui [Reference](../azure-resource-manager/templates/template-functions-resource.md#reference) e [listKeys](../azure-resource-manager/templates/template-functions-resource.md#listkeys) , che acquisiscono i valori dall'account Cosmos DB e li inseriscono nei valori delle impostazioni dell'applicazione con i nomi delle chiavi che corrispondono a quelli usati nell'applicazione precedente nel formato ' {section: Key} Ad esempio `CosmosDb:Account`.
+Perché questi valori siano disponibili per l'applicazione al momento della distribuzione, il modello di Azure Resource Manager può richiedere tali valori dall'account Cosmos DB usando funzioni speciali di gestione delle risorse di Azure, tra cui [Reference](../azure-resource-manager/templates/template-functions-resource.md#reference) e [listKeys](../azure-resource-manager/templates/template-functions-resource.md#listkeys) , che acquisiscono i valori dall'account Cosmos DB e li inseriscono nei valori delle impostazioni dell'applicazione con i nomi delle chiavi che corrispondono a quelli usati nell'applicazione precedente nel formato ' {section: Key} Ad esempio: `CosmosDb:Account`.
 
-:::image type="content" source="./media/create-website/template-keys.png" alt-text="Distribuzione in Azure":::
+:::image type="content" source="./media/create-website/template-keys.png" alt-text="Chiavi modello":::
 
 ### <a name="deploying-web-apps-from-github"></a>Distribuzione di app Web da GitHub
 
 Infine, è necessario distribuire l'applicazione Web da GitHub nel servizio app. Questa operazione viene eseguita usando il codice JSON seguente. Il tipo e il nome di questa risorsa devono essere attenti a due aspetti. Entrambi i `"type": "sourcecontrols"` `"name": "web"` valori delle proprietà e sono hardcoded e non devono essere modificati.
 
-:::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Distribuzione in Azure":::
+:::image type="content" source="./media/create-website/deploy-from-github.png" alt-text="Eseguire la distribuzione da GitHub":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

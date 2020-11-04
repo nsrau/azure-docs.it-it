@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: imaging
 ms.workload: infrastructure-services
 ms.topic: how-to
-ms.date: 10/12/2020
+ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: 73a7090afe771eef82523753c4067399d9f5dd5e
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: f6bf436110e9822d687419b74a8a22bad7a6d700
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92048084"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333465"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Anteprima: Usare le chiavi gestite dal cliente per crittografare le immagini
 
@@ -25,7 +25,7 @@ La crittografia lato server con chiavi gestite dal cliente usa Azure Key Vault. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per questo articolo è necessario avere già un set di crittografia del disco da usare per l'immagine.
+Questo articolo richiede che sia già stata impostata una crittografia del disco in ogni area in cui si vuole replicare l'immagine.
 
 - Per usare solo una chiave gestita dal cliente, vedere **abilitare le chiavi gestite dal cliente con la crittografia lato server** usando il [portale di Azure](./disks-enable-customer-managed-keys-portal.md) o [PowerShell](./windows/disks-enable-customer-managed-keys-powershell.md#set-up-your-azure-key-vault-and-diskencryptionset).
 
@@ -210,7 +210,7 @@ Quando si crea la versione dell'immagine nel portale, è possibile usare la sche
 
 
 1. Nella pagina **Crea versione immagine** selezionare la scheda **Crittografia**.
-2. In **tipo di crittografia**selezionare **crittografia dei componenti inattivi con una chiave gestita dal cliente o una** **doppia crittografia con chiavi gestite dalla piattaforma e gestite dal cliente**. 
+2. In **tipo di crittografia** selezionare **crittografia dei componenti inattivi con una chiave gestita dal cliente o una** **doppia crittografia con chiavi gestite dalla piattaforma e gestite dal cliente**. 
 3. Per ogni disco nell'immagine, selezionare il **set di crittografia del disco** da usare dall'elenco a discesa. 
 
 ### <a name="create-the-vm"></a>Creare la VM

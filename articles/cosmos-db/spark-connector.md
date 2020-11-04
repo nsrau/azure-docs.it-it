@@ -3,15 +3,16 @@ title: Connettere Apache Spark a Azure Cosmos DB
 description: Informazioni sul connettore Spark per Azure Cosmos DB, che permette di connettere Apache Spark ad Azure Cosmos DB.
 author: tknandu
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 05/21/2019
 ms.author: ramkris
-ms.openlocfilehash: df7792c37b1db330264554cf6d9c179cf9f22611
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: eae5c38c80c43ffed5138733d9425e2055dc0b76
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098706"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334005"
 ---
 # <a name="accelerate-big-data-analytics-by-using-the-apache-spark-to-azure-cosmos-db-connector"></a>Accelerare l'analisi di Big Data con il connettore Apache Spark per Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -32,7 +33,7 @@ ms.locfileid: "93098706"
 > Per Cosmos DB API Cassandra, usare il [connettore Cassandra Spark](https://github.com/datastax/spark-cassandra-connector).
 >
 
-## <a name="quickstart"></a>Avvio rapido
+## <a name="quickstart"></a>Guida introduttiva
 
 * Per configurare un account di Cosmos DB e popolare alcuni dati, seguire la procedura descritta in [Introduzione a Java SDK](./create-sql-api-java.md) .
 * Seguire la procedura descritta in [Azure Databricks Introduzione](/azure/databricks/scenarios/quickstart-create-databricks-workspace-portal) alla configurazione di un'area di lavoro Azure Databricks e di un cluster.
@@ -293,7 +294,7 @@ Sono disponibili altre informazioni nel `azure-cosmosdb-spark` [wiki](https://gi
 * [Installazione di Spark per Cosmos DB Connector](https://github.com/Azure/azure-documentdb-spark/wiki/Spark-to-Cosmos-DB-Connector-Setup) (in corso)
 * [Configurazione di Power BI query diretta per Azure Cosmos DB tramite Apache Spark (HDI)](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuring-Power-BI-Direct-Query-to-Azure-Cosmos-DB-via-Apache-Spark-(HDI))
 
-### <a name="troubleshooting"></a>risoluzione dei problemi
+### <a name="troubleshooting"></a>Risoluzione dei problemi
 
 * [Utilizzo di aggregazioni Cosmos DB](https://github.com/Azure/azure-documentdb-spark/wiki/Troubleshooting:-Using-Cosmos-DB-Aggregates)
 * [Problemi noti](https://github.com/Azure/azure-cosmosdb-spark/wiki/Known-Issues)

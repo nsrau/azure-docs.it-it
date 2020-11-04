@@ -3,22 +3,23 @@ title: Funzioni di aggregazione in Azure Cosmos DB
 description: Informazioni sulla sintassi della funzione di aggregazione SQL, sui tipi di funzioni di aggregazione supportate da Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: tisande
-ms.openlocfilehash: 8d71b9b888c47847dd4a5f5c40504190e5c1ec84
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 7c988f379e94bf2f69854c90d45af42fe2a7ec4f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090937"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332781"
 ---
 # <a name="aggregate-functions-in-azure-cosmos-db"></a>Funzioni di aggregazione in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Le funzioni di aggregazione eseguono un calcolo su un set di valori nella `SELECT` clausola e restituiscono un singolo valore. Ad esempio, la query seguente restituisce il numero di elementi all'interno del `Families` contenitore:
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 ```sql
     SELECT COUNT(1)
@@ -70,7 +71,7 @@ L'API SQL supporta le funzioni di aggregazione seguenti. `SUM` e `AVG` operano s
 | SUM   | Restituisce la somma dei valori nell'espressione. |
 | MIN   | Restituisce il valore minimo nell'espressione. |
 | MAX   | Restituisce il valore massimo dell'espressione. |
-| MEDIA   | Restituisce la media dei valori nell'espressione. |
+| AVG   | Restituisce la media dei valori nell'espressione. |
 
 È anche possibile aggregare i risultati di un'iterazione di matrice.
 

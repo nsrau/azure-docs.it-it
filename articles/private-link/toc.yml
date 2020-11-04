@@ -39,6 +39,8 @@
           href: tutorial-private-endpoint-sql-portal.md
         - name: Connettersi a SQL server - PowerShell
           href: tutorial-private-endpoint-sql-powershell.md
+        - name: Connettersi a SQL Server - Interfaccia della riga di comando di Azure
+          href: tutorial-private-endpoint-sql-cli.md
 - name: Concetti
   items:
     - name: Endpoint privato

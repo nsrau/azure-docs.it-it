@@ -3,16 +3,17 @@ title: ARccOS in linguaggio di query Azure Cosmos DB
 description: Informazioni sul modo in cui la funzione di sistema SQL ARCCOS (arccosice) in Azure Cosmos DB restituisce l'angolo, in radianti, il cui coseno corrisponde all'espressione numerica specificata
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 99730b4c67adc841a33ea9d60440b00a19f90e48
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ed5adaad6c0ee160fd55341e1d7c48fcf3e49a28
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090954"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332815"
 ---
 # <a name="acos-azure-cosmos-db"></a>ARCCOS (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +35,7 @@ ACOS(<numeric_expr>)
   
   Restituisce un'espressione numerica.  
   
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
   
   Nell'esempio seguente viene restituito l'oggetto `ACOS` di-1.  
   

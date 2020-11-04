@@ -3,20 +3,21 @@ title: Query di JOIN SQL per Azure Cosmos DB
 description: Informazioni su come unire più tabelle in Azure Cosmos DB per eseguire query sui dati
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: b4c754455e2a686274eab8b1f77713b8983251a4
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c3fad0c7eed2b42a9ac340a091f17b90e22b000a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100797"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93333835"
 ---
 # <a name="joins-in-azure-cosmos-db"></a>Join in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
-In un database relazionale, i join tra le tabelle sono il corollario logico della progettazione di schemi normalizzati. Al contrario, l'API SQL utilizza il modello di dati denormalizzato di elementi privi di schema, che è l'equivalente logico di un *self-join* .
+In un database relazionale, i join tra le tabelle sono il corollario logico della progettazione di schemi normalizzati. Al contrario, l'API SQL utilizza il modello di dati denormalizzato di elementi privi di schema, che è l'equivalente logico di un *self-join*.
 
 Gli inner join generano un prodotto incrociato completo dei set che partecipano al join. Il risultato di un join a N vie è un set di tuple a N elementi, in cui ogni valore presente nella tupla è associato al set con alias che partecipa al join e l'accesso al set è possibile facendo riferimento a tale alias in altre clausole.
 
@@ -102,7 +103,7 @@ Verrà ora esaminata la seguente clausola FROM: `<from_source1> JOIN <from_sourc
   > [!NOTE]
   > Viene generato un prodotto incrociato tra `<from_source2>` e `<from_source3>` perché entrambi hanno come ambito lo stesso elemento `<from_source1>`.  Sono state create 4 (2x2) tuple con valore A, 0 tuple con valore B (1 x 0) e 2 (2x1) tuple con valore C.  
   
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Gli esempi seguenti illustrano il funzionamento della clausola JOIN. Prima di eseguire questi esempi, caricare i [dati della famiglia](sql-query-getting-started.md#upload-sample-data)di esempio. Nell'esempio seguente, il risultato è vuoto, perché il prodotto incrociato di ogni elemento dall'origine e un set vuoto è vuoto:
 
@@ -257,4 +258,4 @@ I risultati sono:
 
 - [Introduzione](sql-query-getting-started.md)
 - [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmosdb-dotnet)
-- [Sottoquery:](sql-query-subquery.md)
+- [Sottoquery](sql-query-subquery.md)

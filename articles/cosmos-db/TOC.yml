@@ -557,14 +557,9 @@
               href: sql-query-linq-to-sql.md
         - name: Contenitori ed elementi
           items:
-            - name: Indicizzazione
-              items:
-                - name: Panoramica sull'indicizzazione
-                  displayName: 'range, spatial'
-                  href: index-overview.md
-                - name: Criteri di indicizzazione
-                  displayName: 'consistent, none'
-                  href: index-policy.md
+            - name: Panoramica sull'indicizzazione
+              displayName: 'range, spatial'
+              href: index-overview.md
             - name: Durata (TTL)
               displayName: 'delete, delete data, ttl'
               href: time-to-live.md
@@ -665,8 +660,6 @@
             - name: Configurare la durata (TTL)
               displayName: 'delete, delete data, ttl'
               href: how-to-time-to-live.md
-            - name: Gestire i criteri di indicizzazione
-              href: how-to-manage-indexing-policy.md
             - name: Definire chiavi univoche
               href: how-to-define-unique-keys.md
         - name: Prestazioni
@@ -677,6 +670,13 @@
                   href: profile-sql-api-query.md
                 - name: Ottimizzare le prestazioni delle query
                   href: sql-api-query-metrics.md
+            - name: Indicizzazione
+              items:
+                - name: Criteri di indicizzazione
+                  displayName: 'consistent, none, indexing, policy'
+                  href: index-policy.md
+                - name: Gestire i criteri di indicizzazione
+                  href: how-to-manage-indexing-policy.md
             - name: .NET
               items:
                 - name: Suggerimenti sulle prestazioni per .NET SDK v3
@@ -753,6 +753,8 @@
               href: create-sql-api-java-changefeed.md
         - name: Programmazione lato server
           items:
+            - name: Eseguire operazioni batch transazionali
+              href: transactional-batch.md
             - name: 'Scrivere stored procedure, trigger e funzioni definite dall''utente'
               href: how-to-write-stored-procedures-triggers-udfs.md
             - name: Scrivere stored procedure e trigger con l'API di query JavaScript

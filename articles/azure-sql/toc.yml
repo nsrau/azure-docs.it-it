@@ -361,7 +361,7 @@
               href: database/network-access-controls-overview.md
             - name: Alias DNS
               href: database/dns-alias-overview.md
-            - name: Endpoint della rete virtuale
+            - name: Endpoint di rete virtuale
               href: database/vnet-service-endpoint-rule-overview.md
             - name: Collegamento privato
               href: database/private-endpoint-overview.md
@@ -993,6 +993,8 @@
                   href: virtual-machines/windows/application-patterns-development-strategies.md
             - name: Gestione
               items:
+                - name: Estensione SQL Server IaaS Agent
+                  href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
                 - name: Host dedicato
                   href: virtual-machines/windows/dedicated-host.md
                 - name: Estendere il supporto per SQL 2008 e R2
@@ -1021,12 +1023,14 @@
                   href: virtual-machines/windows/change-sql-server-version.md
                 - name: Archiviazione
                   href: virtual-machines/windows/storage-configuration.md
+                - name: Applicazione automatica delle patch
+                  href: virtual-machines/windows/automated-patching.md
                 - name: Integrazione di Azure Key Vault
                   href: virtual-machines/windows/azure-key-vault-integration-configure.md
                 - name: Eseguire la migrazione dell'archiviazione a UltraSSD
                   href: virtual-machines/windows/storage-migrate-to-ultradisk.md
-                - name: Eseguire la registrazione con il provider di risorse delle macchine virtuali SQL
-                  displayName: 'resource provider, registration'
+                - name: Installare l'estensione SQL Server IaaS Agent
+                  displayName: 'resource provider, registration, sql vm rp'
                   items:
                     - name: Automatic registration (Registrazione automatica)
                       href: virtual-machines/windows/sql-vm-resource-provider-automatic-registration.md
@@ -1034,12 +1038,6 @@
                       href: virtual-machines/windows/sql-vm-resource-provider-register.md
                     - name: Registrare in blocco più macchine virtuali
                       href: virtual-machines/windows/sql-vm-resource-provider-bulk-register.md
-                - name: Automatizzare le attività di gestione
-                  items:
-                    - name: Usare l'estensione Agente IaaS di SQL Server
-                      href: virtual-machines/windows/sql-server-iaas-agent-extension-automate-management.md
-                    - name: Applicazione automatica delle patch
-                      href: virtual-machines/windows/automated-patching.md
             - name: Migrazione
               items:
                 - name: Dal database di SQL Server alla macchina virtuale
