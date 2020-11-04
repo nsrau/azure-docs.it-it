@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9f432b417140440584bf4dfd01ed45814a746953
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440355"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320910"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Piattaforme dati supportate nella Data Science Virtual Machine
 
@@ -103,5 +103,4 @@ Le librerie per accedere ai dati dall'archiviazione BLOB di Azure o Azure Data L
 
 Per l'istanza di Spark in DSVM per accedere ai dati archiviati nell'archivio BLOB o Azure Data Lake Storage, è necessario creare e configurare il `core-site.xml` file in base al modello trovato in $SPARK _HOME/conf/core-site.xml. template. È inoltre necessario disporre delle credenziali appropriate per accedere all'archiviazione BLOB e Azure Data Lake Storage. Si noti che i file di modello usano segnaposto per l'archiviazione BLOB e le configurazioni Azure Data Lake Storage.
 
-Per informazioni più dettagliate sulla creazione di Azure Data Lake Storage credenziali del servizio, vedere [autenticazione con Azure Data Lake storage Gen1](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-authenticate-using-active-directory). Dopo aver immesso le credenziali per l'archiviazione BLOB o Azure Data Lake Storage nel file di core-site.xml, è possibile fare riferimento ai dati archiviati in tali origini tramite il prefisso URI di wasb://o adl://.
-
+Per informazioni più dettagliate sulla creazione di Azure Data Lake Storage credenziali del servizio, vedere [autenticazione con Azure Data Lake storage Gen1](../../data-lake-store/data-lake-store-service-to-service-authenticate-using-active-directory.md). Dopo aver immesso le credenziali per l'archiviazione BLOB o Azure Data Lake Storage nel file di core-site.xml, è possibile fare riferimento ai dati archiviati in tali origini tramite il prefisso URI di wasb://o adl://.

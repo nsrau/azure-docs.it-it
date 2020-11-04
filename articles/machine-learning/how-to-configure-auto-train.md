@@ -11,17 +11,17 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: fc5b958813ea1107d98525b6dfc1b0b56c9c5400
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 09fe93d4e3ba50ced6c8f07d6fe25ace2376c388
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091203"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320527"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 
 
-Questa guida illustra come definire diverse impostazioni di configurazione degli esperimenti di Machine Learning automatizzato con [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Il processo di Machine Learning automatizzato seleziona un algoritmo e iperparametri per l'utente e genera un modello pronto per la distribuzione. Per configurare esperimenti di Machine Learning automatizzato sono disponibili varie opzioni.
+Questa guida illustra come definire diverse impostazioni di configurazione degli esperimenti di Machine Learning automatizzato con [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Il processo di Machine Learning automatizzato seleziona un algoritmo e iperparametri per l'utente e genera un modello pronto per la distribuzione. Per configurare esperimenti di Machine Learning automatizzato sono disponibili varie opzioni.
 
 Per visualizzare esempi di esperimenti automatici di Machine Learning, vedere [esercitazione: eseguire il training di un modello di classificazione con Machine Learning automatizzato](tutorial-auto-train-models.md) o eseguire il [training di modelli con Machine Learning automatico nel cloud](how-to-auto-train-remote.md).
 
@@ -46,7 +46,7 @@ Per questo articolo è necessario,
     Per installare l'SDK, è possibile eseguire una delle due 
     * Creare un'istanza di calcolo, che installa automaticamente l'SDK ed è preconfigurata per i flussi di lavoro ML. Per altre informazioni, vedere [creare e gestire un'istanza di calcolo Azure Machine Learning](how-to-create-manage-compute-instance.md) . 
 
-    * [Installare l'SDK manualmente](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true). Assicurarsi di includere l' `automl` ulteriore. 
+    * [Installare l'SDK manualmente](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py). Assicurarsi di includere l' `automl` ulteriore. 
 
 ## <a name="select-your-experiment-type"></a>Selezionare il tipo di esperimento
 
@@ -69,12 +69,12 @@ Requisiti per i dati di training:
 - I dati devono essere in formato tabulare.
 - Il valore da stimare, la colonna di destinazione, deve essere presente nei dati.
 
-**Per gli esperimenti remoti**, i dati di training devono essere accessibili dal calcolo remoto. AutoML accetta [Azure Machine Learning TabularDatasets](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) solo quando si lavora su un calcolo remoto. 
+**Per gli esperimenti remoti** , i dati di training devono essere accessibili dal calcolo remoto. AutoML accetta solo [set di dati tabulari di Azure Machine Learning](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) quando si lavora su un calcolo remoto. 
 
-Azure Machine Learning i set di impostazioni espongono la funzionalità per:
+I seti di dati di Azure Machine Learning espongono la funzionalità per:
 
 * Trasferire facilmente i dati da file statici o origini URL nell'area di lavoro.
-* Rendere i dati disponibili per gli script di training durante l'esecuzione di risorse di calcolo cloud. Per un esempio dell'uso della classe per montare i dati nella destinazione di calcolo remota, vedere [come eseguire il training con i set](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) di `Dataset` dati.
+* rendere i dati disponibili per gli script di training durante l'esecuzione in risorse di calcolo sul cloud. Per un esempio dell'uso della classe per montare i dati nella destinazione di calcolo remota, vedere [come eseguire il training con i set](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) di `Dataset` dati.
 
 Il codice seguente crea un TabularDataset da un URL Web. Vedere [creare un TabularDatasets](how-to-create-register-datasets.md#create-a-tabulardataset) per esempi di codice su come creare set di dati da altre origini, ad esempio file e archivi dati locali.
 
@@ -83,7 +83,7 @@ from azureml.core.dataset import Dataset
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
 dataset = Dataset.Tabular.from_delimited_files(data)
   ```
-**Per gli esperimenti di calcolo locali**, è consigliabile usare i dataframe di Pandas per velocizzare i tempi di elaborazione.
+**Per gli esperimenti di calcolo locali** , è consigliabile usare i dataframe di Pandas per velocizzare i tempi di elaborazione.
 
   ```python
   import pandas as pd
@@ -103,21 +103,21 @@ Se non si specifica in modo esplicito `validation_data` un `n_cross_validation` 
 |&nbsp;Dimensioni dati di training &nbsp;| Tecnica di convalida |
 |---|-----|
 |**Maggiore &nbsp; di &nbsp; 20.000 &nbsp; righe**| Viene applicata la suddivisione dei dati di Training/convalida. Il valore predefinito prevede il 10% del set di dati di training iniziale come set di convalida. A sua volta, il set di convalida viene usato per il calcolo delle metriche.
-|**Inferiore &nbsp; a &nbsp; 20.000 &nbsp; righe**| Viene applicato l'approccio per la convalida incrociata. Il numero predefinito di riduzioni dipende dal numero di righe. <br> **Se il set di dati è inferiore a 1.000 righe**, vengono utilizzate 10 riduzioni. <br> **Se le righe sono comprese tra 1.000 e 20.000**, vengono usate tre riduzioni.
+|**Inferiore &nbsp; a &nbsp; 20.000 &nbsp; righe**| Viene applicato l'approccio per la convalida incrociata. Il numero predefinito di riduzioni dipende dal numero di righe. <br> **Se il set di dati è inferiore a 1.000 righe** , vengono utilizzate 10 riduzioni. <br> **Se le righe sono comprese tra 1.000 e 20.000** , vengono usate tre riduzioni.
 
 A questo punto, è necessario fornire i propri **dati di test** per la valutazione del modello. Per un esempio di codice relativo all'introduzione dei propri dati di test per la valutazione del modello, vedere la sezione **test** di [questo notebook di Jupyter](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-credit-card-fraud/auto-ml-classification-credit-card-fraud.ipynb).
 
 ## <a name="compute-to-run-experiment"></a>Calcolo per eseguire l'esperimento
 
-Successivamente, determinare dove verrà eseguito il training del modello. Un esperimento di training di Machine Learning automatizzato può essere eseguito sulle seguenti opzioni di calcolo. Scopri i [vantaggi e gli svantaggi delle opzioni di calcolo locali e remote](concept-automated-ml.md#local-remote) . 
+Successivamente, determinare dove verrà eseguito il training del modello. Un esperimento di training di Machine Learning automatizzato può essere eseguito sulle risorse di calcolo seguenti. Informazioni su [vantaggi e svantaggi delle opzioni di calcolo in locale e remoto](concept-automated-ml.md#local-remote). 
 
 * Il computer **locale** , ad esempio un desktop o un portatile locale, in genere quando si dispone di un set di dati di piccole dimensioni e si è ancora in fase di esplorazione. Vedere [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/local-run-classification-credit-card-fraud/auto-ml-classification-credit-card-fraud-local.ipynb) per un esempio di calcolo locale. 
  
 * Un computer **remoto** nel cloud: [Azure Machine Learning calcolo gestito](concept-compute-target.md#amlcompute) è un servizio gestito che consente di eseguire il training di modelli di Machine Learning in cluster di macchine virtuali di Azure. 
 
-    Vedere [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) per un esempio remoto con Azure Machine Learning calcolo gestito. 
+    Vedere [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) per un esempio in remoto con il calcolo gestito di Azure Machine Learning. 
 
-* Un **cluster Azure Databricks** nella sottoscrizione di Azure. Per altri dettagli, vedere l'articolo [relativo alla configurazione Azure Databricks cluster per](how-to-configure-environment.md#aml-databricks)Machine Learning automatico. Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) per esempi di notebook con Azure Databricks.
+* Un **cluster Azure Databricks** nella sottoscrizione di Azure. Per informazioni dettagliate, vedere [Configurare un cluster Azure Databricks per Machine Learning automatizzato](how-to-configure-environment.md#aml-databricks). Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) per esempi di notebook con Azure Databricks.
 
 <a name='configure-experiment'></a>
 
@@ -198,10 +198,10 @@ Classificazione | Regressione | Previsione serie temporale
 [Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Random Forest](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)* |[Foresta casuale](https://scikit-learn.org/stable/modules/ensemble.html#random-forests)
 [Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Extremely Randomized Trees](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)* |[Alberi estremamente casuali](https://scikit-learn.org/stable/modules/ensemble.html#extremely-randomized-trees)
 [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* |[Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)* | [Xgboost](https://xgboost.readthedocs.io/en/latest/parameter.html)
-[Averaged Perceptron Classifier](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?view=nimbusml-py-latest&preserve-view=true)|[Online Gradient Descent Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?view=nimbusml-py-latest&preserve-view=true) |[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
-[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Fast Linear Regressor](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?view=nimbusml-py-latest&preserve-view=true)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
+[Averaged Perceptron Classifier](/python/api/nimbusml/nimbusml.linear_model.averagedperceptronbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)|[Online Gradient Descent Regressor](/python/api/nimbusml/nimbusml.linear_model.onlinegradientdescentregressor?preserve-view=true&view=nimbusml-py-latest) |[Auto-ARIMA](https://www.alkaline-ml.com/pmdarima/modules/generated/pmdarima.arima.auto_arima.html#pmdarima.arima.auto_arima)
+[Naive Bayes](https://scikit-learn.org/stable/modules/naive_bayes.html#bernoulli-naive-bayes)* |[Fast Linear Regressor](/python/api/nimbusml/nimbusml.linear_model.fastlinearregressor?preserve-view=true&view=nimbusml-py-latest)|[Prophet](https://facebook.github.io/prophet/docs/quick_start.html)
 [Stochastic Gradient Descent (SGD)](https://scikit-learn.org/stable/modules/sgd.html#sgd)* ||ForecastTCN
-|[Linear SVM Classifier](https://docs.microsoft.com/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?view=nimbusml-py-latest&preserve-view=true)*||
+|[Linear SVM Classifier](/python/api/nimbusml/nimbusml.linear_model.linearsvmbinaryclassifier?preserve-view=true&view=nimbusml-py-latest)*||
 
 ### <a name="primary-metric"></a>Metrica primaria
 Il `primary metric` parametro determina la metrica da utilizzare durante il training del modello per l'ottimizzazione. Le metriche disponibili che è possibile selezionare sono determinate dal tipo di attività selezionato. La tabella seguente mostra le metriche primarie valide per ogni tipo di attività.
@@ -266,7 +266,7 @@ Per modificare il comportamento dell'insieme predefinito, sono presenti più arg
   > [!NOTE]
   >  Se viene raggiunto il timeout e sono stati scaricati modelli, l'Ensemble procede con il numero di modelli scaricati. Non è necessario che tutti i modelli vengano scaricati per terminare prima del timeout.
 
-I parametri seguenti si applicano solo ai modelli **StackEnsemble**: 
+I parametri seguenti si applicano solo ai modelli **StackEnsemble** : 
 
 * `stack_meta_learner_type`: il meta-apprendimento è un modello di cui è stato eseguito il training nell'output dei singoli modelli eterogenei. I modelli di meta-apprendimento predefiniti sono `LogisticRegression` per le attività di classificazione (oppure `LogisticRegressionCV` se è abilitata la convalida incrociata) e `ElasticNet` per le attività di regressione o previsione (oppure `ElasticNetCV` se è abilitata la convalida incrociata). Questo parametro può essere una delle stringhe seguenti: `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor` o `LinearRegression`.
 

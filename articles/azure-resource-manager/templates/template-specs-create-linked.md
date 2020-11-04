@@ -2,17 +2,17 @@
 title: Creare una specifica di modello con i modelli collegati
 description: Informazioni su come creare una specifica di modello con i modelli collegati.
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: adcce8194f380b90eb9a29f4da25763e112b9f12
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.openlocfilehash: b1862789ede4a9d2ab8c57bdb913c449a560dc58
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91728540"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321600"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Esercitazione: creare una specifica di modello con i modelli collegati (anteprima)
 
-Informazioni su come creare una [specifica del modello](template-specs.md) con un [modello collegato](linked-templates.md#linked-template). Si usano le specifiche del modello per condividere i modelli ARM con altri utenti nell'organizzazione. Questo articolo illustra come creare una specifica del modello per creare un pacchetto di un modello principale e dei relativi modelli collegati usando la `relativePath` proprietà della [risorsa di distribuzione](/azure/templates/microsoft.resources/deployments).
+Informazioni su come creare una [specifica del modello](template-specs.md) con un modello principale e un [modello collegato](linked-templates.md#linked-template). Si usano le specifiche del modello per condividere i modelli ARM con altri utenti nell'organizzazione. Questo articolo illustra come creare una specifica del modello per creare un pacchetto di un modello principale e dei relativi modelli collegati usando la `relativePath` proprietà della [risorsa di distribuzione](/azure/templates/microsoft.resources/deployments).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -27,7 +27,7 @@ Creare il modello principale e il modello collegato.
 
 Per collegare un modello, aggiungere una [risorsa distribuzioni](/azure/templates/microsoft.resources/deployments) al modello principale. Nella `templateLink` Proprietà specificare il percorso relativo del modello collegato in base al percorso del modello padre.
 
-Il modello collegato viene chiamato **linkedTemplate.json**e viene archiviato in una sottocartella denominata **artefatti** nel percorso in cui è archiviato il modello principale.  È possibile usare uno dei valori seguenti per relativePath:
+Il modello collegato viene chiamato **linkedTemplate.json** e viene archiviato in una sottocartella denominata **artefatti** nel percorso in cui è archiviato il modello principale.  È possibile usare uno dei valori seguenti per relativePath:
 
 - `./artifacts/linkedTemplate.json`
 - `/artifacts/linkedTemplate.json`

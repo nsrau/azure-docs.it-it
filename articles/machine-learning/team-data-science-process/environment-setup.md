@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6b5571f24cc7acfd35cf2979318110ba2eecbb0e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 557550627fe2c39571a848723e5d716324fee240
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320541"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321168"
 ---
 # <a name="set-up-data-science-environments-for-use-in-the-team-data-science-process"></a>Impostare gli ambienti per la scienza dei dati per l'uso nel Processo di analisi scientifica dei dati per i team
 Il Processo di analisi scientifica dei dati per i team usa diversi ambienti per la scienza dei dati per l'archiviazione, l'elaborazione e l'analisi dei dati. Tra questi rientrano l'archiviazione BLOB di Azure, diversi tipi di macchine virtuali di Azure, i cluster HDInsight (Hadoop) e le aree di lavoro di Azure Machine Learning. La scelta riguardante quale ambiente usare dipende dal tipo e dalla quantità di dati da modellare e dalla destinazione di quei dati nel cloud. 
@@ -27,7 +27,7 @@ Il Processo di analisi scientifica dei dati per i team usa diversi ambienti per 
 Gli articoli seguenti descrivono come configurare i diversi ambienti di data science usati dal processo di data science per i team.
 
 * [Azure storage-account](../../storage/common/storage-account-create.md) (Account di archiviazione di Azure)
-* [HDInsight (Hadoop) cluster](customize-hadoop-cluster.md) (Cluster HDInsight (Hadoop))
+* [HDInsight (Hadoop) cluster](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md) (Cluster HDInsight (Hadoop))
 * [Area di lavoro Azure Machine Learning Studio (classica)](../classic/create-workspace.md)
 
 La **macchina virtuale per l'analisi scientifica dei dati di Microsoft** è disponibile anche come immagine di macchina virtuale di (VM) Azure. Questa macchina virtuale è pre-installata e configurata con diversi strumenti diffusi, usati comunemente per l'analisi dei dati e l'apprendimento automatico. La macchina virtuale per l'analisi scientifica dei dati è disponibile in Windows e Linux. Per altre informazioni, vedere [Introduzione alla Data Science Virtual Machine basata su cloud per Linux e Windows](../data-science-virtual-machine/overview.md).
@@ -36,4 +36,4 @@ Scopri come creare:
 
 - [DSVM Windows](../data-science-virtual-machine/provision-vm.md)
 - [Data Science Virtual Machine di Ubuntu](../data-science-virtual-machine/dsvm-ubuntu-intro.md)
-- [Data Science Virtual Machine di CentOS](../data-science-virtual-machine/linux-dsvm-intro.md)
+- [Data Science Virtual Machine di CentOS](../data-science-virtual-machine/release-notes.md)

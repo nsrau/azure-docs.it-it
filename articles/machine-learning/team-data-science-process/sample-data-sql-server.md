@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e43c343b27dfe2dc0c364e58ed7305bdcec37215
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7ac1fc5688dad3406041f36ff858e6fd27c7272f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026067"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321873"
 ---
 # <a name="sample-data-in-sql-server-on-azure"></a><a name="heading"></a>Dati di esempio in SQL Server in Azure
 
@@ -30,9 +30,9 @@ Il campionamento di Python usa la libreria ODBC [pyodbc](https://code.google.com
 > 
 
 **Perché campionare i dati?**
-Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Il campionamento semplifica la comprensione dei dati, l'esplorazione e la progettazione delle funzionalità. Il suo ruolo nel [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli di Machine Learning.
+Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Il campionamento semplifica la comprensione dei dati, l'esplorazione e la progettazione delle funzionalità. Il suo ruolo nel [Processo di analisi scientifica dei dati per i team (TDSP)](./index.yml) consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli di Machine Learning.
 
-Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](./index.yml).
 
 ## <a name="using-sql"></a><a name="SQL"></a>Uso di SQL
 In questa sezione vengono descritti alcuni metodi di utilizzo di SQL per eseguire il campionamento casuale semplice dei dati all'interno del database. Scegliere il metodo in base alla dimensione dei dati e alla loro distribuzione.
@@ -134,4 +134,4 @@ Per esaminare un esempio del processo di Data Science per i team usando un set d
 [1]: ./media/sample-sql-server-virtual-machine/reader_database.png
 [2]: ./media/sample-sql-server-virtual-machine/reader_blob.png
 
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

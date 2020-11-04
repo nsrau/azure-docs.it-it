@@ -11,14 +11,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/28/2020
-ms.openlocfilehash: 0138715e4c9df8ae05c9a3eade64d539eb7cdeda
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 229bcbb8c8c429b7fe4e5878b0e57e74dd828b72
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91756552"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320664"
 ---
-# <a name="featurization-in-automated-machine-learning"></a>Conteggi in Machine Learning automatizzato
+# <a name="featurization-in-automated-machine-learning"></a>Definizione delle funzionalità nel Machine Learning automatizzato
 
 
 
@@ -38,7 +38,7 @@ Questo articolo presuppone che si conosca già come configurare un esperimento d
 
 ## <a name="configure-featurization"></a>Configurare conteggi
 
-In ogni esperimento di Machine Learning automatizzato, le [tecniche di ridimensionamento automatico e di normalizzazione](#featurization) vengono applicate ai dati per impostazione predefinita. Queste tecniche sono tipi di conteggi che aiutano *determinati* algoritmi sensibili alle funzionalità su scale diverse. Tuttavia, è anche possibile abilitare conteggi aggiuntivi, ad esempio l'imputazione, la *codifica*e le *trasformazioni* *dei valori mancanti*.
+In ogni esperimento di Machine Learning automatizzato, le [tecniche di ridimensionamento automatico e di normalizzazione](#featurization) vengono applicate ai dati per impostazione predefinita. Queste tecniche sono tipi di conteggi che aiutano *determinati* algoritmi sensibili alle funzionalità su scale diverse. Tuttavia, è anche possibile abilitare conteggi aggiuntivi, ad esempio l'imputazione, la *codifica* e le *trasformazioni* *dei valori mancanti*.
 
 > [!NOTE]
 > I passaggi per automatizzare conteggi di Machine Learning, ad esempio la normalizzazione delle funzioni, la gestione dei dati mancanti o la conversione di testo in numerici, diventano parte del modello sottostante. Quando si usa il modello per le stime, gli stessi passaggi di conteggi applicati durante il training vengono applicati automaticamente ai dati di input.
@@ -47,9 +47,9 @@ Per gli esperimenti configurati con Python SDK, è possibile abilitare o disabil
 
 Nella tabella seguente vengono illustrate le impostazioni accettate per `featurization` nella [classe AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig):
 
-|Configurazione di conteggi | Description|
+|Configurazione di conteggi | Descrizione|
 ------------- | ------------- |
-|`"featurization": 'auto'`| Specifica che, come parte della pre-elaborazione, [i passaggi per i dati Guardrails e conteggi](#featurization) devono essere eseguiti automaticamente. Questa è l'impostazione predefinita.|
+|`"featurization": 'auto'`| Specifica che, come parte della pre-elaborazione, [i passaggi per i dati Guardrails e conteggi](#featurization) devono essere eseguiti automaticamente. È l'impostazione predefinita.|
 |`"featurization": 'off'`| Specifica che i passaggi di conteggi non devono essere eseguiti automaticamente.|
 |`"featurization":`&nbsp;`'FeaturizationConfig'`| Specifica che devono essere usati i passaggi di conteggi personalizzati. [Informazioni su come personalizzare la definizione delle funzionalità](#customize-featurization).|
 
@@ -62,13 +62,13 @@ Nella tabella seguente sono riepilogate le tecniche applicate automaticamente ai
 > [!NOTE]
 > Se si prevede di esportare i modelli creati da AutoML in un [modello ONNX](concept-onnx.md), nel formato ONNX sono supportate solo le opzioni conteggi indicate con un asterisco ("*"). Altre informazioni sulla [conversione di modelli in ONNX](concept-automated-ml.md#use-with-onnx).
 
-|&nbsp;Procedura conteggi| Description |
+|&nbsp;Procedura conteggi| Descrizione |
 | ------------- | ------------- |
-|**Elimina la cardinalità elevata o nessuna funzionalità di varianza*** |Eliminare queste funzionalità dai set di training e di convalida. Si applica alle funzionalità con tutti i valori mancanti, con lo stesso valore in tutte le righe o con cardinalità elevata (ad esempio, hash, ID o GUID).|
-|**Imputare i valori mancanti*** |Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
-|**Genera funzionalità aggiuntive*** |Per le caratteristiche di tipo DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuti, secondi.<br><br> *Per le attività di previsione,* vengono create queste funzionalità di data/ora aggiuntive: ISO anno, semestre semestrale, calendario mese come stringa, settimana, giorno della settimana come stringa, giorno del trimestre, giorno dell'anno, AM/PM (0 se l'ora è precedente a mezzogiorno (12.00), 1 in caso contrario), AM/PM come stringa, ora del giorno (12 ore)<br/><br/>Per le funzionalità di testo: frequenza dei termini basata su unigrammi, bigrammi e trigrammi. Altre informazioni su [come eseguire questa operazione con Bert.](#bert-integration)|
-|**Trasformare e codificare***|Trasforma le funzionalità numeriche con pochi valori univoci nelle funzionalità categoriche.<br/><br/>La codifica One-Hot viene utilizzata per le funzionalità categoriche con cardinalità bassa. Per le funzionalità categoriche con cardinalità elevata, viene usata la codifica One-Hot-hash.|
-|**Incorporamenti di parole**|Un featurizer di testo converte i vettori di token di testo in vettori di frase usando un modello con training preliminare. Il vettore di incorporamento di ogni parola in un documento viene aggregato con il resto per produrre un vettore di funzionalità del documento.|
+|**Elimina la cardinalità elevata o nessuna funzionalità di varianza** _ |Eliminare queste funzionalità dai set di training e di convalida. Si applica alle funzionalità con tutti i valori mancanti, con lo stesso valore in tutte le righe o con cardinalità elevata (ad esempio, hash, ID o GUID).|
+|_*Imputare i valori mancanti**_ |Per le funzionalità numeriche, imputare alla media dei valori nella colonna.<br/><br/>Per le funzionalità categoriche, imputare il valore più frequente.|
+|_*Genera funzionalità aggiuntive**_ |Per le caratteristiche di tipo DateTime: anno, mese, giorno, giorno della settimana, giorno dell'anno, trimestre, settimana dell'anno, ora, minuti, secondi.<br><br> _For le attività di previsione, * queste funzionalità di data/ora aggiuntive vengono create: ISO year, Half-semestre, calendar month As String, week, Day of Week come String, Day of Quarter, Day of Year, AM/PM (0 se hour è before noon (12.00), 1 in caso contrario), AM/PM come stringa, ora del giorno (12 ore)<br/><br/>Per le funzionalità di testo: frequenza dei termini basata su unigrammi, bigrammi e trigrammi. Altre informazioni su [come eseguire questa operazione con Bert.](#bert-integration)|
+|**Trasformazione e codifica** _|Trasforma le funzionalità numeriche con pochi valori univoci nelle funzionalità categoriche.<br/><br/>La codifica One-Hot viene utilizzata per le funzionalità categoriche con cardinalità bassa. Per le funzionalità categoriche con cardinalità elevata, viene usata la codifica One-Hot-hash.|
+|*Incorporamenti di Word**|Un featurizer di testo converte i vettori di token di testo in vettori di frase usando un modello con training preliminare. Il vettore di incorporamento di ogni parola in un documento viene aggregato con il resto per produrre un vettore di funzionalità del documento.|
 |**Codifiche di destinazione**|Per le funzionalità categoriche, questo passaggio esegue il mapping di ogni categoria con un valore di destinazione medio per i problemi di regressione e la probabilità della classe per ogni classe per i problemi di classificazione. Viene applicata la ponderazione basata sulla frequenza e la convalida incrociata k-fold per ridurre l'overfitting del mapping e del rumore causato dalle categorie di dati di tipo sparse.|
 |**Codifica di destinazione del testo**|Per l'input di testo, viene usato un modello lineare in stack con elenco di parole per generare la probabilità di ogni classe.|
 |**Peso dell’evidenza**|Calcola il peso dell’evidenza come misura della correlazione delle colonne di categoria con la colonna di destinazione. Guai viene calcolato come log del rapporto tra le probabilità out-of-Class e le probabilità out-of-Class. Questo passaggio produce una colonna della funzionalità numerica per classe e rimuove la necessità di imputare in modo esplicito i valori mancanti e il trattamento degli outlier.|
@@ -80,8 +80,8 @@ Nella tabella seguente sono riepilogate le tecniche applicate automaticamente ai
 
 Guardrails dati applicati:
 
-- **Per gli esperimenti SDK**: quando `"featurization": 'auto'` vengono specificati i parametri o `validation=auto` nell' `AutoMLConfig` oggetto.
-- **Per gli esperimenti in studio**: quando è abilitata la conteggi automatica.
+- **Per gli esperimenti SDK** : quando `"featurization": 'auto'` vengono specificati i parametri o `validation=auto` nell' `AutoMLConfig` oggetto.
+- **Per gli esperimenti in studio** : quando è abilitata la conteggi automatica.
 
 È possibile esaminare i dati Guardrails per l'esperimento:
 
@@ -105,18 +105,18 @@ La tabella seguente descrive i Guardrails di dati attualmente supportati e gli S
 
 Protezione|Stato|Condizione&nbsp;per il&nbsp;trigger
 ---|---|---
-**Imputazione di valori di funzionalità mancanti** |Passed <br><br><br> Fine| Nei dati di training non sono stati rilevati valori di funzionalità mancanti. Altre informazioni sull' [imputazione di valori mancanti.](https://docs.microsoft.com/azure/machine-learning/how-to-use-automated-ml-for-ml-models#advanced-featurization-options) <br><br> Sono stati rilevati valori di funzionalità mancanti nei dati di training e sono stati imputati.
+**Imputazione di valori di funzionalità mancanti** |Passed <br><br><br> Fine| Nei dati di training non sono stati rilevati valori di funzionalità mancanti. Altre informazioni sull' [imputazione di valori mancanti.](./how-to-use-automated-ml-for-ml-models.md#customize-featurization) <br><br> Sono stati rilevati valori di funzionalità mancanti nei dati di training e sono stati imputati.
 **Gestione di funzionalità ad alta cardinalità** |Passed <br><br><br> Fine| Gli input sono stati analizzati e non sono state rilevate funzionalità di cardinalità elevata. <br><br> Sono state rilevate funzionalità di cardinalità elevata negli input ed è stata gestita.
-**Gestione della suddivisione della convalida** |Fine| La configurazione della convalida è stata impostata su `'auto'` e i dati di training contengono *meno di 20.000 righe*. <br> Ogni iterazione del modello sottoposto a training è stata convalidata tramite la convalida incrociata. Altre informazioni sui [dati di convalida](https://docs.microsoft.com/azure/machine-learning/how-to-configure-auto-train#train-and-validation-data). <br><br> La configurazione della convalida è stata impostata su `'auto'` e i dati di training contenevano *più di 20.000 righe*. <br> I dati di input sono stati suddivisi in un set di dati di training e un set di dati di convalida per la convalida del modello.
-**Rilevamento bilanciamento classi** |Passed <br><br><br><br>Avvisato <br><br><br>Fine | Gli input sono stati analizzati e tutte le classi sono bilanciate nei dati di training. Un set di dati è considerato bilanciato se ogni classe presenta una rappresentazione corretta del set di dati, misurata in base al numero e al rapporto degli esempi. <br><br> Sono state rilevate classi non bilanciate negli input. Per correggere la distorsione del modello, risolvere il problema di bilanciamento del carico. Altre informazioni sui [dati sbilanciati](https://docs.microsoft.com/azure/machine-learning/concept-manage-ml-pitfalls#identify-models-with-imbalanced-data).<br><br> Sono state rilevate classi sbilanciate negli input e la logica di sweep ha determinato l'applicazione del bilanciamento del carico.
-**Rilevamento dei problemi di memoria** |Passed <br><br><br><br> Fine |<br> Sono stati analizzati i valori selezionati (orizzonte, lag, finestra in sequenza) e non sono stati rilevati potenziali problemi di memoria insufficiente. Altre informazioni sulle [configurazioni di previsione](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#configure-and-run-experiment)delle serie temporali. <br><br><br>I valori selezionati (orizzonte, lag, finestra in sequenza) sono stati analizzati e potrebbero causare un esaurimento della memoria da parte dell'esperimento. Le configurazioni di ritardo o della finestra in sequenza sono state disattivate.
-**Rilevamento della frequenza** |Passed <br><br><br><br> Fine |<br> La serie temporale è stata analizzata e tutti i punti dati sono allineati con la frequenza rilevata. <br> <br> La serie temporale è stata analizzata e sono stati rilevati punti dati che non si allineano alla frequenza rilevata. Questi punti dati sono stati rimossi dal set di dati. Altre informazioni sulla [preparazione dei dati per la previsione delle serie temporali](https://docs.microsoft.com/azure/machine-learning/how-to-auto-train-forecast#preparing-data).
+**Gestione della suddivisione della convalida** |Fine| La configurazione della convalida è stata impostata su `'auto'` e i dati di training contengono *meno di 20.000 righe*. <br> Ogni iterazione del modello sottoposto a training è stata convalidata tramite la convalida incrociata. Altre informazioni sui [dati di convalida](./how-to-configure-auto-train.md#training-validation-and-test-data). <br><br> La configurazione della convalida è stata impostata su `'auto'` e i dati di training contenevano *più di 20.000 righe*. <br> I dati di input sono stati suddivisi in un set di dati di training e un set di dati di convalida per la convalida del modello.
+**Rilevamento bilanciamento classi** |Passed <br><br><br><br>Avvisato <br><br><br>Fine | Gli input sono stati analizzati e tutte le classi sono bilanciate nei dati di training. Un set di dati è considerato bilanciato se ogni classe presenta una rappresentazione corretta del set di dati, misurata in base al numero e al rapporto degli esempi. <br><br> Sono state rilevate classi non bilanciate negli input. Per correggere la distorsione del modello, risolvere il problema di bilanciamento del carico. Altre informazioni sui [dati sbilanciati](./concept-manage-ml-pitfalls.md#identify-models-with-imbalanced-data).<br><br> Sono state rilevate classi sbilanciate negli input e la logica di sweep ha determinato l'applicazione del bilanciamento del carico.
+**Rilevamento dei problemi di memoria** |Passed <br><br><br><br> Fine |<br> Sono stati analizzati i valori selezionati (orizzonte, lag, finestra in sequenza) e non sono stati rilevati potenziali problemi di memoria insufficiente. Altre informazioni sulle [configurazioni di previsione](./how-to-auto-train-forecast.md#configuration-settings)delle serie temporali. <br><br><br>I valori selezionati (orizzonte, lag, finestra in sequenza) sono stati analizzati e potrebbero causare un esaurimento della memoria da parte dell'esperimento. Le configurazioni di ritardo o della finestra in sequenza sono state disattivate.
+**Rilevamento della frequenza** |Passed <br><br><br><br> Fine |<br> La serie temporale è stata analizzata e tutti i punti dati sono allineati con la frequenza rilevata. <br> <br> La serie temporale è stata analizzata e sono stati rilevati punti dati che non si allineano alla frequenza rilevata. Questi punti dati sono stati rimossi dal set di dati. Altre informazioni sulla [preparazione dei dati per la previsione delle serie temporali](./how-to-auto-train-forecast.md#preparing-data).
 
 ## <a name="customize-featurization"></a>Personalizzare conteggi
 
 È possibile personalizzare le impostazioni di conteggi per assicurarsi che i dati e le funzionalità usati per il training del modello ML provochino stime pertinenti.
 
-Per personalizzare featurizations, specificare  `"featurization": FeaturizationConfig` nell' `AutoMLConfig` oggetto. Se si usa Azure Machine Learning Studio per l'esperimento, vedere l'articolo sulle [procedure](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Per personalizzare conteggi per i tipi di attività di previsione, fare riferimento alle procedure per la [previsione](how-to-auto-train-forecast.md#customize-featurization).
+Per personalizzare featurizations, specificare `"featurization": FeaturizationConfig` nell' `AutoMLConfig` oggetto. Se si usa Azure Machine Learning Studio per l'esperimento, vedere l'articolo sulle [procedure](how-to-use-automated-ml-for-ml-models.md#customize-featurization). Per personalizzare conteggi per i tipi di attività di previsione, fare riferimento alle procedure per la [previsione](how-to-auto-train-forecast.md#customize-featurization).
 
 Le personalizzazioni supportate includono:
 
@@ -318,7 +318,7 @@ AutoML esegue i passaggi seguenti per BERT.
 
 1. **Pre-elaborazione e suddivisione in token di tutte le colonne di testo**. Ad esempio, il trasformatore "StringCast" si trova nel riepilogo conteggi del modello finale. Un esempio di come produrre il riepilogo conteggi del modello è disponibile in [questo notebook](https://towardsdatascience.com/automated-text-classification-using-machine-learning-3df4f4f9570b).
 
-2. **Concatena tutte le colonne di testo in una singola colonna di testo**, `StringConcatTransformer` di conseguenza nel modello finale. 
+2. **Concatena tutte le colonne di testo in una singola colonna di testo** , `StringConcatTransformer` di conseguenza nel modello finale. 
 
     La nostra implementazione di BERT limita la lunghezza totale del testo di un campione di training a 128 token. Ciò significa che tutte le colonne di testo concatenate devono avere una lunghezza massima di 128 token. Se sono presenti più colonne, ogni colonna deve essere eliminata, in modo che questa condizione venga soddisfatta. In caso contrario, per le colonne concatenate di lunghezza >128 token il livello tokenizer di BERT tronca questo input a 128 token.
 

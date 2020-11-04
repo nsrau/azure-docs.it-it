@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/12/2019
-ms.openlocfilehash: c24c82e6e013734798b75d7c2cfa5ca126e32bc4
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 37931aee24e2dbcab03bca400d58f236601c87e5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92788605"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321432"
 ---
 # <a name="rotate-the-transparent-data-encryption-tde-protector"></a>Ruotare la protezione Transparent Data Encryption (Transparent Data Encryption)
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -28,7 +28,7 @@ Questo articolo descrive la rotazione della chiave per un [Server](logical-serve
 In questa guida vengono illustrate due opzioni per ruotare la protezione TDE nel server.
 
 > [!NOTE]
-> Prima della rotazione delle chiavi, è necessario riprendere un pool SQL di Azure sinapsi Analytics sospeso.
+> Un pool SQL dedicato sospeso in Azure sinapsi Analytics deve essere ripreso prima della rotazione della chiave.
 
 > [!IMPORTANT]
 > Non eliminare le versioni precedenti della chiave dopo un rollover. Quando le chiavi vengono ruotate, alcuni dati vengono comunque crittografati con le chiavi precedenti, ad esempio, i backup meno recenti del database.

@@ -11,19 +11,19 @@ ms.topic: conceptual
 ms.date: 05/14/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath, contperfq4
-ms.openlocfilehash: 5e84a3930d350ec45cef7119342e3e4d2d5daaee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44b5baa074b62a072873d8097de184a2813b54ec
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91250658"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322015"
 ---
 # <a name="feature-engineering-in-data-science"></a>Progettazione di funzionalità nell'analisi scientifica dei dati
 
 Questo articolo descrive la progettazione di funzionalità e il suo ruolo nel miglioramento dei dati di apprendimento automatico. A tale scopo, sono riportate illustrazioni dagli esperimenti di [Azure Machine Learning Studio (versione classica)](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio). 
 
-* **Progettazione di caratteristiche**: processo di creazione di nuove funzionalità da dati non elaborati per aumentare la potenza predittiva dell'algoritmo di apprendimento. Le funzionalità progettate devono acquisire informazioni aggiuntive che non sono facilmente evidenti nel set di funzionalità originale.
-* **Selezione delle funzionalità**: processo di selezione del subset principale delle funzionalità per ridurre la dimensionalità del problema di training.
+* **Progettazione di caratteristiche** : processo di creazione di nuove funzionalità da dati non elaborati per aumentare la potenza predittiva dell'algoritmo di apprendimento. Le funzionalità progettate devono acquisire informazioni aggiuntive che non sono facilmente evidenti nel set di funzionalità originale.
+* **Selezione delle funzionalità** : processo di selezione del subset principale delle funzionalità per ridurre la dimensionalità del problema di training.
 
 In genere la prima fase è la **progettazione di funzionalità** per generare altre funzioni, quindi si passa alla **selezione delle funzionalità** per eliminare quelle irrilevanti, ridondanti o altamente correlate.
 
@@ -60,7 +60,7 @@ Oltre al set di funzioni A, che esiste già nei dati non elaborati originali, gl
 
 ### <a name="feature-engineering-using-studio-classic"></a>Progettazione di funzionalità con Studio (versione classica)
 
-Nell'esperimento su Studio (versione classica) questi quattro set di dati del training vengono creati dai quattro rami del set di dati di input pre-elaborati. Ad eccezione del ramo all'estrema sinistra, ognuno di questi rami contiene un modulo [Execute R Script](https://msdn.microsoft.com/library/azure/30806023-392b-42e0-94d6-6b775a6e0fd5/) in cui le funzionalità derivate (set B, C e D) vengono costruite e aggiunte al set di dati importato.
+Nell'esperimento su Studio (versione classica) questi quattro set di dati del training vengono creati dai quattro rami del set di dati di input pre-elaborati. Ad eccezione del ramo all'estrema sinistra, ognuno di questi rami contiene un modulo [Execute R Script](/azure/machine-learning/studio-module-reference/execute-r-script) in cui le funzionalità derivate (set B, C e D) vengono costruite e aggiunte al set di dati importato.
 
 La figura seguente illustra lo script R usato per creare il set di funzioni B nel secondo ramo a sinistra.
 
@@ -80,9 +80,9 @@ La progettazione di funzionalità viene ampiamente applicata nelle attività cor
 
 ### <a name="feature-hashing"></a>Hashing di funzioni
 
-Per completare questa attività, si applica una tecnica definita [hashing di funzioni](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) per trasformare in modo efficiente le funzioni di testo arbitrarie in indici. Anziché associare ogni funzione di testo (parole/frasi) a un indice particolare, questo metodo applica una funzione hash alle funzioni e usa direttamente i relativi valori hash come indici.
+Per completare questa attività, si applica una tecnica definita [hashing di funzioni](/azure/machine-learning/studio-module-reference/feature-hashing) per trasformare in modo efficiente le funzioni di testo arbitrarie in indici. Anziché associare ogni funzione di testo (parole/frasi) a un indice particolare, questo metodo applica una funzione hash alle funzioni e usa direttamente i relativi valori hash come indici.
 
-In Studio (versione classica) è disponibile il modulo [Feature Hashing](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/feature-hashing) che crea in modo pratico funzioni basate su parole/frasi. La figura seguente mostra un esempio dell'uso di questo modulo. Il set di dati di input contiene due colonne: la classificazione dei libri da 1 a 5 e il contenuto effettivo della recensione. L'obiettivo di questo modulo è recuperare una serie di nuove funzionalità che mostrino la frequenza di occorrenza delle parole/frasi corrispondenti nella recensione di un libro specifico. Per usare questo modulo, completare i passaggi seguenti:
+In Studio (versione classica) è disponibile il modulo [Feature Hashing](/azure/machine-learning/studio-module-reference/feature-hashing) che crea in modo pratico funzioni basate su parole/frasi. La figura seguente mostra un esempio dell'uso di questo modulo. Il set di dati di input contiene due colonne: la classificazione dei libri da 1 a 5 e il contenuto effettivo della recensione. L'obiettivo di questo modulo è recuperare una serie di nuove funzionalità che mostrino la frequenza di occorrenza delle parole/frasi corrispondenti nella recensione di un libro specifico. Per usare questo modulo, completare i passaggi seguenti:
 
 * Selezionare innanzitutto la colonna che contiene il testo di input ("Col2" in questo esempio).
 * Impostare quindi "Hashing bitsize" su 8, che equivale alla creazione di 2^8=256 funzioni. Per le parole/frasi in tutto il testo verrà generato un hash per 256 indici. Il parametro "Hashing bitsize" è compreso nell'intervallo da 1 a 31. Con l'impostazione di un numero maggiore, è meno probabile che per le parole/frasi venga generato un hash nello stesso indice.

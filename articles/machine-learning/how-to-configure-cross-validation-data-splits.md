@@ -11,20 +11,20 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 3e2711243d7c093d3ab8aa5f0e7ebac0a5ec95f9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ed11a1b772acb31268f3d0a61fba10301ad62e18
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90886200"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320474"
 ---
-# <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurare la suddivisione dei dati e la convalida incrociata in Machine Learning automatico
+# <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurare la suddivisione dei dati e la convalida trasversale in Machine Learning automatizzato
 
 Questo articolo illustra le diverse opzioni per la configurazione di suddivisione dei dati di Training/convalida e la convalida incrociata per gli esperimenti automatici di Machine Learning, AutoML.
 
 In Azure Machine Learning, quando si usa AutoML per compilare più modelli ML, ogni esecuzione figlio deve convalidare il modello correlato calcolando la metrica di qualità per tale modello, ad esempio l'accuratezza o l'AUC ponderata. Queste metriche vengono calcolate confrontando le stime effettuate con ogni modello con etichette reali dalle osservazioni precedenti nei dati di convalida. 
 
-Gli esperimenti AutoML eseguono automaticamente la convalida del modello. Le sezioni seguenti descrivono come è possibile personalizzare ulteriormente le impostazioni di convalida con [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
+Gli esperimenti AutoML eseguono automaticamente la convalida del modello. Le sezioni seguenti descrivono come è possibile personalizzare ulteriormente le impostazioni di convalida con [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py). 
 
 Per un'esperienza di basso livello o senza codice, vedere [creare esperimenti automatici di Machine Learning in Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
 
@@ -47,7 +47,7 @@ Per questo articolo è necessario,
 
 ## <a name="default--data-splits-and-cross-validation"></a>Suddivisione dei dati predefinita e convalida incrociata
 
-Usare l'oggetto [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) per definire le impostazioni dell'esperimento e del training. Nel frammento di codice seguente si noti che sono definiti solo i parametri obbligatori, ovvero i parametri `n_cross_validation` per `validation_ data` o **non** sono inclusi.
+Usare l'oggetto [AutoMLConfig](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py) per definire le impostazioni dell'esperimento e del training. Nel frammento di codice seguente si noti che sono definiti solo i parametri obbligatori, ovvero i parametri `n_cross_validation` per `validation_ data` o **non** sono inclusi.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -67,7 +67,7 @@ Se non si specifica in modo esplicito un `validation_data` `n_cross_validation` 
 |&nbsp;Dimensioni dati di training &nbsp;| Tecnica di convalida |
 |---|-----|
 |**Maggiore &nbsp; di &nbsp; 20.000 &nbsp; righe**| Viene applicata la suddivisione dei dati di Training/convalida. Il valore predefinito prevede il 10% del set di dati di training iniziale come set di convalida. A sua volta, il set di convalida viene usato per il calcolo delle metriche.
-|**Inferiore &nbsp; a &nbsp; 20.000 &nbsp; righe**| Viene applicato l'approccio per la convalida incrociata. Il numero predefinito di riduzioni dipende dal numero di righe. <br> **Se il set di dati è inferiore a 1.000 righe**, vengono utilizzate 10 riduzioni. <br> **Se le righe sono comprese tra 1.000 e 20.000**, vengono usate tre riduzioni.
+|**Inferiore &nbsp; a &nbsp; 20.000 &nbsp; righe**| Viene applicato l'approccio per la convalida incrociata. Il numero predefinito di riduzioni dipende dal numero di righe. <br> **Se il set di dati è inferiore a 1.000 righe** , vengono utilizzate 10 riduzioni. <br> **Se le righe sono comprese tra 1.000 e 20.000** , vengono usate tre riduzioni.
 
 ## <a name="provide-validation-data"></a>Fornire dati di convalida
 

@@ -1,7 +1,7 @@
 ---
 title: Usare un firewall
 titleSuffix: Azure Machine Learning
-description: Controllare l'accesso alle aree di lavoro Azure Machine Learning con i firewall di Azure. Informazioni sugli host che è necessario consentire attraverso il firewall per il corretto funzionamento di Azure Machine Learning.
+description: Controllare l'accesso alle aree di lavoro Azure Machine Learning con i firewall di Azure. Informazioni sugli host che è necessario consentire attraverso il firewall.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ author: aashishb
 ms.reviewer: larryfr
 ms.date: 07/17/2020
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: d0f30edeb24f3c4abed6f144f3fb7f755cc08a72
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 5ba1804630649044d29dd2919ef8375265a69a08
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629460"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320876"
 ---
 # <a name="use-workspace-behind-a-firewall-for-azure-machine-learning"></a>Usare l'area di lavoro dietro un firewall per Azure Machine Learning
 
@@ -78,7 +78,7 @@ Gli host in questa sezione vengono usati per installare i pacchetti Python. Sono
 | ---- | ---- |
 | **anaconda.com**</br>**\*. anaconda.com** | Utilizzato per installare i pacchetti predefiniti. |
 | **\*. anaconda.org** | Usato per ottenere i dati del repository. |
-| **pypi.org** | Utilizzato per elencare le dipendenze dall'indice predefinito, se presente, e l'indice non viene sovrascritto dalle impostazioni utente. Se l'indice viene sovrascritto, è necessario consentire anche **\* . pythonhosted.org** . |
+| **pypi.org** | Utilizzato per elencare le dipendenze dall'indice predefinito, se presente, e l'indice non viene sovrascritto dalle impostazioni utente. Se l'indice viene sovrascritto, è necessario consentire anche **\* . pythonhosted.org**. |
 
 ## <a name="r-hosts"></a>Host R
 

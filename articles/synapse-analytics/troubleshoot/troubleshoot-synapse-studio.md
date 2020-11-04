@@ -8,28 +8,28 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 33022d005deca5d1350278218fb6f1fca1a35ca1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fe31f83ccc0dcbd2d61a7c70d40a64da08d13a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91287748"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321056"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Risoluzione dei problemi di Azure sinapsi Studio (anteprima)
 
 Questa guida alla risoluzione dei problemi fornisce istruzioni sulle informazioni da fornire quando si apre un ticket di supporto in caso di problemi di connettività di rete. Con le informazioni corrette, il problema potrebbe essere risolto più rapidamente.
 
-## <a name="sql-on-demand-preview-service-connectivity-issue"></a>Problema di connettività del servizio su richiesta (anteprima) SQL
+## <a name="serverless-sql-pool-preview-service-connectivity-issue"></a>Problema di connettività del servizio del pool SQL senza server (anteprima)
 
 ### <a name="symptom-1"></a>Sintomo 1
 
-L'opzione "SQL su richiesta" è disabilitata nell'elenco a discesa "Connetti a".
+L'opzione "pool SQL senza server" è disabilitata nell'elenco a discesa "Connetti a".
 
 ![symptom1](media/troubleshooting-synapse-studio/symptom1v2.png)
 
 ### <a name="symptom-2"></a>Sintomo 2
 
-L'esecuzione della query con "SQL su richiesta" indica il messaggio di errore "Impossibile stabilire la connessione al server".
+L'esecuzione della query con "pool SQL senza server" fornisce il messaggio di errore "Impossibile stabilire la connessione al server".
 
 ![sintomo 2](media/troubleshooting-synapse-studio/symptom2.png)
  
@@ -45,7 +45,7 @@ Aprire il pannello "informazioni di diagnostica" e selezionare il pulsante "Scar
 
 Per iniziare la risoluzione dei problemi, ripetere l'operazione eseguita in Azure sinapsi Studio.
 
-- Per sintomo 1, selezionare il pulsante "Aggiorna" a destra dell'elenco a discesa "Usa database" nella scheda "script SQL" e verificare se è possibile vedere "SQL su richiesta".
+- Per sintomo 1, selezionare il pulsante "Aggiorna" a destra dell'elenco a discesa "Usa database" nella scheda "script SQL" e verificare se è possibile visualizzare "pool SQL senza server".
 - Per il sintomo 2, provare a eseguire nuovamente la query per verificare se viene eseguita correttamente.
 
 Se il problema persiste, premere F12 nel browser per aprire "Strumenti di sviluppo" (DevTools).
@@ -61,7 +61,7 @@ Trovare l'elemento la cui colonna URL corrisponde al modello seguente:
 
 `https://[*A*]-ondemand.database.windows.net:1443/databases/[*B*]/query?api-version=2018-08-01-preview&application=ArcadiaSqlOnDemandExplorer`
 
-Dove [*A*] è il nome dell'area di lavoro e "-ondemand" può essere "-sqlod" e dove [*B*] deve essere un nome di database, ad esempio "Master". Dovrebbero essere presenti al massimo due elementi con lo stesso valore di URL ma con valori di metodo diversi. OPZIONI e POST. Verificare che questi due elementi includano "200" o "20x" nella colonna stato, dove "x" può essere una singola cifra.
+Dove [ *A* ] è il nome dell'area di lavoro e "-ondemand" può essere "-sqlod" e dove [ *B* ] deve essere un nome di database, ad esempio "Master". Dovrebbero essere presenti al massimo due elementi con lo stesso valore di URL ma con valori di metodo diversi. OPZIONI e POST. Verificare che questi due elementi includano "200" o "20x" nella colonna stato, dove "x" può essere una singola cifra.
 
 Se uno dei due ha un valore diverso da "20x" e:
 
@@ -71,7 +71,7 @@ Se uno dei due ha un valore diverso da "20x" e:
 
     - Se viene visualizzato ERR_NAME_NOT_RESOLVED e l'area di lavoro è stata creata entro 10 minuti, attendere 10 minuti e riprovare a verificare se il problema persiste.
     - Se viene visualizzato ERR_INTERNET_DISCONNECTED o ERR_NETWORK_CHANGED, è possibile che si verifichino problemi di connessione alla rete del computer. Controllare la connessione di rete e ripetere l'operazione.
-    - Se vengono visualizzati ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR o altri codici di errore contenenti "SSL", è possibile che si verifichino problemi nella configurazione SSL locale oppure che l'amministratore di rete abbia bloccato l'accesso al server SQL su richiesta. Aprire un ticket di supporto e alleghire il codice di errore nella descrizione.
+    - Se vengono visualizzati ERR_CONNECTION_RESET, ERR_SSL_PROTOCOL_ERROR o altri codici di errore contenenti "SSL", è possibile che si verifichino problemi nella configurazione SSL locale oppure che l'amministratore di rete abbia bloccato l'accesso al server del pool SQL senza server. Aprire un ticket di supporto e alleghire il codice di errore nella descrizione.
     - Se viene visualizzato ERR_NETWORK_ACCESS_DENIED, potrebbe essere necessario verificare con l'amministratore se il criterio del firewall locale ha bloccato l'accesso a un dominio *. database.windows.net o a una porta remota 1443.
     - Facoltativamente, provare immediatamente a eseguire la stessa operazione in un altro computer e/o in un ambiente di rete per escludere un problema di configurazione di rete nel PC.
 

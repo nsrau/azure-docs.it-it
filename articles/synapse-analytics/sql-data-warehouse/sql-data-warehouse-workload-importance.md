@@ -1,6 +1,6 @@
 ---
 title: Priorità del carico di lavoro
-description: Linee guida per l'impostazione dell'importanza per le query del pool SQL sinapsi in Azure sinapsi Analytics.
+description: Linee guida per l'impostazione dell'importanza per le query dedicate del pool SQL in Azure sinapsi Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 1b2c71d7bf9e796af77e9a2a4a3a31152f2ca884
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 07c781672874bff306c9d25a464ec66414ebc9f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212344"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322117"
 ---
 # <a name="azure-synapse-analytics-workload-importance"></a>Importanza del carico di lavoro di analisi sinapsi di Azure
 
-Questo articolo illustra in che modo l'importanza del carico di lavoro può influenzare l'ordine di esecuzione per le richieste del pool SQL sinapsi in sinapsi di Azure.
+Questo articolo illustra come l'importanza del carico di lavoro possa influenzare l'ordine di esecuzione per le richieste di pool SQL dedicate in sinapsi di Azure.
 
 ## <a name="importance"></a>Importanza
 
@@ -38,9 +38,9 @@ Oltre agli scenari di importanza fondamentale descritti in precedenza con le ven
 
 ### <a name="locking"></a>Blocco
 
-L'accesso ai blocchi per l'attività di lettura e scrittura è un'area di contesa naturale. Attività quali il [cambio di partizione](sql-data-warehouse-tables-partition.md) o l' [oggetto di ridenominazione](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) richiedono blocchi con privilegi elevati.  Senza importanza del carico di lavoro, il pool SQL sinapsi in sinapsi di Azure ottimizza la velocità effettiva. L'ottimizzazione per la velocità effettiva significa che quando le richieste in esecuzione e in coda hanno le stesse esigenze di blocco e sono disponibili risorse, le richieste in coda possono ignorare le richieste con esigenze di blocco più elevate che arrivano prima nella coda di richieste. Una volta applicata l'importanza del carico di lavoro alle richieste con esigenze di blocco più elevate. La richiesta con maggiore importanza verrà eseguita prima della richiesta con priorità più bassa.
+L'accesso ai blocchi per l'attività di lettura e scrittura è un'area di contesa naturale. Attività quali il [cambio di partizione](sql-data-warehouse-tables-partition.md) o l' [oggetto di ridenominazione](/sql/t-sql/statements/rename-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) richiedono blocchi con privilegi elevati.  Senza importanza del carico di lavoro, il pool SQL dedicato in sinapsi di Azure ottimizza la velocità effettiva. L'ottimizzazione per la velocità effettiva significa che quando le richieste in esecuzione e in coda hanno le stesse esigenze di blocco e sono disponibili risorse, le richieste in coda possono ignorare le richieste con esigenze di blocco più elevate che arrivano prima nella coda di richieste. Una volta applicata l'importanza del carico di lavoro alle richieste con esigenze di blocco più elevate. La richiesta con maggiore importanza verrà eseguita prima della richiesta con priorità più bassa.
 
-Si consideri l'esempio seguente:
+Prendere in considerazione gli esempi seguenti:
 
 - Q1 sta eseguendo attivamente e selezionando i dati da SalesFact.
 - Q2 è in coda in attesa del completamento del Q1.  È stato inviato alle 9.00 e sta provando a partizionare i nuovi dati di cambio in SalesFact.
@@ -50,7 +50,7 @@ Se Q2 e Q3 hanno la stessa importanza e il Q1 è ancora in esecuzione, verrà av
 
 ### <a name="non-uniform-requests"></a>Richieste non uniformi
 
-Un altro scenario in cui l'importanza può essere utile per soddisfare le richieste di query è quando vengono inviate richieste con classi di risorse diverse.  Come indicato in precedenza, con la stessa importanza, il pool SQL sinapsi in Azure sinapsi ottimizza la velocità effettiva. Quando le richieste di dimensioni miste, ad esempio smallrc o mediumrc, vengono accodate, il pool SQL sinapsi sceglierà la prima richiesta in arrivo che rientra nelle risorse disponibili. Se viene applicata l'importanza del carico di lavoro, la richiesta di importanza più elevata viene pianificata successivamente.
+Un altro scenario in cui l'importanza può essere utile per soddisfare le richieste di query è quando vengono inviate richieste con classi di risorse diverse.  Come indicato in precedenza, con la stessa importanza, il pool SQL dedicato in Azure sinapsi ottimizza la velocità effettiva. Quando le richieste di dimensioni miste, ad esempio smallrc o mediumrc, vengono accodate, il pool SQL dedicato sceglierà la prima richiesta in arrivo che rientra nelle risorse disponibili. Se viene applicata l'importanza del carico di lavoro, la richiesta di importanza più elevata viene pianificata successivamente.
   
 Si consideri l'esempio seguente in DW500c:
 

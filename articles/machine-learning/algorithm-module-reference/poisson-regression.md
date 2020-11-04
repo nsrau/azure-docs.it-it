@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: a1a09357c7f80d4af0198a33a2e0007782ef232f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 91d6d15fc8855b49bece3a7ed903074e716b7ac4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905256"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319420"
 ---
 # <a name="poisson-regression"></a>Regressione di Poisson
 
@@ -29,7 +29,7 @@ Usare questo modulo per creare un modello di regressione di Poisson in una pipel
 - Una distribuzione di Poisson è una distribuzione discreta; non è pertanto significativo utilizzare questo metodo con numeri non interi.
 
 > [!TIP]
-> Se la destinazione non è un conteggio, la regressione di Poisson probabilmente non è un metodo appropriato. Provare [altri moduli di regressione nella finestra di progettazione](https://docs.microsoft.com/azure/machine-learning/algorithm-module-reference/module-reference#machine-learning-algorithms). 
+> Se la destinazione non è un conteggio, la regressione di Poisson probabilmente non è un metodo appropriato. Provare [altri moduli di regressione nella finestra di progettazione](./module-reference.md#machine-learning-algorithms). 
 
 Dopo aver configurato il metodo di regressione, è necessario eseguire il training del modello utilizzando un set di dati contenente esempi del valore che si desidera stimare. Sarà quindi possibile usare il modello con training per ottenere stime.
 
@@ -49,7 +49,7 @@ Poiché la variabile di risposta presenta una distribuzione di Poisson, il model
 
 ## <a name="how-to-configure-poisson-regression"></a>Come configurare la regressione di Poisson
 
-1. Aggiungere il modulo di **regressione di Poisson** alla pipeline in progettazione. È possibile trovare questo modulo in **Machine Learning algoritmi**nella categoria **regressione** .
+1. Aggiungere il modulo di **regressione di Poisson** alla pipeline in progettazione. È possibile trovare questo modulo in **Machine Learning algoritmi** nella categoria **regressione** .
 
 2. Aggiungere un set di dati contenente dati di training del tipo corretto. 
 
@@ -57,13 +57,13 @@ Poiché la variabile di risposta presenta una distribuzione di Poisson, il model
 
 3. Nel riquadro destro del modulo di **regressione di Poisson** specificare come si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    - **Singolo parametro**: se si sa come si desidera configurare il modello, fornire un set di valori specifico come argomenti.
+    - **Singolo parametro** : se si sa come si desidera configurare il modello, fornire un set di valori specifico come argomenti.
   
-    - **Intervallo**di parametri: se non si è certi dei parametri migliori, eseguire uno sweep di parametri usando il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) . Il trainer esegue l'iterazione su più valori specificati per trovare la configurazione ottimale.
+    - **Intervallo** di parametri: se non si è certi dei parametri migliori, eseguire uno sweep di parametri usando il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) . Il trainer esegue l'iterazione su più valori specificati per trovare la configurazione ottimale.
   
-4. **Tolleranza di ottimizzazione**: digitare un valore che definisce l'intervallo di tolleranza durante l'ottimizzazione. Minore il valore, più lento e più preciso sarà l'adattamento.
+4. **Tolleranza di ottimizzazione** : digitare un valore che definisce l'intervallo di tolleranza durante l'ottimizzazione. Minore il valore, più lento e più preciso sarà l'adattamento.
 
-5. Peso **regolarizzazione L1** e **peso regolarizzazione L2**: valori di tipo da usare per la regolarizzazione L1 e L2. *Regularization* aggiunge vincoli all'algoritmo relativi ad aspetti del modello indipendenti dai dati di training e viene usata anche per evitare l'overfitting. 
+5. Peso **regolarizzazione L1** e **peso regolarizzazione L2** : valori di tipo da usare per la regolarizzazione L1 e L2. *Regularization* aggiunge vincoli all'algoritmo relativi ad aspetti del modello indipendenti dai dati di training e viene usata anche per evitare l'overfitting. 
 
     - La regolarizzazione di tipo L1 è utile se l'obiettivo consiste nell'ottenere un modello il più possibile sparse.
 
@@ -73,9 +73,9 @@ Poiché la variabile di risposta presenta una distribuzione di Poisson, il model
 
     In questo modulo è possibile applicare una combinazione di regolarizzazioni di tipo L1 e L2. Combinando la regolarizzazione L1 e L2, è possibile imporre un rigore sulla grandezza dei valori dei parametri. Lo strumento di apprendimento tenta di ridurre al minimo la penalità, cercando di raggiungere un compromesso con la riduzione al minimo della perdita.
 
-    Per una descrizione corretta della regolarizzazione L1 e L2, vedere [regolarizzazione L1 e L2 per Machine Learning](https://msdn.microsoft.com/magazine/dn904675.aspx).
+    Per una descrizione corretta della regolarizzazione L1 e L2, vedere [regolarizzazione L1 e L2 per Machine Learning](/archive/msdn-magazine/2015/february/test-run-l1-and-l2-regularization-for-machine-learning).
 
-6. **Dimensioni memoria per L-BFGS**: specificare la quantità di memoria da riservare per l'adattamento e l'ottimizzazione del modello.
+6. **Dimensioni memoria per L-BFGS** : specificare la quantità di memoria da riservare per l'adattamento e l'ottimizzazione del modello.
 
      L-BFGS è un metodo specifico per l'ottimizzazione, basato sull'algoritmo Broyden – Fletcher – Goldfarb – Shanno (BFGS). Il metodo usa una quantità limitata di memoria (L) per calcolare la direzione del passaggio successivo.
 
@@ -83,9 +83,9 @@ Poiché la variabile di risposta presenta una distribuzione di Poisson, il model
 
 7. Connettere il set di dati di training e il modello non sottoposto a training a uno dei moduli di training: 
 
-    - Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, usare il modulo [Train Model](train-model.md) .
+    - Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro** , usare il modulo [Train Model](train-model.md) .
 
-    - Se si imposta la **modalità crea Trainer** su **intervallo parametri**, usare il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) .
+    - Se si imposta la **modalità crea Trainer** su **intervallo parametri** , usare il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) .
 
     > [!WARNING]
     > 
@@ -105,4 +105,4 @@ Al termine del training:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.

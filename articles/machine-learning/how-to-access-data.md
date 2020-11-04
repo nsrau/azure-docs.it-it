@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: e118c22829bc55e8baafb87db20817ab043ef4df
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: db641eee13350f5a774e4ffd138e38c474af4981
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91540779"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320856"
 ---
 # <a name="connect-to-azure-storage-services"></a>Connettersi ai servizi di archiviazione di Azure
 
@@ -24,7 +24,7 @@ Questo articolo illustra come **connettersi ai servizi di archiviazione di Azure
 
 Se si preferisce creare e gestire archivi dati utilizzando l'estensione Azure Machine Learning VS Code; per altre informazioni, vedere la Guida alle procedure per la [gestione delle risorse vs code](how-to-manage-resources-vscode.md#datastores) .
 
-È possibile creare archivi dati da [queste soluzioni di archiviazione di Azure](#matrix). **Per le soluzioni di archiviazione non supportate**e per risparmiare i costi di uscita durante gli esperimenti di ml, [spostare i dati](#move) in una soluzione di archiviazione di Azure supportata.  
+È possibile creare archivi dati da [queste soluzioni di archiviazione di Azure](#matrix). **Per le soluzioni di archiviazione non supportate** e per risparmiare i costi di uscita durante gli esperimenti di ml, [spostare i dati](#move) in una soluzione di archiviazione di Azure supportata.  
 
 Per informazioni sul ruolo degli archivi dati nel flusso di lavoro generale di accesso ai dati di Azure Machine Learning, vedere l'articolo [Proteggere l'accesso ai dati](concept-data.md#data-workflow).
 
@@ -35,7 +35,7 @@ Sono necessari gli elementi seguenti:
 
 - Un account di archiviazione di Azure con un [tipo di archiviazione supportato](#matrix).
 
-- [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) o accesso a [Azure Machine Learning Studio](https://ml.azure.com/).
+- [Azure Machine Learning SDK per Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) o accesso a [Azure Machine Learning Studio](https://ml.azure.com/).
 
 - Un'area di lavoro di Azure Machine Learning.
   
@@ -50,7 +50,7 @@ Sono necessari gli elementi seguenti:
    ws = Workspace.from_config()
    ```
 
-    Quando si crea un'area di lavoro, un contenitore BLOB di Azure e una condivisione file di Azure vengono registrati automaticamente come archivi dati nell'area di lavoro. A questi due elementi vengono assegnati, rispettivamente, i nomi `workspaceblobstore` e `workspacefilestore`. `workspaceblobstore`Viene usato per archiviare gli elementi dell'area di lavoro e i log dell'esperimento di machine learning. Viene anche impostato come **archivio dati predefinito** e non può essere eliminato dall'area di lavoro. Il `workspacefilestore` viene usato per archiviare notebook e script R autorizzati tramite l' [istanza di calcolo](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files).
+    Quando si crea un'area di lavoro, un contenitore BLOB di Azure e una condivisione file di Azure vengono registrati automaticamente come archivi dati nell'area di lavoro. A questi due elementi vengono assegnati, rispettivamente, i nomi `workspaceblobstore` e `workspacefilestore`. `workspaceblobstore`Viene usato per archiviare gli elementi dell'area di lavoro e i log dell'esperimento di machine learning. Viene anche impostato come **archivio dati predefinito** e non può essere eliminato dall'area di lavoro. Il `workspacefilestore` viene usato per archiviare notebook e script R autorizzati tramite l' [istanza di calcolo](./concept-compute-instance.md#accessing-files).
     
     > [!NOTE]
     > Azure Machine Learning Designer creerà automaticamente un archivio dati denominato **azureml_globaldatasets** quando si apre un esempio nella Home page della finestra di progettazione. Questo archivio dati contiene solo i set di dati del campione. **Non** usare questo archivio dati per l'accesso ai dati riservati.
@@ -61,26 +61,26 @@ Sono necessari gli elementi seguenti:
 
 Gli archivi dati attualmente supportano l'archiviazione delle informazioni di connessione nei servizi di archiviazione elencati nella matrice seguente.
 
-| Tipo di&nbsp;archiviazione | Tipo di&nbsp;autenticazione | [Azure&nbsp;Machine&nbsp;Learning Studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) |  [Interfaccia della riga di comando di Azure&nbsp;Machine&nbsp;Learning](reference-azure-machine-learning-cli.md) | [API REST di&nbsp;Azure&nbsp;Machine&nbsp;Learning](https://docs.microsoft.com/rest/api/azureml/) | Visual Studio Code
+| Tipo di&nbsp;archiviazione | Tipo di&nbsp;autenticazione | [Azure&nbsp;Machine&nbsp;Learning Studio](https://ml.azure.com/) | [Azure&nbsp;Machine&nbsp;Learning&nbsp; SDK per Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) |  [Interfaccia della riga di comando di Azure&nbsp;Machine&nbsp;Learning](reference-azure-machine-learning-cli.md) | [API REST di&nbsp;Azure&nbsp;Machine&nbsp;Learning](/rest/api/azureml/) | Visual Studio Code
 ---|---|---|---|---|---|---
-[Archiviazione&nbsp;BLOB&nbsp;di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview)| Chiave account <br> Token di firma di accesso condiviso | ✓ | ✓ | ✓ |✓ |✓
-[Condivisione&nbsp;file di&nbsp;Azure](https://docs.microsoft.com/azure/storage/files/storage-files-introduction)| Chiave account <br> Token di firma di accesso condiviso | ✓ | ✓ | ✓ |✓|✓
-[Azure&nbsp;Data Lake&nbsp;Storage&nbsp;Gen1](https://docs.microsoft.com/azure/data-lake-store/)| Entità servizio| ✓ | ✓ | ✓ |✓|
-[Azure&nbsp;Data Lake&nbsp;Storage&nbsp;Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction)| Entità servizio| ✓ | ✓ | ✓ |✓|
-[Database&nbsp;SQL&nbsp;di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-technical-overview)| Autenticazione SQL <br>Entità servizio| ✓ | ✓ | ✓ |✓|
-[Azure&nbsp;PostgreSQL](https://docs.microsoft.com/azure/postgresql/overview) | Autenticazione SQL| ✓ | ✓ | ✓ |✓|
-[Database di&nbsp;Azure&nbsp;per&nbsp;MySQL](https://docs.microsoft.com/azure/mysql/overview) | Autenticazione SQL|  | ✓* | ✓* |✓*|
-[File&nbsp;system di&nbsp;Databricks](https://docs.microsoft.com/azure/databricks/data/databricks-file-system)| Nessuna autenticazione | | ✓** | ✓ ** |✓** |
+[Archiviazione&nbsp;BLOB&nbsp;di Azure](../storage/blobs/storage-blobs-overview.md)| Chiave account <br> Token di firma di accesso condiviso | ✓ | ✓ | ✓ |✓ |✓
+[Condivisione&nbsp;file di&nbsp;Azure](../storage/files/storage-files-introduction.md)| Chiave account <br> Token di firma di accesso condiviso | ✓ | ✓ | ✓ |✓|✓
+[Azure&nbsp;Data Lake&nbsp;Storage&nbsp;Gen1](../data-lake-store/index.yml)| Entità servizio| ✓ | ✓ | ✓ |✓|
+[Azure&nbsp;Data Lake&nbsp;Storage&nbsp;Gen2](../storage/blobs/data-lake-storage-introduction.md)| Entità servizio| ✓ | ✓ | ✓ |✓|
+[Database&nbsp;SQL&nbsp;di Azure](../azure-sql/database/sql-database-paas-overview.md)| Autenticazione SQL <br>Entità servizio| ✓ | ✓ | ✓ |✓|
+[Azure&nbsp;PostgreSQL](../postgresql/overview.md) | Autenticazione SQL| ✓ | ✓ | ✓ |✓|
+[Database di&nbsp;Azure&nbsp;per&nbsp;MySQL](../mysql/overview.md) | Autenticazione SQL|  | ✓* | ✓* |✓*|
+[File&nbsp;system di&nbsp;Databricks](/azure/databricks/data/databricks-file-system)| Nessuna autenticazione | | ✓** | ✓ ** |✓** |
 
-\* MySQL è supportato solo per la pipeline [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py&preserve-view=true)<br />
-\*\* Databricks è supportato solo per la pipeline [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py&preserve-view=true)
+\* MySQL è supportato solo per la pipeline [DataTransferStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?preserve-view=true&view=azure-ml-py)<br />
+\*\* Databricks è supportato solo per la pipeline [DatabricksStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?preserve-view=true&view=azure-ml-py)
 
 
 ### <a name="storage-guidance"></a>Linee guida per l'archiviazione
 
-È consigliabile creare un archivio dati per un [contenitore BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-introduction). Per i BLOB sono disponibili i livelli di archiviazione Standard e Premium. Sebbene l'archiviazione Premium sia più costosa, la velocità effettiva maggiore può migliorare la velocità delle esecuzioni dei training, in particolare se si esegue il training su un set di dati di grandi dimensioni. Per informazioni sul costo degli account di archiviazione, vedere [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
+È consigliabile creare un archivio dati per un [contenitore BLOB di Azure](../storage/blobs/storage-blobs-introduction.md). Per i BLOB sono disponibili i livelli di archiviazione Standard e Premium. Sebbene l'archiviazione Premium sia più costosa, la velocità effettiva maggiore può migliorare la velocità delle esecuzioni dei training, in particolare se si esegue il training su un set di dati di grandi dimensioni. Per informazioni sul costo degli account di archiviazione, vedere [Calcolatore prezzi di Azure](https://azure.microsoft.com/pricing/calculator/?service=machine-learning-service).
 
-[Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-introduction?toc=/azure/storage/blobs/toc.json) si basa su Archiviazione BLOB di Azure ed è una soluzione progettata per le analisi di Big Data aziendali. Una parte fondamentale di Data Lake Storage Gen2 è l'aggiunta di uno [spazio dei nomi gerarchico](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace) all'archivio BLOB. Lo spazio dei nomi gerarchico organizza gli oggetti e i file in una gerarchia di directory per un accesso ai dati efficiente.
+[Azure Data Lake Storage Gen2](../storage/blobs/data-lake-storage-introduction.md?toc=%252fazure%252fstorage%252fblobs%252ftoc.json) si basa su Archiviazione BLOB di Azure ed è una soluzione progettata per le analisi di Big Data aziendali. Una parte fondamentale di Data Lake Storage Gen2 è l'aggiunta di uno [spazio dei nomi gerarchico](../storage/blobs/data-lake-storage-namespace.md) all'archivio BLOB. Lo spazio dei nomi gerarchico organizza gli oggetti e i file in una gerarchia di directory per un accesso ai dati efficiente.
 
 ## <a name="storage-access-and-permissions"></a>Accesso e autorizzazioni di archiviazione
 
@@ -88,13 +88,13 @@ Per garantire la connessione sicura al servizio di archiviazione di Azure, Azure
 
 ### <a name="virtual-network"></a>Rete virtuale 
 
-Se l'account di archiviazione dati si trova in una **rete virtuale**, sono necessari passaggi di configurazione aggiuntivi per garantire che Azure Machine Learning abbia accesso ai dati. Vedere [usare Azure Machine Learning Studio in una rete virtuale di Azure](how-to-enable-studio-virtual-network.md) per assicurarsi che vengano applicati i passaggi di configurazione appropriati quando si crea e si registra l'archivio dati.  
+Se l'account di archiviazione dati si trova in una **rete virtuale** , sono necessari passaggi di configurazione aggiuntivi per garantire che Azure Machine Learning abbia accesso ai dati. Vedere [usare Azure Machine Learning Studio in una rete virtuale di Azure](how-to-enable-studio-virtual-network.md) per assicurarsi che vengano applicati i passaggi di configurazione appropriati quando si crea e si registra l'archivio dati.  
 
 ### <a name="access-validation"></a>Convalida dell'accesso
 
-**Come parte del processo di creazione e registrazione dell'archivio dati iniziale**, Azure Machine Learning convalida automaticamente il servizio di archiviazione sottostante e l'entità fornita dall'utente (nome utente, entità servizio o token SAS) ha accesso alla risorsa di archiviazione specificata.
+**Come parte del processo di creazione e registrazione dell'archivio dati iniziale** , Azure Machine Learning convalida automaticamente il servizio di archiviazione sottostante e l'entità fornita dall'utente (nome utente, entità servizio o token SAS) ha accesso alla risorsa di archiviazione specificata.
 
-**Dopo la creazione dell'archivio dati**, questa convalida viene eseguita solo per i metodi che richiedono l'accesso al contenitore di archiviazione sottostante, **non** ogni volta che vengono recuperati gli oggetti dell'archivio dati. La convalida viene ad esempio eseguita se è necessario scaricare i file dall'archivio dati, mentre se si vuole solo modificare l'archivio dati predefinito, la convalida non viene eseguita.
+**Dopo la creazione dell'archivio dati** , questa convalida viene eseguita solo per i metodi che richiedono l'accesso al contenitore di archiviazione sottostante, **non** ogni volta che vengono recuperati gli oggetti dell'archivio dati. La convalida viene ad esempio eseguita se è necessario scaricare i file dall'archivio dati, mentre se si vuole solo modificare l'archivio dati predefinito, la convalida non viene eseguita.
 
 Per autenticare l'accesso al servizio di archiviazione sottostante, è possibile specificare la chiave dell'account, le firme di accesso condiviso (SAS) o l'entità servizio nel metodo corrispondente `register_azure_*()` del tipo di archivio dati che si vuole creare. Nella [matrice del tipo di archiviazione](#matrix) sono elencati i tipi di autenticazione supportati che corrispondono a ogni tipo di archivio dati.
 
@@ -113,7 +113,7 @@ Per autenticare l'accesso al servizio di archiviazione sottostante, è possibile
 
 ### <a name="permissions"></a>Autorizzazioni
 
-Per il contenitore BLOB di Azure e l'archiviazione Azure Data Lake generazione 2, assicurarsi che le credenziali di autenticazione dispongano dell'accesso in **lettura dati BLOB di archiviazione** . Altre informazioni sul [lettore di dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Per impostazione predefinita, un token di firma di accesso condiviso non dispone di alcuna autorizzazione. Per l'accesso in lettura ai dati, le credenziali di autenticazione devono avere almeno le autorizzazioni elenco e lettura per contenitori e oggetti. Per l'accesso in scrittura ai dati sono necessarie anche le autorizzazioni di scrittura e aggiunta.
+Per il contenitore BLOB di Azure e l'archiviazione Azure Data Lake generazione 2, assicurarsi che le credenziali di autenticazione dispongano dell'accesso in **lettura dati BLOB di archiviazione** . Altre informazioni sul [lettore di dati BLOB di archiviazione](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Per impostazione predefinita, un token di firma di accesso condiviso non dispone di alcuna autorizzazione. Per l'accesso in lettura ai dati, le credenziali di autenticazione devono avere almeno le autorizzazioni elenco e lettura per contenitori e oggetti. Per l'accesso in scrittura ai dati sono necessarie anche le autorizzazioni di scrittura e aggiunta.
 
 <a name="python"></a>
 
@@ -127,7 +127,7 @@ In questa sezione sono riportati alcuni esempi di come creare e registrare un ar
 * [Condivisione file di Azure](#azure-file-share)
 * [Azure Data Lake Storage Gen2](#azure-data-lake-storage-generation-2)
 
- Per creare archivi dati per altri servizi di archiviazione supportati, vedere la [documentazione di riferimento relativa ai `register_azure_*` metodi applicabili](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py&preserve-view=true#&preserve-view=truemethods).
+ Per creare archivi dati per altri servizi di archiviazione supportati, vedere la [documentazione di riferimento relativa ai `register_azure_*` metodi applicabili](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods).
 
 Se si preferisce un'esperienza di codice ridotta, vedere [connettersi ai dati con Azure Machine Learning Studio](how-to-connect-data-ui.md).
 
@@ -136,7 +136,7 @@ Se si preferisce un'esperienza di codice ridotta, vedere [connettersi ai dati co
 
 ### <a name="azure-blob-container"></a>Contenitore BLOB di Azure
 
-Per registrare un contenitore BLOB di Azure come archivio dati, usare [`register_azure_blob_container()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
+Per registrare un contenitore BLOB di Azure come archivio dati, usare [`register_azure_blob_container()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-blob-container-workspace--datastore-name--container-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false--blob-cache-timeout-none--grant-workspace-access-false--subscription-id-none--resource-group-none-).
 
 Il codice seguente crea e registra l'archivio dati `blob_datastore_name` nell'area di lavoro `ws`. Questo archivio dati accede al contenitore BLOB `my-container-name` nell'account di archiviazione `my-account-name`, usando la chiave di accesso dell'account fornita. Per informazioni sugli scenari di rete virtuale e su dove trovare le credenziali di autenticazione necessarie, vedere la sezione [autorizzazioni di accesso alle & di archiviazione](#storage-access-and-permissions) . 
 
@@ -155,7 +155,7 @@ blob_datastore = Datastore.register_azure_blob_container(workspace=ws,
 
 ### <a name="azure-file-share"></a>Condivisione file di Azure
 
-Per registrare una condivisione file di Azure come archivio dati, usare [`register_azure_file_share()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
+Per registrare una condivisione file di Azure come archivio dati, usare [`register_azure_file_share()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-file-share-workspace--datastore-name--file-share-name--account-name--sas-token-none--account-key-none--protocol-none--endpoint-none--overwrite-false--create-if-not-exists-false--skip-validation-false-). 
 
 Il codice seguente crea e registra l'archivio dati `file_datastore_name` nell'area di lavoro `ws`. Questo archivio dati accede alla condivisione file `my-fileshare-name` nell'account di archiviazione `my-account-name`, usando la chiave di accesso dell'account fornita. Per informazioni sugli scenari di rete virtuale e su dove trovare le credenziali di autenticazione necessarie, vedere la sezione [autorizzazioni di accesso alle & di archiviazione](#storage-access-and-permissions) . 
 
@@ -174,9 +174,9 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 ### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage Gen2
 
-Per un archivio dati Azure Data Lake Storage Gen2 (ADLS Gen2), usare [register_azure_data_lake_gen2()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py&preserve-view=true#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) per registrare un archivio dati delle credenziali connesso a una risorsa di archiviazione di Azure Data Lake Storage Gen2 con [autorizzazioni dell'entità servizio](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal).  
+Per un archivio dati Azure Data Lake Storage Gen2 (ADLS Gen2), usare [register_azure_data_lake_gen2()](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=trueregister-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) per registrare un archivio dati delle credenziali connesso a una risorsa di archiviazione di Azure Data Lake Storage Gen2 con [autorizzazioni dell'entità servizio](../active-directory/develop/howto-create-service-principal-portal.md).  
 
-Per usare l'entità servizio, è necessario [registrare l'applicazione](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals) e concedere all'entità servizio l'accesso in **lettura dati BLOB di archiviazione** . Vedere altre informazioni sulla [configurazione del controllo di accesso per ADLS Gen2](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control). 
+Per usare l'entità servizio, è necessario [registrare l'applicazione](../active-directory/develop/app-objects-and-service-principals.md) e concedere all'entità servizio l'accesso in **lettura dati BLOB di archiviazione** . Vedere altre informazioni sulla [configurazione del controllo di accesso per ADLS Gen2](../storage/blobs/data-lake-storage-access-control.md). 
 
 Il codice seguente crea e registra l'archivio dati `adlsgen2_datastore_name` nell'area di lavoro `ws`. Questo archivio dati accede al file system `test` nell'account di archiviazione `account_name` usando le credenziali dell'entità servizio fornite. Per informazioni sugli scenari di rete virtuale e su dove trovare le credenziali di autenticazione necessarie, vedere la sezione [autorizzazioni di accesso alle & di archiviazione](#storage-access-and-permissions) . 
 
@@ -217,13 +217,13 @@ Dopo aver creato un archivio dati, [creare un set](how-to-create-register-datase
 
 ## <a name="get-datastores-from-your-workspace"></a>Ottenere gli archivi dati dall'area di lavoro
 
-Per ottenere un archivio dati specifico registrato nell'area di lavoro corrente, usare il metodo statico [`get()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-workspace--datastore-name-) nella classe `Datastore`:
+Per ottenere un archivio dati specifico registrato nell'area di lavoro corrente, usare il metodo statico [`get()`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-workspace--datastore-name-) nella classe `Datastore`:
 
 ```Python
 # Get a named datastore from the current workspace
 datastore = Datastore.get(ws, datastore_name='your datastore name')
 ```
-Per ottenere l'elenco degli archivi dati registrati con un'area di lavoro specifica, usare la proprietà [`datastores`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedatastores) in un oggetto dell'area di lavoro:
+Per ottenere l'elenco degli archivi dati registrati con un'area di lavoro specifica, usare la proprietà [`datastores`](/python/api/azureml-core/azureml.core.workspace%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedatastores) in un oggetto dell'area di lavoro:
 
 ```Python
 # List all datastores registered in the current workspace
@@ -249,7 +249,7 @@ Azure Machine Learning offre diversi modi per usare i modelli per l'assegnazione
 
 | Metodo | Accesso all'archivio dati | Descrizione |
 | ----- | :-----: | ----- |
-| [Stima in batch](how-to-use-parallel-run-step.md) | ✔ | Eseguire stime su grandi quantità di dati in modo asincrono. |
+| [Stima in batch](./tutorial-pipeline-batch-scoring-classification.md) | ✔ | Eseguire stime su grandi quantità di dati in modo asincrono. |
 | [Servizio Web](how-to-deploy-and-where.md) | &nbsp; | Distribuire modelli come servizi Web. |
 | [Modulo Azure IoT Edge](how-to-deploy-and-where.md) | &nbsp; | Distribuire modelli nei dispositivi IoT Edge. |
 
@@ -259,7 +259,7 @@ Per le situazioni in cui l'SDK non fornisce l'accesso agli archivi dati, è poss
 
 ## <a name="move-data-to-supported-azure-storage-solutions"></a>Spostare i dati in soluzioni di archiviazione di Azure supportate
 
-Azure Machine Learning supporta l'accesso ai dati da Archiviazione BLOB di Azure, File di Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, database SQL di Azure e Database di Azure per PostgreSQL. Se si usa una soluzione di archiviazione non supportata, è consigliabile spostare i dati in soluzioni di archiviazione di Azure supportate usando [Azure Data Factory e questi passaggi](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-copy-data-tool). Lo spostamento dei dati in una soluzione di archiviazione supportata può consentire di risparmiare sui costi relativi al traffico in uscita durante gli esperimenti di Machine Learning. 
+Azure Machine Learning supporta l'accesso ai dati da Archiviazione BLOB di Azure, File di Azure, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, database SQL di Azure e Database di Azure per PostgreSQL. Se si usa una soluzione di archiviazione non supportata, è consigliabile spostare i dati in soluzioni di archiviazione di Azure supportate usando [Azure Data Factory e questi passaggi](../data-factory/quickstart-create-data-factory-copy-data-tool.md). Lo spostamento dei dati in una soluzione di archiviazione supportata può consentire di risparmiare sui costi relativi al traffico in uscita durante gli esperimenti di Machine Learning. 
 
 Azure Data Factory consente un trasferimento dei dati efficiente e resiliente con più di 80 connettori predefiniti senza costi aggiuntivi. Questi connettori includono i servizi dati di Azure, le origini dati locali, Amazon S3 Redshift, nonché Google BigQuery.
 

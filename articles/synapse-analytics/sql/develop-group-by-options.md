@@ -11,25 +11,26 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 0d9d28bacac02326ee781ca56309b7a72e921960
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d160040620fcaa60a8adc955efcc54ac3ca2609e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289170"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321445"
 ---
 # <a name="group-by-options-in-synapse-sql"></a>Opzioni GROUP BY in sinapsi SQL
+
 Sinapsi SQL consente lo sviluppo di soluzioni implementando opzioni GROUP BY diverse. 
 
-## <a name="what-does-group-by-do"></a>Cosa fa GROUP BY
+## <a name="what-group-by-does"></a>Che cosa fa GROUP BY
 
 La clausola T-SQL [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) viene usata per aggregare i dati in un set di righe di riepilogo.
 
-SQL su richiesta supporta l'intera gamma di opzioni GROUP BY. Il pool SQL supporta un numero limitato di opzioni di raggruppamento.
+Il pool SQL senza server supporta l'intera gamma di opzioni GROUP BY. Il pool SQL dedicato supporta un numero limitato di opzioni di raggruppamento.
 
-## <a name="group-by-options-supported-in-sql-pool"></a>Opzioni GROUP BY supportate nel pool SQL
+## <a name="group-by-options-supported-in-dedicated-sql-pool"></a>Opzioni GROUP BY supportate nel pool SQL dedicato
 
-Per GROUP BY sono disponibili alcune opzioni che non sono supportate dal pool SQL. Per queste opzioni sono disponibili soluzioni alternative, come indicato di seguito:
+Per GROUP BY sono disponibili alcune opzioni che non sono supportate dal pool SQL dedicato. Per queste opzioni sono disponibili soluzioni alternative, come indicato di seguito:
 
 * GROUP BY con ROLLUP
 * GROUPING SETS

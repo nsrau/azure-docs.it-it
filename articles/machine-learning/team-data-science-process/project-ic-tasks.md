@@ -10,18 +10,18 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d9942c31b63de77196b8b51b88376cb8ef74b990
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4ecb5fef9c9b14bde72de29a45e29d7e16131bd1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76721252"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321914"
 ---
 # <a name="tasks-for-an-individual-contributor-in-the-team-data-science-process"></a>Attività per un singolo collaboratore nel processo di data science per i team
 
 Questo argomento descrive le attività completate da un *singolo collaboratore* per configurare un progetto nel [processo di Data Science](overview.md) per i team (TDSP). L'obiettivo è lavorare in un ambiente collaborativo del team che standardizza la TDSP. Il TDSP è progettato per contribuire a migliorare la collaborazione e l'apprendimento del team. Per una descrizione dei ruoli del personale e delle attività associate gestite da un team data science la standardizzazione di TDSP, vedere [ruoli e attività del processo di Data Science](roles-tasks.md)per i team.
 
-Il diagramma seguente illustra le attività che vengono completate dal progetto di singoli collaboratori (data scientist) per configurare l'ambiente del team. Per istruzioni su come eseguire un progetto data science in TDSP, vedere [esecuzione di progetti di Data Science](project-execution.md). 
+Il diagramma seguente illustra le attività che vengono completate dal progetto di singoli collaboratori (data scientist) per configurare l'ambiente del team. Per istruzioni su come eseguire un progetto data science in TDSP, vedere [esecuzione di progetti di Data Science](./agile-development.md). 
 
 ![Singole attività del collaboratore](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
 
@@ -46,7 +46,7 @@ Per clonare i repository e modificare il contenuto nel computer locale o in DSVM
 
 - Una sottoscrizione di Azure.
 - Git installato nel computer. Se si usa un DSVM, Git è preinstallato. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).
-- Se si vuole usare un DSVM, Windows o Linux DSVM creato e configurato in Azure. Per ulteriori informazioni e istruzioni, vedere la [documentazione Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/).
+- Se si vuole usare un DSVM, Windows o Linux DSVM creato e configurato in Azure. Per ulteriori informazioni e istruzioni, vedere la [documentazione Data Science Virtual Machine](../data-science-virtual-machine/index.yml).
 - Per un DSVM Windows, [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) è installato nel computer. Nel file *Readme.MD* scorrere verso il basso fino alla sezione **download and install** e selezionare il **programma di installazione più recente**. Scaricare il programma di installazione con *estensione exe* dalla pagina del programma di installazione ed eseguirlo. 
 - Per un DSVM Linux, viene configurata una chiave pubblica SSH nella DSVM e aggiunta in Azure DevOps. Per ulteriori informazioni e istruzioni, vedere la sezione **create SSH Public Key** nell' [appendice Platforms and Tools](platforms-and-tools.md#appendix). 
 - Informazioni sull'archiviazione file di Azure per qualsiasi archiviazione file di Azure che è necessario montare nella DSVM. 
@@ -55,7 +55,7 @@ Per clonare i repository e modificare il contenuto nel computer locale o in DSVM
 
 Per lavorare con i repository in locale ed effettuare il push delle modifiche al team condiviso e ai repository di progetto, è prima necessario copiare o *clonare* i repository nel computer locale. 
 
-1. In Azure DevOps, passare alla pagina di riepilogo del progetto del team in *https \/ / \<server name> / \<organization name> / \<team name> :*, ad esempio, **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**.
+1. In Azure DevOps, passare alla pagina di riepilogo del progetto del team in *https \/ / \<server name> / \<organization name> / \<team name> :* , ad esempio, **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**.
    
 1. Selezionare **repository nel percorso di spostamento a sinistra** , quindi nella parte superiore della pagina selezionare il repository che si vuole clonare.
    
@@ -103,4 +103,3 @@ Ecco i collegamenti alle descrizioni dettagliate degli altri ruoli e delle attiv
 - [Attività del responsabile del gruppo per un team di data science](group-manager-tasks.md)
 - [Team Lead tasks for a data science team (Attività del responsabile del team per un team di data science)](team-lead-tasks.md)
 - [Attività del responsabile di progetto per un team di data science](project-lead-tasks.md)
-

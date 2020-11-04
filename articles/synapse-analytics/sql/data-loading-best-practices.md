@@ -1,6 +1,6 @@
 ---
 title: Procedure consigliate per il caricamento di dati
-description: Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento di dati in sinapsi SQL
+description: Raccomandazioni e ottimizzazioni delle prestazioni per il caricamento di dati in un pool SQL dedicato Azure sinapsi Analytics.
 services: synapse-analytics
 author: kevinvngo
 manager: craigg
@@ -11,20 +11,20 @@ ms.date: 04/15/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4c07ad2aaf6c682dc370e3223dba1f199242ca2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e706f12a251cd38c3525a48553743606ed199b6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289232"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321510"
 ---
-# <a name="best-practices-for-loading-data-for-data-warehousing"></a>Procedure consigliate per il caricamento di dati per il data warehousing
+# <a name="best-practices-for-loading-data-into-a-dedicated-sql-pool-azure-synapse-analytics"></a>Procedure consigliate per il caricamento di dati in un pool SQL dedicato Azure sinapsi Analytics
 
 In questo articolo sono disponibili indicazioni e ottimizzazioni delle prestazioni per il caricamento dei dati.
 
 ## <a name="prepare-data-in-azure-storage"></a>Preparare i dati in archiviazione di Azure
 
-Per ridurre al minimo la latenza, colocare il livello di archiviazione e il data warehouse.
+Per ridurre al minimo la latenza, colocare il livello di archiviazione e il pool SQL dedicato.
 
 In caso di esportazione di dati in un formato di file ORC, quando sono presenti colonne di testo di grandi dimensioni potrebbero verificarsi errori di memoria insufficiente di Java. Per risolvere questo problema, esportare solo un subset di colonne.
 
@@ -36,7 +36,7 @@ Suddividere i file compressi di grandi dimensioni in file compressi di dimension
 
 ## <a name="run-loads-with-enough-compute"></a>Eseguire i caricamenti con un numero sufficiente di risorse di calcolo
 
-Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se questo approccio non è fattibile, eseguire contemporaneamente un numero minimo di caricamenti. Se si prevede un processo di caricamento di grandi dimensioni, prendere in considerazione la scalabilità verticale del pool SQL prima del caricamento.
+Per ottenere la velocità di caricamento massima, eseguire un solo processo di caricamento alla volta. Se questo approccio non è fattibile, eseguire contemporaneamente un numero minimo di caricamenti. Se si prevede un processo di caricamento di grandi dimensioni, prendere in considerazione la scalabilità verticale del pool SQL dedicato prima del caricamento.
 
 Per eseguire i caricamenti con risorse di calcolo appropriate, creare utenti designati addetti al caricamento. Assegnare ogni utente di caricamento a una classe di risorse o a un gruppo di carico di lavoro specifico. Per eseguire un caricamento, effettuare l'accesso come uno degli utenti di caricamento, quindi eseguire il caricamento. Il caricamento viene eseguito con la classe di risorse dell'utente.  Questo metodo è più semplice rispetto al tentativo di modificare la classe di risorse di un utente in base alla classe di risorse attualmente necessaria.
 

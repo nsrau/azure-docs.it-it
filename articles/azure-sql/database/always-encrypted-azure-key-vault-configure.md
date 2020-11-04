@@ -11,13 +11,13 @@ ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: ''
-ms.date: 04/23/2020
-ms.openlocfilehash: 27daa160cc784665a487a0988429e3783257962e
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.date: 11/02/2020
+ms.openlocfilehash: 45aca00adab8ef5b33a376af34642261c5e73255
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678156"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321624"
 ---
 # <a name="configure-always-encrypted-by-using-azure-key-vault"></a>Configurare Always Encrypted tramite Azure Key Vault 
 
@@ -100,8 +100,8 @@ az group create --location $location --name $resourceGroupName
 
 az keyvault create --name $vaultName --resource-group $resourceGroupName --location $location
 
-az keyvault set-policy --name $vaultName --key-permissions create, get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --upn $userPrincipalName
-az keyvault set-policy --name $vaultName --key-permissions get, list, sign, unwrapKey, verify, wrapKey --resource-group $resourceGroupName --spn $applicationId
+az keyvault set-policy --name $vaultName --key-permissions create get list sign unwrapKey verify wrapKey --resource-group $resourceGroupName --upn $userPrincipalName
+az keyvault set-policy --name $vaultName --key-permissions get list sign unwrapKey verify wrapKey --resource-group $resourceGroupName --spn $applicationId
 ```
 
 ---
@@ -122,8 +122,8 @@ Se viene visualizzata la finestra **Nuova regola firewall** , accedere ad Azure 
 
 Questa sezione contiene istruzioni per creare una tabella con i dati dei pazienti. Non è crittografata inizialmente e la crittografia verrà configurata nella sezione successiva.
 
-1. Espandere **Database** .
-2. Fare clic con il pulsante destro del mouse sul database e scegliere **nuova query** .
+1. Espandere **Database**.
+2. Fare clic con il pulsante destro del mouse sul database e scegliere **nuova query**.
 3. Incollare il comando Transact-SQL (T-SQL) seguente nella finestra della nuova query ed **eseguirlo** .
 
 ```sql
@@ -146,20 +146,20 @@ GO
 
 SSMS offre una procedura guidata per configurare facilmente la crittografia sempre attiva impostando la chiave master di colonna, la chiave di crittografia di colonna e le colonne crittografate automaticamente.
 
-1. Espandere **database**  >  **Clinic**  >  **tabelle** .
+1. Espandere **database**  >  **Clinic**  >  **tabelle**.
 2. Fare clic con il pulsante destro del mouse sulla tabella **Patients** e selezionare **Crittografa colonne** per aprire la procedura guidata Always Encrypted:
 
     ![Screenshot che evidenzia le colonne Encrypt... opzione di menu.](./media/always-encrypted-azure-key-vault-configure/encrypt-columns.png)
 
-La procedura guidata Always Encrypted include le sezioni seguenti: **Selezione colonne** , **Configurazione della chiave master** , **Convalida** e **Riepilogo** .
+La procedura guidata Always Encrypted include le sezioni seguenti: **Selezione colonne** , **Configurazione della chiave master** , **Convalida** e **Riepilogo**.
 
 ### <a name="column-selection"></a>Selezione colonne
 
-Fare clic su **Avanti** nella pagina **Introduzione** per aprire la pagina **Selezione colonne** . In questa pagina verranno selezionate le colonne da crittografare, [il tipo di crittografia e la chiave di crittografia di colonna (CEK)](/sql/relational-databases/security/encryption/always-encrypted-wizard#Anchor_2) da usare.
+Fare clic su **Avanti** nella pagina **Introduzione** per aprire la pagina **Selezione colonne**. In questa pagina verranno selezionate le colonne da crittografare, [il tipo di crittografia e la chiave di crittografia di colonna (CEK)](/sql/relational-databases/security/encryption/always-encrypted-wizard#Anchor_2) da usare.
 
 Crittografare il **CF** e la **data di nascita** per ogni paziente. La colonna relativa al codice fiscale usa la crittografia deterministica, che supporta ricerche di uguaglianza, join e raggruppamenti. La colonna relativa alla data di nascita usa la crittografia casuale, che non supporta le operazioni.
 
-Impostare il **Tipo di crittografia** per la colonna CF su **Deterministica** e la colonna Data di nascita su **Casuale** . Fare clic su **Avanti** .
+Impostare il **Tipo di crittografia** per la colonna CF su **Deterministica** e la colonna Data di nascita su **Casuale**. Fare clic su **Avanti**.
 
 ![Crittografa colonne](./media/always-encrypted-azure-key-vault-configure/column-selection.png)
 
@@ -169,15 +169,15 @@ La pagina **Configurazione della chiave master** consente di impostare la CMK e 
 
 Questa esercitazione illustra come archiviare le chiavi nell'insieme di credenziali delle chiavi di Azure.
 
-1. Selezionare **Insieme di credenziali delle chiavi di Azure** .
+1. Selezionare **Insieme di credenziali delle chiavi di Azure**.
 2. Selezionare l'insieme di credenziali delle chiavi desiderato dall'elenco a discesa.
-3. Fare clic su **Avanti** .
+3. Fare clic su **Avanti**.
 
 ![Configurazione della chiave master](./media/always-encrypted-azure-key-vault-configure/master-key-configuration.png)
 
 ### <a name="validation"></a>Convalida
 
-È attualmente possibile crittografare le colonne o salvare uno script di PowerShell da eseguire in un secondo momento. Per questa esercitazione selezionare **Procedi per completare ora** e fare clic su **Avanti** .
+È attualmente possibile crittografare le colonne o salvare uno script di PowerShell da eseguire in un secondo momento. Per questa esercitazione selezionare **Procedi per completare ora** e fare clic su **Avanti**.
 
 ### <a name="summary"></a>Riepilogo
 
@@ -203,8 +203,8 @@ Ora che la crittografia Always Encrypted è configurata, è possibile creare un'
 > L'applicazione deve usare oggetti [SqlParameter](/dotnet/api/system.data.sqlclient.sqlparameter) per trasferire dati di testo non crittografato al server con colonne con la crittografia sempre attiva. Il trasferimento di valori letterali senza usare oggetti SqlParameter genererà un'eccezione.
 
 1. Aprire Visual Studio e creare una nuova **Applicazione console** C# (Visual Studio 2015 e versioni precedenti) o **App console (.NET Framework)** (Visual Studio 2017 e versioni successive). Verificare che il progetto sia impostato su **.NET Framework 4.6** o versione successiva.
-2. Denominare il progetto **AlwaysEncryptedConsoleAKVApp** e fare clic su **OK** .
-3. Installare i pacchetti NuGet seguenti passando a **strumenti**  >  **Gestione pacchetti NuGet**  >  **console di gestione pacchetti** .
+2. Denominare il progetto **AlwaysEncryptedConsoleAKVApp** e fare clic su **OK**.
+3. Installare i pacchetti NuGet seguenti passando a **strumenti**  >  **Gestione pacchetti NuGet**  >  **console di gestione pacchetti**.
 
 Eseguire queste due righe di codice nella console di gestione pacchetti:
 
@@ -217,9 +217,9 @@ Eseguire queste due righe di codice nella console di gestione pacchetti:
 
 Questa sezione descrive come abilitare la crittografia sempre attiva nella stringa di connessione del database.
 
-Per abilitare Always Encrypted è necessario aggiungere la parola chiave di **Column Encryption Setting** alla stringa di connessione e impostarla su **Abilitata** .
+Per abilitare Always Encrypted è necessario aggiungere la parola chiave di **Column Encryption Setting** alla stringa di connessione e impostarla su **Abilitata**.
 
-È possibile impostarla direttamente nella stringa di connessione o tramite [SqlConnectionStringBuilder](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder). L'applicazione di esempio nella sezione successiva mostra come usare **SqlConnectionStringBuilder** .
+È possibile impostarla direttamente nella stringa di connessione o tramite [SqlConnectionStringBuilder](/dotnet/api/system.data.sqlclient.sqlconnectionstringbuilder). L'applicazione di esempio nella sezione successiva mostra come usare **SqlConnectionStringBuilder**.
 
 ### <a name="enable-always-encrypted-in-the-connection-string"></a>Abilitare la crittografia sempre attiva nella stringa di connessione
 
@@ -576,13 +576,13 @@ SELECT FirstName, LastName, SSN, BirthDate FROM Patients;
 
    ![Screenshot che indica che le colonne crittografate non contengono dati in testo non crittografato.](./media/always-encrypted-azure-key-vault-configure/ssms-encrypted.png)
 
-Per usare SSMS per accedere ai dati di testo non crittografato, è prima necessario assicurarsi che l'utente abbia le autorizzazioni appropriate per Azure Key Vault: *get* , *unwrapKey* e *verify* . Per informazioni dettagliate, vedere [Creare e archiviare chiavi master della colonna (Always Encrypted)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
+Per usare SSMS per accedere ai dati di testo non crittografato, è prima necessario assicurarsi che l'utente abbia le autorizzazioni appropriate per Azure Key Vault: *get* , *unwrapKey* e *verify*. Per informazioni dettagliate, vedere [Creare e archiviare chiavi master della colonna (Always Encrypted)](/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted).
 
 Aggiungere quindi il parametro *Column Encryption Setting=enabled* durante la connessione.
 
-1. In SSMS fare clic con il pulsante destro del mouse sul server in **Esplora oggetti** e scegliere **Disconnetti** .
-2. Fare clic su **Connetti**  >  **motore di database** per aprire la finestra **Connetti al server** e fare clic su **Opzioni** .
-3. Fare clic su **Parametri aggiuntivi per la connessione** e digitare **Column Encryption Setting=Enabled** .
+1. In SSMS fare clic con il pulsante destro del mouse sul server in **Esplora oggetti** e scegliere **Disconnetti**.
+2. Fare clic su **Connetti**  >  **motore di database** per aprire la finestra **Connetti al server** e fare clic su **Opzioni**.
+3. Fare clic su **Parametri aggiuntivi per la connessione** e digitare **Column Encryption Setting=Enabled**.
 
     ![Screenshot che mostra la scheda parametri aggiuntivi per la correzione.](./media/always-encrypted-azure-key-vault-configure/ssms-connection-parameter.png)
 

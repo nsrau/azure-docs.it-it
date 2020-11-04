@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 22e91d50227fcb44c7b90478d76379c14161ae05
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 878a2a47dfaddf1d3399a1dbd98865332838e148
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76718604"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321739"
 ---
 # <a name="sample-data-in-azure-blob-containers-sql-server-and-hive-tables"></a><a name="heading"></a>Campionare i dati in contenitori BLOB di Azure, in SQL Server e nelle tabelle Hive
 
@@ -26,9 +26,8 @@ Gli articoli seguenti illustrano come eseguire il campionamento di dati archivia
 * I [**dati di SQL Server**](sample-data-sql-server.md) vengono campionati usando sia il linguaggio di programmazione Python che SQL. 
 * I [**dati delle tabelle Hive**](sample-data-hive.md) vengono campionati tramite query Hive.
 
-Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](./index.yml).
 
 **Perché campionare i dati?**
 
 Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Il ridimensionamento può facilitare la comprensione dei dati, l'esplorazione e la progettazione delle funzionalità. Questo ruolo di campionamento nel processo di analisi Cortana è l'abilitazione della prototipazione rapida delle funzioni di elaborazione dei dati e dei modelli di machine learning.
-

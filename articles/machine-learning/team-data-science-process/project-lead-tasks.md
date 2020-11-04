@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d9b2546553e03d1555cf4c587d699d9a4ea7e51
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76714419"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321932"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>Attività del responsabile di progetto nel processo di Data Science per i team
 
@@ -49,7 +49,7 @@ Per clonare i repository e modificare il contenuto nel computer locale o Data Sc
 
 - Una sottoscrizione di Azure.
 - Git installato nel computer. Se si usa un DSVM, Git è preinstallato. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).
-- Se si vuole usare un DSVM, Windows o Linux DSVM creato e configurato in Azure. Per ulteriori informazioni e istruzioni, vedere la [documentazione Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/).
+- Se si vuole usare un DSVM, Windows o Linux DSVM creato e configurato in Azure. Per ulteriori informazioni e istruzioni, vedere la [documentazione Data Science Virtual Machine](../data-science-virtual-machine/index.yml).
 - Per un DSVM Windows, [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) è installato nel computer. Nel file *Readme.MD* scorrere verso il basso fino alla sezione **download and install** e selezionare il **programma di installazione più recente**. Scaricare il programma di installazione con *estensione exe* dalla pagina del programma di installazione ed eseguirlo. 
 - Per un DSVM Linux, viene configurata una chiave pubblica SSH nella DSVM e aggiunta in Azure DevOps. Per ulteriori informazioni e istruzioni, vedere la sezione **create SSH Public Key** nell' [appendice Platforms and Tools](platforms-and-tools.md#appendix). 
 
@@ -57,13 +57,13 @@ Per clonare i repository e modificare il contenuto nel computer locale o Data Sc
 
 Per creare un **repository di progetto nel progetto team** del team:
 
-1. Passare alla pagina di **Riepilogo** del progetto del team in *https \/ / \<server name> / \<organization name> / \<team name> :*, ad esempio **https: \/ /dev.Azure.com/DataScienceUnit/myTeam**, quindi selezionare **repository** nel percorso di spostamento a sinistra. 
+1. Passare alla pagina di **Riepilogo** del progetto del team in *https \/ / \<server name> / \<organization name> / \<team name> :* , ad esempio **https: \/ /dev.Azure.com/DataScienceUnit/myTeam** , quindi selezionare **repository** nel percorso di spostamento a sinistra. 
    
 1. Selezionare il nome del repository nella parte superiore della pagina e quindi selezionare **nuovo repository** nell'elenco a discesa.
    
    ![Seleziona nuovo repository](./media/project-lead-tasks/project-leads-9-select-repos.png)
    
-1. Nella finestra di dialogo **Crea un nuovo repository** assicurarsi che **git** sia selezionato in **tipo**. Immettere *DSProject1* in **nome repository**, quindi selezionare **Crea**.
+1. Nella finestra di dialogo **Crea un nuovo repository** assicurarsi che **git** sia selezionato in **tipo**. Immettere *DSProject1* in **nome repository** , quindi selezionare **Crea**.
    
    ![Crea repository](./media/project-lead-tasks/project-leads-3-create-project-repo-2.png)
    
@@ -79,11 +79,11 @@ Per popolare il repository del progetto con il contenuto del repository del mode
    
 1. Selezionare il nome del repository nella parte superiore della pagina e selezionare **DSProject1** nell'elenco a discesa.
    
-1. Nella pagina **DSProject1 è vuota** selezionare Import ( **Importa**). 
+1. Nella pagina **DSProject1 è vuota** selezionare Import ( **Importa** ). 
    
    ![Selezionare Importa](./media/project-lead-tasks/project-leads-5-create-project-repo-4.png)
    
-1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine**e immettere l'URL del repository **teamTemplate** in **Clone URL**. L'URL è *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name> *. Ad esempio: **https: \/ /dev.Azure.com/DataScienceUnit/myTeam/_git/teamTemplate**. 
+1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine** e immettere l'URL del repository **teamTemplate** in **Clone URL**. L'URL è *https: \/ / \<server name> / \<organization name> / \<team name> /_git/ \<team template repository name>*. Ad esempio: **https: \/ /dev.Azure.com/DataScienceUnit/myTeam/_git/teamTemplate**. 
    
 1. Selezionare **Importa**. Il contenuto del repository del modello team viene importato nel repository del progetto. 
    

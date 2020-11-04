@@ -12,12 +12,12 @@ ms.reviewer: vanto
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase
-ms.openlocfilehash: 2ba0c53b9d0b9791364f532d999d86c74fa21177
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: eae7d0a34d6bd76dae5998f05f9d64e0d40f7d9b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92678060"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321604"
 ---
 # <a name="conditional-access-with-azure-sql-database-and-azure-synapse-analytics"></a>Accesso condizionale con il database SQL di Azure e Azure sinapsi Analytics
 
@@ -29,7 +29,7 @@ I passaggi seguenti illustrano come configurare il database SQL di Azure, SQL Is
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Per supportare l'autenticazione Azure Active Directory (Azure AD), è necessario configurare il database SQL di Azure, il Istanza gestita SQL di Azure o il pool SQL di Azure in sinapsi di Azure. Per i passaggi specifici, vedere [configurare e gestire l'autenticazione di Azure Active Directory con il database SQL o la sinapsi di Azure](authentication-aad-configure.md).  
+- Per supportare l'autenticazione Azure Active Directory (Azure AD), è necessario configurare il database SQL di Azure, il Istanza gestita SQL di Azure o il pool SQL dedicato in sinapsi di Azure. Per i passaggi specifici, vedere [configurare e gestire l'autenticazione di Azure Active Directory con il database SQL o la sinapsi di Azure](authentication-aad-configure.md).  
 - Quando Multi-Factor Authentication è abilitato, è necessario connettersi con uno strumento supportato, ad esempio l'ultimo SQL Server Management Studio (SSMS). Per altre informazioni, vedere [Configurare Multi-Factor Authentication con database SQL di Azure per SQL Server Management Studio](authentication-mfa-ssms-configure.md).  
 
 ## <a name="configure-conditional-access"></a>Configurare l'accesso condizionale
@@ -37,21 +37,21 @@ I passaggi seguenti illustrano come configurare il database SQL di Azure, SQL Is
 > [!NOTE]
 > Nell'esempio seguente viene usato il database SQL di Azure, ma è necessario selezionare il prodotto appropriato per cui si vuole configurare l'accesso condizionale.
 
-1. Accedere al portale di Azure, selezionare **Azure Active Directory** , quindi selezionare **accesso condizionale** . Per altre informazioni, vedere [Documentazione tecnica sull'accesso condizionale di Azure Active Directory](../../active-directory/conditional-access/concept-conditional-access-conditions.md).  
+1. Accedere al portale di Azure, selezionare **Azure Active Directory** , quindi selezionare **accesso condizionale**. Per altre informazioni, vedere [Documentazione tecnica sull'accesso condizionale di Azure Active Directory](../../active-directory/conditional-access/concept-conditional-access-conditions.md).  
    ![Pannello accesso condizionale](./media/conditional-access-configure/conditional-access-blade.png)
 
-2. Nel pannello **Accesso condizionale - Criteri** fare clic su **Nuovo criterio** , specificare un nome e quindi fare clic su **Configura regole** .  
+2. Nel pannello **Accesso condizionale - Criteri** fare clic su **Nuovo criterio** , specificare un nome e quindi fare clic su **Configura regole**.  
 3. In **assegnazioni** selezionare **utenti e gruppi** , **selezionare utenti e gruppi** , quindi selezionare l'utente o il gruppo per l'accesso condizionale. Fare clic su **Seleziona** e quindi su **Fatto** per accettare la selezione.  
    ![seleziona utenti e gruppi](./media/conditional-access-configure/select-users-and-groups.png)  
 
-4. Selezionare **App cloud** e fare clic su **Seleziona app** . Vengono visualizzate tutte le app disponibili per l'accesso condizionale. Selezionare **Database SQL di Azure** , nella parte inferiore fare clic su **Seleziona** e quindi fare clic su **Fatto** .  
+4. Selezionare **App cloud** e fare clic su **Seleziona app**. Vengono visualizzate tutte le app disponibili per l'accesso condizionale. Selezionare **Database SQL di Azure** , nella parte inferiore fare clic su **Seleziona** e quindi fare clic su **Fatto**.  
    ![selezionare il database SQL](./media/conditional-access-configure/select-sql-database.png)  
    Se non è possibile trovare il **database SQL di Azure** elencato nel terzo screenshot seguente, completare i passaggi seguenti:
    - Connettersi al database nel database SQL di Azure usando SSMS con un account amministratore Azure AD.  
    - Eseguire `CREATE USER [user@yourtenant.com] FROM EXTERNAL PROVIDER`.  
    - Accedere a Azure AD e verificare che il database SQL di Azure, SQL Istanza gestita o la sinapsi di Azure siano elencati nelle applicazioni nell'istanza di Azure AD.  
 
-5. Selezionare **Controlli di accesso** , selezionare **Concedi** e quindi selezionare il criterio che si vuole applicare. Per questo esempio, selezionare **Richiedi autenticazione a più fattori** .  
+5. Selezionare **Controlli di accesso** , selezionare **Concedi** e quindi selezionare il criterio che si vuole applicare. Per questo esempio, selezionare **Richiedi autenticazione a più fattori**.  
    ![selezionare l'opzione per concedere l'accesso](./media/conditional-access-configure/grant-access.png)  
 
 ## <a name="summary"></a>Riepilogo

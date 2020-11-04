@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 04528d28e9f54710cd0a63372e32b099c2e07fb5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b190bf0c474640c07d84971069072d3af2faa66d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026169"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321898"
 ---
 # <a name="sample-data-in-azure-blob-storage"></a><a name="heading"></a>Campionare i dati nell'archivio BLOB di Azure
 
@@ -25,7 +25,7 @@ Questo articolo descrive i dati di campionamento che è possibile memorizzare ne
 **Perché campionare i dati?**
 Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Il campionamento semplifica la comprensione dei dati, l'esplorazione e la progettazione delle funzionalità. Il suo ruolo nel Cortana Analytics Process consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli per l'apprendimento automatico.
 
-Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](./index.yml).
 
 ## <a name="download-and-down-sample-data"></a>Download e sotto-campionamento dei dati
 1. Scaricare i dati dall'archiviazione BLOB di Azure usando il servizio BLOB dal codice Python di esempio seguente: 
@@ -102,7 +102,6 @@ Per sottocampionare i dati e usarli direttamente in Azure Machine Learning, è p
         print ("Something went wrong with uploading to the blob:"+ BLOBNAME)
     ```
 
-3. Leggere i dati del BLOB di Azure con [Import Data](https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/) (Importazione dati) di Azure Machine Learning, come illustrato nell'immagine seguente:
+3. Leggere i dati del BLOB di Azure con [Import Data](/azure/machine-learning/studio-module-reference/import-data) (Importazione dati) di Azure Machine Learning, come illustrato nell'immagine seguente:
 
 ![lettore BLOB](./media/sample-data-blob/reader_blob.png)
-

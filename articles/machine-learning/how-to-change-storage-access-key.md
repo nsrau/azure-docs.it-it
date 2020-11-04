@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: dbc00d37b912ce7efb250aade0ea6790a1a227eb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1da7149a41ec8dd08e307394cba3e7feabec42a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91296757"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320714"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Rigenera le chiavi di accesso dell'account di archiviazione
 
@@ -26,13 +26,13 @@ Informazioni su come modificare le chiavi di accesso per gli account di archivia
 Per motivi di sicurezza, potrebbe essere necessario modificare le chiavi di accesso per un account di archiviazione di Azure. Quando si rigenera la chiave di accesso, è necessario aggiornare Azure Machine Learning per l'uso della nuova chiave. Azure Machine Learning possibile che utilizzino l'account di archiviazione sia per l'archiviazione del modello sia come archivio dati.
 
 > [!IMPORTANT]
-> Le credenziali registrate con gli archivi dati vengono salvate nel Azure Key Vault associato all'area di lavoro. Se l' [eliminazione](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) temporanea è abilitata per l'Key Vault, assicurarsi di seguire questo articolo per l'aggiornamento delle credenziali. L'annullamento della registrazione dell'archivio dati e la nuova registrazione con lo stesso nome avranno esito negativo.
+> Le credenziali registrate con gli archivi dati vengono salvate nel Azure Key Vault associato all'area di lavoro. Se l' [eliminazione](../key-vault/general/soft-delete-overview.md) temporanea è abilitata per l'Key Vault, assicurarsi di seguire questo articolo per l'aggiornamento delle credenziali. L'annullamento della registrazione dell'archivio dati e la nuova registrazione con lo stesso nome avranno esito negativo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere l'articolo [creare un'area di lavoro](how-to-manage-workspace.md) .
 
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
 
 * [Estensione dell'interfaccia](reference-azure-machine-learning-cli.md)della riga di comando Azure Machine Learning.
 
@@ -110,7 +110,7 @@ Per aggiornare Azure Machine Learning per utilizzare la nuova chiave, attenersi 
         Questo comando Sincronizza automaticamente le nuove chiavi per l'account di archiviazione di Azure usato dall'area di lavoro.
 
 1. È possibile registrare nuovamente gli archivi dati che usano l'account di archiviazione tramite l'SDK o [il Azure Machine Learning Studio](https://ml.azure.com).
-    1. **Per registrare di nuovo gli archivi dati tramite Python SDK**, usare i valori della sezione [elementi che devono essere aggiornati](#whattoupdate) e la chiave del passaggio 1 con il codice seguente. 
+    1. **Per registrare di nuovo gli archivi dati tramite Python SDK** , usare i valori della sezione [elementi che devono essere aggiornati](#whattoupdate) e la chiave del passaggio 1 con il codice seguente. 
     
         Poiché `overwrite=True` è specificato, questo codice sovrascrive la registrazione esistente e la Aggiorna per l'uso della nuova chiave.
     
@@ -132,13 +132,13 @@ Per aggiornare Azure Machine Learning per utilizzare la nuova chiave, attenersi 
         
         ```
     
-    1. **Per registrare di nuovo gli archivi dati tramite lo studio**, selezionare **archivi dati** dal riquadro sinistro di studio. 
+    1. **Per registrare di nuovo gli archivi dati tramite lo studio** , selezionare **archivi dati** dal riquadro sinistro di studio. 
         1. Selezionare l'archivio dati che si desidera aggiornare.
         1. Selezionare il pulsante **Aggiorna credenziali** in alto a sinistra. 
         1. Usare la nuova chiave di accesso del passaggio 1 per popolare il modulo e fare clic su **Salva**.
         
-            Se si aggiornano le credenziali per l' **archivio dati predefinito**, completare questo passaggio e ripetere il passaggio 2b per risincronizzare la nuova chiave con l'archivio dati predefinito dell'area di lavoro. 
+            Se si aggiornano le credenziali per l' **archivio dati predefinito** , completare questo passaggio e ripetere il passaggio 2b per risincronizzare la nuova chiave con l'archivio dati predefinito dell'area di lavoro. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per ulteriori informazioni sulla registrazione di archivi dati, vedere il [`Datastore`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore%28class%29?view=azure-ml-py&preserve-view=true) riferimento alla classe.
+Per ulteriori informazioni sulla registrazione di archivi dati, vedere il [`Datastore`](/python/api/azureml-core/azureml.core.datastore%28class%29?preserve-view=true&view=azure-ml-py) riferimento alla classe.

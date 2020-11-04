@@ -11,16 +11,16 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18, devx-track-azurecli
-ms.openlocfilehash: cba01684457c8b3a7f6c8c51c7d202bf8963658e
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: aa84d7cce09b370ab35ef67029f4dbe2ca29cabb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92736608"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320849"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire gli accessi all'area di lavoro di Azure Machine Learning
 
-Questo articolo illustra come gestire l'accesso a un'area di lavoro Azure Machine Learning. Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](/azure/role-based-access-control/overview) viene usato per gestire l'accesso alle risorse di Azure. Agli utenti nella Azure Active Directory vengono assegnati ruoli specifici che consentono di accedere alle risorse. Azure fornisce ruoli predefiniti e la possibilità di creare ruoli personalizzati.
+Questo articolo illustra come gestire l'accesso a un'area di lavoro Azure Machine Learning. Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) viene usato per gestire l'accesso alle risorse di Azure. Agli utenti nella Azure Active Directory vengono assegnati ruoli specifici che consentono di accedere alle risorse. Azure fornisce ruoli predefiniti e la possibilità di creare ruoli personalizzati.
 
 ## <a name="default-roles"></a>Ruoli predefiniti
 
@@ -34,18 +34,18 @@ Un'area di lavoro di Azure Machine Learning è una risorsa di Azure. Analogament
 | **Ruolo personalizzato** | Consente di personalizzare l'accesso a specifiche operazioni di controllo o piano dati all'interno di un'area di lavoro. Ad esempio, l'invio di un'esecuzione, la creazione di un calcolo, la distribuzione di un modello o la registrazione di un set di dati. |
 
 > [!IMPORTANT]
-> L'accesso ai ruoli può essere limitato a più livelli in Azure. Ad esempio, un utente con accesso proprietario a un'area di lavoro potrebbe non avere accesso proprietario al gruppo di risorse che contiene l'area di lavoro. Per altre informazioni, vedere funzionamento di [Azure RBAC](/azure/role-based-access-control/overview#how-azure-rbac-works).
+> L'accesso ai ruoli può essere limitato a più livelli in Azure. Ad esempio, un utente con accesso proprietario a un'area di lavoro potrebbe non avere accesso proprietario al gruppo di risorse che contiene l'area di lavoro. Per altre informazioni, vedere funzionamento di [Azure RBAC](../role-based-access-control/overview.md#how-azure-rbac-works).
 
-Per altre informazioni sui ruoli predefiniti specifici, vedere [ruoli predefiniti di Azure](/azure/role-based-access-control/built-in-roles).
+Per altre informazioni sui ruoli predefiniti specifici, vedere [ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md).
 
 ## <a name="manage-workspace-access"></a>Gestisci l'accesso all'area di lavoro
 
 Se si è proprietari di un'area di lavoro, è possibile aggiungere e rimuovere ruoli per l'area di lavoro. È anche possibile assegnare ruoli agli utenti. Usare i collegamenti seguenti per scoprire come gestire l'accesso:
-- [Interfaccia utente del portale di Azure](/azure/role-based-access-control/role-assignments-portal)
-- [PowerShell](/azure/role-based-access-control/role-assignments-powershell)
-- [Interfaccia della riga di comando di Azure](/azure/role-based-access-control/role-assignments-cli)
-- [REST API](/azure/role-based-access-control/role-assignments-rest)
-- [Modelli di Gestione risorse di Azure](/azure/role-based-access-control/role-assignments-template)
+- [Interfaccia utente del portale di Azure](../role-based-access-control/role-assignments-portal.md)
+- [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+- [Interfaccia della riga di comando di Azure](../role-based-access-control/role-assignments-cli.md)
+- [REST API](../role-based-access-control/role-assignments-rest.md)
+- [Modelli di Gestione risorse di Azure](../role-based-access-control/role-assignments-template.md)
 
 Se è stata installata l' [interfaccia](reference-azure-machine-learning-cli.md)della riga di comando Azure Machine Learning, è possibile usare i comandi dell'interfaccia della riga di comando per assegnare ruoli agli utenti
 
@@ -65,7 +65,7 @@ az ml workspace share -w my_workspace -g my_resource_group --role Contributor --
 
 ## <a name="azure-machine-learning-operations"></a>Operazioni di Azure Machine Learning
 
-Azure Machine Learning azioni predefinite per molte operazioni e attività. Per un elenco completo, vedere [operazioni del provider di risorse di Azure](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Azure Machine Learning azioni predefinite per molte operazioni e attività. Per un elenco completo, vedere [operazioni del provider di risorse di Azure](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices).
 
 ## <a name="mlflow-operations-in-azure-machine-learning"></a>Operazioni MLflow in Azure Machine Learning
 
@@ -135,7 +135,7 @@ Dopo la distribuzione, questo ruolo diventa disponibile nell'area di lavoro spec
 az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientist" --user jdoe@contoson.com
 ```
 
-Per altre informazioni sui ruoli personalizzati, vedere [ruoli personalizzati di Azure](/azure/role-based-access-control/custom-roles). Per altre informazioni sulle operazioni (azioni e non azioni) utilizzabili con i ruoli personalizzati, vedere [operazioni del provider di risorse](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Per altre informazioni sui ruoli personalizzati, vedere [ruoli personalizzati di Azure](../role-based-access-control/custom-roles.md). Per altre informazioni sulle operazioni (azioni e non azioni) utilizzabili con i ruoli personalizzati, vedere [operazioni del provider di risorse](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -165,7 +165,7 @@ La tabella seguente è un riepilogo delle attività Azure Machine Learning e del
 
 ### <a name="q-are-we-publishing-azure-built-in-roles-for-the-machine-learning-service"></a>Q. Si pubblicano i ruoli predefiniti di Azure per il servizio Machine Learning?
 
-Attualmente non vengono pubblicati i [ruoli predefiniti di Azure](/azure/role-based-access-control/built-in-roles) per il servizio Machine Learning. Un ruolo incorporato dopo la pubblicazione non può essere aggiornato e le definizioni di ruolo vengono ancora stabilite in base agli scenari e ai commenti dei clienti. 
+Attualmente non vengono pubblicati i [ruoli predefiniti di Azure](../role-based-access-control/built-in-roles.md) per il servizio Machine Learning. Un ruolo incorporato dopo la pubblicazione non può essere aggiornato e le definizioni di ruolo vengono ancora stabilite in base agli scenari e ai commenti dei clienti. 
 
 <a id="customroles"></a>
 
@@ -419,7 +419,7 @@ Nell'interfaccia della riga di comando di Azure eseguire il comando seguente.
 az provider operation show –n Microsoft.MachineLearningServices
 ```
 
-Sono disponibili anche nell'elenco delle [operazioni del provider di risorse](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices).
+Sono disponibili anche nell'elenco delle [operazioni del provider di risorse](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices).
 
 
 ### <a name="q-what-are-some-common-gotchas-when-using-azure-rbac"></a>Q. Quali sono alcuni problemi comuni relativi all'uso di RBAC di Azure?
@@ -427,18 +427,18 @@ Sono disponibili anche nell'elenco delle [operazioni del provider di risorse](/a
 Di seguito sono riportate alcune considerazioni da tenere presente quando si usa il controllo degli accessi in base al ruolo di Azure (RBAC di Azure):
 
 - Quando si crea una risorsa in Azure, ad indicare un'area di lavoro, non si è direttamente il proprietario dell'area di lavoro. Il ruolo viene ereditato dal ruolo con ambito più elevato su cui si è autorizzati in tale sottoscrizione. Ad esempio, se si è un amministratore di rete e si dispone delle autorizzazioni per creare un'area di lavoro Machine Learning, a tale area di lavoro verrà assegnato il ruolo di amministratore di rete e non il ruolo proprietario.
-- Quando sono presenti due assegnazioni di ruolo per lo stesso utente Azure Active Directory con sezioni in conflitto di azioni o notact, le operazioni elencate in notacts da un ruolo potrebbero non essere effettive se sono anche elencate come azioni in un altro ruolo. Per altre informazioni su come Azure analizza le assegnazioni di ruolo, vedere in [che modo RBAC di Azure determina se un utente ha accesso a una risorsa](/azure/role-based-access-control/overview#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
+- Quando sono presenti due assegnazioni di ruolo per lo stesso utente Azure Active Directory con sezioni in conflitto di azioni o notact, le operazioni elencate in notacts da un ruolo potrebbero non essere effettive se sono anche elencate come azioni in un altro ruolo. Per altre informazioni su come Azure analizza le assegnazioni di ruolo, vedere in [che modo RBAC di Azure determina se un utente ha accesso a una risorsa](../role-based-access-control/overview.md#how-azure-rbac-determines-if-a-user-has-access-to-a-resource)
 - Per distribuire le risorse di calcolo all'interno di una VNet, è necessario disporre esplicitamente delle autorizzazioni per le azioni seguenti:
     - "Microsoft. Network/virtualNetworks/join/Action" sulla risorsa VNet.
     - "Microsoft. Network/virtualNetworks/subnet/join/Action" sulla risorsa della subnet.
     
-    Per altre informazioni sul controllo degli accessi in base al ruolo di Azure con la rete, vedere i [ruoli predefiniti di rete](/azure/role-based-access-control/built-in-roles#networking).
+    Per altre informazioni sul controllo degli accessi in base al ruolo di Azure con la rete, vedere i [ruoli predefiniti di rete](../role-based-access-control/built-in-roles.md#networking).
 
 - A volte può essere necessaria fino a un'ora prima che le nuove assegnazioni di ruolo abbiano effetto sulle autorizzazioni memorizzate nella cache dello stack.
 
 ### <a name="q-what-permissions-do-i-need-to-use-a-user-assigned-managed-identity-with-my-amlcompute-clusters"></a>Q. Quali autorizzazioni sono necessarie per usare un'identità gestita assegnata dall'utente con i cluster Amlcompute?
 
-Per assegnare un'identità assegnata all'utente nei cluster Amlcompute, è necessario disporre delle autorizzazioni di scrittura per creare il calcolo e avere un [ruolo di operatore di identità gestito](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Per altre informazioni sul controllo degli accessi in base al ruolo di Azure con identità gestite, vedere [come gestire l'identità assegnata dall'utente](/azure/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal)
+Per assegnare un'identità assegnata all'utente nei cluster Amlcompute, è necessario disporre delle autorizzazioni di scrittura per creare il calcolo e avere un [ruolo di operatore di identità gestito](../role-based-access-control/built-in-roles.md#managed-identity-operator). Per altre informazioni sul controllo degli accessi in base al ruolo di Azure con identità gestite, vedere [come gestire l'identità assegnata dall'utente](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)
 
 
 ### <a name="q-do-we-support-role-based-access-control-on-the-studio-portal"></a>Q. È supportato il controllo degli accessi in base al ruolo nel portale di studio?
@@ -480,4 +480,4 @@ az role definition update --role-definition update_def.json --subscription <sub-
 - [Panoramica sulla sicurezza aziendale](concept-enterprise-security.md)
 - [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md)
 - [Esercitazione: Eseguire il training dei modelli](tutorial-train-models-with-aml.md)
-- [Operazioni del provider di risorse](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)
+- [Operazioni del provider di risorse](../role-based-access-control/resource-provider-operations.md#microsoftmachinelearningservices)

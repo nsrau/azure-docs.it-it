@@ -11,14 +11,15 @@ ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 4a4ce92278d5f6704fec4a5b9d30b44ddf89b0ad
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad7e98fcd544a538d45485cfb79acb3e7a6c843f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033439"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321470"
 ---
 # <a name="dynamic-sql-in-synapse-sql"></a>SQL dinamico in sinapsi SQL
+
 In questo articolo sono disponibili suggerimenti per l'uso di SQL dinamico e lo sviluppo di soluzioni con sinapsi SQL.
 
 ## <a name="dynamic-sql-example"></a>Esempio di SQL dinamico
@@ -26,7 +27,7 @@ In questo articolo sono disponibili suggerimenti per l'uso di SQL dinamico e lo 
 Quando si sviluppa il codice dell'applicazione, potrebbe essere necessario usare SQL dinamico per offrire soluzioni flessibili, generiche e modulari.
 
 > [!NOTE]
-> Al momento il pool SQL non supporta i tipi di dati BLOB. Il mancato supporto dei tipi di dati BLOB potrebbe limitare le dimensioni delle stringhe poiché i tipi di dati BLOB includono i tipi varchar (max) e nvarchar (max). Se sono stati usati questi tipi nel codice dell'applicazione durante la creazione di stringhe di grandi dimensioni, è necessario separare il codice in blocchi e usare invece l'istruzione EXEC.
+> Il pool SQL dedicato non supporta i tipi di dati BLOB in questo momento. Il mancato supporto dei tipi di dati BLOB potrebbe limitare le dimensioni delle stringhe poiché i tipi di dati BLOB includono i tipi varchar (max) e nvarchar (max). Se sono stati usati questi tipi nel codice dell'applicazione durante la creazione di stringhe di grandi dimensioni, è necessario separare il codice in blocchi e usare invece l'istruzione EXEC.
 
 Un semplice esempio:
 
@@ -38,7 +39,7 @@ DECLARE @sql_fragment1 VARCHAR(8000)=' SELECT name '
 EXEC( @sql_fragment1 + @sql_fragment2 + @sql_fragment3);
 ```
 
-Se la stringa è breve, è possibile usare [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) come di consueto.
+Se la stringa è breve, è possibile usare [sp_executesql](/sql/relational-databases/system-stored-procedures/sp-executesql-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) come di consueto.
 
 > [!NOTE]
 > Le istruzioni eseguite come SQL dinamico saranno comunque soggette a tutte le regole di convalida T-SQL.

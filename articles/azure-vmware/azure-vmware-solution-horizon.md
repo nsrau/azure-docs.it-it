@@ -3,12 +3,12 @@ title: Distribuire Horizon in una soluzione VMware di Azure
 description: Informazioni su come distribuire VMware Horizon in una soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: 6a466aea5cbdf4452a2c46b455932042d920c3b9
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92369013"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321348"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuire Horizon in una soluzione VMware di Azure 
 
@@ -86,7 +86,7 @@ Dato il cloud privato di Azure e il limite massimo di SDDC, è consigliabile un'
 
 La connessione dalla rete virtuale di Azure ai cloud privati/SDDCs di Azure deve essere configurata con ExpressRoute FastPath. Il diagramma seguente illustra una distribuzione di base di un pod.
 
-:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Orizzonte sulla soluzione VMware di Azure e sul cloud Horizon in Azure" border="false":::
+:::image type="content" source="media/horizon/horizon-pod-deployment-expresspath-fast-path.png" alt-text="Distribuzione tipica di un pod di Horizon con percorso veloce ExpressPath" border="false":::
 
 ## <a name="network-connectivity-to-scale-horizon-on-azure-vmware-solution"></a>Connettività di rete per la scalabilità di Horizon nella soluzione VMware di Azure
 
@@ -94,7 +94,7 @@ Questa sezione illustra l'architettura di rete a un livello elevato con alcuni e
 
 ### <a name="single-horizon-pod-on-azure-vmware-solution"></a>Soluzione VMware Single Horizon pod in Azure
 
-:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Orizzonte sulla soluzione VMware di Azure e sul cloud Horizon in Azure" border="false":::
+:::image type="content" source="media/horizon/single-horizon-pod-azure-vmware-solution.png" alt-text="Soluzione VMware Single Horizon pod in Azure" border="false":::
 
 Un singolo POD Horizon è lo scenario di distribuzione più semplice, perché si distribuisce un solo Horizon pod nell'area Stati Uniti orientali.  Poiché ogni cloud privato e SDDC è stimato per la gestione delle sessioni Desktop 4.000, si distribuiscono le dimensioni massime del pod di Horizon.  È possibile pianificare la distribuzione di un massimo di tre cloud privati/SDDCs.
 
@@ -112,7 +112,7 @@ Una variante dell'esempio di base potrebbe essere il supporto della connettivit�
 
 Il diagramma mostra come supportare la connettività per le risorse locali. Per connettersi alla rete aziendale alla rete virtuale di Azure, è necessario un circuito ExpressRoute.  Sarà anche necessario connettere la rete aziendale a ogni cloud privato e SDDCs usando ExpressRoute Copertura globale.  Consente la connettività dal SDDC al circuito ExpressRoute e alle risorse locali. 
 
-:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Orizzonte sulla soluzione VMware di Azure e sul cloud Horizon in Azure" border="false":::
+:::image type="content" source="media/horizon/connect-corporate-network-azure-virtual-network.png" alt-text="Connettere la rete aziendale a una rete virtuale di Azure" border="false":::
 
 ### <a name="multiple-horizon-pods-on-azure-vmware-solution-across-multiple-regions"></a>Più baccelli Horizon nella soluzione VMware di Azure in più aree
 
@@ -122,7 +122,7 @@ Si connetterà la Rete in ingresso virtuale di Azure ogni area ai cloud privati/
 
 Gli stessi principi si applicano se si distribuiscono due pod Horizon nella stessa area.  Assicurarsi di distribuire il secondo pod Horizon in una *rete virtuale di Azure separata*. Analogamente all'esempio di Pod singolo, è possibile connettere la rete aziendale e il Pod locale a questo esempio di più POD/aree usando ExpressRoute e Copertura globale. 
 
-:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text="Orizzonte sulla soluzione VMware di Azure e sul cloud Horizon in Azure" border="false":::
+:::image type="content" source="media/horizon/multiple-horizon-pod-azure-vmware-solution.png" alt-text=" Più baccelli Horizon nella soluzione VMware di Azure in più aree" border="false":::
 
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Ridimensionare gli host della soluzione VMware di Azure per le distribuzioni Horizon 
 
@@ -211,3 +211,6 @@ In base all'architettura di distribuzione standard, le macchine virtuali dell'in
 | Condivisione file di Windows               | D4sv3          |         | *Facoltativo*                               |
 
 Il costo della macchina virtuale dell'infrastruttura è pari a \$ 0,36 per utente al mese per la distribuzione di 2.000 desktop nell'esempio precedente. Questo esempio usa l'istanza di Azure Stati Uniti orientali 2020 prezzi. I prezzi possono variare in base all'area, alle opzioni selezionate e alla tempistica.
+
+## <a name="next-steps"></a>Passaggi successivi
+Per altre informazioni sulla soluzione VMware Horizon in Azure, vedere le [domande frequenti](https://www.vmware.com/content/dam/digitalmarketing/vmware/en/pdf/products/horizon/vmw-horizon-on-microsoft-azure-vmware-solution-faq.pdf)su VMware Horizon.

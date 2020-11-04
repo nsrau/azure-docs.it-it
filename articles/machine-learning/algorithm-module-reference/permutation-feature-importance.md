@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: ecf739ea838ad3742612eab7a1b42ac8c8ac455a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bddd9a6825899f646a86ae274c539b54156667c5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905262"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319409"
 ---
 # <a name="permutation-feature-importance"></a>Permutation Feature Importance
 
@@ -24,7 +24,7 @@ In questo modulo i valori delle funzionalità vengono mescolati in modo casuale,
 
 I punteggi restituiti dal modulo rappresentano la *modifica* delle prestazioni di un modello sottoposto a training, dopo la permutazione. Le funzionalità importanti sono in genere più sensibili al processo di shuffle, pertanto si otterranno punteggi di importanza maggiore. 
 
-Questo articolo fornisce una panoramica della funzionalità di permutazione, della relativa base teorica e delle relative applicazioni in Machine Learning: [importanza della funzionalità di permutazione](https://blogs.technet.com/b/machinelearning/archive/2015/04/14/permutation-feature-importance.aspx).  
+Questo articolo fornisce una panoramica della funzionalità di permutazione, della relativa base teorica e delle relative applicazioni in Machine Learning: [importanza della funzionalità di permutazione](/archive/blogs/machinelearning/permutation-feature-importance).  
 
 ## <a name="how-to-use-permutation-feature-importance"></a>Come usare l'importanza della funzionalità di permutazione
 
@@ -36,11 +36,11 @@ Per generare un set di punteggi di funzionalità, è necessario disporre di un m
 
 3.  Nell'input di destra, connettere un set di dati. Preferibilmente, scegliere una diversa dal set di dati usato per il training del modello. Questo set di dati viene usato per l'assegnazione dei punteggi in base al modello con training. Viene usato anche per la valutazione del modello dopo la modifica dei valori delle funzionalità.  
 
-4.  Per il valore di **inizializzazione casuale**, immettere un valore da usare come valore di inizializzazione per la sequenza casuale. Se si specifica 0 (impostazione predefinita), viene generato un numero in base al clock di sistema.
+4.  Per il valore di **inizializzazione casuale** , immettere un valore da usare come valore di inizializzazione per la sequenza casuale. Se si specifica 0 (impostazione predefinita), viene generato un numero in base al clock di sistema.
 
      Un valore di inizializzazione è facoltativo, ma è necessario fornire un valore se si desidera la riproducibilità tra le esecuzioni della stessa pipeline.  
 
-5.  Per la **metrica per la misurazione delle prestazioni**, selezionare una singola metrica da usare quando si calcola la qualità del modello dopo la permutazione.  
+5.  Per la **metrica per la misurazione delle prestazioni** , selezionare una singola metrica da usare quando si calcola la qualità del modello dopo la permutazione.  
 
      Azure Machine Learning Designer supporta le metriche seguenti, a seconda che si stia valutando un modello di classificazione o di regressione:  
 
@@ -69,4 +69,4 @@ Il motivo della differenza è che l'importanza della funzionalità di permutazio
   
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.

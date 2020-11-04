@@ -1,6 +1,6 @@
 ---
-title: Eseguire query su file CSV con SQL su richiesta (anteprima)
-description: Questo articolo illustra come eseguire una query su singoli file CSV con formati di file diversi usando SQL su richiesta (anteprima).
+title: Eseguire query sui file CSV usando un pool SQL senza server (anteprima)
+description: In questo articolo si apprenderà come eseguire una query su singoli file CSV con formati di file diversi usando un pool SQL senza server (anteprima).
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: d2f8a30503e14e647cbc9151ebcea7efa000ca07
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e5a64a75ca6cde4172e49eb77dde42a44c06d5e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288291"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321464"
 ---
 # <a name="query-csv-files"></a>Eseguire query su file CSV
 
-Questo articolo illustra come eseguire una query su un singolo file CSV usando SQL su richiesta (anteprima) in Azure Synapse Analytics. I file CSV possono avere formati diversi: 
+In questo articolo si apprenderà come eseguire una query su un singolo file CSV usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics. I file CSV possono avere formati diversi: 
 
 - Con e senza riga di intestazione
 - Valori delimitati da virgole e tabulazioni

@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/03/2020
 ms.author: jgao
-ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a04377289b78c23a83fc696ebebb9b5808e904c9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89667496"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321647"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -77,7 +77,7 @@ La risorsa script di distribuzione è disponibile solo nelle aree in cui è disp
 - **Azure PowerShell** o **interfaccia della riga di comando di Azure**. Vedere un elenco di [versioni di Azure PowerShell supportate](https://mcr.microsoft.com/v2/azuredeploymentscripts-powershell/tags/list). Vedere un elenco delle [versioni supportate dell'interfaccia](https://mcr.microsoft.com/v2/azure-cli/tags/list)della riga di comando di Azure.
 
     >[!IMPORTANT]
-    > Lo script di distribuzione usa le immagini dell'interfaccia della riga di comando disponibili del Registro Microsoft Container (MCR). La certificazione di un'immagine dell'interfaccia della riga di comando per uno script di distribuzione richiede circa un mese. Non usare le versioni dell'interfaccia della riga di comando rilasciate negli ultimi 30 giorni. Per trovare le date di rilascio delle immagini, vedere [Note sulla versione dell'interfaccia della riga di comando di Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest). Se viene usata una versione non supportata, nel messaggio di errore vengono elencate le versioni supportate.
+    > Lo script di distribuzione usa le immagini dell'interfaccia della riga di comando disponibili del Registro Microsoft Container (MCR). La certificazione di un'immagine dell'interfaccia della riga di comando per uno script di distribuzione richiede circa un mese. Non usare le versioni dell'interfaccia della riga di comando rilasciate negli ultimi 30 giorni. Per trovare le date di rilascio delle immagini, vedere [Note sulla versione dell'interfaccia della riga di comando di Azure](/cli/azure/release-notes-azure-cli?view=azure-cli-latest&preserve-view=true). Se viene usata una versione non supportata, nel messaggio di errore vengono elencate le versioni supportate.
 
     Queste versioni non sono necessarie per la distribuzione di modelli. Queste versioni sono tuttavia necessarie per testare localmente gli script di distribuzione. Vedere [Installare il modulo Azure PowerShell](/powershell/azure/install-az-ps). È possibile usare un'immagine Docker preconfigurata.  Vedere [Configurare l'ambiente di sviluppo](#configure-development-environment).
 
@@ -135,19 +135,19 @@ Di seguito è riportato un file json di esempio.  Lo schema di modello più rece
 
 Dettagli sui valori delle proprietà:
 
-- **Identità**: Il servizio script di distribuzione usa un'identità gestita assegnata dall'utente per eseguire gli script. Attualmente è supportata solo l'Identità gestita assegnata dall'utente di Azure.
-- **kind**: specificare il tipo di script. Attualmente gli script di Azure PowerShell e dell'interfaccia della riga di comando di Azure sono supportati. I valori sono **AzurePowerShell** e **AzureCLI**.
-- **forceUpdateTag**: La modifica di questo valore tra le distribuzioni di modelli forza la ripetizione dell'esecuzione dello script di distribuzione. Usare la funzione newGuid() o utcNow() che deve essere impostata come defaultValue di un parametro. Per altre informazioni, vedere [Eseguire lo script più di una volta](#run-script-more-than-once).
-- **containerSettings**: Specificare le impostazioni per personalizzare l'istanza di contenitore di Azure.  **containerGroupName** serve a specificare il nome del gruppo di contenitori.  Se non specificato, il nome del gruppo viene generato automaticamente.
-- **storageAccountSettings**: Specificare le impostazioni per l'uso di un account di archiviazione esistente. Se non è specificato, un account di archiviazione viene creato automaticamente. Vedere [Usare un account di archiviazione esistente](#use-existing-storage-account).
-- **azPowerShellVersion**/**azCliVersion**: Specificare la versione del modulo da usare. Per un elenco delle versioni supportate di PowerShell e dell'interfaccia della riga di comando, vedere [Prerequisiti](#prerequisites).
-- **arguments**: Specificare i valori del parametro. I valori sono separati da uno spazio.
+- **Identità** : Il servizio script di distribuzione usa un'identità gestita assegnata dall'utente per eseguire gli script. Attualmente è supportata solo l'Identità gestita assegnata dall'utente di Azure.
+- **kind** : specificare il tipo di script. Attualmente gli script di Azure PowerShell e dell'interfaccia della riga di comando di Azure sono supportati. I valori sono **AzurePowerShell** e **AzureCLI**.
+- **forceUpdateTag** : La modifica di questo valore tra le distribuzioni di modelli forza la ripetizione dell'esecuzione dello script di distribuzione. Usare la funzione newGuid() o utcNow() che deve essere impostata come defaultValue di un parametro. Per altre informazioni, vedere [Eseguire lo script più di una volta](#run-script-more-than-once).
+- **containerSettings** : Specificare le impostazioni per personalizzare l'istanza di contenitore di Azure.  **containerGroupName** serve a specificare il nome del gruppo di contenitori.  Se non specificato, il nome del gruppo viene generato automaticamente.
+- **storageAccountSettings** : Specificare le impostazioni per l'uso di un account di archiviazione esistente. Se non è specificato, un account di archiviazione viene creato automaticamente. Vedere [Usare un account di archiviazione esistente](#use-existing-storage-account).
+- **azPowerShellVersion**/**azCliVersion** : Specificare la versione del modulo da usare. Per un elenco delle versioni supportate di PowerShell e dell'interfaccia della riga di comando, vedere [Prerequisiti](#prerequisites).
+- **arguments** : Specificare i valori del parametro. I valori sono separati da uno spazio.
 
     Gli script di distribuzione suddividono gli argomenti in una matrice di stringhe richiamando la chiamata di sistema [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Questa operazione è necessaria perché gli argomenti vengono passati come [proprietà del comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) a un'istanza di contenitore di Azure e la proprietà Command è una matrice di stringa.
 
     Se gli argomenti contengono caratteri di escape, usare [JsonEscaper](https://www.jsonescaper.com/) per eseguire il doppio escape dei caratteri. Incollare la stringa di escape originale nello strumento, quindi selezionare **escape**.  Lo strumento restituisce una doppia stringa con caratteri di escape. Nel modello di esempio precedente, ad esempio, l'argomento è **-Name \\ "John Dole \\ "**.  La stringa con caratteri di escape è il **nome \\ \\ \\ "John Dole \\ \\ \\ "**.
 
-    Per passare un parametro di modello ARM di tipo Object come argomento, convertire l'oggetto in una stringa usando la funzione [String ()](./template-functions-string.md#string) e quindi usare la funzione [Replace ()](./template-functions-string.md#replace) per sostituire qualsiasi ** \\ "** into ** \\ \\ \\ "**. Ad esempio:
+    Per passare un parametro di modello ARM di tipo Object come argomento, convertire l'oggetto in una stringa usando la funzione [String ()](./template-functions-string.md#string) e quindi usare la funzione [Replace ()](./template-functions-string.md#replace) per sostituire qualsiasi **\\ "** into **\\ \\ \\ "**. Ad esempio:
 
     ```json
     replace(string(parameters('tables')), '\"', '\\\"')
@@ -155,13 +155,13 @@ Dettagli sui valori delle proprietà:
 
     Per visualizzare un modello di esempio, selezionare [qui](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-jsonEscape.json).
 
-- **environmentVariables**: Specificare le variabili di ambiente da passare allo script. Per altre informazioni, vedere [Sviluppare script di distribuzione](#develop-deployment-scripts).
-- **scriptContent**: specificare il contenuto dello script. Per eseguire uno script esterno, usare `primaryScriptUri`. Per esempi, vedere [Usare script inline](#use-inline-scripts) e [Usare script esterni](#use-external-scripts).
-- **primaryScriptUri**: Specificare un URL accessibile pubblicamente per lo script di distribuzione primario con estensioni di file supportate.
-- **supportingScriptUris**: Specificare una matrice di URL accessibili pubblicamente per supportare i file che vengono chiamati in `ScriptContent` o `PrimaryScriptUri`.
-- **timeout**: specificare il tempo di esecuzione dello script massimo consentito nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**.
-- **cleanupPreference**. Specificare la preferenza per la pulizia delle risorse di distribuzione quando l'esecuzione dello script si trova in uno stato terminale. L'impostazione predefinita è **Sempre**, che indica l'eliminazione delle risorse nonostante lo stato del terminale (Riuscito, Non riuscito, Annullato). Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
-- **retentionInterval**: Specificare l'intervallo per cui il servizio mantiene le risorse dello script di distribuzione dopo che l'esecuzione dello script di distribuzione ha raggiunto uno stato finale. Le risorse dello script di distribuzione verranno eliminate alla scadenza di tale durata. La durata è basata sul [modello ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**, che indica un giorno. Questa proprietà viene usata quando l'opzione cleanupPreference è impostata su *OnExpiration*. La proprietà *OnExpiration* non è attualmente abilitata. Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
+- **environmentVariables** : Specificare le variabili di ambiente da passare allo script. Per altre informazioni, vedere [Sviluppare script di distribuzione](#develop-deployment-scripts).
+- **scriptContent** : specificare il contenuto dello script. Per eseguire uno script esterno, usare `primaryScriptUri`. Per esempi, vedere [Usare script inline](#use-inline-scripts) e [Usare script esterni](#use-external-scripts).
+- **primaryScriptUri** : Specificare un URL accessibile pubblicamente per lo script di distribuzione primario con estensioni di file supportate.
+- **supportingScriptUris** : Specificare una matrice di URL accessibili pubblicamente per supportare i file che vengono chiamati in `ScriptContent` o `PrimaryScriptUri`.
+- **timeout** : specificare il tempo di esecuzione dello script massimo consentito nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore predefinito è **P1D**.
+- **cleanupPreference**. Specificare la preferenza per la pulizia delle risorse di distribuzione quando l'esecuzione dello script si trova in uno stato terminale. L'impostazione predefinita è **Sempre** , che indica l'eliminazione delle risorse nonostante lo stato del terminale (Riuscito, Non riuscito, Annullato). Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
+- **retentionInterval** : Specificare l'intervallo per cui il servizio mantiene le risorse dello script di distribuzione dopo che l'esecuzione dello script di distribuzione ha raggiunto uno stato finale. Le risorse dello script di distribuzione verranno eliminate alla scadenza di tale durata. La durata è basata sul [modello ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). L'intervallo di conservazione è compreso tra 1 e 26 ore (PT26H). Questa proprietà viene usata quando l'opzione cleanupPreference è impostata su *OnExpiration*. La proprietà *OnExpiration* non è attualmente abilitata. Per altre informazioni, vedere [Pulire le risorse dello script di distribuzione](#clean-up-deployment-script-resources).
 
 ### <a name="additional-samples"></a>Altri esempi
 
@@ -241,7 +241,7 @@ Il modello seguente mostra come passare i valori tra due risorse di deploymentSc
 
 :::code language="json" source="~/resourcemanager-templates/deployment-script/deploymentscript-basic.json" range="1-84" highlight="39-40,66":::
 
-Nella prima risorsa definire una variabile denominata **$DeploymentScriptOutputs**e usarla per archiviare i valori di output. Per accedere al valore di output da un'altra risorsa all'interno del modello, usare:
+Nella prima risorsa definire una variabile denominata **$DeploymentScriptOutputs** e usarla per archiviare i valori di output. Per accedere al valore di output da un'altra risorsa all'interno del modello, usare:
 
 ```json
 reference('<ResourceName>').output.text
@@ -287,7 +287,7 @@ Per specificare un account di archiviazione esistente, aggiungere il file JSON s
 },
 ```
 
-- **storageAccountName**: specificare il nome dell'account di archiviazione.
+- **storageAccountName** : specificare il nome dell'account di archiviazione.
 - **storageAccountKey"** : specificare una delle chiavi dell'account di archiviazione. Per recuperare la chiave, è possibile usare la funzione [`listKeys()`](./template-functions-resource.md#listkeys). Ad esempio:
 
     ```json
@@ -305,7 +305,7 @@ Quando viene usato un account di archiviazione esistente, il servizio script cre
 
 ### <a name="handle-non-terminating-errors"></a>Gestire errori non fatali
 
-È possibile controllare il modo in cui PowerShell risponde a errori non fatali usando la variabile  **$ErrorActionPreference** nello script di distribuzione. Se la variabile non è impostata nello script di distribuzione, il servizio script utilizzerà il valore predefinito **continue (continua**).
+È possibile controllare il modo in cui PowerShell risponde a errori non fatali usando la variabile  **$ErrorActionPreference** nello script di distribuzione. Se la variabile non è impostata nello script di distribuzione, il servizio script utilizzerà il valore predefinito **continue (continua** ).
 
 Il servizio script imposta lo stato di provisioning delle risorse su **non riuscito** quando lo script rileva un errore nonostante l'impostazione di $ErrorActionPreference.
 
@@ -331,7 +331,7 @@ Dopo aver distribuito una risorsa di script di distribuzione, la risorsa viene e
 
 ![Panoramica del portale di script di distribuzione del modello di Gestione risorse](./media/deployment-script-template/resource-manager-deployment-script-portal.png)
 
-La pagina Panoramica Visualizza alcune informazioni importanti della risorsa, ad esempio **stato di provisioning**, **account di archiviazione**, istanza del **contenitore**e **log**.
+La pagina Panoramica Visualizza alcune informazioni importanti della risorsa, ad esempio **stato di provisioning** , **account di archiviazione** , istanza del **contenitore** e **log**.
 
 Dal menu a sinistra è possibile visualizzare il contenuto dello script di distribuzione, gli argomenti passati allo script e l'output.  È anche possibile esportare un modello per lo script di distribuzione, incluso lo script di distribuzione.
 
@@ -375,10 +375,10 @@ Timeout             : PT1H
 
 Usando l'interfaccia della riga di comando di Azure, è possibile gestire gli script di distribuzione nell'ambito della sottoscrizione o del gruppo
 
-- [AZ Deployment-scripts Delete](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-delete): eliminare uno script di distribuzione.
-- [AZ Deployment-scripts list](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-list): elenca tutti gli script di distribuzione.
-- [AZ Deployment-scripts show](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show): recuperare uno script di distribuzione.
-- [AZ Deployment-scripts show-log](/cli/azure/deployment-scripts?view=azure-cli-latest#az-deployment-scripts-show-log): Mostra i log di script di distribuzione.
+- [AZ Deployment-scripts Delete](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-delete): eliminare uno script di distribuzione.
+- [AZ Deployment-scripts list](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-list): elenca tutti gli script di distribuzione.
+- [AZ Deployment-scripts show](/cli/azure/deployment-scripts?view=azure-cli-latest&preserve-view=true#az-deployment-scripts-show): recuperare uno script di distribuzione.
+- [AZ Deployment-scripts show-log](/cli/azure/deployment-scripts?view=azure-cli-lates&preserve-view=truet#az-deployment-scripts-show-log): Mostra i log di script di distribuzione.
 
 L'output del comando list è simile al seguente:
 
@@ -519,7 +519,7 @@ L'API REST seguente restituisce il log:
 
 Funziona solo prima che vengano eliminate le risorse dello script di distribuzione.
 
-Per visualizzare la risorsa deploymentScripts nel portale, selezionare **Mostra tipi nascosti**:
+Per visualizzare la risorsa deploymentScripts nel portale, selezionare **Mostra tipi nascosti** :
 
 ![Script di distribuzione del modello di Resource Manager, mostra tipi nascosti, portale](./media/deployment-script-template/resource-manager-deployment-script-portal-show-hidden-types.png)
 
@@ -529,13 +529,13 @@ Per l'esecuzione e la risoluzione dei problemi degli script sono necessari un ac
 
 Il ciclo di vita di queste risorse è controllato dalle proprietà seguenti nel modello:
 
-- **cleanupPreference**: Pulire le preferenze quando l'esecuzione dello script si trova in uno stato terminale. I valori supportati sono:
+- **cleanupPreference** : Pulire le preferenze quando l'esecuzione dello script si trova in uno stato terminale. I valori supportati sono:
 
-  - **Sempre**: Eliminare le risorse create automaticamente una volta che l'esecuzione dello script si trova in uno stato terminale. Se viene usato un account di archiviazione esistente, il servizio script elimina la condivisione file creata nell'account di archiviazione. Poiché la risorsa deploymentScripts potrebbe essere ancora presente dopo la pulizia delle risorse, il servizio script Salva in modo permanente i risultati dell'esecuzione dello script, ad esempio stdout, output, valore restituito e così via, prima che le risorse vengano eliminate.
-  - **OnSuccess**: Eliminare le risorse create automaticamente solo quando l'esecuzione dello script ha esito positivo. Se viene usato un account di archiviazione esistente, il servizio script rimuove la condivisione file solo quando l'esecuzione dello script ha esito positivo. È comunque possibile accedere alle risorse per trovare le informazioni di debug.
-  - **Onexpireation**: eliminare le risorse create automaticamente solo quando l'impostazione **retentionInterval** è scaduta. Se viene usato un account di archiviazione esistente, il servizio script rimuove la condivisione file, ma conserva l'account di archiviazione.
+  - **Sempre** : Eliminare le risorse create automaticamente una volta che l'esecuzione dello script si trova in uno stato terminale. Se viene usato un account di archiviazione esistente, il servizio script elimina la condivisione file creata nell'account di archiviazione. Poiché la risorsa deploymentScripts potrebbe essere ancora presente dopo la pulizia delle risorse, il servizio script Salva in modo permanente i risultati dell'esecuzione dello script, ad esempio stdout, output, valore restituito e così via, prima che le risorse vengano eliminate.
+  - **OnSuccess** : Eliminare le risorse create automaticamente solo quando l'esecuzione dello script ha esito positivo. Se viene usato un account di archiviazione esistente, il servizio script rimuove la condivisione file solo quando l'esecuzione dello script ha esito positivo. È comunque possibile accedere alle risorse per trovare le informazioni di debug.
+  - **Onexpireation** : eliminare le risorse create automaticamente solo quando l'impostazione **retentionInterval** è scaduta. Se viene usato un account di archiviazione esistente, il servizio script rimuove la condivisione file, ma conserva l'account di archiviazione.
 
-- **retentionInterval**: Specificare l'intervallo di tempo durante il quale una risorsa di script verrà conservata e dopo cui scadrà e verrà eliminata.
+- **retentionInterval** : Specificare l'intervallo di tempo durante il quale una risorsa di script verrà conservata e dopo cui scadrà e verrà eliminata.
 
 > [!NOTE]
 > Non è consigliabile usare l'account di archiviazione e l'istanza di contenitore generati dal servizio script per altri scopi. Le due risorse potrebbero essere rimosse a seconda del ciclo di vita dello script.

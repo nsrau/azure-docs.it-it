@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 91aac279a264d64ace5988d147c4caf8c52e9656
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1662af6cd3499fdf851d4e1bd8a0db48da7635b4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864146"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320131"
 ---
 # <a name="hdinsight-spark-data-science-walkthroughs-using-pyspark-and-scala-on-azure"></a>Procedure dettagliate di data science per HDInsight Spark con PySpark e Scala in Azure
 
@@ -40,12 +40,11 @@ Vedere [esplorazione e modellazione avanzate dei dati con Spark](spark-advanced-
 
 ## <a name="predict-taxi-tips-using-scala-on-azure-spark"></a>Stimare le mance dei taxi con Scala in Azure Spark
 
-La procedura dettagliata [usare scala con Spark in Azure](scala-walkthrough.md) prevede se viene pagata una mancia e l'intervallo di importi previsto. Illustra come usare Scala per attività di Machine Learning con supervisione con la libreria di Machine Learning (MLlib) per Spark e pacchetti SparkML in un cluster Azure HDInsight Spark. Vengono illustrate le attività che costituiscono il processo di analisi [scientifica dei dati](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione di funzionalità, la modellazione e l'utilizzo di modelli. I modelli creati includono la regressione logistica e quella lineare, foreste casuali e alberi con boosting a gradienti.
+La procedura dettagliata [usare scala con Spark in Azure](scala-walkthrough.md) prevede se viene pagata una mancia e l'intervallo di importi previsto. Illustra come usare Scala per attività di Machine Learning con supervisione con la libreria di Machine Learning (MLlib) per Spark e pacchetti SparkML in un cluster Azure HDInsight Spark. Vengono illustrate le attività che costituiscono il processo di analisi [scientifica dei dati](./index.yml), ovvero l'inserimento e l'esplorazione dei dati, la visualizzazione, la progettazione di funzionalità, la modellazione e l'utilizzo di modelli. I modelli creati includono la regressione logistica e quella lineare, foreste casuali e alberi con boosting a gradienti.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per una panoramica del processo di analisi scientifica dei dati per i team, vedere [Panoramica del processo di Data Science](overview.md)per i team.
 
-Per una descrizione del ciclo di vita del processo di Data Science per i team, vedere ciclo di vita del [processo di Data Science](lifecycle.md). Questo ciclo di vita descrive i passaggi, dall'inizio alla fine, che in genere seguono i progetti quando vengono eseguiti. 
-
+Per una descrizione del ciclo di vita del processo di Data Science per i team, vedere ciclo di vita del [processo di Data Science](lifecycle.md). Questo ciclo di vita descrive i passaggi, dall'inizio alla fine, che in genere seguono i progetti quando vengono eseguiti.

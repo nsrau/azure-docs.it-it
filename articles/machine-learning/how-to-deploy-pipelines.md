@@ -11,12 +11,12 @@ author: lobrien
 ms.date: 8/25/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: ae20b339ae3eec694140621b14db26606c9d5ab3
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: dea38705dbb6c2b7abd8a9786ef9adb66ad56ad7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93145566"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320436"
 ---
 # <a name="publish-and-track-machine-learning-pipelines"></a>Pubblicare e monitorare le pipeline di Machine Learning
 
@@ -38,7 +38,7 @@ Le pipeline di Machine Learning sono flussi di lavoro riutilizzabili per le atti
 
 Una volta che la pipeline è in esecuzione, è possibile pubblicare una pipeline in modo che venga eseguita con input diversi. Affinché l'endpoint REST di una pipeline già pubblicata accetti parametri, è necessario configurare la pipeline in modo `PipelineParameter` che usi oggetti per gli argomenti che variano.
 
-1. Per creare un parametro per la pipeline, usare un oggetto [PipelineParameter](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true) con un valore predefinito.
+1. Per creare un parametro per la pipeline, usare un oggetto [PipelineParameter](/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?preserve-view=true&view=azure-ml-py) con un valore predefinito.
 
    ```python
    from azureml.pipeline.core.graph import PipelineParameter
@@ -76,7 +76,7 @@ Tutte le pipeline pubblicate hanno un endpoint REST Con l'endpoint della pipelin
 > [!IMPORTANT]
 > Se si usa il controllo degli accessi in base al ruolo (RBAC) per gestire l'accesso alla pipeline, [impostare le autorizzazioni per lo scenario della pipeline (training o assegnazione del punteggio)](how-to-assign-roles.md#q-what-are-the-permissions-needed-to-perform-some-common-scenarios-in-the-azure-machine-learning-service).
 
-Per richiamare l'esecuzione della pipeline precedente, è necessario un token di intestazione di autenticazione Azure Active Directory. Il recupero di un token di questo tipo è descritto nel riferimento alla [classe AzureCliAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?view=azure-ml-py&preserve-view=true) e nell' [autenticazione in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
+Per richiamare l'esecuzione della pipeline precedente, è necessario un token di intestazione di autenticazione Azure Active Directory. Il recupero di un token di questo tipo è descritto nel riferimento alla [classe AzureCliAuthentication](/python/api/azureml-core/azureml.core.authentication.azurecliauthentication?preserve-view=true&view=azure-ml-py) e nell' [autenticazione in Azure Machine Learning](https://aka.ms/pl-restep-auth) notebook.
 
 ```python
 from azureml.pipeline.core import PublishedPipeline
@@ -343,9 +343,9 @@ response = requests.post(rest_endpoint,
 
 1. [Visualizzare l'area di lavoro](how-to-manage-workspace.md#view).
 
-1. A sinistra selezionare **endpoint** .
+1. A sinistra selezionare **endpoint**.
 
-1. Nella parte superiore selezionare **endpoint della pipeline** .
+1. Nella parte superiore selezionare **endpoint della pipeline**.
  ![elenco di pipeline pubblicate di Machine Learning](./media/how-to-create-your-first-pipeline/pipeline-endpoints.png)
 
 1. Consente di selezionare una pipeline specifica per l'esecuzione, l'utilizzo o la verifica dei risultati delle esecuzioni precedenti dell'endpoint della pipeline.
@@ -360,10 +360,10 @@ p = PublishedPipeline.get(ws, id="068f4885-7088-424b-8ce2-eeb9ba5381a6")
 p.disable()
 ```
 
-È possibile abilitarla di nuovo con `p.enable()` . Per altre informazioni, vedere riferimento alla [classe PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?view=azure-ml-py&preserve-view=true) .
+È possibile abilitarla di nuovo con `p.enable()` . Per altre informazioni, vedere riferimento alla [classe PublishedPipeline](/python/api/azureml-pipeline-core/azureml.pipeline.core.publishedpipeline?preserve-view=true&view=azure-ml-py) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Usare [questi notebook di Jupyter in GitHub](https://aka.ms/aml-pipeline-readme) per esplorare più in dettaglio le pipeline di Machine Learning.
-- Vedere la Guida di riferimento per l'SDK per il pacchetto [azureml-Pipelines-Core](https://docs.microsoft.com/python/api/azureml-pipeline-core/?view=azure-ml-py&preserve-view=true) e il pacchetto [azureml-Pipelines-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/?view=azure-ml-py&preserve-view=true) .
+- Vedere la Guida di riferimento per l'SDK per il pacchetto [azureml-Pipelines-Core](/python/api/azureml-pipeline-core/?preserve-view=true&view=azure-ml-py) e il pacchetto [azureml-Pipelines-Steps](/python/api/azureml-pipeline-steps/?preserve-view=true&view=azure-ml-py) .
 - Vedere le [procedure](how-to-debug-pipelines.md) consigliate per il debug e la risoluzione dei problemi relativi alle pipeline.

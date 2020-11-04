@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 03/12/2019
-ms.openlocfilehash: 2c487b5bc5c8d5fa01388b2942a70defa0001253
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: e50cce74f7291a6673e5d43f3485a1c63c81d827
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791529"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319281"
 ---
 # <a name="create-and-manage-servers-and-single-databases-in-azure-sql-database"></a>Creare e gestire server e database singoli nel database SQL di Azure
 
@@ -123,10 +123,10 @@ Per creare e gestire server, database e firewall con Transact-SQL, usare i coman
 
 | Comando | Descrizione |
 | --- | --- |
-|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current)|Crea un nuovo database singolo. È necessario essere connessi al database master per creare un nuovo database.|
-| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Modifica un database o un pool elastico. |
+|[CREATE DATABASE](/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current&preserve-view=true)|Crea un nuovo database singolo. È necessario essere connessi al database master per creare un nuovo database.|
+| [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current&preserve-view=true) |Modifica un database o un pool elastico. |
 |[DROP DATABASE](/sql/t-sql/statements/drop-database-transact-sql)|Questo comando elimina un database.|
-|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Restituisce l'edizione (livello di servizio), l'obiettivo di servizio (piano tariffario) e il nome del pool elastico, se presente, per il database SQL di Azure o un pool SQL di Azure sinapsi Analytics. Se si è connessi al database master in un server nel database SQL, restituisce informazioni su tutti i database. Per Azure sinapsi Analytics, è necessario essere connessi al database master.|
+|[sys.database_service_objectives](/sql/relational-databases/system-catalog-views/sys-database-service-objectives-azure-sql-database)|Restituisce l'edizione (livello di servizio), l'obiettivo di servizio (piano tariffario) e il nome del pool elastico, se presente, per il database SQL di Azure o un pool SQL dedicato in Azure sinapsi Analytics. Se si è connessi al database master in un server nel database SQL, restituisce informazioni su tutti i database. Per Azure sinapsi Analytics, è necessario essere connessi al database master.|
 |[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database)| Restituisce il consumo di CPU, IO e memoria per un database nel database SQL di Azure. È presente una riga ogni 15 secondi, anche se non è presente alcuna attività nel database.|
 |[sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)|Restituisce i dati di archiviazione e di utilizzo della CPU per un database nel database SQL di Azure. I dati vengono raccolti e aggregati in intervalli di cinque minuti.|
 |[sys.database_connection_stats](/sql/relational-databases/system-catalog-views/sys-database-connection-stats-azure-sql-database)|Contiene statistiche per gli eventi di connettività del database SQL, offrendo una panoramica delle connessioni al database riuscite ed errori. |

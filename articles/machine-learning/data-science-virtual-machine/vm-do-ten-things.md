@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: b570968a66a0cfd60ac4d6ce6dd7dc31a1003240
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 766da55f2589e2a8eb09e0f1b1c9a0a5027c8c3c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440457"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93320949"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Data Science con Windows Data Science Virtual Machine
 
@@ -58,7 +58,7 @@ Dopo l'avvio di Jupyter, passare alla `/notebooks` Directory per i notebook di e
 
 * Selezionare il notebook per visualizzare il codice.
 * Eseguire ogni cella selezionando MAIUSC + INVIO.
-* Eseguire l'intero notebook selezionando **Cell**  >  **esecuzione**cella.
+* Eseguire l'intero notebook selezionando **Cell**  >  **esecuzione** cella.
 * Creare un nuovo notebook selezionando l'icona Jupyter (angolo superiore sinistro), selezionando il pulsante **nuovo** a destra e quindi scegliendo la lingua del notebook (nota anche come kernel).   
 
 > [!NOTE]
@@ -75,13 +75,13 @@ Per R, è possibile usare un IDE come RStudio, disponibile nel menu Start o sul 
 
 Per Python è possibile usare un IDE come Visual Studio Community Edition, in cui è preinstallata l'estensione Python Tools for Visual Studio (PTVS). Per impostazione predefinita, in PTVS è configurato solo Python 3,6, l'ambiente conda radice. Per abilitare Anaconda Python 2,7, seguire questa procedura:
 
-1. Per creare ambienti personalizzati per ogni versione, passare a **strumenti**strumenti  >  **Python**  >  **ambienti Python**e quindi selezionare **+ personalizzato** in Visual Studio Community Edition.
+1. Per creare ambienti personalizzati per ogni versione, passare a **strumenti** strumenti  >  **Python**  >  **ambienti Python** e quindi selezionare **+ personalizzato** in Visual Studio Community Edition.
 1. Assegnare una descrizione e impostare il percorso del prefisso dell'ambiente come **c:\anaconda\envs\python2** per anaconda Python 2,7.
 1. Selezionare **rilevamento automatico**  >  **applica** per salvare l'ambiente.
 
-Vedere la [documentazione di PTVS](https://aka.ms/ptvsdocs) per altre informazioni su come creare ambienti Python.
+Vedere la [documentazione di PTVS](/visualstudio/python/) per altre informazioni su come creare ambienti Python.
 
-A questo punto è stato configurato per creare un nuovo progetto Python. Passare a **file**  >  **nuovo**  >  **progetto**  >  **Python** e selezionare il tipo di applicazione Python che si sta compilando. È possibile impostare l'ambiente Python per il progetto corrente sulla versione desiderata (Python 2,7 o 3,6) facendo clic con il pulsante destro del mouse su **ambienti Python** e quindi scegliendo **Aggiungi/Rimuovi ambienti Python**. Per ulteriori informazioni sull'utilizzo di PTVS, vedere la [documentazione del prodotto](https://aka.ms/ptvsdocs).
+A questo punto è stato configurato per creare un nuovo progetto Python. Passare a **file**  >  **nuovo**  >  **progetto**  >  **Python** e selezionare il tipo di applicazione Python che si sta compilando. È possibile impostare l'ambiente Python per il progetto corrente sulla versione desiderata (Python 2,7 o 3,6) facendo clic con il pulsante destro del mouse su **ambienti Python** e quindi scegliendo **Aggiungi/Rimuovi ambienti Python**. Per ulteriori informazioni sull'utilizzo di PTVS, vedere la [documentazione del prodotto](/visualstudio/python/).
 
 
 
@@ -91,7 +91,7 @@ Il DSVM non consente solo di compilare localmente la soluzione di analisi nella 
 Per amministrare la sottoscrizione di Azure e le risorse cloud, sono disponibili due opzioni:
 + Usare il browser e passare al [portale di Azure](https://portal.azure.com).
 
-+ Usare gli script di PowerShell. Eseguire Azure PowerShell da un collegamento sul desktop o dal menu **Start** . Per informazioni dettagliate, vedere la [documentazione Microsoft Azure PowerShell](../../powershell-azure-resource-manager.md) . 
++ Usare gli script di PowerShell. Eseguire Azure PowerShell da un collegamento sul desktop o dal menu **Start** . Per informazioni dettagliate, vedere la [documentazione Microsoft Azure PowerShell](../../azure-resource-manager/management/manage-resources-powershell.md) . 
 
 ## <a name="extend-storage-by-using-shared-file-systems"></a>Estendi archiviazione tramite file system condivisi
 I data scientist possono condividere grandi set di dati, codice o alte risorse all'interno del team. Il DSVM ha circa 45 GB di spazio disponibile. Per estendere lo spazio di archiviazione, è possibile usare File di Azure e montarlo in una o più istanze di DSVM o accedervi tramite un'API REST. È anche possibile usare il [portale di Azure](../../virtual-machines/windows/attach-managed-disk-portal.md) o usare [Azure PowerShell](../../virtual-machines/windows/attach-disk-ps.md) per aggiungere dischi dati dedicati aggiuntivi. 
@@ -162,7 +162,7 @@ Archiviazione BLOB di Azure è un servizio di archiviazione cloud affidabile e c
 
    ![Screenshot del processo di creazione dell'account di archiviazione nell'portale di Azure](./media/vm-do-ten-things/create-azure-blob.png)
 
-* Verificare che lo strumento AzCopy da riga di comando sia pre-installato: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . La directory che contiene azcopy.exe è già presente nella variabile di ambiente PATH, quindi è possibile evitare di digitare il percorso completo dei comandi quando si esegue questo strumento. Per ulteriori informazioni sullo strumento AzCopy, vedere la [documentazione di AzCopy](../../storage/common/storage-use-azcopy.md).
+* Verificare che lo strumento AzCopy da riga di comando sia pre-installato: ```C:\Program Files (x86)\Microsoft SDKs\Azure\AzCopy\azcopy.exe``` . La directory che contiene azcopy.exe è già presente nella variabile di ambiente PATH, quindi è possibile evitare di digitare il percorso completo dei comandi quando si esegue questo strumento. Per ulteriori informazioni sullo strumento AzCopy, vedere la [documentazione di AzCopy](../../storage/common/storage-use-azcopy-v10.md).
 * Avviare lo strumento Esplora archivi di Azure. È possibile scaricarlo dalla  [pagina web Storage Explorer](https://storageexplorer.com/). 
 
    ![Screenshot di Azure Storage Explorer accedere a un account di archiviazione](./media/vm-do-ten-things/AzureStorageExplorer_v4.png)
@@ -197,7 +197,7 @@ Dopo aver eseguito il comando AzCopy per la copia in un BLOB di Azure, il file v
 È anche possibile caricare i dati dal file locale nella macchina virtuale usando Azure Storage Explorer:
 
 * Per caricare i dati in un contenitore, selezionare il contenitore di destinazione e selezionare il pulsante **carica** . ![ Screenshot del pulsante carica in Azure Storage Explorer](./media/vm-do-ten-things/storage-accounts.png)
-* Selezionare i puntini di sospensione (**...**) a destra della casella **file** , selezionare uno o più file da caricare dal file System e selezionare **carica** per iniziare a caricare i file. ![ Screenshot della finestra di dialogo Carica file](./media/vm-do-ten-things/upload-files-to-blob.png)
+* Selezionare i puntini di sospensione ( **...** ) a destra della casella **file** , selezionare uno o più file da caricare dal file System e selezionare **carica** per iniziare a caricare i file. ![ Screenshot della finestra di dialogo Carica file](./media/vm-do-ten-things/upload-files-to-blob.png)
 
 #### <a name="read-data-from-an-azure-blob-python-odbc"></a>Leggere dati da un BLOB di Azure: Python ODBC
 
@@ -255,7 +255,7 @@ I dati vengono letti come frame di dati:
 ### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure sinapsi Analytics (in precedenza SQL DW) e database
 Azure sinapsi Analytics (noto in precedenza come SQL DW) è un data warehouse elastico come servizio con un'esperienza di SQL Server di livello aziendale.
 
-È possibile eseguire il provisioning di Azure sinapsi Analytics seguendo le istruzioni riportate in [questo articolo](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Dopo aver eseguito il provisioning di Azure sinapsi Analytics, è possibile usare [questa procedura dettagliata](../team-data-science-process/sqldw-walkthrough.md) per eseguire il caricamento, l'esplorazione e la modellazione dei dati usando i dati all'interno di Azure sinapsi Analytics.
+È possibile eseguire il provisioning di Azure sinapsi Analytics seguendo le istruzioni riportate in [questo articolo](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md). Dopo aver eseguito il provisioning di Azure sinapsi Analytics, è possibile usare [questa procedura dettagliata](../team-data-science-process/sqldw-walkthrough.md) per eseguire il caricamento, l'esplorazione e la modellazione dei dati usando i dati all'interno di Azure sinapsi Analytics.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 Azure Cosmos DB è un database NoSQL sul cloud. È possibile usarlo per lavorare con documenti come JSON e per archiviare ed eseguire query sui documenti.
@@ -269,7 +269,7 @@ Usare i seguenti passaggi dei prerequisiti per accedere a Azure Cosmos DB da DSV
    
     `/s:JsonFile /s.Files:https://data.humdata.org/dataset/a60ac839-920d-435a-bf7d-25855602699d/resource/7234d067-2d74-449a-9c61-22ae6d98d928/download/volcano.json /t:DocumentDBBulk /t.ConnectionString:AccountEndpoint=https://[DocDBAccountName].documents.azure.com:443/;AccountKey=[[KEY];Database=volcano /t.Collection:volcano1`
 
-Dopo aver importato i dati, è possibile passare a Jupyter e aprire il notebook denominato *DocumentDBSample*. Contiene codice Python per accedere Azure Cosmos DB ed eseguire alcune query di base. Per ulteriori informazioni su Azure Cosmos DB, visitare la [pagina della documentazione](https://docs.microsoft.com/azure/cosmos-db/)del servizio.
+Dopo aver importato i dati, è possibile passare a Jupyter e aprire il notebook denominato *DocumentDBSample*. Contiene codice Python per accedere Azure Cosmos DB ed eseguire alcune query di base. Per ulteriori informazioni su Azure Cosmos DB, visitare la [pagina della documentazione](../../cosmos-db/index.yml)del servizio.
 
 ## <a name="use-power-bi-reports-and-dashboards"></a>Usare report e dashboard di Power BI 
 È possibile visualizzare il file JSON Volcano dall'esempio precedente di Azure Cosmos DB in Power BI Desktop per ottenere informazioni visive sui dati. I passaggi dettagliati sono disponibili nell' [articolo relativo a Power BI](../../cosmos-db/powerbi-visualize.md). Ecco i passaggi principali:
@@ -326,10 +326,9 @@ Oltre agli esempi basati su Framework, è possibile ottenere un set di procedure
 
 - [Guida dettagliata alla creazione di una soluzione end-to-end per individuare prodotti all'interno di immagini](https://github.com/Azure/cortana-intelligence-product-detection-from-images): il rilevamento immagine è una tecnica che consente di individuare e classificare gli oggetti all'interno delle immagini. Questa tecnologia può comportare notevoli vantaggi in molti domini aziendali reali. Ad esempio, i negozianti possono usare questa tecnica per determinare quale prodotto un cliente ha prelevato dallo scaffale. Queste informazioni a loro volta consentono ai negozi di gestire l'inventario dei prodotti. 
 
-- [Deep learning per audio](https://blogs.technet.microsoft.com/machinelearning/2018/01/30/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure/): questa esercitazione illustra come eseguire il training di un modello di apprendimento approfondito per il rilevamento di eventi audio nel [set di dati dei suoni urbani](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html). Viene inoltre fornita una panoramica su come utilizzare i dati audio.
+- [Deep learning per audio](/archive/blogs/machinelearning/hearing-ai-getting-started-with-deep-learning-for-audio-on-azure): questa esercitazione illustra come eseguire il training di un modello di apprendimento approfondito per il rilevamento di eventi audio nel [set di dati dei suoni urbani](https://serv.cusp.nyu.edu/projects/urbansounddataset/urbansound8k.html). Viene inoltre fornita una panoramica su come utilizzare i dati audio.
 
 - [Classificazione dei documenti di testo](https://github.com/anargyri/lstm_han): in questa procedura dettagliata viene illustrato come compilare ed eseguire il training di due architetture di rete neurale: rete gerarchica attention Network e Long Short term memory (LSTM). Queste reti neurali usano l'API Keras per l'apprendimento avanzato per classificare i documenti di testo. 
 
 ## <a name="summary"></a>Riepilogo
 In questo articolo sono state descritte alcune delle operazioni che è possibile eseguire in Microsoft Data Science Virtual Machine. Per rendere DSVM un ambiente di analisi efficace, è possibile eseguire molte altre operazioni.
-

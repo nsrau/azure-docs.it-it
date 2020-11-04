@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
 ms.custom: references_regions
-ms.openlocfilehash: e62128edf6558e461bf2c61f16d513c4085241e7
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 98b8d8222ed87eebc24e97caccf3414a11c168a2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090393"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319873"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
@@ -45,9 +45,9 @@ Il collegamento sinapsi di Azure è disponibile per Azure Cosmos DB contenitori 
 
    :::image type="content" source="./media/configure-synapse-link/find-synapse-link-feature.png" alt-text="Trovare la funzionalità di anteprima Collegamento a Synapse":::
 
-1. Viene quindi chiesto di abilitare Collegamento a Synapse nell'account. Selezionare **Abilita** . Il completamento di questo processo può richiedere da 1 a 5 minuti.
+1. Viene quindi chiesto di abilitare Collegamento a Synapse nell'account. Selezionare **Abilita**. Il completamento di questo processo può richiedere da 1 a 5 minuti.
 
-   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Trovare la funzionalità di anteprima Collegamento a Synapse":::
+   :::image type="content" source="./media/configure-synapse-link/enable-synapse-link-feature.png" alt-text="Abilitare la funzionalità Collegamento a Synapse":::
 
 1. L'account è ora abilitato per l'uso di Collegamento a Synapse. Vedere quindi come creare contenitori abilitati per l'archivio analitico per iniziare automaticamente a replicare i dati operativi dall'archivio transazionale all'archivio analitico.
 
@@ -65,11 +65,11 @@ Il collegamento sinapsi di Azure è disponibile per Azure Cosmos DB contenitori 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) o allo strumento di esplorazione di [Azure Cosmos](https://cosmos.azure.com/).
 
-1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati** .
+1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati**.
 
 1. Selezionare **Nuovo contenitore** e immettere un nome per il database, il contenitore, la chiave di partizione e i dettagli relativi alla velocità effettiva. Attivare l'opzione **Analytical store** (Archivio analitico). Dopo aver abilitato l'archivio analitico, viene creato un contenitore con la proprietà `AnalyicalTTL` impostata sul valore predefinito -1 (conservazione infinita). Questo archivio analitico conserva tutte le versioni cronologiche dei record.
 
-   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Trovare la funzionalità di anteprima Collegamento a Synapse":::
+   :::image type="content" source="./media/configure-synapse-link/create-container-analytical-store.png" alt-text="Attivare l'archivio analitico per il contenitore Azure Cosmos":::
 
 1. Se in precedenza Collegamento a Synapse non è stato abilitato per questo account, verrà chiesto di farlo perché è un prerequisito per creare un contenitore abilitato per l'archivio analitico. Se richiesto, selezionare **Enable Synapse Link** (Abilita Collegamento a Synapse). Il completamento di questo processo può richiedere da 1 a 5 minuti.
 
@@ -173,11 +173,11 @@ Se è stato creato un contenitore abilitato per l'archivio analitico tramite il 
 
 1. Accedere al [portale di Azure](https://portal.azure.com/) o allo strumento di esplorazione di [Azure Cosmos](https://cosmos.azure.com/).
 
-1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati** .
+1. Passare all'account Azure Cosmos DB e aprire la scheda **Esplora dati**.
 
 1. Selezionare un contenitore esistente con l'archivio analitico abilitato. Espanderlo e modificare i valori seguenti:
 
-  * Aprire la finestra **Scalabilità e impostazioni** .
+  * Aprire la finestra **Scalabilità e impostazioni**.
   * In **Impostazione** trovare** Analytical Storage Time to Live** (Durata TTL dell'archivio analitico).
   * Selezionare **Sì (nessun valore predefinito)** oppure selezionare **Sì** e impostare un valore TTL
   * È consigliabile fare clic su **Salva** per salvare le modifiche.
@@ -216,9 +216,9 @@ Usare le istruzioni riportate in [Connettersi a Collegamento ad Azure Synapse](.
 
 Usare le istruzioni riportate nell'articolo [Eseguire query sull'archivio analitico di Azure Cosmos DB](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) per eseguire query con Synapse Spark. Questo articolo include alcuni esempi su come interagire con l'archivio analitico dai movimenti di Synapse. Questi movimenti sono visibili quando si fa clic con il pulsante destro del mouse su un contenitore. Con i movimenti è possibile generare rapidamente il codice e modificarlo in base alle esigenze. Sono inoltre perfetti per l'individuazione dei dati con un singolo clic.
 
-## <a name="query-the-analytical-store-using-synapse-sql-serverless"></a><a id="query-analytical-store-sql-on-demand"></a> Eseguire query nell'archivio analitico usando la sinapsi SQL senza server
+## <a name="query-the-analytical-store-using-serverless-sql-pool-in-azure-synapse-analytics"></a><a id="query-analytical-store-sql-on-demand"></a> Eseguire query nell'archivio analitico usando un pool SQL senza server in Azure sinapsi Analytics
 
-Sinapsi SQL senza server (una funzionalità di anteprima che in precedenza era denominata **SQL su richiesta** ) consente di eseguire query e analizzare i dati nei contenitori Azure Cosmos DB abilitati con il collegamento sinapsi di Azure. È possibile analizzare i dati quasi in tempo reale senza compromettere le prestazioni dei carichi di lavoro transazionali. Offre una nota sintassi T-SQL per eseguire query sui dati dall'archivio analitico e la connettività integrata a un'ampia gamma di strumenti di query ad hoc e BI tramite l'interfaccia T-SQL. Per altre informazioni, vedere l'articolo relativo all' [Archivio analitico di query tramite sinapsi SQL senza server](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) .
+Il pool SQL senza server consente di eseguire query e analizzare i dati nei contenitori Azure Cosmos DB abilitati con il collegamento sinapsi di Azure. È possibile analizzare i dati quasi in tempo reale senza compromettere le prestazioni dei carichi di lavoro transazionali. Offre una nota sintassi T-SQL per eseguire query sui dati dall'archivio analitico e la connettività integrata a un'ampia gamma di strumenti di query ad hoc e BI tramite l'interfaccia T-SQL. Per altre informazioni, vedere l'articolo relativo all' [Archivio analitico di query tramite sinapsi SQL senza server](../synapse-analytics/sql/query-cosmos-db-analytical-store.md) .
 
 ## <a name="use-synapse-sql-serverless-to-analyze-and-visualize-data-in-power-bi"></a><a id="analyze-with-powerbi"></a>Usare la sinapsi SQL senza server per analizzare e visualizzare i dati in Power BI
 

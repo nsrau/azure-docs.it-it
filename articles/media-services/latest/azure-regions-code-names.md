@@ -8,12 +8,12 @@ ms.service: media-services
 ms.topic: reference
 ms.date: 10/28/2020
 ms.author: inhenkel
-ms.openlocfilehash: 462cf6cf850885b31588123bac46ff99bf319ee8
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: c17eeda91af46c4159f7c4b1747416298f24c703
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93243138"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319646"
 ---
 # <a name="regional-code-names-and-endpoints"></a>Endpoint e nomi di codice regionali
 
@@ -63,6 +63,9 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 [!INCLUDE [Widevine is not available in the GovCloud region.](./includes/widevine-not-available-govcloud.md)]
 
 ### <a name="azure-germany"></a>Azure Germania
+
+> [!NOTE]
+> Gli endpoint di Azure Germania si applicano solo ai cloud sovrani in Germania.
 
 | Servizio | Endpoint |
 | ------- | -------- |

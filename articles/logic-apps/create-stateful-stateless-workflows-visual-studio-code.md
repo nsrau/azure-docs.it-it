@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, rohitha, vikanand, hongzili, sopai, absaafan, logicappspm
 ms.topic: conceptual
 ms.date: 10/16/2020
-ms.openlocfilehash: 3b8bf89bc43781fdf6c1a640992f15e21691cd63
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 51fd8b8427dd8214e22fa59e50b26bb9db237946
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676359"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322048"
 ---
 # <a name="create-stateful-or-stateless-workflows-in-visual-studio-code-with-the-azure-logic-apps-preview-extension"></a>Creare flussi di lavoro con o senza stato in Visual Studio Code con l'estensione App per la logica di Azure (Anteprima)
 
@@ -106,7 +106,7 @@ Per questa anteprima pubblica, queste funzionalità non sono disponibili o non s
 
 * Per avviare il flusso di lavoro, usare la [richiesta predefinita, http, Hub eventi o il trigger del bus di servizio](../connectors/apis-list.md), che vengono eseguiti in modo nativo con il runtime di app per la logica. Attualmente, i [connettori aziendali](../connectors/apis-list.md#enterprise-connectors), i [trigger del gateway dati locale](../connectors/apis-list.md#on-premises-connectors), i trigger basati su webhook, il trigger finestra scorrevole, i [connettori personalizzati](../connectors/apis-list.md#custom-apis-and-connectors), gli account di integrazione, i relativi elementi e [i relativi connettori](../connectors/apis-list.md#integration-account-connectors) non sono supportati in questa versione di anteprima. La funzionalità "chiama una funzione di Azure" non è disponibile. per ora, usare l' *azione* http per chiamare l'URL della richiesta per la funzione di Azure.
 
-  Ad eccezione dei trigger specificati in precedenza, i flussi di lavoro con *stato* possono usare sia i trigger che le azioni per i [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), che vengono distribuiti in Azure. Tuttavia, *i flussi di* lavoro senza stato attualmente supportano solo *azioni* per i connettori gestiti, non per i trigger. Sebbene sia possibile abilitare i connettori in Azure per il flusso di lavoro senza stato, nella finestra di progettazione non vengono visualizzati i trigger del connettore gestito da selezionare.
+  Ad eccezione dei trigger specificati in precedenza, i flussi di lavoro con *stato* possono usare trigger e azioni per i [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), che vengono distribuiti in Azure rispetto ai trigger e alle azioni predefiniti che vengono eseguiti in modo nativo con il runtime di app per la logica. Tuttavia, *i flussi di* lavoro senza stato attualmente supportano solo *azioni* per i connettori gestiti, non per i trigger. Sebbene sia possibile abilitare i connettori in Azure per il flusso di lavoro senza stato, la finestra di progettazione non mostra alcun trigger del connettore gestito da selezionare.
 
 * È possibile distribuire il nuovo tipo di risorsa app per la **logica (anteprima)** solo a un [piano di hosting del servizio app o Premium in Azure](#publish-azure) o a un [contenitore Docker](#deploy-docker)e non agli [ambienti del servizio di integrazione (ISEs)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md). I piani di hosting a **consumo** non sono supportati né disponibili per la distribuzione di questo tipo di risorsa.
 
@@ -152,7 +152,7 @@ Per questa anteprima pubblica, queste funzionalità non sono disponibili o non s
 
   * [Estensione app per la logica di Azure (anteprima) per Visual Studio Code](https://go.microsoft.com/fwlink/p/?linkid=2143167). Questa estensione di anteprima pubblica fornisce la possibilità di creare app per la logica con stato e senza stato ed eseguirle localmente in Visual Studio Code.
 
-    Attualmente, è possibile installare contemporaneamente l'estensione originale app per la **logica di Azure** e la nuova estensione app per la logica di **Azure (anteprima)** in Visual Studio Code. Selezionando l'icona di Azure sulla barra degli strumenti Visual Studio Code è possibile visualizzare tutte le app per la logica distribuite in Azure, ma ogni tipo di risorsa viene visualizzato nelle rispettive sezioni di estensione, app per la **logica** e app per la **logica di Azure (anteprima)** .
+    Attualmente, è possibile installare contemporaneamente l'estensione originale app per la **logica di Azure** e la nuova estensione app per la logica di **Azure (anteprima)** in Visual Studio Code. Selezionando l'icona di Azure sulla barra degli strumenti Visual Studio Code è possibile visualizzare tutte le app per la logica distribuite in Azure, ma ogni tipo di risorsa viene visualizzato nelle rispettive sezioni di estensione, app per la **logica** e app per la **logica di Azure (anteprima)**.
 
     > [!IMPORTANT]
     > Se sono state create app per la logica usando l'estensione app per la logica di **Azure (anteprima privata)** , queste app per la logica non funzioneranno con l'estensione di anteprima pubblica. Tuttavia, è possibile eseguire la migrazione di queste app per la logica disinstallando l'estensione di anteprima privata, eseguendo la pulizia richiesta e installando l'estensione di anteprima pubblica. È quindi possibile creare il nuovo progetto in Visual Studio Code e copiare il file **Workflow. Definition** di app per la logica creato in precedenza nel nuovo progetto.
@@ -171,9 +171,9 @@ Per questa anteprima pubblica, queste funzionalità non sono disponibili o non s
 
     Per installare l'estensione app per la **logica di Azure (anteprima)** , seguire questa procedura:
 
-    1. In Visual Studio Code, sulla barra degli strumenti a sinistra, selezionare **estensioni** .
+    1. In Visual Studio Code, sulla barra degli strumenti a sinistra, selezionare **estensioni**.
 
-    1. Nella casella di ricerca estensioni immettere `azure logic apps preview` . Dall'elenco dei risultati selezionare app per la **logica di Azure (anteprima)** **>** **Install** .
+    1. Nella casella di ricerca estensioni immettere `azure logic apps preview` . Dall'elenco dei risultati selezionare app per la **logica di Azure (anteprima)** **>** **Install**.
 
        Al termine dell'installazione, l'estensione di anteprima pubblica viene visualizzata nell'elenco **estensioni: installato** .
 
@@ -193,9 +193,9 @@ Per questa anteprima pubblica, queste funzionalità non sono disponibili o non s
 
    Per controllare questa impostazione, segui questa procedura:
 
-   1. Nel menu **file** passare a **Preferenze** **>** **Impostazioni** .
+   1. Nel menu **file** passare a **Preferenze** **>** **Impostazioni**.
 
-   1. Nella scheda **utente** passare a **funzionalità** **>** **estensioni** .
+   1. Nella scheda **utente** passare a **funzionalità** **>** **estensioni**.
 
    1. Verificare che sia selezionata l'opzione **Controlla automaticamente aggiornamenti** e **aggiornamento automatico** .
 
@@ -204,9 +204,9 @@ Per questa anteprima pubblica, queste funzionalità non sono disponibili o non s
    * **App per la logica di Azure V2: modalità pannello**
    * **App per la logica di Azure V2: runtime del progetto**
 
-   1. Nel menu **file** passare a **Preferenze** **>** **Impostazioni** .
+   1. Nel menu **file** passare a **Preferenze** **>** **Impostazioni**.
 
-   1. Nella scheda **utente** passare a **>** **estensioni** app per la **>** **logica di Azure (anteprima)** .
+   1. Nella scheda **utente** passare a **>** **estensioni** app per la **>** **logica di Azure (anteprima)**.
 
    1. In **modalità pannello di app per la logica di Azure V2** verificare che sia selezionata l'opzione **Abilita modalità pannello** . In **app per la logica di Azure V2: runtime del progetto** impostare la versione su **~ 3** o **~ 2** , in base alla [versione Azure Functions Core Tools](#prerequisites) installata in precedenza.
 
@@ -223,7 +223,7 @@ Per questa anteprima pubblica, queste funzionalità non sono disponibili o non s
 
    ![Screenshot che mostra Visual Studio Code barra degli strumenti e l'icona di Azure selezionata.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-azure-icon.png)
 
-1. Nel riquadro di Azure, in **Azure: app per la logica (anteprima)** , selezionare **Accedi ad Azure** . Quando viene visualizzata la pagina autenticazione Visual Studio Code, accedere con l'account Azure.
+1. Nel riquadro di Azure, in **Azure: app per la logica (anteprima)** , selezionare **Accedi ad Azure**. Quando viene visualizzata la pagina autenticazione Visual Studio Code, accedere con l'account Azure.
 
    ![Screenshot che mostra il riquadro di Azure e il collegamento selezionato per l'accesso ad Azure.](./media/create-stateful-stateless-workflows-visual-studio-code/sign-in-azure-subscription.png)
 
@@ -237,7 +237,7 @@ Per questa anteprima pubblica, queste funzionalità non sono disponibili o non s
 
       In alternativa, nella barra di stato Visual Studio Code selezionare l'account Azure. 
 
-   1. Quando viene visualizzato un elenco di sottoscrizioni, selezionare le sottoscrizioni desiderate e quindi assicurarsi di selezionare **OK** .
+   1. Quando viene visualizzato un elenco di sottoscrizioni, selezionare le sottoscrizioni desiderate e quindi assicurarsi di selezionare **OK**.
 
 <a name="create-project"></a>
 
@@ -253,13 +253,13 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
 
    ![Screenshot che mostra la barra degli strumenti del riquadro di Azure con l'opzione "Crea nuovo progetto" selezionata.](./media/create-stateful-stateless-workflows-visual-studio-code/create-new-project-folder.png)
 
-1. Se Windows Defender Firewall richiede di concedere l'accesso alla rete per `Code.exe` , che è Visual Studio Code e per `func.exe` , che è il Azure Functions Core Tools, selezionare **reti private, ad esempio la rete domestica o di lavoro** **>** **Consenti accesso** .
+1. Se Windows Defender Firewall richiede di concedere l'accesso alla rete per `Code.exe` , che è Visual Studio Code e per `func.exe` , che è il Azure Functions Core Tools, selezionare **reti private, ad esempio la rete domestica o di lavoro** **>** **Consenti accesso**.
 
 1. Passare al percorso in cui è stata creata la cartella del progetto, selezionare la cartella e continuare.
 
    ![Screenshot che mostra la finestra di dialogo "Seleziona cartella" con una cartella di progetto appena creata e il pulsante "Seleziona" selezionato.](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-folder.png)
 
-1. Dall'elenco dei modelli visualizzato, selezionare flusso di **lavoro con stato** o **flusso di lavoro** senza stato. Questo esempio Mostra come selezionare un **flusso di lavoro con stato** .
+1. Dall'elenco dei modelli visualizzato, selezionare flusso di **lavoro con stato** o **flusso di lavoro** senza stato. Questo esempio Mostra come selezionare un **flusso di lavoro con stato**.
 
    ![Screenshot che mostra l'elenco dei modelli di flusso di lavoro con "flusso di lavoro con stato" selezionato.](./media/create-stateful-stateless-workflows-visual-studio-code/select-stateful-stateless-workflow.png)
 
@@ -267,7 +267,7 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
 
    ![Screenshot che mostra la casella "crea un nuovo flusso di lavoro con stato (3/4)" e "esempio-flusso di lavoro" come nome del flusso di lavoro.](./media/create-stateful-stateless-workflows-visual-studio-code/name-your-workflow.png)
 
-1. Dall'elenco successivo visualizzato, selezionare **Apri nella finestra corrente** .
+1. Dall'elenco successivo visualizzato, selezionare **Apri nella finestra corrente**.
 
    ![Screenshot che mostra l'elenco con l'opzione "Apri nella finestra corrente" selezionata.](./media/create-stateful-stateless-workflows-visual-studio-code/select-project-location.png)
 
@@ -298,7 +298,7 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
 
 1. Se Visual Studio Code è in esecuzione in Windows o Linux, assicurarsi che l'emulatore di archiviazione di Azure sia in esecuzione. Per ulteriori informazioni, esaminare i [prerequisiti](#prerequisites).
 
-1. Espandere la cartella del progetto per il flusso di lavoro. Aprire il **workflow.js** dal menu di scelta rapida del file e selezionare **Apri in finestra di progettazione** .
+1. Espandere la cartella del progetto per il flusso di lavoro. Aprire il **workflow.js** dal menu di scelta rapida del file e selezionare **Apri in finestra di progettazione**.
 
    ![Screenshot che mostra il riquadro di esplorazione e la finestra di scelta rapida per il workflow.jsnel file con l'opzione "Apri in progettazione" selezionata.](./media/create-stateful-stateless-workflows-visual-studio-code/open-definition-file-in-designer.png)
 
@@ -335,7 +335,7 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
    > [!NOTE]
    > I flussi di lavoro senza stato attualmente supportano solo *azioni* per i [connettori gestiti](../connectors/apis-list.md#managed-api-connectors), distribuiti in Azure e non trigger. Sebbene sia possibile abilitare i connettori in Azure per il flusso di lavoro senza stato, nella finestra di progettazione non vengono visualizzati i trigger del connettore gestito da selezionare.
 
-1. Dall'elenco gruppi di risorse selezionare **Crea nuovo gruppo di risorse** .
+1. Dall'elenco gruppi di risorse selezionare **Crea nuovo gruppo di risorse**.
 
    ![Screenshot che mostra il riquadro di esplorazione con i gruppi di risorse elenco e il "Crea nuovo gruppo di risorse" selezionato](./media/create-stateful-stateless-workflows-visual-studio-code/create-select-resource-group.png)
 
@@ -343,7 +343,7 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
 
    ![Screenshot che mostra il riquadro di esplorazione e il nome del gruppo di risorse.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-name-for-resource-group.png)
 
-1. Dall'elenco percorsi trovare e selezionare un'area di [Azure supportata](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) da usare per creare il gruppo di risorse e le risorse. Questo esempio usa **Stati Uniti centro-occidentali** .
+1. Dall'elenco percorsi trovare e selezionare un'area di [Azure supportata](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions) da usare per creare il gruppo di risorse e le risorse. Questo esempio usa **Stati Uniti centro-occidentali**.
 
    > [!IMPORTANT]
    > Non tutte le aree sono attualmente supportate, ma gli aggiornamenti per aggiungere altre aree sono in corso. La selezione di un'area non supportata potrebbe causare problemi, ad esempio la creazione di connessioni. Per le aree attualmente supportate, vedere la [pagina di GitHub problemi noti](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)dell'estensione di anteprima.
@@ -353,7 +353,7 @@ Prima di poter creare l'app per la logica, creare un progetto locale in modo da 
    Dopo aver eseguito questo passaggio, Visual Studio Code apre la finestra di progettazione dell'app per la logica.
 
    > [!NOTE]
-   > Quando Visual Studio Code avvia l'API della fase di progettazione del flusso di lavoro, viene visualizzato un messaggio che l'avvio potrebbe richiedere alcuni secondi. È possibile ignorare questo messaggio oppure fare clic su **OK** .
+   > Quando Visual Studio Code avvia l'API della fase di progettazione del flusso di lavoro, viene visualizzato un messaggio che l'avvio potrebbe richiedere alcuni secondi. È possibile ignorare questo messaggio oppure fare clic su **OK**.
 
    Quando viene visualizzata la finestra di progettazione dell'app per la logica, il prompt **scegliere un'operazione** viene visualizzato nella finestra di progettazione ed è selezionato per impostazione predefinita, che mostra il riquadro **Aggiungi un'azione** .
 
@@ -371,7 +371,7 @@ Il flusso di lavoro dell'app per la logica in questo esempio usa questo trigger 
 
 * [Trigger di richiesta](../connectors/connectors-native-reqres.md)incorporato, **quando viene ricevuta una richiesta http** , che riceve le chiamate in ingresso o le richieste e crea un endpoint che può essere chiamato da altri servizi o app per la logica.
 
-* L' [azione Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), **Invia un messaggio di posta elettronica** .
+* L' [azione Office 365 Outlook](../connectors/connectors-create-api-office365-outlook.md), **Invia un messaggio di posta elettronica**.
 
 * [Azione di risposta](../connectors/connectors-native-reqres.md)predefinita, usata per inviare una risposta e restituire i dati al chiamante.
 
@@ -379,7 +379,7 @@ Il flusso di lavoro dell'app per la logica in questo esempio usa questo trigger 
 
 1. Accanto alla finestra di progettazione, nel riquadro **Aggiungi un trigger** , nella casella di ricerca **scegliere un'operazione** verificare che sia selezionata l'opzione **predefinito** , in modo che sia possibile selezionare un trigger che viene eseguito in modalità nativa.
 
-1. Nella casella di ricerca **scegliere un'operazione** immettere `when a http request` e selezionare il trigger di richiesta incorporato denominato **quando viene ricevuta una richiesta http** .
+1. Nella casella di ricerca **scegliere un'operazione** immettere `when a http request` e selezionare il trigger di richiesta incorporato denominato **quando viene ricevuta una richiesta http**.
 
    ![Screenshot che mostra la finestra di progettazione dell'app per la logica e il riquadro * * Aggiungi un trigger * * con il trigger "quando viene ricevuta una richiesta HTTP" selezionato.](./media/create-stateful-stateless-workflows-visual-studio-code/add-request-trigger.png)
 
@@ -396,19 +396,19 @@ Il flusso di lavoro dell'app per la logica in questo esempio usa questo trigger 
 
    1. Espandere la finestra di Visual Studio Code sufficientemente ampia in modo che accanto al trigger o al nome dell'azione, il pulsante con i puntini di sospensione ( **...** ) venga visualizzato nell'angolo in alto a destra. 
 
-   1. Aprire il menu con i puntini di sospensione ( **..** .) e selezionare **Elimina** . Per confermare l'eliminazione, fare clic su **OK** .
+   1. Aprire il menu con i puntini di sospensione ( **..**.) e selezionare **Elimina**. Per confermare l'eliminazione, fare clic su **OK**.
 
       ![Screenshot che mostra l'elemento selezionato nella finestra di progettazione con il riquadro dettagli aperto e con il pulsante con i puntini di sospensione selezionati e l'opzione "Elimina".](./media/create-stateful-stateless-workflows-visual-studio-code/delete-item-from-designer.png)
 
 ### <a name="add-the-office-365-outlook-action"></a>Aggiungere l'azione Office 365 Outlook
 
-1. Nella finestra di progettazione, sotto il trigger aggiunto, selezionare **nuovo passaggio** .
+1. Nella finestra di progettazione, sotto il trigger aggiunto, selezionare **nuovo passaggio**.
 
    Il prompt **scegliere un'operazione** viene visualizzato nella finestra di progettazione e il **riquadro Aggiungi un'azione** viene riaperto in modo che sia possibile selezionare l'azione successiva.
 
 1. Nella casella di ricerca **scegliere un'operazione** del riquadro **Aggiungi un'azione** selezionare **Azure** per poter trovare e selezionare un'azione per un connettore gestito distribuito in Azure.
 
-   Questo esempio seleziona e usa l'azione Office 365 Outlook, **Invia un messaggio di posta elettronica (v2)** .
+   Questo esempio seleziona e usa l'azione Office 365 Outlook, **Invia un messaggio di posta elettronica (v2)**.
 
    ![Screenshot che mostra la finestra di progettazione dell'app per la logica e il riquadro * * Aggiungi un'azione * * con l'azione "Invia un messaggio di posta elettronica" di Office 365 Outlook.](./media/create-stateful-stateless-workflows-visual-studio-code/add-send-email-action.png)
 
@@ -419,7 +419,7 @@ Il flusso di lavoro dell'app per la logica in questo esempio usa questo trigger 
    > [!NOTE]
    > Se si riceve l'errore, `Failed to create connection...` potrebbe essere stata scelta un'area attualmente non supportata per l'app per la logica. Sono in corso aggiornamenti per aggiungere altre aree. Nel frattempo, per le aree attualmente supportate, vedere la pagina di [GitHub problemi noti](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md#available-regions)dell'estensione di anteprima.
 
-1. Quando Visual Studio Code richiede il consenso per l'accesso all'account di posta elettronica, selezionare **Apri** .
+1. Quando Visual Studio Code richiede il consenso per l'accesso all'account di posta elettronica, selezionare **Apri**.
 
    ![Screenshot che mostra la richiesta di Visual Studio Code per consentire l'accesso.](./media/create-stateful-stateless-workflows-visual-studio-code/visual-studio-code-open-external-website.png)
 
@@ -431,12 +431,12 @@ Il flusso di lavoro dell'app per la logica in questo esempio usa questo trigger 
    > [!NOTE]
    > Se passano troppo tempo prima di completare le richieste, il processo di autenticazione si interrompe e non riesce. In questo caso, tornare alla finestra di progettazione e riprovare ad accedere per creare la connessione.
 
-1. Quando l'estensione di anteprima di app per la logica di Azure richiede il consenso per l'accesso all'account di posta elettronica, selezionare **Apri** . Seguire la richiesta successiva per consentire l'accesso.
+1. Quando l'estensione di anteprima di app per la logica di Azure richiede il consenso per l'accesso all'account di posta elettronica, selezionare **Apri**. Seguire la richiesta successiva per consentire l'accesso.
 
    ![Screenshot che mostra la richiesta di estensione di anteprima per consentire l'accesso.](./media/create-stateful-stateless-workflows-visual-studio-code/allow-preview-extension-open-uri.png)
 
    > [!TIP]
-   > Per evitare richieste future, selezionare **non visualizzare più questa estensione** .
+   > Per evitare richieste future, selezionare **non visualizzare più questa estensione**.
 
    Dopo che Visual Studio Code crea la connessione, alcuni connettori mostrano il messaggio che `The connection will be valid for {n} days only.` questo limite di tempo si applica solo alla durata durante la creazione dell'app per la logica nel Visual Studio Code. Dopo la distribuzione, questo limite non si applica più perché l'app per la logica è in grado di eseguire l'autenticazione in fase di esecuzione usando l' [identità gestita assegnata dal sistema](../logic-apps/create-managed-service-identity.md)abilitata automaticamente. Questa identità gestita è diversa dalle credenziali di autenticazione o dalla stringa di connessione utilizzata durante la creazione di una connessione. Se si disabilita questa identità gestita assegnata dal sistema, le connessioni non funzioneranno in fase di esecuzione.
 
@@ -456,7 +456,7 @@ Il flusso di lavoro dell'app per la logica in questo esempio usa questo trigger 
    > [!NOTE]
    > Se si desidera apportare modifiche nel riquadro dei dettagli della scheda **Impostazioni** , **Esegui dopo** o **risultato statico** , assicurarsi di selezionare **completato** per confermare le modifiche prima di passare a schede o di spostare lo stato attivo sulla finestra di progettazione. In caso contrario, Visual Studio Code non manterrà le modifiche. Per altre informazioni, vedere la pagina di GitHub relativa ai [problemi noti](https://github.com/Azure/logicapps/blob/master/articles/logic-apps-public-preview-known-issues.md)dell'estensione di anteprima.
 
-1. Nella finestra di progettazione selezionare **Salva** .
+1. Nella finestra di progettazione selezionare **Salva**.
 
 Successivamente, eseguire ed eseguire il debug del flusso di lavoro localmente in Visual Studio Code.
 
@@ -490,17 +490,17 @@ Per testare l'app per la logica, seguire questa procedura per avviare una sessio
 
    Questo esempio continua con l'uso di postazione. Per ulteriori informazioni, vedere la pagina relativa all' [Introduzione dei post](https://learning.postman.com/docs/getting-started/introduction/).
 
-   1. Sulla barra degli strumenti del posto, selezionare **nuovo** .
+   1. Sulla barra degli strumenti del posto, selezionare **nuovo**.
 
       ![Screenshot che mostra il pulsante con il pulsante nuovo selezionato](./media/create-stateful-stateless-workflows-visual-studio-code/postman-create-request.png)
 
-   1. Nel riquadro **Crea nuovo** , in **blocchi predefiniti** , selezionare **richiesta** .
+   1. Nel riquadro **Crea nuovo** , in **blocchi predefiniti** , selezionare **richiesta**.
 
    1. Nella finestra **Salva richiesta** , in **nome richiesta** , specificare un nome per la richiesta, ad esempio `Test workflow trigger` .
 
-   1. In **selezionare una raccolta o una cartella in cui salvare** , selezionare **Crea raccolta** .
+   1. In **selezionare una raccolta o una cartella in cui salvare** , selezionare **Crea raccolta**.
 
-   1. In **tutte le raccolte** specificare un nome per la raccolta da creare per organizzare le richieste, premere invio e selezionare **Salva per < *raccolta-nome* >** . In questo esempio viene usato `Logic Apps requests` come nome della raccolta.
+   1. In **tutte le raccolte** specificare un nome per la raccolta da creare per organizzare le richieste, premere invio e selezionare **Salva per < *raccolta-nome* >**. In questo esempio viene usato `Logic Apps requests` come nome della raccolta.
 
       Viene visualizzato il riquadro delle richieste del post, in modo che sia possibile inviare una richiesta all'URL di callback per il trigger di richiesta.
 
@@ -521,7 +521,7 @@ Per testare l'app per la logica, seguire questa procedura per avviare una sessio
    Se è stato creato un flusso di lavoro con stato, dopo la richiesta inviata viene attivato il flusso di lavoro, nella pagina panoramica vengono visualizzati lo stato e la cronologia dell'esecuzione del flusso di lavoro.
 
    > [!TIP]
-   > Se lo stato dell'esecuzione non viene visualizzato, provare ad aggiornare la pagina Panoramica selezionando **Aggiorna** . Non viene eseguita alcuna esecuzione per un trigger ignorato a causa di criteri non soddisfatti o per la ricerca di dati.
+   > Se lo stato dell'esecuzione non viene visualizzato, provare ad aggiornare la pagina Panoramica selezionando **Aggiorna**. Non viene eseguita alcuna esecuzione per un trigger ignorato a causa di criteri non soddisfatti o per la ricerca di dati.
 
    ![Screenshot che mostra la pagina Panoramica del flusso di lavoro con lo stato e la cronologia di esecuzione](./media/create-stateful-stateless-workflows-visual-studio-code/post-trigger-call.png)
 
@@ -536,7 +536,7 @@ Per testare l'app per la logica, seguire questa procedura per avviare una sessio
    | **Attesa** | L'esecuzione non è stata avviata o è stata sospesa, ad esempio, a causa di un'istanza del flusso di lavoro precedente ancora in esecuzione. |
    |||
 
-1. Per esaminare gli Stati per ogni passaggio in un'esecuzione specifica e gli input e gli output del passaggio, selezionare il pulsante con i puntini di sospensione ( **..** .) per l'esecuzione e selezionare **Mostra esecuzione** .
+1. Per esaminare gli Stati per ogni passaggio in un'esecuzione specifica e gli input e gli output del passaggio, selezionare il pulsante con i puntini di sospensione ( **..**.) per l'esecuzione e selezionare **Mostra esecuzione**.
 
    ![Screenshot che mostra la riga della cronologia di esecuzione del flusso di lavoro con i puntini di sospensione e la selezione dell'opzione "Mostra esecuzione"](./media/create-stateful-stateless-workflows-visual-studio-code/show-run-history.png)
 
@@ -550,7 +550,7 @@ Per testare l'app per la logica, seguire questa procedura per avviare una sessio
    |---------------|------|-------------|
    | Aborted | ![Icona per lo stato dell'azione "interrotto"][aborted-icon] | L'azione è stata interrotta o non è stata completata a causa di problemi esterni, ad esempio un'interruzione del sistema o una sottoscrizione di Azure scaduta. |
    | Operazione annullata | ![Icona per lo stato dell'azione "annullato"][cancelled-icon] | L'azione è stata eseguita ma è stata ricevuta una richiesta di annullamento. |
-   | Operazione non riuscita | ![Icona per lo stato dell'azione "non riuscito"][failed-icon] | L'azione non è riuscita. |
+   | Non riuscito | ![Icona per lo stato dell'azione "non riuscito"][failed-icon] | L'azione non è riuscita. |
    | In esecuzione | ![Icona per lo stato dell'azione "in esecuzione"][running-icon] | L'azione è attualmente in esecuzione. |
    | Operazione ignorata | ![Icona per lo stato dell'azione "ignorato"][skipped-icon] | L'azione è stata ignorata perché l'azione immediatamente precedente non è riuscita. Un'azione ha una `runAfter` condizione che richiede che l'azione precedente venga completata correttamente prima di poter eseguire l'azione corrente. |
    | Operazione riuscita | ![Icona per lo stato dell'azione "succeeded"][succeeded-icon] | L'azione è riuscita. |
@@ -583,7 +583,7 @@ Per testare l'app per la logica, seguire questa procedura per avviare una sessio
 
 Per restituire una risposta al chiamante che ha inviato una richiesta all'app per la logica, è possibile usare l' [azione di risposta](../connectors/connectors-native-reqres.md) predefinita per un flusso di lavoro che inizia con il trigger di richiesta.
 
-1. Nella finestra di progettazione dell'app per la logica, sotto l'azione **Invia un messaggio di posta elettronica** , selezionare **nuovo passaggio** .
+1. Nella finestra di progettazione dell'app per la logica, sotto l'azione **Invia un messaggio di posta elettronica** , selezionare **nuovo passaggio**.
 
    Il prompt **scegliere un'operazione** viene visualizzato nella finestra di progettazione e il **riquadro Aggiungi un'azione** viene riaperto in modo che sia possibile selezionare l'azione successiva.
 
@@ -603,7 +603,7 @@ Per restituire una risposta al chiamante che ha inviato una richiesta all'app pe
 
       ![Screenshot che mostra il riquadro dei dettagli dell'azione "risposta" con il puntatore del mouse all'interno della proprietà "Body", in modo che venga visualizzato l'elenco di contenuto dinamico.](./media/create-stateful-stateless-workflows-visual-studio-code/open-dynamic-content-list.png)
 
-   1. Nell'elenco contenuto dinamico, in **Invia un messaggio di posta elettronica** , selezionare **corpo** .
+   1. Nell'elenco contenuto dinamico, in **Invia un messaggio di posta elettronica** , selezionare **corpo**.
 
       ![Screenshot che mostra l'elenco di contenuto dinamico aperto. Nell'elenco, sotto l'intestazione "Invia un messaggio di posta elettronica", viene selezionato il valore di output "Body".](./media/create-stateful-stateless-workflows-visual-studio-code/select-send-email-action-body-output-value.png)
 
@@ -611,7 +611,7 @@ Per restituire una risposta al chiamante che ha inviato una richiesta all'app pe
 
       ![Screenshot che mostra lo stato di ogni passaggio nel flusso di lavoro più gli input e gli output nell'azione di risposta espansa.](./media/create-stateful-stateless-workflows-visual-studio-code/response-action-details-body-property.png)
 
-1. Nella finestra di progettazione selezionare **Salva** .
+1. Nella finestra di progettazione selezionare **Salva**.
 
 <a name="retest-workflow"></a>
 
@@ -623,7 +623,7 @@ Dopo aver aggiornato l'app per la logica, è possibile eseguire un altro test es
 
 1. Nel post o nello strumento per la creazione e l'invio di richieste inviare un'altra richiesta di attivazione del flusso di lavoro.
 
-1. Se è stato creato un flusso di lavoro con stato, nella pagina Panoramica del flusso di lavoro controllare lo stato dell'esecuzione più recente. Per visualizzare lo stato, gli input e gli output per ogni passaggio di tale esecuzione, selezionare il pulsante con i puntini di sospensione ( **.** ..) per l'esecuzione e selezionare **Mostra esecuzione** .
+1. Se è stato creato un flusso di lavoro con stato, nella pagina Panoramica del flusso di lavoro controllare lo stato dell'esecuzione più recente. Per visualizzare lo stato, gli input e gli output per ogni passaggio di tale esecuzione, selezionare il pulsante con i puntini di sospensione ( **.**..) per l'esecuzione e selezionare **Mostra esecuzione**.
 
    Ad esempio, di seguito è riportato lo stato dettagliato di un'esecuzione dopo che il flusso di lavoro di esempio è stato aggiornato con l'azione di risposta.
 
@@ -646,7 +646,7 @@ Da Visual Studio Code è possibile distribuire il progetto direttamente in Azure
 
 1. Sulla barra degli strumenti di Visual Studio Code selezionare l'icona di Azure.
 
-1. Nella barra degli strumenti **Azure: app per la logica (anteprima)** selezionare **Distribuisci in app per la logica** .
+1. Nella barra degli strumenti **Azure: app per la logica (anteprima)** selezionare **Distribuisci in app per la logica**.
 
    ![Screenshot che mostra il riquadro "Azure: app per la logica (anteprima)" e la barra degli strumenti del riquadro con "Distribuisci in app per la logica" selezionati.](./media/create-stateful-stateless-workflows-visual-studio-code/deploy-to-logic-app.png)
 
@@ -656,7 +656,7 @@ Da Visual Studio Code è possibile distribuire il progetto direttamente in Azure
    * **Creare una nuova app per la logica (anteprima) in Azure Advanced**
    * Una risorsa dell' **app per la logica (anteprima)** distribuita in precedenza, se presente
 
-   Questo esempio continua con **Crea nuova app per la logica (anteprima) in Azure Advanced** .
+   Questo esempio continua con **Crea nuova app per la logica (anteprima) in Azure Advanced**.
 
    ![Screenshot che mostra il riquadro "Azure: app per la logica (anteprima)" con un elenco con "Crea nuova app per la logica (anteprima) in Azure" selezionato.](./media/create-stateful-stateless-workflows-visual-studio-code/select-create-logic-app-options.png)
 
@@ -666,11 +666,11 @@ Da Visual Studio Code è possibile distribuire il progetto direttamente in Azure
 
       ![Screenshot che mostra il riquadro "Azure: app per la logica (anteprima)" e un prompt per fornire un nome per la nuova app per la logica da creare.](./media/create-stateful-stateless-workflows-visual-studio-code/enter-logic-app-name.png)
 
-   1. Selezionare un piano di hosting per la nuova app per la logica, ovvero [**piano di servizio app**](../azure-functions/functions-scale.md#app-service-plan) o [**Premium**](../azure-functions/functions-scale.md#premium-plan). Questo esempio Mostra come selezionare il **piano di servizio app** .
+   1. Selezionare un piano di hosting per la nuova app per la logica, ovvero [**piano di servizio app**](../azure-functions/functions-scale.md#app-service-plan) o [**Premium**](../azure-functions/functions-scale.md#premium-plan). Questo esempio Mostra come selezionare il **piano di servizio app**.
 
       ![Screenshot che mostra il riquadro "Azure: app per la logica (anteprima)" e un prompt per selezionare "piano di servizio app" o "Premium".](./media/create-stateful-stateless-workflows-visual-studio-code/select-hosting-plan.png)
 
-   1. Creare un nuovo piano di servizio app o selezionare un piano esistente. Questo esempio Mostra come selezionare **Crea nuovo piano di servizio app** .
+   1. Creare un nuovo piano di servizio app o selezionare un piano esistente. Questo esempio Mostra come selezionare **Crea nuovo piano di servizio app**.
 
       ![Screenshot che mostra il riquadro "Azure: app per la logica (anteprima)" e un prompt per "creare un nuovo piano di servizio app" o selezionare un piano di servizio app esistente.](./media/create-stateful-stateless-workflows-visual-studio-code/create-app-service-plan.png)
 
@@ -718,7 +718,7 @@ Da Visual Studio Code è possibile distribuire il progetto direttamente in Azure
 
    Al termine, Visual Studio Code avvia la creazione e la distribuzione delle risorse necessarie per la pubblicazione dell'app per la logica.
 
-1. Per esaminare e monitorare il processo di distribuzione, scegliere **output** dal menu **Visualizza** . Dall'elenco della barra degli strumenti della finestra di output selezionare app per la **logica di Azure** .
+1. Per esaminare e monitorare il processo di distribuzione, scegliere **output** dal menu **Visualizza** . Dall'elenco della barra degli strumenti della finestra di output selezionare app per la **logica di Azure**.
 
    ![Screenshot che mostra la finestra di output con "app per la logica di Azure" selezionata nell'elenco della barra degli strumenti con l'avanzamento e lo stato della distribuzione.](./media/create-stateful-stateless-workflows-visual-studio-code/logic-app-deployment-output-window.png)
 
@@ -760,7 +760,7 @@ In Visual Studio Code, è possibile visualizzare tutte le app per la logica dist
 
    * Nella portale di Azure [individuare e aprire l'app per la logica](#find-manage-deployed-workflows-portal). Trovare, modificare e salvare il flusso di lavoro.
 
-1. Per aprire l'app per la logica distribuita nel portale di Azure, aprire il menu di scelta rapida dell'app per la logica e selezionare **Apri nel portale** .
+1. Per aprire l'app per la logica distribuita nel portale di Azure, aprire il menu di scelta rapida dell'app per la logica e selezionare **Apri nel portale**.
 
    Il portale di Azure si apre nel browser, accede automaticamente al portale se è stato eseguito l'accesso a Visual Studio Code e viene visualizzata l'app per la logica.
 
@@ -781,7 +781,7 @@ Nella portale di Azure è possibile visualizzare tutte le app per la logica dist
 
 Per trovare app per la logica con il tipo di risorsa app per la **logica (anteprima)** , seguire questa procedura:
 
-1. Nella casella di ricerca portale di Azure immettere `logic app preview` . Quando viene visualizzato l'elenco dei risultati, in **Servizi** selezionare app per la **logica (anteprima)** .
+1. Nella casella di ricerca portale di Azure immettere `logic app preview` . Quando viene visualizzato l'elenco dei risultati, in **Servizi** selezionare app per la **logica (anteprima)**.
 
    ![Screenshot che mostra la casella di ricerca portale di Azure con il testo di ricerca "anteprima app per la logica".](./media/create-stateful-stateless-workflows-visual-studio-code/portal-find-logic-app-preview-resource.png)
 
@@ -803,7 +803,7 @@ Per trovare app per la logica con il tipo di risorsa app per la **logica (antepr
 
    Viene visualizzato il riquadro del flusso di lavoro con altre informazioni e attività che è possibile eseguire su tale flusso di lavoro.
 
-   Per visualizzare, ad esempio, i passaggi nel flusso di lavoro, selezionare **finestra di progettazione** .
+   Per visualizzare, ad esempio, i passaggi nel flusso di lavoro, selezionare **finestra di progettazione**.
 
    ![Screenshot che mostra il riquadro "panoramica" del flusso di lavoro selezionato, mentre il menu flusso di lavoro Mostra il comando "finestra di progettazione" selezionato.](./media/create-stateful-stateless-workflows-visual-studio-code/workflow-overview-pane-select-designer.png)
 
@@ -819,11 +819,11 @@ Tramite il portale di Azure è possibile aggiungere flussi di lavoro vuoti a una
 
 1. Nella [portale di Azure](https://portal.azure.com)trovare e selezionare la risorsa app per la logica distribuita **(anteprima)** .
 
-1. Nel menu dell'app per la logica selezionare **flussi di lavoro** . Nel riquadro **flussi di lavoro** selezionare **Aggiungi** .
+1. Nel menu dell'app per la logica selezionare **flussi di lavoro**. Nel riquadro **flussi di lavoro** selezionare **Aggiungi**.
 
    ![Screenshot che mostra il riquadro "flussi di lavoro" dell'app per la logica selezionato e la barra degli strumenti con il comando "Aggiungi" selezionato.](./media/create-stateful-stateless-workflows-visual-studio-code/add-new-workflow.png)
 
-1. Nel riquadro **nuovo flusso di lavoro** specificare il nome del flusso di lavoro. Selezionare Crea con stato o **senza** **stato** **>** **Create** .
+1. Nel riquadro **nuovo flusso di lavoro** specificare il nome del flusso di lavoro. Selezionare Crea con stato o **senza** **stato** **>** **Create**.
 
    Quando Azure distribuisce il nuovo flusso di lavoro, che viene visualizzato nel riquadro **flussi di lavoro** , selezionare il flusso di lavoro per eseguire la gestione e altre attività, ad esempio aprire la finestra di progettazione dell'app per la logica o la visualizzazione codice.
 
@@ -866,9 +866,9 @@ Se il progetto è già stato distribuito nel portale di Azure, attenersi alla pr
 
 1. Nella [portale di Azure](https://portal.azure.com)trovare e aprire la risorsa dell' **app per la logica (anteprima)** .
 
-1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **configurazione** .
+1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **configurazione**.
 
-1. Nella scheda **Impostazioni applicazione** selezionare **nuova impostazione applicazione** .
+1. Nella scheda **Impostazioni applicazione** selezionare **nuova impostazione applicazione**.
 
 1. Nella casella **nome** del riquadro **Aggiungi/modifica impostazione applicazione** immettere il nome dell'opzione operazione: 
 
@@ -880,7 +880,7 @@ Se il progetto è già stato distribuito nel portale di Azure, attenersi alla pr
 
    ![Screenshot che mostra la risorsa portale di Azure e app per la logica (anteprima) con il riquadro "configurazione" > "nuova impostazione applicazione" < "Aggiungi/modifica impostazione applicazione" e i flussi di lavoro. {yourWorkflowName}. OperationOptions "opzione impostata su" WithStatelessRunHistory ".](./media/create-stateful-stateless-workflows-visual-studio-code/stateless-operation-options-run-history.png)
 
-1. Al termine, fare clic su **OK** . Nel riquadro **configurazione** selezionare **Salva** .
+1. Al termine, fare clic su **OK**. Nel riquadro **configurazione** selezionare **Salva**.
 
 Per abilitare il monitoraggio nella risorsa app per la logica distribuita (anteprima), passare alla sezione successiva.
 
@@ -892,11 +892,11 @@ Per abilitare il monitoraggio in una risorsa app per la logica distribuita **(an
 
 1. Nella [portale di Azure](https://portal.azure.com)trovare e selezionare la risorsa app per la logica distribuita **(anteprima)** .
 
-1. Nel menu di tale risorsa, in **API** , selezionare **CORS** .
+1. Nel menu di tale risorsa, in **API** , selezionare **CORS**.
 
 1. Nel riquadro **CORS** , in **origini consentite** , aggiungere il carattere jolly (*).
 
-1. Al termine, sulla barra degli strumenti di **CORS** selezionare **Salva** .
+1. Al termine, sulla barra degli strumenti di **CORS** selezionare **Salva**.
 
    ![Screenshot che mostra la portale di Azure con una risorsa app per la logica distribuita (anteprima). Nel menu delle risorse è selezionato "CORS" con una nuova voce per "origini consentite" impostata sul carattere jolly "*".](./media/create-stateful-stateless-workflows-visual-studio-code/enable-run-history-deployed-logic-app.png)
 

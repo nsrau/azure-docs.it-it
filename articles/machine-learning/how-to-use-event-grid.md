@@ -11,16 +11,16 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 05/11/2020
-ms.openlocfilehash: 77d2f600a651f44abddf4a77f2a01486fa0259f2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 1fd177273c9dafb04add64d8a8bfef1d81cc65d0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428434"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319309"
 ---
 # <a name="trigger-applications-processes-or-cicd-workflows-based-on-azure-machine-learning-events-preview"></a>Attivazione di applicazioni, processi o flussi di lavoro CI/CD basati su eventi di Azure Machine Learning (anteprima)
 
-Questo articolo illustra come configurare applicazioni, processi o flussi di lavoro CI/CD basati su eventi di Azure Machine Learning, ad esempio messaggi di posta elettronica di notifica di errore o esecuzioni di pipeline ML, quando vengono rilevate determinate condizioni da [Griglia di eventi di Azure](https://docs.microsoft.com/azure/event-grid/).
+Questo articolo illustra come configurare applicazioni, processi o flussi di lavoro CI/CD basati su eventi di Azure Machine Learning, ad esempio messaggi di posta elettronica di notifica di errore o esecuzioni di pipeline ML, quando vengono rilevate determinate condizioni da [Griglia di eventi di Azure](../event-grid/index.yml).
 
 Azure Machine Learning gestisce l'intero ciclo di vita del processo di apprendimento automatico, tra cui il training del modello, la distribuzione del modello e il monitoraggio. È possibile usare Griglia di eventi per rispondere a eventi di Azure Machine Learning come il completamento delle esecuzioni di training, la registrazione e distribuzione dei modelli e il rilevamento della deriva dei dati, usando architetture serverless moderne. È quindi possibile sottoscrivere e usare eventi quali modifica dello stato di esecuzione, completamento dell'esecuzione, registrazione del modello, distribuzione del modello e rilevamento della deriva dei dati in un'area di lavoro.
 
@@ -42,7 +42,7 @@ Griglia di eventi di Azure legge gli eventi dalle origini, ad esempio Azure Mach
 
 ![Modello funzionale di Griglia di eventi di Azure](./media/concept-event-grid-integration/azure-event-grid-functional-model.png)
 
-Per altre informazioni sulle origini degli eventi e sui gestori degli eventi, vedere [Informazioni su Griglia di eventi](/azure/event-grid/overview).
+Per altre informazioni sulle origini degli eventi e sui gestori degli eventi, vedere [Informazioni su Griglia di eventi](../event-grid/overview.md).
 
 ### <a name="event-types-for-azure-machine-learning"></a>Tipi di eventi per Azure Machine Learning
 
@@ -58,16 +58,16 @@ Azure Machine Learning offre eventi in vari punti del ciclo di vita dell'apprend
 
 ### <a name="filter--subscribe-to-events"></a>Filtrare e sottoscrivere eventi
 
-Questi eventi vengono pubblicati tramite Griglia di eventi di Azure. Usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure, i clienti possono facilmente eseguire la sottoscrizione agli eventi [specificando uno o più tipi di eventi e filtrando le condizioni](/azure/event-grid/event-filtering). 
+Questi eventi vengono pubblicati tramite Griglia di eventi di Azure. Usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure, i clienti possono facilmente eseguire la sottoscrizione agli eventi [specificando uno o più tipi di eventi e filtrando le condizioni](../event-grid/event-filtering.md). 
 
-Quando si configurano gli eventi, è possibile applicare filtri per far sì che l'attivazione avvenga solo in base a dati degli eventi specifici. Nell'esempio seguente, per gli eventi il cui stato di esecuzione è modificato, è possibile filtrare per tipo di esecuzione. L'evento viene attivato solo quando i criteri vengono soddisfatti. Per informazioni sui dati degli eventi in base ai quali è possibile applicare filtri, fare riferimento a [Schema di Griglia di eventi di Azure Machine Learning](/azure/event-grid/event-schema-machine-learning). 
+Quando si configurano gli eventi, è possibile applicare filtri per far sì che l'attivazione avvenga solo in base a dati degli eventi specifici. Nell'esempio seguente, per gli eventi il cui stato di esecuzione è modificato, è possibile filtrare per tipo di esecuzione. L'evento viene attivato solo quando i criteri vengono soddisfatti. Per informazioni sui dati degli eventi in base ai quali è possibile applicare filtri, fare riferimento a [Schema di Griglia di eventi di Azure Machine Learning](../event-grid/event-schema-machine-learning.md). 
 
 Le sottoscrizioni per gli eventi di Azure Machine Learning sono protette dal controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Solo chi ha il ruolo di [collaboratore o proprietario](how-to-assign-roles.md#default-roles) di un'area di lavoro può creare, aggiornare ed eliminare le sottoscrizioni agli eventi.  È possibile applicare filtri alle sottoscrizioni di eventi durante la [creazione](/cli/azure/eventgrid/event-subscription?view=azure-cli-latest&preserve-view=true) della sottoscrizione stessa o in un secondo momento. 
 
 
 1. Accedere al portale di Azure, selezionare una nuova sottoscrizione o una sottoscrizione esistente. 
 
-1. Selezionare la scheda filtri e scorrere verso il basso fino a Filtri avanzati. Per **Chiave** e **Valore**, specificare i tipi di proprietà in base ai quali si desidera filtrare. Qui è possibile vedere che l'evento viene attivato solo quando il tipo di esecuzione è un'esecuzione di pipeline o un'esecuzione passaggio della pipeline.  
+1. Selezionare la scheda filtri e scorrere verso il basso fino a Filtri avanzati. Per **Chiave** e **Valore** , specificare i tipi di proprietà in base ai quali si desidera filtrare. Qui è possibile vedere che l'evento viene attivato solo quando il tipo di esecuzione è un'esecuzione di pipeline o un'esecuzione passaggio della pipeline.  
 
     :::image type="content" source="media/how-to-use-event-grid/select-event-filters.png" alt-text="filtrare gli eventi":::
 
@@ -84,7 +84,7 @@ Le sottoscrizioni per gli eventi di Azure Machine Learning sono protette dal con
   | `Microsoft.MachineLearningServices.DatasetDriftDetected` | `datadrift/{data.DataDriftId}/run/{data.RunId}` | `datadrift/4e694bf5-712e-4e40-b06a-d2a2755212d4/run/my_driftrun1_1550564444_fbbcdc0f` |
   | `Microsoft.MachineLearningServices.RunStatusChanged` | `experiments/{ExperimentId}/runs/{RunId}` | `experiments/b1d7966c-f73a-4c68-b846-992ace89551f/runs/my_exp1_1554835758_38dbaa94` | 
 
-+ **Filtro avanzato**: Griglia di eventi di Azure supporta anche i filtri avanzati basati sullo schema dell'evento pubblicato. Per i dettagli sullo schema degli eventi di Azure Machine Learning, vedere [Schema degli eventi di Griglia di eventi di Azure per Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Alcuni esempi di filtri avanzati che è possibile eseguire includono:
++ **Filtro avanzato** : Griglia di eventi di Azure supporta anche i filtri avanzati basati sullo schema dell'evento pubblicato. Per i dettagli sullo schema degli eventi di Azure Machine Learning, vedere [Schema degli eventi di Griglia di eventi di Azure per Azure Machine Learning](../event-grid/event-schema-machine-learning.md).  Alcuni esempi di filtri avanzati che è possibile eseguire includono:
 
   Per l'evento `Microsoft.MachineLearningServices.ModelRegistered`, per filtrare il valore del tag del modello:
 
@@ -92,7 +92,7 @@ Le sottoscrizioni per gli eventi di Azure Machine Learning sono protette dal con
   --advanced-filter data.ModelTags.key1 StringIn ('value1')
   ```
 
-  Per altre informazioni su come applicare i filtri, vedere [Filtrare gli eventi per Griglia di eventi](https://docs.microsoft.com/azure/event-grid/how-to-filter-events).
+  Per altre informazioni su come applicare i filtri, vedere [Filtrare gli eventi per Griglia di eventi](../event-grid/how-to-filter-events.md).
 
 ## <a name="consume-machine-learning-events"></a>Usare gli eventi di Machine Learning
 
@@ -116,11 +116,11 @@ Griglia di eventi di Azure consente ai clienti di compilare gestori di messaggi 
 
 1. Aprire il [portale di Azure](https://portal.azure.com) e accedere all'area di lavoro di Azure Machine Learning.
 
-1. Nella barra a sinistra selezionare __Eventi__, quindi selezionare **Sottoscrizioni di eventi**. 
+1. Nella barra a sinistra selezionare __Eventi__ , quindi selezionare **Sottoscrizioni di eventi**. 
 
     ![select-events-in-workspace.png](./media/how-to-use-event-grid/select-event.png)
 
-1. Selezionare il tipo di evento da usare. Nello screenshot seguente, ad esempio, è stato selezionato __Modello registrato__, __Modello distribuito__, __Esecuzione completata__ e __Deriva dei dati rilevata__:
+1. Selezionare il tipo di evento da usare. Nello screenshot seguente, ad esempio, è stato selezionato __Modello registrato__ , __Modello distribuito__ , __Esecuzione completata__ e __Deriva dei dati rilevata__ :
 
     ![add-event-type](./media/how-to-use-event-grid/add-event-type-updated.png)
 
@@ -133,7 +133,7 @@ Dopo aver confermato la selezione, fare clic su __Crea__. Dopo la configurazione
 
 ### <a name="set-up-with-the-cli"></a>Eseguire la configurazione con l'interfaccia della riga di comando
 
-È possibile installare la versione più recente dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) o usare Azure Cloud Shell fornito come parte della sottoscrizione di Azure.
+È possibile installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest) o usare Azure Cloud Shell fornito come parte della sottoscrizione di Azure.
 
 Per installare l'estensione Griglia di eventi, usare il comando seguente dall'interfaccia della riga di comando:
 
@@ -160,7 +160,7 @@ az eventgrid event-subscription create --name {eventGridFilterName} \
 
 ### <a name="example-send-email-alerts"></a>Esempio: inviare avvisi tramite posta elettronica
 
-Usare [App per la logica di Azure](https://docs.microsoft.com/azure/logic-apps/) per configurare i messaggi di posta elettronica per tutti gli eventi. Personalizzare usando le condizioni e specificare i destinatari per consentire la collaborazione tra team che lavorano insieme.
+Usare [App per la logica di Azure](../logic-apps/index.yml) per configurare i messaggi di posta elettronica per tutti gli eventi. Personalizzare usando le condizioni e specificare i destinatari per consentire la collaborazione tra team che lavorano insieme.
 
 1. Nel portale di Azure accedere all'area di lavoro di Azure Machine Learning e selezionare la scheda eventi nella barra a sinistra. Da qui, selezionare __App per la logica__. 
 
@@ -200,9 +200,9 @@ Questo esempio illustra come usare Griglia di eventi con un'app per la logica di
 Prima di iniziare, eseguire le azioni seguenti:
 
 * Configurare il monitoraggio di un set di dati per [rilevare la deriva dei dati](how-to-monitor-datasets.md) in un'area di lavoro
-* Creare una [pipeline di Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) pubblicata.
+* Creare una [pipeline di Azure Data Factory](../data-factory/index.yml) pubblicata.
 
-In questo esempio viene usata una semplice pipeline di Data Factory per copiare i file in un archivio BLOB ed eseguire una pipeline di Machine Learning pubblicata. Per altre informazioni su questo scenario, vedere come configurare un [Passaggio di Machine Learning in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-machine-learning-service)
+In questo esempio viene usata una semplice pipeline di Data Factory per copiare i file in un archivio BLOB ed eseguire una pipeline di Machine Learning pubblicata. Per altre informazioni su questo scenario, vedere come configurare un [Passaggio di Machine Learning in Azure Data Factory](../data-factory/transform-data-machine-learning-service.md)
 
 ![Screenshot mostra la pipeline di training nelle risorse di fabbrica con Copy Data1 Nutrition M L Execute Pipeline1.](./media/how-to-use-event-grid/adf-mlpipeline-stage.png)
 
@@ -251,4 +251,3 @@ Sono disponibili altre informazioni su Griglia di eventi e la possibilità di pr
 - [Informazioni sulla griglia di eventi](../event-grid/overview.md)
 
 - [Schema degli eventi per Azure Machine Learning](../event-grid/event-schema-machine-learning.md)
-

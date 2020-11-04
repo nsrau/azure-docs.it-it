@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d099d7c233c3f4b5e65bfdb7d4b875a0e4098499
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: df7d2278487c1b098615a14562c498b9187c56eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864282"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321209"
 ---
 # <a name="tasks-for-the-team-lead-on-a-team-data-science-process-team"></a>Attività per il responsabile del team per un team del processo di Data Science per i team
 
@@ -61,7 +61,7 @@ Per essere in grado di clonare i repository e di modificarne il contenuto nel co
 
 - Una sottoscrizione di Azure.
 - Git installato nel computer. Se si usa un DSVM, Git è preinstallato. In caso contrario, vedere l'[appendice Strumenti e piattaforme](platforms-and-tools.md#appendix).
-- Se si vuole usare un DSVM, Windows o Linux DSVM creato e configurato in Azure. Per ulteriori informazioni e istruzioni, vedere la [documentazione Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/).
+- Se si vuole usare un DSVM, Windows o Linux DSVM creato e configurato in Azure. Per ulteriori informazioni e istruzioni, vedere la [documentazione Data Science Virtual Machine](../data-science-virtual-machine/index.yml).
 - Per un DSVM Windows, [git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) è installato nel computer. Nel file *Readme.MD* scorrere verso il basso fino alla sezione **download and install** e selezionare il **programma di installazione più recente**. Scaricare il programma di installazione con *estensione exe* dalla pagina del programma di installazione ed eseguirlo. 
 - Per un DSVM Linux, viene configurata una chiave pubblica SSH nella DSVM e aggiunta in Azure DevOps. Per ulteriori informazioni e istruzioni, vedere la sezione **create SSH Public Key** nell' [appendice Platforms and Tools](platforms-and-tools.md#appendix). 
 
@@ -77,7 +77,7 @@ I nomi specificati per i repository e le directory in questa esercitazione presu
 - Un piccolo gruppo di data science che non dispone di più team data science. 
 - Un gruppo di data science più grande con più team data science che vogliono comunque ottimizzare la collaborazione tra i team con attività quali la pianificazione dello sprint a livello di gruppo. 
 
-Se i team scelgono di disporre dei repository specifici del team in un singolo progetto di gruppo, i lead del team devono creare i repository con nomi come * \<TeamName> modello* e * \<TeamName> utilità*. Ad esempio: *TeamATemplate* e *TeamAUtilities*. 
+Se i team scelgono di disporre dei repository specifici del team in un singolo progetto di gruppo, i lead del team devono creare i repository con nomi come *\<TeamName> modello* e *\<TeamName> utilità*. Ad esempio: *TeamATemplate* e *TeamAUtilities*. 
 
 In ogni caso, i lead del team devono consentire ai membri del team di comprendere quali sono i repository del modello e delle utilità da configurare e clonare. I lead del progetto devono seguire le [attività del responsabile del progetto per un team di Data Science](project-lead-tasks.md) per creare repository di progetto, sia in progetti distinti che in un singolo progetto. 
 
@@ -85,21 +85,21 @@ In ogni caso, i lead del team devono consentire ai membri del team di comprender
 
 Per creare un progetto separato per il team:
 
-1. Nel Web browser passare al gruppo Azure DevOps Organization Home page all'URL *https: \/ / \<server name> / \<organization name> *e selezionare **nuovo progetto**. 
+1. Nel Web browser passare al gruppo Azure DevOps Organization Home page all'URL *https: \/ / \<server name> / \<organization name>* e selezionare **nuovo progetto**. 
    
    ![Seleziona nuovo progetto](./media/team-lead-tasks/team-leads-2-create-new-team.png)
    
-1. Nella finestra di dialogo **Crea progetto** immettere il nome del team, ad esempio *Team*, in **nome progetto**, quindi selezionare **Avanzate**. 
+1. Nella finestra di dialogo **Crea progetto** immettere il nome del team, ad esempio *Team* , in **nome progetto** , quindi selezionare **Avanzate**. 
    
-1. In **controllo della versione**selezionare **git**e in **processo elemento di lavoro**selezionare **agile**. Selezionare quindi **Crea**. 
+1. In **controllo della versione** selezionare **git** e in **processo elemento di lavoro** selezionare **agile**. Selezionare quindi **Crea**. 
    
    ![Crea progetto](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
    
-Verrà visualizzata la pagina **Riepilogo** progetto team con URL pagina *https: \/ / \<server name> / \<organization name> / \<team name> *.
+Verrà visualizzata la pagina **Riepilogo** progetto team con URL pagina *https: \/ / \<server name> / \<organization name> / \<team name>*.
 
 ### <a name="rename-the-myteam-default-repository-to-teamutilities"></a>Rinominare il repository predefinito del team in TeamUtilities
 
-1. Nella pagina **Riepilogo** progetto **Team** , in **quale servizio si desidera iniziare?**, selezionare **repository**. 
+1. Nella pagina **Riepilogo** progetto **Team** , in **quale servizio si desidera iniziare?** , selezionare **repository**. 
    
    ![Seleziona repository](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
    
@@ -110,7 +110,7 @@ Verrà visualizzata la pagina **Riepilogo** progetto team con URL pagina *https:
    
    ![Seleziona Rinomina repository](./media/team-lead-tasks/team-leads-8-rename-team-project-repo-3.png)
    
-1. Nel popup **Rinomina il repository del team** immettere *TeamUtilities*, quindi selezionare **Rinomina**. 
+1. Nel popup **Rinomina il repository del team** immettere *TeamUtilities* , quindi selezionare **Rinomina**. 
 
 ### <a name="create-the-teamtemplate-repository"></a>Creare il repository TeamTemplate
 
@@ -120,7 +120,7 @@ Verrà visualizzata la pagina **Riepilogo** progetto team con URL pagina *https:
    
    In alternativa, **selezionare repository dal menu** di spostamento a sinistra della pagina **Riepilogo** progetto **Team** , selezionare un repository nella parte superiore della pagina e quindi selezionare **nuovo repository** nell'elenco a discesa.
    
-1. Nella finestra di dialogo **Crea un nuovo repository** assicurarsi che **git** sia selezionato in **tipo**. Immettere *teamTemplate* in **nome repository**, quindi selezionare **Crea**.
+1. Nella finestra di dialogo **Crea un nuovo repository** assicurarsi che **git** sia selezionato in **tipo**. Immettere *teamTemplate* in **nome repository** , quindi selezionare **Crea**.
    
    ![Crea repository](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
    
@@ -136,11 +136,11 @@ Per popolare i repository del team con il contenuto dei repository comuni del gr
    
    Viene aperto il repository **teamTemplate** predefinito. 
    
-1. Nella pagina **teamTemplate è vuota** selezionare Import ( **Importa**). 
+1. Nella pagina **teamTemplate è vuota** selezionare Import ( **Importa** ). 
    
    ![Selezionare Importa](./media/team-lead-tasks/import-repo.png)
    
-1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine**e immettere l'URL per il repository del modello comune di gruppo in **URL clone**. L'URL è *https: \/ / \<server name> / \<organization name> /_git/ \<repository name> *. Ad esempio: *https: \/ /dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
+1. Nella finestra di dialogo **Importa un repository git** selezionare **git** come **tipo di origine** e immettere l'URL per il repository del modello comune di gruppo in **URL clone**. L'URL è *https: \/ / \<server name> / \<organization name> /_git/ \<repository name>*. Ad esempio: *https: \/ /dev.Azure.com/DataScienceUnit/GroupCommon/_git/GroupProjectTemplate*. 
    
 1. Selezionare **Importa**. Il contenuto del repository del modello di gruppo viene importato nel repository del modello Team. 
    
@@ -148,7 +148,7 @@ Per popolare i repository del team con il contenuto dei repository comuni del gr
    
 1. Nella parte superiore **della pagina dei repository del** progetto, fare clic sull'elenco a discesa e selezionare il repository **TeamUtilities** .
    
-1. Ripetere il processo di importazione per importare il contenuto del repository delle utilità comuni del gruppo, ad esempio *GroupUtilities*, nel repository **TeamUtilities** . 
+1. Ripetere il processo di importazione per importare il contenuto del repository delle utilità comuni del gruppo, ad esempio *GroupUtilities* , nel repository **TeamUtilities** . 
    
 Ognuno dei due repository del team contiene ora i file del repository comune del gruppo corrispondente. 
 
@@ -170,7 +170,7 @@ Per modificare, caricare o creare file o cartelle direttamente in Azure DevOps:
      
    - Per caricare i file, selezionare **Carica file/i**. 
      
-     ![Caricare file](./media/team-lead-tasks/upload-files.png)
+     ![Caricare i file](./media/team-lead-tasks/upload-files.png)
      
    - Per modificare i file esistenti, passare al file e quindi fare clic su **modifica**. 
      
@@ -184,11 +184,11 @@ Per lavorare con i repository nel computer locale o in DSVM, è prima necessario
 
 Per clonare i repository:
 
-1. Nella pagina **Riepilogo** progetto **Team** selezionare repository e nella parte superiore della **pagina selezionare il**repository che si desidera clonare.
+1. Nella pagina **Riepilogo** progetto **Team** selezionare repository e nella parte superiore della **pagina selezionare il** repository che si desidera clonare.
    
 1. Nella pagina Repository selezionare **Clone** in alto a destra.
    
-1. Nella finestra di dialogo **clona repository** , in **riga di comando**, selezionare **https** per una connessione HTTP o **SSH** per una connessione SSH, quindi copiare l'URL del clone negli Appunti.
+1. Nella finestra di dialogo **clona repository** , in **riga di comando** , selezionare **https** per una connessione HTTP o **SSH** per una connessione SSH, quindi copiare l'URL del clone negli Appunti.
    
    ![Copia URL clone](./media/team-lead-tasks/clone.png)
    
@@ -240,7 +240,7 @@ Per aggiungere membri al team:
 
 1. In Azure DevOps, dal progetto **team** Home page selezionare **Impostazioni progetto** nel percorso di spostamento a sinistra. 
    
-1. Dal percorso di spostamento a sinistra **Impostazioni progetto** selezionare **Teams**, quindi nella pagina **Teams** selezionare il **Team**del team. 
+1. Dal percorso di spostamento a sinistra **Impostazioni progetto** selezionare **Teams** , quindi nella pagina **Teams** selezionare il **Team** del team. 
    
    ![Configurare i team](./media/team-lead-tasks/teams.png)
    
@@ -259,7 +259,7 @@ Per configurare le autorizzazioni per i membri del team:
    
 1. Nella pagina **autorizzazioni** selezionare il gruppo al quale si desidera aggiungere membri. 
    
-1. Nella pagina del gruppo selezionare **membri**, quindi selezionare **Aggiungi**. 
+1. Nella pagina del gruppo selezionare **membri** , quindi selezionare **Aggiungi**. 
    
 1. Nella finestra popup **invita membri** cercare e selezionare i membri da aggiungere al gruppo, quindi selezionare **Salva**. 
    
@@ -296,7 +296,7 @@ Per informazioni sulla condivisione di altre risorse con il team, ad esempio Azu
    
 1. Selezionare l'account di archiviazione da usare o crearne uno nuovo nella sottoscrizione selezionata. Per il nome di archiviazione file di Azure è possibile usare caratteri minuscoli, numeri e trattini.
    
-1. Per facilitare il montaggio e la condivisione dello spazio di archiviazione, premere INVIO o immettere *Y* per salvare le informazioni di archiviazione file di Azure in un file di testo nella directory corrente. È possibile archiviare il file di testo nel repository **teamTemplate** , idealmente in **Docs\DataDictionaries**, in modo che tutti i progetti del team possano accedervi. Sono necessarie anche le informazioni sui file per montare l'archiviazione file di Azure nella DSVM di Azure nella sezione successiva. 
+1. Per facilitare il montaggio e la condivisione dello spazio di archiviazione, premere INVIO o immettere *Y* per salvare le informazioni di archiviazione file di Azure in un file di testo nella directory corrente. È possibile archiviare il file di testo nel repository **teamTemplate** , idealmente in **Docs\DataDictionaries** , in modo che tutti i progetti del team possano accedervi. Sono necessarie anche le informazioni sui file per montare l'archiviazione file di Azure nella DSVM di Azure nella sezione successiva. 
    
 ### <a name="mount-azure-file-storage-on-your-local-machine-or-dsvm"></a>Montare archiviazione file di Azure nel computer locale o DSVM
 
@@ -318,7 +318,7 @@ Per informazioni sulla condivisione di altre risorse con il team, ad esempio Azu
    
 1. Premere INVIO o immettere *Y* per continuare se è stato salvato un file di informazioni di archiviazione file di Azure nel passaggio precedente. Immettere il percorso completo e il nome del file creato. 
    
-   Se non si dispone di un file di informazioni di archiviazione file di Azure, immettere *n*e seguire le istruzioni per immettere le informazioni relative a sottoscrizione, account di archiviazione di Azure e archiviazione file di Azure.
+   Se non si dispone di un file di informazioni di archiviazione file di Azure, immettere *n* e seguire le istruzioni per immettere le informazioni relative a sottoscrizione, account di archiviazione di Azure e archiviazione file di Azure.
    
 1. Immettere il nome di un'unità locale o TDSP in cui montare la condivisione file. Nella schermata viene visualizzato un elenco di nomi di unità esistenti. Specificare un nome di unità che non esista già.
    

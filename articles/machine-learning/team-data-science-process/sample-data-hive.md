@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 339273c091a1bcfc4f2de66ef2f79ea8cebbc49b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6a015da77cb7c0ba54be1dd5e729a9ee8a848c9d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86026050"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93321878"
 ---
 # <a name="sample-data-in-azure-hdinsight-hive-tables"></a>Dati di esempio nelle tabelle Hive di Azure HDInsight
 Questo articolo descrive come eseguire il sottocampionamento dei dati archiviati nelle tabelle Hive di Azure HDInsight usando query Hive per ridurli a una dimensione più facilmente gestibile a scopo di analisi. Vengono illustrati tre metodi di campionamento usati comunemente:
@@ -28,7 +28,7 @@ Questo articolo descrive come eseguire il sottocampionamento dei dati archiviati
 **Perché campionare i dati?**
 Se il set di dati da analizzare è grande, è in genere opportuno sottocampionare i dati per ridurlo e ottenere dimensioni inferiori più facilmente gestibili ma comunque rappresentative. Il sottocampionamento facilita la comprensione e l'esplorazione dei dati, nonché la progettazione di funzionalità. Il suo ruolo nel Processo di analisi scientifica dei dati per i team consiste nell'abilitare la creazione relativa a prototipi di funzioni di elaborazione dei dati e di modelli di Machine Learning.
 
-Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/).
+Questo campionamento è un passaggio del [Processo di analisi scientifica dei dati per i team (TDSP)](./index.yml).
 
 ## <a name="how-to-submit-hive-queries"></a>Come inviare query Hive
 Le query Hive possono essere inviate dalla console della riga di comando di Hadoop nel nodo head del cluster Hadoop.  Accedere al nodo head del cluster Hadoop, aprire la console di Command-Line di Hadoop e inviare le query hive da questa posizione. Per istruzioni su come inviare le query Hive nella console della riga di comando di Hadoop, vedere [Come inviare le query Hive](move-hive-tables.md#submit).
@@ -54,7 +54,7 @@ where samplekey<='${hiveconf:sampleRate}'
 In questo caso, `<sample rate, 0-1>` indica la proporzione di record che gli utenti desiderano campionare.
 
 ## <a name="random-sampling-by-groups"></a><a name="group"></a> Campionamento casuale per gruppi
-Quando si esegue il campionamento dei dati di categoria, è possibile scegliere di includere o di escludere tutte le istanze di un valore della variabile di categoria. Questo tipo di campionamento è chiamato "campionamento per gruppo". Se, ad esempio, si ha una variabile di categoria "*State*" con valori quali NY, MA, CA, NJ e PA, è possibile che l'utente voglia che i record di uno stesso stato siano sempre visualizzati insieme, che siano campionati o meno.
+Quando si esegue il campionamento dei dati di categoria, è possibile scegliere di includere o di escludere tutte le istanze di un valore della variabile di categoria. Questo tipo di campionamento è chiamato "campionamento per gruppo". Se, ad esempio, si ha una variabile di categoria " *State* " con valori quali NY, MA, CA, NJ e PA, è possibile che l'utente voglia che i record di uno stesso stato siano sempre visualizzati insieme, che siano campionati o meno.
 
 Di seguito è presentata una query di esempio che consente di eseguire il campionamento per gruppi:
 
@@ -105,4 +105,3 @@ where state_rank <= state_cnt*'${hiveconf:sampleRate}'
 ```
 
 Per informazioni su metodi di campionamento più avanzati disponibili in Hive, vedere [Campionamento di LanguageManual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+Sampling).
-

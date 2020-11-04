@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1cb49fc33567b13065351a28a557232212c6adc4
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d32aa011e9e816f97b050d43f9558af0cf82e90
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92479341"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319651"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Architettura di Azure Synapse Analytics (in precedenza SQL Data Warehouse)
 
@@ -25,8 +25,8 @@ Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità 
 
 - SQL Synapse: analisi completa basata su T-SQL
 
-  - Pool SQL (pagamento per ogni DWU con provisioning) - Disponibile a livello generale
-  - SQL su richiesta (pagamento per ogni TB elaborato) - (anteprima)
+  - Pool SQL dedicato (pagamento con provisioning per DWU): disponibile a livello generale
+  - Pool SQL senza server (pagamento per TB elaborato)-(anteprima)
 - Spark: Apache Spark completamente integrato (anteprima)
 - Integrazione dei dati: Integrazione di dati ibridi (anteprima)
 - Studio: esperienza utente unificata.  (Anteprima)
@@ -35,7 +35,7 @@ Azure Synapse è un servizio di analisi senza limiti che riunisce funzionalità 
 
 ## <a name="synapse-sql-architecture-components"></a>Componenti dell'architettura di Synapse SQL
 
-[Synapse SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse) usa un'architettura scale-out per distribuire l'elaborazione computazionale dei dati su più nodi. L'unità di scalabilità è un'astrazione della potenza di calcolo nota come [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Poiché le risorse di calcolo sono separate dall'archiviazione, è possibile ridimensionarle indipendentemente dai dati presenti nel sistema.
+[Synapse SQL](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse) usa un'architettura scale-out per distribuire l'elaborazione computazionale dei dati su più nodi. L'unità di scalabilità è un'astrazione della potenza di calcolo nota come [unità di data warehouse](what-is-a-data-warehouse-unit-dwu-cdwu.md). Poiché le risorse di calcolo sono separate dall'archiviazione, è possibile ridimensionarle indipendentemente dai dati presenti nel sistema.
 
 ![Architettura di SQL Synapse](./media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
