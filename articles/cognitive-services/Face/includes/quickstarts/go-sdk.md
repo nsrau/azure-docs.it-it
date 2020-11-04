@@ -9,12 +9,12 @@ ms.subservice: face-api
 ms.topic: include
 ms.date: 10/26/2020
 ms.author: pafarley
-ms.openlocfilehash: d84fd9e66c03fd92f3824b685bc550c70d4a6340
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 8dee3d9c91ac2b4fe97ada6069591f8f474c8c24
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92886617"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92918685"
 ---
 Introduzione al riconoscimento facciale con la libreria client di Viso per Go. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Viso fornisce l'accesso ad algoritmi avanzati per il rilevamento e il riconoscimento dei visi umani nelle immagini.
 
@@ -31,10 +31,10 @@ Installare la libreria client del servizio Viso per Go per:
 
 * Versione più recente di [Go](https://golang.org/dl/)
 * Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/cognitive-services/)
-* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="creare una risorsa Viso"  target="_blank">creare una risorsa Viso <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa** .
+* Dopo aver creato la sottoscrizione di Azure, <a href="https://portal.azure.com/#create/Microsoft.CognitiveServicesFace"  title="creare una risorsa Viso"  target="_blank">creare una risorsa Viso <span class="docon docon-navigate-external x-hidden-focus"></span></a> nel portale di Azure per ottenere la chiave e l'endpoint. Al termine della distribuzione, fare clic su **Vai alla risorsa**.
     * La chiave e l'endpoint della risorsa creata sono necessari per connettere l'applicazione all'API Viso. La chiave e l'endpoint verranno incollati nel codice riportato di seguito nell'argomento di avvio rapido.
     * È possibile usare il piano tariffario gratuito (`F0`) per provare il servizio ed eseguire in un secondo momento l'aggiornamento a un livello a pagamento per la produzione.
-* Dopo aver ottenuto una chiave e un endpoint, [creare le variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e l'endpoint, denominate rispettivamente `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
+* Dopo aver ottenuto una chiave e un endpoint, [creare le variabili di ambiente](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave e l'endpoint, denominate rispettivamente `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
 
 ## <a name="setting-up"></a>Configurazione
 
@@ -112,7 +112,7 @@ Questi esempi di codice illustrano come completare le attività di base usando l
 ## <a name="authenticate-the-client"></a>Autenticare il client
 
 > [!NOTE] 
-> Questo argomento di avvio rapido presuppone che siano state [create variabili di ambiente](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication) per la chiave e l'endpoint del servizio Viso, denominate rispettivamente `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
+> Questo argomento di avvio rapido presuppone che siano state [create variabili di ambiente](../../../cognitive-services-apis-create-account.md#configure-an-environment-variable-for-authentication) per la chiave e l'endpoint del servizio Viso, denominate rispettivamente `FACE_SUBSCRIPTION_KEY` e `FACE_ENDPOINT`.
 
 Creare una funzione **main** e aggiungervi il codice seguente per creare un'istanza di un client con l'endpoint e la chiave. Creare un oggetto **[CognitiveServicesAuthorizer](https://godoc.org/github.com/Azure/go-autorest/autorest#CognitiveServicesAuthorizer)** con la chiave e usarlo con l'endpoint per creare un oggetto **[Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client)** . Questo codice crea anche un'istanza di un oggetto di contesto, che è necessario per la creazione di oggetti client. Definisce inoltre una posizione remota in cui si trovano alcune immagini di esempio di questo argomento di avvio rapido.
 
@@ -121,12 +121,12 @@ Creare una funzione **main** e aggiungervi il codice seguente per creare un'ista
 
 ## <a name="detect-faces-in-an-image"></a>Rilevare i visi in un'immagine
 
-Aggiungere il codice seguente al metodo **main** . Questo codice definisce un'immagine di esempio remota e specifica le caratteristiche del viso da estrarre dall'immagine. Specifica anche quale modello di intelligenza artificiale usare per estrarre i dati dal viso o dai visi rilevati. Per informazioni su queste opzioni, vedere [Specificare un modello di riconoscimento volto](../../Face-API-How-to-Topics/specify-recognition-model.md). Infine, il metodo **[DetectWithURL](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.DetectWithURL)** esegue l'operazione di rilevamento dei visi nell'immagine e salva i risultati nella memoria del programma.
+Aggiungere il codice seguente al metodo **main**. Questo codice definisce un'immagine di esempio remota e specifica le caratteristiche del viso da estrarre dall'immagine. Specifica anche quale modello di intelligenza artificiale usare per estrarre i dati dal viso o dai visi rilevati. Per informazioni su queste opzioni, vedere [Specificare un modello di riconoscimento volto](../../Face-API-How-to-Topics/specify-recognition-model.md). Infine, il metodo **[DetectWithURL](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client.DetectWithURL)** esegue l'operazione di rilevamento dei visi nell'immagine e salva i risultati nella memoria del programma.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_detect)]
 
 > [!TIP]
-> È anche possibile rilevare i visi in un'immagine locale. Vedere i metodi [Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client), ad esempio **DetectWithStream** .
+> È anche possibile rilevare i visi in un'immagine locale. Vedere i metodi [Client](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#Client), ad esempio **DetectWithStream**.
 
 ### <a name="display-detected-face-data"></a>Visualizzare i dati dei visi rilevati
 
@@ -169,13 +169,13 @@ Questo gruppo di immagini contiene tre set di immagini con un singolo viso che c
 
 ### <a name="create-persongroup"></a>Creare l'oggetto PersonGroup
 
-Dopo aver scaricato le immagini, aggiungere il codice seguente alla fine del metodo **main** . Questo codice autentica un oggetto **[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)** e quindi lo usa per definire un nuovo oggetto **PersonGroup** .
+Dopo aver scaricato le immagini, aggiungere il codice seguente alla fine del metodo **main**. Questo codice autentica un oggetto **[PersonGroupClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupClient)** e quindi lo usa per definire un nuovo oggetto **PersonGroup**.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_setup)]
 
 ### <a name="create-persongroup-persons"></a>Creare oggetti PersonGroup Person
 
-Il blocco di codice successivo autentica un oggetto **[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)** e lo usa per definire tre nuovi oggetti **PersonGroup Person** . Ognuno di questi oggetti rappresenta una singola persona nel set di immagini.
+Il blocco di codice successivo autentica un oggetto **[PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient)** e lo usa per definire tre nuovi oggetti **PersonGroup Person**. Ognuno di questi oggetti rappresenta una singola persona nel set di immagini.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_setup)]
 
@@ -186,11 +186,11 @@ Il codice seguente ordina le immagini in base al prefisso, rileva i visi e li as
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pgp_assign)]
 
 > [!TIP]
-> È anche possibile creare un **PersonGroup** dalle immagini remote a cui fa riferimento l'URL. Vedere i metodi [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient), ad esempio **AddFaceFromURL** .
+> È anche possibile creare un **PersonGroup** dalle immagini remote a cui fa riferimento l'URL. Vedere i metodi [PersonGroupPersonClient](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face#PersonGroupPersonClient), ad esempio **AddFaceFromURL**.
 
 ### <a name="train-persongroup"></a>Eseguire il training di PersonGroup
 
-Una volta assegnati i visi, eseguire il training di **PersonGroup** in modo che possa identificare le caratteristiche visive associate a ogni oggetto **Person** . Il codice seguente chiama il metodo **train** asincrono ed esegue il polling del risultato, visualizzando lo stato nella console.
+Una volta assegnati i visi, eseguire il training di **PersonGroup** in modo che possa identificare le caratteristiche visive associate a ogni oggetto **Person**. Il codice seguente chiama il metodo **train** asincrono ed esegue il polling del risultato, visualizzando lo stato nella console.
 
 [!code-go[](~/cognitive-services-quickstart-code/go/Face/FaceQuickstart.go?name=snippet_pg_train)]
 

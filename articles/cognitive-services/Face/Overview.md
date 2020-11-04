@@ -11,12 +11,12 @@ ms.date: 9/17/2020
 ms.author: pafarley
 ms.custom: cog-serv-seo-aug-2020
 keywords: riconoscimento facciale, riconoscimento volto, software di riconoscimento facciale, analisi del viso, corrispondenza dei volti, app di riconoscimento facciale, ricerca di volti per immagine, ricerca basata su riconoscimento facciale
-ms.openlocfilehash: 0a7e242add9fdaa9e169a4003e8ad8f39b1fb111
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ccc9ee3107d287844430be0ae089e4b7ac3a2f44
+ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91262485"
+ms.lasthandoff: 10/29/2020
+ms.locfileid: "92911444"
 ---
 # <a name="what-is-the-azure-face-service"></a>Che cos'è il servizio Viso di Azure?
 
@@ -34,7 +34,7 @@ Il servizio Viso offre varie funzioni di analisi facciale, descritte nelle sezio
 Il servizio Viso rileva i visi umani in un'immagine e restituisce le coordinate del rettangolo delle posizioni corrispondenti. Facoltativamente, la funzionalità di rilevamento volto può estrarre una serie di attributi relativi al viso, come posizione della testa, sesso, età, emozione, barba/baffi e occhiali.
 
 > [!NOTE]
-> La funzionalità di rilevamento volto è disponibile anche tramite il [servizio Visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home). Tuttavia, se si vogliono eseguire ulteriori operazioni con i dati relativi al viso, occorre usare questo servizio.
+> La funzionalità di rilevamento volto è disponibile anche tramite il [servizio Visione artificiale](../computer-vision/overview.md). Tuttavia, se si vogliono eseguire ulteriori operazioni con i dati relativi al viso, occorre usare questo servizio.
 
 ![Immagine di una donna e di un uomo, con rettangoli disegnati intorno ai visi e informazioni su età e sesso](./Images/Face.detection.jpg)
 
@@ -48,7 +48,7 @@ L'API di verifica esegue un'autenticazione in base a due visi rilevati o da un v
 
 L'API di individuazione di visi simili confronta un viso di destinazione con un set di visi candidati e individua un set più piccolo di visi simili a quello di destinazione. Questo è utile per eseguire una ricerca di volti per immagine. 
 
-Sono supportate due modalità di utilizzo, ovvero **matchPerson** e **matchFace**. La modalità **matchPerson** restituisce visi simili dopo aver filtrato in base all'appartenenza alla stessa persona usando l'[API di verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). La modalità **matchFace** ignora il filtro di appartenenza alla stessa persona. Restituisce un elenco di visi candidati simili, che possono appartenere o meno alla stessa persona.
+Sono supportate due modalità di utilizzo, ovvero **matchPerson** e **matchFace**. La modalità **matchPerson** restituisce visi simili dopo aver filtrato in base all'appartenenza alla stessa persona usando l' [API di verifica](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a). La modalità **matchFace** ignora il filtro di appartenenza alla stessa persona. Restituisce un elenco di visi candidati simili, che possono appartenere o meno alla stessa persona.
 
 L'esempio seguente mostra il viso di destinazione:
 
