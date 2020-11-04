@@ -3,16 +3,17 @@ title: EXP nel linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL esponente (EXP) in Azure Cosmos DB per restituire il valore esponenziale dell'espressione numerica specificata
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: d12ab39474f1df139bf2f9064d43f5ab7ecda16b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: adf80d36edbe8f9a5535e8fa04501918a62ea7ca
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100270"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335624"
 ---
 # <a name="exp-azure-cosmos-db"></a>EXP (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,7 +43,7 @@ EXP (<numeric_expr>)
   
   Il valore esponenziale del logaritmo naturale di un numero è il numero stesso: EXP (LOG (n)) = n. E il logaritmo naturale dell'esponente di un numero è il numero stesso: LOG (EXP (n)) = n.  
   
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
   
   Nell'esempio seguente viene dichiarata una variabile e restituito il valore esponenziale della variabile specificata (10).  
   

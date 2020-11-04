@@ -3,16 +3,17 @@ title: Autenticazione basata su certificati con Azure Cosmos DB e Active Directo
 description: Informazioni su come configurare un'identità di Azure AD per l'autenticazione basata su certificati per accedere alle chiavi da Azure Cosmos DB.
 author: voellm
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: a25cd2c0a9205dc184640e95f122c770b29cf24a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e0913351d40cd75da17d16cca119b4ad5ce20de0
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073248"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93334702"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Autenticazione basata su certificato per un'identità Azure AD per accedere alle chiavi da un account Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +32,7 @@ In questo passaggio si registrerà un'applicazione Web di esempio nell'account A
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-1. Aprire il riquadro **Active Directory** di Azure, passare al riquadro **registrazioni app** e selezionare **nuova registrazione** . 
+1. Aprire il riquadro **Active Directory** di Azure, passare al riquadro **registrazioni app** e selezionare **nuova registrazione**. 
 
    :::image type="content" source="./media/certificate-based-authentication/new-app-registration.png" alt-text="Registrazione nuova applicazione in Active Directory":::
 
@@ -41,13 +42,13 @@ In questo passaggio si registrerà un'applicazione Web di esempio nell'account A
    * **Tipi di account supportati** : scegliere gli **account solo nella directory dell'organizzazione (directory predefinita)** per consentire alle risorse nella directory corrente di accedere a questa applicazione. 
    * **URL di reindirizzamento** : scegliere l'applicazione di tipo **Web** e specificare un URL in cui è ospitata l'applicazione, che può essere qualsiasi URL. Per questo esempio, è possibile specificare un URL di test, ad esempio, `https://sampleApp.com` anche se l'app non esiste.
 
-   :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Registrazione nuova applicazione in Active Directory":::
+   :::image type="content" source="./media/certificate-based-authentication/register-sample-web-app.png" alt-text="Registrazione di un'applicazione Web di esempio":::
 
 1. Selezionare **Register (registra** ) dopo aver compilato il modulo.
 
-1. Dopo aver registrato l'app, prendere nota dell'ID dell' **applicazione (client)** e dell' **ID oggetto** . questi dettagli vengono usati nei passaggi successivi. 
+1. Dopo aver registrato l'app, prendere nota dell'ID dell' **applicazione (client)** e dell' **ID oggetto**. questi dettagli vengono usati nei passaggi successivi. 
 
-   :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Registrazione nuova applicazione in Active Directory":::
+   :::image type="content" source="./media/certificate-based-authentication/get-app-object-ids.png" alt-text="Ottenere gli ID dell'applicazione e dell'oggetto":::
 
 ## <a name="install-the-azuread-module"></a>Installare il modulo AzureAD
 
@@ -100,7 +101,7 @@ New-AzureADApplicationKeyCredential -ObjectId $application.ObjectId -CustomKeyId
 
 Il comando precedente restituisce un output simile allo screenshot seguente:
 
-:::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="Registrazione nuova applicazione in Active Directory":::
+:::image type="content" source="./media/certificate-based-authentication/certificate-based-credential-output.png" alt-text="Output per la creazione di credenziali basate su certificato":::
 
 ## <a name="configure-your-azure-cosmos-account-to-use-the-new-identity"></a>Configurare l'account Azure Cosmos per l'uso della nuova identità
 
@@ -108,9 +109,9 @@ Il comando precedente restituisce un output simile allo screenshot seguente:
 
 1. Passare all'account Azure Cosmos e aprire il **Pannello controllo di accesso (IAM)** .
 
-1. Selezionare **Aggiungi** e **Aggiungi assegnazione ruolo** . Aggiungere il sampleApp creato nel passaggio precedente con il ruolo **collaboratore** , come illustrato nello screenshot seguente:
+1. Selezionare **Aggiungi** e **Aggiungi assegnazione ruolo**. Aggiungere il sampleApp creato nel passaggio precedente con il ruolo **collaboratore** , come illustrato nello screenshot seguente:
 
-   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Registrazione nuova applicazione in Active Directory":::
+   :::image type="content" source="./media/certificate-based-authentication/configure-cosmos-account-with-identify.png" alt-text="Configurare l'account Azure Cosmos per l'uso della nuova identità":::
 
 1. Selezionare **Save (Salva** ) dopo aver compilato il modulo
 
@@ -124,9 +125,9 @@ Nella registrazione dell'app di Azure per l'applicazione client:
 
 1. Aprire il riquadro **Active Directory** di Azure, passare al riquadro **registrazioni app** e aprire l'app di esempio creata nel passaggio precedente. 
 
-1. Selezionare **certificati & segreti** e quindi **caricare il certificato** . Individuare il file di certificato creato nel passaggio precedente da caricare.
+1. Selezionare **certificati & segreti** e quindi **caricare il certificato**. Individuare il file di certificato creato nel passaggio precedente da caricare.
 
-1. Selezionare **Aggiungi** . Una volta caricato il certificato, vengono visualizzati i valori di identificazione personale, data di inizio e scadenza.
+1. Selezionare **Aggiungi**. Una volta caricato il certificato, vengono visualizzati i valori di identificazione personale, data di inizio e scadenza.
 
 ## <a name="access-the-keys-from-powershell"></a>Accedere alle chiavi da PowerShell
 
@@ -151,7 +152,7 @@ In questo passaggio si eseguirà l'accesso ad Azure usando l'applicazione e il c
 
 Il comando precedente visualizzerà le chiavi primarie e secondarie dell'account Azure Cosmos. È possibile visualizzare il log attività dell'account Azure Cosmos per verificare che la richiesta Get Keys abbia avuto esito positivo e che l'evento venga avviato dall'applicazione "sampleApp".
 
-:::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Registrazione nuova applicazione in Active Directory":::
+:::image type="content" source="./media/certificate-based-authentication/activity-log-validate-results.png" alt-text="Convalidare la chiamata Get Keys nel Azure AD":::
 
 ## <a name="access-the-keys-from-a-c-application"></a>Accedere alle chiavi da un'applicazione C# 
 
@@ -239,7 +240,7 @@ namespace TodoListDaemonWithCert
 
 Questo script restituisce le chiavi primarie e secondarie, come illustrato nello screenshot seguente:
 
-:::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="Registrazione nuova applicazione in Active Directory":::
+:::image type="content" source="./media/certificate-based-authentication/csharp-application-output.png" alt-text="output dell'applicazione CSharp":::
 
 Analogamente alla sezione precedente, è possibile visualizzare il log attività dell'account Azure Cosmos per verificare che l'evento di richiesta Get Keys venga avviato dall'applicazione "sampleApp". 
 

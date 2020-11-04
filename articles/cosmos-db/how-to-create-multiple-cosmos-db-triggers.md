@@ -3,16 +3,17 @@ title: Creare più trigger di funzioni di Azure indipendenti per Cosmos DB
 description: Informazioni su come configurare più trigger di Funzioni di Azure indipendenti per Cosmos DB per creare architetture basate su eventi.
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 07/17/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 14c18d0cae335f96cc2d95c79bcf39bf85ef6a2b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 78fff48a97965f0b80456cd3e56ed1507bc784fc
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101545"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336691"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>Creare più trigger di Funzioni di Azure per Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -29,7 +30,7 @@ Durante la creazione di flussi serverless basati su eventi usando il [trigger di
 
 ## <a name="optimizing-containers-for-multiple-triggers"></a>Ottimizzazione di contenitori per più trigger
 
-Considerando i *requisiti* del trigger di Funzioni di Azure per Cosmos DB, è necessario un secondo contenitore per archiviare lo stato, noto anche come *contenitore per i lease* . Ciò significa che è necessario un contenitore per i lease separato per ogni funzione di Azure?
+Considerando i *requisiti* del trigger di Funzioni di Azure per Cosmos DB, è necessario un secondo contenitore per archiviare lo stato, noto anche come *contenitore per i lease*. Ciò significa che è necessario un contenitore per i lease separato per ogni funzione di Azure?
 
 Sono disponibili due opzioni:
 

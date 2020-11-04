@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fe864212eaccb67335586ef8b25049529ab36b81
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e4e5f4c1a50c814174dbbd5d419fe24b2e9f88e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360753"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336681"
 ---
 # <a name="how-to-use-batch-transcription"></a>Come usare la trascrizione batch
 
@@ -36,8 +36,6 @@ La trascrizione batch è un set di operazioni API REST che consente di trascrive
 
 È possibile esaminare e testare l'API dettagliata, disponibile come [documento di spavalderia](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0).
 
-Questa API non richiede endpoint personalizzati e non prevede requisiti di concorrenza.
-
 I processi di trascrizione batch sono pianificati in base al massimo sforzo.
 Non è possibile stimare il momento in cui un processo cambierà nello stato in esecuzione, ma dovrebbe verificarsi entro pochi minuti sotto il normale carico di sistema. Una volta nello stato di esecuzione, la trascrizione viene eseguita più velocemente della velocità di riproduzione del runtime audio.
 
@@ -46,9 +44,12 @@ Non è possibile stimare il momento in cui un processo cambierà nello stato in 
 Come per tutte le funzionalità del servizio Voce, si crea una chiave di sottoscrizione dal [portale di Azure](https://portal.azure.com) seguendo la [guida introduttiva](overview.md#try-the-speech-service-for-free).
 
 >[!NOTE]
-> Per usare la trascrizione batch, è necessaria una sottoscrizione standard (S0) per il servizio di riconoscimento vocale. Le chiavi di sottoscrizione gratuite (F0) non funzionano. Per altre informazioni, vedere [prezzi e limiti](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Per usare la trascrizione batch, è necessaria una sottoscrizione standard (S0) per il servizio di riconoscimento vocale. Le chiavi di sottoscrizione gratuita (F0) non funzioneranno. Per altre informazioni, vedere [prezzi e limiti](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 Se si prevede di personalizzare i modelli, attenersi alla procedura descritta in [personalizzazione acustica](how-to-customize-acoustic-models.md) e [personalizzazione della lingua](how-to-customize-language-model.md). Per usare i modelli creati nella trascrizione batch, è necessario il percorso del modello. È possibile recuperare il percorso del modello quando si esaminano i dettagli del modello ( `self` proprietà). Un endpoint personalizzato distribuito *non è necessario* per il servizio di trascrizione batch.
+
+>[!NOTE]
+> Come parte dell'API REST, la trascrizione batch presenta un set di [quote e limiti](speech-services-quotas-and-limits.md#speech-to-text-quotas-and-limits-per-speech-resource)che è consigliabile esaminare. Per sfruttare al meglio la capacità di trascrizione batch di trascrivere in modo efficiente un numero elevato di file audio, è consigliabile inviare sempre più file per ogni richiesta o puntare a un contenitore di archiviazione BLOB con i file audio da trascrivere. Il servizio trascriverà i file simultaneamente riducendo il tempo di inversione. L'uso di più file in una singola richiesta è molto semplice e semplice. vedere la sezione relativa alla [configurazione](#configuration) . 
 
 ## <a name="batch-transcription-api"></a>API di trascrizione Batch
 
@@ -65,12 +66,16 @@ Per creare una trascrizione finale ordinata, usare i timestamp generati per espr
 
 ### <a name="configuration"></a>Configurazione
 
-I parametri di configurazione vengono forniti come JSON (uno o più file singoli):
+I parametri di configurazione vengono forniti come JSON.
+
+**Trascrizione di uno o più singoli file.** Se è presente più di un file da trascrivere, è consigliabile inviare più file in un'unica richiesta. L'esempio seguente usa tre file:
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -80,7 +85,7 @@ I parametri di configurazione vengono forniti come JSON (uno o più file singoli
 }
 ```
 
-I parametri di configurazione vengono forniti come JSON (elaborazione di un intero contenitore di archiviazione):
+**Elaborazione di un intero contenitore di archiviazione:**
 
 ```json
 {
@@ -93,12 +98,14 @@ I parametri di configurazione vengono forniti come JSON (elaborazione di un inte
 }
 ```
 
-Il codice JSON seguente specifica un modello con training personalizzato da usare in una trascrizione batch:
+**Usare un modello sottoposto a training personalizzato in una trascrizione batch.** L'esempio usa tre file:
 
 ```json
 {
   "contentUrls": [
-    "<URL to an audio file to transcribe>",
+    "<URL to an audio file 1 to transcribe>",
+    "<URL to an audio file 2 to transcribe>",
+    "<URL to an audio file 3 to transcribe>"
   ],
   "properties": {
     "wordLevelTimestampsEnabled": true
@@ -163,7 +170,7 @@ Usare queste proprietà facoltative per configurare la trascrizione:
       `timeToLive`
    :::column-end:::
    :::column span="2":::
-      Facoltativo, nessuna eliminazione per impostazione predefinita. Durata per eliminare automaticamente le trascrizioni dopo aver completato la trascrizione. `timeToLive`È utile nelle trascrizioni di elaborazione di massa per assicurarsi che vengano eliminate, ad esempio `PT12H` per 12 ore.
+      Facoltativo, nessuna eliminazione per impostazione predefinita. Durata per eliminare automaticamente le trascrizioni dopo aver completato la trascrizione. `timeToLive`È utile nelle trascrizioni di elaborazione di massa per assicurarsi che vengano eliminate, ad esempio per `PT12H` 12 ore.
 :::row-end:::
 :::row:::
    :::column span="1":::
@@ -173,7 +180,7 @@ Usare queste proprietà facoltative per configurare la trascrizione:
       URL facoltativo con firma di accesso condiviso [ad hoc del servizio](../../storage/common/storage-sas-overview.md) in un contenitore scrivibile in Azure. Il risultato viene archiviato in questo contenitore. La firma di accesso condiviso con criteri di accesso archiviati **non** è supportata. Quando non è specificato, Microsoft archivia i risultati in un contenitore di archiviazione gestito da Microsoft. Quando la trascrizione viene eliminata chiamando la [trascrizione Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), verranno eliminati anche i dati del risultato.
 :::row-end:::
 
-### <a name="storage"></a>Archiviazione:
+### <a name="storage"></a>Archiviazione
 
 La trascrizione batch può leggere l'audio da un URI Internet visibile pubblicamente ed è in grado di leggere audio o scrivere trascrizioni usando un URI SAS con [archiviazione BLOB di Azure](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview).
 
@@ -323,7 +330,80 @@ Aggiornare il codice di esempio con le informazioni sulla sottoscrizione, l'area
 
 Il codice di esempio configura il client e Invia la richiesta di trascrizione. Esegue quindi il polling delle informazioni sullo stato e i dettagli di stampa sullo stato della trascrizione.
 
-[!code-csharp[Code to check batch transcription status](~/samples-cognitive-services-speech-sdk/samples/batch/csharp/program.cs#transcriptionstatus)]
+```csharp
+// get the status of our transcriptions periodically and log results
+int completed = 0, running = 0, notStarted = 0;
+while (completed < 1)
+{
+    completed = 0; running = 0; notStarted = 0;
+
+    // get all transcriptions for the user
+    paginatedTranscriptions = null;
+    do
+    {
+        // <transcriptionstatus>
+        if (paginatedTranscriptions == null)
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync().ConfigureAwait(false);
+        }
+        else
+        {
+            paginatedTranscriptions = await client.GetTranscriptionsAsync(paginatedTranscriptions.NextLink).ConfigureAwait(false);
+        }
+
+        // delete all pre-existing completed transcriptions. If transcriptions are still running or not started, they will not be deleted
+        foreach (var transcription in paginatedTranscriptions.Values)
+        {
+            switch (transcription.Status)
+            {
+                case "Failed":
+                case "Succeeded":
+                    // we check to see if it was one of the transcriptions we created from this client.
+                    if (!createdTranscriptions.Contains(transcription.Self))
+                    {
+                        // not created form here, continue
+                        continue;
+                    }
+
+                    completed++;
+
+                    // if the transcription was successful, check the results
+                    if (transcription.Status == "Succeeded")
+                    {
+                        var paginatedfiles = await client.GetTranscriptionFilesAsync(transcription.Links.Files).ConfigureAwait(false);
+
+                        var resultFile = paginatedfiles.Values.FirstOrDefault(f => f.Kind == ArtifactKind.Transcription);
+                        var result = await client.GetTranscriptionResultAsync(new Uri(resultFile.Links.ContentUrl)).ConfigureAwait(false);
+                        Console.WriteLine("Transcription succeeded. Results: ");
+                        Console.WriteLine(JsonConvert.SerializeObject(result, SpeechJsonContractResolver.WriterSettings));
+                    }
+                    else
+                    {
+                        Console.WriteLine("Transcription failed. Status: {0}", transcription.Properties.Error.Message);
+                    }
+
+                    break;
+
+                case "Running":
+                    running++;
+                    break;
+
+                case "NotStarted":
+                    notStarted++;
+                    break;
+            }
+        }
+
+        // for each transcription in the list we check the status
+        Console.WriteLine(string.Format("Transcriptions status: {0} completed, {1} running, {2} not started yet", completed, running, notStarted));
+    }
+    while (paginatedTranscriptions.NextLink != null);
+
+    // </transcriptionstatus>
+    // check again after 1 minute
+    await Task.Delay(TimeSpan.FromMinutes(1)).ConfigureAwait(false);
+}
+```
 
 Per dettagli completi sulle chiamate precedenti, vedere il [documento di spavalderia](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0). L'esempio completo illustrato qui è disponibile in [GitHub](https://aka.ms/csspeech/samples), nella sottodirectory `samples/batch`.
 

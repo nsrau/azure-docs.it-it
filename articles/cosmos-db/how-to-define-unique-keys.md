@@ -3,16 +3,17 @@ title: Definire chiavi univoche per un contenitore di Azure Cosmos
 description: Informazioni su come definire chiavi univoche per un contenitore di Azure Cosmos usando portale di Azure, PowerShell, .NET, Java e diversi altri SDK.
 author: ThomasWeiss
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/02/2019
 ms.author: thweiss
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: b814100097897aff6047b8b6d6cc0e8ebaa409ba
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 55fc5222c1c245c56ba0a26caa816c5c845147c1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101528"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336623"
 ---
 # <a name="define-unique-keys-for-an-azure-cosmos-container"></a>Definire chiavi univoche per un contenitore di Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -27,7 +28,7 @@ Questo articolo presenta i diversi modi per definire [chiavi univoche](unique-ke
 
 1. Aprire il riquadro **Esplora dati** e selezionare il contenitore da usare.
 
-1. Fare clic su **Nuovo contenitore** .
+1. Fare clic su **Nuovo contenitore**.
 
 1. Nella finestra di dialogo **Aggiungi contenitore** , fare clic su **+ Aggiungi chiave univoca** per aggiungere una voce di chiave univoca.
 

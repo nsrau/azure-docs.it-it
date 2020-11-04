@@ -3,16 +3,17 @@ title: DateTimePart in linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL DateTimePart in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: dd88f8d6a0f5271da97d6f2f95eecb60bf94ed78
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 97eaff405086190b60279ac7d5cf8bf441c8f840
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095799"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336368"
 ---
 # <a name="datetimepart-azure-cosmos-db"></a>DateTimePart (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -58,7 +59,7 @@ DateTimePart restituirà `undefined` per i motivi seguenti:
 
 Questa funzione di sistema non utilizzerà l'indice.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Di seguito è riportato un esempio in cui viene restituito il valore integer del mese:
 

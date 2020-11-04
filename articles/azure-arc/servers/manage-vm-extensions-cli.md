@@ -3,32 +3,19 @@ title: Abilitare l'estensione macchina virtuale usando l'interfaccia della riga 
 description: Questo articolo descrive come distribuire le estensioni delle macchine virtuali nei server abilitati per Azure Arc in esecuzione in ambienti cloud ibridi usando l'interfaccia della riga di comando di Azure.
 ms.date: 10/19/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8f09914f246635f07b3c51c682bd67591c706732
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.custom: devx-track-azurecli
+ms.openlocfilehash: 99504c86046c1ef34eeab500a703b9a028cb46fb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462960"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336750"
 ---
 # <a name="enable-azure-vm-extensions-using-the-azure-cli"></a>Abilitare le estensioni di VM di Azure usando l'interfaccia della riga di comando
 
 Questo articolo illustra come distribuire e disinstallare le estensioni delle macchine virtuali di Azure, supportate da server abilitati per Azure Arc, in un computer ibrido Linux o Windows usando l'interfaccia della riga di comando di Azure.
 
 [!INCLUDE [Azure CLI Prepare your environment](../../../includes/azure-cli-prepare-your-environment.md)]
-
-## <a name="prerequisites"></a>Prerequisiti
-
-[Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
-
-Prima di usare l'interfaccia della riga di comando di Azure per gestire le estensioni di macchina virtuale nel server ibrido gestito da server abilitati per Arc, è necessario installare l' `ConnectedMachine` estensione cli. Eseguire il comando seguente nel server abilitato per Arc:
-
-```azurecli
-az extension add connectedmachine
-```
-
-Al termine dell'installazione, viene restituito il messaggio seguente:
-
-`The installed extension `connectedmachine` is experimental and not covered by customer support. Please use with discretion.`
 
 ## <a name="enable-extension"></a>Abilita estensione
 

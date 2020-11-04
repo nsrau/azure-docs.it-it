@@ -3,16 +3,17 @@ title: DateTimeFromParts in linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL DateTimeFromParts in Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/09/2020
 ms.author: tisande
 ms.custom: query-reference
-ms.openlocfilehash: a897c5d08abd71fcda380363e3f26304bc69f876
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: da992715b5cf624592db72cacefd35c9513ac43f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095813"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335773"
 ---
 # <a name="datetimefromparts-azure-cosmos-db"></a>DateTimeFromParts (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -67,7 +68,7 @@ Se gli Integer specificati creeranno un valore DateTime non valido, DateTimeFrom
 
 Se non si specifica un argomento facoltativo, il valore sarà 0.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Di seguito è riportato un esempio che include solo gli argomenti obbligatori per costruire un valore DateTime:
 

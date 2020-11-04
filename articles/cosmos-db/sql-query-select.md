@@ -3,15 +3,16 @@ title: Clausola SELECT in Azure Cosmos DB
 description: Informazioni sulla clausola SQL SELECT per Azure Cosmos DB. Usare SQL come linguaggio di query JSON Azure Cosmos DB.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/08/2020
 ms.author: tisande
-ms.openlocfilehash: 4d518461f8526a742a59d92140e2cf323e8bfc16
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 072e17b1c0ea312b4adfa1687e447fd2cadde233
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082556"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93335442"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Clausola SELECT in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -76,7 +77,7 @@ La sintassi di `SELECT *` è valida solo se la clausola FROM ha dichiarato esatt
   
    `SELECT VALUE { p1: <expr1>, p2: <expr2>, ..., pN: <exprN> }[other clauses...]`  
   
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 L'esempio di query SELECT seguente restituisce `address` da le `Families` cui `id` corrispondenze `AndersenFamily` :
 

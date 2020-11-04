@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/28/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: f65707d80461385c28369e75a294865e03f8c662
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: cbe3ef7080397b135ea0fb17cd50de9b1ccfdf09
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92367738"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93336120"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Creare e gestire gruppi di azione nel portale di Azure
 Un gruppo di azioni è una raccolta delle preferenze di notifica definite dal proprietario di una sottoscrizione di Azure. Gli avvisi di Monitoraggio di Azure e di integrità dei servizi usano gruppi di azioni per notificare agli utenti l'attivazione di un avviso. I vari avvisi possono usare lo stesso gruppo di azioni o gruppi di azioni diversi, a seconda delle esigenze dell'utente. In una sottoscrizione è possibile configurare fino a 2000 gruppi di azioni.
@@ -20,9 +20,9 @@ Questo articolo illustra come creare e gestire gruppi di azione nel portale di A
 
 Ogni azione è composta dalle seguenti proprietà:
 
-* **Tipo**: la notifica o l'azione eseguita. Gli esempi includono l'invio di una chiamata vocale, un SMS o un messaggio di posta elettronica oppure l'attivazione di vari tipi di azioni automatizzate. Vedere i tipi più avanti in questo articolo.
-* **Name**: un identificatore univoco all'interno del gruppo di azioni.
-* **Dettagli**: i dettagli corrispondenti che variano in base al *tipo*.
+* **Tipo** : la notifica o l'azione eseguita. Gli esempi includono l'invio di una chiamata vocale, un SMS o un messaggio di posta elettronica oppure l'attivazione di vari tipi di azioni automatizzate. Vedere i tipi più avanti in questo articolo.
+* **Name** : un identificatore univoco all'interno del gruppo di azioni.
+* **Dettagli** : i dettagli corrispondenti che variano in base al *tipo*.
 
 Per informazioni sull'uso dei modelli di Azure Resource Manager per configurare i gruppi di azione: [Modelli di Resource Manager per il gruppo di azione](./action-groups-create-resource-manager-template.md).
 
@@ -30,23 +30,23 @@ Per informazioni sull'uso dei modelli di Azure Resource Manager per configurare 
 
 1. Nel [portale di Azure](https://portal.azure.com) cercare e selezionare **Monitoraggio**. Il riquadro **Monitoraggio** consolida tutte le impostazioni e i dati di monitoraggio in una vista.
 
-1. Selezionare **avvisi**, quindi fare clic su **Gestisci azioni**.
+1. Selezionare **avvisi** , quindi fare clic su **Gestisci azioni**.
 
     ![Pulsante Gestisci azioni](./media/action-groups/manage-action-groups.png)
     
-1. Selezionare **Aggiungi gruppo di azione**e compilare i campi pertinenti nell'esperienza della procedura guidata.
+1. Selezionare **Aggiungi gruppo di azione** e compilare i campi pertinenti nell'esperienza della procedura guidata.
 
     ![Comando "Aggiungi gruppo di azione"](./media/action-groups/add-action-group.PNG)
 
 ### <a name="configure-basic-action-group-settings"></a>Configurare le impostazioni del gruppo di azioni di base
 
-In **Dettagli progetto**:
+In **Dettagli progetto** :
 
 Selezionare la **sottoscrizione** e il **gruppo di risorse** in cui viene salvato il gruppo di azioni.
 
-In **Dettagli istanza**:
+In **Dettagli istanza** :
 
-1. Immettere un **nome**per il gruppo di azioni.
+1. Immettere un **nome** per il gruppo di azioni.
 
 1. Immettere un **nome visualizzato**. Il nome visualizzato viene usato al posto di un nome completo del gruppo di azioni quando le notifiche vengono inviate usando questo gruppo.
 
@@ -59,15 +59,15 @@ In **Dettagli istanza**:
 
 1. Consente di definire un elenco di notifiche da inviare quando viene attivato un avviso. Fornire quanto segue per ogni notifica:
 
-    a. **Tipo di notifica**: selezionare il tipo di notifica che si vuole inviare. Sono disponibili le opzioni seguenti:
+    a. **Tipo di notifica** : selezionare il tipo di notifica che si vuole inviare. Le opzioni disponibili sono:
       * Invia un messaggio di posta elettronica al ruolo Azure Resource Manager-invia un messaggio di posta elettronica agli utenti assegnati a determinati ruoli ARM di livello sottoscrizione.
       * Posta elettronica/SMS/push/Voice: inviare questi tipi di notifiche a destinatari specifici.
     
-    b. **Nome**: immettere un nome univoco per la notifica.
+    b. **Nome** : immettere un nome univoco per la notifica.
 
-    c. **Dettagli**: in base al tipo di notifica selezionato, immettere un indirizzo di posta elettronica, un numero di telefono e così via.
+    c. **Dettagli** : in base al tipo di notifica selezionato, immettere un indirizzo di posta elettronica, un numero di telefono e così via.
     
-    d. **Schema di avviso comune**: è possibile scegliere di abilitare lo [schema di avviso comune](./alerts-common-schema.md), che fornisce il vantaggio di avere un singolo payload degli avvisi estendibile e unificato per tutti i servizi di avviso in Monitoraggio di Azure.
+    d. **Schema di avviso comune** : è possibile scegliere di abilitare lo [schema di avviso comune](./alerts-common-schema.md), che fornisce il vantaggio di avere un singolo payload degli avvisi estendibile e unificato per tutti i servizi di avviso in Monitoraggio di Azure.
 
     ![Scheda notifiche](./media/action-groups/action-group-2-notifications.png)
     
@@ -77,13 +77,13 @@ In **Dettagli istanza**:
 
 1. Definire un elenco di azioni da attivare quando viene attivato un avviso. Per ogni azione, specificare quanto segue:
 
-    a. **Tipo di azione**: selezionare Runbook di automazione, funzione di Azure, ITSM, app per la logica, webhook sicuro, webhook.
+    a. **Tipo di azione** : selezionare Runbook di automazione, funzione di Azure, ITSM, app per la logica, webhook sicuro, webhook.
     
-    b. **Nome**: immettere un nome univoco per l'azione.
+    b. **Nome** : immettere un nome univoco per l'azione.
 
-    c. **Dettagli**: in base al tipo di azione, immettere un URI del webhook, un'app di Azure, una connessione ITSM o Runbook di automazione. Per l'azione ITSM, specificare anche **Elemento di lavoro** e altri campi richiesti dallo strumento ITSM.
+    c. **Dettagli** : in base al tipo di azione, immettere un URI del webhook, un'app di Azure, una connessione ITSM o Runbook di automazione. Per l'azione ITSM, specificare anche **Elemento di lavoro** e altri campi richiesti dallo strumento ITSM.
     
-    d. **Schema di avviso comune**: è possibile scegliere di abilitare lo [schema di avviso comune](./alerts-common-schema.md), che fornisce il vantaggio di avere un singolo payload degli avvisi estendibile e unificato per tutti i servizi di avviso in Monitoraggio di Azure.
+    d. **Schema di avviso comune** : è possibile scegliere di abilitare lo [schema di avviso comune](./alerts-common-schema.md), che fornisce il vantaggio di avere un singolo payload degli avvisi estendibile e unificato per tutti i servizi di avviso in Monitoraggio di Azure.
     
     ![Scheda azioni](./media/action-groups/action-group-3-actions.png)
 
@@ -287,7 +287,9 @@ Per ricevere aggiornamenti sulle modifiche apportate a questi indirizzi IP, è c
 
 Un Gruppo di azioni può contenere un numero limitato di azioni di tipo Webhook.
 
-### <a name="service-tag"></a>Tag del servizio
+Gli aggiornamenti frequenti degli indirizzi IP di origine possono richiedere molto tempo nel webhook. L'uso di **tag di servizio** per *ActionGroup* consente di ridurre la complessità degli aggiornamenti frequenti agli indirizzi IP manualmente. I prefissi di intervallo di indirizzi IP di origine condivisi sopra sono gestiti automaticamente da Microsoft inclusi nel **tag di servizio**.
+
+#### <a name="service-tag"></a>Tag del servizio
 Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi, riducendo al minimo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete per un ActionGroup.
 
 1. In portale di Azure in servizi di Azure cercare il *gruppo di sicurezza di rete*.
@@ -308,11 +310,9 @@ Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un dete
 4. Nel riquadro destro viene aperta una nuova finestra.
     1.  Seleziona origine: **tag servizio**
     1.  Tag del servizio di origine: **ActionGroup**
-    1.  Fare clic su **Aggiungi**.
+    1.  Scegliere **Aggiungi**.
     
     :::image type="content" source="media/action-groups/action-group-service-tag.png" alt-text="Esempio su come aggiungere un tag di servizio."border="true":::
-
-L'uso di **tag di servizio** per ActionGroup consente di ridurre al minimo la complessità degli aggiornamenti frequenti degli indirizzi IP.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [Comportamento degli avvisi SMS](./alerts-sms-behavior.md).  
