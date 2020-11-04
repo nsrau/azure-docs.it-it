@@ -8,16 +8,16 @@ ms.date: 08/11/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 66c331a79a4da7b8fb397e7d0209b24e00645783
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 20b2f74b33ae57016188ee66af29570f7ec1b529
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741722"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289269"
 ---
 # <a name="azure-cli---restrict-importexport-access-for-managed-disks-with-private-links"></a>Interfaccia della riga di comando di Azure: limitare l'accesso di importazione/esportazione per i dischi gestiti con collegamenti privati
 
-Il supporto per i collegamenti privati con i dischi gestiti è attualmente in anteprima. È possibile usare [endpoint privati](../../private-link/private-endpoint-overview.md) per limitare l'esportazione e l'importazione di dischi gestiti e accedere in modo sicuro ai dati tramite un [collegamento privato](../../private-link/private-link-overview.md) dai client nella rete virtuale di Azure. L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della rete virtuale per il servizio Managed Disks. Il traffico di rete tra i client nella rete virtuale e i dischi gestiti passa soltanto attraverso la rete virtuale e un collegamento privato sulla rete backbone Microsoft, eliminando l'esposizione alla rete Internet pubblica.
+È possibile usare [endpoint privati](../../private-link/private-endpoint-overview.md) per limitare l'esportazione e l'importazione di dischi gestiti e accedere in modo sicuro ai dati tramite un [collegamento privato](../../private-link/private-link-overview.md) dai client nella rete virtuale di Azure. L'endpoint privato usa un indirizzo IP dello spazio di indirizzi della rete virtuale per il servizio Managed Disks. Il traffico di rete tra i client nella rete virtuale e i dischi gestiti passa soltanto attraverso la rete virtuale e un collegamento privato sulla rete backbone Microsoft, eliminando l'esposizione alla rete Internet pubblica.
 
 Per usare i Collegamenti privati per esportare/importare i dischi gestiti, creare prima di tutto una risorsa di accesso al disco e collegarla a una rete virtuale nella stessa sottoscrizione creando un endpoint privato. Quindi, associare un disco o uno snapshot a un'istanza di accesso al disco. Infine, impostare la proprietà NetworkAccessPolicy del disco o dello snapshot su `AllowPrivate`. In questo modo si limiterà l'accesso alla rete virtuale. 
 

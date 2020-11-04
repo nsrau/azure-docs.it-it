@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/06/2019
-ms.openlocfilehash: d23702a71bababec2e172181c8e75c26241d0460
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: b7ec7273848b9e8bb5be809b9cf48cdc919d3949
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91348100"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307976"
 ---
 # <a name="quickstart-create-your-first-data-science-experiment-in-machine-learning-studio-classic"></a>Avvio rapido: Creare il primo esperimento data science in Machine Learning Studio (classico)
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 [!INCLUDE [Designer notice](../../../includes/designer-notice.md)]
@@ -78,7 +78,7 @@ In questo set di dati ogni riga rappresenta un'automobile e le variabili associa
 
 ![Visualizzare i dati delle automobili nella finestra di visualizzazione dei dati](./media/create-experiment/visualize-auto-data.png)
 
-Chiudere la finestra di visualizzazione facendo clic sulla "**x**" nell'angolo superiore destro.
+Chiudere la finestra di visualizzazione facendo clic sulla " **x** " nell'angolo superiore destro.
 
 ## <a name="prepare-the-data"></a>Preparare i dati
 
@@ -99,7 +99,7 @@ In primo luogo si aggiunge un modulo che rimuove completamente la colonna **norm
 
    - A sinistra, fare clic su **With rules** (Con regole)
    - In **Begin With** (Inizia con), fare clic su **All columns** (Tutte le colonne). Queste regole indicano a [Select Columns in Dataset][select-columns] di analizzare tutte le colonne, ad eccezione di quelle che verranno escluse.
-   - Negli elenchi a discesa selezionare **Escludi** e **nomi colonna**, quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
+   - Negli elenchi a discesa selezionare **Escludi** e **nomi colonna** , quindi fare clic all'interno della casella di testo. Verrà visualizzato un elenco di colonne. Selezionare **normalized-losses** per aggiungere la colonna alla casella di testo.
    - Fare clic sul pulsante del segno di spunta (OK) per chiudere il selettore di colonne nella parte inferiore destra.
 
      ![Avviare il selettore di colonne ed escludere la colonna "normalized-losses"](./media/create-experiment/launch-column-selector.png)
@@ -148,7 +148,7 @@ Verrà ora creato un modello che usa un sottoinsieme delle caratteristiche del s
 
 1. Fare clic su **Launch column selector** nel riquadro **Proprietà**.
 
-1. Fare clic su **With rules**(Con regole).
+1. Fare clic su **With rules** (Con regole).
 
 1. In **Begin With** (Inizia con), fare clic su **No columns** (Nessuna colonna). Nella riga del filtro, scegliere **Include** (Includi) e **i nomi delle colonne** e selezionare l'elenco dei nomi delle colonne nella casella di testo. Questo filtro indica al modulo di non analizzare le colonne (caratteristiche), a eccezione di quelle specificate.
 
@@ -179,7 +179,7 @@ Il training e il test del modello verranno eseguiti con dati separati in un set 
     ![Impostare la frazione di divisione del modulo "Split Data" su 0,75](./media/create-experiment/set-split-data-percentage.png)
 
     > [!TIP]
-    > Modificando il parametro **Random seed**, è possibile ottenere esempi casuali diversi per training e test. Questo parametro controlla il seeding del generatore di numeri pseudocasuali.
+    > Modificando il parametro **Random seed** , è possibile ottenere esempi casuali diversi per training e test. Questo parametro controlla il seeding del generatore di numeri pseudocasuali.
 
 1. Eseguire l'esperimento. Durante l'esecuzione dell'esperimento, i moduli [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) e [Split Data][split] (Dividi dati) passano le definizioni di colonna ai moduli che verranno aggiunti successivamente.  
 
@@ -227,11 +227,11 @@ Per il modello vengono visualizzate le seguenti statistiche:
 
 - **Errore assoluto medio** (MAE): Media degli errori assoluti (un *errore* è la differenza tra il valore stimato e quello effettivo).
 - **Radice dell'errore quadratico medio** (RMSE): Radice quadrata della media degli errori quadratici delle stime effettuate sul set di dati di test.
-- **Errore assoluto relativo**: Media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
-- **Errore quadratico relativo**: Media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
-- **Coefficiente di determinazione**: Noto anche come **valore quadratico R**, è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
+- **Errore assoluto relativo** : Media degli errori assoluti relativamente alla differenza assoluta tra i valori effettivi e la media di tutti i valori effettivi.
+- **Errore quadratico relativo** : Media degli errori quadratici relativamente alla differenza quadratica tra i valori effettivi e la media di tutti i valori effettivi.
+- **Coefficiente di determinazione** : Noto anche come **valore quadratico R** , è una metrica statistica che indica l'esattezza del modello rispetto ai dati.
 
-Per ogni statistica di errore, sono preferibili i valori più piccoli. Un valore più piccolo indica che le stime sono più vicine ai valori effettivi. Per **Coefficient of Determination**più il valore si avvicina a uno (1,0) più le stime sono migliori.
+Per ogni statistica di errore, sono preferibili i valori più piccoli. Un valore più piccolo indica che le stime sono più vicine ai valori effettivi. Per **Coefficient of Determination** più il valore si avvicina a uno (1,0) più le stime sono migliori.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -245,10 +245,10 @@ In questa guida introduttiva è stato creato un semplice esperimento con un set 
 > [Esercitazione: Sviluppare una soluzione predittiva in Studio (classico)](tutorial-part1-credit-risk.md)
 
 <!-- Module References -->
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model

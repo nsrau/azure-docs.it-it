@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: 46826319cdd2ba55d469704a09656b61c96ce798
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: f228386d8cf0e708080b7f6c5f6cef7258b2eafb
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743150"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099981"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-core-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con .NET Core e Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -175,13 +176,13 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
     ```
 3. Premere CTRL + F5 per eseguire l'applicazione. L'app viene visualizzata nella finestra della console. 
 
-    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Visualizzare e copiare un chiave di accesso dalla pagina Stringa di connessione del portale di Azure":::
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Visualizzare e verificare l'output":::
 
     Premere CTRL+C per interrompere l'esecuzione del programma e chiudere la finestra della console. 
     
 4. Nel portale di Azure aprire **Esplora dati** per modificare e usare questi nuovi dati, nonché eseguire query su di essi.
 
-    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Visualizzare e copiare un chiave di accesso dalla pagina Stringa di connessione del portale di Azure":::
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Visualizzare i dati in Esplora dati":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

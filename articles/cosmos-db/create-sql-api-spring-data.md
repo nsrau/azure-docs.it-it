@@ -9,15 +9,15 @@ ms.topic: quickstart
 ms.date: 10/06/2020
 ms.author: anfeldma
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: b0939191a8029ef30f17500bbaaa7eb32b5a6d7e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: f31eb0fa6dbb881f7a09b21b9dd4842fdfd291f5
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92486549"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93090291"
 ---
 # <a name="quickstart-build-a-spring-data-azure-cosmos-db-v3-app-to-manage-azure-cosmos-db-sql-api-data"></a>Avvio rapido: Creare un'app Spring Data Azure Cosmos DB v3 per gestire i dati dell'API SQL di Azure Cosmos DB
-
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -54,7 +54,7 @@ In questo argomento di avvio rapido verrà creato e gestito un account API SQL d
 
 :::image type="content" source="./media/account-databases-containers-items/cosmos-entities.png" alt-text="Entità dell'account Azure Cosmos DB" border="false":::
 
-Altre informazioni su database, contenitori ed elementi sono disponibili [qui](account-databases-containers-items.md). Alcune proprietà importanti sono definite a livello del contenitore, tra cui *velocità effettiva con provisioning* e *chiave di partizione* . 
+Altre informazioni su database, contenitori ed elementi sono disponibili [qui](account-databases-containers-items.md). Alcune proprietà importanti sono definite a livello del contenitore, tra cui *velocità effettiva con provisioning* e *chiave di partizione*. 
 
 La velocità effettiva con provisioning viene misurata in unità richiesta ( *UR* ) che hanno un prezzo monetario e rappresentano un fattore determinante sostanziale nel costo operativo dell'account. È possibile selezionare la velocità effettiva con provisioning in base alla granularità per contenitore o alla granularità per database, ma è in genere preferibile specificare la velocità effettiva a livello di contenitore. Per altre informazioni sul provisioning della velocità effettiva, vedere [qui.](set-throughput.md)
 
@@ -107,7 +107,7 @@ dynamic.collection.name=spel-property-collection
 cosmos.queryMetricsEnabled=true
 ```
 
-Dopo aver creato un account, un database e un contenitore Azure Cosmos DB, è sufficiente inserire le informazioni nel file di configurazione e tramite Spring Boot/Spring Data verranno eseguite automaticamente le operazioni seguenti: (1) creazione di un'istanza di `CosmosClient` Java SDK sottostante con l'URI e la chiave e (2) connessione al database e al contenitore. Tutta la configurazione viene eseguita **senza codice di gestione delle risorse** .
+Dopo aver creato un account, un database e un contenitore Azure Cosmos DB, è sufficiente inserire le informazioni nel file di configurazione e tramite Spring Boot/Spring Data verranno eseguite automaticamente le operazioni seguenti: (1) creazione di un'istanza di `CosmosClient` Java SDK sottostante con l'URI e la chiave e (2) connessione al database e al contenitore. Tutta la configurazione viene eseguita **senza codice di gestione delle risorse**.
 
 ### <a name="java-source"></a>Origine Java
 

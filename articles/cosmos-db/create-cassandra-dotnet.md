@@ -9,14 +9,15 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 10/01/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7389136d5f08c7efd0c0443387744ce4c5816f00
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 13706b900c64b1d0aa5ce03fc95442e8dfc41051
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91627364"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099828"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-net-sdk-and-azure-cosmos-db"></a>Avvio rapido: Creare un'app Cassandra con .NET SDK e Azure Cosmos DB
+[!INCLUDE[appliesto-cassandra-api](includes/appliesto-cassandra-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-cassandra-dotnet.md)
@@ -97,7 +98,7 @@ Questo passaggio è facoltativo. Per comprendere in che modo il codice crea le r
 * Inserire le entità utente usando l'oggetto IMapper con una nuova sessione che si connette al keyspace uprofile.
 
     ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
     ```
     
 * Eseguire una query per ottenere tutte le informazioni utente.
@@ -158,13 +159,13 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
     ```
 3. Premere CTRL + F5 per eseguire l'applicazione. L'app viene visualizzata nella finestra della console. 
 
-    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Visualizzare e copiare un chiave di accesso dalla pagina Stringa di connessione del portale di Azure":::
+    :::image type="content" source="./media/create-cassandra-dotnet/output.png" alt-text="Visualizzare e verificare l'output":::
 
     Premere CTRL+C per interrompere l'esecuzione del programma e chiudere la finestra della console. 
     
 4. Nel portale di Azure aprire **Esplora dati** per modificare e usare questi nuovi dati, nonché eseguire query su di essi.
 
-    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Visualizzare e copiare un chiave di accesso dalla pagina Stringa di connessione del portale di Azure":::
+    :::image type="content" source="./media/create-cassandra-dotnet/data-explorer.png" alt-text="Visualizzare i dati in Esplora dati":::
 
 ## <a name="review-slas-in-the-azure-portal"></a>Esaminare i contratti di servizio nel portale di Azure
 

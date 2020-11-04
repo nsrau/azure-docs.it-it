@@ -10,14 +10,14 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, identityplatformtop40, contperfq1
+ms.custom: aaddev, identityplatformtop40, contperfq1, contentperfq2
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 9cd59d6bf5b9bf6e17cba0786bfac27ed12d7638
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: ed4e3c54bd4aa6be314fe7ec12d6ba6e7cf949d9
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91258133"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93083321"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>Guida introduttiva: Registrare un'applicazione con Microsoft Identity Platform
 
@@ -55,11 +55,11 @@ Per creare la registrazione dell'app, seguire questa procedura:
 
     :::image type="content" source="media/quickstart-register-app/portal-02-app-reg-01.png" alt-text="Screenshot del portale di Azure in un Web browser che mostra il riquadro Registra un'applicazione.":::
 
-Al termine della registrazione, nel portale di Azure viene visualizzato il riquadro **Panoramica** della registrazione dell'app, che include il relativo valore di **ID applicazione (client)** . Noto anche solo come *ID client*, questo valore identifica in modo univoco l'applicazione in Microsoft Identity Platform.
+Al termine della registrazione, nel portale di Azure viene visualizzato il riquadro **Panoramica** della registrazione dell'app, che include il relativo valore di **ID applicazione (client)** . Noto anche solo come *ID client* , questo valore identifica in modo univoco l'applicazione in Microsoft Identity Platform.
 
 L'ID client viene usato anche nel codice dell'applicazione o, in genere, in una libreria di autenticazione usata nell'applicazione, come fattore per la convalida dei token di sicurezza ricevuti dalla piattaforma di gestione delle identità.
 
-:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot del portale di Azure in un Web browser che mostra il riquadro Registra un'applicazione.":::
+:::image type="content" source="media/quickstart-register-app/portal-03-app-reg-02.png" alt-text="Screenshot del portale di Azure in un Web browser che mostra il riquadro Panoramica della registrazione dell'app.":::
 
 ## <a name="add-a-redirect-uri"></a>Aggiungere un URI di reindirizzamento
 
@@ -71,7 +71,7 @@ Per aggiungere e modificare gli URI di reindirizzamento per le applicazioni regi
 
 ### <a name="configure-platform-settings"></a>Configurare le impostazioni della piattaforma
 
-Le impostazioni per ogni tipo di applicazione, inclusi gli URI di reindirizzamento, vengono configurate in **Configurazioni della piattaforma** nel portale di Azure. Con alcune piattaforme, ad esempio le applicazioni **Web** e **a pagina singola**, è necessario specificare manualmente un URI di reindirizzamento. Per altre piattaforme, ad esempio per applicazioni desktop e per dispositivi mobili, è possibile selezionare uno degli URI di reindirizzamento generati quando si configurano le altre impostazioni di tali piattaforme.
+Le impostazioni per ogni tipo di applicazione, inclusi gli URI di reindirizzamento, vengono configurate in **Configurazioni della piattaforma** nel portale di Azure. Con alcune piattaforme, ad esempio le applicazioni **Web** e **a pagina singola** , è necessario specificare manualmente un URI di reindirizzamento. Per altre piattaforme, ad esempio per applicazioni desktop e per dispositivi mobili, è possibile selezionare uno degli URI di reindirizzamento generati quando si configurano le altre impostazioni di tali piattaforme.
 
 Per configurare le impostazioni dell'applicazione in base alla piattaforma o al dispositivo di destinazione:
 
@@ -80,14 +80,14 @@ Per configurare le impostazioni dell'applicazione in base alla piattaforma o al 
 1. In **Configurazioni della piattaforma** selezionare **Aggiungi una piattaforma**.
 1. In **Configura le piattaforme** selezionare il riquadro relativo al tipo di applicazione (piattaforma) per configurarne le impostazioni.
 
-    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Screenshot del portale di Azure in un Web browser che mostra il riquadro Registra un'applicazione." border="false":::
+    :::image type="content" source="media/quickstart-register-app/portal-04-app-reg-03-platform-config.png" alt-text="Screenshot del riquadro Configurazione della piattaforma nel portale di Azure" border="false":::
 
     | Piattaforma | Impostazioni di configurazione |
     | -------- | ---------------------- |
     | **Web** | Immettere un **URI di reindirizzamento** per l'app, ovvero la posizione a cui Microsoft Identity Platform reindirizza il client di un utente e invia i token di sicurezza dopo l'autenticazione.<br/><br/>Selezionare questa piattaforma per le applicazioni Web standard eseguite in un server. |
     | **Applicazione a pagina singola** | Immettere un **URI di reindirizzamento** per l'app, ovvero la posizione a cui Microsoft Identity Platform reindirizza il client di un utente e invia i token di sicurezza dopo l'autenticazione.<br/><br/>Selezionare questa piattaforma se si sta creando un'app Web lato client in JavaScript o con un framework come Angular, Vue.js, React.js o Blazor WebAssembly. |
-    | **iOS/macOS** | Immettere l'**ID bundle** dell'app, disponibile nell'ambiente XCode nel file *Info.plist* o nelle impostazioni di compilazione.<br/><br/>Quando si specifica un ID bundle, viene generato automaticamente un URI di reindirizzamento. |
-    | **Android** | Immettere il **nome del pacchetto** dell'app, disponibile nel file *AndroidManifest.xml* e quindi generare e immettere l'**hash della firma**.<br/><br/>Quando si specificano queste impostazioni, viene generato automaticamente un URI di reindirizzamento. |
+    | **iOS/macOS** | Immettere l' **ID bundle** dell'app, disponibile nell'ambiente XCode nel file *Info.plist* o nelle impostazioni di compilazione.<br/><br/>Quando si specifica un ID bundle, viene generato automaticamente un URI di reindirizzamento. |
+    | **Android** | Immettere il **nome del pacchetto** dell'app, disponibile nel file *AndroidManifest.xml* e quindi generare e immettere l' **hash della firma**.<br/><br/>Quando si specificano queste impostazioni, viene generato automaticamente un URI di reindirizzamento. |
     | **Applicazioni per dispositivi mobili e desktop** | Selezionare uno dei valori in **URI di reindirizzamento suggeriti** o specificare un **URI di reindirizzamento personalizzato**.<br/>Per le applicazioni desktop è consigliabile:<br/>`https://login.microsoftonline.com/common/oauth2/nativeclient`<br/><br/>Selezionare questa piattaforma per le applicazioni per dispositivi mobili che non usano la libreria MSAL (Microsoft Authentication Library) più recente o che non usano un broker. Selezionare questa piattaforma anche per le applicazioni desktop. |
 1. Selezionare **Configura** per completare la configurazione della piattaforma.
 
@@ -101,11 +101,11 @@ Le credenziali vengono usate dalle applicazioni client riservate che accedono a 
 
 È possibile aggiungere sia certificati che segreti client (una stringa) come credenziali della registrazione dell'app client riservata.
 
-:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot del portale di Azure in un Web browser che mostra il riquadro Registra un'applicazione.":::
+:::image type="content" source="media/quickstart-register-app/portal-05-app-reg-04-credentials.png" alt-text="Screenshot del portale di Azure che mostra il riquadro Certificati e segreti in una registrazione dell'app":::
 
 ### <a name="add-a-certificate"></a>Aggiungere un certificato
 
-Noti talvolta come *chiave pubblica*, i certificati sono il tipo di credenziale consigliato perché offrono un livello di garanzia superiore rispetto a un segreto client.
+Noti talvolta come *chiave pubblica* , i certificati sono il tipo di credenziale consigliato perché offrono un livello di garanzia superiore rispetto a un segreto client.
 
 1. Selezionare l'applicazione in **Registrazioni app** nel portale di Azure.
 1. Selezionare **Certificati e segreti** > **Carica certificato**.
@@ -114,7 +114,7 @@ Noti talvolta come *chiave pubblica*, i certificati sono il tipo di credenziale 
 
 ### <a name="add-a-client-secret"></a>Aggiungere un segreto client
 
-Il segreto client, noto anche come *password dell'applicazione*, è un valore stringa che l'app può usare al posto di un certificato per identificarsi. È tra i due tipi di credenziali quello più facile da usare e viene spesso usato in fase di sviluppo, ma è considerato meno sicuro di un certificato. È infatti consigliabile usare i certificati nelle applicazioni in esecuzione nell'ambiente di produzione.
+Il segreto client, noto anche come *password dell'applicazione* , è un valore stringa che l'app può usare al posto di un certificato per identificarsi. È tra i due tipi di credenziali quello più facile da usare e viene spesso usato in fase di sviluppo, ma è considerato meno sicuro di un certificato. È infatti consigliabile usare i certificati nelle applicazioni in esecuzione nell'ambiente di produzione.
 
 1. Selezionare l'applicazione in **Registrazioni app** nel portale di Azure.
 1. Selezionare **Certificati e segreti** >  **Nuovo segreto client**.

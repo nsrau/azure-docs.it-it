@@ -13,14 +13,15 @@ ms.custom:
 - seo-javascript-september2019
 - seo-python-october2019
 - devx-track-python
-ms.openlocfilehash: aa23f6d5d7b81e93145fd7db3fb5b45e46918d21
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: c74da5e612609ce6a0525b24e5868059f06da179
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487586"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93078782"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>Avvio rapido: Creare un'applicazione Python usando un account API SQL di Azure Cosmos DB
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET V3](create-sql-api-dotnet.md)
@@ -57,9 +58,9 @@ In questa guida di avvio rapido si apprenderà a creare e gestire un account API
 
 È ora possibile usare lo strumento Esplora dati nel portale di Azure per creare un database e un contenitore. 
 
-1. Selezionare **Esplora dati** > **Nuovo contenitore** . 
+1. Selezionare **Esplora dati** > **Nuovo contenitore**. 
     
-    A destra viene visualizzata l'area **Aggiungi contenitore** . Per vederla potrebbe essere necessario scorrere verso destra.
+    A destra viene visualizzata l'area **Aggiungi contenitore**. Per vederla potrebbe essere necessario scorrere verso destra.
 
     :::image type="content" source="./media/create-sql-api-python/azure-cosmosdb-data-explorer.png" alt-text="Esplora dati nel portale di Azure, riquadro Aggiungi contenitore":::
 
@@ -74,7 +75,7 @@ In questa guida di avvio rapido si apprenderà a creare e gestire un account API
     
     Oltre alle impostazioni precedenti, è possibile aggiungere **Chiavi univoche** per il contenitore. In questo esempio il campo viene lasciato vuoto. Le chiavi univoche consentono agli sviluppatori di aggiungere un livello di integrità dei dati nel database. Se si definiscono criteri di chiave univoca durante la creazione di un contenitore, si ha la sicurezza che uno o più valori siano univoci per ogni chiave di partizione. Per altre informazioni, vedere l'articolo [Chiavi univoche in Azure Cosmos DB](unique-keys.md).
     
-    Selezionare **OK** . In Esplora dati vengono visualizzati il nuovo database e il nuovo contenitore.
+    Selezionare **OK**. In Esplora dati vengono visualizzati il nuovo database e il nuovo contenitore.
 
 ## <a name="add-sample-data"></a>Aggiungere dati di esempio
 
@@ -117,25 +118,25 @@ Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di 
 
 1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) selezionare **Chiavi** nel riquadro di spostamento a sinistra. Usare i pulsanti di copia sul lato destro dello schermo per copiare l' **URI** e la **chiave primaria** nel file *cosmos_get_started.py* nel passaggio seguente.
 
-    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Esplora dati nel portale di Azure, riquadro Aggiungi contenitore":::
+    :::image type="content" source="./media/create-sql-api-dotnet/access-key-and-uri-in-keys-settings-in-the-azure-portal.png" alt-text="Ottenere una chiave di accesso e un URI nelle impostazioni delle chiavi nel portale di Azure":::
 
-2. In Visual Studio Code, aprire il file *cosmos_get_started.py* in *git-samples\azure-cosmos-db-python-getting-started* .
+2. In Visual Studio Code, aprire il file *cosmos_get_started.py* in *git-samples\azure-cosmos-db-python-getting-started*.
 
-3. Copiare il valore di **URI** dal portale (usando il pulsante di copia) e impostarlo come valore della variabile **endpoint** in *cosmos_get_started.py* . 
+3. Copiare il valore di **URI** dal portale (usando il pulsante di copia) e impostarlo come valore della variabile **endpoint** in *cosmos_get_started.py*. 
 
     `endpoint = 'https://FILLME.documents.azure.com',`
 
-4. Copiare quindi il valore di **CHIAVE PRIMARIA** dal portale e impostarlo come valore della **chiave** in *cosmos_get_started.py* . L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
+4. Copiare quindi il valore di **CHIAVE PRIMARIA** dal portale e impostarlo come valore della **chiave** in *cosmos_get_started.py*. L'app è stata aggiornata con tutte le informazioni necessarie per comunicare con Azure Cosmos DB. 
 
     `key = 'FILLME'`
 
-5. Salvare il file *cosmos_get_started.py* .
+5. Salvare il file *cosmos_get_started.py*.
 
 ## <a name="review-the-code"></a>Esaminare il codice
 
 Questo passaggio è facoltativo. È possibile ottenere informazioni sulle risorse di database create in codice oppure passare direttamente a [Aggiornare la stringa di connessione](#update-your-connection-string).
 
-Tutti i frammenti di codice seguenti sono tratti dal file *cosmos_get_started.py* .
+Tutti i frammenti di codice seguenti sono tratti dal file *cosmos_get_started.py*.
 
 * Viene inizializzato CosmosClient. Assicurarsi di aggiornare i valori di "endpoint" e "chiave" come descritto nella sezione [Aggiornare la stringa di connessione](#update-your-connection-string). 
 
@@ -163,7 +164,7 @@ Tutti i frammenti di codice seguenti sono tratti dal file *cosmos_get_started.py
    
 ## <a name="run-the-app"></a>Eseguire l'app
 
-1. In Visual Studio Code selezionare **Visualizza** > **Riquadro comandi** . 
+1. In Visual Studio Code selezionare **Visualizza** > **Riquadro comandi**. 
 
 2. Al prompt immettere **Python: Select Interpreter** e quindi selezionare la versione di Python da usare.
 
@@ -171,7 +172,7 @@ Tutti i frammenti di codice seguenti sono tratti dal file *cosmos_get_started.py
 
 3. Selezionare **Visualizza** > **Terminale integrato** per aprire il terminale integrato di Visual Studio Code.
 
-4. Nella finestra del terminale integrato, verificare di essere nella cartella *azure-cosmos-db-python-getting-started* . In caso contrario, eseguire il comando seguente per passare alla cartella di esempio. 
+4. Nella finestra del terminale integrato, verificare di essere nella cartella *azure-cosmos-db-python-getting-started*. In caso contrario, eseguire il comando seguente per passare alla cartella di esempio. 
 
     ```cmd
     cd "\git-samples\azure-cosmos-db-python-getting-started"`
@@ -191,7 +192,7 @@ Tutti i frammenti di codice seguenti sono tratti dal file *cosmos_get_started.py
     python cosmos_get_started.py
     ```
 
-7. Per verificare che i nuovi elementi siano stati creati e salvati, nel portale di Azure selezionare **Esplora dati** > **AzureSampleFamilyDatabase** > **Elementi** . Visualizzare gli elementi creati. Ecco ad esempio un documento JSON di esempio per la famiglia Andersen:
+7. Per verificare che i nuovi elementi siano stati creati e salvati, nel portale di Azure selezionare **Esplora dati** > **AzureSampleFamilyDatabase** > **Elementi**. Visualizzare gli elementi creati. Ecco ad esempio un documento JSON di esempio per la famiglia Andersen:
    
    ```json
    {

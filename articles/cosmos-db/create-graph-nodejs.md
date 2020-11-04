@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: jasonh
 ms.custom: devx-track-js
-ms.openlocfilehash: c44f7218734af4bc3144137356b85e8845208f6f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 546187b49e1186d665fe32b3f8d632a0281bffa4
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91409375"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93099675"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>Avvio rapido: Creare un'applicazione Node.js usando l'account dell'API Gremlin di Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 > [!div class="op_single_selector"]
 > * [Console Gremlin](create-graph-gremlin-console.md)
@@ -95,7 +96,7 @@ Questa app console usa il driver open source [Gremlin Node.js](https://www.npmjs
 
     ```
 
-  Le configurazioni sono tutte incluse in *config.js*, che verrà modificato nella [sezione seguente](#update-your-connection-string).
+  Le configurazioni sono tutte incluse in *config.js* , che verrà modificato nella [sezione seguente](#update-your-connection-string).
 
 * Sono definite varie funzioni per eseguire diverse operazioni Gremlin. Questa è una di esse:
 
@@ -161,7 +162,7 @@ Questa app console usa il driver open source [Gremlin Node.js](https://www.npmjs
 
     `config.primaryKey = "PRIMARYKEY";`
 
-   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Visualizzare e copiare una chiave di accesso nella pagina Panoramica del portale di Azure":::
+   :::image type="content" source="./media/create-graph-nodejs/keys.png" alt-text="Pannello delle chiavi del portale di Azure":::
 
 4. Immettere il nome del database e il nome del grafo (contenitore) per il valore di config.database e config.collection. 
 

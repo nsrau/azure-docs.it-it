@@ -9,14 +9,15 @@ ms.topic: quickstart
 ms.date: 10/09/2020
 ms.author: masoucou
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ffa8e473fb084b2d5f0e7f59a07b3de50e04752e
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 94cf54e689f845f77c54d1d3c7710e079594f556
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475860"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098944"
 ---
 # <a name="quickstart-build-a-xamarinforms-app-with-net-sdk-and-azure-cosmos-dbs-api-for-mongodb"></a>Guida di avvio rapido: Creare un'app Xamarin.Forms con .NET SDK e l'API di Azure Cosmos DB per MongoDB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -163,11 +164,11 @@ I frammenti seguenti provengono tutti dalla classe `MongoService`, nel percorso 
 
 Tornare ora al portale di Azure per recuperare le informazioni sulla stringa di connessione e copiarle nell'app.
 
-1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) fare clic su **Stringa di connessione** nel riquadro di spostamento a sinistra e quindi su **Chiavi di lettura/scrittura** . Usare i pulsanti di copia sul lato destro della schermata per copiare la stringa di connessione primaria nei passaggi successivi.
+1. Nell'account Azure Cosmos DB nel [portale di Azure](https://portal.azure.com/) fare clic su **Stringa di connessione** nel riquadro di spostamento a sinistra e quindi su **Chiavi di lettura/scrittura**. Usare i pulsanti di copia sul lato destro della schermata per copiare la stringa di connessione primaria nei passaggi successivi.
 
-2. Aprire il file **APIKeys.cs** nella directory **Helpers** del progetto **TaskList.Core** .
+2. Aprire il file **APIKeys.cs** nella directory **Helpers** del progetto **TaskList.Core**.
 
-3. Copia il valore della **stringa di connessione primaria** dal portale (usando il pulsante di copia) e impostarlo come valore del campo **ConnectionString** nel file **APIKeys.cs** .
+3. Copia il valore della **stringa di connessione primaria** dal portale (usando il pulsante di copia) e impostarlo come valore del campo **ConnectionString** nel file **APIKeys.cs**.
 
 4. Rimuovere `&replicaSet=globaldb` dalla stringa di connessione. Se non si rimuove il valore dalla stringa di query, verrà restituito un errore di runtime.
 
@@ -180,12 +181,12 @@ L'app è stata aggiornata con tutte le informazioni necessarie per comunicare co
 
 ### <a name="visual-studio-2019"></a>Visual Studio 2019
 
-1. In Visual Studio fare, clic con il pulsante destro del mouse su ciascun progetto in **Esplora soluzioni** e quindi scegliere **Gestisci pacchetti NuGet** .
-2. Fare clic su **Ripristina tutti i pacchetti NuGet** .
-3. Fare clic con il pulsante destro su **TaskList.Android** e selezionare **Imposta come progetto di avvio** .
+1. In Visual Studio fare, clic con il pulsante destro del mouse su ciascun progetto in **Esplora soluzioni** e quindi scegliere **Gestisci pacchetti NuGet**.
+2. Fare clic su **Ripristina tutti i pacchetti NuGet**.
+3. Fare clic con il pulsante destro su **TaskList.Android** e selezionare **Imposta come progetto di avvio**.
 4. Premere F5 per avviare il debug dell'applicazione.
 5. Se si desidera eseguire l' su iOS, in primo luogo assicurarsi che il dispositivo sia connesso a un computer Mac (vedere [istruzioni](/xamarin/ios/get-started/installation/windows/introduction-to-xamarin-ios-for-visual-studio) su come eseguire questa operazione).
-6. Fare clic con il pulsante destro sul progetto **TaskList.iOS** e selezionare **Imposta come progetto di avvio** .
+6. Fare clic con il pulsante destro sul progetto **TaskList.iOS** e selezionare **Imposta come progetto di avvio**.
 7. Fare clic su F5 per avviare il debug dell'applicazione.
 
 ### <a name="visual-studio-for-mac"></a>Visual Studio per Mac

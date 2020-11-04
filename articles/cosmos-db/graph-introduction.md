@@ -7,14 +7,15 @@ ms.subservice: cosmosdb-graph
 ms.topic: overview
 ms.date: 07/10/2020
 ms.author: jasonh
-ms.openlocfilehash: 30e1a9e4b82971180f375a006f4825832e6179e9
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 98ad02c134df919c593c87dd96a9a71d73371a1c
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92490612"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93087418"
 ---
 # <a name="introduction-to-gremlin-api-in-azure-cosmos-db"></a>Introduzione all'API Gremlin in Azure Cosmos DB
+[!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
 
 [Azure Cosmos DB](introduction.md)  è il servizio di database multimodello distribuito a livello globale di Microsoft per applicazioni mission-critical. Si tratta di un database multimodello che supporta modelli di dati basati su documenti, coppie chiave-valore, grafi e famiglie di colonne. "Azure Cosmos DB offre un servizio di database a grafo tramite l'API Gremlin in un servizio di database completamente gestito progettato per qualsiasi scala.  
 
@@ -106,7 +107,7 @@ I database a grafo sono spesso inclusi all'interno di NoSQL, ovvero la categoria
 
 Verrà ora usato un grafo di esempio per comprendere come le query possono essere espresse in Gremlin. La figura seguente illustra un'applicazione aziendale che gestisce i dati su utenti, interessi e dispositivi sotto forma di grafo.  
 
-:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Architettura di grafi di Azure Cosmos DB" border="false"::: 
+:::image type="content" source="./media/gremlin-support/sample-graph.png" alt-text="Database di esempio che mostra persone, dispositivi e interessi" border="false"::: 
 
 Questo grafo presenta i tipi di *vertice* seguenti (anche detti "etichetta" in Gremlin):
 

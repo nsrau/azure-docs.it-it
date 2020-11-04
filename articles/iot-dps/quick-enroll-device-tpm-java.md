@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc, devx-track-java
-ms.openlocfilehash: e6b299b5befec93f21e9e8476d0cc74710612d66
-ms.sourcegitcommit: 32c521a2ef396d121e71ba682e098092ac673b30
+ms.openlocfilehash: 6c6282f487d6a20de4654118df94c8bfac8a441d
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/25/2020
-ms.locfileid: "91323805"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93075926"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>Guida introduttiva: Registrare un dispositivo TPM nel servizio Device Provisioning in hub IoT con Java Service SDK
 
@@ -27,7 +27,7 @@ Questa guida di avvio rapido descrive come creare una registrazione singola a li
 - Completamento dell'esercitazione [Configurare il servizio Device Provisioning in hub IoT con il portale di Azure](./quick-setup-auto-provision.md).
 - Completamento dell'esercitazione [Leggere le chiavi di crittografia dal dispositivo TPM](quick-create-simulated-device.md#simulatetpm).
 - Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratuitamente](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- [Java SE Development Kit 8](https://aka.ms/azure-jdks). Questa guida di avvio rapido installa [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/). Funziona sia in Windows che in Linux. Questa guida di avvio rapido usa Windows.
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks). Questa guida di avvio rapido installa [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/). Funziona sia in Windows che in Linux. Questa guida di avvio rapido usa Windows.
 - [Maven 3](https://maven.apache.org/download.cgi).
 - [Git](https://git-scm.com/download/).
 
@@ -62,7 +62,7 @@ Questa guida di avvio rapido descrive come creare una registrazione singola a li
 
 Questa sezione illustra come aggiungere i dettagli del provisioning del dispositivo TPM al codice di esempio. 
 
-1. Aprire un prompt dei comandi. Clonare il repository GitHub per l'esempio di codice di registrazione del dispositivo usando [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/):
+1. Aprire un prompt dei comandi. Clonare il repository GitHub per l'esempio di codice di registrazione del dispositivo usando [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/):
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -84,7 +84,7 @@ Questa sezione illustra come aggiungere i dettagli del provisioning del disposit
            ```
 
    2. Aggiungere i dettagli del dispositivo TPM:
-       1. Ottenere l'*ID registrazione* e la *chiave di verifica dell'autenticità del TPM* per una simulazione del dispositivo TPM, seguendo i passaggi della sezione [Simulare il dispositivo TPM](quick-create-simulated-device.md#simulatetpm).
+       1. Ottenere l' *ID registrazione* e la *chiave di verifica dell'autenticità del TPM* per una simulazione del dispositivo TPM, seguendo i passaggi della sezione [Simulare il dispositivo TPM](quick-create-simulated-device.md#simulatetpm).
        2. Usare l' **_ID registrazione_** e la **_chiave di verifica dell'autenticità_** dell'output del passaggio precedente per sostituire `[RegistrationId]` e `[TPM Endorsement Key]` nel file del codice di esempio **_ServiceEnrollmentSample.java_** :
         
            ```Java
@@ -100,7 +100,7 @@ Questa sezione illustra come aggiungere i dettagli del provisioning del disposit
             ```
         2. Assegnare un nome descrittivo al parametro *DEVICE_ID* e mantenere per *PROVISIONING_STATUS* il valore predefinito *ENABLED*. 
     
-      - OPPURE, se si sceglie di non configurare il servizio di provisioning, assicurarsi di impostare come commento o eliminare le istruzioni seguenti nel file _ServiceEnrollmentSample.java_:
+      - OPPURE, se si sceglie di non configurare il servizio di provisioning, assicurarsi di impostare come commento o eliminare le istruzioni seguenti nel file _ServiceEnrollmentSample.java_ :
           ```Java
           // The following parameters are optional. Remove it if you don't need.
           individualEnrollment.setDeviceId(DEVICE_ID);
@@ -108,7 +108,7 @@ Questa sezione illustra come aggiungere i dettagli del provisioning del disposit
           individualEnrollment.setProvisioningStatus(PROVISIONING_STATUS);
           ```
 
-   4. Esaminare il codice di esempio, che crea, aggiorna, esegue query ed elimina la registrazione per un singolo dispositivo TPM. Per verificare che la registrazione sia stata eseguita correttamente nel portale, impostare temporaneamente come commento le righe di codice seguenti alla fine del file _ServiceEnrollmentSample.java_:
+   4. Esaminare il codice di esempio, che crea, aggiorna, esegue query ed elimina la registrazione per un singolo dispositivo TPM. Per verificare che la registrazione sia stata eseguita correttamente nel portale, impostare temporaneamente come commento le righe di codice seguenti alla fine del file _ServiceEnrollmentSample.java_ :
     
        ```Java
        // *********************************** Delete info of individualEnrollment ************************************
@@ -130,7 +130,7 @@ Questa sezione illustra come aggiungere i dettagli del provisioning del disposit
     mvn install -DskipTests
     ```
 
-   Questo comando scarica il pacchetto Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) nel computer. Questo pacchetto include i file binari per [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/), necessari al codice di esempio per la compilazione. 
+   Questo comando scarica il pacchetto Maven [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) nel computer. Questo pacchetto include i file binari per [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/master/service/), necessari al codice di esempio per la compilazione. 
 
 3. Eseguire l'esempio usando questi comandi nella finestra di comando:
 
@@ -141,7 +141,7 @@ Questa sezione illustra come aggiungere i dettagli del provisioning del disposit
 
 4. Verificare nella finestra di output che la registrazione sia stata eseguita correttamente. 
 
-5. Passare al servizio di provisioning nel portale di Azure. Selezionare **Gestisci registrazioni** e quindi la scheda **Registrazioni singole**. Si noti che ora è elencato l'*ID registrazione* del dispositivo TPM simulato. 
+5. Passare al servizio di provisioning nel portale di Azure. Selezionare **Gestisci registrazioni** e quindi la scheda **Registrazioni singole**. Si noti che ora è elencato l' *ID registrazione* del dispositivo TPM simulato. 
 
     ![Verificare che la registrazione TPM nel portale sia riuscita](./media/quick-enroll-device-tpm-java/verify-tpm-enrollment.png)  
 
@@ -150,7 +150,7 @@ Se si prevede di esplorare l'esempio di servizio Java, non eseguire la pulizia d
 
 1. Chiudere la finestra di output di esempio di Java sul computer.
 1. Chiudere la finestra del simulatore TPM che potrebbe essere stata creata per simulare il dispositivo TPM.
-1. Passare al servizio Device Provisioning nel portale di Azure e selezionare **Gestisci registrazioni** e quindi la scheda **Registrazioni singole**. Selezionare la casella di controllo accanto all'*ID registrazione* della voce di registrazione creata con questa guida di avvio rapido e fare clic sul pulsante **Elimina** nella parte superiore del riquadro.
+1. Passare al servizio Device Provisioning nel portale di Azure e selezionare **Gestisci registrazioni** e quindi la scheda **Registrazioni singole**. Selezionare la casella di controllo accanto all' *ID registrazione* della voce di registrazione creata con questa guida di avvio rapido e fare clic sul pulsante **Elimina** nella parte superiore del riquadro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questa guida di avvio rapido si è registrato un dispositivo TPM simulato nel servizio Device Provisioning. Per informazioni approfondite sul provisioning del dispositivo, passare all'esercitazione sulla configurazione del servizio Device Provisioning nel portale di Azure. 

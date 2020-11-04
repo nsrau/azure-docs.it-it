@@ -9,14 +9,15 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java
-ms.openlocfilehash: a831921ec3b3fa755496c08c02665b1c0fe99557
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2dcd72f9231726d5a2f473dbbfa4d8fd81e64b97
+ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92475958"
+ms.lasthandoff: 10/30/2020
+ms.locfileid: "93098979"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>Guida introduttiva: Creare un'app console con Java e l'API MongoDB in Azure Cosmos DB
+[!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
 
 > [!div class="op_single_selector"]
 > * [.NET](create-mongodb-dotnet.md)
@@ -41,7 +42,7 @@ In questo argomento di avvio rapido si apprenderà a creare e gestire un account
 
 ## <a name="add-a-collection"></a>Aggiungere una raccolta
 
-Assegnare un nome al nuovo database **db** e alla nuova raccolta **coll** .
+Assegnare un nome al nuovo database **db** e alla nuova raccolta **coll**.
 
 [!INCLUDE [cosmos-db-create-collection](../../includes/cosmos-db-mongodb-create-collection.md)] 
 
@@ -73,7 +74,7 @@ Clonare ora un'app da GitHub, impostare la stringa di connessione ed eseguirla. 
 
 Questo passaggio è facoltativo. Per scoprire in che modo le risorse del database vengono create nel codice, è possibile esaminare i frammenti di codice seguenti. In alternativa, è possibile passare ad [Aggiornare la stringa di connessione](#update-your-connection-string). 
 
-Tutti i frammenti di codice seguenti sono tratti dal file *Program.java* .
+Tutti i frammenti di codice seguenti sono tratti dal file *Program.java*.
 
 Questa console usa il [driver Java di MongoDB](https://docs.mongodb.com/ecosystem/drivers/java/). 
 

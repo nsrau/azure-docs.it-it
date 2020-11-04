@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 3e5476b01ac78af992f548efbeb87de5104dead0
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 45c0108ed87dd5264b9192f5dd69e0198bd59fc1
+ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92126774"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93289777"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informazioni sui certificati di Azure Key Vault
 
@@ -44,7 +44,7 @@ Un certificato di Key Vault creato può essere recuperato dal segreto indirizzab
 
 La chiave indirizzabile diventa maggiormente pertinente con certificati KV non esportabili. Per il mapping delle operazioni della chiave KV indirizzabile si usa il campo *keyusage* dei criteri del certificato KV usato per creare il certificato KV.  
 
- - Tipi di chiavi supportati: RSA, RSA-HSM, EC, EC-HSM, oct (elencati [qui](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) L'esportabilità è consentita solo con RSA, EC. Le chiavi HSM non sono esportabili.
+ - Tipi di chiavi supportati: RSA, RSA-HSM, EC, EC-HSM, oct (elencati [qui](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) L'esportabilità è consentita solo con RSA, EC. Le chiavi HSM non sono esportabili.
 
 
 ## <a name="certificate-attributes-and-tags"></a>Tag e attributi dei certificati
@@ -57,7 +57,7 @@ Gli attributi di certificato si riflettono negli attributi della chiave e del se
 
 Un certificato Key Vault ha gli attributi seguenti:  
 
--   *abilitato* : il valore predefinito booleano facoltativo è **vero** . Questo attributo può essere specificato per indicare se i dati del certificato possono essere recuperati come segreti o sono eseguibili come chiave. Viene anche usato in combinazione con *nbf* ed *exp* quando si verifica un'operazione nella finestra tra *nbf* ed *exp* . Ne sarà consentito l'uso solo se enabled è impostato su true. Le operazioni all'esterno della finestra di *nbf* ed *exp* non sono consentite automaticamente.  
+-   *abilitato* : il valore predefinito booleano facoltativo è **vero**. Questo attributo può essere specificato per indicare se i dati del certificato possono essere recuperati come segreti o sono eseguibili come chiave. Viene anche usato in combinazione con *nbf* ed *exp* quando si verifica un'operazione nella finestra tra *nbf* ed *exp*. Ne sarà consentito l'uso solo se enabled è impostato su true. Le operazioni all'esterno della finestra di *nbf* ed *exp* non sono consentite automaticamente.  
 
 Sono disponibili altri attributi di sola lettura che sono inclusi in una risposta:
 
@@ -82,11 +82,11 @@ I criteri dei certificati contengono informazioni su come creare e gestire la du
 
 Quando viene creato un certificato di Key Vault completamente nuovo, è necessario specificare i criteri. I criteri specificano come creare questa versione o la versione successiva del certificato di Key Vault. Dopo aver definito i criteri, non sarà necessario ripetere la procedura per le successive operazioni di creazione delle versioni future. È presente una sola istanza dei criteri per tutte le versioni di un certificato di Key Vault.  
 
-In generale, i criteri dei certificati contengono le informazioni seguenti, le cui definizioni sono disponibili [qui](https://docs.microsoft.com/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0):  
+In generale, i criteri dei certificati contengono le informazioni seguenti, le cui definizioni sono disponibili [qui](/powershell/module/az.keyvault/set-azkeyvaultcertificatepolicy?view=azps-4.4.0):  
 
 -   Proprietà del certificato X509: nome del soggetto, nomi alternativi del soggetto e altre proprietà usate per creare una richiesta di certificato x509.  
 -   Proprietà della chiave: contiene i campi relativi al tipo di chiave, alla lunghezza della chiave, nonché all'esportabilità e il campo ReuseKeyOnRenewal. Questi campi indicare all’insieme di credenziali delle chiavi come generare una chiave. 
-     - Tipi di chiavi supportati: RSA, RSA-HSM, EC, EC-HSM, oct (elencati [qui](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
+     - Tipi di chiavi supportati: RSA, RSA-HSM, EC, EC-HSM, oct (elencati [qui](/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) 
 -   Proprietà del segreto: contiene le proprietà del segreto, ad esempio tipo di contenuto del segreto indirizzabile per generare il valore del segreto, al fine di recuperare il certificato come segreto.  
 -   Azioni di durata: contiene le azioni di durata per il certificato KV. Ogni azione di durata contiene:  
 
@@ -133,7 +133,7 @@ Prima della creazione di un'autorità di certificazione in Key Vault, è necessa
 
     -   Fornisce la configurazione da utilizzare per creare un oggetto dell'autorità di certificazione del provider nell'insieme di credenziali delle chiavi  
 
-Per ulteriori informazioni sulla creazione di oggetti di autorità di certificazione dal portale di certificati, vedere il [blog dei certificati Key Vault](https://aka.ms/kvcertsblog)  
+Per ulteriori informazioni sulla creazione di oggetti di autorità di certificazione dal portale di certificati, vedere il [blog dei certificati Key Vault](/archive/blogs/kv/manage-certificates-via-azure-key-vault)  
 
 Key Vault consente di creare più oggetti di autorità di certificazione con una differente configurazione del provider dell'autorità di certificazione. Dopo che è stato creato un oggetto di autorità di certificazione, è possibile fare riferimento al suo nome in uno o più criteri del certificato KV. Fare riferimento all'oggetto dell'autorità di certificazione indica a Key Vault di usare la configurazione come specificato nell'oggetto dell'autorità di certificazione quando si richiede il certificato x509 dal provider di autorità di certificazione durante la creazione e il rinnovo di certificati.  
 
