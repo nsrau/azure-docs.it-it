@@ -9,14 +9,14 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/29/2020
-ms.openlocfilehash: 18f9af0198c7a89b607630c686fbf8dafdd01a50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 72cdfe2ebe79abb9649ac497a6ecddda8918b951
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841952"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322273"
 ---
-# <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning?
+# <a name="what-are-compute-targets-in-azure-machine-learning"></a>Cosa sono le destinazioni di calcolo in Azure Machine Learning?
 
 Una *destinazione di calcolo* è una risorsa o un ambiente di calcolo designato in cui si esegue lo script di training o si ospita la distribuzione del servizio. Questo percorso potrebbe essere il computer locale o una risorsa di calcolo basata sul cloud. L'uso di destinazioni di calcolo semplifica la modifica dell'ambiente di calcolo in un secondo momento senza dover modificare il codice.
 
@@ -54,7 +54,7 @@ Quando si esegue l'inferenza, Azure Machine Learning crea un contenitore Docker 
 
 * Come endpoint di _inferenza batch_ usato per elaborare periodicamente i batch di dati. Le inferenze batch usano [Azure Machine Learning cluster di elaborazione](how-to-create-attach-compute-cluster.md).
 
-* In un _dispositivo_ Internet (anteprima). La distribuzione in un dispositivo Internet è basata solo su Azure Machine Learning per compilare il contenitore docker. Da qui viene distribuito usando Azure IoT Edge. Per altre informazioni, vedere [deploy As a IOT Edge Module (Preview)](/azure/iot-edge/tutorial-deploy-machine-learning).
+* In un _dispositivo_ Internet (anteprima). La distribuzione in un dispositivo Internet è basata solo su Azure Machine Learning per compilare il contenitore docker. Da qui viene distribuito usando Azure IoT Edge. Per altre informazioni, vedere [deploy As a IOT Edge Module (Preview)](../iot-edge/tutorial-deploy-machine-learning.md).
 
 Informazioni su [dove e come distribuire il modello in una destinazione di calcolo](how-to-deploy-and-where.md).
 
@@ -89,7 +89,7 @@ Quando vengono create, queste risorse di calcolo fanno automaticamente parte del
 
 ### <a name="supported-vm-series-and-sizes"></a>Serie e dimensioni di macchine virtuali supportate
 
-Quando si selezionano le dimensioni di un nodo per una risorsa di calcolo gestita in Azure Machine Learning, è possibile scegliere tra le dimensioni di VM selezionate disponibili in Azure. Azure offre una gamma di dimensioni per Linux e Windows per carichi di lavoro diversi. Per altre informazioni, vedere [tipi e dimensioni delle macchine virtuali](https://docs.microsoft.com/azure/virtual-machines/linux/sizes).
+Quando si selezionano le dimensioni di un nodo per una risorsa di calcolo gestita in Azure Machine Learning, è possibile scegliere tra le dimensioni di VM selezionate disponibili in Azure. Azure offre una gamma di dimensioni per Linux e Windows per carichi di lavoro diversi. Per altre informazioni, vedere [tipi e dimensioni delle macchine virtuali](../virtual-machines/sizes.md).
 
 Esistono alcune eccezioni e limitazioni nella scelta delle dimensioni delle macchine virtuali:
 
@@ -100,21 +100,21 @@ Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle seri
 
 | **Serie di macchine virtuali supportate**  | **Restrizioni** |
 |------------|------------|
-| D | No. |
-| Dv2 | No. |  
-| Dv3 | No.|
-| DSv2 | No. | 
-| DSv3 | No.|
-| FSv2 | No. | 
+| D | Nessuno. |
+| Dv2 | Nessuno. |  
+| Dv3 | Nessuno.|
+| DSv2 | Nessuno. | 
+| DSv3 | Nessuno.|
+| FSv2 | Nessuno. | 
 | HBv2 | Richiede l'approvazione. |  
 | Servizio di elaborazione host | Richiede l'approvazione. |  
 | M | Richiede l'approvazione. |
-| NC | No. |    
+| NC | Nessuno. |    
 | NCsv2 | Richiede l'approvazione. |
 | NCsv3 | Richiede l'approvazione. |  
 | NDs | Richiede l'approvazione. |
 | NDv2 | Richiede l'approvazione. |
-| NV | No. |
+| NV | Nessuno. |
 | NVv3 | Richiede l'approvazione. | 
 
 
@@ -133,7 +133,7 @@ Le offerte di VM isolate correnti includono:
 
 *Con supporto di RDMA
 
-Per altre informazioni sull'isolamento, vedere [isolamento nel cloud pubblico di Azure](https://docs.microsoft.com/azure/security/fundamentals/isolation-choices).
+Per altre informazioni sull'isolamento, vedere [isolamento nel cloud pubblico di Azure](../security/fundamentals/isolation-choices.md).
 
 ## <a name="unmanaged-compute"></a>Calcolo non gestito
 

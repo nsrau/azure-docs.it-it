@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 10/16/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 4aec299e15964d45ad949034ba02729ff43934de
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: 128e4d0a421fc9ad4251f24f2cb37a217eeb1e31
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043189"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322208"
 ---
 # <a name="storsimple-8100-and-8600-migration-to-azure-file-sync"></a>StorSimple 8100 e 8600 migrazione a Sincronizzazione file di Azure
 
@@ -76,7 +76,7 @@ Se non è possibile trovare le chiavi nei record, è possibile recuperare la chi
 >
 > * La connessione tramite una sessione HTTPS è l'opzione più sicura e consigliata.
 > * La connessione diretta alla console seriale del dispositivo è protetta ma la connessione alla console seriale sugli switch di rete non lo è.
-> * Le connessioni di sessione HTTP sono un'opzione che *non sono crittografate* . Non sono consigliate, a meno che non vengano usate all'interno di una rete chiusa e attendibile.
+> * Le connessioni di sessione HTTP sono un'opzione che *non sono crittografate*. Non sono consigliate, a meno che non vengano usate all'interno di una rete chiusa e attendibile.
 
 ### <a name="storsimple-volume-backups"></a>Backup del volume StorSimple
 
@@ -119,7 +119,7 @@ Alla fine della fase 1:
 * Si dispone di un piano per cui è necessario eseguire la migrazione dei volumi e anche come eseguire il mapping dei volumi al numero appropriato di condivisioni file di Azure e account di archiviazione.
 
 > [!CAUTION]
-> Se è necessario eseguire la migrazione dei backup da volumi StorSimple, **arrestare qui** .
+> Se è necessario eseguire la migrazione dei backup da volumi StorSimple, **arrestare qui**.
 >
 > Questo approccio alla migrazione si basa sulle nuove funzionalità del servizio di trasformazione dei dati che attualmente non possono eseguire la migrazione dei backup. Il supporto per la migrazione del backup arriverà alla fine del 2020. Attualmente è possibile eseguire solo la migrazione dei dati in tempo reale. Se si inizia subito, non è possibile "Bolt" nei backup in un secondo momento. I backup devono essere "riprodotti" nelle condivisioni file di Azure dai dati più vecchi a quelli più recenti, con gli snapshot di condivisione file di Azure.
 
@@ -141,7 +141,7 @@ Probabilmente sarà necessario distribuire diversi account di archiviazione di A
 
 I gruppi di risorse sono in aiuto con l'organizzazione delle risorse e le autorizzazioni di gestione amministratore. Scopri di più sui [gruppi di risorse in Azure](../../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group).
 
-#### <a name="storage-account-name"></a>Nome account di archiviazione
+#### <a name="storage-account-name"></a>Nome dell'account di archiviazione
 
 Il nome dell'account di archiviazione diventerà parte di un URL e avrà alcune limitazioni relative ai caratteri. Nella convenzione di denominazione, tenere presente che i nomi degli account di archiviazione devono essere univoci in tutto il mondo, consentire solo lettere minuscole e numeri, richiedere da 3 a 24 caratteri e non consentire caratteri speciali come trattini o caratteri di sottolineatura. Per altre informazioni, vedere [regole di denominazione delle risorse di archiviazione di Azure](../../azure-resource-manager/management/resource-name-rules.md#microsoftstorage).
 
@@ -165,8 +165,8 @@ Non si è ancora sicuri?
 
 #### <a name="account-kind"></a>Tipologia account
 
-* Per archiviazione standard scegliere *archiviazione V2 (utilizzo generico v2)* .
-* Per le condivisioni file Premium, scegliere *filestorage* .
+* Per archiviazione standard scegliere *archiviazione V2 (utilizzo generico v2)*.
+* Per le condivisioni file Premium, scegliere *filestorage*.
 
 #### <a name="replication"></a>Replica
 
@@ -174,13 +174,13 @@ Sono disponibili diverse impostazioni di replica. Altre informazioni sui diversi
 
 Scegliere una delle due opzioni seguenti:
 
-* *Archiviazione con ridondanza locale (con ridondanza locale)* .
+* *Archiviazione con ridondanza locale (con ridondanza locale)*.
 * *Archiviazione con ridondanza della zona (ZRS)* , che non è disponibile in tutte le aree di Azure.
 
 > [!NOTE]
 > Solo i tipi di ridondanza con ridondanza locale e ZRS sono compatibili con le grandi condivisioni file di Azure 100-TiB-Capacity.
 
-L'archiviazione con ridondanza globale (GRS) in tutte le varianti non è attualmente supportata. È possibile cambiare il tipo di ridondanza in un secondo momento e passare a GRS quando il supporto per il servizio arriva in Azure.
+L'archiviazione con ridondanza geografica (GRS) in tutte le varianti non è attualmente supportata. È possibile cambiare il tipo di ridondanza in un secondo momento e passare a GRS quando il supporto per il servizio arriva in Azure.
 
 #### <a name="enable-100-tib-capacity-file-shares"></a>Abilitare le condivisioni file 100-TiB-Capacity
 
@@ -206,16 +206,16 @@ Dopo aver creato gli account di archiviazione, passare alla sezione relativa all
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="Immagine che mostra la scheda Avanzate nella portale di Azure per la creazione di un account di archiviazione.":::
+        :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-share.png" alt-text="Schermata portale di Azure che mostra la nuova interfaccia utente della condivisione file.":::
     :::column-end:::
     :::column:::
-        </br>**Nome**</br>Sono supportate lettere minuscole, numeri e trattini.</br></br>**Quota**</br>La quota qui è paragonabile a una quota rigida SMB in un'istanza di Windows Server. La procedura consigliata consiste nel non impostare una quota perché la migrazione e altri servizi avranno esito negativo quando viene raggiunta la quota.</br></br>**Livelli**</br>Selezionare **Transaction optimized** per la nuova condivisione file. Durante la migrazione, si verificheranno molte transazioni. È più conveniente modificare il livello in un secondo momento con il livello più adatto al carico di lavoro.
+        </br>**Nome**</br>Sono supportate lettere minuscole, numeri e trattini.</br></br>**Quota**</br>La quota qui è paragonabile a una quota rigida SMB in un'istanza di Windows Server. La procedura consigliata consiste nel non impostare una quota perché la migrazione e altri servizi avranno esito negativo quando viene raggiunta la quota.</br></br>**Livelli**</br>Selezionare **Transaction optimized** per la nuova condivisione file. Durante la migrazione, si verificheranno molte transazioni. È più conveniente modificare il livello in un secondo momento al livello più adatto al carico di lavoro.
     :::column-end:::
 :::row-end:::
 
 ### <a name="storsimple-data-manager"></a>StorSimple Data Manager
 
-La risorsa di Azure che conterrà i processi di migrazione è denominata **StorSimple Data Manager** . Selezionare **nuova risorsa** e cercarla. Selezionare quindi **Crea** .
+La risorsa di Azure che conterrà i processi di migrazione è denominata **StorSimple Data Manager**. Selezionare **nuova risorsa** e cercarla. Selezionare quindi **Crea**.
 
 Questa risorsa temporanea viene utilizzata per l'orchestrazione. Eseguirne il deprovisioning al termine della migrazione. Deve essere distribuito nella stessa sottoscrizione, gruppo di risorse e area geografica dell'account di archiviazione StorSimple.
 
@@ -232,7 +232,7 @@ Alla fine della fase 2, sono stati distribuiti gli account di archiviazione e tu
 
 ## <a name="phase-3-create-and-run-a-migration-job"></a>Fase 3: creare ed eseguire un processo di migrazione
 
-Questa sezione descrive come configurare un processo di migrazione e mappare attentamente le directory in un volume StorSimple che deve essere copiato nella condivisione file di Azure di destinazione selezionata. Per iniziare, passare alla StorSimple Data Manager, individuare le **definizioni dei processi** nel menu e selezionare **+ definizione processo** . Il tipo di archiviazione di destinazione è la **condivisione file di Azure** predefinita.
+Questa sezione descrive come configurare un processo di migrazione e mappare attentamente le directory in un volume StorSimple che deve essere copiato nella condivisione file di Azure di destinazione selezionata. Per iniziare, passare alla StorSimple Data Manager, individuare le **definizioni dei processi** nel menu e selezionare **+ definizione processo**. Il tipo di archiviazione di destinazione è la **condivisione file di Azure** predefinita.
 
 ![Tipi di processo di migrazione serie 8000 di StorSimple.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job-type.png "Screenshot delle definizioni dei processi portale di Azure con una nuova finestra di dialogo definizioni processo aperta che richiede il tipo di processo: copia in una condivisione file o in un contenitore BLOB.")
 
@@ -244,7 +244,7 @@ Questa sezione descrive come configurare un processo di migrazione e mappare att
         ![Processo di migrazione serie StorSimple 8000.](media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-new-job.png "Screenshot del nuovo modulo per la creazione di processi per un processo del servizio di trasformazione dei dati.")
     :::column-end:::
     :::column:::
-        **Nome definizione processo**</br>Questo nome indicherà il set di file che si sta muovendo. Assegnare un nome simile alla condivisione file di Azure è una procedura consigliata. </br></br>**Località in cui viene eseguito il processo**</br>Quando si seleziona un'area, è necessario selezionare la stessa area dell'account di archiviazione StorSimple o, se non è disponibile, un'area vicina. </br></br><h3>Source (Sorgente)</h3>**Sottoscrizione di origine**</br>Selezionare la sottoscrizione in cui archiviare la risorsa StorSimple Device Manager. </br></br>**Risorsa StorSimple**</br>Selezionare la StorSimple Device Manager il dispositivo è registrato con. </br></br>**Chiave di crittografia dei dati del servizio**</br>Controllare questa [sezione precedente in questo articolo](#storsimple-service-data-encryption-key) nel caso in cui non sia possibile individuare la chiave nei record. </br></br>**Dispositivo**</br>Selezionare il dispositivo StorSimple che include il volume in cui si vuole eseguire la migrazione. </br></br>**Volume**</br>Selezionare il volume di origine. In un secondo momento si decide se si vuole eseguire la migrazione dell'intero volume o delle sottodirectory nella condivisione file di Azure di destinazione. </br></br><h3>Destinazione</h3>Selezionare la sottoscrizione, l'account di archiviazione e la condivisione file di Azure come destinazione del processo di migrazione.
+        **Nome definizione processo**</br>Questo nome indicherà il set di file che si sta muovendo. Assegnare un nome simile alla condivisione file di Azure è una procedura consigliata. </br></br>**Località in cui viene eseguito il processo**</br>Quando si seleziona un'area, è necessario selezionare la stessa area dell'account di archiviazione StorSimple o, se non è disponibile, un'area vicina. </br></br><h3>Origine</h3>**Sottoscrizione di origine**</br>Selezionare la sottoscrizione in cui archiviare la risorsa StorSimple Device Manager. </br></br>**Risorsa StorSimple**</br>Selezionare la StorSimple Device Manager il dispositivo è registrato con. </br></br>**Chiave di crittografia dei dati del servizio**</br>Controllare questa [sezione precedente in questo articolo](#storsimple-service-data-encryption-key) nel caso in cui non sia possibile individuare la chiave nei record. </br></br>**Dispositivo**</br>Selezionare il dispositivo StorSimple che include il volume in cui si vuole eseguire la migrazione. </br></br>**Volume**</br>Selezionare il volume di origine. In un secondo momento si decide se si vuole eseguire la migrazione dell'intero volume o delle sottodirectory nella condivisione file di Azure di destinazione. </br></br><h3>Destinazione</h3>Selezionare la sottoscrizione, l'account di archiviazione e la condivisione file di Azure come destinazione del processo di migrazione.
     :::column-end:::
 :::row-end:::
 
@@ -270,21 +270,21 @@ Un mapping è espresso da sinistra a destra: [percorso \Source] \> [percorso \ta
 |Carattere semantico          | Significato  |
 |:---------------------------|:---------|
 | **\\**                     | Indicatore del livello radice.       |
-| **\>**                     | [Source] e [operatore di mapping di destinazione.     |
+| **\>**                     | [Source] e l'operatore [target-mapping].     |
 |**\|** o RETURN (nuova riga) | Separatore di due istruzioni per il mapping di cartelle. </br>In alternativa, è possibile omettere questo carattere e premere **invio** per ottenere l'espressione di mapping successiva sulla propria riga.        |
 
-### <a name="examples"></a>Esempio
+### <a name="examples"></a>Esempi
 Sposta il contenuto dei *dati utente* della cartella nella radice della condivisione file di destinazione:
 ``` console
-\User data > \\
+\User data > \
 ```
 Sposta l'intero contenuto del volume in un nuovo percorso nella condivisione file di destinazione:
 ``` console
-\ \> \Apps\HR tracker
+\ > \Apps\HR tracker
 ```
 Sposta il contenuto della cartella di origine in un nuovo percorso nella condivisione file di destinazione:
 ``` console
-\HR resumes-Backup \> \Backups\HR\resumes
+\HR resumes-Backup > \Backups\HR\resumes
 ```
 Ordina più percorsi di origine in una nuova struttura di directory:
 ``` console
@@ -296,7 +296,7 @@ Ordina più percorsi di origine in una nuova struttura di directory:
 ### <a name="semantic-rules"></a>Regole semantiche
 
 * Specificare sempre i percorsi di cartella relativi al livello radice.
-* Inizia ogni percorso di cartella con un indicatore di livello radice " \" .
+* Inizia ogni percorso di cartella con un indicatore di livello radice " \\ ".
 * Non includere lettere di unità.
 * Quando si specificano più percorsi, i percorsi di origine o di destinazione non possono sovrapporsi:</br>
    Esempio di sovrapposizione del percorso di origine non valido:</br>
@@ -425,11 +425,11 @@ Dopo aver apportato modifiche alla **sincronizzazione iniziale** , lo spazio dei
 
 È anche possibile usare il Visualizzatore eventi nell'istanza di Windows Server per indicare quando lo spazio dei nomi è stato completamente raggiunto.
 
-1. Aprire il **Visualizzatore eventi** e passare ad **applicazioni e servizi** .
-1. Passare a e aprire **Microsoft\FileSync\Agent\Telemetry** .
+1. Aprire il **Visualizzatore eventi** e passare ad **applicazioni e servizi**.
+1. Passare a e aprire **Microsoft\FileSync\Agent\Telemetry**.
 1. Cercare l' **evento 9102** più recente, che corrisponde a una sessione di sincronizzazione completata.
-1. Selezionare **Details (dettagli** ) e confermare che si sta cercando un evento in cui il valore **SyncDirection** è **download** .
-1. Per il momento in cui lo spazio dei nomi ha completato il download sul server, sarà presente un solo evento con **scenario** , il valore **FullGhostedSync** e **HRESULT**  =  **0** .
+1. Selezionare **Details (dettagli** ) e confermare che si sta cercando un evento in cui il valore **SyncDirection** è **download**.
+1. Per il momento in cui lo spazio dei nomi ha completato il download sul server, sarà presente un solo evento con **scenario** , il valore **FullGhostedSync** e **HRESULT**  =  **0**.
 1. Se si dimentica questo evento, è anche possibile cercare altri **eventi 9102** con il **SyncDirection**  =  **download** e lo **scenario**  =  **"RegularSync"** di SyncDirection. La ricerca di uno di questi eventi indica inoltre che lo spazio dei nomi ha terminato il download e la sincronizzazione in sessioni regolari di sincronizzazione, indipendentemente dalla sincronizzazione.
 
 ### <a name="a-final-robocopy"></a>RoboCopy finale
@@ -518,7 +518,7 @@ Sfondo:
    :::column-end:::
 :::row-end:::
 
-Quando si configurano i percorsi di origine e di destinazione del comando RoboCopy, assicurarsi di esaminare la struttura dell'origine e della destinazione per verificare che corrispondano. Se è stata usata la funzionalità di mapping di directory del processo di migrazione, la struttura della directory radice potrebbe essere diversa dalla struttura del volume StorSimple. In tal caso, potrebbero essere necessari più processi RoboCopy, uno per ogni sottodirectory.
+Quando si configurano i percorsi di origine e di destinazione del comando RoboCopy, assicurarsi di esaminare la struttura dell'origine e della destinazione per verificare che corrispondano. Se è stata usata la funzionalità di mapping di directory del processo di migrazione, la struttura della directory radice potrebbe essere diversa dalla struttura del volume StorSimple. In tal caso, potrebbero essere necessari più processi RoboCopy, uno per ogni sottodirectory. Se non si è certi che il comando venga eseguito come previsto, è possibile usare il */l* parametro, che simula il comando senza apportare alcuna modifica.
 
 Questo comando RoboCopy USA/MIR, quindi non sposterà i file che sono gli stessi (ad esempio, i file a livelli). Tuttavia, se si ottengono errori nel percorso di origine e di destinazione,/MIR ripulisce anche le strutture di directory nell'istanza di Windows Server o nella condivisione file di Azure che non sono presenti nel percorso di origine StorSimple. Devono corrispondere esattamente affinché il processo RoboCopy raggiunga l'obiettivo previsto di aggiornare il contenuto migrato con le ultime modifiche apportate durante la migrazione.
 
@@ -547,7 +547,7 @@ Quando si esegue il deprovisioning di una risorsa, si perde l'accesso alla confi
 Prima di iniziare, è consigliabile osservare la nuova distribuzione di Sincronizzazione file di Azure in produzione per un certo periodo di tempo. Questo tempo ti offre la possibilità di risolvere eventuali problemi che potrebbero verificarsi. Dopo aver osservato la distribuzione di Sincronizzazione file di Azure per almeno alcuni giorni, è possibile iniziare a eseguire il deprovisioning delle risorse nell'ordine seguente:
 
 1. Effettuare il deprovisioning della risorsa StorSimple Data Manager tramite l'portale di Azure. Verranno eliminati tutti i processi DTS. Non sarà possibile recuperare facilmente i log di copia. Se sono importanti per i record, recuperarli prima di eseguire il deprovisioning.
-1. Verificare che siano state migrate le appliance fisiche StorSimple e quindi annullarne la registrazione. Se non si è certi che sia stata eseguita la migrazione, non continuare. Se si effettua il deprovisioning di queste risorse mentre sono ancora necessarie, non sarà possibile recuperare i dati o la relativa configurazione.
+1. Verificare che siano state migrate le appliance fisiche StorSimple e quindi annullarne la registrazione. Se non si è certi che sia stata eseguita la migrazione, non continuare. Se si effettua il deprovisioning di queste risorse mentre sono ancora necessarie, non sarà possibile recuperare i dati o la relativa configurazione.<br>Facoltativamente, è possibile eseguire innanzitutto il deprovisioning della risorsa volume StorSimple, che consente di eliminare i dati nel dispositivo. Questa operazione può richiedere diversi giorni e **non eliminerà** in alcun tempo i dati nel dispositivo. Se è importante, gestire lo zero del disco separatamente dal deprovisioning delle risorse e in base ai criteri.
 1. Se non sono più presenti dispositivi registrati rimasti in una Device Manager StorSimple, è possibile procedere con la rimozione della risorsa Device Manager stessa.
 1. A questo punto è possibile eliminare l'account di archiviazione StorSimple in Azure. Anche in questo caso, arrestare e verificare che la migrazione sia stata completata e che niente e nessuno dipenda da questi dati prima di procedere.
 1. Scollegare il dispositivo fisico StorSimple dalla data center.

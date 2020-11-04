@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 71ac7793fe5226215c5d4eab98f84dba356b114c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f13773a8e3e78451dfb587e55c40a20d1b4b385c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91275966"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324759"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integrazione git per Azure Machine Learning
 
@@ -39,7 +39,7 @@ Per altre informazioni sulla clonazione, vedere la guida su [come usare l'interf
 
 ## <a name="authenticate-your-git-account-with-ssh"></a>Autenticare l'account git con SSH
 ### <a name="generate-a-new-ssh-key"></a>Genera una nuova chiave SSH
-1) [Aprire la finestra del terminale](https://docs.microsoft.com/azure/machine-learning/how-to-run-jupyter-notebooks#terminal) nella scheda Azure Machine Learning notebook.
+1) [Aprire la finestra del terminale](./how-to-run-jupyter-notebooks.md#terminal) nella scheda Azure Machine Learning notebook.
 
 2) Incollare il testo seguente, sostituendo l'indirizzo di posta elettronica.
 
@@ -89,7 +89,7 @@ cat ~/.ssh/id_rsa.pub
 
 + [GitLab](https://docs.gitlab.com/ee/ssh/#adding-an-ssh-key-to-your-gitlab-account)
 
-+ [Azure DevOps](https://docs.microsoft.com/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Iniziare dal **passaggio 2**.
++ [Azure DevOps](/azure/devops/repos/git/use-ssh-keys-to-authenticate?view=azure-devops#step-2--add-the-public-key-to-azure-devops-servicestfs)  Iniziare dal **passaggio 2**.
 
 + [Bitbucket](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/#SetupanSSHkey-ssh2). Iniziare dal **passaggio 4**.
 
@@ -115,7 +115,7 @@ Warning: Permanently added 'github.com,192.30.255.112' (RSA) to the list of know
 
 SSH può visualizzare l'impronta digitale SSH del server e richiedere di verificarla. È necessario verificare che l'impronta digitale visualizzata corrisponda a una delle impronte digitali nella pagina chiavi pubbliche SSH.
 
-SSH Visualizza questa impronta digitale quando si connette a un host sconosciuto per proteggersi dagli [attacchi man-in-the-Middle](https://technet.microsoft.com/library/cc959354.aspx). Una volta accettata l'impronta digitale dell'host, SSH non verrà più richiesto se l'impronta digitale non cambia.
+SSH Visualizza questa impronta digitale quando si connette a un host sconosciuto per proteggersi dagli [attacchi man-in-the-Middle](/previous-versions/windows/it-pro/windows-2000-server/cc959354(v=technet.10)). Una volta accettata l'impronta digitale dell'host, SSH non verrà più richiesto se l'impronta digitale non cambia.
 
 3) Quando viene chiesto se si desidera continuare la connessione, digitare `yes` . Git clona il repository e configura l'origine remota per connettersi con SSH per i comandi Git futuri.
 
@@ -153,9 +153,9 @@ Le informazioni git vengono archiviate nelle proprietà di un'esecuzione di trai
 ### <a name="azure-portal"></a>Portale di Azure
 
 1. Dal [portale di studio](https://ml.azure.com)selezionare l'area di lavoro.
-1. Selezionare __esperimenti__, quindi selezionare uno degli esperimenti.
+1. Selezionare __esperimenti__ , quindi selezionare uno degli esperimenti.
 1. Selezionare una delle esecuzioni dalla colonna __numero di esecuzione__ .
-1. Selezionare __output + log__, quindi espandere i __registri__ e le voci __azureml__ . Selezionare il collegamento che inizia con __ ### \_ Azure__.
+1. Selezionare __output + log__ , quindi espandere i __registri__ e le voci __azureml__ . Selezionare il collegamento che inizia con __### \_ Azure__.
 
 Le informazioni registrate contengono testo simile al seguente JSON:
 
@@ -178,7 +178,7 @@ Le informazioni registrate contengono testo simile al seguente JSON:
 
 ### <a name="python-sdk"></a>Python SDK
 
-Dopo aver inviato un'esecuzione di training, viene restituito un oggetto [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) . L' `properties` attributo di questo oggetto contiene le informazioni git registrate. Il codice seguente, ad esempio, recupera l'hash di commit:
+Dopo aver inviato un'esecuzione di training, viene restituito un oggetto [Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) . L' `properties` attributo di questo oggetto contiene le informazioni git registrate. Il codice seguente, ad esempio, recupera l'hash di commit:
 
 ```python
 run.properties['azureml.git.commit']
@@ -192,7 +192,7 @@ Il `az ml run` comando CLI può essere usato per recuperare le proprietà da un'
 az ml run list -e train-on-amlcompute --last 1 -w myworkspace -g myresourcegroup --query '[].properties'
 ```
 
-Per ulteriori informazioni, vedere la documentazione di riferimento [AZ ml Run](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/run?view=azure-cli-latest&preserve-view=true) .
+Per ulteriori informazioni, vedere la documentazione di riferimento [AZ ml Run](/cli/azure/ext/azure-cli-ml/ml/run?preserve-view=true&view=azure-cli-latest) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
 title: Indicazioni per la progettazione di tabelle distribuite
-description: Suggerimenti per la progettazione di tabelle con distribuzione hash e round robin nel pool SQL Synapse.
+description: Suggerimenti per la progettazione di tabelle distribuite con distribuzione hash e Round Robin usando un pool SQL dedicato in Azure sinapsi Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 10d37dd5fd9703246913959b9eeec3e1fbc2e913
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: a3715abdebce319979d867d12764a22b4ed16c35
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487008"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323615"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-synapse-sql-pool"></a>Indicazioni per la progettazione di tabelle distribuite nel pool SQL Synapse
+# <a name="guidance-for-designing-distributed-tables-using-dedicated-sql-pool-in-azure-synapse-analytics"></a>Linee guida per la progettazione di tabelle distribuite usando un pool SQL dedicato in Azure sinapsi Analytics
 
-Suggerimenti per la progettazione di tabelle con distribuzione hash e round robin in pool Synapse SQL.
+Suggerimenti per la progettazione di tabelle distribuite con distribuzione hash e Round Robin in pool SQL dedicati.
 
-Questo articolo presuppone che l'utente abbia familiarità con i concetti relativi alla distribuzione dei dati e allo spostamento dei dati in sinapsi SQL.  Per altre informazioni, vedere [architettura di analisi delle sinapsi di Azure](massively-parallel-processing-mpp-architecture.md).
+Questo articolo presuppone che l'utente abbia familiarità con i concetti relativi alla distribuzione dei dati e allo spostamento dei dati nel pool SQL dedicato.  Per altre informazioni, vedere [architettura di analisi delle sinapsi di Azure](massively-parallel-processing-mpp-architecture.md).
 
 ## <a name="what-is-a-distributed-table"></a>Che cos'è una tabella distribuita?
 
@@ -36,7 +36,7 @@ Come parte della progettazione di tabelle, è necessario comprendere quanto più
 
 - Quali sono le dimensioni della tabella?
 - Quanto spesso viene aggiornata la tabella?
-- Sono presenti tabelle dei fatti e delle dimensioni in un pool SQL Synapse?
+- Sono presenti tabelle dei fatti e delle dimensioni in un pool SQL dedicato?
 
 ### <a name="hash-distributed"></a>Tabelle con distribuzione hash
 
@@ -44,7 +44,7 @@ Una tabella con distribuzione hash distribuisce le righe della tabella nei vari 
 
 ![Tabella distribuita](./media/sql-data-warehouse-tables-distribute/hash-distributed-table.png "Tabella distribuita")  
 
-Poiché valori identici eseguono sempre l'hash nella stessa distribuzione, nel data warehouse sono integrate informazioni sulla posizione delle righe. Nel pool SQL Synapse, queste informazioni vengono usate per ridurre al minimo lo spostamento dei dati durante le query e, di conseguenza, migliorare le prestazioni complessive delle query.
+Poiché valori identici eseguono sempre l'hash nella stessa distribuzione, nel data warehouse sono integrate informazioni sulla posizione delle righe. Nel pool SQL dedicato queste informazioni vengono usate per ridurre al minimo lo spostamento dei dati durante le query, migliorando così le prestazioni delle query.
 
 Le tabelle con distribuzione hash sono particolarmente indicate per le tabelle dei fatti di grandi dimensioni in uno schema star. Possono contenere un numero molto elevato di righe e conseguire comunque prestazioni elevate. È necessario, ovviamente, considerare anche alcuni aspetti di progettazione per ottenere le prestazioni che il sistema distribuito è in grado di offrire. Uno di questi riguarda la scelta di una colonna di distribuzione appropriata, illustrata in questo articolo.
 
@@ -113,7 +113,7 @@ Per bilanciare l'elaborazione parallela, selezionare una colonna di distribuzion
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>Scegliere una colonna di distribuzione che riduca al minimo lo spostamento dei dati
 
-Per ottenere il risultato corretto, è possibile che le query spostino i dati da un nodo di calcolo a un altro. Lo spostamento dei dati si verifica in genere quando le query hanno join e aggregazioni in tabelle distribuite. Scegliere una colonna di distribuzione che contribuisca a ridurre lo spostamento dei dati è una delle strategie più importanti per ottimizzare le prestazioni del pool SQL Synapse.
+Per ottenere il risultato corretto, è possibile che le query spostino i dati da un nodo di calcolo a un altro. Lo spostamento dei dati si verifica in genere quando le query hanno join e aggregazioni in tabelle distribuite. La scelta di una colonna di distribuzione che consente di ridurre al minimo lo spostamento dei dati è una delle strategie più importanti per ottimizzare le prestazioni del pool SQL dedicato.
 
 Per ridurre al minimo lo spostamento dei dati, selezionare una colonna di distribuzione che:
 
@@ -225,5 +225,5 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 Per creare una tabella distribuita, usare una di queste istruzioni:
 
-- [CREATE TABLE (pool SQL Synapse)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
-- [CREATE TABLE AS SELECT (pool SQL Synapse)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE (pool SQL dedicato)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
+- [CREATE TABLE come SELECT (pool SQL dedicato)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

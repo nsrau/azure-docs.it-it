@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 09/30/2020
-ms.openlocfilehash: 374cc79b42d2dcaed0312c0ec205073906ce1fc5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e042fd62d99c9fdf88a144c93739bf1f3f08a78c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530675"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325577"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Debug interattivo con Visual Studio Code
 
@@ -38,7 +38,7 @@ Usare l'estensione Azure Machine Learning per convalidare, eseguire ed eseguire 
 > In Windows, assicurarsi di [configurare Docker per l'uso di contenitori Linux](https://docs.docker.com/docker-for-windows/#switch-between-windows-and-linux-containers).
 
 > [!TIP]
-> Per Windows, sebbene non sia obbligatorio, è consigliabile [usare Docker con il sottosistema Windows per Linux (WSL) 2](https://docs.microsoft.com/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
+> Per Windows, sebbene non sia obbligatorio, è consigliabile [usare Docker con il sottosistema Windows per Linux (WSL) 2](/windows/wsl/tutorials/wsl-containers#install-docker-desktop).
 
 > [!IMPORTANT]
 > Prima di eseguire l'esperimento localmente, assicurarsi che Docker sia in esecuzione.
@@ -58,7 +58,7 @@ Usare l'estensione Azure Machine Learning per convalidare, eseguire ed eseguire 
     1. Consente di specificare il nome dello script che si desidera eseguire. Il percorso è relativo alla directory aperta in VS Code.
     1. Scegliere se si desidera utilizzare un set di dati Azure Machine Learning. È possibile creare [set di impostazioni di Azure Machine Learning](how-to-manage-resources-vscode.md#create-dataset) usando l'estensione.
     1. Debugpy è necessario per consentire a di aggiungere il debugger al contenitore che esegue l'esperimento. Per aggiungere debugpy come dipendenza, selezionare **Aggiungi debugpy**. In caso contrario, selezionare **Ignora**. Se non si aggiunge debugpy come dipendenza, viene eseguito l'esperimento senza connettersi al debugger.
-    1. Un file di configurazione contenente le impostazioni di configurazione di esecuzione viene aperto nell'editor. Se si è soddisfatti delle impostazioni, selezionare **Invia esperimento**. In alternativa, aprire il riquadro comandi (**visualizzare > riquadro comandi**) dalla barra dei menu e immettere il `Azure ML: Submit experiment` comando nella casella di testo.
+    1. Un file di configurazione contenente le impostazioni di configurazione di esecuzione viene aperto nell'editor. Se si è soddisfatti delle impostazioni, selezionare **Invia esperimento**. In alternativa, aprire il riquadro comandi ( **visualizzare > riquadro comandi** ) dalla barra dei menu e immettere il `Azure ML: Submit experiment` comando nella casella di testo.
 1. Una volta inviato l'esperimento, viene creata un'immagine Docker contenente lo script e le configurazioni specificate nella configurazione di esecuzione.
 
     Quando inizia il processo di compilazione dell'immagine Docker, il contenuto del `60_control_log.txt` flusso di file nella console di output viene vs code.
@@ -100,7 +100,7 @@ Per altre informazioni sull'uso di una rete virtuale di Azure con Azure Machine 
 > [!TIP]
 > Sebbene sia possibile utilizzare Azure Machine Learning risorse che non si trovano dietro una rete virtuale, è consigliabile utilizzare una rete virtuale.
 
-### <a name="how-it-works"></a>Funzionamento
+### <a name="how-it-works"></a>Come funziona
 
 I passaggi della pipeline di ML eseguono script Python. Questi script vengono modificati per eseguire le azioni seguenti:
 
@@ -292,7 +292,7 @@ Salvare il `ip_address` valore. Verranno usate nella sezione successiva.
 
 1. Per configurare VS Code per comunicare con l'Azure Machine Learning calcolo che esegue il debugger, creare una nuova configurazione di debug:
 
-    1. Da VS Code selezionare il menu __Debug__, quindi selezionare __Apri configurazioni__. Viene aperto un file denominato __launch.json__.
+    1. Da VS Code selezionare il menu __Debug__ , quindi selezionare __Apri configurazioni__. Viene aperto un file denominato __launch.json__.
 
     1. Nel __launch.jssu__ file trovare la riga che contiene `"configurations": [` e inserire il testo seguente dopo di esso. Modificare la `"host": "<IP-ADDRESS>"` voce nell'indirizzo IP restituito nei log della sezione precedente. Modificare la `"localRoot": "${workspaceFolder}/code/step"` voce in una directory locale che contiene una copia dello script di cui è in corso il debug:
 
@@ -339,7 +339,7 @@ Salvare il `ip_address` valore. Verranno usate nella sezione successiva.
 In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del codice Python contenuto nella distribuzione del modello. Ad esempio, se lo script di immissione ha esito negativo e il motivo non può essere determinato da una registrazione aggiuntiva. Usando VS Code e debugpy, è possibile connettersi al codice in esecuzione all'interno del contenitore docker.
 
 > [!IMPORTANT]
-> Questo metodo di debug non funziona quando si usano `Model.deploy()` e `LocalWebservice.deploy_configuration` per distribuire un modello localmente. Al contrario, è necessario creare un'immagine usando il metodo [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
+> Questo metodo di debug non funziona quando si usano `Model.deploy()` e `LocalWebservice.deploy_configuration` per distribuire un modello localmente. Al contrario, è necessario creare un'immagine usando il metodo [Model.package()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
 
 Per le distribuzioni di servizi Web locali è necessaria un'installazione Docker funzionante nel sistema locale. Per altre informazioni sull'uso di Docker, vedere la [Documentazione di Docker](https://docs.docker.com/). Si noti che quando si lavora con le istanze di calcolo, Docker è già installato.
 
@@ -355,7 +355,7 @@ Per le distribuzioni di servizi Web locali è necessaria un'installazione Docker
 
 1. Per configurare VS Code per la comunicazione con l'immagine Docker, creare una nuova configurazione di debug:
 
-    1. Da VS Code selezionare il menu __Debug__, quindi selezionare __Apri configurazioni__. Viene aperto un file denominato __launch.json__.
+    1. Da VS Code selezionare il menu __Debug__ , quindi selezionare __Apri configurazioni__. Viene aperto un file denominato __launch.json__.
 
     1. Nel file __launch.json__ trovare la riga che contiene `"configurations": [` e inserire il testo seguente dopo di essa:
 

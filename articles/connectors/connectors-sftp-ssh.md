@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, logicappspm
 ms.topic: article
-ms.date: 10/02/2020
+ms.date: 11/03/2020
 tags: connectors
-ms.openlocfilehash: cb851734dc8f71347168e7ac16ac0752845dda7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 31714eee2e79481bbc8afb47718ed38e178d5b82
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91823617"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324235"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando SSH e App per la logica di Azure
 
@@ -40,6 +40,8 @@ Ecco alcuni esempi di attività che è possibile automatizzare:
 Per le differenze tra il connettore SFTP-SSH e il connettore SFTP, vedere la sezione [confrontare SFTP-SSH rispetto a SFTP](#comparison) più avanti in questo argomento.
 
 ## <a name="limits"></a>Limiti
+
+* Il connettore SFTP-SSH supporta l'autenticazione tramite chiave privata o la password, non entrambe.
 
 * Le azioni SFTP-SSH che supportano la [suddivisione in blocchi](../logic-apps/logic-apps-handle-large-messages.md) possono gestire file fino a 1 GB, mentre le azioni SFTP-SSH che non supportano la suddivisione in blocchi possono gestire file fino a 50 MB. Sebbene le dimensioni predefinite del blocco siano pari a 15 MB, questa dimensione può variare in modo dinamico, a partire da 5 MB e aumentando gradualmente fino al valore massimo di 50 MB, in base a fattori quali la latenza di rete, il tempo di risposta del server e così via.
 
@@ -84,7 +86,7 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
 
 * Fornisce l'azione **Rinomina file** che rinomina un file nel server SFTP.
 
-* Memorizza nella cache la connessione al server SFTP *per un massimo di un'ora*, migliorando così le prestazioni e riducendo il numero di tentativi di connessione al server. Per impostare la durata di questo comportamento di memorizzazione nella cache, modificare la proprietà [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) nella configurazione di SSH sul server SFTP.
+* Memorizza nella cache la connessione al server SFTP *per un massimo di un'ora* , migliorando così le prestazioni e riducendo il numero di tentativi di connessione al server. Per impostare la durata di questo comportamento di memorizzazione nella cache, modificare la proprietà [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) nella configurazione di SSH sul server SFTP.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -96,16 +98,16 @@ Questa sezione illustra altre differenze importanti tra il connettore SFTP-SSH e
   >
   > Il connettore SFTP-SSH supporta *solo* questi formati di chiave privata, algoritmi e impronte digitali:
   >
-  > * **Formati di chiave privata**: chiavi RSA (Rivet Shamir Adleman) e DSA (Digital Signature Algorithm) nei formati OpenSSH e SSH.com. Se la chiave privata è in formato di file PuTTy (con estensione PPK), [convertire prima la chiave nel formato di file OpenSSH (con estensione PEM)](#convert-to-openssh).
+  > * **Formati di chiave privata** : chiavi RSA (Rivet Shamir Adleman) e DSA (Digital Signature Algorithm) nei formati OpenSSH e SSH.com. Se la chiave privata è in formato di file PuTTy (con estensione PPK), [convertire prima la chiave nel formato di file OpenSSH (con estensione PEM)](#convert-to-openssh).
   >
-  > * **Algoritmi di crittografia**: DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
+  > * **Algoritmi di crittografia** : DES-EDE3-CBC, DES-EDE3-CFB, DES-CBC, AES-128-CBC, AES-192-CBC e AES-256-CBC
   >
-  > * **Impronta digitale**: MD5
+  > * **Impronta digitale** : MD5
   >
-  > Dopo aver aggiunto il trigger SFTP-SSH o l'azione desiderata per l'app per la logica, è necessario fornire le informazioni di connessione per il server SFTP. Quando si specifica la chiave privata SSH per questa connessione, ***non immettere o modificare manualmente la chiave***, il che potrebbe causare l'esito negativo della connessione. Al contrario, assicurarsi di ***copiare la chiave*** dal file di chiave privata SSH e ***incollare*** la chiave nei dettagli della connessione. 
+  > Dopo aver aggiunto il trigger SFTP-SSH o l'azione desiderata per l'app per la logica, è necessario fornire le informazioni di connessione per il server SFTP. Quando si specifica la chiave privata SSH per questa connessione, * *_non immettere o modificare manualmente la chiave_* _, il che potrebbe causare l'esito negativo della connessione. Al contrario, assicurarsi di _*_copiare la chiave_*_ dal file di chiave privata SSH e _*_incollare_*_ la chiave nei dettagli della connessione. 
   > Per altre informazioni, vedere la sezione [connettersi a SFTP con SSH](#connect) più avanti in questo articolo.
 
-* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+_ Informazioni di base su [come creare app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 * L'app per la logica in cui si vuole accedere all'account SFPT. Per iniziare con un trigger SFTP-SSH, [creare un'app per la logica vuota](../logic-apps/quickstart-create-first-logic-app-workflow.md). Per usare un'azione SFTP-SSH, avviare l'app per la logica con un altro trigger, ad esempio il trigger **Ricorrenza**.
 
@@ -187,19 +189,19 @@ Per creare un file nel server SFTP, è possibile usare l'azione di **creazione f
 
    > [!IMPORTANT]
    >
-   > Quando si immette la chiave privata SSH nella proprietà **Chiave privata SSH**, seguire questi passaggi aggiuntivi che consentono di assicurarsi di specificare il valore completo e corretto per questa proprietà. Una chiave non valida provoca un errore di connessione.
+   > Quando si immette la chiave privata SSH nella proprietà **Chiave privata SSH** , seguire questi passaggi aggiuntivi che consentono di assicurarsi di specificare il valore completo e corretto per questa proprietà. Una chiave non valida provoca un errore di connessione.
 
    Anche se è possibile usare qualsiasi editor di testo, ecco i passaggi esemplificativi che mostrano come copiare e incollare la chiave usando Notepad.exe.
 
    1. Aprire il file della chiave privata SSH in un editor di testo. In questi passaggi viene usato il Blocco note come esempio.
 
-   1. Scegliere **Seleziona tutto**dal menu **modifica** del blocco note.
+   1. Scegliere **Seleziona tutto** dal menu **modifica** del blocco note.
 
    1. Selezionare **modifica**  >  **copia**.
 
-   1. Nell'azione o nel trigger SFTP-SSH aggiunto, incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe.  ***Assicurarsi di incollare*** la chiave. ***Non immettere o modificare manualmente la chiave***.
+   1. Nell'azione o nel trigger SFTP-SSH aggiunto, incollare la chiave *completa* copiata nella proprietà **Chiave privata SSH** che supporta più righe.  **_Assicurarsi di incollare_* la chiave. _*_Non immettere o modificare manualmente la chiave_*_.
 
-1. Al termine dell'immissione dei dettagli della connessione, selezionare **Crea**.
+1. Al termine dell'immissione dei dettagli della connessione, selezionare _ * crea * *.
 
 1. Specificare ora i dettagli necessari per l'azione o il trigger selezionato e continuare a creare il flusso di lavoro dell'app per la logica.
 
@@ -209,11 +211,11 @@ Per creare un file nel server SFTP, è possibile usare l'azione di **creazione f
 
 Per eseguire l'override del comportamento adattivo predefinito usato per la suddivisione in blocchi, è possibile specificare una dimensione di blocco costante da 5 MB a 50 MB.
 
-1. Nell'angolo superiore destro dell'azione selezionare il pulsante con i puntini di sospensione (**...**) e quindi selezionare **Impostazioni**.
+1. Nell'angolo superiore destro dell'azione selezionare il pulsante con i puntini di sospensione ( **...** ) e quindi selezionare **Impostazioni**.
 
    ![Aprire SFTP-impostazioni SSH](./media/connectors-sftp-ssh/sftp-ssh-connector-setttings.png)
 
-1. In **trasferimento contenuto**, nella proprietà **dimensioni blocco** , immettere un valore intero compreso tra `5` e `50` , ad esempio: 
+1. In **trasferimento contenuto** , nella proprietà **dimensioni blocco** , immettere un valore intero compreso tra `5` e `50` , ad esempio: 
 
    ![Specificare le dimensioni del blocco da usare](./media/connectors-sftp-ssh/specify-chunk-size-override-default.png)
 
@@ -227,7 +229,7 @@ Per eseguire l'override del comportamento adattivo predefinito usato per la sudd
 
 Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene aggiunto o modificato un file in un server SFTP. È ad esempio possibile aggiungere una condizione che controlla il contenuto del file e lo recupera in base al fatto che soddisfi una condizione specificata. Si può quindi aggiungere un'azione che recupera il contenuto del file e lo inserisce in una cartella del server SFTP.
 
-**Esempio riguardante un'organizzazione**: si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. Si può quindi usare un'azione SFTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine, elaborarlo ulteriormente e archiviarlo nel database degli ordini.
+**Esempio riguardante un'organizzazione** : si potrebbe usare questo trigger per monitorare una cartella SFTP per nuovi file di ordini dei clienti. Si può quindi usare un'azione SFTP come **Ottieni contenuto file** per recuperare il contenuto dell'ordine, elaborarlo ulteriormente e archiviarlo nel database degli ordini.
 
 <a name="get-content"></a>
 
@@ -253,21 +255,23 @@ Se non è possibile evitare o ritardare lo spostamento del file, è possibile ig
 
 1. Se i metadati del file sono necessari in un secondo momento, è possibile usare l'azione **Ottieni metadati del file** .
 
+<a name="connection-attempt-failed"></a>
+
 ### <a name="504-error-a-connection-attempt-failed-because-the-connected-party-did-not-properly-respond-after-a-period-of-time-or-established-connection-failed-because-connected-host-has-failed-to-respond-or-request-to-the-sftp-server-has-taken-more-than-000030-seconds"></a>504 errore: "tentativo di connessione non riuscito. risposta non corretta della parte connessa dopo un periodo di tempo oppure connessione stabilita non riuscita perché l'host connesso non ha risposto" o "la richiesta al server SFTP ha richiesto più di" 00:00:30 "secondi"
 
-Questo errore può verificarsi quando l'app per la logica non è in grado di stabilire correttamente una connessione con il server SFTP. Potrebbero essere presenti diversi motivi ed è consigliabile risolvere il problema dai seguenti aspetti. 
+Questo errore può verificarsi quando l'app per la logica non riesce a stabilire una connessione con il server SFTP. Potrebbero esserci diversi motivi per questo problema, quindi provare le opzioni per la risoluzione dei problemi seguenti:
 
-1. Il timeout della connessione è di 20 secondi. Verificare che il server SFTP disponga di prestazioni ottimali e che i dispositivi intermidi come il firewall non aggiungano molto sovraccarico. 
+* Il timeout di connessione è di 20 secondi. Verificare che il server SFTP disponga di ottime prestazioni e che i dispositivi intermedi, ad esempio i firewall, non aggiungano overhead. 
 
-2. Se è presente un firewall, assicurarsi che gli indirizzi IP del **connettore gestito** vengano aggiunti all'elenco approvato. È possibile trovare questi indirizzi IP per l'area dell'app per la logica [**qui**] (https://docs.microsoft.com/azure/logic-apps/logic-apps-limits-and-config#multi-tenant-azure---outbound-ip-addresses)
+* Se è stato configurato un firewall, assicurarsi di aggiungere gli indirizzi IP del **connettore gestito** all'elenco approvato. Per trovare gli indirizzi IP per l'area dell'app per la logica, vedere [limiti e configurazione per app per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#multi-tenant-azure---outbound-ip-addresses).
 
-3. Se si tratta di un problema intermittente, verificare l'impostazione di ripetizione dei tentativi per verificare se un numero di tentativi superiore rispetto a quello predefinito può essere utile.
+* Se questo errore si verifica saltuariamente, modificare l'impostazione dei **criteri di ripetizione** dell'azione SFTP-SSH su un numero di tentativi superiore ai quattro tentativi predefiniti.
 
-4. Verificare se il server SFTP impone un limite al numero di connessioni da ogni indirizzo IP. In tal caso, potrebbe essere necessario limitare il numero di istanze di app per la logica simultanee. 
+* Controllare se il server SFTP impone un limite al numero di connessioni da ogni indirizzo IP. Se esiste un limite, potrebbe essere necessario limitare il numero di istanze di app per la logica simultanee.
 
-5. Aumentando la proprietà [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) a come 1 ora nella configurazione SSH nel server SFTP per ridurre il costo di creazione della connessione.
+* Per ridurre il costo di creazione della connessione, nella configurazione SSH per il server SFTP aumentare la proprietà [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) a circa un'ora.
 
-6. È possibile controllare il log del server SFTP per verificare se la richiesta dall'app per la logica ha raggiunto il server SFTP. È anche possibile eseguire alcune tracce di rete sul firewall e sul server SFTP per approfondire il problema di connettività.
+* Esaminare il log del server SFTP per verificare se la richiesta dall'app per la logica ha raggiunto il server SFTP. Per ottenere altre informazioni sul problema di connettività, è anche possibile eseguire una traccia di rete sul firewall e sul server SFTP.
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: luquinta
 author: luisquintanilla
 ms.date: 08/05/2020
-ms.openlocfilehash: 689b90fc1f45faad72640f47e5eebe936d2dc8b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f2ece76ef3594cadfa1fcda89259ee18eb1f9084
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87829391"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324858"
 ---
 # <a name="what-is-responsible-machine-learning-preview"></a>Che cos'è l'apprendimento automatico responsabile? (anteprima)
 
@@ -73,7 +73,7 @@ Nelle soluzioni di calcolo e archiviazione cloud tradizionali, il cloud deve ave
 
 La crittografia omomorfica consente di eseguire calcoli su dati crittografati senza richiedere l'accesso a una chiave privata o di decrittografia. I risultati dei calcoli sono crittografati e possono essere resi noti solo dal proprietario della chiave privata. Con la crittografia omomorfe, gli operatori cloud non avranno mai accesso non crittografato ai dati in cui vengono archiviati e calcolati. I calcoli vengono eseguiti direttamente sui dati crittografati. La privacy dei dati si basa sulla crittografia all'avanguardia e il proprietario dei dati controlla tutte le versioni delle informazioni. Per ulteriori informazioni sulla crittografia omomorfe in Microsoft, vedere [Microsoft Research](https://www.microsoft.com/research/project/homomorphic-encryption/).
 
-Per iniziare a usare la crittografia omomorfe in Azure Machine Learning, usare le associazioni Python per [inferenza crittografata](https://pypi.org/project/encrypted-inference/) per [Microsoft Seal](https://github.com/microsoft/SEAL). Microsoft SEAL è una libreria open source di crittografia omomorfe che consente di eseguire aggiunte e moltiplicazioni su numeri interi crittografati o numeri reali. Per ulteriori informazioni su Microsoft SEAL, vedere la pagina relativa al [centro architetture di Azure](https://docs.microsoft.com/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) o al [progetto Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
+Per iniziare a usare la crittografia omomorfe in Azure Machine Learning, usare le associazioni Python per [inferenza crittografata](https://pypi.org/project/encrypted-inference/) per [Microsoft Seal](https://github.com/microsoft/SEAL). Microsoft SEAL è una libreria open source di crittografia omomorfe che consente di eseguire aggiunte e moltiplicazioni su numeri interi crittografati o numeri reali. Per ulteriori informazioni su Microsoft SEAL, vedere la pagina relativa al [centro architetture di Azure](/azure/architecture/solution-ideas/articles/homomorphic-encryption-seal) o al [progetto Microsoft Research](https://www.microsoft.com/research/project/microsoft-seal/).
 
 Vedere l'esempio seguente per informazioni [su come distribuire un servizio Web di inferenza crittografato in Azure Machine Learning](how-to-homomorphic-encryption-seal.md).
 
@@ -96,5 +96,5 @@ Vedere l'esempio seguente per informazioni su come usare Azure Machine Learning 
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 
-- Per ulteriori informazioni sulle procedure consigliate, vedere il [Toolkit responsabile dell'innovazione](https://docs.microsoft.com/azure/architecture/guide/responsible-innovation/) .
+- Per ulteriori informazioni sulle procedure consigliate, vedere il [Toolkit responsabile dell'innovazione](/azure/architecture/guide/responsible-innovation/) .
 - Altre informazioni sul set di linee guida [ABOUT ML](https://www.partnershiponai.org/about-ml/) per la documentazione dei sistemi di Machine Learning.

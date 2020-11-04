@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 18bbecbe811a9f0bc6a56194830c7e92d8770979
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 401398da4d71f32973f720dd0ca5cc9b550892e8
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890175"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323044"
 ---
 # <a name="data-ingestion-options-for-azure-machine-learning-workflows"></a>Opzioni di inserimento dei dati per flussi di lavoro Azure Machine Learning
 
@@ -33,7 +33,7 @@ L'inserimento dei dati è il processo in cui i dati non strutturati vengono estr
 
 ## <a name="azure-data-factory"></a>Azure Data Factory
 
-[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/introduction) offre supporto nativo per il monitoraggio e i trigger dell'origine dati per le pipeline di inserimento dati.  
+[Azure Data Factory](../data-factory/introduction.md) offre supporto nativo per il monitoraggio e i trigger dell'origine dati per le pipeline di inserimento dati.  
 
 Nella tabella seguente vengono riepilogati i vantaggi e i svantaggi per l'utilizzo di Azure Data Factory per i flussi di lavoro di inserimento dei dati.
 
@@ -41,11 +41,11 @@ Nella tabella seguente vengono riepilogati i vantaggi e i svantaggi per l'utiliz
 ---|---
 Progettato in modo specifico per estrarre, caricare e trasformare i dati.|Attualmente offre un set limitato di attività di Azure Data Factory pipeline 
 Consente di creare flussi di lavoro basati sui dati per orchestrare lo spostamento e le trasformazioni dei dati su larga scala.|Costoso da costruire e gestire. Per ulteriori informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) di Azure Data Factory.
-Integrazione con diversi strumenti di Azure come [Azure Databricks](https://docs.microsoft.com/azure/data-factory/transform-data-using-databricks-notebook) e [funzioni di Azure](https://docs.microsoft.com/azure/data-factory/control-flow-azure-function-activity) | Non esegue gli script in modo nativo, ma si basa su un calcolo separato per le esecuzioni di script 
+Integrazione con diversi strumenti di Azure come [Azure Databricks](../data-factory/transform-data-using-databricks-notebook.md) e [funzioni di Azure](../data-factory/control-flow-azure-function-activity.md) | Non esegue gli script in modo nativo, ma si basa su un calcolo separato per le esecuzioni di script 
 Supporta l'inserimento di dati attivati dall'origine dati in modo nativo| 
 I processi di preparazione dei dati e di training del modello sono separati.|
 Funzionalità di derivazione dei dati incorporata per flussi di dati Azure Data Factory|
-Fornisce un' [interfaccia utente](https://docs.microsoft.com/azure/data-factory/quickstart-create-data-factory-portal) con esperienza di codice bassa per gli approcci non di scripting |
+Fornisce un' [interfaccia utente](../data-factory/quickstart-create-data-factory-portal.md) con esperienza di codice bassa per gli approcci non di scripting |
 
 Questi passaggi e il diagramma seguente illustrano il flusso di lavoro di inserimento dei dati Azure Data Factory.
 
@@ -60,7 +60,7 @@ Informazioni su come creare una pipeline di inserimento dei dati per Machine Lea
 
 ## <a name="azure-machine-learning-python-sdk"></a>Python SDK di Azure Machine Learning 
 
-Con [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml)è possibile incorporare le attività di inserimento dei dati in un passaggio della [pipeline Azure Machine Learning](how-to-create-your-first-pipeline.md) .
+Con [Python SDK](/python/api/overview/azure/ml)è possibile incorporare le attività di inserimento dei dati in un passaggio della [pipeline Azure Machine Learning](how-to-create-your-first-pipeline.md) .
 
 Nella tabella seguente sono riepilogati i vantaggi e le operazioni di i/o per l'utilizzo dell'SDK e un passaggio di pipeline di ML per le attività di inserimento dei dati.
 

@@ -10,18 +10,18 @@ ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 09/22/2020
 ms.custom: contperfq1
-ms.openlocfilehash: d462ed4627254275703d88cadbaf5d55a106da55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1a6708214eadb2f5d0d66d72f5db5cb4a195d206
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91330129"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324873"
 ---
 # <a name="deep-learning-vs-machine-learning-in-azure-machine-learning"></a>Apprendimento avanzato e Machine Learning in Azure Machine Learning
 
 Questo articolo illustra l'apprendimento avanzato e l'apprendimento automatico e il modo in cui rientrano nella categoria più ampia di intelligenza artificiale. Informazioni sulle soluzioni di apprendimento avanzato che è possibile creare in Azure Machine Learning, ad esempio il rilevamento delle frodi, il riconoscimento vocale e facciale, l'analisi dei sentimenti e la previsione delle serie temporali.
 
-Per indicazioni sulla scelta degli algoritmi per le soluzioni, vedere il foglio informativo sull' [algoritmo Machine Learning](algorithm-cheat-sheet.md).
+Per indicazioni sulla scelta degli algoritmi per le soluzioni, vedere il foglio informativo sull' [algoritmo Machine Learning](https://docs.microsoft.com/azure/machine-learning/algorithm-cheat-sheet?WT.mc_id=docs-article-lazzeri).
 
 ## <a name="deep-learning-machine-learning-and-ai"></a>Deep Learning, Machine Learning e intelligenza artificiale
 
@@ -73,7 +73,7 @@ L'apprendimento avanzato è stato applicato in molti casi d'uso di rilevamento o
 
 Il rilevamento degli oggetti è già in uso in settori quali giochi, vendite al dettaglio, turismo e auto autoguidate.
 
-Informazioni su come usare un modello di classificazione delle immagini da un framework open source in Azure Machine Learning: [classificare le immagini usando un modello Pytorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch?WT.mc_id=docs-article-lazzeri)
+Informazioni su come usare un modello di classificazione delle immagini da un framework open source in Azure Machine Learning: [classificare le immagini usando un modello Pytorch](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri)
 
 ### <a name="image-caption-generation"></a>Generazione didascalia immagine
 
@@ -93,7 +93,7 @@ L'analisi del testo basata su metodi di apprendimento avanzato comporta l'analis
 
 Le aziende usano l'apprendimento avanzato per eseguire analisi del testo per rilevare il trading di insider e la conformità alle normative governative. Un altro esempio comune è la frode delle assicurazioni: l'analisi del testo è stata spesso usata per analizzare grandi quantità di documenti per riconoscere le probabilità che un reclamo assicurativo sia illecito. 
 
-Informazioni su come usare un modello TensorFlow in Azure Machine Learning: [classificare le cifre scritte a mano usando un modello TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow?WT.mc_id=docs-article-lazzeri)
+Informazioni su come usare un modello TensorFlow in Azure Machine Learning: [classificare le cifre scritte a mano usando un modello TensorFlow](./how-to-train-tensorflow.md?WT.mc_id=docs-article-lazzeri)
 
 ## <a name="artificial-neural-networks"></a>Reti neurali artificiali
 
@@ -117,8 +117,8 @@ Le reti neurali di convoluzione sono state usate in aree quali il riconoscimento
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Gli articoli seguenti illustrano altre opzioni per l'uso di modelli di apprendimento avanzato open source in [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/?WT.mc_id=docs-article-lazzeri):
+Gli articoli seguenti illustrano altre opzioni per l'uso di modelli di apprendimento avanzato open source in [Azure Machine Learning](./index.yml?WT.mc_id=docs-article-lazzeri):
 
-- [Classificare le cifre scritte a mano usando uno strumento di stima TensorFlow e keras](https://docs.microsoft.com/azure/machine-learning/how-to-train-keras?WT.mc_id=docs-article-lazzeri)
+- [Classificare le cifre scritte a mano usando uno strumento di stima TensorFlow e keras](./how-to-train-keras.md?WT.mc_id=docs-article-lazzeri)
 
-- [Classificare le cifre scritte a mano usando un modello Chainer](https://docs.microsoft.com/azure/machine-learning/how-to-train-ml-models)
+- [Classificare le cifre scritte a mano usando un modello Chainer](./how-to-set-up-training-targets.md)

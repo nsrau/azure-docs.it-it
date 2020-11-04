@@ -1,6 +1,6 @@
 ---
 title: Uso di IDENTITY per la creazione di chiavi surrogate
-description: Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle nel pool SQL sinapsi.
+description: Suggerimenti ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle nel pool SQL dedicato.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/20/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 8b4e9aa73a959bcaac18df38f975331ecbf6b034
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: 96e81b3d7781f1c6f7bf5743a083e9640dd6c831
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91876006"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323592"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-synapse-sql-pool"></a>Uso di IDENTITY per la creazione di chiavi surrogate nel pool SQL sinapsi
+# <a name="using-identity-to-create-surrogate-keys-using-dedicated-sql-pool-in-azuresynapse-analytics"></a>Uso di IDENTITY per creare chiavi surrogate usando un pool SQL dedicato in AzureSynapse Analytics
 
-In questo articolo sono disponibili indicazioni ed esempi per l'uso della proprietà IDENTITY per la creazione di chiavi surrogate nelle tabelle nel pool SQL sinapsi.
+In questo articolo sono disponibili indicazioni ed esempi per l'uso della proprietà IDENTITY per creare chiavi surrogate nelle tabelle nel pool SQL dedicato.
 
 ## <a name="what-is-a-surrogate-key"></a>Che cos'è una chiave surrogata
 
@@ -31,7 +31,7 @@ Una chiave surrogata in una tabella è una colonna con un identificatore univoco
 
 ## <a name="creating-a-table-with-an-identity-column"></a>Creazione di una tabella con una colonna IDENTITY
 
-La proprietà IDENTITY è progettata per scalare orizzontalmente tutte le distribuzioni nel pool SQL sinapsi senza influire sulle prestazioni di caricamento. Pertanto, l'implementazione di IDENTITY è orientata al raggiungimento di questi obiettivi.
+La proprietà IDENTITY è progettata per la scalabilità orizzontale di tutte le distribuzioni nel pool SQL dedicato senza influire sulle prestazioni di caricamento. Pertanto, l'implementazione di IDENTITY è orientata al raggiungimento di questi obiettivi.
 
 È possibile definire una tabella con la proprietà IDENTITY al momento della creazione, usando una sintassi simile all'istruzione seguente:
 
@@ -53,7 +53,7 @@ La parte rimanente di questa sezione illustra le varie sfumature dell'implementa
 
 ### <a name="allocation-of-values"></a>Allocazione dei valori
 
-La proprietà IDENTITY non garantisce l'ordine in cui vengono allocati i valori surrogati a causa dell'architettura distribuita del data warehouse. La proprietà IDENTITY è progettata per scalare orizzontalmente tutte le distribuzioni nel pool SQL sinapsi senza influire sulle prestazioni di caricamento. 
+La proprietà IDENTITY non garantisce l'ordine in cui vengono allocati i valori surrogati a causa dell'architettura distribuita del data warehouse. La proprietà IDENTITY è progettata per la scalabilità orizzontale di tutte le distribuzioni nel pool SQL dedicato senza influire sulle prestazioni di caricamento. 
 
 L'esempio seguente è una dimostrazione:
 
@@ -103,7 +103,7 @@ CREATE TABLE AS SELECT (CTAS) ha lo stesso comportamento di SQL Server documenta
 
 ## <a name="explicitly-inserting-values-into-an-identity-column"></a>Inserimento in modo esplicito di valori in una colonna IDENTITY
 
-Il pool SQL sinapsi supporta la `SET IDENTITY_INSERT <your table> ON|OFF` sintassi. È possibile usare questa sintassi per inserire in modo esplicito i valori nella colonna IDENTITY.
+Il pool SQL dedicato supporta la `SET IDENTITY_INSERT <your table> ON|OFF` sintassi. È possibile usare questa sintassi per inserire in modo esplicito i valori nella colonna IDENTITY.
 
 Molti progettisti di modelli di dati preferiscono usare valori negativi predefiniti per alcune righe nelle dimensioni. Un esempio è la riga -1 o "membro sconosciuto".
 
@@ -164,7 +164,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 > Non è attualmente possibile usare `CREATE TABLE AS SELECT` per il caricamento di dati in una tabella con una colonna IDENTITY.
 >
 
-Per altre informazioni sul caricamento dei dati, vedere [progettazione di Extract, Load e Transform (ELT) per il pool SQL sinapsi](design-elt-data-loading.md) e  [caricamento delle procedure consigliate](guidance-for-loading-data.md).
+Per altre informazioni sul caricamento dei dati, vedere la pagina relativa alla [progettazione di Extract, Load e Transform (ELT) per il pool SQL dedicato](design-elt-data-loading.md) e le  [procedure consigliate](guidance-for-loading-data.md)per il caricamento.
 
 ## <a name="system-views"></a>Viste di sistema
 
@@ -198,7 +198,7 @@ Non è possibile usare la proprietà IDENTITY:
 - Quando la colonna è anche la chiave di distribuzione
 - Quando la tabella è una tabella esterna
 
-Le funzioni correlate seguenti non sono supportate nel pool SQL sinapsi:
+Le funzioni correlate seguenti non sono supportate nel pool SQL dedicato:
 
 - [IDENTITY ()](/sql/t-sql/functions/identity-function-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 - [@@IDENTITY](/sql/t-sql/functions/identity-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)

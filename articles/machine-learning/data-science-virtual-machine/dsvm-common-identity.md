@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 05/08/2018
-ms.openlocfilehash: 69d6b8abc99863f29f82abcb44e18b426c5a456c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3dc6fb64f6e8695d84e292322293998e2f4cb0a3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85959144"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324788"
 ---
 # <a name="set-up-a-common-identity-on-a-data-science-virtual-machine"></a>Configurare un'identità comune in un Data Science Virtual Machine
 
@@ -23,9 +23,9 @@ In una macchina virtuale Microsoft Azure (VM), incluso un Data Science Virtual M
 
 Active Directory è un provider di identità noto ed è supportato in Azure sia come servizio cloud che come directory locale. È possibile usare Azure Active Directory (Azure AD) o Active Directory locale per autenticare gli utenti in una DSVM autonoma o in un cluster di DSVM in un set di scalabilità di macchine virtuali. Questo risultato si ottiene aggiungendo le istanze di DSVM a un dominio di Active Directory.
 
-Se si dispone già di Active Directory, è possibile usarlo come provider di identità comune. Se non si dispone di Active Directory, è possibile eseguire un'istanza di Active Directory gestita in Azure tramite [Azure Active Directory Domain Services](https://docs.microsoft.com/azure/active-directory-domain-services/) (Azure AD DS).
+Se si dispone già di Active Directory, è possibile usarlo come provider di identità comune. Se non si dispone di Active Directory, è possibile eseguire un'istanza di Active Directory gestita in Azure tramite [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) (Azure AD DS).
 
-La documentazione per [Azure ad](https://docs.microsoft.com/azure/active-directory/) fornisce [istruzioni di gestione](https://docs.microsoft.com/azure/active-directory/choose-hybrid-identity-solution)dettagliate, incluse le indicazioni sulla connessione Azure ad alla directory locale, se disponibile.
+La documentazione per [Azure ad](../../active-directory/index.yml) fornisce [istruzioni di gestione](../../active-directory/hybrid/whatis-hybrid-identity.md)dettagliate, incluse le indicazioni sulla connessione Azure ad alla directory locale, se disponibile.
 
 Questo articolo descrive come configurare un servizio del dominio Active Directory completamente gestito in Azure usando Azure AD DS. È quindi possibile aggiungere il Dsvm al dominio gestito Active Directory. Questo approccio consente agli utenti di accedere a un pool di Dsvm (e ad altre risorse di Azure) tramite un account utente comune e le credenziali.
 
@@ -39,27 +39,27 @@ Active Directory Domain Services semplifica la gestione delle identità, fornend
     
    1. Selezionare **Azure Active Directory** e quindi **Utenti e gruppi**.
     
-   1. In **utenti e gruppi**selezionare **tutti gli utenti**e quindi selezionare **nuovo utente**.
+   1. In **utenti e gruppi** selezionare **tutti gli utenti** e quindi selezionare **nuovo utente**.
    
         Viene visualizzato il riquadro **utente** :
       
         ![Riquadro "Utente"](./media/add-user.png)
     
-   1. Immettere dettagli per gli utenti, ad esempio **nome** e **nome utente**. La parte del nome di dominio del nome utente deve essere il nome di dominio "[nome dominio]" del nome di dominio predefinito iniziale o un [nome di dominio personalizzato](../../active-directory/add-custom-domain.md) verificato, non federato, ad esempio "contoso.com".
+   1. Immettere dettagli per gli utenti, ad esempio **nome** e **nome utente**. La parte del nome di dominio del nome utente deve essere il nome di dominio "[nome dominio]" del nome di dominio predefinito iniziale o un [nome di dominio personalizzato](../../active-directory/fundamentals/add-custom-domain.md) verificato, non federato, ad esempio "contoso.com".
     
    1. Copiare o comunque annotare la password generata in modo da poterla fornire all'utente al termine del processo.
     
-   1. Facoltativamente, è possibile aprire e immettere le informazioni in **Profilo**, **Gruppi** o **Ruolo della directory** per l'utente. 
+   1. Facoltativamente, è possibile aprire e immettere le informazioni in **Profilo** , **Gruppi** o **Ruolo della directory** per l'utente. 
     
-   1. In **utente**selezionare **Crea**.
+   1. In **utente** selezionare **Crea**.
     
    1. Distribuire in modo sicuro la password generata al nuovo utente per poter accedere.
 
-1. Creare un'istanza di Azure Active Directory Domain Services. Seguire le istruzioni riportate in  [abilitare Azure Active Directory Domain Services usando il portale di Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started) (la sezione "creare un'istanza e configurare le impostazioni di base"). È importante aggiornare le password utente esistenti in Active Directory in modo che le password in Azure Active Directory Domain Services siano sincronizzate. È anche importante aggiungere DNS a Azure AD DS, come descritto in "completare i campi nella finestra nozioni di base della portale di Azure per creare un'istanza di Azure AD DS" in questa sezione.
+1. Creare un'istanza di Azure Active Directory Domain Services. Seguire le istruzioni riportate in  [abilitare Azure Active Directory Domain Services usando il portale di Azure](../../active-directory-domain-services/tutorial-create-instance.md) (la sezione "creare un'istanza e configurare le impostazioni di base"). È importante aggiornare le password utente esistenti in Active Directory in modo che le password in Azure Active Directory Domain Services siano sincronizzate. È anche importante aggiungere DNS a Azure AD DS, come descritto in "completare i campi nella finestra nozioni di base della portale di Azure per creare un'istanza di Azure AD DS" in questa sezione.
 
 1. Creare una subnet DSVM separata nella rete virtuale creata nella sezione "creare e configurare la rete virtuale" del passaggio precedente.
 1. Creare una o più istanze di DSVM nella subnet DSVM.
-1. Seguire le [istruzioni](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-join-ubuntu-linux-vm ) per aggiungere DSVM a Active Directory. 
+1. Seguire le [istruzioni](../../active-directory-domain-services/join-ubuntu-linux-vm.md) per aggiungere DSVM a Active Directory. 
 1. Montare una condivisione File di Azure per ospitare la directory Home o notebook, in modo che sia possibile montare l'area di lavoro in qualsiasi computer. Se sono necessarie autorizzazioni strette a livello di file, è necessario che il file System di rete [NFS] sia in esecuzione in una o più macchine virtuali.
 
    1. [Creare una condivisione di File di Azure](../../storage/files/storage-how-to-create-file-share.md).
@@ -79,6 +79,3 @@ Per la scalabilità automatica è possibile usare un set di scalabilità di macc
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Archiviare le credenziali in modo sicuro per accedere alle risorse cloud](dsvm-secure-access-keys.md)
-
-
-

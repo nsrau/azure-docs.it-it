@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/13/2017
-ms.openlocfilehash: 695539e4739002480b3622eb217ef920d4cb34e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 279c07ff892cb261c8bda1937c6e9f8f1b6c6793
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91357489"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325706"
 ---
 # <a name="perform-analytics-with-azure-machine-learning-studio-classic-using-a-sql-server-database"></a>Eseguire analisi con Azure Machine Learning Studio (classico) usando un database SQL Server
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 In molti casi, le aziende che si avvalgono di dati locali vogliono sfruttare la scalabilità e l'agilità del cloud per i propri carichi di lavoro di Machine Learning. Non intendono tuttavia abbandonare i carichi di lavoro e i processi aziendali correnti spostando nel cloud tutti i propri dati locali. Azure Machine Learning Studio (versione classica) supporta ora la lettura dei dati da un database SQL Server e quindi il training e il Punteggio di un modello con questi dati. Non è più necessario copiare e sincronizzare manualmente i dati tra il cloud e il server locale. Al contrario, il modulo **Import Data** in Azure Machine Learning Studio (classico) può ora leggere direttamente dal database SQL Server per i processi di training e assegnazione dei punteggi.
@@ -89,9 +89,9 @@ Il primo passaggio consiste nel creare e configurare il gateway per accedere al 
 5. Nella finestra di dialogo Download and register data gateway (Scarica e registra il gateway dati) copiare negli Appunti il valore del campo GATEWAY REGISTRATION KEY (CHIAVE REGISTRAZIONE GATEWAY).
 
     ![Scaricare e registrare il gateway dati](./media/use-data-from-an-on-premises-sql-server/download-and-register-data-gateway.png)
-6. <span id="note-1" class="anchor"></span>Se Gateway di gestione dati di Microsoft non è ancora stato scaricato e installato, fare clic su **Download data management gateway**(Scarica Gateway di gestione dati). Si verrà reindirizzati all'Area download Microsoft in cui sarà possibile selezionare la versione del gateway necessaria, in modo da poterla scaricare e installare. Informazioni dettagliate sui prerequisiti di installazione e sulla procedura di installazione, oltre a suggerimenti sulla risoluzione dei problemi, sono disponibili nelle sezioni iniziali dell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../../data-factory/tutorial-hybrid-copy-portal.md).
+6. <span id="note-1" class="anchor"></span>Se Gateway di gestione dati di Microsoft non è ancora stato scaricato e installato, fare clic su **Download data management gateway** (Scarica Gateway di gestione dati). Si verrà reindirizzati all'Area download Microsoft in cui sarà possibile selezionare la versione del gateway necessaria, in modo da poterla scaricare e installare. Informazioni dettagliate sui prerequisiti di installazione e sulla procedura di installazione, oltre a suggerimenti sulla risoluzione dei problemi, sono disponibili nelle sezioni iniziali dell'articolo [Spostare dati tra origini locali e il cloud con Gateway di gestione dati](../../data-factory/tutorial-hybrid-copy-portal.md).
 7. Dopo aver installato il gateway, verrà aperto Gestione configurazione di Gateway di gestione dati e verrà visualizzata la finestra di dialogo **Registra gateway** . Incollare la **chiave di registrazione del gateway** copiata negli Appunti e fare clic su **Registra**.
-8. Se si dispone già di un gateway installato, eseguire Gestione configurazione di Gateway di gestione dati. Fare clic su **Cambia chiave**, incollare la **chiave di registrazione del gateway** copiata negli Appunti nel passaggio precedente e fare clic su **OK**.
+8. Se si dispone già di un gateway installato, eseguire Gestione configurazione di Gateway di gestione dati. Fare clic su **Cambia chiave** , incollare la **chiave di registrazione del gateway** copiata negli Appunti nel passaggio precedente e fare clic su **OK**.
 9. Al termine dell'installazione verrà visualizzata la finestra di dialogo **Registra gateway** di Gestione configurazione di Gateway di gestione dati. Incollare la CHIAVE DI REGISTRAZIONE DEL GATEWAY copiata negli Appunti e fare clic su **Registra**.
 
     ![Registrare il gateway](./media/use-data-from-an-on-premises-sql-server/data-gateway-configuration-manager-register-gateway.png)
@@ -144,6 +144,6 @@ Dopo aver configurato il gateway, è possibile aggiungere un modulo **Import Dat
    ![Proprietà del modulo Import Data](./media/use-data-from-an-on-premises-sql-server/import-data-properties-entered.png)
 8. Fare clic su **RUN** (ESEGUI) per eseguire l'esperimento.
 
-Al termine dell'esecuzione dell'esperimento, è possibile visualizzare i dati importati dal database facendo clic sulla porta di output del modulo **Import Data** e selezionando **Visualize (Visualizza**).
+Al termine dell'esecuzione dell'esperimento, è possibile visualizzare i dati importati dal database facendo clic sulla porta di output del modulo **Import Data** e selezionando **Visualize (Visualizza** ).
 
 Dopo aver completato lo sviluppo dell'esperimento, è possibile distribuire il modello e renderlo operativo. Usando il servizio di esecuzione batch, i dati del database di SQL Server configurato nel modulo **Import Data** verranno letti e usati per l'assegnazione dei punteggi. Sebbene per l'assegnazione dei punteggi ai dati locali sia possibile usare il servizio di richiesta/risposta, Microsoft consiglia l'uso del [componente aggiuntivo di Excel](excel-add-in-for-web-services.md) . Attualmente, la scrittura in un database di SQL Server tramite l' **esportazione dei dati** non è supportata né negli esperimenti né nei servizi Web pubblicati.

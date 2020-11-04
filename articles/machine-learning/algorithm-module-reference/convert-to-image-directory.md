@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/09/2020
-ms.openlocfilehash: 2e597299c9b157d79a5317c97550fc30820636d6
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 8abcbc74506599e7896ad6d41b9444e946172283
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940361"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324895"
 ---
 # <a name="convert-to-image-directory"></a>Convert to Image Directory
 
@@ -49,7 +49,7 @@ Questo articolo descrive come usare il modulo Convert to Image directory per con
 
     Per l'assegnazione dei punteggi, la cartella del set di dati dell'immagine deve contenere solo immagini non classificate.
 
-1. [Registrare il set di dati dell'immagine come set di dati di file](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) nell'area di lavoro, poiché l'input di Convert to Image Directory Module deve essere un **set di dati di file**.
+1. [Registrare il set di dati dell'immagine come set di dati di file](../how-to-create-register-datasets.md) nell'area di lavoro, poiché l'input di Convert to Image Directory Module deve essere un **set di dati di file**.
 
 1. Aggiungere il set di dati dell'immagine registrata nell'area di disegno. È possibile trovare il set di dati registrato nella categoria **set** di dati nell'elenco dei moduli a sinistra dell'area di disegno. Attualmente la finestra di progettazione non supporta il set di dati di visualizzazione immagine.
 
@@ -70,16 +70,16 @@ L'output del modulo **Convert to Image directory** è in formato di **directory 
 
 ###  <a name="expected-inputs"></a>Input previsti  
 
-| Nome          | Tipo                  | Descrizione   |
+| Nome          | Type                  | Descrizione   |
 | ------------- | --------------------- | ------------- |
 | Set di dati di input | AnyDirectory, ZipFile | Set di dati di input |
 
 ###  <a name="output"></a>Output  
 
-| Nome                   | Tipo           | Descrizione            |
+| Nome                   | Type           | Descrizione            |
 | ---------------------- | -------------- | ---------------------- |
 | Directory dell'immagine di output | ImageDirectory | Directory dell'immagine di output |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.

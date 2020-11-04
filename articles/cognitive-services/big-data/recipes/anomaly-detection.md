@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: 4f6fa73130e3e78b573a866dbb6524acbc88c50c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: aa650fe9cb7df64a6a7a948224be225ecfad9057
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88691463"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324621"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Ricetta: manutenzione predittiva con servizi cognitivi per Big Data
 
-Questa ricetta Mostra come usare Azure sinapsi Analytics e servizi cognitivi in Spark per la manutenzione predittiva di dispositivi Internet. Verrà seguito l'esempio di [collegamento CosmosDB e sinapsi](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) . Per semplificare le operazioni, in questa ricetta i dati verranno letti direttamente da un file con estensione CSV anziché da un collegamento a un file con CosmosDB e una sinapsi. Si consiglia vivamente di esaminare l'esempio di collegamento sinapsi.
+Questa ricetta Mostra come usare i servizi cognitivi e di analisi delle sinapsi di Azure in Apache Spark per la manutenzione predittiva dei dispositivi Internet. Verrà seguito l'esempio di [collegamento CosmosDB e sinapsi](https://github.com/Azure-Samples/cosmosdb-synapse-link-samples) . Per semplificare le operazioni, in questa ricetta i dati verranno letti direttamente da un file con estensione CSV anziché da un collegamento a un file con CosmosDB e una sinapsi. Si consiglia vivamente di esaminare l'esempio di collegamento sinapsi.
 
 ## <a name="hypothetical-scenario"></a>Scenario ipotetico
 
@@ -31,7 +31,7 @@ Potrebbero essere presenti outlier nei dati in frequenza casuale. In questi casi
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services)
-* [Area di lavoro sinapsi di Azure](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configurata con un [pool Spark](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Area di lavoro sinapsi di Azure](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configurata con un [pool di Apache Spark senza server](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
 
 ## <a name="setup"></a>Configurazione
 
@@ -98,7 +98,7 @@ df_anomaly.select("timestamp","value","deviceId","anomalies.isAnomaly").show(3)
 
 Questa cella deve restituire un risultato simile al seguente:
 
-| timestamp           |   value | deviceId   | isAnomaly   |
+| timestamp           |   Valore | deviceId   | isAnomaly   |
 |:--------------------|--------:|:-----------|:------------|
 | 2020-05-01 18:33:51 |    3174 | dev-7      | False       |
 | 2020-05-01 18:33:52 |    2976 | dev-7      | False       |

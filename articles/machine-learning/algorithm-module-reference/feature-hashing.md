@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 444cb6a7819fa72f5987a21807fc707e0ba8b396
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907927"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323729"
 ---
 # <a name="feature-hashing-module-reference"></a>Riferimento al modulo feature hashing
 
@@ -22,7 +22,7 @@ Questo articolo descrive un modulo incluso in Azure Machine Learning Designer.
 
 Usare il modulo feature hashing per trasformare un flusso di testo in inglese in un set di funzionalità Integer. È quindi possibile passare questo set di funzionalità con hash a un algoritmo di machine learning per eseguire il training di un modello di analisi del testo.
 
-La funzionalità di hashing delle funzionalità fornita in questo modulo si basa su nimbusml Framework. Per ulteriori informazioni, vedere la [classe NgramHash](https://docs.microsoft.com/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+La funzionalità di hashing delle funzionalità fornita in questo modulo si basa su nimbusml Framework. Per ulteriori informazioni, vedere la [classe NgramHash](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
 
 ## <a name="what-is-feature-hashing"></a>Che cos'è l'hashing delle funzionalità?
 
@@ -90,7 +90,7 @@ Gli output numerici consentono anche di usare metodi di apprendimento automatico
     
     La dimensione di bit predefinita è 10. Per molti problemi, questo valore è adeguato. Potrebbe essere necessario più spazio per evitare conflitti, a seconda delle dimensioni del vocabolario di n-grammi nel testo di training.
     
-1. Per **n-grammi**, immettere un numero che definisce la lunghezza massima dei n-grammi da aggiungere al dizionario di training. Un n-Gram è una sequenza di *n* parole, trattate come un'unità univoca.
+1. Per **n-grammi** , immettere un numero che definisce la lunghezza massima dei n-grammi da aggiungere al dizionario di training. Un n-Gram è una sequenza di *n* parole, trattate come un'unità univoca.
 
     Ad esempio, se si immette 3, unigrammi, bigrammi e trigrammi verranno creati.
 
@@ -131,4 +131,4 @@ Il set ottimale di metodi di pre-elaborazione da applicare a qualsiasi soluzione
 
 ## <a name="next-steps"></a>Passaggi successivi
             
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning

@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 8add203fabf867e22dbfe98b2bc9c632e62018b8
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 90d059aaa16e24df1e71d4d439cb9aa23b786c77
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100525"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323207"
 ---
-# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è l'archivio analitico di Azure Cosmos DB (anteprima)?
+# <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è Azure Cosmos DB archivio analitico (anteprima)?
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)][!INCLUDE[appliesto-mongodb-apis](includes/appliesto-mongodb-api.md)]
 
 > [!IMPORTANT]
@@ -53,7 +53,7 @@ L'archivio analitico, che è un archivio colonne, è più adatto per tali query 
 
 Nell'immagine seguente viene illustrato l'archivio righe transazionale rispetto all'archivio colonne analitico in Azure Cosmos DB:
 
-:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Tabella operativa di esempio" border="false":::
+:::image type="content" source="./media/analytical-store-introduction/transactional-analytical-data-stores.png" alt-text="Archivio righe transazionale rispetto all'archivio colonne analitico in Azure Cosmos DB" border="false":::
 
 ### <a name="decoupled-performance-for-analytical-workloads"></a>Prestazioni separate per carichi di lavoro analitici
 

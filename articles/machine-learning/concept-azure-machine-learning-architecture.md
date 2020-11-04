@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: 71032c49ac5164f13189baf64668f8998fdc186a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c96263b5d40d4f6a4904a6da3d40ad98ac81f030
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91276085"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322307"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Modalità di funzionamento di Azure Machine Learning: Architettura e concetti
 
@@ -53,9 +53,9 @@ Un'area di lavoro include altre risorse di Azure usate dall'area di lavoro:
 
 Azure Machine Learning introduce due macchine virtuali (VM) basate sul cloud completamente gestite configurate per le attività di Machine Learning:
 
-* <a name="compute-instance"></a>**Istanza di calcolo**: un'istanza di calcolo è una macchina virtuale che include più strumenti e ambienti installati per Machine Learning. L'uso principale di un'istanza di calcolo è per la workstation di sviluppo.  È possibile avviare l'esecuzione dei notebook di esempio senza che sia necessaria alcuna installazione. Un'istanza di calcolo può essere usata anche come destinazione di calcolo per il training e l'inferenza dei processi.
+* <a name="compute-instance"></a>**Istanza di calcolo** : un'istanza di calcolo è una macchina virtuale che include più strumenti e ambienti installati per Machine Learning. L'uso principale di un'istanza di calcolo è per la workstation di sviluppo.  È possibile avviare l'esecuzione dei notebook di esempio senza che sia necessaria alcuna installazione. Un'istanza di calcolo può essere usata anche come destinazione di calcolo per il training e l'inferenza dei processi.
 
-* **Cluster di calcolo**: i cluster di calcolo sono un cluster di macchine virtuali con funzionalità di scalabilità a più nodi. I cluster di calcolo sono più adatti per le destinazioni di calcolo per processi e produzione di grandi dimensioni.  Il cluster viene ridimensionato automaticamente quando viene inviato un processo.  Usare come destinazione di calcolo per il training o per la distribuzione di sviluppo/test.
+* **Cluster di calcolo** : i cluster di calcolo sono un cluster di macchine virtuali con funzionalità di scalabilità a più nodi. I cluster di calcolo sono più adatti per le destinazioni di calcolo per processi e produzione di grandi dimensioni.  Il cluster viene ridimensionato automaticamente quando viene inviato un processo.  Usare come destinazione di calcolo per il training o per la distribuzione di sviluppo/test.
 
 Per ulteriori informazioni sulle destinazioni di calcolo di training, vedere [training di destinazioni di calcolo](concept-compute-target.md#train).  Per ulteriori informazioni sulle destinazioni di calcolo della distribuzione, vedere [destinazioni di distribuzione](concept-compute-target.md#deploy).
 
@@ -102,7 +102,7 @@ Un'esecuzione viene generata quando si invia uno script per eseguire il training
 
 [Area di lavoro](#workspace)  >  [Esperimenti](#experiments)  >  [Esegui](#runs)  >  **Configurazione di esecuzione**
 
-Una configurazione di esecuzione definisce la modalità di esecuzione di uno script in una destinazione di calcolo specificata. Usare la configurazione per specificare lo script, la destinazione di calcolo e l'ambiente di Azure ML da eseguire in, tutte le configurazioni specifiche dei processi distribuiti e alcune proprietà aggiuntive. Per ulteriori informazioni sul set completo di opzioni configurabili per le esecuzioni, vedere [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
+Una configurazione di esecuzione definisce la modalità di esecuzione di uno script in una destinazione di calcolo specificata. Usare la configurazione per specificare lo script, la destinazione di calcolo e l'ambiente di Azure ML da eseguire in, tutte le configurazioni specifiche dei processi distribuiti e alcune proprietà aggiuntive. Per ulteriori informazioni sul set completo di opzioni configurabili per le esecuzioni, vedere [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py).
 
 Una configurazione di esecuzione può essere resa permanente in un file all'interno della directory che contiene lo script di training.   Oppure può essere costruito come oggetto in memoria e utilizzato per inviare un'esecuzione.
 
@@ -163,7 +163,7 @@ Per un esempio di registrazione di un modello, vedere [Eseguire il training di u
 Si distribuisce un [modello registrato](#register-model) come endpoint del servizio. Sono necessari i componenti seguenti:
 
 * **Ambiente**. Questo ambiente incapsula le dipendenze necessarie per eseguire il modello per l'inferenza.
-* **Codice**di assegnazione dei punteggi. Questo script accetta le richieste, assegna un punteggio alle richieste usando il modello e restituisce i risultati.
+* **Codice** di assegnazione dei punteggi. Questo script accetta le richieste, assegna un punteggio alle richieste usando il modello e restituisce i risultati.
 * **Configurazione di inferenza**. La configurazione dell'inferenza specifica l'ambiente, lo script di ingresso e altri componenti necessari per eseguire il modello come servizio.
 
 Per altre informazioni su questi componenti, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
@@ -233,10 +233,10 @@ Studio consente anche di accedere agli strumenti interattivi che fanno parte di 
 > Gli strumenti contrassegnati (anteprima) di seguito sono attualmente disponibili in anteprima pubblica.
 > La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interagire con il servizio in qualsiasi ambiente Python con l'[SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
++  Interagire con il servizio in qualsiasi ambiente Python con l'[SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 + Interagisci con il servizio in qualsiasi ambiente R con [Azure Machine Learning SDK per r](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (anteprima).
 + Utilizzare la [finestra di progettazione Azure Machine Learning](concept-designer.md) per eseguire i passaggi del flusso di lavoro senza scrivere codice. 
-+ Usare [Azure Machine Learning interfaccia](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) della riga di comando per l'automazione.
++ Usare [Azure Machine Learning interfaccia](./reference-azure-machine-learning-cli.md) della riga di comando per l'automazione.
 + L’[acceleratore di soluzione molti modelli](https://aka.ms/many-models) (anteprima) si basa su Azure Machine Learning consente di eseguire il training, utilizzare e gestire centinaia o addirittura migliaia di modelli di Machine Learning.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: c9cfe05b6547cbdc61a1c8cc6223f08900cf09d9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5a588195f2095b2d0cb261e1573eeb9ec881f2fd
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91342959"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322839"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Distribuire un servizio Web di Azure Machine Learning Studio (classico)
 
-**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Azure Machine Learning Studio (classico) consente di compilare e testare una soluzione analitica predittiva. È quindi possibile distribuire la soluzione come servizio Web.
@@ -36,7 +36,7 @@ In generale, la distribuzione del modello avviene in tre passaggi:
 
 * **[Creare un esperimento di training]** : in studio (classico), è possibile eseguire il training e il test di un modello di analisi predittiva usando i dati di training forniti, usando un ampio set di algoritmi di Machine Learning predefiniti.
 * **[Eseguire la conversione in un esperimento predittivo]** - Dopo avere eseguito il training del modello con i dati esistenti, preparare e ottimizzare l'esperimento per la stima quando si è pronti a usarlo per l'assegnazione dei punteggi ai nuovi dati.
-* **Eseguire la distribuzione** come **[nuovo servizio Web]** o come **[servizio Web classico]**: quando si distribuisce l'esperimento predittivo come servizio Web di Azure, gli utenti possono inviare dati al modello e ricevere le stime del modello.
+* **Eseguire la distribuzione** come **[nuovo servizio Web]** o come **[servizio Web classico]** : quando si distribuisce l'esperimento predittivo come servizio Web di Azure, gli utenti possono inviare dati al modello e ricevere le stime del modello.
 
 ## <a name="create-a-training-experiment"></a>Creare un esperimento di training
 
@@ -85,7 +85,7 @@ Quando si converte l'esperimento di training in un esperimento predittivo, alcun
 
 * **Data** (Dati): i dati in questo set di dati di esempio non vengono usati durante l'assegnazione di un punteggio. L'utente del servizio Web fornisce i dati da classificare. Tuttavia, i metadati di questo set di dati, ad esempio i tipi di dati, vengono usati dal modello sottoposto a training. È quindi necessario mantenere il set di dati nell'esperimento predittivo perché possa fornire questi metadati.
 
-* **Prep**: in base ai dati utente che verranno inviati per la classificazione, i moduli potrebbero non essere necessari per elaborare i dati in ingresso. Il pulsante **Set Up Web Service** (Configura servizio Web) non agisce su questi moduli, pertanto è necessario decidere come gestirli.
+* **Prep** : in base ai dati utente che verranno inviati per la classificazione, i moduli potrebbero non essere necessari per elaborare i dati in ingresso. Il pulsante **Set Up Web Service** (Configura servizio Web) non agisce su questi moduli, pertanto è necessario decidere come gestirli.
   
     In questo esempio alcuni valori nel set di dati di esempio potrebbero essere mancanti, pertanto è stato aggiunto un modulo [Clean Missing Data][clean-missing-data] (Pulisci dati mancanti) per gestirli. Il set di dati di esempio include, inoltre, colonne che non sono necessarie per il training del modello. È stato pertanto incluso un modulo [Select columns in Dataset][select-columns] (Seleziona colonne nel set di dati) per escludere le colonne aggiuntive dal flusso di dati. Se si è certi che i dati inviati per la classificazione tramite il servizio Web non presentino valori mancanti, è possibile rimuovere il modulo [Clean Missing Data][clean-missing-data]. Poiché tuttavia il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne nel set di dati) consente di definire le colonne di dati previste dal modello di training, è necessario mantenerlo.
 
@@ -93,7 +93,7 @@ Quando si converte l'esperimento di training in un esperimento predittivo, alcun
 
 * **Score** (Punteggio): in questo esempio il modulo [Split Data][split] (Dividi dati) viene usato per suddividere il flusso di dati in dati di test e dati di training. Poiché nell'esperimento predittivo non si esegue più il training, è possibile rimuovere [Split Data][split] (Dividi dati). In modo analogo, il secondo modulo [Score Model][score-model] (Assegna punteggio al modello) e il modulo [Evaluate Model][evaluate-model] (Valuta modello) vengono usati per confrontare i risultati dei dati di test, pertanto questi moduli non sono necessari nell'esperimento predittivo. Il modulo rimanente [Score Model][score-model] è però necessario per restituire un risultato relativo all'assegnazione del punteggio tramite il servizio Web.
 
-Ecco come appare l'esempio dopo aver fatto clic su **Set Up Web Service**:
+Ecco come appare l'esempio dopo aver fatto clic su **Set Up Web Service** :
 
 ![Esperimento predittivo convertito](./media/convert-training-experiment-to-scoring-experiment/figure3.png)
 
@@ -149,7 +149,7 @@ Nella pagina Deploy Experiment (Sperimentazione distribuzione) immettere un nome
 Selezionare un piano tariffario. Se è disponibile un piano tariffario, è possibile selezionarlo; in caso contrario è necessario creare un nuovo piano tariffario per il servizio.
 
 1. Nell'elenco a discesa **Price Plan** (Piano tariffario) selezionare un piano esistente o l'opzione **Select new plan** (Seleziona nuovo piano).
-2. In **Plan Name**(Nome piano) digitare un nome che identifica il piano di fatturazione.
+2. In **Plan Name** (Nome piano) digitare un nome che identifica il piano di fatturazione.
 3. Selezionare uno dei **livelli del piano mensile**. Per impostazione predefinita vengono usati i livelli di piano per l'area predefinita e il servizio Web viene distribuito in questa area.
 
 Fare clic su **Distribuisci** e verrà visualizzata la pagina **avvio rapido** per il servizio Web.
@@ -164,13 +164,13 @@ Per testare il nuovo servizio Web, fare clic su **Test web service** (Test servi
 
 La pagina di test del servizio di richiesta-risposta (RRS) visualizza gli input, gli output ed eventuali parametri globali definiti per l'esperimento. Per testare il servizio Web, è possibile immettere manualmente i valori appropriati per gli input o fornire un file formattato con valori delimitati da virgole (CSV) contenente i valori di test.
 
-Per eseguire il test usando il servizio di richiesta-risposta (RRS), nella modalità di visualizzazione elenco immettere i valori appropriati per gli input e fare clic su **Test Request-Response**(Test Richiesta-risposta). I risultati della stima verranno visualizzati nella colonna di output a sinistra.
+Per eseguire il test usando il servizio di richiesta-risposta (RRS), nella modalità di visualizzazione elenco immettere i valori appropriati per gli input e fare clic su **Test Request-Response** (Test Richiesta-risposta). I risultati della stima verranno visualizzati nella colonna di output a sinistra.
 
 ![Immettere i valori appropriati per testare il servizio Web](./media/publish-a-machine-learning-web-service/figure-5-test-request-response.png)
 
 Per testare il servizio BES, fare clic su **Batch**. Nella pagina di test Batch, fare clic su Sfoglia sotto l'input dell'utente e selezionare un file CSV contenente i valori di esempio appropriati. Se non si ha un file CSV e l'esperimento predittivo è stato creato usando Machine Learning Studio (versione classica), è possibile scaricare il set di dati per l'esperimento predittivo e usarlo.
 
-Per scaricare il set di dati, aprire Machine Learning Studio (classico). Aprire l'esperimento predittivo e fare clic con il pulsante destro del mouse sull'input per l'esperimento. Dal menu di scelta rapida scegliere **dataset** (set di dati) e quindi selezionare **Download**(Scarica).
+Per scaricare il set di dati, aprire Machine Learning Studio (classico). Aprire l'esperimento predittivo e fare clic con il pulsante destro del mouse sull'input per l'esperimento. Dal menu di scelta rapida scegliere **dataset** (set di dati) e quindi selezionare **Download** (Scarica).
 
 ![Scaricare il set di dati dall'area di disegno di studio (classico)](./media/publish-a-machine-learning-web-service/figure-7-mls-download.png)
 
@@ -194,7 +194,7 @@ Per ulteriori informazioni sull'accesso a un servizio Web Machine Learning Studi
 
 ### <a name="manage-your-new-web-service"></a>Gestire il nuovo servizio Web
 
-È possibile gestire i nuovi servizi Web usando il portale dei servizi Web Machine Learning Studio (classico). Dalla [pagina principale del portale](https://services.azureml.net/)fare clic su **servizi Web**. Nella pagina dei servizi Web è possibile eliminare o copiare un servizio. Per monitorare un servizio specifico, fare clic sul servizio e quindi su **Dashboard**. Per monitorare i processi batch associati al servizio Web, fare clic su **Batch Request Log**(Log richieste batch).
+È possibile gestire i nuovi servizi Web usando il portale dei servizi Web Machine Learning Studio (classico). Dalla [pagina principale del portale](https://services.azureml.net/)fare clic su **servizi Web**. Nella pagina dei servizi Web è possibile eliminare o copiare un servizio. Per monitorare un servizio specifico, fare clic sul servizio e quindi su **Dashboard**. Per monitorare i processi batch associati al servizio Web, fare clic su **Batch Request Log** (Log richieste batch).
 
 ### <a name="deploy-your-new-web-service-to-multiple-regions"></a><a id="multi-region"></a> Distribuire il nuovo servizio Web in più aree
 
@@ -206,12 +206,12 @@ I prezzi sono specifici per ogni area, quindi è necessario definire un piano di
 
 1. Accedere a [Servizi Web di Microsoft Azure Machine Learning](https://services.azureml.net/).
 2. Fare clic sull'opzione del menu **Plans** (Piani).
-3. Nella pagina della panoramica Plans (Piani), fare clic su **New**(Nuovo).
+3. Nella pagina della panoramica Plans (Piani), fare clic su **New** (Nuovo).
 4. Nell'elenco a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione in cui risiederà il nuovo piano.
 5. Nell'elenco a discesa **Regione** (Area) selezionare un'area per il nuovo piano. Le opzioni del piano per l'area selezionata verranno visualizzate nella sezione **Plan Options** (Opzioni del piano) della pagina.
 6. Nell'elenco a discesa **Resource Group** (Gruppo di risorse) selezionare un gruppo di risorse per il piano. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 7. In **Plan Name** (Nome piano) digitare il nome del piano.
-8. In **Plan Options**(Opzioni piano) selezionare il livello di fatturazione per il nuovo piano.
+8. In **Plan Options** (Opzioni piano) selezionare il livello di fatturazione per il nuovo piano.
 9. Fare clic su **Crea**.
 
 #### <a name="deploy-the-web-service-to-another-region"></a>Eseguire la distribuzione del servizio Web in un'altra area
@@ -219,8 +219,8 @@ I prezzi sono specifici per ogni area, quindi è necessario definire un piano di
 1. Nella pagina de servizi Web di Microsoft Azure Machine Learning fare clic sull'opzione di menu **Servizi Web**.
 2. Selezionare il servizio Web da distribuire in una nuova area.
 3. Fare clic su **Copy**
-4. In **Web Service Name**(Nome servizio Web) digitare un nuovo nome per il servizio Web.
-5. In **Web service description**(Descrizione servizio Web) immettere una descrizione per il servizio Web.
+4. In **Web Service Name** (Nome servizio Web) digitare un nuovo nome per il servizio Web.
+5. In **Web service description** (Descrizione servizio Web) immettere una descrizione per il servizio Web.
 6. Nell'elenco a discesa **Subscription** (Sottoscrizione) selezionare la sottoscrizione in cui risiederà il nuovo servizio Web.
 7. Nell'elenco a discesa **Resource Group** (Gruppo di risorse) selezionare un gruppo di risorse per il servizio Web. Per altre informazioni sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../../azure-resource-manager/management/overview.md).
 8. Nell'elenco a discesa **Region** (Area) selezionare l'area in cui si desidera distribuire il servizio Web.
@@ -250,7 +250,7 @@ Per testare il servizio Esecuzione batch, fare clic sul collegamento di anteprim
 
 Nella pagina **CONFIGURATION** (CONFIGURAZIONE) è possibile modificare il nome visualizzato per il servizio e assegnare una descrizione. Il nome e la descrizione vengono visualizzati nel [portale di Azure](https://portal.azure.com/), in cui è possibile gestire i propri servizi Web.
 
-È possibile specificare una descrizione per i dati di input, i dati di output e i parametri del servizio Web immettendo una stringa per ogni colonna nello **schema di input**, **nello schema di output**e nel parametro del **servizio Web**. Queste descrizioni vengono usate nella documentazione del codice di esempio fornita per il servizio Web.
+È possibile specificare una descrizione per i dati di input, i dati di output e i parametri del servizio Web immettendo una stringa per ogni colonna nello **schema di input** , **nello schema di output** e nel parametro del **servizio Web**. Queste descrizioni vengono usate nella documentazione del codice di esempio fornita per il servizio Web.
 
 È possibile abilitare la registrazione per diagnosticare eventuali errori che si verificano quando si accede al servizio Web. Per altre informazioni, vedere [abilitare la registrazione per i servizi Web di Machine Learning Studio (classico)](web-services-logging.md).
 
@@ -282,7 +282,7 @@ Poiché questo esperimento è stato distribuito prima, viene chiesto se si desid
 > [!NOTE]
 > Se sono state apportate modifiche di configurazione al servizio Web originale, ad esempio immettendo un nuovo nome o descrizione, è necessario immettere nuovamente questi valori.
 
-Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il training del modello a livello di codice. Per altre informazioni, vedere ripetere il [training dei modelli di Machine Learning Studio (classico) a livello di codice](/azure/machine-learning/studio/retrain-machine-learning-model).
+Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il training del modello a livello di codice. Per altre informazioni, vedere ripetere il [training dei modelli di Machine Learning Studio (classico) a livello di codice](./retrain-machine-learning-model.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -305,11 +305,11 @@ Un'opzione per l'aggiornamento del servizio Web consiste nel ripetere il trainin
 
 [webserviceparameters]: web-service-parameters.md
 [deploy]: deploy-a-machine-learning-web-service.md
-[clean-missing-data]: https://msdn.microsoft.com/library/azure/d2c5ca2f-7323-41a3-9b7e-da917c99f0c4/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[export-data]: https://msdn.microsoft.com/library/azure/7a391181-b6a7-4ad4-b82d-e419c0d6522c/
+[clean-missing-data]: /azure/machine-learning/studio-module-reference/clean-missing-data
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[export-data]: /azure/machine-learning/studio-module-reference/export-data

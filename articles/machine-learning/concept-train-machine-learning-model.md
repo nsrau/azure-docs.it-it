@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d34748a2b9f46bde187b4f003e210ffdaecd93e2
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 8888393cdbc738525b89ace1cf6f5864b7aa3b6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675687"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324811"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 
@@ -26,14 +26,14 @@ Azure Machine Learning offre diversi modi per eseguire il training dei modelli, 
     | Metodo di training | Descrizione |
     | ----- | ----- |
     | [Configurazione di esecuzione](#run-configuration) | Un **modo tipico per** eseguire il training di modelli consiste nell'usare uno script di training ed eseguire la configurazione. La configurazione di esecuzione offre le informazioni necessarie per configurare l'ambiente di training usato per il training del modello. È possibile specificare lo script di training, la destinazione di calcolo e l'ambiente Azure ML nella configurazione di esecuzione ed eseguire un processo di training. |
-    | [Machine Learning automatizzato](#automated-machine-learning) | Il Machine Learning automatizzato consente di **eseguire il training dei modelli senza conoscenze estese di data science o programmazione** . Per gli utenti con esperienza in data science e programmazione, fornisce un metodo per risparmiare tempo e risorse automatizzando la selezione dell'algoritmo e l'ottimizzazione degli iperparametri. Quando si usa Machine Learning automatizzato non è necessario definire una configurazione di esecuzione. |
-    | [Pipeline di Machine Learning](#machine-learning-pipeline) | Le pipeline non costituiscono un metodo di training diverso, bensì un **modo per definire un flusso di lavoro attraverso passaggi modulari e riutilizzabili** che possono includere il training come parte del flusso di lavoro. Le pipeline di Machine Learning supportano l'uso di Machine Learning automatizzate e la configurazione per eseguire il training di modelli. Poiché le pipeline non sono incentrate specificatamente sul training, i motivi per l'uso di una pipeline sono più vasti rispetto agli altri metodi di training. In genere è possibile usare una pipeline nel caso in cui:<br>* Si desideri **pianificare processi automatici** come processi di training con esecuzione prolungata o preparazione dei dati.<br>* Si usino **più passaggi** coordinati nelle varie risorse di calcolo e posizioni di archiviazione.<br>* Si usi la pipeline come **modello riutilizzabile** per scenari specifici, come la riesecuzione del training o il punteggio batch.<br>* **Tracciamento e versione di origini dati, input e output** per il flusso di lavoro.<br>* Il flusso di lavoro è **implementato da diversi team che lavorano su specifici passaggi in modo indipendente** . I passaggi possono quindi essere uniti in una pipeline per implementare il flusso di lavoro. |
+    | [Machine Learning automatizzato](#automated-machine-learning) | Il Machine Learning automatizzato consente di **eseguire il training dei modelli senza conoscenze estese di data science o programmazione**. Per gli utenti con esperienza in data science e programmazione, fornisce un metodo per risparmiare tempo e risorse automatizzando la selezione dell'algoritmo e l'ottimizzazione degli iperparametri. Quando si usa Machine Learning automatizzato non è necessario definire una configurazione di esecuzione. |
+    | [Pipeline di Machine Learning](#machine-learning-pipeline) | Le pipeline non costituiscono un metodo di training diverso, bensì un **modo per definire un flusso di lavoro attraverso passaggi modulari e riutilizzabili** che possono includere il training come parte del flusso di lavoro. Le pipeline di Machine Learning supportano l'uso di Machine Learning automatizzate e la configurazione per eseguire il training di modelli. Poiché le pipeline non sono incentrate specificatamente sul training, i motivi per l'uso di una pipeline sono più vasti rispetto agli altri metodi di training. In genere è possibile usare una pipeline nel caso in cui:<br>* Si desideri **pianificare processi automatici** come processi di training con esecuzione prolungata o preparazione dei dati.<br>* Si usino **più passaggi** coordinati nelle varie risorse di calcolo e posizioni di archiviazione.<br>* Si usi la pipeline come **modello riutilizzabile** per scenari specifici, come la riesecuzione del training o il punteggio batch.<br>* **Tracciamento e versione di origini dati, input e output** per il flusso di lavoro.<br>* Il flusso di lavoro è **implementato da diversi team che lavorano su specifici passaggi in modo indipendente**. I passaggi possono quindi essere uniti in una pipeline per implementare il flusso di lavoro. |
 
 + [SDK di Azure Machine Learning per r (anteprima)](#r-sdk-preview): l'SDK per r usa il pacchetto reticolare per l'associazione all'SDK Python di Azure Machine Learning. In questo modo è possibile accedere agli oggetti e ai metodi principali implementati in Python SDK da qualsiasi ambiente R.
 
 + **Designer** : Azure Machine Learning Designer fornisce un semplice punto di ingresso in machine learning per la creazione di modelli di prova o per gli utenti con poca esperienza di codifica. Consente di eseguire il training dei modelli sfruttando un'interfaccia utente basata sul Web con trascinamento della selezione. È possibile usare il codice Python come parte della progettazione o eseguire il training dei modelli senza scrivere alcun codice.
 
-+ **Interfaccia della riga di comando** : L'interfaccia della riga di comando di Machine Learning fornisce i comandi per le attività comuni con Azure Machine Learning e viene spesso usata per **attività di script e automatizzazione** . Ad esempio, dopo aver creato uno script o una pipeline di training, è possibile usare l'interfaccia della riga di comando per avviare l'esecuzione del training in base a una pianificazione o quando vengono aggiornati i file di dati usati per il training. Per i modelli di training, fornisce i comandi che inviano processi di training. Consente di inviare processi usando le configurazioni di esecuzione o le pipeline.
++ **Interfaccia della riga di comando** : L'interfaccia della riga di comando di Machine Learning fornisce i comandi per le attività comuni con Azure Machine Learning e viene spesso usata per **attività di script e automatizzazione**. Ad esempio, dopo aver creato uno script o una pipeline di training, è possibile usare l'interfaccia della riga di comando per avviare l'esecuzione del training in base a una pianificazione o quando vengono aggiornati i file di dati usati per il training. Per i modelli di training, fornisce i comandi che inviano processi di training. Consente di inviare processi usando le configurazioni di esecuzione o le pipeline.
 
 Ognuno di questi metodi consente l'uso di diversi tipi di risorse di calcolo per il training. Complessivamente, queste risorse vengono definite [__destinazioni di calcolo__](concept-azure-machine-learning-architecture.md#compute-targets). Una destinazione di calcolo può essere un computer locale o una risorsa cloud, come un ambiente di calcolo di Azure Machine Learning, Azure HDInsight o una macchina virtuale remota.
 
@@ -41,13 +41,13 @@ Ognuno di questi metodi consente l'uso di diversi tipi di risorse di calcolo per
 
 Azure Machine Learning SDK per Python consente di creare ed eseguire flussi di lavoro di Machine Learning con Azure Machine Learning. È possibile interagire con il servizio da una sessione interattiva di Python, notebook Jupyter, Visual Studio Code o altro IDE.
 
-* [Informazioni su Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
-* [Installare/aggiornare l'SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
+* [Informazioni su Azure Machine Learning SDK per Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)
+* [Installare/aggiornare l'SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py)
 * [Configurare un ambiente di sviluppo per Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Configurazione di esecuzione
 
-È possibile definire un processo di training generico con Azure Machine Learning usando [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true). Viene quindi usata la configurazione di esecuzione dello script, insieme agli script di training per eseguire il training di un modello su una destinazione di calcolo.
+È possibile definire un processo di training generico con Azure Machine Learning usando [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py). Viene quindi usata la configurazione di esecuzione dello script, insieme agli script di training per eseguire il training di un modello su una destinazione di calcolo.
 
 È possibile iniziare con una configurazione di esecuzione per il computer locale e quindi passare a una configurazione per una destinazione di calcolo basata sul cloud in base alle proprie esigenze. Modificando la destinazione di calcolo, si modifica solo la configurazione di esecuzione in uso. Un'esecuzione registra inoltre le informazioni sul processo di training, ad esempio input, output e log.
 
@@ -90,8 +90,8 @@ Il ciclo di vita di formazione di Azure è composto da:
 1. Compilazione o download di dockerfile nel nodo di calcolo 
     1. Il sistema calcola un hash di: 
         - Immagine di base 
-        - Passaggi personalizzati di Docker (vedere [distribuire un modello usando un'immagine di base Docker personalizzata](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - YAML per la definizione conda (vedere [creare & usare gli ambienti software in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+        - Passaggi personalizzati di Docker (vedere [distribuire un modello usando un'immagine di base Docker personalizzata](./how-to-deploy-custom-docker-image.md))
+        - YAML per la definizione conda (vedere [creare & usare gli ambienti software in Azure Machine Learning](./how-to-use-environments.md))
     1. Il sistema usa questo hash come chiave in una ricerca dell'area di lavoro Azure Container Registry (ACR)
     1. Se non viene trovato, viene cercata una corrispondenza nell'ACR globale
     1. Se non viene trovato, il sistema compila una nuova immagine (che verrà memorizzata nella cache e registrata con l'area di lavoro ACR)
@@ -101,7 +101,7 @@ Il ciclo di vita di formazione di Azure è composto da:
 1. Salvataggio dei log, dei file di modello e di altri file scritti nell' `./outputs` account di archiviazione associato all'area di lavoro
 1. Ridimensionamento del calcolo, inclusa la rimozione dell'archiviazione temporanea 
 
-Se si sceglie di eseguire il training sul computer locale ("configura come esecuzione locale"), non è necessario usare Docker. È possibile usare Docker localmente se si sceglie (per un esempio, vedere la sezione [Configure ml pipeline](https://docs.microsoft.com/azure/machine-learning/how-to-debug-pipelines#configure-ml-pipeline ) ).
+Se si sceglie di eseguire il training sul computer locale ("configura come esecuzione locale"), non è necessario usare Docker. È possibile usare Docker localmente se si sceglie (per un esempio, vedere la sezione [Configure ml pipeline](./how-to-debug-pipelines.md) ).
 
 ## <a name="r-sdk-preview"></a>R SDK (anteprima)
 

@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 21c57257f9ce5a33585f151d38c16736f94a166c
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 3509530994b07a16fb1f2780fffc6fd27cf8aa7c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998710"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325521"
 ---
 # <a name="how-to-deploy-an-encrypted-inferencing-web-service-preview"></a>Come distribuire un servizio Web di inferenza crittografato (anteprima)
 
-Questa guida illustra come distribuire un modello di classificazione delle immagini come servizio Web di inferenza crittografato in [Istanze di Azure Container](https://docs.microsoft.com/azure/container-instances/). Il servizio Web è un'immagine del contenitore Docker che contiene il modello e la logica di assegnazione del punteggio.
+Questa guida illustra come distribuire un modello di classificazione delle immagini come servizio Web di inferenza crittografato in [Istanze di Azure Container](../container-instances/index.yml). Il servizio Web è un'immagine del contenitore Docker che contiene il modello e la logica di assegnazione del punteggio.
 
 In questa guida si usa il servizio Azure Machine Learning per:
 
@@ -30,7 +30,7 @@ In questa guida si usa il servizio Azure Machine Learning per:
 > * Eseguire stime crittografate
 > * Pulire le risorse
 
-Istanze di Container è un'ottima soluzione per testare e comprendere il flusso di lavoro di distribuzione modello. Per le distribuzioni di produzione scalabili, è consigliabile usare il servizio Azure Kubernetes. Per altre informazioni, vedere l'articolo su [come e dove eseguire la distribuzione](https://docs.microsoft.com/azure/machine-learning/service/how-to-deploy-and-where).
+Istanze di Container è un'ottima soluzione per testare e comprendere il flusso di lavoro di distribuzione modello. Per le distribuzioni di produzione scalabili, è consigliabile usare il servizio Azure Kubernetes. Per altre informazioni, vedere l'articolo su [come e dove eseguire la distribuzione](./how-to-deploy-and-where.md).
 
 Il metodo di crittografia usato in questo esempio è la [crittografia omomorfica](https://github.com/Microsoft/SEAL#homomorphic-encryption). La crittografia omomorfica consente di eseguire calcoli su dati crittografati senza richiedere l'accesso a una chiave privata o di decrittografia. I risultati dei calcoli sono crittografati e possono essere resi noti solo dal proprietario della chiave privata. 
 

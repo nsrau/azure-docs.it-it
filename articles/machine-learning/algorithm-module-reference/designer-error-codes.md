@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05926f7ce25714fb76415802876db0640eb30aae
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90908086"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323783"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Eccezioni e codici di errore per la finestra di progettazione
 
@@ -713,7 +713,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 **Risoluzione:** Questo errore è causato da diverse condizioni e non esiste un rimedio specifico.  
  La tabella seguente contiene messaggi generici per questo errore, seguiti da una descrizione specifica della condizione. 
 
- Se non sono disponibili dettagli, usare la [pagina di domande e risposte di Microsoft per inviare un feedback](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html) e inserire informazioni sui moduli che hanno generato l'errore e le relative condizioni.
+ Se non sono disponibili dettagli, usare la [pagina di domande e risposte di Microsoft per inviare un feedback](/answers/topics/azure-machine-learning-studio-classic.html) e inserire informazioni sui moduli che hanno generato l'errore e le relative condizioni.
 
 |Messaggi di eccezione|
 |------------------------|
@@ -866,7 +866,7 @@ Il tipo nel blocco {chunk_id_1} è "{type_1}".)|
 
  Questo errore si verifica in Azure Machine Learning se la chiave usata per accedere all'account di archiviazione di Azure non è corretta. Ad esempio, è possibile che questo errore venga visualizzato se la chiave di archiviazione di Azure è stata troncata quando è stata copiata e incollata o se è stata usata una chiave errata.  
 
- Per ulteriori informazioni su come ottenere le chiavi di un account di archiviazione di Azure, vedere la pagina relativa alla [Vedere, copiare e rigenerare chiavi di accesso di archiviazione](https://azure.microsoft.com/documentation/articles/storage-create-storage-account-classic-portal/).  
+ Per ulteriori informazioni su come ottenere le chiavi di un account di archiviazione di Azure, vedere la pagina relativa alla [Vedere, copiare e rigenerare chiavi di accesso di archiviazione](../../storage/common/storage-account-create.md).  
 
 **Risoluzione:** Rivedere il modulo e verificare che la chiave di archiviazione di Azure sia corretta per l'account; se necessario, copiare di nuovo la chiave dal portale di Azure classico.  
 
@@ -1087,9 +1087,9 @@ Il messaggio di errore di Hive viene in genere segnalato nel log degli errori, i
 
 Vedere gli articoli seguenti per informazioni sull'esecuzione di query di Hive per Machine Learning:
 
-+ [Creare tabelle Hive e caricare i dati dall'archiviazione BLOB di Azure](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-move-hive-tables)
-+ [Esplorare i dati nelle tabelle con le query di Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-explore-data-hive-tables)
-+ [Creare funzionalità per i dati in un cluster Hadoop con query Hive](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-create-features-hive)
++ [Creare tabelle Hive e caricare i dati dall'archiviazione BLOB di Azure](../team-data-science-process/move-hive-tables.md)
++ [Esplorare i dati nelle tabelle con le query di Hive](../team-data-science-process/explore-data-hive-tables.md)
++ [Creare funzionalità per i dati in un cluster Hadoop con query Hive](../team-data-science-process/create-features-hive.md)
 + [Scheda di riferimento rapido di Hive per utenti SQL (PDF)](http://hortonworks.com/wp-content/uploads/2013/05/hql_cheat_sheet.pdf)
 
   
@@ -1111,7 +1111,7 @@ Vedere gli articoli seguenti per informazioni sull'esecuzione di query di Hive p
 
  Se è presente un messaggio generato da SQL segnalato dall'eccezione del modulo, intervenire in base all'errore segnalato. I messaggi di errore, ad esempio, includono a volte istruzioni specifiche sul probabile errore:
 + *No such column or missing database* (Questa colonna non è presente oppure manca il database), indica che è possibile che sia stato digitato un nome di colonna errato. Se si è certi che il nome della colonna è corretto, provare a usare le parentesi quadre o le virgolette per racchiudere l'identificatore di colonna.
-+ * \<SQL keyword\> Errore della logica SQL *, che indica che è possibile che sia presente un errore di sintassi prima della parola chiave specificata
++ *\<SQL keyword\> Errore della logica SQL* , che indica che è possibile che sia presente un errore di sintassi prima della parola chiave specificata
 
   
 |Messaggi di eccezione|
@@ -1168,7 +1168,7 @@ Questo errore si verifica in Azure Machine Learning quando si tenta di creare co
 
 La gestione degli errori per questo evento è stata introdotta in una versione precedente di Azure Machine Learning che consentiva una maggiore personalizzazione dei metodi di binning. Attualmente tutti i metodi di binning si basano su una selezione da un elenco a discesa, quindi tecnicamente non dovrebbe più essere possibile ottenere questo errore.
 
- <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
+ <!--If you get this error when using the [Group Data into Bins](group-data-into-bins.md) module, consider reporting the issue in the [Microsoft Q&A question page for Azure Machine Learning](/answers/topics/azure-machine-learning-studio-classic.html), providing the data types, parameter settings, and the exact error message.  -->
 
 |Messaggi di eccezione|
 |------------------------|
@@ -1520,11 +1520,10 @@ Eccezione interna della libreria.
 
 Questo errore viene generato per acquisire errori interni del motore che altrimenti non verrebbero gestiti. La cause di questo errore potrebbero quindi variare a seconda del modulo che ha generato l'errore.  
 
-Per ottenere ulteriore assistenza, è consigliabile pubblicare il messaggio dettagliato che accompagna l'errore nel [Forum di Azure Machine Learning](https://docs.microsoft.com/answers/topics/azure-machine-learning.html), insieme a una descrizione dello scenario, inclusi i dati utilizzati come input. Questo feedback consentirà classificare gli errori in ordine di priorità e di identificare i problemi più importanti da approfondire.  
+Per ottenere ulteriore assistenza, è consigliabile pubblicare il messaggio dettagliato che accompagna l'errore nel [Forum di Azure Machine Learning](/answers/topics/azure-machine-learning.html), insieme a una descrizione dello scenario, inclusi i dati utilizzati come input. Questo feedback consentirà classificare gli errori in ordine di priorità e di identificare i problemi più importanti da approfondire.  
 
 |Messaggi di eccezione|
 |------------------------|
 |Library exception. (Eccezione della libreria.)|
 |Library exception: {exception}. (Eccezione della libreria: {exception}.)|
 |Unknown library exception: {exception}. {customer_support_guidance}. (Eccezione della libreria sconosciuta: {exception}. {customer_support_guidance}.)|
-

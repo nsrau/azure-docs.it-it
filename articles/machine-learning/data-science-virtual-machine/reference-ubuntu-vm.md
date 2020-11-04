@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: d356bd43e5e09dfce96a801732e79d2efe8c08bd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9da757e47308fe0fe1a96958e464b440d99f0984
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440338"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324735"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Informazioni di riferimento: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -97,7 +97,7 @@ Per aprire la console R, immettere **R** nella shell. Questo comando consente di
 
 ## <a name="python"></a>Python
 
-Anaconda Python viene installato con ambienti Python 2.7 e 3.5. L'ambiente 2.7 è detto _radice_, mentre l'ambiente 3.5 è detto _py35_. Questa distribuzione contiene il linguaggio Python di base con circa 300 dei più diffusi pacchetti di matematica, ingegneria e analisi dei dati.
+Anaconda Python viene installato con ambienti Python 2.7 e 3.5. L'ambiente 2.7 è detto _radice_ , mentre l'ambiente 3.5 è detto _py35_. Questa distribuzione contiene il linguaggio Python di base con circa 300 dei più diffusi pacchetti di matematica, ingegneria e analisi dei dati.
 
 L'ambiente py35 è il valore predefinito. Per attivare l'ambiente radice (2.7), usare questo comando:
 
@@ -206,13 +206,13 @@ Per altre informazioni, vedere [Squirrel SQL](http://squirrel-sql.sourceforge.ne
 
 Anche nel pacchetto driver ODBC per SQL Server sono disponibili due strumenti da riga di comando:
 
-- **bcp**: lo strumento bcp esegue operazioni di copia bulk di dati tra un'istanza di Microsoft SQL Server e un file di dati in un formato specificato dall'utente. È possibile usarlo per importare un numero elevato di nuove righe nelle tabelle di SQL Server o per esportare dati delle tabelle in file di dati. Per importare dati in una tabella, è necessario usare un file in un formato creato per tale tabella. In alternativa, è necessario conoscere la struttura della tabella e i tipi di dati validi per le relative colonne.
+- **bcp** : lo strumento bcp esegue operazioni di copia bulk di dati tra un'istanza di Microsoft SQL Server e un file di dati in un formato specificato dall'utente. È possibile usarlo per importare un numero elevato di nuove righe nelle tabelle di SQL Server o per esportare dati delle tabelle in file di dati. Per importare dati in una tabella, è necessario usare un file in un formato creato per tale tabella. In alternativa, è necessario conoscere la struttura della tabella e i tipi di dati validi per le relative colonne.
 
-  Per ulteriori informazioni, vedere [connessione con bcp](https://msdn.microsoft.com/library/hh568446.aspx).
+  Per ulteriori informazioni, vedere [connessione con bcp](/sql/connect/odbc/linux-mac/connecting-with-bcp).
 
-- **SQLCMD**: è possibile immettere istruzioni Transact-SQL utilizzando lo strumento sqlcmd. È anche possibile immettere procedure di sistema e file di script al prompt dei comandi. Questo strumento usa ODBC per eseguire batch Transact-SQL.
+- **SQLCMD** : è possibile immettere istruzioni Transact-SQL utilizzando lo strumento sqlcmd. È anche possibile immettere procedure di sistema e file di script al prompt dei comandi. Questo strumento usa ODBC per eseguire batch Transact-SQL.
 
-  Per altre informazioni, vedere [Connessione con sqlcmd](https://msdn.microsoft.com/library/hh568447.aspx).
+  Per altre informazioni, vedere [Connessione con sqlcmd](/sql/connect/odbc/linux-mac/connecting-with-sqlcmd).
 
   > [!NOTE]
   > Questo strumento presenta alcune differenze tra le piattaforme Linux e Windows. Per informazioni dettagliate, vedere la documentazione di .
@@ -228,13 +228,13 @@ Le librerie per l'accesso al database sono disponibili in R e Python:
 
 Nella VM sono installati gli strumenti di Azure seguenti:
 
-* Interfaccia della riga di comando di Azure: è possibile usare l'interfaccia della riga di comando in Azure per creare e gestire le risorse **di Azure tramite**i comandi della shell. Per aprire gli strumenti di Azure, immettere **Azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-az-cli2).
-* **Azure Storage Explorer**: Azure Storage Explorer è uno strumento grafico che è possibile usare per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare e scaricare i dati da e verso i BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. È anche possibile aprire questo strumento da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere configurato X11 Forwarding.
-* **Librerie di Azure**: di seguito sono riportate alcune delle librerie pre-installate.
+* Interfaccia della riga di comando di Azure: è possibile usare l'interfaccia della riga di comando in Azure per creare e gestire le risorse **di Azure tramite** i comandi della shell. Per aprire gli strumenti di Azure, immettere **Azure help**. Per altre informazioni, vedere la [pagina di documentazione sull'interfaccia della riga di comando di Azure](/cli/azure/get-started-with-az-cli2).
+* **Azure Storage Explorer** : Azure Storage Explorer è uno strumento grafico che è possibile usare per esplorare gli oggetti archiviati nell'account di archiviazione di Azure e per caricare e scaricare i dati da e verso i BLOB di Azure. È possibile accedere a Esplora archivi dall'icona del collegamento sul desktop. È anche possibile aprire questo strumento da un prompt della shell digitando **StorageExplorer**. È necessario essere connessi da un client X2Go o avere configurato X11 Forwarding.
+* **Librerie di Azure** : di seguito sono riportate alcune delle librerie pre-installate.
   
-  * **Python**: le librerie correlate ad Azure in Python sono *Azure*, *azureml*, *pydocumentdb*e *pyodbc*. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure Cosmos DB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme al driver Microsoft ODBC per SQL Server), consente l'accesso a SQL Server, al database SQL di Azure e a Azure sinapsi Analytics da Python usando un'interfaccia ODBC. Immettere **pip list** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
-  * **R**: le librerie correlate ad Azure in r sono AZUREML e RODBC.
-  * **Java**: l'elenco delle librerie Java per Azure è disponibile nella directory /dsvm/sdk/AzureSDKJava della VM. Le librerie principali sono le API di archiviazione e gestione di Azure, Azure Cosmos DB e i driver JDBC per SQL Server.  
+  * **Python** : le librerie correlate ad Azure in Python sono *Azure* , *azureml* , *pydocumentdb* e *pyodbc*. Le prime tre librerie consentono di accedere ai servizi di archiviazione di Azure, Azure Machine Learning e Azure Cosmos DB, ovvero un database NoSQL in Azure. La quarta libreria, pyodbc (insieme al driver Microsoft ODBC per SQL Server), consente l'accesso a SQL Server, al database SQL di Azure e a Azure sinapsi Analytics da Python usando un'interfaccia ODBC. Immettere **pip list** per vedere elencate tutte le librerie. Assicurarsi di eseguire questo comando in Python sia nell'ambiente 2.7 che 3.5.
+  * **R** : le librerie correlate ad Azure in r sono AZUREML e RODBC.
+  * **Java** : l'elenco delle librerie Java per Azure è disponibile nella directory /dsvm/sdk/AzureSDKJava della VM. Le librerie principali sono le API di archiviazione e gestione di Azure, Azure Cosmos DB e i driver JDBC per SQL Server.  
 
 È possibile accedere al [portale di Azure](https://portal.azure.com) dal browser Firefox pre-installato. Nel portale di Azure si possono creare, gestire e monitorare le risorse di Azure.
 
@@ -246,21 +246,21 @@ Dopo aver effettuato l'accesso a Azure Machine Learning Studio, è possibile usa
 
 È possibile rendere operativi i modelli di Machine Learning creati eseguendone il wrapping in un'interfaccia del servizio Web. In questo modo i client scritti in qualsiasi linguaggio possono richiamare le stime dai modelli di Machine Learning. Per altre informazioni, vedere [Documentazione su Machine Learning](https://azure.microsoft.com/documentation/services/machine-learning/).
 
-È anche possibile creare modelli personalizzati in R o Python nella VM e quindi distribuirli nell'ambiente di produzione in Azure Machine Learning. Per abilitare questa funzionalità sono state installate librerie in R (**AzureML**) e Python (**azureml**).
+È anche possibile creare modelli personalizzati in R o Python nella VM e quindi distribuirli nell'ambiente di produzione in Azure Machine Learning. Per abilitare questa funzionalità sono state installate librerie in R ( **AzureML** ) e Python ( **azureml** ).
 
 > [!NOTE]
 > Queste istruzioni sono state scritte per la versione Windows della Data Science Virtual Machine. Tuttavia, le informazioni sulla distribuzione di modelli in Azure Machine Learning è applicabile anche alle VM Linux.
 
 ## <a name="machine-learning-tools"></a>Strumenti di Machine Learning
 
-La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. Tra queste sono incluse:
+La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. Sono inclusi:
 
-* **Vowpal Wabbit**: algoritmo di apprendimento rapido online.
-* **xgboost**: strumento che fornisce algoritmi di albero con boosting ottimizzati.
-* **Rattle**: strumento grafico basato su R per una semplice modellazione ed esplorazione dei dati.
-* **Python**: Anaconda Python integra algoritmi Machine Learning con librerie come Scikit-learn. È possibile installare altre librerie usando il comando `pip install` .
-* **LightGBM**: un framework rapido, distribuito e a prestazioni elevate di boosting a gradienti basato su algoritmi dell'albero delle decisioni.
-* **R**: è disponibile una ricca libreria di funzioni di machine learning per R. le librerie pre-installate includono LM, GLM, randomForest e rpart. È possibile installare altre librerie eseguendo questo comando:
+* **Vowpal Wabbit** : algoritmo di apprendimento rapido online.
+* **xgboost** : strumento che fornisce algoritmi di albero con boosting ottimizzati.
+* **Rattle** : strumento grafico basato su R per una semplice modellazione ed esplorazione dei dati.
+* **Python** : Anaconda Python integra algoritmi Machine Learning con librerie come Scikit-learn. È possibile installare altre librerie usando il comando `pip install` .
+* **LightGBM** : un framework rapido, distribuito e a prestazioni elevate di boosting a gradienti basato su algoritmi dell'albero delle decisioni.
+* **R** : è disponibile una ricca libreria di funzioni di machine learning per R. le librerie pre-installate includono LM, GLM, randomForest e rpart. È possibile installare altre librerie eseguendo questo comando:
 
     ```r
     install.packages(<lib name>)
@@ -316,7 +316,7 @@ Per altre informazioni su xgboost, vedere la [pagina della documentazione di xgb
 
 ### <a name="rattle"></a>Rattle
 
-Rattle (**R** **A**nalytical **T**ool **T**o **L**earn **E**asily) usa la funzionalità di esplorazione e modellazione dei dati basate su GUI. Presenta riepiloghi statistici e visivi dei dati, trasforma i dati che possono essere modellati facilmente, compila modelli con e senza supervisione dai dati, presenta graficamente le prestazioni dei modelli e assegna un punteggio ai nuovi set di dati. Genera anche codice R replicando le operazioni nell'interfaccia utente che possono essere eseguite direttamente in R o usate come punto di partenza per altre analisi.
+Rattle ( **R** **A** nalytical **T** ool **T** o **L** earn **E** asily) usa la funzionalità di esplorazione e modellazione dei dati basate su GUI. Presenta riepiloghi statistici e visivi dei dati, trasforma i dati che possono essere modellati facilmente, compila modelli con e senza supervisione dai dati, presenta graficamente le prestazioni dei modelli e assegna un punteggio ai nuovi set di dati. Genera anche codice R replicando le operazioni nell'interfaccia utente che possono essere eseguite direttamente in R o usate come punto di partenza per altre analisi.
 
 Per eseguire Rattle, è necessario aprire una sessione di accesso desktop con interfaccia grafica. In un terminale immettere **R** per aprire l'ambiente R. Al prompt di R immettere i comandi seguenti:
 
@@ -330,7 +330,7 @@ Si apre un'interfaccia grafica con un set di schede. Seguire questi passaggi di 
 > [!NOTE]
 > Se non si ha accesso per installare il pacchetto nella directory di sistema (impostazione predefinita), è possibile che nella finestra della console R venga visualizzata la richiesta di installare i pacchetti nella libreria personale. Se vengono visualizzate queste richieste, rispondere **y** (Sì).
 
-1. Scegliere **Execute**(Esegui).
+1. Selezionare **Esegui**.
 1. Viene visualizzata una finestra di dialogo in cui viene chiesto se si vuole usare il set di dati meteo di esempio. Selezionare **Yes** (Sì) per caricare l'esempio.
 1. Selezionare la scheda **modello** .
 1. Selezionare **Execute** (Esegui) per creare un albero delle decisioni.

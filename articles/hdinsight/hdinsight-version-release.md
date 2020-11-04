@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 37f0a8d1f70fa96db505973d097febabe99ab7a8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2716f037de533e14ae8e57706134c8a2b135b440
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88749170"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322375"
 ---
 # <a name="azure-hdinsight-40-overview"></a>Panoramica di HDInsight 4.0
 
@@ -102,5 +102,9 @@ Non è disponibile alcun percorso di aggiornamento supportato dalle versioni pre
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Guida alla migrazione di HBase](https://docs.microsoft.com/azure/hdinsight/hbase/apache-hbase-migrate-new-version)
+* [Guida alla migrazione di hive](https://docs.microsoft.com/azure/hdinsight/interactive-query/apache-hive-migrate-workloads)
+* [Guida alla migrazione di Kafka](https://docs.microsoft.com/azure/hdinsight/kafka/migrate-versions)
+* [Guida alla migrazione di Spark](https://docs.microsoft.com/azure/hdinsight/spark/migrate-versions)
 * [Documentazione di Azure HDInsight](index.yml)
 * [Note sulla versione](hdinsight-release-notes.md)

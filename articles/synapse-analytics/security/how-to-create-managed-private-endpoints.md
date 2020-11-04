@@ -8,12 +8,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: fae958542f1bc391f285104d80d1e19131470abe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 919b8fb89e9189df7cb1964cbe0149dc6945ad2d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87065473"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323197"
 ---
 # <a name="create-a-managed-private-endpoint-to-your-data-source-preview"></a>Creare un endpoint privato gestito per l'origine dati (anteprima)
 
@@ -21,12 +21,11 @@ In questo articolo viene illustrato come creare un endpoint privato gestito per 
 
 ## <a name="step-1-open-your-azure-synapse-workspace-in-azure-portal"></a>Passaggio 1: aprire l'area di lavoro della sinapsi di Azure in portale di Azure
 
-È possibile creare un endpoint privato gestito per l'origine dati da Azure sinapsi Studio. Selezionare la scheda **Panoramica** in portale di Azure e selezionare **Avvia sinapsi Studio**.
-![Avviare Azure sinapsi Studio](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-1.png)
+È possibile creare un endpoint privato gestito per l'origine dati da Azure sinapsi Studio. Selezionare la scheda **Panoramica** in portale di Azure e selezionare **Apri** nella scheda Open sinapsi studio nella sezione introduttiva.
 
 ## <a name="step-2-navigate-to-the-managed-virtual-networks-tab-in-synapse-studio"></a>Passaggio 2: passare alla scheda reti virtuali gestite in sinapsi Studio
 
-In Azure sinapsi Studio selezionare la scheda **Gestisci** dal pannello di navigazione sinistro. Selezionare **reti virtuali gestite** e quindi selezionare **+ nuovo**.
+In Azure sinapsi Studio selezionare la scheda **Gestisci** dal pannello di navigazione sinistro. Selezionare **endpoint privati gestiti** , quindi selezionare **+ nuovo**.
 ![Creare un nuovo endpoint privato gestito](./media/how-to-create-managed-private-endpoints/managed-private-endpoint-2.png)
 
 ## <a name="step-3-select-the-data-source-type"></a>Passaggio 3: selezionare il tipo di origine dati

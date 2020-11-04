@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 7b5881651312e69ed840eb50388d497258ddeb27
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ec6a3304ffe035e7ac206e96f7666e3ba1877d9e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362453"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322791"
 ---
 # <a name="define-custom-r-modules-for-machine-learning-studio-classic"></a>Definire moduli R personalizzati per Machine Learning Studio (versione classica)
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Questo argomento descrive come creare e distribuire un R Studio personalizzato (classico). Viene descritto in cosa consistono i moduli R personalizzati e i file usati per definirli. Viene illustrato come creare i file che definiscono un modulo e come registrare il modulo per la distribuzione in un'area di lavoro di Machine Learning. Vengono quindi descritti in modo più dettagliato elementi e attributi utilizzati nella definizione del modulo personalizzato. Viene inoltre illustrato come usare le funzionalità e i file ausiliari e gli output multipli. 
 
@@ -38,7 +38,7 @@ Nel file ZIP è possibile includere anche altri file ausiliari che forniscono fu
 In questo esempio viene illustrato come costruire i file richiesti da un modulo R personalizzato, inserirli in un file ZIP e quindi registrare il modulo nell'area di lavoro di Machine Learning. I file e il pacchetto ZIP di esempio possono essere scaricati da [Scarica file CustomAddRows.zip](https://go.microsoft.com/fwlink/?LinkID=524916&clcid=0x409).
 
 ## <a name="the-source-file"></a>File di origine
-Considerare l'esempio di un modulo **Add Rows** (Aggiungi righe) personalizzato che modifica l'implementazione standard del modulo **Add Rows** usato per concatenare le righe (osservazioni) da due set di dati (frame di dati). Il modulo **Add Rows** standard aggiunge le righe del secondo set di dati di input alla fine del primo set di dati di input usando l'algoritmo `rbind`. Analogamente, la funzione `CustomAddRows` personalizzata accetta due set di dati, ma accetta anche un parametro di scambio booleano come input aggiuntivo. Se il parametro di scambio è impostato su **FALSE**, restituisce lo stesso set di dati come implementazione standard. Se tuttavia il parametro di scambio è **TRUE**, la funzione aggiunge righe del primo set di dati di input alla fine del secondo set di dati. Il file CustomAddRows.R che contiene l'implementazione della funzione R `CustomAddRows` , esposta dal modulo **Add Rows personalizzato** , ha il codice R seguente.
+Considerare l'esempio di un modulo **Add Rows** (Aggiungi righe) personalizzato che modifica l'implementazione standard del modulo **Add Rows** usato per concatenare le righe (osservazioni) da due set di dati (frame di dati). Il modulo **Add Rows** standard aggiunge le righe del secondo set di dati di input alla fine del primo set di dati di input usando l'algoritmo `rbind`. Analogamente, la funzione `CustomAddRows` personalizzata accetta due set di dati, ma accetta anche un parametro di scambio booleano come input aggiuntivo. Se il parametro di scambio è impostato su **FALSE** , restituisce lo stesso set di dati come implementazione standard. Se tuttavia il parametro di scambio è **TRUE** , la funzione aggiunge righe del primo set di dati di input alla fine del secondo set di dati. Il file CustomAddRows.R che contiene l'implementazione della funzione R `CustomAddRows` , esposta dal modulo **Add Rows personalizzato** , ha il codice R seguente.
 
 ```r
 CustomAddRows <- function(dataset1, dataset2, swap=FALSE) 
@@ -91,7 +91,7 @@ Per esporre questa `CustomAddRows` funzione come modulo Azure Machine Learning S
 </Module>
 ```
 
-È essenziale notare che il valore degli attributi **id** degli elementi **Input** e **Arg** nel file XML deve corrispondere ESATTAMENTE ai nomi dei parametri di funzione del codice R nel file CustomAddRows.R (*dataset1*, *dataset2* e *swap* nell'esempio). Analogamente, il valore dell'attributo **entryPoint** dell'elemento **Language** deve corrispondere ESATTAMENTE al nome della funzione nello script R (*CustomAddRows* nell'esempio). 
+È essenziale notare che il valore degli attributi **id** degli elementi **Input** e **Arg** nel file XML deve corrispondere ESATTAMENTE ai nomi dei parametri di funzione del codice R nel file CustomAddRows.R ( *dataset1* , *dataset2* e *swap* nell'esempio). Analogamente, il valore dell'attributo **entryPoint** dell'elemento **Language** deve corrispondere ESATTAMENTE al nome della funzione nello script R ( *CustomAddRows* nell'esempio). 
 
 Al contrario, l'attributo **id** per l'elemento **Output** non corrisponde ad alcuna variabile nello script R. Quando è necessario più di un output, restituire semplicemente un elenco dalla funzione R con i risultati disposti *nello stesso ordine* in cui sono dichiarati gli elementi **Output** nel file XML.
 
@@ -140,7 +140,7 @@ L'elemento **Language** nel file di definizione XML viene usato per specificare 
 Le porte di input e di output per un modulo personalizzato vengono specificate negli elementi figlio della sezione **Ports** del file di definizione XML. L'ordine di questi elementi determina il layout visualizzato (UX) dagli utenti. Il primo **input** o **output** figlio elencato nell'elemento **Ports** del file XML diventa la porta di input più a sinistra nell'esperienza utente di Machine Learning.
 Ogni porta di input e di output può avere un elemento figlio **Description** facoltativo che specifica il testo visualizzato quando si passa il cursore del mouse sulla porta nell'interfaccia utente di Machine Learning.
 
-**Regole porte**:
+**Regole porte** :
 
 * Il numero massimo di **porte di input e di output** è 8 per ciascuno.
 
@@ -188,7 +188,7 @@ Per i moduli R personalizzati, non è necessario che l'ID di una porta zip corri
 
 Per gli output in moduli R personalizzati, il valore dell'attributo **id** non deve corrispondere ad alcun elemento nello script R, ma deve essere univoco. Per l'output di un modulo singolo, il valore restituito dalla funzione R deve essere un *data.frame*. Per poter restituire più di un oggetto di un tipo di dati supportato, è necessario specificare le porte di output appropriate nel file di definizione XML e restituire gli oggetti come elenco. Gli oggetti di output vengono assegnati alle porte di output da sinistra a destra, in base all'ordine in cui gli oggetti vengono inseriti nell'elenco restituito.
 
-Se ad esempio si vuole modificare il modulo **Add rows personalizzato** per l'output dei due set di dati originali, *dataset1* e *dataset2*, oltre al nuovo set di dati *dataset* unito (in un ordine da sinistra a destra, del tipo *dataset*, *dataset1*, *dataset2*), definire le porte di output nel file CustomAddRows.xml come segue:
+Se ad esempio si vuole modificare il modulo **Add rows personalizzato** per l'output dei due set di dati originali, *dataset1* e *dataset2* , oltre al nuovo set di dati *dataset* unito (in un ordine da sinistra a destra, del tipo *dataset* , *dataset1* , *dataset2* ), definire le porte di output nel file CustomAddRows.xml come segue:
 
 ```xml
 <Ports> 
@@ -221,7 +221,7 @@ CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
 } 
 ```
 
-**Output di visualizzazione:** è anche possibile specificare una porta di output di tipo *Visualization*che consente di visualizzare l'output del dispositivo e della console grafica R. Questa porta non fa parte dell'output della funzione R e non interferisce con l'ordine degli altri tipi di porta di output. Per aggiungere una porta di visualizzazione ai moduli personalizzati, aggiungere un elemento **Output** con un valore *Visualization* per il relativo attributo **type**:
+**Output di visualizzazione:** è anche possibile specificare una porta di output di tipo *Visualization* che consente di visualizzare l'output del dispositivo e della console grafica R. Questa porta non fa parte dell'output della funzione R e non interferisce con l'ordine degli altri tipi di porta di output. Per aggiungere una porta di visualizzazione ai moduli personalizzati, aggiungere un elemento **Output** con un valore *Visualization* per il relativo attributo **type** :
 
 ```xml
 <Output id="deviceOutput" name="View Port" type="Visualization">
@@ -237,12 +237,12 @@ CustomAddRows <- function(dataset1, dataset2, swap=FALSE) {
 * Il valore dell'attributo **type** dell'elemento **Output** deve essere *Visualization*.
 
 ### <a name="arguments"></a>Argomenti
-Dati aggiuntivi possono essere passati alla funzione R con i parametri del modulo definiti nell'elemento **Arguments**. Questi parametri vengono visualizzati nel riquadro delle proprietà più a destra dell'interfaccia utente di Machine Learning quando viene selezionato il modulo. Gli argomenti possono essere uno qualsiasi dei tipi supportati. In alternativa, è possibile creare un enumeratore personalizzato, se necessario. Analogamente agli elementi **Ports**, gli elementi **Arguments** possono presentare un elemento **Description** facoltativo che specifica il testo visualizzato quando si posiziona il mouse sul nome del parametro.
+Dati aggiuntivi possono essere passati alla funzione R con i parametri del modulo definiti nell'elemento **Arguments**. Questi parametri vengono visualizzati nel riquadro delle proprietà più a destra dell'interfaccia utente di Machine Learning quando viene selezionato il modulo. Gli argomenti possono essere uno qualsiasi dei tipi supportati. In alternativa, è possibile creare un enumeratore personalizzato, se necessario. Analogamente agli elementi **Ports** , gli elementi **Arguments** possono presentare un elemento **Description** facoltativo che specifica il testo visualizzato quando si posiziona il mouse sul nome del parametro.
 Le proprietà facoltative per un modulo, quali defaultValue, minValue e maxValue, possono essere aggiunte a qualsiasi argomento come attributi di un elemento **Properties**. Le proprietà valide per l'elemento **Properties** dipendono dal tipo di argomento e vengono descritte con i tipi di argomento supportati nella sezione successiva. Gli argomenti con la proprietà **isOptional** impostata su **"true"** non richiedono che l'utente immetta un valore. Se non viene fornito un valore per l'argomento, l'argomento non verrà passato alla funzione del punto di ingresso. Gli argomenti della funzione del punto di ingresso facoltativi devono essere gestiti in modo esplicito dalla funzione, ad esempio viene assegnato un valore predefinito NULL nella definizione della funzione del punto di ingresso. Un argomento facoltativo imporrà gli altri vincoli dell'argomento, ad esempio min o max, solo se l'utente fornisce un valore.
 Come per gli input e gli output, è fondamentale che a ogni parametro siano associati valori ID univoci. Nell'esempio di avvio rapido l'ID/parametro associato era *swap*.
 
 ### <a name="arg-element"></a>Elemento Arg
-Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezione **Arguments** del file di definizione XML. Come con gli elementi figlio nella sezione **Ports**, l'ordine dei parametri nella sezione **Arguments** definisce il layout riscontrato nell'esperienza utente. I parametri vengono visualizzati dall'alto verso il basso nell'interfaccia utente nello stesso ordine in cui sono definiti nel file XML. I tipi supportati da Machine Learning per i parametri sono elencati di seguito. 
+Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezione **Arguments** del file di definizione XML. Come con gli elementi figlio nella sezione **Ports** , l'ordine dei parametri nella sezione **Arguments** definisce il layout riscontrato nell'esperienza utente. I parametri vengono visualizzati dall'alto verso il basso nell'interfaccia utente nello stesso ordine in cui sono definiti nel file XML. I tipi supportati da Machine Learning per i parametri sono elencati di seguito. 
 
 **int** : parametro di tipo Integer (32 bit).
 
@@ -253,7 +253,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
 </Arg>
 ```
 
-* *Proprietà facoltative*: **min**, **max**, **default** e **isOptional**
+* *Proprietà facoltative* : **min** , **max** , **default** e **isOptional**
 
 **double** : parametro di tipo doppio.
 
@@ -264,7 +264,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
 </Arg>
 ```
 
-* *Proprietà facoltative*: **min**, **max**, **default** e **isOptional**
+* *Proprietà facoltative* : **min** , **max** , **default** e **isOptional**
 
 **bool** : parametro booleano rappresentato da una casella di controllo nell'esperienza utente.
 
@@ -275,9 +275,9 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
 </Arg>
 ```
 
-* *Proprietà facoltative*: **default** (false se non impostato)
+* *Proprietà facoltative* : **default** (false se non impostato)
 
-**string**: stringa standard
+**string** : stringa standard
 
 ```xml
 <Arg id="stringValue1" name="My string Param" type="string">
@@ -286,9 +286,9 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
 </Arg>    
 ```
 
-* *Proprietà facoltative*: **default** e **isOptional**
+* *Proprietà facoltative* : **default** e **isOptional**
 
-**ColumnPicker**: parametro di selezione della colonna. Questo tipo esegue il rendering in UX come selezione di colonne. L'elemento **Property** viene usato qui per specificare l'ID della porta da cui vengono selezionate le colonne, in cui il tipo di porta di destinazione deve essere *DataTable*. Il risultato della selezione delle colonne verrà passato alla funzione R come elenco di stringhe contenenti i nomi di colonna selezionati. 
+**ColumnPicker** : parametro di selezione della colonna. Questo tipo esegue il rendering in UX come selezione di colonne. L'elemento **Property** viene usato qui per specificare l'ID della porta da cui vengono selezionate le colonne, in cui il tipo di porta di destinazione deve essere *DataTable*. Il risultato della selezione delle colonne verrà passato alla funzione R come elenco di stringhe contenenti i nomi di colonna selezionati. 
 
 ```xml
 <Arg id="colset" name="Column set" type="ColumnPicker">      
@@ -297,8 +297,8 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
 </Arg>
 ```
 
-* *Proprietà obbligatorie*: **ID porta** -corrisponde all'ID di un elemento di input con tipo *DataTable*.
-* *Proprietà facoltative*:
+* *Proprietà obbligatorie* : **ID porta** -corrisponde all'ID di un elemento di input con tipo *DataTable*.
+* *Proprietà facoltative* :
   
   * **allowedTypes** : filtra i tipi di colonna tra cui è possibile scegliere. I valori validi includono: 
     
@@ -306,13 +306,13 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
     * Boolean
     * Categorical
     * string
-    * Etichetta
+    * Label
     * Funzionalità
     * Punteggio
     * Tutti
   * **default** : le selezioni predefinite valide per il selettore di colonna includono: 
     
-    * Nessuno
+    * nessuno
     * NumericFeature
     * NumericLabel
     * NumericScore
@@ -334,7 +334,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
     * AllScore
     * Tutti
 
-**DropDown**: elenco enumerato specificato dall'utente (elenco a discesa). Gli elementi dell'elenco a discesa vengono specificati all'interno dell'elemento **Properties** usando un elemento **Item**. L'**id** di ciascun elemento **Item** deve essere univoco e una variabile R valida. Il valore di **name** di un elemento **Item** rappresenta sia il testo visualizzato che il valore passato alla funzione R.
+**DropDown** : elenco enumerato specificato dall'utente (elenco a discesa). Gli elementi dell'elenco a discesa vengono specificati all'interno dell'elemento **Properties** usando un elemento **Item**. L' **id** di ciascun elemento **Item** deve essere univoco e una variabile R valida. Il valore di **name** di un elemento **Item** rappresenta sia il testo visualizzato che il valore passato alla funzione R.
 
 ```xml
 <Arg id="color" name="Color" type="DropDown">
@@ -347,7 +347,7 @@ Un parametro del modulo viene definito con l'elemento figlio **Arg** della sezio
 </Arg>    
 ```
 
-* *Proprietà facoltative*:
+* *Proprietà facoltative* :
   * **impostazione predefinita** : il valore della proprietà predefinita deve corrispondere a un valore ID di uno degli elementi **Item** .
 
 ### <a name="auxiliary-files"></a>File ausiliari
@@ -394,4 +394,3 @@ L'ambiente di esecuzione dello script R usa la stessa versione di R del modulo *
 
 * File system non persistente: i file scritti quando viene eseguito il modulo personalizzato non vengono mantenuti in più esecuzioni dello stesso modulo.
 * Nessun accesso alla rete
-

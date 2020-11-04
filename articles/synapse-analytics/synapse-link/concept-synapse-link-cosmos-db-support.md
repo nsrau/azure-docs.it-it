@@ -9,12 +9,12 @@ ms.subservice: synapse-link
 ms.date: 09/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: d7f1f1f004fb8c9c4d67f409072ce061c6047569
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: fa05f8a8b05a0acddae906a93c90c42424466969
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127012"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322603"
 ---
 # <a name="azure-synapse-link-preview-for-azure-cosmos-db-supported-features"></a>Funzionalità supportate da Collegamento ad Azure Synapse (anteprima) per Azure Cosmos DB
 
@@ -40,7 +40,7 @@ In Azure Cosmos DB sono disponibili due tipi di contenitori:
 | **Scrittura**   | È possibile usare il runtime della sinapsi di Azure per scrivere i dati in un contenitore di Azure Cosmos DB | Sì | No |
 
 * Se si scrivono dati in un contenitore Azure Cosmos DB da Spark, questo processo si verifica tramite l'archivio transazionale di Azure Cosmos DB. Avrà un effetto sulle prestazioni transazionali del Azure Cosmos DB tramite l'utilizzo di unità richiesta.
-* L'integrazione del pool SQL tramite tabelle esterne non è attualmente supportata.
+* L'integrazione di pool SQL dedicati tramite tabelle esterne non è attualmente supportata.
  
 ## <a name="supported-code-generated-actions-for-spark"></a>Azioni generate dal codice supportate per Spark
 
@@ -64,4 +64,4 @@ In Azure Cosmos DB sono disponibili due tipi di contenitori:
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Informazioni su come [connettersi a Collegamento a Synapse per Azure Cosmos DB](../quickstart-connect-synapse-link-cosmos-db.md)
-* [Informazioni su come eseguire query sull'archivio analitico con Spark](how-to-query-analytical-store-spark.md)
+* [Informazioni su come eseguire query nel Cosmos DB archivio analitico con Spark](how-to-query-analytical-store-spark.md)

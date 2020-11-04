@@ -11,16 +11,16 @@ ms.date: 03/27/2019
 ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: aa58ad09a6db212633e51b89c390ff0330943131
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: be625d99d1b57ff3c66528b8af6fa0273d013ebe
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93279856"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325469"
 ---
 # <a name="azure-synapse-analytics-data-integration-partners"></a>Partner di integrazione dei dati di Azure Synapse Analytics
 
-Per creare una soluzione di data warehouse con la funzionalità di pool Synapse SQL di Azure Synapse, è possibile scegliere tra una vasta gamma di strumenti leader nel settore. Questo articolo evidenzia le società partner di Microsoft che offrono soluzioni ufficiali per l'integrazione dei dati in grado di supportare Azure Synapse.
+Per creare la soluzione data warehouse usando il pool SQL dedicato in Azure sinapsi Analytics, è possibile scegliere tra una vasta gamma di strumenti leader nel settore. Questo articolo evidenzia le società partner di Microsoft che offrono soluzioni ufficiali per l'integrazione dei dati in grado di supportare Azure Synapse.
 
 ## <a name="data-integration-partners"></a>Partner di integrazione dei dati
 

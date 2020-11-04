@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: e54e0ed1a3292cee400774d02f61514f54370151
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 761976741bf794a21182e8f962b274ae32925060
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85208536"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324481"
 ---
 # <a name="what-is-workload-management"></a>Definizione di gestione del carico di lavoro
 
@@ -42,7 +42,7 @@ In passato, per Synapse SQL in Azure Synapse le prestazioni delle query venivano
 
 Ad esempio, la concessione di un'appartenenza a un ruolo utente ad hoc a smallrc consente all'utente di utilizzare il 100% della memoria nel sistema.  Con le classi di risorse, non è possibile riservare e garantire la disponibilità di risorse per i carichi di lavoro critici.
 
-La gestione del carico di lavoro del pool Synapse SQL in Azure Synapse consiste in tre concetti di alto livello: [classificazione del carico di lavoro](sql-data-warehouse-workload-classification.md), [priorità del carico di lavoro](sql-data-warehouse-workload-importance.md)e [isolamento del carico di lavoro](sql-data-warehouse-workload-isolation.md).  Queste funzionalità offrono un maggior controllo sul modo in cui il carico di lavoro utilizza le risorse di sistema.
+La gestione del carico di lavoro del pool SQL dedicato in sinapsi di Azure è costituita da tre concetti di alto livello: [classificazione del carico](sql-data-warehouse-workload-classification.md)di lavoro, [importanza del carico di lavoro](sql-data-warehouse-workload-importance.md)e [isolamento](sql-data-warehouse-workload-isolation.md)  Queste funzionalità offrono un maggior controllo sul modo in cui il carico di lavoro utilizza le risorse di sistema.
 
 La classificazione del carico di lavoro consiste nell'assegnare una richiesta a un gruppo di carico di lavoro e impostare i livelli di priorità.  Nel passato, questa assegnazione veniva eseguita tramite l'appartenenza ai ruoli con [sp_addrolemember](resource-classes-for-workload-management.md#change-a-users-resource-class).  Questa azione può ora essere eseguita tramite [CREATE WORKLOAD CLASSIFER](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  La funzionalità di classificazione offre un set più completo di opzioni, come etichetta, sessione e tempo, per classificare le richieste.
 

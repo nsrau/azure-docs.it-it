@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: 50f8768aec12b8bda8d9d489462a8f61e8d83c18
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: b98d3ea69286fe7c23b6c2978b71699ba7eb0e00
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999175"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325194"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 
@@ -34,7 +34,7 @@ Informazioni su come usare Azure Machine Learning per distribuire un modello com
 Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribuito in un cluster AKS __connesso all'area di lavoro__. Per informazioni sulla connessione di un cluster AKS all'area di lavoro, vedere [creare e collegare un cluster del servizio Azure Kubernetes](how-to-create-attach-kubernetes.md).
 
 > [!IMPORTANT]
-> Si consiglia di eseguire il debug in locale prima della distribuzione nel servizio Web. Per ulteriori informazioni, vedere [debug in locale](https://docs.microsoft.com/azure/machine-learning/how-to-troubleshoot-deployment#debug-locally)
+> Si consiglia di eseguire il debug in locale prima della distribuzione nel servizio Web. Per ulteriori informazioni, vedere [debug in locale](./how-to-troubleshoot-deployment.md#debug-locally)
 >
 > È anche possibile fare riferimento ad Azure Machine Learning - [Eseguire la distribuzione a un notebook locale](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-to-local)
 
@@ -44,7 +44,7 @@ Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribui
 
 - Un modello di apprendimento automatico registrato nell'area di lavoro. Se non si dispone di un modello registrato, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
-- Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
+- Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
 - I frammenti di codice __Python__ in questo articolo presuppongono che siano impostate le variabili seguenti:
 
@@ -71,8 +71,8 @@ In Azure Machine Learning, "distribuzione" viene usato nel senso più generale d
 1. Compilazione o download di dockerfile nel nodo di calcolo (correlato a Kubernetes)
     1. Il sistema calcola un hash di: 
         - Immagine di base 
-        - Passaggi personalizzati di Docker (vedere [distribuire un modello usando un'immagine di base Docker personalizzata](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - YAML per la definizione conda (vedere [creare & usare gli ambienti software in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+        - Passaggi personalizzati di Docker (vedere [distribuire un modello usando un'immagine di base Docker personalizzata](./how-to-deploy-custom-docker-image.md))
+        - YAML per la definizione conda (vedere [creare & usare gli ambienti software in Azure Machine Learning](./how-to-use-environments.md))
     1. Il sistema usa questo hash come chiave in una ricerca dell'area di lavoro Azure Container Registry (ACR)
     1. Se non viene trovato, viene cercata una corrispondenza nell'ACR globale
     1. Se non viene trovato, il sistema compila una nuova immagine, che verrà memorizzata nella cache e inserita nell'area di lavoro ACR.
@@ -87,7 +87,7 @@ In Azure Machine Learning, "distribuzione" viene usato nel senso più generale d
 Il componente front-end (azureml-Fe) che instrada le richieste di inferenza in ingresso ai servizi distribuiti viene ridimensionato automaticamente in base alle esigenze. Il ridimensionamento di azureml-Fe è basato sullo scopo e sulle dimensioni del cluster AKS (numero di nodi). Lo scopo e i nodi del cluster vengono configurati quando si [Crea o si connette un cluster AKS](how-to-create-attach-kubernetes.md). È disponibile un servizio azureml-Fe per ogni cluster, che potrebbe essere in esecuzione su più POD.
 
 > [!IMPORTANT]
-> Quando si usa un cluster configurato come __dev-test__, lo scaler automatico è **disabilitato**.
+> Quando si usa un cluster configurato come __dev-test__ , lo scaler automatico è **disabilitato**.
 
 Azureml-Fe scala sia verso l'alto (verticalmente) per usare più core, sia orizzontalmente per usare più baccelli. Quando si decide di eseguire la scalabilità verticale, viene usato il tempo necessario per instradare le richieste di inferenza in ingresso. Se questo tempo supera la soglia, viene eseguita una scalabilità verticale. Se il tempo di instradamento delle richieste in ingresso continua a superare la soglia, si verificherà una scalabilità orizzontale.
 
@@ -95,7 +95,7 @@ Quando si esegue il ridimensionamento in basso e in, viene utilizzato l'utilizzo
 
 ## <a name="deploy-to-aks"></a>Distribuire in servizio Azure Kubernetes
 
-Per distribuire un modello nel servizio Azure Kubernetes, creare una __configurazione di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una __configurazione di inferenza__, che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
+Per distribuire un modello nel servizio Azure Kubernetes, creare una __configurazione di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una __configurazione di inferenza__ , che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
 
 > [!NOTE]
 > Il numero di modelli da distribuire è limitato a 1.000 modelli per distribuzione (per contenitore).
@@ -121,10 +121,10 @@ print(service.get_logs())
 
 Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in questo esempio, vedere i documenti di riferimento seguenti:
 
-* [AksCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.aks.akscompute?view=azure-ml-py&preserve-view=true)
-* [AksWebservice.deploy_configuration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?view=azure-ml-py&preserve-view=true)
-* [Model. deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
-* [Webservice.wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truewait-for-deployment-show-output-false-)
+* [AksCompute](/python/api/azureml-core/azureml.core.compute.aks.akscompute?preserve-view=true&view=azure-ml-py)
+* [AksWebservice.deploy_configuration](/python/api/azureml-core/azureml.core.webservice.aks.aksservicedeploymentconfiguration?preserve-view=true&view=azure-ml-py)
+* [Model. deploy](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
+* [Webservice.wait_for_deployment](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truewait-for-deployment-show-output-false-)
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -136,7 +136,7 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 [!INCLUDE [deploymentconfig](../../includes/machine-learning-service-aks-deploy-config.md)]
 
-Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-model-deploy) .
+Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](/cli/azure/ext/azure-cli-ml/ml/model?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
 # <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
@@ -154,7 +154,7 @@ Il componente che gestisce la scalabilità automatica per le distribuzioni di mo
 > [!IMPORTANT]
 > * Non **abilitare Kubernetes Horizontal Pod AutoScaler (hPa) per le distribuzioni di modelli**. Questa operazione causerebbe la competizione tra i due componenti di ridimensionamento automatico. Azureml-Fe è progettato per la scalabilità automatica dei modelli distribuiti da Azure ML, in cui HPA dovrebbe indovinare o approssimarsi all'utilizzo del modello da una metrica generica, ad esempio l'utilizzo della CPU o una configurazione della metrica personalizzata.
 > 
-> * **Azureml-Fe non ridimensiona il numero di nodi in un cluster AKS**, perché ciò potrebbe causare un aumento imprevisto dei costi. Ridimensiona invece **il numero di repliche per il modello** all'interno dei limiti del cluster fisico. Se è necessario ridimensionare il numero di nodi all'interno del cluster, è possibile ridimensionare manualmente il cluster o [configurare il servizio di scalabilità automatica del cluster AKS](/azure/aks/cluster-autoscaler).
+> * **Azureml-Fe non ridimensiona il numero di nodi in un cluster AKS** , perché ciò potrebbe causare un aumento imprevisto dei costi. Ridimensiona invece **il numero di repliche per il modello** all'interno dei limiti del cluster fisico. Se è necessario ridimensionare il numero di nodi all'interno del cluster, è possibile ridimensionare manualmente il cluster o [configurare il servizio di scalabilità automatica del cluster AKS](../aks/cluster-autoscaler.md).
 
 La scalabilità automatica può essere controllata impostando `autoscale_target_utilization` , `autoscale_min_replicas` e `autoscale_max_replicas` per il servizio Web AKS. Nell'esempio seguente viene illustrato come abilitare la scalabilità automatica:
 
@@ -188,7 +188,7 @@ concurrentRequests = targetRps * reqTime / targetUtilization
 replicas = ceil(concurrentRequests / maxReqPerContainer)
 ```
 
-Per ulteriori informazioni sull'impostazione di `autoscale_target_utilization` , `autoscale_max_replicas` e `autoscale_min_replicas` , vedere il riferimento al modulo [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true) .
+Per ulteriori informazioni sull'impostazione di `autoscale_target_utilization` , `autoscale_max_replicas` e `autoscale_min_replicas` , vedere il riferimento al modulo [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py) .
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuire modelli in AKS usando l'implementazione controllata (anteprima)
 
@@ -302,7 +302,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se è necessario rigenerare una chiave, usare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true)
+> Se è necessario rigenerare una chiave, usare [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py)
 
 ### <a name="authentication-with-tokens"></a>Autenticazione con token
 
@@ -324,12 +324,12 @@ print(token)
 >
 > Microsoft consiglia di creare l'area di lavoro di Azure Machine Learning nella stessa area del cluster del servizio Azure Kubernetes. Per eseguire l'autenticazione con un token, il servizio Web effettuerà una chiamata all'area in cui viene creata l'area di lavoro Azure Machine Learning. Se l'area dell'area di lavoro non è disponibile, non sarà possibile recuperare un token per il servizio Web, anche se il cluster si trova in un'area diversa da quella dell'area di lavoro. In questo modo, l'autenticazione basata su token risulta non disponibile fino a quando l'area dell'area di lavoro non sarà nuovamente disponibile. Inoltre, maggiore è la distanza tra l'area del cluster e l'area dell'area di lavoro, più tempo sarà necessario per recuperare un token.
 >
-> Per recuperare un token, è necessario usare l'SDK Azure Machine Learning o il comando [AZ ml Service Get-Access-token](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-service-get-access-token) .
+> Per recuperare un token, è necessario usare l'SDK Azure Machine Learning o il comando [AZ ml Service Get-Access-token](/cli/azure/ext/azure-cli-ml/ml/service?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-service-get-access-token) .
 
 
 ### <a name="vulnerability-scanning"></a>Analisi delle vulnerabilità
 
-Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. È consigliabile consentire al centro sicurezza di Azure di analizzare le risorse e seguire le indicazioni. Per altre informazioni, vedere [integrazione dei servizi Kubernetes di Azure con il Centro sicurezza](https://docs.microsoft.com/azure/security-center/azure-kubernetes-service-integration).
+Il Centro sicurezza di Azure fornisce la gestione unificata della sicurezza e la protezione avanzata dalle minacce per carichi di lavoro cloud ibridi. È consigliabile consentire al centro sicurezza di Azure di analizzare le risorse e seguire le indicazioni. Per altre informazioni, vedere [integrazione dei servizi Kubernetes di Azure con il Centro sicurezza](../security-center/defender-for-kubernetes-introduction.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

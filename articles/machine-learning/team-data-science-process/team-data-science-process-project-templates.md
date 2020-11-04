@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c003145acd423fd96dd0ac6c054884024c2ce4a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ac6055029b8fc7bbba11a8e3b789df3b6b1622e2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75864231"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322744"
 ---
 # <a name="team-data-science-process-project-planning"></a>Pianificazione di un progetto di data science per i team
 
@@ -30,7 +30,7 @@ Il ciclo di vita descrive le fasi principali eseguite in genere dai progetti, sp
 - Distribuzione
 - Accettazione del cliente
 
-Per le descrizioni delle varie fasi, vedere [Ciclo di vita del processo di data science per i team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/lifecycle).
+Per le descrizioni delle varie fasi, vedere [Ciclo di vita del processo di data science per i team](./lifecycle.md).
 
  
 ## <a name="microsoft-project-template"></a>Modello di Microsoft Project
@@ -60,5 +60,4 @@ Usare questo [repository dei modelli di progetto](https://github.com/Azure/Azure
 
 [Sviluppo agile di progetti Data Science](agile-development.md) Questo documento descrive un progetto data science in modo sistematico, controllato dalla versione e collaborativo usando il processo di Data Science per i team.
 
-Sono anche disponibili esercitazioni dettagliate che illustrano tutti i passaggi del processo per **scenari specifici**. Le esercitazioni sono elencate, con collegamenti e brevi descrizioni, nell'articolo [Procedure dettagliate di esempio](walkthroughs.md). Le esercitazioni spiegano come combinare strumenti cloud e locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente. 
-
+Sono anche disponibili esercitazioni dettagliate che illustrano tutti i passaggi del processo per **scenari specifici**. Le esercitazioni sono elencate, con collegamenti e brevi descrizioni, nell'articolo [Procedure dettagliate di esempio](walkthroughs.md). Le esercitazioni spiegano come combinare strumenti cloud e locali e servizi in un flusso di lavoro o in una pipeline per creare un'applicazione intelligente.

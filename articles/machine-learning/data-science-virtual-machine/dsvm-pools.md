@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: 0745957620aab7ed4d08cb016c706b56e6da1c5a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 789c6c36def21bfe1c2acc8797c1847455a5c86c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708969"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324385"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Creare un pool condiviso di Data Science Virtual Machine
 
@@ -27,7 +27,7 @@ In questo articolo si apprenderà come creare un pool condiviso di macchine virt
 
 Un pool di VM interattive che sono condivise dall'intero team di intelligenza artificiale/data science consente agli utenti di accedere a un'istanza disponibile della DSVM anziché avere un'istanza dedicata per ogni set di utenti. Questa configurazione consente una maggiore disponibilità e un uso più efficiente delle risorse.
 
-Usare la tecnologia di [set di scalabilità di macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machine-scale-sets/) per creare un pool di macchine virtuali interattivo. È possibile usare i set di scalabilità per creare e gestire un gruppo di VM identiche con bilanciamento del carico e scalabilità automatica.
+Usare la tecnologia di [set di scalabilità di macchine virtuali di Azure](../../virtual-machine-scale-sets/index.yml) per creare un pool di macchine virtuali interattivo. È possibile usare i set di scalabilità per creare e gestire un gruppo di VM identiche con bilanciamento del carico e scalabilità automatica.
 
 L'utente accede all'indirizzo IP o DNS del pool principale. Il set di scalabilità esegue automaticamente il routing della sessione su una DSVM disponibile nel set di scalabilità. Poiché gli utenti vogliono un ambiente coerente e familiare indipendentemente dalla macchina virtuale a cui accedono, tutte le istanze della macchina virtuale nel set di scalabilità montano un'unità di rete condivisa, ad esempio una condivisione File di Azure o una condivisione NFS (Network File System). L'area di lavoro condivisa dell'utente in genere viene mantenuta nell'archivio di file condiviso montato in ognuna delle istanze.
 
@@ -53,7 +53,7 @@ Il modello precedente abilita la porta JupyterHub e SSH dal set di scalabilità 
 
 Anche lo [script che monta la condivisione di File di Azure](https://raw.githubusercontent.com/Azure/DataScienceVM/master/Extensions/General/mountazurefiles.sh) è disponibile nel repository Azure DataScienceVM in GitHub. Lo script monta la condivisione di File di Azure nel punto di montaggio specificato nel file dei parametri. Lo script crea anche collegamenti simbolici all'unità montata nella home directory dell'utente iniziale. Una directory del notebook specifica dell'utente nella condivisione File di Azure è collegata temporaneamente alla directory in `$HOME/notebooks/remote` modo che gli utenti possano accedere, eseguire e salvare i notebook di Jupyter. È possibile usare la stessa convenzione quando si creano altri utenti nella VM per puntare all'area di lavoro Jupyter di ogni utente nella condivisione di File di Azure.
 
-I set di scalabilità di macchine virtuali supportano la scalabilità automatica. È possibile impostare regole su quando creare istanze aggiuntive e quando ridimensionare le istanze. È ad esempio possibile ridurre il numero di istanze a zero per risparmiare sui costi di utilizzo dell'hardware cloud quando le VM non vengono usate. Le pagine di documentazione sui set di scalabilità di macchine virtuali riportano i passaggi dettagliati per la [scalabilità automatica](https://docs.microsoft.com/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview).
+I set di scalabilità di macchine virtuali supportano la scalabilità automatica. È possibile impostare regole su quando creare istanze aggiuntive e quando ridimensionare le istanze. È ad esempio possibile ridurre il numero di istanze a zero per risparmiare sui costi di utilizzo dell'hardware cloud quando le VM non vengono usate. Le pagine di documentazione sui set di scalabilità di macchine virtuali riportano i passaggi dettagliati per la [scalabilità automatica](../../virtual-machine-scale-sets/virtual-machine-scale-sets-autoscale-overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

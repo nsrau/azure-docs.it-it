@@ -2,16 +2,16 @@
 title: Risolvere i problemi relativi ai runbook di Automazione di Azure
 description: Questo articolo descrive come risolvere i problemi relativi ai runbook di Automazione di Azure.
 services: automation
-ms.date: 07/28/2020
+ms.date: 11/03/2020
 ms.topic: conceptual
 ms.service: automation
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1cbb5be8c1a4045b218c0e6bf5ac7ed0b901aa80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e173e76b80717d6685e9a6b383ee98eddf910f5
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87904803"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323477"
 ---
 # <a name="troubleshoot-runbook-issues"></a>Risolvere i problemi relativi ai runbook
 
@@ -42,7 +42,7 @@ Quando vengono visualizzati errori durante l'esecuzione dei runbook in Automazio
     * [Rinnovare il certificato](../manage-runas-account.md#cert-renewal) se l'account RunAs è scaduto.
     * [Rinnovare il webhook](../automation-webhooks.md#renew-a-webhook) se si sta provando a usare un webhook scaduto per avviare il runbook.
     * [Controllare gli stati dei processi](../automation-runbook-execution.md#job-statuses) per determinare gli stati attuali del runbook e individuare alcune possibili cause del problema.
-    * [Aggiungere altro output](../automation-runbook-output-and-messages.md#monitor-message-streams) al runbook per stabilire cosa succede prima che il runbook venga sospeso.
+    * [Aggiungere altro output](../automation-runbook-output-and-messages.md#working-with-message-streams) al runbook per stabilire cosa succede prima che il runbook venga sospeso.
     * [Gestire tutte le eccezioni](../automation-runbook-execution.md#exceptions) generate dal processo.
 
 1. Eseguire questo passaggio se il processo del runbook o l'ambiente nel ruolo di lavoro ibrido per runbook non risponde.
@@ -201,7 +201,7 @@ Questo errore si verifica nei casi seguenti:
 Per accertarsi di essere autenticati ad Azure e poter accedere alla sottoscrizione che si sta provando a selezionare, seguire questa procedura:
 
 1. Per verificare che lo script funzioni autonomamente, testare lo script all'esterno di Automazione di Azure.
-1. Verificare che lo script esegua il cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount?view=azps-3.7.0) prima di eseguire il cmdlet `Select-*`.
+1. Verificare che lo script esegua il cmdlet [Connect-AzAccount](/powershell/module/Az.Accounts/Connect-AzAccount) prima di eseguire il cmdlet `Select-*`.
 1. Aggiungere `Disable-AzContextAutosave –Scope Process` all'inizio del runbook. Questo cmdlet garantisce che eventuali credenziali vengano applicate solo all'esecuzione del runbook corrente.
 1. Se il messaggio di errore è ancora visibile, modificare il codice aggiungendo il parametro `AzContext` per `Connect-AzAccount` e quindi eseguire il codice.
 
@@ -398,7 +398,7 @@ Se il flusso contiene oggetti, `Start-AzAutomationRunbook` non gestisce corretta
 
 ### <a name="resolution"></a>Risoluzione
 
-Implementare una logica di polling e usare il cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) per recuperare l'output. Di seguito è riportato un esempio di questa logica:
+Implementare una logica di polling e usare il cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) per recuperare l'output. Di seguito è riportato un esempio di questa logica:
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -476,14 +476,14 @@ Quando si esegue il cmdlet `Get-AzAutomationJobOutput` viene visualizzato il mes
 
 ### <a name="cause"></a>Causa
 
-Questo errore può verificarsi durante il recupero dell'output del processo da un runbook con numerosi [flussi dettagliati](../automation-runbook-output-and-messages.md#monitor-verbose-stream).
+Questo errore può verificarsi durante il recupero dell'output del processo da un runbook con numerosi [flussi dettagliati](../automation-runbook-output-and-messages.md#write-output-to-verbose-stream).
 
 ### <a name="resolution"></a>Risoluzione
 
 Per correggere l'errore, eseguire una di queste operazioni:
 
 * Modificare il runbook riducendo il numero di flussi del processo generati dal runbook stesso.
-* Ridurre il numero di flussi da recuperare all'esecuzione del cmdlet. A tale scopo, è possibile impostare il valore del parametro `Stream` per il cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput?view=azps-3.7.0) in modo che vengano recuperati solo flussi di output. 
+* Ridurre il numero di flussi da recuperare all'esecuzione del cmdlet. A tale scopo, è possibile impostare il valore del parametro `Stream` per il cmdlet [Get-AzAutomationJobOutput](/powershell/module/Az.Automation/Get-AzAutomationJobOutput) in modo che vengano recuperati solo flussi di output. 
 
 ## <a name="scenario-runbook-job-fails-because-allocated-quota-was-exceeded"></a><a name="quota-exceeded"></a>Scenario: processo runbook non riuscito per superamento della quota allocata
 
@@ -576,7 +576,7 @@ Questo errore può indicare che i runbook in esecuzione in una sandbox di Azure 
 
 È possibile risolvere questo problema in due modi:
 
-* Anziché [Start-Job](/powershell/module/microsoft.powershell.core/start-job?view=powershell-7), usare [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.7.0) per avviare il runbook.
+* Anziché [Start-Job](/powershell/module/microsoft.powershell.core/start-job), usare [Start-AzAutomationRunbook](/powershell/module/az.automation/start-azautomationrunbook) per avviare il runbook.
 * Provare a eseguire il runbook in un ruolo di lavoro ibrido per runbook.
 
 Per altre informazioni su questo e altri comportamenti dei runbook di Automazione di Azure, vedere [Esecuzione di runbook in Automazione di Azure](../automation-runbook-execution.md).
@@ -605,8 +605,8 @@ Un'altra soluzione consiste nell'ottimizzare il runbook creando [runbook figlio]
 
 I cmdlet di PowerShell che consentono lo scenario del runbook figlio sono:
 
-* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.7.0), questo cmdlet consente di avviare un runbook e trasmettergli i parametri.
-* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob?view=azps-3.7.0), questo cmdlet consente di controllare lo stato del processo per ogni runbook figlio e si rivela utile qualora siano presenti operazioni che devono essere eseguite dopo il completamento di un runbook figlio.
+* [Start-AzAutomationRunbook](/powershell/module/Az.Automation/Start-AzAutomationRunbook), questo cmdlet consente di avviare un runbook e trasmettergli i parametri.
+* [Get-AzAutomationJob](/powershell/module/Az.Automation/Get-AzAutomationJob), questo cmdlet consente di controllare lo stato del processo per ogni runbook figlio e si rivela utile qualora siano presenti operazioni che devono essere eseguite dopo il completamento di un runbook figlio.
 
 ## <a name="scenario-error-in-job-streams-about-the-get_serializationsettings-method"></a><a name="get-serializationsettings"></a>Scenario: errore nei flussi del processo per il metodo get_SerializationSettings
 
@@ -642,7 +642,7 @@ Quando viene tentata l'esecuzione del runbook o dell'applicazione in una sandbox
 
 ### <a name="cause"></a>Causa
 
-Questo problema può verificarsi perché le sandbox di Azure impediscono l'accesso a tutti i server COM out-of-process. Un'applicazione o un runbook in modalità sandbox, ad esempio, non può eseguire chiamate né in Strumentazione gestione Windows (WMI) né nel servizio Windows Installer (MSIServer. exe). 
+Questo problema può verificarsi perché le sandbox di Azure impediscono l'accesso a tutti i server COM out-of-process. Un'applicazione o un runbook in modalità sandbox, ad esempio, non può eseguire chiamate né in Strumentazione gestione Windows (WMI) né nel servizio Windows Installer (MSIServer. exe).
 
 ### <a name="resolution"></a>Risoluzione
 
@@ -686,4 +686,4 @@ Se il problema riscontrato non è presente in questo elenco o non è stato possi
 
 * I [forum di Azure](https://azure.microsoft.com/support/forums/) sono utili per ottenere risposte dagli esperti di Azure.
 * L'account ufficiale di Microsoft Azure, [@AzureSupport](https://twitter.com/azuresupport), è ottimizzato per migliorare l'esperienza del cliente. Il supporto tecnico di Azure consente di entrare in contatto con la community di Azure e di ottenere risposte, assistenza e consulenza.
-* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al sito [Supporto tecnico di Azure ](https://azure.microsoft.com/support/options/) e scegliere **Ottenere supporto**.
+* Se è necessaria un'assistenza maggiore, è possibile inviare una richiesta al supporto tecnico di Azure. Accedere al sito [Supporto tecnico di Azure](https://azure.microsoft.com/support/options/) e scegliere **Ottenere supporto**.

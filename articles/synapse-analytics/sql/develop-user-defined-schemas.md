@@ -9,12 +9,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: aebe1d995f3cb6da4663876b8d39d36a1a8b16c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a21d2f0debb2ade8e46b0cdb5b3fa5b51f0a180c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90030168"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323860"
 ---
 # <a name="user-defined-schemas-within-synapse-sql"></a>Schemi definiti dall'utente all'interno di sinapsi SQL
 
@@ -27,7 +27,7 @@ L'architettura di analisi tradizionale usa spesso database distinti per creare i
 Al contrario, sinapsi SQL esegue l'intero carico di lavoro di analisi all'interno di un database. I join tra database non sono consentiti. Per sinapsi SQL si prevede che tutte le tabelle utilizzate dal warehouse vengano archiviate all'interno di un unico database.
 
 > [!NOTE]
-> I pool SQL non supportano query tra database di qualsiasi tipo. Di conseguenza, le implementazioni di Analytics che sfruttano questo modello dovranno essere modificate. SQL su richiesta (anteprima) supporta le query tra database.
+> I pool SQL dedicati non supportano query tra database di qualsiasi tipo. Di conseguenza, le implementazioni di Analytics che sfruttano questo modello dovranno essere modificate. Il pool SQL senza server (anteprima) supporta le query tra database.
 
 ## <a name="user-defined-schema-recommendations"></a>Raccomandazioni dello schema definite dall'utente
 

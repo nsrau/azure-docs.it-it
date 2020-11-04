@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 654c1beb0f8f544219ed802cab92f06055d70960
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: d253699199617489947dd95a44d9bcd1eff17334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92628678"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325409"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Come eseguire Jupyter Notebook nell'area di lavoro
 
@@ -80,11 +80,11 @@ Per accedere al terminale:
 1. Selezionare una destinazione di **calcolo** o crearne una nuova e attendere che sia in esecuzione.
 1. Selezionare l'icona **Open terminal** (Apri terminale).
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Create new file":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Aprire il terminale":::
 
-1. Se l'icona non viene visualizzata, selezionare il **...** a destra della destinazione di calcolo e quindi selezionare **Apri terminale** .
+1. Se l'icona non viene visualizzata, selezionare il **...** a destra della destinazione di calcolo e quindi selezionare **Apri terminale**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Create new file"::: (Apri terminale)
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Open terminal"::: (Apri terminale)
 
 
 Vedere altre informazioni su come [clonare i repository GIT nel file system dell'area di lavoro](concept-train-model-git-integration.md#clone-git-repositories-into-your-workspace-file-system).
@@ -114,9 +114,9 @@ Quando un'istanza di calcolo è in esecuzione, è anche possibile usare il compl
 Usare la modalità messa a fuoco per espandere la visualizzazione corrente in modo da potersi concentrare sulle schede attive. La modalità messa a fuoco nasconde Esplora file dei notebook.
 
 1. Nella barra degli strumenti della finestra del terminale selezionare **modalità messa a fuoco** per attivare la modalità messa a fuoco. A seconda della larghezza della finestra, è possibile che si trovi nella voce di menu **..** . nella barra degli strumenti.
-1. In modalità messa a fuoco tornare alla visualizzazione standard selezionando **visualizzazione standard** .
+1. In modalità messa a fuoco tornare alla visualizzazione standard selezionando **visualizzazione standard**.
 
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Create new file":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/focusmode.gif" alt-text="Attiva/Nascondi modalità messa a fuoco/visualizzazione standard":::
 
 
 ### <a name="use-intellisense"></a>Usare IntelliSense
@@ -136,7 +136,7 @@ Nel corso della creazione di un notebook, in genere si finisce con le celle usat
 1. Eseguire tutte le celle del notebook.
 1. Selezionare la cella che contiene il codice che si desidera venga eseguito dal nuovo notebook. Ad esempio, il codice che invia un esperimento o forse il codice che registra un modello.
 1. Selezionare l'icona **gather** visualizzata sulla barra degli strumenti della cella.
-    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Create new file":::
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Screenshot: selezionare l'icona di raccolta":::
 1. Immettere il nome del nuovo notebook "raccolto".  
 
 Il nuovo notebook contiene solo celle di codice, con tutte le celle necessarie per produrre gli stessi risultati della cella selezionata per la raccolta.
@@ -147,7 +147,7 @@ Azure Machine Learning crea un file del checkpoint quando si crea un file *ipynb
 
 Nella barra degli strumenti del notebook selezionare il menu e quindi **file &gt; Salva e Checkpoint** per salvare manualmente il notebook. verrà aggiunto un file del checkpoint associato al notebook.
 
-:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Create new file":::
+:::image type="content" source="media/how-to-run-jupyter-notebooks/file-save.png" alt-text="Screenshot dello strumento Salva nella barra degli strumenti del notebook":::
 
 Ogni notebook viene salvato in automatico ogni 30 secondi. Salvataggio automatico aggiorna solo il file *ipynb* iniziale, non il file del checkpoint.
  
@@ -180,7 +180,7 @@ Selezionare **Checkpoint** dal menu notebook per creare un checkpoint denominato
 Per eseguire un esperimento da un notebook, connettersi prima a un'[istanza di calcolo](concept-compute-instance.md) in esecuzione. Se non è presente un'istanza di calcolo, seguire questa procedura per crearne una: 
 
 1. Selezionare **+** nella barra degli strumenti del notebook. 
-2. Assegnare un nome al calcolo e scegliere le **dimensioni della macchina virtuale** . 
+2. Assegnare un nome al calcolo e scegliere le **dimensioni della macchina virtuale**. 
 3. Selezionare **Create** (Crea).
 4. L'istanza di calcolo viene connessa automaticamente al notebook ed è ora possibile eseguire le celle.
 
@@ -188,7 +188,7 @@ Per eseguire un esperimento da un notebook, connettersi prima a un'[istanza di c
 
 ### <a name="view-logs-and-output"></a>Visualizzare i log e l'output
 
-Usare i [widget del notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) per visualizzare lo stato di avanzamento dell'esecuzione e i log. Il widget è asincrono e offre gli aggiornamenti fino al termine del training. I widget di Azure Machine Learning sono supportati anche in Jupyter e JupterLab.
+Usare i [widget del notebook](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py) per visualizzare lo stato di avanzamento dell'esecuzione e i log. Il widget è asincrono e offre gli aggiornamenti fino al termine del training. I widget di Azure Machine Learning sono supportati anche in Jupyter e JupterLab.
 
 ## <a name="change-the-notebook-environment"></a>Modificare l'ambiente del notebook
 

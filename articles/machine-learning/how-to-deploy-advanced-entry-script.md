@@ -11,12 +11,12 @@ ms.date: 09/17/2020
 ms.author: gopalv
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3bd4953812ec88f28ac16956a85c95afc5bb8a38
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 2225ef42d8862935e5cd682a3c11a7ce687babab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91999212"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325566"
 ---
 # <a name="advanced-entry-script-authoring"></a>Creazione avanzata di script di immissione
 
@@ -26,7 +26,7 @@ Questo articolo illustra come scrivere script di immissione per i casi d'uso spe
 
 Questo articolo presuppone che si abbia già un modello di apprendimento automatico con training che si intende distribuire con Azure Machine Learning. Per ulteriori informazioni sulla distribuzione di modelli, vedere [questa esercitazione](how-to-deploy-and-where.md).
 
-## <a name="automatically-generate-a-swagger-schema"></a>Genera automaticamente uno schema di spavalderia
+## <a name="automatically-generate-a-swagger-schema"></a>Si genera automaticamente uno schema di Swagger
 
 Per generare automaticamente uno schema per il servizio Web, fornire un esempio di input e/o output nel costruttore per uno degli oggetti tipo definiti. Il tipo e l'esempio vengono utilizzati per creare automaticamente lo schema. Azure Machine Learning quindi crea una specifica [openapi](https://swagger.io/docs/specification/about/) (spavalderia) per il servizio Web durante la distribuzione.
 
@@ -89,7 +89,7 @@ def run(data):
 
 ## <a name="power-bi-compatible-endpoint"></a>Endpoint compatibile con Power BI 
 
-Nell'esempio seguente viene illustrato come definire una forma API in base alle istruzioni precedenti. Questo metodo è supportato per l'utilizzo del servizio Web distribuito da Power BI. [Per ulteriori informazioni su come utilizzare il servizio Web da Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration), vedere.
+Nell'esempio seguente viene illustrato come definire una forma API in base alle istruzioni precedenti. Questo metodo è supportato per l'utilizzo del servizio Web distribuito da Power BI. [Per ulteriori informazioni su come utilizzare il servizio Web da Power bi](/power-bi/service-machine-learning-integration), vedere.
 
 ```python
 import json
@@ -312,7 +312,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-Quando si registra un modello, è necessario specificare un nome di modello utilizzato per la gestione del modello nel registro di sistema. Usare questo nome con il metodo [Model.get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) per recuperare il percorso del file del modello o dei file nel file system locale. Se si registra una cartella o una raccolta di file, questa API restituisce il percorso della directory che contiene tali file.
+Quando si registra un modello, è necessario specificare un nome di modello utilizzato per la gestione del modello nel registro di sistema. Usare questo nome con il metodo [Model.get_model_path ()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) per recuperare il percorso del file del modello o dei file nel file system locale. Se si registra una cartella o una raccolta di file, questa API restituisce il percorso della directory che contiene tali file.
 
 Quando si registra un modello, è necessario assegnargli un nome. Il nome corrisponde alla posizione in cui viene inserito il modello, localmente o durante la distribuzione del servizio.
 
@@ -328,7 +328,7 @@ Altri esempi di script di immissione per i casi d'uso di Machine Learning specif
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risolvere i problemi relativi a una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
+* [Risolvere una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
 * [Distribuire nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)
 * [Creazione di applicazioni client per l'utilizzo di servizi Web](how-to-consume-web-service.md)
 * [Aggiornare un servizio Web](how-to-deploy-update-web-service.md)

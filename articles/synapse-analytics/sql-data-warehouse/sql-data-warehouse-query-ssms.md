@@ -1,6 +1,6 @@
 ---
 title: Connettersi a SSMS
-description: Usare SQL Server Management Studio (SSMS) per connettersi ed eseguire query in Azure sinapsi Analytics.
+description: Usare SQL Server Management Studio (SSMS) per connettersi ed eseguire query in un pool SQL dedicato in Azure sinapsi Analytics.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -11,14 +11,14 @@ ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 772e4253244f5e13a60f155549d5f5513695e5fa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c2fab8f02f31897a2e3d38094b9bd365f8e921e9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85200750"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325320"
 ---
-# <a name="connect-to-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Connettersi ad Azure sinapsi Analytics con SQL Server Management Studio (SSMS)
+# <a name="connect-to-a-dedicated-sql-pool-in-azure-synapse-analytics-with-sql-server-management-studio-ssms"></a>Connettersi a un pool SQL dedicato in Azure sinapsi Analytics con SQL Server Management Studio (SSMS)
 
 > [!div class="op_single_selector"]
 >
@@ -34,11 +34,11 @@ Usare SQL Server Management Studio (SSMS) per connettersi ed eseguire query su u
 
 Per eseguire questa esercitazione, è necessario:
 
-* Un pool SQL esistente. Per crearne uno, vedere [Creare un pool SQL](create-data-warehouse-portal.md).
+* Un pool SQL dedicato esistente. Per crearne uno, vedere [creare un pool SQL dedicato](create-data-warehouse-portal.md).
 * SQL Server Management Studio (SSMS) installato. [Scaricare SSMS](/sql/ssms/download-sql-server-management-studio-ssms?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) gratuitamente se non è già disponibile.
-* Il nome completo dell'istanza di SQL Server. Per trovare queste informazioni, vedere [connettersi al pool SQL](sql-data-warehouse-connect-overview.md).
+* Il nome completo dell'istanza di SQL Server. Per trovare queste informazioni, vedere [connettersi a un pool SQL dedicato](sql-data-warehouse-connect-overview.md).
 
-## <a name="1-connect-to-your-sql-pool"></a>1. connettersi al pool SQL
+## <a name="1-connect-to-your-dedicated-sql-pool"></a>1. connettersi al pool SQL dedicato
 
 1. Aprire SSMS.
 2. Aprire Esplora oggetti selezionando **File**  >  **Esplora oggetti file Connetti**.
@@ -79,4 +79,4 @@ Ora che è stata stabilita una connessione al database, è possibile scrivere un
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare i dati con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md). Per configurare l'ambiente per l'autenticazione di Azure Active Directory, vedere [Eseguire l'autenticazione in un pool SQL](sql-data-warehouse-authentication.md).
+Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare i dati con Power BI](sql-data-warehouse-get-started-visualize-with-power-bi.md). Per configurare l'ambiente per l'autenticazione Azure Active Directory, vedere eseguire l'autenticazione [a un pool SQL dedicato](sql-data-warehouse-authentication.md).

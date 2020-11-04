@@ -11,12 +11,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto, genemi
 ms.date: 11/14/2019
-ms.openlocfilehash: efea5d6548814dc0f165bab9281e5234f3eae925
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 4539709dbac992979af6a56e3dae81725a35739d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791325"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325008"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-servers-in-azure-sql-database"></a>Usare gli endpoint del servizio rete virtuale e le regole per i server nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -83,7 +83,7 @@ Per il database SQL di Azure, la funzionalità delle regole di rete virtuale pre
 
 - Nel firewall, gli intervalli di indirizzi IP si applicano ai seguenti elementi di rete, ma non le regole di rete virtuale:
   - [VPN (rete privata virtuale) da sito a sito (S2S)][vpn-gateway-indexmd-608y]
-  - Locale tramite [ExpressRoute][expressroute-indexmd-744v]
+  - Locale tramite [ExpressRoute](../../expressroute/index.yml)
 
 ### <a name="considerations-when-using-service-endpoints"></a>Considerazioni sull'uso di endpoint del servizio
 
@@ -136,7 +136,7 @@ Per caricare i dati in Azure sinapsi Analytics dagli account di archiviazione di
    > - Se si dispone di un account di archiviazione BLOB o per utilizzo generico v1, è necessario **prima eseguire l'aggiornamento a v2** usando questa [guida](../../storage/common/storage-account-upgrade.md).
    > - Per problemi noti con Azure Data Lake Storage Gen2, fare riferimento a questa [guida](../../storage/blobs/data-lake-storage-known-issues.md).
 
-1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo** . Assegnare un ruolo di Azure di **collaboratore ai dati BLOB di archiviazione** al server che ospita l'analisi di sinapsi di Azure registrata con Azure Active Directory (AAD) come nel passaggio #1.
+1. Quando si è posizionati nell'account di archiviazione, passare a **Controllo di accesso (IAM)** e selezionare **Aggiungi un'assegnazione di ruolo**. Assegnare un ruolo di Azure di **collaboratore ai dati BLOB di archiviazione** al server che ospita l'analisi di sinapsi di Azure registrata con Azure Active Directory (AAD) come nel passaggio #1.
 
    > [!NOTE]
    > Solo i membri con privilegi di proprietario per l'account di archiviazione possono eseguire questo passaggio. Per informazioni sui diversi ruoli predefiniti di Azure, vedere questa [guida](../../role-based-access-control/built-in-roles.md).
@@ -180,7 +180,7 @@ Il controllo BLOB esegue il push dei log di controllo nell'account di archiviazi
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Aggiunta di una regola del firewall della rete virtuale al server senza attivare gli endpoint di servizio di rete virtuale
 
-In passato, prima che questa funzionalità fosse migliorata, era necessario attivare gli endpoint servizio di rete virtuale prima di poter implementare una regola di rete virtuale attiva nel firewall. Gli endpoint correlano una determinata subnet di VNet a un database nel database SQL di Azure. A partire da gennaio 2018 è invece possibile aggirare questo requisito impostando il flag **IgnoreMissingVNetServiceEndpoint** .
+In passato, prima che questa funzionalità fosse migliorata, era necessario attivare gli endpoint servizio di rete virtuale prima di poter implementare una regola di rete virtuale attiva nel firewall. Gli endpoint correlano una determinata subnet di VNet a un database nel database SQL di Azure. A partire da gennaio 2018 è invece possibile aggirare questo requisito impostando il flag **IgnoreMissingVNetServiceEndpoint**.
 
 La semplice impostazione di una regola del firewall non consente di proteggere il server. Per garantire la sicurezza, è anche necessario attivare gli endpoint di servizio di rete virtuale. Quando si attivano gli endpoint di servizio, la subnet della rete virtuale registra un tempo di inattività fino al termine della transizione dallo stato inattivo a quello attivo. Questo vale soprattutto per le reti virtuali di grandi dimensioni. È possibile usare il flag **IgnoreMissingVNetServiceEndpoint** per ridurre o eliminare il tempo di inattività durante la transizione.
 
@@ -210,7 +210,7 @@ L'errore di connessione 40914 è correlato alle *regole di rete virtuale* , come
 
 ## <a name="portal-can-create-a-virtual-network-rule"></a>Il portale può creare una regola di rete virtuale
 
-Questa sezione illustra come è possibile usare la [portale di Azure][http-azure-portal-link-ref-477t] per creare una *regola di rete virtuale* nel database nel database SQL di Azure. La regola indica al database di accettare la comunicazione da una determinata subnet contrassegnata come *endpoint del servizio di rete virtuale* .
+Questa sezione illustra come è possibile usare la [portale di Azure][http-azure-portal-link-ref-477t] per creare una *regola di rete virtuale* nel database nel database SQL di Azure. La regola indica al database di accettare la comunicazione da una determinata subnet contrassegnata come *endpoint del servizio di rete virtuale*.
 
 > [!NOTE]
 > Se si intende aggiungere un endpoint di servizio alle regole del firewall VNet del server, verificare innanzitutto che gli endpoint di servizio siano attivati per la subnet.
@@ -231,7 +231,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
 È necessario avere già una subnet contrassegnata con lo specifico *nome del tipo* di endpoint servizio di rete virtuale pertinente per il database SQL di Azure.
 
-- Il nome del tipo di endpoint pertinente è **Microsoft.Sql** .
+- Il nome del tipo di endpoint pertinente è **Microsoft.Sql**.
 - Se la subnet non è contrassegnata con il nome del tipo, vedere [Verificare che la subnet sia un endpoint][sql-db-vnet-service-endpoint-rule-powershell-md-a-verify-subnet-is-endpoint-ps-100].
 
 <a name="a-portal-steps-for-vnet-rule-200"></a>
@@ -240,14 +240,14 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
 1. Accedere al [portale di Azure][http-azure-portal-link-ref-477t].
 
-2. Cercare e selezionare **SQL Server** , quindi selezionare il server. In **sicurezza** selezionare **firewall e reti virtuali** .
+2. Cercare e selezionare **SQL Server** , quindi selezionare il server. In **sicurezza** selezionare **firewall e reti virtuali**.
 
 3. Impostare il controllo **Consenti l'accesso a Servizi di Azure** su OFF.
 
     > [!IMPORTANT]
     > Se si lascia il controllo impostato su ON, il server accetta la comunicazione da qualsiasi subnet all'interno del limite di Azure, ad esempio l'origine da uno degli indirizzi IP riconosciuti come quelli compresi negli intervalli definiti per i Data Center di Azure. Lasciando il controllo impostato su SÌ, il numero di accessi potrebbe essere eccessivo dal punto di vista della sicurezza. La funzionalità di endpoint servizio di rete virtuale di Microsoft Azure, in sinergia con la funzionalità delle regole di rete virtuale del database SQL, consente di ridurre la superficie di attacco per la sicurezza.
 
-4. Fare clic sul controllo **+ Aggiungi esistenti** nella sezione **Reti virtuali** .
+4. Fare clic sul controllo **+ Aggiungi esistenti** nella sezione **Reti virtuali**.
 
     ![Fare clic su Aggiungi esistenti (endpoint della subnet, come regola SQL).][image-portal-firewall-vnet-add-existing-10-png]
 
@@ -255,7 +255,7 @@ Internamente, i cmdlet di PowerShell per le azioni SQL sulle reti virtuali chiam
 
     > [!TIP]
     > È necessario includere il **prefisso dell'indirizzo** corretto per la subnet. Il valore è disponibile nel portale.
-    > Passare a **Tutte le risorse** &gt; **Tutti i tipi** &gt; **Reti virtuali** . Il filtro visualizza le reti virtuali. Fare clic sulla rete virtuale desiderata e quindi su **Subnet** . La colonna **INTERVALLO DI INDIRIZZI** contiene il prefisso dell'indirizzo desiderato.
+    > Passare a **Tutte le risorse** &gt; **Tutti i tipi** &gt; **Reti virtuali**. Il filtro visualizza le reti virtuali. Fare clic sulla rete virtuale desiderata e quindi su **Subnet**. La colonna **INTERVALLO DI INDIRIZZI** contiene il prefisso dell'indirizzo desiderato.
 
     ![Compilare i campi per la nuova regola.][image-portal-firewall-create-update-vnet-rule-20-png]
 

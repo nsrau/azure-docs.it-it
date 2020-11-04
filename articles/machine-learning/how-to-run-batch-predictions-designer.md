@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 21dad66670da7a538039ae795d6be87cc4dbce96
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f070cfc1fd9b4326c5a80ce31f6263aadbe8e8bc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883078"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325446"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Eseguire stime batch tramite la finestra di progettazione di Azure Machine Learning
 
@@ -29,7 +29,7 @@ In questa guida pratica si apprenderà come eseguire queste attività:
 > * Utilizzo di un endpoint della pipeline
 > * Gestire le versioni degli endpoint
 
-Per informazioni su come configurare i servizi di assegnazione del punteggio batch con l'SDK, vedere la [guida pratica](how-to-run-batch-predictions.md) associata.
+Per informazioni su come configurare i servizi di assegnazione del punteggio batch con l'SDK, vedere la [guida pratica](./tutorial-pipeline-batch-scoring-classification.md) associata.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

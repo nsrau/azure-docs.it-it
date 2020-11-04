@@ -11,19 +11,19 @@ ms.date: 07/21/2020
 ms.author: anjangsh
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: ef56274e0bda3f1a9d494852520a77ecdfc25799
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8caf6cd5072b4c098adff57194784491c92bb0a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89048007"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325375"
 ---
 # <a name="score-machine-learning-models-with-predict"></a>Assegnare punteggi ai modelli di apprendimento automatico con PREDICT
 
 Sinapsi SQL offre la possibilità di assegnare punteggi ai modelli di apprendimento automatico usando il linguaggio T-SQL familiare. Con la [stima](https://docs.microsoft.com/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest)di T-SQL è possibile usare i modelli di machine learning esistenti con training con i dati cronologici e assegnare loro un punteggio entro i limiti di sicurezza del data warehouse. La funzione PREDICT accetta un modello [ONNX (Open Neural Network Exchange)](https://onnx.ai/) e i dati come input. Questa funzionalità Elimina la fase di trasferimento di dati importanti al di fuori dell'data warehouse per l'assegnazione dei punteggi. Mira a consentire ai professionisti dei dati di distribuire facilmente modelli di apprendimento automatico con l'interfaccia T-SQL familiare, nonché collaborare senza problemi con i data scientist che lavorano con il Framework appropriato per la propria attività.
 
 > [!NOTE]
-> Questa funzionalità non è attualmente supportata in SQL su richiesta.
+> Questa funzionalità non è attualmente supportata nel pool SQL senza server.
 
 La funzionalità richiede che il modello venga sottoposto a training all'esterno di sinapsi SQL. Dopo aver compilato il modello, caricarlo nel data warehouse e assegnargli il punteggio con la sintassi di stima T-SQL per ottenere informazioni dettagliate dai dati.
 

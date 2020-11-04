@@ -1,7 +1,7 @@
 ---
 title: Nessuna distribuzione di codice (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni su come distribuire un modello senza uno script di immissione.
+description: Nessuna distribuzione del codice consente di distribuire un modello come servizio Web senza dover creare manualmente uno script di immissione.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: deploy
 ms.reviewer: larryfr
-ms.openlocfilehash: 32b2afe036b443846199b5e9d74e690859fb581d
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: a17126695aa5138d1df7fd17cfaa2f5f75ad1004
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998865"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324923"
 ---
 # <a name="preview-no-code-model-deployment"></a>Anteprima Distribuzione del modello senza codice
 
@@ -63,7 +63,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-Per assegnare un punteggio a un modello, vedere [utilizzare un modello di Azure machine learning distribuito come servizio Web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service). Molti progetti ONNX utilizzano i file protobuf per archiviare in modo compatto i dati di training e di convalida, il che può rendere difficile conoscere il formato dei dati previsto dal servizio. In qualità di sviluppatore di modelli, è consigliabile documentare gli sviluppatori:
+Per assegnare un punteggio a un modello, vedere [utilizzare un modello di Azure machine learning distribuito come servizio Web](./how-to-consume-web-service.md). Molti progetti ONNX utilizzano i file protobuf per archiviare in modo compatto i dati di training e di convalida, il che può rendere difficile conoscere il formato dei dati previsto dal servizio. In qualità di sviluppatore di modelli, è consigliabile documentare gli sviluppatori:
 
 * Formato di input (JSON o Binary)
 * Forma e tipo di dati di input (ad esempio, una matrice di float di forma [100,100, 3])
@@ -130,7 +130,7 @@ print(output)
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risolvere i problemi relativi a una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
+* [Risolvere una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
 * [Distribuire nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)
 * [Creazione di applicazioni client per l'utilizzo di servizi Web](how-to-consume-web-service.md)
 * [Aggiornare un servizio Web](how-to-deploy-update-web-service.md)

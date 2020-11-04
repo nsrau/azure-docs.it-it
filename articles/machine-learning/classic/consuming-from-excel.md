@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: bceaa8fd2f47476d6b6ea6dafb88576c8bcc9712
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ec781a5110dd2e7027ca91fd195bbb796f31020
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367887"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322901"
 ---
 # <a name="consuming-an-azure-machine-learning-studio-classic-web-service-from-excel"></a>Utilizzo di un servizio Web di Azure Machine Learning Studio (classico) da Excel
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 Azure Machine Learning Studio (classico) consente di chiamare facilmente i servizi Web direttamente da Excel senza dover scrivere codice.
 
@@ -36,11 +36,11 @@ Dopo aver creato un servizio Web, fare clic sulla sezione **WEB SERVICES** sulla
 1. Nella scheda **DASHBOARD** per il servizio Web è presente una riga per il servizio **REQUEST/RESPONSE**. Se il servizio ha un singolo output, è necessario vedere il collegamento **Download Excel Workbook** in quella riga.
 
     ![Scaricare la cartella di lavoro di Excel tramite il portale del servizio Web Studio (classico)](./media/consuming-from-excel/excellink.png)
-2. Fare clic su **Download Excel Workbook**(Scarica cartella di lavoro Excel).
+2. Fare clic su **Download Excel Workbook** (Scarica cartella di lavoro Excel).
 
 **Nuovo servizio Web**
 
-1. Nel portale del servizio Web di Azure Machine Learning, selezionare **Consume**(Uso).
+1. Nel portale del servizio Web di Azure Machine Learning, selezionare **Consume** (Uso).
 2. Nella pagina Consume (Uso), nella sezione **Web service consumption options** (Opzioni d'uso del servizio Web) fare clic sull'icona di Excel.
 
 **Uso della cartella di lavoro**

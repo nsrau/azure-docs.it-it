@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c014f14149b903713ae2f03b98956cd4ecaf8a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898715"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323050"
 ---
 # <a name="convert-to-dataset"></a>Eseguire la conversione in set di dati
 
@@ -25,7 +25,7 @@ La conversione non è necessaria nella maggior parte dei casi. Azure Machine Lea
 Si consiglia di salvare i dati nel formato del set di dati se è stato eseguito un tipo di normalizzazione o di pulizia su un set di dati e si desidera assicurarsi che le modifiche vengano utilizzate in altre pipeline.  
   
 > [!NOTE]
-> Convert to DataSet cambia solo il formato dei dati. Non salva una nuova copia dei dati nell'area di lavoro. Per salvare il set di dati, fare doppio clic sulla porta di output, selezionare **Salva come set di dati**e immettere un nuovo nome.  
+> Convert to DataSet cambia solo il formato dei dati. Non salva una nuova copia dei dati nell'area di lavoro. Per salvare il set di dati, fare doppio clic sulla porta di output, selezionare **Salva come set di dati** e immettere un nuovo nome.  
   
 ## <a name="how-to-use-convert-to-dataset"></a>Come usare Convert to DataSet  
 
@@ -35,18 +35,18 @@ Si consiglia di salvare i dati nel formato del set di dati se è stato eseguito 
 
 2. Connetterlo a qualsiasi modulo che restituisce un set di dati.   
 
-    Fino a quando i dati sono [tabulari](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true), è possibile convertirli in un set di dati. Sono inclusi i dati caricati tramite l' [importazione dati](import-data.md), i dati creati tramite [immissione manuale dei dati](enter-data-manually.md)o i set di dati trasformati tramite [Applica trasformazione](apply-transformation.md).
+    Fino a quando i dati sono [tabulari](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py), è possibile convertirli in un set di dati. Sono inclusi i dati caricati tramite l' [importazione dati](import-data.md), i dati creati tramite [immissione manuale dei dati](enter-data-manually.md)o i set di dati trasformati tramite [Applica trasformazione](apply-transformation.md).
 
 3.  Nell'elenco a discesa **azione** indicare se si desidera eseguire una pulizia dei dati prima di salvare il set di dati:  
   
-    - **None**: usare i dati così come sono.  
+    - **None** : usare i dati così come sono.  
   
-    - **SetMissingValue**: impostare un valore specifico su un valore mancante nel set di dati. Il segnaposto predefinito è il carattere punto interrogativo (?), ma è possibile usare l'opzione  **Custom missing value** per immettere un valore diverso. Ad esempio, se si immette un **taxi** per un **valore mancante personalizzato**, tutte le istanze di **taxi** nel set di dati verranno modificate nel valore mancante.
+    - **SetMissingValue** : impostare un valore specifico su un valore mancante nel set di dati. Il segnaposto predefinito è il carattere punto interrogativo (?), ma è possibile usare l'opzione  **Custom missing value** per immettere un valore diverso. Ad esempio, se si immette un **taxi** per un **valore mancante personalizzato** , tutte le istanze di **taxi** nel set di dati verranno modificate nel valore mancante.
   
-    - **ReplaceValues**: usare questa opzione per specificare un singolo valore esatto da sostituire con qualsiasi altro valore esatto. È possibile sostituire i valori mancanti o i valori personalizzati impostando il metodo **Replace** :
+    - **ReplaceValues** : usare questa opzione per specificare un singolo valore esatto da sostituire con qualsiasi altro valore esatto. È possibile sostituire i valori mancanti o i valori personalizzati impostando il metodo **Replace** :
 
-      - **Mancante**: selezionare questa opzione per sostituire i valori mancanti nel set di dati di input. Per **nuovo valore**, immettere il valore con cui sostituire i valori mancanti.
-      - **Personalizzata**: selezionare questa opzione per sostituire i valori personalizzati nel set di dati di input. Per **valore personalizzato**, immettere il valore che si desidera trovare. Se, ad esempio, i dati contengono la stringa `obs` usata come segnaposto per i valori mancanti, immettere `obs` . Per **nuovo valore**, immettere il nuovo valore con cui sostituire la stringa originale.
+      - **Mancante** : selezionare questa opzione per sostituire i valori mancanti nel set di dati di input. Per **nuovo valore** , immettere il valore con cui sostituire i valori mancanti.
+      - **Personalizzata** : selezionare questa opzione per sostituire i valori personalizzati nel set di dati di input. Per **valore personalizzato** , immettere il valore che si desidera trovare. Se, ad esempio, i dati contengono la stringa `obs` usata come segnaposto per i valori mancanti, immettere `obs` . Per **nuovo valore** , immettere il nuovo valore con cui sostituire la stringa originale.
   
     Si noti che l'operazione **ReplaceValues** si applica solo alle corrispondenze esatte. Ad esempio, queste stringhe non saranno interessate: `obs.` , `obsolete` .  
  
@@ -70,4 +70,4 @@ Si consiglia di salvare i dati nel formato del set di dati se è stato eseguito 
   
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.

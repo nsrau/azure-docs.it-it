@@ -1,6 +1,6 @@
 ---
 title: Domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW)
-description: Questo articolo elenca le domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW) da clienti e sviluppatori
+description: Questo articolo elenca le domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW) da clienti e sviluppatori.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 228fa18fef0f681437fd2c0c87e3114d14977a49
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1e2f82ecd80579d19f3a8793db64f6b8a17a440
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89462650"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323601"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW)
 
@@ -29,9 +29,9 @@ Q. Che cosa è successo a Azure SQL Data Warehouse?
 
 R. La sinapsi di Azure è Azure SQL Data Warehouse evoluzione. Abbiamo adottato lo stesso data warehouse leader di settore per un nuovo livello di prestazioni e funzionalità. È possibile continuare a eseguire i carichi di lavoro di data warehouse esistenti in produzione con la sinapsi di Azure. Per altre informazioni, vedere [Informazioni su Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
-Q. Che cos'è il pool SQL sinapsi?
+Q. Che cos'è un pool SQL dedicato?
 
-R. Il pool di sinapsi SQL si riferisce alle funzionalità di data warehousing aziendali disponibili a livello generale con la sinapsi di Azure. Per altre informazioni, vedere [che cos'è Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
+R. Il pool SQL dedicato si riferisce alle funzionalità di data warehousing aziendali disponibili a livello generale con la sinapsi di Azure. Per altre informazioni, vedere [che cos'è Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. Ricerca per categorie iniziare a usare la sinapsi di Azure?
 
@@ -49,7 +49,7 @@ Q. È possibile connettersi Power BI?
 
 R. Sì. Tuttavia Power BI supporta le query dirette con la sinapsi di Azure, non è destinata a un numero elevato di utenti o a dati in tempo reale. Per ottimizzare ulteriormente le prestazioni di Power BI, è consigliabile usare Power BI su Azure Analysis Services o IaaS di Analysis Services.
 
-Q. Che cosa sono i limiti di capacità del pool SQL di sinapsi?
+Q. Quali sono i limiti di capacità dei pool SQL dedicati?
 
 R. Vedere la pagina relativa ai [limiti di capacità](sql-data-warehouse-service-capacity-limits.md) correnti.
 
@@ -83,15 +83,15 @@ R. Sono supportate molte funzionalità. Le funzionalità non supportate sono dis
 
 ## <a name="tooling-and-administration"></a>Strumenti e amministrazione
 
-Q. Il pool SQL sinapsi supporta le API REST?
+Q. Il pool SQL dedicato supporta le API REST?
 
-R. Sì. La maggior parte delle funzionalità REST che è possibile usare con il database SQL è disponibile anche con il pool di SQL sinapsi. È possibile trovare informazioni sulle API nelle pagine o nei [database](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)di documentazione Rest.
+R. Sì. La maggior parte delle funzionalità REST che è possibile usare con il database SQL è disponibile anche con il pool SQL dedicato. È possibile trovare informazioni sulle API nelle pagine o nei [database](/rest/api/sql/databases?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)di documentazione Rest.
 
 ## <a name="loading"></a>Caricamento
 
 Q. Quali driver client sono supportati?
 
-R. Il supporto driver per il pool SQL sinapsi è reperibile nella pagina [stringhe di connessione](../sql/connection-strings.md)
+R. Il supporto driver per il pool SQL dedicato è reperibile nella pagina [stringhe di connessione](../sql/connection-strings.md)
 
 D: quali formati di file sono supportati da polibase?
 
@@ -107,7 +107,7 @@ R: No, polibase interagisce solo con i componenti di archiviazione.
 
 D: È possibile connettersi ad HDI?
 
-R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello di HDFS, è possibile caricare i dati in un pool di SQL sinapsi. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI.
+R: HDI può usare ADLS o WASB come livello HDFS. Se si dispone di un livello di HDFS, è possibile caricare i dati in un pool SQL dedicato. Tuttavia, non è possibile generare il calcolo di distribuzione per l'istanza HDI.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

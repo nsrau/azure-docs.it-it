@@ -6,12 +6,12 @@ ms.subservice: core
 ms.topic: include
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 4975bb2a8ad384b8abc28f1d1835c2c9e98b8c54
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95acb028867caf6f497dd99ad3082efcaab09c7b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315431"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325293"
 ---
 Lo script di avvio riceve i dati inviati a un servizio Web distribuito e li passa al modello. Riceve quindi la risposta restituita dal modello e la invia al client. *Lo script è specifico del modello*. Deve comprendere i dati previsti e restituiti dal modello.
 
@@ -49,7 +49,7 @@ import os
 model = open(os.path.join('.', 'models', 'model1.onnx'))
 ```
 
-#### <a name="writing-run"></a>Scrittura in corso ()
+### <a name="writing-run"></a>Scrittura in corso ()
 
 `run()` viene eseguito ogni volta che il modello riceve una richiesta di assegnazione dei punteggi e prevede che il corpo della richiesta sia un documento JSON con la struttura seguente:
 

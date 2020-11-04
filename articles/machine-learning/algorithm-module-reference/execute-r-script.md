@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: a86c0b115ef866453e457ad528dd694ed7b49b48
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0a3dbb42e69978a8a4895f44b57cc3ca5353e799
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92330394"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323736"
 ---
 # <a name="execute-r-script-module"></a>Modulo Execute R script
 
@@ -121,7 +121,7 @@ Al termine dell'esecuzione della pipeline, è possibile visualizzare l'anteprima
 
 ## <a name="access-to-registered-dataset"></a>Accesso al set di dati registrato
 
-Per [accedere ai set di impostazioni registrati](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets#access-datasets-in-your-script) nell'area di lavoro, è possibile fare riferimento al codice di esempio seguente:
+Per [accedere ai set di impostazioni registrati](../how-to-create-register-datasets.md) nell'area di lavoro, è possibile fare riferimento al codice di esempio seguente:
 
 ```R
         azureml_main <- function(dataframe1, dataframe2){
@@ -147,11 +147,11 @@ I set di dati archiviati nella finestra di progettazione vengono convertiti auto
 
 1. Connettere gli input necessari per lo script. Gli input sono facoltativi e possono includere dati e codice R aggiuntivo.
 
-    * **DataSet1**: fa riferimento al primo input come `dataframe1` . Il set di dati di input deve essere formattato come file CSV, TSV o ARFF. In alternativa, è possibile connettere un set di dati Azure Machine Learning.
+    * **DataSet1** : fa riferimento al primo input come `dataframe1` . Il set di dati di input deve essere formattato come file CSV, TSV o ARFF. In alternativa, è possibile connettere un set di dati Azure Machine Learning.
 
-    * **Dataset2**: fa riferimento al secondo input come `dataframe2` . Questo set di dati deve anche essere formattato come file CSV, TSV o ARFF o come set di dati Azure Machine Learning.
+    * **Dataset2** : fa riferimento al secondo input come `dataframe2` . Questo set di dati deve anche essere formattato come file CSV, TSV o ARFF o come set di dati Azure Machine Learning.
 
-    * **Bundle di script**: il terzo input accetta i file con estensione zip. Un file compresso può contenere più file e più tipi di file.
+    * **Bundle di script** : il terzo input accetta i file con estensione zip. Un file compresso può contenere più file e più tipi di file.
 
 1. Nella casella di testo **script r** Digitare o incollare uno script r valido.
 
@@ -216,7 +216,7 @@ I set di dati archiviati nella finestra di progettazione vengono convertiti auto
     }
     ```
 
-1.  Per il valore di **inizializzazione casuale**, immettere un valore da usare all'interno dell'ambiente R come valore di inizializzazione casuale. Questo parametro è equivalente alla chiamata di `set.seed(value)` nel codice R.  
+1.  Per il valore di **inizializzazione casuale** , immettere un valore da usare all'interno dell'ambiente R come valore di inizializzazione casuale. Questo parametro è equivalente alla chiamata di `set.seed(value)` nel codice R.  
 
 1. Inviare la pipeline.  
 
@@ -237,7 +237,7 @@ Esistono diversi modi per estendere la pipeline usando script R personalizzati. 
 
 Il modulo Execute R script supporta i file di script R arbitrari come input. Per usarli, è necessario caricarli nell'area di lavoro come parte del file zip.
 
-1. Per caricare un file con estensione zip che contiene codice R nell'area di lavoro, passare alla pagina **set** di risorse. Selezionare **Crea set di dati**, quindi selezionare **da file locale** e l'opzione tipo di set di dati **file** .  
+1. Per caricare un file con estensione zip che contiene codice R nell'area di lavoro, passare alla pagina **set** di risorse. Selezionare **Crea set di dati** , quindi selezionare **da file locale** e l'opzione tipo di set di dati **file** .  
 
 1. Verificare che il file compresso venga visualizzato nei **set di impostazioni** della categoria **set** di elementi nell'albero del modulo sinistro.
 
@@ -505,4 +505,4 @@ Sono attualmente disponibili i pacchetti R preinstallati seguenti:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.

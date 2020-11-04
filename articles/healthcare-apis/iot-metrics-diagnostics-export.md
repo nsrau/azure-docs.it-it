@@ -1,28 +1,28 @@
 ---
-title: Esportare le metriche del connettore Azure IoT per FHIR (anteprima) tramite impostazioni di diagnostica
+title: Esportare il connettore Azure per la metrica FHIR (anteprima) tramite le impostazioni di diagnostica
 description: Questo articolo illustra come esportare il connettore Azure per la metrica FHIR (anteprima) tramite le impostazioni di diagnostica
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 10/16/2020
+ms.date: 10/30/2020
 ms.author: jasteppe
-ms.openlocfilehash: d7779c74a562e1237db863d7759b2adcffa2bddf
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 2c10dc05775739a55267dd3766e533b73e12b3a1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558551"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322354"
 ---
-# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Esportare le metriche del connettore Azure IoT per FHIR (anteprima) tramite impostazioni di diagnostica
+# <a name="export-azure-iot-connector-for-fhir-preview-metrics-through-diagnostic-settings"></a>Esportare il connettore Azure per la metrica FHIR (anteprima) tramite le impostazioni di diagnostica
 
-In questo articolo si apprenderà come esportare il connettore Azure per i log delle metriche FHIR *. La funzionalità che consente la registrazione delle metriche è rappresentata dalle [**impostazioni di diagnostica**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) nell'portale di Azure. 
+In questo articolo si apprenderà come esportare il connettore Azure per i log delle metriche FHIR *. La funzionalità che Abilita la registrazione delle metriche è rappresentata dalle [**impostazioni di diagnostica**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) nella portale di Azure. 
 
 > [!TIP]
 > Per configurare la registrazione di controllo, seguire le istruzioni riportate nella pagina relativa all' [Abilitazione della registrazione diagnostica nell'API di Azure per FHIR e nel connettore Azure per FHIR](enable-diagnostic-logging.md#enable-diagnostic-logging-in-azure-api-for-fhir) .
 
-## <a name="enable-metric-logging-for-the-azure-iot-connector-for-fhir-preview"></a>Abilitare la registrazione delle metriche per il connettore Azure per FHIR (anteprima)
+## <a name="enable-metrics-logging-for-the-azure-iot-connector-for-fhir-preview"></a>Abilitare la registrazione delle metriche per il connettore Azure per FHIR (anteprima)
 1. Per abilitare la registrazione delle metriche per il connettore Azure per FHIR, selezionare l'API di Azure per il servizio FHIR nel portale di Azure 
 
 2. Passa a **impostazioni di diagnostica** 
@@ -37,21 +37,21 @@ In questo articolo si apprenderà come esportare il connettore Azure per i log d
 
     1. **Archiviare in un account di archiviazione per il** controllo o l'ispezione manuale. È necessario che l'account di archiviazione che si vuole usare sia già stato creato.
     2. **Trasmettere a hub eventi** per l'inserimento da parte di un servizio di terze parti o di una soluzione analitica personalizzata. Prima di poter configurare questo passaggio, è necessario creare uno spazio dei nomi dell'hub eventi e un criterio dell'hub eventi.
-    3. **Trasmettere all'area di lavoro log Analytics** in monitoraggio di Azure. Prima di poter selezionare questa opzione, è necessario creare l'area di lavoro log Analytics.
+    3. **Trasmettere all'area di lavoro log Analytics** in monitoraggio di Azure. Per poter selezionare questa opzione, è necessario creare l'area di lavoro log Analytics.
 
-6. Selezionare gli **errori, il traffico e la latenza** per il connettore Azure per FHIR e qualsiasi categoria di metrica aggiuntiva che si vuole acquisire per l'API di Azure per FHIR.
+6. Selezionare **errori, traffico e latenza** per il connettore Azure per FHIR.  Selezionare le altre categorie di metriche che si vuole acquisire per l'API di Azure per FHIR.
 
 7. Selezionare **Salva**
 
-   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="Connector1" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
+   :::image type="content" source="media/iot-metrics-export/diagnostic-setting-add.png" alt-text="Connector2" lightbox="media/iot-metrics-export/diagnostic-setting-add.png":::
 
 > [!Note] 
-> Potrebbero essere necessari fino a 15 minuti per la visualizzazione dei primi log delle metriche nel repository di propria scelta.  
+> Potrebbero essere necessari fino a 15 minuti per la visualizzazione dei primi log di metrica nel repository di propria scelta.  
  
 Per altre informazioni su come usare i log di diagnostica, vedere la [documentazione relativa al log delle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview)
 
 ## <a name="conclusion"></a>Conclusione 
-L'accesso ai log delle metriche è essenziale per il monitoraggio e la risoluzione dei problemi.  Il connettore Azure per FHIR consente di eseguire queste azioni tramite i log delle metriche. 
+L'accesso ai log delle metriche è essenziale per il monitoraggio e la risoluzione dei problemi.  Il connettore Azure per FHIR consente di eseguire queste azioni tramite i log di metrica. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

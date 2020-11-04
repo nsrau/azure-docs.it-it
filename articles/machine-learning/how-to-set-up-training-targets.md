@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 53d821809820b11a9a126a826db79726dd43e382
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8280af20d63da969504cda8ffe875405d4bf0218
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708238"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324719"
 ---
 # <a name="configure-and-submit-training-runs"></a>Configurare e inviare le esecuzioni di training
 
@@ -29,20 +29,20 @@ Quando si esegue il training, è normale avviarsi nel computer locale e successi
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree)
-* [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.13.0)
+* [SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.13.0)
 * Un' [area di lavoro Azure Machine Learning](how-to-manage-workspace.md), `ws`
 * Una destinazione di calcolo, `my_compute_target` .  [Creare una destinazione di calcolo](how-to-create-attach-compute-studio.md) 
 
 ## <a name="whats-a-script-run-configuration"></a><a name="whats-a-run-configuration"></a>Che cos'è la configurazione di esecuzione dello script?
-Un [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) viene usato per configurare le informazioni necessarie per l'invio di un training eseguito come parte di un esperimento.
+Un [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) viene usato per configurare le informazioni necessarie per l'invio di un training eseguito come parte di un esperimento.
 
 L'esperimento di training viene inviato con un oggetto ScriptRunConfig.  Questo oggetto include:
 
-* **source_directory**: la directory di origine che contiene lo script di training
-* **script**: script di training da eseguire
-* **compute_target**: la destinazione di calcolo da eseguire in
-* **ambiente**: ambiente da usare quando si esegue lo script
-* e alcune opzioni configurabili aggiuntive (vedere la [documentazione di riferimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) per ulteriori informazioni)
+* **source_directory** : la directory di origine che contiene lo script di training
+* **script** : script di training da eseguire
+* **compute_target** : la destinazione di calcolo da eseguire in
+* **ambiente** : ambiente da usare quando si esegue lo script
+* e alcune opzioni configurabili aggiuntive (vedere la [documentazione di riferimento](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) per ulteriori informazioni)
 
 ## <a name="train-your-model"></a><a id="submit"></a>Eseguire il training del modello
 
@@ -79,7 +79,7 @@ Il codice di esempio in questo articolo presuppone che sia già stata creata una
 ## <a name="create-an-environment"></a>Creare un ambiente
 Azure Machine Learning [ambienti](concept-environments.md) sono incapsulati nell'ambiente in cui si verifica il training di machine learning. Specificano i pacchetti Python, l'immagine Docker, le variabili di ambiente e le impostazioni software per gli script di training e di assegnazione dei punteggi. Specificano anche i Runtime (Python, Spark o Docker).
 
-È possibile definire un ambiente personalizzato o usare un ambiente curato di Azure ML. Per impostazione predefinita, gli [ambienti curati](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments#use-a-curated-environment) sono ambienti predefiniti disponibili nell'area di lavoro. Questi ambienti sono supportati da immagini Docker memorizzate nella cache che riduce il costo di preparazione dell'esecuzione. Vedere [Azure Machine Learning ambienti curati](https://docs.microsoft.com/azure/machine-learning/resource-curated-environments) per l'elenco completo degli ambienti curati disponibili.
+È possibile definire un ambiente personalizzato o usare un ambiente curato di Azure ML. Per impostazione predefinita, gli [ambienti curati](./how-to-use-environments.md#use-a-curated-environment) sono ambienti predefiniti disponibili nell'area di lavoro. Questi ambienti sono supportati da immagini Docker memorizzate nella cache che riduce il costo di preparazione dell'esecuzione. Vedere [Azure Machine Learning ambienti curati](./resource-curated-environments.md) per l'elenco completo degli ambienti curati disponibili.
 
 Per una destinazione di calcolo remota, è possibile usare uno di questi ambienti con la cura più diffusi per iniziare:
 
@@ -94,7 +94,7 @@ Per altre informazioni e dettagli sugli ambienti, vedere [creare & usare gli amb
   
 ### <a name="local-compute-target"></a><a name="local"></a>Destinazione di calcolo locale
 
-Se la destinazione di calcolo è il **computer locale**, l'utente è responsabile di garantire che tutti i pacchetti necessari siano disponibili nell'ambiente Python in cui viene eseguito lo script.  Usare `python.user_managed_dependencies` per usare l'ambiente Python corrente o il Python nel percorso specificato.
+Se la destinazione di calcolo è il **computer locale** , l'utente è responsabile di garantire che tutti i pacchetti necessari siano disponibili nell'ambiente Python in cui viene eseguito lo script.  Usare `python.user_managed_dependencies` per usare l'ambiente Python corrente o il Python nel percorso specificato.
 
 ```python
 from azureml.core import Environment
@@ -130,12 +130,12 @@ Se si dispone di argomenti della riga di comando che si desidera passare allo sc
 Se si vuole eseguire l'override del tempo massimo predefinito consentito per l'esecuzione, è possibile farlo tramite il **`max_run_duration_seconds`** parametro. Il sistema tenterà di annullare automaticamente l'esecuzione se richiede più tempo rispetto a questo valore.
 
 ### <a name="specify-a-distributed-job-configuration"></a>Specificare una configurazione per un processo distribuito
-Se si desidera eseguire un processo di training distribuito, fornire al parametro la configurazione specifica del processo distribuito **`distributed_job_config`** . I tipi di configurazione supportati includono [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true), [TensorflowConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?view=azure-ml-py&preserve-view=true)e [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true). 
+Se si desidera eseguire un processo di training distribuito, fornire al parametro la configurazione specifica del processo distribuito **`distributed_job_config`** . I tipi di configurazione supportati includono [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py), [TensorflowConfiguration](/python/api/azureml-core/azureml.core.runconfig.tensorflowconfiguration?preserve-view=true&view=azure-ml-py)e [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py). 
 
 Per ulteriori informazioni ed esempi sull'esecuzione di processi Horovod, TensorFlow e PyTorch distribuiti, vedere:
 
-* [Eseguire il training di modelli di TensorFlow](https://docs.microsoft.com/azure/machine-learning/how-to-train-tensorflow#distributed-training)
-* [Eseguire il training di modelli di PyTorch](https://docs.microsoft.com/azure/machine-learning/how-to-train-pytorch#distributed-training)
+* [Eseguire il training di modelli di TensorFlow](./how-to-train-tensorflow.md#distributed-training)
+* [Eseguire il training di modelli di PyTorch](./how-to-train-pytorch.md#distributed-training)
 
 ## <a name="submit-the-experiment"></a>Inviare l'esperimento
 
@@ -152,7 +152,7 @@ run.wait_for_completion(show_output=True)
 > Per ulteriori informazioni sugli snapshot, vedere [snapshot](concept-azure-machine-learning-architecture.md#snapshots).
 
 > [!IMPORTANT]
-> **Cartelle speciali** Due cartelle *outputs* e *logs*, hanno un trattamento speciale in Azure Machine Learning. Durante il training, se si scrivono file in cartelle denominate *outputs* e *logs* relative alla directory radice (rispettivamente `./outputs` e `./logs`), i file verranno caricati automaticamente nella cronologia di esecuzione e vi si potrà accedere al termine dell'esecuzione.
+> **Cartelle speciali** Due cartelle *outputs* e *logs* , hanno un trattamento speciale in Azure Machine Learning. Durante il training, se si scrivono file in cartelle denominate *outputs* e *logs* relative alla directory radice (rispettivamente `./outputs` e `./logs`), i file verranno caricati automaticamente nella cronologia di esecuzione e vi si potrà accedere al termine dell'esecuzione.
 >
 > Per creare artefatti creati durante il training (ad esempio file modello, checkpoint, file di dati o immagini tracciate), scriverli nella cartella `./outputs`.
 >
@@ -179,5 +179,5 @@ Vedere questi notebook per esempi di configurazione delle esecuzioni per diversi
 * Vedere come eseguire il training dei modelli con Framework ML specifici, ad esempio [Scikit-learn](how-to-train-scikit-learn.md), [TensorFlow](how-to-train-tensorflow.md)e [PyTorch](how-to-train-pytorch.md).
 * Consultare le informazioni su come [ottimizzare in modo efficiente gli iperparametri](how-to-tune-hyperparameters.md) per creare modelli migliori.
 * Dopo aver creato un modello con training, consultare le informazioni su [come e dove distribuire i modelli](how-to-deploy-and-where.md).
-* Visualizzare la Guida di riferimento di [ScriptRunConfig Class](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) SDK.
-* [Usare Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)
+* Visualizzare la Guida di riferimento di [ScriptRunConfig Class](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) SDK.
+* [Usare Azure Machine Learning con le reti virtuali di Azure](./how-to-network-security-overview.md)

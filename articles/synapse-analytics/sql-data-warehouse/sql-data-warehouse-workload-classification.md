@@ -11,18 +11,18 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 266eebc8322b5fc648180c0524abc973a4b60373
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6b66b8a9fb3b5eb7dc78c00ba084e8609877dec7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85212378"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323879"
 ---
 # <a name="azure-synapse-analytics-workload-classification"></a>Classificazione del carico di lavoro di Azure sinapsi Analytics
 
-Questo articolo illustra il processo di classificazione del carico di lavoro per l'assegnazione di un gruppo di carico di lavoro e l'importanza alle richieste in ingresso con i pool SQL sinapsi in Azure sinapsi.
+Questo articolo illustra il processo di classificazione del carico di lavoro per l'assegnazione di un gruppo di carico di lavoro e l'importanza alle richieste in ingresso con pool SQL dedicati in sinapsi di Azure.
 
-## <a name="classification"></a>Classificazione
+## <a name="classification"></a>Classe
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
@@ -36,7 +36,7 @@ Non tutte le istruzioni sono classificate poiché non richiedono risorse o hanno
 
 ## <a name="classification-process"></a>Processo di classificazione
 
-La classificazione per il pool SQL sinapsi in Azure sinapsi viene eseguita oggi assegnando gli utenti a un ruolo a cui è assegnata una classe di risorse corrispondente usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). La possibilità di caratterizzare le richieste oltre un accesso a una classe di risorse è limitata a questa funzionalità. Un metodo più completo per la classificazione è ora disponibile con la sintassi di [creazione del classificatore del carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Con questa sintassi, gli utenti del pool SQL sinapsi possono assegnare importanza e la quantità di risorse di sistema assegnate a una richiesta tramite il `workload_group` parametro.
+La classificazione per il pool SQL dedicato nella sinapsi di Azure viene eseguita oggi assegnando gli utenti a un ruolo a cui è assegnata una classe di risorse corrispondente usando [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). La possibilità di caratterizzare le richieste oltre un accesso a una classe di risorse è limitata a questa funzionalità. Un metodo più completo per la classificazione è ora disponibile con la sintassi di [creazione del classificatore del carico di lavoro](/sql/t-sql/statements/create-workload-classifier-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) .  Con questa sintassi, gli utenti del pool SQL dedicato possono assegnare importanza e la quantità di risorse di sistema assegnate a una richiesta tramite il `workload_group` parametro.
 
 > [!NOTE]
 > La classificazione viene valutata in base alle singole richieste. Più richieste in una singola sessione possono essere classificate in modo diverso.
@@ -69,7 +69,7 @@ SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <
 
 I classificatori di sistema creati per conto dell'utente forniscono un percorso semplice per eseguire la migrazione alla classificazione del carico di lavoro. L'uso di mapping dei ruoli della classe di risorse con precedenza della classificazione può causare una classificazione errata quando si inizia a creare nuovi classificatori con importanza.
 
-Si consideri lo scenario seguente:
+Considerare lo scenario seguente:
 
 - Un data warehouse esistente dispone di un utente di database DBAUser assegnato al ruolo della classe di risorse largerc. L'assegnazione della classe di risorse è stata eseguita con sp_addrolemember.
 - Il data warehouse è ora aggiornato con la gestione del carico di lavoro.

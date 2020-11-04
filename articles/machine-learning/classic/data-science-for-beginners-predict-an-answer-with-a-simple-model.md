@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: 1cfe617ab424fbb29e2866cd98d4b8c390f306c9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c02abf095beefdd131a5835d015175d56a63de47
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343932"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322812"
 ---
 # <a name="predict-an-answer-with-a-simple-model"></a>Prevedere una risposta con un modello semplice
 
@@ -71,7 +71,7 @@ Adesso, per registrare il prezzo verrà tracciato un asse verticale che sarà co
 
 ![Assi del peso e del prezzo](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/weight-and-price-axes.png)
 
-Questi dati verranno adesso convertiti in un *grafico di dispersione*, un'ottima soluzione per visualizzare i set di dati numerici.
+Questi dati verranno adesso convertiti in un *grafico di dispersione* , un'ottima soluzione per visualizzare i set di dati numerici.
 
 Per il primo punto di dati verrà tracciata una linea verticale fino a 1,01 carati. Poi, una linea orizzontale fino a $ 7.366. Laddove si intersecano, verrà disegnato un punto. Questo rappresenta il primo diamante.
 
@@ -88,7 +88,7 @@ In questo modo si crea un *modello*. È come se si prendesse il modo reale e si 
 
 Il fatto che non tutti i punti si trovino esattamente sulla linea va bene. Gli esperti di gestione dati spiegano tutto questo affermando che esiste il modello, ovvero la linea, e che a ogni punto vengono associati alcuni *disturbi* o *varianze*. Vi è quindi la perfetta relazione sottostante e vi è il mondo reale dinamico che aggiunge disturbo e incertezza.
 
-Dal momento che si cerca di rispondere alla domanda *Quanto costa?*, è possibile parlare di *regressione*. E visto che viene usata una linea dritta, si tratta di una *regressione lineare*.
+Dal momento che si cerca di rispondere alla domanda *Quanto costa?* , è possibile parlare di *regressione*. E visto che viene usata una linea dritta, si tratta di una *regressione lineare*.
 
 ## <a name="use-the-model-to-find-the-answer"></a>Usare il modello per trovare la risposta
 Una volta pronto il modello, è possibile porgli la domanda: Quando costerà un diamante da 1,35 carati?
@@ -98,7 +98,7 @@ Per rispondere a questa domanda, occorre partire da 1,35 carati e disegnare una 
 ![Individuare la risposta a partire dal modello](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/find-the-answer.png)
 
 ## <a name="create-a-confidence-interval"></a>Creare un intervallo di confidenza
-È naturale chiedersi quanto precisa sia questa previsione. È utile sapere se il diamante da 1,35 carati sarà più vicino ai $ 10.000 oppure se costerà molto più o molto meno. Per capirlo, sarà sufficiente disegnare un inviluppo attorno alla linea di regressione che include la maggior parte dei punti. Questo inviluppo viene detto *intervallo di confidenza*: si è abbastanza sicuri che i prezzi rientrino in questo inviluppo, poiché è stato così per la maggior parte degli stessi prezzi in precedenza. È possibile disegnare altre due linee orizzontali da cui la linea 1,35 carati incrocia la parte superiore e inferiore di quell'inviluppo.
+È naturale chiedersi quanto precisa sia questa previsione. È utile sapere se il diamante da 1,35 carati sarà più vicino ai $ 10.000 oppure se costerà molto più o molto meno. Per capirlo, sarà sufficiente disegnare un inviluppo attorno alla linea di regressione che include la maggior parte dei punti. Questo inviluppo viene detto *intervallo di confidenza* : si è abbastanza sicuri che i prezzi rientrino in questo inviluppo, poiché è stato così per la maggior parte degli stessi prezzi in precedenza. È possibile disegnare altre due linee orizzontali da cui la linea 1,35 carati incrocia la parte superiore e inferiore di quell'inviluppo.
 
 ![Intervallo di confidenza](./media/data-science-for-beginners-predict-an-answer-with-a-simple-model/confidence-interval.png)
 
@@ -109,7 +109,7 @@ Abbiamo svolto un lavoro scientifico semplicemente disegnando:
 
 * Abbiamo posto una domanda a cui è stato possibile rispondere con i dati
 * È stato creato un *modello* usando una *regressione lineare*
-* È stata realizzata una *previsione*, completa di *intervallo di confidenza*
+* È stata realizzata una *previsione* , completa di *intervallo di confidenza*
 
 Senza matematica, né computer.
 
@@ -129,4 +129,4 @@ Assicurarsi di consultare gli altri video in "analisi scientifica dei dati per p
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Provare un primo esperimento di data science con Machine Learning Studio (classico)](create-experiment.md)
-* [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](../overview-what-is-azure-ml.md)

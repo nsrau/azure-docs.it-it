@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6f03a1e44fdb62570b693753f5e01c7ab0f53e78
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 64784d747e9f33961c2f5d2df95e0d5a83e01548
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91302418"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324829"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione dei modelli, distribuzione e monitoraggio con Azure Machine Learning
 
@@ -71,6 +71,9 @@ I modelli registrati sono identificati dal nome e dalla versione. Ogni volta che
 Non è possibile eliminare un modello registrato utilizzato in una distribuzione attiva.
 Per altre informazioni, vedere la sezione relativa alla registrazione di un modello nell'articolo [Distribuire modelli](how-to-deploy-and-where.md#registermodel).
 
+> [!IMPORTANT]
+> Quando si usa `Tags` l'opzione Filtra per nella pagina modelli di Azure Machine Learning Studio, anziché usare `TagName : TagValue` i clienti `TagName=TagValue` (senza spazio)
+
 ### <a name="profile-models"></a>Modelli di profilo
 
 Azure Machine Learning possono essere utili per comprendere i requisiti di CPU e memoria del servizio che verrà creato durante la distribuzione del modello. Il profiling testa il servizio che esegue il modello e restituisce informazioni quali l'utilizzo della CPU, l'utilizzo della memoria e la latenza della risposta. Fornisce inoltre una raccomandazione per CPU e memoria basata sull'utilizzo delle risorse.
@@ -106,7 +109,7 @@ Viene inoltre specificata la configurazione della piattaforma di distribuzione d
 Quando viene creata l'immagine vengono aggiunti anche i componenti richiesti da Azure Machine Learning. Ad esempio, gli asset necessari per eseguire il servizio Web e interagire con IoT Edge.
 
 #### <a name="batch-scoring"></a>Assegnazione dei punteggi batch
-Il Punteggio batch è supportato tramite pipeline ML. Per ulteriori informazioni, vedere [stime batch in Big Data](how-to-use-parallel-run-step.md).
+Il Punteggio batch è supportato tramite pipeline ML. Per ulteriori informazioni, vedere [stime batch in Big Data](./tutorial-pipeline-batch-scoring-classification.md).
 
 #### <a name="real-time-web-services"></a>Servizi Web in tempo reale
 
@@ -140,9 +143,9 @@ Per altre informazioni, vedere [implementazione controllata dei modelli ml](how-
 
 Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analisi
+### <a name="analytics"></a>Analytics
 
-Microsoft Power BI supporta l'uso di modelli di apprendimento automatico per l'analisi dei dati. Per ulteriori informazioni, vedere [integrazione di Azure Machine Learning in Power BI (anteprima)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Microsoft Power BI supporta l'uso di modelli di apprendimento automatico per l'analisi dei dati. Per ulteriori informazioni, vedere [integrazione di Azure Machine Learning in Power BI (anteprima)](/power-bi/service-machine-learning-integration).
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>Acquisire i dati di governance necessari per l'acquisizione del ciclo di vita di Machine Learning end-to-end
 
@@ -158,7 +161,7 @@ Azure ML offre la possibilità di tenere traccia dell'audit trail end-to-end di 
 > [!TIP]
 > Sebbene alcune informazioni sui modelli e i set di dati vengano acquisiti automaticamente, è possibile aggiungere altre informazioni usando i __tag__. Quando si cercano i modelli e i set di impostazioni registrati nell'area di lavoro, è possibile usare i tag come filtro.
 >
-> L'associazione di un set di dati a un modello registrato è un passaggio facoltativo. Per informazioni sul riferimento a un set di dati durante la registrazione di un modello, vedere il riferimento alla classe del [modello](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true) .
+> L'associazione di un set di dati a un modello registrato è un passaggio facoltativo. Per informazioni sul riferimento a un set di dati durante la registrazione di un modello, vedere il riferimento alla classe del [modello](/python/api/azureml-core/azureml.core.model%28class%29?preserve-view=true&view=azure-ml-py) .
 
 
 ## <a name="notify-automate-and-alert-on-events-in-the-ml-lifecycle"></a>Notifica, automazione e avviso per gli eventi nel ciclo di vita ML

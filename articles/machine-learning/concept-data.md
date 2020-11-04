@@ -11,12 +11,12 @@ author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: a36c7076de0c4db64b67f4eba38de4daf4213bca
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446698"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322248"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
 
@@ -29,7 +29,7 @@ Azure Machine Learning semplifica la connessione ai dati nel cloud.  Fornisce un
     
 ## <a name="data-workflow"></a>Flusso di lavoro dei dati
 
-Quando si è pronti per usare i dati nella soluzione di archiviazione basata su cloud, si consiglia il seguente flusso di lavoro di distribuzione dei dati. Questo flusso di lavoro presuppone che si disponga di un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) e di dati in un servizio di archiviazione basato su cloud in Azure. 
+Quando si è pronti per usare i dati nella soluzione di archiviazione basata su cloud, si consiglia il seguente flusso di lavoro di distribuzione dei dati. Questo flusso di lavoro presuppone che si disponga di un [account di archiviazione di Azure](../storage/common/storage-account-create.md?tabs=azure-portal) e di dati in un servizio di archiviazione basato su cloud in Azure. 
 
 1. Creare un [archivio dati Azure Machine Learning](#datastores) per archiviare le informazioni di connessione nell'archiviazione di Azure.
 
@@ -81,9 +81,9 @@ I set di dati possono essere creati da file locali, URL pubblici, set di dati [a
 
 Sono disponibili 2 tipi di set di impostazioni: 
 
-+ Un [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py&preserve-view=true) fa riferimento a uno o più file negli archivi dati o negli URL pubblici. Se i dati sono già puliti e pronti per l'uso negli esperimenti di training, è possibile [scaricare o montare i file](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a cui fa riferimento filedatasets nella destinazione di calcolo.
++ Un [filedataset](/python/api/azureml-core/azureml.data.file_dataset.filedataset?preserve-view=true&view=azure-ml-py) fa riferimento a uno o più file negli archivi dati o negli URL pubblici. Se i dati sono già puliti e pronti per l'uso negli esperimenti di training, è possibile [scaricare o montare i file](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a cui fa riferimento filedatasets nella destinazione di calcolo.
 
-+ Un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) rappresenta i dati in formato tabulare analizzando il file o l'elenco di file fornito. È possibile caricare un TabularDataset in un dataframe Pandas o Spark per eseguire ulteriori operazioni di manipolazione e pulizia. Per un elenco completo dei formati di dati da cui è possibile creare TabularDatasets, vedere la [classe TabularDatasetFactory](https://aka.ms/tabulardataset-api-reference).
++ Un [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) rappresenta i dati in formato tabulare analizzando il file o l'elenco di file fornito. È possibile caricare un TabularDataset in un dataframe Pandas o Spark per eseguire ulteriori operazioni di manipolazione e pulizia. Per un elenco completo dei formati di dati da cui è possibile creare TabularDatasets, vedere la [classe TabularDatasetFactory](/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory).
 
 Le funzionalità di set di impostazioni aggiuntive sono disponibili nella documentazione seguente:
 
@@ -100,7 +100,7 @@ Con i set di elementi, è possibile eseguire numerose attività di machine learn
      + [finestra di progettazione](tutorial-designer-automobile-price-train-score.md#import-data)
      + [Notebook](how-to-train-with-datasets.md)
      + [Pipeline di Azure Machine Learning](how-to-create-your-first-pipeline.md)
-+ Accedere ai set di impostazioni per l'assegnazione dei punteggi con l' [inferenza batch](how-to-use-parallel-run-step.md) nelle [pipeline di Machine Learning](how-to-create-your-first-pipeline.md).
++ Accedere ai set di impostazioni per l'assegnazione dei punteggi con l' [inferenza batch](./tutorial-pipeline-batch-scoring-classification.md) nelle [pipeline di Machine Learning](how-to-create-your-first-pipeline.md).
 + Configurare un monitoraggio del set di [dati](#drift) per il rilevamento della deriva.
 
 <a name="label"></a>

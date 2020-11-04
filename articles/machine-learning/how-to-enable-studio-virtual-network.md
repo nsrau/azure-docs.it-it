@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: a5206ed55dfe2632c7f6604c4f3d8e3199e23b99
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92792022"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93325528"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -36,7 +36,7 @@ Vedere gli altri articoli di questa serie:
 
 
 > [!IMPORTANT]
-> Se l'area di lavoro si trova in un __cloud sovrano__ , ad esempio Azure per enti pubblici o Azure Cina 21ViaNet, i notebook integrati _non_ supportano l'uso dell'archiviazione che si trova in una rete virtuale. È invece possibile usare i notebook di Jupyter da un'istanza di calcolo. Per altre informazioni, vedere la sezione [accedere ai dati in un notebook dell'istanza di calcolo](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
+> Se l'area di lavoro si trova in un __cloud sovrano__ , ad esempio Azure per enti pubblici o Azure Cina 21ViaNet, i notebook integrati _non_ supportano l'uso dell'archiviazione che si trova in una rete virtuale. È invece possibile usare Jupyter Notebook da un'istanza di calcolo. Per altre informazioni, vedere la sezione [accedere ai dati in un notebook dell'istanza di calcolo](how-to-secure-training-vnet.md#access-data-in-a-compute-instance-notebook) .
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -53,7 +53,7 @@ Vedere gli altri articoli di questa serie:
 
 Se si accede a Studio da una risorsa all'interno di una rete virtuale, ad esempio un'istanza di calcolo o una macchina virtuale, è necessario consentire il traffico in uscita dalla rete virtuale a Studio. 
 
-Ad esempio, se si usano gruppi di sicurezza di rete (NSG) per limitare il traffico in uscita, aggiungere una regola a una destinazione di __tag del servizio__ di __AzureFrontDoor. frontend__ .
+Ad esempio, se si usano gruppi di sicurezza di rete (NSG) per limitare il traffico in uscita, aggiungere una regola a una destinazione di __tag del servizio__ di __AzureFrontDoor. frontend__.
 
 ## <a name="access-data-using-the-studio"></a>Accedere ai dati tramite studio
 
@@ -81,13 +81,13 @@ Questo passaggio è necessario solo se l'account di archiviazione di Azure è st
 
 Azure Machine Learning usa gli [archivi dati](concept-data.md#datastores) per connettersi agli account di archiviazione. Usare la procedura seguente per configurare gli archivi dati in modo da usare l'identità gestita. 
 
-1. In Studio selezionare __datastores__ .
+1. In Studio selezionare __datastores__.
 
-1. Per creare un nuovo archivio dati, selezionare __+ nuovo archivio dati__ .
+1. Per creare un nuovo archivio dati, selezionare __+ nuovo archivio dati__.
 
-    Per aggiornare un archivio dati esistente, selezionare l'archivio dati e selezionare __Aggiorna credenziali__ .
+    Per aggiornare un archivio dati esistente, selezionare l'archivio dati e selezionare __Aggiorna credenziali__.
 
-1. Nelle impostazioni dell'archivio dati selezionare __Sì__ per  __Consenti Azure Machine Learning servizio di accedere allo spazio di archiviazione usando l'identità gestita dall'area di lavoro__ .
+1. Nelle impostazioni dell'archivio dati selezionare __Sì__ per  __Consenti Azure Machine Learning servizio di accedere allo spazio di archiviazione usando l'identità gestita dall'area di lavoro__.
 
 
 Questa procedura consente di aggiungere l'identità gestita dall'area di lavoro come __lettore__ al servizio di archiviazione usando il controllo degli accessi in base alle risorse di Azure (RBAC di Azure). Accesso in __lettura__ consente all'area di lavoro di recuperare le impostazioni del firewall e assicurarsi che i dati non lascino la rete virtuale.
@@ -119,7 +119,7 @@ Azure Data Lake Storage Gen1 supporta solo gli elenchi di controllo di accesso i
 
 Per accedere ai dati archiviati in un database SQL di Azure tramite identità gestita, è necessario creare un utente indipendente di SQL che esegue il mapping all'identità gestita. Per altre informazioni sulla creazione di un utente da un provider esterno, vedere [creare utenti indipendenti con mapping a identità Azure ad](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities).
 
-Dopo aver creato un utente indipendente di SQL, concedere le autorizzazioni tramite il [comando T-SQL Grant](https://docs.microsoft.com/sql/t-sql/statements/grant-object-permissions-transact-sql).
+Dopo aver creato un utente indipendente di SQL, concedere le autorizzazioni tramite il [comando T-SQL Grant](/sql/t-sql/statements/grant-object-permissions-transact-sql).
 
 ### <a name="azure-machine-learning-designer-default-datastore"></a>Archivio dati predefinito di Azure Machine Learning Designer
 
@@ -128,15 +128,15 @@ La finestra di progettazione USA l'account di archiviazione collegato all'area d
 Per impostare una nuova risorsa di archiviazione predefinita per una pipeline:
 
 1. In una bozza di pipeline selezionare l' **icona dell'ingranaggio impostazioni** accanto al titolo della pipeline.
-1. Selezionare l' **archivio dati predefinito** .
+1. Selezionare l' **archivio dati predefinito**.
 1. Consente di specificare un nuovo archivio dati.
 
 È anche possibile eseguire l'override dell'archivio dati predefinito in base al modulo. Questo consente di controllare il percorso di archiviazione per ogni singolo modulo.
 
 1. Selezionare il modulo di cui si desidera specificare l'output.
 1. Espandere la sezione **impostazioni di output** .
-1. Selezionare **Sostituisci impostazioni di output predefinite** .
-1. Selezionare **imposta impostazioni di output** .
+1. Selezionare **Sostituisci impostazioni di output predefinite**.
+1. Selezionare **imposta impostazioni di output**.
 1. Consente di specificare un nuovo archivio dati.
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 09/22/2020
-ms.openlocfilehash: 5b40ce0951e2d9c8933d4f0ea9d24b1673e254d6
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 1076b49a101d5657397ef12b8fac672d37e477b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495711"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93324799"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Definizione di area di lavoro di Azure Machine Learning
 
@@ -52,9 +52,9 @@ Il diagramma mostra i componenti seguenti di un'area di lavoro:
 + Sul Web:
     + [Azure Machine Learning Studio ](https://ml.azure.com) 
     + [Finestra di progettazione di Azure Machine Learning](concept-designer.md) 
-+ In qualsiasi ambiente Python con [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
++ In qualsiasi ambiente Python con [Azure Machine Learning SDK per Python](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 + In qualsiasi ambiente R con [Azure Machine Learning SDK per r (anteprima)](https://azure.github.io/azureml-sdk-for-r/reference/index.html).
-+ Dalla riga di comando usando l' [estensione CLI](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) Azure Machine Learning
++ Dalla riga di comando usando l' [estensione CLI](./reference-azure-machine-learning-cli.md) Azure Machine Learning
 + [Estensione Azure Machine Learning VS Code](how-to-manage-resources-vscode.md#workspaces)
 
 
@@ -103,7 +103,7 @@ Quando si crea una nuova area di lavoro, vengono create automaticamente diverse 
 + [Account di archiviazione di Azure](https://azure.microsoft.com/services/storage/): viene usato come archivio dati predefinito per l'area di lavoro.  I notebook di Jupyter usati con le istanze di calcolo Azure Machine Learning vengono archiviati anche qui. 
   
   > [!IMPORTANT]
-  > Per impostazione predefinita, l'account di archiviazione è un account per utilizzo generico V1. È possibile [eseguire l'aggiornamento a utilizzo generico V2](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) dopo che l'area di lavoro è stata creata. Non abilitare lo spazio dei nomi gerarchico nell'account di archiviazione dopo l'aggiornamento a utilizzo generico V2.
+  > Per impostazione predefinita, l'account di archiviazione è un account per utilizzo generico V1. È possibile [eseguire l'aggiornamento a utilizzo generico V2](../storage/common/storage-account-upgrade.md) dopo che l'area di lavoro è stata creata. Non abilitare lo spazio dei nomi gerarchico nell'account di archiviazione dopo l'aggiornamento a utilizzo generico V2.
 
   Per usare un account di archiviazione di Azure esistente, non può essere un account Premium (Premium_LRS e Premium_GRS). Non può inoltre avere uno spazio dei nomi gerarchico (usato con Azure Data Lake Storage Gen2). Con l'account di archiviazione _predefinito_ dell'area di lavoro non è supportato alcun spazio dei nomi di archiviazione Premium o gerarchico. È possibile usare archiviazione Premium o uno spazio dei nomi gerarchico con account di archiviazione _non predefiniti_ .
   

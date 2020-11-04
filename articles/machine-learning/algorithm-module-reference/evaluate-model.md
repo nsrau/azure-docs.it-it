@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 9405eb01dbe2d7ea9d4a9e64bf7dd79ca356e9f5
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 9abf5a17330566aee2414b8499f228d297880cbf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92926989"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93323788"
 ---
 # <a name="evaluate-model-module"></a>Modulo Evaluate Model
 
@@ -30,11 +30,11 @@ Usare questo modulo per misurare l'accuratezza di un modello sottoposto a traini
 
 
 > [!TIP]
-> Se non si ha familiarità con la valutazione dei modelli, è consigliabile seguire la serie di video di Stephen Elston, come parte del [corso su Machine Learning](https://blogs.technet.microsoft.com/machinelearning/2015/09/08/new-edx-course-data-science-machine-learning-essentials/) di EdX. 
+> Se non si ha familiarità con la valutazione dei modelli, è consigliabile seguire la serie di video di Stephen Elston, come parte del [corso su Machine Learning](/archive/blogs/machinelearning/new-edx-course-data-science-machine-learning-essentials) di EdX. 
 
 
 ## <a name="how-to-use-evaluate-model"></a>Come usare Evaluate Model
-1. Connettere l'output **Scored dataset** del modulo [Score Model](./score-model.md) o l'output Result dataset del modulo [Assign Data to Clusters](./assign-data-to-clusters.md) alla porta di input sinistra di **Evaluate Model** . 
+1. Connettere l'output **Scored dataset** del modulo [Score Model](./score-model.md) o l'output Result dataset del modulo [Assign Data to Clusters](./assign-data-to-clusters.md) alla porta di input sinistra di **Evaluate Model**. 
     > [!NOTE] 
     > Se si usano moduli come "Select Columns in Dataset" per selezionare parte del set di dati di input, assicurarsi che la colonna Actual label (usata nel training), la colonna 'Scored Probabilities' e la colonna 'Scored labels' esistano per calcolare metriche come l'area sotto la curva e l'accuratezza per la classificazione binaria e il rilevamento anomalie.
     > La colonna Actual label e la colonna 'Scored Labels' consentono di calcolare le metriche per la classificazione/regressione multiclasse.
@@ -48,7 +48,7 @@ Usare questo modulo per misurare l'accuratezza di un modello sottoposto a traini
     > + Per l'attività di classificazione multiclassificazione, il set di dati da valutare deve avere una colonna, denominata `Multi Class Scored Labels` , che rappresenta le etichette con punteggio.
     > Se gli output del modulo upstream non hanno queste colonne, è necessario modificarle in base ai requisiti indicati sopra.
 
-2. [Facoltativo] Connettere l'output **Scored dataset** del modulo [Score Model](./score-model.md) o l'output Result dataset del modulo Assign Data to Clusters per il secondo modello alla porta di input **destra** di **Evaluate Model** . È possibile confrontare facilmente i risultati di due modelli diversi sugli stessi dati. I due algoritmi di input devono essere dello stesso tipo. In alternativa, è possibile confrontare i punteggi di due esecuzioni diverse sugli stessi dati con parametri diversi.
+2. [Facoltativo] Connettere l'output **Scored dataset** del modulo [Score Model](./score-model.md) o l'output Result dataset del modulo Assign Data to Clusters per il secondo modello alla porta di input **destra** di **Evaluate Model**. È possibile confrontare facilmente i risultati di due modelli diversi sugli stessi dati. I due algoritmi di input devono essere dello stesso tipo. In alternativa, è possibile confrontare i punteggi di due esecuzioni diverse sugli stessi dati con parametri diversi.
 
     > [!NOTE]
     > Il tipo di algoritmo fa riferimento a 'classificazione a due classi', 'classificazione multiclasse', 'regressione', 'clustering' negli algoritmi di Machine Learning. 
@@ -135,11 +135,11 @@ Per la valutazione dei modelli di clustering, vengono segnalate le metriche segu
   
 -   I punteggi nella colonna, **distanza massima da cluster Center** , rappresentano il numero massimo di distanze tra ogni punto e il baricentro del cluster del punto.  
   
-     Se questo numero è elevato, può indicare che il cluster è ampiamente distribuito. Per determinare la distribuzione del cluster, è necessario esaminare questa statistica insieme al punteggio **Average Distance to Cluster Center** .   
+     Se questo numero è elevato, può indicare che il cluster è ampiamente distribuito. Per determinare la distribuzione del cluster, è necessario esaminare questa statistica insieme al punteggio **Average Distance to Cluster Center**.   
 
 -   Il punteggio **Combined Evaluation** alla fine di ogni sezione di risultati indica i punteggi medi dei cluster creati in quel particolare modello.  
   
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.
