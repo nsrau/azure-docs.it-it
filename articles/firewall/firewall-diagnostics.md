@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 09/17/2020
+ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 784459282007edab599d54edff0d2b38eed07b34
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2899121db4b6a3f202be4860e2e4f43027cdef7c
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91320643"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348767"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorare i log e le metriche di Firewall di Azure
 
@@ -45,7 +45,7 @@ Dopo aver completato questa procedura per abilitare la registrazione diagnostica
 
 3. Selezionare **Aggiungi impostazioni di diagnostica**. La pagina **Impostazioni di diagnostica** include le impostazioni per i log di diagnostica.
 5. In questo esempio i log di Monitoraggio di Azure archiviano i log, quindi digitare **Firewall log analytics** come nome.
-6. In **log**selezionare **AzureFirewallApplicationRule**, **AzureFirewallNetworkRule**, **AzureFirewallThreatIntelLog**e **AzureFirewallDnsProxy** per raccogliere i log.
+6. In **log** selezionare **AzureFirewallApplicationRule** , **AzureFirewallNetworkRule** , **AzureFirewallThreatIntelLog** e **AzureFirewallDnsProxy** per raccogliere i log.
 7. Selezionare **Invia a log Analytics** per configurare l'area di lavoro.
 8. Selezionare la propria sottoscrizione.
 9. Selezionare **Salva**.
@@ -56,11 +56,11 @@ Registrazione attività viene abilitata automaticamente per tutte le risorse di 
 
 Per abilitare la registrazione diagnostica, eseguire la procedura seguente:
 
-1. Prendere nota dell'ID risorsa dell'account di archiviazione in cui vengono archiviati i dati dei log. Il valore è nel formato seguente: */Subscriptions/ \<subscriptionId\> /resourceGroups/ \<resource group name\> /providers/Microsoft.storage/storageAccounts/ \<storage account name\> *.
+1. Prendere nota dell'ID risorsa dell'account di archiviazione in cui vengono archiviati i dati dei log. Il valore è nel formato seguente: */Subscriptions/ \<subscriptionId\> /resourceGroups/ \<resource group name\> /providers/Microsoft.storage/storageAccounts/ \<storage account name\>*.
 
    È possibile usare qualsiasi account di archiviazione della sottoscrizione. Per trovare queste informazioni è possibile usare il portale di Azure. Le informazioni si trovano nella pagina **Proprietà** della risorsa.
 
-2. Prendere nota dell'ID risorsa del firewall per cui è abilitata la registrazione. Il valore è nel formato seguente: */Subscriptions/ \<subscriptionId\> /resourceGroups/ \<resource group name\> /providers/Microsoft.Network/azureFirewalls/ \<Firewall name\> *.
+2. Prendere nota dell'ID risorsa del firewall per cui è abilitata la registrazione. Il valore è nel formato seguente: */Subscriptions/ \<subscriptionId\> /resourceGroups/ \<resource group name\> /providers/Microsoft.Network/azureFirewalls/ \<Firewall name\>*.
 
    Per trovare queste informazioni è possibile usare il portale.
 
@@ -75,13 +75,57 @@ Per abilitare la registrazione diagnostica, eseguire la procedura seguente:
 > [!TIP]
 >I log di diagnostica non richiedono un account di archiviazione separato. Per l'uso del servizio di archiviazione per la registrazione degli accessi e delle prestazioni è previsto un addebito.
 
+## <a name="enable-diagnostic-logging-by-using-azure-cli"></a>Abilitare la registrazione diagnostica usando l'interfaccia della riga di comando
+
+Registrazione attività viene abilitata automaticamente per tutte le risorse di Resource Manager. È necessario abilitare la registrazione diagnostica per iniziare a raccogliere i dati disponibili in tali log.
+
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+
+### <a name="enable-diagnostic-logging"></a>Abilitare la registrazione diagnostica
+
+Usare i comandi seguenti per abilitare la registrazione diagnostica.
+
+1. Eseguire il comando [AZ monitor Diagnostic-Settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) per abilitare la registrazione diagnostica:
+
+   ```azurecli
+   az monitor diagnostic-settings create –name AzureFirewallApplicationRule \
+     --resource Firewall07 --storage-account MyStorageAccount
+   ```
+
+   Eseguire il comando [AZ monitor Diagnostic-Settings list](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_list) per visualizzare le impostazioni di diagnostica per una risorsa:
+
+   ```azurecli
+   az monitor diagnostic-settings list --resource Firewall07
+   ```
+
+   Usare [AZ monitor Diagnostic-Settings Show](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_show) per visualizzare le impostazioni di diagnostica attive per una risorsa:
+
+   ```azurecli
+   az monitor diagnostic-settings show --name AzureFirewallApplicationRule --resource Firewall07
+   ```
+
+1. Eseguire il comando [AZ monitor Diagnostic-Settings Update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) per aggiornare le impostazioni.
+
+   ```azurecli
+   az monitor diagnostic-settings update --name AzureFirewallApplicationRule --resource Firewall07 --set retentionPolicy.days=365
+   ```
+
+   Usare il comando [AZ monitor Diagnostic-Settings Delete](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_delete) per eliminare un'impostazione di diagnostica.
+
+   ```azurecli
+   az monitor diagnostic-settings delete --name AzureFirewallApplicationRule --resource Firewall07
+   ```
+
+> [!TIP]
+>I log di diagnostica non richiedono un account di archiviazione separato. Per l'uso del servizio di archiviazione per la registrazione degli accessi e delle prestazioni è previsto un addebito.
+
 ## <a name="view-and-analyze-the-activity-log"></a>Visualizzare e analizzare Log attività
 
 È possibile visualizzare e analizzare i dati del log attività usando uno dei metodi seguenti:
 
-* **Strumenti di Azure**: recuperare le informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando (CLI) di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
-* **Power bi**: se non si ha già un account [Power bi](https://powerbi.microsoft.com/pricing) , è possibile provarlo gratuitamente. Usando il [pacchetto di contenuto dei log attività di Azure per Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con i dashboard preconfigurati che possono anche essere personalizzati.
-* **Azure Sentinel**: è possibile connettere i log del firewall di Azure ad Azure Sentinel, consentendo di visualizzare i dati di log nelle cartelle di lavoro, usarli per creare avvisi personalizzati e incorporarli per migliorare l'analisi. Il connettore dati del firewall di Azure in Sentinel di Azure è attualmente disponibile in anteprima pubblica. Per altre informazioni, vedere [connettere i dati dal firewall di Azure](../sentinel/connect-azure-firewall.md).
+* **Strumenti di Azure** : recuperare le informazioni dal log attività con Azure PowerShell, l'interfaccia della riga di comando (CLI) di Azure, l'API REST di Azure o il portale di Azure. Le istruzioni dettagliate di ciascun metodo sono fornite nell'articolo [Operazioni attività con Resource Manager](../azure-resource-manager/management/view-activity-logs.md).
+* **Power bi** : se non si ha già un account [Power bi](https://powerbi.microsoft.com/pricing) , è possibile provarlo gratuitamente. Usando il [pacchetto di contenuto dei log attività di Azure per Power BI](https://powerbi.microsoft.com/en-us/documentation/powerbi-content-pack-azure-audit-logs/) è possibile analizzare i dati con i dashboard preconfigurati che possono anche essere personalizzati.
+* **Azure Sentinel** : è possibile connettere i log del firewall di Azure ad Azure Sentinel, consentendo di visualizzare i dati di log nelle cartelle di lavoro, usarli per creare avvisi personalizzati e incorporarli per migliorare l'analisi. Il connettore dati del firewall di Azure in Sentinel di Azure è attualmente disponibile in anteprima pubblica. Per altre informazioni, vedere [connettere i dati dal firewall di Azure](../sentinel/connect-azure-firewall.md).
 
 ## <a name="view-and-analyze-the-network-and-application-rule-logs"></a>Visualizzare e analizzare i log delle regole di rete e di applicazione
 

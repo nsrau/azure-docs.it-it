@@ -6,22 +6,18 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.openlocfilehash: ed0f486afe466d31388fa99b4ce5f5754210533f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d9f48de7ef5d9525a995af4ebbd12c5f14f40189
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91571502"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349138"
 ---
 # <a name="set-redis-version-for-azure-cache-for-redis-preview"></a>Impostare la versione di redis per cache di Azure per Redis (anteprima)
 Questo articolo illustra come configurare la versione del software Redis da usare con l'istanza della cache. Cache di Azure per Redis offre la versione principale più recente di redis e almeno una versione precedente. Queste versioni vengono aggiornate regolarmente quando viene rilasciato il software Redis più recente. È possibile scegliere tra le due versioni disponibili. Tenere presente che la cache verrà aggiornata automaticamente alla versione successiva se la versione attualmente in uso non è più supportata.
 
 ## <a name="prerequisites"></a>Prerequisiti
-* Sottoscrizione di Azure- [crearne una gratuitamente](https://azure.microsoft.com/free/)
-
-> [!NOTE]
-> Questa funzionalità è attualmente in anteprima: [Contattaci](mailto:azurecache@microsoft.com) se sei interessato.
->
+* Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 
 ## <a name="create-a-cache"></a>Creare una cache
 Per creare una cache, seguire questa procedura:
@@ -44,11 +40,11 @@ Per creare una cache, seguire questa procedura:
    
 1. Nella pagina **Avanzate** scegliere una versione di redis da usare.
    
-    :::image type="content" source="media/cache-how-to-version/select-redis-version.png" alt-text="Selezionare Cache di Azure per Redis.":::
+    :::image type="content" source="media/cache-how-to-version/select-redis-version.png" alt-text="Versione di Redis.":::
 
 1. Fare clic su **Crea**. 
    
-    La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione**, la cache è pronta per l'uso.
+    La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione** , la cache è pronta per l'uso.
 
     > [!NOTE]
     > Al momento, non è possibile modificare la versione di redis dopo la creazione di una cache.

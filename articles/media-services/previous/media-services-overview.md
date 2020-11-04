@@ -3,7 +3,7 @@ title: Panoramica di Servizi multimediali di Azure | Microsoft Docs
 description: Servizi multimediali di Microsoft Azure costituisce una piattaforma estensibile basata sul cloud che consente agli sviluppatori di creare applicazioni di distribuzione e gestione di contenuti multimediali altamente scalabili. Questo articolo fornisce una panoramica di servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,14 +11,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 04/19/2019
-ms.author: juliako
-ms.openlocfilehash: 0d896b0ce23116f1b87718f492d407ac094b9e6a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.openlocfilehash: c6f889963e87d900040d1fe77031f943ab368837
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89261156"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348747"
 ---
 # <a name="azure-media-services-overview"></a>Panoramica di Servizi multimediali di Azure
 
@@ -38,11 +38,11 @@ Servizi multimediali di Microsoft Azure è una piattaforma estensibile basata su
 
 ## <a name="compliance-privacy-and-security"></a>Conformità, privacy e sicurezza
 
-Come promemoria importante, è necessario rispettare tutte le leggi applicabili all'uso di servizi multimediali di Azure e non è possibile usare servizi multimediali o qualsiasi servizio di Azure in modo da violare i diritti di altri utenti o che potrebbero essere dannosi per altri.
+È importante ricordare che è necessario usare Servizi multimediali di Azure in conformità con tutte le leggi applicabili e non è possibile usare Servizi multimediali né qualsiasi altro servizio di Azure in un modo che violi i diritti di altri o possa arrecare danni ad altre persone.
 
-Prima di caricare un video o un'immagine in servizi multimediali, è necessario disporre di tutti i diritti appropriati per l'uso del video o dell'immagine, ad esempio, dove richiesto dalla legge, tutti i consensi necessari per i singoli utenti (se presenti) nel video o nell'immagine, per l'uso, l'elaborazione e l'archiviazione dei dati in servizi multimediali e in Azure. Alcune giurisdizioni possono imporre specifici requisiti legali per la raccolta, l'elaborazione online e l'archiviazione di determinate categorie di dati, ad esempio i dati biometrici. Prima di usare servizi multimediali e Azure per l'elaborazione e l'archiviazione di dati soggetti a requisiti legali speciali, è necessario garantire la conformità ai requisiti legali che possono essere applicati all'utente.
+Prima di caricare un video o un'immagine in Servizi multimediali, è necessario avere tutti i diritti appropriati per il relativo uso, tra cui, se richiesto per legge, tutti i consensi necessari delle persone (se presenti) incluse nel video o nell'immagine, per l'uso, l'elaborazione e l'archiviazione dei loro dati in Servizi multimediali e in Azure. Alcune giurisdizioni possono imporre specifici requisiti legali per la raccolta, l'elaborazione online e l'archiviazione di determinate categorie di dati, ad esempio i dati biometrici. Prima di usare Servizi multimediali e Azure per l'elaborazione e l'archiviazione di dati soggetti a requisiti legali speciali, è necessario garantire la conformità a tali requisiti legali che possono essere applicabili al caso specifico.
 
-Per informazioni su conformità, privacy e sicurezza in servizi multimediali, visitare il [Centro protezione](https://www.microsoft.com/trust-center/?rtc=1)Microsoft. Per gli obblighi sulla privacy di Microsoft, la gestione dei dati e le procedure di conservazione, inclusa la modalità di eliminazione dei dati, consultare l' [informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement)di Microsoft, le condizioni per i [servizi online](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("Ost") e l'Addendum per l' [elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Usando servizi multimediali, l'utente accetta di essere vincolato dalle OST, DPA e dall'Informativa sulla privacy.
+Per informazioni su conformità, privacy e sicurezza in Servizi multimediali, visitare il [Centro protezione](https://www.microsoft.com/trust-center/?rtc=1) Microsoft. Per gli obblighi sulla privacy di Microsoft, la gestione dei dati e le procedure di conservazione, inclusa la modalità di eliminazione dei dati, consultare l' [informativa sulla privacy](https://privacy.microsoft.com/PrivacyStatement)di Microsoft, le condizioni per i [servizi online](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("Ost") e l'Addendum per l' [elaborazione dati](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA"). Usando Servizi multimediali, si accetta di essere vincolati dalle condizioni per l'utilizzo dei servizi online, dall'addendum sull'elaborazione dati e dall'informativa sulla privacy.
  
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -69,7 +69,7 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
     * [Azure PHP SDK](https://github.com/Azure/azure-sdk-for-php),
     * [Servizi multimediali di Azure per Node.js](https://github.com/michelle-becker/node-ams-sdk/blob/master/lib/request.js). Questa è una versione non Microsoft di Node.js SDK. È gestita da una community e attualmente non copre al 100% le API AMS.
 * Strumenti esistenti:
-    * [Portale di Azure](https://portal.azure.com/)
+    * [Azure portal](https://portal.azure.com/)
     * [Azure-Media-Services-Explorer](https://github.com/Azure/Azure-Media-Services-Explorer) (Azure Media Services Explorer (AMSE) è un'applicazione Winforms/C# per Windows)
 
 > [!NOTE]
@@ -78,7 +78,7 @@ Per creare soluzioni di Servizi multimediali, è possibile usare:
 
 ## <a name="code-samples"></a>Esempi di codice
 
-Gli esempi di codice sono disponibili nella raccolta di **Esempi di codice per Azure**: [Esempi di codice per Servizi multimediali di Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
+Gli esempi di codice sono disponibili nella raccolta di **Esempi di codice per Azure** : [Esempi di codice per Servizi multimediali di Azure](https://azure.microsoft.com/resources/samples/?service=media-services&sort=0).
 
 ## <a name="concepts"></a>Concetti
 
@@ -86,13 +86,12 @@ Per i concetti relativi ai Servizi multimediali di Azure, vedere [Concetti su Se
 
 ## <a name="supported-scenarios-and-availability-of-media-services-across-data-centers"></a>Scenari supportati e disponibilità di Servizi multimediali nei data center
 
-Per informazioni dettagliate, vedere [Scenari supportati e disponibilità di Servizi multimediali nei data center](scenarios-and-availability.md).
+Per altre informazioni sugli scenari comuni di Azure, vedere [scenari di AMS](scenarios-and-availability.md).
+Per informazioni sulla disponibilità a livello di area, vedere [disponibilità del servizio multimediale](availability-regions-v-2.md).
 
 ## <a name="service-level-agreement-sla"></a>Contratto di servizio (SLA)
 
 Per altre informazioni, vedere [Contratto di servizio di Microsoft Azure](https://azure.microsoft.com/support/legal/sla/).
-
-Per informazioni sulla disponibilità nei data center, vedere la sezione relativa alla [disponibilità](scenarios-and-availability.md#availability).
 
 ## <a name="support"></a>Supporto
 

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/08/2020
 ms.custom: devx-track-js, devx-track-csharp
-ms.openlocfilehash: 04123d06d22786c9dd2aa08c2dab1153f6d43375
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5dd2d9e932bd1be3da74a2bdc9bd918401076aa3
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098451"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348611"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Aggiungere il completamento automatico e suggerimenti alle app client
 
@@ -139,7 +139,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Suggerisci funzione
 
-Se si usa C# e un'applicazione MVC, il file **HomeController.cs** nella directory Controllers è il punto in cui è possibile creare una classe per i risultati suggeriti. In .NET una funzione suggest è basata sul [Metodo DocumentsOperationsExtensions. suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Per altre informazioni su .NET SDK, vedere [come usare ricerca cognitiva di Azure da un'applicazione .NET](./search-howto-dotnet-sdk.md).
+Se si usa C# e un'applicazione MVC, il file **HomeController.cs** nella directory Controllers è il punto in cui è possibile creare una classe per i risultati suggeriti. In .NET una funzione suggest è basata sul [Metodo DocumentsOperationsExtensions. suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest). Per altre informazioni su .NET SDK, vedere [come usare ricerca cognitiva di Azure da un'applicazione .NET](search-howto-dotnet-sdk.md).
 
 Il `InitSearch` metodo crea un client di indice http autenticato per il servizio ricerca cognitiva di Azure. Le proprietà della classe [SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters) determinano quali campi vengono ricercati e restituiti nei risultati, il numero di corrispondenze e se viene utilizzata la corrispondenza fuzzy. 
 
@@ -181,7 +181,7 @@ La funzione Suggest include due parametri che determinano se vengono restituiti 
 
 ## <a name="autocomplete"></a>Completamento automatico
 
-Fino ad ora, il codice UX di ricerca è stato centrato sui suggerimenti. Il blocco di codice successivo Mostra il completamento automatico, usando la funzione di completamento automatico dell'interfaccia utente di XDSoft jQuery, passando una richiesta di Azure ricerca cognitiva completamento automatico. Come per i suggerimenti, in un'applicazione C# il codice che supporta l'interazione con l'utente passa a **index. cshtml** .
+Fino ad ora, il codice UX di ricerca è stato centrato sui suggerimenti. Il blocco di codice successivo Mostra il completamento automatico, usando la funzione di completamento automatico dell'interfaccia utente di XDSoft jQuery, passando una richiesta di Azure ricerca cognitiva completamento automatico. Come per i suggerimenti, in un'applicazione C# il codice che supporta l'interazione con l'utente passa a **index. cshtml**.
 
 ```javascript
 $(function () {
@@ -253,4 +253,3 @@ Segui questi collegamenti per istruzioni end-to-end o codice che dimostrano entr
 
 + [Esercitazione: creare la prima app in C# (lezione 3)](tutorial-csharp-type-ahead-and-suggestions.md)
 + [Esempio di codice C#: Azure-Search-DotNet-Samples/create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
-+ [C# e JavaScript con l'esempio di codice side-by-side REST](https://github.com/wantedfast/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

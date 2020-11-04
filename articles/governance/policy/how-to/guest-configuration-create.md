@@ -3,12 +3,12 @@ title: Come creare criteri di Configurazione guest per Windows
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Windows.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 563b178b9ba92125967c779b59a78a8e105ec744
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 325b00ac1cc747555d38b4c250709638f5e74d95
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92542863"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348883"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-windows"></a>Come creare criteri di Configurazione guest per Windows
 
@@ -16,15 +16,19 @@ Prima di creare definizioni dei criteri personalizzate, è consigliabile leggere
  
 Per informazioni sulla creazione di criteri di Configurazione guest per Linux, vedere la pagina [Come creare criteri di Configurazione guest per Linux](./guest-configuration-create-linux.md)
 
-Quando si esegue il controllo di Windows, Configurazione guest usa un modulo risorse [DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview) per creare il file di configurazione. La configurazione DSC definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione ha esito negativo, viene attivato l'effetto dei criteri **auditIfNotExists** e il computer viene considerato **non conforme** .
+Quando si esegue il controllo di Windows, Configurazione guest usa un modulo risorse [DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview) per creare il file di configurazione. La configurazione DSC definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione ha esito negativo, viene attivato l'effetto dei criteri **auditIfNotExists** e il computer viene considerato **non conforme**.
 
 È possibile usare la funzione [Configurazione guest di Criteri di Azure](../concepts/guest-configuration.md) solo per controllare le impostazioni all'interno dei computer. La correzione delle impostazioni all'interno dei computer non è ancora disponibile.
 
 Usare le azioni seguenti per creare una configurazione personalizzata per la convalida dello stato di un computer Azure o non Azure.
 
 > [!IMPORTANT]
+> Le definizioni dei criteri personalizzati con la configurazione Guest negli ambienti Azure per enti pubblici e Azure Cina sono una funzionalità in anteprima.
+>
 > L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure.
 > Per distribuire l'estensione su larga scala in tutti i computer Windows, assegnare le definizioni dei criteri seguenti: `Deploy prerequisites to enable Guest Configuration Policy on Windows VMs`
+> 
+> Non usare segreti o informazioni riservate nei pacchetti di contenuto personalizzati.
 
 ## <a name="install-the-powershell-module"></a>Installare il modulo PowerShell
 
@@ -92,13 +96,13 @@ I parametri nei criteri di Azure che passano i valori alle assegnazioni di confi
 
 La funzione `Get-TargetResource` presenta requisiti speciali per Configurazione guest, non necessari per Windows Desired State Configuration.
 
-- La tabella hash restituita deve includere una proprietà denominata **Reasons** .
+- La tabella hash restituita deve includere una proprietà denominata **Reasons**.
 - La proprietà Reasons deve essere una matrice.
-- Ogni elemento nella matrice deve essere una tabella hash con chiavi denominate **Code** e **Phrase** .
+- Ogni elemento nella matrice deve essere una tabella hash con chiavi denominate **Code** e **Phrase**.
 
 La proprietà Reasons viene usata dal servizio per standardizzare il modo in cui le informazioni vengono presentate quando un computer non è conforme. È possibile considerare ogni elemento di Reasons come un "motivo" per cui la risorsa non è conforme. La proprietà è una matrice perché una risorsa può non essere conforme per più di un motivo.
 
-Le proprietà **Code** e **Phrase** sono richieste dal servizio. Quando si crea una risorsa personalizzata, impostare il testo (in genere StdOut) da mostrare come motivo per cui la risorsa non è conforme come valore di **Phrase** . La proprietà **Code** presenta requisiti di formattazione specifici, in modo che nei report le informazioni sulla risorsa con cui si esegue il controllo vengano visualizzate chiaramente. Questa soluzione rende estendibile Configurazione Guest. È possibile eseguire qualsiasi comando, a condizione che l'output possa essere restituito come valore stringa per la proprietà **Phrase** .
+Le proprietà **Code** e **Phrase** sono richieste dal servizio. Quando si crea una risorsa personalizzata, impostare il testo (in genere StdOut) da mostrare come motivo per cui la risorsa non è conforme come valore di **Phrase**. La proprietà **Code** presenta requisiti di formattazione specifici, in modo che nei report le informazioni sulla risorsa con cui si esegue il controllo vengano visualizzate chiaramente. Questa soluzione rende estendibile Configurazione Guest. È possibile eseguire qualsiasi comando, a condizione che l'output possa essere restituito come valore stringa per la proprietà **Phrase**.
 
 - **Code** (stringa): nome della risorsa, ripetuto, seguito da un nome breve senza spazi come identificatore per il motivo. Questi tre valori devono essere delimitati da due punti senza spazi.
   - Ad esempio, `registry:registry:keynotpresent`
@@ -140,7 +144,7 @@ Il nome della configurazione personalizzata deve essere coerente ovunque. Il nom
 
 ### <a name="scaffolding-a-guest-configuration-project"></a>Scaffolding di un progetto di Configurazione guest
 
-Gli sviluppatori che vogliono accelerare le fasi iniziali e usare il codice di esempio possono installare un progetto della community denominato **Guest Configuration Project** . Il progetto installa un modello per il modulo [Plaster](https://github.com/powershell/plaster) PowerShell. Questo strumento può essere usato per lo scaffolding di un progetto con una configurazione funzionante e una risorsa di esempio, nonché un set di test [Pester](https://github.com/pester/pester) per convalidare il progetto. Il modello include anche gli strumenti di esecuzione attività per Visual Studio Code per automatizzare la creazione e la convalida del pacchetto di Configurazione guest. Per altre informazioni, vedere il progetto GitHub [Guest Configuration Project](https://github.com/microsoft/guestconfigurationproject).
+Gli sviluppatori che vogliono accelerare le fasi iniziali e usare il codice di esempio possono installare un progetto della community denominato **Guest Configuration Project**. Il progetto installa un modello per il modulo [Plaster](https://github.com/powershell/plaster) PowerShell. Questo strumento può essere usato per lo scaffolding di un progetto con una configurazione funzionante e una risorsa di esempio, nonché un set di test [Pester](https://github.com/pester/pester) per convalidare il progetto. Il modello include anche gli strumenti di esecuzione attività per Visual Studio Code per automatizzare la creazione e la convalida del pacchetto di Configurazione guest. Per altre informazioni, vedere il progetto GitHub [Guest Configuration Project](https://github.com/microsoft/guestconfigurationproject).
 
 Per altre informazioni sull'uso delle configurazioni in generale, vedere [Scrivere, compilare e applicare una configurazione](/powershell/scripting/dsc/configurations/write-compile-apply-configuration).
 
@@ -200,7 +204,7 @@ Il cmdlet `New-GuestConfigurationPackage` crea il pacchetto. I moduli necessari 
 
 - **Name** : nome del pacchetto di Configurazione guest.
 - **Configuration** : percorso completo del documento di configurazione DSC compilato.
-- **Path** : percorso della cartella di output. Questo parametro è facoltativo. Se non viene specificato, il pacchetto viene creato nella directory corrente.
+- **Path** : percorso della cartella di output. Questo parametro è facoltativo e, Se non viene specificato, il pacchetto viene creato nella directory corrente.
 
 Eseguire il comando seguente per creare un pacchetto usando la configurazione fornita nel passaggio precedente:
 
@@ -274,7 +278,7 @@ L'output del cmdlet restituisce un oggetto contenente il nome visualizzato dell'
 
 Infine, pubblicare le definizioni dei criteri usando il cmdlet `Publish-GuestConfigurationPolicy`. Il cmdlet ha solo il parametro **Path** che punta al percorso dei file JSON creati da `New-GuestConfigurationPolicy`.
 
-Per eseguire il comando Publish, è necessario l'accesso per la creazione di criteri in Azure. I requisiti di autorizzazione specifici sono documentati nella pagina [Panoramica di Criteri di Azure](../overview.md). Il ruolo predefinito migliore è **Collaboratore ai criteri delle risorse** .
+Per eseguire il comando Publish, è necessario l'accesso per la creazione di criteri in Azure. I requisiti di autorizzazione specifici sono documentati nella pagina [Panoramica di Criteri di Azure](../overview.md). Il ruolo predefinito migliore è **Collaboratore ai criteri delle risorse**.
 
 ```azurepowershell-interactive
 Publish-GuestConfigurationPolicy -Path '.\policyDefinitions'
@@ -325,7 +329,7 @@ Di seguito è riportato un frammento di codice di esempio di una definizione dei
 
 Configurazione guest supporta l'override delle proprietà di una configurazione in fase di esecuzione. Ciò significa che i valori nel file MOF del pacchetto non devono essere considerati statici. I valori di override vengono forniti tramite Criteri di Azure e non influiscono sul modo in cui le configurazioni vengono create o compilate.
 
-I cmdlet `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` includono un parametro denominato **Parameter** . Questo parametro accetta una definizione di tabella hash che include tutti i dettagli su ogni parametro e crea le sezioni necessarie di ogni file usato per la definizione di Criteri di Azure.
+I cmdlet `New-GuestConfigurationPolicy` e `Test-GuestConfigurationPolicyPackage` includono un parametro denominato **Parameter**. Questo parametro accetta una definizione di tabella hash che include tutti i dettagli su ogni parametro e crea le sezioni necessarie di ogni file usato per la definizione di Criteri di Azure.
 
 Nell'esempio seguente viene creata una definizione dei criteri per controllare un servizio, in cui l'utente seleziona un'opzione in un elenco al momento dell'assegnazione dei criteri.
 
@@ -487,9 +491,13 @@ New-GuestConfigurationPackage `
 
 ## <a name="policy-lifecycle"></a>Ciclo di vita dei criteri
 
-Per rilasciare un aggiornamento dei criteri, è necessario prestare attenzione a due campi.
+Se si vuole rilasciare un aggiornamento ai criteri, sono disponibili tre campi che richiedono attenzione.
 
-- **Version** : quando si esegue il cmdlet `New-GuestConfigurationPolicy`, è necessario specificare un numero di versione maggiore di quello attualmente pubblicato. La proprietà aggiorna la versione dell'assegnazione di Configurazione guest in modo che l'agente riconosca il pacchetto aggiornato.
+> [!NOTE]
+> La `version` proprietà dell'assegnazione di configurazione Guest ha effetto solo sui pacchetti ospitati da Microsoft. La procedura consigliata per il controllo delle versioni del contenuto personalizzato consiste nell'includere la versione nel nome del file.
+
+- **Version** : quando si esegue il cmdlet `New-GuestConfigurationPolicy`, è necessario specificare un numero di versione maggiore di quello attualmente pubblicato.
+- **contentUri** : quando si esegue il `New-GuestConfigurationPolicy` cmdlet, è necessario specificare un URI per il percorso del pacchetto. Se si include una versione del pacchetto nel nome del file, il valore di questa proprietà verrà modificato in ogni versione.
 - **contentHash** : questa proprietà viene aggiornata automaticamente dal cmdlet `New-GuestConfigurationPolicy`. Si tratta di un valore hash del pacchetto creato da `New-GuestConfigurationPackage`. La proprietà deve essere corretta per il file `.zip` da pubblicare. Se viene aggiornata solo la proprietà **contentUri** , l'estensione non accetterà il pacchetto di contenuto.
 
 Il modo più semplice per rilasciare un pacchetto aggiornato consiste nel ripetere il processo descritto in questo articolo e fornire un numero di versione aggiornato. Questo processo garantisce che tutte le proprietà siano state aggiornate correttamente.

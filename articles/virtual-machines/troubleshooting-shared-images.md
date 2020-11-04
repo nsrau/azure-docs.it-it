@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 189fa12b1fc11e79ab64231a7ecd453113b8771a
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336011"
+ms.locfileid: "93348917"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Risoluzione dei problemi relativi alle raccolte di immagini condivise in Azure
 
@@ -223,8 +223,8 @@ Se si verificano problemi durante l'esecuzione di operazioni su raccolte di imma
 **Motivo** : l'ID di risorsa del set di crittografia del disco utilizzato in un'immagine del disco dati utilizza un formato non valido.  
 **Soluzione alternativa** : verificare che l'ID di risorsa del set di crittografia del disco segua il formato/subscriptions/<subscriptionID \> /ResourceGroups/<ResourceGroupName \> /providers/Microsoft.Compute/<diskEncryptionSetName \> .
 
-*Il valore del parametro galleryArtifactVersion. Properties. publishingProfile. targetRegions. Encryption. osDiskImage. diskEncryptionSetId non è valido.* 
- **Motivo** : l'ID di risorsa del set di crittografia del disco usato nell'immagine del disco del sistema operativo usa un formato non valido  
+*Il valore del parametro galleryArtifactVersion. Properties. publishingProfile. targetRegions. Encryption. osDiskImage. diskEncryptionSetId non è valido.*  
+**Motivo** : l'ID di risorsa del set di crittografia del disco usato nell'immagine del disco del sistema operativo usa un formato non valido  
 **Soluzione alternativa** : verificare che l'ID di risorsa del set di crittografia del disco segua il formato/subscriptions/<subscriptionID \> /ResourceGroups/<ResourceGroupName \> /providers/Microsoft.Compute/<diskEncryptionSetName \> .
 
 *Non è possibile specificare un nuovo LUN di crittografia delle immagini del disco dati [<numero \> ] con una crittografia del disco impostata nell'area [<Region \> ] per la richiesta di aggiornamento della versione dell'immagine della raccolta. Per aggiornare questa versione, rimuovere il nuovo lun. Se è necessario modificare le impostazioni di crittografia dell'immagine del disco dati, è necessario creare una nuova versione dell'immagine della raccolta con le impostazioni corrette.*  

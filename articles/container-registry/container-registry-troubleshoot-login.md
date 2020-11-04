@@ -3,12 +3,12 @@ title: Risolvere i problemi di accesso al registro di sistema
 description: Sintomi, cause e risoluzione dei problemi comuni durante l'accesso a un registro contenitori di Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: f7bac49a79d32af3a0e533f4c4e3431c62b82172
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148446"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348900"
 ---
 # <a name="troubleshoot-registry-login"></a>Risolvere i problemi di accesso al registro
 
@@ -77,10 +77,11 @@ Collegamenti correlati:
 Verificare la validità delle credenziali utilizzate per lo scenario o fornite dal proprietario del registro di sistema. Alcuni possibili problemi:
 
 * Se si usa un'entità servizio Active Directory, assicurarsi di usare le credenziali corrette nel tenant di Active Directory:
-  * Nome utente: ID dell'applicazione dell'entità servizio (noto anche come *ID client*)
-  * Password: password dell'entità servizio (detta anche *segreto client*)
+  * Nome utente: ID dell'applicazione dell'entità servizio (noto anche come *ID client* )
+  * Password: password dell'entità servizio (detta anche *segreto client* )
 * Se si usa un servizio di Azure come Azure Kubernetes Service o Azure DevOps per accedere al registro di sistema, verificare la configurazione del registro di sistema per il servizio.
 * Se è stato eseguito `az acr login` con l' `--expose-token` opzione, che Abilita l'accesso al registro di sistema senza usare il daemon Docker, assicurarsi di eseguire l'autenticazione con il nome utente `00000000-0000-0000-0000-000000000000` .
+* Se il registro di sistema è configurato per [l'accesso pull anonimo](container-registry-faq.md#how-do-i-enable-anonymous-pull-access), le credenziali Docker esistenti archiviate da un account di accesso Docker precedente possono impedire l'accesso anonimo. Eseguire `docker logout` prima di tentare un'operazione pull anonima nel registro di sistema.
 
 Collegamenti correlati:
 

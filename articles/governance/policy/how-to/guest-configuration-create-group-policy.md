@@ -3,25 +3,25 @@ title: Come creare definizioni dei criteri di configurazione Guest da Criteri di
 description: Informazioni su come convertire Criteri di gruppo dalla linea di base di sicurezza di Windows Server 2019 in una definizione dei criteri.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: dce22885981ab01fe37fac8588899d12a5afb87d
-ms.sourcegitcommit: b437bd3b9c9802ec6430d9f078c372c2a411f11f
+ms.openlocfilehash: 7f7e2af70efa6771d94d7ceaa14d1408175b1d12
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91893374"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348645"
 ---
 # <a name="how-to-create-guest-configuration-policy-definitions-from-group-policy-baseline-for-windows"></a>Come creare definizioni dei criteri di configurazione Guest da Criteri di gruppo baseline per Windows
 
 Prima di creare definizioni dei criteri personalizzati, è consigliabile leggere le informazioni generali concettuali in [configurazione Guest di criteri di Azure](../concepts/guest-configuration.md). Per informazioni sulla creazione di definizioni dei criteri di configurazione Guest personalizzati per Linux, vedere [How to create Guest Configuration Policies for Linux](./guest-configuration-create-linux.md). Per informazioni sulla creazione di definizioni dei criteri di configurazione Guest personalizzati per Windows, vedere [How to create Guest Configuration Policies for Windows](./guest-configuration-create.md).
 
-Quando si esegue il controllo di Windows, Configurazione guest usa un modulo risorse [DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview) per creare il file di configurazione. La configurazione DSC definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione è **non conforme**, viene attivato l'effetto del criterio *auditIfNotExists* .
+Quando si esegue il controllo di Windows, Configurazione guest usa un modulo risorse [DSC (Desired State Configuration)](/powershell/scripting/dsc/overview/overview) per creare il file di configurazione. La configurazione DSC definisce la condizione in cui deve trovarsi il computer. Se la valutazione della configurazione è **non conforme** , viene attivato l'effetto del criterio *auditIfNotExists* .
 La [configurazione Guest di criteri di Azure](../concepts/guest-configuration.md) controlla solo le impostazioni all'interno dei computer.
 
 > [!IMPORTANT]
-> Le definizioni dei criteri personalizzati con la configurazione Guest sono una funzionalità in anteprima.
->
 > L'estensione Configurazione guest è necessaria per eseguire controlli nelle macchine virtuali di Azure. Per distribuire l'estensione su larga scala in tutti i computer Windows, assegnare le definizioni dei criteri seguenti:
 > - [Distribuisci i prerequisiti per abilitare i criteri di Configurazione guest nelle macchine virtuali Windows.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F0ecd903d-91e7-4726-83d3-a229d7f2e293)
+> 
+> Non usare segreti o informazioni riservate nei pacchetti di contenuto personalizzati.
 
 La community DSC ha pubblicato il [modulo BaselineManagement](https://github.com/microsoft/BaselineManagement) per convertire i modelli esportati criteri di gruppo in formato DSC. Insieme al cmdlet GuestConfiguration, il modulo BaselineManagement crea il pacchetto di configurazione Guest di criteri di Azure per Windows dal contenuto Criteri di gruppo. Per informazioni dettagliate sull'uso del modulo BaselineManagement, vedere l'articolo [Guida introduttiva: convertire criteri di gruppo in DSC](/powershell/scripting/dsc/quickstarts/gpo-quickstart).
 
@@ -29,7 +29,7 @@ Questa guida illustra il processo di creazione di un pacchetto di configurazione
 
 ## <a name="download-windows-server-2019-security-baseline-and-install-related-powershell-modules"></a>Scaricare la linea di base di sicurezza di Windows Server 2019 e installare i moduli di PowerShell correlati
 
-Per installare **DSC**, **GuestConfiguration**, la **gestione di base**e i moduli di Azure correlati in PowerShell:
+Per installare **DSC** , **GuestConfiguration** , la **gestione di base** e i moduli di Azure correlati in PowerShell:
 
 1. Al prompt di PowerShell, eseguire il comando seguente:
 
@@ -87,78 +87,12 @@ Si convertirà quindi la baseline del server scaricato 2019 in un pacchetto di c
 
 ## <a name="create-azure-policy-guest-configuration"></a>Crea configurazione Guest di criteri di Azure
 
-Il passaggio successivo consiste nel pubblicare il file nell'archivio BLOB di Azure. 
-
-1. Lo script seguente contiene una funzione che è possibile usare per automatizzare questa attività. Si noti che i comandi usati nella `publish` funzione richiedono il `Az.Storage` modulo.
+1. Il passaggio successivo consiste nel pubblicare il file nell'archivio BLOB di Azure. Il comando `Publish-GuestConfigurationPackage` richiede il `Az.Storage` modulo.
 
    ```azurepowershell-interactive
-    function Publish-Configuration {
-        param(
-        [Parameter(Mandatory=$true)]
-        $resourceGroup,
-        [Parameter(Mandatory=$true)]
-        $storageAccountName,
-        [Parameter(Mandatory=$true)]
-        $storageContainerName,
-        [Parameter(Mandatory=$true)]
-        $filePath,
-        [Parameter(Mandatory=$true)]
-        $blobName
-        )
-
-        # Get Storage Context
-        $Context = Get-AzStorageAccount -ResourceGroupName $resourceGroup `
-            -Name $storageAccountName | `
-            ForEach-Object { $_.Context }
-
-        # Upload file
-        $Blob = Set-AzStorageBlobContent -Context $Context `
-            -Container $storageContainerName `
-            -File $filePath `
-            -Blob $blobName `
-            -Force
-
-        # Get url with SAS token
-        $StartTime = (Get-Date)
-        $ExpiryTime = $StartTime.AddYears('3')  # THREE YEAR EXPIRATION
-        $SAS = New-AzStorageBlobSASToken -Context $Context `
-            -Container $storageContainerName `
-            -Blob $blobName `
-            -StartTime $StartTime `
-            -ExpiryTime $ExpiryTime `
-            -Permission rl `
-            -FullUri
-
-        # Output
-        return $SAS
-    }
+   Publish-GuestConfigurationPackage -Path ./AuditBitlocker.zip -ResourceGroupName  myResourceGroupName -StorageAccountName myStorageAccountName
    ```
 
-1. Creare parametri per definire il gruppo di risorse, l'account di archiviazione e il contenitore univoci. 
-   
-   ```azurepowershell-interactive
-    # Replace the $resourceGroup, $storageAccount, and $storageContainer values below.
-    $resourceGroup = 'rfc_customguestconfig'
-    $storageAccount = 'guestconfiguration'
-    $storageContainer = 'content'
-    $path = 'c:\git\policyfiles\Server2019Baseline\Server2019Baseline.zip'
-    $blob = 'Server2019Baseline.zip' 
-    ```
-
-1. Usare la funzione Publish con i parametri assegnati per pubblicare il pacchetto di configurazione Guest nell'archivio BLOB pubblico.
-
-
-   ```azurepowershell-interactive
-   $PublishConfigurationSplat = @{
-       resourceGroup = $resourceGroup
-       storageAccountName = $storageAccount
-       storageContainerName = $storageContainer
-       filePath = $path
-       blobName = $blob
-       FullUri = $true
-   }
-   $uri = Publish-Configuration @PublishConfigurationSplat
-    ```
 1. Una volta creato e caricato un pacchetto di criteri personalizzati di Configurazione guest, creare la definizione dei criteri di Configurazione guest. Usare il `New-GuestConfigurationPolicy` cmdlet per creare la configurazione Guest.
 
    ```azurepowershell-interactive
@@ -183,9 +117,9 @@ Il passaggio successivo consiste nel pubblicare il file nell'archivio BLOB di Az
 Una volta creati i criteri in Azure, l'ultimo passaggio consiste nell'assegnazione dell'iniziativa. Vedere come assegnare l'iniziativa con il [portale](../assign-policy-portal.md), l'[interfaccia della riga di comando di Azure](../assign-policy-azurecli.md) e [Azure PowerShell](../assign-policy-powershell.md).
 
 > [!IMPORTANT]
-> Le definizioni dei criteri di configurazione Guest devono **sempre** essere assegnate usando l'iniziativa che combina i criteri _AuditIfNotExists_ e _DeployIfNotExists_ . Se vengono assegnati solo i criteri _AuditIfNotExists_, i prerequisiti non vengono distribuiti e i criteri indicano sempre che "0" server sono conformi.
+> Le definizioni dei criteri di configurazione Guest devono **sempre** essere assegnate usando l'iniziativa che combina i criteri _AuditIfNotExists_ e _DeployIfNotExists_ . Se vengono assegnati solo i criteri _AuditIfNotExists_ , i prerequisiti non vengono distribuiti e i criteri indicano sempre che "0" server sono conformi.
 
-Per assegnare una definizione dei criteri con l'effetto _DeployIfNotExists_, è necessario un livello di accesso aggiuntivo. Per concedere privilegi minimi, è possibile creare una definizione del ruolo personalizzata che estende il ruolo **Collaboratore ai criteri delle risorse**. Nell'esempio seguente viene creato un ruolo denominato **Resource Policy Contributor DINE** con l'autorizzazione aggiuntiva _Microsoft.Authorization/roleAssignments/write_.
+Per assegnare una definizione dei criteri con l'effetto _DeployIfNotExists_ , è necessario un livello di accesso aggiuntivo. Per concedere privilegi minimi, è possibile creare una definizione del ruolo personalizzata che estende il ruolo **Collaboratore ai criteri delle risorse**. Nell'esempio seguente viene creato un ruolo denominato **Resource Policy Contributor DINE** con l'autorizzazione aggiuntiva _Microsoft.Authorization/roleAssignments/write_.
 
    ```azurepowershell-interactive
    $subscriptionid = '00000000-0000-0000-0000-000000000000'

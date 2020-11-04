@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 3/29/2019
 ms.author: sutalasi
-ms.openlocfilehash: 6a272294ca602e3f482156a7334084bf041f683e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1570bd9dfa62caa749d5a3983b93c2555be058ec
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91307552"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348730"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Configurare il ripristino di emergenza per le macchine virtuali di Azure usando Azure PowerShell
 
@@ -41,17 +41,17 @@ Si apprenderà come:
 Prima di iniziare:
 - Assicurarsi di aver compreso i [componenti e l'architettura dello scenario](azure-to-azure-architecture.md).
 - Verificare i [requisiti di supporto](azure-to-azure-support-matrix.md) per tutti i componenti.
-- Si dispone del `Az` modulo Azure PowerShell. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
+- Avere a disposizione il modulo `Az` di Azure PowerShell. Se è necessario installare o aggiornare Azure PowerShell, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="sign-in-to-your-microsoft-azure-subscription"></a>Accedere alla sottoscrizione di Microsoft Azure
 
-Accedere alla sottoscrizione di Azure con il `Connect-AzAccount` cmdlet.
+Accedere alla sottoscrizione di Azure con il cmdlet `Connect-AzAccount`.
 
 ```azurepowershell
 Connect-AzAccount
 ```
 
-Selezionare la sottoscrizione di Azure. Usare il `Get-AzSubscription` cmdlet per ottenere l'elenco delle sottoscrizioni di Azure a cui si ha accesso. Selezionare la sottoscrizione di Azure da usare con il `Set-AzContext` cmdlet.
+Selezionare la sottoscrizione di Azure. Usare il cmdlet `Get-AzSubscription` per ottenere l'elenco delle sottoscrizioni di Azure a cui si ha accesso. Selezionare la sottoscrizione di Azure da usare con il `Set-AzContext` cmdlet.
 
 ```azurepowershell
 Set-AzContext -SubscriptionId "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
@@ -249,6 +249,15 @@ Write-Output $TempASRJob.State
 $RecoveryProtContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 ```
 
+#### <a name="fabric-and-container-creation-when-enabling-zone-to-zone-replication"></a>Creazione di Fabric e contenitori quando si Abilita la replica da zona a zona
+
+Quando si Abilita la replica da zona a zona, verrà creata una sola infrastruttura. Tuttavia, saranno presenti due contenitori. Supponendo che l'area sia Europa occidentale, usare i comandi seguenti per ottenere i contenitori primari e di protezione:
+
+```azurepowershell
+$primaryProtectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-container"
+$recoveryPprotectionContainer = Get-AzRecoveryServicesAsrProtectionContainer -Fabric $fabric -Name "asr-a2a-default-westeurope-t-container"
+```
+
 ### <a name="create-a-replication-policy"></a>Creare un criterio di replica
 
 ```azurepowershell
@@ -287,6 +296,14 @@ Write-Output $TempASRJob.State
 $EusToWusPCMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimaryProtContainer -Name "A2APrimaryToRecovery"
 ```
 
+#### <a name="protection-container-mapping-creation-when-enabling-zone-to-zone-replication"></a>Creazione del mapping del contenitore di protezione quando si Abilita la replica da zona a zona
+
+Quando si Abilita la replica da zona a zona, usare il comando seguente per creare il mapping del contenitore di protezione. Supponendo che l'area sia Europa occidentale, il comando sarà-
+
+```azurepowershell
+$protContainerMapping = Get-AzRecoveryServicesAsrProtectionContainerMapping -ProtectionContainer $PrimprotectionContainer -Name "westeurope-westeurope-24-hour-retention-policy-s"
+```
+
 ### <a name="create-a-protection-container-mapping-for-failback-reverse-replication-after-a-failover"></a>Creare un mapping del contenitore di protezione per il failback (replica inversa dopo un failover)
 
 Dopo un failover, quando si è pronti per riportare la macchina virtuale di cui è stato eseguito il failover nell'area di Azure originale, si esegue un failback. Per eseguire il failback, la macchina virtuale sottoposta a failover viene replicata in modo inverso dall'area di cui è stato eseguito il failover all'area originale. Per la replica inversa, vengono invertiti i ruoli dell'area di origine e dell'area di ripristino. L'area di origine diventa la nuova area di ripristino e quella che in origine era l'area di ripristino diventa l'area primaria. Il mapping del contenitore di protezione per la replica inversa rappresenta i ruoli invertiti delle aree di origine e di ripristino.
@@ -316,7 +333,7 @@ Un account di archiviazione della cache è un account di archiviazione standard 
 $EastUSCacheStorageAccount = New-AzStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-Per le macchine virtuali che **non usano Managed disks**, l'account di archiviazione di destinazione è l'account di archiviazione nell'area di ripristino in cui vengono replicati i dischi della macchina virtuale. L'account di archiviazione di destinazione può essere un account di archiviazione standard o un account di archiviazione Premium. Selezionare il tipo di account di archiviazione necessario in base alla frequenza di modifica dei dati (velocità di scrittura i/o) per i dischi e i limiti di varianza supportati Azure Site Recovery per il tipo di archiviazione.
+Per le macchine virtuali che **non usano Managed disks** , l'account di archiviazione di destinazione è l'account di archiviazione nell'area di ripristino in cui vengono replicati i dischi della macchina virtuale. L'account di archiviazione di destinazione può essere un account di archiviazione standard o un account di archiviazione Premium. Selezionare il tipo di account di archiviazione necessario in base alla frequenza di modifica dei dati (velocità di scrittura i/o) per i dischi e i limiti di varianza supportati Azure Site Recovery per il tipo di archiviazione.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account

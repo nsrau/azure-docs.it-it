@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/29/2020
-ms.openlocfilehash: a9f48d95281971fc49a6a3fda93e4ee13ed8d753
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: b344e9e24d15189b805f586227c7253395e8448e
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130783"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348985"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Informazioni sugli input per Analisi di flusso di Azure
 
@@ -26,7 +26,7 @@ Analisi di flusso offre un'integrazione di prima classe con quattro tipi di riso
 
 Queste risorse di input possono risiedere nella stessa sottoscrizione di Azure del processo di analisi di flusso o in una sottoscrizione diversa.
 
-Per creare, modificare e testare gli input del processo di analisi di flusso, è possibile usare le [portale di Azure](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), l' [API .NET](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), l' [API REST](./stream-analytics-define-inputs.md)e [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) .
+Per creare, modificare e testare gli input del processo di analisi di flusso, è possibile usare le [portale di Azure](stream-analytics-quick-create-portal.md#configure-job-input),  [Azure PowerShell](/powershell/module/az.streamanalytics/New-azStreamAnalyticsInput), l' [API .NET](/dotnet/api/microsoft.azure.management.streamanalytics.inputsoperationsextensions), l' [API REST](/rest/api/streamanalytics/2016-03-01/inputs)e [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) .
 
 ## <a name="stream-and-reference-inputs"></a>Input del flusso e di riferimento
 Quando sono inviati tramite push a un'origine, i dati vengono utilizzati dal processo di Analisi di flusso ed elaborati in tempo reale. Gli input si dividono in due tipi: input del flusso dei dati e input dei dati di riferimento.
@@ -37,7 +37,7 @@ Un flusso dei dati è una sequenza non associata di eventi che accadono nel temp
 Per altre informazioni sul flusso dei dati di input, vedere [Trasmettere dati come input in Analisi di flusso](stream-analytics-define-inputs.md)
 
 ### <a name="reference-data-input"></a>Input dei dati di riferimento
-Analisi di flusso supporta anche l'input noto come *dati di riferimento* . I dati di riferimento possono essere completamente statici o cambiare lentamente. I dati di riferimento vengono usati in genere per l'esecuzione di correlazione e ricerche. È ad esempio possibile unire i dati nell'input del flusso dei dati con quelli inclusi nei dati di riferimento, proprio come si esegue un join SQL per cercare valori statici. Archiviazione BLOB di Azure, Azure Data Lake Storage Gen2 e il database SQL di Azure sono attualmente supportati come origini di input per i dati di riferimento. I BLOB di origini dati di riferimento hanno un limite di dimensioni fino a 300 MB, a seconda della complessità della query e delle unità di streaming allocate. per altri dettagli, vedere la sezione [limitazione delle dimensioni](stream-analytics-use-reference-data.md#size-limitation) della documentazione sui dati di riferimento.
+Analisi di flusso supporta anche l'input noto come *dati di riferimento*. I dati di riferimento possono essere completamente statici o cambiare lentamente. I dati di riferimento vengono usati in genere per l'esecuzione di correlazione e ricerche. È ad esempio possibile unire i dati nell'input del flusso dei dati con quelli inclusi nei dati di riferimento, proprio come si esegue un join SQL per cercare valori statici. Archiviazione BLOB di Azure, Azure Data Lake Storage Gen2 e il database SQL di Azure sono attualmente supportati come origini di input per i dati di riferimento. I BLOB di origini dati di riferimento hanno un limite di dimensioni fino a 300 MB, a seconda della complessità della query e delle unità di streaming allocate. per altri dettagli, vedere la sezione [limitazione delle dimensioni](stream-analytics-use-reference-data.md#size-limitation) della documentazione sui dati di riferimento.
 
 Per altre informazioni sugli input di dati di riferimento, vedere [Uso dei dati di riferimento per le ricerche in Analisi di flusso](stream-analytics-use-reference-data.md)
 

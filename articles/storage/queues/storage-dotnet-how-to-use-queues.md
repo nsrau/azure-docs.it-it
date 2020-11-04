@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb53181355e292a885e8ffc2ac7c8a3aa48adaae
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: b59c7d2af33efd82f27af9e13fc9c1f36ca788ee
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92787466"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348594"
 ---
 # <a name="get-started-with-azure-queue-storage-using-net"></a>Introduzione all'archiviazione code di Azure con .NET
 
@@ -69,9 +69,9 @@ Per completare l'esercitazione, è necessario fare riferimento ai quattro pacche
 - [Libreria della coda di archiviazione di Azure per .NET](https://www.nuget.org/packages/Azure.Storage.Queues/): questo pacchetto consente di usare il servizio di Accodamento di archiviazione di Azure per archiviare i messaggi a cui è possibile accedere da un client.
 - [Libreria di Configuration Manager per .NET](https://www.nuget.org/packages/System.Configuration.ConfigurationManager/): questo pacchetto consente di accedere ai file di configurazione per le applicazioni client.
 
-È possibile usare NuGet per ottenere questi pacchetti. A tale scopo, seguire questa procedura:
+È possibile usare NuGet per ottenere questi pacchetti. Seguire questa procedura:
 
-1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet** .
+1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
 1. Selezionare **Sfoglia**
 1. Cercare online "Azure. storage. Queues" e selezionare **Installa** per installare la libreria client di archiviazione e le relative dipendenze. Verranno installate anche le librerie Azure. storage. Common e Azure. Core, che sono dipendenze della libreria di Accodamento.
 1. Cercare online "System.Configuration.ConfigurationManager" e selezionare **Installa** per installare il Configuration Manager.
@@ -84,9 +84,9 @@ Per completare questa esercitazione, è necessario fare riferimento ai tre pacch
 - [Archiviazione di Microsoft Azure Library Queue per .NET](https://www.nuget.org/packages/Microsoft.Azure.Storage.Queue/): questa libreria client consente di utilizzare il archiviazione di Microsoft Azure servizio di Accodamento per archiviare i messaggi a cui è possibile accedere da un client.
 - [Libreria Gestione configurazione di Microsoft Azure per .NET](https://www.nuget.org/packages/Microsoft.Azure.ConfigurationManager/): questo pacchetto fornisce una classe per l'analisi di una stringa di connessione in un file di configurazione, indipendentemente dalla posizione in cui viene eseguita l'applicazione.
 
-È possibile usare NuGet per ottenere questi pacchetti. A tale scopo, seguire questa procedura:
+È possibile usare NuGet per ottenere questi pacchetti. Seguire questa procedura:
 
-1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet** .
+1. Fare clic con il pulsante destro del mouse sul progetto in **Esplora soluzioni** e scegliere **Gestisci pacchetti NuGet**.
 1. Selezionare **Sfoglia**
 1. Cercare online "Microsoft. Azure. storage. Queue" e selezionare **Installa** per installare la libreria client di archiviazione e le relative dipendenze. Verrà installata anche la libreria Microsoft. Azure. storage. Common, che è una dipendenza della libreria di Accodamento.
 1. Cercare online "Microsoft.Azure.ConfigurationManager" e selezionare **Installa** per installare il Configuration Manager di Azure.
@@ -113,7 +113,7 @@ Il codice di esempio deve autorizzare l'accesso all'account di archiviazione. Pe
 
 1. Passare al [portale di Azure](https://portal.azure.com).
 2. Individuare l'account di archiviazione.
-3. Nella sezione **Impostazioni** della panoramica dell'account di archiviazione selezionare **Chiavi di accesso** . Verranno visualizzate le chiavi di accesso dell'account, con la stringa di connessione completa per ogni chiave.
+3. Nella sezione **Impostazioni** della panoramica dell'account di archiviazione selezionare **Chiavi di accesso**. Verranno visualizzate le chiavi di accesso dell'account, con la stringa di connessione completa per ogni chiave.
 4. Trovare il valore **Stringa di connessione** in **key1** e fare clic sul pulsante **Copia** per copiare la stringa di connessione. Il valore della stringa di connessione verrà aggiunto a una variabile di ambiente nel passaggio successivo.
 
     ![Screenshot che mostra come copiare una stringa di connessione dal portale di Azure](media/storage-dotnet-how-to-use-queues/portal-connection-string.png)

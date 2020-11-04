@@ -6,12 +6,12 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/10/2020
-ms.openlocfilehash: 87ee8a9c57fc456ba02f97bf56db25e4c91e9398
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 11014c5a5c5cd0cabae1b62083bd5e662be2c6b7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129814"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348934"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Livello di compatibilità per i processi di Analisi di flusso di Azure
 
@@ -33,13 +33,13 @@ Quando si crea un nuovo processo di analisi di flusso, è consigliabile crearlo 
 
 ## <a name="set-the-compatibility-level"></a>Configurare il livello di compatibilità
 
-È possibile impostare il livello di compatibilità per un processo di analisi di flusso nel portale di Azure o usando la [chiamata all'API REST di creazione del processo](./stream-analytics-quick-create-portal.md).
+È possibile impostare il livello di compatibilità per un processo di analisi di flusso nel portale di Azure o usando la [chiamata all'API REST di creazione del processo](/rest/api/streamanalytics/2016-03-01/streamingjobs/createorreplace#compatibilitylevel).
 
 Per aggiornare il livello di compatibilità del processo nel portale di Azure:
 
 1. Usare il [portale di Azure](https://portal.azure.com) per individuare il processo di analisi di flusso.
-2. **Arrestare** il processo prima di aggiornare il livello di compatibilità. Il livello di compatibilità, infatti, non può essere aggiornato se il processo è in esecuzione.
-3. Nell'intestazione **Configura** selezionare livello di **compatibilità** .
+2. **Arrestare** il processo prima di aggiornare il livello di compatibilità. Non è possibile aggiornare il livello di compatibilità se lo stato del processo è in esecuzione.
+3. Nell'intestazione **Configura** selezionare livello di **compatibilità**.
 4. Scegliere il valore del livello di compatibilità desiderato.
 5. Selezionare **Save (Salva** ) nella parte inferiore della pagina.
 
@@ -75,15 +75,15 @@ Per altre informazioni, vedere [aggiornamenti alle funzionalità geospaziali in 
 
 ### <a name="native-bulk-api-integration-with-cosmosdb-output"></a>Integrazione dell'API bulk nativa con output CosmosDB
 
-**Livelli precedenti:** Il comportamento di Upsert è *Insert o merge* .
+**Livelli precedenti:** Il comportamento di Upsert è *Insert o merge*.
 
 **livello 1,2:** L'integrazione dell'API bulk nativa con l'output CosmosDB ottimizza la velocità effettiva e gestisce in modo efficiente le richieste di limitazione. Per altre informazioni, vedere [la pagina relativa all'output di analisi di flusso di Azure per Azure Cosmos DB](./stream-analytics-documentdb-output.md#improved-throughput-with-compatibility-level-12).
 
-Il comportamento di Upsert è *Insert o Replace* .
+Il comportamento di Upsert è *Insert o Replace*.
 
 ### <a name="datetimeoffset-when-writing-to-sql-output"></a>DateTimeOffset durante la scrittura nell'output SQL
 
-**Livelli precedenti:** i tipi [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql?view=sql-server-2017) sono stati adattati all'ora UTC.
+**Livelli precedenti:** i tipi [DateTimeOffset](/sql/t-sql/data-types/datetimeoffset-transact-sql) sono stati adattati all'ora UTC.
 
 **livello 1,2:** DateTimeOffset non viene più modificato.
 

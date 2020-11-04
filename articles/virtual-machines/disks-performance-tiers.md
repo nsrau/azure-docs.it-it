@@ -8,12 +8,12 @@ ms.date: 09/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 404f435e321e53694807a627121d84f6cbf6724d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 4e31af3a66927e0c93caf477a7daf1b86eebf8f5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92359680"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348696"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Livelli di prestazioni per Managed Disks (anteprima)
 
@@ -42,10 +42,10 @@ Le modifiche apportate alla fatturazione cambiano a seconda del livello. Se, ad 
 | 512 GiB | P20 | P30, P40, P50 |
 | 1 TiB | P30 | P40, P50 |
 | 2 TiB | P40 | P50 |
-| 4 TiB | P50 | nessuno |
+| 4 TiB | P50 | Nessuno |
 | 8 TiB | P60 |  P70, P80 |
 | 16 TiB | P70 | P80 |
-| 32 TiB | P80 | nessuno |
+| 32 TiB | P80 | Nessuno |
 
 Per informazioni sulla fatturazione, vedere [prezzi dei dischi gestiti](https://azure.microsoft.com/pricing/details/managed-disks/).
 
@@ -55,10 +55,6 @@ Per informazioni sulla fatturazione, vedere [prezzi dei dischi gestiti](https://
 - È necessario deallocare la VM o scollegare il disco da una macchina virtuale in esecuzione prima di poter modificare il livello del disco.
 - L'uso dei livelli di prestazioni P60, p70 e P80 è limitato ai dischi di 4.096 GiB o versione successiva.
 - Il downgrade del livello di prestazioni di un disco può essere eseguito solo una volta ogni 24 ore.
-
-## <a name="regional-availability"></a>Disponibilità a livello di area
-
-La possibilità di modificare il livello di prestazioni di un disco gestito è attualmente disponibile solo nelle unità SSD Premium nelle aree Stati Uniti orientali 2, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, Australia sud-orientale.
 
 ## <a name="create-an-empty-data-disk-with-a-tier-higher-than-the-baseline-tier"></a>Creare un disco dati vuoto con un livello superiore rispetto al livello di base
 

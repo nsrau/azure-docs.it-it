@@ -4,12 +4,12 @@ description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMwar
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: 68eee2d55e3c22b502d17a91f4ba4509c292c31c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: a1ca50e1e1374b5e819c9355be1a48e2b7c3e536
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93288680"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93349087"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -59,13 +59,7 @@ Gli aggiornamenti apportati al servizio stesso seguiranno il processo di gestion
 
 Con la nuova soluzione Azure VMware, Microsoft e VMware hanno una partnership diretta di provider di servizi cloud. La nuova soluzione è interamente progettata, compilata e supportata da Microsoft e approvata da VMware. Con l'architettura, le soluzioni sono coerenti con lo stack di tecnologie VMware in esecuzione su un'infrastruttura di Azure dedicata.
 
-#### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Le soluzioni Red Hat sono supportate nella soluzione VMware di Azure?
 
-Microsoft e Red Hat condividono un team di supporto integrato che fornisce un punto di contatto unificato per gli ecosistemi Red Hat in esecuzione nella piattaforma Azure.  Analogamente ad altri servizi della piattaforma Azure che funzionano con Red Hat Enterprise Linux, la soluzione VMware di Azure rientra nell'accesso al cloud e nel supporto integrato e Red Hat Enterprise Linux è supportata per l'esecuzione su una soluzione VMware di Azure in Azure.
-
-#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition è disponibile e, in caso affermativo, qual è il costo?
-
-VMware HCX Enterprise Edition (EE) è disponibile con la soluzione Azure VMware come funzione/servizio in *anteprima*. Mentre la soluzione VMware HCX EE per Azure VMware è in anteprima, si tratta di una funzione/servizio gratuita, soggetta a termini e condizioni del servizio in anteprima. Dopo il passaggio del servizio VMware HCX EE alla disponibilità generale, si riceverà un preavviso di 30 giorni relativo al passaggio alla fatturazione. È possibile disattivare o rifiutare esplicitamente il servizio.
 
 #### <a name="can-azure-vmware-solution-vms-be-managed-by-vmrc"></a>Le macchine virtuali della soluzione VMware di Azure possono essere gestite da VMRC?
 Sì, a condizione che il sistema su cui è installato possa accedere al cloud privato vCenter e usa DNS pubblico per risolvere i nomi host ESXi.
@@ -236,6 +230,14 @@ Microsoft offre supporto per la soluzione VMware di Azure. È possibile inviare 
 #### <a name="what-accounts-do-i-need-to-create-an-azure-vmware-solution-private-cloud"></a>Quali account sono necessari per creare un cloud privato della soluzione VMware di Azure?
 
 Sarà necessario un account Azure in una sottoscrizione di Azure.
+
+#### <a name="are-red-hat-solutions-supported-on-azure-vmware-solution"></a>Le soluzioni Red Hat sono supportate nella soluzione VMware di Azure?
+
+Microsoft e Red Hat condividono un team di supporto integrato che fornisce un punto di contatto unificato per gli ecosistemi Red Hat in esecuzione nella piattaforma Azure.  Analogamente ad altri servizi della piattaforma Azure che funzionano con Red Hat Enterprise Linux, la soluzione VMware di Azure rientra nell'accesso al cloud e nel supporto integrato e Red Hat Enterprise Linux è supportata per l'esecuzione su una soluzione VMware di Azure in Azure.
+
+#### <a name="is-vmware-hcx-enterprise-edition-available-and-if-so-how-much-does-it-cost"></a>VMware HCX Enterprise Edition è disponibile e, in caso affermativo, qual è il costo?
+
+VMware HCX Enterprise Edition (EE) è disponibile con la soluzione Azure VMware come funzione/servizio in *anteprima*. Mentre la soluzione VMware HCX EE per Azure VMware è in anteprima, si tratta di una funzione/servizio gratuita, soggetta a termini e condizioni del servizio in anteprima. Dopo il passaggio del servizio VMware HCX EE alla disponibilità generale, si riceverà un preavviso di 30 giorni relativo al passaggio alla fatturazione. È possibile disattivare o rifiutare esplicitamente il servizio.
 
 #### <a name="how-do-i-request-a-host-quota-increase-for-azure-vmware-solution"></a>Ricerca per categorie richiedere un aumento della quota host per la soluzione VMware di Azure?
 

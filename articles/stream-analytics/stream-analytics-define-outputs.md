@@ -8,18 +8,18 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/2/2020
-ms.openlocfilehash: fdd610be1dd7c5fe9c7aa574fde33df866116dd2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 022e2e25c96473f49468f2bd48e5ee997933baea
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128835"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348713"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Output di analisi di flusso di Azure
 
 Un processo di Analisi di flusso di Azure è costituito da un input, una query e un output. Sono disponibili diversi tipi di output a cui è possibile inviare dati trasformati. Questo articolo elenca gli output di analisi di flusso supportati. Quando si progetta la query di Analisi di flusso, fare riferimento al nome dell'output usando la [clausola INTO](/stream-analytics-query/into-azure-stream-analytics). È possibile usare un singolo output per processo o più output per ogni processo di streaming (se necessario) aggiungendo più clausole INTO alla query.
 
-Per creare, modificare e testare gli output dei processi di Analisi di flusso, è possibile usare il [portale di Azure](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), l'[API .NET](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations?view=azure-dotnet), l'[API REST](/rest/api/streamanalytics/) e [Visual Studio](stream-analytics-quick-create-vs.md).
+Per creare, modificare e testare gli output dei processi di Analisi di flusso, è possibile usare il [portale di Azure](stream-analytics-quick-create-portal.md#configure-job-output), [Azure PowerShell](stream-analytics-quick-create-powershell.md#configure-output-to-the-job), l'[API .NET](/dotnet/api/microsoft.azure.management.streamanalytics.ioutputsoperations), l'[API REST](/rest/api/streamanalytics/) e [Visual Studio](stream-analytics-quick-create-vs.md).
 
 Alcuni tipi di output supportano il [partizionamento](#partitioning) e le [dimensioni batch dell'output](#output-batch-size) variano per ottimizzare la velocità effettiva. La tabella seguente illustra le funzionalità supportate per ogni tipo di output:
 
@@ -59,7 +59,7 @@ Quando si usa la distribuzione di Azure Resource Manager modello o l'API REST, l
 
    Numero minimo di righe per batch. Per parquet, ogni batch crea un nuovo file. Il valore predefinito corrente è 2000 righe e il valore massimo consentito è 10.000 righe.
 
-Queste proprietà della finestra batch sono supportate solo dalla versione API **2017-04-01-Preview** . Di seguito è riportato un esempio di payload JSON per una chiamata API REST:
+Queste proprietà della finestra batch sono supportate solo dalla versione API **2017-04-01-Preview**. Di seguito è riportato un esempio di payload JSON per una chiamata API REST:
 
 ```json
 "type": "stream",
