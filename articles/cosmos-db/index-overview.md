@@ -3,15 +3,16 @@ title: Indicizzazione in Azure Cosmos DB
 description: Informazioni sul funzionamento dell'indicizzazione in Azure Cosmos DB e su diversi tipi di indici, ad esempio indici di intervallo, spaziali e composti supportati.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/21/2020
 ms.author: tisande
-ms.openlocfilehash: acb0396ece32c568a4d8c384bebcbabd7480eb09
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4211f13324b9fda0b0823b2d035eb03863cb686d
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101460"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339756"
 ---
 # <a name="indexing-in-azure-cosmos-db---overview"></a>Indicizzazione in Azure Cosmos DB - Panoramica
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -181,7 +182,7 @@ I percorsi estratti durante l'indicizzazione dei dati facilitano la ricerca dell
 
 Si consideri ad esempio la query seguente: `SELECT location FROM location IN company.locations WHERE location.country = 'France'`. Il predicato della query (filtro sugli elementi la cui posizione contiene "France" come paese/area geografica) corrisponderà al percorso evidenziato in rosso sotto:
 
-:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Elemento precedente rappresentato sotto forma di albero" border="false":::
+:::image type="content" source="./media/index-overview/matching-path.png" alt-text="Corrispondenza di un percorso specifico all'interno di un albero" border="false":::
 
 > [!NOTE]
 > Una clausola `ORDER BY` che ordina in base a una singola proprietà necessita *sempre* di un indice di intervallo e avrà esito negativo se il percorso a cui fa riferimento non ne ha uno. In modo analogo, una query `ORDER BY` che ordina in base a più proprietà necessita *sempre* di un indice composto.

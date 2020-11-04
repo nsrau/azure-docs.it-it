@@ -3,16 +3,17 @@ title: Addebiti di unità richiesta per Azure Cosmos DB come archivio di valori 
 description: Informazioni sugli addebiti di unità richiesta di Azure Cosmos DB per semplici operazioni di lettura e scrittura, quando si usa Cosmos DB come archivio di chiavi/valori.
 author: SnehaGunda
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: cd80e98d0838cb06228c92c7ea7efeb3fc30a0ed
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9354ae0a22ef2e8ab4ee6a57563d3f3c4c8e4547
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082879"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339304"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>Azure Cosmos DB come archivio di valori chiave: Panoramica dei costi
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -23,7 +24,7 @@ L'articolo descrive il costo di Azure Cosmos DB per semplici operazioni di lettu
 
 ## <a name="why-we-use-request-units-rus"></a>Perché usare le unità richiesta (UR)
 
-Azure Cosmos DB prestazioni si basano sulla quantità di velocità effettiva con provisioning espressa in [unità richiesta](request-units.md) (UR/sec). Il provisioning è a una seconda granularità e viene acquistato in ur/s ([da non confondere con la fatturazione oraria](https://azure.microsoft.com/pricing/details/cosmos-db/)). Le UR devono essere considerate come un'astrazione logica (una valuta) che semplifica il provisioning della velocità effettiva necessaria per l'applicazione. Gli utenti non devono pensare di distinguere la velocità effettiva di lettura e scrittura. Il modello singolo di valuta delle UR crea efficienza per condividere la capacità di provisioning tra le letture e le scritture. Questo modello di capacità con provisioning consente al servizio di fornire una **velocità effettiva prevedibile e coerente, bassa latenza garantita e disponibilità elevata** . Infine, mentre il modello ur viene usato per rappresentare la velocità effettiva, ogni UR con provisioning ha anche una quantità definita di risorse, ad esempio memoria, Core/CPU e IOPS.
+Azure Cosmos DB prestazioni si basano sulla quantità di velocità effettiva con provisioning espressa in [unità richiesta](request-units.md) (UR/sec). Il provisioning è a una seconda granularità e viene acquistato in ur/s ([da non confondere con la fatturazione oraria](https://azure.microsoft.com/pricing/details/cosmos-db/)). Le UR devono essere considerate come un'astrazione logica (una valuta) che semplifica il provisioning della velocità effettiva necessaria per l'applicazione. Gli utenti non devono pensare di distinguere la velocità effettiva di lettura e scrittura. Il modello singolo di valuta delle UR crea efficienza per condividere la capacità di provisioning tra le letture e le scritture. Questo modello di capacità con provisioning consente al servizio di fornire una **velocità effettiva prevedibile e coerente, bassa latenza garantita e disponibilità elevata**. Infine, mentre il modello ur viene usato per rappresentare la velocità effettiva, ogni UR con provisioning ha anche una quantità definita di risorse, ad esempio memoria, Core/CPU e IOPS.
 
 Come sistema di database distribuito a livello globale, Cosmos DB è l'unico servizio di Azure che offre contratti di servizio completi relativi a latenza, velocità effettiva, coerenza e disponibilità elevata. La velocità effettiva di cui viene effettuato il provisioning viene applicata a ognuna delle aree associate all'account Cosmos. Per le letture, Cosmos DB offre più [livelli di coerenza](consistency-levels.md) ben definiti tra cui scegliere. 
 

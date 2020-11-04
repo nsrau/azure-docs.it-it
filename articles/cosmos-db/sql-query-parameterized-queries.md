@@ -3,22 +3,23 @@ title: Query con parametri in Azure Cosmos DB
 description: Informazioni sul modo in cui le query con parametri SQL forniscono una gestione efficace e l'escape dell'input dell'utente e impediscono l'esposizione accidentale dei dati tramite SQL injection.
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 07/29/2020
 ms.author: tisande
-ms.openlocfilehash: a0f354a0420521ede45740a4eb9c492089e36bda
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 297179b4b3f1479bf0fb9c1ff206890355092615
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93089220"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338255"
 ---
 # <a name="parameterized-queries-in-azure-cosmos-db"></a>Query con parametri in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB supporta le query con parametri espressi dalla nota @ Notation. SQL con parametri fornisce una gestione efficace e l'escape dell'input dell'utente e impedisce l'esposizione accidentale dei dati tramite SQL injection.
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 Ad esempio, è possibile scrivere una query che accetta `lastName` e `address.state` come parametri ed eseguirla per diversi valori di `lastName` e `address.state` in base all'input dell'utente.
 

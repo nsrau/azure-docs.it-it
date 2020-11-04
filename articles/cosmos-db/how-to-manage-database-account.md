@@ -3,15 +3,16 @@ title: Informazioni su come gestire gli account di database in Azure Cosmos DB
 description: Informazioni su come gestire Azure Cosmos DB risorse usando i modelli portale di Azure, PowerShell, CLI e Azure Resource Manager
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 09/18/2020
 ms.author: mjbrown
-ms.openlocfilehash: 4977a9ef8af75797f1e1989975688d7904f0c7b1
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d8763a794d2fb96d0c464fb1249b9eb400fd23e7
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93086449"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339870"
 ---
 # <a name="manage-an-azure-cosmos-account"></a>Gestire un account Azure Cosmos
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -42,7 +43,7 @@ Vedere [creare un account di Azure Cosmos DB con modelli di Azure Resource Manag
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-1. Passare all'account Azure Cosmos e aprire il menu **Replica i dati a livello globale** .
+1. Passare all'account Azure Cosmos e aprire il menu **Replica i dati a livello globale**.
 
 1. Per aggiungere aree, selezionare gli esagoni sulla mappa con l' **+** etichetta corrispondente alle aree desiderate. In alternativa, per aggiungere un'area, selezionare l'opzione **+ Aggiungi area** e scegliere un'area dal menu a discesa.
 
@@ -70,7 +71,7 @@ Vedere [aggiungere o rimuovere aree con PowerShell](manage-with-powershell.md#up
 
 Aprire la scheda **Replica i dati a livello globale** e selezionare **Abilita** per abilitare le operazioni di scrittura in più aree. Dopo aver abilitato tali operazioni, tutte le aree di lettura di cui si dispone attualmente nell'account diventeranno aree di lettura e scrittura.
 
-:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Aggiungere o rimuovere aree":::
+:::image type="content" source="./media/how-to-manage-database-account/single-to-multi-master.png" alt-text="Screenshot di Azure Cosmos configura le Scritture in più aree":::
 
 ### <a name="azure-cli"></a><a id="configure-multiple-write-regions-cli"></a>
 
@@ -146,17 +147,17 @@ L'opzione di failover automatico consente ad Azure Cosmos DB di eseguire il fail
 
 ### <a name="azure-portal"></a><a id="enable-automatic-failover-via-portal"></a>Portale di Azure
 
-1. Dall'account Azure Cosmos aprire il riquadro **Replica i dati a livello globale** .
+1. Dall'account Azure Cosmos aprire il riquadro **Replica i dati a livello globale**.
 
-2. Nella parte superiore del riquadro fare clic sul pulsante **Failover automatico** .
+2. Nella parte superiore del riquadro fare clic sul pulsante **Failover automatico**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Aggiungere o rimuovere aree":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu Replica i dati a livello globale":::
 
-3. Nel riquadro **Failover automatico** assicurarsi che **Abilita failover automatico** sia impostato su **SÌ** . 
+3. Nel riquadro **Failover automatico** assicurarsi che **Abilita failover automatico** sia impostato su **SÌ**. 
 
-4. Selezionare **Salva** .
+4. Selezionare **Salva**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Aggiungere o rimuovere aree":::
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu del portale Failover automatico":::
 
 ### <a name="azure-cli"></a><a id="enable-automatic-failover-via-cli"></a>
 
@@ -175,19 +176,19 @@ Dopo aver configurato un account Cosmos per il failover automatico, è possibile
 
 ### <a name="azure-portal"></a><a id="set-failover-priorities-via-portal"></a>Portale di Azure
 
-1. Dall'account Azure Cosmos aprire il riquadro **Replica i dati a livello globale** .
+1. Dall'account Azure Cosmos aprire il riquadro **Replica i dati a livello globale**.
 
-2. Nella parte superiore del riquadro fare clic sul pulsante **Failover automatico** .
+2. Nella parte superiore del riquadro fare clic sul pulsante **Failover automatico**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Aggiungere o rimuovere aree":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu Replica i dati a livello globale":::
 
-3. Nel riquadro **Failover automatico** assicurarsi che **Abilita failover automatico** sia impostato su **SÌ** .
+3. Nel riquadro **Failover automatico** assicurarsi che **Abilita failover automatico** sia impostato su **SÌ**.
 
 4. Per modificare la priorità di failover, trascinare le aree di lettura tramite i tre puntini a sinistra nella riga, visualizzati al passaggio del mouse.
 
-5. Selezionare **Salva** .
+5. Selezionare **Salva**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Aggiungere o rimuovere aree":::
+   :::image type="content" source="./media/how-to-manage-database-account/automatic-failover.png" alt-text="Menu del portale Failover automatico":::
 
 ### <a name="azure-cli"></a><a id="set-failover-priorities-via-cli"></a>
 
@@ -209,17 +210,17 @@ Il processo di esecuzione di un failover manuale prevede la modifica dell'area d
 
 ### <a name="azure-portal"></a><a id="enable-manual-failover-via-portal"></a>Portale di Azure
 
-1. Passare all'account Azure Cosmos e aprire il menu **Replica i dati a livello globale** .
+1. Passare all'account Azure Cosmos e aprire il menu **Replica i dati a livello globale**.
 
-2. Nella parte superiore del menu selezionare **Failover manuale** .
+2. Nella parte superiore del menu selezionare **Failover manuale**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Aggiungere o rimuovere aree":::
+   :::image type="content" source="./media/how-to-manage-database-account/replicate-data-globally.png" alt-text="Menu Replica i dati a livello globale":::
 
 3. Nel menu **Failover manuale** selezionare la nuova area di scrittura. Selezionare la casella di controllo per indicare di aver compreso che questa opzione modifica l'area di scrittura.
 
-4. Per attivare il failover, selezionare **OK** .
+4. Per attivare il failover, selezionare **OK**.
 
-   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Aggiungere o rimuovere aree":::
+   :::image type="content" source="./media/how-to-manage-database-account/manual-failover.png" alt-text="Menu del portale Failover manuale":::
 
 ### <a name="azure-cli"></a><a id="enable-manual-failover-via-cli"></a>
 

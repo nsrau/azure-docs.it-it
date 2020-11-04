@@ -3,16 +3,17 @@ title: EndsWith nel linguaggio di query di Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL ENDSWITH in Azure Cosmos DB per restituire un valore booleano che indica se la prima espressione stringa termina con la seconda
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 06/02/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: dd34a41fd9757d91845eb53626b00381c7ddda7a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c0cc93fee8aacc711a797925cb2e2808b73cafd1
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100287"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93338833"
 ---
 # <a name="endswith-azure-cosmos-db"></a>ENDSWITH (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -31,7 +32,7 @@ ENDSWITH(<str_expr1>, <str_expr2> [, <bool_expr>])
    Espressione stringa.  
   
 *str_expr2*  
-   Espressione stringa da confrontare con la fine di *str_expr1* .
+   Espressione stringa da confrontare con la fine di *str_expr1*.
 
 *bool_expr* Valore facoltativo per ignorare la distinzione tra maiuscole e minuscole. Se impostato su true, ENDSWITH eseguirà una ricerca senza distinzione tra maiuscole e minuscole. Se non è specificato, questo valore è false.
   

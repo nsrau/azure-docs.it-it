@@ -1,5 +1,5 @@
 ---
-title: Pubblicare l'app nella raccolta di app Azure AD
+title: Pubblicare l'app nella raccolta di app Azure Active Directory
 description: Informazioni su come elencare un'applicazione che supporta Single Sign-On nella raccolta di app Azure Active Directory.
 services: active-directory
 author: kenwith
@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/19/2020
+ms.date: 11/03/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: 5ade98e04853ae8293f762f237b3b3154c876f7e
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275746"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339436"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Pubblicare l'app nella raccolta di app Azure AD
 
@@ -60,11 +60,28 @@ I passaggi per la pubblicazione dell'app nella raccolta di app Azure AD sono:
 5. Invia l'app.
 6. Partecipa a Microsoft Partner Network.
 
+## <a name="what-is-the-azure-ad-application-gallery"></a>Definizione della raccolta di applicazioni di Azure AD
+
+- Esperienza Single Sign-On ottimale per i clienti.
+- Configurazione minima e semplice dell'applicazione.
+- Ricerca rapida per l'individuazione dell'applicazione nella raccolta.
+- Uso di questa integrazione per tutti i clienti con account Free, Basic e Premium di Azure AD.
+- Esercitazione dettagliata per la configurazione per i clienti reciproci.
+- I clienti che usano il sistema per la gestione delle identità tra domini ([scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)) possono usare il provisioning per la stessa app.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 È necessario un account permanente per i test con almeno due utenti registrati.
 
+- Per le applicazioni federate (Open ID e SAML/WS-Fed), l'applicazione deve supportare il modello SaaS (software-as-a-Service) per essere elencato nella raccolta di app Azure AD. Le applicazioni della raccolta Enterprise devono supportare più configurazioni dei clienti e non un cliente specifico.
+- Per Open ID Connect, l'applicazione deve essere multi-tenant e il [Framework di consenso Azure ad](../develop/consent-framework.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json) deve essere implementato correttamente per l'applicazione. L'utente può inviare la richiesta di accesso a un endpoint comune in modo che qualsiasi cliente possa fornire il consenso all'applicazione. È possibile controllare l'accesso utente in base all'ID del tenant e all'UPN dell'utente ricevuti nel token.
+- Per SAML 2.0/WS-Fed, l'applicazione deve avere la possibilità di eseguire l'integrazione SSO SAML/WS-Fed in modalità SP o IDP. Verificare che questa funzionalità funzioni correttamente prima di inviare la richiesta.
+- Per l'accesso Single Sign-on basato su password, assicurarsi che l'applicazione supporti l'autenticazione basata su form, Single Sign-On in modo che l'insieme di credenziali delle password possa essere eseguito come previsto.
+- È necessario un account permanente per i test con almeno due utenti registrati.
+
+**Come ottenere Azure AD per gli sviluppatori?**
+
+È possibile ottenere un account di test gratuito con tutte le funzionalità Premium Azure AD-90 giorni gratuiti e possono essere estese fino a quando si lavora con il proprio sviluppo: https://docs.microsoft.com/office/developer-program/office-365-developer-program
 
 ## <a name="step-1---choose-the-right-single-sign-on-standard-for-your-app"></a>Passaggio 1: scegliere la Single Sign-On standard corretta per l'app
 
@@ -159,9 +176,9 @@ In alternativa, un tenant Azure AD viene incluso in ogni sottoscrizione di Micro
 
 Quando si dispone di un tenant, è necessario abilitare e testare l'accesso Single Sign-on. 
 
-**Per le applicazioni OIDC o giuramento**, [registrare l'applicazione](quickstart-register-app.md) come applicazione multi-tenant. Selezionare l'opzione account in qualsiasi directory organizzativa e account Microsoft personali in tipi di account supportati.
+**Per le applicazioni OIDC o giuramento** , [registrare l'applicazione](quickstart-register-app.md) come applicazione multi-tenant. Selezionare l'opzione account in qualsiasi directory organizzativa e account Microsoft personali in tipi di account supportati.
 
-**Per le applicazioni basate su SAML e WS-Fed**, si [configurano le applicazioni Single Sign-on basate su SAML](../manage-apps/configure-saml-single-sign-on.md) usando un modello SAML generico in Azure ad.
+**Per le applicazioni basate su SAML e WS-Fed** , si [configurano le applicazioni Single Sign-on basate su SAML](../manage-apps/configure-saml-single-sign-on.md) usando un modello SAML generico in Azure ad.
 
 Se necessario, è anche possibile [convertire un'applicazione a tenant singolo in multi-tenant](howto-convert-app-to-be-multi-tenant.md) .
 
@@ -236,7 +253,7 @@ Per aggiungere l'applicazione all'elenco nella raccolta usando OpenID Connect, s
 
 ![Elenco di un'applicazione OpenID Connect nella raccolta](./media/howto-app-gallery-listing/openid.png)
 
-Se si vuole aggiungere l'applicazione all'elenco nella raccolta con **saml 2,0** o **WS-Fed**, selezionare **SAML 2.0/WS-Fed** come illustrato.
+Se si vuole aggiungere l'applicazione all'elenco nella raccolta con **saml 2,0** o **WS-Fed** , selezionare **SAML 2.0/WS-Fed** come illustrato.
 
 ![Elenco di un'applicazione SAML 2,0 o WS-Fed nella raccolta](./media/howto-app-gallery-listing/saml.png)
 
@@ -256,6 +273,16 @@ Se si sta implementando un endpoint SCIM 2,0 per il provisioning dell'utente, se
 
 > [!NOTE]
 > In caso di problemi con l'accesso, vedere la sezione precedente relativa alla creazione dell'account. Se questo non funziona, contattare il [team di integrazione di Azure ad SSO](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+### <a name="list-requests-by-customers"></a>Elenca richieste per clienti
+
+I clienti possono inviare una richiesta per elencare un'applicazione selezionando **richieste di app da clienti**  >  **Invia nuova richiesta**.
+
+![Mostra il riquadro app richieste dal cliente](./media/howto-app-gallery-listing/customer-submit-request.png)
+
+Ecco il flusso delle applicazioni richieste dai clienti.
+
+![Mostra il flusso delle app richieste dal cliente](./media/howto-app-gallery-listing/customer-request-2.png)
 
 
 ### <a name="timelines"></a>Tempistica

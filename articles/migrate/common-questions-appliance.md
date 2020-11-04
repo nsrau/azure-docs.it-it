@@ -3,12 +3,12 @@ title: Domande frequenti sull'appliance Azure Migrate
 description: Risposte alle domande più comuni sull'appliance Azure Migrate.
 ms.topic: conceptual
 ms.date: 09/15/2020
-ms.openlocfilehash: e0fd170859de2d4a9d38fdba0fff0575921c6d32
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 7be6260a7d3eb25ce2854f6949554e2c66019980
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314786"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337592"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate: domande comuni
 
@@ -42,12 +42,13 @@ L'appliance può essere distribuita come indicato di seguito:
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>In che modo l'appliance si connette ad Azure?
 
-L'appliance può connettersi tramite Internet o usando Azure ExpressRoute. Verificare che questi [URL](./migrate-appliance.md#url-access) siano approvati per la connessione dell'appliance ad Azure.
+L'appliance può connettersi tramite Internet o usando Azure ExpressRoute. 
 
-- Per usare Azure ExpressRoute per Azure Migrate il traffico di replica, è necessario il peering Microsoft o un peering pubblico esistente (il peering pubblico è deprecato per le nuove creazioni ER).
-- La replica su Azure ExpressRoute con (solo) il peering privato abilitato non è supportato.
+- Assicurarsi che l'appliance possa connettersi a questi [URL di Azure](./migrate-appliance.md#url-access). 
+- È possibile usare ExpressRoute con il peering Microsoft.  Il peering pubblico è deprecato e non è disponibile per i nuovi circuiti ExpressRoute.
+- Il peering privato non è supportato.
 
-Azure ExpressRoute con peering Microsoft configurato è il dominio di routing consigliato per il traffico di replica.
+
 
 ## <a name="does-appliance-analysis-affect-performance"></a>L'analisi degli appliance influisce sulle prestazioni?
 
@@ -65,9 +66,9 @@ Il dispositivo deve accedere agli URL di Azure. [Esaminare](migrate-appliance.md
 
 Vedere gli articoli seguenti per informazioni sui dati raccolti dal Azure Migrate Appliance sulle macchine virtuali:
 
-- **VM VMware**: [esaminare](migrate-appliance.md#collected-data---vmware) i dati raccolti.
-- **VM Hyper-V**: [esaminare](migrate-appliance.md#collected-data---hyper-v) i dati raccolti.
-- **Server fisici o virtuali**:[esaminare](migrate-appliance.md#collected-data---physical) i dati raccolti.
+- **VM VMware** : [esaminare](migrate-appliance.md#collected-data---vmware) i dati raccolti.
+- **VM Hyper-V** : [esaminare](migrate-appliance.md#collected-data---hyper-v) i dati raccolti.
+- **Server fisici o virtuali** : [esaminare](migrate-appliance.md#collected-data---physical) i dati raccolti.
 
 ## <a name="how-is-data-stored"></a>Come vengono archiviati i dati?
 

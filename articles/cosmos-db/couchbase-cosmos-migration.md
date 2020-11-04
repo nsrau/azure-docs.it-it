@@ -2,17 +2,18 @@
 title: Eseguire la migrazione da CouchBase all'API SQL di Azure Cosmos DB
 description: Istruzioni dettagliate per la migrazione da CouchBase all'API SQL di Azure Cosmos DB
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: mansha
 author: manishmsfte
 ms.custom: devx-track-java
-ms.openlocfilehash: 0f286b5586a0d74afed0bb185179454bb1efff95
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 73d6fe0233eccea9ebf1d82beb509c56fb45f4da
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097550"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339513"
 ---
 # <a name="migrate-from-couchbase-to-azure-cosmos-db-sql-api"></a>Eseguire la migrazione da CouchBase all'API SQL di Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -312,7 +313,7 @@ Si tratta di un tipo semplice di carico di lavoro in cui è possibile eseguire r
 
 1. Provare a usare "/ID" come chiave primaria, in modo da garantire che sia possibile eseguire l'operazione di ricerca direttamente nella partizione specifica. Creare una raccolta e specificare "/ID" come chiave di partizione.
 
-1. Disattivare completamente l'indicizzazione. Poiché si eseguiranno operazioni di ricerca, non si verifica alcun sovraccarico di indicizzazione. Per disattivare l'indicizzazione, accedere al portale di Azure e passare all'account di Azure Cosmos DB. Aprire **Esplora dati** , selezionare il **Database** e il **Contenitore** . Aprire la scheda **Scalabilità e impostazioni** e selezionare **Criteri di indicizzazione** . Attualmente, i criteri di indicizzazione hanno un aspetto simile al seguente:
+1. Disattivare completamente l'indicizzazione. Poiché si eseguiranno operazioni di ricerca, non si verifica alcun sovraccarico di indicizzazione. Per disattivare l'indicizzazione, accedere al portale di Azure e passare all'account di Azure Cosmos DB. Aprire **Esplora dati** , selezionare il **Database** e il **Contenitore**. Aprire la scheda **Scalabilità e impostazioni** e selezionare **Criteri di indicizzazione**. Attualmente, i criteri di indicizzazione hanno un aspetto simile al seguente:
     
    ```json
    {

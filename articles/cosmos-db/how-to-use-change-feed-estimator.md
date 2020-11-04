@@ -3,16 +3,17 @@ title: Usare lo strumento di stima dei feed di modifiche - Azure Cosmos DB
 description: Informazioni su come usare lo strumento di stima dei feed di modifiche per analizzare lo stato di avanzamento del processore di feed di modifiche
 author: ealsur
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 08/15/2019
 ms.author: maquaran
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b785479a1f3169c32be0d9fbd7accf37bc7ba8ed
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a44557d15f437317c2b5fa659ab8d4ca3c208edf
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085786"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339838"
 ---
 # <a name="use-the-change-feed-estimator"></a>Usare lo strumento di stima dei feed di modifiche
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

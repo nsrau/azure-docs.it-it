@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 28bf7e631c8693434d686022891bb2e45152f0ce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c72a2b134fc2c24789ebb75f61d9b64d63d3d48e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91597904"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339479"
 ---
 # <a name="understand-saml-based-single-sign-on"></a>Informazioni Single Sign-On basate su SAML
 
@@ -85,21 +85,24 @@ Da Azure AD è possibile scaricare il certificato attivo in formato Base64 o RAW
 
 Di seguito sono riportati alcuni aspetti comuni da verificare per verificare un certificato: 
    - *Data di scadenza corretta.* È possibile configurare la data di scadenza fino a un massimo di tre anni nel futuro.
-   - *Stato attivo per il certificato corretto.* Se lo stato è **Inattivo**, modificarlo in **Attivo**. Per modificare lo stato, fare clic con il pulsante destro del mouse sulla riga del certificato e selezionare **Rendi attivo il certificato**.
+   - *Stato attivo per il certificato corretto.* Se lo stato è **Inattivo** , modificarlo in **Attivo**. Per modificare lo stato, fare clic con il pulsante destro del mouse sulla riga del certificato e selezionare **Rendi attivo il certificato**.
    - *Opzione e algoritmo di firma corretti.*
    - *Indirizzi del messaggio di notifica corretti.* Quando la data del certificato attivo si avvicina alla scadenza, Azure AD invia una notifica all'indirizzo di posta elettronica configurato in questo campo.
 
-In alcuni casi potrebbe essere necessario scaricare il certificato. Prestare attenzione quando si salva il percorso. Per scaricare il certificato, selezionare una delle opzioni per formato Base64, RAW o XML metadati federazione. Azure AD fornisce anche l'**URL dei metadati della federazione dell'app** tramite cui è possibile accedere ai metadati specifici dell'applicazione nel formato `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+In alcuni casi potrebbe essere necessario scaricare il certificato. Prestare attenzione quando si salva il percorso. Per scaricare il certificato, selezionare una delle opzioni per formato Base64, RAW o XML metadati federazione. Azure AD fornisce anche l' **URL dei metadati della federazione dell'app** tramite cui è possibile accedere ai metadati specifici dell'applicazione nel formato `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`.
+
+> [!NOTE]
+> L'applicazione deve essere in grado di gestire il marcatore dell'ordine dei byte presente nel file XML sottoposto a rendering quando si usa https://login.microsoftonline.com/{tenant-id}/federationmetadata/2007-06/federationmetadata.xml?appid={app-id} . Byte Order Mark è rappresentato come carattere ASCII non stampabile» ¿e in Hex è rappresentato come EF BB BF quando si esaminano i dati XML.
 
 Per apportare modifiche ai certificati, selezionare il pulsante modifica. Nella pagina **certificato di firma SAML** è possibile eseguire diverse operazioni:
-   - Creare un nuovo certificato: selezionare **nuovo certificato**, selezionare la **Data di scadenza**e quindi fare clic su **Salva**. Per attivare il certificato, selezionare il menu di scelta rapida **(...)** e scegliere **Rendi attivo il certificato**.
+   - Creare un nuovo certificato: selezionare **nuovo certificato** , selezionare la **Data di scadenza** e quindi fare clic su **Salva**. Per attivare il certificato, selezionare il menu di scelta rapida **(...)** e scegliere **Rendi attivo il certificato**.
    - Caricare un certificato con chiave privata e credenziali PFX: selezionare **Importa certificato** e selezionare il certificato. Immettere la **Password PFX** e quindi selezionare **Aggiungi**.  
    - Configurare la firma avanzata del certificato. Per ulteriori informazioni su queste opzioni, vedere [Advanced Certificate Signing Options](certificate-signing-options.md).
    - Invia una notifica a persone aggiuntive quando il certificato attivo è prossimo alla data di scadenza: immettere gli indirizzi di posta elettronica nei campi degli **indirizzi di posta elettronica di notifica** .
 
 ## <a name="set-up-the-application-to-use-azure-ad"></a>Configurare l'applicazione per l'uso di Azure AD
 
-La sezione **Configura \<applicationName> ** elenca i valori che devono essere configurati nell'applicazione in modo da usare Azure ad come provider di identità SAML. È possibile impostare i valori nella pagina configurazione nel sito Web delle applicazioni. Ad esempio, se si sta configurando GitHub, si passa al sito di github.com e si impostano i valori. Se l'applicazione è già preconfigurata e nella raccolta Azure AD, viene visualizzato un collegamento per **visualizzare le istruzioni dettagliate**. In caso contrario, sarà necessario trovare la documentazione per l'applicazione che si sta configurando. 
+La sezione **Configura \<applicationName>** elenca i valori che devono essere configurati nell'applicazione in modo da usare Azure ad come provider di identità SAML. È possibile impostare i valori nella pagina configurazione nel sito Web delle applicazioni. Ad esempio, se si sta configurando GitHub, si passa al sito di github.com e si impostano i valori. Se l'applicazione è già preconfigurata e nella raccolta Azure AD, viene visualizzato un collegamento per **visualizzare le istruzioni dettagliate**. In caso contrario, sarà necessario trovare la documentazione per l'applicazione che si sta configurando. 
 
 I valori **URL di accesso** e URL di **disconnessione** si risolvono entrambi nello stesso endpoint, che è l'endpoint di gestione delle richieste SAML per Azure ad tenant. 
 
@@ -111,7 +114,7 @@ Dopo aver configurato l'applicazione per l'uso di Azure AD come provider di iden
 
 Selezionare **test** , quindi scegliere di eseguire il test con l'utente attualmente connesso o come un altro utente. 
 
-Se l'accesso riesce, è possibile assegnare utenti e gruppi all'applicazione SAML. A questo punto,
+Se l'accesso riesce, è possibile assegnare utenti e gruppi all'applicazione SAML. Congratulazioni!
 
 Se viene visualizzato un messaggio di errore, completare la procedura seguente:
 

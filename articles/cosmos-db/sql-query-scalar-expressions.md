@@ -3,15 +3,16 @@ title: Espressioni scalari in Azure Cosmos DB query SQL
 description: Informazioni sulla sintassi di espressione scalare SQL per Azure Cosmos DB. Questo articolo descrive anche come combinare espressioni scalari in espressioni complesse usando gli operatori.
 author: markjbrown
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 05/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: c40916d975b8acabaa7083cf57259291f09b40a9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 34df2d2f4a2209cca93c3f7ac12dcd203bf4a089
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93082607"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339632"
 ---
 # <a name="scalar-expressions-in-azure-cosmos-db-sql-queries"></a>Espressioni scalari in Azure Cosmos DB query SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -106,7 +107,7 @@ La [clausola SELECT](sql-query-select.md) supporta le espressioni scalari. Un'es
   
   Quando si crea una matrice, qualsiasi valore di elemento a cui viene assegnato un valore **non definito** verrà ignorato e non incluso nell'oggetto creato. Ciò causa la sostituzione dell'elemento da parte dell'elemento definito successivo in modo tale che la matrice creata non abbia indici ignorati.  
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 ```sql
     SELECT ((2 + 11 % 7)-2)/3
@@ -144,4 +145,4 @@ I risultati sono:
 
 - [Introduzione ad Azure Cosmos DB](introduction.md)
 - [Esempi relativi a Azure Cosmos DB .NET](https://github.com/Azure/azure-cosmos-dotnet-v3)
-- [Sottoquery:](sql-query-subquery.md)
+- [Sottoquery](sql-query-subquery.md)

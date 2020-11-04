@@ -2,14 +2,14 @@
 title: Controllo di accesso del bus di servizio di Azure con firme di accesso condiviso
 description: Panoramica del controllo degli accessi del bus di servizio con firme di accesso condiviso, dettagli dell'autorizzazione con firme di accesso condiviso con il bus di servizio di Azure.
 ms.topic: article
-ms.date: 07/30/2020
+ms.date: 11/03/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f71320613682f7d4b9f3b706845e68f581b3dc10
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89012076"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339411"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -36,7 +36,7 @@ Il token [Firma di accesso condiviso](/dotnet/api/microsoft.servicebus.sharedacc
 
 Ogni spazio dei nomi e ogni entità del bus di servizio prevede un criterio di autorizzazione dell'accesso condiviso costituito da regole. I criteri a livello di spazio dei nomi si applicano a tutte le entità in esso incluse, indipendentemente dalle specifiche configurazioni dei criteri.
 
-Per ogni regola del criterio di autorizzazione si stabiliscono tre informazioni: **nome**, **ambito** e **diritti**. Il **nome** è un nome univoco all'interno dell’ambito. L'ambito è abbastanza semplice: è l'URI della risorsa in questione. Per uno spazio dei nomi del bus di servizio, l'ambito è il nome di dominio completo (FQDN), ad esempio `https://<yournamespace>.servicebus.windows.net/`.
+Per ogni regola del criterio di autorizzazione si stabiliscono tre informazioni: **nome** , **ambito** e **diritti**. Il **nome** è un nome univoco all'interno dell’ambito. L'ambito è abbastanza semplice: è l'URI della risorsa in questione. Per uno spazio dei nomi del bus di servizio, l'ambito è il nome di dominio completo (FQDN), ad esempio `https://<yournamespace>.servicebus.windows.net/`.
 
 I diritti assegnati dalla regola del criterio possono essere una combinazione di:
 
@@ -52,13 +52,27 @@ A una regola di autorizzazione vengono assegnate una *chiave primaria* e una *ch
 
 Quando si crea uno spazio dei nomi del bus di servizio, viene creato automaticamente un criterio denominato **RootManageSharedAccessKey**. Questo criterio dispone delle autorizzazioni Manage per l'intero spazio dei nomi. È consigliabile considerare questa regola come un account **radice** amministratore e non usarla nell'applicazione. È possibile creare regole di criteri aggiuntive nella scheda **Configura** per lo spazio dei nomi nel portale, tramite PowerShell o l'interfaccia della riga di comando di Azure.
 
+## <a name="best-practices-when-using-sas"></a>Procedure consigliate per l'uso di SAS
+Quando si utilizzano le firme di accesso condiviso nell'applicazione, è necessario essere consapevoli di due rischi potenziali:
+
+- Se una firma di accesso condiviso viene persa, può essere usata da chiunque lo ottenga, che può potenzialmente compromettere le risorse di hub eventi.
+- Se una firma di accesso condiviso fornita a un'applicazione client scade e l'applicazione non è in grado di recuperare una nuova firma di accesso condiviso dal servizio, le funzionalità dell'applicazione potrebbero essere ostacolate.
+
+Per mitigare questi rischi, è consigliabile attenersi ai consigli seguenti relativi all'utilizzo di firme di accesso condiviso:
+
+- Chiedere **ai client di rinnovare automaticamente la firma di accesso condiviso se necessario** : i client devono rinnovare la firma di accesso condiviso prima della scadenza. Se la firma di accesso condiviso è concepita per essere usata per un numero ridotto di operazioni immediate e di breve durata che dovrebbero essere completate entro il periodo di scadenza, potrebbe non essere necessario perché la firma di accesso condiviso non è prevista per il rinnovo. Se tuttavia si dispone di client che effettuano normalmente richieste tramite la firma di accesso condiviso, è necessario considerare la possibilità che la firma scada. La considerazione chiave consiste nel bilanciare la necessità che la firma di accesso condiviso sia di breve durata (come indicato in precedenza) con la necessità di garantire che il client stia richiedendo un rinnovo tempestivo (per evitare l'intralcio dovuto alla scadenza della firma di accesso condiviso prima di un rinnovo positivo).
+- **Prestare attenzione all'ora di inizio della** firma di accesso condiviso: se si imposta l'ora di inizio per la firma di accesso condiviso su **adesso** , a causa dello sfasamento di clock (differenze nell'ora corrente in base a computer diversi), è possibile che gli errori vengano osservati in modo intermittente per i primi minuti. In generale, impostare l'ora di inizio ad almeno 15 minuti prima. In alternativa, non impostare alcun valore, in modo da renderlo immediatamente valido in tutti i casi. Lo stesso vale in genere anche per l'ora di scadenza. Tenere presente che è possibile osservare fino a 15 minuti di sfasamento dell'orologio in una delle due direzioni di qualsiasi richiesta. 
+- **Essere specifici della risorsa a cui accedere** : una procedura di sicurezza consigliata consiste nel fornire all'utente i privilegi minimi necessari. Se un utente necessita solo dell'accesso in lettura a una singola entità, concedere solo tale tipo di accesso per tale entità e non l'accesso in lettura/scrittura/eliminazione per tutte le entità. Consente inoltre di ridurre il danno se una firma di accesso condiviso viene compromessa perché la firma di accesso condiviso ha meno energia nelle mani di un utente malintenzionato.
+- **Non usare sempre** la firma di accesso condiviso: talvolta i rischi associati a una particolare operazione sull'hub eventi superano i vantaggi della firma di accesso condiviso. Per queste operazioni, creare un servizio di livello intermedio che scrive nell'hub eventi dopo la convalida, l'autenticazione e il controllo delle regole business.
+- **Usare sempre https** : usare sempre HTTPS per creare o distribuire una firma di accesso condiviso. Se una firma di accesso condiviso viene passata tramite HTTP e intercettata, un utente malintenzionato che esegue un attacco man-in-the-Middle può leggere la firma di accesso condiviso e quindi usarla come l'utente previsto, potenzialmente compromettendo i dati sensibili o consentendo il danneggiamento dei dati da parte di utenti malintenzionati.
+
 ## <a name="configuration-for-shared-access-signature-authentication"></a>Configurazione dell'autenticazione della firma di accesso condiviso
 
 È possibile configurare la regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in spazi dei nomi, code, argomenti del bus di servizio. La configurazione di una regola [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) in una sottoscrizione del bus di servizio non è attualmente supportata, ma è possibile usare le regole configurate in uno spazio dei nomi o in un argomento per proteggere l'accesso alle sottoscrizioni. Per un esempio pratico di questa procedura, vedere l'articolo relativo all' [uso dell'autenticazione della firma di accesso condiviso con le sottoscrizioni del bus di servizio](https://code.msdn.microsoft.com/Using-Shared-Access-e605b37c) .
 
 ![SAS](./media/service-bus-sas/service-bus-namespace.png)
 
-In questa figura le regole di autorizzazione *manageRuleNS*, *sendRuleNS* e *listenRuleNS* si applicano sia alla coda Q1 che all'argomento T1, mentre *listenRuleQ* e *sendRuleQ* si applicano solo alla coda Q1 e *sendRuleT* si applica solo all'argomento T1.
+In questa figura le regole di autorizzazione *manageRuleNS* , *sendRuleNS* e *listenRuleNS* si applicano sia alla coda Q1 che all'argomento T1, mentre *listenRuleQ* e *sendRuleQ* si applicano solo alla coda Q1 e *sendRuleT* si applica solo all'argomento T1.
 
 ## <a name="generate-a-shared-access-signature-token"></a>Generare un token della firma di accesso condiviso
 
@@ -73,7 +87,7 @@ SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-e
 * **`sr`** : URI della risorsa a cui si accede.
 * **`sig`** Firma.
 
-`signature-string`È l'hash SHA-256 calcolato sull'URI della risorsa (**ambito** come descritto nella sezione precedente) e la rappresentazione di stringa dell'istante di scadenza del token, separate da LF.
+`signature-string`È l'hash SHA-256 calcolato sull'URI della risorsa ( **ambito** come descritto nella sezione precedente) e la rappresentazione di stringa dell'istante di scadenza del token, separate da LF.
 
 Il calcolo del codice hash è simile allo pseudo codice seguente e restituisce un valore hash a 256 bit o 32 byte.
 
@@ -85,7 +99,7 @@ Il token contiene i valori non hash in modo che il destinatario possa ricalcolar
 
 L'URI di risorsa è l'URI completo della risorsa del bus di servizio a cui si richiede l'accesso. Ad esempio `http://<namespace>.servicebus.windows.net/<entityPath>` o `sb://<namespace>.servicebus.windows.net/<entityPath>`, ovvero `http://contoso.servicebus.windows.net/contosoTopics/T1/Subscriptions/S3`. 
 
-**L'URI deve essere [codificato in percentuale](/dotnet/api/system.web.httputility.urlencode?view=netcore-3.1).**
+**L'URI deve essere [codificato in percentuale](/dotnet/api/system.web.httputility.urlencode).**
 
 La regola di autorizzazione di accesso condiviso usata per la firma deve essere configurata nell'entità specificata da questo URI o in un elemento padre nella gerarchia. Ad esempio `http://contoso.servicebus.windows.net/contosoTopics/T1` o `http://contoso.servicebus.windows.net` nell'esempio precedente.
 
@@ -160,7 +174,7 @@ sendClient.Send(helloMessage);
 
 È anche possibile utilizzare direttamente il provider di token per il rilascio di token da passare ad altri client.
 
-Le stringhe di connessione possono includere un nome di regola (*SharedAccessKeyName*) e una chiave di regola (*SharedAccessKey*) o un token rilasciato in precedenza (*SharedAccessSignature*). Quando sono presenti nella stringa di connessione passata a un costruttore o a un metodo factory che accetta una stringa di connessione, il provider di token di firma di accesso condiviso viene automaticamente creato e popolato.
+Le stringhe di connessione possono includere un nome di regola ( *SharedAccessKeyName* ) e una chiave di regola ( *SharedAccessKey* ) o un token rilasciato in precedenza ( *SharedAccessSignature* ). Quando sono presenti nella stringa di connessione passata a un costruttore o a un metodo factory che accetta una stringa di connessione, il provider di token di firma di accesso condiviso viene automaticamente creato e popolato.
 
 Si noti che per usare l'autorizzazione con firma di accesso condiviso con gli inoltri del bus di servizio è possibile usare le chiavi della firma di accesso condiviso configurate nello spazio dei nomi del bus di servizio. Se si crea in modo esplicito un inoltro per lo spazio dei nomi ([NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) con un oggetto [RelayDescription](/dotnet/api/microsoft.servicebus.messaging.relaydescription)), è possibile impostare le regole della firma di accesso condiviso solo per tale inoltro. Per usare l'autorizzazione con firma di accesso condiviso con le sottoscrizioni del bus di servizio è possibile usare le chiavi della firma di accesso condiviso configurate in uno spazio dei nomi o in un argomento del bus di servizio.
 
@@ -238,7 +252,7 @@ private bool PutCbsToken(Connection connection, string sasToken)
 }
 ```
 
-Il metodo `PutCbsToken()` riceve la *connessione*, vale a dire l'istanza della classe di connessione AMQP indicata dalla [libreria AMQP .NET Lite](https://github.com/Azure/amqpnetlite), che rappresenta la connessione TCP al servizio e il parametro *sasToken*, ovvero il token di firma di accesso condiviso da inviare.
+Il metodo `PutCbsToken()` riceve la *connessione* , vale a dire l'istanza della classe di connessione AMQP indicata dalla [libreria AMQP .NET Lite](https://github.com/Azure/amqpnetlite), che rappresenta la connessione TCP al servizio e il parametro *sasToken* , ovvero il token di firma di accesso condiviso da inviare.
 
 > [!NOTE]
 > È importante che la connessione venga creata con il **meccanismo di autenticazione SASL impostato su ANONYMOUS** (e non sul valore predefinito PLAIN con nome utente e password usato quando non è necessario inviare il token SAS).
@@ -247,7 +261,7 @@ Il metodo `PutCbsToken()` riceve la *connessione*, vale a dire l'istanza della c
 
 Successivamente, il server di pubblicazione crea due collegamenti AMQP per inviare il token SAS e ricevere la risposta (il risultato di convalida del token) dal servizio.
 
-Il messaggio AMQP contiene un insieme di proprietà e altre informazioni rispetto a un semplice messaggio. Il token SAS rappresenta il corpo del messaggio (tramite il relativo costruttore). La proprietà **"ReplyTo"** è impostata sul nome del nodo per la ricezione del risultato di convalida sul collegamento ricevitore (se si desidera modificare il nome, è possibile farlo e verrà creato in modo dinamico dal servizio). Le ultime tre proprietà personalizzate/relative all'applicazione vengono usate dal servizio per indicare quale tipologia di operazione è necessario eseguire. Come descritto nella bozza di specifica CBS, devono essere il **nome dell'operazione** ("put-token"), il **tipo di token** (in questo caso, `servicebus.windows.net:sastoken`) e il ** "nome" del gruppo di destinatari** a cui viene applicato il token (l'intera entità).
+Il messaggio AMQP contiene un insieme di proprietà e altre informazioni rispetto a un semplice messaggio. Il token SAS rappresenta il corpo del messaggio (tramite il relativo costruttore). La proprietà **"ReplyTo"** è impostata sul nome del nodo per la ricezione del risultato di convalida sul collegamento ricevitore (se si desidera modificare il nome, è possibile farlo e verrà creato in modo dinamico dal servizio). Le ultime tre proprietà personalizzate/relative all'applicazione vengono usate dal servizio per indicare quale tipologia di operazione è necessario eseguire. Come descritto nella bozza di specifica CBS, devono essere il **nome dell'operazione** ("put-token"), il **tipo di token** (in questo caso, `servicebus.windows.net:sastoken`) e il **"nome" del gruppo di destinatari** a cui viene applicato il token (l'intera entità).
 
 Dopo aver inviato il token SAS sul collegamento mittente, il server di pubblicazione deve leggere la risposta sul collegamento ricevitore. La risposta è un semplice messaggio AMQP con una proprietà dell'applicazione denominata **"status-code"** che può contenere gli stessi valori di un codice di stato HTTP.
 

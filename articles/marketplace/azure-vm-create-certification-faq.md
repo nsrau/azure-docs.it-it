@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 10/19/2020
-ms.openlocfilehash: 25eaca08202bd01ad4777fdb73eb75abff458c29
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: f065b1bc98eab86542ecff73e1471e4d90cd4182
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677897"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339534"
 ---
 # <a name="vm-certification-troubleshooting"></a>Risoluzione dei problemi di certificazione delle VM
 
@@ -47,15 +47,15 @@ Verificare se l'immagine supporta le estensioni della macchina virtuale.
 Per abilitare le estensioni della macchina virtuale, eseguire le operazioni seguenti:
 
 1. Selezionare la VM Linux.
-1. Passare a **impostazioni di diagnostica** .
-1. Abilitare le matrici di base aggiornando l' **account di archiviazione** .
-1. Selezionare **Salva** .
+1. Passare a **impostazioni di diagnostica**.
+1. Abilitare le matrici di base aggiornando l' **account di archiviazione**.
+1. Selezionare **Salva**.
 
    ![Abilitazione del monitoraggio a livello di guest](./media/create-vm/vm-certification-issues-solutions-1.png)
 
 Per verificare che le estensioni della macchina virtuale siano attivate correttamente, eseguire le operazioni seguenti:
 
-1. Nella macchina virtuale selezionare la scheda **estensioni VM** e quindi verificare lo stato dell' **estensione di diagnostica per Linux** .
+1. Nella macchina virtuale selezionare la scheda **estensioni VM** e quindi verificare lo stato dell' **estensione di diagnostica per Linux**.
 1. 
     * Se lo stato è *provisioning riuscito* , il test case estensioni è stato superato.  
     * Se lo stato è *provisioning non riuscito* , le estensioni test case non sono riuscite ed è necessario impostare il flag finalizzato.
@@ -81,6 +81,45 @@ I problemi di provisioning possono includere gli scenari di errore seguenti:
 > Per ulteriori informazioni sulla generalizzazione delle macchine virtuali, vedere:
 > - [Documentazione di Linux](azure-vm-create-using-approved-base.md#generalize-the-image)
 > - [Documentazione di Windows](../virtual-machines/windows/capture-image-resource.md#generalize-the-windows-vm-using-sysprep)
+
+
+## <a name="vhd-specifications"></a>Specifiche VHD
+
+### <a name="conectix-cookie-and-other-vhd-specifications"></a>Cookie Conectix e altre specifiche VHD
+La stringa ' conectix ' fa parte della specifica del disco rigido virtuale e viene definita come ' cookie ' a 8 byte nel piè di pagina VHD seguente che identifica l'autore del file. Tutti i file VHD creati da Microsoft hanno questo cookie. 
+
+Un BLOB formattato VHD deve avere un piè di pagina di 512 byte; Questo è il formato del piè di pagina del VHD:
+
+|Campi del piè di pagina del disco rigido|Dimensioni (byte)|
+|---|---|
+Cookie|8
+Funzionalità|4
+Versione del formato di file|4
+Offset dati|8
+Timestamp|4
+Applicazione Creator|4
+Versione autore|4
+Sistema operativo host Creator|4
+Dimensioni originali|8
+Dimensioni correnti|8
+Geometria disco|4
+Tipo di disco|4
+Checksum|4
+ID univoco|16
+Stato salvato|1
+Riservato|427
+
+
+### <a name="vhd-specifications"></a>Specifiche VHD
+Per garantire un'esperienza di pubblicazione senza problemi, verificare che **il disco rigido virtuale soddisfi i criteri seguenti:**
+* Il cookie deve contenere la stringa "conectix"
+* Il tipo di disco deve essere fisso
+* La dimensione virtuale del disco rigido virtuale è almeno 20MB
+* Il disco rigido virtuale è allineato, ovvero la dimensione virtuale deve essere un multiplo di 1 MB
+* Lunghezza BLOB VHD = dimensioni virtuali + lunghezza piè di pagina VHD (512)
+
+È possibile scaricare la specifica VHD [qui.](https://www.microsoft.com/download/details.aspx?id=23850)
+
 
 ## <a name="software-compliance-for-windows"></a>Conformità software per Windows
 
@@ -123,8 +162,8 @@ Nella tabella seguente sono elencati gli errori comuni rilevati durante l'esecuz
 |---|---|---|---|
 |1|Versione dell'agente Linux test case|La versione minima dell'agente Linux è 2.2.41 o successiva. Questo requisito è stato obbligatorio a partire dal 1 ° maggio 2020.|Aggiornare la versione dell'agente Linux e deve essere 2,241 o successiva. Per altre informazioni, vedere la [pagina relativa all'aggiornamento della versione dell'agente Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Cronologia bash test case|Verrà visualizzato un errore se la dimensione della cronologia bash nell'immagine inviata è superiore a 1 kilobyte (KB). La dimensione è limitata a 1 KB per garantire che tutte le informazioni potenzialmente riservate non vengano acquisite nel file di cronologia bash.|Per risolvere il problema, montare il disco rigido virtuale in qualsiasi altra VM funzionante e apportare le modifiche desiderate (ad esempio, eliminare i file di cronologia *. bash* ) per ridurre le dimensioni a un numero minore o uguale a 1 KB.|
-|3|Parametro kernel obbligatorio test case|Questo errore viene visualizzato quando il valore per la **console** non è impostato su **ttyS0** . Verificare eseguendo il comando seguente:<br>`cat /proc/cmdline`|Impostare il valore per **console** su **ttyS0** e inviare nuovamente la richiesta.|
-|4|test case intervallo ClientAlive|Se il risultato del Toolkit restituisce un risultato non riuscito per questo test case, esiste un valore non appropriato per **ClientAliveInterval** .|Impostare il valore di **ClientAliveInterval** su un valore minore o uguale a 235, quindi inviare nuovamente la richiesta.|
+|3|Parametro kernel obbligatorio test case|Questo errore viene visualizzato quando il valore per la **console** non è impostato su **ttyS0**. Verificare eseguendo il comando seguente:<br>`cat /proc/cmdline`|Impostare il valore per **console** su **ttyS0** e inviare nuovamente la richiesta.|
+|4|test case intervallo ClientAlive|Se il risultato del Toolkit restituisce un risultato non riuscito per questo test case, esiste un valore non appropriato per **ClientAliveInterval**.|Impostare il valore di **ClientAliveInterval** su un valore minore o uguale a 235, quindi inviare nuovamente la richiesta.|
 
 ### <a name="windows-test-cases"></a>Test case di Windows
 
@@ -163,7 +202,7 @@ Inviare nuovamente la richiesta con una dimensione minore o uguale a 1023 GB.
 
 Per le limitazioni sulle dimensioni del disco del sistema operativo, fare riferimento alle regole seguenti. Quando si invia una richiesta, verificare che le dimensioni del disco del sistema operativo siano comprese nel limite per Linux o Windows.
 
-|Sistema operativo|Dimensioni del disco rigido virtuale consigliate|
+|OS|Dimensioni del disco rigido virtuale consigliate|
 |---|---|
 |Linux|da 30 GB a 1023 GB|
 |Windows|da 30 GB a 250 GB|
@@ -191,11 +230,11 @@ Per controllare la versione di Windows Server con patch per i dettagli del siste
 > [!NOTE]
 > Windows Server 2019 non presenta requisiti di versione obbligatori.
 
-|Sistema operativo|Versione|
+|OS|Versione|
 |---|---|
 |Windows serve 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
-|Windows Server 2012 R2|6.3.9600.18604|
+|R2 per Windows Server 2012|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|ND|
 |
@@ -391,7 +430,7 @@ Assicurarsi sempre che le credenziali predefinite non vengano inviate con il VHD
   
 ## <a name="datadisk-mapped-incorrectly"></a>Mapping di DataDisk non corretto
 
-Quando una richiesta viene inviata con più dischi dati, ma l'ordine non è in sequenza, questo viene considerato un problema di mapping. Se ad esempio sono presenti tre dischi dati, l'ordine di numerazione deve essere *0, 1, 2* . Qualsiasi altro ordine viene considerato un problema di mapping.
+Quando una richiesta viene inviata con più dischi dati, ma l'ordine non è in sequenza, questo viene considerato un problema di mapping. Se ad esempio sono presenti tre dischi dati, l'ordine di numerazione deve essere *0, 1, 2*. Qualsiasi altro ordine viene considerato un problema di mapping.
 
 Inviare nuovamente la richiesta con la sequenziazione corretta dei dischi dati.
 
@@ -501,36 +540,36 @@ Per fornire un'immagine di macchina virtuale fissa per sostituire un'immagine di
 Per completare questi passaggi, è necessario preparare le risorse tecniche per l'immagine di macchina virtuale che si vuole aggiungere. Per altre informazioni, vedere [creare una macchina virtuale usando una base approvata](azure-vm-create-using-approved-base.md) o [creare una macchina virtuale usando una propria immagine](azure-vm-create-using-own-image.md)e [generare un URI di firma di accesso condiviso per l'immagine di macchina](azure-vm-get-sas-uri.md)virtuale.
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-2. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview** .
+2. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview**.
 3. Nella colonna **alias offerta** selezionare l'offerta.
 4. Nella colonna **nome** della scheda **panoramica piano** selezionare il piano a cui si vuole aggiungere la macchina virtuale.
-5. Nella scheda **configurazione tecnica** , in **Immagini VM** , selezionare **+ Aggiungi immagine macchina virtuale** .
+5. Nella scheda **configurazione tecnica** , in **Immagini VM** , selezionare **+ Aggiungi immagine macchina virtuale**.
 
 > [!NOTE]
 > È possibile aggiungere una sola immagine di macchina virtuale a un piano alla volta. Per aggiungere più immagini di VM, pubblicare il primo Live prima di aggiungere la successiva immagine di macchina virtuale.
 
 6. Nelle caselle visualizzate specificare una nuova versione del disco e l'immagine della macchina virtuale.
-7. Selezionare **Salva bozza** .
+7. Selezionare **Salva bozza**.
 
 Continuare con la sezione seguente per rimuovere l'immagine della macchina virtuale con la vulnerabilità di sicurezza.
 
 #### <a name="remove-the-vm-image-with-the-security-vulnerability-or-exploit"></a>Rimuovere l'immagine di macchina virtuale con vulnerabilità di sicurezza o exploit
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-2. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview** .
+2. Nel menu di spostamento a sinistra, selezionare **Commercial Marketplace**  >  **Overview**.
 3. Nella colonna **alias offerta** selezionare l'offerta.
 4. Nella colonna **nome** della scheda **panoramica piano** selezionare il piano con la macchina virtuale che si desidera rimuovere.
-5. Nella scheda **configurazione tecnica** , in **Immagini VM** , accanto all'immagine di macchina virtuale che si vuole rimuovere selezionare **Rimuovi immagine VM** .
-6. Nella finestra di dialogo visualizzata selezionare **continua** .
-7. Selezionare **Salva bozza** .
+5. Nella scheda **configurazione tecnica** , in **Immagini VM** , accanto all'immagine di macchina virtuale che si vuole rimuovere selezionare **Rimuovi immagine VM**.
+6. Nella finestra di dialogo visualizzata selezionare **continua**.
+7. Selezionare **Salva bozza**.
 
 Continuare con la sezione seguente per ripubblicare l'offerta.
 
 #### <a name="republish-the-offer"></a>Ripubblicare l'offerta
 
-1. Selezionare **revisione e pubblicazione** .
+1. Selezionare **revisione e pubblicazione**.
 2. Se è necessario fornire informazioni al team di certificazione, aggiungerlo alla casella **Note per la certificazione** .
-3. Selezionare **Pubblica** .
+3. Selezionare **Pubblica**.
 
 Per completare il processo di pubblicazione, vedere [rivedere e pubblicare le offerte](review-publish-offer.md).
 

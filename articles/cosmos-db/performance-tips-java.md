@@ -3,17 +3,18 @@ title: Suggerimenti sulle prestazioni per Azure Cosmos DB Sync Java SDK v2
 description: Informazioni sulle opzioni di configurazione client per migliorare le prestazioni del database Azure Cosmos DB per Sync Java SDK v2
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 05/11/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b5c8e1a1e810deb9e5315816c122c0ac09ce778
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9a074b872ed19a7d3e6b3e410c69da0f2b78e85e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085548"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339700"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-sync-java-sdk-v2"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB Sync Java SDK v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -73,7 +74,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 
     Quando possibile, posizionare eventuali applicazioni che chiamano Azure Cosmos DB nella stessa area del database Azure Cosmos. Per un confronto approssimativo, le chiamate ad Azure Cosmos DB eseguite nella stessa area vengono completate entro 1-2 millisecondi, mentre la latenza tra la costa occidentale e quella orientale degli Stati Uniti è > 50 millisecondi. Questa latenza può variare da richiesta a richiesta, in base alla route seguita dalla richiesta durante il passaggio dal client al limite del data center di Azure. È possibile ottenere la latenza più bassa possibile assicurandosi che l'applicazione chiamante si trovi nella stessa area di Azure in cui si trova l'endpoint di Azure Cosmos DB con provisioning. Per un elenco delle aree disponibili, vedere [Aree di Azure](https://azure.microsoft.com/regions/#services).
 
-    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Il diagramma mostra i criteri di connessione di Azure Cosmos D B." border="false":::
+    :::image type="content" source="./media/performance-tips/same-region.png" alt-text="Il diagramma mostra le richieste e le risposte in due aree, in cui i computer si connettono a un account Cosmos D B attraverso servizi di livello intermedio." border="false":::
    
 ## <a name="sdk-usage"></a>Uso dell'SDK
 1. **Installare l'SDK più recente**

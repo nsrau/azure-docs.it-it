@@ -3,16 +3,17 @@ title: Registrare e usare stored procedure, trigger e funzioni definite dall'ute
 description: Informazioni su come registrare e chiamare stored procedure, trigger e funzioni definite dall'utente con gli SDK di Azure Cosmos DB
 author: timsander1
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 06/16/2020
 ms.author: tisande
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 56c6327d2ecd3ae3721a7ee33565543405088d1c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 022a45199cfc2d467b1d0d408e86cb5d621070d9
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098876"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339853"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Come registrare e usare stored procedure, trigger e funzioni definite dall'utente in Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

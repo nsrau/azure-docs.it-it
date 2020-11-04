@@ -3,16 +3,17 @@ title: StringToNumber in linguaggio di query Azure Cosmos DB
 description: Informazioni sulla funzione di sistema SQL StringToNumber in Azure Cosmos DB.
 author: ginamr
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: conceptual
 ms.date: 03/03/2020
 ms.author: girobins
 ms.custom: query-reference
-ms.openlocfilehash: 4fefc59a6f95382d093f5501a0023dc2ef50025b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: f2622958a2315458ccd01da4aea7c6b75941e755
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93088251"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339564"
 ---
 # <a name="stringtonumber-azure-cosmos-db"></a>StringToNumber (Azure Cosmos DB)
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -34,7 +35,7 @@ StringToNumber(<str_expr>)
   
   Restituisce un'espressione numerica o non definita.  
   
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
   
   Nell'esempio seguente viene illustrato il comportamento di `StringToNumber` tra tipi diversi. 
 

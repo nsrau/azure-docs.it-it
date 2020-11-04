@@ -3,17 +3,18 @@ title: Suggerimenti sulle prestazioni per Azure Cosmos DB Java SDK v4
 description: Informazioni sulle opzioni di configurazione client per migliorare le prestazioni del database Azure Cosmos DB per Java SDK v4
 author: anfeldma-ms
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
 ms.custom: devx-track-java, contperfq2
-ms.openlocfilehash: c65cd4012d29146061183ea13749a0f42c03b1eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6b87a06620a6e20ff67bde6fde9ed01aaef7fc9e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93314341"
+ms.locfileid: "93339717"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB Java SDK v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]

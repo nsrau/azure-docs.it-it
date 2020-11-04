@@ -3,12 +3,12 @@ title: Configurare l'analisi delle dipendenze senza agente in Azure Migrate serv
 description: Configurare l'analisi delle dipendenze senza agente in Azure Migrate server assessment.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: 57e5add810cf4fac232bce08fc7ca96df0a7c3a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8893b0f41bb7a06c02a6c2aa28002980144b582a
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91667470"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337694"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analizzare le dipendenze dei computer (senza agente)
 
@@ -25,7 +25,7 @@ Questo articolo descrive come configurare l'analisi delle dipendenze senza agent
 
 - Nella visualizzazione analisi delle dipendenze non è attualmente possibile aggiungere o rimuovere un server da un gruppo.
 - Una mappa delle dipendenze per un gruppo di server non è attualmente disponibile.
-- La raccolta dei dati di dipendenza può essere configurata contemporaneamente per i server 1000. È possibile analizzare un numero maggiore di server eseguendo la sequenziazione in batch di 1000.
+- In un progetto Azure Migrate la raccolta dei dati sulle dipendenze può essere configurata simultaneamente per i server 1000. È possibile analizzare un numero maggiore di server eseguendo la sequenziazione in batch di 1000.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -48,9 +48,9 @@ Aggiungere l'account utente al dispositivo.
 
 1. Aprire l'app gestione Appliance. 
 2. Passare al pannello **specificare i dettagli di vCenter** .
-3. In **individua applicazione e dipendenze dalle macchine virtuali**fare clic su **Aggiungi credenziali** .
-3. Scegliere il **sistema operativo**, specificare un nome descrittivo per l'account e la password del **nome utente** / **Password**
-6. Fare clic su **Save**.
+3. In **individua applicazione e dipendenze dalle macchine virtuali** fare clic su **Aggiungi credenziali** .
+3. Scegliere il **sistema operativo** , specificare un nome descrittivo per l'account e la password del **nome utente** / **Password**
+6. Fare clic su **Salva**.
 7. Fare clic su **Salva e avvia individuazione**.
 
     ![Aggiungi account utente VM](./media/how-to-create-group-machine-dependencies-agentless/add-vm-credential.png)
@@ -59,7 +59,7 @@ Aggiungere l'account utente al dispositivo.
 
 Scegliere i computer in cui si desidera abilitare l'individuazione delle dipendenze. 
 
-1. In **Azure migrate: server Assessment**fare clic su **server individuati**.
+1. In **Azure migrate: server Assessment** fare clic su **server individuati**.
 2. Fare clic sull'icona **analisi dipendenza** .
 3. Fare clic su **Aggiungi server**.
 4. Nella pagina **Aggiungi server** scegliere l'appliance che sta scoprendo i computer pertinenti.
@@ -72,7 +72,7 @@ Scegliere i computer in cui si desidera abilitare l'individuazione delle dipende
 
 ## <a name="visualize-dependencies"></a>Visualizza dipendenze
 
-1. In **Azure migrate: server Assessment**fare clic su **server individuati**.
+1. In **Azure migrate: server Assessment** fare clic su **server individuati**.
 2. Cercare il computer che si vuole visualizzare.
 3. Nella colonna **dipendenze** fare clic su **Visualizza dipendenze** .
 4. Modificare il periodo di tempo per cui si desidera visualizzare la mappa utilizzando l'elenco a discesa **durata tempo** .
@@ -93,7 +93,7 @@ Scegliere i computer in cui si desidera abilitare l'individuazione delle dipende
 
 ## <a name="export-dependency-data"></a>Esporta dati sulle dipendenze
 
-1. In **Azure migrate: server Assessment**fare clic su **server individuati**.
+1. In **Azure migrate: server Assessment** fare clic su **server individuati**.
 2. Fare clic sull'icona **analisi dipendenza** .
 3. Fare clic su **Esporta dipendenze dell'applicazione**.
 4. Nella pagina **Esporta dipendenze applicazione** scegliere l'appliance che sta individuando i computer pertinenti.
@@ -110,7 +110,7 @@ Ogni riga nel file CSV esportato corrisponde a una dipendenza osservata nello sl
 
 Nella tabella seguente sono riepilogati i campi del file CSV esportato. Si noti che i campi nome server, applicazione e processo vengono popolati solo per i server in cui è abilitata l'analisi delle dipendenze senza agenti.
 
-**Nome campo** | **Dettagli**
+**Nome campo** | **Informazioni dettagliate**
 --- | --- 
 Timeslot | Timeslot durante il quale è stata osservata la dipendenza. <br/> I dati sulle dipendenze vengono acquisiti attualmente negli slot di 6 ore.
 Nome del server di origine | Nome del computer di origine 
@@ -127,7 +127,7 @@ Porta di destinazione | Numero di porta nel computer di destinazione
 
 Scegliere i computer in cui si desidera arrestare l'individuazione delle dipendenze. 
 
-1. In **Azure migrate: server Assessment**fare clic su **server individuati**.
+1. In **Azure migrate: server Assessment** fare clic su **server individuati**.
 2. Fare clic sull'icona **analisi dipendenza** .
 3. Fare clic su **Rimuovi server**.
 3. Nella pagina **Rimuovi server** scegliere il **dispositivo** che sta individuando le macchine virtuali in cui si vuole arrestare l'individuazione delle dipendenze.

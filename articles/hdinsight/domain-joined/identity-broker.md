@@ -1,20 +1,20 @@
 ---
-title: Usare ID Broker (anteprima) per la gestione delle credenziali-Azure HDInsight
+title: Broker ID Azure HDInsight (HIB)
 description: Informazioni su Azure HDInsight ID Broker per semplificare l'autenticazione per i cluster Apache Hadoop aggiunti a un dominio.
 ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
-ms.date: 09/23/2020
-ms.openlocfilehash: 6617c778c0b79a55058eafb40fd9b49b627819ea
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.date: 11/03/2020
+ms.openlocfilehash: df4faf367951402914abb03285498e0da6f3105f
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93043270"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337677"
 ---
-# <a name="azure-hdinsight-id-broker-preview"></a>Azure HDInsight ID Broker (anteprima)
+# <a name="azure-hdinsight-id-broker-hib"></a>Broker ID Azure HDInsight (HIB)
 
 Questo articolo descrive come configurare e usare la funzionalità Azure HDInsight ID Broker. È possibile usare questa funzionalità per ottenere l'autenticazione OAuth moderna in Apache Ambari mentre è in corso l'applicazione dell'autenticazione a più fattori senza la necessità di hash di password legacy in Azure Active Directory Domain Services (Azure AD DS).
 
@@ -45,7 +45,7 @@ Potrebbero essere presenti molte applicazioni legacy che supportano solo l'auten
 
 Il diagramma seguente illustra il flusso di autenticazione di base per gli utenti federati. In primo luogo, il gateway tenta di completare l'autenticazione usando il [flusso ROPC](../../active-directory/develop/v2-oauth-ropc.md). Se non sono stati sincronizzati gli hash delle password per Azure AD, viene rilevata l'individuazione dell'endpoint AD FS e viene completata l'autenticazione accedendo all'endpoint di AD FS.
 
-:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagramma che mostra il flusso di autenticazione con HDInsight ID Broker.":::
+:::image type="content" source="media/identity-broker/basic-authentication.png" alt-text="Diagramma che mostra l'architettura con l'autenticazione di base.":::
 
 
 ## <a name="enable-hdinsight-id-broker"></a>Abilita HDInsight ID Broker
@@ -54,7 +54,7 @@ Per creare un cluster Enterprise Security Package con HDInsight ID Broker abilit
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 1. Seguire i passaggi di creazione di base per un cluster Enterprise Security Package. Per altre informazioni, vedere [creare un cluster HDInsight con Enterprise Security Package](apache-domain-joined-configure-using-azure-adds.md#create-an-hdinsight-cluster-with-esp).
-1. Selezionare **Enable HDINSIGHT ID Broker** .
+1. Selezionare **Enable HDINSIGHT ID Broker**.
 
 La funzionalità HDInsight ID Broker aggiunge una macchina virtuale aggiuntiva al cluster. Questa macchina virtuale è il nodo HDInsight ID Broker e include i componenti server per supportare l'autenticazione. Il nodo HDInsight ID Broker è aggiunto al dominio Azure AD DS.
 
