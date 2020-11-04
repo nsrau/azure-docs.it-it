@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 374320c0becfecc6691af91b36a1d80b087300e6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c958de5e49fbb7519ae71b13e9deba9af0c698de
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91361944"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312877"
 ---
 # <a name="manage-experiment-runs-in-azure-machine-learning-studio-classic"></a>Gestire le esecuzioni dell'esperimento in Azure Machine Learning Studio (versione classica)
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Lo sviluppo di un modello di analisi predittive è un processo iterativo: man mano che si modificano le varie funzioni e i parametri dell'esperimento, i risultati convergono fino a quando l'utente non è soddisfatto del modello sottoposto a training. Per questo processo è fondamentale tenere traccia delle varie iterazioni dei parametri e delle configurazioni dell'esperimento.
@@ -33,7 +33,7 @@ Lo sviluppo di un modello di analisi predittive è un processo iterativo: man ma
 ## <a name="view-the-prior-run"></a>Visualizza l'esecuzione precedente
 Dopo aver aperto un esperimento che è stato eseguito almeno una volta, è possibile visualizzarne l'esecuzione precedente facendo clic su **Prior Run** nel riquadro delle proprietà.
 
-Si supponga ad esempio di creare un esperimento e di eseguirne tre versioni, alle 11:23, alle 11:42 e alle 11:55. Se si apre l'ultima esecuzione dell'esperimento (11:55) e si fa clic su **Prior Run**, verrà aperta la versione eseguita alle 11:42.
+Si supponga ad esempio di creare un esperimento e di eseguirne tre versioni, alle 11:23, alle 11:42 e alle 11:55. Se si apre l'ultima esecuzione dell'esperimento (11:55) e si fa clic su **Prior Run** , verrà aperta la versione eseguita alle 11:42.
 
 ## <a name="view-the-run-history"></a>Visualizzare la cronologia di esecuzione
 È possibile visualizzare tutte le esecuzioni precedenti di un esperimento facendo clic su **View Run History** in un esperimento aperto.
@@ -45,9 +45,9 @@ Si supponga ad esempio di creare un esperimento con il modulo [Linear Regression
 | 0,1 |11/9/2014 16:18:58 |
 | 0,2 |11/9/2014 16:24:33 |
 | 0,4 |11/9/2014 16:28:36 |
-| 0.5 |11/9/2014 16:33:31 |
+| 0,5 |11/9/2014 16:33:31 |
 
-Se si fa clic su **VIEW RUN HISTORY**, verrà visualizzato un elenco di tutte le esecuzioni:
+Se si fa clic su **VIEW RUN HISTORY** , verrà visualizzato un elenco di tutte le esecuzioni:
 
 ![Esempio di cronologia delle esecuzioni](./media/manage-experiment-iterations/viewrunhistory.jpg)
 
@@ -76,4 +76,4 @@ Si supponga ad esempio di disporre della cronologia delle esecuzioni dell'esperi
 È ora possibile continuare a modificare ed eseguire questa versione dell'esperimento, creando una nuova cronologia delle esecuzioni per registrare il proprio lavoro.
 
 <!-- Module References -->
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression

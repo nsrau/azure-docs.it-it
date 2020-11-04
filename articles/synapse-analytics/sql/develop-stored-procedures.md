@@ -1,6 +1,6 @@
 ---
 title: Utilizzare stored procedure
-description: Suggerimenti per l'implementazione di stored procedure in sinapsi SQL per lo sviluppo di soluzioni.
+description: Suggerimenti per l'implementazione di stored procedure usando sinapsi SQL in Azure sinapsi Analytics per lo sviluppo di soluzioni.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,14 +10,14 @@ ms.subservice: sql
 ms.date: 11/03/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 607060851a8afa48b9570dfcb17732279a3629ee
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 3940d762dbc249e0303ddf905acbeeed7f96aa4f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286662"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315557"
 ---
-# <a name="use-stored-procedures-in-synapse-sql"></a>Usare stored procedure in sinapsi SQL
+# <a name="stored-procedures-using-synapse-sql-in-azure-synapse-analytics"></a>Stored procedure con sinapsi SQL in Azure sinapsi Analytics
 
 Il provisioning e i pool senza server di sinapsi SQL consentono di inserire logica di elaborazione dati complessa in stored procedure SQL. Le stored procedure sono un ottimo modo per incapsulare il codice SQL e archiviarlo vicino ai dati nell'data warehouse. Le stored procedure consentono agli sviluppatori di modularizzare le proprie soluzioni incapsulando il codice in unità gestibili e facilitando una maggiore riusabilità del codice. Ogni stored procedure può anche accettare parametri per essere ancora più flessibile.
 In questo articolo sono disponibili alcuni suggerimenti per l'implementazione di stored procedure nel pool SQL sinapsi per lo sviluppo di soluzioni.
@@ -27,7 +27,7 @@ In questo articolo sono disponibili alcuni suggerimenti per l'implementazione di
 Sinapsi SQL supporta molte delle funzionalità T-SQL usate in SQL Server. Ancora più importanti sono le funzionalità di scale-out specifiche, che si possono usare per migliorare le prestazioni della soluzione. In questo articolo vengono illustrate le funzionalità che è possibile inserire nelle stored procedure.
 
 > [!NOTE]
-> Nel corpo della procedura è possibile usare solo le funzionalità supportate nella superficie di attacco di SQL sinapsi. Esaminare [questo articolo](overview-features.md) per identificare gli oggetti, ovvero l'istruzione che può essere utilizzata nelle stored procedure. Negli esempi riportati in questi articoli vengono usate funzionalità generiche disponibili sia nella superficie di attacco senza server che in quella con provisioning. Vedere [limitazioni aggiuntive nei pool SQL sinapsi con provisioning e senza server](#limitations) alla fine di questo articolo.
+> Nel corpo della procedura è possibile usare solo le funzionalità supportate nella superficie di attacco di SQL sinapsi. Esaminare [questo articolo](overview-features.md) per identificare gli oggetti, ovvero l'istruzione che può essere utilizzata nelle stored procedure. Gli esempi in questi articoli usano le funzionalità generiche disponibili sia in superficie di attacco senza server che in area dedicata. Vedere [limitazioni aggiuntive nei pool SQL sinapsi con provisioning e senza server](#limitations) alla fine di questo articolo.
 
 Per mantenere la scalabilità e le prestazioni del pool SQL, esistono anche alcune caratteristiche e funzionalità con differenze comportamentali e altre che non sono supportate.
 

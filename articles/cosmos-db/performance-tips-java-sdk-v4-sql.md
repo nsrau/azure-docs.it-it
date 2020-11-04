@@ -7,13 +7,13 @@ ms.devlang: java
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: anfeldma
-ms.custom: devx-track-java
-ms.openlocfilehash: 49827b7387edc1e914bbd58c63df2db74f4ed17b
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-java, contperfq2
+ms.openlocfilehash: c65cd4012d29146061183ea13749a0f42c03b1eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93091277"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314341"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-java-sdk-v4"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB Java SDK v4
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -39,7 +39,7 @@ Se si vogliono migliorare le prestazioni del database, prendere in considerazion
 * **Modalità di connessione: usare la modalità diretta**
 <a id="direct-connection"></a>
     
-    La modalità di connessione predefinita di Java SDK è diretta. È possibile configurare la modalità di connessione nel generatore client usando i metodi *directMode ()* o *gatewayMode ()* , come illustrato di seguito. Per configurare una delle modalità con le impostazioni predefinite, chiamare uno dei metodi senza argomenti. In caso contrario, passare un'istanza della classe delle impostazioni di configurazione come argomento ( *DirectConnectionConfig* per *directMode ()* ,  *GatewayConnectionConfig* per *gatewayMode ()* . Per ulteriori informazioni sulle diverse opzioni di connettività, vedere l'articolo relativo alle [modalità di connettività](sql-sdk-connection-modes.md) .
+    La modalità di connessione predefinita di Java SDK è diretta. È possibile configurare la modalità di connessione nel generatore client usando i metodi *directMode ()* o *gatewayMode ()* , come illustrato di seguito. Per configurare una delle modalità con le impostazioni predefinite, chiamare uno dei metodi senza argomenti. In caso contrario, passare un'istanza della classe delle impostazioni di configurazione come argomento ( *DirectConnectionConfig* per *directMode ()* ,  *GatewayConnectionConfig* per *gatewayMode ()*. Per ulteriori informazioni sulle diverse opzioni di connettività, vedere l'articolo relativo alle [modalità di connettività](sql-sdk-connection-modes.md) .
     
     ### <a name="java-v4-sdk"></a><a id="override-default-consistency-javav4"></a> Java V4 SDK
 
@@ -107,7 +107,7 @@ Per altri dettagli, vedere le istruzioni per [Windows](../virtual-network/create
 
 * **Usare il livello di coerenza minimo richiesto per l'applicazione**
 
-    Quando si crea un *CosmosClient* , la coerenza predefinita usata, se non impostata in modo esplicito, è *Session* . Se la coerenza *Session* non è richiesta dalla logica dell'applicazione, impostare *Consistency* su *Eventual* . Nota: è consigliabile impostare almeno la coerenza *Session* nelle applicazioni che usano il processore del feed di modifiche di Azure Cosmos DB.
+    Quando si crea un *CosmosClient* , la coerenza predefinita usata, se non impostata in modo esplicito, è *Session*. Se la coerenza *Session* non è richiesta dalla logica dell'applicazione, impostare *Consistency* su *Eventual*. Nota: è consigliabile impostare almeno la coerenza *Session* nelle applicazioni che usano il processore del feed di modifiche di Azure Cosmos DB.
 
 * **Usare l'API Async per la massima velocità effettiva di cui viene effettuato il provisioning**
 
@@ -151,7 +151,7 @@ Per altri dettagli, vedere le istruzioni per [Windows](../virtual-network/create
 
     * ***Panoramica della modalità diretta** _
 
-        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustrazione dei criteri di connessione di Azure Cosmos DB" border="false":::
+        :::image type="content" source="./media/performance-tips-async-java/rntbdtransportclient.png" alt-text="Illustrazione dell'architettura in modalità diretta" border="false":::
 
         L'architettura sul lato client usata in modalità diretta consente l'utilizzo di rete prevedibile e l'accesso in multiplex alle repliche di Azure Cosmos DB. Il diagramma precedente mostra in che modo la modalità diretta instrada le richieste dei client alle repliche nel back-end di Cosmos DB. L'architettura della modalità diretta alloca fino a 10 _ *canali* * sul lato client per replica di database. Un canale è una connessione TCP preceduta da un buffer di richieste, con una profondità di 30 richieste. I canali appartenenti a una replica vengono allocati dinamicamente in base alle esigenze dall' **endpoint di servizio** della replica. Quando l'utente invia una richiesta in modalità diretta, il **TransportClient** instrada la richiesta all'endpoint di servizio appropriato in base alla chiave di partizione. La **coda delle richieste** memorizza le richieste nel buffer prima dell'endpoint di servizio.
 

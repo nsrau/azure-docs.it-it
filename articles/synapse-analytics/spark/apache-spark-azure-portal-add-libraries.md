@@ -9,16 +9,16 @@ ms.date: 10/16/2020
 ms.author: euang
 ms.reviewer: jrasnick
 ms.subservice: spark
-ms.openlocfilehash: 31201bb7168910915ee33d4361bf944e7669db66
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: fbcc7ffbde49acfd9afc180418d618060eb923c1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92737969"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313529"
 ---
 # <a name="manage-libraries-for-apache-spark-in-azure-synapse-analytics"></a>Gestire le librerie per Apache Spark in Azure sinapsi Analytics
 
-Le librerie forniscono codice riutilizzabile che può essere utile includere nei programmi o nei progetti. Per rendere disponibili le applicazioni di terze parti o codice compilato localmente, è possibile installare una libreria in uno dei pool Spark (anteprima). Quando una libreria è installata per un pool Spark, è disponibile per tutte le sessioni che usano lo stesso pool. 
+Le librerie forniscono codice riutilizzabile che può essere utile includere nei programmi o nei progetti. Per rendere disponibili le applicazioni di terze parti o codice compilato localmente, è possibile installare una libreria in uno dei pool di Apache Spark senza server (anteprima). Quando una libreria è installata per un pool Spark, è disponibile per tutte le sessioni che usano lo stesso pool. 
 
 ## <a name="default-installation"></a>Installazione predefinita
 Apache Spark in Azure sinapsi Analytics ha un'installazione completa di Anaconda, oltre a librerie aggiuntive. L'elenco completo delle librerie è disponibile nel [Apache Spark supporto della versione](apache-spark-version-support.md). 
@@ -68,7 +68,7 @@ Per aggiornare o aggiungere altre librerie a un pool Spark (anteprima) dal porta
    
 2.  Avviare l'area di lavoro di Azure sinapsi Analytics dalla portale di Azure.
 
-3.  Selezionare **Gestisci** dal pannello di navigazione principale, quindi selezionare **Apache Spark pool** .
+3.  Selezionare **Gestisci** dal pannello di navigazione principale, quindi selezionare **Apache Spark pool**.
    
 4. Selezionare un singolo pool Spark e caricare il file di configurazione dell'ambiente usando il selettore file nella sezione  **pacchetti** della pagina.
 
@@ -106,7 +106,7 @@ Per aggiornare o disinstallare una libreria:
 
 3. Passare alla sezione **pacchetti** e caricare un nuovo file di configurazione dell'ambiente
    
-4. Dopo aver salvato le modifiche, sarà necessario terminare le sessioni attive e consentire il riavvio del pool. Facoltativamente, è possibile forzare la chiusura delle sessioni attive selezionando la casella di controllo per **forzare nuove impostazioni** .
+4. Dopo aver salvato le modifiche, sarà necessario terminare le sessioni attive e consentire il riavvio del pool. Facoltativamente, è possibile forzare la chiusura delle sessioni attive selezionando la casella di controllo per **forzare nuove impostazioni**.
 
     ![Aggiungere librerie Python](./media/apache-spark-azure-portal-add-libraries/update-libraries.png "Aggiungere librerie Python")
    

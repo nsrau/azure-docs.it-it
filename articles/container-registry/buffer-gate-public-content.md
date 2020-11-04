@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: e5fd70cdde6be431f7bb1950a42ca43e81b34e36
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: bb185e7d5803219135fddf421b7d6a89edd296b0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130851"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93315811"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Gestire il contenuto pubblico con Azure Container Registry
 
@@ -25,16 +25,14 @@ Senza controlli appropriati, le dipendenze dal contenuto del registro di sistema
 
 ## <a name="authenticate-with-docker-hub"></a>Eseguire l'autenticazione con Docker Hub
 
-Come primo passaggio, se si esegue il pull di immagini pubbliche dall'hub Docker come parte di un flusso di lavoro di compilazione o distribuzione, si consiglia di eseguire l'autenticazione usando un account Docker Hub anziché una richiesta pull anonima.
+Come primo passaggio, se si esegue il pull di immagini pubbliche dall'hub Docker come parte di un flusso di lavoro di compilazione o distribuzione, si consiglia di [eseguire l'autenticazione usando un account Docker Hub](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) anziché una richiesta pull anonima.
 
 > [!NOTE]
-> A partire dal 2 novembre 2020, i limiti di velocità di download si applicano alle richieste anonime e autenticate all'hub Docker dagli account dei piani gratuiti Docker e vengono applicati dall'indirizzo IP. 
+> A partire dal 2 novembre 2020, i [limiti di velocità di download](https://docs.docker.com/docker-hub/download-rate-limit) si applicano alle richieste anonime e autenticate all'hub Docker dagli account dei piani gratuiti Docker e vengono applicati dall'indirizzo IP e dall'ID Docker, respecitively. 
 >
-> Quando si stima il numero di richieste pull, tenere presente che quando si usano i servizi del provider di servizi cloud o si lavora dietro una NAT aziendale, più utenti verranno presentati all'hub Docker in modo aggregato come subset di indirizzi IP.  L'aggiunta dell'autenticazione dell'account a pagamento di Docker alle richieste effettuate all'hub Docker eviterà le potenziali rotture del servizio dovute alla limitazione della velocità di limitazione.
+> Quando si stima il numero di richieste pull, tenere presente che quando si usano i servizi del provider di servizi cloud o si lavora dietro una NAT aziendale, più utenti verranno presentati all'hub Docker in modo aggregato come subset di indirizzi IP. L'aggiunta dell'autenticazione dell'account a pagamento di Docker alle richieste effettuate all'hub Docker eviterà le potenziali rotture del servizio dovute alla limitazione della velocità di limitazione.
 >
 > Per informazioni dettagliate, vedere [prezzi e sottoscrizioni Docker](https://www.docker.com/pricing) e le condizioni per il [servizio di Docker](https://www.docker.com/legal/docker-terms-service).
-
-Per esempi di autenticazione e scenari, vedere [limite di velocità di download](https://docs.docker.com/docker-hub/download-rate-limit/).
 
 ### <a name="docker-hub-access-token"></a>Token di accesso dell'hub Docker
 

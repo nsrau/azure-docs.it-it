@@ -11,12 +11,12 @@ author: blackmist
 ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a36f69c9956dd05c5fbd85d7e37b90c0b1e4c21e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 09eeafa99c14984f74f8807014f646379c7507f0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90897645"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314209"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorare e raccogliere dati da endpoint servizio Web di ML
 
@@ -204,9 +204,9 @@ Per registrare le informazioni della richiesta del servizio Web, aggiungere `pri
 ## <a name="export-data-for-retention-and-processing"></a>Esportare i dati per la conservazione e l'elaborazione
 
 >[!Important]
-> Applicazione Azure Insights supporta solo le esportazioni nell'archivio BLOB. Per altre informazioni sui limiti di questa implementazione, vedere Esportare dati di [telemetria da App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> Applicazione Azure Insights supporta solo le esportazioni nell'archivio BLOB. Per altre informazioni sui limiti di questa implementazione, vedere Esportare dati di [telemetria da App Insights](../azure-monitor/app/export-telemetry.md#continuous-export-advanced-storage-configuration).
 
-Usare Application Insights ' [esportazione continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) per esportare i dati in un account di archiviazione BLOB in cui è possibile definire le impostazioni di conservazione. Application Insights Esporta i dati in formato JSON. 
+Usare Application Insights ' [esportazione continua](../azure-monitor/app/export-telemetry.md) per esportare i dati in un account di archiviazione BLOB in cui è possibile definire le impostazioni di conservazione. Application Insights Esporta i dati in formato JSON. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Esportazione continua":::
 
@@ -215,8 +215,8 @@ Usare Application Insights ' [esportazione continua](https://docs.microsoft.com/
 In questo articolo si è appreso come abilitare la registrazione e visualizzare i log per gli endpoint del servizio Web. Per i passaggi successivi, provare questi articoli:
 
 
-* [Come distribuire un modello in un cluster AKS](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+* [Come distribuire un modello in un cluster AKS](./how-to-deploy-azure-kubernetes-service.md)
 
-* [Come distribuire un modello in istanze di contenitore di Azure](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+* [Come distribuire un modello in istanze di contenitore di Azure](./how-to-deploy-azure-container-instance.md)
 
-* [MLOps: consente di gestire, distribuire e monitorare i modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) per ottenere altre informazioni sull'uso dei dati raccolti dai modelli nell'ambiente di produzione. Tali dati possono contribuire a migliorare continuamente il processo di machine learning.
+* [MLOps: consente di gestire, distribuire e monitorare i modelli con Azure Machine Learning](./concept-model-management-and-deployment.md) per ottenere altre informazioni sull'uso dei dati raccolti dai modelli nell'ambiente di produzione. Tali dati possono contribuire a migliorare continuamente il processo di machine learning.

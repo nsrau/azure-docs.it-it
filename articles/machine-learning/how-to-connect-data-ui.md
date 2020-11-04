@@ -11,12 +11,12 @@ author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
 ms.custom: how-to
-ms.openlocfilehash: 116dd65bf04c01f513e196a2f1b37d54aacbf1fe
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8868b930abe28ed205446df0c6c9b0f111213eb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91841357"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312785"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Connettersi ai dati con Azure Machine Learning Studio
 
@@ -31,7 +31,7 @@ La tabella seguente definisce e riepiloga i vantaggi degli archivi dati e dei se
 
 Per informazioni sul modo in cui gli archivi dati e i set di dati si adattano al flusso di lavoro di accesso ai dati complessivo di Azure Machine Learning, vedere l'articolo [accesso sicuro ai dati](concept-data.md#data-workflow) .
 
-Per un'esperienza di Code First, vedere gli articoli seguenti per usare [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true) per:
+Per un'esperienza di Code First, vedere gli articoli seguenti per usare [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/?preserve-view=true&view=azure-ml-py) per:
 * [Connettersi ai servizi di archiviazione di Azure con gli archivi dati](how-to-access-data.md). 
 * [Creare Azure Machine Learning set di impostazioni](how-to-create-register-datasets.md). 
 
@@ -48,21 +48,21 @@ Per un'esperienza di Code First, vedere gli articoli seguenti per usare [Azure M
 
 ## <a name="create-datastores"></a>Creare archivi dati
 
-È possibile creare archivi dati da [queste soluzioni di archiviazione di Azure](how-to-access-data.md#matrix). **Per le soluzioni di archiviazione non supportate**e per risparmiare i costi di uscita durante gli esperimenti ml, è necessario [spostare i dati](how-to-access-data.md#move) in una soluzione di archiviazione di Azure supportata. [Altre informazioni sugli archivi dati](how-to-access-data.md). 
+È possibile creare archivi dati da [queste soluzioni di archiviazione di Azure](how-to-access-data.md#matrix). **Per le soluzioni di archiviazione non supportate** e per risparmiare i costi di uscita durante gli esperimenti ml, è necessario [spostare i dati](how-to-access-data.md#move) in una soluzione di archiviazione di Azure supportata. [Altre informazioni sugli archivi dati](how-to-access-data.md). 
 
 
 
 Creare un nuovo archivio dati in pochi passaggi con il Azure Machine Learning Studio.
 
 > [!IMPORTANT]
-> Se l'account di archiviazione dati si trova in una rete virtuale, sono necessari passaggi di configurazione aggiuntivi per garantire che lo studio abbia accesso ai dati. Vedere [isolamento rete & privacy](how-to-enable-virtual-network.md#machine-learning-studio) per assicurarsi che vengano applicati i passaggi di configurazione appropriati.
+> Se l'account di archiviazione dati si trova in una rete virtuale, sono necessari passaggi di configurazione aggiuntivi per garantire che lo studio abbia accesso ai dati. Vedere [isolamento rete & privacy](how-to-enable-studio-virtual-network.md) per assicurarsi che vengano applicati i passaggi di configurazione appropriati.
 
 1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Selezionare **Archivi dati** nel riquadro sinistro in **Gestisci**.
 1. Selezionare **+ Nuovo archivio dati**.
 1. Completare il modulo per un nuovo archivio dati. Il modulo si aggiorna in modo intelligente in base alle selezioni effettuate per il tipo di archiviazione di Azure e il tipo di autenticazione. Vedere la [sezione accesso e autorizzazioni di archiviazione](#access-validation) per informazioni su dove trovare le credenziali di autenticazione necessarie per popolare il modulo.
 
-Nell'esempio seguente viene illustrato l'aspetto del form quando si crea un **archivio dati BLOB di Azure**:
+Nell'esempio seguente viene illustrato l'aspetto del form quando si crea un **archivio dati BLOB di Azure** :
 
 ![Modulo per un nuovo archivio dati](media/how-to-connect-data-ui/new-datastore-form.png)
 
@@ -86,7 +86,7 @@ Per creare un set di dati in studio:
 1. Selezionare **Crea set di dati** per scegliere l'origine del set di dati. Questa origine può essere costituita da file locali, da un archivio dati, da URL pubblici o da set di dati [aperti di Azure](../open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset.md).
 1. Selezionare **tabulare** o **file** per tipo di set di dati.
 1. Selezionare **Avanti** per aprire il modulo **archivio dati e selezione file** . In questo modulo è possibile selezionare la posizione in cui salvare il set di dati dopo la creazione, nonché selezionare i file di dati da usare per il set di dati.
-    1. Abilitare Ignora convalida se i dati si trova in una rete virtuale. Scopri di più sull' [isolamento e sulla privacy della rete virtuale](how-to-enable-virtual-network.md#machine-learning-studio).
+    1. Abilitare Ignora convalida se i dati si trova in una rete virtuale. Scopri di più sull' [isolamento e sulla privacy della rete virtuale](how-to-enable-studio-virtual-network.md).
     1. Per i set di dati tabulari, è possibile specificare un tratto "timeseries" per abilitare le operazioni correlate al tempo nel set di dati. Informazioni su come [aggiungere il tratto timeseries al set di dati](how-to-monitor-datasets.md#studio-dataset).
 1. Selezionare **Avanti** per popolare i moduli **Impostazioni e anteprima** e **schema** ; vengono popolate in modo intelligente in base al tipo di file ed è possibile configurare ulteriormente il set di dati prima della creazione in questi moduli. 
 1. Selezionare **Avanti** per esaminare il modulo **Conferma dettagli** . Controllare le selezioni e creare un profilo dati facoltativo per il set di dati. Altre informazioni sulla [profilatura dei dati](#profile).
@@ -136,13 +136,13 @@ Per garantire la connessione sicura al servizio di archiviazione di Azure, Azure
 
 ### <a name="virtual-network"></a>Rete virtuale
 
-Se l'account di archiviazione dati si trova in una **rete virtuale**, sono necessari passaggi di configurazione aggiuntivi per garantire che Azure Machine Learning abbia accesso ai dati. Vedere [isolamento rete & privacy](how-to-enable-virtual-network.md#machine-learning-studio) per assicurarsi che vengano applicati i passaggi di configurazione appropriati quando si crea e si registra l'archivio dati.  
+Se l'account di archiviazione dati si trova in una **rete virtuale** , sono necessari passaggi di configurazione aggiuntivi per garantire che Azure Machine Learning abbia accesso ai dati. Vedere [isolamento rete & privacy](how-to-enable-studio-virtual-network.md) per assicurarsi che vengano applicati i passaggi di configurazione appropriati quando si crea e si registra l'archivio dati.  
 
 ### <a name="access-validation"></a>Convalida dell'accesso
 
-**Come parte del processo di creazione e registrazione dell'archivio dati iniziale**, Azure Machine Learning convalida automaticamente il servizio di archiviazione sottostante e l'entità fornita dall'utente (nome utente, entità servizio o token SAS) ha accesso alla risorsa di archiviazione specificata.
+**Come parte del processo di creazione e registrazione dell'archivio dati iniziale** , Azure Machine Learning convalida automaticamente il servizio di archiviazione sottostante e l'entità fornita dall'utente (nome utente, entità servizio o token SAS) ha accesso alla risorsa di archiviazione specificata.
 
-**Dopo la creazione dell'archivio dati**, questa convalida viene eseguita solo per i metodi che richiedono l'accesso al contenitore di archiviazione sottostante, **non** ogni volta che vengono recuperati gli oggetti dell'archivio dati. La convalida viene ad esempio eseguita se è necessario scaricare i file dall'archivio dati, mentre se si vuole solo modificare l'archivio dati predefinito, la convalida non viene eseguita.
+**Dopo la creazione dell'archivio dati** , questa convalida viene eseguita solo per i metodi che richiedono l'accesso al contenitore di archiviazione sottostante, **non** ogni volta che vengono recuperati gli oggetti dell'archivio dati. La convalida viene ad esempio eseguita se è necessario scaricare i file dall'archivio dati, mentre se si vuole solo modificare l'archivio dati predefinito, la convalida non viene eseguita.
 
 Per autenticare l'accesso al servizio di archiviazione sottostante, è possibile fornire la chiave dell'account, le firme di accesso condiviso (SAS) o l'entità servizio in base al tipo di archivio dati che si vuole creare. Nella [matrice del tipo di archiviazione](how-to-access-data.md#matrix) sono elencati i tipi di autenticazione supportati che corrispondono a ogni tipo di archivio dati.
 
@@ -153,7 +153,7 @@ Per autenticare l'accesso al servizio di archiviazione sottostante, è possibile
       1. Per le chiavi dell'account, passare a **Chiavi di accesso** nel riquadro **Impostazioni**.
       1. Per i token di firma di accesso condiviso, passare a **Shared access signatures** (Firme di accesso condiviso) nel riquadro **Impostazioni**.
 
-* Se si prevede di usare un' [entità servizio](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) per l'autenticazione, passare alla **registrazioni app** e selezionare l'app che si vuole usare.
+* Se si prevede di usare un' [entità servizio](../active-directory/develop/howto-create-service-principal-portal.md) per l'autenticazione, passare alla **registrazioni app** e selezionare l'app che si vuole usare.
     * La pagina di **Panoramica** corrispondente conterrà informazioni obbligatorie come ID tenant e ID client.
 
 > [!IMPORTANT]
@@ -161,7 +161,7 @@ Per autenticare l'accesso al servizio di archiviazione sottostante, è possibile
 
 ### <a name="permissions"></a>Autorizzazioni
 
-Per il contenitore BLOB di Azure e l'archiviazione Azure Data Lake generazione 2, assicurarsi che le credenziali di autenticazione dispongano dell'accesso in **lettura dati BLOB di archiviazione** . Altre informazioni sul [lettore di dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). 
+Per il contenitore BLOB di Azure e l'archiviazione Azure Data Lake generazione 2, assicurarsi che le credenziali di autenticazione dispongano dell'accesso in **lettura dati BLOB di archiviazione** . Altre informazioni sul [lettore di dati BLOB di archiviazione](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). 
 
 ## <a name="train-with-datasets"></a>Eseguire il training con set di dati
 

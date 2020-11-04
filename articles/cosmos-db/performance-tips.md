@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: sngun
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 824c48646ab32e02c627fb623dbab60c3050ad96
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: a1c986663c42b87e7e5d4530b26200d48fe612cb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080720"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314266"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net-sdk-v2"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET SDK v2
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -47,12 +47,12 @@ Per migliorare le prestazioni, è consigliabile l'elaborazione host Windows a 64
 
 - Per i progetti di test basati su VSTest, è possibile modificare l'elaborazione dell' **host selezionando**  >  **impostazioni test** di test  >  **Architettura processore predefinita come x64** nel menu **test** di Visual Studio.
 
-- Per le applicazioni Web ASP.NET distribuite localmente, è possibile modificare l'elaborazione host selezionando **Usa la versione a 64 bit di IIS Express per siti e progetti web** in **strumenti**  >  **Opzioni**  >  **progetti e soluzioni** progetti  >  **Web** .
+- Per le applicazioni Web ASP.NET distribuite localmente, è possibile modificare l'elaborazione host selezionando **Usa la versione a 64 bit di IIS Express per siti e progetti web** in **strumenti**  >  **Opzioni**  >  **progetti e soluzioni** progetti  >  **Web**.
 
 - Per le applicazioni Web ASP.NET distribuite in Azure, è possibile modificare l'elaborazione degli host selezionando la piattaforma a **64 bit** nelle **impostazioni dell'applicazione** nel portale di Azure.
 
 > [!NOTE] 
-> Per impostazione predefinita, i nuovi progetti di Visual Studio sono impostati su **qualsiasi CPU** . Si consiglia di impostare il progetto su **x64** in modo che non passi a **x86** . Un progetto impostato su **qualsiasi CPU** può passare facilmente a **x86** se viene aggiunta una dipendenza solo x86.<br/>
+> Per impostazione predefinita, i nuovi progetti di Visual Studio sono impostati su **qualsiasi CPU**. Si consiglia di impostare il progetto su **x64** in modo che non passi a **x86**. Un progetto impostato su **qualsiasi CPU** può passare facilmente a **x86** se viene aggiunta una dipendenza solo x86.<br/>
 > ServiceInterop.dll deve trovarsi nella cartella da cui viene eseguita la DLL SDK. Questo dovrebbe essere un problema solo se si copiano le dll manualmente o si hanno sistemi di compilazione/distribuzione personalizzati.
     
 **Attivare Garbage Collection sul lato server (GC)**

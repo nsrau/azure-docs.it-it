@@ -1,6 +1,6 @@
 ---
 title: Ridimensionare automaticamente le istanze di Apache Spark
-description: Usare la funzionalità di scalabilità automatica di Azure Synapse per dimensionare automaticamente le istanze di Apache Spark
+description: Usare la funzionalità di scalabilità automatica di Azure sinapsi per ridimensionare automaticamente le istanze di Apache Spark
 author: euangMS
 ms.author: euang
 ms.reviewer: euang
@@ -9,12 +9,12 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 ms.date: 03/31/2020
-ms.openlocfilehash: c043941543088d9bdbfd535f372e2335e1ba55a5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f34bcfa8b743fbee6ee3b78fc1a042d1df0abfde
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87500352"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313642"
 ---
 # <a name="automatically-scale-azure-synapse-analytics-apache-spark-pools"></a>Dimensionare automaticamente i pool di Apache Spark in Azure Synapse Analytics
 
@@ -49,7 +49,7 @@ Per ridurre il numero di nodi, in base al numero di executor, ai master applicaz
 
 ## <a name="get-started"></a>Introduzione
 
-### <a name="create-a-spark-pool-with-autoscaling"></a>Creare un pool di Spark con scalabilità automatica
+### <a name="create-a-serverless-apache-spark-pool-with-autoscaling"></a>Creare un pool di Apache Spark senza server con scalabilità automatica
 
 Per abilitare la funzionalità di scalabilità automatica, completare la procedura seguente durante il normale processo di creazione del pool:
 

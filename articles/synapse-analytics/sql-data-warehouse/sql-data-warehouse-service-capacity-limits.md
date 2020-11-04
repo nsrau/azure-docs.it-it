@@ -1,6 +1,6 @@
 ---
-title: Limiti di capacità-Azure sinapsi Analytics (in precedenza SQL DW)
-description: Valori massimi consentiti per vari componenti del pool SQL sinapsi in Azure sinapsi.
+title: Limiti di capacità per il pool SQL dedicato
+description: Valori massimi consentiti per vari componenti di un pool SQL dedicato in Azure sinapsi Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,22 +11,22 @@ ms.date: 2/19/2020
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 4e06dbee5b1edbb4fd1a3379ee2d9aa06f9949ab
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: dac2a60b6b9db082a10d2473eb22b86d8097eee0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92742457"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313153"
 ---
-# <a name="azure-synapse-analytics-formerly-sql-dw-capacity-limits"></a>Limiti di capacità di Azure sinapsi Analytics (precedentemente SQL DW)
+# <a name="capacity-limits-for-dedicated-sql-pool-in-azure-synapse-analytics"></a>Limiti di capacità per il pool SQL dedicato in Azure sinapsi Analytics
 
-Valori massimi consentiti per vari componenti di sinapsi di Azure.
+Valori massimi consentiti per vari componenti di un pool SQL dedicato in Azure sinapsi Analytics.
 
 ## <a name="workload-management"></a>Gestione dei carichi di lavoro
 
 | Category | Descrizione | Massimo |
 |:--- |:--- |:--- |
-| [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Numero massimo di DWU per una singola unità del pool SQL (data warehouse) | Prima generazione: DW6000<br></br>Seconda generazione: DW30000c |
+| [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |Numero massimo di DWU per una singola unità di pool SQL dedicata (data warehouse) | Prima generazione: DW6000<br></br>Seconda generazione: DW30000c |
 | [Unità Data Warehouse (DWU)](what-is-a-data-warehouse-unit-dwu-cdwu.md) |DTU predefinita per server |54.000<br></br>Per impostazione predefinita, ogni server SQL (ad esempio, myserver.database.windows.net) ha una quota DTU di 54.000, che consente fino a DW5000c. Questa quota è semplicemente un limite di sicurezza. È possibile aumentare la quota [creando un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) e selezionando *quota* come tipo di richiesta.  Per calcolare le esigenze di DTU, moltiplicare il 7,5 per il totale DWU necessario oppure moltiplicare 9,5 per il totale DWU necessario. Ad esempio:<br></br>DW6000 x 7,5 = 45.000 DTU<br></br>DW5000c x 9,5 = 47.500 DTU.<br></br>È possibile visualizzare l'utilizzo di DTU attuale nell'opzione SQL Server del portale. I database in pausa e non in pausa vengono conteggiati nella quota di DTU. |
 | Connessione del database |Numero massimo di sessioni aperte simultanee |1024<br/><br/>Il numero di sessioni aperte simultanee può variare in base al DWU selezionato. DWU600c e versioni successive supportano un massimo di 1024 sessioni aperte. DWU500c e versioni precedenti supportano un limite massimo di sessioni aperte simultanee pari a 512. Si noti che vi sono limiti nel numero di query che è possibile eseguire contemporaneamente. Quando si supera il limite di concorrenza, la richiesta viene inviata a una coda interna in cui resta in attesa di elaborazione. |
 | Connessione del database |Memoria massima per le istruzioni preparate |20 MB |
@@ -54,7 +54,7 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 | Statistiche |Colonne per oggetto statistiche. |32 |
 | Statistiche |Statistiche create per le colonne per tabella. |30.000 |
 | Stored procedure |Livello massimo di annidamento. |8 |
-| Visualizzazione |Colonne per ogni vista |1\.024 |
+| Visualizza |Colonne per ogni vista |1\.024 |
 ||||
 
 ## <a name="loads"></a>Carichi
@@ -62,7 +62,7 @@ Valori massimi consentiti per vari componenti di sinapsi di Azure.
 | Category | Descrizione | Massimo |
 |:--- |:--- |:--- |
 | Operazioni di caricamento di PolyBase |MB per riga |1<br/><br/>La polibase carica righe di dimensioni inferiori a 1 MB. Il caricamento di tipi di dati LOB in tabelle con un indice columnstore cluster (CCI) non è supportato.<br/> |
-|Operazioni di caricamento di PolyBase|Numero totale di file|1\.000.000<br/><br/>I carichi di base non possono superare i 1 milione di file. È possibile che si verifichi l'errore seguente: **operazione non riuscita perché il numero di suddivisione supera il limite superiore 1 milione** .|
+|Operazioni di caricamento di PolyBase|Numero totale di file|1\.000.000<br/><br/>I carichi di base non possono superare i 1 milione di file. È possibile che si verifichi l'errore seguente: **operazione non riuscita perché il numero di suddivisione supera il limite superiore 1 milione**.|
 
 ## <a name="queries"></a>Query
 

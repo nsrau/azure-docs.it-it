@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3aa33efa9aa416ad1dfefd2fe957ce04b2b14432
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1dd82fb00c55e3676929999f204eae8755671038
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86027461"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314741"
 ---
 # <a name="overview-of-data-science-using-spark-on-azure-hdinsight"></a>Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight
 
@@ -41,8 +41,8 @@ Questi notebook devono essere eseguiti nel kernel di pySpark del server notebook
 ### <a name="spark-20-notebooks"></a>Notebook Spark 2.0
 Questi notebook devono essere eseguiti nel kernel di pySpark3 del server notebook di Jupyter.
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): questo file fornisce informazioni su come eseguire l'esplorazione dei dati, la modellazione e l'assegnazione del punteggio nei cluster Spark 2.0 usando i dati relativi alle corse e alle tariffe dei taxi di NYC descritti [qui](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data). Questo notebook può essere un buon punto di partenza per esplorare velocemente il codice fornito per Spark 2.0. Per un notebook più dettagliato che analizza i dati dei taxi di NYC, vedere il notebook successivo di questo elenco. Vedere le note che seguono questo elenco per confrontare i notebook.
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): questo file mostra come eseguire la gestione dei dati (Spark SQL e operazioni del frame di dati), l'esplorazione, il modellamento e l'assegnazione del punteggio utilizzando il set di dati delle corse e delle tariffe dei taxi di NYC descritti [qui](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data).
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): questo file fornisce informazioni su come eseguire l'esplorazione dei dati, la modellazione e l'assegnazione del punteggio nei cluster Spark 2.0 usando i dati relativi alle corse e alle tariffe dei taxi di NYC descritti [qui](#the-nyc-2013-taxi-data). Questo notebook può essere un buon punto di partenza per esplorare velocemente il codice fornito per Spark 2.0. Per un notebook più dettagliato che analizza i dati dei taxi di NYC, vedere il notebook successivo di questo elenco. Vedere le note che seguono questo elenco per confrontare i notebook.
+- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): questo file mostra come eseguire la gestione dei dati (Spark SQL e operazioni del frame di dati), l'esplorazione, il modellamento e l'assegnazione del punteggio utilizzando il set di dati delle corse e delle tariffe dei taxi di NYC descritti [qui](#the-nyc-2013-taxi-data).
 - [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): questo file mostra come eseguire la gestione dei dati (Spark SQL e operazioni del frame di dati), l'esplorazione, il modellamento e l'assegnazione del punteggio utilizzando il set di dati relativi alle partenze puntuali dei voli del 2011 e 2012 di una compagnia area. Il set di dati della compagnia aerea è stato integrato con i dati meteo dell'aeroporto (ad esempio, windspeed, temperature, altitudine e così via) prima della modellazione, quindi queste funzionalità meteorologiche possono essere incluse nel modello.
 
 <!-- -->
@@ -156,13 +156,13 @@ I dati relativi alle corse dei taxi della città di New York sono costituiti da 
 
 ![Dashboard del cluster](./media/spark-overview/spark-jupyter-on-portal.png)
 
-È anche possibile passare a ***`https://CLUSTERNAME.azurehdinsight.net/jupyter`*** per accedere ai notebook di Jupyter. Sostituire NOMECLUSTER nell'URL con il nome del proprio cluster. Per accedere ai notebook, sarà necessaria la password dell'account amministratore.
+È anche possibile passare a * *_`https://CLUSTERNAME.azurehdinsight.net/jupyter`_* _ per accedere ai notebook di Jupyter. Sostituire NOMECLUSTER nell'URL con il nome del proprio cluster. Per accedere ai notebook, sarà necessaria la password dell'account amministratore.
 
 ![Sfogliare i notebook di Jupyter](./media/spark-overview/spark-jupyter-notebook.png)
 
 Selezionare PySpark per visualizzare una directory contenente alcuni esempi di notebook pre-confezionati che usano l'API PySpark. I notebook che contengono gli esempi di codice per questa serie di argomenti su Spark sono disponibili in [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark)
 
-È possibile caricare i notebook direttamente da [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) nel server del notebook di Jupyter sul cluster Spark. Nella home page di Jupyter fare clic sul pulsante **Upload** (Carica) a destra nella schermata. Verrà visualizzata una finestra di esplorazione file, in cui è possibile incollare l'URL di GitHub (contenuto non elaborato) del notebook e fare clic su **Open** (Apri).
+È possibile caricare i notebook direttamente da [GitHub](https://github.com/Azure/Azure-MachineLearning-DataScience/tree/master/Misc/Spark/pySpark) nel server del notebook di Jupyter sul cluster Spark. Nella home page della Jupyter fare clic sul pulsante _ *upload* * nella parte destra della schermata. Verrà visualizzata una finestra di esplorazione file, in cui è possibile incollare l'URL di GitHub (contenuto non elaborato) del notebook e fare clic su **Open** (Apri).
 
 Il nome del file verrà visualizzato nell'elenco di file Jupyter e sarà di nuovo disponibile il pulsante **Upload** (Carica). Fare clic sul pulsante **Upload** (Carica). A questo punto, il notebook è stato importato. Ripetere i passaggi per caricare gli altri notebook di questa procedura dettagliata.
 
@@ -175,7 +175,7 @@ A questo punto è possibile:
 
 * Fare clic sul notebook per visualizzare il codice.
 * Eseguire ogni cella premendo **MAIUSC+INVIO**.
-* Eseguire l'intero Notebook facendo clic su **Cell**  ->  **esecuzione**cella.
+* Eseguire l'intero Notebook facendo clic su **Cell**  ->  **esecuzione** cella.
 * Usare la visualizzazione automatica delle query.
 
 > [!TIP]
@@ -193,4 +193,3 @@ Dopo aver configurato un cluster HDInsight Spark e avere caricato i notebook di 
 **Uso dei modelli:** per informazioni su come valutare i modelli di regressione e di classificazione creati in questo argomento, vedere [Assegnare punteggi a modelli di apprendimento automatico compilati con Spark](spark-model-consumption.md).
 
 **Convalida incrociata e sweep di iperparametri:** Per informazioni su come istruire i modelli sulla convalida incrociata e lo sweep di iperparametri, vedere [Esplorazione e modellazione avanzate dei dati con Spark](spark-advanced-data-exploration-modeling.md)
-

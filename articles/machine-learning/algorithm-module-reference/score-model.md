@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 0cc367b86507d6d819608795851052e8a0c1c73b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 67d17af4f615907ca50b27ce8fa26973e5869608
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90890303"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314247"
 ---
 # <a name="score-model"></a>Assegnare il punteggio al modello
 
@@ -48,8 +48,8 @@ Il Punteggio, o valore stimato, può essere in molti formati diversi, a seconda 
 
 ## <a name="publish-scores-as-a-web-service"></a>Pubblicare i punteggi come servizio Web
 
-Un uso comune dei punteggi consiste nel restituire l'output come parte di un servizio Web predittivo. Per altre informazioni, vedere [questa esercitazione](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy) su come distribuire un endpoint in tempo reale basato su una pipeline in Azure Machine Learning Designer.
+Un uso comune dei punteggi consiste nel restituire l'output come parte di un servizio Web predittivo. Per altre informazioni, vedere [questa esercitazione](../tutorial-designer-automobile-price-deploy.md) su come distribuire un endpoint in tempo reale basato su una pipeline in Azure Machine Learning Designer.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
+Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.

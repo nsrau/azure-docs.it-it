@@ -1,6 +1,6 @@
 ---
 title: Punti di ripristino definiti dall'utente
-description: Come creare un punto di ripristino per il pool SQL.
+description: Come creare un punto di ripristino per un pool SQL dedicato.
 services: synapse-analytics
 author: anumjs
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 66a2dad9396e8bf7c8ef49db529f7a5486cc8a8f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9d7266e0b84ae57682ddcfe7195be9574a702c74
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089208"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93313253"
 ---
-# <a name="user-defined-restore-points"></a>Punti di ripristino definiti dall'utente
+# <a name="user-defined-restore-points-for-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Punti di ripristino definiti dall'utente per un pool SQL dedicato in Azure sinapsi Analytics
 
-In questo articolo si apprenderà come creare un nuovo punto di ripristino definito dall'utente per un pool SQL in Azure sinapsi Analytics usando PowerShell e il portale di Azure.
+In questo articolo si apprenderà come creare un nuovo punto di ripristino definito dall'utente per un pool SQL dedicato in Azure sinapsi Analytics usando PowerShell e il portale di Azure.
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>Creare punti di ripristino definiti dall'utente tramite PowerShell
 
@@ -62,9 +62,9 @@ I punti di ripristino definiti dall'utente possono essere creati anche tramite p
 
 1. Accedere al proprio account di [portale di Azure](https://portal.azure.com/) .
 
-2. Passare al pool SQL per il quale si desidera creare un punto di ripristino.
+2. Passare al pool SQL dedicato per il quale si desidera creare un punto di ripristino.
 
-3. Selezionare **Panoramica** nel riquadro a sinistra e selezionare **+ nuovo punto di ripristino**. Se il pulsante nuovo punto di ripristino non è abilitato, assicurarsi che il pool SQL non sia sospeso.
+3. Selezionare **Panoramica** nel riquadro a sinistra e selezionare **+ nuovo punto di ripristino**. Se il pulsante nuovo punto di ripristino non è abilitato, assicurarsi che il pool SQL dedicato non sia sospeso.
 
     ![Nuovo punto di ripristino](./media/sql-data-warehouse-restore-points/creating-restore-point-01.png)
 
@@ -74,7 +74,7 @@ I punti di ripristino definiti dall'utente possono essere creati anche tramite p
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ripristinare un pool SQL esistente](sql-data-warehouse-restore-active-paused-dw.md)
-- [Ripristinare un pool SQL eliminato](sql-data-warehouse-restore-deleted-dw.md)
-- [Ripristinare da un pool SQL di backup geografico](sql-data-warehouse-restore-from-geo-backup.md)
+- [Ripristinare un pool SQL dedicato esistente](sql-data-warehouse-restore-active-paused-dw.md)
+- [Ripristinare un pool SQL dedicato eliminato](sql-data-warehouse-restore-deleted-dw.md)
+- [Ripristinare da un pool SQL dedicato con backup geografico](sql-data-warehouse-restore-from-geo-backup.md)
 
