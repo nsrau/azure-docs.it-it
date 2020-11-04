@@ -13,12 +13,12 @@ ms.custom:
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 5360c053370d4963b9fa9f6e24273edd4038b9ac
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7569606429740de23b56767d490b9bb14283d468
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710397"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331693"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare Node.js per connettersi ed eseguire query sui dati in Database di Azure per PostgreSQL - Server singolo
 
@@ -250,6 +250,16 @@ function queryDatabase() {
             throw err;
         });
 }
+```
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Per pulire tutte le risorse usate in questo argomento di avvio rapido, eliminare il gruppo di risorse con il comando seguente:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -5,23 +5,25 @@ author: SnehaGunda
 ms.author: sngun
 tags: azure-resource-manager
 ms.service: cosmos-db
+ms.subservice: cosmosdb-sql
 ms.topic: quickstart
 ms.date: 06/01/2020
 ms.custom: subject-armqs
-ms.openlocfilehash: a319e5f3b6aa861feb2d9dfc88d471ff695c2a3c
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: b97702bb84eb38d185fe97ffcc596e374f28fbe2
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92482320"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93339666"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-an-arm-template"></a>Avvio rapido: Creare un database Azure Cosmos DB e un contenitore con un modello di Resource Manager
+[!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
 
 Azure Cosmos DB è il database NoSQL veloce di Microsoft con API aperte per qualsiasi scala. È possibile usare Azure Cosmos DB per creare rapidamente database di chiavi/valori, di documenti e a grafo ed eseguire query su di essi. Questo argomento di avvio rapido illustra il processo di distribuzione di un modello di Azure Resource Manager (modello ARM) per creare un database Azure Cosmos DB e un contenitore al suo interno. Sarà quindi possibile archiviare dati in questo contenitore.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure** . Il modello verrà aperto nel portale di Azure.
+Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
 
 [:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuzione in Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-cosmosdb-sql%2Fazuredeploy.json)
 
@@ -57,13 +59,13 @@ Altri esempi di modelli di Azure Cosmos DB sono disponibili nella [raccolta di m
 
 2. Selezionare o immettere i valori seguenti.
 
-   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Distribuzione in Azure":::
+   :::image type="content" source="./media/quick-create-template/create-cosmosdb-using-template-portal.png" alt-text="Modello di Resource Manager: integrazione di Azure Cosmos DB, portale per la distribuzione":::
 
     Se non specificati, usare i valori predefiniti per creare le risorse di Azure Cosmos DB.
 
     * **Sottoscrizione** : selezionare una sottoscrizione di Azure.
-    * **Gruppo di risorse** : selezionare **Crea nuovo** , immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK** .
-    * **Località** : selezionare una località.  Ad esempio **Stati Uniti centrali** .
+    * **Gruppo di risorse** : selezionare **Crea nuovo** , immettere un nome univoco per il gruppo di risorse e quindi fare clic su **OK**.
+    * **Località** : selezionare una località.  Ad esempio **Stati Uniti centrali**.
     * **Nome account** : immettere un nome per l'account Azure Cosmos DB. Deve essere univoco a livello globale.
     * **Località** : immettere una località in cui creare l'account Azure Cosmos DB. Può essere la stessa località in cui si trova il gruppo di risorse.
     * **Area primaria** : area di replica primaria per l'account Azure Cosmos DB.
@@ -76,9 +78,9 @@ Altri esempi di modelli di Azure Cosmos DB sono disponibili nella [raccolta di m
     * **Velocità effettiva** :  velocità effettiva del contenitore. Il valore minimo è 400 UR/sec.
     * **Accetto le condizioni riportate sopra** : selezionare questa casella.
 
-3. Selezionare **Acquisto** . Al termine della distribuzione dell'account Azure Cosmos DB, si riceverà una notifica:
+3. Selezionare **Acquisto**. Al termine della distribuzione dell'account Azure Cosmos DB, si riceverà una notifica:
 
-   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Distribuzione in Azure":::
+   :::image type="content" source="./media/quick-create-template/resource-manager-template-portal-deployment-notification.png" alt-text="Modello di Resource Manager: integrazione di Cosmos DB, notifica nel portale per la distribuzione":::
 
 Per distribuire il modello, si usa il portale di Azure. Oltre al portale di Azure, è anche possibile usare Azure PowerShell, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-powershell.md).
 

@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: cpp
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8119cbbb6619b923068723a6c855c04a8de48876
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 28957235dc5c90beebf834101a481187909ab6bb
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90904021"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332220"
 ---
 # <a name="quickstart-use-connectorc-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare Connector/C++ per connettersi ai dati ed eseguire query in Database di Azure per MySQL
 
@@ -306,6 +306,16 @@ int main()
     system("pause");
     return 0;
 }
+```
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Per pulire tutte le risorse usate in questo argomento di avvio rapido, eliminare il gruppo di risorse con il comando seguente:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

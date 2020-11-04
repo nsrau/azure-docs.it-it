@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/25/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 8a9661f7f5cdd66dc0aab6d937701cda48048219
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1ddc8c2b9531dd78c1c6746e28b8ff5864af563e
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92488028"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331948"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-by-using-the-azure-cli"></a>Avvio rapido: Creare un server di Database di Azure per PostgreSQL con l'interfaccia della riga di comando di Azure
 
@@ -153,7 +153,3 @@ az postgres server delete --resource-group myresourcegroup --name mydemoserver
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
 > [Eseguire la migrazione del database usando le funzionalità di esportazione e importazione](./howto-migrate-using-export-and-import.md)
-> 
-> [Distribuire un'app Web Django con PostgreSQL](../app-service/tutorial-python-postgresql-app.md)
->
-> [Connettersi con un'app Node.JS](./connect-nodejs.md)

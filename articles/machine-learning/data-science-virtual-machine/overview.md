@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 04/02/2020
-ms.openlocfilehash: 2bfcdfcb01e7908c199054e793d82cdfa1b726c7
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 7bcee0f571fe42e4c00499f188e35d0e0ff2ebe7
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816338"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322502"
 ---
 # <a name="what-is-the-azure-data-science-virtual-machine-for-linux-and-windows"></a>Cos'è la Azure Data Science Virtual Machine per Linux e Windows?
 
@@ -28,7 +28,7 @@ Data Science Virtual Machine è disponibile in:
 
 ## <a name="comparison-with-azure-machine-learning"></a>Confronto con Azure Machine Learning
 
-Data Science Virtual Machine è un'immagine VM per data science ma [Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/overview-what-is-azure-ml) (AzureML) è una piattaforma end-to-end che include:
+Data Science Virtual Machine è un'immagine VM per data science ma [Azure Machine Learning](../overview-what-is-azure-ml.md) (AzureML) è una piattaforma end-to-end che include:
 
 + Risorse di calcolo completamente gestite
   + Compute Instances (Istanze di calcolo)
@@ -44,7 +44,7 @@ Data Science Virtual Machine è un'immagine VM per data science ma [Azure Machin
 
 ### <a name="comparison-with-azureml-compute-instances"></a>Confronto con le istanze di ambiente di calcolo di AzureML
 
-Le [istanze di ambiente di calcolo di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance) sono un'immagine VM completamente configurata e __gestita__, mentre Data Science Virtual Machine è una VM __non gestita__.
+Le [istanze di ambiente di calcolo di Azure Machine Learning](../concept-compute-instance.md) sono un'immagine VM completamente configurata e __gestita__ , mentre Data Science Virtual Machine è una VM __non gestita__.
 
 Le differenze essenziali tra queste due offerte di prodotti sono illustrate di seguito:
 

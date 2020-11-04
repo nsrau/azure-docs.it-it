@@ -8,12 +8,12 @@ ms.custom: mvc, devx-track-csharp
 ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/16/2020
-ms.openlocfilehash: 16f1e2a6b7a3c0e81b7ceb57359a48a84ee489d9
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 86362dc6d3e66f8b3d6888318fef0eb1dd12c3c3
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92532731"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337490"
 ---
 # <a name="quickstart-use-net-c-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare .NET (C#) per connettersi ai dati ed eseguire query in Database di Azure per MySQL
 
@@ -46,9 +46,9 @@ dotnet add package MySqlConnector
 Ottenere le informazioni di connessione necessarie per connettersi al database di Azure per MySQL. Sono necessari il nome del server completo e le credenziali di accesso.
 
 1. Accedere al [Portale di Azure](https://portal.azure.com/).
-2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver** .
+2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
 3. Fare clic sul nome del server.
-4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server** . Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
+4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
  :::image type="content" source="./media/connect-csharp/1_server-overview-name-login.png" alt-text="Nome del server del database di Azure per MySQL":::
 
 ## <a name="connect-create-table-and-insert-data"></a>Connettersi, creare tabelle e inserire dati
@@ -272,6 +272,16 @@ namespace AzureMySqlExample
         }
     }
 }
+```
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Per pulire tutte le risorse usate in questo argomento di avvio rapido, eliminare il gruppo di risorse con il comando seguente:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

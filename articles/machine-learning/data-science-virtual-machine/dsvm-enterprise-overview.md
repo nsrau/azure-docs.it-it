@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 05/08/2018
-ms.openlocfilehash: b1357c9bb125cb881ac4aa6dd31c9dcaf53954f0
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 538802cc2129a8e8f379c8b569bd1f8696097dab
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "87919940"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93314178"
 ---
 # <a name="data-science-virtual-machine-based-team-analytics-and-ai-environment"></a>Ambiente di intelligenza artificiale e analisi di collaborazione in team basato su Data Science Virtual Machine 
 [Data Science Virtual Machine](overview.md) (DSVM) fornisce un ambiente avanzato nella piattaforma Azure, con software precompilato per l'intelligenza artificiale e l'analisi dei dati.
@@ -37,13 +37,13 @@ Gli elementi costitutivi chiave di un ambiente di analisi di un team aziendale i
 
 Questa serie di articoli fornisce linee guida e indicazioni per ognuno degli argomenti precedenti. Non illustra tutti i requisiti e le considerazioni relative alla distribuzione di Data Science Virtual Machine nelle configurazioni aziendali di grandi dimensioni. Ecco altre risorse di Azure che è possibile usare durante l'implementazione di istanze di Data Science Virtual Machine nell'azienda:
 
-* [Sicurezza di rete](https://docs.microsoft.com/azure/security/fundamentals/network-security)
-* [Monitoraggio](https://docs.microsoft.com/azure/virtual-machines/windows/monitor) e [gestione](https://docs.microsoft.com/azure/virtual-machines/windows/maintenance-and-updates)
-* [Registrazione e controllo](https://docs.microsoft.com/azure/security/fundamentals/log-audit)
-* [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/overview)
+* [Sicurezza di rete](../../security/fundamentals/network-overview.md)
+* [Monitoraggio](../../azure-monitor/insights/monitor-vm-azure.md) e [gestione](../../virtual-machines/maintenance-and-updates.md?bc=%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json%252c%252fazure%252fvirtual-machines%252fwindows%252fbreadcrumb%252ftoc.json&toc=%252fazure%252fvirtual-machines%252fwindows%252ftoc.json%253ftoc%253d%252fazure%252fvirtual-machines%252fwindows%252ftoc.json)
+* [Registrazione e controllo](../../security/fundamentals/log-audit.md)
+* [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md)
 * [Imposizione e impostazione di criteri](../../governance/policy/overview.md)
-* [Antimalware](https://docs.microsoft.com/azure/security/fundamentals/antimalware)
-* [Crittografia](https://docs.microsoft.com/azure/virtual-machines/windows/disk-encryption-overview)
-* [Governance e individuazione dei dati](https://docs.microsoft.com/azure/data-catalog/)
+* [Antimalware](../../security/fundamentals/antimalware.md)
+* [Crittografia](../../virtual-machines/windows/disk-encryption-overview.md)
+* [Governance e individuazione dei dati](../../data-catalog/index.yml)
 
-[Centro architetture di Azure](https://docs.microsoft.com/azure/architecture/) fornisce infine un'architettura end-to-end dettagliata e modelli per la compilazione e la gestione dell'infrastruttura di analisi basata sul cloud.
+[Centro architetture di Azure](/azure/architecture/) fornisce infine un'architettura end-to-end dettagliata e modelli per la compilazione e la gestione dell'infrastruttura di analisi basata sul cloud.

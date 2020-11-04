@@ -11,12 +11,12 @@ ms.custom:
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: a08145ba5ffb5b30eb2c472d3eb8f608703f44a0
-ms.sourcegitcommit: a07a01afc9bffa0582519b57aa4967d27adcf91a
+ms.openlocfilehash: 8d181483032deed35adfd6eebcbf870b89593407
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91743455"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93332067"
 ---
 # <a name="quickstart-use-python-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare Python per connettersi ai dati ed eseguire query in Database di Azure per MySQL
 
@@ -67,7 +67,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
    
 1. Nella pagina **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questa pagina è anche possibile reimpostarla.
    
-   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Nome del server del database di Azure per MySQL":::
+   :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Nome del server del database di Azure per MySQL 2":::
 
 ## <a name="run-the-python-examples"></a>Eseguire gli esempi di Python
 
@@ -75,11 +75,11 @@ Per ogni esempio di codice in questo articolo, eseguire queste operazioni.
 
 1. Creare un nuovo file in un editor di testo.
 1. Aggiungere l'esempio di codice al file. Nel codice sostituire i segnaposto `<mydemoserver>`, `<myadmin>`, `<mypassword>` e `<mydatabase>` con i valori relativi al server e al database MySQL.
-1. Salvare il file in una cartella del progetto con estensione *py*, ad esempio *C:\pythonmysql\createtable.py* o */home/username/pythonmysql/createtable.py*.
+1. Salvare il file in una cartella del progetto con estensione *py* , ad esempio *C:\pythonmysql\createtable.py* o */home/username/pythonmysql/createtable.py*.
 1. Per eseguire il codice, aprire un prompt dei comandi o una shell `cd pythonmysql` e passare alla cartella del progetto, ad esempio `bash`. Digitare il comando `python` seguito dal nome file, ad esempio `python createtable.py`, quindi premere INVIO. 
    
    > [!NOTE]
-   > In Windows, se *python.exe* non viene trovato, potrebbe essere necessario aggiungere il percorso di Python nella variabile di ambiente PATH oppure specificare il percorso completo di *python.exe*, ad esempio `C:\python27\python.exe createtable.py`.
+   > In Windows, se *python.exe* non viene trovato, potrebbe essere necessario aggiungere il percorso di Python nella variabile di ambiente PATH oppure specificare il percorso completo di *python.exe* , ad esempio `C:\python27\python.exe createtable.py`.
 
 ## <a name="create-a-table-and-insert-data"></a>Creare una tabella e inserire i dati
 
@@ -270,6 +270,16 @@ else:
   cursor.close()
   conn.close()
   print("Done.")
+```
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Per pulire tutte le risorse usate in questo argomento di avvio rapido, eliminare il gruppo di risorse con il comando seguente:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

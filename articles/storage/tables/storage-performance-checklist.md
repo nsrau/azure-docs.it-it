@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/10/2019
 ms.subservice: tables
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9d3f7d5f496634f10b48e7509c21cd634fd92d3c
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 71b1f3cfa1df86b417c468d56f67cd7fe8d71d73
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "89458333"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316183"
 ---
 # <a name="performance-and-scalability-checklist-for-table-storage"></a>Elenco di controllo di prestazioni e scalabilità di Archiviazione tabelle
 
@@ -153,7 +153,7 @@ Impostare il limite di connessione prima di aprire le connessioni.
 
 Per gli altri linguaggi di programmazione, vedere la documentazione specifica per determinare come impostare il limite di connessione.  
 
-Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simultanee](https://blogs.msdn.microsoft.com/darrenj/2005/03/07/web-services-concurrent-connections/).  
+Per altre informazioni, vedere il post del blog [Servizi Web: connessioni simultanee](/archive/blogs/darrenj/web-services-concurrent-connections).  
 
 ### <a name="increase-minimum-number-of-threads"></a>Aumentare il numero minimo di thread
 
@@ -171,7 +171,7 @@ Sebbene il parallelismo possa essere ideale per le prestazioni, prestare attenzi
 
 ## <a name="client-libraries-and-tools"></a>Librerie e strumenti client dell'archiviazione
 
-Per ottenere le migliori prestazioni, usare sempre l'ultima versione delle librerie e degli strumenti client forniti da Microsoft. Le librerie client di Archiviazione di Azure sono disponibili per diversi linguaggi. Archiviazione di Azure supporta anche PowerShell e l'interfaccia della riga di comando di Azure. Microsoft sviluppa attivamente questi strumenti e librerie client concentrandosi sulle prestazioni, li mantiene aggiornati con le ultime versioni del servizio e verifica che siano in grado di gestire internamente gran parte delle procedure comprovate relative alle prestazioni. Per altre informazioni, vedere la [documentazione di riferimento di Archiviazione di Azure](/azure/storage/#reference).
+Per ottenere le migliori prestazioni, usare sempre l'ultima versione delle librerie e degli strumenti client forniti da Microsoft. Le librerie client di Archiviazione di Azure sono disponibili per diversi linguaggi. Archiviazione di Azure supporta anche PowerShell e l'interfaccia della riga di comando di Azure. Microsoft sviluppa attivamente questi strumenti e librerie client concentrandosi sulle prestazioni, li mantiene aggiornati con le ultime versioni del servizio e verifica che siano in grado di gestire internamente gran parte delle procedure comprovate relative alle prestazioni.
 
 ## <a name="handle-service-errors"></a>Gestire gli errori del servizio
 
@@ -197,7 +197,7 @@ In questa sezione vengono elencate diverse impostazioni di configurazione rapide
 
 A partire dalla versione del servizio di archiviazione 2013-08-15, il servizio tabelle supporta l'uso di JSON al posto del formato AtomPub basato su XML per il trasferimento dei dati della tabella. L'uso di JSON consente di ridurre le dimensioni del payload di una percentuale massima del 75% e può migliorare notevolmente le prestazioni dell'applicazione.
 
-Per altre informazioni, vedere il post [Microsoft Azure Tables: Introducing JSON](https://docs.microsoft.com/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) (Tabelle di Microsoft Azure: introduzione a JSON) e [Payload Format for Table Service Operations](https://msdn.microsoft.com/library/azure/dn535600.aspx) (Formato di Payload per operazioni del servizio tabelle).
+Per altre informazioni, vedere il post [Microsoft Azure Tables: Introducing JSON](/archive/blogs/windowsazurestorage/windows-azure-tables-introducing-json) (Tabelle di Microsoft Azure: introduzione a JSON) e [Payload Format for Table Service Operations](/rest/api/storageservices/Payload-Format-for-Table-Service-Operations) (Formato di Payload per operazioni del servizio tabelle).
 
 ### <a name="disable-nagle"></a>Disabilitare Nagle
 
@@ -273,10 +273,10 @@ Le transazioni batch sono note come transazioni dei gruppi di entità in Archivi
 
 #### <a name="upsert"></a>Upsert
 
-Usare le operazioni della tabella **Upsert** quando possibile. Esistono due tipi di **Upsert**, entrambi più efficaci di una tradizionale operazione di **inserimento** e **aggiornamento**:  
+Usare le operazioni della tabella **Upsert** quando possibile. Esistono due tipi di **Upsert** , entrambi più efficaci di una tradizionale operazione di **inserimento** e **aggiornamento** :  
 
-- **InsertOrMerge**: Usare questa operazione quando si vuole caricare un subset di proprietà dell'entità, ma non si è certi del fatto che l'entità esista già. Se l'entità esiste, questa chiamata aggiorna le proprietà incluse nell'operazione **Upsert** e lascia inalterate tutte le proprietà esistenti; se l'entità non esiste, ne inserisce una nuova. La procedura è analoga all'uso della proiezione in una query perché è necessario caricare solo le proprietà modificate.
-- **InsertOrReplace**: Usare questa operazione quando si vuole caricare un'entità completamente nuova, ma non si è certi del fatto che l'entità esista già. Usare questa operazione se si è certi che l'entità appena caricata è corretta perché questa sovrascrive completamente l'entità esistente. Si vuole ad esempio aggiornare l'entità in cui è archiviata la posizione corrente di un utente indipendentemente dal fatto che l'applicazione abbia o meno archiviato in precedenza dati sulla posizione dell'utente. La nuova entità di posizione è completa e non occorrono altre informazioni da entità precedenti.
+- **InsertOrMerge** : Usare questa operazione quando si vuole caricare un subset di proprietà dell'entità, ma non si è certi del fatto che l'entità esista già. Se l'entità esiste, questa chiamata aggiorna le proprietà incluse nell'operazione **Upsert** e lascia inalterate tutte le proprietà esistenti; se l'entità non esiste, ne inserisce una nuova. La procedura è analoga all'uso della proiezione in una query perché è necessario caricare solo le proprietà modificate.
+- **InsertOrReplace** : Usare questa operazione quando si vuole caricare un'entità completamente nuova, ma non si è certi del fatto che l'entità esista già. Usare questa operazione se si è certi che l'entità appena caricata è corretta perché questa sovrascrive completamente l'entità esistente. Si vuole ad esempio aggiornare l'entità in cui è archiviata la posizione corrente di un utente indipendentemente dal fatto che l'applicazione abbia o meno archiviato in precedenza dati sulla posizione dell'utente. La nuova entità di posizione è completa e non occorrono altre informazioni da entità precedenti.
 
 #### <a name="storing-data-series-in-a-single-entity"></a>Archiviazione di serie di dati in una singola entità
 

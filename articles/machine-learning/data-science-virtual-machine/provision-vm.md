@@ -8,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: a955f035933955b88200e49e343f7dd0c257c89b
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 3b5f96e60e088f94561bf3398469ec913a71bba6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88816355"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93322450"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>Guida introduttiva: Configurare la Data Science Virtual Machine per Windows
 
@@ -37,13 +37,13 @@ Per creare un'istanza di DSVM:
 
 1. Compilare la scheda **Nozioni di base**.
       * **Sottoscrizione** Se si hanno più sottoscrizioni, selezionare quella in cui verrà creata e fatturata la macchina virtuale. È necessario disporre di privilegi di creazione delle risorse per questa sottoscrizione.
-      * **Gruppo di risorse**: creare un nuovo gruppo di risorse o selezionarne uno esistente.
-      * **Nome macchina virtuale**: immettere il nome della macchina virtuale. È il nome con cui verrà visualizzata nel portale di Azure.
-      * **Località**: selezionare il data center più appropriato. Per l'accesso più veloce alla rete, in genere è il data center che include la maggior parte dei dati o è più vicino alla propria posizione fisica. Vedere altre informazioni sulle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
-      * **Immagine**: Lasciare il valore predefinito.
-      * **Size**: questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Windows in Azure](../../virtual-machines/windows/sizes.md).
-      * **Nome utente**: immettere il nome utente dell'amministratore. È il nome utente che verrà usato per accedere alla macchina virtuale e non deve necessariamente essere uguale al nome utente Azure.
-      * **Password**: immettere la password che si userà per accedere alla macchina virtuale.    
+      * **Gruppo di risorse** : creare un nuovo gruppo di risorse o selezionarne uno esistente.
+      * **Nome macchina virtuale** : immettere il nome della macchina virtuale. È il nome con cui verrà visualizzata nel portale di Azure.
+      * **Località** : selezionare il data center più appropriato. Per l'accesso più veloce alla rete, in genere è il data center che include la maggior parte dei dati o è più vicino alla propria posizione fisica. Vedere altre informazioni sulle [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/).
+      * **Immagine** : Lasciare il valore predefinito.
+      * **Size** : questo campo dovrebbe essere completato automaticamente con una dimensione appropriata per carichi di lavoro generali. Vedere altre informazioni sulle [dimensioni delle VM Windows in Azure](../../virtual-machines/sizes.md).
+      * **Nome utente** : immettere il nome utente dell'amministratore. È il nome utente che verrà usato per accedere alla macchina virtuale e non deve necessariamente essere uguale al nome utente Azure.
+      * **Password** : immettere la password che si userà per accedere alla macchina virtuale.    
 1. Selezionare **Rivedi e crea**.
 1. **Rivedi e crea**
    * Verificare che tutte le informazioni immesse siano corrette. 
@@ -56,7 +56,7 @@ Per creare un'istanza di DSVM:
 
 ## <a name="access-the-dsvm"></a>Accedere alla DSVM
 
-Dopo la creazione e il provisioning della VM, seguire la procedura illustrata per [connettersi alla macchina virtuale basata su Azure](../../marketplace/cloud-partner-portal/virtual-machine/cpp-connect-vm.md). Usare le credenziali dell'account amministratore configurate nel passaggio **Informazioni di base** per la creazione di una macchina virtuale. 
+Dopo la creazione e il provisioning della VM, seguire la procedura illustrata per [connettersi alla macchina virtuale basata su Azure](../../marketplace/azure-vm-create-using-approved-base.md). Usare le credenziali dell'account amministratore configurate nel passaggio **Informazioni di base** per la creazione di una macchina virtuale. 
 
 Si è pronti per iniziare a usare gli strumenti installati e configurati nella VM. Molti strumenti sono accessibili tramite i riquadri del menu **Start** e le icone del desktop.
 
@@ -70,4 +70,3 @@ Si è pronti per iniziare a usare gli strumenti installati e configurati nella V
 * Esplorare gli strumenti disponibili nella DSVM aprendo il menu **Start**.
 * Per informazioni su Azure Machine Learning, vedere [Informazioni su Azure Machine Learning](../overview-what-is-azure-ml.md) e seguire le [esercitazioni](../index.yml).
 * Leggere l'articolo [Data science con Data Science Virtual Machine per Windows in Azure](./vm-do-ten-things.md)
-

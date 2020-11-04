@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 3b5783476e0d4a96561e11158cd2b0f6421cfbf6
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: 648f06ef1af5d6dce9fa3583c6358d3bd173f209
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "88136100"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93319676"
 ---
 # <a name="cheat-sheet-for-azure-synapse-analytics-formerly-sql-dw"></a>Scheda di riferimento rapido per Azure Synapse Analytics (in precedenza SQL Data Warehouse)
 
@@ -37,7 +37,7 @@ Conoscere in anticipo il tipo di operazioni consente di ottimizzare la progettaz
 
 ## <a name="data-migration"></a>Migrazione dei dati
 
-Prima di tutto, caricare i dati in [Azure Data Lake Store](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o in Archiviazione BLOB di Azure. Usare quindi l'[istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) (anteprima) per caricare i dati nelle tabelle di staging. Usare la configurazione seguente:
+Prima di tutto, caricare i dati in [Azure Data Lake Store](../../data-factory/connector-azure-data-lake-store.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) o in Archiviazione BLOB di Azure. Usare quindi l'[istruzione COPY](/sql/t-sql/statements/copy-into-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) (anteprima) per caricare i dati nelle tabelle di staging. Usare la configurazione seguente:
 
 | Progettazione | Recommendation |
 |:--- |:--- |
@@ -64,8 +64,8 @@ A seconda delle proprietà della tabella usare le strategie seguenti:
 * Assicurarsi che le chiavi hash comuni abbiano lo stesso formato di dati.
 * Non eseguire la distribuzione in formato varchar.
 * Le tabelle delle dimensioni con chiave hash comune in una tabella dei fatti con operazioni di join frequenti possono essere distribuite tramite hash.
-* Usare *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* per analizzare eventuali asimmetrie nei dati.
-* Usare *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)* per analizzare gli spostamenti dei dati protetti da query e monitorare il tempo richiesto dalle operazioni di trasmissione e casuali. È consigliabile rivedere la strategia di distribuzione.
+* Usare *[sys.dm_pdw_nodes_db_partition_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-partition-stats-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* per analizzare eventuali asimmetrie nei dati.
+* Usare *[sys.dm_pdw_request_steps](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true)* per analizzare gli spostamenti dei dati protetti da query e monitorare il tempo richiesto dalle operazioni di trasmissione e casuali. È consigliabile rivedere la strategia di distribuzione.
 
 Sono disponibili altre informazioni sulle [tabelle replicate](design-guidance-for-replicated-tables.md) e le [tabelle distribuite](sql-data-warehouse-tables-distribute.md).
 
@@ -109,7 +109,7 @@ Per un grande batch di aggiornamenti nei dati cronologici, prendere in considera
 
 ## <a name="maintain-statistics"></a>Gestire le statistiche
 
-È importante aggiornare le statistiche quando vengono apportate modifiche *significative* ai dati. Per determinare se sono state apportate modifiche *significative*, vedere [Aggiornare le statistiche](sql-data-warehouse-tables-statistics.md#update-statistics). Statistiche aggiornate consentono di ottimizzare i piani di query. Se si ritiene che la gestione di tutte le statistiche richieda troppo tempo, scegliere in modo più selettivo le colonne con le statistiche.
+È importante aggiornare le statistiche quando vengono apportate modifiche *significative* ai dati. Per determinare se sono state apportate modifiche *significative* , vedere [Aggiornare le statistiche](sql-data-warehouse-tables-statistics.md#update-statistics). Statistiche aggiornate consentono di ottimizzare i piani di query. Se si ritiene che la gestione di tutte le statistiche richieda troppo tempo, scegliere in modo più selettivo le colonne con le statistiche.
 
 È anche possibile definire la frequenza degli aggiornamenti. Potrebbe ad esempio essere consigliabile aggiornare le colonne di data, in cui potrebbero venire aggiunti nuovi valori su base giornaliera. Il massimo vantaggio è offerto dalle statistiche sulle colonne usate nei join, su quelle usate nella clausola WHERE e sulle colonne presenti in GROUP BY.
 
@@ -121,7 +121,7 @@ I gruppi di risorse vengono usati come un modo per allocare memoria alle query. 
 
 Se si nota che le query richiedono troppo tempo, verificare che gli utenti non vengano eseguiti in classi di risorse di grandi dimensioni. Le classi di risorse estese usano molti slot di concorrenza e possono comportare l'accodamento di altre query.
 
-Infine, tramite la versione Gen2 del [pool SQL](sql-data-warehouse-overview-what-is.md#synapse-sql-pool-in-azure-synapse), ogni classe di risorse ottiene 2,5 volte più memoria rispetto a Gen1.
+Infine, tramite la versione Gen2 del [pool SQL](sql-data-warehouse-overview-what-is.md#dedicated-sql-pool-in-azure-synapse), ogni classe di risorse ottiene 2,5 volte più memoria rispetto a Gen1.
 
 Sono disponibili altre informazioni su come lavorare con [classi di risorse e concorrenza](resource-classes-for-workload-management.md).
 

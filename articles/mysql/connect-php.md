@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 9b05149515f2d40ad8043cd65c2ec5589440713e
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: ec406208f862eac2450cc6352f13f3596a7c9775
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90882516"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337388"
 ---
 # <a name="quickstart-use-php-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare PHP per connettersi ai dati ed eseguire query in Database di Azure per MySQL
 Questa guida introduttiva illustra come connettersi a un database di Azure per MySQL usando un'applicazione [PHP](https://secure.php.net/manual/intro-whatis.php). Spiega come usare le istruzioni SQL per eseguire query, inserire, aggiornare ed eliminare dati nel database. Questo argomento presuppone che si abbia familiarità con lo sviluppo con PHP, ma non con Database di Azure per MySQL.
@@ -28,7 +28,7 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 ## <a name="install-php"></a>Installare PHP
 Installare PHP nel server o creare un'[app Web](../app-service/overview.md) di Azure che includa PHP.
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 - Scaricare [PHP versione 7.1.4](https://secure.php.net/downloads.php).
 - Installare PHP e vedere il [manuale di PHP](https://secure.php.net/manual/install.macosx.php) per le altre opzioni di configurazione.
 
@@ -227,6 +227,16 @@ mysqli_stmt_close($stmt);
 //Close the connection
 mysqli_close($conn);
 ?>
+```
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Per pulire tutte le risorse usate in questo argomento di avvio rapido, eliminare il gruppo di risorse con il comando seguente:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

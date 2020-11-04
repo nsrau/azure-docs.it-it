@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 8bedb7177c93eecd13f64d151c56baf5a394e0c2
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: f370794aafb4a5ac0948c219593e7028ff1b2e55
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "90896274"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337300"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare Ruby per connettersi ai dati ed eseguire query in Database di Azure per MySQL
 
@@ -39,7 +39,7 @@ Installare Ruby, Gem e la libreria MySQL2 nel computer.
 5. Verificare l'installazione di Gem eseguendo il comando `gem -v` per visualizzare la versione installata.
 6. Compilare il modulo Mysql2 per Ruby con Gem eseguendo il comando `gem install mysql2`.
 
-### <a name="macos"></a>MacOS
+### <a name="macos"></a>macOS
 1. Eseguire il comando `brew install ruby` per installare Ruby usando Homebrew. Per altre opzioni di installazione, vedere la [documentazione sull'installazione](https://www.ruby-lang.org/en/documentation/installation/#homebrew) di Ruby.
 2. Verificare l'installazione di Ruby eseguendo il comando `ruby -v` per visualizzare la versione installata.
 3. Verificare l'installazione di Gem eseguendo il comando `gem -v` per visualizzare la versione installata.
@@ -70,7 +70,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 4. Nel sistema operativo Windows, se l'applicazione Ruby non è presente nella variabile di ambiente PATH potrebbe essere necessario usare il percorso completo per avviare l'applicazione Ruby, ad esempio `"c:\Ruby23-x64\bin\ruby.exe" createtable.rb`
 
 ## <a name="connect-and-create-a-table"></a>Connettersi e creare una tabella
-Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE**, seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
+Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE** , seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
 
 Il codice usa una classe [mysql2::client](https://www.rubydoc.info/gems/mysql2) per connettersi al server MySQL. Chiama quindi il metodo ```query()``` per eseguire i comandi DROP, CREATE TABLE e INSERT INTO. Chiama infine ```close()``` per chiudere la connessione prima di terminare.
 
@@ -224,6 +224,16 @@ ensure
     client.close if client
     puts 'Done.'
 end
+```
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Per pulire tutte le risorse usate in questo argomento di avvio rapido, eliminare il gruppo di risorse con il comando seguente:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

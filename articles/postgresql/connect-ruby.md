@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 4afe6f175095d146c7feed04d469d78203179e0f
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: bb2ff066089e3348c40f5a22bd73ea376ecef6de
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91707881"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93341400"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare Ruby per connettersi ai dati ed eseguire query in Database di Azure per PostgreSQL - Server singolo
 
@@ -41,7 +41,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 > Il simbolo `@` nel nome utente di Postgres in Azure è stato codificato tramite URL (`%40`) in tutte le stringhe di connessione.
 
 ## <a name="connect-and-create-a-table"></a>Connettersi e creare una tabella
-Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE**, seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
+Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE** , seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
 
 Il codice usa un ```PG::Connection```oggetto con il costruttore```new``` per la connessione a Database di Azure per PostgreSQL. Chiama quindi il metodo ```exec()``` per eseguire i comandi DROP, CREATE TABLE e INSERT INTO. Il codice cerca gli errori usando la classe ```PG::Error```. Chiama infine il metodo ```close()``` per chiudere la connessione prima di terminare. Per altre informazioni su queste classi e questi metodi, vedere [Documentazione di riferimento su Ruby Pg](https://www.rubydoc.info/gems/pg/PG).
 
@@ -183,6 +183,16 @@ rescue PG::Error => e
 ensure
     connection.close if connection
 end
+```
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Per pulire tutte le risorse usate in questo argomento di avvio rapido, eliminare il gruppo di risorse con il comando seguente:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: 26bbbff1dd826a41369fea9700139adbcb743d0d
-ms.sourcegitcommit: eb6bef1274b9e6390c7a77ff69bf6a3b94e827fc
+ms.openlocfilehash: eb844790ac0ae97c281f6d2d7022bee559f545cd
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/05/2020
-ms.locfileid: "91710431"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331931"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare il linguaggio Go per connettersi ai dati ed eseguire query in Database di Azure per PostgreSQL - Server singolo
 
@@ -94,7 +94,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 6. In alternativa, per compilare il codice in un'applicazione nativa, digitare `go build createtable.go` e quindi avviare `createtable.exe` per eseguire l'applicazione.
 
 ## <a name="connect-and-create-a-table"></a>Connettersi e creare una tabella
-Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE**, seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
+Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE** , seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
 
 Il codice importa tre pacchetti: il [pacchetto sql](https://golang.org/pkg/database/sql/), il [pacchetto pq](https://godoc.org/github.com/lib/pq) come driver per comunicare con il server PostgreSQL e il [pacchetto fmt](https://golang.org/pkg/fmt/) per l'input e l'output stampati nella riga di comando.
 
@@ -331,6 +331,16 @@ func main() {
     checkError(err)
     fmt.Println("Deleted 1 row of data")
 }
+```
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Per pulire tutte le risorse usate in questo argomento di avvio rapido, eliminare il gruppo di risorse con il comando seguente:
+
+```azurecli
+az group delete \
+    --name $AZ_RESOURCE_GROUP \
+    --yes
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
