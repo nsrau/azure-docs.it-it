@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: mjbrown
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: 35c0b5529cd9ada612caf4884683fbeaacb25b33
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2c91b330f52733a91fbceb1dc9ca2309c0d10547
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100134"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317117"
 ---
 # <a name="configure-multi-region-writes-in-your-applications-that-use-azure-cosmos-db"></a>Configurare Scritture in più aree nelle applicazioni che usano Azure Cosmos DB
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,6 +21,22 @@ Dopo aver creato un account con più aree di scrittura abilitate, è necessario 
 
 > [!Note]
 > Gli account Cosmos inizialmente configurati con un'area di scrittura singola possono essere configurati su più aree di scrittura con tempi di inattività pari a Per altre informazioni, consultare [Configurare più aree di scrittura](how-to-manage-database-account.md#configure-multiple-write-regions)
+
+## <a name="azure-portal"></a><a id="portal"></a> portale di Azure
+
+Usare la procedura seguente per abilitare le Scritture in più aree da portale di Azure:
+
+1. Accedere al [portale di Azure](https://portal.azure.com/).
+
+1. Passare all'account Azure Cosmos e dal menu aprire il riquadro **replicare i dati a livello globale** .
+
+1. Nell'opzione **Scritture** per più aree scegliere **Abilita**. Aggiunge automaticamente le aree esistenti alle aree di lettura e scrittura.
+
+1. È possibile aggiungere altre aree selezionando le icone sulla mappa oppure selezionando il pulsante **Aggiungi area** . Per tutte le aree aggiunte sono abilitate sia la lettura che la scrittura.
+
+1. Dopo aver aggiornato l'elenco Region, selezionare **Save (Salva** ) per applicare le modifiche.
+
+   :::image type="content" source="./media/how-to-multi-master/enable-multi-region-writes.png" alt-text="Screenshot per abilitare le Scritture in più aree usando portale di Azure" lightbox="./media/how-to-multi-master/enable-multi-region-writes.png":::
 
 ## <a name="net-sdk-v2"></a><a id="netv2"></a>.NET SDK v2
 

@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 10/15/2020
-ms.openlocfilehash: 85ddda4bbb6702ed8c82a40d603c8ca87ffb7053
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: c13b71858915ab262ab3e0e99ab8c482d19160ea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92217542"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318499"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Condividere e ricevere i dati da Database SQL di Azure e Azure Synapse Analytics
 
@@ -80,7 +80,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
     | Nome | *datashareaccount* | Specificare un nome per l'account di condivisione dati. |
     | | |
 
-1. Selezionare **Rivedi e crea**, quindi **Crea** per effettuare il provisioning dell'account di condivisione dati. Il completamento del provisioning di un nuovo account di condivisione dati in genere impiega al massimo 2 minuti. 
+1. Selezionare **Rivedi e crea** , quindi **Crea** per effettuare il provisioning dell'account di condivisione dati. Il completamento del provisioning di un nuovo account di condivisione dati in genere impiega al massimo 2 minuti. 
 
 1. Una volta completata la distribuzione, selezionare **Vai alla risorsa**.
 
@@ -228,7 +228,7 @@ Questa procedura si applica solo alla condivisione basata su snapshot.
 
    ![Attivazione dello snapshot](./media/trigger-snapshot.png "Attivazione dello snapshot") 
 
-1. Quando l'ultimo stato di esecuzione è *riuscito*, passare all'archivio dati di destinazione per visualizzare i dati ricevuti. Selezionare **Set di dati** e fare clic sul collegamento nel percorso di destinazione. 
+1. Quando l'ultimo stato di esecuzione è *riuscito* , passare all'archivio dati di destinazione per visualizzare i dati ricevuti. Selezionare **Set di dati** e fare clic sul collegamento nel percorso di destinazione. 
 
    ![Set di dati consumer](./media/consumer-datasets.png "Mapping dei set di dati consumer") 
 
@@ -267,15 +267,15 @@ Quando si condividono dati da un'origine SQL, vengono usati i mapping seguenti t
 | testo |String, Char[] |
 | time |TimeSpan |
 | timestamp |Byte[] |
-| TINYINT |Int16 |
+| tinyint |Int16 |
 | UNIQUEIDENTIFIER |Guid |
 | varbinary |Byte[] |
 | varchar |String, Char[] |
-| Xml |string |
+| xml |string |
 
 >[!NOTE]
 > 1. Per i tipi di dati che vengono mappati al tipo provvisorio decimale, attualmente lo snapshot supporta la precisione fino a 28. Se sono presenti dati che richiedono precisione maggiore di 28, provare a eseguire la conversione in una stringa. 
-> 1.  Se si condividono dati dal database SQL di Azure ad Azure sinapsi Analytics, non tutti i tipi di dati sono supportati. Per informazioni dettagliate, fare riferimento ai [tipi di dati della tabella nel pool SQL sinapsi](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) . 
+> 1.  Se si condividono dati dal database SQL di Azure ad Azure sinapsi Analytics, non tutti i tipi di dati sono supportati. Per informazioni dettagliate, fare riferimento ai [tipi di dati della tabella nel pool SQL dedicato](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) . 
 
 ## <a name="sql-always-encrypted-or-dynamic-data-masking"></a>Always Encrypted SQL o Dynamic Data Masking
 Attualmente, la condivisione di dati di Azure non supporta i database SQL di Azure con Always Encrypted configurata. 

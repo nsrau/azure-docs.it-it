@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/23/2020
 ms.topic: conceptual
-ms.openlocfilehash: 30979f49a48954280942d786af7e7ff592089062
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 65451ed99580d9f2d66bd28518f0ec40a21ffe65
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521068"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317085"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Gestire runbook in Automazione di Azure
 
@@ -45,7 +45,7 @@ New-AzAutomationRunbook -AutomationAccountName MyAccount `
 
 ## <a name="import-a-runbook"></a>Importare un runbook
 
-È possibile importare uno script PowerShell o un flusso di lavoro PowerShell ( **.ps1**), un runbook grafico ( **.graphrunbook**) o uno script Python 2 ( **.py**) per creare il proprio runbook. È necessario specificare il [tipo di runbook](automation-runbook-types.md) che viene creato durante l'importazione tenendo conto delle considerazioni seguenti.
+È possibile importare uno script PowerShell o un flusso di lavoro PowerShell ( **.ps1** ), un runbook grafico ( **.graphrunbook** ) o uno script Python 2 ( **.py** ) per creare il proprio runbook. È necessario specificare il [tipo di runbook](automation-runbook-types.md) che viene creato durante l'importazione tenendo conto delle considerazioni seguenti.
 
 * È possibile importare un file **.ps1** che non contiene un flusso di lavoro in un [runbook di PowerShell](automation-runbook-types.md#powershell-runbooks) oppure in un [runbook del flusso di lavoro di PowerShell](automation-runbook-types.md#powershell-workflow-runbooks). Se il file viene importato in un runbook del flusso di lavoro PowerShell, questo viene convertito in un flusso di lavoro. In questo caso, i commenti vengono inclusi nel runbook per descrivere le modifiche apportate.
 
@@ -228,7 +228,7 @@ Per usare uno script personalizzato:
 
 ## <a name="test-a-runbook"></a>Testare un runbook
 
-Quando si testa un Runbook, viene eseguita la [Versione bozza](#publish-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia dei processi, ma nel pannello di output del test vengono visualizzati i flussi di [output](automation-runbook-output-and-messages.md#use-the-output-stream) e di [avviso ed errore](automation-runbook-output-and-messages.md#monitor-message-streams). I messaggi per il [flusso dettagliato](automation-runbook-output-and-messages.md#monitor-message-streams) vengono visualizzati solo se nel pannello di output la variabile [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) è impostata su `Continue`.
+Quando si testa un Runbook, viene eseguita la [Versione bozza](#publish-a-runbook) e le azioni eseguite vengono completate. Non viene creata alcuna cronologia dei processi, ma nel pannello di output del test vengono visualizzati i flussi di [output](automation-runbook-output-and-messages.md#use-the-output-stream) e di [avviso ed errore](automation-runbook-output-and-messages.md#working-with-message-streams). I messaggi per il [flusso dettagliato](automation-runbook-output-and-messages.md#write-output-to-verbose-stream) vengono visualizzati solo se nel pannello di output la variabile [VerbosePreference](automation-runbook-output-and-messages.md#work-with-preference-variables) è impostata su `Continue`.
 
 Anche se si esegue la versione bozza, il runbook viene comunque eseguito normalmente ed effettua qualsiasi azione sulle risorse nell'ambiente. Per questo motivo, è necessario testare i runbook solo con risorse non di produzione.
 
@@ -298,7 +298,7 @@ Se si fa clic sul riquadro, viene visualizzata la pagina Processi, che include u
 
 In alternativa, è possibile visualizzare i dettagli di riepilogo dei processi per un runbook specifico selezionandolo nella pagina Runbook nel proprio account di Automazione e quindi selezionare il riquadro **Processi**. Viene visualizzata la pagina Processi. In tale pagina è possibile fare clic su un record del processo per visualizzarne i dettagli e l'output.
 
-:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot della pagina processi.":::
+:::image type="content" source="./media/manage-runbooks/automation-runbook-job-summary-blade.png" alt-text="Screenshot della pagina processi con il pulsante errori evidenziato.":::
 
 ### <a name="retrieve-job-statuses-using-powershell"></a>Recuperare gli stati del processo tramite PowerShell
 

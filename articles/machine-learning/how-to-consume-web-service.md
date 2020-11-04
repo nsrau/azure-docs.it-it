@@ -1,7 +1,7 @@
 ---
 title: Creazione di un client per il modello distribuito come servizio Web
 titleSuffix: Azure Machine Learning
-description: Informazioni su come chiamare un endpoint del servizio Web generato durante la distribuzione di un modello da Azure Machine Learning. L'endpoint espone un'API REST, che è possibile chiamare per eseguire l'inferenza con il modello. Creare client per questa API usando il linguaggio di programmazione preferito.
+description: Informazioni su come chiamare un endpoint del servizio Web generato durante la distribuzione di un modello da Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,19 +11,19 @@ ms.reviewer: larryfr
 ms.date: 10/12/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, devx-track-csharp
-ms.openlocfilehash: 5ffdb7a3bb177092d728fbd469aa8cf95e93edb5
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 03b077c7cadbfd101705c040e485c5766909c2de
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91966101"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318153"
 ---
 # <a name="consume-an-azure-machine-learning-model-deployed-as-a-web-service"></a>Come usare un modello di Azure Machine Learning distribuito come servizio Web
 
 
-La distribuzione di un modello di Azure Machine Learning come servizio Web crea un endpoint API REST. È possibile inviare dati a questo endpoint e ricevere la stima restituita dal modello. Questo documento illustra come creare client per il servizio Web usando C#, Go, Java e Python.
+La distribuzione di un modello di Azure Machine Learning come servizio Web crea un endpoint API REST. È possibile inviare dati a questo endpoint e ottenere la previsione restituita dal modello. Questo documento illustra come creare client per il servizio Web usando C#, Go, Java e Python.
 
-Si crea un servizio Web quando si distribuisce un modello nell'ambiente locale, istanze di contenitore di Azure, servizio Azure Kubernetes o FPGA (Field-Programmable Gate Array). Per recuperare l'URI utilizzato per accedere al servizio Web, è possibile utilizzare il [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). Se l'autenticazione è abilitata, è anche possibile usare l'SDK per ottenere le chiavi di autenticazione o i token.
+Si crea un servizio Web quando si distribuisce un modello nell'ambiente locale, istanze di contenitore di Azure, servizio Azure Kubernetes o FPGA (Field-Programmable Gate Array). Per recuperare l'URI utilizzato per accedere al servizio Web, è possibile utilizzare il [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py). Se l'autenticazione è abilitata, è anche possibile usare l'SDK per ottenere le chiavi di autenticazione o i token.
 
 Il flusso di lavoro generale per creare un client che usa un servizio Web di Machine Learning è il seguente:
 
@@ -39,7 +39,7 @@ Il flusso di lavoro generale per creare un client che usa un servizio Web di Mac
 > [!NOTE]
 > Usare l'SDK di Azure Machine Learning per ottenere le informazioni sul servizio Web. Si tratta di un SDK per Python. È possibile usare qualsiasi linguaggio per creare un client per il servizio.
 
-La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) fornisce le informazioni necessarie per creare un client. Per la creazione di un'applicazione client sono utili le proprietà `Webservice` seguenti:
+La classe [azureml.core.Webservice](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) fornisce le informazioni necessarie per creare un client. Per la creazione di un'applicazione client sono utili le proprietà `Webservice` seguenti:
 
 * `auth_enabled` -Se è abilitata l'autenticazione della chiave `True` ; in caso contrario, `False` .
 * `token_auth_enabled` -Se è abilitata l'autenticazione del token `True` ; in caso contrario, `False` .
@@ -59,7 +59,7 @@ La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azurem
     print(service.swagger_uri)
     ```
 
-* È possibile usare `Webservice.list` per recuperare un elenco dei servizi Web distribuiti per i modelli presenti nella propria area di lavoro. È possibile aggiungere filtri per restringere l'elenco delle informazioni restituite. Per altre informazioni sui dati che è possibile filtrare, vedere la documentazione di riferimento di [Webservice.list](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.webservice.webservice?view=azure-ml-py&preserve-view=true).
+* È possibile usare `Webservice.list` per recuperare un elenco dei servizi Web distribuiti per i modelli presenti nella propria area di lavoro. È possibile aggiungere filtri per restringere l'elenco delle informazioni restituite. Per altre informazioni sui dati che è possibile filtrare, vedere la documentazione di riferimento di [Webservice.list](/python/api/azureml-core/azureml.core.webservice.webservice.webservice?preserve-view=true&view=azure-ml-py).
 
     ```python
     services = Webservice.list(ws)
@@ -77,7 +77,7 @@ La classe [azureml.core.Webservice](https://docs.microsoft.com/python/api/azurem
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Se si conosce il nome del servizio distribuito, usare il comando [AZ ml Service Show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) :
+Se si conosce il nome del servizio distribuito, usare il comando [AZ ml Service Show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) :
 
 ```azurecli
 az ml service show -n <service-name>
@@ -85,7 +85,7 @@ az ml service show -n <service-name>
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-Da Azure Machine Learning Studio selezionare __endpoint__, endpoint in __tempo reale__e quindi il nome dell'endpoint. In dettagli per l'endpoint, il campo dell' __endpoint REST__ contiene l'URI di assegnazione dei punteggi. L' __URI di spavalderia__ contiene l'URI di spavalderia.
+Da Azure Machine Learning Studio selezionare __endpoint__ , endpoint in __tempo reale__ e quindi il nome dell'endpoint. In dettagli per l'endpoint, il campo dell' __endpoint REST__ contiene l'URI di assegnazione dei punteggi. L' __URI di spavalderia__ contiene l'URI di spavalderia.
 
 ---
 
@@ -119,7 +119,7 @@ Azure Machine Learning offre due modi per controllare l'accesso ai servizi Web.
 
 Quando si invia una richiesta a un servizio protetto con una chiave o un token, usare l'intestazione __authorization__ per passare la chiave o il token. La chiave o il token deve essere formattato come `Bearer <key-or-token>` , dove `<key-or-token>` è il valore della chiave o del token.
 
-La differenza principale tra chiavi e token è che le **chiavi sono statiche e possono essere rigenerate manualmente**ed è **necessario aggiornare i token alla scadenza**. L'autenticazione basata su chiavi è supportata per l'istanza di contenitore di Azure e i servizi Web distribuiti dal servizio Azure Kubernetes e l'autenticazione basata su token è disponibile **solo** per le distribuzioni del servizio Kubernetes di Azure. Per ulteriori informazioni ed esempi di codice specifici, vedere la [procedura di](how-to-setup-authentication.md#web-service-authentication) autenticazione.
+La differenza principale tra chiavi e token è che le **chiavi sono statiche e possono essere rigenerate manualmente** ed è **necessario aggiornare i token alla scadenza**. L'autenticazione basata su chiavi è supportata per l'istanza di contenitore di Azure e i servizi Web distribuiti dal servizio Azure Kubernetes e l'autenticazione basata su token è disponibile **solo** per le distribuzioni del servizio Kubernetes di Azure. Per ulteriori informazioni ed esempi di codice specifici, vedere la [procedura di](how-to-setup-authentication.md#web-service-authentication) autenticazione.
 
 
 #### <a name="authentication-with-keys"></a>Autenticazione con chiavi
@@ -139,7 +139,7 @@ print(primary)
 ```
 
 > [!IMPORTANT]
-> Se è necessario rigenerare una chiave, usare [`service.regen_key`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true) .
+> Se è necessario rigenerare una chiave, usare [`service.regen_key`](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py) .
 
 #### <a name="authentication-with-tokens"></a>Autenticazione con token
 
@@ -527,7 +527,7 @@ I risultati restituiti sono simili al seguente documento JSON:
 
 ## <a name="web-service-schema-openapi-specification"></a>Schema del servizio Web (specifica OpenAPI)
 
-Se è stata utilizzata la generazione automatica dello schema con la distribuzione, è possibile ottenere l'indirizzo della specifica OpenAPI per il servizio utilizzando la [proprietà swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueswagger-uri). (Ad esempio, `print(service.swagger_uri)` ). Usare una richiesta GET o aprire l'URI in un browser per recuperare la specifica.
+Se è stata utilizzata la generazione automatica dello schema con la distribuzione, è possibile ottenere l'indirizzo della specifica OpenAPI per il servizio utilizzando la [proprietà swagger_uri](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueswagger-uri). (Ad esempio, `print(service.swagger_uri)` ). Usare una richiesta GET o aprire l'URI in un browser per recuperare la specifica.
 
 Il documento JSON seguente è un esempio di schema (OpenAPI Specification) generato per una distribuzione:
 
@@ -669,15 +669,15 @@ Per un'utilità che consente di creare librerie client dalla specifica, vedere [
 
 
 > [!TIP]
-> È possibile recuperare il documento JSON dello schema dopo la distribuzione del servizio. Utilizzare la [proprietà swagger_uri](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py&preserve-view=true#&preserve-view=trueswagger-uri) dal servizio Web distribuito (ad esempio, `service.swagger_uri` ) per ottenere l'URI del file di spavalderia del servizio Web locale.
+> È possibile recuperare il documento JSON dello schema dopo la distribuzione del servizio. Utilizzare la [proprietà swagger_uri](/python/api/azureml-core/azureml.core.webservice.local.localwebservice?preserve-view=true&view=azure-ml-py#&preserve-view=trueswagger-uri) dal servizio Web distribuito (ad esempio, `service.swagger_uri` ) per ottenere l'URI del file di spavalderia del servizio Web locale.
 
-## <a name="consume-the-service-from-power-bi"></a>Usare il servizio da Power BI
+## <a name="consume-the-service-from-power-bi"></a>Utilizzare il servizio da Power BI
 
 Power BI supporta l'utilizzo di servizi Web Azure Machine Learning per arricchire i dati in Power BI con le stime. 
 
-Per generare un servizio Web supportato per l'utilizzo in Power BI, lo schema deve supportare il formato richiesto da Power BI. [Informazioni su come creare uno schema supportato da Power bi](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where#example-entry-script).
+Per generare un servizio Web supportato per l'utilizzo in Power BI, lo schema deve supportare il formato richiesto da Power BI. [Informazioni su come creare uno schema supportato da Power bi](./how-to-deploy-advanced-entry-script.md#power-bi-compatible-endpoint).
 
-Una volta distribuito, il servizio Web può essere utilizzato dai flussi di Power BI. [Informazioni su come utilizzare un servizio web Azure Machine Learning da Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
+Dopo aver distribuito il servizio Web, può essere utilizzato dai flussi di dati di Power BI. [Informazioni su come utilizzare un servizio web Azure Machine Learning da Power bi](/power-bi/service-machine-learning-integration).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

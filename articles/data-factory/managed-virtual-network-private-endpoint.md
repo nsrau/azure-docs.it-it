@@ -13,12 +13,12 @@ ms.custom:
 - seo-lt-2019
 - references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 7a0d3c60841cb12f2999a929eb4af351716abda7
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: a34f2e50a5eb4ab87a02a5128cb912fa220849f1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92635780"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317076"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Rete virtuale gestita Azure Data Factory (anteprima)
 
@@ -51,7 +51,7 @@ Gli endpoint privati gestiti sono endpoint privati creati nella Azure Data Facto
 
 ![Nuovo endpoint privato gestito](./media/tutorial-copy-data-portal-private/new-managed-private-endpoint.png)
 
-Azure Data Factory supporta i collegamenti privati. Il collegamento privato consente di accedere ai servizi di Azure (PaaS), ad esempio archiviazione di Azure, Azure Cosmos DB, Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse)).
+Azure Data Factory supporta i collegamenti privati. Il collegamento privato consente di accedere ai servizi di Azure (PaaS), ad esempio archiviazione di Azure, Azure Cosmos DB, Azure sinapsi Analytics (in precedenza SQL Data Warehouse)).
 
 Quando si usa un collegamento privato, il traffico tra gli archivi dati e la rete virtuale gestita attraversa interamente la rete dorsale Microsoft. Il collegamento privato protegge da rischi di esfiltrazione dei dati. Per stabilire un collegamento privato a una risorsa, è necessario creare un endpoint privato.
 
@@ -81,7 +81,7 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 - File di Azure
 - Azure Data Lake Gen2
 - Database SQL di Azure (senza includere Istanza gestita SQL di Azure)
-- Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse)
+- Azure Synapse Analytics (in precedenza SQL Data Warehouse)
 - SQL di Azure CosmosDB
 - Insieme di credenziali chiave di Azure
 - Servizio di collegamento privato di Azure

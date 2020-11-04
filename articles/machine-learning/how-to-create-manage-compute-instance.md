@@ -11,12 +11,12 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: sgilley
 ms.date: 10/02/2020
-ms.openlocfilehash: ac134e6a371ea85a20094e688adc57da8550a03d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6e0d80c35a4822ad46973c94b32cf71b129ad1e1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078986"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318017"
 ---
 # <a name="create-and-manage-an-azure-machine-learning-compute-instance"></a>Creare e gestire un'istanza di calcolo Azure Machine Learning
 
@@ -38,9 +38,9 @@ Le istanze di calcolo possono eseguire processi in modo sicuro in un [ambiente d
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
-* Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
+* Estensione dell'interfaccia della riga [di comando di Azure per il servizio Machine Learning](reference-azure-machine-learning-cli.md), [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py)o l' [estensione di Visual Studio code Azure Machine Learning](tutorial-setup-vscode-extension.md).
 
-## <a name="create"></a>Crea
+## <a name="create"></a>Create
 
 **Tempo stimato** : circa 5 minuti.
 
@@ -82,9 +82,9 @@ except ComputeTargetException:
 
 Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in questo esempio, vedere i documenti di riferimento seguenti:
 
-* [Classe ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance?view=azure-ml-py&preserve-view=true)
-* [ComputeTarget. Create](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computetarget?view=azure-ml-py&preserve-view=true#create-workspace--name--provisioning-configuration-)
-* [ComputeInstance.wait_for_completion](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true#wait-for-completion-show-output-false--is-delete-operation-false-)
+* [Classe ComputeInstance](/python/api/azureml-core/azureml.core.compute.computeinstance.computeinstance?preserve-view=true&view=azure-ml-py)
+* [ComputeTarget. Create](/python/api/azureml-core/azureml.core.compute.computetarget?preserve-view=true&view=azure-ml-py#create-workspace--name--provisioning-configuration-)
+* [ComputeInstance.wait_for_completion](/python/api/azureml-core/azureml.core.compute.computeinstance(class)?preserve-view=true&view=azure-ml-py#wait-for-completion-show-output-false--is-delete-operation-false-)
 
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
@@ -93,7 +93,7 @@ Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in qu
 az ml computetarget create computeinstance  -n instance -s "STANDARD_D3_V2" -v
 ```
 
-Per ulteriori informazioni, vedere il riferimento [AZ ml computetarget create computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/create?view=azure-cli-latest&preserve-view=true#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) .
+Per ulteriori informazioni, vedere il riferimento [AZ ml computetarget create computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/create?preserve-view=true&view=azure-cli-latest#ext_azure_cli_ml_az_ml_computetarget_create_computeinstance) .
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -161,7 +161,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     instance.restart(wait_for_completion=True, show_output=True)
     ```
 
-* Elimina
+* Delete
 
     ```python
     # delete() is used to delete the ComputeInstance target. Useful if you want to re-use the compute name 
@@ -178,7 +178,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     az ml computetarget stop computeinstance -n instance -v
     ```
 
-    Per ulteriori informazioni, vedere [AZ ml computetarget stop computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
+    Per ulteriori informazioni, vedere [AZ ml computetarget stop computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-stop).
 
 * Avvio 
 
@@ -186,7 +186,7 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     az ml computetarget start computeinstance -n instance -v
     ```
 
-    Per altre informazioni, vedere [AZ ml computetarget Start computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
+    Per altre informazioni, vedere [AZ ml computetarget Start computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-start).
 
 * Riavvia 
 
@@ -194,15 +194,15 @@ Negli esempi seguenti il nome dell'istanza di calcolo è **instance**
     az ml computetarget restart computeinstance -n instance -v
     ```
 
-    Per altre informazioni, vedere [AZ ml computetarget restart computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
+    Per altre informazioni, vedere [AZ ml computetarget restart computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget/computeinstance?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-computeinstance-restart).
 
-* Elimina
+* Delete
 
     ```azurecli-interactive
     az ml computetarget delete -n instance -v
     ```
 
-    Per ulteriori informazioni, vedere [AZ ml computetarget Delete computeinstance](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/computetarget?view=azure-cli-latest&preserve-view=true#ext-azure-cli-ml-az-ml-computetarget-delete).
+    Per ulteriori informazioni, vedere [AZ ml computetarget Delete computeinstance](/cli/azure/ext/azure-cli-ml/ml/computetarget?preserve-view=true&view=azure-cli-latest#ext-azure-cli-ml-az-ml-computetarget-delete).
 
 # <a name="studio"></a>[Studio](#tab/azure-studio)
 
@@ -226,7 +226,7 @@ Per ogni istanza di calcolo nell'area di lavoro creata (o creata automaticamente
 
 ---
 
-Il controllo degli accessi in base al ruolo di [Azure](/azure/role-based-access-control/overview) consente di controllare quali utenti nell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare un'istanza di calcolo. Tutti gli utenti con il ruolo collaboratore e proprietario dell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare le istanze di calcolo nell'area di lavoro. Tuttavia, solo l'autore di un'istanza di calcolo specifica o l'utente assegnato se è stato creato per loro conto, può accedere a Jupyter, JupyterLab e RStudio in tale istanza di calcolo. Un'istanza di calcolo è dedicata a un singolo utente che ha accesso alla radice e può eseguire il terminale in tramite Jupyter/JupyterLab/RStudio. L'istanza di calcolo avrà un accesso utente singolo e tutte le azioni useranno l'identità dell'utente per il controllo degli accessi in base al ruolo di Azure e l'attribuzione delle esecuzioni dell'esperimento L'accesso SSH viene controllato tramite il meccanismo di chiave pubblica/privata.
+Il controllo degli accessi in base al ruolo di [Azure](../role-based-access-control/overview.md) consente di controllare quali utenti nell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare un'istanza di calcolo. Tutti gli utenti con il ruolo collaboratore e proprietario dell'area di lavoro possono creare, eliminare, avviare, arrestare e riavviare le istanze di calcolo nell'area di lavoro. Tuttavia, solo l'autore di un'istanza di calcolo specifica o l'utente assegnato se è stato creato per loro conto, può accedere a Jupyter, JupyterLab e RStudio in tale istanza di calcolo. Un'istanza di calcolo è dedicata a un singolo utente che ha accesso alla radice e può eseguire il terminale in tramite Jupyter/JupyterLab/RStudio. L'istanza di calcolo avrà un accesso utente singolo e tutte le azioni useranno l'identità dell'utente per il controllo degli accessi in base al ruolo di Azure e l'attribuzione delle esecuzioni dell'esperimento L'accesso SSH viene controllato tramite il meccanismo di chiave pubblica/privata.
 
 Queste azioni possono essere controllate da RBAC di Azure:
 * *Microsoft.MachineLearningServices/workspaces/computes/read*
@@ -255,7 +255,7 @@ Usare la finestra del terminale per installare i pacchetti e creare kernel aggiu
 * RStudio: usare la scheda **Packages** (Pacchetti) in basso a sinistra o la scheda **Console** in alto a sinistra.  
 * Python: aggiungere il codice di installazione ed eseguire in una cella Jupyter Notebook.
 
-In alternativa, è possibile eseguire l'installazione da una finestra del terminale. Installare i pacchetti Python nell'ambiente **python 3,6-AzureML** .  Installare i pacchetti R nell'ambiente **R** .
+In alternativa, è possibile eseguire l'installazione da una finestra del terminale. Installare i pacchetti Python nell'ambiente **python 3,6-AzureML** .  Installare i pacchetti R nell'ambiente **R**.
 
 > [!NOTE]
 > Per la gestione dei pacchetti in un notebook, usare le funzioni **% PIP** o **% conda** Magic per installare automaticamente i pacchetti nel **kernel attualmente in esecuzione** , anziché **! PIP** o **! conda** , che fa riferimento a tutti i pacchetti (inclusi i pacchetti all'esterno del kernel attualmente in esecuzione)
@@ -294,4 +294,4 @@ Per aggiungere un nuovo kernel Jupyter all'istanza di calcolo:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Inviare un'esecuzione di training](how-to-set-up-training-targets.md) 
+* [Inviare un'esecuzione di training](how-to-set-up-training-targets.md)

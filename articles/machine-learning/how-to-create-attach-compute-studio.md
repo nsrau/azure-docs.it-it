@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: c22593fbd1e1653efa98c760d5bbb73b03761059
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6cb455880852295d7176e813208a93919a2c14bb
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708396"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318270"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creare destinazioni di calcolo per il training e la distribuzione di modelli in Azure Machine Learning Studio
 
@@ -45,7 +45,7 @@ Per visualizzare tutte le destinazioni di calcolo per l'area di lavoro, seguire 
 
 1. Passare ad [Azure Machine Learning Studio](https://ml.azure.com).
  
-1. In __Gestisci__selezionare __calcolo__.
+1. In __Gestisci__ selezionare __calcolo__.
 
 1. Selezionare le schede nella parte superiore per visualizzare ogni tipo di destinazione di calcolo.
 
@@ -59,11 +59,11 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 1. Se non si dispone di destinazioni di calcolo, selezionare  **Crea** al centro della pagina.
   
-    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Visualizza l'elenco delle destinazioni di calcolo":::
+    :::image type="content" source="media/how-to-create-attach-studio/create-compute-target.png" alt-text="Creare una destinazione di calcolo":::
 
 1. Se viene visualizzato un elenco di risorse di calcolo, selezionare **+ nuovo** sopra l'elenco.
 
-    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Visualizza l'elenco delle destinazioni di calcolo":::
+    :::image type="content" source="media/how-to-create-attach-studio/select-new.png" alt-text="Seleziona nuovo":::
 
 
 1. Compilare il modulo per il tipo di calcolo:
@@ -77,14 +77,14 @@ Seguire i passaggi precedenti per visualizzare l'elenco delle destinazioni di ca
 
 1. Visualizzare lo stato dell'operazione di creazione selezionando la destinazione di calcolo dall'elenco:
 
-    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Visualizza l'elenco delle destinazioni di calcolo":::
+    :::image type="content" source="media/how-to-create-attach-studio/view-list.png" alt-text="Visualizzare lo stato di calcolo da un elenco":::
 
 
 ### <a name="compute-instance"></a>Istanza di calcolo
 
 Usare la [procedura precedente](#portal-create) per creare l'istanza di calcolo.  Compilare quindi il modulo come segue:
 
-:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Visualizza l'elenco delle destinazioni di calcolo":::
+:::image type="content" source="media/concept-compute-instance/create-compute-instance.png" alt-text="Creare una nuova istanza di calcolo":::
 
 
 |Campo  |Descrizione  |
@@ -93,7 +93,7 @@ Usare la [procedura precedente](#portal-create) per creare l'istanza di calcolo.
 |Tipo di macchina virtuale |  Scegliere CPU o GPU. Questo tipo non può essere modificato dopo la creazione     |
 |Dimensioni della macchina virtuale     |  Le dimensioni delle macchine virtuali supportate possono essere limitate nella propria area. Controllare l' [elenco di disponibilità](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Abilitare/disabilitare l'accesso SSH     |   L'accesso SSH è disabilitato per impostazione predefinita.  L'accesso SSH non può essere. modificato dopo la creazione. Assicurarsi di abilitare l'accesso se si prevede di eseguire il debug in modo interattivo con [vs code remoto](how-to-set-up-vs-code-remote.md)   |
-|Impostazioni avanzate     |  Facoltativa. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.  |
+|Impostazioni avanzate     |  Facoltativa. Configurare una rete virtuale. Specificare il **gruppo di risorse** , la **rete virtuale** e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](./how-to-secure-training-vnet.md) per vnet.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> Cluster di calcolo
 
@@ -104,17 +104,17 @@ Creare un cluster di calcolo a nodo singolo o a più nodi per i carichi di lavor
 |---------|---------|
 |Nome del calcolo     |  <li>Il nome è obbligatorio e deve avere una lunghezza compresa tra 3 e 24 caratteri.</li><li>I caratteri validi sono lettere maiuscole e minuscole, cifre e il  **-** carattere.</li><li>Il nome deve iniziare con una lettera</li><li>Il nome deve essere univoco in tutti i calcoli esistenti all'interno di un'area di Azure. Se il nome scelto non è univoco, verrà visualizzato un avviso</li><li>Se **-**  viene usato il carattere, deve essere seguito da almeno una lettera in un secondo momento nel nome</li>     |
 |Tipo di macchina virtuale |  Scegliere CPU o GPU. Questo tipo non può essere modificato dopo la creazione     |
-|Priorità macchina virtuale | Scegliere **priorità bassa**o **dedicata** .  Le macchine virtuali con priorità bassa sono più economiche, ma non garantiscono i nodi di calcolo. Il processo potrebbe essere interrotto.
+|Priorità macchina virtuale | Scegliere **priorità bassa** o **dedicata** .  Le macchine virtuali con priorità bassa sono più economiche, ma non garantiscono i nodi di calcolo. Il processo potrebbe essere interrotto.
 |Dimensioni della macchina virtuale     |  Le dimensioni delle macchine virtuali supportate possono essere limitate nella propria area. Controllare l' [elenco di disponibilità](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Numero minimo di nodi | Numero minimo di nodi di cui si vuole eseguire il provisioning. Se si desidera un numero dedicato di nodi, impostare il conteggio qui. Per risparmiare sui costi, impostare il valore minimo su 0, in modo da non pagare per alcun nodo quando il cluster è inattivo. |
 |Numero massimo di nodi | Numero massimo di nodi di cui si vuole eseguire il provisioning. Il calcolo verrà ridimensionato automaticamente fino a un numero massimo di questo nodo quando viene inviato un processo. |
-|Impostazioni avanzate     |  Facoltativa. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.   Connetti anche le [identità gestite](#managed-identity) per concedere l'accesso alle risorse     |
+|Impostazioni avanzate     |  Facoltativa. Configurare una rete virtuale. Specificare il **gruppo di risorse** , la **rete virtuale** e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](./how-to-secure-training-vnet.md) per vnet.   Connetti anche le [identità gestite](#managed-identity) per concedere l'accesso alle risorse     |
 
 #### <a name="set-up-managed-identity"></a><a name="managed-identity"></a> Configurare l'identità gestita
 
 [!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-managed-identity-intro.md)]
 
-Durante la creazione del cluster o quando si modificano i dettagli del cluster di calcolo, nelle **Impostazioni avanzate**, impostare **assegna un'identità gestita** e specificare un'identità assegnata dal sistema o un'identità assegnata dall'utente.
+Durante la creazione del cluster o quando si modificano i dettagli del cluster di calcolo, nelle **Impostazioni avanzate** , impostare **assegna un'identità gestita** e specificare un'identità assegnata dal sistema o un'identità assegnata dall'utente.
 
 #### <a name="managed-identity-usage"></a>Utilizzo identità gestite
 
@@ -136,7 +136,7 @@ Creare o alleghi un cluster Azure Kubernetes Service (AKS) per l'inferenza su la
 |Dimensioni della macchina virtuale     |  Le dimensioni delle macchine virtuali supportate possono essere limitate nella propria area. Controllare l' [elenco di disponibilità](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Scopo del cluster  | Seleziona **produzione** o **sviluppo/test** |
 |Numero di nodi | Il numero di nodi moltiplicato per il numero di core della macchina virtuale (vCPU) deve essere maggiore o uguale a 12. |
-| Configurazione di rete | Selezionare **Avanzate** per creare il calcolo in una rete virtuale esistente. Per altre informazioni su AKS in una rete virtuale, vedere [isolamento rete durante il training e l'inferenza con endpoint privati e reti virtuali](how-to-enable-virtual-network.md#aksvnet). |
+| Configurazione di rete | Selezionare **Avanzate** per creare il calcolo in una rete virtuale esistente. Per altre informazioni su AKS in una rete virtuale, vedere [isolamento rete durante il training e l'inferenza con endpoint privati e reti virtuali](./how-to-secure-inferencing-vnet.md). |
 | Abilitare la configurazione SSL | Usare questa opzione per configurare il certificato SSL nel calcolo |
 
 ### <a name="attached-compute"></a>Calcolo collegato
@@ -157,8 +157,8 @@ Per alleghi un calcolo, attenersi alla procedura descritta in [precedenza](#port
     > [!NOTE]
     > Microsoft consiglia di usare le chiavi SSH, che sono più sicure rispetto alle password. Le password sono intuibili e vulnerabili ad attacchi di forza bruta. Le chiavi SSH si basano sulle firme di crittografia. Per informazioni sulla creazione di chiavi SSH per l'uso con Macchine virtuali di Azure, vedere i documenti seguenti:
     >
-    > * [Create and use SSH keys on Linux or macOS](https://docs.microsoft.com/azure/virtual-machines/linux/mac-create-ssh-keys) (Creare e usare chiavi SSH in Linux o macOS)
-    > * [Create and use SSH keys on Windows](https://docs.microsoft.com/azure/virtual-machines/linux/ssh-from-windows) (Creare e usare chiavi SSH in Windows)
+    > * [Create and use SSH keys on Linux or macOS](../virtual-machines/linux/mac-create-ssh-keys.md) (Creare e usare chiavi SSH in Linux o macOS)
+    > * [Create and use SSH keys on Windows](../virtual-machines/linux/ssh-from-windows.md) (Creare e usare chiavi SSH in Windows)
 
 1. Selezionare __Allega__. 
 
@@ -176,4 +176,4 @@ myvm = ComputeTarget(workspace=ws, name='my-vm-name')
 * [Esercitazione: eseguire il training di un modello](tutorial-train-models-with-aml.md) usa una destinazione di calcolo gestita per eseguire il training di un modello.
 * Consultare le informazioni su come [ottimizzare in modo efficiente gli iperparametri](how-to-tune-hyperparameters.md) per creare modelli migliori.
 * Dopo aver creato un modello con training, consultare le informazioni su [come e dove distribuire i modelli](how-to-deploy-and-where.md).
-* [Usare Azure Machine Learning con le reti virtuali di Azure](how-to-enable-virtual-network.md)
+* [Usare Azure Machine Learning con le reti virtuali di Azure](./how-to-network-security-overview.md)

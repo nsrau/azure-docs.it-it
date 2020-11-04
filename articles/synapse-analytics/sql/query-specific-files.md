@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: c03051e2c8fddc21e4399375faeff6a40fb4d0d4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b4755d1d2e14b8ce3b05cfef6d30d7f6102905d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288104"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318816"
 ---
-# <a name="use-file-metadata-in-queries"></a>Usare i metadati dei file nelle query
+# <a name="use-file-metadata-in-serverless-sql-pool-queries"></a>Usare i metadati dei file nelle query del pool SQL senza server
 
-SQL su richiesta può indirizzare più file e cartelle, come descritto nell'articolo [cartelle query e più file](query-folders-multiple-csv-files.md) . In questo articolo verrà illustrato come usare le informazioni sui metadati relative a nomi di file e cartelle nelle query.
+Il pool SQL senza server può indirizzare più file e cartelle, come descritto nell'articolo [cartelle query e più file](query-folders-multiple-csv-files.md) . In questo articolo verrà illustrato come usare le informazioni sui metadati relative a nomi di file e cartelle nelle query.
 
 In alcuni casi, potrebbe essere necessario individuare l'origine del file o della cartella correlata a una riga specifica nel set di risultati.
 

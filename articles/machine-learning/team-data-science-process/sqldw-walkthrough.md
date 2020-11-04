@@ -11,17 +11,17 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: e48261c4c6aeb75556663e1bf77c675557bcd1b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b638cb2b33f24220e7ceb852402862c707cc7bc6
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91315491"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93316005"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Processo di analisi scientifica dei dati per i team in azione: uso di Azure sinapsi Analytics
 Questa esercitazione illustra la creazione e la distribuzione di un modello di apprendimento automatico usando Azure sinapsi Analytics per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . Il modello di classificazione binaria costruito prevede se viene o meno pagata una mancia per una corsa.  I modelli includono la classificazione multiclasse (indipendentemente dalla presenza di un suggerimento) e la regressione (la distribuzione per gli importi delle mance a pagamento).
 
-La procedura segue il flusso di lavoro del [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) . Viene illustrato come configurare un ambiente di data science, come caricare i dati in Azure sinapsi Analytics e come usare Azure sinapsi Analytics o un notebook di IPython per esplorare i dati e progettare le funzionalità da modellare. Viene quindi illustrato come compilare e distribuire un modello con Azure Machine Learning.
+La procedura segue il flusso di lavoro del [Processo di analisi scientifica dei dati per i team (TDSP)](./index.yml) . Viene illustrato come configurare un ambiente di data science, come caricare i dati in Azure sinapsi Analytics e come usare Azure sinapsi Analytics o un notebook di IPython per esplorare i dati e progettare le funzionalità da modellare. Viene quindi illustrato come compilare e distribuire un modello con Azure Machine Learning.
 
 ## <a name="the-nyc-taxi-trips-dataset"></a><a name="dataset"></a>Set di dati NYC Taxi Trips
 I dati di NYC Taxi Trip sono costituiti da circa 20 GB di file compressi con estensione CSV (circa 48 GB non compressi) e registrano oltre 173 milioni di corse singole, nonché le tariffe pagate per ogni corsa. Ogni record di corsa include le località e gli orari di ritiro e abbandono, il numero di licenza resi anonimi Hack (driver) e il numero di licenza (ID univoco del taxi). I dati sono relativi a tutte le corse per l'anno 2013 e vengono forniti nei due set di dati seguenti per ciascun mese:
@@ -63,8 +63,8 @@ La **chiave univoca** usata per unire trip\_data e trip\_fare è costituita dai 
 ## <a name="address-three-types-of-prediction-tasks"></a><a name="mltasks"></a>Risolvere tre tipi di attività di stima
 Sono stati formulati tre problemi di stima basati sul valore di *tip\_amount* per illustrare tre tipi di attività di modellazione:
 
-1. **Classificazione binaria**: per stimare se è stata pagata o meno una mancia per una corsa, ovvero un * \_ importo di tip* maggiore di $0 è un esempio positivo, mentre un *Suggerimento \_ * di $0 è un esempio negativo.
-2. **Classificazione multiclasse**: consente di prevedere l'intervallo in cui rientra la mancia lasciata per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
+1. **Classificazione binaria** : per stimare se è stata pagata o meno una mancia per una corsa, ovvero un *\_ importo di tip* maggiore di $0 è un esempio positivo, mentre un *Suggerimento \_* di $0 è un esempio negativo.
+2. **Classificazione multiclasse** : consente di prevedere l'intervallo in cui rientra la mancia lasciata per la corsa. Il valore *tip\_amount* viene suddiviso in cinque bin o classi:
 
 `Class 0 : tip_amount = $0`
 
@@ -76,15 +76,15 @@ Sono stati formulati tre problemi di stima basati sul valore di *tip\_amount* pe
 
 `Class 4 : tip_amount > $20`
 
-3. **Attività di regressione**: per stimare l'importo della Mancia pagata per una corsa.
+3. **Attività di regressione** : per stimare l'importo della Mancia pagata per una corsa.
 
 ## <a name="set-up-the-azure-data-science-environment-for-advanced-analytics"></a><a name="setup"></a>Configurare l'ambiente di scienza dei dati di Azure per l'analisi avanzata
 Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire questi passaggi.
 
 **Creare l'account di archiviazione BLOB di Azure**
 
-* Quando si effettua il provisioning dell'archivio BLOB di Azure, scegliere una località geografica per l'archivio BLOB di Azure il più vicino possibile agli **Stati Uniti centro-meridionali**, dove vengono archiviati i dati relativi alle corse dei taxi di New York. I dati verranno copiati tramite AzCopy dal contenitore di archiviazione BLOB pubblico a un contenitore nell'account di archiviazione. Quanto più l'archivio BLOB di Azure è vicino agli Stati Uniti centro-meridionali tanto più rapidamente verrà completata questa attività (passaggio 4).
-* Per creare un account di archiviazione di Azure personalizzato, seguire i passaggi descritti in [informazioni sugli account di archiviazione di Azure](../../storage/common/storage-create-storage-account.md). Assicurarsi di prendere nota dei valori delle credenziali dell'account di archiviazione seguenti perché saranno necessarie più avanti nella procedura dettagliata.
+* Quando si effettua il provisioning dell'archivio BLOB di Azure, scegliere una località geografica per l'archivio BLOB di Azure il più vicino possibile agli **Stati Uniti centro-meridionali** , dove vengono archiviati i dati relativi alle corse dei taxi di New York. I dati verranno copiati tramite AzCopy dal contenitore di archiviazione BLOB pubblico a un contenitore nell'account di archiviazione. Quanto più l'archivio BLOB di Azure è vicino agli Stati Uniti centro-meridionali tanto più rapidamente verrà completata questa attività (passaggio 4).
+* Per creare un account di archiviazione di Azure personalizzato, seguire i passaggi descritti in [informazioni sugli account di archiviazione di Azure](../../storage/common/storage-account-create.md). Assicurarsi di prendere nota dei valori delle credenziali dell'account di archiviazione seguenti perché saranno necessarie più avanti nella procedura dettagliata.
 
   * **Nome dell'account di archiviazione**
   * **Chiave dell'account di archiviazione**
@@ -93,7 +93,7 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire que
 **Eseguire il provisioning dell'istanza di Azure sinapsi Analytics.**
 Per eseguire il provisioning di un'istanza di Azure sinapsi Analytics, vedere la documentazione relativa alla [creazione e alla query di un'analisi di sinapsi di Azure nel portale di Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) Assicurarsi di creare le annotazioni sulle credenziali di Azure sinapsi Analytics seguenti che verranno usate nei passaggi successivi.
 
-* **Nome server**: \<server Name> . database.Windows.NET
+* **Nome server** : \<server Name> . database.Windows.NET
 * **Nome SQLDW (database)**
 * **Nome utente**
 * **Password**
@@ -139,7 +139,7 @@ Al termine dell'esecuzione, la directory di lavoro corrente diventa *-DestDir*. 
 
 ![Modifiche alla directory di lavoro corrente][19]
 
-In *-DestDir*eseguire lo script di PowerShell seguente in modalità amministratore:
+In *-DestDir* eseguire lo script di PowerShell seguente in modalità amministratore:
 
 ```azurepowershell
 ./SQLDW_Data_Import.ps1
@@ -154,7 +154,7 @@ Quando lo script di PowerShell viene eseguito per la prima volta, verrà richies
 
 Questo file di **script di PowerShell** completa le attività seguenti:
 
-* **Esegue il download e l'installazione di AzCopy**, se non è già installato
+* **Esegue il download e l'installazione di AzCopy** , se non è già installato
 
   ```azurepowershell
   $AzCopy_path = SearchAzCopy
@@ -363,13 +363,13 @@ La posizione geografica degli account di archiviazione influisce sui tempi di ca
 È necessario decidere cosa fare se si dispone di file di origine e destinazione duplicati.
 
 > [!NOTE]
-> Se i file con estensione csv da copiare dall'archivio BLOB pubblico all'account di archiviazione BLOB privato esistono già nell'account di archiviazione BLOB privato, AzCopy chiederà se li si vuole sovrascrivere. Se non si vuole farlo, digitare **n** quando richiesto. Per sovrascriverli **tutti**, digitare **a** quando richiesto. È anche possibile digitare **y** per sovrascrivere i file con estensione csv singolarmente.
+> Se i file con estensione csv da copiare dall'archivio BLOB pubblico all'account di archiviazione BLOB privato esistono già nell'account di archiviazione BLOB privato, AzCopy chiederà se li si vuole sovrascrivere. Se non si vuole farlo, digitare **n** quando richiesto. Per sovrascriverli **tutti** , digitare **a** quando richiesto. È anche possibile digitare **y** per sovrascrivere i file con estensione csv singolarmente.
 >
 >
 
 ![Output di AzCopy][21]
 
-È possibile usare i propri dati. Se i dati sono nel computer locale nell'applicazione reale, è tuttavia possibile usare AzCopy per caricare i dati locali nell'archiviazione BLOB di Azure privato. È sufficiente sostituire il percorso **Source**, `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, nel comando di AzCopy del file di script di PowerShell con la directory locale contenente i dati.
+È possibile usare i propri dati. Se i dati sono nel computer locale nell'applicazione reale, è tuttavia possibile usare AzCopy per caricare i dati locali nell'archiviazione BLOB di Azure privato. È sufficiente sostituire il percorso **Source** , `$Source = "http://getgoing.blob.core.windows.net/public/nyctaxidataset"`, nel comando di AzCopy del file di script di PowerShell con la directory locale contenente i dati.
 
 > [!TIP]
 > Se i dati sono già presenti nell'archivio BLOB di Azure privato nell'applicazione reale, è possibile ignorare il passaggio AzCopy nello script di PowerShell e caricare direttamente i dati in Azure sinapsi Analytics di Azure. Saranno necessarie altre modifiche dello script per adattarlo al formato dei dati.
@@ -609,7 +609,7 @@ AND pickup_longitude != '0' AND dropoff_longitude != '0'
 | 3 |40.761456 |-73.999886 |40.766544 |-73.988228 |0.7037227967 |
 
 ### <a name="prepare-data-for-model-building"></a>Preparazione dei dati per la creazione del modello
-Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare**, generare un'etichetta di classificazione binaria **tipped**, un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza.  Questa query può essere copiata e incollata direttamente[nel modulo Azure Machine Learning Studio di importazione] [dati] [(classica)](https://studio.azureml.net) di importazione dati per l'inserimento diretto dei dati dall'istanza del database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
+Le query riportate di seguito consentono di unire le tabelle **nyctaxi\_trip** e **nyctaxi\_fare** , generare un'etichetta di classificazione binaria **tipped** , un'etichetta di classificazione multiclasse **tip\_class** e di estrarre un campione dall'intero set di dati unito. Il campionamento viene eseguito recuperando un subset delle corse in base all'orario di partenza.  Questa query può essere copiata e incollata direttamente[nel modulo Azure Machine Learning Studio di importazione] [dati] [(classica)](https://studio.azureml.net) di importazione dati per l'inserimento diretto dei dati dall'istanza del database SQL in Azure. La query esclude i record con le coordinate errate (0, 0).
 
 ```sql
 SELECT t.*, f.payment_type, f.fare_amount, f.surcharge, f.mta_tax, f.tolls_amount,     f.total_amount, f.tip_amount,
@@ -937,9 +937,9 @@ pd.read_sql(query,conn)
 ## <a name="build-models-in-azure-machine-learning"></a><a name="mlmodel"></a>Creare modelli in Azure Machine Learning
 A questo punto è possibile procedere con la creazione e la distribuzione di modelli in [Azure Machine Learning](https://studio.azureml.net). I dati sono pronti per essere usati nei problemi di stima identificati in precedenza, in modo specifico:
 
-1. **Classificazione binaria**: per prevedere se è stata pagata o meno una mancia per una corsa.
-2. **Classificazione multiclasse**: consente di stimare l'intervallo di mance pagato, in base alle classi definite in precedenza.
-3. **Attività di regressione**: per stimare l'importo della Mancia pagata per una corsa.
+1. **Classificazione binaria** : per prevedere se è stata pagata o meno una mancia per una corsa.
+2. **Classificazione multiclasse** : consente di stimare l'intervallo di mance pagato, in base alle classi definite in precedenza.
+3. **Attività di regressione** : per stimare l'importo della Mancia pagata per una corsa.
 
 Per iniziare l'esercizio di modellazione, accedere all'area di lavoro di **Azure Machine Learning (classica)** . Se non è stata ancora creata un'area di lavoro di Machine Learning, vedere [creare un'area di lavoro di Azure Machine Learning Studio (classica)](../classic/create-workspace.md).
 
@@ -976,7 +976,7 @@ Un esempio di un esperimento di classificazione binaria per la lettura dei dati 
 ![Formazione su Azure ML][10]
 
 > [!IMPORTANT]
-> Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell'**escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, con la classificazione binaria, usare l'etichetta **tipped** ed escludere i campi **tip\_class**, **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
+> Negli esempi di estrazione dei dati di modellazione e di query di campionamento forniti nelle sezioni precedenti, **tutte le etichette per i tre esercizi sulla creazione dei modelli sono incluse nella query**. Un passaggio importante (richiesto) in ciascun esercizio sulla modellazione consiste nell' **escludere** le etichette non necessarie per gli altri due problemi ed eventuali **perdite di destinazione**. Ad esempio, con la classificazione binaria, usare l'etichetta **tipped** ed escludere i campi **tip\_class** , **tip\_amount** e **total\_amount**. Questi ultimi sono perdite di destinazione in quanto implicano la mancia pagata.
 >
 > Per escludere eventuali colonne non necessarie o le perdite di destinazione, è possibile usare il modulo [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) o [Edit Metadata][edit-metadata] (Modifica metadati). Per altre informazioni, vedere le pagine di riferimento per [Select Columns in Dataset][select-columns] (Seleziona colonne in set di dati) ed [Edit Metadata][edit-metadata] (Modifica metadati).
 >
@@ -990,7 +990,7 @@ Per distribuire un nuovo servizio Web, è necessario effettuare le seguenti oper
 1. Creare un esperimento di assegnazione di punteggio.
 2. Distribuire il servizio web.
 
-Per creare un esperimento di assegnazione dei punteggi da un esperimento di training **completato**, fare clic su **CREATE SCORING EXPERIMENT** (CREA ESPERIMENTO DI ASSEGNAZIONE PUNTEGGI) nella barra delle azioni inferiore.
+Per creare un esperimento di assegnazione dei punteggi da un esperimento di training **completato** , fare clic su **CREATE SCORING EXPERIMENT** (CREA ESPERIMENTO DI ASSEGNAZIONE PUNTEGGI) nella barra delle azioni inferiore.
 
 ![Valutazione di Azure][18]
 
@@ -1046,6 +1046,6 @@ Questa procedura dettagliata di esempio e gli script e i blocchi di appunti IPyt
 
 
 <!-- Module References -->
-[edit-metadata]: https://msdn.microsoft.com/library/azure/370b6676-c11c-486f-bf73-35349f842a66/
-[select-columns]: https://msdn.microsoft.com/library/azure/1ec722fa-b623-4e26-a44e-a50c6d726223/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
+[edit-metadata]: /azure/machine-learning/studio-module-reference/edit-metadata
+[select-columns]: /azure/machine-learning/studio-module-reference/select-columns-in-dataset
+[import-data]: /azure/machine-learning/studio-module-reference/import-data

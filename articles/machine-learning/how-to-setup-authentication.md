@@ -1,7 +1,7 @@
 ---
 title: Configurare l'autenticazione
 titleSuffix: Azure Machine Learning
-description: "Informazioni su come impostare e configurare l'autenticazione per diverse risorse e flussi di lavoro in Azure Machine Learning. Esistono diversi modi per configurare e usare l'autenticazione all'interno del servizio: dalla semplice autenticazione basata sull'interfaccia utente a scopo di sviluppo o test, all'autenticazione Azure Active Directory basata su entità servizio completa."
+description: Informazioni su come impostare e configurare l'autenticazione per diverse risorse e flussi di lavoro in Azure Machine Learning.
 services: machine-learning
 author: cjgronlund
 ms.author: cgronlun
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, has-adal-ref, devx-track-js, devx-track-azurecli
-ms.openlocfilehash: a23f44e60bd68e51c26cc6a0bbf3e85e64914135
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: fd6f933e1b3c1e7c003f62e03215273e3d28ea5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125768"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93318528"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Configurare l'autenticazione per le risorse e i flussi di lavoro di Azure Machine Learning
 
@@ -38,7 +38,7 @@ Indipendentemente dal tipo di autenticazione usato, il controllo degli accessi i
 ## <a name="interactive-authentication"></a>Autenticazione interattiva
 
 > [!IMPORTANT]
-> L'autenticazione interattiva usa il browser e richiede cookie, inclusi i cookie di terze parti. Se i cookie sono stati disabilitati, è possibile che venga visualizzato un errore, ad esempio "non è stato possibile accedere". Questo errore può verificarsi anche se è stata abilitata [l'autenticazione a più fattori di Azure](/azure/active-directory/authentication/concept-mfa-howitworks).
+> L'autenticazione interattiva usa il browser e richiede cookie, inclusi i cookie di terze parti. Se i cookie sono stati disabilitati, è possibile che venga visualizzato un errore, ad esempio "non è stato possibile accedere". Questo errore può verificarsi anche se è stata abilitata [l'autenticazione a più fattori di Azure](../active-directory/authentication/concept-mfa-howitworks.md).
 
 Per la maggior parte degli esempi nella documentazione e negli esempi viene usata l'autenticazione interattiva. Ad esempio, quando si usa l'SDK sono presenti due chiamate di funzione che richiederanno automaticamente un flusso di autenticazione basato sull'interfaccia utente:
 
@@ -77,7 +77,7 @@ Per utilizzare l'autenticazione dell'entità servizio (SP), è necessario innanz
 >
 > Il motivo per cui si concede l'accesso minimo è che un'entità servizio usa una password per l'autenticazione e la password può essere archiviata come parte di uno script di automazione. Se la password viene persa, l'accesso minimo richiesto per le attività specifiche riduce al minimo l'utilizzo dannoso di SP.
 
-Il modo più semplice per creare un SP e concedere l'accesso all'area di lavoro consiste nell'usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true). Per creare un'entità servizio e concedere l'accesso all'area di lavoro, seguire questa procedura:
+Il modo più semplice per creare un SP e concedere l'accesso all'area di lavoro consiste nell'usare l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest). Per creare un'entità servizio e concedere l'accesso all'area di lavoro, seguire questa procedura:
 
 > [!NOTE]
 > Per eseguire tutti questi passaggi, è necessario essere un amministratore della sottoscrizione.
@@ -92,7 +92,7 @@ Il modo più semplice per creare un SP e concedere l'accesso all'area di lavoro 
 
     [!INCLUDE [select-subscription](../../includes/machine-learning-cli-subscription.md)] 
 
-    Per altri metodi di autenticazione, vedere [Accedere con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/authenticate-azure-cli?view=azure-cli-latest&preserve-view=true).
+    Per altri metodi di autenticazione, vedere [Accedere con l'interfaccia della riga di comando di Azure](/cli/azure/authenticate-azure-cli?preserve-view=true&view=azure-cli-latest).
 
 1. Installare l'estensione Azure Machine Learning:
 
@@ -190,11 +190,11 @@ ws.get_details()
 
 ### <a name="use-a-service-principal-from-the-azure-cli"></a>Usare un'entità servizio dall'interfaccia della riga di comando di Azure
 
-È possibile usare un'entità servizio per i comandi dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [accedere usando un'entità servizio](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest&preserve-view=true#sign-in-using-a-service-principal).
+È possibile usare un'entità servizio per i comandi dell'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [accedere usando un'entità servizio](/cli/azure/create-an-azure-service-principal-azure-cli?preserve-view=true&view=azure-cli-latest#sign-in-using-a-service-principal).
 
 ### <a name="use-a-service-principal-with-the-rest-api-preview"></a>Usare un'entità servizio con l'API REST (anteprima)
 
-L'entità servizio può essere usata anche per l'autenticazione all' [API REST](https://docs.microsoft.com/rest/api/azureml/) di Azure Machine Learning (anteprima). Si usa [il flusso di concessione delle credenziali client](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) di Azure Active Directory, che consente di eseguire chiamate da servizio a servizio per l'autenticazione headless nei flussi di lavoro automatizzati. Gli esempi sono implementati con la [libreria ADAL](https://docs.microsoft.com/azure/active-directory/develop/active-directory-authentication-libraries) sia in Python sia in Node.js, ma è possibile usare qualsiasi libreria open source che supporta OpenID Connect 1.0.
+L'entità servizio può essere usata anche per l'autenticazione all' [API REST](/rest/api/azureml/) di Azure Machine Learning (anteprima). Si usa [il flusso di concessione delle credenziali client](../active-directory/azuread-dev/v1-oauth2-client-creds-grant-flow.md) di Azure Active Directory, che consente di eseguire chiamate da servizio a servizio per l'autenticazione headless nei flussi di lavoro automatizzati. Gli esempi sono implementati con la [libreria ADAL](../active-directory/azuread-dev/active-directory-authentication-libraries.md) sia in Python sia in Node.js, ma è possibile usare qualsiasi libreria open source che supporta OpenID Connect 1.0.
 
 > [!NOTE]
 > MSAL.js è una libreria più recente rispetto ad ADAL, ma con essa non è possibile eseguire l'autenticazione da servizio a servizio con le credenziali client perché si tratta principalmente di una libreria lato client destinata all'autenticazione interattiva/dell'interfaccia utente associata a un utente specifico. È consigliabile usare ADAL come illustrato di seguito per creare flussi di lavoro automatizzati con l'API REST.
@@ -375,7 +375,7 @@ aci_service = Model.deploy(workspace=ws,
 aci_service.wait_for_deployment(True)
 ```
 
-Per recuperare il token di autenticazione usare `aci_service.get_keys()`. Per rigenerare una chiave, usare la funzione `regen_key()` e passare **Primaria** o **Secondaria** .
+Per recuperare il token di autenticazione usare `aci_service.get_keys()`. Per rigenerare una chiave, usare la funzione `regen_key()` e passare **Primaria** o **Secondaria**.
 
 ```python
 aci_service.regen_key("Primary")
@@ -391,7 +391,7 @@ Quando si abilita l'autenticazione tramite token per un servizio Web, gli utenti
 
 * L'autenticazione tramite token è **disabilitata per impostazione predefinita** quando si esegue la distribuzione al servizio Azure Kubernetes.
 * L'autenticazione tramite token **non è supportata** quando si esegue la distribuzione a Istanze di Azure Container.
-* **Non è possibile usare l'autenticazione basata su token allo stesso tempo dell'autenticazione basata su chiavi** .
+* **Non è possibile usare l'autenticazione basata su token allo stesso tempo dell'autenticazione basata su chiavi**.
 
 Per controllare l'autenticazione del token, usare il `token_auth_enabled` parametro quando si crea o si aggiorna una distribuzione:
 

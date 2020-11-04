@@ -1,6 +1,6 @@
 ---
 title: Proteggere un database
-description: Suggerimenti per la protezione di un database e lo sviluppo di soluzioni in una risorsa del pool SQL sinapsi.
+description: Suggerimenti per la protezione di un pool SQL dedicato e lo sviluppo di soluzioni in Azure sinapsi Analytics.
 author: julieMSFT
 manager: craigg
 ms.service: synapse-analytics
@@ -11,14 +11,14 @@ ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: c94924c973a1095a4bebf6231d9853968facc1b2
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: f6c1370cab573926183a937b8e749ef490c19334
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516884"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93317698"
 ---
-# <a name="secure-a-database-in-azure-synapse"></a>Proteggere un database in una sinapsi di Azure
+# <a name="secure-a-dedicated-sql-pool-in-azure-synapse-analytics"></a>Proteggere un pool SQL dedicato in Azure sinapsi Analytics
 
 > [!div class="op_single_selector"]
 >
@@ -27,7 +27,7 @@ ms.locfileid: "92516884"
 > * [Introduzione a Transparent Data Encryption (TDE) di SQL Data Warehouse](sql-data-warehouse-encryption-tde.md)
 > * [Introduzione a Transparent Data Encryption (TDE)](sql-data-warehouse-encryption-tde-tsql.md)
 
-Questo articolo illustra le nozioni di base per la protezione del pool SQL sinapsi. In particolare, questo articolo consente di iniziare a usare le risorse per limitare l'accesso, proteggere i dati e monitorare le attività in un database di cui viene effettuato il provisioning tramite il pool SQL.
+In questo articolo vengono illustrate le nozioni di base per la protezione del pool SQL dedicato. In particolare, questo articolo consente di iniziare a usare le risorse per limitare l'accesso, proteggere i dati e monitorare le attività usando un pool SQL dedicato.
 
 ## <a name="connection-security"></a>Sicurezza delle connessioni
 
@@ -35,15 +35,15 @@ La sicurezza delle connessioni fa riferimento al modo che si limitano e proteggo
 
 Le regole del firewall vengono usate sia dal [server SQL logico](../../azure-sql/database/logical-servers.md) che dai relativi database per rifiutare i tentativi di connessione da indirizzi IP che non sono stati approvati in modo esplicito. Prima di consentire le connessioni dall'applicazione o dall'indirizzo IP pubblico del computer client, è necessario creare una regola del firewall di livello server tramite il portale di Azure, l'API REST o PowerShell.
 
-Come procedura consigliata, è consigliabile limitare il più possibile gli intervalli di indirizzi IP consentiti attraverso il firewall a livello di server.  Per accedere al pool SQL dal computer locale, verificare che il firewall in rete e nel computer locale consenta le comunicazioni in uscita sulla porta TCP 1433.  
+Come procedura consigliata, è consigliabile limitare il più possibile gli intervalli di indirizzi IP consentiti attraverso il firewall a livello di server.  Per accedere al pool SQL dedicato dal computer locale, verificare che il firewall in rete e nel computer locale consenta la comunicazione in uscita sulla porta TCP 1433.  
 
 Azure sinapsi Analytics usa le regole del firewall IP a livello di server. Non supporta le regole del firewall IP a livello di database. Per altre informazioni, vedere [regole del firewall del database SQL di Azure](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 
-Le connessioni al pool SQL sono crittografate per impostazione predefinita.  La modifica delle impostazioni di connessione per disabilitare la crittografia viene ignorata.
+Le connessioni al pool SQL dedicato vengono crittografate per impostazione predefinita.  La modifica delle impostazioni di connessione per disabilitare la crittografia viene ignorata.
 
 ## <a name="authentication"></a>Authentication
 
-Per autenticazione si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. Il pool SQL supporta attualmente l'autenticazione SQL Server con un nome utente e una password e con Azure Active Directory.
+Per autenticazione si intende il modo in cui viene dimostrata la propria identità durante la connessione al database. Il pool SQL dedicato supporta attualmente SQL Server l'autenticazione con un nome utente e una password e con Azure Active Directory.
 
 Quando è stato creato il server per il database, è stato specificato un account di accesso "server admin" con un nome utente e una password. Con queste credenziali è possibile eseguire l'autenticazione in qualsiasi database di tale server come proprietario del database, o "dbo", tramite l'autenticazione di SQL Server.
 
@@ -57,7 +57,7 @@ CREATE LOGIN ApplicationLogin WITH PASSWORD = 'Str0ng_password';
 CREATE USER ApplicationUser FOR LOGIN ApplicationLogin;
 ```
 
-Connettersi quindi al database del **pool SQL** con l'account di accesso amministratore del server e creare un utente del database in base all'account di accesso al server creato.
+Connettersi quindi al database del **pool SQL dedicato** con l'account di accesso amministratore del server e creare un utente del database in base all'account di accesso al server creato.
 
 ```sql
 -- Connect to the database and create a database user
@@ -104,4 +104,4 @@ Nel database SQL la chiave di crittografia del database è protetta da un certif
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni dettagliate ed esempi sulla connessione al warehouse con protocolli diversi, vedere [connettersi al pool SQL](../sql/connect-overview.md).
+Per informazioni dettagliate ed esempi sulla connessione al warehouse con protocolli diversi, vedere [connettersi a un pool SQL dedicato](../sql/connect-overview.md).
