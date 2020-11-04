@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 09/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 8f0df92eadc4db132d567e708abe6e28e82642d6
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3f878389f22f3928bc1fc8c89b04353583326da6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129559"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346044"
 ---
 # <a name="use-azure-rbac-for-kubernetes-authorization-preview"></a>Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione di Kubernetes (anteprima)
 
@@ -72,7 +72,6 @@ az extension update --name aks-preview
 - Richiede l' [integrazione di Azure ad gestiti](managed-aad.md).
 - Non è possibile integrare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione Kubernetes nei cluster esistenti durante la fase di anteprima, ma sarà disponibile a livello generale (GA).
 - Usare [kubectl v 1.18.3 +][az-aks-install-cli].
-- Durante l'anteprima è possibile aggiungere autorizzazioni a *livello di spazio dei nomi* solo tramite l'interfaccia della riga di comando di Azure
 - Se si dispone di CRD e si stanno creando definizioni di ruolo personalizzate, l'unico modo per coprire CRD oggi è fornire `Microsoft.ContainerService/managedClusters/*/read` . AKS sta lavorando per fornire autorizzazioni più granulari per CRD. Per gli oggetti rimanenti è possibile usare i gruppi di API specifici, ad esempio: `Microsoft.ContainerService/apps/deployments/read` .
 - Le nuove assegnazioni di ruolo possono richiedere fino a 5 minuti per la propagazione e l'aggiornamento da parte del server di autorizzazione.
 - Richiede che il tenant di Azure AD configurato per l'autenticazione corrisponda al tenant per la sottoscrizione che include il cluster AKS. 

@@ -8,12 +8,12 @@ author: vikrambmsft
 ms.author: vikramb
 ms.date: 10/30/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 91de9aff154dec1a61360477edebc90b7a13cf24
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125173"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348339"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Partner del Marketplace commerciale e attribuzione dell'utilizzo dei clienti
 
@@ -74,15 +74,15 @@ Dopo avere aggiunto il GUID al modello o nell'agente utente e avere registrato i
    * I partner possono registrare più GUID.
    * I partner possono registrare GUID per modelli e offerte di soluzioni non del marketplace.
 
-1. Nell'angolo in alto a destra selezionare l'icona delle impostazioni a forma di ingranaggio e quindi **Impostazioni sviluppatore** .
+1. Nell'angolo in alto a destra selezionare l'icona delle impostazioni a forma di ingranaggio e quindi **Impostazioni sviluppatore**.
 
-1. Nella **pagina Impostazioni account** selezionare **Aggiungi GUID di verifica** .
+1. Nella **pagina Impostazioni account** selezionare **Aggiungi GUID di verifica**.
 
 1. Nella casella **GUID** immettere il GUID di verifica. Immettere solo il GUID senza il `pid-` prefisso. Nella casella **Descrizione** immettere il nome o la descrizione dell'offerta.
 
 1. Per registrare più GUID, selezionare di nuovo **Add Tracking GUID** (Aggiungi GUID di rilevamento). Nella pagina verranno visualizzate finestre aggiuntive.
 
-1. Selezionare **Salva** .
+1. Selezionare **Salva**.
 
 ## <a name="use-resource-manager-templates"></a>Usare i modelli di Resource Manager
 Molte soluzioni dei partner vengono distribuite usando i modelli di Azure Resource Manager. Se si dispone di un modello di Gestione risorse disponibile in Azure Marketplace, su GitHub o come guida introduttiva, il processo di modifica del modello per consentire l'attribuzione dell'utilizzo dei clienti è semplice.
@@ -102,7 +102,7 @@ Per aggiungere un identificatore univoco globale (GUID), si apporta una sola mod
 
 1. Aggiungere una nuova risorsa di tipo [Microsoft. resources/Deployments](/azure/templates/microsoft.resources/deployments) nel file di modello principale. La risorsa deve essere solo nel file **mainTemplate.json** o **azuredeploy.json** , non in un template annidato o collegato.
 
-1. Immettere il valore GUID dopo il `pid-` prefisso come nome della risorsa. Se ad esempio il GUID è eb7927c8-dd66-43e1-b0cf-c346a422063, il nome della risorsa sarà _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_ .
+1. Immettere il valore GUID dopo il `pid-` prefisso come nome della risorsa. Se ad esempio il GUID è eb7927c8-dd66-43e1-b0cf-c346a422063, il nome della risorsa sarà _PID-eb7927c8-dd66-43e1-b0cf-c346a422063_.
 
 1. Controllare il modello per individuare eventuali errori.
 
@@ -150,7 +150,7 @@ Per abilitare l'attribuzione dell'utilizzo da parte dei clienti, quando si proge
 
 #### <a name="example-the-python-sdk"></a>Esempio: Python SDK
 
-Per Python, usare l’attributo **config** . È possibile aggiungere l’attributo solo a un agente utente. Ad esempio:
+Per Python, usare l’attributo **config**. È possibile aggiungere l’attributo solo a un agente utente. Ad esempio:
 
 ![Aggiungere l'attributo a un agente utente](media/marketplace-publishers-guide/python-for-lu.PNG)
 
@@ -159,7 +159,7 @@ Per Python, usare l’attributo **config** . È possibile aggiungere l’attribu
 
 #### <a name="example-the-net-sdk"></a>Esempio: .NET SDK
 
-Per .NET, assicurarsi di impostare l'agente utente. La libreria [Microsoft. Azure. Management. Fluent](/dotnet/api/microsoft.azure.management.fluent?view=azure-dotnet) può essere usata per impostare l'agente utente con il codice seguente, ad esempio in C#:
+Per .NET, assicurarsi di impostare l'agente utente. La libreria [Microsoft. Azure. Management. Fluent](/dotnet/api/microsoft.azure.management.fluent) può essere usata per impostare l'agente utente con il codice seguente, ad esempio in C#:
 
 ```csharp
 
@@ -181,7 +181,7 @@ Se si distribuiscono risorse tramite Azure PowerShell, aggiungere il GUID utiliz
 
 #### <a name="tag-a-deployment-by-using-the-azure-cli"></a>Aggiungere un tag a una distribuzione usando l’interfaccia della riga di comando di Azure
 
-Quando si utilizza Azure CLI per aggiungere il proprio GUID, impostare la variabile di ambiente **AZURE_HTTP_USER_AGENT** . È possibile impostare questa variabile nell'ambito di uno script. È anche possibile impostare la variabile a livello globale per l'ambito della shell:
+Quando si utilizza Azure CLI per aggiungere il proprio GUID, impostare la variabile di ambiente **AZURE_HTTP_USER_AGENT**. È possibile impostare questa variabile nell'ambito di uno script. È anche possibile impostare la variabile a livello globale per l'ambito della shell:
 
 ```
 export AZURE_HTTP_USER_AGENT='pid-eb7927c8-dd66-43e1-b0cf-c346a422063'
@@ -192,7 +192,7 @@ Per altre informazioni, vedere [Azure SDK per Go](/azure/developer/go/).
 
 Il supporto per Terraform è disponibile tramite la versione 1.21.0 del provider di Azure: [https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019](https://github.com/terraform-providers/terraform-provider-azurerm/blob/master/CHANGELOG.md#1210-january-11-2019).  Questo supporto si applica a tutti i partner che distribuiscono la propria soluzione tramite Terraform e a tutte le risorse distribuite e misurate dal provider di Azure (versione 1.21.0 o successiva).
 
-Il provider di Azure per Terraform prevede un nuovo campo facoltativo denominato [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) che consente di specificare il GUID di verifica usato per la soluzione. Il valore di questo campo può anche essere ricavato dalla variabile di ambiente *ARM_PARTNER_ID* .
+Il provider di Azure per Terraform prevede un nuovo campo facoltativo denominato [*partner_id*](https://www.terraform.io/docs/providers/azurerm/#partner_id) che consente di specificare il GUID di verifica usato per la soluzione. Il valore di questo campo può anche essere ricavato dalla variabile di ambiente *ARM_PARTNER_ID*.
 
 ```
 provider "azurerm" {

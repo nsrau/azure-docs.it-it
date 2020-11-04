@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
-ms.openlocfilehash: db396bbd2f26638c39f2573fb6014cd2602279d0
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 362c16a87e5a24c35b3aa637171b6a3f77aa62a6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129746"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346333"
 ---
 # <a name="azure-stream-analytics-output-to-azure-sql-database"></a>Output di Analisi di flusso di Azure in Database SQL di Azure
 
@@ -35,7 +35,7 @@ Ecco alcune configurazioni all'interno di ogni servizio che consentono di miglio
 
 ## <a name="sql-azure"></a>SQL Azure
 
-- **Tabelle e indici partizionati** – Usare una tabella SQL [partizionata](/sql/relational-databases/partitions/partitioned-tables-and-indexes?view=sql-server-2017) e gli indici partizionati sulla tabella con la stessa colonna come chiave di partizione (ad esempio PartitionId) può ridurre notevolmente le contese tra partizioni durante la scrittura. Per una tabella partizionata, è necessario creare una [funzione di partizione](/sql/t-sql/statements/create-partition-function-transact-sql?view=sql-server-2017) e uno [schema di partizione](/sql/t-sql/statements/create-partition-scheme-transact-sql?view=sql-server-2017) nel filegroup primario. Questo aumenterà anche la disponibilità dei dati esistenti mentre vengono caricati i dati nuovi. Il limite del log IO potrebbe raggiungere il valore basato sul numero di partizioni che può essere aumentato eseguendo l'aggiornamento dello SKU.
+- **Tabelle e indici partizionati** – Usare una tabella SQL [partizionata](/sql/relational-databases/partitions/partitioned-tables-and-indexes) e gli indici partizionati sulla tabella con la stessa colonna come chiave di partizione (ad esempio PartitionId) può ridurre notevolmente le contese tra partizioni durante la scrittura. Per una tabella partizionata, è necessario creare una [funzione di partizione](/sql/t-sql/statements/create-partition-function-transact-sql) e uno [schema di partizione](/sql/t-sql/statements/create-partition-scheme-transact-sql) nel filegroup primario. Questo aumenterà anche la disponibilità dei dati esistenti mentre vengono caricati i dati nuovi. Il limite del log IO potrebbe raggiungere il valore basato sul numero di partizioni che può essere aumentato eseguendo l'aggiornamento dello SKU.
 
 - **Evitare le violazioni della chiave univoca** – Se si verificano [più messaggi di avviso di violazione della chiave](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output) nel Log di Analisi di flusso di Azure, assicurarsi che il processo non è interessato da violazioni di vincolo uniche che possono verificarsi durante i casi di ripristino. Questo può essere evitato se si imposta sugli indici l'opzione [IGNORE\_CHIAVE\_DUP](stream-analytics-troubleshoot-output.md#key-violation-warning-with-azure-sql-database-output).
 

@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: seo-javascript-september2019, devx-track-js
-ms.openlocfilehash: 77c35ae4b9e845cd3c0f638407c0d71c36fcf9f7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c5a9fb1a179164d24c84213762ee7e2332a1aa25
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91289685"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345942"
 ---
 # <a name="how-to-use-azure-queue-storage-from-nodejs"></a>Come usare l'archiviazione di Accodamento di Azure da Node.js
 
@@ -44,7 +44,7 @@ La [libreria client di archiviazione di Azure per JavaScript][Azure Storage clie
 
 1. Digitare **NPM install \@ Azure/Storage-Queue** nella finestra di comando.
 
-1. Verificare che sia stata creata una cartella **Node \_ modules** . All'interno di tale cartella troverai il pacchetto ** \@ Azure/Storage-Queue** , che contiene la libreria client che ti serve per accedere all'archiviazione.
+1. Verificare che sia stata creata una cartella **Node \_ modules** . All'interno di tale cartella troverai il pacchetto **\@ Azure/Storage-Queue** , che contiene la libreria client che ti serve per accedere all'archiviazione.
 
 # <a name="javascript-v2"></a>[JavaScript V2](#tab/javascript2)
 
@@ -160,13 +160,13 @@ Nell'esempio seguente viene aggiornato il testo di un messaggio.
 
 # <a name="javascript-v12"></a>[JavaScript v12](#tab/javascript)
 
-Modificare il contenuto di un messaggio sul posto nella coda chiamando [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-). 
+Modificare il contenuto di un messaggio sul posto nella coda chiamando [updateMessage](/javascript/api/@azure/storage-queue/queueclient#updatemessage-string--string--string--number--queueupdatemessageoptions-).
 
 :::code language="javascript" source="~/azure-storage-snippets/queues/howto/JavaScript/JavaScript-v12/javascript-queues-v12.js" id="Snippet_UpdateMessage":::
 
 # <a name="javascript-v2"></a>[JavaScript V2](#tab/javascript2)
 
-Modificare il contenuto di un messaggio sul posto nella coda chiamando **updateMessage**. 
+Modificare il contenuto di un messaggio sul posto nella coda chiamando **updateMessage**.
 
 ```javascript
 queueSvc.getMessages('myqueue', function(error, getResults, getResponse){
@@ -234,8 +234,8 @@ Se **non** sono presenti messaggi nella coda, viene restituito un errore. Tuttav
 
 È possibile personalizzare il recupero di messaggi da una coda in due modi:
 
-* [options. numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) : Recupera un batch di messaggi (fino a 32).
-* [options. visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) : impostare un timeout di invisibilità più lungo o più breve.
+- [options. numberOfMessages](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#numberofmessages) : Recupera un batch di messaggi (fino a 32).
+- [options. visibilityTimeout](/javascript/api/@azure/storage-queue/queuereceivemessageoptions#visibilitytimeout) : impostare un timeout di invisibilità più lungo o più breve.
 
 Nell'esempio seguente viene usato il metodo **receiveMessages** per ottenere cinque messaggi in un'unica chiamata. Ogni messaggio viene poi elaborato con un ciclo `for`. Per tutti i messaggi restituiti dal metodo, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
 
@@ -245,8 +245,8 @@ Nell'esempio seguente viene usato il metodo **receiveMessages** per ottenere cin
 
 È possibile personalizzare il recupero di messaggi da una coda in due modi:
 
-* `options.numOfMessages` - consente di recuperare un batch di messaggi (massimo 32).
-* `options.visibilityTimeout` - consente di impostare un timeout di invisibilità più lungo o più breve.
+- `options.numOfMessages` - consente di recuperare un batch di messaggi (massimo 32).
+- `options.visibilityTimeout` - consente di impostare un timeout di invisibilità più lungo o più breve.
 
 Nell'esempio seguente viene usato il metodo **getMessages** per recuperare 15 messaggi con una sola chiamata. Ogni messaggio viene poi elaborato con un ciclo `for`. Per tutti i messaggi restituiti dal metodo, inoltre, il timeout di invisibilità viene impostato su cinque minuti.
 
@@ -347,8 +347,8 @@ Per cancellare tutti i messaggi da una coda senza eliminarli, chiamare **clearMe
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-* Per informazioni sulle novità, visitare il [Blog del team di archiviazione di Azure][Azure Storage Team Blog]
-* Visitare il repository della [libreria client di archiviazione di Azure per JavaScript][Azure Storage client library for JavaScript] su GitHub
+- Per informazioni sulle novità, visitare il [Blog del team di archiviazione di Azure][Azure Storage Team Blog]
+- Visitare il repository della [libreria client di archiviazione di Azure per JavaScript][Azure Storage client library for JavaScript] su GitHub
 
 [Azure Storage client library for JavaScript]: https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage#azure-storage-client-library-for-javascript
 [Azure Storage Team Blog]: https://techcommunity.microsoft.com/t5/azure-storage/bg-p/AzureStorageBlog

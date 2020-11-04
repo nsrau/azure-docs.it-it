@@ -6,22 +6,23 @@ services: container-service
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 4b43cfe41943dcf086afe332508bc6e48fbdb4d7
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: a655c8c145b4f3812dae9f1a4ec1e5eebbe44809
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92899879"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348475"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Creare e configurare un cluster del servizio Azure Kubernetes per l'uso di nodi virtuali tramite l'interfaccia della riga di comando di Azure
 
-Per ridimensionare rapidamente i carichi di lavoro dell'applicazione in un cluster del servizio Azure Kubernetes è possibile usare nodi virtuali. I nodi virtuali consentono di effettuare rapidamente il provisioning dei pod applicando al tempo di esecuzione una tariffa al secondo. Non è necessario attendere che la funzione di scalabilità automatica del cluster del servizio Azure Kubernetes distribuisca i nodi di calcolo delle macchine virtuali per eseguire pod aggiuntivi. I nodi virtuali sono supportati solo con i pod e i nodi Linux.
+Questo articolo illustra come usare l'interfaccia della riga di comando di Azure per creare e configurare le risorse di rete virtuale e il cluster AKS, quindi abilitare i nodi virtuali.
 
-Questo articolo illustra come creare e configurare le risorse della rete virtuale e un cluster del servizio Azure Kubernetes e quindi abilitare i nodi virtuali.
+> [!NOTE]
+> [Questo articolo](virtual-nodes.md) fornisce una panoramica della disponibilità e delle limitazioni dell'area usando i nodi virtuali.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-I nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in Istanze di Azure Container e nel cluster del servizio Azure Kubernetes. Per consentire la comunicazione viene creata una subnet di rete virtuale e vengono assegnate autorizzazioni delegate. I nodi virtuali funzionano solo con i cluster del servizio Azure Kubernetes creati usando reti *avanzate* . Per impostazione predefinita, i cluster del servizio Azure Kubernetes vengono creati con reti *di base* . Questo articolo illustra come creare una rete virtuale e le subnet e quindi distribuire un cluster del servizio Azure Kubernetes che usa reti avanzate.
+I nodi virtuali abilitano la comunicazione di rete tra i pod eseguiti in Istanze di Azure Container e nel cluster del servizio Azure Kubernetes. Per consentire la comunicazione viene creata una subnet di rete virtuale e vengono assegnate autorizzazioni delegate. I nodi virtuali funzionano solo con i cluster AKS creati usando *Advanced* Networking (Azure CNI). Per impostazione predefinita, i cluster AKS vengono creati con la rete di *base* (kubenet). Questo articolo illustra come creare una rete virtuale e le subnet e quindi distribuire un cluster del servizio Azure Kubernetes che usa reti avanzate.
 
 Se ACI non è stato usato in precedenza, registrare il provider di servizi con la sottoscrizione. È possibile controllare lo stato della registrazione del provider di Istanze di Azure Container usando il comando [az provider list][az-provider-list], come spiegato nell'esempio seguente:
 
@@ -43,34 +44,6 @@ Se il provider viene visualizzato come *NotRegistered* , registrare il provider 
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>Disponibilità a livello di area
-
-Per le distribuzioni di nodi virtuali sono supportate le aree seguenti:
-
-* Australia orientale (australiaeast)
-* Stati Uniti centrali (centralus)
-* Stati Uniti orientali (eastus)
-* Stati Uniti orientali 2 (eastus2)
-* Giappone orientale (japaneast)
-* Europa settentrionale (northeurope)
-* Asia sud-orientale (SouthEastAsia)
-* Stati Uniti centro-occidentali (westcentralus)
-* Europa occidentale (westeurope)
-* Stati Uniti occidentali (westus)
-* Stati Uniti occidentali 2 (westus2)
-
-## <a name="known-limitations"></a>Limitazioni note
-La funzionalità dei nodi virtuali dipende molto dal set di funzionalità di Istanze di Azure Container. Oltre alle [quote e ai limiti per le istanze di contenitore di Azure](../container-instances/container-instances-quotas.md), gli scenari seguenti non sono ancora supportati con i nodi virtuali:
-
-* Uso dell'entità servizio per il pull delle immagini di Registro Azure Container. La [soluzione alternativa](https://github.com/virtual-kubelet/azure-aci/blob/master/README.md#private-registry) prevede l'uso di [segreti Kubernetes](https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/#create-a-secret-by-providing-credentials-on-the-command-line)
-* [Limitazioni della rete virtuale](../container-instances/container-instances-vnet.md) inclusi il peering VNet, i criteri di rete Kubernetes e il traffico in uscita verso Internet con gruppi di sicurezza di rete.
-* Contenitori init
-* [Alias host](https://kubernetes.io/docs/concepts/services-networking/add-entries-to-pod-etc-hosts-with-host-aliases/)
-* [Argomenti](../container-instances/container-instances-exec.md#restrictions) per exec in Istanze di Azure Container
-* Gli oggetti [DaemonSet](concepts-clusters-workloads.md#statefulsets-and-daemonsets) non distribuiranno i pod nel nodo virtuale
-* I nodi virtuali supportano la pianificazione di pod Linux. È possibile installare manualmente il provider open source [Virtual Kubelet ACI](https://github.com/virtual-kubelet/azure-aci) per pianificare i contenitori di Windows Server in Istanze di Azure Container.
-* I nodi virtuali richiedono cluster AKS con Azure CNI networking
-
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
 Azure Cloud Shell è una shell interattiva gratuita che può essere usata per eseguire la procedura di questo articolo. Include strumenti comuni di Azure preinstallati e configurati per l'uso con l'account.
@@ -87,9 +60,9 @@ Un gruppo di risorse di Azure è un gruppo logico in cui le risorse di Azure ven
 az group create --name myResourceGroup --location westus
 ```
 
-## <a name="create-a-virtual-network"></a>Creare una rete virtuale
+## <a name="create-a-virtual-network"></a>Crea rete virtuale
 
-Creare una rete virtuale con il comando [az network vnet create][az-network-vnet-create]. L'esempio seguente crea il nome di rete virtuale *myVnet* con il prefisso di indirizzo *10.0.0.0/8* e una subnet denominata *myAKSSubnet* . Per impostazione predefinita, il prefisso di indirizzo di questa subnet è *10.240.0.0/16* :
+Creare una rete virtuale con il comando [az network vnet create][az-network-vnet-create]. L'esempio seguente crea il nome di rete virtuale *myVnet* con il prefisso di indirizzo *10.0.0.0/8* e una subnet denominata *myAKSSubnet*. Per impostazione predefinita, il prefisso di indirizzo di questa subnet è *10.240.0.0/16* :
 
 ```azurecli-interactive
 az network vnet create \
@@ -100,7 +73,7 @@ az network vnet create \
     --subnet-prefix 10.240.0.0/16
 ```
 
-Creare ora una subnet aggiuntiva per i nodi virtuali usando il comando [az network vnet subnet create][az-network-vnet-subnet-create]. L'esempio seguente crea una subnet denominata *myVirtualNodeSubnet* con il prefisso di indirizzo *10.241.0.0/16* .
+Creare ora una subnet aggiuntiva per i nodi virtuali usando il comando [az network vnet subnet create][az-network-vnet-subnet-create]. L'esempio seguente crea una subnet denominata *myVirtualNodeSubnet* con il prefisso di indirizzo *10.241.0.0/16*.
 
 ```azurecli-interactive
 az network vnet subnet create \
@@ -132,7 +105,7 @@ L'output è simile all'esempio seguente:
 }
 ```
 
-Prendere nota di *appId* e *password* . Questi valori vengono usati nei passaggi successivi.
+Prendere nota di *appId* e *password*. Questi valori vengono usati nei passaggi successivi.
 
 ## <a name="assign-permissions-to-the-virtual-network"></a>Assegnare le autorizzazioni alla rete virtuale
 

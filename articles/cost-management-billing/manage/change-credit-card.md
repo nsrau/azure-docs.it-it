@@ -10,10 +10,10 @@ ms.topic: conceptual
 ms.date: 09/15/2020
 ms.author: banders
 ms.openlocfilehash: f773c964d900c45a51eac433c3616a6e4b8978ae
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
+ms.lasthandoff: 11/01/2020
 ms.locfileid: "92131140"
 ---
 # <a name="add-or-update-a-credit-card-for-azure"></a>Aggiungere o aggiornare una carta di credito per Azure
@@ -41,29 +41,29 @@ Le sezioni seguenti sono valide per i clienti con un account di fatturazione del
 Per cambiare la carta di credito predefinita della sottoscrizione con una nuova carta, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
-1. Cercare **Gestione dei costi e fatturazione** .  
+1. Cercare **Gestione dei costi e fatturazione**.  
     ![Screenshot che mostra la ricerca](./media/change-credit-card/search.png)
 1. Selezionare la sottoscrizione a cui si vuole aggiungere la carta di credito.
-1. Selezionare **Metodi di pagamento** .  
+1. Selezionare **Metodi di pagamento**.  
     ![Screenshot che mostra l'opzione Gestisci i metodi di pagamento selezionata](./media/change-credit-card/payment-methods-blade-x.png)
 1. Nell'angolo in alto a sinistra selezionare "+" per aggiungere una carta. A destra verrà visualizzato un modulo per la carta di credito.
 1. Immettere i dettagli della carta di credito.  
     ![Screenshot che mostra l'aggiunta di una nuova carta](./media/change-credit-card/sub-add-new-x.png)
 1. Per impostare la carta come metodo di pagamento attivo, selezionare la casella accanto a **Usa come metodo di pagamento attivo** sopra al modulo. Questa carta diventerà lo strumento di pagamento attivo per tutte le sottoscrizioni che usano la stessa carta della sottoscrizione selezionata.
-1. Selezionare **Avanti** .
+1. Selezionare **Avanti**.
 
 ### <a name="change-credit-card-for-a-subscription-to-a-previously-saved-credit-card"></a>Cambiare la carta di credito per una sottoscrizione in una carta di credito salvata in precedenza
 
 Si può anche cambiare la carta di credito predefinita della sottoscrizione con una carta già salvata nell'account seguendo questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
-1. Cercare **Gestione dei costi e fatturazione** .  
+1. Cercare **Gestione dei costi e fatturazione**.  
     ![Screenshot che mostra la ricerca](./media/change-credit-card/search.png)
 1. Selezionare la sottoscrizione a cui si vuole aggiungere la carta di credito.
-1. Selezionare **Metodi di pagamento** .
+1. Selezionare **Metodi di pagamento**.
     ![Screenshot che mostra l'opzione Gestisci i metodi di pagamento selezionata](./media/change-credit-card/payment-methods-blade-x.png)
 1. Selezionare la casella accanto alla carta da impostare come metodo di pagamento attivo.
-1. Selezionare **Imposta come attivo** .
+1. Selezionare **Imposta come attivo**.
     ![Screenshot che mostra la carta di credito selezionata e impostata coma attiva](./media/change-credit-card/sub-change-active-x.png)
 
 ### <a name="edit-credit-card-details"></a>Modificare i dettagli della carta di credito
@@ -71,14 +71,14 @@ Si può anche cambiare la carta di credito predefinita della sottoscrizione con 
 Se la carta di credito viene rinnovata e il numero rimane invariato, aggiornare i dati della carta di credito esistente, ad esempio la data di scadenza. Se il numero di carta di credito viene modificato in seguito alla perdita, al furto o alla scadenza della carta, seguire la procedura nella sezione [Aggiungere una carta di credito come metodo di pagamento](#addcard). Non è necessario aggiornare il codice CVV.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) come amministratore account.
-1. Cercare **Gestione dei costi e fatturazione** .
+1. Cercare **Gestione dei costi e fatturazione**.
     ![Screenshot che mostra la ricerca](./media/change-credit-card/search.png)
-1. Selezionare **Metodi di pagamento** .
+1. Selezionare **Metodi di pagamento**.
     ![Screenshot che mostra l'opzione Gestisci i metodi di pagamento selezionata](./media/change-credit-card/payment-methods-blade-x.png)
 1. Selezionare la carta di credito da modificare. A destra verrà visualizzato un modulo per la carta di credito.
     ![Screenshot che mostra la carta di credito selezionata](./media/change-credit-card/edit-card-x.png)
 1. Aggiornare i dettagli della carta di credito.
-1. Selezionare **Salva** .
+1. Selezionare **Salva**.
 
 ## <a name="manage-credit-cards-for-a-microsoft-customer-agreement"></a>Gestire le carte di credito per un contratto del cliente Microsoft
 
@@ -93,14 +93,14 @@ Se si vuole cambiare il metodo di pagamento predefinito del profilo di fatturazi
 Per cambiare la carta di credito, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Eseguire ricerche in **Gestione dei costi e fatturazione** .
-1. Nel menu a sinistra selezionare **Profili di fatturazione** .
+1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Nel menu a sinistra selezionare **Profili di fatturazione**.
 1. Selezionare un profilo di fatturazione.
-1. Nel menu a sinistra selezionare **Metodi di pagamento** .  
+1. Nel menu a sinistra selezionare **Metodi di pagamento**.  
    ![Screenshot che mostra i metodi di pagamento nel menu](./media/change-credit-card/payment-methods-tab-mca.png)
-1. Nella sezione **Metodo di pagamento predefinito** selezionare **Sostituisci** .  
+1. Nella sezione **Metodo di pagamento predefinito** selezionare **Sostituisci**.  
     :::image type="content" source="./media/change-credit-card/change-payment-method-mca.png" alt-text="Screenshot che mostra l'opzione Sostituisci" :::
-1. Nella nuova area a destra selezionare una carta esistente dall'elenco a discesa o aggiungerne una nuova selezionando il collegamento blu **Aggiungi un nuovo metodo di pagamento** .
+1. Nella nuova area a destra selezionare una carta esistente dall'elenco a discesa o aggiungerne una nuova selezionando il collegamento blu **Aggiungi un nuovo metodo di pagamento**.
 
 ### <a name="edit-a-credit-card"></a>Modificare una carta di credito
 
@@ -109,14 +109,14 @@ Per cambiare la carta di credito, seguire questa procedura:
 Per modificare una carta di credito, seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-1. Eseguire ricerche in **Gestione dei costi e fatturazione** .
-1. Nel menu a sinistra selezionare **Profili di fatturazione** .
+1. Eseguire ricerche in **Gestione dei costi e fatturazione**.
+1. Nel menu a sinistra selezionare **Profili di fatturazione**.
 1. Selezionare un profilo di fatturazione.
-1. Nel menu a sinistra selezionare **Metodi di pagamento** .  
+1. Nel menu a sinistra selezionare **Metodi di pagamento**.  
    ![Screenshot che mostra i metodi di pagamento nel menu](./media/change-credit-card/payment-methods-tab-mca.png)
 1. Nella sezione **Carte di credito** trovare la carta di credito da modificare.
 1. Selezionare i puntini di sospensione (`...`) alla fine della riga.  
-    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Screenshot che mostra l'opzione Sostituisci" :::
+    :::image type="content" source="./media/change-credit-card/edit-delete-credit-card-mca.png" alt-text="Screenshot che mostra i puntini di sospensione" :::
 1. Per modificare i dettagli della carta di credito, scegliere **Modifica** dal menu di scelta rapida.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
@@ -143,7 +143,7 @@ Se si usa l'opzione di [pagamento con fattura](pay-by-invoice.md), inviare il pa
 
 ### <a name="how-do-i-change-the-tax-id"></a>Come è possibile modificare l'ID imposta?
 
-Per aggiungere o aggiornare l'ID imposta, aggiornare il profilo nel [portale di Azure](https://portal.azure.com) e quindi selezionare **Registrazione fiscale** . L'ID imposta viene usato per calcolare l'esenzione fiscale ed riportato sulla fattura.
+Per aggiungere o aggiornare l'ID imposta, aggiornare il profilo nel [portale di Azure](https://portal.azure.com) e quindi selezionare **Registrazione fiscale**. L'ID imposta viene usato per calcolare l'esenzione fiscale ed riportato sulla fattura.
 
 ## <a name="check-the-type-of-your-account"></a>Verificare il tipo di account in uso
 

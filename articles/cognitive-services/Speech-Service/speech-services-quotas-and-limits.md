@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/30/2020
+ms.date: 11/04/2020
 ms.author: alexeyo
-ms.openlocfilehash: 7e22b772ec35ff9b63c99acd81ad6bb5abe328a0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a304628e05054124fde6ffe5c2b63177991d8cfd
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91567163"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345398"
 ---
 # <a name="speech-services-quotas-and-limits"></a>Quote e limiti di servizi vocali
 
@@ -24,20 +24,35 @@ Questo articolo contiene un riferimento rapido e la **Descrizione dettagliata** 
 ## <a name="quotas-and-limits-quick-reference"></a>Riferimento rapido a quote e limiti
 Passa a [quote e limiti di sintesi vocale](#text-to-speech-quotas-and-limits-per-speech-resource)
 ### <a name="speech-to-text-quotas-and-limits-per-speech-resource"></a>Quote e limiti della conversione della voce in testo scritto per ogni risorsa vocale
-Nella tabella seguente i parametri senza riga "regolabile" **non** sono regolabili per tutti i piani tariffari.
+Nelle tabelle seguenti i parametri senza riga "regolabile" **non** sono regolabili per tutti i piani tariffari.
+
+#### <a name="online-transcription"></a>Trascrizione online
 
 | Quota | Gratuito (F0)<sup>1</sup> | Standard (S0) |
 |--|--|--|
-| **Limite richieste simultanee trascrizioni online (modelli base e personalizzati)** |  |  |
-| Valore predefinito | 1 | 20 |
+| **Limite di richieste simultanee (modelli base e personalizzati)** | 1 | 20 (valore predefinito) |
 | Regolabile | No<sup>2</sup> | Sì<sup>2</sup> |
-| **Limite richieste API REST (endpoint di[gestione API](../../api-management/api-management-key-concepts.md) )** | 100 richieste per 10 secondi | 100 richieste per 10 secondi |
-| **Dimensioni massime file di set di dati per l'importazione dati** | 2 GB | 2 GB |
-| **Dimensioni massime del BLOB di input per la trascrizione batch** | N/D | 2,5 GB |
-| **Dimensioni massime del contenitore BLOB per la trascrizione batch** | N/D | 5 GB |
-| **Numero massimo di BLOB per contenitore per la trascrizione batch** | N/D | 10000 |
-| **Numero massimo di file per ogni richiesta di trascrizione per la trascrizione batch (quando si usano più URL di contenuto come input)** | N/D | 1000  |
-| **Numero massimo di processi in esecuzione simultanea per la trascrizione batch** | N/D | 2000  |
+
+#### <a name="batch-transcription"></a>Trascrizione batch
+| Quota | Gratuito (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| Limite API REST | La trascrizione batch non è disponibile per F0 | 300 richieste al minuto |
+| Dimensioni massime file di input audio | N/D | 1 GB |
+| Dimensioni massime del BLOB di input (possono contenere più di un file, ad esempio in un archivio zip; assicurarsi di prendere nota del limite delle dimensioni del file) | N/D | 2,5 GB |
+| Dimensioni massime contenitore BLOB | N/D | 5 GB |
+| Numero massimo di BLOB per contenitore | N/D | 10000 |
+| Numero massimo di file per ogni richiesta di trascrizione (quando si usano più URL di contenuto come input) | N/D | 1000  |
+| Numero massimo di processi in esecuzione simultanea | N/D | 2000  |
+
+#### <a name="model-customization"></a>Personalizzazione del modello
+| Quota | Gratuito (F0)<sup>1</sup> | Standard (S0) |
+|--|--|--|
+| Limite API REST | 300 richieste al minuto | 300 richieste al minuto |
+| Numero massimo di set di impostazioni di sintesi vocale | 2 | 500 |
+| Dimensioni massime file set di dati acustico per l'importazione dati | 2 GB | 2 GB |
+| Dimensioni massime file di set di dati lingua per l'importazione dati | 200 MB | 1,5 GB |
+| Dimensioni massime del file di set di dati di pronuncia per importazione dati | 1 KB | 1 MB |
+| Dimensioni massime del testo quando si usa il `text` parametro nella richiesta dell'API di [Creazione modello](https://westcentralus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/CreateModel/) | 200 kB | 500 KB |
 
 <sup>1</sup> per il piano tariffario **gratuito (F0)** , vedere anche le indennità mensile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
 <sup>2</sup> vedere [spiegazioni aggiuntive](#detailed-description-quota-adjustment-and-best-practices), [procedure consigliate](#general-best-practices-to-mitigate-throttling-during-autoscaling)e [istruzioni per la regolazione](#speech-to-text-increasing-online-transcription-concurrent-request-limit).<br/> 
@@ -57,7 +72,7 @@ Nella tabella seguente i parametri senza riga "regolabile" **non** sono regolabi
 | **Quote specifiche di WebSocket** |  |  |
 |Lunghezza massima audio prodotta per turno | 10 min | 10 min |
 |Dimensioni massime del messaggio SSML per turno |64 KB |64 KB |
-| **Limite richieste API REST** | 20 richieste al minuto | 25 richieste per 5 secondi |
+| **Limite API REST** | 20 richieste al minuto | 25 richieste per 5 secondi |
 
 
 <sup>3</sup> per il piano tariffario **gratuito (F0)** , vedere anche le indennità mensile nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).<br/>
@@ -92,22 +107,22 @@ Il valore esistente del parametro del limite della richiesta simultanea **non** 
 >I [contenitori di sintesi vocale](speech-container-howto.md) non richiedono aumenti di limite di richieste simultanee, in quanto i contenitori sono limitati solo dalle CPU dell'hardware in cui sono ospitati.
 
 #### <a name="have-the-required-information-ready"></a>Preparare le informazioni necessarie:
-- Per il **modello di base**:
+- Per il **modello di base** :
   - ID risorsa vocale
   - Region
-- Per il **modello personalizzato**: 
+- Per il **modello personalizzato** : 
   - Region
   - ID endpoint personalizzato
 
-- **Come ottenere informazioni (modello di base)**:  
+- **Come ottenere informazioni (modello di base)** :  
   - Vai a [portale di Azure](https://portal.azure.com/)
   - Selezionare la risorsa vocale per cui si vuole aumentare il limite della richiesta di concorrenza
-  - Selezione *Proprietà* (gruppo di*Gestione risorse* ) 
+  - Selezione *Proprietà* (gruppo di *Gestione risorse* ) 
   - Copiare e salvare i valori dei campi seguenti:
     - **ID risorsa**
     - **Località** (area dell'endpoint)
 
-- **Come ottenere informazioni (modello personalizzato)**:
+- **Come ottenere informazioni (modello personalizzato)** :
   - Vai al portale di [speech studio](https://speech.microsoft.com/)
   - Accedi se necessario
   - Vai a Riconoscimento vocale personalizzato
@@ -124,7 +139,7 @@ Avviare l'aumento del limite di richieste simultanee per la risorsa o, se necess
 - Assicurarsi di disporre delle [informazioni necessarie](#have-the-required-information-ready)
 - Vai a [portale di Azure](https://portal.azure.com/)
 - Selezionare la risorsa vocale per cui si vuole aumentare o controllare il limite di richieste di concorrenza
-- Selezionare una *nuova richiesta di supporto* (supporto e gruppo di*risoluzione dei problemi* ) 
+- Selezionare una *nuova richiesta di supporto* (supporto e gruppo di *risoluzione dei problemi* ) 
 - Verrà visualizzata una nuova finestra con informazioni popolate automaticamente sulla sottoscrizione di Azure e sulla risorsa di Azure
 - Immettere il *Riepilogo* (ad esempio "aumenta il limite della richiesta di concorrenza STT")
 - In *tipo di problema* selezionare "problemi di quota o sottoscrizione"
@@ -176,7 +191,7 @@ Avviare l'aumento del limite di richieste simultanee per la risorsa o, se necess
 - Assicurarsi di disporre delle [informazioni necessarie](#prepare-the-required-information)
 - Vai a [portale di Azure](https://portal.azure.com/)
 - Selezionare la risorsa vocale per cui si vuole aumentare o controllare il limite di richieste di concorrenza
-- Selezionare una *nuova richiesta di supporto* (supporto e gruppo di*risoluzione dei problemi* ) 
+- Selezionare una *nuova richiesta di supporto* (supporto e gruppo di *risoluzione dei problemi* ) 
 - Verrà visualizzata una nuova finestra con informazioni popolate automaticamente sulla sottoscrizione di Azure e sulla risorsa di Azure
 - Immettere il *Riepilogo* (ad esempio "aumenta il limite di richieste di concorrenza per l'endpoint personalizzato")
 - In *tipo di problema* selezionare "problemi di quota o sottoscrizione"

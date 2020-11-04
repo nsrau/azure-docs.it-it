@@ -3,12 +3,12 @@ title: Supporto per la valutazione VMware in Azure Migrate
 description: 'Informazioni sul supporto per la valutazione delle macchine virtuali VMware con lo strumento Azure Migrate: valutazione server.'
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 9d5c954be2a6f05e5132a5f57f8169f436719a8d
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8b119b56e7e4c7fac74c57cc5c48fb44f91a7ee6
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93332271"
+ms.locfileid: "93345432"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione di VMware 
 
@@ -67,12 +67,11 @@ Oltre a individuare i computer, server assessment può individuare app, ruoli e 
 **Supporto** | **Dettagli**
 --- | ---
 **Computer supportati** | L'individuazione delle app è attualmente supportata solo per le macchine virtuali VMware. È possibile individuare le app installate in un massimo di 10000 VM VMware da ogni appliance Azure Migrate.
+**Sistemi operativi** | App-Discovery è supportato per le macchine virtuali che eseguono tutte le versioni di Windows e Linux.
+**Requisiti della macchina virtuale** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali in cui si desidera individuare le app. <br/><br/> La versione degli strumenti VMware deve essere successiva alla 10.2.0.<br/><br/> Sulle macchine virtuali deve essere installato PowerShell 2.0 o versioni successive.
 **Individuazione** | L'individuazione di app è senza agente. Essa usa le credenziali guest del computer e accede in remoto ai computer tramite chiamate WMI e SSH.
-**Supporto per macchine virtuali** | App-Discovery è supportato per le macchine virtuali che eseguono tutte le versioni di Windows e Linux.
 **vCenter** | Il server vCenter account di sola lettura usato per la valutazione, richiede i privilegi **Virtual Machines** abilitati per  >  **le operazioni Guest** delle macchine virtuali, in modo da interagire con la macchina virtuale per l'individuazione delle applicazioni.
 **Accesso alla macchina virtuale** | App Discovery necessita di un account utente locale nella macchina virtuale per l'individuazione delle applicazioni.<br/><br/> Azure Migrate attualmente supporta l'utilizzo di una credenziale per tutti i server Windows e una credenziale per tutti i server Linux.<br/><br/> Si crea un account utente Guest per macchine virtuali Windows e un account utente regolare/normale (accesso non sudo) per tutte le macchine virtuali Linux.
-**Strumenti VMware** | Gli strumenti VMware devono essere installati e in esecuzione nelle macchine virtuali che si desidera individuare. <br/><br/> La versione degli strumenti VMware deve essere successiva alla 10.2.0.
-**PowerShell** | Sulle macchine virtuali deve essere installato PowerShell 2.0 o versioni successive.
 **Accesso alla porta** | Il dispositivo di Azure Migrate deve essere in grado di connettersi alla porta TCP 443 negli host ESXi che eseguono macchine virtuali in cui si desidera individuare le app. Il server vCenter restituisce una connessione all'host ESXI, per scaricare il file contenente le informazioni sull'app.
 **Limiti** | Per l'individuazione delle app è possibile individuare fino a 10.000 macchine virtuali in ogni appliance di Azure Migrate.
 

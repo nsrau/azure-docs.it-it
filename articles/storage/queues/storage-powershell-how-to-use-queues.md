@@ -9,12 +9,12 @@ ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: e558b8ca6498b8419ce6d7ce5ff1b161c05ef3c6
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: a2f1229ab8a292b06dfc43b95d9047ed8d233523
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791138"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345704"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Eseguire operazioni nell'archivio code di Azure con Azure PowerShell
 
@@ -22,12 +22,12 @@ Archiviazione code di Azure è un servizio che consente di archiviare grandi qua
 
 > [!div class="checklist"]
 >
-> * Creare una coda
-> * Recuperare una coda
-> * Aggiungere un messaggio
-> * Leggere un messaggio
-> * Eliminare un messaggio
-> * Eliminare una coda
+> - Creare una coda
+> - Recuperare una coda
+> - Aggiungere un messaggio
+> - Leggere un messaggio
+> - Eliminare un messaggio
+> - Eliminare una coda
 
 Questa procedura richiede il modulo Azure PowerShell Az 0.7 o versioni successive. Eseguire `Get-Module -ListAvailable Az` per trovare la versione. Se è necessario eseguire l'aggiornamento, vedere [Installare e configurare Azure PowerShell](/powershell/azure/install-Az-ps).
 
@@ -45,7 +45,7 @@ Connect-AzAccount
 
 ## <a name="retrieve-list-of-locations"></a>Recuperare un elenco di posizioni
 
-Se non si sa quale posizione usare, è possibile elencare le posizioni disponibili. Nell'elenco visualizzato trovare la posizione da usare. In questa esercitazione viene usata la posizione **eastus** . Archiviare questo valore nella variabile **location** per uso futuro.
+Se non si sa quale posizione usare, è possibile elencare le posizioni disponibili. Nell'elenco visualizzato trovare la posizione da usare. In questa esercitazione viene usata la posizione **eastus**. Archiviare questo valore nella variabile **location** per uso futuro.
 
 ```powershell
 Get-AzLocation | Select-Object Location
@@ -56,7 +56,7 @@ $location = "eastus"
 
 Creare un gruppo di risorse con il comando [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
-Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Archiviare il nome del gruppo di risorse in una variabile per uso futuro. In questo esempio viene creato un gruppo di risorse denominato *howtoqueuesrg* nell'area *eastus* .
+Un gruppo di risorse di Azure è un contenitore logico in cui le risorse di Azure vengono distribuite e gestite. Archiviare il nome del gruppo di risorse in una variabile per uso futuro. In questo esempio viene creato un gruppo di risorse denominato *howtoqueuesrg* nell'area *eastus*.
 
 ```powershell
 $resourceGroup = "howtoqueuesrg"
@@ -127,13 +127,13 @@ Se si usa [Azure Storage Explorer](https://storageexplorer.com), è possibile co
 
 ## <a name="read-a-message-from-the-queue-then-delete-it"></a>Leggere un messaggio dalla coda e quindi eliminarlo
 
-I messaggi vengono letti nell'ordine first in, first out, ma senza alcuna garanzia. Quando il messaggio viene letto dalla coda, diventa invisibile a tutti gli altri processi che esaminano la coda. Ciò garantisce che, qualora il codice non riesca a elaborare il messaggio a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare.  
+I messaggi vengono letti nell'ordine first in, first out, ma senza alcuna garanzia. Quando il messaggio viene letto dalla coda, diventa invisibile a tutti gli altri processi che esaminano la coda. Ciò garantisce che, qualora il codice non riesca a elaborare il messaggio a causa di errori hardware o software, un'altra istanza del codice sia in grado di ottenere lo stesso messaggio e di riprovare.
 
 Questo **periodo di invisibilità** definisce per quanto tempo il messaggio rimane invisibile prima di diventare di nuovo disponibile per l'elaborazione. Il valore predefinito è 30 secondi.
 
 Il codice legge il messaggio dalla coda in due passaggi. Quando si chiama il metodo [Microsoft. Azure. storage. Queue. CloudQueue. GetMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.getmessage) , si ottiene il messaggio successivo nella coda. Un messaggio restituito da **GetMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi da questa coda. Per completare la rimozione del messaggio dalla coda, chiamare il metodo [Microsoft. Azure. storage. Queue. CloudQueue. DeleteMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueue.deletemessage) .
 
-Nell'esempio seguente vengono letti i tre messaggi in coda, seguiti da 10 secondi di attesa, il periodo di invisibilità. I tre messaggi vengono quindi letti di nuovo ed eliminati dopo la lettura chiamando **DeleteMessage** . Se si tenta di leggere la coda dopo l'eliminazione dei messaggi, $queueMessage viene restituito come NULL.
+Nell'esempio seguente vengono letti i tre messaggi in coda, seguiti da 10 secondi di attesa, il periodo di invisibilità. I tre messaggi vengono quindi letti di nuovo ed eliminati dopo la lettura chiamando **DeleteMessage**. Se si tenta di leggere la coda dopo l'eliminazione dei messaggi, $queueMessage viene restituito come NULL.
 
 ```powershell
 # Set the amount of time you want to entry to be invisible after read from the queue
@@ -185,17 +185,17 @@ In questa procedura è stata illustrata la gestione di base dell'archivio delle 
 
 > [!div class="checklist"]
 >
-> * Creare una coda
-> * Recuperare una coda
-> * Aggiungere un messaggio
-> * Leggere il messaggio successivo
-> * Eliminare un messaggio
-> * Eliminare una coda
+> - Creare una coda
+> - Recuperare una coda
+> - Aggiungere un messaggio
+> - Leggere il messaggio successivo
+> - Eliminare un messaggio
+> - Eliminare una coda
 
 ### <a name="microsoft-azure-powershell-storage-cmdlets"></a>Cmdlet di archiviazione per Microsoft Azure PowerShell
 
-* [Cmdlet di PowerShell per l'archiviazione](/powershell/module/az.storage)
+- [Cmdlet di PowerShell per l'archiviazione](/powershell/module/az.storage)
 
 ### <a name="microsoft-azure-storage-explorer"></a>Microsoft Azure Storage Explorer
 
-* [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.
+- [Microsoft Azure Storage Explorer](../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json) è un'app autonoma gratuita di Microsoft che consente di rappresentare facilmente dati di Archiviazione di Azure in Windows, macOS e Linux.

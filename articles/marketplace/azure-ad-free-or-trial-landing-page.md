@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/04/2020
-ms.openlocfilehash: dfa5d77077b8827bed1cbd8c7a46a5dbf361f139
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 699271316eccec1244db886ed2296f87c52f91ae
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93125717"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348356"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Crea la pagina di destinazione per l'offerta SaaS gratuita o di valutazione nel Marketplace commerciale
 
@@ -73,7 +73,7 @@ Come parte del flusso di [OpenID Connect](../active-directory/develop/v2-protoco
 | ------------ | ------------- |
 | aud | Destinatari per questo token. In questo caso, deve corrispondere all'ID dell'applicazione ed essere convalidato. |
 | preferred_username | Nome utente principale dell'utente visitato. Potrebbe trattarsi di un indirizzo di posta elettronica, un numero di telefono o un altro identificatore. |
-| posta elettronica | Indirizzo di posta elettronica dell'utente. Si noti che questo campo può essere vuoto. |
+| email | Indirizzo di posta elettronica dell'utente. Si noti che questo campo può essere vuoto. |
 | name | Valore leggibile che identifica l'oggetto del token. In questo caso, sarà il nome dell'utente. |
 | oid | Identificatore nel sistema di identità Microsoft che identifica in modo univoco l'utente tra le applicazioni. Microsoft Graph restituirà questo valore come proprietà ID per un determinato account utente. |
 | tid | Identificatore che rappresenta il tenant Azure AD dall'utente. Nel caso di un'identità MSA, questo sarà sempre `9188040d-6c67-4c5b-b112-36a304b66dad` . Per altre informazioni, vedere la nota nella sezione successiva: usare Microsoft Graph API. |
@@ -95,7 +95,7 @@ Il token ID contiene informazioni di base per identificare l'utente, ma il proce
 | surname | Cognome dell'utente. |
 |||
 
-È possibile selezionare proprietà aggiuntive, ad esempio il nome della società dell'utente o la località dell'utente (paese), da includere nella richiesta. Per ulteriori informazioni, vedere [proprietà per il tipo di risorsa utente](/graph/api/resources/user?view=graph-rest-1.0#properties).
+È possibile selezionare proprietà aggiuntive, ad esempio il nome della società dell'utente o la località dell'utente (paese), da includere nella richiesta. Per ulteriori informazioni, vedere [proprietà per il tipo di risorsa utente](/graph/api/resources/user?view=graph-rest-1.0&preserve-view=true#properties).
 
 La maggior parte delle app registrate con Azure AD concedere autorizzazioni delegate per la lettura delle informazioni dell'utente dal tenant Azure AD della propria azienda. Qualsiasi richiesta di Microsoft Graph per tali informazioni deve essere accompagnata da un token di accesso come autenticazione. I passaggi specifici per generare il token di accesso variano a seconda dello stack di tecnologia in uso, ma il codice di esempio conterrà un esempio. Per altre informazioni, vedere [ottenere l'accesso per conto di un utente](/graph/auth-v2-user).
 

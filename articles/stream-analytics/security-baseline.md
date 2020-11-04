@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 7cf3caa0e309c1640db6ca2817a91f9db71c5110
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 03655e88d4d4c9183bff71e04bf447f470fcf557
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129916"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348407"
 ---
 # <a name="azure-security-baseline-for-stream-analytics"></a>Baseline della sicurezza di Azure per analisi di flusso
 
@@ -238,9 +238,9 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 **Linee guida** : Azure ad dispone di ruoli predefiniti che devono essere assegnati in modo esplicito. È possibile eseguire query sui ruoli per individuare l'appartenenza. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
 
-* [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0)
+* [Come ottenere un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrole)
 
-* [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
+* [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember)
 
 **Monitoraggio del Centro sicurezza di Azure** : Sì
 
@@ -542,7 +542,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 * [Come creare query con Azure Resource Graph](../governance/resource-graph/first-query-portal.md)
 
-* [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0)
+* [Come visualizzare le sottoscrizioni di Azure](/powershell/module/az.accounts/get-azsubscription)
 
 * [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/overview.md)
 
@@ -682,7 +682,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 **Linee guida** : usare gli alias di criteri di Azure nello spazio dei nomi "Microsoft. StreamAnalytics" per creare criteri personalizzati per controllare o applicare la configurazione di analisi di flusso di Azure. È anche possibile usare le definizioni di criteri predefinite correlate all'analisi di flusso di Azure, ad esempio:-i log di diagnostica in analisi di flusso di Azure devono essere abilitati
 
-* [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0)
+* [Come visualizzare gli alias di Criteri di Azure disponibili](/powershell/module/az.resources/get-azpolicyalias)
 
 * [Definizioni di criteri predefiniti di Criteri di Azure](../governance/policy/samples/built-in-policies.md)
 
@@ -724,7 +724,7 @@ Usare anche Azure Resource Graph per eseguire query e individuare le risorse all
 
 **Linee guida** : usare Azure Repos per archiviare e gestire in modo sicuro il codice, inclusi criteri personalizzati di Azure, modelli di Azure Resource Manager, script di configurazione dello stato desiderato, funzioni definite dall'utente e query. Per accedere alle risorse gestite in Azure DevOps, è possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory (Azure AD) se integrati con Azure DevOps oppure Active Directory se integrati con TFS.
 
-* [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops)
+* [Come archiviare il codice in Azure DevOps](/azure/devops/repos/git/gitworkflow?view=azure-devops&preserve-view=true)
 
 * [Informazioni sulle autorizzazioni e sui gruppi in Azure DevOps](/azure/devops/organizations/security/about-permissions)
 
@@ -880,7 +880,7 @@ Per eseguire il backup dei dati dai servizi supportati dall'account di archiviaz
 
 È possibile eseguire il backup delle chiavi gestite/fornite dal cliente all'interno Azure Key Vault usando l'interfaccia della riga di comando di Azure o PowerShell.
 
-* [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0)
+* [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 
 **Monitoraggio del Centro sicurezza di Azure** : attualmente non disponibile
 
@@ -940,7 +940,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 ### <a name="103-test-security-response-procedures"></a>10.3: testare le procedure di risposta per la sicurezza
 
-**Indicazioni** : a intervalli regolari, eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi, per contribuire a proteggere le risorse di Azure. Identificare i punti deboli e le lacune e rivedere il piano in base alle esigenze.
+**Linee guida** : eseguire esercitazioni per testare le funzionalità di risposta agli eventi imprevisti dei sistemi a cadenza regolare per proteggere le risorse di Azure. Identificare i punti deboli e le lacune e rivedere il piano in base alle esigenze.
 
 * [Fare riferimento alla pubblicazione NIST, ovvero guida ai programmi di test, formazione ed esercitazione per i piani e le funzionalità IT](https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-84.pdf)
 
@@ -990,7 +990,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 * [Segui Microsoft Rules of Engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft](https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1)
 
-* [È possibile trovare altre informazioni sulla strategia Microsoft e sull'esecuzione dei test di penetrazione Red Teaming sull'infrastruttura cloud gestita da Microsoft, sui servizi e sulle applicazioni qui](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
+* [È possibile trovare altre informazioni sulla strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestite da Microsoft.](https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e)
 
 **Monitoraggio del Centro sicurezza di Azure** : Non applicabile
 

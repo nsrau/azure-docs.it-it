@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 06/17/2020
-ms.openlocfilehash: 1c30a9997fcc7ac10b1072d4f164c3e7bfa16f0b
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 5e1c5d696e97ac6e14c1739be2feb93814975586
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130511"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347064"
 ---
 # <a name="create-an-azure-container-offer-in-azure-marketplace"></a>Creare un'offerta del contenitore di Azure in Azure Marketplace
 
@@ -22,9 +22,9 @@ Questo articolo descrive come creare e pubblicare un'offerta di contenitori per 
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
 
-2. Nel menu di spostamento a sinistra selezionare **Marketplace commerciale** > **Panoramica** .
+2. Nel menu di spostamento a sinistra selezionare **Marketplace commerciale** > **Panoramica**.
 
-3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **Contenitore di Azure** .
+3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **Contenitore di Azure**.
 
    ![Menu di spostamento a sinistra.](./media/new-offer-azure-container.png)
 
@@ -33,16 +33,16 @@ Questo articolo descrive come creare e pubblicare un'offerta di contenitori per 
 
 ### <a name="offer-id-and-alias"></a>ID e alias dell'offerta
 
-Immettere l'ID in **ID offerta** . Si tratta di un identificatore univoco per ogni offerta nell'account.
+Immettere l'ID in **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nell'account.
 
 - Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta del marketplace e nei modelli di Azure Resource Manager, se applicabile.
 - Usare solo lettere minuscole e numeri. È possibile includere trattini e caratteri di sottolineatura, ma non spazi, per un massimo di 50 caratteri. Se, ad esempio, si immette **test-offer-1** , l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- Non è possibile modificare l'ID offerta dopo aver selezionato **Crea** .
+- Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
 
-Immettere un alias in **Alias offerta** . Si tratta del nome usato per l'offerta nel Centro per i partner.
+Immettere un alias in **Alias offerta**. Si tratta del nome usato per l'offerta nel Centro per i partner.
 
 - Questo nome non viene usato nel marketplace ed è diverso dal nome dell'offerta e da altri valori visualizzati ai clienti.
-- Non può essere modificato dopo aver selezionato **Crea** .
+- Non può essere modificato dopo aver selezionato **Crea**.
 
 Selezionare **Crea** per generare l'offerta e continuare.
 
@@ -65,7 +65,7 @@ Seguire questa procedura per configurare l'offerta.
 
 Quando si pubblica l'offerta nel marketplace commerciale con il Centro per i partner, è possibile connetterla al sistema Customer Relationship Management (CRM). In questo modo è possibile ricevere le informazioni di contatto del cliente non appena un utente esprime interesse o usa il prodotto.
 
-1. **Selezionare la destinazione a cui si desidera che vengano inviati i lead** . Il Centro per i partner supporta i sistemi CRM seguenti:
+1. **Selezionare la destinazione a cui si desidera che vengano inviati i lead**. Il Centro per i partner supporta i sistemi CRM seguenti:
 
    - [Dynamics 365](commercial-marketplace-lead-management-instructions-dynamics.md) for Customer Engagement
    - [Marketo](commercial-marketplace-lead-management-instructions-marketo.md)
@@ -85,7 +85,7 @@ Di seguito sono riportate alcune risorse aggiuntive per la gestione dei lead:
 - [Risoluzione degli errori di configurazione del lead](../lead-management-faq.md#publishing-config-errors)
 - PDF [Panoramica della gestione dei clienti potenziali](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assicurarsi che il blocco dei popup sia disattivato)
 
-Prima di continuare, selezionare **Salva bozza** .
+Prima di continuare, selezionare **Salva bozza**.
 
 ### <a name="properties"></a>Proprietà
 
@@ -96,7 +96,7 @@ Questa pagina consente di definire le categorie usate per raggruppare l'offerta 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
 - Almeno una delle due categorie, incluse una categoria primaria e una secondaria (facoltativo).
-- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile** .
+- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile**.
 
 Vedere l'elenco completo di categorie e sottocategorie nell'elenco delle [procedure](../gtm-offer-listing-best-practices.md)consigliate. I contenitori vengono sempre visualizzati in **contenitori** e quindi nella categoria **Immagini contenitore** .
 
@@ -122,9 +122,9 @@ Per usare il contratto standard, selezionare * * Usa il contratto standard per i
 
 ##### <a name="your-own-terms-and-conditions"></a>Termini e condizioni personalizzati
 
-Per specificare i termini e le condizioni personalizzati, immetterli nella casella **Termini e condizioni** . In questa casella è possibile immettere un numero illimitato di caratteri di testo. I clienti devono accettare questi termini prima di poter provare l'offerta.
+Per specificare i termini e le condizioni personalizzati, immetterli nella casella **Termini e condizioni**. In questa casella è possibile immettere un numero illimitato di caratteri di testo. I clienti devono accettare questi termini prima di poter provare l'offerta.
 
-Prima di passare alla sezione successiva, Presentazione dell'offerta, selezionare **Salva bozza** .
+Prima di passare alla sezione successiva, Presentazione dell'offerta, selezionare **Salva bozza**.
 
 ## <a name="offer-listing"></a>Presentazione dell'offerta
 
@@ -172,7 +172,7 @@ Specificare altri documenti online sull'offerta. È possibile aggiungere fino a 
 
 ### <a name="contact-information"></a>Informazioni sul contatto
 
-È necessario specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per **Contatto supporto tecnico** e **Contatto tecnico** . Queste informazioni non vengono visualizzate dai clienti, ma sono disponibili per Microsoft. Possono essere visibili anche per i partner di Cloud Solution Provider (CSP).
+È necessario specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per **Contatto supporto tecnico** e **Contatto tecnico**. Queste informazioni non vengono visualizzate dai clienti, ma sono disponibili per Microsoft. Possono essere visibili anche per i partner di Cloud Solution Provider (CSP).
 
 - Contatto supporto tecnico (obbligatorio) Per domande di supporto generiche.
 - Contatto tecnico (obbligatorio): per domande tecniche e problemi di certificazione.
@@ -223,19 +223,19 @@ Gli esempi seguenti mostrano come vengono visualizzati i campi della presentazio
 
 Questa immagine mostra la pagina **Presentazione dell'offerta** in Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft." :::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-6-offer-listing-mkt-plc.png" alt-text="Pagina di presentazione dell'offerta in Azure Marketplace." :::
 
 Questa immagine mostra i risultati della ricerca in Azure Marketplace:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-7-search-results-mkt-plc.png" alt-text="Risultati della ricerca in Azure Marketplace.":::
 
 Questa immagine mostra la pagina **Presentazione dell'offerta** nel portale di Azure:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-8-offer-listing-portal.png" alt-text="Pagina Presentazione dell'offerta nel portale di Azure.":::
 
 Questa immagine mostra i risultati della ricerca nel portale di Azure:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-9-search-results-portal.png" alt-text="Risultati della ricerca nel portale di Azure.":::
 
 ## <a name="preview"></a>Anteprima
 
@@ -251,7 +251,7 @@ Specificare il gruppo di destinatari dell'anteprima usando i GUID dell'ID di sot
 
 Aggiungere almeno un ID della sottoscrizione di Azure, singolarmente (fino a 10) o caricando un file CSV (fino a 100). Aggiungendo questi ID della sottoscrizione, si determina chi può visualizzare l'anteprima dell'offerta prima che venga pubblicata. Se l'offerta è già stata pubblicata, è possibile scegliere un gruppo di destinatari per l'anteprima per testare le modifiche o gli aggiornamenti dell'offerta.
 
-Prima di continuare, selezionare **Salva bozza** .
+Prima di continuare, selezionare **Salva bozza**.
 
 ## <a name="plan-overview"></a>Panoramica del piano
 
@@ -274,14 +274,14 @@ Le azioni disponibili in Panoramica del piano variano a seconda dello stato attu
 
 ### <a name="create-new-plan"></a>Creare un nuovo piano
 
-Selezionare **Crea nuovo piano** . Viene visualizzata la finestra di dialogo **Nuovo piano** .
+Selezionare **Crea nuovo piano**. Viene visualizzata la finestra di dialogo **Nuovo piano**.
 
 Nella casella **ID piano** creare un identificatore per il piano univoco per ogni piano dell'offerta. Questo ID sarà visibile ai clienti nell'indirizzo Web del prodotto. Usare solo lettere minuscole, numeri, trattini o caratteri di sottolineatura e fino a un massimo di 50 caratteri.
 
 > [!NOTE]
-> Non è possibile modificare l'ID del piano dopo aver selezionato **Crea** .
+> Non è possibile modificare l'ID del piano dopo aver selezionato **Crea**.
 
-Nella casella **Nome del piano** immettere un nome per il piano. I clienti visualizzano il nome quando decidono quale piano scegliere nell'offerta. Creare un nome univoco per ogni piano dell'offerta. Ad esempio, è possibile usare il nome dell'offerta **Windows Server** con i piani **Windows Server 2016** e **Windows Server 2019** .
+Nella casella **Nome del piano** immettere un nome per il piano. I clienti visualizzano il nome quando decidono quale piano scegliere nell'offerta. Creare un nome univoco per ogni piano dell'offerta. Ad esempio, è possibile usare il nome dell'offerta **Windows Server** con i piani **Windows Server 2016** e **Windows Server 2019**.
 
 ### <a name="plan-setup"></a>Configurazione del piano
 
@@ -289,7 +289,7 @@ Questa scheda consente di scegliere i cloud in cui è disponibile il piano. Le r
 
 #### <a name="azure-regions"></a>Aree di Azure
 
-Tutti i piani per le offerte di contenitori di Azure vengono resi disponibili automaticamente in **Azure Global** .  Il piano può essere usato dai clienti in tutte le aree di Azure globali che usano il Marketplace commerciale. Per informazioni dettagliate, vedere [Disponibilità geografica e supporto delle valute](../marketplace-geo-availability-currencies.md).
+Tutti i piani per le offerte di contenitori di Azure vengono resi disponibili automaticamente in **Azure Global**.  Il piano può essere usato dai clienti in tutte le aree di Azure globali che usano il Marketplace commerciale. Per informazioni dettagliate, vedere [Disponibilità geografica e supporto delle valute](../marketplace-geo-availability-currencies.md).
 
 Selezionare l'opzione [Azure Government](../../azure-government/documentation-government-welcome.md) per fare in modo che la soluzione venga visualizzata qui. Si tratta di un Government Community Cloud con accesso controllato per i clienti delle agenzie governative federali, statali e locali degli Stati Uniti e partner idonei a servire questi enti. In qualità di editore, l'utente è responsabile di eventuali controlli di conformità, misure di sicurezza e procedure consigliate per questa community cloud. Azure per enti pubblici usa data center e reti fisicamente isolate, situate solo negli Stati Uniti. Prima della [pubblicazione](../../azure-government/documentation-government-manage-marketplace-partners.md) in Azure per enti pubblici, testare e confermare la soluzione in tale area, perché i risultati potrebbero essere diversi. Per creare e testare la soluzione, richiedere un account di prova dalla [valutazione di prova di Microsoft Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/request/).
 
@@ -298,7 +298,7 @@ Selezionare l'opzione [Azure Government](../../azure-government/documentation-go
 
 #### <a name="azure-government-certifications"></a>Certificazioni di Azure per enti pubblici
 
-Questa opzione può essere visualizzata solo se **Azure per enti pubblici** è selezionato in **aree di Azure** .
+Questa opzione può essere visualizzata solo se **Azure per enti pubblici** è selezionato in **aree di Azure**.
 
 I servizi di Azure per enti pubblici gestiscono dati soggetti a determinati requisiti e regolamenti governativi. Ad esempio, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS.
 
@@ -318,7 +318,7 @@ Breve riepilogo del piano software (non dell'offerta). Questo riepilogo viene vi
 
 ### <a name="plan-description"></a>Descrizione del piano
 
-Descrivere che cosa rende unico questo piano software, insieme alle differenze tra i piani all'interno dell'offerta. Non descrivere l'offerta, ma solo il piano. Questa descrizione verrà visualizzata in Azure Marketplace e nel portale di Azure nella pagina **Presentazione dell'offerta** . Può essere identico al contenuto inserito nel riepilogo del piano e contenere fino a 2.000 caratteri.
+Descrivere che cosa rende unico questo piano software, insieme alle differenze tra i piani all'interno dell'offerta. Non descrivere l'offerta, ma solo il piano. Questa descrizione verrà visualizzata in Azure Marketplace e nel portale di Azure nella pagina **Presentazione dell'offerta**. Può essere identico al contenuto inserito nel riepilogo del piano e contenere fino a 2.000 caratteri.
 
 Selezionare **Salva** dopo aver completato questi campi.
 
@@ -328,15 +328,15 @@ Gli esempi seguenti mostrano come vengono visualizzati i campi di Elenco piani i
 
 Questa immagine illustra i campi di Azure Marketplace quando si visualizzano i dettagli del piano:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-10-plan-details-mtplc.png" alt-text="Campi visualizzati nei dettagli del piano in Azure Marketplace.":::
 
 Questa immagine illustra i dettagli del piano nel portale di Azure:
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-11-plan-details-portal.png" alt-text="Dettagli del piano nel portale di Azure.":::
 
 ### <a name="plan-availability"></a>Disponibilità del piano
 
-Se si vuole nascondere l'offerta pubblicata in modo che i clienti non possano cercarla, vederla o acquistarla nel marketplace, selezionare la casella di controllo **Nascondi piano** nella scheda **Disponibilità** .
+Se si vuole nascondere l'offerta pubblicata in modo che i clienti non possano cercarla, vederla o acquistarla nel marketplace, selezionare la casella di controllo **Nascondi piano** nella scheda **Disponibilità**.
 
 Questo campo viene usato quando:
 
@@ -363,13 +363,13 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 
 **Nome utente amministratore per il container Registry di Azure** : specificare il [nome utente amministratore](../../container-registry/container-registry-authentication.md#admin-account)) collegato al container Registry di Azure con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere il nome utente e la password dell'amministratore, impostare la proprietà **admin-enabled** su **True** usando l'interfaccia della riga di comando di Azure. Facoltativamente è possibile impostare **Utente amministratore** su **Abilita** nel portale di Azure.
 
- :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
+ :::image type="content" source="media/azure-create-container-offer-images/azure-create-12-update-container-registry-edit.png" alt-text="Finestra di dialogo Aggiorna registro contenitori.":::
 
-**Password per il Registro Azure Container** : specificare la password per il nome utente dell'amministratore associata al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere la password nel portale di Azure, passare a **Registro contenitori** > **Chiavi di accesso** o con l'interfaccia della riga di comando di Azure usare il [comando show](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
+**Password per il Registro Azure Container** : specificare la password per il nome utente dell'amministratore associata al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere la password nel portale di Azure, passare a **Registro contenitori** > **Chiavi di accesso** o con l'interfaccia della riga di comando di Azure usare il [comando show](/cli/azure/acr/credential#az-acr-credential-show).
 
-:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Casella di controllo per usare il contratto standard per il marketplace commerciale Microsoft.":::
+:::image type="content" source="media/azure-create-container-offer-images/azure-create-13-access-keys.png" alt-text="Menu Chiave di accesso.":::
 
-**Nome del repository all'interno del Registro Azure Container** . Specificare il nome del repository di Registro Azure Container con l'immagine. Includere il nome del repository quando si esegue il push dell'immagine nel registro. È possibile trovare il nome del repository passando alla pagina [Registro contenitori](https://azure.microsoft.com/services/container-registry/) > **Repository** . Per altre informazioni, vedere [Visualizzare repository di registri contenitori di Azure nel portale di Azure](../../container-registry/container-registry-repositories.md).
+**Nome del repository all'interno del Registro Azure Container**. Specificare il nome del repository di Registro Azure Container con l'immagine. Includere il nome del repository quando si esegue il push dell'immagine nel registro. È possibile trovare il nome del repository passando alla pagina [Registro contenitori](https://azure.microsoft.com/services/container-registry/) > **Repository**. Per altre informazioni, vedere [Visualizzare repository di registri contenitori di Azure nel portale di Azure](../../container-registry/container-registry-repositories.md).
 
 > [!NOTE]
 > Dopo averlo impostato, il nome non potrà essere modificato. Usare un nome univoco per ogni offerta nell'account.
@@ -391,7 +391,7 @@ Tutti i tag di manifesto, tranne il tag ultima versione, devono iniziare con X.Y
 
 Dopo aver completato tutte le sezioni obbligatorie dell'offerta, è possibile inviarle per la revisione e la pubblicazione.
 
-Nell'angolo in alto a destra del portale selezionare **Rivedi e** **pubblica** .
+Nell'angolo in alto a destra del portale selezionare **Rivedi e** **pubblica**.
 
 Nella pagina di revisione è possibile:
 
@@ -401,11 +401,11 @@ Nella pagina di revisione è possibile:
   - **Completata** : contiene tutti i dati necessari senza errori. Tutte le sezioni dell'offerta devono essere completate prima di poter inviare l'offerta.
 - Inviare al team di certificazione istruzioni di test per assicurarsi che l'offerta venga testata correttamente. Specificare anche eventuali note supplementari utili per comprendere l'offerta.
 
-Per inviare l'offerta per la pubblicazione, selezionare **Pubblica** .
+Per inviare l'offerta per la pubblicazione, selezionare **Pubblica**.
 
 Si riceverà un messaggio di posta elettronica per far sapere all'utente che una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione.
 
-Per pubblicare l'offerta al pubblico, passare a centro per i partner e selezionare **Go-Live** .
+Per pubblicare l'offerta al pubblico, passare a centro per i partner e selezionare **Go-Live**.
 
 ## <a name="next-step"></a>Passaggio successivo
 

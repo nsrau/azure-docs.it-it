@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: 2f61fef58485a905b96bdada32b915106e60d1a8
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: c2ee32b3ced8fdcd5f9f889c4fd0183e46ad5d8d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92425130"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346010"
 ---
 # <a name="how-to-use-queue-storage-from-java"></a>Come usare l'archiviazione di accodamento da Java
 
@@ -22,7 +22,7 @@ ms.locfileid: "92425130"
 
 ## <a name="overview"></a>Panoramica
 
-Questa guida illustra come scrivere codice per scenari comuni usando il servizio di archiviazione di Accodamento di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari includono **inserimento**, **visualizzazione**, **recupero**ed **eliminazione** dei messaggi in coda. Viene inoltre analizzato il codice per la **creazione** e l' **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
+Questa guida illustra come scrivere codice per scenari comuni usando il servizio di archiviazione di Accodamento di Azure. Gli esempi sono scritti in Java e usano [Azure Storage SDK per Java][Azure Storage SDK for Java]. Gli scenari includono **inserimento** , **visualizzazione** , **recupero** ed **eliminazione** dei messaggi in coda. Viene inoltre analizzato il codice per la **creazione** e l' **eliminazione** di code. Per altre informazioni sulle code, vedere la sezione [Passaggi successivi](#next-steps) .
 
 [!INCLUDE [storage-queue-concepts-include](../../../includes/storage-queue-concepts-include.md)]
 
@@ -34,7 +34,7 @@ Questa guida illustra come scrivere codice per scenari comuni usando il servizio
 
 Prima di tutto, verificare che il sistema di sviluppo soddisfi i prerequisiti elencati nella [libreria client di archiviazione code di Azure per Java V12](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue).
 
-Per creare un'applicazione Java denominata *Queues-How-to-V12*:
+Per creare un'applicazione Java denominata *Queues-How-to-V12* :
 
 1. In una finestra della console (ad esempio, cmd, PowerShell o bash) usare Maven per creare una nuova app console con il nome *Queues-How-to-V12*. Digitare il comando **mvn** seguente per creare un progetto Java "Hello world!" .
 
@@ -152,7 +152,8 @@ final String storageConnectionString =
     "AccountName=your_storage_account;" +
     "AccountKey=your_storage_account_key";
 ```
-Questa stringa può essere archiviata nel file di configurazione del servizio denominato *ServiceConfiguration. cscfg*. Per un'app in esecuzione all'interno di un ruolo Microsoft Azure, accedere alla stringa di connessione chiamando **RoleEnvironment. getConfigurationSettings**. Di seguito è riportato un esempio di recupero della stringa di connessione da un elemento **Setting** denominato *StorageConnectionString*:
+
+Questa stringa può essere archiviata nel file di configurazione del servizio denominato *ServiceConfiguration. cscfg*. Per un'app in esecuzione all'interno di un ruolo Microsoft Azure, accedere alla stringa di connessione chiamando **RoleEnvironment. getConfigurationSettings**. Di seguito è riportato un esempio di recupero della stringa di connessione da un elemento **Setting** denominato *StorageConnectionString* :
 
 ```java
 // Retrieve storage account from connection-string.
@@ -393,13 +394,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Il metodo **GetProperties** richiede l'servizio di Accodamento per diversi valori correnti. Uno dei valori è un conteggio del numero di messaggi presenti in una coda. Il conteggio è solo approssimativo perché i messaggi possono essere aggiunti o rimossi dopo la richiesta. Il metodo **getApproximateMessageCount** restituisce l'ultimo valore recuperato dalla chiamata a **GetProperties**, senza chiamare il servizio di Accodamento.
+Il metodo **GetProperties** richiede l'servizio di Accodamento per diversi valori correnti. Uno dei valori è un conteggio del numero di messaggi presenti in una coda. Il conteggio è solo approssimativo perché i messaggi possono essere aggiunti o rimossi dopo la richiesta. Il metodo **getApproximateMessageCount** restituisce l'ultimo valore recuperato dalla chiamata a **GetProperties** , senza chiamare il servizio di Accodamento.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_GetQueueLength":::
 
 # <a name="java-v8"></a>[Java V8](#tab/java8)
 
-Il metodo **downloadAttributes** richiede l'servizio di Accodamento per diversi valori correnti. Uno dei valori è un conteggio del numero di messaggi presenti in una coda. Il conteggio è solo approssimativo perché i messaggi possono essere aggiunti o rimossi dopo la richiesta. Il metodo **getApproximateMessageCount** restituisce l'ultimo valore recuperato dalla chiamata a **downloadAttributes**, senza chiamare il servizio di accodamento.
+Il metodo **downloadAttributes** richiede l'servizio di Accodamento per diversi valori correnti. Uno dei valori è un conteggio del numero di messaggi presenti in una coda. Il conteggio è solo approssimativo perché i messaggi possono essere aggiunti o rimossi dopo la richiesta. Il metodo **getApproximateMessageCount** restituisce l'ultimo valore recuperato dalla chiamata a **downloadAttributes** , senza chiamare il servizio di accodamento.
 
 ```java
 try
@@ -436,13 +437,13 @@ catch (Exception e)
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Il codice consente di rimuovere un messaggio da una coda in due passaggi. Quando si chiama **receiveMessage**, si ottiene il messaggio successivo in una coda. Un messaggio restituito da **receiveMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi da questa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **deleteMessage**. Se il codice non riesce a elaborare un messaggio, questo processo in due passaggi garantisce che sia possibile ottenere lo stesso messaggio e riprovare. Il codice chiama **deleteMessage** subito dopo l'elaborazione del messaggio.
+Il codice consente di rimuovere un messaggio da una coda in due passaggi. Quando si chiama **receiveMessage** , si ottiene il messaggio successivo in una coda. Un messaggio restituito da **receiveMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi da questa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **deleteMessage**. Se il codice non riesce a elaborare un messaggio, questo processo in due passaggi garantisce che sia possibile ottenere lo stesso messaggio e riprovare. Il codice chiama **deleteMessage** subito dopo l'elaborazione del messaggio.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessage":::
 
 # <a name="java-v8"></a>[Java V8](#tab/java8)
 
-Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamando il metodo **retrieveMessage**, si ottiene il messaggio successivo in una coda. Un messaggio restituito da **retrieveMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **deleteMessage**. Se il codice non riesce a elaborare un messaggio, questo processo in due passaggi garantisce che sia possibile ottenere lo stesso messaggio e riprovare. Il codice chiama **deleteMessage** subito dopo l'elaborazione del messaggio.
+Il codice consente di rimuovere un messaggio da una coda in due passaggi. Chiamando il metodo **retrieveMessage** , si ottiene il messaggio successivo in una coda. Un messaggio restituito da **retrieveMessage** diventa invisibile a qualsiasi altro codice che legge i messaggi dalla stessa coda. Per impostazione predefinita, il messaggio rimane invisibile per 30 secondi. Per completare la rimozione del messaggio dalla coda, è necessario chiamare anche **deleteMessage**. Se il codice non riesce a elaborare un messaggio, questo processo in due passaggi garantisce che sia possibile ottenere lo stesso messaggio e riprovare. Il codice chiama **deleteMessage** subito dopo l'elaborazione del messaggio.
 
 ```java
 try
@@ -481,13 +482,13 @@ Esistono due modi per personalizzare il recupero di messaggi da una coda. Per pr
 
 # <a name="java-v12"></a>[Java V12](#tab/java)
 
-Nell'esempio di codice seguente viene usato il metodo **receiveMessages** per ottenere 20 messaggi in una sola chiamata. Elabora quindi ogni messaggio usando un ciclo **for** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti (300 secondi). Il timeout viene avviato per tutti i messaggi contemporaneamente. Quando sono trascorsi cinque minuti dalla chiamata a **receiveMessages**, i messaggi non eliminati diventeranno nuovamente visibili.
+Nell'esempio di codice seguente viene usato il metodo **receiveMessages** per ottenere 20 messaggi in una sola chiamata. Elabora quindi ogni messaggio usando un ciclo **for** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti (300 secondi). Il timeout viene avviato per tutti i messaggi contemporaneamente. Quando sono trascorsi cinque minuti dalla chiamata a **receiveMessages** , i messaggi non eliminati diventeranno nuovamente visibili.
 
 :::code language="java" source="~/azure-storage-snippets/queues/howto/java/java-v12/src/main/java/com/queues/howto/App.java" id="Snippet_DequeueMessages":::
 
 # <a name="java-v8"></a>[Java V8](#tab/java8)
 
-Nell'esempio di codice seguente viene usato il metodo **retrieveMessages** per recuperare 20 messaggi con una sola chiamata. Elabora quindi ogni messaggio usando un ciclo **for** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti (300 secondi). Il timeout viene avviato per tutti i messaggi contemporaneamente. Quando sono trascorsi cinque minuti dalla chiamata a **retrieveMessages**, i messaggi non eliminati diventeranno nuovamente visibili.
+Nell'esempio di codice seguente viene usato il metodo **retrieveMessages** per recuperare 20 messaggi con una sola chiamata. Elabora quindi ogni messaggio usando un ciclo **for** . Per ogni messaggio, inoltre, il timeout di invisibilità viene impostato su cinque minuti (300 secondi). Il timeout viene avviato per tutti i messaggi contemporaneamente. Quando sono trascorsi cinque minuti dalla chiamata a **retrieveMessages** , i messaggi non eliminati diventeranno nuovamente visibili.
 
 ```java
 try
@@ -600,10 +601,10 @@ catch (Exception e)
 
 A questo punto, dopo aver appreso le nozioni di base dell'archiviazione di accodamento, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-* [Azure Storage SDK per Java][Azure Storage SDK for Java]
-* [Riferimento all'SDK del client di archiviazione di Azure][Azure Storage Client SDK Reference]
-* [API REST dei servizi di archiviazione di Azure][Azure Storage Services REST API]
-* [Blog del team di Archiviazione di Azure][Azure Storage Team Blog]
+- [Azure Storage SDK per Java][Azure Storage SDK for Java]
+- [Riferimento all'SDK del client di archiviazione di Azure][Azure Storage Client SDK Reference]
+- [API REST dei servizi di archiviazione di Azure][Azure Storage Services REST API]
+- [Blog del team di Archiviazione di Azure][Azure Storage Team Blog]
 
 [Azure SDK for Java]: https://github.com/azure/azure-sdk-for-java
 [Azure Storage SDK for Java]: https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage

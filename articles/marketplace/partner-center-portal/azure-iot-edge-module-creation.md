@@ -7,12 +7,12 @@ ms.topic: how-to
 author: keferna
 ms.author: keferna
 ms.date: 08/07/2020
-ms.openlocfilehash: 957695892c39dd3ddfd9dc45d60158c89eb22698
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 62cb8db094cf1bfd7d81b1da06dd7a1b743ec045
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130630"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347483"
 ---
 # <a name="create-an-iot-edge-module-offer"></a>Creare un'offerta di moduli IoT Edge
 
@@ -21,8 +21,8 @@ Questo articolo descrive come creare e pubblicare un'offerta del modulo IoT Edge
 ## <a name="create-a-new-offer"></a>Creare una nuova offerta
 
 1. Accedere al [Centro per i partner](https://partner.microsoft.com/dashboard/home).
-2. Nel menu di spostamento di sinistra selezionare **Marketplace commerciale** > **Panoramica** .
-3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **Modulo IoT Edge** .
+2. Nel menu di spostamento di sinistra selezionare **Marketplace commerciale** > **Panoramica**.
+3. Nella pagina Panoramica selezionare **+ Nuova offerta** > **Modulo IoT Edge**.
 
     ![Menu di spostamento di sinistra.](./media/new-offer-iot-edge.png)
 
@@ -31,16 +31,16 @@ Questo articolo descrive come creare e pubblicare un'offerta del modulo IoT Edge
 
 ### <a name="offer-id-and-alias"></a>ID e alias dell'offerta
 
-Immettere l'ID in **ID offerta** . Si tratta di un identificatore univoco per ogni offerta nell'account.
+Immettere l'ID in **ID offerta**. Si tratta di un identificatore univoco per ogni offerta nell'account.
 
 - Questo ID è visibile ai clienti nell'indirizzo Web per l'offerta del marketplace e nei modelli di Azure Resource Manager, se applicabile.
 - Usare solo lettere minuscole e numeri. È possibile includere trattini e caratteri di sottolineatura, ma non spazi, per un massimo di 50 caratteri. Ad esempio, se si immette **test-offer-1** , l'indirizzo Web dell'offerta sarà `https://azuremarketplace.microsoft.com/marketplace/../test-offer-1`.
-- Non è possibile modificare l'ID offerta dopo aver selezionato **Crea** .
+- Non è possibile modificare l'ID offerta dopo aver selezionato **Crea**.
 
-Immettere un alias in **Alias offerta** . Si tratta del nome usato per l'offerta nel Centro per i partner.
+Immettere un alias in **Alias offerta**. Si tratta del nome usato per l'offerta nel Centro per i partner.
 
 - Questo nome non viene usato nel marketplace ed è diverso dal nome dell'offerta e da altri valori visualizzati ai clienti.
-- Non può essere modificato dopo aver selezionato **Crea** .
+- Non può essere modificato dopo aver selezionato **Crea**.
 
 Selezionare **Crea** per generare l'offerta e continuare.
 
@@ -83,7 +83,7 @@ Di seguito sono elencate alcune risorse aggiuntive per la gestione dei clienti p
 - [Risoluzione degli errori di configurazione del lead](../lead-management-faq.md#publishing-config-errors)
 - PDF [Panoramica della gestione dei clienti potenziali](https://assetsprod.microsoft.com/mpn/cloud-marketplace-lead-management.pdf) (assicurarsi che il blocco dei popup sia disattivato)
 
-Prima di continuare, selezionare **Salva bozza** .
+Prima di continuare, selezionare **Salva bozza**.
 
 ### <a name="properties"></a>Proprietà
 
@@ -94,7 +94,7 @@ Questa pagina consente di definire le categorie usate per raggruppare l'offerta 
 Selezionare le categorie e le sottocategorie per inserire l'offerta nelle aree di ricerca del Marketplace appropriate. Assicurarsi di descrivere il modo in cui l'offerta supporta queste categorie nella descrizione dell'offerta. Selezionare:
 
 - Almeno una delle due categorie, incluse una categoria primaria e una secondaria (facoltativo).
-- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile** .
+- Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se per l'offerta non è applicabile alcuna sottocategoria, selezionare **non applicabile**.
 
 Vedere l'elenco completo di categorie e sottocategorie nell'elenco delle [procedure](../gtm-offer-listing-best-practices.md)consigliate. Nel Marketplace i moduli IOT Edge vengono sempre visualizzati nella categoria  **Internet delle cose**  >  **IOT Edge modulo**   .
 
@@ -111,7 +111,7 @@ Microsoft offre un modello di contratto standard per semplificare le transazioni
 
 Per altre informazioni sul contratto standard, vedere [Contratto standard per il marketplace commerciale Microsoft](../standard-contract.md). È anche possibile scaricare il documento pdf sul [contratto standard](https://go.microsoft.com/fwlink/?linkid=2041178) (assicurarsi che il blocco popup sia disattivato).
 
-Per usare il contratto standard, selezionare la casella di controllo **Use the Standard Contract for Microsoft's commercial marketplace** (Usa il contratto standard per il marketplace commerciale Microsoft) e quindi fare clic su **Accetta** .
+Per usare il contratto standard, selezionare la casella di controllo **Use the Standard Contract for Microsoft's commercial marketplace** (Usa il contratto standard per il marketplace commerciale Microsoft) e quindi fare clic su **Accetta**.
 
 > [!NOTE]
 > Dopo la pubblicazione di un'offerta con il contratto standard per il marketplace commerciale Microsoft, non è possibile usare i termini e le condizioni personalizzati. È possibile offrire la propria soluzione con il contratto standard oppure con termini e condizioni personalizzati.
@@ -120,9 +120,9 @@ Per usare il contratto standard, selezionare la casella di controllo **Use the S
 
 ##### <a name="your-own-terms-and-conditions"></a>Termini e condizioni personalizzati
 
-Per specificare i termini e le condizioni personalizzati, immetterli nella casella **Termini e condizioni** . In questa casella è possibile immettere una quantità illimitata di caratteri di testo. I clienti devono accettare questi termini prima di poter provare l'offerta.
+Per specificare i termini e le condizioni personalizzati, immetterli nella casella **Termini e condizioni**. In questa casella è possibile immettere una quantità illimitata di caratteri di testo. I clienti devono accettare questi termini prima di poter provare l'offerta.
 
-Prima di passare alla sezione successiva, Presentazione dell'offerta, selezionare **Salva bozza** .
+Prima di passare alla sezione successiva, Presentazione dell'offerta, selezionare **Salva bozza**.
 
 ## <a name="offer-listing"></a>Presentazione dell'offerta
 
@@ -176,7 +176,7 @@ Assicurarsi di aggiungere almeno un collegamento alla documentazione e un colleg
 
 ### <a name="contact-information"></a>Informazioni contatto
 
-È necessario specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per **Contatto supporto tecnico** e **Contatto tecnico** . Queste informazioni non vengono visualizzate dai clienti. Sono disponibili per Microsoft e possono essere fornite ai partner CSP (Cloud Solution Provider).
+È necessario specificare il nome, l'indirizzo di posta elettronica e il numero di telefono per **Contatto supporto tecnico** e **Contatto tecnico**. Queste informazioni non vengono visualizzate dai clienti. Sono disponibili per Microsoft e possono essere fornite ai partner CSP (Cloud Solution Provider).
 
 - Contatto supporto tecnico (obbligatorio): per domande di supporto generiche.
 - Contatto tecnico (obbligatorio): per domande tecniche e problemi di certificazione.
@@ -242,7 +242,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nei risultati della ricerca in Azure Marketplace:
 
-:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-offer-search-results.png" alt-text="Illustra il modo in cui questa offerta viene visualizzata nei risultati della ricerca di Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -252,7 +252,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nell'portale di Azure:
 
-:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-portal-offer.png" alt-text="Viene illustrato il modo in cui questa offerta viene visualizzata nel portale di Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -263,7 +263,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 
 <br>Di seguito è riportato un esempio di come vengono visualizzate le informazioni sull'offerta nei risultati della ricerca portale di Azure:
 
-:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-portal-offer-search-results.png" alt-text="Viene illustrato il modo in cui questa offerta viene visualizzata nei risultati della ricerca portale di Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -271,7 +271,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 2. Nome offerta
 3. Riepilogo dei risultati della ricerca
 
-<br>Prima di passare alla sezione successiva, Anteprima, selezionare **Salva bozza** .
+<br>Prima di passare alla sezione successiva, Anteprima, selezionare **Salva bozza**.
 
 ## <a name="preview"></a>Anteprima
 
@@ -287,7 +287,7 @@ Specificare il gruppo di destinatari dell'anteprima usando i GUID dell'ID di sot
 
 Aggiungere almeno un ID della sottoscrizione di Azure, singolarmente (fino a 10) o caricando un file con estensione csv (fino a 100). Aggiungendo questi ID della sottoscrizione, si definisce chi può visualizzare l'anteprima dell'offerta prima che venga pubblicata. Se l'offerta è già stata pubblicata, è possibile definire un gruppo di destinatari per l'anteprima per testare le modifiche o gli aggiornamenti dell'offerta.
 
-Prima di passare alla sezione successiva, Panoramica del piano, selezionare **Salva bozza** .
+Prima di passare alla sezione successiva, Panoramica del piano, selezionare **Salva bozza**.
 
 ## <a name="plan-overview"></a>Panoramica del piano
 
@@ -310,14 +310,14 @@ Le azioni disponibili in Panoramica del piano variano a seconda dello stato attu
 
 ### <a name="create-new-plan"></a>Creare un nuovo piano
 
-Selezionare **Crea nuovo piano** . Viene visualizzata la finestra di dialogo **Nuovo piano** .
+Selezionare **Crea nuovo piano**. Viene visualizzata la finestra di dialogo **Nuovo piano**.
 
 Nella casella **ID piano** creare un ID univoco per ogni piano dell'offerta. Questo ID sarà visibile ai clienti all'indirizzo Web del prodotto. Usare solo lettere minuscole, numeri, trattini o caratteri di sottolineatura e fino a un massimo di 50 caratteri.
 
-Nella casella **Nome del piano** immettere un nome per il piano. I clienti visualizzano il nome quando decidono quale piano scegliere nell'offerta. Creare un nome univoco per ogni piano dell'offerta. Ad esempio, è possibile usare il nome dell'offerta **Windows Server** con i piani **Windows Server 2016** e **Windows Server 2019** .
+Nella casella **Nome del piano** immettere un nome per il piano. I clienti visualizzano il nome quando decidono quale piano scegliere nell'offerta. Creare un nome univoco per ogni piano dell'offerta. Ad esempio, è possibile usare il nome dell'offerta **Windows Server** con i piani **Windows Server 2016** e **Windows Server 2019**.
 
 > [!NOTE]
-> Non è possibile modificare l'ID del piano dopo aver selezionato **Crea** .
+> Non è possibile modificare l'ID del piano dopo aver selezionato **Crea**.
 
 Selezionare **Create** (Crea).
 
@@ -327,7 +327,7 @@ Questa scheda consente di configurare i cloud in cui è disponibile il piano. Le
 
 #### <a name="azure-regions"></a>Aree di Azure
 
-Tutti i piani per le offerte del modulo IoT Edge vengono resi disponibili automaticamente in **Azure Global** .  Il piano può essere usato dai clienti in tutte le aree di Azure globali che usano il Marketplace. Per informazioni dettagliate, vedere [Disponibilità geografica e supporto delle valute](../marketplace-geo-availability-currencies.md).
+Tutti i piani per le offerte del modulo IoT Edge vengono resi disponibili automaticamente in **Azure Global**.  Il piano può essere usato dai clienti in tutte le aree di Azure globali che usano il Marketplace. Per informazioni dettagliate, vedere [Disponibilità geografica e supporto delle valute](../marketplace-geo-availability-currencies.md).
 
 Selezionare l'opzione [Azure Government](../../azure-government/documentation-government-welcome.md) per fare in modo che la soluzione venga visualizzata qui. Si tratta di un Government Community Cloud con accesso controllato per i clienti delle agenzie governative federali, statali e locali degli Stati Uniti e partner idonei a servire questi enti. In qualità di editore, l'utente è responsabile di eventuali controlli di conformità, misure di sicurezza e procedure consigliate per questa community cloud. Azure per enti pubblici usa data center e reti fisicamente isolate, situate solo negli Stati Uniti. Prima della [pubblicazione](../../azure-government/documentation-government-manage-marketplace-partners.md) in Azure per enti pubblici, testare e confermare la soluzione in tale area, perché i risultati potrebbero essere diversi. Per preparare e testare la soluzione, richiedere un account di prova dalla [versione di valutazione di Microsoft Azure per enti pubblici](https://azure.microsoft.com/global-infrastructure/government/request/).
 
@@ -336,7 +336,7 @@ Selezionare l'opzione [Azure Government](../../azure-government/documentation-go
 
 #### <a name="azure-government-certifications"></a>Certificazioni di Azure per enti pubblici
 
-Questa opzione è visibile solo se **Azure per enti pubblici** è selezionato in **aree di Azure** .
+Questa opzione è visibile solo se **Azure per enti pubblici** è selezionato in **aree di Azure**.
 
 I servizi di Azure per enti pubblici gestiscono dati soggetti a determinati requisiti e regolamenti governativi. Ad esempio, FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L4 e CJIS. Per rendere consapevoli delle certificazioni per questi programmi, è possibile specificare fino a 100 collegamenti che descrivono tali certificazioni. Questi possono essere collegamenti diretti alle presentazioni del programma o al proprio sito Web. Questi collegamenti sono visibili solo ai clienti di Azure per enti pubblici.
 
@@ -356,13 +356,13 @@ Specificare un breve riepilogo del piano (non dell'offerta). Questo riepilogo vi
 
 Descrivere le caratteristiche uniche del piano, nonché le differenze tra i piani all'interno dell'offerta. Non descrivere l'offerta, ma solo il piano. Questa descrizione verrà visualizzata in Azure Marketplace e nel portale di Azure nella pagina Presentazione dell'offerta. Può essere identico al contenuto inserito nel riepilogo del piano e contenere fino a 2000 caratteri.
 
-Dopo aver completato questi campi, selezionare **Salva bozza** .
+Dopo aver completato questi campi, selezionare **Salva bozza**.
 
 #### <a name="plan-examples"></a>Esempi di piano
 
 Di seguito è riportato un esempio di dettagli dei piani di Azure Marketplace (i prezzi elencati sono solo a scopo esemplificativo e non sono destinati a riflettere i costi effettivi):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan.png" alt-text="Illustra i dettagli del piano di Azure Marketplace.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -372,7 +372,7 @@ Di seguito è riportato un esempio di dettagli dei piani di Azure Marketplace (i
 
 <br>Di seguito è riportato un esempio dei dettagli del piano di portale di Azure (i prezzi elencati sono solo a scopo esemplificativo e non sono destinati a riflettere i costi effettivi):
 
-:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
+:::image type="content" source="media/example-iot-azure-marketplace-plan-details.png" alt-text="Vengono illustrati i dettagli del piano portale di Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -403,7 +403,7 @@ Dopo aver pubblicato l'offerta, l'immagine del contenitore IoT Edge viene copiat
 
 Specificare le informazioni seguenti nella scheda **Image repository details** (Dettagli del repository di immagini).
 
-**Selezionare l'origine dell'immagine** : selezionare l'opzione **Registro Azure Container** .
+**Selezionare l'origine dell'immagine** : selezionare l'opzione **Registro Azure Container**.
 
 **ID della sottoscrizione di Azure** : specificare l'ID della sottoscrizione in cui viene segnalato l'utilizzo della risorsa e i servizi vengono fatturati per Registro Azure Container che include l'immagine del contenitore. È possibile trovare questo ID nella pagina [Sottoscrizioni](https://ms.portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) del portale di Azure.
 
@@ -413,15 +413,15 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 
 **Nome utente amministratore per il container Registry di Azure** : specificare il [nome utente amministratore](../../container-registry/container-registry-authentication.md#admin-account)) associato al container Registry di Azure con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere il nome utente e la password dell'amministratore, impostare la proprietà **admin-enabled** su **True** usando l'interfaccia della riga di comando di Azure (CLI). Facoltativamente è possibile impostare **Utente amministratore** su **Abilita** nel portale di Azure.
 
-:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
+:::image type="content" source="media/example-iot-update-container-registry.png" alt-text="Finestra di dialogo Aggiorna registro contenitori.":::
 
 #### <a name="call-out-description"></a>Descrizione della chiamata
 
 1. Utente amministratore
 
-<br>**Password del Registro Azure Container** : specificare la password per il nome utente dell'amministratore associata al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere la password nel portale di Azure, passare a **Registro contenitori** > **Chiavi di accesso** o con l'interfaccia della riga di comando di Azure usare il [comando show](/cli/azure/acr/credential?view=azure-cli-latest#az-acr-credential-show).
+<br>**Password del Registro Azure Container** : specificare la password per il nome utente dell'amministratore associata al Registro Azure Container con l'immagine del contenitore. Il nome utente e la password sono necessari per assicurarsi che l'azienda abbia accesso al registro. Per ottenere la password nel portale di Azure, passare a **Registro contenitori** > **Chiavi di accesso** o con l'interfaccia della riga di comando di Azure usare il [comando show](/cli/azure/acr/credential#az-acr-credential-show).
 
-:::image type="content" source="media/example-iot-access-keys.png" alt-text="Viene illustrato come viene visualizzata questa offerta in Azure Marketplace.":::
+:::image type="content" source="media/example-iot-access-keys.png" alt-text="Viene illustrata la schermata chiave di accesso nella portale di Azure.":::
 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
@@ -429,19 +429,19 @@ Specificare le informazioni seguenti nella scheda **Image repository details** (
 2. Username
 3. Password
 
-**Nome del repository all'interno del Registro Azure Container** . Specificare il nome del repository di Registro Azure Container con l'immagine. Specificare il nome del repository quando si esegue il push dell'immagine nel registro. È possibile trovare il nome del repository passando alla pagina [Registro contenitori](https://azure.microsoft.com/services/container-registry/) > **Repository** . Per altre informazioni, vedere [Visualizzare i repository del registro contenitori nel portale di Azure](../../container-registry/container-registry-repositories.md). Dopo averlo impostato, il nome non potrà essere modificato. Usare un nome univoco per ogni offerta nell'account.
+**Nome del repository all'interno del Registro Azure Container**. Specificare il nome del repository di Registro Azure Container con l'immagine. Specificare il nome del repository quando si esegue il push dell'immagine nel registro. È possibile trovare il nome del repository passando alla pagina [Registro contenitori](https://azure.microsoft.com/services/container-registry/) > **Repository**. Per altre informazioni, vedere [Visualizzare i repository del registro contenitori nel portale di Azure](../../container-registry/container-registry-repositories.md). Dopo averlo impostato, il nome non potrà essere modificato. Usare un nome univoco per ogni offerta nell'account.
 
 ### <a name="image-tags-for-new-versions-of-your-offer"></a>Tag dell'immagine per le nuove versioni dell'offerta
 
 I clienti devono poter ottenere automaticamente gli aggiornamenti da Azure Marketplace quando si pubblica un aggiornamento. Se non vogliono ricevere l'aggiornamento, devono poter mantenere una versione specifica dell'immagine. A tale scopo, è possibile aggiungere nuovi tag dell'immagine ogni volta che si aggiorna l'immagine.
 
-**Tag dell'immagine** . Questo campo deve includere un tag **ultima versione** che punti alla versione più recente dell'immagine in tutte le piattaforme supportate. Deve includere anche un tag di versione, ad esempio, deve iniziare con xx.xx.xx, dove xx rappresenta un numero. I clienti devono usare [tag di manifesto](https://github.com/estesp/manifest-tool) per specificare come destinazione più piattaforme. È necessario aggiungere anche tutti i tag referenziati da un tag di manifesto per poterli caricare. Tutti i tag di manifesto, tranne il tag ultima versione, devono iniziare con X.Y o X.Y.Z, dove X, Y e Z sono numeri interi. Se, ad esempio, un tag ultima versione punta a 1.0.1-linux-x64, 1.0.1-linux-arm32 e 1.0.1-windows-arm32, questi sei tag devono essere aggiunti a questo campo. Per informazioni dettagliate sui tag e sul controllo delle versioni, vedere [Preparare gli asset tecnici del modulo IoT Edge](create-iot-edge-module-asset.md).
+**Tag dell'immagine**. Questo campo deve includere un tag **ultima versione** che punti alla versione più recente dell'immagine in tutte le piattaforme supportate. Deve includere anche un tag di versione, ad esempio, deve iniziare con xx.xx.xx, dove xx rappresenta un numero. I clienti devono usare [tag di manifesto](https://github.com/estesp/manifest-tool) per specificare come destinazione più piattaforme. È necessario aggiungere anche tutti i tag referenziati da un tag di manifesto per poterli caricare. Tutti i tag di manifesto, tranne il tag ultima versione, devono iniziare con X.Y o X.Y.Z, dove X, Y e Z sono numeri interi. Se, ad esempio, un tag ultima versione punta a 1.0.1-linux-x64, 1.0.1-linux-arm32 e 1.0.1-windows-arm32, questi sei tag devono essere aggiunti a questo campo. Per informazioni dettagliate sui tag e sul controllo delle versioni, vedere [Preparare gli asset tecnici del modulo IoT Edge](create-iot-edge-module-asset.md).
 
 ### <a name="default-deployment-settings-optional"></a>Impostazioni di distribuzione predefinite (facoltativo)
 
 Definire le impostazioni più comuni per distribuire il modulo IoT Edge. Ottimizzare le distribuzioni dei clienti permettendo loro di avviare il modulo IoT Edge con queste impostazioni predefinite.
 
-**Route predefinite** . L'hub di IoT Edge gestisce la comunicazione tra i moduli, l'hub IoT e i dispositivi. È possibile impostare route per l'input e l'output dei dati tra i moduli e l'hub IoT, per inviare i messaggi alla destinazione desiderata senza dover usare servizi aggiuntivi per l'elaborazione dei messaggi e senza scrivere codice aggiuntivo. Le route vengono costruite mediante coppie nome/valore. È possibile definire fino a cinque nomi di route predefiniti, ognuno con una lunghezza di 512 caratteri.
+**Route predefinite**. L'hub di IoT Edge gestisce la comunicazione tra i moduli, l'hub IoT e i dispositivi. È possibile impostare route per l'input e l'output dei dati tra i moduli e l'hub IoT, per inviare i messaggi alla destinazione desiderata senza dover usare servizi aggiuntivi per l'elaborazione dei messaggi e senza scrivere codice aggiuntivo. Le route vengono costruite mediante coppie nome/valore. È possibile definire fino a cinque nomi di route predefiniti, ognuno con una lunghezza di 512 caratteri.
 
 Assicurarsi di usare la sintassi di [Route](../../iot-edge/module-composition.md#declare-routes)corretta nel valore di route (in genere definito da/Message/* in $upstream). Ciò significa che tutti i messaggi inviati dai moduli passano all'hub IoT. Per fare riferimento al modulo, usarne il nome predefinito, che sarà il **nome dell'offerta** senza spazi e caratteri speciali. Per fare riferimento ad altri moduli non ancora noti, usare la convenzione <FROM_MODULE_NAME> per indicare ai clienti che devono aggiornare queste informazioni. Per informazioni dettagliate sulle route IoT Edge, vedere [dichiarare le route](../../iot-edge/module-composition.md#declare-routes)).
 
@@ -452,14 +452,14 @@ Ad esempio, se il modulo ContosoModule è in ascolto di dati di input in Contoso
 - Nome 2: FromContosoModuleToCloud
 - Valore 2: FROM /messages/modules/ContonsoModule/outputs/ContosoOutput INTO $upstream
 
-**Proprietà desiderate predefinite del modulo gemello** . Un modulo gemello è un documento Json contenuto nell'hub IoT in cui vengono archiviate le informazioni di stato relative a un'istanza del modulo, incluse le proprietà desiderate. Le proprietà desiderate vengono usate insieme alle proprietà segnalate per sincronizzare la configurazione o le condizioni del modulo. Il back-end della soluzione è in grado di impostare le proprietà desiderate e il modulo è in grado di leggerle. Il modulo può anche ricevere notifiche relative alle modifiche apportate alle proprietà desiderate. Le proprietà desiderate vengono create usando fino a cinque coppie nome/valore e ogni valore predefinito deve essere composto da meno di 512 caratteri. È possibile definire fino a cinque proprietà nome/valore desiderate del dispositivo gemello. I valori delle proprietà desiderate del dispositivo gemello devono essere un JSON valido, non preceduto da carattere di escape, senza matrici e con una gerarchia annidata massima pari a quattro livelli. In uno scenario in cui un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), è possibile aggiungere un parametro come valore predefinito. Per altre informazioni sulle proprietà desiderate del dispositivo gemello, vedere [definire o aggiornare le proprietà desiderate](../../iot-edge/module-composition.md#define-or-update-desired-properties).
+**Proprietà desiderate predefinite del modulo gemello**. Un modulo gemello è un documento Json contenuto nell'hub IoT in cui vengono archiviate le informazioni di stato relative a un'istanza del modulo, incluse le proprietà desiderate. Le proprietà desiderate vengono usate insieme alle proprietà segnalate per sincronizzare la configurazione o le condizioni del modulo. Il back-end della soluzione è in grado di impostare le proprietà desiderate e il modulo è in grado di leggerle. Il modulo può anche ricevere notifiche relative alle modifiche apportate alle proprietà desiderate. Le proprietà desiderate vengono create usando fino a cinque coppie nome/valore e ogni valore predefinito deve essere composto da meno di 512 caratteri. È possibile definire fino a cinque proprietà nome/valore desiderate del dispositivo gemello. I valori delle proprietà desiderate del dispositivo gemello devono essere un JSON valido, non preceduto da carattere di escape, senza matrici e con una gerarchia annidata massima pari a quattro livelli. In uno scenario in cui un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), è possibile aggiungere un parametro come valore predefinito. Per altre informazioni sulle proprietà desiderate del dispositivo gemello, vedere [definire o aggiornare le proprietà desiderate](../../iot-edge/module-composition.md#define-or-update-desired-properties).
 
 Se, ad esempio, un modulo supporta una frequenza di aggiornamento configurabile in modo dinamico tramite le proprietà desiderate del dispositivo gemello, è opportuno definire le proprietà desiderate del dispositivo gemello predefinite seguenti:
 
 - Nome 1: RefreshRate
 - Valore 1: 60
 
-**Variabili di ambiente predefinite** . Le variabili di ambiente forniscono a un modulo informazioni aggiuntive che semplificano il processo di configurazione. Le variabili di ambiente vengono create usando le coppie nome/valore. Ogni nome e valore predefinito della variabile di ambiente deve essere composto da meno di 512 caratteri ed è possibile definirne fino a cinque. Quando un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), è possibile aggiungere un parametro come valore predefinito.
+**Variabili di ambiente predefinite**. Le variabili di ambiente forniscono a un modulo informazioni aggiuntive che semplificano il processo di configurazione. Le variabili di ambiente vengono create usando le coppie nome/valore. Ogni nome e valore predefinito della variabile di ambiente deve essere composto da meno di 512 caratteri ed è possibile definirne fino a cinque. Quando un parametro obbligatorio per un valore predefinito non ha senso (ad esempio, l'indirizzo IP del server di un cliente), è possibile aggiungere un parametro come valore predefinito.
 
 Se ad esempio un modulo richiede di accettare le condizioni d'uso prima dell'avvio, è possibile definire la variabile di ambiente seguente:
 
@@ -476,7 +476,7 @@ Se, ad esempio, un modulo richiede l'associazione della porta, è possibile defi
 
 Dopo aver completato tutte le sezioni obbligatorie dell'offerta, è possibile inviarle per la revisione e la pubblicazione.
 
-Nell'angolo in alto a destra del portale selezionare **Rivedi e pubblica** .
+Nell'angolo in alto a destra del portale selezionare **Rivedi e pubblica**.
 
 Nella pagina di revisione è possibile visualizzare lo stato di pubblicazione:
 
@@ -486,10 +486,10 @@ Nella pagina di revisione è possibile visualizzare lo stato di pubblicazione:
     - **Completa** : la sezione contiene tutti i dati necessari e non sono presenti errori. Tutte le sezioni dell'offerta devono essere completate prima dell'invio.
 - Inviare al team di certificazione istruzioni di test per assicurarsi che l'offerta venga testata correttamente. Specificare anche eventuali note supplementari utili per comprendere l'offerta.
 
-Per inviare l'offerta per la pubblicazione, selezionare **Pubblica** .
+Per inviare l'offerta per la pubblicazione, selezionare **Pubblica**.
 
-Si riceverà un messaggio di posta elettronica per far sapere all'utente che una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Per pubblicare l'offerta al pubblico, passare a centro per i partner e selezionare **Go-Live** .
+Si riceverà un messaggio di posta elettronica per far sapere all'utente che una versione di anteprima dell'offerta è disponibile per la revisione e l'approvazione. Per pubblicare l'offerta al pubblico, passare a centro per i partner e selezionare **Go-Live**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Aggiornare un'offerta esistente nel marketplace commerciale](//azure/marketplace/partner-center-portal/update-existing-offer)
+- [Aggiornare un'offerta esistente nel marketplace commerciale](update-existing-offer.md)

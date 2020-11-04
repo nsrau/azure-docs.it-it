@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: troubleshooting
 ms.date: 10/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: bc630fc5ea9407c284e2e2e879c349a83302cd9f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 6942fd68625fd8eac18ea899330fd99f31f771f7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93122624"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346112"
 ---
 # <a name="troubleshoot-azure-stream-analytics-outputs"></a>Risolvere i problemi degli output di Analisi di flusso di Azure
 
@@ -22,11 +22,11 @@ Questo articolo descrive i problemi comuni relativi alle connessioni di output d
 ## <a name="the-job-doesnt-produce-output"></a>Il processo non produce alcun output
 
 1. Verificare la connettività agli output con il pulsante **Verifica connessione** per ogni output.
-1. Esaminare le [metriche di monitoraggio](stream-analytics-monitoring.md) nella scheda **Monitoraggio** . Poiché i valori sono aggregati, le metriche sono posticipate di alcuni minuti.
+1. Esaminare le [metriche di monitoraggio](stream-analytics-monitoring.md) nella scheda **Monitoraggio**. Poiché i valori sono aggregati, le metriche sono posticipate di alcuni minuti.
 
    * Se il valore di **Eventi di input** è maggiore di zero, il processo può leggere i dati di input. Se il valore di **Eventi di input** è minore di zero, l'input del processo presenta un problema. Per altre informazioni, vedere [Risolvere i problemi delle connessioni di input](stream-analytics-troubleshoot-input.md). Se il processo ha input di dati di riferimento, applicare la suddivisione in base al nome logico quando si esamina la metrica **degli eventi di input** . Se non sono presenti eventi di input solo dai dati di riferimento, probabilmente significa che questa origine di input non è configurata correttamente per recuperare il set di dati di riferimento a destra.
    * Se il valore di **Errori di conversione dati** è maggiore di zero e in aumento, vedere [Errori dei dati di Analisi di flusso di Azure](data-errors.md) per informazioni dettagliate sugli errori di conversione dei dati.
-   * Se il valore di **Errori di runtime** è maggiore di zero, il processo riceve i dati ma genera errori durante l'elaborazione della query. Per trovare gli errori, andare ai [log di controllo](../azure-resource-manager/management/view-activity-logs.md) e applicare il filtro in base allo stato **Non riuscito** .
+   * Se il valore di **Errori di runtime** è maggiore di zero, il processo riceve i dati ma genera errori durante l'elaborazione della query. Per trovare gli errori, andare ai [log di controllo](../azure-resource-manager/management/view-activity-logs.md) e applicare il filtro in base allo stato **Non riuscito**.
    * Se il valore di **Eventi di input** è maggiore di zero e il valore di **Eventi di output** è uguale a zero, una delle condizioni seguenti è vera:
       * L'elaborazione della query non ha prodotto eventi di output.
       * Il formato degli eventi o dei campi potrebbe non essere corretto e di conseguenza l'elaborazione della query non ha prodotto output.
@@ -67,7 +67,7 @@ Durante il normale funzionamento di un processo, l'output potrebbe avere periodi
 * Se viene applicata una limitazione al sink upstream
 * Se la logica di elaborazione della query comporta un uso elevato delle risorse di calcolo
 
-Per visualizzare i dettagli dell'output, nel portale di Azure selezionare il processo di streaming e scegliere **Diagramma del processo** . Per ogni input è presente una metrica dell'evento di backlog per partizione. Se la metrica continua ad aumentare, è un indicatore del fatto che le risorse del sistema sono vincolate. L'aumento potrebbe essere causato dalla limitazione del sink di output o dall'utilizzo elevato della CPU. Per altre informazioni, vedere [Debug guidato dai dati mediante il diagramma di processo](stream-analytics-job-diagram-with-metrics.md).
+Per visualizzare i dettagli dell'output, nel portale di Azure selezionare il processo di streaming e scegliere **Diagramma del processo**. Per ogni input è presente una metrica dell'evento di backlog per partizione. Se la metrica continua ad aumentare, è un indicatore del fatto che le risorse del sistema sono vincolate. L'aumento potrebbe essere causato dalla limitazione del sink di output o dall'utilizzo elevato della CPU. Per altre informazioni, vedere [Debug guidato dai dati mediante il diagramma di processo](stream-analytics-job-diagram-with-metrics.md).
 
 ## <a name="key-violation-warning-with-azure-sql-database-output"></a>Avviso di violazione della chiave con output del database SQL di Azure
 
@@ -91,7 +91,7 @@ Quando un processo di analisi di flusso con output SQL riceve il primo batch di 
 2. Il processo recupera lo schema della tabella di destinazione.
 3. Il processo convalida i nomi e i tipi di colonna rispetto allo schema della tabella di destinazione.
 4. Il processo prepara una tabella dati in memoria dai record di output nel batch.
-5. Il processo scrive la tabella dati in SQL usando l' [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver?view=dotnet-plat-ext-3.1)bulkCopy.
+5. Il processo scrive la tabella dati in SQL usando l' [API](/dotnet/api/system.data.sqlclient.sqlbulkcopy.writetoserver)bulkCopy.
 
 Durante questa procedura, l'output SQL può riscontrare i seguenti tipi di errori:
 

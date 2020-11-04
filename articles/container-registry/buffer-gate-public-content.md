@@ -5,12 +5,12 @@ author: dlepow
 ms.topic: article
 ms.author: danlep
 ms.date: 10/29/2020
-ms.openlocfilehash: bb185e7d5803219135fddf421b7d6a89edd296b0
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: def1c3a9b8a1086f453c7e71d766ab0dd89b0c2d
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93315811"
+ms.locfileid: "93347523"
 ---
 # <a name="manage-public-content-with-azure-container-registry"></a>Gestire il contenuto pubblico con Azure Container Registry
 
@@ -28,7 +28,7 @@ Senza controlli appropriati, le dipendenze dal contenuto del registro di sistema
 Come primo passaggio, se si esegue il pull di immagini pubbliche dall'hub Docker come parte di un flusso di lavoro di compilazione o distribuzione, si consiglia di [eseguire l'autenticazione usando un account Docker Hub](https://docs.docker.com/docker-hub/download-rate-limit/#how-do-i-authenticate-pull-requests) anziché una richiesta pull anonima.
 
 > [!NOTE]
-> A partire dal 2 novembre 2020, i [limiti di velocità di download](https://docs.docker.com/docker-hub/download-rate-limit) si applicano alle richieste anonime e autenticate all'hub Docker dagli account dei piani gratuiti Docker e vengono applicati dall'indirizzo IP e dall'ID Docker, respecitively. 
+> A partire dal 2 novembre 2020, i [limiti di velocità di download](https://docs.docker.com/docker-hub/download-rate-limit) si applicano alle richieste anonime e autenticate all'hub Docker dagli account di piano gratuito Docker e vengono applicati rispettivamente dall'indirizzo IP e dall'ID docker. 
 >
 > Quando si stima il numero di richieste pull, tenere presente che quando si usano i servizi del provider di servizi cloud o si lavora dietro una NAT aziendale, più utenti verranno presentati all'hub Docker in modo aggregato come subset di indirizzi IP. L'aggiunta dell'autenticazione dell'account a pagamento di Docker alle richieste effettuate all'hub Docker eviterà le potenziali rotture del servizio dovute alla limitazione della velocità di limitazione.
 >

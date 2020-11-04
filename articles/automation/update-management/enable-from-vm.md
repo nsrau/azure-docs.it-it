@@ -2,19 +2,19 @@
 title: Abilitare Gestione aggiornamenti di Automazione di Azure da una macchina virtuale di Azure
 description: Questo articolo illustra come abilitare Gestione aggiornamenti da una macchina virtuale di Azure.
 services: automation
-ms.date: 09/16/2020
+ms.date: 11/04/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 2d81b822986f641e64b9211300f83e3b254f316d
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 1ed4ad3e1bae34b5007d13c7d092f46e972ac8a8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92222860"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93347081"
 ---
 # <a name="enable-update-management-from-an-azure-vm"></a>Abilitare Gestione aggiornamenti da una macchina virtuale di Azure
 
-Questo articolo descrive come usare una macchina virtuale di Azure per abilitare la funzionalità [Gestione aggiornamenti](overview.md) in altri computer. Per abilitare le macchine virtuali di Azure su larga scala, è necessario abilitare una macchina virtuale esistente usando Gestione aggiornamenti.
+Questo articolo descrive come abilitare la funzionalità [Gestione aggiornamenti](overview.md) in una o più macchine virtuali (VM) di Azure. Per abilitare le macchine virtuali di Azure su larga scala, è necessario abilitare una macchina virtuale di Azure esistente usando Gestione aggiornamenti.
 
 > [!NOTE]
 > Quando si abilita Gestione aggiornamenti, sono supportate solo determinate aree per il collegamento di un'area di lavoro Log Analytics e un account di Automazione. Per un elenco delle coppie di mapping supportate, vedere [Mapping delle aree per l'account di Automazione e l'area di lavoro Log Analytics](../how-to/region-mappings.md).
@@ -35,7 +35,7 @@ Accedere al [portale di Azure](https://portal.azure.com).
 
 2. Selezionare la macchina virtuale per la quale si vuole abilitare Gestione aggiornamenti. Le macchine virtuali possono esistere in qualsiasi area, indipendentemente dalla posizione dell'account di Automazione. Queste informazioni verranno usate
 
-3. Nella pagina VM, in **operazioni**, selezionare **guest + host Updates**.
+3. Nella pagina VM, in **operazioni** , selezionare **guest + host Updates**.
 
     ![Selezione degli aggiornamenti guest + host dal riquadro a sinistra](media/enable-from-vm/select-guest-and-os-updates.png)
 

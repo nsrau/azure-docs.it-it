@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozguns
 ms.subservice: queues
 ms.custom: contperfq1
-ms.openlocfilehash: 2593f1b7ea4cfabe0243fe6f830d718896e68473
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc6c4e57d0e04cc85bd83c11ba583b3f0b24fa82
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91715518"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345993"
 ---
 # <a name="choose-how-to-authorize-access-to-queue-data-in-the-azure-portal"></a>Scegliere come autorizzare l'accesso ai dati della coda nel portale di Azure
 
-Quando si accede ai dati della coda usando il [portale di Azure](https://portal.azure.com), il portale esegue richieste ad archiviazione di Azure dietro le quinte. È possibile autorizzare una richiesta ad archiviazione di Azure usando l'account Azure AD o la chiave di accesso dell'account di archiviazione. Il portale indica il metodo usato e consente di spostarsi tra i due se si dispone delle autorizzazioni appropriate.  
+Quando si accede ai dati della coda usando il [portale di Azure](https://portal.azure.com), il portale esegue richieste ad archiviazione di Azure dietro le quinte. È possibile autorizzare una richiesta ad archiviazione di Azure usando l'account Azure AD o la chiave di accesso dell'account di archiviazione. Il portale indica il metodo usato e consente di spostarsi tra i due se si dispone delle autorizzazioni appropriate.
 
 ## <a name="permissions-needed-to-access-queue-data"></a>Autorizzazioni necessarie per accedere ai dati della coda
 
@@ -37,7 +37,7 @@ Per accedere ai dati della coda con la chiave di accesso dell'account, è necess
 Quando si tenta di accedere ai dati della coda nel portale di Azure, il portale verifica prima di tutto se è stato assegnato un ruolo con **Microsoft. storage/storageAccounts/listkeys/Action**. Se è stato assegnato un ruolo con questa azione, il portale usa la chiave dell'account per accedere ai dati della coda. Se a questa azione non è stato assegnato un ruolo, il portale tenta di accedere ai dati tramite l'account Azure AD.
 
 > [!NOTE]
-> L'amministratore del servizio dei ruoli di amministratore della sottoscrizione classico e Co-Administrator include l'equivalente del ruolo di [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, tra cui **Microsoft. storage/storageAccounts/listkeys/Action**, in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati della coda con la chiave dell'account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+> L'amministratore del servizio dei ruoli di amministratore della sottoscrizione classico e Co-Administrator include l'equivalente del ruolo di [proprietario](../../role-based-access-control/built-in-roles.md#owner) Azure Resource Manager. Il ruolo **proprietario** include tutte le azioni, tra cui **Microsoft. storage/storageAccounts/listkeys/Action** , in modo che un utente con uno di questi ruoli amministrativi possa accedere anche ai dati della coda con la chiave dell'account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
 
 ### <a name="use-your-azure-ad-account"></a>Usare l'account Azure AD
 
@@ -74,11 +74,11 @@ Quando si passa a una coda, il portale di Azure indica se si sta usando la chiav
 
 Se si esegue l'autenticazione usando la chiave di accesso dell'account, verrà visualizzata la **chiave di accesso** specificata come metodo di autenticazione nel portale:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Screenshot che illustra come passare ai dati della coda nel portale di Azure":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-access-key.png" alt-text="Screenshot che mostra l'utente che accede alle code con la chiave dell'account":::
 
 Per passare a utilizzando l'account Azure AD, fare clic sul collegamento evidenziato nell'immagine. Se si dispone delle autorizzazioni appropriate tramite i ruoli di Azure assegnati, sarà possibile procedere. Tuttavia, se non si dispone delle autorizzazioni appropriate, verrà visualizzato un messaggio di errore simile al seguente:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Screenshot che illustra come passare ai dati della coda nel portale di Azure":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-error-azure-ad.png" alt-text="Errore visualizzato se Azure AD account non supporta l'accesso":::
 
 Si noti che nell'elenco non viene visualizzata alcuna coda se l'account Azure AD non dispone delle autorizzazioni per visualizzarli. Fare clic sul collegamento **passa a chiave di accesso** per usare di nuovo la chiave di accesso per l'autenticazione.
 
@@ -86,7 +86,7 @@ Si noti che nell'elenco non viene visualizzata alcuna coda se l'account Azure AD
 
 Se si esegue l'autenticazione usando l'account Azure AD, viene visualizzato **Azure ad account utente** specificato come metodo di autenticazione nel portale:
 
-:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Screenshot che illustra come passare ai dati della coda nel portale di Azure":::
+:::image type="content" source="media/authorize-queue-access-portal/auth-method-azure-ad.png" alt-text="Screenshot che mostra l'utente che accede attualmente alle code con Azure AD account":::
 
 Per passare all'uso della chiave di accesso dell'account, fare clic sul collegamento evidenziato nell'immagine. Se si ha accesso alla chiave dell'account, sarà possibile continuare. Tuttavia, se non si dispone dell'accesso alla chiave dell'account, il portale di Azure Visualizza un messaggio di errore.
 

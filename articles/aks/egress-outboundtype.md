@@ -3,15 +3,13 @@ title: Personalizzare le route definite dall'utente nel servizio Azure Kubernete
 description: Informazioni su come definire una route in uscita personalizzata nel servizio Azure Kubernetes
 services: container-service
 ms.topic: article
-ms.author: juluk
 ms.date: 06/29/2020
-author: jluk
-ms.openlocfilehash: d8ae03d52691a6c30f78439a579e7e7c136dda76
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 103d7dc76dee56a336f08f2cc0c7c8489c0bc565
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90975285"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348135"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalizzare l'uscita del cluster con una route di User-Defined
 

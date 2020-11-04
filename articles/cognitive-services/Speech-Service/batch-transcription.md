@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 11/03/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5e4e5f4c1a50c814174dbbd5d419fe24b2e9f88e
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: f89dd6b7926baf6c1c64cff81e8b613461a3e925
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93336681"
+ms.locfileid: "93345500"
 ---
 # <a name="how-to-use-batch-transcription"></a>Come usare la trascrizione batch
 
@@ -49,7 +49,7 @@ Come per tutte le funzionalità del servizio Voce, si crea una chiave di sottosc
 Se si prevede di personalizzare i modelli, attenersi alla procedura descritta in [personalizzazione acustica](how-to-customize-acoustic-models.md) e [personalizzazione della lingua](how-to-customize-language-model.md). Per usare i modelli creati nella trascrizione batch, è necessario il percorso del modello. È possibile recuperare il percorso del modello quando si esaminano i dettagli del modello ( `self` proprietà). Un endpoint personalizzato distribuito *non è necessario* per il servizio di trascrizione batch.
 
 >[!NOTE]
-> Come parte dell'API REST, la trascrizione batch presenta un set di [quote e limiti](speech-services-quotas-and-limits.md#speech-to-text-quotas-and-limits-per-speech-resource)che è consigliabile esaminare. Per sfruttare al meglio la capacità di trascrizione batch di trascrivere in modo efficiente un numero elevato di file audio, è consigliabile inviare sempre più file per ogni richiesta o puntare a un contenitore di archiviazione BLOB con i file audio da trascrivere. Il servizio trascriverà i file simultaneamente riducendo il tempo di inversione. L'uso di più file in una singola richiesta è molto semplice e semplice. vedere la sezione relativa alla [configurazione](#configuration) . 
+> Come parte dell'API REST, la trascrizione batch presenta un set di [quote e limiti](speech-services-quotas-and-limits.md#batch-transcription)che è consigliabile esaminare. Per sfruttare al meglio la capacità di trascrizione batch di trascrivere in modo efficiente un numero elevato di file audio, è consigliabile inviare sempre più file per ogni richiesta o puntare a un contenitore di archiviazione BLOB con i file audio da trascrivere. Il servizio trascriverà i file simultaneamente riducendo il tempo di inversione. L'uso di più file in una singola richiesta è molto semplice e semplice. vedere la sezione relativa alla [configurazione](#configuration) . 
 
 ## <a name="batch-transcription-api"></a>API di trascrizione Batch
 

@@ -6,12 +6,12 @@ ms.author: sacedarb
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/10/2020
-ms.openlocfilehash: f81b6dabbd9053a69ff60d1a3c71d03fff38f627
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 29f02f80aa5bff1304dc593d68954e15fe6e66bb
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129763"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346435"
 ---
 # <a name="use-managed-identity-to-authenticate-your-azure-stream-analytics-job-to-power-bi"></a>Usare l'identità gestita per autenticare il processo di analisi di flusso di Azure per Power BI
 
@@ -29,13 +29,13 @@ Per usare questa funzionalità, è necessario quanto segue:
 
 ## <a name="create-a-stream-analytics-job-using-the-azure-portal"></a>Creare un processo di analisi di flusso usando il portale di Azure
 
-1. Creare un nuovo processo di analisi di flusso o aprire un processo esistente nel portale di Azure. Dalla barra dei menu disponibile sul lato sinistro della schermata selezionare **identità gestita** situata in **Configura** . Verificare che sia selezionata l'opzione "Usa identità gestita assegnata dal sistema" e quindi fare clic sul pulsante **Salva** nella parte inferiore della schermata.
+1. Creare un nuovo processo di analisi di flusso o aprire un processo esistente nel portale di Azure. Dalla barra dei menu disponibile sul lato sinistro della schermata selezionare **identità gestita** situata in **Configura**. Verificare che sia selezionata l'opzione "Usa identità gestita assegnata dal sistema" e quindi fare clic sul pulsante **Salva** nella parte inferiore della schermata.
 
    ![Configurare l'identità gestita di analisi di flusso](./media/common/stream-analytics-enable-managed-identity.png)
 
 2. Prima di configurare l'output, consentire al processo di analisi di flusso di accedere all'area di lavoro di Power BI seguendo le istruzioni riportate nella sezione [fornire l'accesso al processo di analisi di flusso all'area](#give-the-stream-analytics-job-access-to-your-power-bi-workspace) di lavoro Power BI di questo articolo.
 
-3. Passare alla sezione **output** del processo di analisi di flusso, selezionare **+ Aggiungi** e quindi scegliere **Power bi** . Quindi, selezionare il pulsante **autorizza** e accedere con l'account Power bi.
+3. Passare alla sezione **output** del processo di analisi di flusso, selezionare **+ Aggiungi** e quindi scegliere **Power bi**. Quindi, selezionare il pulsante **autorizza** e accedere con l'account Power bi.
 
    ![Autorizza con account Power BI](./media/stream-analytics-powerbi-output-managed-identity/stream-analytics-authorize-powerbi.png)
 
@@ -45,7 +45,7 @@ Per usare questa funzionalità, è necessario quanto segue:
 
 ## <a name="azure-resource-manager-deployment"></a>Distribuzione Azure Resource Manager
 
-Azure Resource Manager consente di automatizzare completamente la distribuzione del processo di analisi di flusso. È possibile distribuire modelli di Gestione risorse usando Azure PowerShell o l' [interfaccia](/cli/azure/?view=azure-cli-latest)della riga di comando di Azure. Gli esempi seguenti usano l'interfaccia della riga di comando di Azure.
+Azure Resource Manager consente di automatizzare completamente la distribuzione del processo di analisi di flusso. È possibile distribuire modelli di Gestione risorse usando Azure PowerShell o l' [interfaccia](/cli/azure/)della riga di comando di Azure. Gli esempi seguenti usano l'interfaccia della riga di comando di Azure.
 
 
 1. È possibile creare una risorsa **Microsoft. StreamAnalytics/streaming** con un'identità gestita includendo la proprietà seguente nella sezione delle risorse del modello di gestione risorse:

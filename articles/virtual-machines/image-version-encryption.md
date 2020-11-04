@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 11/3/2020
 ms.author: cynthn
-ms.openlocfilehash: f6bf436110e9822d687419b74a8a22bad7a6d700
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: e0534fa6eaccbfb9318369e0a4224d84fa8de7c8
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/04/2020
-ms.locfileid: "93333465"
+ms.locfileid: "93347710"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Anteprima: Usare le chiavi gestite dal cliente per crittografare le immagini
 
@@ -134,7 +134,7 @@ Per i dischi dati, è necessario aggiungere il parametro `-DiskEncryptionSetId $
 
 ## <a name="cli"></a>CLI 
 
-Per l'anteprima pubblica, è necessario prima registrare la funzionalità.
+Per l'anteprima pubblica, è prima di tutto necessario registrarsi per la funzionalità. La registrazione richiede circa 30 minuti.
 
 ```azurecli-interactive
 az feature register --namespace Microsoft.Compute --name SIGEncryption

@@ -6,21 +6,21 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89657470"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348067"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 
-Per elaborare una matrice nell'app per la logica, è possibile creare un [ciclo "Foreach"](#foreach-loop). Questo ciclo ripete una o più azioni su ogni elemento della matrice. Per i limiti al numero massimo di elementi di una matrice che i cicli "Foreach" possono elaborare, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
+Per elaborare una matrice nell'app per la logica, è possibile creare un [ciclo "Foreach"](#foreach-loop). Questo ciclo ripete una o più azioni su ogni elemento della matrice. Per il limite sul numero di elementi della matrice che un ciclo "foreach" può elaborare, vedere [limiti di concorrenza, ciclo e debatch](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, è possibile creare un [ciclo "Until"](#until-loop). L'app per la logica esegue prima tutte le azioni all'interno del ciclo e quindi controlla la condizione o lo stato. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto. Per i limiti al numero massimo di cicli "Until" in un'esecuzione dell'app per la logica, vedere [Limiti e configurazione](../logic-apps/logic-apps-limits-and-config.md). 
+Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, è possibile creare un [ciclo "Until"](#until-loop). L'app per la logica esegue prima tutte le azioni all'interno del ciclo e quindi controlla la condizione o lo stato. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto. Per il limite sul numero di cicli "until" che possono essere eseguiti da un'app per la logica, vedere [limiti di concorrenza, ciclo e debatch](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
-> Se è presente un trigger che riceve una matrice e si vuole eseguire un flusso di lavoro per ogni elemento della matrice, è possibile *eseguire il debatch* di tale matrice con la [proprietà **SplitOn** per il trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). 
+> Se è presente un trigger che riceve una matrice e si vuole eseguire un flusso di lavoro per ogni elemento della matrice, è possibile *eseguire il debatch* di tale matrice con la [proprietà **SplitOn** per il trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -32,7 +32,9 @@ Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non 
 
 ## <a name="foreach-loop"></a>Ciclo "Foreach"
 
-Un ciclo "Foreach" ripete una o più azioni su ogni elemento della matrice e funziona solo nelle matrici. Di seguito sono riportate alcune considerazioni in caso di uso dei cicli "Foreach":
+Un ciclo "foreach" ripete una o più azioni su ogni elemento della matrice e funziona solo su matrici. Di seguito sono riportate alcune considerazioni in caso di uso dei cicli "Foreach":
+
+* Il ciclo "foreach" può elaborare un numero limitato di elementi della matrice. Per questo limite, vedere la pagina relativa ai [limiti di concorrenza, ciclo e debatch](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 * Per impostazione predefinita, le iterazioni in un ciclo "foreach" vengono eseguite allo stesso tempo o in parallelo. Questo comportamento differisce da quello di [Power automatizzate **per ogni** ciclo](/power-automate/apply-to-each) in cui le iterazioni vengono eseguite una alla volta o in sequenza. Tuttavia, è possibile [impostare le iterazioni sequenziali del ciclo "foreach"](#sequential-foreach-loop). Se, ad esempio, si desidera sospendere l'iterazione successiva in un ciclo "foreach" utilizzando l' [azione Delay](../connectors/connectors-native-delay.md), è necessario impostare il ciclo per l'esecuzione sequenziale.
 
@@ -58,7 +60,7 @@ Questa app per la logica di esempio invia un riepilogo giornaliero per un feed R
 
       ![Aggiungere un ciclo "For each"](media/logic-apps-control-flow-loops/select-for-each.png)
 
-3. A questo punto creare il ciclo. In **Selezionare un output dai passaggi precedenti**, quando viene visualizzato l'elenco **Aggiungi contenuto dinamico**, selezionare la matrice **Collegamenti ai feed**, che è l'output del trigger RSS. 
+3. A questo punto creare il ciclo. In **Selezionare un output dai passaggi precedenti** , quando viene visualizzato l'elenco **Aggiungi contenuto dinamico** , selezionare la matrice **Collegamenti ai feed** , che è l'output del trigger RSS. 
 
    ![Selezionare dall'elenco di contenuto dinamico](media/logic-apps-control-flow-loops/for-each-loop-dynamic-content-list.png)
 
@@ -150,7 +152,7 @@ Se si usa la definizione JSON dell'app per la logica, è possibile usare l'opzio
 
 ## <a name="until-loop"></a>Ciclo "Until"
   
-Per eseguire e ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, inserire tali azioni in un ciclo "Until". L'app per la logica esegue prima tutte le azioni all'interno del ciclo e quindi controlla la condizione o lo stato. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto.
+Per eseguire e ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, inserire tali azioni in un ciclo "Until". L'app per la logica esegue prima tutte le azioni all'interno del ciclo e quindi controlla la condizione o lo stato. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto. Per il limite sul numero di cicli "until" che possono essere eseguiti da un'app per la logica, vedere [limiti di concorrenza, ciclo e debatch](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Ecco alcuni scenari comuni in cui è possibile usare un ciclo "Until":
 

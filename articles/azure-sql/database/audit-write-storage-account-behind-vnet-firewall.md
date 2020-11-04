@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 06/17/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: dde6cf40e7609e902540e08fcaff65d9fe32c85c
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 908c9f1d05c83eaa58f77b79a32d956898c35076
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93289648"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348254"
 ---
 # <a name="write-audit-to-a-storage-account-behind-vnet-and-firewall"></a>Controllo per la scrittura in un account di archiviazione dietro rete virtuale e firewall
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -114,6 +114,7 @@ Per configurare il controllo SQL per la scrittura di eventi in un account di arc
      "administratorLoginPassword": "<complex password>",
      "version": "12.0",
      "state": "Ready"
+     }
    }
    ```
 

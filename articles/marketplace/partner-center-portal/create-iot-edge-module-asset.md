@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/03/2020
-ms.openlocfilehash: 4d55186874e6f5be67a04e4a04d54a89dc09f9cd
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: aca27b89a3b92b410fa560c8b4bd7eb3d4e0a935
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130443"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346775"
 ---
 # <a name="prepare-your-iot-edge-module-technical-assets"></a>Preparare gli asset tecnici del modulo IoT Edge
 
@@ -107,10 +107,10 @@ I moduli che usano l'SDK del modulo Internet delle cose devono impostare l'ident
 
 Usare uno dei metodi seguenti dagli SDK dei moduli di Internet delle cose per impostare ProductInfo su questo identificatore:
 
-- [C#](/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo?view=azure-dotnet#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
+- [C#](/dotnet/api/microsoft.azure.devices.client.deviceclient.productinfo#Microsoft_Azure_Devices_Client_DeviceClient_ProductInfo)
 - [C](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
 - [Python](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md)
-- [Java](/java/api/com.microsoft.azure.sdk.iot.device.productinfo?view=azure-java-stable)
+- [Java](/java/api/com.microsoft.azure.sdk.iot.device.productinfo)
 
 Per i moduli che non usano l'SDK del modulo Internet, sono disponibili informazioni dettagliate meno precise tramite il centro per i partner, ad esempio il numero di download.
 

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5e72a98ddd5219662c8850326b4f43b25e545177
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595844"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348153"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Creare un gateway applicazione che ospita più siti Web usando l'interfaccia della riga di comando di Azure
 
@@ -97,11 +97,11 @@ az network application-gateway create \
 
 Il processo di creazione del gateway applicazione può richiedere alcuni minuti. Dopo aver creato il gateway applicazione, saranno disponibili le nuove funzionalità seguenti:
 
-- *appGatewayBackendPool*: un gateway applicazione deve avere almeno un pool di indirizzi back-end.
-- *appGatewayBackendHttpSettings*: specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.
-- *appGatewayHttpListener*: il listener predefinito associato ad *appGatewayBackendPool*.
-- *appGatewayFrontendIP*: assegna *myAGPublicIPAddress* ad *appGatewayHttpListener*.
-- *rule1*: regola di routing predefinita associata ad *appGatewayHttpListener*.
+- *appGatewayBackendPool* : un gateway applicazione deve avere almeno un pool di indirizzi back-end.
+- *appGatewayBackendHttpSettings* : specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.
+- *appGatewayHttpListener* : il listener predefinito associato ad *appGatewayBackendPool*.
+- *appGatewayFrontendIP* : assegna *myAGPublicIPAddress* ad *appGatewayHttpListener*.
+- *rule1* : regola di routing predefinita associata ad *appGatewayHttpListener*.
 
 ### <a name="add-the-backend-pools"></a>Aggiungere i pool back-end
 
@@ -124,7 +124,7 @@ Aggiungere i listener necessari per instradare il traffico usando [AZ Network Ap
 
 >[!NOTE]
 > Con il gateway applicazione o lo SKU WAF V2, è anche possibile configurare fino a 5 nomi host per listener ed è possibile usare caratteri jolly nel nome host. Per ulteriori informazioni, vedere [nomi host con caratteri jolly nel listener](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
->Per usare più nomi host e caratteri jolly in un listener usando l'interfaccia della riga di comando di Azure, è necessario usare `--host-names` anziché `--host-name` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole. Ad esempio: `--host-names "*.contoso.com,*.fabrikam.com"`
+>Per usare più nomi host e caratteri jolly in un listener usando l'interfaccia della riga di comando di Azure, è necessario usare `--host-names` anziché `--host-name` . Con i nomi host, è possibile menzionare fino a cinque nomi host come valori separati da spazi. ad esempio, `--host-names "*.contoso.com *.fabrikam.com"`
 
 ```azurecli-interactive
 az network application-gateway http-listener create \
@@ -175,7 +175,7 @@ az network application-gateway rule delete \
 
 ## <a name="create-virtual-machine-scale-sets"></a>Creare set di scalabilità di macchine virtuali
 
-In questo esempio si creano tre set di scalabilità di macchine virtuali che supportano i tre pool back-end nel gateway applicazione. I set di scalabilità creati sono denominati *myvmss1*, *myvmss2* e *myvmss3*. Ogni set di scalabilità contiene due istanze di macchina virtuale in cui si installa IIS.
+In questo esempio si creano tre set di scalabilità di macchine virtuali che supportano i tre pool back-end nel gateway applicazione. I set di scalabilità creati sono denominati *myvmss1* , *myvmss2* e *myvmss3*. Ogni set di scalabilità contiene due istanze di macchina virtuale in cui si installa IIS.
 
 ```azurecli-interactive
 for i in `seq 1 2`; do

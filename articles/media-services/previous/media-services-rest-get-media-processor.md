@@ -3,7 +3,7 @@ title: Come creare un'istanza del processore di contenuti multimediali usando RE
 description: Informazioni su come creare un componente del processore di contenuti multimediali per codificare, decodificare, convertire il formato, crittografare o decrittografare contenuti multimediali per Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
-ms.author: juliako
-ms.openlocfilehash: ba625aa048360a4c201b91b4a5a4a7ca4dd6277b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/03/2020
+ms.author: inhenkel
+ms.openlocfilehash: e1ac2a2408e16c3f8057c49c69c354ebb1e377c7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89269506"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93348492"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>Come ottenere un'istanza del processore di contenuti multimediali
 
@@ -28,18 +28,18 @@ ms.locfileid: "89269506"
 > [!div class="op_single_selector"]
 > * [.NET](media-services-get-media-processor.md)
 > * [REST](media-services-rest-get-media-processor.md)
-> 
-> 
+
 
 ## <a name="overview"></a>Panoramica
-Un processore di contenuti multimediali è un componente che gestisce un'attività di elaborazione video o audio specifica, ad esempio la codifica, la conversione del formato, la crittografia o la decrittografia di contenuti multimediali. Tutte le attività inviate a Servizi multimediali richiedono un processore di contenuti multimediali per codificare, crittografare o convertire il contenuto video o audio. 
 
-## <a name="azure-media-processors"></a>Processori di contenuti multimediali di Azure 
+Un processore di contenuti multimediali è un componente che gestisce un'attività di elaborazione video o audio specifica, ad esempio la codifica, la conversione del formato, la crittografia o la decrittografia di contenuti multimediali. Tutte le attività inviate a Servizi multimediali richiedono un processore di contenuti multimediali per codificare, crittografare o convertire il contenuto video o audio.
+
+## <a name="azure-media-processors"></a>Processori di contenuti multimediali di Azure
 
 L'argomento seguente fornisce elenchi di processori di contenuti multimediali:
 
-* [Processori di contenuti multimediali di codifica](scenarios-and-availability.md#encoding-media-processors)
-* [Processori di contenuti multimediali di analisi](scenarios-and-availability.md#analytics-media-processors)
+* [Processori di contenuti multimediali di codifica](scenarios-and-availability.md)
+* [Processori di contenuti multimediali di analisi](scenarios-and-availability.md)
 
 >[!NOTE]
 >Quando si accede alle entità in Servizi multimediali, è necessario impostare valori e campi di intestazione specifici nelle richieste HTTP. Per altre informazioni, vedere [Panoramica dell'API REST di Servizi multimediali](media-services-rest-how-to-use.md).

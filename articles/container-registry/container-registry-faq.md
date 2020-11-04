@@ -5,12 +5,12 @@ author: sajayantony
 ms.topic: article
 ms.date: 09/18/2020
 ms.author: sajaya
-ms.openlocfilehash: 4c65ca24b3fa4dccb2bb0060996ade50c90bd02a
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: a2cddc9bbe868a2d18ee8111aabf6db7dc8643cf
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148528"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346996"
 ---
 # <a name="frequently-asked-questions-about-azure-container-registry"></a>Domande frequenti su Registro Azure Container
 
@@ -262,7 +262,8 @@ La quarantena delle immagini è attualmente una funzionalità di anteprima di Re
 La configurazione di un registro contenitori di Azure per l'accesso pull anonimo (pubblico) è attualmente una funzionalità di anteprima. Se nel registro di sistema sono presenti [risorse della mappa dell'ambito (utente) o del token](./container-registry-repository-scoped-permissions.md) , eliminarle prima di generare un ticket di supporto (le mappe dell'ambito del sistema possono essere ignorate). Per abilitare l'accesso pubblico, aprire un ticket di supporto all'indirizzo https://aka.ms/acr/support/create-ticket. Per informazioni dettagliate, vedere il [forum di commenti e suggerimenti su Azure](https://feedback.azure.com/forums/903958-azure-container-registry/suggestions/32517127-enable-anonymous-access-to-registries).
 
 > [!NOTE]
-> È possibile accedere in modo anonimo solo alle API richieste per eseguire il pull di un'immagine nota. Nessun'altra API per operazioni come l'elenco di tag o l'elenco di repository è accessibile in modo anonimo.
+> * È possibile accedere in modo anonimo solo alle API richieste per eseguire il pull di un'immagine nota. Nessun'altra API per operazioni come l'elenco di tag o l'elenco di repository è accessibile in modo anonimo.
+> * Prima di provare un'operazione pull anonima, eseguire `docker logout` per assicurarsi di cancellare eventuali credenziali Docker esistenti.
 
 ## <a name="diagnostics-and-health-checks"></a>Controlli di diagnostica e integrità
 

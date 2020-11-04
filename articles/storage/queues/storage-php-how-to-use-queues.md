@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: how-to
 ms.reviewer: dineshm
-ms.openlocfilehash: aefd03b9d0ce726e086dff96a648e5f3a6b28e6e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0e5b7ed75f22659a9a38ac761cc61c841102a067
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84809211"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93345840"
 ---
 # <a name="how-to-use-queue-storage-from-php"></a>Come usare l'archiviazione di accodamento da PHP
 
@@ -38,7 +38,7 @@ In questa guida vengono usate le funzionalità del servizio di archiviazione di 
 ### <a name="install-via-composer"></a>Installazione tramite Composer
 
 1. Creare un file denominato **composer.json** nella radice del progetto e aggiungervi il codice seguente:
-   
+
     ```json
     {
       "require": {
@@ -46,9 +46,10 @@ In questa guida vengono usate le funzionalità del servizio di archiviazione di 
       }
     }
     ```
+
 2. Scaricare **[composer.phar][composer-phar]** nella radice del progetto.
 3. Aprire un prompt dei comandi ed eseguire il comando seguente nella radice del progetto
-   
+
     ```
     php composer.phar install
     ```
@@ -89,8 +90,9 @@ UseDevelopmentStorage=true
 
 Per creare un client del Servizio di accodamento di Azure, è necessario usare la classe **QueueRestProxy**. È possibile utilizzare le tecniche seguenti:
 
-* Passare la stringa di connessione direttamente.
-* Usare variabili di ambiente nell'app Web per archiviare la stringa di connessione. Vedere il documento sulle [impostazioni di configurazione di app Web di Azure](../../app-service/configure-common.md) per la configurazione delle stringhe di connessione.
+- Passare la stringa di connessione direttamente.
+- Usare variabili di ambiente nell'app Web per archiviare la stringa di connessione. Vedere il documento sulle [impostazioni di configurazione di app Web di Azure](../../app-service/configure-common.md) per la configurazione delle stringhe di connessione.
+
 Per gli esempi illustrati in questo articolo, la stringa di connessione viene passata direttamente.
 
 ```php
@@ -139,8 +141,6 @@ catch(ServiceException $e){
 
 > [!NOTE]
 > Non basarsi sulla distinzione maiuscole/minuscole nelle chiavi di metadati. Il servizio legge tutte le chiavi come scritte in minuscolo.
-> 
-> 
 
 ## <a name="add-a-message-to-a-queue"></a>Aggiungere un messaggio a una coda
 
@@ -425,8 +425,8 @@ catch(ServiceException $e){
 
 A questo punto, dopo aver appreso le nozioni di base sull'archiviazione delle code, visitare i collegamenti seguenti per altre informazioni sulle attività di archiviazione più complesse.
 
-* Consultare le [Informazioni di riferimento API sulla libreria client di Archiviazione di Azure per PHP](https://azure.github.io/azure-storage-php/)
-* Vedere l'esempio di [coda avanzata](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
+- Consultare le [Informazioni di riferimento API sulla libreria client di Archiviazione di Azure per PHP](https://azure.github.io/azure-storage-php/)
+- Vedere l'esempio di [coda avanzata](https://github.com/Azure/azure-storage-php/blob/master/samples/QueueSamples.php).
 
 Per ulteriori informazioni, vedere anche il [Centro per sviluppatori di PHP](https://azure.microsoft.com/develop/php/).
 

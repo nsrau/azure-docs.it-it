@@ -10,12 +10,12 @@ ms.date: 09/14/2020
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: queues
-ms.openlocfilehash: 6937f3aa136ee4d5b906492c3f8cffc86acbc2e5
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 3636b0366dfe687c4825ec1a16c5e8094a7db10b
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92785664"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346027"
 ---
 # <a name="run-powershell-commands-with-azure-ad-credentials-to-access-queue-data"></a>Eseguire comandi di PowerShell con Azure AD credenziali per accedere ai dati della coda
 
@@ -27,7 +27,7 @@ Archiviazione di Azure fornisce estensioni per PowerShell che consentono di acce
 
 Le estensioni di archiviazione di Azure sono supportate per le operazioni sui dati della coda. Le operazioni che è possibile chiamare dipendono dalle autorizzazioni concesse all'entità di sicurezza Azure AD con cui si accede a PowerShell. Le autorizzazioni per le code di archiviazione di Azure vengono assegnate tramite RBAC di Azure. Se ad esempio è stato assegnato il ruolo **lettore dati coda** , è possibile eseguire i comandi di scripting per leggere i dati da una coda. Se è stato assegnato il ruolo di **collaboratore dei dati della coda** , è possibile eseguire i comandi di scripting per la lettura, la scrittura o l'eliminazione di una coda o dei dati in essi contenuti.
 
-Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione di archiviazione di Azure in una coda, vedere [chiamare le operazioni di archiviazione con token OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).  
+Per informazioni dettagliate sulle autorizzazioni necessarie per ogni operazione di archiviazione di Azure in una coda, vedere [chiamare le operazioni di archiviazione con token OAuth](/rest/api/storageservices/authorize-with-azure-active-directory#call-storage-operations-with-oauth-tokens).
 
 ## <a name="call-powershell-commands-using-azure-ad-credentials"></a>Chiamare i comandi di PowerShell usando credenziali Azure AD
 
@@ -45,7 +45,7 @@ L'esempio seguente illustra come creare una coda in un nuovo account di archivia
 
     Per altre informazioni sull'accesso ad Azure con PowerShell, vedere [accedere con Azure PowerShell](/powershell/azure/authenticate-azureps).
 
-1. Per creare un gruppo di risorse di Azure, chiamare [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). 
+1. Per creare un gruppo di risorse di Azure, chiamare [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup).
 
     ```powershell
     $resourceGroup = "sample-resource-group-ps"

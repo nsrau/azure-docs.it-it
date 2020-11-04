@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/09/2020
-ms.openlocfilehash: 40de52773d9f205e3133543f689c9d381776d8ee
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 3599052e49b91747580bf506f06ebfb8d2e34423
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130426"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93346809"
 ---
 # <a name="create-an-azure-container-offer"></a>Creare un'offerta per il contenitore di Azure
 
@@ -38,8 +38,8 @@ Oltre alle conoscenze relative al dominio della soluzione, il team tecnico deve 
 
 Per la gestione dell'immagine del contenitore scegliere uno o entrambi gli ambienti di script seguenti:
 
-- [Azure PowerShell](/powershell/azure/?view=azps-3.7.0&viewFallbackFrom=azps-3.6.1)
-- [Interfaccia della riga di comando di Azure](/cli/azure/?view=azure-cli-latest).
+- [Azure PowerShell](/powershell/azure/)
+- [Interfaccia della riga di comando di Azure](/cli/azure/).
 
 È consigliabile aggiungere questi strumenti all'ambiente di sviluppo:
 
