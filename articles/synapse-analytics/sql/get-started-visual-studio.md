@@ -1,6 +1,6 @@
 ---
 title: Connettersi ed eseguire query su sinapsi SQL con Visual Studio e SSDT
-description: Usare Visual Studio per eseguire query nel pool SQL tramite Azure Synapse Analytics.
+description: Usare Visual Studio per eseguire query in un pool SQL dedicato usando le analisi delle sinapsi di Azure.
 services: synapse analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,14 +9,15 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 93c975bbbc69a43f1bd47bd4b1e7b857338ac1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 098256c3174f5a737bec4f6a62cb1d2af99e6f4f
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87089244"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311064"
 ---
 # <a name="connect-to-synapse-sql-with-visual-studio-and-ssdt"></a>Connettersi a Synapse SQL con Visual Studio e SSDT
+
 > [!div class="op_single_selector"]
 > * [Azure Data Studio](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
@@ -26,19 +27,20 @@ ms.locfileid: "87089244"
 > 
 > 
 
-Usare Visual Studio per eseguire query nel pool SQL tramite Azure Synapse Analytics. Questo metodo usa l'estensione di SQL Server Data Tools (SSDT) in Visual Studio 2019. 
+Usare Visual Studio per eseguire query in un pool SQL dedicato usando le analisi delle sinapsi di Azure. Questo metodo usa l'estensione di SQL Server Data Tools (SSDT) in Visual Studio 2019. 
 
 > [!NOTE]
-> SQL su richiesta (anteprima) non è supportato da SSDT.
+> Il pool SQL senza server (anteprima) non è supportato da SSDT.
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Per usare l'esercitazione è necessario disporre dei componenti seguenti:
 
-* Un pool SQL esistente. Se non ne è presente uno, vedere [Creare un pool SQL](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per completare questo prerequisito.
+* Un pool SQL dedicato esistente. Se non si dispone di uno, vedere [creare un pool SQL dedicato](../sql-data-warehouse/create-data-warehouse-portal.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per completare questo prerequisito.
 * SSDT per Visual Studio. Se Visual Studio è già installato, probabilmente questo componente è già disponibile. Per istruzioni sull'installazione e sulle opzioni, vedere [Installare Visual Studio 2015 e SSDT per SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
-* Il nome completo dell'istanza di SQL Server. Per trovare il nome del server, vedere [Connettersi a un pool SQL](connect-overview.md).
+* Il nome completo dell'istanza di SQL Server. Per trovare il nome del server, vedere [connettersi a un pool SQL dedicato](connect-overview.md).
 
-## <a name="1-connect-to-sql-pool"></a>1. Connettersi a un pool SQL
+## <a name="1-connect-to-a-dedicated-sql-pool"></a>1. connettersi a un pool SQL dedicato
 1. Aprire Visual Studio 2019.
 2. Aprire Esplora oggetti di SQL Server selezionando **Vista** > **Esplora oggetti di SQL Server**.
    
@@ -50,9 +52,9 @@ Per usare l'esercitazione è necessario disporre dei componenti seguenti:
    
     ![Connetti al server](./media/get-started-visual-studio/connection-dialog.png)
    
-   * **Nome server**: Immettere il **nome server** identificato in precedenza.
-   * **Autenticazione**: Selezionare **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory**:
-   * **Nome utente** e **Password**: se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
+   * **Nome server** : Immettere il **nome server** identificato in precedenza.
+   * **Autenticazione** : Selezionare **Autenticazione di SQL Server** o **Autenticazione integrata di Active Directory** :
+   * **Nome utente** e **Password** : se è stata selezionata l'autenticazione di SQL Server, immettere il nome utente e la password.
    * Fare clic su **Connetti**.
 5. Per l'esplorazione, espandere il server SQL Azure. È possibile visualizzare i database associati al server. Espandere AdventureWorksDW per visualizzare le tabelle nel database di esempio.
    
@@ -79,5 +81,5 @@ Ora che è stata stabilita una connessione al database, è possibile scrivere un
 
 ## <a name="next-steps"></a>Passaggi successivi
 Ora che è possibile connettersi ed eseguire una query, provare a [visualizzare i dati con Power BI](get-started-power-bi-professional.md).
-Per configurare l'ambiente per l'autenticazione di Azure Active Directory, vedere [Eseguire l'autenticazione in un pool SQL](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+Per configurare l'ambiente per l'autenticazione Azure Active Directory, vedere eseguire l'autenticazione [a un pool SQL dedicato](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
  

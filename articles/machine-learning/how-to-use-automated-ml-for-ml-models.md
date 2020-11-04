@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 47df04a0195c4cfcc4e40db5bf21387a284f682c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ad84d3d3fd58edc6f7967c6f50440dcc90625617
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362249"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311270"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 
@@ -117,7 +117,7 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
 
 1. Nel modulo **Tipo di attività e impostazioni** selezionare il tipo di attività: classificazione, regressione o previsione. Per ulteriori informazioni, vedere [tipi di attività supportati](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
-    1. Per la **classificazione**, è anche possibile abilitare l'apprendimento avanzato.
+    1. Per la **classificazione** , è anche possibile abilitare l'apprendimento avanzato.
     
         Se l'apprendimento avanzato è abilitato, la convalida è limitata a _train_validation divisione_. [Altre informazioni sulle opzioni di convalida](how-to-configure-cross-validation-data-splits.md).
 
@@ -126,9 +126,9 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
     
         1. Abilitare l'apprendimento avanzato.
     
-        1. Seleziona *colonna temporale*: questa colonna contiene i dati relativi all'ora da usare.
+        1. Seleziona *colonna temporale* : questa colonna contiene i dati relativi all'ora da usare.
 
-        1. Select *Forecast Horizon*: indica il numero di unità di tempo (minuti/ore/giorni/settimane/mesi/anni) che il modello sarà in grado di stimare in futuro. Maggiore è il tempo per il quale il modello deve effettuare previsioni nel futuro, minore sarà il livello di precisione. [Altre informazioni sulla previsione e sull'orizzonte di previsione](how-to-auto-train-forecast.md).
+        1. Select *Forecast Horizon* : indica il numero di unità di tempo (minuti/ore/giorni/settimane/mesi/anni) che il modello sarà in grado di stimare in futuro. Maggiore è il tempo per il quale il modello deve effettuare previsioni nel futuro, minore sarà il livello di precisione. [Altre informazioni sulla previsione e sull'orizzonte di previsione](how-to-auto-train-forecast.md).
 
 1. (Facoltativo) Visualizzare le impostazioni di configurazione aggiuntive: altre impostazioni che è possibile usare per controllare meglio il processo di training. Altrimenti, vengono applicate le impostazioni predefinite in base alla selezione dell'esperimento e ai dati. 
 
@@ -136,10 +136,10 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
     ------|------
     Primary metric (Metrica principale)| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche dei modelli](how-to-configure-auto-train.md#primary-metric).
     Modello esplicativo migliore | Selezionare questa opzione per abilitare o disabilitare, in modo da visualizzare le spiegazioni per il modello migliore consigliato. <br> Questa funzionalità non è attualmente disponibile per [determinati algoritmi di previsione](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
-    Algoritmo bloccato| Selezionare gli algoritmi da escludere dal processo di training. <br><br> Consentire gli algoritmi è disponibile solo per gli [esperimenti SDK](how-to-configure-auto-train.md#supported-models). <br> Vedere i [modelli supportati per ogni tipo di attività](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true).
-    Exit criterion (Esci da criterio)| Quando uno di questi criteri viene soddisfatto, il processo di training viene arrestato. <br> *Durata del processo di training (ore)* : per quanto tempo consentire l'esecuzione del processo di training. <br> *Soglia di punteggio metrica*:  punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo del necessario al processo di training.
+    Algoritmo bloccato| Selezionare gli algoritmi da escludere dal processo di training. <br><br> Consentire gli algoritmi è disponibile solo per gli [esperimenti SDK](how-to-configure-auto-train.md#supported-models). <br> Vedere i [modelli supportati per ogni tipo di attività](/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?preserve-view=true&view=azure-ml-py).
+    Exit criterion (Esci da criterio)| Quando uno di questi criteri viene soddisfatto, il processo di training viene arrestato. <br> *Durata del processo di training (ore)* : per quanto tempo consentire l'esecuzione del processo di training. <br> *Soglia di punteggio metrica* :  punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo del necessario al processo di training.
     Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. <br> [Altre informazioni sulla convalida incrociata](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>La previsione supporta solo la convalida incrociata k-fold.
-    Concorrenza| *Numero massimo di iterazioni simultanee*: numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più volte del numero specificato di iterazioni.
+    Concorrenza| *Numero massimo di iterazioni simultanee* : numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più volte del numero specificato di iterazioni.
 
 1. Opzionale Visualizza impostazioni conteggi: se si sceglie di abilitare **conteggi automatici** nel modulo **impostazioni di configurazione aggiuntive** , vengono applicate le tecniche conteggi predefinite. Nelle **impostazioni di visualizzazione conteggi** è possibile modificare queste impostazioni predefinite e personalizzarle di conseguenza. Informazioni su come [personalizzare featurizations](#customize-featurization). 
 
@@ -196,7 +196,7 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
 
 1. Inserire i dati nel riquadro **Distribuisci modello**.
 
-    Campo| Valore
+    Campo| valore
     ----|----
     Nome| Specificare un nome univoco per la distribuzione.
     Descrizione| Immettere una descrizione per identificare meglio le finalità della distribuzione.
@@ -217,6 +217,6 @@ A questo punto, è disponibile un servizio Web operativo per generare previsioni
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Informazioni sull’utilizzo di un servizio Web](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).
+* [Informazioni sull’utilizzo di un servizio Web](./how-to-consume-web-service.md).
 * [Informazioni sui risultati di Machine Learning automatizzato](how-to-understand-automated-ml.md).
 * [Altre informazioni su Machine Learning automatizzato](concept-automated-ml.md) e Azure Machine Learning.

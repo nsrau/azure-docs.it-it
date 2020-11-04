@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 08981ad21c15b6fc375e2e0733564c40d54932ba
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce068f1b43fcd6611d4abf65029cbcc5de3b7d30
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91708255"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311592"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usare il pacchetto di interpretazione per spiegare i modelli ML & le stime in Python (anteprima)
 
@@ -85,7 +85,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
                                  classes=classes)
     ```
 
-    oppure
+    o
 
     ```python
 
@@ -111,7 +111,7 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
                                classes=classes)
     ```
 
-    oppure
+    o
 
     ```python
     from interpret.ext.blackbox import PFIExplainer
@@ -302,7 +302,7 @@ Dopo aver scaricato le spiegazioni nel notebook di Jupyter locale, è possibile 
 
 I tracciati seguenti forniscono una visualizzazione complessiva del modello sottoposto a training insieme alle relative stime e spiegazioni.
 
-|Grafico|Description|
+|Grafico|Descrizione|
 |----|-----------|
 |Esplorazione dei dati| Visualizza una panoramica del set di dati insieme ai valori di stima.|
 |Importanza globale|Consente di aggregare i valori di importanza dei singoli punti di riferimento per visualizzare le principali funzionalità importanti della K (configurabile K) del modello. Consente di comprendere il comportamento generale del modello sottostante.|
@@ -316,7 +316,7 @@ I tracciati seguenti forniscono una visualizzazione complessiva del modello sott
 
 È possibile caricare il tracciato dell'importanza della singola funzione per qualsiasi punto dati facendo clic su uno dei singoli punti dati in uno qualsiasi dei tracciati complessivi.
 
-|Grafico|Description|
+|Grafico|Descrizione|
 |----|-----------|
 |Importanza locale|Mostra le principali funzionalità principali K (configurabili K) per una singola stima. Consente di illustrare il comportamento locale del modello sottostante in un punto dati specifico.|
 |Esplorazione della perturbazione (analisi di simulazione)|Consente di modificare i valori delle funzionalità del punto dati selezionato e osservare le modifiche risultanti al valore di stima.|
@@ -354,7 +354,7 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
    [![Funzionalità locale del dashboard di visualizzazione importanza in AzureML studio negli esperimenti](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png)](./media/how-to-machine-learning-interpretability-aml/amlstudio-experiments.png#lightbox)
 
 * Riquadro **modelli**
-  1. Se il modello originale è stato registrato seguendo la procedura descritta in [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where), è possibile selezionare **modelli** nel riquadro a sinistra per visualizzarlo.
+  1. Se il modello originale è stato registrato seguendo la procedura descritta in [distribuire modelli con Azure Machine Learning](./how-to-deploy-and-where.md), è possibile selezionare **modelli** nel riquadro a sinistra per visualizzarlo.
   1. Selezionare un modello e quindi la scheda **spiegazioni** per visualizzare il dashboard di visualizzazione spiegazione.
 
 ## <a name="interpretability-at-inference-time"></a>Interpretazione in fase di inferenza
@@ -419,7 +419,7 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
 
 1. Distribuire l'immagine in una destinazione di calcolo attenendosi alla procedura seguente:
 
-   1. Se necessario, registrare il modello di stima originale seguendo la procedura descritta in [distribuire modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where).
+   1. Se necessario, registrare il modello di stima originale seguendo la procedura descritta in [distribuire modelli con Azure Machine Learning](./how-to-deploy-and-where.md).
 
    1. Creare un file di assegnazione dei punteggi.
 
@@ -553,4 +553,3 @@ Seguire uno di questi percorsi per accedere al dashboard di visualizzazione in A
 [Scopri di più sull'interpretazione dei modelli](how-to-machine-learning-interpretability.md)
 
 [Estrarre Azure Machine Learning notebook di esempio di interpretazione](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model)
-

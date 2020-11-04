@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: a62f8aee0bd0a0d2b7009a48e9d5f00ea3c5155f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e1bf5dd070ac12878c608f744ff450395de84c48
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90883219"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310029"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>Moduli di input del servizio Web e di output del servizio Web
 
@@ -26,7 +26,7 @@ Il modulo di input del servizio Web indica il punto in cui i dati utente entrano
 
 ## <a name="how-to-use-web-service-input-and-output"></a>Come usare l'input e l'output del servizio Web
 
-Quando si [Crea una pipeline di inferenza in tempo reale](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#create-a-real-time-inference-pipeline) dalla pipeline di training, i moduli di input del servizio Web e di output del servizio Web verranno aggiunti automaticamente per mostrare dove i dati utente entrano nella pipeline e dove vengono restituiti i dati. 
+Quando si [Crea una pipeline di inferenza in tempo reale](../tutorial-designer-automobile-price-deploy.md#create-a-real-time-inference-pipeline) dalla pipeline di training, i moduli di input del servizio Web e di output del servizio Web verranno aggiunti automaticamente per mostrare dove i dati utente entrano nella pipeline e dove vengono restituiti i dati. 
 
 > [!NOTE]
 > La generazione automatica di una pipeline di inferenza in tempo reale è un processo basato su regole che prevede il massimo sforzo. Non esiste alcuna garanzia di correttezza. 
@@ -48,6 +48,6 @@ Dopo aver inviato la pipeline e completato l'esecuzione, è possibile distribuir
 >  Nell'esempio precedente, l' **immissione manuale dei dati** fornisce lo schema di dati per l'input del servizio Web ed è necessario per la distribuzione dell'endpoint in tempo reale. In genere, è necessario connettere sempre un modulo o un set di dati alla porta in cui l' **input del servizio Web** è connesso per fornire lo schema di dati.
    
 ## <a name="next-steps"></a>Passaggi successivi
-Altre informazioni sulla [distribuzione dell'endpoint in tempo reale](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-deploy#deploy-the-real-time-endpoint).
+Altre informazioni sulla [distribuzione dell'endpoint in tempo reale](../tutorial-designer-automobile-price-deploy.md#deploy-the-real-time-endpoint).
 
 Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning.

@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 05/25/2018
-ms.openlocfilehash: 6bd86dc855e5a312550abe050603aeaf45b075ee
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 550603b9315c1abaa025aac804afc4fe674159d2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362351"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310024"
 ---
 # <a name="export-and-delete-in-product-user-data-from-azure-machine-learning-studio-classic"></a>Esportare ed eliminare dati utente del prodotto dal Azure Machine Learning Studio (versione classica)
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 
@@ -43,15 +43,15 @@ Esistono due tipi di dati utente in Machine Learning Studio (classico):
 
 Esistono tre tipi di account Machine Learning Studio (classico). Il tipo di account di cui si dispone determina la modalità di archiviazione dei dati e la procedura per eliminarli o esportarli.
 
-- Un'**area di lavoro guest** è un account gratuito e anonimo. Si accede senza fornire credenziali, ad esempio un indirizzo di posta elettronica o una password.
+- Un' **area di lavoro guest** è un account gratuito e anonimo. Si accede senza fornire credenziali, ad esempio un indirizzo di posta elettronica o una password.
     -  Alla scadenza dell'area di lavoro guest, i dati vengono eliminati.
     - Gli utenti guest possono esportare i dati dei clienti tramite l'interfaccia utente, le API REST o il pacchetto di PowerShell.
-- Un'**area di lavoro gratuita** è un account gratuito a cui si accede con le credenziali dell'account Microsoft, un indirizzo di posta elettronica e una password.
+- Un' **area di lavoro gratuita** è un account gratuito a cui si accede con le credenziali dell'account Microsoft, un indirizzo di posta elettronica e una password.
     - È possibile esportare ed eliminare dati personali e dei clienti, che sono soggetti a richieste DSR (Data Subject Rights, Diritti del soggetto dei dati).
     - È possibile esportare i dati dei clienti tramite l'interfaccia utente, le API REST o il pacchetto di PowerShell.
     - Per le aree di lavoro gratuite che non usano account di Azure AD, i dati di telemetria possono essere esportati tramite il portale Privacy.
     - Quando si elimina l'area di lavoro, si eliminano tutti i dati personali dei clienti.
-- Un'**area di lavoro standard** è un account a pagamento a cui si accede inserendo credenziali di accesso.
+- Un' **area di lavoro standard** è un account a pagamento a cui si accede inserendo credenziali di accesso.
     - È possibile esportare ed eliminare dati personali e dei clienti, che sono soggetti a richieste DSR.
     - È possibile accedere ai dati tramite il portale Privacy di Azure
     - È possibile esportare i dati personali e dei clienti tramite l'interfaccia utente, le API REST o il pacchetto di PowerShell
@@ -78,4 +78,4 @@ Usare PowerShell per esportare tutte le informazioni in un formato portatile da 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per la documentazione relativa ai servizi Web e alla fatturazione del piano di impegno, vedere informazioni di [riferimento sull'API REST Azure Machine Learning Studio (classica)](https://docs.microsoft.com/rest/api/machinelearning/). 
+Per la documentazione relativa ai servizi Web e alla fatturazione del piano di impegno, vedere informazioni di [riferimento sull'API REST Azure Machine Learning Studio (classica)](/rest/api/machinelearning/).

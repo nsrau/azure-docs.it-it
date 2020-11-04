@@ -7,13 +7,13 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: afae49cf6ee44b138a55f58f415fc761308b7894
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 10/02/2020
+ms.openlocfilehash: e16cc8934407a5c54c84fd045c99e28116e656c9
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91542377"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310468"
 ---
 # <a name="receive-and-confirm--b2b-as2-messages-by-using-azure-logic-apps-and-enterprise-integration-pack"></a>Ricevere e confermare messaggi AS2 B2B usando app per la logica di Azure e Enterprise Integration Pack
 
@@ -39,7 +39,7 @@ Questo articolo illustra come creare un'app per la logica che riceve una richies
 
 * Almeno due [partner commerciali](../logic-apps/logic-apps-enterprise-integration-partners.md) già definiti nell'account di integrazione insieme ai [contratti AS2 e X12](logic-apps-enterprise-integration-agreements.md) per tali partner.
 
-## <a name="add-request-trigger"></a>Aggiungere un trigger di richiesta
+## <a name="add-the-request-trigger"></a>Aggiungere il trigger Request
 
 Questo esempio usa la finestra di progettazione di app per la logica nella portale di Azure, ma è possibile seguire una procedura simile per la finestra di progettazione di app per la logica in Visual Studio.
 
@@ -59,7 +59,7 @@ Questo esempio usa la finestra di progettazione di app per la logica nella porta
 
    ![URL generato per il trigger di richiesta per la ricezione di chiamate](./media/logic-apps-enterprise-integration-b2b/generated-url-request-trigger.png)
 
-## <a name="add-as2-decode-action"></a>Aggiungi azione di decodifica AS2
+## <a name="add-the-as2-decode-action"></a>Aggiungere l'azione AS2 Decode
 
 Aggiungere ora le azioni B2B che si vuole usare. In questo esempio vengono utilizzate le azioni AS2 e X12.
 
@@ -67,17 +67,17 @@ Aggiungere ora le azioni B2B che si vuole usare. In questo esempio vengono utili
 
    ![Aggiungere un altro passaggio al flusso di lavoro dell'app per la logica](./media/logic-apps-enterprise-integration-b2b/add-new-action-under-trigger.png)
 
-1. In **scegliere un'azione**, nella casella di ricerca, immettere `as2 decode` e selezionare **AS2 Decode (v2)**.
+1. In **scegliere un'azione** , nella casella di ricerca, immettere `as2 decode` e selezionare **AS2 Decode (v2)**.
 
    ![Trovare e selezionare "AS2 Decode (v2)"](./media/logic-apps-enterprise-integration-b2b/add-as2-decode-action.png)
 
 1. Per la proprietà **Message to decode** , immettere l'input da decodificare nell'azione AS2, ovvero il `body` contenuto ricevuto dal trigger di richiesta HTTP. Sono disponibili diversi modi per specificare questo contenuto come input, dall'elenco di contenuto dinamico o come espressione:
 
-   * Per effettuare una selezione da un elenco che Mostra gli output dei trigger disponibili, fare clic all'interno della casella **messaggio da decodificare** . Quando viene visualizzato l'elenco di contenuto dinamico, in **quando viene ricevuta una richiesta http**, selezionare il valore della proprietà **Body** , ad esempio:
+   * Per effettuare una selezione da un elenco che Mostra gli output dei trigger disponibili, fare clic all'interno della casella **messaggio da decodificare** . Quando viene visualizzato l'elenco di contenuto dinamico, in **quando viene ricevuta una richiesta http** , selezionare il valore della proprietà **Body** , ad esempio:
 
      ![Selezionare il valore "Body" dal trigger](./media/logic-apps-enterprise-integration-b2b/select-body-content-from-trigger.png)
 
-   * Per immettere un'espressione che fa riferimento all'output del trigger `body` , fare clic all'interno della casella **messaggio da decodificare** . Quando viene visualizzato l'elenco contenuto dinamico, selezionare **espressione**. Nell'editor espressioni immettere qui l'espressione e selezionare **OK**:
+   * Per immettere un'espressione che fa riferimento all'output del trigger `body` , fare clic all'interno della casella **messaggio da decodificare** . Quando viene visualizzato l'elenco contenuto dinamico, selezionare **espressione**. Nell'editor espressioni immettere qui l'espressione e selezionare **OK** :
 
      `triggerOutputs()['body']`
 
@@ -91,13 +91,21 @@ Aggiungere ora le azioni B2B che si vuole usare. In questo esempio vengono utili
 
 1. Per la proprietà **intestazioni messaggio** immettere le intestazioni necessarie per l'azione AS2, descritte dal `headers` contenuto ricevuto dal trigger della richiesta HTTP.
 
-   Per immettere un'espressione che fa riferimento all'output del trigger `headers` , fare clic all'interno della casella **intestazioni messaggio** . Quando viene visualizzato l'elenco contenuto dinamico, selezionare **espressione**. Nell'editor espressioni immettere qui l'espressione e selezionare **OK**:
+   1. Per immettere un'espressione che fa riferimento all'output del trigger `headers` , selezionare **Cambia intestazioni di messaggio in modalità testo**.
 
-   `triggerOutputs()['Headers']`
+      ![Screenshot che mostra l'opzione "cambia intestazioni di messaggio in modalità testo" selezionata.](./media/logic-apps-enterprise-integration-b2b/as2-decode-switch-text-mode.png)
 
-   Per ottenere questa espressione per la risoluzione di questo token, passare dalla finestra di progettazione alla visualizzazione codice, ad esempio:
+   1. Fare clic all'interno della casella **intestazioni messaggio** . Quando viene visualizzato l'elenco contenuto dinamico, selezionare **espressione**. Nell'editor espressioni immettere qui l'espressione e selezionare **OK** :
 
-   ![Output intestazioni risolte dal trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
+      `triggerOutputs()['Headers']`
+
+      Nell'azione AS2 Decode l'espressione viene ora visualizzata come token:
+
+      ![Screenshot che mostra il @triggerOutputs token "() [' headers ']" nella casella "Message Headers".](./media/logic-apps-enterprise-integration-b2b/as2-decode-message-header-expression.png)
+
+   1. Per ottenere il token dell'espressione da risolvere nel token delle **intestazioni** , passare tra la finestra di progettazione e la visualizzazione codice. Dopo questo passaggio, l'azione AS2 Decode ha un aspetto simile all'esempio seguente:
+
+      ![Output intestazioni risolte dal trigger](./media/logic-apps-enterprise-integration-b2b/resolved-trigger-outputs-headers-expression.png)
 
 ## <a name="add-response-action-for-message-receipt-notification"></a>Aggiungi azione di risposta per la notifica di ricezione del messaggio
 
@@ -105,7 +113,7 @@ Per notificare al partner commerciale che è stato ricevuto il messaggio, è pos
 
 1. Nell'azione **AS2 Decode** selezionare **nuovo passaggio**.
 
-1. In **scegliere un'azione**, nella casella di ricerca, selezionare **predefinito**. Nella casella di ricerca immettere `condition`. Nell'elenco **Azioni** selezionare **Condizione**.
+1. In **scegliere un'azione** , nella casella di ricerca, selezionare **predefinito**. Nella casella di ricerca immettere `condition`. Nell'elenco **Azioni** selezionare **Condizione**.
 
    ![Aggiungere l'azione "Condition"](./media/logic-apps-enterprise-integration-b2b/add-condition-action.png)
 
@@ -123,7 +131,7 @@ Per notificare al partner commerciale che è stato ricevuto il messaggio, è pos
 
 1. Specificare ora le risposte per restituire se l'azione **AS2 Decode** ha esito positivo o negativo.
 
-   1. Nel caso in cui l'azione di **decodifica AS2** abbia esito positivo, nella forma **If true** Selezionare **Aggiungi un'azione**. In **scegliere un'azione**, nella casella di ricerca, immettere `response` e selezionare **risposta**.
+   1. Nel caso in cui l'azione di **decodifica AS2** abbia esito positivo, nella forma **If true** Selezionare **Aggiungi un'azione**. In **scegliere un'azione** , nella casella di ricerca, immettere `response` e selezionare **risposta**.
 
       ![Trovare e selezionare l'azione di risposta](./media/logic-apps-enterprise-integration-b2b/select-http-response-action.png)
 
@@ -141,7 +149,7 @@ Per notificare al partner commerciale che è stato ricevuto il messaggio, è pos
 
       ![Espressione risolta per accedere al messaggio MDN AS2](./media/logic-apps-enterprise-integration-b2b/response-action-success-resolved-expression.png)
 
-   1. Nel caso in cui l'azione **AS2 Decode** abbia esito negativo, nella forma **se false** Selezionare **Aggiungi un'azione**. In **scegliere un'azione**, nella casella di ricerca, immettere `response` e selezionare **risposta**. Configurare l'azione di **risposta** per restituire lo stato e l'errore desiderati.
+   1. Nel caso in cui l'azione **AS2 Decode** abbia esito negativo, nella forma **se false** Selezionare **Aggiungi un'azione**. In **scegliere un'azione** , nella casella di ricerca, immettere `response` e selezionare **risposta**. Configurare l'azione di **risposta** per restituire lo stato e l'errore desiderati.
 
 1. Salvare l'app per la logica.
 
@@ -149,7 +157,7 @@ Per notificare al partner commerciale che è stato ricevuto il messaggio, è pos
 
 1. A questo punto, aggiungere l'azione **Decode X12 Message** . Nell'azione **risposta** selezionare **Aggiungi un'azione**.
 
-1. In **scegliere un'azione**, nella casella di ricerca, immettere `x12 decode` e selezionare **decodifica messaggio X12**.
+1. In **scegliere un'azione** , nella casella di ricerca, immettere `x12 decode` e selezionare **decodifica messaggio X12**.
 
    ![Trova e seleziona l'azione "decodifica messaggio X12"](./media/logic-apps-enterprise-integration-b2b/add-x12-decode-action.png)
 

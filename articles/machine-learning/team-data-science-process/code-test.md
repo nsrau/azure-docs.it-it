@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: fc837405e03ffac41d216a5ba18384208b07aaf1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bcebc568db4a0d2b4b287045ba0a67c88d9b8c92
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87090298"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312675"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Test di codice di data science su Azure con il processo di data science per i team e Azure DevOps Services
 Questo articolo include le linee guida preliminari per il test del codice in un flusso di lavoro di data science. Il test offre ai data scientist un metodo sistematico ed efficiente per il controllo della qualità e del risultato previsto del codice. Viene usato un [progetto TDSP (Team Data Science Process) che usa il set di dati sul reddito degli adulti UCI](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) pubblicato in precedenza per illustrare la modalità di esecuzione del test del codice. 
@@ -89,7 +89,7 @@ Usare la procedura seguente per configurare ed eseguire il test di codice e una 
 
       ![Codice per la verifica dei valori di stima](./media/code-test/check_prediction_values.PNG)
 
-1. Inserire tutte le funzioni di test in uno script Python denominato **test_funcs.py**:
+1. Inserire tutte le funzioni di test in uno script Python denominato **test_funcs.py** :
 
     ![Script Python per le funzioni di test](./media/code-test/create_file_test_func.PNG)
 
@@ -124,7 +124,7 @@ Usare la procedura seguente per configurare ed eseguire il test di codice e una 
 
     ![Elenco di modelli e pulsante "Processo vuoto"](./media/code-test/start_empty_process_template.PNG)
 
-    d. Assegnare un nome alla compilazione e selezionare l'agente. È possibile scegliere il valore predefinito qui se si vuole usare un DSVM per completare il processo di compilazione. Per altre informazioni sull'impostazione degli agenti, vedere [Build and release agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts) (Agenti di compilazione e versione).
+    d. Assegnare un nome alla compilazione e selezionare l'agente. È possibile scegliere il valore predefinito qui se si vuole usare un DSVM per completare il processo di compilazione. Per altre informazioni sull'impostazione degli agenti, vedere [Build and release agents](/azure/devops/pipelines/agents/agents?view=vsts) (Agenti di compilazione e versione).
     
     ![Compilazione e selezioni degli agenti](./media/code-test/select_agent.PNG)
 
@@ -155,7 +155,7 @@ Se gli avvisi sono impostati correttamente, viene inviata una notifica tramite p
 * Seguire la struttura e gli esempi precedenti dello scenario di stima del reddito UCI nei progetti di data science.
 
 ## <a name="references"></a>Riferimenti
-* [Processo di analisi scientifica dei dati per i team](https://aka.ms/tdsp)
+* [Processo di analisi scientifica dei dati per i team](./index.yml)
 * [Strumenti di test di Visual Studio](https://www.visualstudio.com/vs/features/testing-tools/)
 * [Risorse di test di Azure DevOps](https://www.visualstudio.com/team-services/)
 * [Data Science Virtual Machine](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

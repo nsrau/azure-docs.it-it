@@ -1,6 +1,6 @@
 ---
-title: Eseguire query su tipi nidificati Parquet con SQL su richiesta (anteprima)
-description: In questo articolo si apprenderà come eseguire una query sui tipi annidati parquet usando SQL su richiesta (anteprima).
+title: Eseguire query sui tipi annidati parquet usando un pool SQL senza server (anteprima)
+description: In questo articolo si apprenderà come eseguire una query sui tipi annidati parquet usando un pool SQL senza server (anteprima).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,22 +9,22 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08502704515c791bf63f4803b7446a0471c0a869
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3463e4dfc423a3f12ce7a42cb0def36574bcb2d3
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91288257"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312011"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-by-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query sui tipi annidati in file parquet e JSON usando SQL su richiesta (anteprima) in Azure sinapsi Analytics
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Eseguire query sui tipi annidati nei file parquet e JSON usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics
 
-Questo articolo illustra come scrivere una query usando SQL su richiesta (anteprima) in Azure sinapsi Analytics. La query eseguirà la lettura dei tipi annidati parquet.
+Questo articolo illustra come scrivere una query usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics. La query eseguirà la lettura dei tipi annidati parquet.
 I tipi annidati sono strutture complesse che rappresentano oggetti o matrici. I tipi annidati possono essere archiviati in: 
 - [Parquet](query-parquet-files.md), in cui è possibile disporre di più colonne complesse che contengono matrici e oggetti.
 - [File JSON](query-json-files.md)gerarchici, in cui è possibile leggere un documento JSON complesso come colonna singola.
 - Azure Cosmos DB raccolte (attualmente in anteprima pubblica gestita), in cui ogni documento può contenere proprietà nidificate complesse.
 
-Azure sinapsi SQL su richiesta formatta tutti i tipi annidati come oggetti e matrici JSON. È quindi possibile [estrarre o modificare oggetti complessi usando funzioni JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) o [analizzare i dati JSON usando la funzione OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+Il pool SQL senza server formatta tutti i tipi annidati come oggetti e matrici JSON. È quindi possibile [estrarre o modificare oggetti complessi usando funzioni JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) o [analizzare i dati JSON usando la funzione OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
 Di seguito è riportato un esempio di una query che estrae i valori scalari e di oggetti dal file JSON del [set di dati Open Research COVID-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) , che contiene gli oggetti annidati: 
 

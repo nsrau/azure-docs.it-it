@@ -9,23 +9,23 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: f3bbab14152f16515c93972e6b41ef34693e1143
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 2f16ed3c455067ff2fa185bff023a6993ccda58c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91367955"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311975"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-machine-learning-studio-classic"></a>Guida al linguaggio di specifica NET # per la rete neurale per Machine Learning Studio (versione classica)
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 NET # è un linguaggio sviluppato da Microsoft e usato per definire architetture di reti neurali complesse, ad esempio reti neurali profonde o convoluzioni di dimensioni arbitrarie. È possibile usare strutture complesse per migliorare l'apprendimento relativo a dati quali immagini, audio e video.
 
 È possibile usare una specifica di architettura Net# nei contesti seguenti:
 
-+ Tutti i moduli di rete neurale in Microsoft Azure Machine Learning Studio (classico): [rete neurale multiclasse](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/multiclass-neural-network), [rete neurale a due classi](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/two-class-neural-network)e [regressione di rete neurale](https://docs.microsoft.com/azure/machine-learning/studio-module-reference/neural-network-regression)
-+ Funzioni di rete neurale in Microsoft ML Server: [NeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](https://docs.microsoft.com/machine-learning-server/r-reference/microsoftml/rxneuralnet)per il linguaggio R e [rx_neural_network](https://docs.microsoft.com/machine-learning-server/python-reference/microsoftml/rx-neural-network) per Python.
++ Tutti i moduli di rete neurale in Microsoft Azure Machine Learning Studio (classico): [rete neurale multiclasse](/azure/machine-learning/studio-module-reference/multiclass-neural-network), [rete neurale a due classi](/azure/machine-learning/studio-module-reference/two-class-neural-network)e [regressione di rete neurale](/azure/machine-learning/studio-module-reference/neural-network-regression)
++ Funzioni di rete neurale in Microsoft ML Server: [NeuralNet](/machine-learning-server/r-reference/microsoftml/neuralnet) e [rxNeuralNet](/machine-learning-server/r-reference/microsoftml/rxneuralnet)per il linguaggio R e [rx_neural_network](/machine-learning-server/python-reference/microsoftml/rx-neural-network) per Python.
 
 
 Questo articolo descrive i concetti di base e la sintassi per lo sviluppo di una rete neurale personalizzata con Net#:
@@ -44,7 +44,7 @@ Ogni livello di cui è possibile eseguire il training (livello nascosto o di out
 
 Net# supporta diversi tipi di aggregazioni di connessioni, permettendo quindi di personalizzare il modo in cui gli input sono mappati ai livelli nascosti e agli output.
 
-L'aggregazione predefinita o standard è un'**aggregazione completa**, in cui ogni nodo del livello di origine è connesso a tutti i nodi del livello di destinazione.
+L'aggregazione predefinita o standard è un' **aggregazione completa** , in cui ogni nodo del livello di origine è connesso a tutti i nodi del livello di destinazione.
 
 Net# supporta anche i quattro tipi seguenti di aggregazioni di connessioni avanzate:
 
@@ -80,7 +80,7 @@ Per esempi di definizione di reti neurali per alcune attività comuni di Machine
 
 ## <a name="structure-specifications"></a>Specifiche di struttura
 
-La specifica della struttura di una rete neurale è composta da tre sezioni: la **dichiarazione delle costanti**, la **dichiarazione dei livelli** e la **dichiarazione delle connessioni**. È anche disponibile una sezione facoltativa denominata **dichiarazione delle condivisioni**. Le sezioni possono essere specificate in qualsiasi ordine.
+La specifica della struttura di una rete neurale è composta da tre sezioni: la **dichiarazione delle costanti** , la **dichiarazione dei livelli** e la **dichiarazione delle connessioni**. È anche disponibile una sezione facoltativa denominata **dichiarazione delle condivisioni**. Le sezioni possono essere specificate in qualsiasi ordine.
 
 ## <a name="constant-declaration"></a>Dichiarazione della costante
 
@@ -140,7 +140,7 @@ Sono supportate le funzioni di output seguenti:
 + tanh
 + brlinear
 
-Ad esempio, la dichiarazione seguente usa la funzione **softmax**:
+Ad esempio, la dichiarazione seguente usa la funzione **softmax** :
 
 `output Result [100] softmax from Hidden all;`
 
@@ -150,11 +150,11 @@ Immediatamente dopo aver definito il livello sottoponibile a training, è necess
 
 Sono attualmente supportati cinque tipi di aggregazioni di connessioni:
 
-+ Aggregazioni **complete**, indicate dalla parola chiave `all`
-+ Aggregazioni **filtrate**, indicate dalla parola chiave `where`, seguita da un'espressione del predicato
-+ Aggregazioni **convoluzionali**, indicate dalla parola chiave `convolve`, seguite dagli attributi di convoluzione
-+ Aggregazioni di **pooling**, indicate dalle parole chiave **max pool** o **mean pool**
-+ Aggregazioni di **normalizzazione delle risposte**, indicate dalla parola chiave **response norm**
++ Aggregazioni **complete** , indicate dalla parola chiave `all`
++ Aggregazioni **filtrate** , indicate dalla parola chiave `where`, seguita da un'espressione del predicato
++ Aggregazioni **convoluzionali** , indicate dalla parola chiave `convolve`, seguite dagli attributi di convoluzione
++ Aggregazioni di **pooling** , indicate dalle parole chiave **max pool** o **mean pool**
++ Aggregazioni di **normalizzazione delle risposte** , indicate dalla parola chiave **response norm**
 
 ## <a name="full-bundles"></a>Aggregazioni complete
 
@@ -186,27 +186,27 @@ I valori dei pesi sono raggruppati in base all'indice dei nodi di destinazione, 
 
 Quando i dati di training hanno una struttura omogenea, le connessioni convoluzionali vengono solitamente usate per ottenere funzionalità di livello elevato dei dati. Ad esempio, nei dati di tipo immagine, audio o video è possibile che la dimensionalità spaziale o temporale sia abbastanza uniforme.
 
-Le aggregazioni convoluzionali usano**kernels** rettangolari inseriti nelle dimensioni. Essenzialmente, ogni kernel definisce un insieme di pesi applicati nei vicinati locali, indicati come **applicazioni di kernel**. Ogni applicazione di kernel corrisponde a un nodo nel livello di origine indicato come **nodo centrale**. I pesi di un kernel sono condivisi tra molte connessioni. In un'aggregazione convoluzionale ogni kernel è rettangolare e tutte le applicazioni di kernel hanno le stesse dimensioni.
+Le aggregazioni convoluzionali usano **kernels** rettangolari inseriti nelle dimensioni. Essenzialmente, ogni kernel definisce un insieme di pesi applicati nei vicinati locali, indicati come **applicazioni di kernel**. Ogni applicazione di kernel corrisponde a un nodo nel livello di origine indicato come **nodo centrale**. I pesi di un kernel sono condivisi tra molte connessioni. In un'aggregazione convoluzionale ogni kernel è rettangolare e tutte le applicazioni di kernel hanno le stesse dimensioni.
 
 Le aggregazioni convoluzionali supportano gli attributi seguenti:
 
 **InputShape** definisce la dimensionalità del livello di origine ai fini di questa aggregazione convoluzionale. Il valore deve essere una tupla di valori Integer positivi. Il prodotto dei valori Integer deve essere uguale al numero di nodi del livello di origine, ma non deve corrispondere in altro modo alla dimensionalità dichiarata per il livello di origine. La lunghezza di questa tupla diventa il valore di **arietà** per l'aggregazione convoluzionale. In genere, l'arietà rappresenta il numero di argomenti oppure operandi che una funzione può accettare.
 
-Per definire la forma e le posizioni dei kernel, usare gli attributi **KernelShape**, **Stride**, **Padding**, **LowerPad** e **UpperPad**:
+Per definire la forma e le posizioni dei kernel, usare gli attributi **KernelShape** , **Stride** , **Padding** , **LowerPad** e **UpperPad** :
 
-+ **KernelShape**: (obbligatorio) definisce la dimensionalità di ogni kernel per l'aggregazione convoluzionale. Il valore deve essere una tupla di numeri interi positivi con una lunghezza uguale al valore del grado dell'aggregazione. Ogni componente di questa tupla non deve essere maggiore del componente corrispondente di **InputShape**.
++ **KernelShape** : (obbligatorio) definisce la dimensionalità di ogni kernel per l'aggregazione convoluzionale. Il valore deve essere una tupla di numeri interi positivi con una lunghezza uguale al valore del grado dell'aggregazione. Ogni componente di questa tupla non deve essere maggiore del componente corrispondente di **InputShape**.
 
-+ **Stride**: (facoltativo) definisce le dimensioni del passo di inserimento della convoluzione (una sola dimensione del passo per ogni dimensione), ovvero la distanza tra i nodi centrali. Il valore deve essere una tupla di numeri interi positivi con una lunghezza corrispondente al valore del grado dell'aggregazione. Ogni componente di questa tupla non deve essere maggiore del componente corrispondente di **KernelShape**. Il valore predefinito è una tupla con tutti i componenti uguali a uno.
++ **Stride** : (facoltativo) definisce le dimensioni del passo di inserimento della convoluzione (una sola dimensione del passo per ogni dimensione), ovvero la distanza tra i nodi centrali. Il valore deve essere una tupla di numeri interi positivi con una lunghezza corrispondente al valore del grado dell'aggregazione. Ogni componente di questa tupla non deve essere maggiore del componente corrispondente di **KernelShape**. Il valore predefinito è una tupla con tutti i componenti uguali a uno.
 
-+ **Sharing**: (facoltativo) definisce la condivisione dei pesi per ogni dimensione della convoluzione. Il valore può essere un singolo valore booleano o una tupla di valori booleani, con lunghezza corrispondente al valore del grado dell'aggregazione. Un singolo valore booleano viene esteso in modo da diventare una tupla di lunghezza corretta con tutti i componenti uguali al valore specificato. Il valore predefinito è una tupla costituita interamente da valori True.
++ **Sharing** : (facoltativo) definisce la condivisione dei pesi per ogni dimensione della convoluzione. Il valore può essere un singolo valore booleano o una tupla di valori booleani, con lunghezza corrispondente al valore del grado dell'aggregazione. Un singolo valore booleano viene esteso in modo da diventare una tupla di lunghezza corretta con tutti i componenti uguali al valore specificato. Il valore predefinito è una tupla costituita interamente da valori True.
 
-+ **MapCount**: (facoltativo) definisce il numero di mapping di funzionalità per l'aggregazione convoluzionale. Il valore può essere un singolo numero intero positivo o una tupla di numeri interi positivi, con lunghezza corrispondente al valore del grado dell'aggregazione. Un singolo valore Integer viene esteso in modo da diventare una tupla di lunghezza corretta quando i primi componenti sono uguali al valore specificato e tutti i componenti rimanenti sono uguali a uno. Il valore predefinito è uno. Il numero totale di mapping di funzionalità è il prodotto dei componenti della tupla. La fattorizzazione di questo numero totale nei componenti determina il modo in cui i valori di mapping di funzionalità vengono raggruppati nei nodi di destinazione.
++ **MapCount** : (facoltativo) definisce il numero di mapping di funzionalità per l'aggregazione convoluzionale. Il valore può essere un singolo numero intero positivo o una tupla di numeri interi positivi, con lunghezza corrispondente al valore del grado dell'aggregazione. Un singolo valore Integer viene esteso in modo da diventare una tupla di lunghezza corretta quando i primi componenti sono uguali al valore specificato e tutti i componenti rimanenti sono uguali a uno. Il valore predefinito è uno. Il numero totale di mapping di funzionalità è il prodotto dei componenti della tupla. La fattorizzazione di questo numero totale nei componenti determina il modo in cui i valori di mapping di funzionalità vengono raggruppati nei nodi di destinazione.
 
-+ **Weights**: (facoltativo) definisce i pesi iniziali per l'aggregazione. Il valore deve essere una tupla di valori a virgola mobile con una lunghezza corrispondente al numero di pesi per kernel, come definito in seguito in questo articolo. I pesi predefiniti sono generati in modo casuale.
++ **Weights** : (facoltativo) definisce i pesi iniziali per l'aggregazione. Il valore deve essere una tupla di valori a virgola mobile con una lunghezza corrispondente al numero di pesi per kernel, come definito in seguito in questo articolo. I pesi predefiniti sono generati in modo casuale.
 
 Sono disponibili due set di proprietà che controllano la spaziatura interna. Le proprietà si escludono a vicenda:
 
-+ **Padding**: (facoltativo) determina se l'input deve essere riempito tramite uno **schema di riempimento predefinito**. Il valore può essere un singolo valore booleano o una tupla di valori booleani, con lunghezza corrispondente al valore del grado dell'aggregazione.
++ **Padding** : (facoltativo) determina se l'input deve essere riempito tramite uno **schema di riempimento predefinito**. Il valore può essere un singolo valore booleano o una tupla di valori booleani, con lunghezza corrispondente al valore del grado dell'aggregazione.
 
     Un singolo valore booleano viene esteso in modo da diventare una tupla di lunghezza corretta con tutti i componenti uguali al valore specificato.
 
@@ -214,14 +214,14 @@ Sono disponibili due set di proprietà che controllano la spaziatura interna. Le
 
     Se il valore per una dimensione è False, i kernel verranno definiti in modo che il numero di nodi esclusi in ogni lato sia uguale (con una differenza massima di 1). Il valore predefinito di questo attributo è una tupla con tutti i componenti uguali a False.
 
-+ **UpperPad** e **LowerPad**: (facoltativi) consentono un maggiore controllo sulla quantità di riempimento da usare. **Importante:** questi attributi possono essere definiti solo se la proprietà **Padding** precedente ***non*** è definita. I valori devono essere tuple con numeri interi con lunghezza corrispondente al grado dell'aggregazione. Quando questi attributi sono specificati, i nodi "fittizi" vengono aggiunti alle estremità superiori e inferiori di ogni dimensione del livello di input. Il numero di nodi aggiunti alle estremità inferiori e superiori di ogni dimensione è determinato rispettivamente da **LowerPad**[i] e **UpperPad**[i].
++ **UpperPad** e **LowerPad** : (facoltativi) consentono un maggiore controllo sulla quantità di riempimento da usare. **Importante:** Questi attributi possono essere definiti solo se la proprietà di **riempimento** precedente non è **_not_*_ definita. I valori devono essere tuple con valori integer con lunghezze che corrispondono al grado del bundle. Quando si specificano questi attributi, i nodi "fittizi" vengono aggiunti alle estremità inferiore e superiore di ogni dimensione del livello di input. Il numero di nodi aggiunti alle estremità inferiore e superiore di ogni dimensione è determinato rispettivamente da _* LowerPad** [i] e **UpperPad** [i].
 
     Per assicurare che i kernel corrispondano solo a nodi "effettivi" e non a nodi "fittizi", è necessario che siano soddisfatte le condizioni seguenti:
-  - Ogni componente di**LowerPad** deve essere rigorosamente minore di `KernelShape[d]/2`.
+  - Ogni componente di **LowerPad** deve essere rigorosamente minore di `KernelShape[d]/2`.
   - Ogni componente di **UpperPad** non deve essere maggiore di `KernelShape[d]/2`.
   - Il valore predefinito di questi attributi è una tupla con tutti i componenti uguali a 0.
 
-    L'impostazione **Padding** = true consente tutto il riempimento necessario per mantenere il "centro" del kernel all'interno dell'input "reale". In questo modo i calcoli matematici variano un po' per calcolare le dimensioni di output. In genere, le dimensioni di output *D* vengono calcolate come `D = (I - K) / S + 1`, dove `I` è la dimensione di input, `K` è la dimensione del kernel, `S` è lo stride e `/` è la divisione intera (con arrotondamento a zero). Se si imposta UpperPad = [1, 1], la dimensione di input `I` è in realtà 29, ovvero `D = (29 - 5) / 2 + 1 = 13`. Se **Padding è true**, `I` viene essenzialmente incrementato di `K - 1`, ovvero `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Specificando i valori per **UpperPad** e **LowerPad** si ottiene un maggiore controllo sul riempimento rispetto all'impostazione **Padding** = true.
+    L'impostazione **Padding** = true consente tutto il riempimento necessario per mantenere il "centro" del kernel all'interno dell'input "reale". In questo modo i calcoli matematici variano un po' per calcolare le dimensioni di output. In genere, le dimensioni di output *D* vengono calcolate come `D = (I - K) / S + 1`, dove `I` è la dimensione di input, `K` è la dimensione del kernel, `S` è lo stride e `/` è la divisione intera (con arrotondamento a zero). Se si imposta UpperPad = [1, 1], la dimensione di input `I` è in realtà 29, ovvero `D = (29 - 5) / 2 + 1 = 13`. Se **Padding è true** , `I` viene essenzialmente incrementato di `K - 1`, ovvero `D = ((28 + 4) - 5) / 2 + 1 = 27 / 2 + 1 = 13 + 1 = 14`. Specificando i valori per **UpperPad** e **LowerPad** si ottiene un maggiore controllo sul riempimento rispetto all'impostazione **Padding** = true.
 
 Per altre informazioni sulle reti convoluzionali e le relative applicazioni, vedere gli articoli seguenti:
 
@@ -230,7 +230,7 @@ Per altre informazioni sulle reti convoluzionali e le relative applicazioni, ved
 
 ## <a name="pooling-bundles"></a>Aggregazioni di pooling
 
-Un'**aggregazione di pooling** applica una geometria analoga alla connettività convoluzionale, ma usa funzioni predefinite per i valori del nodo di origine per derivare il valore del nodo di destinazione. Le aggregazioni di pooling non hanno quindi stati sottoponibili a training (pesi o distorsioni). Le aggregazioni di pooling supportano tutti gli attributi convoluzionali, ad eccezione di **Sharing**, **MapCount** e **Weights**.
+Un' **aggregazione di pooling** applica una geometria analoga alla connettività convoluzionale, ma usa funzioni predefinite per i valori del nodo di origine per derivare il valore del nodo di destinazione. Le aggregazioni di pooling non hanno quindi stati sottoponibili a training (pesi o distorsioni). Le aggregazioni di pooling supportano tutti gli attributi convoluzionali, ad eccezione di **Sharing** , **MapCount** e **Weights**.
 
 In genere, i kernel riepilogati da unità di pooling adiacenti non sono sovrapposti. Se Stride[d] equivale a KernelShape[d] in ogni dimensione, il livello ottenuto è il livello di pooling locale tradizionale, usato in genere nelle reti neurali convoluzionali. Ogni nodo di destinazione calcola il valore massimo o medio delle attività del rispettivo kernel nel livello di origine.
 
@@ -260,15 +260,15 @@ Per altre informazioni sui livelli di pooling, vedere gli articoli seguenti:
 
 La **normalizzazione delle risposte** è uno schema di normalizzazione locale introdotto per la prima volta da Geoffrey Hinton e altri, nel documento [ImageNet Classiﬁcation with Deep Convolutional Neural Networks](https://www.cs.toronto.edu/~hinton/absps/imagenet.pdf) (Classificazione ImageNet con reti neurali convoluzionali profonde).
 
-La normalizzazione delle risposte viene usata per semplificare la generalizzazione nelle reti neurali. Quando un neurone opera a un livello di attivazione molto elevato, un livello di normalizzazione delle risposte locale sopprime il livello di attivazione dei neuroni circostanti. Ciò avviene tramite tre parametri (`α`, `β` e `k`) e una struttura convoluzionale (o forma di vicinato). Ogni neurone nel livello di destinazione **y** corrisponde a un neurone **x** nel livello di origine. Il livello di attivazione di **y** è dato dalla formula seguente, dove `f` corrisponde al livello di attivazione di un neurone e `Nx` è il kernel o l'insieme contenente i neuroni nel vicinato di **x**, come definito dalla struttura convoluzionale seguente:
+La normalizzazione delle risposte viene usata per semplificare la generalizzazione nelle reti neurali. Quando un neurone opera a un livello di attivazione molto elevato, un livello di normalizzazione delle risposte locale sopprime il livello di attivazione dei neuroni circostanti. Ciò avviene tramite tre parametri (`α`, `β` e `k`) e una struttura convoluzionale (o forma di vicinato). Ogni neurone nel livello di destinazione **y** corrisponde a un neurone **x** nel livello di origine. Il livello di attivazione di **y** è dato dalla formula seguente, dove `f` corrisponde al livello di attivazione di un neurone e `Nx` è il kernel o l'insieme contenente i neuroni nel vicinato di **x** , come definito dalla struttura convoluzionale seguente:
 
 ![formula per struttura convoluzionale](./media/azure-ml-netsharp-reference-guide/formula_large.png)
 
-Le aggregazioni di normalizzazione delle risposte supportano tutti gli attributi convoluzionali, ad eccezione di **Sharing**, **MapCount** e **Weights**.
+Le aggregazioni di normalizzazione delle risposte supportano tutti gli attributi convoluzionali, ad eccezione di **Sharing** , **MapCount** e **Weights**.
 
-+ Se il kernel contiene neuroni nello stesso mapping di ***x***, lo schema di normalizzazione è definito **normalizzazione dello stesso mapping**. Per definire la normalizzazione nello stesso mapping, la prima coordinata in **InputShape** deve avere valore 1.
++ Se il kernel contiene neuroni nella stessa mappa di **_x_*_, lo schema di normalizzazione viene definito _* stessa normalizzazione della mappa**. Per definire la normalizzazione nello stesso mapping, la prima coordinata in **InputShape** deve avere valore 1.
 
-+ Se il kernel contiene neuroni nella stessa posizione spaziale di ***x***, ma i neuroni si trovano in mapping diversi, lo schema di normalizzazione sarà definito **normalizzazione tra mapping**. Questo tipo di normalizzazione delle risposte implementa una forma di inibizione laterale ispirata dal tipo trovato nei neuroni reali, creando una competizione per livelli di attivazione elevati tra gli output di neuroni calcolati nei diversi mapping. Per definire la normalizzazione tra mapping, è necessario che la prima coordinata sia superiore a uno e non sia superiore al numero di mapping e che il resto delle coordinate abbia valore 1.
++ Se il kernel contiene neuroni nella stessa posizione spaziale di **_x_*_, ma i neuroni si trovano in altre mappe, lo schema di normalizzazione viene chiamato _* per la normalizzazione di Maps**. Questo tipo di normalizzazione delle risposte implementa una forma di inibizione laterale ispirata dal tipo trovato nei neuroni reali, creando una competizione per livelli di attivazione elevati tra gli output di neuroni calcolati nei diversi mapping. Per definire la normalizzazione tra mapping, è necessario che la prima coordinata sia superiore a uno e non sia superiore al numero di mapping e che il resto delle coordinate abbia valore 1.
 
 Poiché le aggregazioni di normalizzazione delle risposte applicano una funzione predefinita ai valori del nodo di origine per determinare il valore del nodo di destinazione, non hanno stati sottoponibili a training (pesi o distorsioni).
 
@@ -277,9 +277,9 @@ Poiché le aggregazioni di normalizzazione delle risposte applicano una funzione
 
 Oltre ai quattro attributi descritti precedentemente, le aggregazioni di normalizzazione delle risposte supportano anche gli attributi seguenti:
 
-+ **Alpha**: (obbligatorio) specifica un valore a virgola mobile che corrisponde a `α` nella formula precedente.
-+ **Beta**: (obbligatorio) specifica un valore a virgola mobile che corrisponde a `β` nella formula precedente.
-+ **Offset**: (facoltativo) specifica un valore a virgola mobile che corrisponde a `k` nella formula precedente. Assume il valore predefinito 1.
++ **Alpha** : (obbligatorio) specifica un valore a virgola mobile che corrisponde a `α` nella formula precedente.
++ **Beta** : (obbligatorio) specifica un valore a virgola mobile che corrisponde a `β` nella formula precedente.
++ **Offset** : (facoltativo) specifica un valore a virgola mobile che corrisponde a `k` nella formula precedente. Assume il valore predefinito 1.
 
 L'esempio seguente definisce un'aggregazione di normalizzazione delle risposte usando questi attributi:
 
@@ -463,4 +463,4 @@ output Digit [10] from Hid3 all;
 
 ## <a name="acknowledgements"></a>Riconoscimenti
 
-Il linguaggio Net # per personalizzare l'architettura delle reti neurali è stato sviluppato presso Microsoft da Shon Katzenberger (progettista, Machine Learning) e Alexey Kamenev (ingegnere di software, Microsoft Research). Viene usato internamente per progetti Machine Learning e le applicazioni che vanno dal rilevamento immagine alle analisi di testo. Per altre informazioni, vedere [Neural Nets in Azure Machine Learning Studio - Introduction to Net#](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx) (Reti neurali in Azure Machine Learning Studio - Introduzione a Net #)
+Il linguaggio Net # per personalizzare l'architettura delle reti neurali è stato sviluppato presso Microsoft da Shon Katzenberger (progettista, Machine Learning) e Alexey Kamenev (ingegnere di software, Microsoft Research). Viene usato internamente per progetti Machine Learning e le applicazioni che vanno dal rilevamento immagine alle analisi di testo. Per altre informazioni, vedere [Neural Nets in Azure Machine Learning Studio - Introduction to Net#](/archive/blogs/machinelearning/neural-nets-in-azure-ml-introduction-to-net) (Reti neurali in Azure Machine Learning Studio - Introduzione a Net #)

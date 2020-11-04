@@ -1,32 +1,32 @@
 ---
-title: Risoluzione dei problemi di distribuzione di Docker
+title: Risolvere i problemi di distribuzione del servizio Web
 titleSuffix: Azure Machine Learning
-description: Informazioni su come risolvere, risolvere e risolvere i problemi relativi agli errori di distribuzione comuni di Docker con il servizio Azure Kubernetes e le istanze di contenitore di Azure con Azure Machine Learning.
+description: Informazioni su come aggirare, risolvere e risolvere i problemi relativi agli errori di distribuzione comuni di Docker con il servizio Azure Kubernetes e le istanze di contenitore di Azure.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: clauren42
-ms.author: clauren
+author: gvashishtha
+ms.author: gopalv
 ms.reviewer: jmartens
-ms.date: 08/06/2020
+ms.date: 11/02/2020
 ms.topic: troubleshooting
 ms.custom: contperfq4, devx-track-python, deploy
-ms.openlocfilehash: 259b5c789d2323dbc797116cf0d09045811a6873
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: dfbfea22738e6aeb0df31ad941b2ff10e53795a4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92073343"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311298"
 ---
-# <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Risolvere i problemi di distribuzione Docker dei modelli con il servizio Azure Kubernetes e le istanze di contenitore di Azure 
+# <a name="troubleshoot-model-deployment"></a>Risolvere i problemi di distribuzione del modello
 
 Informazioni su come risolvere e risolvere gli errori comuni di distribuzione Docker con istanze di contenitore di Azure (ACI) e Azure Kubernetes Service (AKS) con Azure Machine Learning.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una **sottoscrizione di Azure**. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
-* [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
-* [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true).
+* [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).
+* [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?preserve-view=true&view=azure-cli-latest).
 * [Estensione dell'interfaccia della riga di comando per Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * Per eseguire il debug localmente, è necessario disporre di un'installazione Docker funzionante nel sistema locale.
 
@@ -34,66 +34,48 @@ Informazioni su come risolvere e risolvere gli errori comuni di distribuzione Do
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Passaggi per la distribuzione di Docker dei modelli di Machine Learning
 
-Quando si distribuisce un modello in Azure Machine Learning, si usano l'API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) e un oggetto [Environment](how-to-use-environments.md) . Il servizio crea un'immagine Docker di base durante la fase di distribuzione e monta i modelli richiesti in una sola chiamata. Le attività di distribuzione di base sono le seguenti:
+Quando si distribuisce un modello in un calcolo non locale in Azure Machine Learning, si verifica quanto segue:
 
-1. Registrare il modello nel registro dei modelli dell'area di lavoro.
+1. Il Dockerfile specificato nell'oggetto ambienti in InferenceConfig viene inviato al cloud, insieme al contenuto della directory di origine
+1. Se un'immagine compilata in precedenza non è disponibile nel registro contenitori, una nuova immagine Docker viene compilata nel cloud e archiviata nel registro contenitori predefinito dell'area di lavoro.
+1. L'immagine Docker dal registro contenitori viene scaricata nella destinazione di calcolo.
+1. L'archivio BLOB predefinito dell'area di lavoro viene montato nella destinazione di calcolo, consentendo l'accesso ai modelli registrati
+1. Il server Web viene inizializzato eseguendo la funzione dello script di immissione `init()`
+1. Quando il modello distribuito riceve una richiesta, la `run()` funzione gestisce la richiesta
 
-2. Definire la configurazione dell'inferenza:
-    1. Creare un oggetto [ambiente](how-to-use-environments.md) . Questo oggetto può usare le dipendenze in un file YAML dell'ambiente, uno degli ambienti curati.
-    2. Creare una configurazione dell'inferenza (oggetto InferenceConfig) in base all'ambiente e allo script di assegnazione dei punteggi.
+La differenza principale quando si usa una distribuzione locale è che l'immagine del contenitore è compilata nel computer locale, motivo per cui è necessario che Docker sia installato per una distribuzione locale.
 
-3. Distribuire il modello nel servizio Istanze di Azure Container (ACI) o nel servizio Azure Kubernetes (AKS).
+Per comprendere i casi in cui si verificano errori, è necessario comprendere questi passaggi di alto livello.
 
-Per altre informazioni su questa procedura, vedere [Gestire e distribuire modelli con il servizio Azure Machine Learning](concept-model-management-and-deployment.md).
+## <a name="get-deployment-logs"></a>Ottenere i log di distribuzione
 
-## <a name="before-you-begin"></a>Prima di iniziare
+Il primo passaggio per il debug degli errori consiste nell'ottenere i log di distribuzione. Per prima cosa, seguire le istruzioni riportate [qui](how-to-deploy-and-where.md#connect-to-your-workspace) per connettersi all'area di lavoro.
 
-Se si verifica un problema, la prima cosa da fare è suddividere l'attività di distribuzione (descritta in precedenza) in singoli passaggi per isolare il problema.
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azcli)
 
-Quando si usa [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) con un oggetto [Environment](how-to-use-environments.md) come parametro di input, il codice può essere suddiviso in tre passaggi principali:
+Per ottenere i log da un WebService distribuito, eseguire le operazioni seguenti:
 
-1. Registrare il modello. Di seguito è riportato il codice di esempio:
+```bash
+az ml service get-logs --verbose --workspace-name <my workspace name> --name <service name>
+```
 
-    ```python
-    from azureml.core.model import Model
-
-
-    # register a model out of a run record
-    model = best_run.register_model(model_name='my_best_model', model_path='outputs/my_model.pkl')
-
-    # or, you can register a file or a folder of files as a model
-    model = Model.register(model_path='my_model.pkl', model_name='my_best_model', workspace=ws)
-    ```
-
-2. Definire la configurazione dell'inferenza per la distribuzione:
-
-    ```python
-    from azureml.core.model import InferenceConfig
-    from azureml.core.environment import Environment
+# <a name="python"></a>[Python](#tab/python)
 
 
-    # create inference configuration based on the requirements defined in the YAML
-    myenv = Environment.from_conda_specification(name="myenv", file_path="myenv.yml")
-    inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
-    ```
+Supponendo che si disponga di un oggetto di tipo `azureml.core.Workspace` denominato `ws` , è possibile eseguire le operazioni seguenti:
 
-3. Distribuire il modello usando la configurazione dell'inferenza creata nel passaggio precedente:
+```python
+print(ws.webservices)
 
-    ```python
-    from azureml.core.webservice import AciWebservice
+# Choose the webservice you are interested in
 
+from azureml.core import Webservice
 
-    # deploy the model
-    aci_config = AciWebservice.deploy_configuration(cpu_cores=1, memory_gb=1)
-    aci_service = Model.deploy(workspace=ws,
-                           name='my-service',
-                           models=[model],
-                           inference_config=inference_config,
-                           deployment_config=aci_config)
-    aci_service.wait_for_deployment(show_output=True)
-    ```
+service = Webservice(ws, '<insert name of webservice>')
+print(service.get_logs())
+```
 
-Suddividere il processo di distribuzione in singole attività consente di identificare più facilmente alcuni degli errori più comuni.
+---
 
 ## <a name="debug-locally"></a>Eseguire il debug in locale
 
@@ -161,7 +143,7 @@ print(service.run(input_data=test_sample))
 > [!NOTE]
 > Lo script viene ricaricato dalla posizione specificata dall'oggetto `InferenceConfig` usato dal servizio.
 
-Per modificare il modello, le dipendenze Conda o la configurazione della distribuzione, usare [update()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=trueupdate--args-). Nell'esempio seguente viene aggiornato il modello usato dal servizio:
+Per modificare il modello, le dipendenze Conda o la configurazione della distribuzione, usare [update()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=trueupdate--args-). Nell'esempio seguente viene aggiornato il modello usato dal servizio:
 
 ```python
 service.update([different_model], inference_config, deployment_config)
@@ -169,7 +151,7 @@ service.update([different_model], inference_config, deployment_config)
 
 ### <a name="delete-the-service"></a>Eliminare il servizio
 
-Per eliminare il servizio, usare [delete()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py&preserve-view=true#&preserve-view=truedelete--).
+Per eliminare il servizio, usare [delete()](/python/api/azureml-core/azureml.core.webservice%28class%29?preserve-view=true&view=azure-ml-py#&preserve-view=truedelete--).
 
 ### <a name="inspect-the-docker-log"></a><a id="dockerlog"></a> Esaminare il log Docker
 
@@ -199,7 +181,7 @@ Usare le informazioni nella sezione [Esaminare il log di Docker](#dockerlog) per
 
 ## <a name="function-fails-get_model_path"></a>Errore della funzione: get_model_path()
 
-Nella funzione `init()` dello script di assegnazione dei punteggi viene spesso chiamata la funzione [Model.get_model_path()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) per individuare un file di modello o una cartella di file di modello nel contenitore. Se non è possibile trovare il file o la cartella di modello, la funzione ha esito negativo. Il modo più semplice per eseguire il debug di questo errore consiste nell'eseguire il codice Python seguente nella shell del contenitore:
+Nella funzione `init()` dello script di assegnazione dei punteggi viene spesso chiamata la funzione [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) per individuare un file di modello o una cartella di file di modello nel contenitore. Se non è possibile trovare il file o la cartella di modello, la funzione ha esito negativo. Il modo più semplice per eseguire il debug di questo errore consiste nell'eseguire il codice Python seguente nella shell del contenitore:
 
 ```python
 from azureml.core.model import Model
@@ -229,7 +211,7 @@ def run(input_data):
         return json.dumps({"error": result})
 ```
 
-**Nota**: la restituzione di messaggi di errore dalla chiamata a `run(input_data)` dovrebbe essere eseguita solo a scopo di debug. Per motivi di sicurezza, non si dovrebbe restituire i messaggi di errore in questo modo in un ambiente di produzione.
+**Nota** : la restituzione di messaggi di errore dalla chiamata a `run(input_data)` dovrebbe essere eseguita solo a scopo di debug. Per motivi di sicurezza, non si dovrebbe restituire i messaggi di errore in questo modo in un ambiente di produzione.
 
 ## <a name="http-status-code-502"></a>Codice di stato HTTP 502
 
@@ -239,7 +221,7 @@ Un codice di stato 502 indica che il servizio ha generato un'eccezione o si è a
 
 Le distribuzioni del servizio Azure Kubernetes supportano il ridimensionamento automatico, che consente di aggiungere repliche per supportare un carico aggiuntivo. Il ridimensionamento automatico è progettato per gestire modifiche **graduali** del carico. Se si ricevono picchi elevati di richieste al secondo, i client potrebbero ricevere un codice di stato HTTP 503. Sebbene il ridimensionamento automatico reagisca rapidamente, il tempo necessario per la creazione di contenitori aggiuntivi richiede AKS.
 
-Le decisioni per la scalabilità verticale e orizzontale sono basate sull'utilizzo delle repliche del contenitore correnti. Il numero di repliche occupate (elaborazione di una richiesta) divise per il numero totale di repliche correnti è l'utilizzo corrente. Se questo numero è superiore a `autoscale_target_utilization` , vengono create altre repliche. Se è inferiore, le repliche vengono ridotte. Le decisioni di aggiunta di repliche sono ansiose e veloci (circa 1 secondo). Le decisioni di rimozione delle repliche sono conservative (circa 1 minuto). Per impostazione predefinita, l'utilizzo della destinazione per la scalabilità automatica è impostato su **70%**, il che significa che il servizio è in grado di gestire picchi di richieste al secondo (RPS) **fino al 30%**.
+Le decisioni per la scalabilità verticale e orizzontale sono basate sull'utilizzo delle repliche del contenitore correnti. Il numero di repliche occupate (elaborazione di una richiesta) divise per il numero totale di repliche correnti è l'utilizzo corrente. Se questo numero è superiore a `autoscale_target_utilization` , vengono create altre repliche. Se è inferiore, le repliche vengono ridotte. Le decisioni di aggiunta di repliche sono ansiose e veloci (circa 1 secondo). Le decisioni di rimozione delle repliche sono conservative (circa 1 minuto). Per impostazione predefinita, l'utilizzo della destinazione per la scalabilità automatica è impostato su **70%** , il che significa che il servizio è in grado di gestire picchi di richieste al secondo (RPS) **fino al 30%**.
 
 Esistono due elementi che consentono di prevenire codici di stato 503:
 
@@ -277,7 +259,7 @@ Esistono due elementi che consentono di prevenire codici di stato 503:
     > [!NOTE]
     > Se si ricevono picchi di richiesta di dimensioni maggiori di quelle che possono essere gestite dalle nuove repliche minime, si potrebbero ricevere nuovamente codici di stato 503. Ad esempio, mano a mano che il traffico verso il servizio aumenta, potrebbe essere necessario aumentare le repliche minime.
 
-Per altre informazioni sull'impostazione di `autoscale_target_utilization`, `autoscale_max_replicas` e `autoscale_min_replicas`, vedere il riferimento al modulo [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py&preserve-view=true).
+Per altre informazioni sull'impostazione di `autoscale_target_utilization`, `autoscale_max_replicas` e `autoscale_min_replicas`, vedere il riferimento al modulo [AksWebservice](/python/api/azureml-core/azureml.core.webservice.akswebservice?preserve-view=true&view=azure-ml-py).
 
 ## <a name="http-status-code-504"></a>Codice di stato HTTP 504
 
@@ -287,11 +269,11 @@ Un codice di stato 504 indica che si è verificato il timeout della richiesta. I
 
 ## <a name="advanced-debugging"></a>Debug avanzato
 
-Potrebbe essere necessario eseguire il debug interattivo del codice Python contenuto nella distribuzione del modello. Ad esempio, se lo script di immissione ha esito negativo e il motivo non può essere determinato da una registrazione aggiuntiva. Usando Visual Studio Code e debugpy, è possibile connettersi al codice in esecuzione all'interno del contenitore docker.
+Potrebbe essere necessario eseguire il debug interattivo del codice Python contenuto nella distribuzione modello. Ad esempio, se lo script di immissione ha esito negativo e il motivo non può essere determinato da una registrazione aggiuntiva. Usando Visual Studio Code e debugpy, è possibile connettersi al codice in esecuzione all'interno del contenitore docker.
 
 Per ulteriori informazioni, vedere il [debug interattivo in vs Code Guida](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
-## <a name="model-deployment-user-forum"></a>[Forum dell'utente per la distribuzione di modelli](https://docs.microsoft.com/answers/topics/azure-machine-learning-inference.html)
+## <a name="model-deployment-user-forum"></a>[Forum dell'utente per la distribuzione di modelli](/answers/topics/azure-machine-learning-inference.html)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

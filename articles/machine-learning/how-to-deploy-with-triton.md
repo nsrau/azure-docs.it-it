@@ -1,7 +1,7 @@
 ---
 title: Modello a prestazioni elevate con Triton (anteprima)
 titleSuffix: Azure Machine Learning
-description: Informazioni su come distribuire un modello con un server di inferenza Triton in Azure Machine Learning
+description: Informazioni su come distribuire il modello con il server di inferenza NVIDIA Triton in Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 09/23/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: 3a3600c4065d331ca1cfc129cd55dd56add21424
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: afa1d958e054a769ea0f19b82afdf55a94c3d0cf
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92428348"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309719"
 ---
 # <a name="high-performance-serving-with-triton-inference-server-preview"></a>Servizio a prestazioni elevate con il server di inferenza Triton (anteprima) 
 
@@ -36,7 +36,7 @@ Triton è un Framework *ottimizzato per l'inferenza*. Offre un utilizzo migliore
 
 * Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 * Familiarità con le [modalità di distribuzione di un modello](how-to-deploy-and-where.md) con Azure Machine Learning.
-* [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py) **o** l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) e l' [estensione Machine Learning](reference-azure-machine-learning-cli.md).
+* [SDK Azure Machine Learning per Python](/python/api/overview/azure/ml/?view=azure-ml-py) **o** l'interfaccia della riga di comando di [Azure](/cli/azure/?view=azure-cli-latest) e l' [estensione Machine Learning](reference-azure-machine-learning-cli.md).
 * Installazione funzionante di Docker per i test locali. Per informazioni sull'installazione e la convalida di Docker, vedere [orientamento e configurazione](https://docs.docker.com/get-started/) nella documentazione di Docker.
 
 ## <a name="architectural-overview"></a>Panoramica dell'architettura
@@ -47,7 +47,7 @@ Prima di provare a usare Triton per un modello personalizzato, è importante com
 
 * Sono stati avviati più [Gunicorn](https://gunicorn.org/) Worker per gestire simultaneamente le richieste in ingresso.
 * Questi thread di lavoro gestiscono la pre-elaborazione, la chiamata al modello e la post-elaborazione. 
-* Le richieste di inferenza usano l'URI di assegnazione dei __punteggi__ Ad esempio `https://myserevice.azureml.net/score`.
+* Le richieste di inferenza usano l'URI di assegnazione dei __punteggi__ Ad esempio: `https://myserevice.azureml.net/score`.
 
 :::image type="content" source="./media/how-to-deploy-with-triton/normal-deploy.png" alt-text="Diagramma dell'architettura di distribuzione normale, non Triton":::
 
@@ -56,9 +56,9 @@ Prima di provare a usare Triton per un modello personalizzato, è importante com
 * Sono stati avviati più [Gunicorn](https://gunicorn.org/) Worker per gestire simultaneamente le richieste in ingresso.
 * Le richieste vengono inviate al **Server Triton**. 
 * Triton elabora le richieste in batch per ottimizzare l'utilizzo della GPU.
-* Il client usa l' __URI__ di assegnazione dei punteggi per eseguire le richieste. Ad esempio `https://myserevice.azureml.net/score`.
+* Il client usa l' __URI__ di assegnazione dei punteggi per eseguire le richieste. Ad esempio: `https://myserevice.azureml.net/score`.
 
-:::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Diagramma dell'architettura di distribuzione normale, non Triton":::
+:::image type="content" source="./media/how-to-deploy-with-triton/inferenceconfig-deploy.png" alt-text="Distribuzione Inferenceconfig con Triton":::
 
 Il flusso di lavoro per usare Triton per la distribuzione del modello è il seguente:
 
@@ -228,7 +228,7 @@ Una configurazione di inferenza consente di usare uno script di immissione, nonc
 > [!IMPORTANT]
 > È necessario specificare l' `AzureML-Triton` [ambiente curato](./resource-curated-environments.md).
 >
-> L'esempio di codice Python viene clonato `AzureML-Triton` in un altro ambiente denominato `My-Triton` . Il codice dell'interfaccia della riga di comando di Azure usa anche questo ambiente. Per ulteriori informazioni sulla clonazione di un ambiente, vedere la Guida di riferimento a [Environment. Clone ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#clone-new-name-) .
+> L'esempio di codice Python viene clonato `AzureML-Triton` in un altro ambiente denominato `My-Triton` . Il codice dell'interfaccia della riga di comando di Azure usa anche questo ambiente. Per ulteriori informazioni sulla clonazione di un ambiente, vedere la Guida di riferimento a [Environment. Clone ()](/python/api/azureml-core/azureml.core.environment.environment?preserve-view=true&view=azure-ml-py#clone-new-name-) .
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -283,7 +283,7 @@ az ml model deploy -n triton-densenet-onnx \
 
 ---
 
-Al termine della distribuzione, viene visualizzato l'URI di assegnazione dei punteggi. Per questa distribuzione locale, sarà `http://localhost:6789/score` . Se si esegue la distribuzione nel cloud, è possibile usare il comando [AZ ml Service Show](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI per ottenere l'URI di assegnazione dei punteggi.
+Al termine della distribuzione, viene visualizzato l'URI di assegnazione dei punteggi. Per questa distribuzione locale, sarà `http://localhost:6789/score` . Se si esegue la distribuzione nel cloud, è possibile usare il comando [AZ ml Service Show](/cli/azure/ext/azure-cli-ml/ml/service?view=azure-cli-latest#ext_azure_cli_ml_az_ml_service_show) CLI per ottenere l'URI di assegnazione dei punteggi.
 
 Per informazioni su come creare un client che invii le richieste di inferenza all'URI di assegnazione dei punteggi, vedere [utilizzare un modello distribuito come servizio Web](how-to-consume-web-service.md).
 
@@ -310,7 +310,7 @@ az ml service delete -n triton-densenet-onnx
 * [Vedere gli esempi end-to-end di Triton in Azure Machine Learning](https://aka.ms/aml-triton-sample)
 * Vedere [esempi di client Triton](https://github.com/triton-inference-server/server/tree/master/src/clients/python/examples)
 * Leggere la [documentazione del server di inferenza Triton](https://docs.nvidia.com/deeplearning/triton-inference-server/user-guide/docs/index.html)
-* [Risolvere i problemi relativi a una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
+* [Risolvere una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
 * [Distribuire nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)
 * [Aggiornare un servizio Web](how-to-deploy-update-web-service.md)
 * [Raccogliere i dati per i modelli nell'ambiente di produzione](how-to-enable-data-collection.md)

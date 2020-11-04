@@ -11,29 +11,29 @@ author: jhirono
 ms.date: 10/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: b16c8873a1778b907b288486c204d74ee31683cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 168dc342eaf61a9ede632fb429311f6f5c1d4be4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097958"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311565"
 ---
 # <a name="how-to-use-your-workspace-with-a-custom-dns-server"></a>Come usare l'area di lavoro con un server DNS personalizzato
 
-Quando si usa Azure Machine Learning con una rete virtuale, esistono [diversi modi per gestire la risoluzione dei nomi DNS](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances). Per impostazione predefinita, Azure gestisce automaticamente la risoluzione dei nomi per l'area di lavoro e l'endpoint privato. Tuttavia, __quando si usa un server DNS personalizzato__ , è necessario creare manualmente le voci DNS per l'area di lavoro.
+Quando si usa Azure Machine Learning con una rete virtuale, esistono [diversi modi per gestire la risoluzione dei nomi DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md). Per impostazione predefinita, Azure gestisce automaticamente la risoluzione dei nomi per l'area di lavoro e l'endpoint privato. Tuttavia, __quando si usa un server DNS personalizzato__ , è necessario creare manualmente le voci DNS per l'area di lavoro.
 
 > [!IMPORTANT]
 > Questo articolo illustra solo come trovare il nome di dominio completo (FQDN) e gli indirizzi IP per queste voci, ma non fornisce informazioni sulla configurazione dei record DNS per questi elementi. Per informazioni su come aggiungere record, consultare la documentazione relativa al software DNS.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Una rete virtuale di Azure che usa [il proprio server DNS](/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server).
+- Una rete virtuale di Azure che usa [il proprio server DNS](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
 - Un'area di lavoro Azure Machine Learning con un endpoint privato. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
-- Familiarità con l'uso dell' [isolamento rete durante il training & inferenza](how-to-enable-virtual-network.md).
+- Familiarità con l'uso dell' [isolamento rete durante il training & inferenza](./how-to-network-security-overview.md).
 
-- Facoltativamente, l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) o [Azure PowerShell](https://docs.microsoft.com/powershell/azure/install-az-ps).
+- Facoltativamente, l'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli) o [Azure PowerShell](/powershell/azure/install-az-ps).
 
 ## <a name="find-the-ip-addresses"></a>Trovare gli indirizzi IP
 
@@ -69,7 +69,7 @@ $workspaceDns.CustomDnsConfigs | format-table
 # <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 1. Nella [portale di Azure](https://portal.azure.com)selezionare l' __area di lavoro__ Azure Machine Learning.
-1. Nella sezione __Impostazioni__ selezionare connessioni a __endpoint privati__ .
+1. Nella sezione __Impostazioni__ selezionare connessioni a __endpoint privati__.
 1. Selezionare il collegamento nella colonna __endpoint privato__ visualizzato.
 1. Un elenco dei nomi di dominio completi (FQDN) e degli indirizzi IP per l'endpoint privato dell'area di lavoro si trova nella parte inferiore della pagina.
 

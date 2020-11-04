@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18, previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: cff4704b388594511809d92957cbbce97e948f2f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ca369f8a3e680a4d2aae49df83dda0cdd3dc4075
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362419"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310146"
 ---
 # <a name="evaluate-model-performance-in-azure-machine-learning-studio-classic"></a>Valutare le prestazioni del modello in Azure Machine Learning Studio (classico)
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Questo articolo illustra le metriche che è possibile usare per monitorare le prestazioni del modello in Azure Machine Learning Studio (classico).  La valutazione delle prestazioni di un modello è una delle fasi principali nel processo di analisi scientifica dei dati. Indica quanto è stato positivo il punteggio (stime) di un set di dati da un modello sottoposto a training. Azure Machine Learning Studio (classico) supporta la valutazione del modello tramite due dei moduli principali di Machine Learning: 
@@ -47,7 +47,7 @@ In alternativa, è possibile usare la convalida incrociata per eseguire una seri
 Nelle sezioni seguenti verranno creati semplici modelli di regressione e classificazione e ne verranno valutate le prestazioni usando i moduli [Evaluate Model][evaluate-model] e [Cross-Validate Model][cross-validate-model].
 
 ## <a name="evaluating-a-regression-model"></a>Valutazione di un modello di regressione
-Si supponga di voler stimare il prezzo di un'automobile usando funzionalità come dimensioni, potenza, specifiche del motore e così via. Si tratta di un tipico problema di regressione, in cui la variabile di destinazione (*price*) è un valore numerico continuo. È possibile adattare un modello di regressione lineare che, dati i valori delle funzionalità di una determinata automobile, può prevedere il prezzo di tale automobile. Questo modello di regressione può essere usato per calcolare il punteggio dello stesso set di dati su cui si sta effettuando il training Una volta ottenuto il prezzo stimato per le automobili, è possibile valutare le prestazioni del modello osservando la differenza tra le stime e i prezzi effettivi. Per illustrare questo problema, viene usato il *set di dati automobile price data (RAW)* disponibile nella sezione set di dati **salvati** in Machine Learning Studio (classico).
+Si supponga di voler stimare il prezzo di un'automobile usando funzionalità come dimensioni, potenza, specifiche del motore e così via. Si tratta di un tipico problema di regressione, in cui la variabile di destinazione ( *price* ) è un valore numerico continuo. È possibile adattare un modello di regressione lineare che, dati i valori delle funzionalità di una determinata automobile, può prevedere il prezzo di tale automobile. Questo modello di regressione può essere usato per calcolare il punteggio dello stesso set di dati su cui si sta effettuando il training Una volta ottenuto il prezzo stimato per le automobili, è possibile valutare le prestazioni del modello osservando la differenza tra le stime e i prezzi effettivi. Per illustrare questo problema, viene usato il *set di dati automobile price data (RAW)* disponibile nella sezione set di dati **salvati** in Machine Learning Studio (classico).
 
 ### <a name="creating-the-experiment"></a>Creazione di un esperimento
 Aggiungere i moduli seguenti all'area di lavoro in Azure Machine Learning Studio (versione classica):
@@ -107,7 +107,7 @@ Connettere le porte come indicato nella figura 5 seguente e impostare la colonna
 Figura 5. Valutazione di un modello di classificazione binaria.
 
 ### <a name="inspecting-the-evaluation-results"></a>Controllo dei risultati di valutazione
-Dopo aver eseguito l'esperimento, è possibile fare clic sulla porta di output del modulo [Evaluate Model][evaluate-model] e selezionare *Visualize* (Visualizza) per visualizzare i risultati della valutazione (Figura 7). Le metriche di valutazione disponibili per i modelli di classificazione binaria sono: *Accuracy* (Accuratezza), *Precision* (Precisione), *Recall* (Richiamo), *F1 Score* (Punteggio F1) e *AUC*. Il modulo restituisce anche una matrice di confusione che mostra il numero di veri positivi, falsi negativi, falsi positivi e veri negativi, nonché le curve *ROC*, *Precision/Recall* (Precisione/Richiamo) e *Lift* (Accuratezza).
+Dopo aver eseguito l'esperimento, è possibile fare clic sulla porta di output del modulo [Evaluate Model][evaluate-model] e selezionare *Visualize* (Visualizza) per visualizzare i risultati della valutazione (Figura 7). Le metriche di valutazione disponibili per i modelli di classificazione binaria sono: *Accuracy* (Accuratezza), *Precision* (Precisione), *Recall* (Richiamo), *F1 Score* (Punteggio F1) e *AUC*. Il modulo restituisce anche una matrice di confusione che mostra il numero di veri positivi, falsi negativi, falsi positivi e veri negativi, nonché le curve *ROC* , *Precision/Recall* (Precisione/Richiamo) e *Lift* (Accuratezza).
 
 L'accuratezza è semplicemente la percentuale delle istanze classificate correttamente. In genere è la prima metrica che viene osservata quando si valuta un classificatore. Tuttavia, quando i dati di test non sono bilanciati (dove la maggior parte delle istanze appartiene a una delle classi) o si è più interessati alle prestazioni in una delle classi, l'accuratezza non acquisisce effettivamente l'efficacia di un classificatore. Nello scenario di classificazione del livello di reddito, si supponga di eseguire il test di alcuni dati in cui il 99% delle istanze rappresenta le persone che guadagnano una cifra inferiore o uguale a 50.000 l'anno. È possibile ottenere un'accuratezza di 0,99 stimando la classe "<= 50.000" per tutte le istanze. In questo caso sembra che il classificatore svolga un buon lavoro in linea generale, ma in realtà non è in grado di classificare correttamente gli individui con un reddito superiore (il restante 1%).
 
@@ -123,7 +123,7 @@ Tornando al problema della classificazione del reddito, di seguito vengono forni
 
  Figura 7. Risultati della valutazione della classificazione binaria.
 
-Un'altra metrica correlata spesso usata è **Punteggio F1**, che prende in considerazione precisione e richiamo. Si tratta della media armonica di queste due metriche e viene calcolata come tale: F1 = 2 (precisione x richiamo)/(precisione + richiamo). Il Punteggio F1 è un modo efficace per riepilogare la valutazione in un singolo numero, ma è sempre consigliabile esaminare sia la precisione che la richiamata per comprendere meglio il comportamento di un classificatore.
+Un'altra metrica correlata spesso usata è **Punteggio F1** , che prende in considerazione precisione e richiamo. Si tratta della media armonica di queste due metriche e viene calcolata come tale: F1 = 2 (precisione x richiamo)/(precisione + richiamo). Il Punteggio F1 è un modo efficace per riepilogare la valutazione in un singolo numero, ma è sempre consigliabile esaminare sia la precisione che la richiamata per comprendere meglio il comportamento di un classificatore.
 
 È anche possibile confrontare il tasso di veri positivi e il tasso di falsi positivi nella curva **ROC (Receiver Operating Characteristic)** e il valore **AUC (Area Under the Curve)** corrispondente. La curva più vicina è l'angolo superiore sinistro, migliori sono le prestazioni del classificatore, ovvero massimizzando il vero tasso positivo, riducendo al minimo il tasso di falsi positivi. Le curve che si trovano vicino alla diagonale del tracciato risultano dai classificatori che tendono a fare delle stime al limite della casualità.
 
@@ -182,12 +182,12 @@ Figura 12. Convalida incrociata di un modello di classificazione a più classi.
 Figura 13. Risultati della convalida incrociata di un modello di classificazione multiclasse.
 
 <!-- Module References -->
-[cross-validate-model]: https://msdn.microsoft.com/library/azure/75fb875d-6b86-4d46-8bcc-74261ade5826/
-[evaluate-model]: https://msdn.microsoft.com/library/azure/927d65ac-3b50-4694-9903-20f6c1672089/
-[linear-regression]: https://msdn.microsoft.com/library/azure/31960a6f-789b-4cf7-88d6-2e1152c0bd1a/
-[multiclass-decision-forest]: https://msdn.microsoft.com/library/azure/5e70108d-2e44-45d9-86e8-94f37c68fe86/
-[import-data]: https://msdn.microsoft.com/library/azure/4e1b0fe6-aded-4b3f-a36f-39b8862b9004/
-[score-model]: https://msdn.microsoft.com/library/azure/401b4f92-e724-4d5a-be81-d5b0ff9bdb33/
-[split]: https://msdn.microsoft.com/library/azure/70530644-c97a-4ab6-85f7-88bf30a8be5f/
-[train-model]: https://msdn.microsoft.com/library/azure/5cc7053e-aa30-450d-96c0-dae4be720977/
-[two-class-logistic-regression]: https://msdn.microsoft.com/library/azure/b0fd7660-eeed-43c5-9487-20d9cc79ed5d/
+[cross-validate-model]: /azure/machine-learning/studio-module-reference/cross-validate-model
+[evaluate-model]: /azure/machine-learning/studio-module-reference/evaluate-model
+[linear-regression]: /azure/machine-learning/studio-module-reference/linear-regression
+[multiclass-decision-forest]: /azure/machine-learning/studio-module-reference/multiclass-decision-forest
+[import-data]: /azure/machine-learning/studio-module-reference/import-data
+[score-model]: /azure/machine-learning/studio-module-reference/score-model
+[split]: /azure/machine-learning/studio-module-reference/split-data
+[train-model]: /azure/machine-learning/studio-module-reference/train-model
+[two-class-logistic-regression]: /azure/machine-learning/studio-module-reference/two-class-logistic-regression

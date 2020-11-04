@@ -9,12 +9,12 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: mahi
 ms.reviewer: jrasnick
-ms.openlocfilehash: f142c8abfc9056e0f8ca1d921f2c6bfc72292730
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 080e56a5b6be8ba68c901509fe87421632144643
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186621"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312041"
 ---
 # <a name="secure-your-synapse-workspace-preview"></a>Proteggere l'area di lavoro Synapse (anteprima) 
 
@@ -92,7 +92,7 @@ L'area di lavoro Synapse deve accedere a STG1 e CNT1 per poter eseguire le pipel
   - Se il ruolo non è stato assegnato, eseguire l'operazione.
   - L'identità del servizio gestita presenta lo stesso nome dell'area di lavoro. In questo caso, si tratta di &quot;WS1&quot;.
 
-## <a name="step-5-configure-admin-access-for-sql-pools"></a>PASSAGGIO 5: configurare l'accesso amministratore per i pool SQL
+## <a name="step-5-configure-admin-access-for-synapse-sql"></a>PASSAGGIO 5: configurare l'accesso amministratore per sinapsi SQL
 
 - Aprire il portale di Azure
 - Passare a WS1
@@ -114,11 +114,11 @@ Gli utenti in ogni ruolo devono completare i passaggi seguenti:
 | Numero | Passaggio | Amministratori dell'area di lavoro | Amministratori Spark | Amministratori SQL |
 | --- | --- | --- | --- | --- |
 | 1 | Caricare un file parquet in CNT1 | YES | YES | YES |
-| 2 | Leggere il file parquet usando SQL su richiesta | YES | NO | YES |
-| 3 | Creare un pool di Spark | SÌ [1] | SÌ [1] | NO  |
+| 2 | Leggere il file parquet usando un pool SQL senza server | YES | NO | YES |
+| 3 | Creare un pool di Apache Spark senza server | SÌ [1] | SÌ [1] | NO  |
 | 4 | Leggere il file parquet con un Notebook | YES | YES | NO |
 | 5 | Creare una pipeline dal Notebook e attivare subito l'esecuzione della pipeline | YES | NO | NO |
-| 6 | Creare un pool SQL ed eseguire uno script SQL come &quot;SELECT 1&quot; | SÌ [1] | NO | SÌ[1] |
+| 6 | Creare un pool SQL dedicato ed eseguire uno script SQL, ad esempio &quot; Select 1&quot; | SÌ [1] | NO | SÌ[1] |
 
 > [!NOTE]
 > [1] Per creare pool di Spark o SQL, l'utente deve avere almeno il ruolo di Collaboratore nell'area di lavoro Synapse.
@@ -148,8 +148,8 @@ Il comportamento di Synapse Studio varia in base ai ruoli utente. Alcuni element
 | Hub di dati/Visualizzare account e contenitori ADLS Gen2 collegati | SÌ [1] | SÌ[1] | SÌ[1] |
 | Hub di dati/Visualizzare i database | YES | YES | YES |
 | Hub di dati/Visualizzare gli oggetti nei database | YES | YES | YES |
-| Hub di dati/Accedere ai dati nei database di pool SQL | YES   | NO   | YES   |
-| Hub di dati/Accedere ai dati nei database SQL su richiesta | SÌ [2]  | NO  | SÌ [2]  |
+| Dati di accesso e hub dati nei database SQL sinapsi | YES   | NO   | YES   |
+| Dati di accesso e hub dati nei database del pool SQL senza server | SÌ [2]  | NO  | SÌ [2]  |
 | Hub di dati/Accedere ai dati nei database Spark | SÌ [2] | SÌ [2] | SÌ [2] |
 | Usare l'hub Sviluppo | YES | YES | YES |
 | Hub Sviluppo/Creare script SQL | YES | NO | YES |
@@ -159,7 +159,7 @@ Il comportamento di Synapse Studio varia in base ai ruoli utente. Alcuni element
 | Usare l'hub Orchestrazione | YES | YES | YES |
 | Hub Orchestrazione/Usare le pipeline | YES | NO | NO |
 | Usare l'hub Gestione | YES | YES | YES |
-| Hub Gestione/Pool SQL | YES | NO | YES |
+| Gestisci Hub/sinapsi SQL | YES | NO | YES |
 | Hub Gestione/Pool di Spark | YES | YES | NO |
 | Hub Gestione/Trigger | YES | NO | NO |
 | Hub Gestione/Servizi collegati | YES | YES | YES |

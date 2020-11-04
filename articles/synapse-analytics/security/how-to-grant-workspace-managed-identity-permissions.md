@@ -8,27 +8,27 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: 08ead12c99ae4919a2daf523065cfe332c644df1
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 54612bee5715cdb78141a8aacfa5d24c814269d1
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92487195"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312386"
 ---
 # <a name="grant-permissions-to-workspace-managed-identity-preview"></a>Concedere le autorizzazioni per l'identità gestita dell'area di lavoro (anteprima)
 
-Questo articolo illustra come concedere le autorizzazioni per l'identità gestita nell'area di lavoro di sinapsi di Azure. Le autorizzazioni consentono, a loro volta, di accedere ai pool SQL nell'area di lavoro e ADLS Gen2 account di archiviazione tramite l'portale di Azure.
+Questo articolo illustra come concedere le autorizzazioni per l'identità gestita nell'area di lavoro di sinapsi di Azure. Le autorizzazioni consentono, a loro volta, di accedere ai pool SQL dedicati nell'area di lavoro e ADLS Gen2 account di archiviazione tramite la portale di Azure.
 
 >[!NOTE]
 >A questa identità gestita dell'area di lavoro verrà fatto riferimento come identità gestita nel resto di questo documento.
 
-## <a name="grant-managed-identity-permissions-to-the-sql-pool"></a>Concedere le autorizzazioni di identità gestite al pool SQL
+## <a name="grant-managed-identity-permissions-to-the-dedicated-sql-pool"></a>Concedere le autorizzazioni di identità gestite al pool SQL dedicato
 
-L'identità gestita concede le autorizzazioni ai pool SQL nell'area di lavoro. Con le autorizzazioni concesse è possibile orchestrare le pipeline che eseguono attività correlate al pool SQL. Quando si crea un'area di lavoro di Azure sinapsi usando portale di Azure, è possibile concedere le autorizzazioni di controllo identità gestite nei pool SQL.
+L'identità gestita concede le autorizzazioni ai pool SQL dedicati nell'area di lavoro. Con le autorizzazioni concesse è possibile orchestrare le pipeline che eseguono attività relative al pool SQL dedicate. Quando si crea un'area di lavoro di Azure sinapsi usando portale di Azure, è possibile concedere le autorizzazioni di controllo identità gestite per i pool SQL dedicati.
 
-Selezionare **sicurezza e rete** quando si crea l'area di lavoro di Azure sinapsi. Selezionare quindi **Concedi controllo all'identità gestita dell'area di lavoro nei pool SQL**.
+Quando si crea un'area di lavoro di Azure sinapsi, selezionare **sicurezza** . Selezionare quindi **Consenti pipeline (in esecuzione come identità assegnata al sistema dell'area di lavoro) per accedere ai pool SQL.**
 
-![Autorizzazione CONTROL per i pool SQL](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
+![Autorizzazione CONTROL per pool SQL dedicati](./media/how-to-grant-workspace-managed-identity-permissions/configure-workspace-managed-identity-16.png)
 
 ## <a name="grant-the-managed-identity-permissions-to-adls-gen2-storage-account"></a>Concedere le autorizzazioni di identità gestite per ADLS Gen2 account di archiviazione
 

@@ -8,30 +8,33 @@ ms.subservice: security
 ms.date: 04/15/2020
 ms.author: ronytho
 ms.reviewer: jrasnick
-ms.openlocfilehash: ea791e4fc1031c0a5c041119c409f8623ce7aee9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee915346a93a600ea352be42dc14e0464525c025
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91260377"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312252"
 ---
 # <a name="connect-to-your-azure-synapse-workspace-using-private-links-preview"></a>Connettersi all'area di lavoro di Azure Synapse con i collegamenti privati (anteprima)
 
-Questo articolo illustra come creare un endpoint privato per l'area di lavoro di Azure Synapse. Per altre informazioni fare riferimento ai [collegamenti e agli endpoint privati](https://docs.microsoft.com/azure/private-link/).
+In questo articolo viene illustrato come creare un endpoint privato per l'area di lavoro di Azure sinapsi. Per altre informazioni fare riferimento ai [collegamenti e agli endpoint privati](https://docs.microsoft.com/azure/private-link/).
 
 ## <a name="step-1-register-network-resource-provider"></a>Passaggio 1: Registrare il provider di risorse di rete
 
 Se non è già stato fatto, registrare il provider di risorse di rete. La registrazione di un provider di risorse configura la sottoscrizione per l'utilizzo del provider di risorse. Scegliere *Microsoft.Network* dall'elenco dei provider di risorse quando si [esegue la registrazione](https://docs.microsoft.com/azure/azure-resource-manager/management/resource-providers-and-types). Se il provider di risorse di rete è già stato registrato, procedere con il Passaggio 2.
 
-
 ## <a name="step-2-open-your-azure-synapse-workspace-in-azure-portal"></a>Passaggio 2: Aprire l'area di lavoro di Azure Synapse nel portale di Azure
 
-Selezionare **Connessione a endpoint privato** in **sicurezza** e quindi selezionare **+ Endpoint privato**.
+Selezionare **connessione endpoint privato** in **sicurezza**. 
 ![Aprire l'area di lavoro di Azure Synapse nel portale di Azure](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1.png)
+
+Nella schermata successiva selezionare **+ endpoint privato**.
+
+![Apri endpoint privato in portale di Azure](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-1a.png)
 
 ## <a name="step-3-select-your-subscription-and-region-details"></a>Passaggio 3: Selezionare i dettagli per la sottoscrizione e l'area
 
-Nella scheda **Nozioni di base** della finestra **Crea un endpoint privato** scegliere la **Sottoscrizione** e il **Gruppo di risorse**. Assegnare un **Nome** all'endpoint privato che si vuole creare. Selezionare l'**Area** in cui si desidera collocare l'endpoint privato creato.
+Nella scheda **Nozioni di base** della finestra **Crea un endpoint privato** scegliere la **Sottoscrizione** e il **Gruppo di risorse**. Assegnare un **Nome** all'endpoint privato che si vuole creare. Selezionare l' **Area** in cui si desidera collocare l'endpoint privato creato.
 
 Gli endpoint privati vengono creati in una subnet. La sottoscrizione, il gruppo di risorse e l'area selezionati filtrano le subnet dell'endpoint privato. Selezionare **Avanti: Risorsa >** al termine.
 ![Selezionare la sottoscrizione e l'area Dettagli 1](./media/how-to-connect-to-workspace-with-private-links/private-endpoint-2.png)

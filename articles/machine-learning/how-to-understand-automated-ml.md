@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 10/09/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq2
-ms.openlocfilehash: d66c5001d94d0c2d28ae3c55b468fbaf45871c98
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 681e965d5fb64e35374b580cbbb238defd619492
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280361"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93311472"
 ---
 # <a name="evaluate-automated-machine-learning-experiment-results"></a>Valuta i risultati dell'esperimento di Machine Learning automatizzato
 
@@ -41,7 +41,7 @@ Ad esempio, AutoML fornisce grafici diversi per i modelli di classificazione e r
 
 Al termine dell'esperimento di Machine Learning automatizzato, è possibile trovare una cronologia delle esecuzioni nell'area di lavoro di Machine Learning tramite il [Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md). 
 
-Per gli esperimenti SDK, è possibile visualizzare gli stessi risultati durante un'esecuzione quando si usa il `RunDetails` [widget Jupyter](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true).
+Per gli esperimenti SDK, è possibile visualizzare gli stessi risultati durante un'esecuzione quando si usa il `RunDetails` [widget Jupyter](/python/api/azureml-widgets/azureml.widgets?preserve-view=true&view=azure-ml-py).
 
 I passaggi e l'animazione seguenti illustrano come visualizzare la cronologia di esecuzione e le metriche delle prestazioni e i grafici di un modello specifico in studio.
 

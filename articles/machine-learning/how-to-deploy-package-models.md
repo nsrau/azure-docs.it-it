@@ -1,7 +1,7 @@
 ---
 title: Modelli di pacchetto
 titleSuffix: Azure Machine Learning
-description: Creare un pacchetto di un modello come Dockerfile
+description: Creare un pacchetto di un modello. I modelli possono essere inclusi in un pacchetto come immagine Docker, che è possibile scaricare, oppure è possibile creare un Dockerfile e usarlo per compilare l'immagine.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,12 +11,12 @@ ms.date: 07/31/2020
 ms.topic: conceptual
 ms.reviewer: larryfr
 ms.custom: deploy
-ms.openlocfilehash: edaae4f4c06f038d12267e35a2c356af430e1555
-ms.sourcegitcommit: 090ea6e8811663941827d1104b4593e29774fa19
+ms.openlocfilehash: 299eb316b534ddc9d5eee934cc15eae841276038
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91998817"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93312641"
 ---
 # <a name="how-to-package-a-registered-model-with-docker"></a>Come creare un pacchetto di un modello registrato con Docker
 
@@ -162,7 +162,7 @@ docker kill mycontainer
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Risolvere i problemi relativi a una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
+* [Risolvere una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
 * [Distribuire nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)
 * [Creazione di applicazioni client per l'utilizzo di servizi Web](how-to-consume-web-service.md)
 * [Aggiornare un servizio Web](how-to-deploy-update-web-service.md)

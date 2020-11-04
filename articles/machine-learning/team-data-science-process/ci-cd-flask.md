@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: 42433ec419ac9e02077cd0359e18b5114206f27d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: af7900faff18d526686b80f23b9de3b3bce5ec5c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "76721830"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309611"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Creare pipeline di integrazione continua/recapito continuo per app per intelligenza artificiale con Azure Pipelines, Docker e Kubernetes
 
@@ -34,9 +34,9 @@ Per usare il codice sorgente scaricato e l'esercitazione, sono necessari i prere
 - Il [repository del codice sorgente](https://github.com/Azure/DevOps-For-AI-Apps) è stato duplicato nell'account github
 - Un' [organizzazione di Azure DevOps](/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 - [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
-- Un [cluster del servizio contenitore di Azure per Kubernetes (AKS)](/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
+- Un [cluster del servizio contenitore di Azure per Kubernetes (AKS)](/previous-versions/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 - [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) eseguire i comandi e recuperare la configurazione dal cluster AKS 
-- Un [account Azure container Registry (ACR)](/azure/container-registry/container-registry-get-started-portal)
+- Un [account Azure container Registry (ACR)](../../container-registry/container-registry-get-started-portal.md)
 
 ## <a name="cicd-pipeline-summary"></a>Riepilogo della pipeline CI/CD
 
@@ -62,7 +62,7 @@ Il diagramma e i passaggi seguenti descrivono l'architettura della pipeline CI/C
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Team Data Science Process (TDSP)](/azure/machine-learning/team-data-science-process/)
-- [Azure Machine Learning (AML)](/azure/machine-learning/)
+- [Team Data Science Process (TDSP)](./index.yml)
+- [Azure Machine Learning (AML)](../index.yml)
 - [Azure DevOps](https://azure.microsoft.com/services/devops/)
-- [Servizio Azure Kubernetes](/azure/aks/intro-kubernetes)
+- [Servizio Azure Kubernetes](../../aks/intro-kubernetes.md)

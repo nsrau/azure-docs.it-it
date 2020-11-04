@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: seodec18
 ms.date: 02/01/2018
-ms.openlocfilehash: 69eefce50cefe9f54ed931c96ccbe94b2057cae4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fb87afcc6edc02d241dca763aff9ecdd594e4711
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362368"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310093"
 ---
 # <a name="excel-add-in-for-azure-machine-learning-studio-classic-web-services"></a>Componente aggiuntivo di Excel per i servizi Web di Azure Machine Learning Studio (classico)
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun codice.
@@ -36,7 +36,7 @@ Excel consente di chiamare servizi Web direttamente senza dover scrivere alcun c
 2. Scegliere un servizio Web facendo clic su di esso: in questo esempio "Stime sopravvissuti Titanic (esempio componente aggiuntivo Excel) [Score]".
    
     ![Selezionare il servizio Web](./media/excel-add-in-for-web-services/image1.png)
-3. Viene visualizzata la sezione **Stima**.  Questa cartella di lavoro contiene già dati di esempio, ma per una cartella di lavoro vuota è anche possibile selezionare una cella in Excel e fare clic su **Use sample data**(Usa dati di esempio).
+3. Viene visualizzata la sezione **Stima**.  Questa cartella di lavoro contiene già dati di esempio, ma per una cartella di lavoro vuota è anche possibile selezionare una cella in Excel e fare clic su **Use sample data** (Usa dati di esempio).
 4. Selezionare i dati con intestazioni e fare clic sull'icona dell'intervallo dei dati di input.  Assicurarsi che sia selezionata la casella "Dati con intestazioni".
 5. In **Output** immettere il numero di cella in cui si vuole inserire l'output, in questo caso ad esempio "H1".
 6. Fare clic su **Stima**. Se si seleziona la casella di controllo "Auto-predict" (Stima automatica) qualsiasi modifica nelle aree selezionate (quelle specificate come input) attiverà una richiesta e un aggiornamento delle celle di output senza la necessità di premere il pulsante per la stima.
@@ -65,20 +65,20 @@ Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l
 
 **Usare un nuovo servizio Web**
 
-1. Nel portale dei [servizi web Azure Machine Learning](https://services.azureml.net) fare clic su **servizi Web**, quindi selezionare il servizio Web. 
-2. Fare clic su **Consume**(Uso).
+1. Nel portale dei [servizi web Azure Machine Learning](https://services.azureml.net) fare clic su **servizi Web** , quindi selezionare il servizio Web. 
+2. Fare clic su **Consume** (Uso).
 3. Cercare la sezione **Basic consumption info** (Informazioni di base sull'uso). Copiare e salvare il valore di **Primary Key** (Chiave primaria) e l'URL **Request-Response** (Richiesta-risposta).
 
 ## <a name="steps-to-add-a-new-web-service"></a>Procedura per aggiungere un nuovo servizio Web
 
 1. Distribuire un servizio Web o usarne uno esistente. Per altre informazioni sulla distribuzione di un servizio Web, vedere [esercitazione 3: distribuire il modello di rischio di credito](tutorial-part3-credit-risk-deploy.md).
-2. Fare clic su **Consume**(Uso).
+2. Fare clic su **Consume** (Uso).
 3. Cercare la sezione **Basic consumption info** (Informazioni di base sull'uso). Copiare e salvare il valore di **Primary Key** (Chiave primaria) e l'URL **Request-Response** (Richiesta-risposta).
 4. In Excel passare alla sezione **servizi Web** (se si è nella sezione **stima** , fare clic sulla freccia indietro per passare all'elenco dei servizi Web).
    
     ![Passare alla selezione del servizio Web](./media/excel-add-in-for-web-services/image3.png)
 5. Fare clic su **Aggiungi servizio Web**.
-6. Incollare l'URL nella casella di testo **URL**del componente aggiuntivo Excel.
+6. Incollare l'URL nella casella di testo **URL** del componente aggiuntivo Excel.
 7. Incollare la chiave API/primaria nella casella di testo **Chiave API**.
 8. Scegliere **Aggiungi**.
    
@@ -88,4 +88,4 @@ Ottenere la chiave API per il servizio Web. La posizione in cui viene eseguita l
 ## <a name="sharing-your-workbook"></a>Condivisione della cartella di lavoro
 Se si salva la cartella di lavoro, verrà salvata anche la chiave API/primaria per i servizi Web che sono stati aggiunti. Pertanto, è necessario condividere la cartella di lavoro solo con persone attendibili.
 
-In caso di domande, inserirle nella sezione seguente dedicata ai commenti o nel [forum](https://docs.microsoft.com/answers/topics/azure-machine-learning.html).
+In caso di domande, inserirle nella sezione seguente dedicata ai commenti o nel [forum](/answers/topics/azure-machine-learning.html).

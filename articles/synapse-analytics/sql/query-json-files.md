@@ -1,6 +1,6 @@
 ---
-title: Eseguire query su file JSON con SQL su richiesta (anteprima)
-description: Questa sezione illustra come leggere i file JSON con SQL su richiesta in Azure Synapse Analytics.
+title: Eseguire query sui file JSON usando un pool SQL senza server (anteprima)
+description: Questa sezione illustra come leggere i file JSON usando un pool SQL senza server in Azure sinapsi Analytics.
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick
-ms.openlocfilehash: 86ed3f005788627166c65b30398279f04388546c
-ms.sourcegitcommit: 50802bffd56155f3b01bfb4ed009b70045131750
+ms.openlocfilehash: 5dbad07401d77a15cd860a8ae492560c5fced819
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91930850"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93310606"
 ---
-# <a name="query-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query su file JSON con SQL su richiesta (anteprima) in Azure Synapse Analytics
+# <a name="query-json-files-using-serverless-sql-pool-preview-in-azure-synapse-analytics"></a>Eseguire query sui file JSON usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics
 
-Questo articolo illustra come scrivere una query usando SQL su richiesta (anteprima) in Azure Synapse Analytics. L'obiettivo della query è leggere i file JSON tramite [OPENROWSET](develop-openrowset.md). 
+Questo articolo illustra come scrivere una query usando un pool SQL senza server (anteprima) in Azure sinapsi Analytics. L'obiettivo della query è leggere i file JSON tramite [OPENROWSET](develop-openrowset.md). 
 - File JSON standard in cui più documenti JSON vengono archiviati come matrice JSON.
 - File JSON delimitati da righe, in cui i documenti JSON sono separati da caratteri di nuova riga. Le estensioni comuni per questi tipi di file sono `jsonl` , `ldjson` e `ndjson` .
 
