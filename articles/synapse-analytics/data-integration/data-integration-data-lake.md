@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: daperlov
 ms.reviewer: jrasnick
-ms.openlocfilehash: cc5c72c2d0db7c17fdbc29e7fb815f1d06134730
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f06777e559187a57bfe0625cde700f30fb636a2b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033218"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309342"
 ---
 # <a name="ingest-data-into-azure-data-lake-storage-gen2"></a>Inserire i dati in Azure Data Lake Storage Gen2 
 
@@ -22,8 +22,8 @@ Questo articolo illustra come inserire dati da una posizione a un'altra in un ac
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: usare Azure Data Lake Gen 2 come archivio dati di *origine*. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per informazioni su come crearne uno.
+* **Sottoscrizione di Azure** : se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Account di archiviazione di Azure** : usare Azure Data Lake Gen 2 come archivio dati di *origine*. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) per informazioni su come crearne uno.
 
 ## <a name="create-linked-services"></a>Creare servizi collegati
 
@@ -38,7 +38,7 @@ In Azure Synapse Analytics si usano i servizi collegati per definire le informaz
 
 ## <a name="create-pipeline"></a>Creare una pipeline
 
-Una pipeline contiene il flusso logico per un'esecuzione di un set di attività. In questa sezione verrà creata una pipeline contenente un'attività di copia che inserisce i dati da Azure Data Lake Gen 2 in un pool SQL.
+Una pipeline contiene il flusso logico per un'esecuzione di un set di attività. In questa sezione verrà creata una pipeline contenente un'attività di copia che inserisce i dati da Azure Data Lake generazione 2 in un pool SQL dedicato.
 
 1. Passare alla scheda **orchestrazione** . Selezionare l'icona più accanto all'intestazione pipeline e selezionare **pipeline**.
 1. In **Move and Transform** (Sposta e trasforma) nel riquadro delle attività trascinare **Copia dati** sul canvas della pipeline.
@@ -67,9 +67,9 @@ In questo passaggio si attiverà manualmente la pipeline pubblicata nel passaggi
 1. Selezionare **Aggiungi trigger** nella barra degli strumenti, quindi selezionare **Attiva adesso**. Nella pagina **Pipeline Run** (Esecuzione di pipeline) selezionare **Fine**.  
 1. Passare alla scheda **Monitora** nella barra laterale sinistra. Viene visualizzata un'esecuzione della pipeline attivata da un trigger manuale. È possibile usare i collegamenti nella colonna **Azioni** per visualizzare i dettagli delle attività ed eseguire di nuovo la pipeline.
 1. Per visualizzare le esecuzioni di attività associate all'esecuzione della pipeline, selezionare il collegamento **View Activity Runs** (Visualizza le esecuzioni di attività) nella colonna **Azioni**. In questo esempio è presente una sola attività, quindi nell'elenco viene visualizzata una sola voce. Per informazioni dettagliate sull'operazione di copia, selezionare il collegamento **Dettagli** (icona a forma di occhiali) nella colonna **Azioni**. Selezionare **Pipeline Runs** (Esecuzioni di pipeline) in alto per tornare alla visualizzazione delle esecuzioni. Per aggiornare la visualizzazione, selezionare **Aggiorna**.
-1. Verificare che i dati siano scritti correttamente nel pool SQL.
+1. Verificare che i dati siano scritti correttamente nel pool SQL dedicato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'integrazione dei dati per Synapse Analytics, vedere l'articolo [Inserimento di dati in un pool SQL](data-integration-sql-pool.md).
+Per altre informazioni sull'integrazione dei dati per l'analisi delle sinapsi, vedere l'articolo inserimento di [dati in un pool SQL dedicato](data-integration-sql-pool.md) .

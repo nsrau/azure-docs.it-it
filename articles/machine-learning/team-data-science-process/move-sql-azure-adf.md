@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 09/03/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 6f2e0b9a797edb2d5529bb0645ed56c44df3121c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02fd6c1d4cbd1c2db287a38e086045042b5f220a
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89440021"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309535"
 ---
 # <a name="move-data-from-a-sql-server-database-to-sql-database-with-azure-data-factory"></a>Spostare i dati da un database di SQL Server al database SQL con Azure Data Factory
 
@@ -43,7 +43,7 @@ Si configura una pipeline ADF che compone due attività di migrazione dei dati. 
 * Copiare i dati dall'account di archiviazione BLOB di Azure al database SQL di Azure.
 
 > [!NOTE]
-> I passaggi illustrati di seguito sono stati adattati dall'esercitazione più dettagliata fornita dal team di ADF: [copiare i dati da un database di SQL Server ai riferimenti di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal/) alle sezioni pertinenti di tale argomento, quando appropriato.
+> I passaggi illustrati di seguito sono stati adattati dall'esercitazione più dettagliata fornita dal team di ADF: [copiare i dati da un database di SQL Server ai riferimenti di archiviazione BLOB di Azure](../../data-factory/tutorial-hybrid-copy-portal.md) alle sezioni pertinenti di tale argomento, quando appropriato.
 >
 >
 
@@ -52,7 +52,7 @@ Il tutorial presuppone:
 
 * Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un **account di archiviazione di Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-account-create.md) . Dopo avere creato l'account di archiviazione, è necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [gestire le chiavi di accesso dell'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
-* Accesso a un **database SQL di Azure**. Se è necessario configurare un database SQL di Azure, l'argomento [Introduzione con database SQL di Microsoft Azure](../../sql-database/sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database SQL di Azure.
+* Accesso a un **database SQL di Azure**. Se è necessario configurare un database SQL di Azure, l'argomento [Introduzione con database SQL di Microsoft Azure](../../azure-sql/database/single-database-create-quickstart.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database SQL di Azure.
 * Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/).
 
 > [!NOTE]
@@ -66,12 +66,12 @@ Utilizziamo il [set di dati NYC Taxi](https://chriswhong.com/open-data/foil_nyc_
 È possibile adattare le procedure riportate di seguito a un set di dati personalizzati o seguire i passaggi come descritto utilizzando il set di dati NYC Taxi. Per caricare il set di dati NYC Taxi nel database di SQL Server, seguire la procedura illustrata nell'argomento relativo all' [importazione bulk di dati in SQL Server database](sql-walkthrough.md#dbload).
 
 ## <a name="create-an-azure-data-factory"></a><a name="create-adf"></a> Creare una Azure Data Factory
-Le istruzioni per la creazione di una nuova data factory di Azure e un gruppo di risorse nel [portale di Azure](https://portal.azure.com/) sono disponibili in [Creazione di un'istanza di Data factory di Azure](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Denominare la nuova istanza ADF *adfdsp*e assegnare il nome *adfdsprg* al gruppo di risorse creato.
+Le istruzioni per la creazione di una nuova data factory di Azure e un gruppo di risorse nel [portale di Azure](https://portal.azure.com/) sono disponibili in [Creazione di un'istanza di Data factory di Azure](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-data-factory). Denominare la nuova istanza ADF *adfdsp* e assegnare il nome *adfdsprg* al gruppo di risorse creato.
 
 ## <a name="install-and-configure-azure-data-factory-integration-runtime"></a>Installare e configurare Integration Runtime di Azure Data Factory
 Il Integration Runtime è un'infrastruttura di integrazione dei dati gestita dal cliente utilizzata da Azure Data Factory per fornire funzionalità di integrazione dei dati in diversi ambienti di rete. In precedenza Questo runtime era chiamato "gateway di gestione dati".
 
-Per la configurazione, [seguire le istruzioni per la creazione di una pipeline](https://docs.microsoft.com/azure/data-factory/tutorial-hybrid-copy-portal#create-a-pipeline)
+Per la configurazione, [seguire le istruzioni per la creazione di una pipeline](../../data-factory/tutorial-hybrid-copy-portal.md#create-a-pipeline)
 
 ## <a name="create-linked-services-to-connect-to-the-data-resources"></a><a name="adflinkedservices"></a>Creare servizi collegati per connettersi alle risorse di dati
 I servizi collegati definiscono le informazioni necessarie affinché il servizio data factory si connetta a risorse dati. Sono disponibili tre risorse in questo scenario per il quale sono necessari servizi collegati:
@@ -87,7 +87,7 @@ In [Creazione di servizi collegati](../../data-factory/tutorial-hybrid-copy-port
 Creare tabelle che specificano la struttura, la posizione e la disponibilità dei set di dati con le seguenti procedure basate su script. I file JSON vengono utilizzati per definire le tabelle. Per ulteriori informazioni sulla struttura di questi file, vedere [Set di dati](../../data-factory/concepts-datasets-linked-services.md).
 
 > [!NOTE]
-> È necessario eseguire il cmdlet `Add-AzureAccount` prima di eseguire il cmdlet [New-AzureDataFactoryTable](https://msdn.microsoft.com/library/azure/dn835096.aspx) per verificare che sia selezionata la sottoscrizione di Azure giusta per l'esecuzione del comando. Per la documentazione di questo cmdlet, vedere [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
+> È necessario eseguire il cmdlet `Add-AzureAccount` prima di eseguire il cmdlet [New-AzureDataFactoryTable](/previous-versions/azure/dn835096(v=azure.100)) per verificare che sia selezionata la sottoscrizione di Azure giusta per l'esecuzione del comando. Per la documentazione di questo cmdlet, vedere [Add-AzureAccount](/powershell/module/servicemanagement/azure.service/add-azureaccount?view=azuresmps-3.7.0).
 >
 >
 
@@ -138,7 +138,7 @@ La definizione della tabella per la SQL Server è specificata nel file JSON segu
 
 Qui non sono inclusi i nomi di colonna. È possibile sottoselezionare i nomi di colonna inserendoli qui. per informazioni dettagliate, vedere l'argomento della [documentazione di ADF](../../data-factory/copy-activity-overview.md) .
 
-Copiare la definizione JSON della tabella in un file denominata *onpremtabledef.json* e salvarlo in una posizione nota (generalmente *C:\temp\onpremtabledef.json*). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
+Copiare la definizione JSON della tabella in un file denominata *onpremtabledef.json* e salvarlo in una posizione nota (generalmente *C:\temp\onpremtabledef.json* ). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
 
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName ADFdsprg -DataFactoryName ADFdsp –File C:\temp\onpremtabledef.json
@@ -173,7 +173,7 @@ La definizione della tabella per il percorso del BLOB di output è la seguente. 
 }
 ```
 
-Copiare la definizione JSON della tabella in un file denominata *bloboutputtabledef.json* e salvarlo in una posizione nota (generalmente *C:\temp\bloboutputtabledef.json*). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
+Copiare la definizione JSON della tabella in un file denominata *bloboutputtabledef.json* e salvarlo in una posizione nota (generalmente *C:\temp\bloboutputtabledef.json* ). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
 
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\bloboutputtabledef.json
@@ -207,7 +207,7 @@ La definizione della tabella per l’output SQL Azure è la seguente (questo sch
 }
 ```
 
-Copiare la definizione JSON della tabella in un file denominata *AzureSqlTable.json* e salvarlo in una posizione nota (generalmente *C:\temp\AzureSqlTable.json*). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
+Copiare la definizione JSON della tabella in un file denominata *AzureSqlTable.json* e salvarlo in una posizione nota (generalmente *C:\temp\AzureSqlTable.json* ). Creare la tabella nel file ADF con il seguente cmdlet Azure PowerShell:
 
 ```azurepowershell
 New-AzureDataFactoryTable -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\AzureSqlTable.json
@@ -294,7 +294,7 @@ Se si utilizzano le definizioni di tabella fornite in precedenza, la definizione
 }
 ```
 
-Copiare la definizione JSON della pipeline in un file denominato *pipelinedef.json* e salvarlo in una posizione nota (generalmente *C:\temp\pipelinedef.json*). Creare la pipeline ADF con il seguente cmdlet Azure PowerShell:
+Copiare la definizione JSON della pipeline in un file denominato *pipelinedef.json* e salvarlo in una posizione nota (generalmente *C:\temp\pipelinedef.json* ). Creare la pipeline ADF con il seguente cmdlet Azure PowerShell:
 
 ```azurepowershell
 New-AzureDataFactoryPipeline  -ResourceGroupName adfdsprg -DataFactoryName adfdsp -File C:\temp\pipelinedef.json

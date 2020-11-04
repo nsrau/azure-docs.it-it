@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 22e834ccc31e2d01646250c973080848173661de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: bbc532acf704128e2311f440aabe8f707fc03aea
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743778"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307235"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Esegui il training dei modelli PyTorch su larga scala con Azure Machine Learning
 
@@ -36,7 +36,7 @@ Eseguire questo codice in uno degli ambienti seguenti:
     - Nella cartella Samples Deep learning nel server notebook trovare un notebook completato e espanso passando a questa directory: **How-to-use-azureml > ml-frameworks > pytorch > Train-iperparameter-Tune-deploy-with-pytorch** Folder. 
  
  - Server Jupyter Notebook personale
-    - [Installare Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.15.0).
+    - [Installare Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
     - [Creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
     - [Scaricare i file script di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch/train-hyperparameter-tune-deploy-with-pytorch)`pytorch_train.py`
      
@@ -63,7 +63,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) oggetto.
+L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) oggetto.
 
 Creare un oggetto dell'area di lavoro dal `config.json` file creato nella [sezione Prerequisiti](#prerequisites).
 
@@ -182,7 +182,7 @@ Per altre informazioni sulla creazione e sull'uso degli ambienti, vedere [creare
 
 ### <a name="create-a-scriptrunconfig"></a>Creare un ScriptRunConfig
 
-Creare un oggetto [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true) per specificare i dettagli di configurazione del processo di training, tra cui script di training, ambiente da usare e destinazione di calcolo in cui eseguirlo. Eventuali argomenti dello script di training verranno passati tramite la riga di comando se specificati nel `arguments` parametro. 
+Creare un oggetto [ScriptRunConfig](/python/api/azureml-core/azureml.core.scriptrunconfig?preserve-view=true&view=azure-ml-py) per specificare i dettagli di configurazione del processo di training, tra cui script di training, ambiente da usare e destinazione di calcolo in cui eseguirlo. Eventuali argomenti dello script di training verranno passati tramite la riga di comando se specificati nel `arguments` parametro. 
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -204,7 +204,7 @@ Per altre informazioni sulla configurazione dei processi con ScriptRunConfig, ve
 
 ## <a name="submit-your-run"></a>Invia la tua esecuzione
 
-L' [oggetto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) fornisce l'interfaccia alla cronologia di esecuzione mentre il processo è in esecuzione e dopo il completamento.
+L' [oggetto Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) fornisce l'interfaccia alla cronologia di esecuzione mentre il processo è in esecuzione e dopo il completamento.
 
 ```Python
 run = Experiment(ws, name='pytorch-birds').submit(src)
@@ -214,13 +214,13 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>Cosa accade durante l'esecuzione dell'esecuzione
 Quando l'esecuzione viene eseguita, vengono eseguite le fasi seguenti:
 
-- **Preparazione**: viene creata un'immagine Docker in base all'ambiente definito. L'immagine viene caricata nel registro contenitori dell'area di lavoro e memorizzata nella cache per le esecuzioni successive. Anche i log vengono trasmessi alla cronologia di esecuzione e possono essere visualizzati per monitorare lo stato di avanzamento. Se invece si specifica un ambiente curato, verrà utilizzata l'immagine memorizzata nella cache che supporta l'ambiente curato.
+- **Preparazione** : viene creata un'immagine Docker in base all'ambiente definito. L'immagine viene caricata nel registro contenitori dell'area di lavoro e memorizzata nella cache per le esecuzioni successive. Anche i log vengono trasmessi alla cronologia di esecuzione e possono essere visualizzati per monitorare lo stato di avanzamento. Se invece si specifica un ambiente curato, verrà utilizzata l'immagine memorizzata nella cache che supporta l'ambiente curato.
 
-- **Ridimensionamento**: il cluster tenta di eseguire la scalabilità verticale se il cluster batch per intelligenza artificiale richiede un numero maggiore di nodi per eseguire l'esecuzione rispetto al momento disponibile.
+- **Ridimensionamento** : il cluster tenta di eseguire la scalabilità verticale se il cluster batch per intelligenza artificiale richiede un numero maggiore di nodi per eseguire l'esecuzione rispetto al momento disponibile.
 
-- **Running**: tutti gli script nella cartella script vengono caricati nella destinazione di calcolo, gli archivi dati vengono montati o copiati e `script` viene eseguito. Gli output da stdout e la cartella **./logs** vengono trasmessi alla cronologia di esecuzione e possono essere usati per monitorare l'esecuzione.
+- **Running** : tutti gli script nella cartella script vengono caricati nella destinazione di calcolo, gli archivi dati vengono montati o copiati e `script` viene eseguito. Gli output da stdout e la cartella **./logs** vengono trasmessi alla cronologia di esecuzione e possono essere usati per monitorare l'esecuzione.
 
-- **Post-elaborazione**: la cartella **./Outputs** dell'esecuzione viene copiata nella cronologia di esecuzione.
+- **Post-elaborazione** : la cartella **./Outputs** dell'esecuzione viene copiata nella cronologia di esecuzione.
 
 ## <a name="register-or-download-a-model"></a>Registrare o scaricare un modello
 
@@ -268,7 +268,7 @@ dependencies:
   - horovod==0.19.5
 ```
 
-Per eseguire un processo distribuito con MPI/Horovod in Azure ML, è necessario specificare un [MpiConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?view=azure-ml-py&preserve-view=true) per il `distributed_job_config` parametro del costruttore ScriptRunConfig. Il codice seguente consente di configurare un processo distribuito a 2 nodi che esegue un processo per nodo. Se si desidera eseguire più processi per nodo, ad esempio se lo SKU del cluster ha più GPU, specificare anche il `process_count_per_node` parametro in MpiConfiguration (il valore predefinito è `1` ).
+Per eseguire un processo distribuito con MPI/Horovod in Azure ML, è necessario specificare un [MpiConfiguration](/python/api/azureml-core/azureml.core.runconfig.mpiconfiguration?preserve-view=true&view=azure-ml-py) per il `distributed_job_config` parametro del costruttore ScriptRunConfig. Il codice seguente consente di configurare un processo distribuito a 2 nodi che esegue un processo per nodo. Se si desidera eseguire più processi per nodo, ad esempio se lo SKU del cluster ha più GPU, specificare anche il `process_count_per_node` parametro in MpiConfiguration (il valore predefinito è `1` ).
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -286,7 +286,7 @@ Per un'esercitazione completa sull'esecuzione di PyTorch distribuiti con Horovod
 ### <a name="distributeddataparallel"></a>DistributedDataParallel
 Se si usa il modulo [DistributedDataParallel](https://pytorch.org/tutorials/intermediate/ddp_tutorial.html) incorporato di PyTorch compilato con il pacchetto **torcia. Distributed** nel codice di training, è anche possibile avviare il processo distribuito tramite Azure ml.
 
-Per eseguire un processo PyTorch distribuito con DistributedDataParallel, specificare un [PyTorchConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?view=azure-ml-py&preserve-view=true) per il `distributed_job_config` parametro del costruttore ScriptRunConfig. Per usare il back-end NCCL per Torch. Distributed, specificare `communication_backend='Nccl'` in PyTorchConfiguration. Il codice seguente consente di configurare un processo distribuito a 2 nodi. Il back-end NCCL è il back-end consigliato per la formazione GPU distribuita PyTorch.
+Per eseguire un processo PyTorch distribuito con DistributedDataParallel, specificare un [PyTorchConfiguration](/python/api/azureml-core/azureml.core.runconfig.pytorchconfiguration?preserve-view=true&view=azure-ml-py) per il `distributed_job_config` parametro del costruttore ScriptRunConfig. Per usare il back-end NCCL per Torch. Distributed, specificare `communication_backend='Nccl'` in PyTorchConfiguration. Il codice seguente consente di configurare un processo distribuito a 2 nodi. Il back-end NCCL è il back-end consigliato per la formazione GPU distribuita PyTorch.
 
 Per i processi PyTorch distribuiti configurati tramite PyTorchConfiguration, Azure ML imposta le variabili di ambiente seguenti nei nodi della destinazione di calcolo:
 

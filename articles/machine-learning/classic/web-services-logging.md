@@ -10,16 +10,16 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: how-to
 ms.date: 06/15/2017
-ms.openlocfilehash: b30cd926f6908c26c6f71c1513a8c68c8a46bf43
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 154479be1eae01bcc533b556b751ed24aee3da2b
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91359750"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308569"
 ---
 # <a name="enable-logging-for-azure-machine-learning-studio-classic-web-services"></a>Abilitare la registrazione per i servizi Web di Azure Machine Learning Studio (classico)
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 In questo documento vengono fornite informazioni sulla funzionalità di registrazione dei servizi Web di Machine Learning Studio (classico). La registrazione fornisce informazioni aggiuntive, oltre a un numero di errore e un messaggio, che consentono di risolvere i problemi relativi alle chiamate alle API Machine Learning Studio (classiche).  
@@ -40,11 +40,11 @@ In questo documento vengono fornite informazioni sulla funzionalità di registra
 
 4. Nella barra dei menu superiore fare clic su **Configura**.
 
-5. Impostare l'opzione **Abilita registrazione** su *Errore*, per registrare solo gli errori, o su *Tutti*, per la registrazione completa.
+5. Impostare l'opzione **Abilita registrazione** su *Errore* , per registrare solo gli errori, o su *Tutti* , per la registrazione completa.
 
    ![Selezione del livello di registrazione](./media/web-services-logging/enable-logging.png)
 
-6. Fare clic su **Save**.
+6. Fare clic su **Salva**.
 
 7. Per i servizi Web classici, creare il contenitore **ml-diagnostics**.
 
@@ -52,9 +52,9 @@ In questo documento vengono fornite informazioni sulla funzionalità di registra
 
    1. Nel [portale di Azure](https://portal.azure.com) accedere all'account di archiviazione associato al servizio Web.
 
-   2. In **servizio BLOB**fare clic su **contenitori**.
+   2. In **Servizio BLOB** fare clic su **Contenitori**.
 
-   3. Se il contenitore **ml-diagnostics** non esiste, fare clic su **+ Contenitore**, assegnare al contenitore il nome "ml-diagnostics" e selezionare il **Tipo di accesso** "BLOB". Fare clic su **OK**.
+   3. Se il contenitore **ml-diagnostics** non esiste, fare clic su **+ Contenitore** , assegnare al contenitore il nome "ml-diagnostics" e selezionare il **Tipo di accesso** "BLOB". Fare clic su **OK**.
 
       ![Creare un nuovo contenitore per archiviare i log di diagnostica](./media/web-services-logging/create-ml-diagnostics-container.png)
 
@@ -85,5 +85,4 @@ Dove _Tipo di log_ corrisponde a uno dei valori seguenti:
 
 * o batch  
 * punteggio/richieste  
-* punteggio/init  
-
+* punteggio/init

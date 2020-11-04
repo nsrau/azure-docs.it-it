@@ -9,16 +9,16 @@ author: likebupt
 ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 02/27/2017
-ms.openlocfilehash: 6f136d0818daca1585de3896305a080ddbabfbe2
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3763942c7b939bf9a4fcc3e11a2536de33b61e05
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426913"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308108"
 ---
 # <a name="manage-an-azure-machine-learning-studio-classic-workspace"></a>Gestire un'area di lavoro di Azure Machine Learning Studio (classica)
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 > [!NOTE]
@@ -40,8 +40,8 @@ Per gestire un'area di lavoro di studio (classica) nel portale di Azure:
 
 Oltre alle informazioni e alle opzioni di gestione delle risorse standard disponibili, viene offerta la possibilità di effettuare le operazioni seguenti.
 
-- Visualizzare **Proprietà**: questa pagina visualizza informazioni relative all'area di lavoro e alle risorse e consente di modificare la sottoscrizione e il gruppo di risorse a cui è connessa l'area di lavoro.
-- **Risincronizzare le chiavi di archiviazione**: l'area di lavoro mantiene le chiavi per l'account di archiviazione. Se le chiavi vengono modificate nell'account di archiviazione, è possibile fare clic su **Risincronizza le chiavi** per sincronizzarle con l'area di lavoro.
+- Visualizzare **Proprietà** : questa pagina visualizza informazioni relative all'area di lavoro e alle risorse e consente di modificare la sottoscrizione e il gruppo di risorse a cui è connessa l'area di lavoro.
+- **Risincronizzare le chiavi di archiviazione** : l'area di lavoro mantiene le chiavi per l'account di archiviazione. Se le chiavi vengono modificate nell'account di archiviazione, è possibile fare clic su **Risincronizza le chiavi** per sincronizzarle con l'area di lavoro.
 
 Per gestire i servizi Web associati a questa area di lavoro di studio (classica), usare il portale dei servizi Web Machine Learning. Per informazioni complete, vedere [Gestire un servizio Web usando il portale dei servizi Web di Azure Machine Learning](manage-new-webservice.md).
 
@@ -51,4 +51,4 @@ Per gestire i servizi Web associati a questa area di lavoro di studio (classica)
 >Per altre informazioni sull'impostazione delle autorizzazioni di accesso, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-* Altre informazioni sulla [distribuzione di Machine Learning con i modelli di Azure Resource Manager](deploy-with-resource-manager-template.md). 
+* Altre informazioni sulla [distribuzione di Machine Learning con i modelli di Azure Resource Manager](deploy-with-resource-manager-template.md).

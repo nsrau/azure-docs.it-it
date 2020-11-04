@@ -12,16 +12,16 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/02/2020
 ms.author: inhenkel
-ms.openlocfilehash: c03950d64c9ead17dfa5c07ef70ab2b7ee0e90bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 33aed32c30f298fd3432f4cebcc28b9c20974545
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89296652"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309063"
 ---
-# <a name="monitor-media-services-metrics-and-diagnostic-logs-via-azure-monitor"></a>Monitorare le metriche di servizi multimediali e i log di diagnostica tramite monitoraggio di Azure
+# <a name="monitor-media-services-metrics-and-diagnostic-logs-with-azure-monitor"></a>Monitorare le metriche di servizi multimediali e i log di diagnostica con monitoraggio di Azure
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -44,7 +44,7 @@ Servizi multimediali supporta le metriche di monitoraggio per le risorse seguent
 
 È possibile monitorare le metriche dell'account seguenti.
 
-|Nome metrica|Nome visualizzato|Description|
+|Nome metrica|Nome visualizzato|Descrizione|
 |---|---|---|
 |AssetCount|Asset count (Conteggio asset)|Asset nell'account.|
 |AssetQuota|Asset quota (Quota asset)|Quota di asset nell'account.|
@@ -62,13 +62,15 @@ Servizi multimediali supporta le metriche di monitoraggio per le risorse seguent
 
 Sono supportate le metriche seguenti per gli [endpoint di streaming](/rest/api/media/streamingendpoints) di servizi multimediali:
 
-|Nome metrica|Nome visualizzato|Description|
+|Nome metrica|Nome visualizzato|Descrizione|
 |---|---|---|
 |Requests|Requests|Specifica il numero totale di richieste HTTP gestite dall'endpoint di streaming.|
 |Egress|Egress|Byte in uscita totali al minuto per endpoint di streaming.|
 |SuccessE2ELatency|Success end to end Latency (Latenza end-to-end riuscita)|Durata del periodo di tempo durante il quale l'endpoint di streaming ha ricevuto la richiesta al momento dell'invio dell'ultimo byte della risposta.|
+|Utilizzo della CPU| Utilizzo della CPU per gli endpoint di streaming Premium. Questi dati non sono disponibili per gli endpoint di streaming standard. |
+|Larghezza di banda in uscita | Larghezza di banda in uscita in bit al secondo.|
 
-### <a name="why-would-i-want-to-use-metrics"></a>Perché si vuole usare la metrica?
+### <a name="metrics-are-useful"></a>Le metriche sono utili
 
 Di seguito sono riportati alcuni esempi di come le metriche di monitoraggio di servizi multimediali possano aiutarti a comprendere le prestazioni delle tue app. Di seguito sono riportate alcune domande che possono essere risolte con le metriche di servizi multimediali:
 
@@ -79,6 +81,8 @@ Di seguito sono riportati alcuni esempi di come le metriche di monitoraggio di s
 * Come è possibile visualizzare la suddivisione delle richieste in errore e la causa dell'errore?
 * Come è possibile vedere il numero di richieste HLS o DASH da estrarre dal pacchetto?
 * Ricerca per categorie impostare un avviso per stabilire quando è stato raggiunto il valore soglia di numero di richieste non riuscite?
+
+La concorrenza diventa un problema per il numero di endpoint di streaming usati in un singolo account nel tempo. È necessario tenere presente la relazione tra il numero di flussi simultanei con parametri di pubblicazione complessi, ad esempio la creazione dinamica dei pacchetti a più protocolli, più crittografie DRM e così via. Ogni flusso live pubblicato aggiuntivo aggiunge alla CPU e alla larghezza di banda di output sull'endpoint di streaming. Tenendo presente questo aspetto, è consigliabile usare monitoraggio di Azure per controllare attentamente l'utilizzo dell'endpoint di streaming (CPU e capacità in uscita) per assicurarsi che venga eseguito il ridimensionamento appropriato (o suddividere il traffico tra più endpoint di streaming se si sta ottenendo una concorrenza molto elevata).
 
 ### <a name="example"></a>Esempio
 
@@ -94,7 +98,7 @@ Servizi multimediali supporta i log di diagnostica seguenti:
 
 ### <a name="key-delivery"></a>Distribuzione delle chiavi
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |Richiesta del servizio di distribuzione delle chiavi|Log che mostrano le informazioni della richiesta del servizio di distribuzione delle chiavi. Per ulteriori informazioni, vedere [schemi](media-services-diagnostic-logs-schema.md).|
 

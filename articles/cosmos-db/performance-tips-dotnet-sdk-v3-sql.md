@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/13/2020
 ms.author: jawilley
-ms.custom: devx-track-dotnet
-ms.openlocfilehash: 21821bbb41126a53c2b137bf1f5e5684ff1ae267
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.custom: devx-track-dotnet, contperfq2
+ms.openlocfilehash: 8c042032fb12e63ae32eb5a51b06e07386e5fbfc
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096289"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308845"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Suggerimenti sulle prestazioni per Azure Cosmos DB e .NET
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -40,16 +40,16 @@ Per Linux e altre piattaforme non supportate in cui ServiceInterop.dll non è di
 
 Per impostazione predefinita, i quattro tipi di applicazione elencati di seguito utilizzano l'elaborazione host a 32 bit. Per modificare l'elaborazione dell'host nell'elaborazione a 64 bit per il tipo di applicazione, eseguire le operazioni seguenti:
 
-- **Per le applicazioni eseguibili** : nella finestra delle **proprietà del progetto** , nel riquadro **Compila** , impostare la [destinazione della piattaforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) su **x64** .
+- **Per le applicazioni eseguibili** : nella finestra delle **proprietà del progetto** , nel riquadro **Compila** , impostare la [destinazione della piattaforma](/visualstudio/ide/how-to-configure-projects-to-target-platforms?preserve-view=true&view=vs-2019) su **x64**.
 
-- **Per i progetti di test basati su VSTest** : nel menu **test** di Visual Studio **selezionare**  >  **impostazioni test** test, quindi impostare **architettura del processore predefinita** su **x64** .
+- **Per i progetti di test basati su VSTest** : nel menu **test** di Visual Studio **selezionare**  >  **impostazioni test** test, quindi impostare **architettura del processore predefinita** su **x64**.
 
-- **Per le applicazioni Web ASP.NET distribuite localmente** : selezionare **strumenti**  >  **Opzioni**  >  **progetti e soluzioni** progetti  >  **Web** , quindi selezionare **Usa la versione a 64 bit di IIS Express per i siti Web e i progetti** .
+- **Per le applicazioni Web ASP.NET distribuite localmente** : selezionare **strumenti**  >  **Opzioni**  >  **progetti e soluzioni** progetti  >  **Web** , quindi selezionare **Usa la versione a 64 bit di IIS Express per i siti Web e i progetti**.
 
 - **Per le applicazioni web ASP.NET distribuite in Azure** : nella portale di Azure, in **Impostazioni applicazione** , selezionare la piattaforma a **64 bit** .
 
 > [!NOTE] 
-> Per impostazione predefinita, i nuovi progetti di Visual Studio sono impostati su **qualsiasi CPU** . Si consiglia di impostare il progetto su **x64** in modo che non passi a **x86** . Un progetto impostato su **qualsiasi CPU** può passare facilmente a **x86** se viene aggiunta una dipendenza solo x86.<br/>
+> Per impostazione predefinita, i nuovi progetti di Visual Studio sono impostati su **qualsiasi CPU**. Si consiglia di impostare il progetto su **x64** in modo che non passi a **x86**. Un progetto impostato su **qualsiasi CPU** può passare facilmente a **x86** se viene aggiunta una dipendenza solo x86.<br/>
 > Il file di ServiceInterop.dll deve trovarsi nella cartella da cui viene eseguita la DLL SDK. Questo dovrebbe essere un problema solo se si copiano le dll manualmente o si dispone di sistemi di compilazione o distribuzione personalizzati.
     
 **Attivare Garbage Collection lato server**

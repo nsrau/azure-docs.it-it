@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 1f1120c78ef2a634c079705c85170d9742eabd1f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 42bac2df7abe00be8c0e6ffddcc9bef7ef28ba9d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87087425"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309523"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Spostamento dei dati in un database SQL di Azure per Azure Machine Learning
 
@@ -36,10 +36,10 @@ Questa procedura descritta di seguito richiede di disporre di:
 
 * Una **sottoscrizione di Azure**. Se non si ha una sottoscrizione, è possibile iscriversi per una [versione di valutazione gratuita](https://azure.microsoft.com/pricing/free-trial/).
 * Un **account di archiviazione di Azure**. In questa esercitazione si userà un account di archiviazione di Azure per archiviare i dati. Se non si dispone di un account di archiviazione di Azure, vedere l'articolo [Creare un account di archiviazione di Azure](../../storage/common/storage-account-create.md) . Dopo avere creato l'account di archiviazione, è necessario ottenere la chiave dell'account usata per accedere alla risorsa di archiviazione. Vedere [gestire le chiavi di accesso dell'account di archiviazione](../../storage/common/storage-account-keys-manage.md).
-* Accesso a un **database SQL di Azure**. Se è necessario impostare un database SQL di Azure, la [Guida introduttiva al database SQL di Microsoft Azure](../../sql-database/sql-database-get-started.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database SQL di Azure.
+* Accesso a un **database SQL di Azure**. Se è necessario impostare un database SQL di Azure, la [Guida introduttiva al database SQL di Microsoft Azure](../../azure-sql/database/single-database-create-quickstart.md) fornisce informazioni su come eseguire il provisioning di una nuova istanza di un database SQL di Azure.
 * Installazione e configurazione di **Azure PowerShell** in locale. Per istruzioni, vedere [Come installare e configurare Azure PowerShell](/powershell/azure/).
 
-**Dati**: i processi di migrazione vengono illustrati usando il [set di dati NYC Taxi](https://chriswhong.com/open-data/foil_nyc_taxi/). Il set di dati NYC Taxi contiene informazioni sulle tariffe e sui dati delle tratte ed è disponibile nell'archivio BLOB di Azure ([dati NYC Taxi](https://www.andresmh.com/nyctaxitrips/)). Un esempio e una descrizione di questi file sono inclusi in [Descrizione del set di dati relativo alle corse dei taxi di NYC](sql-walkthrough.md#dataset).
+**Dati** : i processi di migrazione vengono illustrati usando il [set di dati NYC Taxi](https://chriswhong.com/open-data/foil_nyc_taxi/). Il set di dati NYC Taxi contiene informazioni sulle tariffe e sui dati delle tratte ed è disponibile nell'archivio BLOB di Azure ([dati NYC Taxi](https://www.andresmh.com/nyctaxitrips/)). Un esempio e una descrizione di questi file sono inclusi in [Descrizione del set di dati relativo alle corse dei taxi di NYC](sql-walkthrough.md#dataset).
 
 È possibile adattare le procedure descritte di seguito a un set di dati personalizzati o seguire i passaggi come descritto utilizzando il set di dati NYC Taxi. Per caricare il set di dati NYC Taxi nel database di SQL Server, seguire la procedura illustrata nell'argomento relativo all' [importazione bulk di dati in SQL Server database](sql-walkthrough.md#dbload).
 

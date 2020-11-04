@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4a559b29502adb1c507b1543463d84eb3bd15d5a
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3587ef6be9d6c9969dff5d1af2181ed51aea7d29
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083287"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308278"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -119,7 +119,7 @@ Esistono due approcci per la gestione dei dispositivi aggiunti ad Azure AD:
 - **Solo MDM** : un dispositivo viene gestito in modo esclusivo da un provider MDM come Intune. Tutti i criteri vengono forniti come parte del processo di registrazione MDM. Per i clienti di Azure AD Premium o EMS, la registrazione MDM è un passaggio automatico integrato nell'aggiunta ad Azure AD.
 - **Co-gestione** : un dispositivo viene gestito da un provider MDM e da SCCM. In questo approccio l'agente SCCM è installato in un dispositivo gestito da MDM per l'amministrazione di determinati aspetti.
 
-Se si usano criteri di gruppo, valutare la parità dei criteri MDM usando [MDM Migration Analysis Tool (MMAT)](https://github.com/WindowsDeviceManagement/MMAT). 
+Se si usano criteri di gruppo, valutare l'oggetto Criteri di gruppo e la parità dei criteri MDM usando [criteri di gruppo Analytics](/mem/intune/configuration/group-policy-analytics) in Microsoft Endpoint Manager. 
 
 Esaminare i criteri supportati e non supportati per determinare se sia possibile usare una soluzione MDM anziché criteri di gruppo. Per i criteri non supportati, considerare quanto segue:
 
@@ -246,7 +246,7 @@ Prima di poter configurare le impostazioni di mobilità, può essere necessario 
 **Per aggiungere un provider MDM** :
 
 1. Nella sezione **Gestisci** della pagina **Azure Active Directory** fare clic su `Mobility (MDM and MAM)`. 
-1. Fare clic su **Aggiungi applicazione** .
+1. Fare clic su **Aggiungi applicazione**.
 1. Selezionare il provider MDM nell'elenco.
 
    :::image type="content" source="./media/azureadjoin-plan/04.png" alt-text="Screenshot della pagina Azure Active Directory aggiungere un'applicazione. Sono elencati diversi provider M D M." border="false":::
@@ -272,7 +272,7 @@ Esistono tre URL correlati alla configurazione MDM:
 - URL individuazione MDM 
 - URL conformità MDM
 
-:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Screenshot della pagina Azure Active Directory aggiungere un'applicazione. Sono elencati diversi provider M D M." border="false":::
+:::image type="content" source="./media/azureadjoin-plan/06.png" alt-text="Screenshot della parte della sezione di configurazione Azure Active Directory M D M con i campi U R L per le condizioni per l'utilizzo, l'individuazione e la conformità di M D M." border="false":::
 
 Per ogni URL è disponibile un valore predefinito. Se questi campi sono vuoti, contattare il provider MDM per altre informazioni.
 

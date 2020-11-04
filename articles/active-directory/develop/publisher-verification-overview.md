@@ -12,16 +12,20 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 2a8f9734714f0439383f6242cda3b51690284852
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 1e913e3a5356ad7f49d8b3066f5bd3da7eddd2c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92363420"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308774"
 ---
 # <a name="publisher-verification"></a>Verifica dell'autore
 
-La verifica dell'editore consente agli amministratori e agli utenti finali di comprendere l'autenticità degli sviluppatori di applicazioni che si integrano con la piattaforma di identità Microsoft. Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando un account [Microsoft Partner Network](https://partner.microsoft.com/membership) che ha completato il processo di [verifica](/partner-center/verification-responses) e ha associato l'account MPN durante la registrazione dell'applicazione. 
+La verifica dell'editore consente agli amministratori e agli utenti finali di comprendere l'autenticità degli sviluppatori di applicazioni che si integrano con la piattaforma di identità Microsoft. 
+
+> [!VIDEO https://www.youtube.com/embed/IYRN2jDl5dc]
+
+Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando un account [Microsoft Partner Network](https://partner.microsoft.com/membership) che ha completato il processo di [verifica](/partner-center/verification-responses) e ha associato l'account MPN durante la registrazione dell'applicazione. 
 
 Un badge di verifica completata blu viene visualizzato nella richiesta di consenso di Azure AD e in altre schermate: ![Richiesta di consenso](./media/publisher-verification-overview/consent-prompt.png)
 
@@ -33,7 +37,7 @@ La verifica dell'autore offre i vantaggi seguenti:
 
 - **Miglioramento della personalizzazione** - Viene visualizzato un badge di verifica completata nella [richiesta di consenso](application-consent-experience.md) di Azure AD, nella pagina App aziendali e in altre aree dell'esperienza utente usate dagli utenti finali e dagli amministratori. 
 
-- **Adozione più agevole dell'organizzazione**: gli amministratori possono configurare i criteri di [consenso dell'utente](../manage-apps/configure-user-consent.md), con lo stato di verifica del server di pubblicazione come uno dei criteri principali.
+- **Adozione più agevole dell'organizzazione** : gli amministratori possono configurare i criteri di [consenso dell'utente](../manage-apps/configure-user-consent.md), con lo stato di verifica del server di pubblicazione come uno dei criteri principali.
 
 > [!NOTE]
 > A partire da novembre 2020, gli utenti finali non saranno più in grado di concedere il consenso per le app multi-tenant registrate più di recente senza autori verificati. Questo problema si applica alle app registrate dopo l'8 novembre 2020, usare OAuth 2.0 per richiedere autorizzazioni oltre al profilo di accesso e lettura del profilo utente di base e richiedere il consenso degli utenti in tenant diversi da quello in cui è registrata l'app. Verrà visualizzato un avviso nella schermata di consenso per informare gli utenti che queste app sono rischiose e che provengano da autori non verificati.    

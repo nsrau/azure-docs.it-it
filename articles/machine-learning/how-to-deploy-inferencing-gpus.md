@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, deploy
-ms.openlocfilehash: 9a18b35ce974aebb38f8f58b892fd93b94f5e3c8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 8480a0b8722fbfff0f1d8a8fafc1a64f38d21d6e
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314795"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307218"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuire un modello di apprendimento avanzato per l'inferenza con GPU
 
@@ -26,7 +26,7 @@ Questo articolo illustra come usare Azure Machine Learning per distribuire un mo
 L'inferenza o il punteggio del modello è la fase in cui il modello distribuito viene utilizzato per eseguire stime. L'uso delle GPU anziché delle CPU offre vantaggi a livello di prestazioni per il calcolo altamente eseguibili.
 
 > [!IMPORTANT]
-> Per le distribuzioni di servizi Web, l'inferenza GPU è supportata solo nel servizio Azure Kubernetes. Per l'inferenza usando una __pipeline di Machine Learning__, le GPU sono supportate solo nel calcolo Azure Machine Learning. Per altre informazioni sull'uso delle pipeline di Machine Learning, vedere [esercitazione: creare una pipeline di Azure Machine Learning per l'assegnazione dei punteggi di batch](tutorial-pipeline-batch-scoring-classification.md). 
+> Per le distribuzioni di servizi Web, l'inferenza GPU è supportata solo nel servizio Azure Kubernetes. Per l'inferenza usando una __pipeline di Machine Learning__ , le GPU sono supportate solo nel calcolo Azure Machine Learning. Per altre informazioni sull'uso delle pipeline di Machine Learning, vedere [esercitazione: creare una pipeline di Azure Machine Learning per l'assegnazione dei punteggi di batch](tutorial-pipeline-batch-scoring-classification.md). 
 
 > [!TIP]
 > Sebbene i frammenti di codice in questo articolo usino un modello TensorFlow, è possibile applicare le informazioni a qualsiasi framework di Machine Learning che supporti GPU.
@@ -38,7 +38,7 @@ L'inferenza o il punteggio del modello è la fase in cui il modello distribuito 
 
 * Un'area di lavoro di Azure Machine Learning. Per altre informazioni, vedere [creare un'area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
-* Ambiente di sviluppo Python con Azure Machine Learning SDK installato. Per ulteriori informazioni, vedere [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).  
+* Ambiente di sviluppo Python con Azure Machine Learning SDK installato. Per ulteriori informazioni, vedere [Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py).  
 
 * Modello registrato che utilizza una GPU.
 
@@ -192,7 +192,7 @@ inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
 ```
 
 Per altre informazioni sugli ambienti, vedere [creare e gestire ambienti per il training e la distribuzione](how-to-use-environments.md).
-Per ulteriori informazioni, vedere la documentazione di riferimento per [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py&preserve-view=true).
+Per ulteriori informazioni, vedere la documentazione di riferimento per [InferenceConfig](/python/api/azureml-core/azureml.core.model.inferenceconfig?preserve-view=true&view=azure-ml-py).
 
 ## <a name="deploy-the-model"></a>Distribuire il modello
 
@@ -217,7 +217,7 @@ aks_service.wait_for_deployment(show_output=True)
 print(aks_service.state)
 ```
 
-Per ulteriori informazioni, vedere la documentazione di riferimento per il [modello](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py&preserve-view=true).
+Per ulteriori informazioni, vedere la documentazione di riferimento per il [modello](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py).
 
 ## <a name="issue-a-sample-query-to-your-service"></a>Eseguire una query di esempio per il servizio
 

@@ -11,12 +11,12 @@ ms.author: nigup
 ms.date: 10/13/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4, contperfq2
-ms.openlocfilehash: a8a04d9e1b17c7e65be946cb51bfc41019e0706d
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 9bcf6ac9991c1ad070f823c97b5bd0460eff07c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233994"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309086"
 ---
 # <a name="manage-and-increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
 
@@ -52,7 +52,7 @@ In questa sezione vengono illustrati i limiti di quota predefiniti e massimi per
 + Archiviazione di Azure
 
 > [!IMPORTANT]
-> I limiti sono soggetti a modifiche. Per informazioni aggiornate, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits/) per tutte le risorse di Azure.
+> I limiti sono soggetti a modifiche. Per informazioni aggiornate, vedere [sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md) per tutte le risorse di Azure.
 
 ### <a name="virtual-machines"></a>Macchine virtuali
 Ogni sottoscrizione di Azure ha un limite per il numero di macchine virtuali in tutti i servizi. I core delle macchine virtuali hanno un limite totale regionale e un limite a livello di area per ogni serie di dimensioni. Entrambi i limiti vengono applicati separatamente.
@@ -100,9 +100,9 @@ La tabella seguente Mostra limiti aggiuntivi che non possono essere superati.
 
 ### <a name="container-instances"></a>Istanze di Container
 
-Per altre informazioni, vedere [limiti delle istanze del contenitore](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#container-instances-limits).
+Per altre informazioni, vedere [limiti delle istanze del contenitore](../azure-resource-manager/management/azure-subscription-service-limits.md#container-instances-limits).
 
-### <a name="storage"></a>Archiviazione
+### <a name="storage"></a>Archiviazione:
 Archiviazione di Azure ha un limite di 250 account di archiviazione per area, per sottoscrizione. Questo limite include gli account di archiviazione standard e Premium.
 
 Per aumentare il limite, effettuare una richiesta tramite il [supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest/). Il team di archiviazione di Azure esaminerà il caso e potrà approvare fino a 250 account di archiviazione per un'area.
@@ -115,7 +115,7 @@ Usare le quote a livello di area di lavoro per gestire Azure Machine Learning l'
 Per impostazione predefinita, tutte le aree di lavoro condividono la stessa quota della quota a livello di sottoscrizione per le famiglie di macchine virtuali. Tuttavia, è possibile impostare una quota massima per le singole famiglie di macchine virtuali nelle aree di lavoro di una sottoscrizione. Ciò consente di condividere la capacità ed evitare problemi di conflitto di risorse.
 
 1. Passare a qualsiasi area di lavoro nella sottoscrizione.
-1. Nel riquadro sinistro selezionare **utilizzi + quote** .
+1. Nel riquadro sinistro selezionare **utilizzi + quote**.
 1. Selezionare la scheda **Configura quote** per visualizzare le quote.
 1. Espandere una famiglia di macchine virtuali.
 1. Impostare un limite di quota per qualsiasi area di lavoro elencata in tale famiglia di macchine virtuali.
@@ -156,7 +156,7 @@ Non è possibile aumentare i limiti sopra i valori massimi mostrati nelle tabell
 Quando si richiede un aumento della quota, selezionare il servizio che si sta tenendo in considerazione. Ad esempio, selezionare Azure Machine Learning, istanze di contenitore o archiviazione. Per Azure Machine Learning calcolo, è possibile selezionare il pulsante **Richiedi quota** durante la visualizzazione della quota nei passaggi precedenti.
 
 > [!NOTE]
-> Le [sottoscrizioni della versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) non sono idonee per il limite o la quota. Se si dispone di una sottoscrizione di valutazione gratuita, è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base](https://azure.microsoft.com/offers/ms-azr-0003p/) al consumo. Per altre informazioni, vedere [aggiornare la versione di valutazione gratuita di Azure alle](https://docs.microsoft.com/azure/cost-management-billing/manage/upgrade-azure-subscription) [domande frequenti sull'account gratuito di Azure](https://azure.microsoft.com/free/free-account-faq)con pagamento in base al consumo.
+> Le [sottoscrizioni della versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) non sono idonee per il limite o la quota. Se si dispone di una sottoscrizione di valutazione gratuita, è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base](https://azure.microsoft.com/offers/ms-azr-0003p/) al consumo. Per altre informazioni, vedere [aggiornare la versione di valutazione gratuita di Azure alle](../cost-management-billing/manage/upgrade-azure-subscription.md) [domande frequenti sull'account gratuito di Azure](https://azure.microsoft.com/free/free-account-faq)con pagamento in base al consumo.
 
 ## <a name="private-endpoint-and-private-dns-quota-increases"></a>Aumenti della quota di endpoint e DNS privati
 
@@ -172,12 +172,12 @@ Azure Machine Learning crea risorse nella sottoscrizione (Customer), ma alcuni s
 
 Per richiedere una concessione per questi scenari, attenersi alla procedura seguente:
 
-1. [Creare una richiesta di supporto di Azure](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) e selezionare le opzioni seguenti nella sezione __nozioni di base__ :
+1. [Creare una richiesta di supporto di Azure](../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) e selezionare le opzioni seguenti nella sezione __nozioni di base__ :
 
     | Campo | Selezione |
     | ----- | ----- |
     | Tipo di problema | **Tecnico** |
-    | Servizio | **Servizi personali** . Quindi selezionare __Machine Learning__ nell'elenco a discesa. |
+    | Servizio | **Servizi personali**. Quindi selezionare __Machine Learning__ nell'elenco a discesa. |
     | Tipo di problema | **Configurazione e sicurezza dell'area di lavoro** |
     | Sottotipo di problema | **Richiesta di limite dell'endpoint privato e della zona di DNS privato** |
 

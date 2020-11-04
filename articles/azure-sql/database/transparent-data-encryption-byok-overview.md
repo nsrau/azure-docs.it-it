@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 5cfd76d6b2f6bb9429a7605ac05adb23d87a80d3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 76ecd811ab0bffe20b4bddcc4dc2eacaffaed588
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790883"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308335"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL Transparent Data Encryption con chiave gestita dal cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -90,12 +90,12 @@ Se la registrazione è abilitata, i revisori possono usare Monitoraggio di Azure
 
 - La data di attivazione della chiave (se impostata) deve essere una data e un'ora nel passato. La data di scadenza (se impostata) deve essere una data e un'ora future.
 
-- La chiave deve avere lo stato *Abilitato* .
+- La chiave deve avere lo stato *Abilitato*.
 
 - Se si importa una chiave esistente nel Key Vault, assicurarsi di specificarla nei formati di file supportati (pfx, byok o backup).
 
 > [!NOTE]
-> Azure SQL ora supporta l'uso di una chiave RSA archiviata in un modulo di protezione hardware gestito come protezione Transparent Data Encryption. Questa funzionalità è in **anteprima pubblica** . Azure Key Vault HSM gestito è un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard, che consente di proteggere le chiavi crittografiche per le applicazioni cloud, usando la HSM convalidata FIPS 140-2 Level 3. Altre informazioni sulle [HSM gestite](../../key-vault/managed-hsm/index.yml).
+> Azure SQL ora supporta l'uso di una chiave RSA archiviata in un modulo di protezione hardware gestito come protezione Transparent Data Encryption. Questa funzionalità è in **anteprima pubblica**. Azure Key Vault HSM gestito è un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard, che consente di proteggere le chiavi crittografiche per le applicazioni cloud, usando la HSM convalidata FIPS 140-2 Level 3. Altre informazioni sulle [HSM gestite](../../key-vault/managed-hsm/index.yml).
 
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Suggerimenti per la configurazione di Transparent Data Encryption gestita dal cliente
@@ -126,7 +126,7 @@ Se la registrazione è abilitata, i revisori possono usare Monitoraggio di Azure
 
 ## <a name="inaccessible-tde-protector"></a>Protezione TDE non accessibile
 
-Quando Transparent Data Encryption è configurata per l'uso di una chiave gestita dal cliente, è necessario l'accesso continuo alla protezione TDE affinché il database rimanga online. Se il server perde l'accesso alla protezione TDE gestita dal cliente in Azure Key Vault, dopo un massimo di 10 minuti il database inizierà a negare tutte le connessioni con il messaggio di errore corrispondente e cambierà lo stato in *Inaccessibile* . L'unica azione consentita in un database con stato Inaccessibile è l'eliminazione.
+Quando Transparent Data Encryption è configurata per l'uso di una chiave gestita dal cliente, è necessario l'accesso continuo alla protezione TDE affinché il database rimanga online. Se il server perde l'accesso alla protezione TDE gestita dal cliente in Azure Key Vault, dopo un massimo di 10 minuti il database inizierà a negare tutte le connessioni con il messaggio di errore corrispondente e cambierà lo stato in *Inaccessibile*. L'unica azione consentita in un database con stato Inaccessibile è l'eliminazione.
 
 > [!NOTE]
 > Se il database è inaccessibile a causa di un'interruzione di rete intermittente, non sarà necessario eseguire alcuna azione e i database torneranno online automaticamente.
@@ -135,7 +135,7 @@ Dopo il ripristino dell'accesso alla chiave, per riportare online il database so
 
 - Se l'accesso alla chiave viene ripristinato entro 8 ore, il database verrà riparato automaticamente entro un'ora.
 
-- Se l'accesso alla chiave viene ripristinato dopo più di 8 ore, la riparazione automatica non è possibile e la restituzione del database richiede passaggi aggiuntivi nel portale e può richiedere una quantità di tempo significativa a seconda delle dimensioni del database. Quando il database è di nuovo online, le impostazioni a livello di server configurate in precedenza, ad esempio la configurazione del [gruppo di failover](auto-failover-group-overview.md), la cronologia dei ripristini temporizzati e i tag, **andranno persi** . È pertanto consigliabile implementare un sistema di notifica che consenta di identificare e risolvere entro 8 ore i problemi di accesso alla chiave sottostanti.
+- Se l'accesso alla chiave viene ripristinato dopo più di 8 ore, la riparazione automatica non è possibile e la restituzione del database richiede passaggi aggiuntivi nel portale e può richiedere una quantità di tempo significativa a seconda delle dimensioni del database. Quando il database è di nuovo online, le impostazioni a livello di server configurate in precedenza, ad esempio la configurazione del [gruppo di failover](auto-failover-group-overview.md), la cronologia dei ripristini temporizzati e i tag, **andranno persi**. È pertanto consigliabile implementare un sistema di notifica che consenta di identificare e risolvere entro 8 ore i problemi di accesso alla chiave sottostanti.
 
 Di seguito è riportata una visualizzazione dei passaggi aggiuntivi necessari nel portale per riportare online un database inaccessibile.
 
@@ -156,7 +156,7 @@ Di seguito è riportata una visualizzazione dei passaggi aggiuntivi necessari ne
 
 - eliminazione dell'identità gestita del server in Azure Active Directory
 
-Altre informazioni sulle [cause comuni per cui il database diventa inaccessibile](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current#common-errors-causing-databases-to-become-inaccessible).
+Altre informazioni sulle [cause comuni per cui il database diventa inaccessibile](/sql/relational-databases/security/encryption/troubleshoot-tde?view=azuresqldb-current&preserve-view=true#common-errors-causing-databases-to-become-inaccessible).
 
 ## <a name="monitoring-of-the-customer-managed-tde"></a>Monitoraggio di Transparent Data Encryption gestita dal cliente
 
@@ -179,7 +179,7 @@ Se la chiave necessaria per il ripristino di un backup non è più disponibile p
 
 Per attenuarlo, eseguire il cmdlet [Get-AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) per il server di destinazione o [Get-AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) per l'istanza gestita di destinazione per restituire l'elenco delle chiavi disponibili e identificare quelle mancanti. Per garantire che tutti i backup possano essere ripristinati, verificare che il server di destinazione per il ripristino abbia accesso a tutte le chiavi necessarie. Le chiavi non devono essere contrassegnate come protezione TDE.
 
-Per ulteriori informazioni sul ripristino del backup per il database SQL, vedere [ripristino di un database nel database SQL](recovery-using-backups.md). Per ulteriori informazioni sul ripristino del backup per il pool SQL, vedere [ripristino di un pool SQL](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Per il backup/ripristino nativo di SQL Server con SQL Istanza gestita, vedere [Guida introduttiva: ripristinare un database in sql istanza gestita](../managed-instance/restore-sample-database-quickstart.md)
+Per ulteriori informazioni sul ripristino del backup per il database SQL, vedere [ripristino di un database nel database SQL](recovery-using-backups.md). Per altre informazioni sul ripristino del backup per il pool SQL dedicato in Azure sinapsi Analytics, vedere [ripristinare un pool SQL dedicato](../../synapse-analytics/sql-data-warehouse/backup-and-restore.md). Per il backup/ripristino nativo di SQL Server con SQL Istanza gestita, vedere [Guida introduttiva: ripristinare un database in sql istanza gestita](../managed-instance/restore-sample-database-quickstart.md)
 
 Considerazione aggiuntiva per i file di log: i file di log di cui è stato eseguito il backup rimangono crittografati con la protezione TDE originale, anche se è stata ruotata e il database usa ora una nuova protezione TDE.  In fase di ripristino, per ripristinare il database saranno necessarie entrambe le chiavi.  Se il file di log usa una protezione TDE archiviata in Azure Key Vault, questa chiave sarà necessaria in fase di ripristino, anche se nel frattempo il database è stato modificato per usare TDE gestita dal servizio.
 

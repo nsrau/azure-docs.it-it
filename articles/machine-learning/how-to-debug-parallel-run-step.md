@@ -11,17 +11,17 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 09/23/2020
-ms.openlocfilehash: 602babb3544093b7cd7c5b30ce4f4612148591cb
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 93997629b6b30f87769a0154e344215ca52c8ec4
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92216913"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308384"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Eseguire il debug e risolvere i problemi di ParallelRunStep
 
 
-In questo articolo viene descritto come eseguire il debug e risolvere i problemi della classe [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) da [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
+In questo articolo viene descritto come eseguire il debug e risolvere i problemi della classe [ParallelRunStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?preserve-view=true&view=azure-ml-py) da [Azure Machine Learning SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py).
 
 ## <a name="testing-scripts-locally"></a>Test degli script in locale
 
@@ -94,7 +94,7 @@ def run(mini_batch):
 
 L'utente può passare i dati di riferimento allo script usando side_inputs parametro di ParalleRunStep. Tutti i set di impostazioni specificati come side_inputs verranno montati in ogni nodo di lavoro. L'utente può ottenere la posizione del montaggio passando un argomento.
 
-Costruire un [set](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true) di dati contenente i dati di riferimento e registrarli con l'area di lavoro. Passarlo al parametro `side_inputs` di `ParallelRunStep`. Inoltre, è possibile aggiungere il percorso nella `arguments` sezione per accedere facilmente al percorso montato:
+Costruire un [set](/python/api/azureml-core/azureml.core.dataset.dataset?preserve-view=true&view=azure-ml-py) di dati contenente i dati di riferimento e registrarli con l'area di lavoro. Passarlo al parametro `side_inputs` di `ParallelRunStep`. Inoltre, è possibile aggiungere il percorso nella `arguments` sezione per accedere facilmente al percorso montato:
 
 ```python
 label_config = label_ds.as_named_input("labels_input")
@@ -124,26 +124,26 @@ L'utente può passare set di dati di input con l'autenticazione basata su entit�
 
 ```python
 service_principal = ServicePrincipalAuthentication(
-    tenant_id="***",
-    service_principal_id="***",
-    service_principal_password="***")
+    tenant_id="**_",
+    service_principal_id="_*_",
+    service_principal_password="_*_")
  
 ws = Workspace(
-    subscription_id="***",
-    resource_group="***",
-    workspace_name="***",
+    subscription_id="_*_",
+    resource_group="_*_",
+    workspace_name="_*_",
     auth=service_principal
     )
  
-default_blob_store = ws.get_default_datastore() # or Datastore(ws, '***datastore-name***') 
-ds = Dataset.File.from_files(default_blob_store, '**path***')
-registered_ds = ds.register(ws, '***dataset-name***', create_new_version=True)
+default_blob_store = ws.get_default_datastore() # or Datastore(ws, '_*_datastore-name_*_') 
+ds = Dataset.File.from_files(default_blob_store, '_*path**_')
+registered_ds = ds.register(ws, '_*_dataset-name_*_', create_new_version=True)
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere questi [notebook di Jupyter che dimostrano pipeline Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
+_ Vedere questi [notebook Jupyter che dimostrano pipeline Azure Machine Learning](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/machine-learning-pipelines)
 
-* Vedere le informazioni di riferimento su SDK per il pacchetto [azureml-pipeline-Steps](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps?view=azure-ml-py&preserve-view=true) . Visualizzare la [documentazione](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?view=azure-ml-py&preserve-view=true) di riferimento per la classe ParallelRunStep.
+* Vedere le informazioni di riferimento su SDK per il pacchetto [azureml-pipeline-Steps](/python/api/azureml-pipeline-steps/azureml.pipeline.steps?preserve-view=true&view=azure-ml-py) . Visualizzare la [documentazione](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallelrunstep?preserve-view=true&view=azure-ml-py) di riferimento per la classe ParallelRunStep.
 
-* Seguire l' [esercitazione avanzata](tutorial-pipeline-batch-scoring-classification.md) sull'uso di pipeline con ParallelRunStep. Nell'esercitazione viene illustrato come passare un altro file come input laterale. 
+* Seguire l' [esercitazione avanzata](tutorial-pipeline-batch-scoring-classification.md) sull'uso di pipeline con ParallelRunStep. Nell'esercitazione viene illustrato come passare un altro file come input laterale.

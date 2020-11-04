@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 658d18ed3c9eefeedffd82bbccedbde0621fe748
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 1b3b4da4e21bca421b76f820c04ba68375be5ca0
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92145514"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307777"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accesso condizionale: App o azioni cloud
 
@@ -36,7 +36,7 @@ Gli amministratori possono assegnare un criterio di accesso condizionale alle se
 - [Office 365](#office-365)
 - Azure Analysis Services
 - Azure DevOps
-- [Database SQL di Azure e Data Warehouse](../../azure-sql/database/conditional-access-configure.md)
+- [Database SQL di Azure e analisi delle sinapsi di Azure](../../azure-sql/database/conditional-access-configure.md)
 - Dynamics CRM Online
 - Microsoft Application Insights Analytics
 - [Microsoft Azure Information Protection](/azure/information-protection/faqs#i-see-azure-information-protection-is-listed-as-an-available-cloud-app-for-conditional-accesshow-does-this-work)
@@ -125,7 +125,7 @@ Oltre alle app Microsoft, gli amministratori possono aggiungere ai criteri di ac
 
 ## <a name="user-actions"></a>Azioni utente
 
-Le azioni dell'utente sono attività che possono essere eseguite da un utente. L'unica azione attualmente supportata è **Registra le informazioni di sicurezza**, che consente di applicare criteri di accesso condizionale quando gli utenti abilitati per la registrazione combinata tentano di registrare le proprie informazioni di sicurezza. Altre informazioni sono disponibili nell'articolo [Registrazione di informazioni di sicurezza combinate](../authentication/concept-registration-mfa-sspr-combined.md).
+Le azioni dell'utente sono attività che possono essere eseguite da un utente. L'unica azione attualmente supportata è **Registra le informazioni di sicurezza** , che consente di applicare criteri di accesso condizionale quando gli utenti abilitati per la registrazione combinata tentano di registrare le proprie informazioni di sicurezza. Altre informazioni sono disponibili nell'articolo [Registrazione di informazioni di sicurezza combinate](../authentication/concept-registration-mfa-sspr-combined.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: d7cd452b6d1107f440d952c7db930281f3d86c11
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6b65c97fd87d4e3ed84c837d2702395091097fa
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91743799"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308066"
 ---
 # <a name="train-keras-models-at-scale-with-azure-machine-learning"></a>Esegui il training dei modelli keras su larga scala con Azure Machine Learning
 
@@ -42,7 +42,7 @@ Eseguire questo codice in uno degli ambienti seguenti:
 
  - Server Jupyter Notebook personale
 
-    - [Installare Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) (>= 1.15.0).
+    - [Installare Azure Machine Learning SDK](/python/api/overview/azure/ml/install?preserve-view=true&view=azure-ml-py) (>= 1.15.0).
     - [Creare un file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
     - [Scaricare i file](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras) `keras_mnist.py` script di esempio e `utils.py`
 
@@ -67,7 +67,7 @@ from azureml.core.compute_target import ComputeTargetException
 
 ### <a name="initialize-a-workspace"></a>Inizializzare un'area di lavoro
 
-L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py&preserve-view=true) oggetto.
+L' [area di lavoro Azure Machine Learning](concept-workspace.md) è la risorsa di primo livello per il servizio. Fornisce una posizione centralizzata per lavorare con tutti gli artefatti creati. In Python SDK è possibile accedere agli elementi dell'area di lavoro creando un [`workspace`](/python/api/azureml-core/azureml.core.workspace.workspace?preserve-view=true&view=azure-ml-py) oggetto.
 
 Creare un oggetto dell'area di lavoro dal `config.json` file creato nella [sezione Prerequisiti](#prerequisites).
 
@@ -77,7 +77,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-file-dataset"></a>Creare un set di dati di file
 
-L'oggetto `FileDataset` fa riferimento a uno o più file nell'archivio dati dell'area di lavoro o negli URL pubblici. I file possono essere di qualsiasi formato e la classe offre la possibilità di scaricarli o montarli nel contesto di calcolo. Creando un oggetto `FileDataset`, si crea un riferimento alla posizione dell'origine dati. Anche le eventuali trasformazioni applicate al set di dati verranno archiviate nel set di dati. I dati rimangono nell'attuale posizione, quindi non si incorre in costi aggiuntivi di archiviazione. Per altre informazioni, vedere la guida alle [procedure](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets) del pacchetto `Dataset`.
+L'oggetto `FileDataset` fa riferimento a uno o più file nell'archivio dati dell'area di lavoro o negli URL pubblici. I file possono essere di qualsiasi formato e la classe offre la possibilità di scaricarli o montarli nel contesto di calcolo. Creando un oggetto `FileDataset`, si crea un riferimento alla posizione dell'origine dati. Anche le eventuali trasformazioni applicate al set di dati verranno archiviate nel set di dati. I dati rimangono nell'attuale posizione, quindi non si incorre in costi aggiuntivi di archiviazione. Per altre informazioni, vedere la guida alle [procedure](./how-to-create-register-datasets.md) del pacchetto `Dataset`.
 
 ```python
 from azureml.core.dataset import Dataset
@@ -197,7 +197,7 @@ Per altre informazioni sulla configurazione dei processi con ScriptRunConfig, ve
 
 ### <a name="submit-your-run"></a>Invia la tua esecuzione
 
-L' [oggetto Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py&preserve-view=true) fornisce l'interfaccia alla cronologia di esecuzione mentre il processo è in esecuzione e dopo il completamento.
+L' [oggetto Run](/python/api/azureml-core/azureml.core.run%28class%29?preserve-view=true&view=azure-ml-py) fornisce l'interfaccia alla cronologia di esecuzione mentre il processo è in esecuzione e dopo il completamento.
 
 ```Python
 run = Experiment(workspace=ws, name='keras-mnist').submit(src)
@@ -207,13 +207,13 @@ run.wait_for_completion(show_output=True)
 ### <a name="what-happens-during-run-execution"></a>Cosa accade durante l'esecuzione dell'esecuzione
 Quando l'esecuzione viene eseguita, vengono eseguite le fasi seguenti:
 
-- **Preparazione**: viene creata un'immagine Docker in base all'ambiente definito. L'immagine viene caricata nel registro contenitori dell'area di lavoro e memorizzata nella cache per le esecuzioni successive. Anche i log vengono trasmessi alla cronologia di esecuzione e possono essere visualizzati per monitorare lo stato di avanzamento. Se invece si specifica un ambiente curato, verrà utilizzata l'immagine memorizzata nella cache che supporta l'ambiente curato.
+- **Preparazione** : viene creata un'immagine Docker in base all'ambiente definito. L'immagine viene caricata nel registro contenitori dell'area di lavoro e memorizzata nella cache per le esecuzioni successive. Anche i log vengono trasmessi alla cronologia di esecuzione e possono essere visualizzati per monitorare lo stato di avanzamento. Se invece si specifica un ambiente curato, verrà utilizzata l'immagine memorizzata nella cache che supporta l'ambiente curato.
 
-- **Ridimensionamento**: il cluster tenta di eseguire la scalabilità verticale se il cluster batch per intelligenza artificiale richiede un numero maggiore di nodi per eseguire l'esecuzione rispetto al momento disponibile.
+- **Ridimensionamento** : il cluster tenta di eseguire la scalabilità verticale se il cluster batch per intelligenza artificiale richiede un numero maggiore di nodi per eseguire l'esecuzione rispetto al momento disponibile.
 
-- **Running**: tutti gli script nella cartella script vengono caricati nella destinazione di calcolo, gli archivi dati vengono montati o copiati e `script` viene eseguito. Gli output da stdout e la cartella **./logs** vengono trasmessi alla cronologia di esecuzione e possono essere usati per monitorare l'esecuzione.
+- **Running** : tutti gli script nella cartella script vengono caricati nella destinazione di calcolo, gli archivi dati vengono montati o copiati e `script` viene eseguito. Gli output da stdout e la cartella **./logs** vengono trasmessi alla cronologia di esecuzione e possono essere usati per monitorare l'esecuzione.
 
-- **Post-elaborazione**: la cartella **./Outputs** dell'esecuzione viene copiata nella cronologia di esecuzione.
+- **Post-elaborazione** : la cartella **./Outputs** dell'esecuzione viene copiata nella cronologia di esecuzione.
 
 ## <a name="register-the-model"></a>Registrare il modello
 

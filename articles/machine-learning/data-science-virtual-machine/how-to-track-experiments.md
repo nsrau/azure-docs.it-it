@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 17418b0255182934045acc9174b34cff2aefff99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89254801"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307445"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Tenere traccia degli esperimenti e distribuire modelli in Azure Machine Learning
 
@@ -26,11 +26,11 @@ Il diagramma seguente illustra il rilevamento delle metriche di esecuzione di un
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* È necessario effettuare il [provisioning di un area di lavoro di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
+* È necessario effettuare il [provisioning di un area di lavoro di Azure Machine Learning](../how-to-manage-workspace.md#create-a-workspace)
 
 ## <a name="create-a-new-notebook"></a>Creare un nuovo notebook
 
-Il Azure Machine Learning e l'SDK di MLFlow sono preinstallati nel Data Science VM ed è possibile accedervi nell'ambiente **azureml_py36_ \* ** conda. In Jupyterlab fare clic sul pulsante di avvio e selezionare il seguente kernel:
+Il Azure Machine Learning e MLFlow SDK sono preinstallati nel Data Science VM ed è possibile accedervi nell'ambiente * *azureml_py36_ \** _ conda. In Jupyterlab fare clic sul pulsante di avvio e selezionare il seguente kernel:
 
 ![selezione kernel](./media/how-to-track-experiments/experiment-tracking-1.png)
 
@@ -137,7 +137,7 @@ Nel menu a sinistra di [AzureML Studio](https://ml.azure.com) fare clic su __cal
 
 Nel riquadro __nuovo cluster inferenza__ immettere i dettagli per:
 
-* Nome calcolo
+_ Nome calcolo
 * Servizio Kubernetes-selezionare Crea nuovo
 * Selezionare l'area
 * Selezionare le dimensioni della VM (ai fini di questa esercitazione, il valore predefinito di Standard_D3_v2 è sufficiente)
@@ -204,4 +204,4 @@ Eliminare il calcolo inferenza creato nel passaggio 1, in modo da non incorrere 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Altre informazioni sulla [distribuzione di modelli in AzureML](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-and-where)
+* Altre informazioni sulla [distribuzione di modelli in AzureML](../how-to-deploy-and-where.md)

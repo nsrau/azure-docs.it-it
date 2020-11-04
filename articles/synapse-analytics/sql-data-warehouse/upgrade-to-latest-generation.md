@@ -1,6 +1,6 @@
 ---
 title: Eseguire l'aggiornamento alla generazione più recente
-description: Aggiornare il pool SQL di Azure sinapsi Analytics alla generazione più recente dell'architettura hardware e di archiviazione di Azure.
+description: Aggiornare il pool SQL dedicato di Azure sinapsi Analytics alla generazione più recente dell'architettura hardware e di archiviazione di Azure.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,32 +11,32 @@ ms.date: 02/19/2019
 ms.author: martinle
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: f97b7cb836009683a689fc49882e61ce66abac58
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b025b26d505f99b3bc92e995fde9184a4cc26a4d
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627075"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309598"
 ---
-# <a name="optimize-performance-by-upgrading-azure-synapse-analytics-sql-pool"></a>Ottimizzare le prestazioni tramite l'aggiornamento del pool SQL di Azure sinapsi Analytics
+# <a name="optimize-performance-by-upgrading-dedicated-sql-pool-in-azure-synapse-analytics"></a>Ottimizzare le prestazioni tramite l'aggiornamento di un pool SQL dedicato in Azure sinapsi Analytics
 
-Aggiornare il pool SQL alla generazione più recente dell'architettura hardware e di archiviazione di Azure.
+Aggiornare il pool SQL dedicato alla generazione più recente dell'architettura hardware e di archiviazione di Azure.
 
 ## <a name="why-upgrade"></a>Ragioni dell'aggiornamento
 
-È ora possibile eseguire facilmente l'aggiornamento al livello Gen2 ottimizzato per il calcolo del pool SQL nel portale di Azure per le [aree supportate](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Se l'area non supporta l'aggiornamento automatico, è possibile eseguire l'aggiornamento a un'area supportata o attendere la disponibilità dell'aggiornamento autonomo nella propria area. Eseguire subito l'aggiornamento per sfruttare i vantaggi della generazione più recente di hardware e architettura di archiviazione migliorata di Azure, che include prestazioni più veloci, una maggiore scalabilità e archiviazione a colonne illimitata.
+È ora possibile eseguire facilmente l'aggiornamento al livello Gen2 ottimizzato per il calcolo del pool SQL dedicato nell'portale di Azure per le [aree supportate](gen2-migration-schedule.md#automated-schedule-and-region-availability-table). Se l'area non supporta l'aggiornamento automatico, è possibile eseguire l'aggiornamento a un'area supportata o attendere la disponibilità dell'aggiornamento autonomo nella propria area. Eseguire subito l'aggiornamento per sfruttare i vantaggi della generazione più recente di hardware e architettura di archiviazione migliorata di Azure, che include prestazioni più veloci, una maggiore scalabilità e archiviazione a colonne illimitata.
 
 > [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 > [!IMPORTANT]
-> Questo aggiornamento si applica ai pool SQL di livello Gen1 ottimizzato per il calcolo nelle [aree supportate](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
+> Questo aggiornamento si applica ai pool SQL dedicati al livello Gen1 ottimizzato per il calcolo nelle [aree supportate](gen2-migration-schedule.md#automated-schedule-and-region-availability-table).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
 1. Controllare se l'[area](gen2-migration-schedule.md#automated-schedule-and-region-availability-table) è supportata per la migrazione da Gen1 a Gen2. Tenere presente le date di migrazione automatica. Per evitare conflitti con il processo automatizzato, pianificare la migrazione manuale prima della data di inizio processo automatizzato.
 2. Se ci si trova in un'area non è ancora supportata, continuare a controllare che la propria area venga aggiunta oppure [eseguire l'aggiornamento tramite ripristino](#upgrade-from-an-azure-geographical-region-using-restore-through-the-azure-portal) in un'area supportata.
 3. Se l'area è supportata, [eseguire l'aggiornamento tramite il portale di Azure](#upgrade-in-a-supported-region-using-the-azure-portal)
-4. **Selezionare il livello di prestazioni suggerito** per il pool SQL in base al livello di prestazioni corrente nel livello di Gen1 ottimizzato per il calcolo usando il mapping seguente:
+4. **Selezionare il livello di prestazioni consigliato** per il pool SQL dedicato in base al livello di prestazioni corrente nel livello di Gen1 ottimizzato per il calcolo usando il mapping seguente:
 
    | Livello Gen1 con ottimizzazione per il calcolo | Livello Gen2 con ottimizzazione per il calcolo |
    | :-------------------------: | :-------------------------: |
@@ -59,18 +59,18 @@ Aggiornare il pool SQL alla generazione più recente dell'architettura hardware 
 ## <a name="upgrade-in-a-supported-region-using-the-azure-portal"></a>Eseguire l'aggiornamento in un'area supportata tramite portale di Azure
 
 - La migrazione da Gen1 a Gen2 tramite il portale di Azure è permanente. Non esiste un processo per tornare a Gen1.
-- Per eseguire la migrazione a Gen2, è necessario che sia in esecuzione il pool SQL
+- Per eseguire la migrazione a Gen2, è necessario che sia in esecuzione il pool SQL dedicato
 
 ### <a name="before-you-begin"></a>Prima di iniziare
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 - Accedere al [portale di Azure](https://portal.azure.com/).
-- Verificare che il pool SQL sia in esecuzione. è necessario eseguire la migrazione a Gen2
+- Verificare che il pool SQL dedicato sia in esecuzione. è necessario eseguire la migrazione a Gen2
 
 ### <a name="powershell-upgrade-commands"></a>Comandi di aggiornamento di PowerShell
 
-1. Se il pool SQL di livello Gen1 ottimizzato per il calcolo è sospeso, [riprendere il pool SQL](pause-and-resume-compute-portal.md).
+1. Se il pool SQL dedicato del livello Gen1 ottimizzato per il calcolo è sospeso, [riprendere il pool SQL dedicato](pause-and-resume-compute-portal.md).
 
 2. Questa operazione potrebbe comportare alcuni minuti di inattività.
 
@@ -89,7 +89,7 @@ Aggiornare il pool SQL alla generazione più recente dell'architettura hardware 
    ```
 
    > [!NOTE]
-   > -RequestedServiceObjectiveName "DW300" diventa RequestedServiceObjectiveName "DW300**c**"
+   > -RequestedServiceObjectiveName "DW300" diventa RequestedServiceObjectiveName "DW300 **c** "
    >
 
    Comando Gen1 T-SQL originale:
@@ -105,18 +105,18 @@ Aggiornare il pool SQL alla generazione più recente dell'architettura hardware 
    ```
 
    > [!NOTE]
-   > SERVICE_OBJECTIVE = 'DW300' diventa SERVICE_OBJECTIVE = 'DW300**c**'
+   > SERVICE_OBJECTIVE = 'DW300' diventa SERVICE_OBJECTIVE = 'DW300 **c** '
 
 ## <a name="start-the-upgrade"></a>Avviare l'aggiornamento
 
-1. Passare al pool di SQL Gen1 ottimizzato per il calcolo nel portale di Azure. Se il pool SQL di livello Gen1 ottimizzato per il calcolo è sospeso, [riprendere il pool SQL](pause-and-resume-compute-portal.md).
+1. Passare al pool SQL dedicato Gen1 ottimizzato per il calcolo nel portale di Azure. Se il pool SQL dedicato del livello Gen1 ottimizzato per il calcolo è sospeso, [riprendere il pool SQL dedicato](pause-and-resume-compute-portal.md).
 2. Selezionare **Aggiorna alla scheda Gen2** nella scheda attività: ![ Upgrade_1](./media/upgrade-to-latest-generation/upgrade-to-gen2-1.png)
 
    > [!NOTE]
    > Se la scheda **Aggiorna alla seconda generazione** non è visualizzata sotto la scheda Attività, il tipo di sottoscrizione è limitato nell'area corrente.
    > [Invia un ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.md) per richiedere l'approvazione della sottoscrizione.
 
-3. Assicurarsi che il carico di lavoro abbia completato l'esecuzione e sia inattivo prima dell'aggiornamento. Si verificheranno tempi di inattività per alcuni minuti prima che il pool SQL sia nuovamente online come pool SQL ottimizzato per il livello Gen2 di calcolo. **Selezionare l'aggiornamento**:
+3. Assicurarsi che il carico di lavoro abbia completato l'esecuzione e sia inattivo prima dell'aggiornamento. Si verificheranno tempi di inattività per alcuni minuti prima che il pool SQL dedicato sia nuovamente online come pool SQL dedicato ottimizzato per il calcolo del livello Gen2. **Selezionare l'aggiornamento** :
 
    ![Upgrade_2](./media/upgrade-to-latest-generation/upgrade-to-gen2-2.png)
 
@@ -126,9 +126,9 @@ Aggiornare il pool SQL alla generazione più recente dell'architettura hardware 
 
    Il primo passaggio del processo di aggiornamento prevede l'operazione di ridimensionamento ("Aggiornamento - Offline") in cui verranno terminate tutte le sessioni ed interrotte tutte le connessioni.
 
-   Il secondo passaggio del processo di aggiornamento è la migrazione dei dati ("Aggiornamento - Online"). La migrazione dei dati è un processo in background con flusso irregolare. Questo processo sposta lentamente i dati a colonne dall'architettura di archiviazione precedente alla nuova architettura di archiviazione usando la cache SSD locale. Durante questo periodo, il pool SQL sarà online per l'esecuzione di query e il caricamento. I dati saranno disponibili per le query indipendentemente dal fatto che sia stata o meno completata la migrazione. La migrazione dei dati avviene a velocità variabili a seconda delle dimensioni dei dati, del livello di prestazioni e del numero di segmenti columnstore.
+   Il secondo passaggio del processo di aggiornamento è la migrazione dei dati ("Aggiornamento - Online"). La migrazione dei dati è un processo in background con flusso irregolare. Questo processo sposta lentamente i dati a colonne dall'architettura di archiviazione precedente alla nuova architettura di archiviazione usando la cache SSD locale. Durante questo periodo, il pool SQL dedicato sarà online per l'esecuzione di query e il caricamento. I dati saranno disponibili per le query indipendentemente dal fatto che sia stata o meno completata la migrazione. La migrazione dei dati avviene a velocità variabili a seconda delle dimensioni dei dati, del livello di prestazioni e del numero di segmenti columnstore.
 
-5. **Raccomandazione facoltativa:** Al termine dell'operazione di ridimensionamento, è possibile velocizzare il processo in background per la migrazione dei dati. È possibile forzare immediatamente lo spostamento dei dati eseguendo [ALTER INDEX REBUILD](sql-data-warehouse-tables-index.md) su tutte le tabelle columnstore primarie su cui si prevede di eseguire query, con SLO e classe di risorse più grandi. Questa operazione è **offline**, confrontata con il processo un processo in background con flusso irregolare, che può richiedere ore a seconda di numero e dimensione delle tabelle. Tuttavia, al termine dell'operazione la migrazione dei dati sarà molto più veloce per via della nuova architettura di archiviazione migliorata con gruppi di righe di qualità elevata.
+5. **Raccomandazione facoltativa:** Al termine dell'operazione di ridimensionamento, è possibile velocizzare il processo in background per la migrazione dei dati. È possibile forzare immediatamente lo spostamento dei dati eseguendo [ALTER INDEX REBUILD](sql-data-warehouse-tables-index.md) su tutte le tabelle columnstore primarie su cui si prevede di eseguire query, con SLO e classe di risorse più grandi. Questa operazione è **offline** , confrontata con il processo un processo in background con flusso irregolare, che può richiedere ore a seconda di numero e dimensione delle tabelle. Tuttavia, al termine dell'operazione la migrazione dei dati sarà molto più veloce per via della nuova architettura di archiviazione migliorata con gruppi di righe di qualità elevata.
 
 > [!NOTE]
 > ALTER INDEX REBUILD è un'operazione offline, pertanto le tabelle non saranno disponibili fino al completamento della ricompilazione.
@@ -184,7 +184,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 
-2. Passare al pool SQL per il quale si desidera creare un punto di ripristino.
+2. Passare al pool SQL dedicato per il quale si desidera creare un punto di ripristino.
 
 3. Nella parte superiore della sezione della panoramica, selezionare **+ Nuovo punto di ripristino**.
 
@@ -197,7 +197,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 ## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Ripristinare un database attivo o sospeso con il portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
-2. Passare al pool SQL da cui si desidera eseguire il ripristino.
+2. Passare al pool SQL dedicato da cui si desidera eseguire il ripristino.
 3. Nella parte superiore della sezione della panoramica, selezionare **+ Ripristino**.
 
     ![ Panoramica del servizio di ripristino](./media/upgrade-to-latest-generation/restoring_0.png)
@@ -213,7 +213,7 @@ WHERE  idx.type_desc = 'CLUSTERED COLUMNSTORE';
 Per ripristinare un database, usare il cmdlet [Restore-AzSqlDatabase](/powershell/module/az.sql/restore-azsqldatabase?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) .
 
 > [!NOTE]
-> È possibile eseguire un ripristino geografico alla seconda generazione. A tale scopo, specificare ServiceObjectiveName di seconda generazione (ad es. DW1000**c**) come parametro facoltativo.
+> È possibile eseguire un ripristino geografico alla seconda generazione. A tale scopo, specificare ServiceObjectiveName di seconda generazione (ad es. DW1000 **c** ) come parametro facoltativo.
 
 1. Aprire Windows PowerShell.
 2. Connettersi al proprio account Azure ed elencare tutte le sottoscrizioni associate all'account.
@@ -242,8 +242,8 @@ $GeoRestoredDatabase.status
 
 Il database ripristinato sarà abilitato TDE se il database di origine è abilitato per questa tecnologia.
 
-Se si verificano problemi con il pool SQL, creare una [richiesta di supporto](sql-data-warehouse-get-started-create-support-ticket.md) e fare riferimento all'aggiornamento di Gen2 come possibile.
+Se si verificano problemi con il pool SQL dedicato, creare una [richiesta di supporto](sql-data-warehouse-get-started-create-support-ticket.md) e fare riferimento all'aggiornamento di Gen2 come possibile.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Il pool SQL aggiornato è online. Per sfruttare i vantaggi dell'architettura avanzata, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md).
+Il pool SQL dedicato aggiornato è online. Per sfruttare i vantaggi dell'architettura avanzata, vedere [Classi di risorse per la gestione del carico di lavoro](resource-classes-for-workload-management.md).

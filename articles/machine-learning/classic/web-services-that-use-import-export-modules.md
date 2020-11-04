@@ -11,16 +11,16 @@ ms.subservice: studio
 ms.topic: how-to
 ms.date: 03/28/2017
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a963a9f10ee23c50f50e66191e92f0839c457d9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5dc348318401c9362636893d70294496c7012408
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362848"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308463"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-web-services-that-use-data-import-and-data-export-modules"></a>Distribuire servizi Web di Azure Machine Learning Studio (versione classica) che usano i moduli Import Data ed Export Data
 
-**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a.](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
+**SI APPLICA A:**  ![Si applica a.](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica) ![Non si applica a. ](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../overview-what-is-machine-learning-studio.md#ml-studio-classic-vs-azure-machine-learning-studio)
 
 
 Quando si crea un esperimento predittivo, si aggiunge in genere un input e un output del servizio Web. Quando si distribuisce l'esperimento, i consumer possono inviare e ricevere dati dal servizio Web tramite gli input e gli output. Per alcune applicazioni, i dati del consumer possono essere disponibili da un feed di dati o risiedere già in un'origine dati esterna, ad esempio archiviazione BLOB di Azure. In questi casi non è necessario leggere e scrivere dati usando gli input e gli output del servizio Web . Gli utenti possono invece usare il servizio di esecuzione batch (BES) per leggere i dati dall'origine dati mediante un modulo Import Data e scrivere i risultati di assegnazione dei punteggi in una posizione dati diversa mediante un modulo Export Data.
@@ -62,7 +62,7 @@ Per leggere i dati dalla tabella SQL di Azure:
         [income]
      from dbo.censusdata;
     ```
-8. Fare clic su **Run**(Esegui) nella parte inferiore dell'area di disegno dell'esperimento.
+8. Fare clic su **Run** (Esegui) nella parte inferiore dell'area di disegno dell'esperimento.
 
 ## <a name="create-the-predictive-experiment"></a>Creare l'esperimento predittivo
 Configurare quindi l'esperimento predittivo da cui distribuire il servizio Web.
@@ -75,10 +75,10 @@ Configurare quindi l'esperimento predittivo da cui distribuire il servizio Web.
 6. Nel riquadro delle proprietà selezionare **Azure SQL Database** (Database SQL di Azure) come destinazione dei dati.
 7. Immettere le informazioni appropriate per il database nei campi **Database server name** (Nome server database), **Database name** (Nome database), **Server user account name** (Nome account utente server) e **Server user account password** (Password account utente server).
 8. Nel campo **Comma separated list of columns to be saved** (Elenco di colonne da salvare delimitato da virgole) digitare Scored Labels.
-9. Nel campo **Data table name**(Nome tabella dati) digitare dbo.ScoredLabels. Se non esiste, la tabella viene creata quando viene eseguito l'esperimento o viene chiamato il servizio Web.
+9. Nel campo **Data table name** (Nome tabella dati) digitare dbo.ScoredLabels. Se non esiste, la tabella viene creata quando viene eseguito l'esperimento o viene chiamato il servizio Web.
 10. Nel campo **Comma separated list of datatable columns** (Elenco di colonne di tabella di database delimitato da virgole) digitare ScoredLabels.
 
-Quando si scrive un'applicazione che chiama il servizio Web finale, è possibile specificare una tabella di destinazione o una query di input diversa in fase di esecuzione. Per configurare questi input e output, usare la funzionalità Web Service Parameters (Parametri del servizio Web) per impostare la proprietà *Data source* (Origine dati) del modulo *Import Data* (Importa dati) e la proprietà di destinazione dei dati del modulo *Export Data* (Esporta dati).  Per altre informazioni sui parametri del servizio Web, vedere la [voce Web Service Parameters di Azure Machine Learning Studio](https://blogs.technet.microsoft.com/machinelearning/2014/11/25/azureml-web-service-parameters/) sul blog di Cortana Intelligence e Machine Learning.
+Quando si scrive un'applicazione che chiama il servizio Web finale, è possibile specificare una tabella di destinazione o una query di input diversa in fase di esecuzione. Per configurare questi input e output, usare la funzionalità Web Service Parameters (Parametri del servizio Web) per impostare la proprietà *Data source* (Origine dati) del modulo *Import Data* (Importa dati) e la proprietà di destinazione dei dati del modulo *Export Data* (Esporta dati).  Per altre informazioni sui parametri del servizio Web, vedere la [voce Web Service Parameters di Azure Machine Learning Studio](/archive/blogs/machinelearning/azureml-web-service-parameters) sul blog di Cortana Intelligence e Machine Learning.
 
 Per configurare i parametri del servizio Web per la query di importazione e la tabella di destinazione:
 
@@ -129,9 +129,9 @@ Al termine dell'esecuzione verrà aggiunta una nuova tabella al database contene
 
 Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione per usare il servizio:
 
-1. Fare clic su **Run**(Esegui) nella parte inferiore dell'area di disegno dell'esperimento.
+1. Fare clic su **Run** (Esegui) nella parte inferiore dell'area di disegno dell'esperimento.
 2. Al termine dell'esecuzione fare clic su **Deploy Web Service** (Distribuisci servizio Web) e selezionare **Deploy Web Service [New]** (Distribuisci servizio Web [Nuovo]).
-3. Nella pagina Deploy Experiment (Sperimentazione distribuzione) immettere un nome per il servizio Web e selezionare un piano tariffario, quindi fare clic su **Deploy**(Distribuzione).
+3. Nella pagina Deploy Experiment (Sperimentazione distribuzione) immettere un nome per il servizio Web e selezionare un piano tariffario, quindi fare clic su **Deploy** (Distribuzione).
 4. Nella pagina **Quickstart** (Avvio rapido) fare clic su **Consume** (Utilizzo).
 5. Nella sezione **Sample Code** (Codice di esempio) fare clic su **Batch**.
 6. In Visual Studio creare un'applicazione console in C#: **Nuovo** > **Progetto** > **Visual C#**  > **Desktop di Windows classico** > **App console (.NET Framework)** .
@@ -152,4 +152,3 @@ Per eseguire la distribuzione come servizio Web nuovo e creare un'applicazione p
     };
     ```
 10. Eseguire l'applicazione.
-

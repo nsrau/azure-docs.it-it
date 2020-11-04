@@ -9,12 +9,12 @@ author: sdgilley
 ms.author: sgilley
 ms.custom: seodec18
 ms.date: 03/22/2019
-ms.openlocfilehash: a0c99c05701c7f2d64fcfc2f70081f2d7475ce5f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ae4eca82df498f1aa8f9ef84691cecdf719d0d76
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91343420"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307487"
 ---
 # <a name="data-science-for-beginners-video-1-the-5-questions-data-science-answers"></a>Analisi scientifica dei dati per principianti, video 1: Le 5 domande a cui risponde l'analisi scientifica dei dati
 
@@ -45,7 +45,7 @@ Il primo video tratta delle 5 domande a cui risponde l'analisi scientifica dei d
 
 L'analisi scientifica dei dati usa numeri e nomi, anche noti come categorie o etichette, per prevedere le risposte alle domande.
 
-Potrebbe essere sorprendente, ma *esistono solo cinque domande a cui l'analisi scientifica dei dati risponde*:
+Potrebbe essere sorprendente, ma *esistono solo cinque domande a cui l'analisi scientifica dei dati risponde* :
 
 * È A o B?
 * È strano?
@@ -136,4 +136,4 @@ Ecco, queste sono le 5 domande a cui l'analisi scientifica dei dati per principi
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Provare un primo esperimento di data science con Machine Learning Studio (classico)](create-experiment.md)
-* [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](/azure/machine-learning/overview-what-is-azure-ml)
+* [Leggere l'Introduzione all'apprendimento automatico in Microsoft Azure](../overview-what-is-azure-ml.md)

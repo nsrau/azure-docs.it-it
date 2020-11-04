@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 09/21/2020
-ms.openlocfilehash: 23ecc3bdfb0ca85caf219fc262348937923f53c3
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: d4a2d9e43dadc53008c04b44ea1dda9cb337da99
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93286132"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308355"
 ---
 # <a name="automatic-registration-with-sql-vm-resource-provider"></a>Registrazione automatica con il provider di risorse VM SQL
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -38,7 +38,7 @@ Una volta abilitata la registrazione automatica per una sottoscrizione, tutte le
 
 Per registrare la macchina virtuale di SQL Server con il provider di risorse, è necessario quanto segue: 
 
-- Una [sottoscrizione di Azure](https://azure.microsoft.com/free/).
+- Una [sottoscrizione di Azure](https://azure.microsoft.com/free/) e le autorizzazioni del [ruolo Collaboratore](../../../role-based-access-control/built-in-roles.md#all) minimo.
 - Una macchina virtuale modello di risorse di Azure [Windows Server 2008 R2 (o versione successiva)](../../../virtual-machines/windows/quick-create-portal.md) con [SQL Server](https://www.microsoft.com/sql-server/sql-server-downloads) distribuita nel cloud pubblico o Azure per enti pubblici. Windows Server 2008 non è supportato. 
 
 

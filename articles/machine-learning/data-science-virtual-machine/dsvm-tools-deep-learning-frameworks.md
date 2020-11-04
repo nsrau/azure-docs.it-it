@@ -11,12 +11,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 29f1949cbe9998ac569b0389986023a72e7845b1
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8c6ee3d5eecc02ac921d7b10f2394380af684c2
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89070917"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309036"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Apprendimento avanzato e Framework di intelligenza artificiale per Azure Data Science VM
 I Framework per Deep Learning in DSVM sono elencati di seguito.
@@ -76,7 +76,7 @@ I Framework per Deep Learning in DSVM sono elencati di seguito.
 | Come viene configurata o installata sulla macchina virtuale per data science?  | Keras viene installato in Python 3,6 in Windows e in Python 3,5 in Linux |
 | Come eseguirla      | Attivare l'ambiente corretto nel terminale, quindi eseguire python. |
 
-## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## <a name="microsoft-cognitive-toolkit-cntk"></a>[Microsoft Cognitive Toolkit (CNTK)](/cognitive-toolkit/)
 
 | Category | Valore |
 | ------------- | ------------- |
@@ -110,7 +110,7 @@ I Framework per Deep Learning in DSVM sono elencati di seguito.
 | Edizioni DSVM supportate      | Windows Server 2019<br>Ubuntu 18.04<br> Windows 2016<br> Ubuntu 16.04   |
 | A cosa serve? | Lo strumento NVIDIA per l'esecuzione di query sull'attività GPU |
 | Come viene configurata o installata sulla macchina virtuale per data science?  | `nvidia-smi` si trova nel percorso di sistema. |
-| Come eseguirla      | In una macchina virtuale **con GPU**aprire un prompt dei comandi (in Windows) o un terminale (in Linux), quindi eseguire `nvidia-smi` . |
+| Come eseguirla      | In una macchina virtuale **con GPU** aprire un prompt dei comandi (in Windows) o un terminale (in Linux), quindi eseguire `nvidia-smi` . |
 
 ## <a name="pytorch"></a>[PyTorch](https://pytorch.org/)
 
@@ -146,5 +146,5 @@ I Framework per Deep Learning in DSVM sono elencati di seguito.
 | ------------- | ------------- |
 | Versioni supportate | 1.0.3 |
 | Edizioni DSVM supportate      | Ubuntu 16.04 |
-| Come viene configurata o installata sulla macchina virtuale per data science?  |Theano viene installato in Python 2,7 (_radice_) e nell'ambiente Python 3,5 (_PY35_). |
+| Come viene configurata o installata sulla macchina virtuale per data science?  |Theano viene installato in Python 2,7 ( _radice_ ) e nell'ambiente Python 3,5 ( _PY35_ ). |
 | Come eseguirla      |  Terminale: attivare la versione di Python desiderata (root o PY35), eseguire python, quindi importare Theano.<br/>* Jupyter: selezionare il kernel Python 2,7 o 3,5, quindi importare Theano.  <br/>Per aggirare un bug recente della libreria del kernel matematico (MKL), è necessario innanzitutto impostare il livello di threading MKL nel modo seguente:<br/><br/>`export MKL_THREADING_LAYER=GNU`  |

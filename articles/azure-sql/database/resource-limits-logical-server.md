@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 09/15/2020
-ms.openlocfilehash: 813f229d414ab911169f404dfc6b3cbf93fa96b3
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9dfe70cf6c91a0c12604f91e583a9a4eb9b4e088
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92780785"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93308822"
 ---
 # <a name="resource-limits-for-azure-sql-database-and-azure-synapse-analytics-servers"></a>Limiti delle risorse per il database SQL di Azure e i server di analisi di Azure sinapsi
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -61,7 +61,7 @@ In caso di uso elevato di risorse di elaborazione, le opzioni di mitigazione inc
 - Aumento delle dimensioni di calcolo del database o del pool elastico per mettere a disposizione del database un numero maggiore di risorse del computer. Vedere [Ridimensionare le risorse del database singolo](single-database-scale.md) e [Ridimensionare le risorse del pool elastico](elastic-pool-scale.md).
 - Ottimizzazione delle query per ridurre l'utilizzo delle risorse della CPU di ogni query. Per altre informazioni, vedere la sezione [Hint/ottimizzazione di query](performance-guidance.md#query-tuning-and-hinting).
 
-### <a name="storage"></a>Archiviazione
+### <a name="storage"></a>Archiviazione:
 
 Quando la quantità di spazio del database usato raggiunge il limite di dimensioni massime, gli inserimenti e gli aggiornamenti del database che aumentano la dimensione dei dati hanno esito negativo e i clienti ricevono un [messaggio di errore](troubleshoot-common-errors-issues.md). Le istruzioni SELECT e DELETE continuano ad avere esito positivo.
 
@@ -82,7 +82,7 @@ In caso di uso elevato di sessioni o ruoli di lavoro, le opzioni di mitigazione 
 - Riduzione dell'impostazione di [MAXDOP](/sql/database-engine/configure-windows/configure-the-max-degree-of-parallelism-server-configuration-option#Guidelines) (massimo grado di parallelismo).
 - Ottimizzazione del carico di lavoro delle query per ridurre il numero di occorrenze e la durata del blocco di query.
 
-### <a name="memory"></a>Memoria
+### <a name="memory"></a>Memory
 
 A differenza di altre risorse (CPU, ruoli di lavoro, archiviazione), raggiungere il limite di memoria non influisce negativamente sulle prestazioni delle query e non genera errori e errori. Come descritto in dettaglio in [Guida all'architettura di gestione della memoria](/sql/relational-databases/memory-management-architecture-guide), il motore di database di SQL Server spesso usa tutta la memoria disponibile, in base alla progettazione. La memoria viene utilizzata principalmente per la memorizzazione nella cache dei dati, per evitare un accesso più costoso alle risorse di archiviazione. Pertanto, un utilizzo più elevato della memoria di solito migliora le prestazioni delle query a causa di letture più veloci dalla memoria, anziché letture più lente dall'archiviazione.
 
@@ -131,7 +131,7 @@ La governance delle risorse del database SQL di Azure è di natura gerarchica. D
 
 La governance IO dei dati è un processo nel database SQL di Azure usato per limitare l'i/o fisico di lettura e scrittura sui file di dati di un database. I limiti di IOPS vengono impostati per ogni livello di servizio in modo da ridurre al minimo l'effetto "rumoroso vicino", per garantire l'equità di allocazione delle risorse nel servizio multi-tenant e per restare all'interno delle funzionalità dell'hardware e dell'archiviazione sottostanti.
 
-Per i database singoli, i limiti dei gruppi di carico di lavoro vengono applicati a tutti i/o di archiviazione nel database, mentre i limiti del pool di risorse si applicano a tutte le operazioni di i/o di archiviazione su tutti i database nello stesso pool SQL `tempdb` Per i pool elastici, i limiti dei gruppi di carico di lavoro si applicano a ogni database nel pool, mentre il limite del pool di risorse si applica all'intero pool elastico, incluso il `tempdb` database, che è condiviso tra tutti i database nel pool. In generale, i limiti del pool di risorse potrebbero non essere raggiungibili dal carico di lavoro rispetto a un database (singolo o in pool), perché i limiti del gruppo di carico di lavoro sono inferiori ai limiti del pool di risorse e limitano IOPS/velocità effettiva. Tuttavia, i limiti del pool possono essere raggiunti dal carico di lavoro combinato rispetto a più database nello stesso pool.
+Per i database singoli, i limiti dei gruppi di carico di lavoro vengono applicati a tutti i/o di archiviazione nel database, mentre i limiti del pool di risorse si applicano a tutti i/o di archiviazione su tutti i database nello stesso pool SQL dedicato, incluso il `tempdb` database Per i pool elastici, i limiti dei gruppi di carico di lavoro si applicano a ogni database nel pool, mentre il limite del pool di risorse si applica all'intero pool elastico, incluso il `tempdb` database, che è condiviso tra tutti i database nel pool. In generale, i limiti del pool di risorse potrebbero non essere raggiungibili dal carico di lavoro rispetto a un database (singolo o in pool), perché i limiti del gruppo di carico di lavoro sono inferiori ai limiti del pool di risorse e limitano IOPS/velocità effettiva. Tuttavia, i limiti del pool possono essere raggiunti dal carico di lavoro combinato rispetto a più database nello stesso pool.
 
 Se, ad esempio, una query genera 1000 IOPS senza governance delle risorse di i/o, ma il limite massimo di IOPS del gruppo di carico di lavoro è impostato su 900 IOPS, la query non sarà in grado di generare più di 900 IOPS. Tuttavia, se il limite massimo di IOPS del pool di risorse è impostato su 1500 IOPS e l'i/o totale da tutti i gruppi di carico di lavoro associati al pool di risorse supera 1500 IOPS, l'i/o della stessa query può essere ridotto al di sotto del limite del gruppo di lavoro di 900 IOPS.
 

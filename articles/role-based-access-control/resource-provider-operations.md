@@ -9,12 +9,12 @@ author: rolyon
 ms.author: rolyon
 ms.date: 11/03/2020
 ms.custom: generated
-ms.openlocfilehash: 3f192493dfd6bfc2fb3d5802b1dd94cd4ca3a9a9
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: e337cef9121dc5992f87b9996cfd01d16d9cc188
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93285226"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93309365"
 ---
 # <a name="azure-resource-provider-operations"></a>Operazioni del provider di risorse di Azure
 
@@ -4100,7 +4100,7 @@ Servizio di Azure: [database SQL di Azure](../azure-sql/database/index.yml), [is
 > | Microsoft.Sql/servers/databases/dataMaskingPolicies/rules/delete | Elimina la regola per i criteri di mascheramento dati per uno specifico database |
 > | Microsoft.Sql/servers/databases/dataWarehouseQueries/read | Restituisce le informazioni sulla query di distribuzione del data warehouse per l’ID query selezionato |
 > | Microsoft.Sql/servers/databases/dataWarehouseQueries/dataWarehouseQuerySteps/read | Restituisce le informazioni sul passaggio della query distribuita della query del data warehouse per l’ID passaggio selezionato |
-> | Microsoft.Sql/servers/databases/dataWarehouseUserActivities/read | Recupera le attività dell'utente per un'istanza di SQL Data Warehouse incluse le query in esecuzione e sospese |
+> | Microsoft.Sql/servers/databases/dataWarehouseUserActivities/read | Recupera le attività utente di un pool SQL dedicato di Azure sinapsi Analytics che include le query in esecuzione e sospese |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/read | Recupera i dettagli dei criteri di controllo BLOB esteso configurati in uno specifico database |
 > | Microsoft.Sql/servers/databases/extendedAuditingSettings/write | Modifica i criteri di controllo BLOB esteso per uno specifico database |
 > | Microsoft.Sql/servers/databases/extensions/read | Ottiene una raccolta di estensioni per il database. |

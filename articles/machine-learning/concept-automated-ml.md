@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 10/27/2020
-ms.openlocfilehash: 8ffdd8c15cf225e4f5b99a0b84b71bdbed456234
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: 31cb2b2b5411968f1eba71fa9afc7bdc8296407c
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93130086"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93307398"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Informazioni su Machine Learning automatizzato
 
@@ -204,7 +204,7 @@ Ad esempio, la creazione di un modello __per ogni istanza o unico__ negli scenar
 
 Azure Machine Learning offre due esperienze per l'uso di ML automatizzato:
 
-* Per i clienti con esperienza di codice, [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) 
+* Per i clienti con esperienza di codice, [Azure Machine Learning Python SDK](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) 
 
 * Per i clienti con esperienza limitata o che non dispongono di codice, Azure Machine Learning Studio all'indirizzo [https://ml.azure.com](https://ml.azure.com/)  
 
@@ -289,8 +289,7 @@ Esaminare gli esempi di codice e i casi di utilizzo dettagliati nel [repository 
 
 ### <a name="python-sdk-reference"></a>Informazioni di riferimento su Python SDK
 
-Approfondire la conoscenza dei modelli di progettazione e delle specifiche di classe dell'SDK con la [documentazione di riferimento della classe AutoML](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true). 
+Approfondire la conoscenza dei modelli di progettazione e delle specifiche di classe dell'SDK con la [documentazione di riferimento della classe AutoML](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?preserve-view=true&view=azure-ml-py). 
 
 > [!Note]
-> Le funzionalità automatiche di Machine Learning sono disponibili anche in altre soluzioni Microsoft, ad esempio [ml.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power bi](https://docs.microsoft.com/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
-
+> Le funzionalità automatiche di Machine Learning sono disponibili anche in altre soluzioni Microsoft, ad esempio [ml.NET](/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power bi](/power-bi/service-machine-learning-automated) e [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)
