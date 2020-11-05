@@ -5,17 +5,17 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 25161054a53377b9fbbb12621b95dff9c119fa17
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 45851015dd5a845497fb2d09bf1f9fffb9e35a06
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165511"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377752"
 ---
 # <a name="authentication-methods-in-azure-active-directory---phone-options"></a>Metodi di autenticazione nelle opzioni del telefono Azure Active Directory
 
@@ -23,12 +23,12 @@ Per l'autenticazione diretta tramite SMS, è possibile [configurare e abilitare 
 
 Gli utenti possono autenticarsi anche usando un telefono cellulare o un telefono dell'ufficio come forma di autenticazione secondaria durante l'autenticazione a più fattori di Azure o la reimpostazione della password self-service.
 
-Per garantirne il corretto funzionamento, i numeri di telefono devono essere nel formato *+PrefissoInternazionale NumeroTelefonico*, ad esempio *+1 4251234567*.
+Per garantirne il corretto funzionamento, i numeri di telefono devono essere nel formato *+PrefissoInternazionale NumeroTelefonico* , ad esempio *+1 4251234567*.
 
 > [!NOTE]
 > È necessario uno spazio tra il prefisso internazionale o della regione e il numero di telefono.
 >
-> La reimpostazione della password non supporta le estensioni del telefono. Anche nel formato *+1 4251234567X12345*, le estensioni vengono rimosse prima della chiamata.
+> La reimpostazione della password non supporta le estensioni del telefono. Anche nel formato *+1 4251234567X12345* , le estensioni vengono rimosse prima della chiamata.
 
 ## <a name="mobile-phone-verification"></a>Verifica tramite telefono cellulare
 
@@ -49,8 +49,6 @@ Con la verifica tramite SMS durante la reimpostazione della password self-servic
 Con la verifica tramite telefonata durante la reimpostazione della password self-service o l'uso di Azure Multi-Factor Authentication, viene eseguita una chiamata vocale automatica al numero di telefono registrato dall'utente. Per completare il processo di accesso, all'utente viene richiesto di immettere il numero PIN seguito da # sul tastierino.
 
 ## <a name="office-phone-verification"></a>Verifica tramite telefono dell'ufficio
-
-L'attributo telefono dell'ufficio viene gestito dall'amministratore di Azure AD e non può essere registrato dall'utente stesso.
 
 Con la verifica tramite telefonata durante la reimpostazione della password self-service o l'uso di Azure Multi-Factor Authentication, viene eseguita una chiamata vocale automatica al numero di telefono registrato dall'utente. Per completare il processo di accesso, all'utente viene richiesto di immettere il numero PIN seguito da # sul tastierino.
 
@@ -81,7 +79,7 @@ Per altre informazioni sui concetti di reimpostazione della password self-servic
 
 Per altre informazioni sui concetti di MFA, vedere [Come funziona Azure Multi-Factor Authentication][concept-mfa].
 
-Altre informazioni sulla configurazione dei metodi di autenticazione con l' [API REST di Microsoft Graph beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta).
+Altre informazioni sulla configurazione dei metodi di autenticazione con l' [API REST di Microsoft Graph beta](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true).
 
 <!-- INTERNAL LINKS -->
 [tutorial-sspr]: tutorial-enable-sspr.md

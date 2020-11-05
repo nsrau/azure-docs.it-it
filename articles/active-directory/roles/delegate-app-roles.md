@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8139dca2896610b8a3a52f1446255bea0031dc11
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 9ad21e15d33dabba74d338b339e4b2fdc25df52e
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378281"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379214"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Delegare le autorizzazioni di registrazione all'app in Azure Active Directory
 
@@ -90,9 +90,9 @@ Seguire le istruzioni riportate nella Guida per l' [assegnazione di ruoli agli u
 La creazione di ruoli personalizzati e l'assegnazione di ruoli personalizzati sono passaggi distinti:
 
 - [Creare una *definizione di ruolo* personalizzata](custom-create.md) e [aggiungervi le autorizzazioni da un elenco di set di impostazioni](custom-available-permissions.md). Si tratta delle stesse autorizzazioni utilizzate nei ruoli predefiniti.
-- [Creare un' *assegnazione di ruolo* ](custom-assign-powershell.md) per assegnare il ruolo personalizzato.
+- [Creare un' *assegnazione di ruolo*](custom-assign-powershell.md) per assegnare il ruolo personalizzato.
 
-Questa separazione consente di creare una singola definizione di ruolo e di assegnarla più volte in *ambiti*diversi. Un ruolo personalizzato può essere assegnato a livello di organizzazione oppure può essere assegnato all'ambito se un singolo oggetto Azure AD. Un esempio di ambito di un oggetto è costituito da una singola registrazione dell'app. Con ambiti diversi, la stessa definizione di ruolo può essere assegnata a Sally su tutte le registrazioni dell'app nell'organizzazione e quindi a Naver solo per la registrazione di app per la spesa di contoso.
+Questa separazione consente di creare una singola definizione di ruolo e di assegnarla più volte in *ambiti* diversi. Un ruolo personalizzato può essere assegnato a livello di organizzazione oppure può essere assegnato all'ambito se un singolo oggetto Azure AD. Un esempio di ambito di un oggetto è costituito da una singola registrazione dell'app. Con ambiti diversi, la stessa definizione di ruolo può essere assegnata a Sally su tutte le registrazioni dell'app nell'organizzazione e quindi a Naver solo per la registrazione di app per la spesa di contoso.
 
 Suggerimenti per la creazione e l'utilizzo di ruoli personalizzati per la delega della gestione delle applicazioni:
 - I ruoli personalizzati concedono l'accesso solo nei pannelli di registrazione delle app più recenti del portale di Azure AD. Non concedono l'accesso nei pannelli registrazioni di app legacy.

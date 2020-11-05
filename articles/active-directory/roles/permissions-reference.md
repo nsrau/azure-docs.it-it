@@ -7,19 +7,19 @@ manager: daveba
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 09/22/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ece458960002fb6af9e0ef5065e6e926a9fc17d
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d55e7f29c9ecefa7cfcf98ef890d9982b044ef30
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378296"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378823"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -233,7 +233,7 @@ Gli utenti con questo ruolo possono leggere le impostazioni e le informazioni am
 >- Interfaccia di [amministrazione di OneDrive](https://admin.onedrive.com/) : l'interfaccia di amministrazione di OneDrive non supporta il ruolo di lettore globale
 >- [Interfaccia di amministrazione di M365](https://admin.microsoft.com/Adminportal/Home#/homepage) - Il ruolo con autorizzazioni di lettura globali non è in grado di leggere le richieste di Customer Lockbox. Non è possibile trovare la scheda **Richieste di Customer Lockbox** in **Supporto** nel riquadro sinistro dell'interfaccia di amministrazione di M365.
 >- [Centro sicurezza e conformità Office](https://sip.protection.office.com/homepage) - Il ruolo con autorizzazioni di lettura globali non può leggere i log di controllo di Centro sicurezza e conformità, eseguire la ricerca di contenuto o visualizzare Secure Store.
->- [Interfaccia di amministrazione di Teams](https://admin.teams.microsoft.com) - Il ruolo con autorizzazioni di lettura globali non può leggere **Teams Lifecycle**, **Teams Reporting & Call Analytics**, **Teams IP Phone Device Management** e **Teams App Catalog**.
+>- [Interfaccia di amministrazione di Teams](https://admin.teams.microsoft.com) - Il ruolo con autorizzazioni di lettura globali non può leggere **Teams Lifecycle** , **Teams Reporting & Call Analytics** , **Teams IP Phone Device Management** e **Teams App Catalog**.
 >- [Privileged Access Management (PAM)](/office365/securitycompliance/privileged-access-management-overview) non supporta il ruolo con autorizzazioni di lettura globali.
 >- [Azure Information Protection](/azure/information-protection/what-is-information-protection) - Il ruolo con autorizzazioni di lettura globali è supportato solo per la [creazione di report centralizzata](/azure/information-protection/reports-aip) e quando l'organizzazione Azure AD non si trova nella [piattaforma di etichettatura unificata](/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform).
 >
@@ -311,7 +311,7 @@ Gli utenti con questo ruolo possono monitorare le notifiche e gli aggiornamenti 
 
 Non usare. Questo ruolo viene assegnato automaticamente da Commerce e non è progettato o supportato per altri usi. Vedere i dettagli di seguito.
 
-Il ruolo utente commerciale moderno concede a determinati utenti le autorizzazioni per accedere Microsoft 365 interfaccia di amministrazione e visualizzare le voci di spostamento a sinistra per **Home**, **fatturazione**e **supporto**. I contenuti disponibili in queste aree sono controllati da [ruoli specifici per attività commerciali](../../cost-management-billing/manage/understand-mca-roles.md) assegnati agli utenti per gestire i prodotti acquistati per se stessi o per la propria organizzazione. Questo potrebbe includere attività quali il pagamento di fatture o l'accesso agli account di fatturazione e ai profili di fatturazione. 
+Il ruolo utente commerciale moderno concede a determinati utenti le autorizzazioni per accedere Microsoft 365 interfaccia di amministrazione e visualizzare le voci di spostamento a sinistra per **Home** , **fatturazione** e **supporto**. I contenuti disponibili in queste aree sono controllati da [ruoli specifici per attività commerciali](../../cost-management-billing/manage/understand-mca-roles.md) assegnati agli utenti per gestire i prodotti acquistati per se stessi o per la propria organizzazione. Questo potrebbe includere attività quali il pagamento di fatture o l'accesso agli account di fatturazione e ai profili di fatturazione. 
 
 Gli utenti con il ruolo di utente Commerce moderno hanno in genere autorizzazioni amministrative in altri sistemi di acquisto Microsoft, ma non hanno i ruoli di amministratore globale o amministratore fatturazione usati per accedere all'interfaccia di amministrazione. 
 

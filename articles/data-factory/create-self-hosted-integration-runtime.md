@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 123595bb6cd0112e597b9d958763900e07b9ff38
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 2dc8773dc41493e30f64c0602b4345a9491cd7b7
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92633077"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379707"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 
@@ -60,7 +60,7 @@ Usare la procedura seguente per creare un runtime di integrazione self-hosted us
 
    ![Pulsante Gestisci nella home page](media/doc-common-process/get-started-page-manage-button.png)
 
-1. Selezionare **Runtime di integrazione** nel riquadro sinistro, quindi selezionare **+ Nuovo** .
+1. Selezionare **Runtime di integrazione** nel riquadro sinistro, quindi selezionare **+ Nuovo**.
 
    ![Creare un runtime di integrazione](media/doc-common-process/manage-new-integration-runtime.png)
 
@@ -69,21 +69,21 @@ Usare la procedura seguente per creare un runtime di integrazione self-hosted us
 1. Nella pagina seguente selezionare **self-hosted** per creare un Self-Hosted IR e quindi selezionare continue ( **continua** ).
    ![Creare un selfhosted IR](media/create-self-hosted-integration-runtime/new-selfhosted-integration-runtime.png)
 
-1. Immettere un nome per il runtime di integrazione e selezionare **Crea** .
+1. Immettere un nome per il runtime di integrazione e selezionare **Crea**.
 
 1. Nella pagina **installazione di Integration Runtime** selezionare il collegamento nell' **opzione 1** per aprire l'installazione rapida nel computer. In alternativa, attenersi alla procedura descritta nell' **opzione 2** per configurare manualmente. Le istruzioni seguenti si basano sull'installazione manuale:
 
    ![Impostazione runtime di integrazione](media/create-self-hosted-integration-runtime/integration-runtime-setting-up.png)
 
-    1. Copiare e incollare la chiave di autenticazione. Selezionare **scaricare e installare Integration Runtime** .
+    1. Copiare e incollare la chiave di autenticazione. Selezionare **scaricare e installare Integration Runtime**.
 
     1. Scaricare il runtime di integrazione self-hosted in un computer Windows locale. Eseguire il programma di installazione.
 
-    1. Nella pagina **register Integration Runtime (self-hosted)** incollare la chiave salvata in precedenza e selezionare **Register** .
+    1. Nella pagina **register Integration Runtime (self-hosted)** incollare la chiave salvata in precedenza e selezionare **Register**.
     
        ![Registrare il runtime di integrazione](media/create-self-hosted-integration-runtime/register-integration-runtime.png)
 
-    1. Nella pagina **Nuovo nodo di Integration Runtime (self-hosted)** fare clic su **Fine** .
+    1. Nella pagina **Nuovo nodo di Integration Runtime (self-hosted)** fare clic su **Fine**.
 
 1. Una volta completata la registrazione del runtime di integrazione self-hosted, viene visualizzata la finestra seguente:
 
@@ -147,7 +147,6 @@ Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di 
 - È possibile installare una sola istanza di un runtime di integrazione self-hosted in un singolo computer. Se si hanno due data factory che devono accedere alle origini dati locali, usare la [funzionalità di condivisione IR self-hosted](#create-a-shared-self-hosted-integration-runtime-in-azure-data-factory) per condividere il runtime di integrazione self-hosted o installare il runtime di integrazione self-hosted in due computer locali, uno per ogni data factory.  
 - Non è necessario che il runtime di integrazione self-hosted si trovi nello stesso computer dell'origine dati. Tuttavia, la presenza del runtime di integrazione self-hosted vicino all'origine dati riduce il tempo necessario per la connessione del runtime di integrazione self-hosted all'origine dati. Si consiglia di installare il runtime di integrazione self-hosted in un computer diverso da quello che ospita l'origine dati locale. Quando il runtime di integrazione self-hosted e l'origine dati si trovano in computer diversi, il runtime di integrazione self-hosted non compete con l'origine dati per le risorse.
 - È possibile che più runtime di integrazione self-hosted siano presenti in computer diversi che si connettono alla stessa origine dati locale. Se, ad esempio, sono presenti due runtime di integrazione self-hosted che servono due data factory, la stessa origine dati locale può essere registrata con entrambe le data factory.
-- Se nel computer è già installato un gateway per gestire uno scenario di Power BI, installare un runtime di integrazione self-hosted separato per Data Factory in un altro computer.
 - Usare un runtime di integrazione self-hosted per supportare l'integrazione dei dati all'interno di una rete virtuale di Azure.
 - Considerare l'origine dati come un'origine dati locale protetta da firewall anche quando si usa Azure ExpressRoute. Usare il runtime di integrazione self-hosted per connettere il servizio all'origine dati.
 - Usare il runtime di integrazione self-hosted anche se l'archivio dati si trova nel cloud in una macchina virtuale di infrastruttura distribuita come servizio (IaaS) di Azure.
@@ -157,7 +156,7 @@ Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di 
 
 - Le versioni supportate di Windows sono:
   + Windows 7 Service Pack 1
-  + Windows 8.1
+  + Windows 8.1
   + Windows 10
   + Windows Server 2008 R2 SP1
   + Windows Server 2012
@@ -186,12 +185,12 @@ Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di 
 ## <a name="install-and-register-a-self-hosted-ir-from-microsoft-download-center"></a>Installare e registrare un runtime di integrazione self-hosted dall'area download Microsoft
 
 1. Accedere alla [pagina di download di Microsoft Integration Runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-1. Selezionare **download** , selezionare la versione a 64 bit e fare clic su **Avanti** . La versione a 32 bit non è supportata.
+1. Selezionare **download** , selezionare la versione a 64 bit e fare clic su **Avanti**. La versione a 32 bit non è supportata.
 1. Eseguire direttamente il file di identità gestita oppure salvarlo sul disco rigido ed eseguirlo.
-1. Nella finestra **iniziale** selezionare una lingua e fare clic su **Avanti** .
-1. Accettare le condizioni di licenza software Microsoft e quindi selezionare **Avanti** .
-1. Selezionare la **cartella** in cui installare il runtime di integrazione self-hosted e quindi selezionare **Avanti** .
-1. Nella pagina **pronto per l'installazione** selezionare **Installa** .
+1. Nella finestra **iniziale** selezionare una lingua e fare clic su **Avanti**.
+1. Accettare le condizioni di licenza software Microsoft e quindi selezionare **Avanti**.
+1. Selezionare la **cartella** in cui installare il runtime di integrazione self-hosted e quindi selezionare **Avanti**.
+1. Nella pagina **pronto per l'installazione** selezionare **Installa**.
 1. Selezionare **fine** per completare l'installazione.
 1. Ottenere la chiave di autenticazione tramite PowerShell. Di seguito viene indicato un esempio di PowerShell per recuperare la chiave di autenticazione:
 
@@ -205,7 +204,7 @@ Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di 
 
     1. Facoltativamente, selezionare **Mostra chiave di autenticazione** per visualizzare il testo della chiave.
 
-    1. Selezionare **Registra** .
+    1. Selezionare **Registra**.
 
 ## <a name="high-availability-and-scalability"></a>Disponibilità elevata e scalabilità
 
@@ -220,7 +219,7 @@ Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di 
 > Non è necessario creare un nuovo runtime di integrazione self-hosted per associare ogni nodo. È possibile installare il runtime di integrazione self-hosted in un altro computer e registrarlo con la stessa chiave di autenticazione.
 
 > [!NOTE]
-> Prima di aggiungere un altro nodo per la disponibilità elevata e la scalabilità, verificare che l'opzione **accesso remoto alla rete Intranet** sia abilitata nel primo nodo. A tale scopo, selezionare **Microsoft Integration Runtime**  >  **Impostazioni**  >  **di Configuration Manager accesso remoto alla rete Intranet** .
+> Prima di aggiungere un altro nodo per la disponibilità elevata e la scalabilità, verificare che l'opzione **accesso remoto alla rete Intranet** sia abilitata nel primo nodo. A tale scopo, selezionare **Microsoft Integration Runtime**  >  **Impostazioni**  >  **di Configuration Manager accesso remoto alla rete Intranet**.
 
 ### <a name="scale-considerations"></a>Considerazioni sulla scalabilità
 
@@ -240,7 +239,7 @@ Ecco i requisiti per il certificato TLS/SSL usato per proteggere la comunicazion
 
 - Deve essere un certificato X509 v3 pubblicamente attendibile. Si consiglia di usare i certificati emessi da un'autorità di certificazione (CA) del partner pubblico.
 - Ogni nodo del runtime di integrazione deve considerare attendibile questo certificato.
-- Non è consigliabile usare i certificati di nome alternativo del soggetto (SAN) perché viene usato solo l'ultimo elemento SAN. Tutti gli altri elementi SAN vengono ignorati. Se, ad esempio, si dispone di un certificato SAN le cui SANs sono **node1.Domain.contoso.com** e **node2.Domain.contoso.com** , è possibile utilizzare questo certificato solo in un computer il cui nome di dominio completo (FQDN) è **node2.Domain.contoso.com** .
+- Non è consigliabile usare i certificati di nome alternativo del soggetto (SAN) perché viene usato solo l'ultimo elemento SAN. Tutti gli altri elementi SAN vengono ignorati. Se, ad esempio, si dispone di un certificato SAN le cui SANs sono **node1.Domain.contoso.com** e **node2.Domain.contoso.com** , è possibile utilizzare questo certificato solo in un computer il cui nome di dominio completo (FQDN) è **node2.Domain.contoso.com**.
 - Il certificato può usare qualsiasi dimensione della chiave supportata da Windows Server 2012 R2 per i certificati TLS/SSL.
 - I certificati che usano chiavi CNG non sono supportati.  
 
@@ -360,10 +359,10 @@ Il servizio host di Integration Runtime viene riavviato automaticamente dopo ave
 
 Dopo aver registrato il runtime di integrazione self-hosted, se si desidera visualizzare o aggiornare le impostazioni proxy, utilizzare Microsoft Integration Runtime Configuration Manager.
 
-1. Aprire **Gestione configurazione di Microsoft Integration Runtime** .
+1. Aprire **Gestione configurazione di Microsoft Integration Runtime**.
 1. Selezionare la scheda **Settings** (Impostazioni).
 1. In **proxy http** selezionare il collegamento **Cambia** per aprire la finestra di dialogo **Imposta proxy http** .
-1. Selezionare **Avanti** . Viene quindi visualizzato un avviso che richiede l'autorizzazione per salvare l'impostazione del proxy e riavviare il servizio host di Integration Runtime.
+1. Selezionare **Avanti**. Viene quindi visualizzato un avviso che richiede l'autorizzazione per salvare l'impostazione del proxy e riavviare il servizio host di Integration Runtime.
 
 È possibile utilizzare lo strumento Gestione configurazione per visualizzare e aggiornare il proxy HTTP.
 
@@ -403,7 +402,7 @@ Se si seleziona l'opzione **Usa proxy di sistema** per il proxy http, il runtime
     ```
 1. Salvare il file di configurazione nel percorso originale. Riavviare quindi il servizio host del runtime di integrazione self-hosted, che preleva le modifiche.
 
-   Per riavviare il servizio, usare l'applet servizi del pannello di controllo. In alternativa, in Gestione configurazione di Integration Runtime selezionare il pulsante **Arresta servizio** e quindi selezionare **Avvia servizio** .
+   Per riavviare il servizio, usare l'applet servizi del pannello di controllo. In alternativa, in Gestione configurazione di Integration Runtime selezionare il pulsante **Arresta servizio** e quindi selezionare **Avvia servizio**.
 
    Se il servizio non viene avviato, è probabile che sia stata aggiunta una sintassi di tag XML non corretta nel file di configurazione dell'applicazione modificato.
 
@@ -417,7 +416,7 @@ Se si seleziona l'opzione **Usa proxy di sistema** per il proxy http, il runtime
 Se vengono visualizzati messaggi di errore simili a quelli riportati di seguito, il motivo probabile è la configurazione non corretta del firewall o del server proxy. Tale configurazione impedisce al runtime di integrazione self-hosted di connettersi a Data Factory per l'autenticazione. Per verificare che la configurazione del firewall e del server proxy sia corretta, vedere la sezione precedente.
 
 * Quando si tenta di registrare il runtime di integrazione self-hosted, viene visualizzato il messaggio di errore seguente: "Impossibile registrare il nodo Integration Runtime. Verificare che la chiave di autenticazione sia valida e che il servizio host del servizio di integrazione sia in esecuzione nel computer. "
-* Quando si apre Gestione configurazione di Integration Runtime, lo stato del gateway visualizzato può essere **Disconnesso** o **Connessione** . Quando si visualizzano i registri eventi di Windows, in **Visualizzatore eventi**  >  **registri applicazioni e servizi**  >  **Microsoft Integration Runtime** , vengono visualizzati messaggi di errore simili ai seguenti:
+* Quando si apre Gestione configurazione di Integration Runtime, lo stato del gateway visualizzato può essere **Disconnesso** o **Connessione**. Quando si visualizzano i registri eventi di Windows, in **Visualizzatore eventi**  >  **registri applicazioni e servizi**  >  **Microsoft Integration Runtime** , vengono visualizzati messaggi di errore simili ai seguenti:
 
     ```
     Unable to connect to the remote server
@@ -426,7 +425,7 @@ Se vengono visualizzati messaggi di errore simili a quelli riportati di seguito,
 
 ### <a name="enable-remote-access-from-an-intranet"></a>Abilitare l'accesso remoto da una rete Intranet
 
-Se si usa PowerShell per crittografare le credenziali da un computer in rete diverso da quello in cui è stato installato il runtime di integrazione self-hosted, è possibile abilitare l'opzione **accesso remoto da Intranet** . Se si esegue PowerShell per crittografare le credenziali nel computer in cui è stato installato il runtime di integrazione self-hosted, non è possibile abilitare **l'accesso remoto dalla rete Intranet** .
+Se si usa PowerShell per crittografare le credenziali da un computer in rete diverso da quello in cui è stato installato il runtime di integrazione self-hosted, è possibile abilitare l'opzione **accesso remoto da Intranet** . Se si esegue PowerShell per crittografare le credenziali nel computer in cui è stato installato il runtime di integrazione self-hosted, non è possibile abilitare **l'accesso remoto dalla rete Intranet**.
 
 Abilitare **l'accesso remoto dalla rete Intranet** prima di aggiungere un altro nodo per la disponibilità e la scalabilità elevate.  
 

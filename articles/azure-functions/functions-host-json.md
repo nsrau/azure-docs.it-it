@@ -3,12 +3,12 @@ title: Informazioni di riferimento su host.json per Funzioni di Azure 2.x
 description: Documentazione di riferimento per il file host.json di Funzioni di Azure con il runtime v2.
 ms.topic: conceptual
 ms.date: 04/28/2020
-ms.openlocfilehash: 0b6fbe2553541b6260697584fa7066cdcb1fe122
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: aaea37b100d6fadd271f48490628b38cba6cf822
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284510"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377123"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Informazioni di riferimento su host.json per Funzioni di Azure 2.x e versioni successive 
 
@@ -357,7 +357,7 @@ Le impostazioni di configurazione sono reperibili in [Trigger e associazioni di 
 
 ## <a name="retry"></a>retry
 
-Controlla le opzioni dei [criteri di ripetizione](./functions-bindings-error-pages.md#retry-policies) per tutte le esecuzioni nell'app.
+Controlla le opzioni dei [criteri di ripetizione](./functions-bindings-error-pages.md#retry-policies-preview) per tutte le esecuzioni nell'app.
 
 ```json
 {

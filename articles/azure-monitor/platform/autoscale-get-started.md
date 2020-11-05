@@ -4,12 +4,12 @@ description: Informazioni su come applicare la scalabilità della risorsa app We
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: d37a33ea575bbb8481d7d50dad8eab0f9ce0899d
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 3662f6007049a5531e11c193adf71e8f8442dcdb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93361203"
+ms.locfileid: "93377021"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
@@ -57,7 +57,7 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
 
    A questo punto si avrà un'impostazione di scalabilità che aumenta/riduce il numero di istanze in base all'utilizzo della CPU.
    ![Scalabilità in base alla CPU][8]
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 Congratulazioni! A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
 
@@ -115,7 +115,7 @@ Fare clic sul pulsante **Disabilita scalabilità automatica** nella parte superi
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Instradare il traffico a istanze integre (servizio app)
 
-Quando si aumenta la scalabilità orizzontale a più istanze, il servizio app può eseguire controlli di integrità sulle istanze per instradare il traffico solo alle istanze integre. A tale scopo, aprire il portale per il servizio app, quindi selezionare **controllo integrità** in **monitoraggio**. Selezionare **Abilita** e specificare un percorso URL valido nell'applicazione, ad esempio `/health` o `/api/health` . Fare clic su **Save**.
+Quando si aumenta la scalabilità orizzontale a più istanze, il servizio app può eseguire controlli di integrità sulle istanze per instradare il traffico solo alle istanze integre. A tale scopo, aprire il portale per il servizio app, quindi selezionare **controllo integrità** in **monitoraggio**. Selezionare **Abilita** e specificare un percorso URL valido nell'applicazione, ad esempio `/health` o `/api/health` . Fare clic su **Salva**.
 
 Per abilitare la funzionalità con i modelli ARM, impostare la `healthcheckpath` proprietà della `Microsoft.Web/sites` risorsa sul percorso di controllo integrità nel sito, ad esempio: `"/api/health/"` . Per disabilitare la funzionalità, impostare nuovamente la proprietà sulla stringa vuota `""` .
 
@@ -133,6 +133,9 @@ I team di sviluppo di grandi imprese spesso devono rispettare i requisiti di sic
 
 Quando viene fornito il percorso di controllo integrità, il servizio app effettuerà il ping del percorso in tutte le istanze. Se dopo 5 ping non viene ricevuto un codice di risposta con esito positivo, l'istanza viene considerata "non integra". Le istanze non integre verranno escluse dalla rotazione del servizio di bilanciamento del carico. È possibile configurare il numero necessario di ping non riusciti con l' `WEBSITE_HEALTHCHECK_MAXPINGFAILURES` impostazione dell'app. Questa impostazione dell'app può essere impostata su qualsiasi numero intero compreso tra 2 e 10. Se, ad esempio, è impostato su `2` , le istanze verranno rimosse dal servizio di bilanciamento del carico dopo due ping non riusciti. Inoltre, quando si esegue la scalabilità verticale o orizzontale, il servizio app effettuerà il ping del percorso di controllo integrità per assicurarsi che le nuove istanze siano pronte per le richieste prima di essere aggiunte al servizio di bilanciamento del carico.
 
+> [!NOTE]
+> Tenere presente che il piano di servizio app deve essere scalato orizzontalmente a due o più istanze per l'esclusione del bilanciamento del carico. Se è presente solo un'istanza, non verrà rimossa dal servizio di bilanciamento del carico anche se non è integro. 
+
 Le istanze rimanenti integre potrebbero riscontrare un aumento del carico. Per evitare di sovraccaricare le istanze rimanenti, non verranno escluse più della metà delle istanze. Se, ad esempio, un piano di servizio app viene scalato in orizzontale a 4 istanze e 3 di quelle non integre, al massimo 2 verranno escluse dalla rotazione del LoadBalancer. Le altre 2 istanze (1 integro e 1 non integro) continueranno a ricevere le richieste. Nello scenario peggiore in cui tutte le istanze non sono integre, nessuna verrà esclusa. Se si vuole eseguire l'override di questo comportamento, è possibile impostare l' `WEBSITE_HEALTHCHECK_MAXUNHEALTYWORKERPERCENT` impostazione dell'app su un valore compreso tra `0` e `100` . Se si imposta questa opzione su un valore più alto, verranno rimosse più istanze non integre (il valore predefinito è 50).
 
 Se un'istanza rimane non integra per un'ora, verrà sostituita con una nuova istanza. Al massimo un'istanza verrà sostituita all'ora, con un massimo di tre istanze al giorno per ogni piano di servizio app.
@@ -147,7 +150,7 @@ Questa sezione descrive come spostare la scalabilità automatica di Azure in un'
 1. Assicurarsi che la sottoscrizione e il gruppo di risorse siano disponibili e che i dettagli in entrambe le aree di origine e di destinazione siano identici.
 1. Verificare che la scalabilità automatica di Azure sia disponibile nell' [area di Azure in cui si vuole eseguire lo spostamento](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
 
-### <a name="move"></a>Sposta
+### <a name="move"></a>Spostamento
 Usare l' [API REST](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) per creare un'impostazione di scalabilità automatica nel nuovo ambiente. L'impostazione di scalabilità automatica creata nell'area di destinazione sarà una copia dell'impostazione di scalabilità automatica nell'area di origine.
 
 Non è possibile spostare [le impostazioni di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) create in associazione all'impostazione di scalabilità automatica nell'area di origine. Sarà necessario ricreare le impostazioni di diagnostica nell'area di destinazione, dopo il completamento della creazione delle impostazioni di autoVendita. 

@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: e3f067647eb7bdb33b06a9ebdefd8fdd0485e4c6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 0fd2312df31e61ae30f4c3fd04dc0991ac0f4675
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93294260"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376856"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Esercitazione per estendere Azure AD B2C per proteggere le applicazioni locali usando gli strati
 
@@ -65,13 +65,11 @@ Il diagramma dell'architettura seguente illustra l'implementazione di.
 | 4. | L'IdP richiede le credenziali dell'utente. A seconda dell'IdP, l'utente può richiedere l'autenticazione a più fattori (multi-factor authentication).|
 | 5. | Il provider di identità invia nuovamente la risposta di autenticazione a Azure AD B2C. Facoltativamente, l'utente può creare un account locale nella directory Azure AD B2C durante questo passaggio.|
 | 6. | Azure AD B2C Invia la richiesta dell'utente all'endpoint specificato durante la registrazione dell'app di orchestrazione nel tenant del Azure AD B2C.|
-| 7. | L'agente di orchestrazione valuta i criteri di accesso e calcola i valori degli attributi da includere nelle intestazioni HTTP trasmesse all'app. Durante questo passaggio, l'agente di orchestrazione può chiamare ulteriori provider di attributi per recuperare le informazioni necessarie per impostare correttamente i valori dell'intestazione.|
-| 8. | L'agente di orchestrazione imposta i valori dell'intestazione e Invia la richiesta all'app.|
-| 9. | L'utente è ora autenticato e può accedere all'app.|
+| 7. | L'agente di orchestrazione valuta i criteri di accesso e calcola i valori degli attributi da includere nelle intestazioni HTTP trasmesse all'app. Durante questo passaggio, l'agente di orchestrazione può chiamare ulteriori provider di attributi per recuperare le informazioni necessarie per impostare correttamente i valori dell'intestazione. L'agente di orchestrazione imposta i valori dell'intestazione e Invia la richiesta all'app.|
+| 8. | L'utente è ora autenticato e può accedere all'app.|
 
 ## <a name="get-maverics-identity-orchestrator"></a>Ottenere l'agente di orchestrazione delle identità Maverics
 
-Per ottenere il software da usare per integrare l'app locale legacy con Azure AD B2C, contattare [strati](https://www.strata.io/contact/). Dopo aver ottenuto il software, attenersi alla procedura seguente per determinare i prerequisiti specifici dell'agente di orchestrazione ed eseguire i passaggi necessari per l'installazione e la configurazione.
 
 ## <a name="configure-your-azure-ad-b2c-tenant"></a>Configurare il tenant di Azure AD B2C
 
@@ -261,7 +259,7 @@ appgateways:
 
 È importante proteggere i segreti usati dall'agente di orchestrazione per connettersi a Azure AD B2C e a qualsiasi altro sistema di identità. Per impostazione predefinita, Maverics utilizzerà i segreti in testo normale, `maverics.yaml` ma in questa esercitazione si userà Azure Key Vault come provider di segreti.
 
-Seguire le istruzioni per [creare una nuova Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault) che l'istanza dell'agente di orchestrazione userà come provider di segreti. Aggiungere i segreti all'insieme di credenziali e prendere nota del `SECRET NAME` dato a ogni segreto. Ad esempio: `AzureADB2CClientSecret`.
+Seguire le istruzioni per [creare una nuova Key Vault](https://docs.microsoft.com/azure/key-vault/secrets/quick-create-portal#create-a-vault) che l'istanza dell'agente di orchestrazione userà come provider di segreti. Aggiungere i segreti all'insieme di credenziali e prendere nota del `SECRET NAME` dato a ogni segreto. Ad esempio, `AzureADB2CClientSecret`
 
 Per dichiarare un valore come segreto in un file di configurazione `maverics.yaml`, racchiudere il segreto tra parentesi angolari:
 

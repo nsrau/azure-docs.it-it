@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 23243de192683a4811eb569b17425701381c4cd1
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 74ad503374e0148e9813508b6c7f8b21e2dca7a3
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377581"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379163"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Assegnare un ruolo a un gruppo utilizzando Privileged Identity Management
 
@@ -31,7 +31,7 @@ Questo articolo descrive come assegnare un ruolo di Azure Active Directory (Azur
 
 1. Accedere a [Azure ad Privileged Identity Management](https://ms.portal.azure.com/?Microsoft_AAD_IAM_GroupRoles=true&Microsoft_AAD_IAM_userRolesV2=true&Microsoft_AAD_IAM_enablePimIntegration=true#blade/Microsoft_Azure_PIMCommon/CommonMenuBlade/quickStart) come amministratore del ruolo con privilegi o amministratore globale nell'organizzazione.
 
-1. Selezionare **Privileged Identity Management**  >  ruoli di**Azure ad ruoli**  >  **Roles**  >  **Aggiungi assegnazioni**
+1. Selezionare **Privileged Identity Management**  >  ruoli di **Azure ad ruoli**  >  **Roles**  >  **Aggiungi assegnazioni**
 
 1. Selezionare un ruolo e quindi selezionare un gruppo. Vengono visualizzati solo i gruppi idonei per l'assegnazione di ruolo (gruppi assegnabili al ruolo), non tutti i gruppi.
 
@@ -41,7 +41,7 @@ Questo articolo descrive come assegnare un ruolo di Azure Active Directory (Azur
 
     ![selezionare l'utente a cui verrà assegnato il ruolo](./media/groups-pim-eligible/set-assignment-settings.png)
 
-## <a name="using-powershell"></a>Utilizzo di PowerShell
+## <a name="using-powershell"></a>Uso di PowerShell
 
 ### <a name="download-the-azure-ad-preview-powershell-module"></a>Scaricare il modulo PowerShell di Azure AD Preview
 
@@ -103,7 +103,7 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare i gruppi di cloud per gestire le assegnazioni di ruolo](groups-concept.md)
+- [Usare i gruppi cloud per gestire le assegnazioni di ruoli](groups-concept.md)
 - [Risoluzione dei problemi correlati ai ruoli assegnati ai gruppi cloud](groups-faq-troubleshooting.md)
 - [Configurare le impostazioni del ruolo amministratore Azure AD in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Assegnare i ruoli delle risorse di Azure in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)

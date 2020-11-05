@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 8/13/2020
-ms.openlocfilehash: d452070619a8e6284b976ff202d2a86f1ff9312b
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 1d95459797a32ab3e026ee1c3a2cf93fe6e95cc4
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92480735"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378959"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Eseguire il backup e il ripristino in Database di Azure per MariaDB
 
@@ -90,7 +90,12 @@ Se il server è stato configurato per backup con ridondanza geografica, è possi
 
 Il ripristino geografico è l'opzione di ripristino predefinita quando il server non è disponibile a causa di un evento imprevisto nell'area in cui è ospitato. Se un evento imprevisto su larga scala determina la mancata disponibilità dell'applicazione di database, è possibile ripristinare un server dai backup con ridondanza geografica in un server in un'altra area. Il ripristino geografico usa il backup più recente del server. Esiste un ritardo tra il momento in cui un backup viene creato e quando ne viene eseguita la replica in un'area diversa. Questo ritardo può essere al massimo di un'ora, quindi, in caso di emergenza, può verificarsi una perdita massima di un'ora di dati.
 
+> [!IMPORTANT]
+>Se viene eseguito un ripristino geografico per un server appena creato, la sincronizzazione del backup iniziale può richiedere più di 24 ore, a seconda delle dimensioni dei dati perché il tempo di copia del backup completo dello snapshot iniziale è molto più elevato. I backup di snapshot successivi sono la copia incrementale e quindi i ripristini sono più veloci dopo 24 ore di creazione del server. Se si stanno valutando ripristini geografici per definire la RTO, è consigliabile attendere e valutare il ripristino geografico **solo dopo 24 ore** di creazione del server per stime migliori.
+
 Durante il ripristino geografico è possibile modificare le seguenti opzioni relative alle configurazioni del server: generazione delle risorse di calcolo, vCore, periodo di conservazione dei backup e ridondanza per il backup. La modifica del piano tariffario (Basic, Utilizzo generico o Con ottimizzazione per la memoria) o delle dimensioni della risorsa di archiviazione non è supportata durante il ripristino geografico.
+
+Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimensioni dei database, le dimensioni dei log delle transazioni, la larghezza di banda di rete e il numero totale di database ripristinati contemporaneamente nella stessa area. Il tempo di recupero di solito è inferiore a 12 ore.
 
 ### <a name="perform-post-restore-tasks"></a>Eseguire le attività post-ripristino
 

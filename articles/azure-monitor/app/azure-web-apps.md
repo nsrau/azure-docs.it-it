@@ -4,12 +4,12 @@ description: Monitoraggio delle prestazioni applicative per i servizi app di Azu
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-js, devx-track-dotnet
-ms.openlocfilehash: e326f9764147b882a5009c53b9f13a3c3bd0bfc1
-ms.sourcegitcommit: fbb620e0c47f49a8cf0a568ba704edefd0e30f81
+ms.openlocfilehash: c78a43f9efb263c08dad21218636f21121b9732c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91875606"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377803"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Monitorare le prestazioni del Servizio app di Azure
 
@@ -59,7 +59,7 @@ Esistono due modi per abilitare il monitoraggio dell'applicazione per le applica
  
  Di seguito è riportato un riepilogo dei dati raccolti per ogni route:
         
-| Dati | Raccolta .NET Basic | Raccolta consigliata .NET |
+| Data | Raccolta .NET Basic | Raccolta consigliata .NET |
 | --- | --- | --- |
 | Aggiunge le tendenze di utilizzo della CPU, della memoria e delle operazioni di I/O |Sì |Sì |
 | Raccoglie le tendenze di utilizzo e consente la correlazione dei risultati di disponibilità con le transazioni | Sì |Sì |
@@ -94,13 +94,14 @@ La definizione del Framework completo da .NET Core, la distribuzione autonoma e 
 
     ![Scegliere le opzioni per ogni piattaforma](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Dall'interno dell'app Web del servizio app in **Impostazioni**  >  **selezionare Application Insights**  >  **Abilita**. Il monitoraggio basato su agente Node.js è attualmente in fase di anteprima.
 
 # <a name="java"></a>[Java](#tab/java)
 
-Le applicazioni Web basate sul servizio app Java non supportano attualmente il monitoraggio automatico degli agenti e delle estensioni. Per abilitare il monitoraggio per l'applicazione Java, è necessario [instrumentare manualmente l'applicazione](./java-get-started.md).
+Seguire le linee guida per [Application Insights agente java 3,0](./java-in-process-agent.md) per abilitare la strumentazione automatica per le app Java senza modificare il codice.
+L'integrazione automatica non è ancora disponibile per il servizio app.
 
 # <a name="python"></a>[Python](#tab/python)
 
@@ -115,7 +116,7 @@ Le applicazioni Web basate sul servizio app Python non supportano attualmente il
 Il monitoraggio lato client è il consenso esplicito per ASP.NET. Per abilitare il monitoraggio lato client:
 
 * **Impostazioni** **>** di **Configurazione** di
-   * In Impostazioni applicazione creare una **nuova impostazione dell'applicazione**:
+   * In Impostazioni applicazione creare una **nuova impostazione dell'applicazione** :
 
      Nome: `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -127,12 +128,12 @@ Per disabilitare il monitoraggio lato client, rimuovere la coppia chiave/valore 
 
 # <a name="net-core"></a>[.NET Core](#tab/netcore)
 
-Il monitoraggio lato client è **abilitato per impostazione predefinita** per le app .NET Core con la **raccolta consigliata**, indipendentemente dal fatto che sia presente l'impostazione dell'app ' APPINSIGHTS_JAVASCRIPT_ENABLED '.
+Il monitoraggio lato client è **abilitato per impostazione predefinita** per le app .NET Core con la **raccolta consigliata** , indipendentemente dal fatto che sia presente l'impostazione dell'app ' APPINSIGHTS_JAVASCRIPT_ENABLED '.
 
 Se per qualche motivo si desidera disabilitare il monitoraggio lato client:
 
 * **Impostazioni** **>** di **Configurazione** di
-   * In Impostazioni applicazione creare una **nuova impostazione dell'applicazione**:
+   * In Impostazioni applicazione creare una **nuova impostazione dell'applicazione** :
 
      nome `APPINSIGHTS_JAVASCRIPT_ENABLED`
 
@@ -140,7 +141,7 @@ Se per qualche motivo si desidera disabilitare il monitoraggio lato client:
 
    * Salvare le impostazioni scegliendo **Salva** e quindi fare clic su **Riavvia** per riavviare l'app.
 
-# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.js](#tab/nodejs)
 
 Per abilitare il monitoraggio lato client per l'applicazione Node.js, è necessario [aggiungere manualmente l'SDK JavaScript sul lato client all'applicazione](./javascript.md).
 
@@ -350,7 +351,8 @@ Se l'aggiornamento viene eseguito da una versione precedente alla 2.5.1, verific
 Di seguito è riportata la guida dettagliata alla risoluzione dei problemi per il monitoraggio di estensioni/agenti per le applicazioni .NET e .NET Core in esecuzione in app Azure Services.
 
 > [!NOTE]
-> Le applicazioni Java sono supportate solo nei servizi app Azure tramite strumentazione manuale basata su SDK e pertanto i passaggi seguenti non si applicano a questi scenari.
+> L'approccio consigliato per il monitoraggio delle applicazioni Java consiste nell'usare la strumentazione automatica senza modificare il codice. Seguire le linee guida per [Application Insights agente Java 3,0](./java-in-process-agent.md).
+
 
 1. Verificare che l'applicazione venga monitorata tramite `ApplicationInsightsAgent` .
     * Verificare che l' `ApplicationInsightsAgent_EXTENSION_VERSION` impostazione dell'app sia impostata su un valore pari a "~ 2".

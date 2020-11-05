@@ -5,20 +5,20 @@ services: active-directory
 author: markwahl-msft
 manager: daveba
 ms.author: curtand
-ms.date: 11/08/2019
+ms.date: 11/05/2020
 ms.topic: conceptual
 ms.service: active-directory
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ffcbd77997e230b9b21ed29b47e37236de025f6
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 966d264cc338487dd1a8c04f2efd0825dfccdef0
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92378183"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378755"
 ---
 # <a name="manage-emergency-access-accounts-in-azure-ad"></a>Gestire gli account di accesso di emergenza in Azure AD
 
@@ -87,7 +87,7 @@ Le organizzazioni devono monitorare l'attività del log di accesso e controllo d
 ### <a name="create-an-alert-rule"></a>Creare una regola di avviso
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account assegnato al ruolo Collaboratore monitoraggio in Monitoraggio di Azure.
-1. Selezionare **Tutti i servizi**, immettere "log analytics" in Cerca e quindi selezionare **Aree di lavoro Log Analytics**.
+1. Selezionare **Tutti i servizi** , immettere "log analytics" in Cerca e quindi selezionare **Aree di lavoro Log Analytics**.
 1. Selezionare un'area di lavoro.
 1. Nell'area di lavoro selezionare **Avvisi** > **Nuova regola di avviso**.
     1. In **Risorsa** verificare che la sottoscrizione sia quella a cui si vuole associare la regola di avviso.
@@ -105,7 +105,7 @@ Le organizzazioni devono monitorare l'attività del log di accesso e controllo d
         - Operator: Maggiore di
         - Valore soglia: 0
 
-    1. In **Valutati in base a**, selezionare il **Periodo (in minuti)** per il periodo di tempo in cui si desidera eseguire la query e la **Frequenza (in minuti)** per la frequenza con cui si desidera eseguire la query. La frequenza deve essere minore o uguale al periodo di ricerca.
+    1. In **Valutati in base a** , selezionare il **Periodo (in minuti)** per il periodo di tempo in cui si desidera eseguire la query e la **Frequenza (in minuti)** per la frequenza con cui si desidera eseguire la query. La frequenza deve essere minore o uguale al periodo di ricerca.
 
         ![logica avvisi](./media/security-emergency-access/alert-image2.png)
 

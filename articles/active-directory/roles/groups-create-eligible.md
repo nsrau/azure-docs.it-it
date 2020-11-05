@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f58aaecaa9f8606399b40fdb1d38a274117ec6a2
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: bc2c42f407ee31a792a6634a813358d428120b46
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377638"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378619"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Creare un gruppo assegnabile al ruolo in Azure Active Directory
 
@@ -46,7 +46,7 @@ ms.locfileid: "92377638"
 
 Il gruppo viene creato con tutti i ruoli che potrebbero essere stati assegnati.
 
-## <a name="using-powershell"></a>Utilizzo di PowerShell
+## <a name="using-powershell"></a>Uso di PowerShell
 
 ### <a name="install-the-azure-ad-preview-module"></a>Installare il modulo Azure AD Preview
 
@@ -127,5 +127,5 @@ Per questo tipo di gruppo, `isPublic` sarà sempre false e `isSecurityEnabled` s
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Assegnare un ruolo a un gruppo cloud](groups-assign-role.md)
-- [Usare i gruppi di cloud per gestire le assegnazioni di ruolo](groups-concept.md)
+- [Usare i gruppi cloud per gestire le assegnazioni di ruoli](groups-concept.md)
 - [Risoluzione dei problemi correlati ai ruoli assegnati ai gruppi cloud](groups-faq-troubleshooting.md)

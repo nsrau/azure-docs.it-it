@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28df0e420183239eae21aa18c807bb82b4ec7649
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: fb81b5dc98bf75a17e55abafdebfbeca68774a99
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377679"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379146"
 ---
 # <a name="assign-a-role-to-a-cloud-group-in-azure-active-directory"></a>Assegnare un ruolo a un gruppo cloud in Azure Active Directory
 
@@ -30,9 +30,9 @@ L'assegnazione di un gruppo a un ruolo Azure AD è simile all'assegnazione di ut
 
 1. Accedere al centro di [amministrazione di Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
 
-1. Selezionare **Azure Active Directory**  >  **ruoli e amministratori**e selezionare il ruolo che si desidera assegnare.
+1. Selezionare **Azure Active Directory**  >  **ruoli e amministratori** e selezionare il ruolo che si desidera assegnare.
 
-1. Nella pagina ** _nome ruolo_*_ selezionare > _* Aggiungi assegnazione**.
+1. Nella pagina **_nome ruolo_*_ selezionare > _* Aggiungi assegnazione**.
 
    ![Aggiungere la nuova assegnazione di ruolo](./media/groups-assign-role/add-assignment.png)
 
@@ -44,7 +44,7 @@ L'assegnazione di un gruppo a un ruolo Azure AD è simile all'assegnazione di ut
 
 Per ulteriori informazioni sull'assegnazione delle autorizzazioni per i ruoli, vedere [assegnare ruoli di amministratore e non amministratore agli utenti](../fundamentals/active-directory-users-assign-role-azure-portal.md).
 
-## <a name="using-powershell"></a>Utilizzo di PowerShell
+## <a name="using-powershell"></a>Uso di PowerShell
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>Creare un gruppo che può essere assegnato al ruolo
 
@@ -101,5 +101,5 @@ POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare i gruppi di cloud per gestire le assegnazioni di ruolo](groups-concept.md)
+- [Usare i gruppi cloud per gestire le assegnazioni di ruoli](groups-concept.md)
 - [Risoluzione dei problemi correlati ai ruoli assegnati ai gruppi cloud](groups-faq-troubleshooting.md)

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/07/2020
 author: palma21
 ms.author: jpalma
-ms.openlocfilehash: edb6a8e04537a74b7ea7d4c9bd9bd27fdc39e402
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5013f8b7dd88340e397fd3d4d4cd93d4b911fbbb
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88007081"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378228"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>Opzioni di accesso e identità per il servizio Azure Kubernetes
 
@@ -101,7 +101,7 @@ Il controllo degli accessi in base al ruolo di Azure è un sistema di autorizzaz
 
  Il controllo degli accessi in base al ruolo di Azure è progettato per funzionare con le risorse all'interno della sottoscrizione di Azure, mentre Kubernetes RBAC è progettato per funzionare con risorse Kubernetes nel cluster AKS 
 
-Con il controllo degli accessi in base al ruolo di Azure si crea una *definizione del ruolo* che determina le autorizzazioni da applicare. A un utente o a un gruppo viene quindi assegnata questa definizione di ruolo tramite un' *assegnazione di ruolo* per un determinato *ambito*, che può essere una singola risorsa, un gruppo di risorse o nella sottoscrizione.
+Con il controllo degli accessi in base al ruolo di Azure si crea una *definizione del ruolo* che determina le autorizzazioni da applicare. A un utente o a un gruppo viene quindi assegnata questa definizione di ruolo tramite un' *assegnazione di ruolo* per un determinato *ambito* , che può essere una singola risorsa, un gruppo di risorse o nella sottoscrizione.
 
 Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure).][azure-rbac]
 
@@ -143,7 +143,7 @@ AKS fornisce i quattro ruoli predefiniti seguenti. Sono simili ai [ruoli predefi
 | Amministratore RBAC del servizio Kubernetes di Azure  | Consente l'accesso dell'amministratore, che deve essere concesso all'interno di uno spazio dei nomi. Consente l'accesso in lettura/scrittura alla maggior parte delle risorse in uno spazio dei nomi (o ambito del cluster), inclusa la possibilità di creare ruoli e associazioni di ruolo all'interno dello spazio dei nomi. Questo ruolo non consente l'accesso in scrittura alla quota di risorse o allo spazio dei nomi stesso. |
 | Amministrazione del cluster RBAC del servizio Kubernetes di Azure  | Consente l'accesso con privilegi avanzati per eseguire qualsiasi azione su qualsiasi risorsa. Fornisce il controllo completo su tutte le risorse nel cluster e in tutti gli spazi dei nomi. |
 
-**Vedere come sfruttare [le autorizzazioni di](manage-azure-rbac.md)controllo degli accessi in base al ruolo di Azure per Kubernetes.**
+**Per informazioni su come abilitare RBAC di Azure per l'autorizzazione Kubernetes, [vedere qui](manage-azure-rbac.md).**
 
 ## <a name="next-steps"></a>Passaggi successivi
 

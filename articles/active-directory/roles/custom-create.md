@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aa5671a73c8a4de945a2013d8678d7f0f74625e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 4446e5b8abf9ac308a5eb32cadf31eddfcb9d9a1
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097992"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379248"
 ---
 # <a name="create-and-assign-a-custom-role-in-azure-active-directory"></a>Creare e assegnare un ruolo personalizzato in Azure Active Directory
 
@@ -31,11 +31,11 @@ I ruoli personalizzati possono essere creati nella scheda [Ruoli e amministrator
 ### <a name="create-a-new-custom-role-to-grant-access-to-manage-app-registrations"></a>Creare un nuovo ruolo personalizzato per concedere l'accesso per la gestione delle registrazioni di app
 
 1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
-1. Selezionare **Azure Active Directory** > **Ruoli e amministratori** > **Nuovo ruolo personalizzato** .
+1. Selezionare **Azure Active Directory** > **Ruoli e amministratori** > **Nuovo ruolo personalizzato**.
 
    ![Creare e modificare i ruoli nella pagina Ruoli e amministratori](./media/custom-create/new-custom-role.png)
 
-1. Nella scheda **Generale** specificare un nome e una descrizione per il ruolo e quindi fare clic su **Avanti** .
+1. Nella scheda **Generale** specificare un nome e una descrizione per il ruolo e quindi fare clic su **Avanti**.
 
    ![Specificare un nome e una descrizione per un ruolo personalizzato nella scheda Generale](./media/custom-create/basics-tab.png)
 
@@ -44,8 +44,8 @@ I ruoli personalizzati possono essere creati nella scheda [Ruoli e amministrator
 
       ![Selezionare le autorizzazioni per un ruolo personalizzato nella scheda Autorizzazioni](./media/custom-create/permissions-tab.png)
 
-   1. Immettere quindi "basic" nella barra di ricerca, selezionare l'autorizzazione `microsoft.directory/applications/basic/update` e quindi fare clic su **Avanti** .
-1. Nella scheda **Rivedi e crea** rivedere le autorizzazioni e selezionare **Crea** .
+   1. Immettere quindi "basic" nella barra di ricerca, selezionare l'autorizzazione `microsoft.directory/applications/basic/update` e quindi fare clic su **Avanti**.
+1. Nella scheda **Rivedi e crea** rivedere le autorizzazioni e selezionare **Crea**.
 
 Il ruolo personalizzato sarà visualizzato nell'elenco dei ruoli disponibili da assegnare.
 
@@ -169,14 +169,14 @@ $roleAssignment = New-AzureADMSRoleAssignment -ResourceScope $resourceScope -Rol
 Analogamente ai ruoli predefiniti, i ruoli personalizzati vengono assegnati per impostazione predefinita a livello di organizzazione predefinita per concedere autorizzazioni di accesso per tutte le registrazioni di app dell'organizzazione. Tuttavia, a differenza dei ruoli predefiniti, i ruoli personalizzati possono anche essere assegnati a livello di una singola risorsa di Azure AD. In questo modo, è possibile concedere all'utente l'autorizzazione per aggiornare le credenziali e le proprietà di base di una singola app senza dover creare un secondo ruolo personalizzato.
 
 1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con le autorizzazioni per sviluppatori di applicazioni nell'organizzazione Azure ad.
-1. Selezionare **Registrazioni per l'app** .
+1. Selezionare **Registrazioni per l'app**.
 1. Selezionare la registrazione dell'app a cui si concede l'accesso per la gestione. Potrebbe essere necessario selezionare **Tutte le applicazioni** per visualizzare l'elenco completo delle registrazioni di app presenti nell'organizzazione di Azure AD.
 
     ![Selezionare la registrazione dell'app come ambito di risorsa per un'assegnazione di ruolo](./media/custom-create/appreg-all-apps.png)
 
-1. Nella registrazione dell'app selezionare **Ruoli e amministratori** . Se non è stato ancora creato un ruolo, tornare alle istruzioni nella [procedura precedente](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
+1. Nella registrazione dell'app selezionare **Ruoli e amministratori**. Se non è stato ancora creato un ruolo, tornare alle istruzioni nella [procedura precedente](#create-a-new-custom-role-to-grant-access-to-manage-app-registrations).
 
-1. Selezionare il ruolo per aprire la pagina **Assegnazioni** .
+1. Selezionare il ruolo per aprire la pagina **Assegnazioni**.
 1. Selezionare **Aggiungi assegnazione** per aggiungere un utente. All'utente verranno assegnate tutte le autorizzazioni limitatamente alla registrazione dell'app selezionata.
 
 ## <a name="next-steps"></a>Passaggi successivi

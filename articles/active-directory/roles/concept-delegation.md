@@ -8,19 +8,19 @@ manager: mtillman
 editor: ''
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: conceptual
-ms.date: 04/29/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c1d53f15e945788ab6147299ccd59e7e4e947c5
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 6f4512bea533b6394fcef025ddc19bb7989292a4
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375285"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378364"
 ---
 # <a name="delegate-administration-in-azure-active-directory"></a>Delegare i ruoli di amministratore in Azure Active Directory
 
@@ -66,8 +66,8 @@ Ogni attività deve essere valutata in termini di frequenza, importanza e diffic
 
 L'ampia diffusione di app all'interno di un'organizzazione può mettere a dura prova il modello di delega. Se comporta un maggiore impegno di gestione dell'accesso alle applicazioni per l'amministratore globale, è probabile che con il passare del tempo il modello sia soggetto a un crescente sovraccarico. Se si è concesso agli utenti il ruolo di amministratore globale per attività come la configurazione delle applicazioni aziendali, è ora possibile assegnare tali attività ai ruoli di livello inferiore, con minori privilegi. Ciò consente di migliorare il livello generale di sicurezza e ridurre il rischio di spiacevoli errori. I ruoli di amministratore di applicazioni con maggiori privilegi sono:
 
-* Il ruolo **Amministratore di applicazioni**, che consente di eseguire le attività di gestione di tutte le applicazioni nella directory, incluse le registrazioni, le impostazioni dell'accesso Single Sign-On, le concessioni di licenze e le assegnazioni a utenti e gruppi, le impostazioni di Application Proxy e il consenso. Non consente tuttavia di gestire l'accesso condizionale.
-* Il ruolo **Amministratore applicazione cloud**, che concede tutti i diritti del ruolo Amministratore di applicazioni tranne l'accesso alle impostazioni di proxy dell'applicazione poiché non ha autorizzazioni locali.
+* Il ruolo **Amministratore di applicazioni** , che consente di eseguire le attività di gestione di tutte le applicazioni nella directory, incluse le registrazioni, le impostazioni dell'accesso Single Sign-On, le concessioni di licenze e le assegnazioni a utenti e gruppi, le impostazioni di Application Proxy e il consenso. Non consente tuttavia di gestire l'accesso condizionale.
+* Il ruolo **Amministratore applicazione cloud** , che concede tutti i diritti del ruolo Amministratore di applicazioni tranne l'accesso alle impostazioni di proxy dell'applicazione poiché non ha autorizzazioni locali.
 
 ## <a name="delegate-app-registration"></a>Delegare la registrazione di app
 

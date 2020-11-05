@@ -1,26 +1,88 @@
 ---
-title: Gestire le impostazioni utente per Azure Multi-Factor Authentication-Azure Active Directory
+title: Gestire i metodi di autenticazione per Azure Multi-Factor Authentication-Azure Active Directory
 description: Informazioni su come configurare Azure Active Directory impostazioni utente per Azure Multi-Factor Authentication
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 10/05/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
-ms.reviewer: michmcla
+ms.reviewer: michmcla, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2006422d3516aa67076233b0b4b9d3e7c58a7232
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 6309ef6793858051ceaf3c3b33edb9f830b26710
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92166514"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378046"
 ---
-# <a name="manage-user-settings-for-azure-multi-factor-authentication"></a>Gestire le impostazioni utente per Azure Multi-Factor Authentication
+# <a name="manage-user-authentication-methods-for-azure-multi-factor-authentication"></a>Gestire i metodi di autenticazione utente per Azure Multi-Factor Authentication
 
-Per semplificare la gestione degli utenti di Azure Multi-Factor Authentication, è possibile richiedere agli utenti di reimpostare la password, ripetere la registrazione per l'autenticazione a più fattori o revocare le sessioni di autenticazione a più fattori esistenti. Per gli utenti che hanno definito password di app, è anche possibile scegliere di eliminare queste password, causando un errore di autenticazione legacy in tali applicazioni. Queste azioni potrebbero essere necessarie se è necessario fornire assistenza a un utente o se si desidera reimpostare lo stato di sicurezza.
+Gli utenti in Azure AD hanno due set distinti di informazioni di contatto:  
+
+- Informazioni di contatto del profilo pubblico, che viene gestito nel profilo utente e visibile ai membri dell'organizzazione. Per gli utenti sincronizzati da Active Directory locali, queste informazioni vengono gestite in Active Directory Domain Services Windows Server locale.
+- Metodi di autenticazione, che vengono sempre mantenuti privati e utilizzati solo per l'autenticazione, incluso multi-factor authentication. Gli amministratori possono gestire questi metodi nel pannello del metodo di autenticazione di un utente e gli utenti possono gestire i metodi nella pagina delle informazioni di sicurezza dell'account.
+
+Quando si gestiscono i metodi di Azure Multi-Factor Authentication per gli utenti, gli amministratori dell'autenticazione possono: 
+
+1. Aggiungere i metodi di autenticazione per un utente specifico, inclusi i numeri di telefono usati per l'autenticazione a più fattori.
+1. Reimposta la password di un utente.
+1. Richiedere a un utente di ripetere la registrazione per l'autenticazione a più fattori.
+1. Revocare le sessioni di autenticazione a più fattori esistenti.
+1. Elimina le password dell'app esistente di un utente  
+
+## <a name="add-authentication-methods-for-a-user"></a>Aggiungere metodi di autenticazione per un utente 
+
+È possibile aggiungere metodi di autenticazione per un utente tramite il portale di Azure o Microsoft Graph.  
+
+> [!NOTE]
+> Per motivi di sicurezza, i campi delle informazioni di contatto dell'utente pubblico non devono essere usati per eseguire l'autenticazione a più fattori. Gli utenti devono invece popolare i numeri dei metodi di autenticazione da usare per l'autenticazione a più fattori.  
+
+:::image type="content" source="media/howto-mfa-userdevicesettings/add-authentication-method-detail.png" alt-text="Aggiungere metodi di autenticazione dal portale di Azure":::
+
+Per aggiungere metodi di autenticazione per un utente tramite la portale di Azure:  
+
+1. Accedere al **portale di Azure**. 
+1. Passare a **Azure Active Directory**  >  **utenti**  >  **tutti gli utenti**. 
+1. Scegliere l'utente per il quale si desidera aggiungere un metodo di autenticazione e selezionare **metodi di autenticazione**.  
+1. Nella parte superiore della finestra selezionare **+ Aggiungi metodo di autenticazione**.
+   1. Selezionare un metodo (numero di telefono o indirizzo di posta elettronica). È possibile usare la posta elettronica per la reimpostazione della password self-service ma non per l'autenticazione. Quando si aggiunge un numero di telefono, selezionare un tipo di telefono e immettere il numero di telefono con formato valido, ad esempio + 1 4255551234.
+   1. Selezionare **Aggiungi**.
+
+> [!NOTE]
+> L'esperienza di anteprima consente agli amministratori di aggiungere tutti i metodi di autenticazione disponibili per gli utenti, mentre l'esperienza originale consente solo l'aggiornamento di metodi telefonici e telefoni alternativi.
+
+### <a name="manage-methods-using-powershell"></a>Gestire i metodi usando PowerShell:  
+
+Installare il modulo di PowerShell Microsoft. Graph. Identity. accesso usando i comandi seguenti. 
+
+```powershell
+Install-module Microsoft.Graph.Identity.Signins
+Connect-MgGraph -Scopes UserAuthenticationMethod.ReadWrite.All
+Select-MgProfile -Name beta
+```
+
+Elenca i metodi di autenticazione basati su telefono per un utente specifico.
+
+```powershell
+Get-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com
+```
+
+Creare un metodo di autenticazione del telefono cellulare per un utente specifico.
+
+```powershell
+New-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -phoneType “mobile” -phoneNumber "+1 7748933135"
+```
+
+Rimuovere un metodo telefonico specifico per un utente
+
+```powershell
+Remove-MgUserAuthenticationPhoneMethod -UserId balas@contoso.com -PhoneAuthenticationMethodId 3179e48a-750b-4051-897c-87b9720928f7
+```
+
+I metodi di autenticazione possono essere gestiti anche usando le API Microsoft Graph. per altre informazioni, vedere la pagina relativa alla [Panoramica dell'API dei metodi di autenticazione](/graph/api/resources/authenticationmethods-overview?view=graph-rest-beta&preserve-view=true) del documento Azure ad
 
 ## <a name="manage-user-authentication-options"></a>Gestisci opzioni di autenticazione utente
 
@@ -39,9 +101,9 @@ Se viene assegnato il ruolo di *amministratore dell'autenticazione* , è possibi
    
     :::image type="content" source="media/howto-mfa-userdevicesettings/manage-authentication-methods-in-azure.png" alt-text="Gestire i metodi di autenticazione dal portale di Azure":::
 
-## <a name="delete-users-existing-app-passwords"></a>Eliminare le password per le app esistenti degli utenti
+## <a name="delete-users-existing-app-passwords"></a>Elimina le password dell'app esistenti degli utenti
 
-Se necessario, è possibile eliminare tutte le password dell'app create da un utente. Le app non basate su browser associate a tali password dell'app non funzioneranno più fino a quando non verrà creata una nuova password dell'app. Per eseguire questa azione, sono necessarie le autorizzazioni di *amministratore globale* .
+Per gli utenti che hanno definito password di app, gli amministratori possono anche scegliere di eliminare queste password, causando un errore di autenticazione legacy in tali applicazioni. Queste azioni potrebbero essere necessarie se è necessario fornire assistenza a un utente o se è necessario reimpostare i metodi di autenticazione. Le app non basate su browser associate a queste password di app smetteranno di funzionare fino a quando non verrà creata una nuova password dell'app. 
 
 Per eliminare le password dell'app di un utente, attenersi alla procedura seguente:
 
@@ -49,8 +111,8 @@ Per eliminare le password dell'app di un utente, attenersi alla procedura seguen
 1. Sul lato sinistro selezionare **Azure Active Directory**  >  **utenti**  >  **tutti gli utenti**.
 1. Selezionare **Multi-Factor Authentication**. Potrebbe essere necessario scorrere verso destra per visualizzare l'opzione del menu. Selezionare la schermata di esempio seguente per visualizzare la finestra di portale di Azure completa e il percorso del menu: [ ![ selezionare multi-factor authentication dalla finestra utenti in Azure ad.](media/howto-mfa-userstates/selectmfa-cropped.png)](media/howto-mfa-userstates/selectmfa.png#lightbox)
 1. Selezionare la casella accanto a uno o più utenti che si desidera gestire. A destra viene visualizzato un elenco di opzioni di passaggio rapido.
-1. Selezionare **Gestisci impostazioni utente**, quindi selezionare la casella **Elimina tutte le password dell'app esistenti generate dagli utenti selezionati**, come illustrato nell'esempio seguente: ![ eliminare tutte le password dell'app esistenti](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
-1. Selezionare **Save (Salva**) e quindi **Close (Chiudi**).
+1. Selezionare **Gestisci impostazioni utente** , quindi selezionare la casella **Elimina tutte le password dell'app esistenti generate dagli utenti selezionati** , come illustrato nell'esempio seguente: ![ eliminare tutte le password dell'app esistenti](./media/howto-mfa-userdevicesettings/deleteapppasswords.png)
+1. Selezionare **Save (Salva** ) e quindi **Close (Chiudi** ).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

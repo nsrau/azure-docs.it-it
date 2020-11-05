@@ -3,12 +3,12 @@ title: Risolvere i problemi di accesso al registro di sistema
 description: Sintomi, cause e risoluzione dei problemi comuni durante l'accesso a un registro contenitori di Azure
 ms.topic: article
 ms.date: 08/11/2020
-ms.openlocfilehash: a00db5cc34da6d90210a22005f33b0ad1bf20f1b
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 5499c64bef8ce36a5f622c4d847b417ef49a5a03
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348900"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379503"
 ---
 # <a name="troubleshoot-registry-login"></a>Risolvere i problemi di accesso al registro
 
@@ -98,7 +98,9 @@ Collegamenti correlati:
 
 Confermare le autorizzazioni del registro di sistema associate alle credenziali, ad esempio il `AcrPull` ruolo Azure per eseguire il pull delle immagini dal registro di sistema o il `AcrPush` ruolo per eseguire il push delle immagini. 
 
-Per accedere a un registro nel portale o alla gestione del registro di sistema con l'interfaccia della riga di comando di Azure, è necessario almeno il `Reader` ruolo per eseguire Azure Resource Manager operazioni.
+L'accesso a un registro nel portale o nella gestione del registro di sistema con l'interfaccia della riga di comando di Azure richiede almeno il `Reader` ruolo o autorizzazioni equivalenti per eseguire Azure Resource Manager operazioni.
+
+Se le autorizzazioni sono state modificate di recente per consentire l'accesso al registro di sistema tramite il portale, potrebbe essere necessario provare una sessione in incognito o privata nel browser per evitare la cache o i cookie del browser obsoleti.
 
 Per aggiungere o rimuovere assegnazioni di ruolo, l'utente o il proprietario del registro di sistema deve disporre di privilegi sufficienti nella sottoscrizione.
 

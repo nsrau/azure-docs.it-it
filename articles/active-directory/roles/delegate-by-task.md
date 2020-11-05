@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: reference
-ms.date: 05/04/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc33b0bafc0d56ebf1a14769aeaa5a55508fc4a
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 7e83ff37140369cb073f4bdc2bd24ac08ee9b1ab
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377764"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379095"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Ruoli di amministratore dall'attività di amministratore in Azure Active Directory
 
@@ -44,7 +44,7 @@ Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
 Creare directory di Azure AD B2C | Tutti gli utenti non guest ([vedere la documentazione](../fundamentals/users-default-permissions.md)) | 
 Creare applicazioni B2C | Amministratore globale | 
-Creare applicazioni aziendali | Amministratore applicazione cloud | Amministratore di applicazioni
+Creare applicazioni aziendali | Amministratore applicazione cloud | Amministratore applicazione
 Creare, leggere, aggiornare ed eliminare criteri B2C | Amministratore dei criteri IEF B2C | 
 Creare, leggere, aggiornare ed eliminare provider di identità | Amministratore dei provider di identità esterni | 
 Creare, leggere, aggiornare ed eliminare flussi utente con ripristino delle password | Amministratore flusso utente ID esterno | 
@@ -189,7 +189,7 @@ Leggere tutta la configurazione | Ruolo con autorizzazioni di lettura per la sic
 Leggi tutti i rilevamenti di rischio | Ruolo con autorizzazioni di lettura per la sicurezza | 
 Leggere le vulnerabilità | Ruolo con autorizzazioni di lettura per la sicurezza | 
 
-## <a name="licenses"></a>Licenze
+## <a name="licenses"></a>Licenses
 
 Attività | Ruolo con privilegi minimi | Ruoli aggiuntivi
 ---- | --------------------- | ----------------
@@ -351,6 +351,7 @@ Aggiornare tutte le proprietà, ad eccezione del nome dell'entità utente | Ammi
 Aggiornare il nome dell'entità utente per gli amministratori con limitazioni (vedere la documentazione) | Amministratore utenti | 
 Aggiornare la proprietà del nome dell'entità utente per gli amministratori con privilegi (vedere la documentazione) | Amministratore globale | 
 Aggiornare le impostazioni dell'utente | Amministratore globale | 
+Aggiornare i metodi di autenticazione | Amministratore dell'autenticazione | Amministratore di autenticazione con privilegi, amministratore globale
 
 
 ## <a name="support"></a>Supporto

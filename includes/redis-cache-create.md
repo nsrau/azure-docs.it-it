@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2020
 ms.author: cauribeg
 ms.custom: include file
-ms.openlocfilehash: ae9526a47a77118503274fc824538980ebcd50de
-ms.sourcegitcommit: 23aa0cf152b8f04a294c3fca56f7ae3ba562d272
+ms.openlocfilehash: 07a80fcd1ec62b051a660bdac696f89e3b7c42b7
+ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/07/2020
-ms.locfileid: "91828989"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93353991"
 ---
 1. Per creare una cache, accedere al [portale di Azure](https://portal.azure.com) e selezionare **Crea una risorsa**.
 
@@ -40,16 +40,18 @@ ms.locfileid: "91828989"
 
 1. Fare clic sul pulsante **Avanti: Avanzate** oppure fare clic sulla scheda **Avanti: Avanzate** nella parte inferiore della pagina.
 
-1. Nella scheda **Avanzate** per un'istanza della cache Basic o Standard selezionare l'interruttore Abilita se si vuole abilitare una porta non TLS.
+1. Nella scheda **Avanzate** per un'istanza della cache Basic o Standard selezionare l'interruttore Abilita se si vuole abilitare una porta non TLS. È anche possibile selezionare la versione di Redis da usare, ovvero 4 oppure 6 (anteprima).
 
-1. Nella scheda **Avanzate** per l'istanza della cache Premium configurare le impostazioni per la porta non TLS, il clustering e la persistenza dei dati.
+    :::image type="content" source="media/redis-cache-create/redis-version.png" alt-text="Redis versione 4 o 6.":::
+
+1. Nella scheda **Avanzate** per l'istanza della cache Premium configurare le impostazioni per la porta non TLS, il clustering e la persistenza dei dati. È anche possibile selezionare la versione di Redis da usare, ovvero 4 oppure 6 (anteprima). 
 
 1. Fare clic sul pulsante **Avanti: Tag** o fare clic sulla scheda **Avanti: Tag** nella parte inferiore della pagina.
 
 1. Facoltativamente, nella scheda **Tag** immettere il nome e il valore se si vuole categorizzare la risorsa. 
 
-1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
+1. Selezionare **Rivedi e crea**. Si viene reindirizzati alla scheda Rivedi e crea in cui Azure convalida la configurazione.
 
 1. Quando viene visualizzato il messaggio di convalida verde, selezionare **Crea**.
 
-La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina  **Panoramica**  della cache di Azure per Redis. Quando la voce  **Stato**  indica  **In esecuzione**, la cache è pronta per l'uso. 
+La creazione della cache richiede un po' di tempo. È possibile monitorare lo stato di avanzamento nella pagina **Panoramica** della cache di Azure per Redis. Quando l'elemento **Stato** indica **In esecuzione** , la cache è pronta per l'uso. 

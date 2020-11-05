@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 11/04/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 79a5d306643fa9597b30f6941c420c403695c22e
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 7e1036e63b4fdef241350786fa3a246946a9223c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424567"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378007"
 ---
 # <a name="combined-security-information-registration-for-azure-active-directory-overview"></a>Registrazione di informazioni di sicurezza combinate per Azure Active Directory Panoramica
 
@@ -58,8 +58,8 @@ La registrazione combinata supporta le azioni e i metodi di autenticazione segue
 | Token hardware | No | No | Sì |
 | Telefono | Sì | Sì | Sì |
 | Telefono alternativo | Sì | Sì | Sì |
-| Telefono ufficio | No | No | No |
-| E-mail | Sì | Sì | Sì |
+| Telefono ufficio | Sì | Sì | Sì |
+| Email | Sì | Sì | Sì |
 | Domande di sicurezza | Sì | No | Sì |
 | Password dell'app | Sì | No | Sì |
 | Chiavi di sicurezza FIDO2<br />*Modalità gestita solo dalla pagina delle [informazioni di sicurezza](https://mysignins.microsoft.com/security-info)*| Sì | Sì | Sì |

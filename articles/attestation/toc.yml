@@ -13,7 +13,7 @@
       href: quickstart-powershell.md
 - name: Esercitazioni
   items:
-    - name: Creazione e firma di un criterio di attestazione
+    - name: Creazione di un criterio di attestazione
       href: author-sign-policy.md
     - name: Esempi di codice per attestazioni SGX
       href: /samples/browse/?expanded=azure&terms=attestation
@@ -47,5 +47,7 @@
       href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
     - name: Libreria DCAP di Azure per Linux
       href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'
+    - name: Risolvere i problemi
+      href: troubleshoot-guide.md
     - name: Protocollo dell'attestazione VBS
       href: virtualization-based-security-protocol.md

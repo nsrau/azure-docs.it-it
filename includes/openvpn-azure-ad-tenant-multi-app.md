@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: df3d1c34fe0fc045e829c2ea9166664f06fd3127
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: c3236f9c60cb359349d96e93f674c3e278e44f1e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116669"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376012"
 ---
 ## <a name="1-create-the-azure-ad-tenant"></a><a name="tenant"></a>1. Creare il tenant di Azure AD
 
@@ -77,13 +77,13 @@ Registrare il client VPN nel tenant di Azure AD.
 
 5. Se richiesto, selezionare l'account di **amministratore globale**.
 
-    ![ID directory](./media/openvpn-azure-ad-tenant-multi-app/pick.png)
+    ![ID directory 2](./media/openvpn-azure-ad-tenant-multi-app/pick.png)
 
 6. Quando richiesto, selezionare **Accetta**.
 
     ![Screenshot mostra una finestra con le autorizzazioni messaggio richieste Accept per l'organizzazione e informazioni sulla richiesta.](./media/openvpn-azure-ad-tenant-multi-app/accept.jpg)
 
-7. In Azure AD, sotto **Applicazioni aziendali**, verrà visualizzato **VPN di Azure**.
+7. In Azure AD, sotto **Applicazioni aziendali** , verrà visualizzato **VPN di Azure**.
 
      ![VPN di Azure](./media/openvpn-azure-ad-tenant-multi-app/azure-vpn.png)
 
@@ -93,25 +93,25 @@ In questo passaggio si registreranno applicazioni aggiuntive per diversi utenti 
 
 1. In Azure Active Directory, fare clic su **Registrazioni app** e quindi su **+ Nuova registrazione**.
 
-    ![VPN di Azure](./media/openvpn-azure-ad-tenant-multi-app/app1.png)
+    ![VPN di Azure 2](./media/openvpn-azure-ad-tenant-multi-app/app1.png)
 
 2. Nella pagina **Registra un'applicazione** immettere il **Nome**. Selezionare i **tipi di account supportati** desiderati, quindi fare clic su **Registra**.
 
-    ![VPN di Azure](./media/openvpn-azure-ad-tenant-multi-app/app2.png)
+    ![VPN di Azure 3](./media/openvpn-azure-ad-tenant-multi-app/app2.png)
 
 3. Una volta registrata la nuova app, fare clic su **Esporre un'API** nel pannello dell'app.
 
 4. Fare clic su **+ Aggiungi ambito**.
 
-5. Lasciare l'**URI ID applicazione** predefinito. Fare clic su **Salva e continua**.
+5. Lasciare l' **URI ID applicazione** predefinito. Fare clic su **Salva e continua**.
 
-    ![VPN di Azure](./media/openvpn-azure-ad-tenant-multi-app/app3.png)
+    ![VPN di Azure 4](./media/openvpn-azure-ad-tenant-multi-app/app3.png)
 
 6. Compilare i campi obbligatori e verificare che lo **Stato** sia **Abilitato**. Fare clic su **Aggiungi ambito**.
 
-    ![VPN di Azure](./media/openvpn-azure-ad-tenant-multi-app/app4.png)
+    ![VPN di Azure 5](./media/openvpn-azure-ad-tenant-multi-app/app4.png)
 
-7. Fare clic su **Esporre un'API**, quindi su **+ Aggiungi un'applicazione client**.  Per **ID client**, immettere i valori seguenti a seconda del cloud:
+7. Fare clic su **Esporre un'API** , quindi su **+ Aggiungi un'applicazione client**.  Per **ID client** , immettere i valori seguenti a seconda del cloud:
 
     - Immettere **41b23e61-6c1e-4545-b367-cd054e0ed4b4** per Azure **Public**
     - Immettere **51bb15d4-3a4f-4ebf-9dca-40096fe32426** per Azure **per enti pubblici**
@@ -120,11 +120,11 @@ In questo passaggio si registreranno applicazioni aggiuntive per diversi utenti 
 
 8. Fare clic su **Aggiungi applicazione**.
 
-    ![VPN di Azure](./media/openvpn-azure-ad-tenant-multi-app/app5.png)
+    ![VPN di Azure 6](./media/openvpn-azure-ad-tenant-multi-app/app5.png)
 
 9. Copiare il valore del campo **ID applicazione (client)** dalla pagina di **Panoramica**. Queste informazioni sono necessarie per configurare i gateway VPN.
 
-    ![VPN di Azure](./media/openvpn-azure-ad-tenant-multi-app/app6.png)
+    ![VPN di Azure 7](./media/openvpn-azure-ad-tenant-multi-app/app6.png)
 
 10. Ripetere i passaggi descritti in questa sezione [Registrare applicazioni aggiuntive](#register-apps) per creare tutte le applicazioni necessarie per i requisiti di sicurezza. Ogni applicazione verrà associata a un gateway VPN e potrà avere un diverso set di utenti. A un gateway può essere associata solo un'applicazione.
 
@@ -132,14 +132,14 @@ In questo passaggio si registreranno applicazioni aggiuntive per diversi utenti 
 
 Assegnare gli utenti alle applicazioni.
 
-1. In **Azure AD -> Applicazioni aziendali**, selezionare l'applicazione appena registrata e fare clic su **Proprietà**. Assicurarsi che **Assegnazione utenti obbligatoria** sia impostato su **Sì**. Fare clic su **Salva**.
+1. In **Azure AD -> Applicazioni aziendali** , selezionare l'applicazione appena registrata e fare clic su **Proprietà**. Assicurarsi che **Assegnazione utenti obbligatoria** sia impostato su **Sì**. Fare clic su **Salva**.
 
-    ![VPN di Azure](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
+    ![VPN di Azure 8](./media/openvpn-azure-ad-tenant-multi-app/user2.png)
 
-2. Nella pagina dell'app, fare clic su **Utenti e gruppi**, quindi fare clic su **+ Aggiungi utente**.
+2. Nella pagina dell'app, fare clic su **Utenti e gruppi** , quindi fare clic su **+ Aggiungi utente**.
 
-    ![VPN di Azure](./media/openvpn-azure-ad-tenant-multi-app/user3.png)
+    ![VPN di Azure 9](./media/openvpn-azure-ad-tenant-multi-app/user3.png)
 
-3. In **Aggiungi assegnazione**, fare clic su **Utenti e gruppi**. Selezionare gli utenti a cui si vuole garantire l'accesso a questa applicazione VPN. Fare clic su **Seleziona**.
+3. In **Aggiungi assegnazione** , fare clic su **Utenti e gruppi**. Selezionare gli utenti a cui si vuole garantire l'accesso a questa applicazione VPN. Fare clic su **Seleziona**.
 
-    ![VPN di Azure](./media/openvpn-azure-ad-tenant-multi-app/user4.png)
+    ![VPN di Azure 10](./media/openvpn-azure-ad-tenant-multi-app/user4.png)

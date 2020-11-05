@@ -6,18 +6,18 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 10/30/2020
 ms.author: rahugup
-ms.openlocfilehash: 5541d5c3b9beea86f5c76747dd13ffeff1b12d97
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.openlocfilehash: e1b34db7f2473e16d3ebde11376652f654f2f778
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93133615"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377956"
 ---
 # <a name="scale-migration-of-vmware-vms"></a>Ridimensionare la migrazione delle macchine virtuali VMware 
 
 Questo articolo illustra come usare gli script per eseguire la migrazione di un numero elevato di macchine virtuali (VM) VMware usando il metodo senza agente. Per ridimensionare le migrazioni, è possibile usare [Azure migrate modulo di PowerShell](https://aka.ms/azuremigratepowershellvmware). 
 
-Gli script di automazione della migrazione di Azure Migrate VMware sono disponibili per il download nel repository [Azure PowerShell Samples] https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) su GitHub. Gli script possono essere usati per eseguire la migrazione di macchine virtuali VMware in Azure usando il metodo di migrazione senza agente. I comandi di Azure Migrate PowerShell usati in questi script sono descritti [qui](https://aka.ms/azuremigratepowershellvmware).
+Gli script di automazione della migrazione di Azure Migrate VMware sono disponibili per il download nel repository [Azure PowerShell Samples](https://github.com/Azure/azure-docs-powershell-samples/tree/master/azure-migrate/migrate-at-scale-vmware-agentles) su GitHub. Gli script possono essere usati per eseguire la migrazione di macchine virtuali VMware in Azure usando il metodo di migrazione senza agente. I comandi di Azure Migrate PowerShell usati in questi script sono descritti [qui](https://aka.ms/azuremigratepowershellvmware).
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 - Questi script supportano la migrazione di macchine virtuali VMware con tutti i dischi. È possibile aggiornare gli script se si desidera replicare in modo selettivo i dischi collegati a una VM VMware. 

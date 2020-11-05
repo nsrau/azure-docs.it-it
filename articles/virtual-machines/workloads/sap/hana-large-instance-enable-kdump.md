@@ -13,16 +13,22 @@ ms.workload: infrastructure
 ms.date: 03/30/2020
 ms.author: prtyag
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d723e95212e457a81eedf7726bf3c5bd2499643
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c8f573f5f00d266fe5d27857cc9e244d136f61a5
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84488886"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379265"
 ---
-# <a name="enable-kdump-service"></a>Abilita servizio kdump
+# <a name="kdump-for-sap-hana-on-azure-large-instances-hli"></a>Kdump per SAP HANA in istanze Large di Azure (HLI)
 
-Questo documento descrive i dettagli su come abilitare il servizio kdump in istanze large di Azure HANA (**tipo I e tipo II**)
+La configurazione e l'abilitazione di kdump è un passaggio necessario per la risoluzione dei problemi relativi agli arresti anomali del sistema che non hanno una chiara ragione.
+In alcuni casi un sistema si arresta in modo imprevisto, che non può essere spiegato da un problema hardware o infrastruttura.
+In questi casi può trattarsi di un problema del sistema operativo o dell'applicazione e kdump consentirà a SUSE di determinare il motivo dell'arresto anomalo di un sistema.
+
+## <a name="enable-kdump-service"></a>Abilita servizio kdump
+
+Questo documento descrive i dettagli su come abilitare il servizio kdump in istanze large di Azure HANA ( **tipo I e tipo II** )
 
 ## <a name="supported-skus"></a>SKU supportati
 
@@ -62,6 +68,10 @@ Questo documento descrive i dettagli su come abilitare il servizio kdump in ista
 ## <a name="setup-details"></a>Dettagli di configurazione
 
 - Lo script per abilitare kdump è disponibile [qui](https://github.com/Azure/sap-hana/blob/master/tools/enable-kdump.sh)
+> [!NOTE]
+> Questo script viene eseguito in base alla configurazione del Lab e il cliente prevede di contattare il fornitore del sistema operativo per eventuali ulteriori operazioni di ottimizzazione.
+> Verrà eseguito il provisioning di un LUN separato per i server nuovi ed esistenti per il salvataggio dei dump e lo script si occuperà di configurare il file system fuori dal LUN.
+> Microsoft non sarà responsabile dell'analisi del dump. Il cliente deve aprire un ticket con il fornitore del sistema operativo per analizzarlo.
 
 - Eseguire questo script in un'istanza large di HANA usando il comando seguente
 
@@ -72,7 +82,7 @@ Questo documento descrive i dettagli su come abilitare il servizio kdump in ista
     sudo bash enable-kdump.sh
     ```
 
-- Se il comando restituisce kdump è stato abilitato correttamente, riavviare il sistema per applicare la modifica, quindi il kdump viene abilitato correttamente. Riavviare il sistema per applicare le modifiche.
+- Se il comando restituisce kdump è stato abilitato, assicurarsi di riavviare il sistema per applicare correttamente le modifiche.
 
 - Se l'output del comando non è riuscito a eseguire determinate operazioni, l'uscita!!!!, il servizio kdump non è abilitato. Vedere la sezione [problema di supporto](#support-issue).
 
@@ -104,3 +114,6 @@ Se lo script ha esito negativo con un errore o kdump non è abilitato, generare 
 * Versione sistema operativo
 
 * Versione del kernel
+
+## <a name="related-documents"></a>Documenti correlati
+- Per altre informazioni sulla [configurazione di kdump](https://www.suse.com/support/kb/doc/?id=3374462)

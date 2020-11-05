@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 09/08/2020
-ms.openlocfilehash: 64d45861f37e2015b747a4db0feb2d32e68fe893
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 5976b70825ac2854e67ddad968752fc87d9e8cea
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427329"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377140"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-secure-export"></a>Connettere Azure agli strumenti ITSM usando l'esportazione sicura
 
@@ -28,8 +28,8 @@ CONNETTORE usa le credenziali di nome utente e password. L'esportazione protetta
 
 L'architettura di esportazione protetta introduce le nuove funzionalità seguenti:
 
-* **Nuovo gruppo di azioni**: gli avvisi vengono inviati allo strumento ITSM tramite il gruppo di azioni di Webhook sicuro, anziché il gruppo di azioni ITSM usato da connettore.
-* **Autenticazione Azure ad**: viene eseguita l'autenticazione tramite Azure ad anziché le credenziali nome utente/password.
+* **Nuovo gruppo di azioni** : gli avvisi vengono inviati allo strumento ITSM tramite il gruppo di azioni di Webhook sicuro, anziché il gruppo di azioni ITSM usato da connettore.
+* **Autenticazione Azure ad** : viene eseguita l'autenticazione tramite Azure ad anziché le credenziali nome utente/password.
 
 ## <a name="secure-export-data-flow"></a>Flusso di dati di esportazione protetta
 
@@ -49,9 +49,9 @@ I passaggi del flusso di dati di esportazione protetta sono:
 
 I principali vantaggi dell'integrazione sono:
 
-* **Autenticazione migliore**: Azure ad offre un'autenticazione più sicura senza i timeout che in genere si verificano in connettore.
-* **Avvisi risolti nello strumento ITSM**: gli avvisi delle metriche implementano gli Stati "attivato" e "risolto". Quando la condizione viene soddisfatta, lo stato dell'avviso è "attivato". Quando la condizione non viene più soddisfatta, lo stato dell'avviso è "risolto". In connettore gli avvisi non possono essere risolti automaticamente. Con l'esportazione protetta, lo stato risolto passa allo strumento ITSM e pertanto viene aggiornato automaticamente.
-* **[Schema di avviso comune](./alerts-common-schema.md)**: in connettore lo schema del payload dell'avviso è diverso in base al tipo di avviso. Nell'esportazione protetta esiste uno schema comune per tutti i tipi di avviso. Questo schema comune contiene la CI per tutti i tipi di avviso. Tutti i tipi di avviso saranno in grado di associare l'integrazione continua con CMDB.
+* **Autenticazione migliore** : Azure ad offre un'autenticazione più sicura senza i timeout che in genere si verificano in connettore.
+* **Avvisi risolti nello strumento ITSM** : gli avvisi delle metriche implementano gli Stati "attivato" e "risolto". Quando la condizione viene soddisfatta, lo stato dell'avviso è "attivato". Quando la condizione non viene più soddisfatta, lo stato dell'avviso è "risolto". In connettore gli avvisi non possono essere risolti automaticamente. Con l'esportazione protetta, lo stato risolto passa allo strumento ITSM e pertanto viene aggiornato automaticamente.
+* **[Schema di avviso comune](./alerts-common-schema.md)** : in connettore lo schema del payload dell'avviso è diverso in base al tipo di avviso. Nell'esportazione protetta esiste uno schema comune per tutti i tipi di avviso. Questo schema comune contiene la CI per tutti i tipi di avviso. Tutti i tipi di avviso saranno in grado di associare l'integrazione continua con CMDB.
 
 Per iniziare a usare lo strumento ITSM Connector, seguire questa procedura:
 
@@ -60,6 +60,7 @@ Per iniziare a usare lo strumento ITSM Connector, seguire questa procedura:
 3. Configurare l'ambiente partner. 
 
 L'esportazione protetta supporta le connessioni con gli strumenti di ITSM seguenti:
+* [ServiceNow](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-servicenow-to-azure-monitor)
 * [Elica BMC](https://docs.microsoft.com/azure/azure-monitor/platform/it-service-management-connector-secure-webhook-connections#connect-bmc-helix-to-azure-monitor)
 
 ## <a name="register-with-azure-active-directory"></a>Registra con Azure Active Directory
@@ -102,6 +103,26 @@ La configurazione contiene 2 passaggi:
 1. Ottenere l'URI per la definizione di esportazione protetta.
 2. Definizioni in base al flusso dello strumento ITSM.
 
+
+### <a name="connect-servicenow-to-azure-monitor"></a>Connettere ServiceNow a monitoraggio di Azure
+
+Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto ServiceNow ed esportare in modo sicuro in Azure.
+
+### <a name="prerequisites"></a>Prerequisiti
+
+Assicurarsi di aver soddisfatto i prerequisiti seguenti:
+
+* Azure AD è registrato.
+* Si dispone della versione supportata di ServiceNow Event Management-ITOM (versione Orlando o successiva).
+
+### <a name="configure-the-servicenow-connection"></a>Configurare la connessione ServiceNow
+
+1. utilizzare il collegamento <https:// <instance name> . service-now.com/api/sn_em_connector/em/inbound_event?source=azuremonitor> URI per la definizione di esportazione protetta.
+
+2. Seguire le istruzioni in base alla versione:
+   * [Parigi](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
+   * [Orlando](https://docs.servicenow.com/bundle/paris-it-operations-management/page/product/event-management/concept/azure-integration.html)
+
 ### <a name="connect-bmc-helix-to-azure-monitor"></a>Connettere BMC Helix a monitoraggio di Azure
 
 Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto BMC Helix ed esportare in modo sicuro in Azure.
@@ -135,15 +156,18 @@ Assicurarsi di aver soddisfatto i prerequisiti seguenti:
    4. Selezionare **configurazione**.
    5. Selezionare la configurazione **Aggiungi nuova connessione** .
    6. Immettere le informazioni per la sezione di configurazione:
-      - **Nome**: creare un proprio.
-      - **Tipo di autorizzazione**: **nessuno**
-      - **Descrizione**: crearne una personalizzata.
-      - **Sito**: **cloud**
-      - **Numero di istanze**: **2**, il valore predefinito.
-      - **Check**: selezionato per impostazione predefinita per abilitare l'utilizzo.
+      - **Nome** : creare un proprio.
+      - **Tipo di autorizzazione** : **nessuno**
+      - **Descrizione** : crearne una personalizzata.
+      - **Sito** : **cloud**
+      - **Numero di istanze** : **2** , il valore predefinito.
+      - **Check** : selezionato per impostazione predefinita per abilitare l'utilizzo.
       - L'ID tenant di Azure e l'ID dell'applicazione Azure vengono ricavati dall'applicazione definita in precedenza.
 
 ![Screenshot che mostra la configurazione BMC.](media/it-service-management-connector-secure-webhook-connections/bmc-configuration.png)
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

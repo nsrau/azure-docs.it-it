@@ -6,12 +6,12 @@ ms.manager: bsiva
 ms.author: anvar
 ms.topic: troubleshooting
 ms.date: 08/17/2020
-ms.openlocfilehash: 2b653a0abbe89686c764a6a0885720cc746975c8
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: da1f7ce1474513fd9de286495f59aca63d8628b6
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92314720"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377227"
 ---
 # <a name="troubleshooting-replication-issues-in-agentless-vmware-vm-migration"></a>Risoluzione dei problemi di replica nella migrazione di macchine virtuali VMware senza agente
 
@@ -29,11 +29,16 @@ Occasionalmente è possibile che si verifichino errori di cicli di replica per u
 Per monitorare lo stato della replica per le macchine virtuali, attenersi alla procedura seguente:
 
   1. Passare alla pagina Server Azure Migrate nella portale di Azure.
-  2. Passare alla pagina "replica di computer" facendo clic su "replica dei server" nel riquadro migrazione server.
-  3. Verrà visualizzato un elenco di server di replica insieme a informazioni aggiuntive, ad esempio stato, integrità, ora dell'ultima sincronizzazione e così via. La colonna Health indica lo stato di replica corrente della macchina virtuale. Un valore ' critical ' o ' Warning ' nella colonna Health indica in genere che il ciclo di replica precedente per la macchina virtuale non è riuscito. Per ottenere altri dettagli, fare clic con il pulsante destro del mouse sulla macchina virtuale e selezionare "Dettagli errore". La pagina dei dettagli dell'errore contiene informazioni sull'errore e informazioni aggiuntive su come risolvere i problemi. Verrà anche visualizzato un collegamento "eventi recenti" che può essere usato per passare alla pagina eventi per la macchina virtuale.
-  4. Fare clic su "eventi recenti" per visualizzare gli errori precedenti del ciclo di replica per la macchina virtuale. Nella pagina eventi, cercare l'evento più recente di tipo "ciclo di replica non riuscito" o "ciclo di replica non riuscito per il disco" per la macchina virtuale.
-  5. Fare clic sull'evento per comprendere le possibili cause dell'errore e le procedure consigliate per la correzione. Utilizzare le informazioni fornite per risolvere i problemi e correggere l'errore.
-    
+  ![Immagine 1](./media/troubleshoot-changed-block-tracking-replication/image0.png)
+  1. Passare alla pagina "replica di computer" facendo clic su "replica dei server" nel riquadro migrazione server.
+  ![Immagine 2](./media/troubleshoot-changed-block-tracking-replication/image1.png)
+  1. Verrà visualizzato un elenco di server di replica insieme a informazioni aggiuntive, ad esempio stato, integrità, ora dell'ultima sincronizzazione e così via. La colonna Health indica lo stato di replica corrente della macchina virtuale. Un valore ' critical ' o ' Warning ' nella colonna Health indica in genere che il ciclo di replica precedente per la macchina virtuale non è riuscito. Per ottenere altri dettagli, fare clic con il pulsante destro del mouse sulla macchina virtuale e selezionare "Dettagli errore". La pagina dei dettagli dell'errore contiene informazioni sull'errore e informazioni aggiuntive su come risolvere i problemi. Verrà anche visualizzato un collegamento "eventi recenti" che può essere usato per passare alla pagina eventi per la macchina virtuale.
+  ![Immagine 3](./media/troubleshoot-changed-block-tracking-replication/image2.png)
+  1. Fare clic su "eventi recenti" per visualizzare gli errori precedenti del ciclo di replica per la macchina virtuale. Nella pagina eventi, cercare l'evento più recente di tipo "ciclo di replica non riuscito" o "ciclo di replica non riuscito per il disco" per la macchina virtuale.
+  ![Immagine 4](./media/troubleshoot-changed-block-tracking-replication/image3.png)
+  1. Fare clic sull'evento per comprendere le possibili cause dell'errore e le procedure consigliate per la correzione. Utilizzare le informazioni fornite per risolvere i problemi e correggere l'errore.
+ ![Immagine 5](./media/troubleshoot-changed-block-tracking-replication/image4.png)
+
 ## <a name="common-replication-errors"></a>Errori di replica comuni
 
 In questa sezione vengono descritti alcuni degli errori comuni e il modo in cui è possibile risolverli.
@@ -54,7 +59,7 @@ Quando il portale crea l'insieme di credenziali delle chiavi, aggiunge anche un 
 
 - L'altro caso in cui si verifica questo problema è che un utente (User1) ha tentato inizialmente di configurare la replica e si è verificato un errore, ma l'insieme di credenziali delle chiavi è già stato creato e i criteri di accesso utente sono stati assegnati in modo appropriato all'utente. A questo punto un altro utente (User2) tenterà di configurare la replica, ma l'operazione di configurazione dell'account di archiviazione gestito o di generazione della definizione di firma di accesso condiviso non riuscirà perché non sono presenti criteri di accesso utente corrispondenti a User2 nell'insieme di credenziali delle chiavi.
 
-**Soluzione**: per risolvere questo problema, creare un criterio di accesso utente per User2 nell'insieme di credenziali delle credenziali che concede l'autorizzazione User2 per configurare l'account di archiviazione gestito e generare le definizioni SAS. User2 può eseguire questa operazione da Azure PowerShell usando i cmdlet seguenti:
+**Soluzione** : per risolvere questo problema, creare un criterio di accesso utente per User2 nell'insieme di credenziali delle credenziali che concede l'autorizzazione User2 per configurare l'account di archiviazione gestito e generare le definizioni SAS. User2 può eseguire questa operazione da Azure PowerShell usando i cmdlet seguenti:
 
 $userPrincipalId = $ (Get-AzureRmADUser-UserPrincipalName "user2_email_address"). ID
 
@@ -134,7 +139,7 @@ Il componente che tenta di replicare i dati in Azure è inattivo o non risponde.
     
     Questo comando tenterà una connessione TCP e restituirà un output.
     
-     - Nell'output selezionare il campo "_TcpTestSucceeded_". Se il valore è "_true_", non esiste alcun problema di connettività tra l'appliance Azure migrate e il Azure Key Vault. Se il valore è "false", si verifica un problema di connettività.
+     - Nell'output selezionare il campo " _TcpTestSucceeded_ ". Se il valore è " _true_ ", non esiste alcun problema di connettività tra l'appliance Azure migrate e il Azure Key Vault. Se il valore è "false", si verifica un problema di connettività.
     
     **Risoluzione:** Se il test ha esito negativo, si verifica un problema di connettività tra l'appliance Azure Migrate e il Azure Key Vault. Coinvolgere il team di rete locale per verificare i problemi di connettività. In genere, è possibile che alcune impostazioni del Firewall causino errori.
     
@@ -220,7 +225,7 @@ Di seguito sono riportate le possibili cause:
     
     Questo comando tenterà una connessione TCP e restituirà un output.
     
-    1. Nell'output selezionare il campo "_TcpTestSucceeded_". Se il valore è "_true_", non esiste alcun problema di connettività tra l'appliance Azure migrate e il Azure Key Vault. Se il valore è "false", si verifica un problema di connettività.
+    1. Nell'output selezionare il campo " _TcpTestSucceeded_ ". Se il valore è " _true_ ", non esiste alcun problema di connettività tra l'appliance Azure migrate e il Azure Key Vault. Se il valore è "false", si verifica un problema di connettività.
     
     **Risoluzione:** Se il test ha esito negativo, si verifica un problema di connettività tra l'appliance Azure Migrate e il Azure Key Vault. Coinvolgere il team di rete locale per verificare i problemi di connettività. In genere, è possibile che alcune impostazioni del Firewall causino errori.
     
@@ -271,7 +276,7 @@ Se si dispone di una macchina virtuale con più dischi, è possibile che si veri
 
 Questo problema si verifica quando la generazione dello snapshot smette di rispondere. Quando si verifica questo problema, è possibile vedere la pagina relativa all'interruzione dell'attività create snapshot al 95% o al 99%. Per risolvere il problema, fare riferimento a questa [KB di VMware](https://go.microsoft.com/fwlink/?linkid=2138969) .
 
-### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Messaggio di errore: si è verificato un errore interno. [Non è stato possibile consolidare i dischi nella macchina virtuale _[motivi]_]
+### <a name="error-message-an-internal-error-occurred-failed-to-consolidate-the-disks-on-vm-_reasons_"></a>Messaggio di errore: si è verificato un errore interno. [Non è stato possibile consolidare i dischi nella macchina virtuale _[motivi]_ ]
 
 Quando si consolidano i dischi alla fine del ciclo di replica, l'operazione ha esito negativo. Seguire le istruzioni in [VMware KB](https://go.microsoft.com/fwlink/?linkid=2138970) selezionando il _motivo_ appropriato per risolvere il problema.
 

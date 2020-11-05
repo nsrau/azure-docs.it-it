@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 10/01/2020
 ms.author: cshoe
-ms.openlocfilehash: aaafe6d4080d85822ec5af9639c27fc8c55c2ce6
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: fd784bb184ff9432efc569ac9fd40de93eec0b53
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93287226"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379588"
 ---
 # <a name="azure-functions-reliable-event-processing"></a>Elaborazione di eventi affidabili di funzioni di Azure
 
@@ -50,7 +50,7 @@ Funzioni di Azure usa eventi dell'hub eventi durante il ciclo nei passaggi segue
 
 Questo comportamento rivela alcuni aspetti importanti:
 
-- *Le eccezioni non gestite possono causare la perdita di messaggi.* Le esecuzioni che generano un'eccezione continueranno a avanzare il puntatore.  L'impostazione di un [criterio di ripetizione](./functions-bindings-error-pages.md#retry-policies) ritarda l'avanzamento del puntatore fino a quando non viene valutato l'intero criterio di ripetizione dei tentativi.
+- *Le eccezioni non gestite possono causare la perdita di messaggi.* Le esecuzioni che generano un'eccezione continueranno a avanzare il puntatore.  L'impostazione di un [criterio di ripetizione](./functions-bindings-error-pages.md#retry-policies-preview) ritarda l'avanzamento del puntatore fino a quando non viene valutato l'intero criterio di ripetizione dei tentativi.
 - *Funzioni garantisce il recapito at-least-once.* Il codice e i sistemi dipendenti potrebbero dover [tenere conto del fatto che lo stesso messaggio potrebbe essere ricevuto due volte](./functions-idempotent.md).
 
 ## <a name="handling-exceptions"></a>Gestione delle eccezioni
@@ -59,7 +59,7 @@ Come regola generale, ogni funzione deve includere un [blocco try/catch](./funct
 
 ### <a name="retry-mechanisms-and-policies"></a>Meccanismi di ripetizione dei tentativi e criteri
 
-Alcune eccezioni sono di natura temporanea e non vengono visualizzate nuovamente quando un'operazione viene ritentata in un secondo momento. Questo è il motivo per cui il primo passaggio consiste sempre nell'eseguire di nuovo l'operazione.  È possibile utilizzare i criteri per i [tentativi](./functions-bindings-error-pages.md#retry-policies) dell'app per le funzioni o la logica di ripetizione dei tentativi nell'esecuzione della funzione.
+Alcune eccezioni sono di natura temporanea e non vengono visualizzate nuovamente quando un'operazione viene ritentata in un secondo momento. Questo è il motivo per cui il primo passaggio consiste sempre nell'eseguire di nuovo l'operazione.  È possibile utilizzare i criteri per i [tentativi](./functions-bindings-error-pages.md#retry-policies-preview) dell'app per le funzioni o la logica di ripetizione dei tentativi nell'esecuzione della funzione.
 
 L'introduzione dei comportamenti di gestione degli errori alle funzioni consente di definire criteri di ripetizione dei tentativi di base e avanzati. Ad esempio, è possibile implementare un criterio che segue un flusso di lavoro illustrato dalle regole seguenti:
 

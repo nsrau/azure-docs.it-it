@@ -4,14 +4,18 @@ description: Guida per la risoluzione dei problemi - monitoraggio di app Java li
 ms.topic: conceptual
 ms.date: 03/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b6a7070b6b1b76a3f763105f4dce795f3e5c4be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8d11eaa76f2133b9fdc66ba4e6bc91e2cc38c51c
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87372519"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379537"
 ---
-# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java"></a>Risoluzione dei problemi e domande e risposte relative ad Application Insights per Java
+# <a name="troubleshooting-and-q-and-a-for-application-insights-for-java-sdk"></a>Risoluzione dei problemi e domande e risposte per Application Insights SDK per Java
+
+> [!IMPORTANT]
+> L'approccio consigliato per il monitoraggio delle applicazioni Java consiste nell'usare la strumentazione automatica senza modificare il codice. Seguire le linee guida per [Application Insights agente Java 3,0](./java-in-process-agent.md).
+
 Domande o problemi relativi ad [Azure Application Insights in Java][java]? Ecco alcuni suggerimenti.
 
 ## <a name="build-errors"></a>Errori di compilazione
@@ -85,7 +89,7 @@ Usando il metodo XML, dopo la modifica di questo valore sarà necessario riavvia
 **Come è possibile modificare la risorsa di Azure a cui il progetto invia i dati?**
 
 * [Ottenere la chiave di strumentazione della nuova risorsa][java].
-* Se si è aggiunto Application Insights al progetto usando Azure Toolkit for Eclipse, fare clic con il pulsante destro del mouse sul progetto Web, selezionare **Azure**, **Configura Application Insights**, quindi modificare la chiave.
+* Se si è aggiunto Application Insights al progetto usando Azure Toolkit for Eclipse, fare clic con il pulsante destro del mouse sul progetto Web, selezionare **Azure** , **Configura Application Insights** , quindi modificare la chiave.
 * Se la chiave di strumentazione è stata configurata come variabile di ambiente aggiornare il valore della variabile di ambiente con la nuova chiave di strumentazione.
 * Oppure, aggiornare la chiave nel file ApplicationInsights.xml presente nella cartella resources del progetto.
 
@@ -188,7 +192,7 @@ Application Insights usa `org.apache.http`. Questo è stato spostato all'interno
 * [Scrivere codice per tenere traccia dell'utilizzo dell'app][track]
 * [Acquisire i log di diagnostica][javalogs]
 
-## <a name="get-help"></a>Ottieni supporto
+## <a name="get-help"></a>Ottenere aiuto
 * [Stack Overflow](https://stackoverflow.com/questions/tagged/ms-application-insights)
 * [Registrare un problema su GitHub](https://github.com/Microsoft/ApplicationInsights-Java/issues)
 

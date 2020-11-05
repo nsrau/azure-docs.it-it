@@ -1,47 +1,50 @@
 ---
-title: Monitora le applicazioni Java ovunque-monitoraggio di Azure Application Insights
-description: Application Performance Monitoring senza codice per applicazioni Java in esecuzione in qualsiasi ambiente senza strumentazione dell'app. Trovare la causa radice dei problemi d usando la traccia distribuita e la mappa delle applicazioni.
+title: Opzioni di configurazione-monitoraggio di Azure Application Insights Java
+description: Opzioni di configurazione per il monitoraggio di Azure Application Insights Java
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 36f2add41457d1d82b0efd6c6804496018c85225
-ms.sourcegitcommit: 8d8deb9a406165de5050522681b782fb2917762d
+ms.openlocfilehash: 710347061f072fe66987d88852045986c00812c8
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92215264"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377684"
 ---
-# <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opzioni di configurazione-Application Insights agente autonomo Java per monitoraggio di Azure
+# <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opzioni di configurazione per il monitoraggio di Azure Application Insights Java
 
-
+> [!WARNING]
+> **Se si esegue l'aggiornamento da 3,0 Preview**
+>
+> Verificare con attenzione tutte le opzioni di configurazione, perché la struttura JSON è stata modificata completamente, oltre al nome del file stesso, che è andato in minuscolo.
 
 ## <a name="connection-string-and-role-name"></a>Stringa di connessione e nome del ruolo
 
+La stringa di connessione e il nome del ruolo sono le impostazioni più comuni necessarie per iniziare:
+
 ```json
 {
-  "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
-    "preview": {
-      "roleName": "my cloud role name"
-    }
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "role": {
+    "name": "my cloud role name"
   }
 }
 ```
 
 La stringa di connessione è obbligatoria e il nome del ruolo è importante ogni volta che si inviano dati da applicazioni diverse alla stessa risorsa Application Insights.
 
-Per altri dettagli, vedere più dettagli e altre opzioni di configurazione.
+Per ulteriori informazioni e altre opzioni di configurazione, vedere di seguito.
 
 ## <a name="configuration-file-path"></a>Percorso del file di configurazione
 
-Per impostazione predefinita, Application Insights Java 3,0 Preview prevede che il file di configurazione sia denominato `ApplicationInsights.json` e che si trovi nella stessa directory di `applicationinsights-agent-3.0.0-PREVIEW.5.jar` .
+Per impostazione predefinita, Application Insights Java 3,0 prevede che il file di configurazione sia denominato `applicationinsights.json` e che si trovi nella stessa directory di `applicationinsights-agent-3.0.0.jar` .
 
 È possibile specificare un percorso del file di configurazione personalizzato utilizzando
 
 * `APPLICATIONINSIGHTS_CONFIGURATION_FILE` variabile di ambiente o
-* `applicationinsights.configurationFile` Proprietà di sistema Java
+* `applicationinsights.configuration.file` Proprietà di sistema Java
 
-Se si specifica un percorso relativo, questo verrà risolto in relazione alla directory in cui `applicationinsights-agent-3.0.0-PREVIEW.5.jar` si trova.
+Se si specifica un percorso relativo, questo verrà risolto in relazione alla directory in cui `applicationinsights-agent-3.0.0.jar` si trova.
 
 ## <a name="connection-string"></a>Stringa di connessione
 
@@ -52,9 +55,7 @@ Se si specifica un percorso relativo, questo verrà risolto in relazione alla di
 
 ```json
 {
-  "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
-  }
+  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
 }
 ```
 
@@ -70,10 +71,8 @@ Se si desidera impostare il nome del ruolo Cloud:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {   
-      "roleName": "my cloud role name"
-    }
+  "role": {   
+    "name": "my cloud role name"
   }
 }
 ```
@@ -90,43 +89,118 @@ Se si desidera impostare l'istanza del ruolo Cloud su un valore diverso anziché
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "roleInstance": "my cloud role instance"
-    }
+  "role": {
+    "name": "my cloud role name",
+    "instance": "my cloud role instance"
   }
 }
 ```
 
 È anche possibile impostare l'istanza del ruolo cloud usando la variabile di ambiente `APPLICATIONINSIGHTS_ROLE_INSTANCE` .
 
-## <a name="application-log-capture"></a>Acquisizione registro applicazioni
+## <a name="sampling"></a>campionamento
 
-Application Insights Java 3,0 Preview acquisisce automaticamente la registrazione delle applicazioni tramite log4j, Logback e Java. util. Logging.
+Il campionamento è utile se è necessario ridurre i costi.
+Il campionamento viene eseguito come funzione sull'ID operazione (noto anche come ID traccia), in modo che lo stesso ID operazione provochi sempre la stessa decisione di campionamento. In questo modo si garantisce che non si ottengono parti di una transazione distribuita campionate in mentre altre parti di esso vengono campionate.
 
-Per impostazione predefinita, acquisisce tutte le registrazioni eseguite a `INFO` livello o superiore.
+Se, ad esempio, si imposta il campionamento sul 10%, si vedrà solo il 10% delle transazioni, ma ognuno di questi 10% avrà dettagli completi sulle transazioni end-to-end.
 
-Se si vuole modificare questa soglia:
+Di seguito è riportato un esempio di come impostare il campionamento per acquisire circa **1/3 di tutte le transazioni** . Assicurarsi di impostare la frequenza di campionamento corretta per il caso d'uso:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "instrumentation": {
-        "logging": {
-          "threshold": "WARN"
-        }
-      }
+  "sampling": {
+    "percentage": 33.333
+  }
+}
+```
+
+È inoltre possibile impostare la percentuale di campionamento utilizzando la variabile di ambiente `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
+
+> [!NOTE]
+> Come percentuale di campionamento, sceglierne una vicina a 100/N dove N è un numero intero. Il campionamento attualmente non supporta altri valori.
+
+## <a name="jmx-metrics"></a>Metriche JMX
+
+Se si vuole raccogliere alcune metriche JMX aggiuntive:
+
+```json
+{
+  "jmxMetrics": [
+    {
+      "name": "JVM uptime (millis)",
+      "objectName": "java.lang:type=Runtime",
+      "attribute": "Uptime"
+    },
+    {
+      "name": "MetaSpace Used",
+      "objectName": "java.lang:type=MemoryPool,name=Metaspace",
+      "attribute": "Usage.used"
+    }
+  ]
+}
+```
+
+`name` nome della metrica che verrà assegnato a questa metrica JMX (può essere qualsiasi elemento).
+
+`objectName` è il [nome dell'oggetto](https://docs.oracle.com/javase/8/docs/api/javax/management/ObjectName.html) JMX MBean che si desidera raccogliere.
+
+`attribute` è il nome dell'attributo all'interno del MBean JMX che si desidera raccogliere.
+
+Sono supportati i valori di metrica JMX numerici e booleani. Viene eseguito il mapping della metrica JMX booleana a `0` per false e `1` true.
+
+[//]: # "Nota: non documentare APPLICATIONINSIGHTS_JMX_METRICS qui"
+[//]: # "JSON incorporato in env var è molto confuso e deve essere documentato solo per uno scenario di connessione non codificabile"
+
+## <a name="custom-dimensions"></a>Dimensioni personalizzate
+
+Se si vuole aggiungere dimensioni personalizzate a tutti i dati di telemetria:
+
+```json
+{
+  "customDimensions": {
+    "mytag": "my value",
+    "anothertag": "${ANOTHER_VALUE}"
+  }
+}
+```
+
+`${...}` può essere usato per leggere il valore dalla variabile di ambiente specificata all'avvio.
+
+## <a name="telemetry-processors-preview"></a>Processori di telemetria (anteprima)
+
+Questa è una funzionalità in anteprima.
+
+Consente di configurare le regole che verranno applicate ai dati di telemetria relativi a richieste, dipendenze e tracce, ad esempio
+ * Maschera dati sensibili
+ * Aggiungere dimensioni personalizzate in modo condizionale
+ * Aggiornare il nome della telemetria usato per l'aggregazione e la visualizzazione
+
+Per altre informazioni, vedere la documentazione del [processore di telemetria](./java-standalone-telemetry-processors.md) .
+
+## <a name="auto-collected-logging"></a>Registrazione automatica
+
+Log4j, Logback e Java. util. Logging sono instrumentati automaticamente e la registrazione eseguita tramite questi framework di registrazione viene raccolta automaticamente.
+
+Per impostazione predefinita, la registrazione viene raccolta solo quando tale registrazione viene eseguita a `INFO` livello o superiore.
+
+Se si desidera modificare il livello di raccolta:
+
+```json
+{
+  "instrumentation": {
+    "logging": {
+      "level": "WARN"
     }
   }
 }
 ```
 
-È anche possibile impostare la soglia di registrazione usando la variabile di ambiente `APPLICATIONINSIGHTS_LOGGING_THRESHOLD` .
+È anche possibile impostare la soglia usando la variabile di ambiente `APPLICATIONINSIGHTS_INSTRUMENTATION_LOGGING_LEVEL` .
 
-Questi sono i `threshold` valori validi che è possibile specificare nel `ApplicationInsights.json` file e il modo in cui corrispondono ai livelli di registrazione tra diversi framework di registrazione:
+Questi sono i `level` valori validi che è possibile specificare nel `applicationinsights.json` file e il modo in cui corrispondono ai livelli di registrazione in diversi framework di registrazione:
 
-| valore soglia   | Log4j  | Logback | LUG     |
+| livello             | Log4j  | Logback | LUG     |
 |-------------------|--------|---------|---------|
 | OFF               | OFF    | OFF     | OFF     |
 | IRREVERSIBILE             | IRREVERSIBILE  | ERRORE   | SEVERE  |
@@ -139,53 +213,19 @@ Questi sono i `threshold` valori validi che è possibile specificare nel `Applic
 | TRACE (o FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="jmx-metrics"></a>Metriche JMX
+## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Metriche del micrometro raccolte automaticamente (incluse le metriche dell'attuatore Spring boot)
 
-Se sono presenti alcune metriche JMX che si desidera acquisire:
+Se l'applicazione usa il [micrometro](https://micrometer.io), le metriche inviate al registro globale del micrometro vengono raccolte automaticamente.
 
-```json
-{
-  "instrumentationSettings": {
-    "preview": {
-      "jmxMetrics": [
-        {
-          "objectName": "java.lang:type=Runtime",
-          "attribute": "Uptime",
-          "display": "JVM uptime (millis)"
-        },
-        {
-          "objectName": "java.lang:type=MemoryPool,name=Metaspace",
-          "attribute": "Usage.used",
-          "display": "MetaSpace Used"
-        }
-      ]
-    }
-  }
-}
-```
+Inoltre, se l'applicazione usa l' [attuatore Spring boot](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), verranno raccolte automaticamente anche le metriche configurate dall'attuatore Spring boot.
 
-Sono supportati i valori di metrica JMX numerici e booleani. Viene eseguito il mapping della metrica JMX booleana a `0` per false e `1` true.
-
-[//]: # "Nota: non documentare APPLICATIONINSIGHTS_JMX_METRICS qui"
-[//]: # "JSON incorporato in env var è molto confuso e deve essere documentato solo per uno scenario di connessione non codificabile"
-
-## <a name="micrometer-including-metrics-from-spring-boot-actuator"></a>Micrometro (incluse le metriche dell'attuatore Spring boot)
-
-Se l'applicazione usa il [micrometro](https://micrometer.io), Application Insights 3,0 (a partire dalla versione Preview. 2) acquisisce ora le metriche inviate al registro globale micrometrico.
-
-Se l'applicazione usa l' [attuatore Spring boot](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), Application Insights 3,0 (a partire dalla versione Preview. 4) acquisisce ora le metriche configurate dall'attuatore Spring boot (che usa il micrometro, ma non usa il registro globale del micrometro).
-
-Se si desidera disabilitare queste funzionalità:
+Per disabilitare la raccolta automatica di metriche del micrometro (incluse le metriche dell'attuatore Spring boot):
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "instrumentation": {
-        "micrometer": {
-          "enabled": false
-        }
-      }
+  "instrumentation": {
+    "micrometer": {
+      "enabled": false
     }
   }
 }
@@ -193,16 +233,12 @@ Se si desidera disabilitare queste funzionalità:
 
 ## <a name="heartbeat"></a>Heartbeat
 
-Per impostazione predefinita, Application Insights Java 3,0 Preview invia una metrica Heartbeat una volta ogni 15 minuti. Se si usa la metrica heartbeat per attivare gli avvisi, è possibile aumentare la frequenza di questo heartbeat:
+Per impostazione predefinita, Application Insights Java 3,0 invia una metrica Heartbeat una volta ogni 15 minuti. Se si usa la metrica heartbeat per attivare gli avvisi, è possibile aumentare la frequenza di questo heartbeat:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "heartbeat": {
-        "intervalSeconds": 60
-      }
-    }
+  "heartbeat": {
+    "intervalSeconds": 60
   }
 }
 ```
@@ -210,86 +246,63 @@ Per impostazione predefinita, Application Insights Java 3,0 Preview invia una me
 > [!NOTE]
 > Non è possibile ridurre la frequenza di questo heartbeat, perché i dati di heartbeat vengono usati anche per tenere traccia dell'utilizzo del Application Insights.
 
-## <a name="sampling"></a>campionamento
-
-Il campionamento è utile se è necessario ridurre i costi.
-Il campionamento viene eseguito come funzione sull'ID operazione (noto anche come ID traccia), in modo che lo stesso ID operazione provochi sempre la stessa decisione di campionamento. In questo modo si garantisce che non si ottengono parti di una transazione distribuita campionate in mentre altre parti di esso vengono campionate.
-
-Se, ad esempio, si imposta il campionamento sul 10%, si vedrà solo il 10% delle transazioni, ma ognuno di questi 10% avrà dettagli completi sulle transazioni end-to-end.
-
-Di seguito è riportato un esempio di come impostare il campionamento sul **10% di tutte le transazioni** . Assicurarsi di impostare la frequenza di campionamento corretta per il caso d'uso:
-
-```json
-{
-  "instrumentationSettings": {
-    "preview": {
-      "sampling": {
-        "fixedRate": {
-          "percentage": 10
-        }
-      }
-    }
-  }
-}
-```
-
-È inoltre possibile impostare la percentuale di campionamento utilizzando la variabile di ambiente `APPLICATIONINSIGHTS_SAMPLING_PERCENTAGE` .
-
 ## <a name="http-proxy"></a>Proxy HTTP
 
-Se l'applicazione è protetti da un firewall e non è in grado di connettersi direttamente a Application Insights (vedere [indirizzi IP usati da Application Insights](./ip-addresses.md)), è possibile configurare Application Insights Java 3,0 Preview per usare un proxy http:
+Se l'applicazione è dietro un firewall e non è in grado di connettersi direttamente a Application Insights (vedere [indirizzi IP usati da Application Insights](./ip-addresses.md)), è possibile configurare Application Insights Java 3,0 per usare un proxy http:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "httpProxy": {
-        "host": "myproxy",
-        "port": 8080
-      }
-    }
+  "proxy": {
+    "host": "myproxy",
+    "port": 8080
   }
 }
 ```
+
+[//]: # "Si noti che il supporto di OpenTelemetry non viene pubblicizzato fino a quando non viene supportato 0.10.0, che presenta modifiche sostanziali da 0.9.0"
+
+[//]: # "Supporto # # per l'API OpenTelemetry versioni precedenti alla 1,0"
+
+[//]: # "Il supporto per le versioni precedenti 1,0 dell'API OpenTelemetry è esplicito, perché l'API OpenTelemetry non è ancora stabile"
+[//]: # "quindi, ogni versione dell'agente supporta solo le versioni precedenti 1,0 dell'API OpenTelemetry"
+[//]: # "Questa limitazione non si applica quando viene rilasciata l'API OpenTelemetry 1,0."
+
+[//]: # "''' JSON"
+[//]: # "{"
+[//]: # "  \"Anteprima \" : {"
+[//]: # "    \"openTelemetryApiSupport \" : true"
+[//]: # "  }"
+[//]: # "}"
+[//]: # "```"
 
 ## <a name="self-diagnostics"></a>Diagnostica automatica
 
-"Self-Diagnostics" si riferisce alla registrazione interna da Application Insights anteprima Java 3,0.
+"Self-Diagnostics" si riferisce alla registrazione interna da Application Insights Java 3,0.
 
 Questo può essere utile per individuare e diagnosticare i problemi con Application Insights stesso.
 
-Per impostazione predefinita, viene registrato nella console di con `warn` il livello corrispondente a questa configurazione:
+Per impostazione predefinita, Application Insights i registri Java 3,0 al livello `INFO` del file `applicationinsights.log` e della console, corrispondenti a questa configurazione:
 
 ```json
 {
-  "instrumentationSettings": {
-    "preview": {
-      "selfDiagnostics": {
-        "destination": "console",
-        "level": "WARN"
-      }
+  "selfDiagnostics": {
+    "destination": "file+console",
+    "level": "INFO",
+    "file": {
+      "path": "applicationinsights.log",
+      "maxSizeMb": 5,
+      "maxHistory": 1
     }
   }
 }
 ```
 
-I livelli validi sono `OFF` ,, `ERROR` `WARN` , `INFO` , `DEBUG` e `TRACE` .
+`destination` può essere uno dei `file` , `console` o `file+console` .
 
-Se si desidera accedere a un file anziché registrarsi nella console:
+`level` può essere uno tra `OFF` , `ERROR` , `WARN` , `INFO` , `DEBUG` o `TRACE` .
 
-```json
-{
-  "instrumentationSettings": {
-    "preview": {
-      "selfDiagnostics": {
-        "destination": "file",
-        "directory": "/var/log/applicationinsights",
-        "level": "WARN",
-        "maxSizeMB": 10
-      }
-    }
-  }
-}
-```
+`path` può essere un percorso assoluto o relativo. I percorsi relativi vengono risolti rispetto alla directory in cui `applicationinsights-agent-3.0.0.jar` si trova.
 
-Quando si usa la funzionalità di registrazione file, una volta raggiunto il file `maxSizeMB` , verrà eseguito il rollover, mantenendo solo il file di log completato più di recente oltre al file di log corrente.
+`maxSizeMb` dimensioni massime del file di log prima del rollover.
+
+`maxHistory` numero di file di log di cui è stato eseguito il rollback, conservati (oltre al file di log corrente).

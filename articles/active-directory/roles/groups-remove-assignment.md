@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3c7f441930d9d99f35c2e53bb040b0db0a427659
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: d58465c56be310d3f9d500ab551c7d2b19ffaa83
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377568"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378381"
 ---
 # <a name="remove-role-assignments-from-a-group-in-azure-active-directory"></a>Rimuovere le assegnazioni di ruolo da un gruppo in Azure Active Directory
 
@@ -28,7 +28,7 @@ Questo articolo descrive come un amministratore IT può rimuovere Azure AD ruoli
 
 1. Accedere al centro di [amministrazione di Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione Azure ad.
 
-1. Selezionare **ruoli e amministratori** > **_nome ruolo_*_.
+1. Selezionare **ruoli e amministratori** > * *_nome ruolo_* _.
 
 1. Selezionare il gruppo da cui si desidera rimuovere l'assegnazione di ruolo e selezionare _ * Rimuovi assegnazione * *.
 
@@ -36,7 +36,7 @@ Questo articolo descrive come un amministratore IT può rimuovere Azure AD ruoli
 
 1. Quando viene richiesto di confermare l'azione, selezionare **Sì**.
 
-## <a name="using-powershell"></a>Utilizzo di PowerShell
+## <a name="using-powershell"></a>Uso di PowerShell
 
 ### <a name="create-a-group-that-can-be-assigned-to-role"></a>Creare un gruppo che può essere assegnato al ruolo
 
@@ -107,5 +107,5 @@ DELETE https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare i gruppi di cloud per gestire le assegnazioni di ruolo](groups-concept.md)
+- [Usare i gruppi cloud per gestire le assegnazioni di ruoli](groups-concept.md)
 - [Risoluzione dei problemi correlati ai ruoli assegnati ai gruppi cloud](groups-faq-troubleshooting.md)

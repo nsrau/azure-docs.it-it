@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: how-to
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 99d83005599c59f6a4249014139b594764df8acf
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0932e4b6163264b0b514958e1e898b297e249870
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375280"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93378551"
 ---
 # <a name="assign-custom-roles-to-manage-enterprise-apps-in-azure-active-directory"></a>Assegnare ruoli personalizzati per gestire le app aziendali in Azure Active Directory
 
@@ -46,7 +46,7 @@ La concessione dell'autorizzazione Update viene eseguita in due passaggi:
 > I ruoli personalizzati vengono creati e gestiti a livello dell'organizzazione e sono disponibili solo dalla pagina Panoramica dell'organizzazione.
 
 1. Accedere al centro di [amministrazione di Azure ad](https://aad.portal.azure.com) con autorizzazioni di amministratore del ruolo con privilegi o di amministratore globale nell'organizzazione.
-1. Selezionare **Azure Active Directory**, selezionare **Ruoli e amministratori** e quindi selezionare **Nuovo ruolo personalizzato**.
+1. Selezionare **Azure Active Directory** , selezionare **Ruoli e amministratori** e quindi selezionare **Nuovo ruolo personalizzato**.
 
     ![Aggiungere un nuovo ruolo personalizzato dall'elenco dei ruoli in Azure AD](./media/custom-enterprise-apps/new-custom-role.png)
 
@@ -70,7 +70,7 @@ La concessione dell'autorizzazione Update viene eseguita in due passaggi:
 
     ![Aprire ruoli e amministratori e cercare il ruolo personalizzato](./media/custom-enterprise-apps/select-custom-role.png)
 
-1. Selezionare **Aggiungi assegnazione**, selezionare l'utente desiderato e quindi fare clic su **Seleziona** per aggiungere l'assegnazione di ruolo all'utente.
+1. Selezionare **Aggiungi assegnazione** , selezionare l'utente desiderato e quindi fare clic su **Seleziona** per aggiungere l'assegnazione di ruolo all'utente.
 
     ![Aggiungere un'assegnazione per il ruolo personalizzato all'utente](./media/custom-enterprise-apps/assign-user-to-role.png)
 

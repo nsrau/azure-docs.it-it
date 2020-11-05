@@ -6,19 +6,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.topic: article
-ms.date: 08/13/2020
+ms.date: 11/05/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 837750d7eeef9bc7a133a54b23a0c52c847364eb
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 0f80f67ac695c17cc760e0e87fb9b11384fb7585
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92377624"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377735"
 ---
 # <a name="troubleshooting-roles-assigned-to-cloud-groups"></a>Risoluzione dei problemi correlati ai ruoli assegnati ai gruppi cloud
 
@@ -32,9 +32,9 @@ Di seguito sono riportate alcune domande comuni e suggerimenti per la risoluzion
 
 **R:** Per impostazione predefinita, solo l'amministratore del ruolo con privilegi e l'amministratore globale gestiscono l'appartenenza di un gruppo assegnabile al ruolo, ma è possibile delegare la gestione dei gruppi assegnabili al ruolo aggiungendo i proprietari del gruppo.
 
-**D**: sono un amministratore dell'helpdesk nell'organizzazione, ma non è possibile aggiornare la password di un utente che è un lettore di directory. Perché si verifica?
+**D** : sono un amministratore dell'helpdesk nell'organizzazione, ma non è possibile aggiornare la password di un utente che è un lettore di directory. Perché si verifica?
 
-**R**: l'utente potrebbe avere ottenuto un lettore di directory tramite un gruppo assegnabile al ruolo. Tutti i membri e i proprietari di un gruppo assegnabile al ruolo sono protetti. Solo gli utenti con privilegi di amministratore di autenticazione o ruoli di amministratore globale possono reimpostare le credenziali per un utente protetto.
+**R** : l'utente potrebbe avere ottenuto un lettore di directory tramite un gruppo assegnabile al ruolo. Tutti i membri e i proprietari di un gruppo assegnabile al ruolo sono protetti. Solo gli utenti con privilegi di amministratore di autenticazione o ruoli di amministratore globale possono reimpostare le credenziali per un utente protetto.
 
 **D:** Non è possibile aggiornare la password di un utente. Non dispone di un ruolo con privilegi più elevati assegnato. Perché si verifica?
 
@@ -89,7 +89,7 @@ Utente | Proprietario Catalogo | Solo se il proprietario del gruppo | Solo se il
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire **Azure Active Directory**.
 1. Selezionare utenti e aprire un profilo utente.
-1. Selezionare **ruoli assegnati**, quindi:
+1. Selezionare **ruoli assegnati** , quindi:
 
     - In Azure AD Premium le organizzazioni con licenza P1: selezionare l'icona dell'ingranaggio. Viene visualizzato un riquadro che può fornire queste informazioni.
     - Nelle organizzazioni Azure AD Premium P2 con licenza: sono disponibili informazioni sulle licenze dirette e ereditate nella colonna **Membership** .
@@ -100,5 +100,5 @@ Utente | Proprietario Catalogo | Solo se il proprietario del gruppo | Solo se il
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Usare i gruppi di cloud per gestire le assegnazioni di ruolo](groups-concept.md)
+- [Usare i gruppi cloud per gestire le assegnazioni di ruoli](groups-concept.md)
 - [Creare un gruppo assegnabile a un ruolo](groups-create-eligible.md)

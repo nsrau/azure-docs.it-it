@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.date: 05/05/2020
 ms.author: kaib
-ms.openlocfilehash: 5d803acc7f2287d0b88791d85fa876f89e4a0955
-ms.sourcegitcommit: 03713bf705301e7f567010714beb236e7c8cee6f
+ms.openlocfilehash: 0d8a030061ef6aa848344152edaa3267ad916e2a
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92332186"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93377939"
 ---
 # <a name="chroot-environment-in-a-linux-rescue-vm"></a>Ambiente chroot in una macchina virtuale di ripristino Linux
 
@@ -34,7 +34,7 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
 
    1. Accedere alla macchina virtuale come utente root usando il comando seguente:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Trovare il disco usando `dmesg` (il metodo usato per individuare il nuovo disco potrebbe variare). Nell'esempio seguente viene usato **dmesg** per filtrare i dischi **SCSI** :
 
@@ -53,17 +53,17 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare i comandi seguenti per accedere all'ambiente chroot:
 
       ```
-      #mkdir /rescue
-      #mount /dev/sdc1 /rescue
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/sdc1 /rescue
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Risolvere i problemi relativi all'ambiente chroot.
@@ -71,16 +71,16 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare i comandi seguenti per uscire dall'ambiente chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -101,7 +101,7 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
 
    1. Accedere alla macchina virtuale come utente root usando il comando seguente:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Trovare il disco usando `dmesg` (il metodo usato per individuare il nuovo disco potrebbe variare). Nell'esempio seguente viene usato **dmesg** per filtrare i dischi **SCSI** :
 
@@ -120,17 +120,17 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare i comandi seguenti per accedere all'ambiente chroot:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Risolvere i problemi relativi all'ambiente chroot.
@@ -138,16 +138,16 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare i comandi seguenti per uscire dall'ambiente chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -171,7 +171,7 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
 
    1. Accedere alla macchina virtuale come utente root usando il comando seguente:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Trovare il disco usando `dmesg` (il metodo usato per individuare il nuovo disco potrebbe variare). Nell'esempio seguente viene usato **dmesg** per filtrare i dischi **SCSI** :
 
@@ -190,9 +190,9 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare il comando seguente per attivare il gruppo di volumi logici:
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Usare il `lsblk` comando per recuperare i nomi LVM:
@@ -221,23 +221,23 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare i comandi seguenti per accedere all'ambiente chroot:
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/mapper/rootvg-optlv /rescue/opt
-      #mount /dev/sdc2 /rescue/boot/
-      #mount /dev/sdc1 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/mapper/rootvg-optlv /rescue/opt
+      mount /dev/sdc2 /rescue/boot/
+      mount /dev/sdc1 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Risolvere i problemi relativi all'ambiente chroot.
@@ -245,22 +245,22 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare i comandi seguenti per uscire dall'ambiente chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue/opt
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue/opt
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -284,7 +284,7 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
 
    1. Accedere alla macchina virtuale come utente root usando il comando seguente:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Trovare il disco usando `dmesg` (il metodo usato per individuare il nuovo disco potrebbe variare). Nell'esempio seguente viene usato **dmesg** per filtrare i dischi **SCSI** :
 
@@ -303,9 +303,9 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare il comando seguente per attivare il gruppo di volumi logici:
 
       ```
-      #vgscan --mknodes
-      #vgchange -ay
-      #lvscan
+      vgscan --mknodes
+      vgchange -ay
+      lvscan
       ```
 
    1. Usare il `lsblk` comando per recuperare i nomi LVM:
@@ -333,22 +333,22 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare i comandi seguenti per accedere all'ambiente chroot:
 
       ```
-      #mkdir /rescue
-      #mount /dev/mapper/rootvg-rootlv /rescue
-      #mount /dev/mapper/rootvg-varlv /rescue/var
-      #mount /dev/mapper/rootvg-homelv /rescue/home
-      #mount /dev/mapper/rootvg-usrlv /rescue/usr
-      #mount /dev/mapper/rootvg-tmplv /rescue/tmp
-      #mount /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount /dev/mapper/rootvg-rootlv /rescue
+      mount /dev/mapper/rootvg-varlv /rescue/var
+      mount /dev/mapper/rootvg-homelv /rescue/home
+      mount /dev/mapper/rootvg-usrlv /rescue/usr
+      mount /dev/mapper/rootvg-tmplv /rescue/tmp
+      mount /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Risolvere i problemi relativi all'ambiente chroot.
@@ -356,21 +356,21 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare i comandi seguenti per uscire dall'ambiente chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue/home
-      #umount /rescue/var
-      #umount /rescue/usr
-      #umount /rescue/tmp
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue/home
+      umount /rescue/var
+      umount /rescue/usr
+      umount /rescue/tmp
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -391,7 +391,7 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
 
    1. Accedere alla macchina virtuale come utente root usando il comando seguente:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Trovare il disco usando `dmesg` (il metodo usato per individuare il nuovo disco potrebbe variare). Nell'esempio seguente viene usato **dmesg** per filtrare i dischi **SCSI** :
 
@@ -410,18 +410,18 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare i comandi seguenti per accedere all'ambiente chroot:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc2 /rescue
-      #mount -o nouuid /dev/sdc1 /rescue/boot/
-      #mount /dev/sdc15 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc2 /rescue
+      mount -o nouuid /dev/sdc1 /rescue/boot/
+      mount /dev/sdc15 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      ##chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Risolvere i problemi relativi all'ambiente chroot.
@@ -429,17 +429,17 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare i comandi seguenti per uscire dall'ambiente chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]
@@ -460,7 +460,7 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
 
    1. Accedere alla macchina virtuale come utente root usando il comando seguente:
 
-      `#sudo su -`
+      `sudo su -`
 
    1. Trovare il disco usando `dmesg` (il metodo usato per individuare il nuovo disco potrebbe variare). Nell'esempio seguente viene usato **dmesg** per filtrare i dischi **SCSI** :
 
@@ -479,18 +479,18 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare i comandi seguenti per accedere all'ambiente chroot:
 
       ```
-      #mkdir /rescue
-      #mount -o nouuid /dev/sdc4 /rescue
-      #mount -o nouuid /dev/sdc3 /rescue/boot/
-      #mount /dev/sdc2 /rescue/boot/efi
-      #cd /rescue
+      mkdir /rescue
+      mount -o nouuid /dev/sdc4 /rescue
+      mount -o nouuid /dev/sdc3 /rescue/boot/
+      mount /dev/sdc2 /rescue/boot/efi
+      cd /rescue
 
-      #mount -t proc proc proc
-      #mount -t sysfs sys sys/
-      #mount -o bind /dev dev/
-      #mount -o bind /dev/pts dev/pts/
-      #mount -o bind /run run/
-      #chroot /rescue
+      mount -t proc proc proc
+      mount -t sysfs sys sys/
+      mount -o bind /dev dev/
+      mount -o bind /dev/pts dev/pts/
+      mount -o bind /run run/
+      chroot /rescue
       ```
 
    1. Risolvere i problemi relativi all'ambiente chroot.
@@ -498,17 +498,17 @@ Questo articolo descrive come risolvere i problemi dell'ambiente chroot nella ma
    1. Usare i comandi seguenti per uscire dall'ambiente chroot:
 
       ```
-      #exit
+      exit
 
-      #umount /rescue/proc/
-      #umount /rescue/sys/
-      #umount /rescue/dev/pts
-      #umount /rescue/dev/
-      #umount /rescue/run
-      #cd /
-      #umount /rescue/boot/efi
-      #umount /rescue/boot
-      #umount /rescue
+      umount /rescue/proc/
+      umount /rescue/sys/
+      umount /rescue/dev/pts
+      umount /rescue/dev/
+      umount /rescue/run
+      cd /
+      umount /rescue/boot/efi
+      umount /rescue/boot
+      umount /rescue
       ```
 
       > [!NOTE]
