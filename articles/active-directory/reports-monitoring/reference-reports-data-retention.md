@@ -13,16 +13,16 @@ ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 03/24/2020
+ms.date: 11/05/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5deb84cdc2dee61474c9f2bd1f93311d89f8918
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 98b9a2da11ad32e35704a49cfcf1788f95276dda
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92308872"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393456"
 ---
 # <a name="how-long-does-azure-ad-store-reporting-data"></a>Quanto tempo Azure AD archiviare i dati dei report?
 
@@ -41,19 +41,13 @@ In questo articolo vengono illustrati i criteri di conservazione dei dati per i 
 ### <a name="when-is-the-activity-data-available-in-the-azure-portal"></a>Quando i dati dell'attività sono disponibili nel portale di Azure?
 
 - **Immediatamente** : se si è già lavorato con i report nel portale di Azure.
-- **Entro 2 ore**: se non si è attivata la creazione di report nel portale di Azure.
+- **Entro 2 ore** : se non si è attivata la creazione di report nel portale di Azure.
 
 ---
 
 ### <a name="how-soon-can-i-see-activities-data-after-getting-a-premium-license"></a>In quanto tempo è possibile visualizzare i dati di attività dopo aver acquistato una licenza Premium?
 
 Se si dispone già di dati di attività con la licenza gratuita, è possibile visualizzarli immediatamente dopo l'aggiornamento. Se non si dispone di dati, questi verranno visualizzati nei report dopo uno o due giorni dall'acquisto della licenza Premium.
-
----
-
-### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>È possibile visualizzare i dati del mese precedente dopo avere acquistato una licenza Azure AD Premium?
-
-Se si è passati recentemente a una versione premium (inclusa una versione di prova), è possibile vedere inizialmente dati fino a 7 giorni. Man mano che i dati si accumulano, è possibile visualizzare quelli degli ultimi 30 giorni.
 
 ---
 
@@ -81,5 +75,11 @@ Per i segnali di sicurezza, il processo di raccolta viene avviato quando si acco
 | :--            | :--           | :--                 | :--                 |
 | Utenti a rischio.  | 7 giorni        | 30 giorni             | 90 giorni             |
 | Accessi a rischio | 7 giorni        | 30 giorni             | 90 giorni             |
+
+---
+
+### <a name="can-i-see-last-months-data-after-getting-an-azure-ad-premium-license"></a>È possibile visualizzare i dati del mese precedente dopo avere acquistato una licenza Azure AD Premium?
+
+**No** , non è possibile. Azure archivia fino a sette giorni di dati di attività per una versione gratuita. Ciò significa che quando si passa da una versione gratuita a una a una versione Premium, è possibile visualizzare solo fino a 7 giorni di dati.
 
 ---

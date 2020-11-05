@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: tutorial
 ms.date: 08/04/2020
-ms.openlocfilehash: 745ea7dd8b3ee74c46d4c50a872dc4995d298142
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 744f71f0d9d20d6a815d26f89696898ebdbaab3d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91291164"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392596"
 ---
 # <a name="tutorial-migrate-sql-server-to-an-azure-sql-managed-instance-online-using-dms"></a>Esercitazione: Eseguire la migrazione online di SQL Server a Istanza gestita di SQL di Azure con Servizio Migrazione del database
 
@@ -74,7 +74,7 @@ Per completare questa esercitazione, è necessario:
 
 * Assicurarsi che le regole del gruppo di sicurezza di rete per la rete virtuale non blocchino le porte di comunicazione in uscita per Servizio Migrazione del database di Azure: 443, 53, 9354, 445, 12000. Per informazioni dettagliate sul filtro del traffico dei gruppi di sicurezza di rete della rete virtuale di Azure, vedere l'articolo [Filtrare il traffico di rete con gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/virtual-networks-nsg).
 * Configurare [Windows Firewall per l'accesso al motore del database di origine](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access).
-* Aprire Windows Firewall per consentire a Servizio Migrazione del database di Azure di accedere all'istanza di origine di SQL Server, che per impostazione predefinita è tramite la porta TCM 1433.
+* Aprire Windows Firewall per consentire a Servizio Migrazione del database di Azure di accedere all'istanza di origine di SQL Server, che per impostazione predefinita è tramite la porta TCM 1433. Se l'istanza predefinita è in ascolto su un'altra porta, aggiungerla al firewall.
 * Se si eseguono più istanze denominate di SQL Server tramite porte dinamiche, è consigliabile abilitare il servizio SQL Browser e consentire l'accesso alla porta UDP 1434 attraverso i firewall, in modo che Servizio Migrazione del database di Azure possa connettersi a un'istanza denominata nel server di origine.
 * Se si usa un'appliance firewall all'ingresso dei database di origine, può essere necessario aggiungere regole del firewall per consentire a Servizio Migrazione del database di Azure di accedere ai database di origine per la migrazione, oltre che ai file, attraverso la porta SMB 445.
 * Creare un'istanza di Istanza gestita di SQL seguendo le istruzioni dettagliate riportate nell'articolo [Creare un'istanza di Istanza gestita di SQL nel portale di Azure](https://aka.ms/sqldbmi).
@@ -94,7 +94,7 @@ Per completare questa esercitazione, è necessario:
 
 ## <a name="register-the-microsoftdatamigration-resource-provider"></a>Registrare il provider di risorse Microsoft.DataMigration
 
-1. Accedere al portale di Azure, selezionare **Tutti i servizi**, quindi selezionare **Sottoscrizioni**.
+1. Accedere al portale di Azure, selezionare **Tutti i servizi** , quindi selezionare **Sottoscrizioni**.
 
     ![Mostra le sottoscrizioni del portale](media/tutorial-sql-server-to-managed-instance-online/portal-select-subscriptions.png)
 
@@ -108,7 +108,7 @@ Per completare questa esercitazione, è necessario:
 
 ## <a name="create-an-azure-database-migration-service-instance"></a>Creare un'istanza del Servizio Migrazione del database di Azure
 
-1. Nel portale di Azure selezionare **+ Crea una risorsa**, cercare **Servizio Migrazione del database di Azure** e quindi selezionare **Servizio Migrazione del database di Azure** dall'elenco a discesa.
+1. Nel portale di Azure selezionare **+ Crea una risorsa** , cercare **Servizio Migrazione del database di Azure** e quindi selezionare **Servizio Migrazione del database di Azure** dall'elenco a discesa.
 
      ![Azure Marketplace](media/tutorial-sql-server-to-managed-instance-online/portal-marketplace.png)
 
@@ -143,7 +143,7 @@ Per completare questa esercitazione, è necessario:
 
 Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, aprirlo e creare un nuovo progetto di migrazione.
 
-1. Nel portale di Azure selezionare **Tutti i servizi**, eseguire la ricerca di Servizio Migrazione del database di Azure e quindi selezionare **Servizio Migrazione del database di Azure**.
+1. Nel portale di Azure selezionare **Tutti i servizi** , eseguire la ricerca di Servizio Migrazione del database di Azure e quindi selezionare **Servizio Migrazione del database di Azure**.
 
     ![Individuare tutte le istanze di Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-managed-instance-online/dms-search.png)
 
@@ -151,7 +151,7 @@ Dopo aver creato un'istanza del servizio, individuarlo nel portale di Azure, apr
 
 3. Selezionare **+ Nuovo progetto di migrazione**.
 
-4. Nella schermata **Nuovo progetto di migrazione** specificare un nome per il progetto e quindi selezionare **SQL Server** nella casella di testo **Tipo del server di origine**, **Istanza gestita di SQL di Azure** nella casella di testo **Tipo del server di destinazione** e **Migrazione dei dati online** per **Scegli il tipo di attività**.
+4. Nella schermata **Nuovo progetto di migrazione** specificare un nome per il progetto e quindi selezionare **SQL Server** nella casella di testo **Tipo del server di origine** , **Istanza gestita di SQL di Azure** nella casella di testo **Tipo del server di destinazione** e **Migrazione dei dati online** per **Scegli il tipo di attività**.
 
    ![Creare un progetto di Servizio Migrazione del database di Azure](media/tutorial-sql-server-to-managed-instance-online/dms-create-project3.png)
 
@@ -266,7 +266,7 @@ Al termine del ripristino del backup completo del database nell'istanza di desti
     > [!IMPORTANT]
     > Dopo il cutover, la disponibilità di Istanza gestita di SQL solo con livello di servizio business critical può richiedere molto più tempo rispetto al livello per utilizzo generico perché è necessario effettuare il seeding di tre repliche secondarie per il gruppo di disponibilità elevata AlwaysOn. La durata dell'operazione dipende dalle dimensioni dei dati. Per altre informazioni, vedere [Durata delle operazioni di gestione](../azure-sql/managed-instance/management-operations-overview.md#duration).
 
-5. Quando lo stato di migrazione del database è **Completato**, connettere le applicazioni alla nuova istanza di destinazione di Istanza gestita di SQL.
+5. Quando lo stato di migrazione del database è **Completato** , connettere le applicazioni alla nuova istanza di destinazione di Istanza gestita di SQL.
 
     ![Cutover completato](media/tutorial-sql-server-to-managed-instance-online/dms-cutover-complete.png)
 

@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3b424ece9207328d87068160f78ebc78a3bd1a8d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888430"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395224"
 ---
 # <a name="configure-replication-to-azure-sql-edge"></a>Configurare la replica in Azure SQL Edge 
 
@@ -24,19 +24,19 @@ ms.locfileid: "90888430"
   
 - L'istanza di Azure SQL Edge deve essere un Sottoscrittore push per un server di pubblicazione.
 - Il server di pubblicazione e il server di distribuzione possono essere uno dei seguenti:
-   - Un'istanza di SQL Server eseguita in locale o un'istanza di SQL Server in esecuzione in una macchina virtuale di Azure. Per altre informazioni, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](https://docs.microsoft.com/azure/azure-sql/virtual-machines/). SQL Server le istanze devono usare una versione successiva a SQL Server 2016.
-   - Istanza di Istanza gestita SQL di Azure. SQL Istanza gestita può ospitare database di server di pubblicazione, server di distribuzione e Sottoscrittore. Per altre informazioni, vedere [Replica con Istanza gestita di database SQL](https://docs.microsoft.com/azure/sql-database/replication-with-sql-database-managed-instance/).
+   - Un'istanza di SQL Server eseguita in locale o un'istanza di SQL Server in esecuzione in una macchina virtuale di Azure. Per altre informazioni, vedere [Panoramica di SQL Server in Macchine virtuali di Azure](../azure-sql/virtual-machines/index.yml). SQL Server le istanze devono usare una versione successiva a SQL Server 2016.
+   - Istanza di Istanza gestita SQL di Azure. SQL Istanza gestita può ospitare database di server di pubblicazione, server di distribuzione e Sottoscrittore. Per altre informazioni, vedere [Replica con Istanza gestita di database SQL](/azure/sql-database/replication-with-sql-database-managed-instance/).
 
 - Il database di distribuzione e gli agenti di replica non possono essere inseriti in un'istanza di Azure SQL Edge.  
 
 > [!NOTE]
 > Se si tenta di configurare la replica utilizzando una versione non supportata, è possibile che vengano visualizzati i due errori seguenti: MSSQL_REPL20084 ("Impossibile connettersi al Sottoscrittore") e MSSQL_REPL40532 ("Impossibile aprire il server \<name> richiesto dall'account di accesso. Accesso non riuscito. ").  
 
-## <a name="remarks"></a>Commenti
+## <a name="remarks"></a>Osservazioni
 
 Quando si configura la replica, è importante comprendere i requisiti e le procedure consigliate seguenti:
 
-- Per configurare la replica, è possibile utilizzare [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms). È anche possibile eseguire questa operazione eseguendo istruzioni Transact-SQL nel server di pubblicazione, utilizzando SQL Server Management Studio o [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download-azure-data-studio).
+- Per configurare la replica, è possibile utilizzare [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms). È anche possibile eseguire questa operazione eseguendo istruzioni Transact-SQL nel server di pubblicazione, utilizzando SQL Server Management Studio o [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio).
 - Per eseguire la replica in un'istanza di Azure SQL Edge, è necessario usare l'autenticazione SQL Server per eseguire l'accesso.
 - Le tabelle replicate devono avere una chiave primaria.
 - Una singola pubblicazione in SQL Server può supportare sia sottoscrittori di SQL Edge di Azure, sia sottoscrittori di SQL Server (in locale e in una macchina virtuale di Azure).  
@@ -82,15 +82,13 @@ Le opzioni seguenti non sono supportate per le sottoscrizioni di Azure SQL Edge:
 
 Creare una pubblicazione e una sottoscrizione push. Per altre informazioni, vedere:
   
-- [Creazione di una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/) usando il nome e l'indirizzo IP del server perimetrale di Azure SQL come Sottoscrittore (ad esempio, **myEdgeinstance, 1433**) e un nome di database nell'istanza di Azure SQL Edge come database di destinazione (ad esempio, **AdventureWorks**).  
+- [Creazione di una pubblicazione](/sql/relational-databases/replication/publish/create-a-publication)
+- [Creare una sottoscrizione push](/sql/relational-databases/replication/create-a-push-subscription/) usando il nome e l'indirizzo IP del server perimetrale di Azure SQL come Sottoscrittore (ad esempio, **myEdgeinstance, 1433** ) e un nome di database nell'istanza di Azure SQL Edge come database di destinazione (ad esempio, **AdventureWorks** ).  
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-- [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
-- [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
-- [Tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
-- [Monitoraggio (replica)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)
-- [Inizializzare una sottoscrizione](https://docs.microsoft.com/sql/relational-databases/replication/initialize-a-subscription)  
-
-
+- [Creare una pubblicazione](/sql/relational-databases/replication/publish/create-a-publication)
+- [Creare una sottoscrizione push](/sql/relational-databases/replication/create-a-push-subscription/)
+- [Tipi di replica](/sql/relational-databases/replication/types-of-replication)
+- [Monitoraggio (replica)](/sql/relational-databases/replication/monitor/monitoring-replication)
+- [Inizializzare una sottoscrizione](/sql/relational-databases/replication/initialize-a-subscription)

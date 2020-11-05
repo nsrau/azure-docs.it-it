@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 09/02/2020
 ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 3908e5f4b7b246fe1c74e5ac4d20053242ece9f6
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: df27d7b25010fa68fc86ffe093318b2b0b7f4e96
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927686"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393830"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Come espandere l'unità del sistema operativo di una macchina virtuale
 
@@ -39,18 +39,18 @@ Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribu
 ## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Ridimensionare un disco gestito nel portale di Azure
 
 1. Nella [portale di Azure](https://portal.azure.com)passare alla macchina virtuale in cui si vuole espandere il disco. Selezionare **Arresta** per deallocare la VM.
-2. Quando la macchina virtuale viene arrestata, nel menu a sinistra in **Impostazioni** selezionare **dischi** .
+2. Quando la macchina virtuale viene arrestata, nel menu a sinistra in **Impostazioni** selezionare **dischi**.
 
     :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Screenshot che mostra l'opzione dischi selezionata nella sezione impostazioni del menu.":::
 
  
 3. In **nome disco** selezionare il disco che si desidera ridimensionare.
 
-    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot che mostra l'opzione dischi selezionata nella sezione impostazioni del menu.":::
+    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot che mostra il riquadro dischi con un nome di disco selezionato.":::
 
-4. Nel menu a sinistra in **Impostazioni** selezionare **configurazione** .
+4. Nel menu a sinistra in **Impostazioni** selezionare **configurazione**.
 
-    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot che mostra l'opzione dischi selezionata nella sezione impostazioni del menu.":::
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot che mostra l'opzione di configurazione selezionata nella sezione impostazioni del menu.":::
 
 5. In **dimensioni (GIB)** selezionare le dimensioni del disco desiderate.
    
@@ -58,11 +58,11 @@ Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribu
    > Le nuove dimensioni devono essere maggiori delle dimensioni del disco esistente. Il valore massimo consentito è 2.048 GB per i dischi del sistema operativo. È possibile espandere il BLOB VHD oltre tale dimensione, ma il sistema operativo funziona solo con i primi 2.048 GB di spazio.
    > 
 
-    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot che mostra l'opzione dischi selezionata nella sezione impostazioni del menu.":::
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot che mostra il riquadro di configurazione con le dimensioni del disco selezionate.":::
 
-6. Selezionare **Salva** .
+6. Selezionare **Salva**.
 
-    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot che mostra l'opzione dischi selezionata nella sezione impostazioni del menu.":::
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot che mostra il riquadro di configurazione con il pulsante Salva selezionato.":::
 
 
 ## <a name="resize-a-managed-disk-by-using-powershell"></a>Ridimensionare un disco gestito usando PowerShell
@@ -226,16 +226,16 @@ Analogamente, è possibile fare riferimento ad altri dischi dati collegati alla 
 **Dischi non gestiti**
 
 ```powershell
-($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'}).DiskSizeGB = 1023
+($vm.StorageProfile.DataDisks | Where ({$_.Name -eq 'my-second-data-disk'})).DiskSizeGB = 1023
 ```
 
 ## <a name="expand-the-volume-within-the-os"></a>Espandere il volume all'interno del sistema operativo
 
-Quando si espande il disco per la macchina virtuale, è necessario passare al sistema operativo ed espandere il volume per includere il nuovo spazio. Esistono diversi metodi per l'espansione di una partizione. Questa sezione illustra la connessione alla macchina virtuale con una connessione RDP per espandere la partizione utilizzando **DiskPart** .
+Quando si espande il disco per la macchina virtuale, è necessario passare al sistema operativo ed espandere il volume per includere il nuovo spazio. Esistono diversi metodi per l'espansione di una partizione. Questa sezione illustra la connessione alla macchina virtuale con una connessione RDP per espandere la partizione utilizzando **DiskPart**.
 
 1. Aprire una connessione RDP alla macchina virtuale.
 
-2. Aprire il prompt dei comandi e digitare **diskpart** .
+2. Aprire il prompt dei comandi e digitare **diskpart**.
 
 3. Al prompt di **DISKPART** digitare `list volume`. Prendere nota del volume da estendere.
 

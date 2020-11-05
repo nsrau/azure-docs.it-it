@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: troubleshooting
 ms.date: 09/16/2020
 ms.author: jasteppe
-ms.openlocfilehash: 4a1a23ca2d0b30a192c30b331c588d13a2a261a7
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: a843ee15d4e7c67bcf69609067d70f592b9b50d6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558517"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394221"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del connettore Azure per FHIR (anteprima)
 
@@ -33,12 +33,12 @@ In questa sezione si apprenderà come eseguire il processo di convalida del conn
 
 |Elemento|Obbligatoria|
 |:-------|:------|
-|TypeName|True|
-|TypeMatchExpression|True|
-|DeviceIdExpression|True|
-|TimestampExpression|True|
-|Valori []. ValueName|True|
-|Valori []. ValueExpression|True|
+|TypeName|Vero|
+|TypeMatchExpression|Vero|
+|DeviceIdExpression|Vero|
+|TimestampExpression|Vero|
+|Valori []. ValueName|Vero|
+|Valori []. ValueExpression|Vero|
 
 > [!NOTE]
 > Valori []. ValueName e Values []. ValueExpression
@@ -49,7 +49,7 @@ In questa sezione si apprenderà come eseguire il processo di convalida del conn
 
 |Elemento|Obbligatoria|
 |:------|:-------|
-|TypeName|True|
+|TypeName|Vero|
 
 > [!NOTE]
 > Questo è l'unico elemento di mapping FHIR obbligatorio convalidato in questo momento.
@@ -91,7 +91,7 @@ Le copie dei file di mapping devono essere fornite al supporto tecnico di Azure 
 > JSON è l'unico formato supportato per i file di mapping del dispositivo e del FHIR in questo momento.
 
 > [!TIP]
-> Altre informazioni sul connettore Azure per i dispositivi FHIR [e sul mapping della conversione FHIR JSON](https://docs.microsoft.com/azure/healthcare-apis/iot-mapping-templates)
+> Altre informazioni sul connettore Azure per i dispositivi FHIR [e sul mapping della conversione FHIR JSON](./iot-mapping-templates.md)
 
 1. Per il Dashboard delle risorse di Azure per FHIR nella sezione **"componenti aggiuntivi"** , selezionare **"connettore Internet (anteprima)"** in basso a sinistra.
 
@@ -99,18 +99,18 @@ Le copie dei file di mapping devono essere fornite al supporto tecnico di Azure 
 
 2. Selezionare il **"connettore"** da cui verrà copiato il mapping di conversione JSON.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Connector1" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
 > [!NOTE]
 > Questo processo può essere usato anche per copiare e salvare il contenuto del file JSON **"Configure FHIR mapping"** .
 
-3. Selezionare **"Configura mapping dispositivi"** .
+3. Selezionare **"Configura mapping dispositivi"**.
 
-    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
+    :::image type="content" source="media/iot-troubleshoot/map-files-select-device-with-box.png" alt-text="Connector3" lightbox="media/iot-troubleshoot/map-files-select-device-with-box.png":::
 
 4. Selezionare il contenuto del file JSON ed eseguire un'operazione di copia (ad esempio, selezionare Ctrl + c). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Connector1" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 5. Eseguire un'operazione Incolla (ad esempio, selezionare Ctrl + v) in un nuovo file all'interno di un editor, ad esempio Visual Studio Code, blocco note, e salvare il file con estensione JSON.
 

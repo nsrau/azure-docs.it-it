@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: e34cd0907320f96f2846c1f424e678555381cccc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a74e12a5e9bdd2dfdbc6ac07b66798e517f6f426
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907123"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395071"
 ---
 # <a name="what-is-azure-sql-edge"></a>Che cos'è Azure SQL Edge?
 
 Azure SQL Edge è un motore di database relazionale ottimizzato, incentrato per le distribuzioni di Internet e IoT Edge. Fornisce funzionalità per la creazione di un livello di elaborazione e archiviazione dei dati ad alte prestazioni per le applicazioni e le soluzioni IoT. SQL Edge di Azure offre funzionalità per lo streaming, l'elaborazione e l'analisi di dati relazionali e non relazionali, ad esempio JSON, grafi e serie temporali, che lo rendono la scelta ideale per un'ampia gamma di applicazioni IoT moderne.
 
-Azure SQL Edge è basato sulle versioni più recenti del [SQL Server motore di database](/sql/sql-server/sql-server-technical-documentation), che offre funzionalità leader del settore per le prestazioni, la sicurezza e l'elaborazione delle query. Poiché Azure SQL Edge si basa sullo stesso motore di [SQL Server](/sql/sql-server/sql-server-technical-documentation) e [Azure SQL](https://docs.microsoft.com/azure/azure-sql/), fornisce la stessa area di progettazione Transact-SQL (T-SQL) che rende più semplice e veloce lo sviluppo di applicazioni o soluzioni e rende la portabilità delle applicazioni tra i dispositivi IOT Edge, i Data Center e il cloud in modo semplice.
+Azure SQL Edge è basato sulle versioni più recenti del [SQL Server motore di database](/sql/sql-server/sql-server-technical-documentation), che offre funzionalità leader del settore per le prestazioni, la sicurezza e l'elaborazione delle query. Poiché Azure SQL Edge si basa sullo stesso motore di [SQL Server](/sql/sql-server/sql-server-technical-documentation) e [Azure SQL](../azure-sql/index.yml), fornisce la stessa area di progettazione Transact-SQL (T-SQL) che rende più semplice e veloce lo sviluppo di applicazioni o soluzioni e rende la portabilità delle applicazioni tra i dispositivi IOT Edge, i Data Center e il cloud in modo semplice.
 
 Che cos'è il video di Azure SQL Edge su Channel 9:
 > [!VIDEO https://channel9.msdn.com/Shows/Data-Exposed/What-is-Azure-SQL-Edge/player]

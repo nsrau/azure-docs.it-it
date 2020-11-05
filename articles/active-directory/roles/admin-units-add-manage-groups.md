@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 10/07/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eee8ae8eeebfff61dd90aedc35a3dc04a88d6758
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 092604429cf5a527d7ee62b412e879ad9991eace
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026735"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394748"
 ---
 # <a name="add-and-manage-groups-in-an-administrative-unit-in-azure-active-directory"></a>Aggiunta e gestione di gruppi in un'unità amministrativa in Azure Active Directory
 
@@ -37,23 +37,23 @@ Per preparare l'uso di PowerShell e Microsoft Graph per la gestione delle unità
 
 * Dal riquadro **gruppi** :
 
-  1. Nella portale di Azure passare a **Azure ad** .
+  1. Nella portale di Azure passare a **Azure ad**.
   1. Selezionare **gruppi** e quindi selezionare il gruppo che si desidera assegnare all'unità amministrativa. 
   1. Nel riquadro sinistro selezionare **unità amministrative** per visualizzare un elenco delle unità amministrative a cui è assegnato il gruppo. 
 
      ![Screenshot del collegamento "assegna a unità amministrativa" nel riquadro "unità amministrative".](./media/admin-units-add-manage-groups/assign-to-group-1.png)
 
-  1. Selezionare **assegna a unità amministrativa** .
+  1. Selezionare **assegna a unità amministrativa**.
   1. Nel riquadro destro selezionare l'unità amministrativa.
 
 * Dal riquadro **unità amministrative**  >  **tutti i gruppi** :
 
-  1. Nella portale di Azure passare a **Azure ad** .
+  1. Nella portale di Azure passare a **Azure ad**.
   
-  1. Nel riquadro sinistro selezionare **unità amministrative** e quindi selezionare **tutti i gruppi** . 
+  1. Nel riquadro sinistro selezionare **unità amministrative** e quindi selezionare **tutti i gruppi**. 
      Tutti i gruppi già assegnati all'unità amministrativa vengono visualizzati nel riquadro di destra. 
 
-  1. Nel riquadro **gruppi** selezionare **Aggiungi** .
+  1. Nel riquadro **gruppi** selezionare **Aggiungi**.
     Il riquadro destro elenca tutti i gruppi disponibili nell'organizzazione Azure AD. 
 
      ![Screenshot del pulsante "Aggiungi" per aggiungere un gruppo a un'unità amministrativa.](./media/admin-units-add-manage-groups/assign-to-admin-unit.png)
@@ -97,11 +97,11 @@ Esempio:
 
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-1. Nella portale di Azure passare a **Azure ad** .
+1. Nella portale di Azure passare a **Azure ad**.
 
 1. Nel riquadro sinistro selezionare **unità amministrative** , quindi selezionare l'unità amministrativa di cui si desidera visualizzare i gruppi. Per impostazione predefinita, **tutti gli utenti** sono selezionati nel riquadro sinistro. 
 
-1. Nel riquadro sinistro selezionare **gruppi** . Il riquadro di destra visualizza un elenco dei gruppi che sono membri dell'unità amministrativa selezionata.
+1. Nel riquadro sinistro selezionare **gruppi**. Il riquadro di destra visualizza un elenco dei gruppi che sono membri dell'unità amministrativa selezionata.
 
    ![Screenshot del riquadro "gruppi" in cui è visualizzato un elenco di gruppi in un'unità amministrativa.](./media/admin-units-add-manage-groups/list-groups-in-admin-units.png)
 
@@ -141,7 +141,7 @@ Request body
 
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-1. Nella portale di Azure passare a **Azure ad** .
+1. Nella portale di Azure passare a **Azure ad**.
 
 1. Nel riquadro sinistro selezionare **gruppi** per visualizzare un elenco di gruppi.
 
@@ -175,19 +175,19 @@ https://graph.microsoft.com/v1.0/groups/<group-id>/memberOf/$/Microsoft.Graph.Ad
 
 - Rimuoverlo da una panoramica del gruppo:
 
-  1. Nella portale di Azure passare a **Azure ad** .
+  1. Nella portale di Azure passare a **Azure ad**.
   1. Nel riquadro sinistro selezionare **gruppi** e quindi aprire il profilo per il gruppo che si desidera rimuovere da un'unità amministrativa.
   1. Nel riquadro sinistro selezionare **unità amministrative** per elencare tutte le unità amministrative a cui è assegnato il gruppo. 
-  1. Selezionare l'unità amministrativa da cui si vuole rimuovere il gruppo, quindi selezionare **Rimuovi da unità amministrativa** .
+  1. Selezionare l'unità amministrativa da cui si vuole rimuovere il gruppo, quindi selezionare **Rimuovi da unità amministrativa**.
 
      ![Screenshot del riquadro "unità amministrative", che visualizza un elenco di gruppi assegnati all'unità amministrativa selezionata.](./media/admin-units-add-manage-groups/group-au-remove.png)
 
 - Rimuoverlo da un'unità amministrativa:
 
-  1. Nella portale di Azure passare a **Azure ad** .
+  1. Nella portale di Azure passare a **Azure ad**.
   1. Nel riquadro sinistro selezionare **unità amministrative** e quindi selezionare l'unità amministrativa a cui è assegnato il gruppo.
   1. Nel riquadro sinistro selezionare **gruppi** per elencare tutti i gruppi assegnati all'unità amministrativa.
-  1. Selezionare il gruppo che si desidera rimuovere, quindi selezionare **Rimuovi gruppi** .
+  1. Selezionare il gruppo che si desidera rimuovere, quindi selezionare **Rimuovi gruppi**.
 
     ![Screenshot del riquadro "gruppi", che visualizza un elenco di gruppi in un'unità amministrativa.](./media/admin-units-add-manage-groups/list-groups-in-admin-units.png)
 

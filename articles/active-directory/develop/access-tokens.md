@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/26/2020
 ms.author: hirsin
-ms.reviewer: hirsin
+ms.reviewer: mmacy, hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: ee8ea874ba8133216bf5a28587f841d3b7cfa2ed
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: b60be1b3d30ab462f89dd4d72ab67d43393740b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740163"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393371"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Token di accesso di Microsoft Identity Platform
 
@@ -33,7 +33,7 @@ Vedere le sezioni seguenti per informazioni su come una risorsa può convalidare
 > [!IMPORTANT]
 > I token di accesso vengono creati in base al *destinatario* del token, ovvero l'applicazione proprietaria degli ambiti nel token.  In questo modo l'impostazione di una risorsa `accessTokenAcceptedVersion` nel [manifesto dell'applicazione](reference-app-manifest.md#manifest-reference) su `2` consente a un client che chiama l'endpoint v1.0 di ricevere un token di accesso v2.0.  Analogamente, questo è il motivo per cui la modifica delle [attestazioni facoltative](active-directory-optional-claims.md) del token di accesso per il client non cambia il token di accesso ricevuto quando viene richiesto un token per `user.read`, che è di proprietà della risorsa.
 >
-> Per lo stesso motivo, durante il test dell'applicazione client con un'API Microsoft che supporta l'account personale, ad esempio hotmail.com o outlook.com, si noterà che il token di accesso ricevuto dal client è una stringa opaca. Questo perché la risorsa a cui si accede usa i token crittografati e non può essere riconosciuta dal client.  Questo comportamento è previsto e non dovrebbe essere un problema per le app. le app client non devono mai avere una dipendenza dal formato del token di accesso. 
+> Per lo stesso motivo, durante il test dell'applicazione client con un'API Microsoft che supporta l'account personale, ad esempio hotmail.com o outlook.com, si noterà che il token di accesso ricevuto dal client è una stringa opaca. Questo perché la risorsa a cui si accede usa i token crittografati e non può essere riconosciuta dal client.  Questo comportamento è previsto e non dovrebbe essere un problema per le app. le app client non devono mai avere una dipendenza dal formato del token di accesso.
 
 ## <a name="sample-tokens"></a>Token di esempio
 
@@ -178,7 +178,7 @@ Sono disponibili librerie ed esempi di codice che illustrano come gestire la con
 
 ### <a name="validating-the-signature"></a>Convalida della firma
 
-Un token JWT contiene tre segmenti separati dal carattere `.` . Il primo segmento è noto come **intestazione** , il secondo come **corpo** e il terzo come **firma** . Il segmento di firma può essere usato per convalidare l'autenticità del token, in modo che possa essere considerato attendibile dall'app.
+Un token JWT contiene tre segmenti separati dal carattere `.` . Il primo segmento è noto come **intestazione** , il secondo come **corpo** e il terzo come **firma**. Il segmento di firma può essere usato per convalidare l'autenticità del token, in modo che possa essere considerato attendibile dall'app.
 
 I token emessi da Azure AD vengono firmati usando algoritmi di crittografia asimmetrica standard del settore, come RS256. L'intestazione del token JWT contiene informazioni sulla chiave e sul metodo di crittografia usati per firmare il token:
 
@@ -245,7 +245,7 @@ I token di aggiornamento possono essere invalidati o revocati in qualsiasi momen
 
 ### <a name="token-timeouts"></a>Timeout dei token
 
-Usando la [configurazione della durata dei token](active-directory-configurable-token-lifetimes.md) è possibile alterare la durata dei token di aggiornamento.  È normale e previsto che alcuni token non vengano usati, ad esempio se l'utente non apre l'app per tre mesi, e che pertanto scadano.  Le app riscontreranno scenari in cui il server di accesso rifiuta un token di aggiornamento a causa dell'età. 
+Usando la [configurazione della durata dei token](active-directory-configurable-token-lifetimes.md) è possibile alterare la durata dei token di aggiornamento.  È normale e previsto che alcuni token non vengano usati, ad esempio se l'utente non apre l'app per tre mesi, e che pertanto scadano.  Le app riscontreranno scenari in cui il server di accesso rifiuta un token di aggiornamento a causa dell'età.
 
 * MaxInactiveTime: se il token di aggiornamento non è stato usato entro l'intervallo di tempo specificato da MaxInactiveTime, non sarà più valido.
 * MaxSessionAge: se il parametro MaxAgeSessionMultiFactor o MaxAgeSessionSingleFactor è stato impostato su un valore diverso da quello predefinito (Until-revoked), sarà necessaria una nuova autenticazione allo scadere del tempo impostato in MaxAgeSession*.
@@ -255,7 +255,7 @@ Usando la [configurazione della durata dei token](active-directory-configurable-
 
 ### <a name="revocation"></a>Revoca
 
-I token di aggiornamento possono essere revocati dal server a causa di una modifica delle credenziali oppure in conseguenza dell'azione di un amministratore o di un utente.  I token di aggiornamento rientrano in due classi, ovvero quelle rilasciate ai client riservati (la colonna più a destra) e quelle rilasciate ai client pubblici (tutte le altre colonne).   
+I token di aggiornamento possono essere revocati dal server a causa di una modifica delle credenziali oppure in conseguenza dell'azione di un amministratore o di un utente.  I token di aggiornamento rientrano in due classi, ovvero quelle rilasciate ai client riservati (la colonna più a destra) e quelle rilasciate ai client pubblici (tutte le altre colonne).
 
 | Modifica | Cookie basato su password | Token basato su password | Cookie non basato su password | Token non basato su password | Token client riservato |
 |---|-----------------------|----------------------|---------------------------|--------------------------|---------------------------|
@@ -273,14 +273,14 @@ Un account di accesso *non basato su password* è quello in cui l'utente non ha 
 
 - Uso del viso con Windows Hello
 - Chiave di FIDO2
-- SMS
+- sms
 - Chiamata vocale
-- PIN 
+- PIN
 
 > [!NOTE]
 > I token di aggiornamento primari in Windows 10 vengono separati in base alle credenziali. Ad esempio, Windows Hello e le password hanno i rispettivi token di aggiornamento primari, isolati uno dall'altro. Quando un utente accede con le credenziali di Hello (PIN o biometria) e poi cambia la password, il token di aggiornamento primario basato su password ottenuto in precedenza verrà revocato. Se si accede di nuovo con una password, il token di aggiornamento primario precedente viene invalidato e ne viene richiesto uno nuovo.
 >
-> I token di aggiornamento non vengono invalidati o revocati quando vengono usati per recuperare un nuovo token di accesso e un token di aggiornamento.  Tuttavia, l'app deve rimuovere quello precedente non appena viene usato e sostituirlo con quello nuovo, perché il nuovo token include una nuova data di scadenza. 
+> I token di aggiornamento non vengono invalidati o revocati quando vengono usati per recuperare un nuovo token di accesso e un token di aggiornamento.  Tuttavia, l'app deve rimuovere quello precedente non appena viene usato e sostituirlo con quello nuovo, perché il nuovo token include una nuova data di scadenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

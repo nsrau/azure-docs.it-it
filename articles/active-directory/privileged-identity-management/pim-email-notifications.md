@@ -16,12 +16,12 @@ ms.author: curtand
 ms.reviewer: hanki
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 02fbfc83c16cb13376cce820f19b247a7cd7db59
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe57a44a5a6fa9a631604d92419fd8f5ebcce50a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "82232309"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394731"
 ---
 # <a name="email-notifications-in-pim"></a>Notifiche tramite posta elettronica in PIM
 
@@ -34,7 +34,7 @@ I messaggi di posta elettronica inviati da Privileged Identity Management per Az
 - Indirizzo di posta elettronica:  **Azure-noreply \@ Microsoft.com**
 - Nome visualizzato: Microsoft Azure
 
-Questi messaggi di posta elettronica includono un prefisso **PIM** nella riga dell'oggetto. Ecco un esempio:
+Questi messaggi di posta elettronica includono un prefisso **PIM** nella riga dell'oggetto. Ad esempio:
 
 - PIM: Alain Caronte è stato assegnato in modo permanente al ruolo di lettore di backup
 
@@ -68,7 +68,7 @@ Un messaggio di posta elettronica di riepilogo settimanale Privileged Identity M
 
 Il messaggio di posta elettronica include quattro sezioni:
 
-| Tile | Descrizione |
+| Tile | Description |
 | --- | --- |
 | **Users activated** (Utenti attivati) | Numero di volte in cui gli utenti hanno attivato il proprio ruolo idoneo all'interno dell'organizzazione. |
 | **Users made permanent** (Utenti resi permanenti) | Numero di volte per cui un utente con un'assegnazione idonea viene reso permanente. |
@@ -79,10 +79,13 @@ La **Panoramica della sezione ruoli principali** elenca i primi cinque ruoli del
 
 ## <a name="email-timing-for-activation-approvals"></a>Tempistica e-mail per le approvazioni di attivazione
 
-Quando gli utenti attivano il proprio ruolo e l'impostazione del ruolo richiede l'approvazione, gli approvatori riceveranno tre messaggi di posta elettronica per ogni approvazione:
+Quando gli utenti attivano il proprio ruolo e l'impostazione del ruolo richiede l'approvazione, gli approvatori riceveranno due messaggi di posta elettronica per ogni approvazione:
 
 - Richiedere di approvare o negare la richiesta di attivazione dell'utente (inviata dal motore di approvazione della richiesta)
 - La richiesta dell'utente è approvata (inviata dal motore di approvazione della richiesta)
+
+Inoltre, gli amministratori globali e gli amministratori dei ruoli con privilegi ricevono un messaggio di posta elettronica per ogni approvazione:
+
 - Il ruolo dell'utente è attivato (inviato dal Privileged Identity Management)
 
 I primi due messaggi di posta elettronica inviati dal motore di approvazione della richiesta possono essere posticipati. Attualmente, il 90% dei messaggi di posta elettronica dura da 3 a 10 minuti, ma per i clienti dell'1% può essere molto più lungo, fino a 15 minuti.

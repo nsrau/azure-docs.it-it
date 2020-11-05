@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 35985404d5ac97940c324c3ad7f7d46c959b4902
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 02f22883a0989714d8b74f778cacf1ba2c65d0b4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940671"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392011"
 ---
 # <a name="performance-best-practices-and-configuration-guidelines"></a>Procedure consigliate per le prestazioni e linee guida per la configurazione
 
@@ -28,13 +28,13 @@ Azure SQL Edge crea per impostazione predefinita un solo file di dati tempdb com
 
 ### <a name="use-clustered-columnstore-indexes-where-possible"></a>Usare gli indici columnstore cluster laddove possibile
 
-I dispositivi Internet e di tutto tendono a generare un volume elevato di dati che in genere vengono aggregati in un intervallo di tempo per l'analisi. Le singole righe di dati vengono usate raramente per le analisi. Gli indici columnstore sono ideali per archiviare ed eseguire query su set di DataSet di grandi dimensioni. Questo indice usa l'archiviazione dei dati basata su colonne e l'elaborazione delle query per ottenere fino a 10 volte le prestazioni delle query rispetto all'archiviazione tradizionale orientata alle righe. È anche possibile migliorare fino a 10 volte la compressione dei dati rispetto alla dimensione dei dati non compressi. Per altre informazioni, vedere [indici columnstore](https://docs.microsoft.com/sql/relational-databases/indexes/columnstore-indexes-overview)
+I dispositivi Internet e di tutto tendono a generare un volume elevato di dati che in genere vengono aggregati in un intervallo di tempo per l'analisi. Le singole righe di dati vengono usate raramente per le analisi. Gli indici columnstore sono ideali per archiviare ed eseguire query su set di DataSet di grandi dimensioni. Questo indice usa l'archiviazione dei dati basata su colonne e l'elaborazione delle query per ottenere fino a 10 volte le prestazioni delle query rispetto all'archiviazione tradizionale orientata alle righe. È anche possibile migliorare fino a 10 volte la compressione dei dati rispetto alla dimensione dei dati non compressi. Per altre informazioni, vedere [indici columnstore](/sql/relational-databases/indexes/columnstore-indexes-overview)
 
 Inoltre, altre funzionalità di Azure SQL Edge, come il flusso di dati e la conservazione dei dati, traggono vantaggio dalle ottimizzazioni columnstore relative all'inserimento e alla rimozione dei dati. 
 
 ### <a name="simple-recovery-model"></a>Modello di recupero con registrazione minima
 
-Poiché l'archiviazione può essere vincolata nei dispositivi perimetrali, tutti i database utente in Azure SQL Edge usano il modello di recupero con registrazione minima per impostazione predefinita. Il modello di recupero con registrazione minima recupera automaticamente lo spazio di log per limitare i requisiti di spazio, evitando in tal modo la necessità di gestire lo spazio del log delle transazioni. Sui dispositivi perimetrali con archiviazione limitata disponibile, questo può essere utile. Per ulteriori informazioni sul modello di recupero con registrazione minima e altri modelli di recupero disponibili, vedere [modelli di recupero](https://docs.microsoft.com/sql/relational-databases/backup-restore/recovery-models-sql-server)
+Poiché l'archiviazione può essere vincolata nei dispositivi perimetrali, tutti i database utente in Azure SQL Edge usano il modello di recupero con registrazione minima per impostazione predefinita. Il modello di recupero con registrazione minima recupera automaticamente lo spazio di log per limitare i requisiti di spazio, evitando in tal modo la necessità di gestire lo spazio del log delle transazioni. Sui dispositivi perimetrali con archiviazione limitata disponibile, questo può essere utile. Per ulteriori informazioni sul modello di recupero con registrazione minima e altri modelli di recupero disponibili, vedere [modelli di recupero](/sql/relational-databases/backup-restore/recovery-models-sql-server)
 
 Operazioni quali il log shipping e i ripristini temporizzati, che richiedono i backup del log delle transazioni, non sono supportati dal modello di recupero con registrazione minima.  
 
@@ -56,16 +56,9 @@ Le transazioni in Azure SQL Edge possono essere completamente durevoli, le SQL S
 
 Il commit delle transazioni completamente durevole è sincrono e segnala il completamento del commit restituendo il controllo al client solo dopo che i record del log per la transazione vengono scritti su disco. Il commit delle transazioni con durabilità ritardata è asincrono e segnala il completamento del commit prima che i record del log per la transazione vengano scritti su disco. La scrittura delle voci di log delle transazioni su disco è necessaria affinché una transazione sia durevole. Le transazioni con durabilità ritardata diventano durevoli quando le voci di log delle transazioni vengono scaricate su disco. 
 
-Nelle distribuzioni in cui è possibile tollerare la **perdita di dati** o nei dispositivi perimetrali con archiviazione lenta, è possibile usare la durabilità posticipata per ottimizzare l'inserimento dei dati e la pulizia basata sulla conservazione dei dati. Per altre informazioni, vedere [Controllo della durabilità delle transazioni](https://docs.microsoft.com/sql/relational-databases/logs/control-transaction-durability).
+Nelle distribuzioni in cui è possibile tollerare la **perdita di dati** o nei dispositivi perimetrali con archiviazione lenta, è possibile usare la durabilità posticipata per ottimizzare l'inserimento dei dati e la pulizia basata sulla conservazione dei dati. Per altre informazioni, vedere [Controllo della durabilità delle transazioni](/sql/relational-databases/logs/control-transaction-durability).
 
 
 ### <a name="linux-os-configurations"></a>Configurazioni del sistema operativo Linux 
 
-Provare a usare le impostazioni di [configurazione del sistema operativo Linux](https://docs.microsoft.com/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration) seguenti per ottenere prestazioni ottimali per un'installazione di SQL.
-
-
-
-
-
-
-
+Provare a usare le impostazioni di [configurazione del sistema operativo Linux](/sql/linux/sql-server-linux-performance-best-practices#linux-os-configuration) seguenti per ottenere prestazioni ottimali per un'installazione di SQL.

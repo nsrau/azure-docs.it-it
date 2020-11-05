@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 05/20/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: contperfq2
-ms.openlocfilehash: c9d8bf42d8856ffcf7bb0247172f6c0fd49600e0
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 31c9dcaf6c6f26d28d70e3d1664665c2dbc37ce6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92424615"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393082"
 ---
 # <a name="how-provisioning-works"></a>Come funziona il provisioning
 
@@ -43,9 +43,7 @@ Per richiedere un connettore di provisioning automatico Azure AD per un'app che 
 
 ## <a name="authorization"></a>Autorizzazione
 
-Le credenziali sono necessarie ad Azure AD per la connessione all'API di gestione degli utenti dell'applicazione. Durante la configurazione del provisioning utenti automatico per un'applicazione, è necessario immettere credenziali valide. È possibile trovare i tipi di credenziali e i requisiti per l'applicazione facendo riferimento all'esercitazione sull'app. Nel portale di Azure sarà possibile testare le credenziali mediante un tentativo di connessione di Azure AD all'app di provisioning dell'app con le credenziali fornite.
-
-Se per l'applicazione è configurato anche Single Sign-On basato su SAML, il limite di archiviazione interno per applicazione di Azure AD è pari a 1024 byte. Questo limite include tutti i certificati, token segreti, credenziali e dati di configurazione correlati associati a una singola istanza di un'applicazione (definita anche record entità servizio in Azure AD). Quando si configura l'accesso Single Sign-On basato su SAML, il certificato usato per firmare i token SAML spesso usa oltre il 50% dello spazio. Qualsiasi elemento aggiuntivo, come token segreto, URI, indirizzo di posta elettronica di notifica, nome utente e password, immesso durante la configurazione del provisioning degli utenti può provocare il superamento del limite archiviazione. Per altre informazioni, vedere [Problema di salvataggio delle credenziali dell'amministratore durante la configurazione del provisioning utenti](./application-provisioning-config-problem-storage-limit.md).
+Le credenziali sono necessarie ad Azure AD per la connessione all'API di gestione degli utenti dell'applicazione. Durante la configurazione del provisioning utenti automatico per un'applicazione, è necessario immettere credenziali valide. Per le applicazioni della raccolta, è possibile trovare i tipi di credenziali e i requisiti per l'applicazione facendo riferimento all'esercitazione sull'app. Per le applicazioni non della raccolta, è possibile fare riferimento alla documentazione di [scim](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#authorization-for-provisioning-connectors-in-the-application-gallery) per informazioni sui tipi di credenziali e sui requisiti. Nel portale di Azure sarà possibile testare le credenziali mediante un tentativo di connessione di Azure AD all'app di provisioning dell'app con le credenziali fornite.
 
 ## <a name="mapping-attributes"></a>Attributi di mapping
 
@@ -53,7 +51,7 @@ Quando si abilita il provisioning degli utenti per un'applicazione SaaS di terze
 
 Esiste un set preconfigurato di attributi e mapping degli attributi tra gli oggetti utente di Azure AD e gli oggetti utente di ogni app SaaS. Alcune app gestiscono altri tipi di oggetti insieme a utenti e gruppi.
 
-Un aspetto importante da considerare quando si configura il provisioning è quello di esaminare e configurare il mapping degli attributi e i flussi di lavoro che definiscono il tipo di flusso di proprietà utente (o gruppo) da Azure AD all'applicazione. Rivedere e configurare la proprietà corrispondente (**Abbina gli oggetti in base a questo attributo**) che viene usata per identificare e abbinare in modo univoco utenti/gruppi tra i due sistemi.
+Un aspetto importante da considerare quando si configura il provisioning è quello di esaminare e configurare il mapping degli attributi e i flussi di lavoro che definiscono il tipo di flusso di proprietà utente (o gruppo) da Azure AD all'applicazione. Rivedere e configurare la proprietà corrispondente ( **Abbina gli oggetti in base a questo attributo** ) che viene usata per identificare e abbinare in modo univoco utenti/gruppi tra i due sistemi.
 
 È possibile personalizzare i mapping degli attributi predefiniti in base alle esigenze aziendali. Quindi è possibile modificare o eliminare i mapping degli attributi esistenti oppure crearne di nuovi. Per i dettagli, vedere [Personalizzazione dei mapping degli attributi del provisioning utenti per le applicazioni SaaS](./customize-application-attributes.md).
 
@@ -64,7 +62,7 @@ Quando si configura il provisioning in un'applicazione SaaS, come mapping degli 
 
 Per il provisioning in uscita da Azure AD a un'applicazione SaaS, basarsi sulle [assegnazioni di utenti o gruppi](../manage-apps/assign-user-or-group-access-portal.md) è il modo più comune per determinare quali utenti sono inclusi nell'ambito del provisioning. Poiché le assegnazioni utente vengono usate anche per l'abilitazione di Single Sign-On, è possibile usare lo stesso metodo per gestire l'accesso e il provisioning. L'ambito basato sull'assegnazione non si applica agli scenari di provisioning in ingresso, ad esempio giorni lavorativi e Successfactor.
 
-* **Gruppi.** Con un piano di licenza Azure AD Premium è possibile usare gruppi per assegnare l'accesso a un'applicazione SaaS. Quindi, quando l'ambito del provisioning è impostato su **Sincronizza solo gli utenti e i gruppi assegnati**, il servizio di provisioning di Azure AD effettuerà il provisioning o il deprovisioning degli utenti a prescindere che siano membri o meno di un gruppo assegnato all'applicazione. Non viene effettuato il provisioning dell'oggetto gruppo, a meno che l'applicazione non supporti gli oggetti gruppo. Assicurarsi che i gruppi assegnati all'applicazione dispongano della proprietà "SecurityEnabled" impostata su "True".
+* **Gruppi.** Con un piano di licenza Azure AD Premium è possibile usare gruppi per assegnare l'accesso a un'applicazione SaaS. Quindi, quando l'ambito del provisioning è impostato su **Sincronizza solo gli utenti e i gruppi assegnati** , il servizio di provisioning di Azure AD effettuerà il provisioning o il deprovisioning degli utenti a prescindere che siano membri o meno di un gruppo assegnato all'applicazione. Non viene effettuato il provisioning dell'oggetto gruppo, a meno che l'applicazione non supporti gli oggetti gruppo. Assicurarsi che i gruppi assegnati all'applicazione dispongano della proprietà "SecurityEnabled" impostata su "True".
 
 * **Gruppi dinamici.** Il servizio di provisioning utenti Azure AD è in grado di leggere ed effettuare il provisioning degli utenti in [gruppi dinamici](../enterprise-users/groups-create-rule.md). Tenere presenti questi consigli e avvertenze:
 
@@ -135,7 +133,7 @@ Dopo il ciclo iniziale, tutti gli altri cicli consisteranno in quanto segue:
 10. Al termine del ciclo incrementale, il servizio salva in modo permanente una nuova filigrana che fornisce il punto di partenza per i successivi cicli incrementali.
 
 > [!NOTE]
-> È possibile disabilitare le operazioni di **creazione**, **aggiornamento** o **eliminazione** usando le caselle di controllo **Azioni oggetto di destinazione** nella sezione [Mapping](customize-application-attributes.md). La logica per disabilitare un utente durante un aggiornamento viene controllata anche tramite un mapping di attributi da un campo come "accountEnabled".
+> È possibile disabilitare le operazioni di **creazione** , **aggiornamento** o **eliminazione** usando le caselle di controllo **Azioni oggetto di destinazione** nella sezione [Mapping](customize-application-attributes.md). La logica per disabilitare un utente durante un aggiornamento viene controllata anche tramite un mapping di attributi da un campo come "accountEnabled".
 
 Il servizio di provisioning continuerà a eseguire cicli incrementali back-to-back all'infinito, in base agli intervalli definiti nell'[esercitazione specifica di ogni applicazione](../saas-apps/tutorial-list.md). I cicli incrementali continueranno fino al verificarsi di uno degli eventi seguenti:
 
@@ -192,7 +190,7 @@ Negli scenari seguenti viene attivata un'operazione di disabilitazione o elimina
 * Un utente non è assegnato a un'app.
 * Un utente passa dall'ambito all'esterno dell'ambito (non passa più un filtro di ambito).
 
-:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Disabilitare un utente" lightbox="./media/how-provisioning-works/delete-user.png":::
+:::image type="content" source="./media/how-provisioning-works/delete-user.png" alt-text="Eliminare un utente" lightbox="./media/how-provisioning-works/delete-user.png":::
 
 Per impostazione predefinita, il servizio di provisioning di Azure AD elimina temporaneamente o disabilita gli utenti che non rientrano nell'ambito. Se si desidera eseguire l'override di questo comportamento predefinito, è possibile impostare un flag per [ignorare le eliminazioni out-of-scope.](skip-out-of-scope-deletions.md)
 

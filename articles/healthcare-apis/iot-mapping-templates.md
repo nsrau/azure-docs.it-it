@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: punagpal
-ms.openlocfilehash: 4eede07b285614c061f4b59845c8f44d82083ec2
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: 1702c17555d1d3c39a83fa16ca790d6f8f2b3344
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558534"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394238"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-mapping-templates"></a>Modelli di mapping del connettore Azure IoT per FHIR (anteprima)
 Questo articolo illustra come configurare il connettore Azure per FHIR * usando i modelli di mapping.
@@ -254,7 +254,7 @@ Il JsonPathContentTemplate consente la corrispondenza e l'estrazione di valori d
 #### <a name="iotjsonpathcontenttemplate"></a>IotJsonPathContentTemplate
 IotJsonPathContentTemplate è simile a JsonPathContentTemplate, ad eccezione di DeviceIdExpression e TimestampExpression non sono obbligatori.
 
-Quando si usa questo modello, il presupposto è che i messaggi valutati siano stati inviati usando gli [SDK per dispositivi dell'hub Azure](https://docs.microsoft.com/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-hub-device-sdks). Quando si usano questi SDK, l'identità del dispositivo (presupponendo che l'identificatore del dispositivo dall'hub Azure per le risorse di Azure sia registrato come identificatore per una risorsa del dispositivo nel server FHIR di destinazione) e che il timestamp del messaggio sia noto. Se si usano gli SDK per dispositivi dell'hub Azure, ma si usano proprietà personalizzate nel corpo del messaggio per l'identità del dispositivo o il timestamp di misurazione, è comunque possibile usare JsonPathContentTemplate.
+Quando si usa questo modello, il presupposto è che i messaggi valutati siano stati inviati usando gli [SDK per dispositivi dell'hub Azure](../iot-hub/iot-hub-devguide-sdks.md#azure-iot-hub-device-sdks). Quando si usano questi SDK, l'identità del dispositivo (presupponendo che l'identificatore del dispositivo dall'hub Azure per le risorse di Azure sia registrato come identificatore per una risorsa del dispositivo nel server FHIR di destinazione) e che il timestamp del messaggio sia noto. Se si usano gli SDK per dispositivi dell'hub Azure, ma si usano proprietà personalizzate nel corpo del messaggio per l'identità del dispositivo o il timestamp di misurazione, è comunque possibile usare JsonPathContentTemplate.
 
 *Nota: quando si usa IotJsonPathContentTemplate, TypeMatchExpression deve essere risolto nell'intero messaggio come JToken. Vedere gli esempi seguenti.* 
 ##### <a name="examples"></a>Esempi

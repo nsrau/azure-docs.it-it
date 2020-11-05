@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f547f0b3219889b54364c4805c2dd5b183a9861a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90888141"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392368"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Gestire i dati cronologici con i criteri di conservazione
 
@@ -66,11 +66,11 @@ Una buona compressione dei dati e una pulizia efficiente della conservazione ren
 
 ## <a name="monitoring-data-retention-cleanup"></a>Monitoraggio della pulizia della conservazione dei dati
 
-Le operazioni di pulizia dei criteri di conservazione dei dati possono essere monitorate tramite gli eventi estesi (XEvent) in Azure SQL Edge. Per altre informazioni sugli eventi estesi, vedere [Panoramica di XEvent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events). 
+Le operazioni di pulizia dei criteri di conservazione dei dati possono essere monitorate tramite gli eventi estesi (XEvent) in Azure SQL Edge. Per altre informazioni sugli eventi estesi, vedere [Panoramica di XEvent](/sql/relational-databases/extended-events/extended-events). 
 
 I sei eventi estesi seguenti consentono di tenere traccia dello stato delle operazioni di pulizia. 
 
-| Nome | Descrizione |
+| Nome | Description |
 |------| ------------|
 | data_retention_task_started  | Si verifica quando viene avviata l'attività in background per la pulizia delle tabelle con i criteri di conservazione. |
 | data_retention_task_completed  | Si verifica quando termina l'attività in background per la pulizia delle tabelle con criteri di conservazione. |

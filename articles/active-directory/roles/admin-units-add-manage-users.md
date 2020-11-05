@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c877878fe25d4c6c8904840c3c3350fbe2acf7b5
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: b490e03ea7ac0a3bc780fa731629217126b6828a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026667"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395530"
 ---
 # <a name="add-and-manage-users-in-an-administrative-unit-in-azure-active-directory"></a>Aggiungere e gestire gli utenti in un'unità amministrativa in Azure Active Directory
 
@@ -39,7 +39,7 @@ Per preparare l'uso di PowerShell e Microsoft Graph per la gestione delle unità
 
    1. Selezionare **utenti** e quindi, per aprire il profilo dell'utente, selezionare l'utente da assegnare a un'unità amministrativa.
    
-   1. Selezionare **unità amministrative** . 
+   1. Selezionare **unità amministrative**. 
    
    1. Per assegnare l'utente a una o più unità amministrative, selezionare **assegna a unità amministrativa** , quindi nel riquadro destro selezionare le unità amministrative a cui si desidera assegnare l'utente.
 
@@ -57,11 +57,11 @@ Per preparare l'uso di PowerShell e Microsoft Graph per la gestione delle unità
 
    1. Accedere al centro di [amministrazione Azure ad](https://portal.azure.com) con autorizzazioni di amministratore del ruolo con privilegi.
 
-   1. Selezionare **unità amministrative** .
+   1. Selezionare **unità amministrative**.
 
    1. Selezionare l'unità amministrativa a cui si desidera aggiungere gli utenti.
 
-   1. Selezionare **gli utenti**  >  **bulk attività**  >  **Aggiungi membri** . È quindi possibile scaricare il modello con valori delimitati da virgole (CSV) e modificare il file. Il formato è semplice e richiede l'aggiunta di un singolo nome dell'entità utente in ogni riga. Quando il file è pronto, salvarlo in una posizione appropriata e quindi caricarlo come parte di questo passaggio.
+   1. Selezionare **gli utenti**  >  **bulk attività**  >  **Aggiungi membri**. È quindi possibile scaricare il modello con valori delimitati da virgole (CSV) e modificare il file. Il formato è semplice e richiede l'aggiunta di un singolo nome dell'entità utente in ogni riga. Quando il file è pronto, salvarlo in una posizione appropriata e quindi caricarlo come parte di questo passaggio.
 
       ![Screenshot del riquadro "utenti" per l'assegnazione di utenti a un'unità amministrativa come operazione bulk.](./media/admin-units-add-manage-users/bulk-assign-to-admin-unit.png)
 
@@ -103,7 +103,7 @@ Esempio:
 
 Nella portale di Azure è possibile aprire il profilo di un utente eseguendo le operazioni seguenti:
 
-1. Passare a **Azure ad** , quindi selezionare **utenti** .
+1. Passare a **Azure ad** , quindi selezionare **utenti**.
 
 1. Selezionare l'utente di cui si desidera visualizzare il profilo.
 
@@ -135,15 +135,15 @@ https://graph.microsoft.com/v1.0/users/{id}/memberOf/$/Microsoft.Graph.Administr
 
 È possibile rimuovere un utente da un'unità amministrativa in uno dei due modi seguenti: 
 
-* Nella portale di Azure passare a **Azure ad** , quindi selezionare **utenti** . 
+* Nella portale di Azure passare a **Azure ad** , quindi selezionare **utenti**. 
   1. Selezionare l'utente per aprire il profilo dell'utente. 
-  1. Selezionare l'unità amministrativa da cui si vuole rimuovere l'utente e quindi selezionare **Rimuovi da unità amministrativa** .
+  1. Selezionare l'unità amministrativa da cui si vuole rimuovere l'utente e quindi selezionare **Rimuovi da unità amministrativa**.
 
      ![Screenshot che illustra come rimuovere un utente da un'unità amministrativa dal riquadro del profilo dell'utente.](./media/admin-units-add-manage-users/user-remove-admin-units.png)
 
-* Nella portale di Azure passare a **Azure ad** , quindi selezionare **unità amministrative** .
+* Nella portale di Azure passare a **Azure ad** , quindi selezionare **unità amministrative**.
   1. Selezionare l'unità amministrativa da cui si vuole rimuovere l'utente. 
-  1. Selezionare l'utente e quindi selezionare **Rimuovi membro** .
+  1. Selezionare l'utente e quindi selezionare **Rimuovi membro**.
   
      ![Screenshot che illustra come rimuovere un utente a livello di unità amministrativa.](./media/admin-units-add-manage-users/admin-units-remove-user.png)
 
@@ -165,7 +165,7 @@ Sostituire i segnaposto con le informazioni di test ed eseguire il comando segue
 
 Per rimuovere più utenti da un'unità amministrativa, procedere come segue:
 
-1. Nella portale di Azure passare a **Azure ad** .
+1. Nella portale di Azure passare a **Azure ad**.
 
 1. Selezionare **unità amministrative** , quindi selezionare l'unità amministrativa da cui si vogliono rimuovere gli utenti. 
 

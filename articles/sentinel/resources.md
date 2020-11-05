@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
 ms.author: yelevin
-ms.openlocfilehash: 54c10d7941e053bec928f8f43310218d89124f9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 50b88b4af6ea8479097b88b51fe7acfbea355ab8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89461732"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392317"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Risorse utili per l'uso di Azure Sentinel
 
@@ -62,7 +62,17 @@ Le operazioni supportate seguenti possono essere controllate.
 È possibile visualizzare questi dati eseguendone il flusso dal log attività di Azure in Sentinel di Azure, in cui è possibile eseguire ricerche e analisi su di essi.
 
 1. Connettere l'origine dati dell' [attività di Azure](connect-azure-activity.md) . Al termine di questa operazione, gli eventi di controllo vengono trasmessi in una nuova tabella nella schermata **logs** denominata AzureActivity.
-2. Eseguire quindi una query sui dati usando KQL, come qualsiasi altra tabella.
+
+1. Eseguire quindi una query sui dati usando KQL, come qualsiasi altra tabella.
+
+    Per scoprire, ad esempio, chi è l'ultimo utente a modificare una particolare regola di analisi, usare la query seguente (sostituendo `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx` con l'ID regola della regola da controllare):
+
+    ```kusto
+    AzureActivity
+    | where OperationNameValue startswith "MICROSOFT.SECURITYINSIGHTS/ALERTRULES/WRITE"
+    | where Properties contains "alertRules/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    | project Caller , TimeGenerated , Properties
+    ```
 
 
 

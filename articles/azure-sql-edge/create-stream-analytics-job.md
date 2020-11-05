@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 9e75edad9f2e473d27d81c73fc784c568c4e404c
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 4d420bf45cd705f518df0d52929a331d23537184
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92896141"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395173"
 ---
 # <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Creare un processo di streaming dei dati in Azure SQL Edge 
 
@@ -24,13 +24,13 @@ Questo articolo illustra come creare un processo di streaming T-SQL in Azure SQL
 
 Il flusso T-SQL usa la funzionalità di origine dati esterna di SQL Server per definire le origini dati associate agli input e agli output del flusso esterno del processo di streaming. Usare i comandi T-SQL seguenti per creare un oggetto di input o output del flusso esterno:
 
-- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-file-format-transact-sql)
+- [CREATE EXTERNAL FILE FORMAT (Transact-SQL)](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
-- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql)
+- [CREATE EXTERNAL DATA SOURCE (Transact-SQL)](/sql/t-sql/statements/create-external-data-source-transact-sql)
 
 - [CREATE EXTERNAL STREAM (Transact-SQL)](#example-create-an-external-stream-object-to-azure-sql-database)
 
-Se, inoltre, Azure SQL Edge, SQL Server o database SQL di Azure viene usato come flusso di output, è necessario [creare le credenziali con ambito database (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/statements/create-database-scoped-credential-transact-sql). Questo comando T-SQL definisce le credenziali per l'accesso al database.
+Se, inoltre, Azure SQL Edge, SQL Server o database SQL di Azure viene usato come flusso di output, è necessario [creare le credenziali con ambito database (Transact-SQL)](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). Questo comando T-SQL definisce le credenziali per l'accesso al database.
 
 ### <a name="supported-input-and-output-stream-data-sources"></a>Origini dati dei flussi di input e di output supportati
 
@@ -38,7 +38,7 @@ SQL Edge di Azure attualmente supporta solo le origini dati seguenti come output
 
 | Tipo di origine dati | Input | Output | Descrizione |
 |------------------|-------|--------|------------------|
-| Hub Azure IoT Edge | S | S | Origine dati per la lettura e la scrittura dei dati di streaming in un hub Azure IoT Edge. Per altre informazioni, vedere [Hub IOT Edge](https://docs.microsoft.com/azure/iot-edge/iot-edge-runtime#iot-edge-hub).|
+| Hub Azure IoT Edge | S | S | Origine dati per la lettura e la scrittura dei dati di streaming in un hub Azure IoT Edge. Per altre informazioni, vedere [Hub IOT Edge](../iot-edge/iot-edge-runtime.md#iot-edge-hub).|
 | Database SQL | N | S | Connessione all'origine dati per scrivere i dati di streaming nel database SQL. Il database può essere un database locale in Azure SQL Edge o un database remoto in SQL Server o nel database SQL di Azure.|
 | Kafka | S | N | Origine dati per la lettura dei dati in streaming da un argomento Kafka. Questa scheda è attualmente disponibile solo per le versioni Intel o AMD di Azure SQL Edge. Non è disponibile per la versione ARM64 di Azure SQL Edge.|
 
@@ -103,7 +103,7 @@ Nell'esempio seguente viene creato un oggetto flusso esterno nel database locale
 
 3. Creare un'origine dati esterna con CREATE EXTERNAL DATA SOURCE. L'esempio seguente:
 
-    * Crea un'origine dati esterna denominata *LocalSQLOutput* .
+    * Crea un'origine dati esterna denominata *LocalSQLOutput*.
     * Identifica l'origine dati esterna (LOCATION = '<vendor>://<server>[:<port>]'). Nell'esempio punta a un'istanza locale di Azure SQL Edge.
     * Usa le credenziali create in precedenza.
 
@@ -117,7 +117,7 @@ Nell'esempio seguente viene creato un oggetto flusso esterno nel database locale
     go
     ```
 
-4. Creare l'oggetto flusso esterno. Nell'esempio seguente viene creato un oggetto flusso esterno che punta a una tabella *dbo. TemperatureMeasurements* , nel database *MySQLDatabase* .
+4. Creare l'oggetto flusso esterno. Nell'esempio seguente viene creato un oggetto flusso esterno che punta a una tabella *dbo. TemperatureMeasurements* , nel database *MySQLDatabase*.
 
     ```sql
     CREATE EXTERNAL STREAM TemperatureMeasurements 
@@ -173,7 +173,7 @@ Nell'esempio seguente viene creato un oggetto flusso esterno nel database locale
 Usare il `sys.sp_create_streaming_job` stored procedure di sistema per definire le query di streaming e creare il processo di streaming. Il `sp_create_streaming_job` stored procedure accetta i parametri seguenti:
 
 - `job_name`: Nome del processo di streaming. I nomi dei processi di streaming sono univoci nell'istanza.
-- `statement`: Istruzioni di query di streaming basate sul [linguaggio di query di analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference?).
+- `statement`: Istruzioni di query di streaming basate sul [linguaggio di query di analisi di flusso](/stream-analytics-query/stream-analytics-query-language-reference).
 
 L'esempio seguente crea un processo di streaming semplice con una query di streaming. Questa query legge gli input dall'hub IoT Edge e scrive `dbo.TemperatureMeasurements` nel database.
 
@@ -249,7 +249,7 @@ Il processo di streaming può avere uno degli Stati seguenti:
 | Elaborazione in corso | Il processo di streaming è in esecuzione ed è in corso l'elaborazione degli input. Questo stato indica uno stato integro per il processo di streaming. |
 | Degraded | Il processo di streaming è in esecuzione, ma si sono verificati alcuni errori non irreversibili durante l'elaborazione dell'input. L'esecuzione del processo di input continuerà, ma verranno eliminati gli input per cui si verificano errori. |
 | Arrestato | Il processo di streaming è stato arrestato. |
-| Operazione non riuscita | Il processo di streaming non è riuscito. Si tratta in genere di un'indicazione di un errore irreversibile durante l'elaborazione. |
+| Non riuscito | Il processo di streaming non è riuscito. Si tratta in genere di un'indicazione di un errore irreversibile durante l'elaborazione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

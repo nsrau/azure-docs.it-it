@@ -7,19 +7,19 @@ author: curtand
 manager: daveba
 ms.service: active-directory
 ms.topic: how-to
-ms.subservice: users-groups-roles
+ms.subservice: roles
 ms.workload: identity
-ms.date: 09/22/2020
+ms.date: 11/04/2020
 ms.author: curtand
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfae813f01d3e7a08e18cde76e5c26ca253a371f
-ms.sourcegitcommit: daab0491bbc05c43035a3693a96a451845ff193b
+ms.openlocfilehash: 73ed2741c7dd754127a57642703b650a70637c63
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "93026599"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393439"
 ---
 # <a name="assign-scoped-roles-to-an-administrative-unit"></a>Assegnare ruoli con ambito a un'unità amministrativa
 
@@ -52,7 +52,7 @@ Le seguenti entità di sicurezza possono essere assegnate a un ruolo con un ambi
 
 ### <a name="use-the-azure-portal"></a>Usare il portale di Azure
 
-1. Nella portale di Azure passare a **Azure ad** .
+1. Nella portale di Azure passare a **Azure ad**.
 
 1. Selezionare **unità amministrative** , quindi selezionare l'unità amministrativa a cui si desidera assegnare un ambito del ruolo utente. 
 
@@ -60,7 +60,7 @@ Le seguenti entità di sicurezza possono essere assegnate a un ruolo con un ambi
 
    ![Screenshot del riquadro "ruolo e amministratori" per la selezione di un'unità amministrativa di cui si desidera assegnare l'ambito del ruolo.](./media/admin-units-assign-roles/select-role-to-scope.png)
 
-1. Selezionare il ruolo da assegnare e quindi selezionare **Aggiungi assegnazioni** . 
+1. Selezionare il ruolo da assegnare e quindi selezionare **Aggiungi assegnazioni**. 
 
 1. Nel riquadro **Aggiungi assegnazioni** selezionare uno o più utenti da assegnare al ruolo.
 
@@ -105,7 +105,7 @@ Request body
 
 È possibile visualizzare tutte le assegnazioni di ruolo create con un ambito di unità amministrativa nella [sezione unità amministrative del Azure ad](https://ms.portal.azure.com/?microsoft_aad_iam_adminunitprivatepreview=true&microsoft_aad_iam_rbacv2=true#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/AdminUnit). 
 
-1. Nella portale di Azure passare a **Azure ad** .
+1. Nella portale di Azure passare a **Azure ad**.
 
 1. Nel riquadro sinistro selezionare **unità amministrative** , quindi selezionare l'unità amministrativa per l'elenco di assegnazioni di ruolo che si desidera visualizzare. 
 

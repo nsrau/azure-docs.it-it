@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: 6284e85d8c4e9ad9f9896081f04c6b7669b8e1c0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c49f5ab9f10456c32f7f8516cba0e851fa80e74
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91446941"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392334"
 ---
 # <a name="configure-azure-sql-edge"></a>Configurare SQL Edge di Azure
 
@@ -83,7 +83,7 @@ Azure SQL Edge non include l' [utilità di configurazione MSSQL-conf](/sql/linux
 
 Sono state aggiunte le nuove opzioni MSSQL. conf seguenti per Azure SQL Edge. 
 
-|Opzione|Descrizione|
+|Opzione|Description|
 |:---|:---|
 |**CustomerFeedback** | Scegliere se SQL Server invia commenti e suggerimenti a Microsoft. Per ulteriori informazioni, vedere la pagina relativa alla [disabilitazione della raccolta dati di utilizzo e diagnostica](usage-and-diagnostics-data-configuration.md#disable-usage-and-diagnostic-data-collection)|      
 |**userrequestedlocalauditdirectory** | Imposta la directory di destinazione per i file di controllo della raccolta dati di utilizzo e di diagnostica. Per ulteriori informazioni, vedere [controllo locale della raccolta dei dati di utilizzo e di diagnostica](usage-and-diagnostics-data-configuration.md#local-audit-of-usage-and-diagnostic-data-collection) . |        
@@ -95,11 +95,11 @@ Le seguenti opzioni di MSSQL. conf non sono applicabili a SQL Edge:
 |**Commenti e suggerimenti degli utenti** | Scegliere se SQL Server invia commenti e suggerimenti a Microsoft. |
 |**Profilo di posta elettronica database** | Impostare il profilo predefinito di Posta elettronica database per SQL Server in Linux. |
 |**Disponibilità elevata** | Abilitare i gruppi di disponibilità. |
-|**Microsoft Distributed Transaction Coordinator** | Configurare e risolvere i problemi relativi a MSDTC in Linux. Le opzioni di configurazione aggiuntive relative alle transazioni distribuite non sono supportate per SQL Edge. Per ulteriori informazioni su queste opzioni di configurazione aggiuntive, vedere [Configure MSDTC](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
+|**Microsoft Distributed Transaction Coordinator** | Configurare e risolvere i problemi relativi a MSDTC in Linux. Le opzioni di configurazione aggiuntive relative alle transazioni distribuite non sono supportate per SQL Edge. Per ulteriori informazioni su queste opzioni di configurazione aggiuntive, vedere [Configure MSDTC](/sql/linux/sql-server-linux-configure-mssql-conf#msdtc). |
 |**Contratti di licenza di ML Services** | Accettare i contratti di licenza R e Python per i pacchetti Azure Machine Learning. Si applica solo a SQL Server 2019.|
 |**outboundnetworkaccess** |Abilitare l'accesso alla rete in uscita per le estensioni R, Python e Java di [Machine Learning Services](/sql/linux/sql-server-linux-setup-machine-learning/).|
 
-Il file MSSQL. conf di esempio seguente funziona per SQL Edge. Per ulteriori informazioni sul formato di un file MSSQL. conf, vedere il [formato MSSQL. conf](https://docs.microsoft.com/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
+Il file MSSQL. conf di esempio seguente funziona per SQL Edge. Per ulteriori informazioni sul formato di un file MSSQL. conf, vedere il [formato MSSQL. conf](/sql/linux/sql-server-linux-configure-mssql-conf#mssql-conf-format).
 
 ```ini
 [EULA]

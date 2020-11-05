@@ -8,12 +8,12 @@ ms.subservice: iomt
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: punagpal
-ms.openlocfilehash: 43b7bcba97617d6931fd5c191e62e833a25bf89d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3cae648e3c2bddbafec555621d97575a007cfeb4
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87513375"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93394867"
 ---
 # <a name="azure-iot-connector-for-fhir-preview-data-flow"></a>Flusso di dati del connettore Azure IoT per FHIR (anteprima)
 
@@ -26,7 +26,7 @@ Il diagramma precedente illustra i flussi di dati comuni usando il connettore Az
 Di seguito sono riportate diverse fasi che passano i dati una volta ricevuti dal connettore Azure per FHIR.
 
 ## <a name="ingest"></a>Inserimento
-L'inserimento è la prima fase in cui vengono ricevuti i dati del dispositivo nel connettore Azure per FHIR. L'endpoint di inserimento per i dati del dispositivo è ospitato in un [Hub eventi di Azure](https://docs.microsoft.com/azure/event-hubs/). La piattaforma Hub eventi di Azure supporta la scalabilità elevata e la velocità effettiva con la possibilità di ricevere ed elaborare milioni di messaggi al secondo. Consente inoltre al connettore Azure per FHIR di utilizzare i messaggi in modo asincrono, eliminando la necessità di attendere i dispositivi durante l'elaborazione dei dati del dispositivo.
+L'inserimento è la prima fase in cui vengono ricevuti i dati del dispositivo nel connettore Azure per FHIR. L'endpoint di inserimento per i dati del dispositivo è ospitato in un [Hub eventi di Azure](../event-hubs/index.yml). La piattaforma Hub eventi di Azure supporta la scalabilità elevata e la velocità effettiva con la possibilità di ricevere ed elaborare milioni di messaggi al secondo. Consente inoltre al connettore Azure per FHIR di utilizzare i messaggi in modo asincrono, eliminando la necessità di attendere i dispositivi durante l'elaborazione dei dati del dispositivo.
 
 > [!NOTE]
 > JSON è l'unico formato supportato in questo momento per i dati del dispositivo.

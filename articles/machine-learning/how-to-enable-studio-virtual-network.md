@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.date: 10/21/2020
 ms.custom: contperfq4, tracking-python
-ms.openlocfilehash: 781b37405bebc5ddc3d33cbbc089049b0c0f8ca4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: aca7b7e8590c9c8eb3db987c5d1527d9f135bf3f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325528"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392997"
 ---
 # <a name="use-azure-machine-learning-studio-in-an-azure-virtual-network"></a>Usare Azure Machine Learning Studio in una rete virtuale di Azure
 
@@ -71,7 +71,7 @@ Studio supporta la lettura dei dati dai seguenti tipi di archivio dati in una re
 * BLOB Azure
 * Azure Data Lake Storage Gen1
 * Azure Data Lake Storage Gen2
-* database SQL di Azure
+* Database SQL di Azure
 
 ### <a name="grant-workspace-managed-identity-__reader__-access-to-storage-private-link"></a>Concessione dell'accesso al __lettore__ di identità gestito dell'area di lavoro al collegamento privato di archiviazione
 
@@ -97,7 +97,10 @@ Questa procedura consente di aggiungere l'identità gestita dall'area di lavoro 
 
 ## <a name="technical-notes-for-managed-identity"></a>Note tecniche per l'identità gestita
 
-L'uso dell'identità gestita per accedere ai servizi di archiviazione influisca su alcune considerazioni sulla sicurezza. Queste considerazioni sono univoche per il tipo di account di archiviazione a cui si accede. Questa sezione descrive le modifiche per ogni tipo di account di archiviazione.
+L'uso dell'identità gestita per accedere ai servizi di archiviazione influisca su alcune considerazioni sulla sicurezza. Questa sezione descrive le modifiche per ogni tipo di account di archiviazione.
+
+> [!IMPORTANT]
+> Queste considerazioni sono univoche per il __tipo di account di archiviazione__ a cui si accede.
 
 ### <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
 

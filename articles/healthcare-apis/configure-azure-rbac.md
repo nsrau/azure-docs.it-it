@@ -8,16 +8,16 @@ ms.topic: reference
 ms.date: 03/15/2020
 ms.author: matjazl
 ms.reviewer: dseven
-ms.openlocfilehash: 1df2d112814c93261c364883f4b834e0bdb657bb
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5cadfad445c76726b1b825b131de4016a57979fa
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91839912"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93391841"
 ---
 # <a name="configure-azure-rbac-for-fhir"></a>Configurare RBAC di Azure per FHIR 
 
-In questo articolo si apprenderà come usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](https://docs.microsoft.com/azure/role-based-access-control/) per assegnare l'accesso al piano dati dell'API di Azure per FHIR. Il controllo degli accessi in base al ruolo di Azure è il metodo preferito per l'assegnazione dell'accesso al piano dati quando gli utenti del piano dati vengono gestiti nel tenant Azure Active Directory associato alla sottoscrizione di Azure. Se si usa un tenant di Azure Active Directory esterno, fare riferimento al [riferimento all'assegnazione locale RBAC](configure-local-rbac.md).
+In questo articolo si apprenderà come usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/index.yml) per assegnare l'accesso al piano dati dell'API di Azure per FHIR. Il controllo degli accessi in base al ruolo di Azure è il metodo preferito per l'assegnazione dell'accesso al piano dati quando gli utenti del piano dati vengono gestiti nel tenant Azure Active Directory associato alla sottoscrizione di Azure. Se si usa un tenant di Azure Active Directory esterno, fare riferimento al [riferimento all'assegnazione locale RBAC](configure-local-rbac.md).
 
 ## <a name="confirm-azure-rbac-mode"></a>Confermare la modalità RBAC di Azure
 
@@ -29,13 +29,13 @@ L' **autorità** deve essere impostata sul tenant di Azure Active Directory asso
 
 ## <a name="assign-roles"></a>Assegnare ruoli
 
-Per concedere a utenti, entità servizio o gruppi l'accesso al piano dati FHIR, fare clic su **controllo di accesso (IAM)**, quindi fare clic su **assegnazioni di ruolo** e su **+ Aggiungi**:
+Per concedere a utenti, entità servizio o gruppi l'accesso al piano dati FHIR, fare clic su **controllo di accesso (IAM)** , quindi fare clic su **assegnazioni di ruolo** e su **+ Aggiungi** :
 
-:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Confermare la modalità RBAC di Azure":::
+:::image type="content" source="media/rbac/add-azure-rbac-role-assignment.png" alt-text="Aggiungere l'assegnazione di ruolo di Azure":::
 
 Nella selezione del **ruolo** cercare uno dei ruoli predefiniti per il piano dati FHIR:
 
-:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Confermare la modalità RBAC di Azure":::
+:::image type="content" source="media/rbac/built-in-fhir-data-roles.png" alt-text="Ruoli dati FHIR predefiniti":::
 
 È possibile scegliere tra:
 
@@ -44,7 +44,7 @@ Nella selezione del **ruolo** cercare uno dei ruoli predefiniti per il piano dat
 * FHIR data Exporter: può leggere ed esportare `$export` dati (operatore).
 * FHIR data Contributor: può eseguire tutte le operazioni del piano dati.
 
-Se questi ruoli non sono sufficienti per le proprie esigenze, è anche possibile [creare ruoli personalizzati](https://docs.microsoft.com/azure/role-based-access-control/tutorial-custom-role-powershell).
+Se questi ruoli non sono sufficienti per le proprie esigenze, è anche possibile [creare ruoli personalizzati](../role-based-access-control/tutorial-custom-role-powershell.md).
 
 Nella casella **Seleziona** cercare un utente, un'entità servizio o un gruppo a cui si vuole assegnare il ruolo.
 

@@ -10,12 +10,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: conceptual
 ms.date: 04/06/2018
-ms.openlocfilehash: 28a4a53851155c56e8d34981862bf52a3a2cf15b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3097041c96f70dda384f0b116bbbc9bc9130be4d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "72249185"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395751"
 ---
 # <a name="overview-of-business-continuity-with-microsoft-genomics"></a>Panoramica della continuità aziendale con Genomica di Microsoft
 Questa panoramica descrive le funzionalità offerte da Genomica di Microsoft per la continuità aziendale e il ripristino di emergenza. Vengono fornite informazioni sulle opzioni per il ripristino dopo eventi che possono causare interruzioni del funzionamento, ad esempio un'interruzione di un'area di Azure, con conseguente perdita di dati. 
@@ -43,7 +43,7 @@ Quando l'area originale viene ripristinata, il servizio Genomica di Microsoft no
 Se si vuole un ripristino più rapido in caso di interruzione di un data center, è possibile eseguire una procedura per ridurre il tempo necessario per inviare manualmente i flussi di lavoro di Genomica di Microsoft a un'area secondaria:
 
 * Identificare un'area secondaria appropriata e creare proattivamente un account di Genomica in tale area
-* Duplicare i dati nell'area primaria e secondaria in modo che siano immediatamente disponibili nell'area secondaria. È possibile eseguire questa operazione manualmente oppure usando la funzionalità di [archiviazione con ridondanza geografica](https://docs.microsoft.com/azure/storage/common/storage-redundancy) disponibile in Archiviazione di Azure. 
+* Duplicare i dati nell'area primaria e secondaria in modo che siano immediatamente disponibili nell'area secondaria. È possibile eseguire questa operazione manualmente oppure usando la funzionalità di [archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md) disponibile in Archiviazione di Azure. 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo sono state illustrate le opzioni per la continuità aziendale e il ripristino di emergenza quando si usa il servizio Genomica di Microsoft. Per altre informazioni generali su continuità aziendale e ripristino di emergenza in Azure, vedere [Indicazioni tecniche sulla resilienza in Azure](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region). 
+In questo articolo sono state illustrate le opzioni per la continuità aziendale e il ripristino di emergenza quando si usa il servizio Genomica di Microsoft. Per altre informazioni generali su continuità aziendale e ripristino di emergenza in Azure, vedere [Indicazioni tecniche sulla resilienza in Azure](/azure/architecture/resiliency/recovery-loss-azure-region).

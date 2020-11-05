@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 14e0b86f11c3eabf93e7d4f0ebf563e59c0c21e9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ee1561e85e769bf8a82ce96d5ce010eece92a0fa
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87081866"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392617"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Vincoli del codice della funzione di orchestrazione
 
@@ -18,7 +18,7 @@ Durable Functions è un'estensione di [funzioni di Azure](../functions-overview.
 
 ## <a name="orchestrator-code-constraints"></a>Vincoli del codice dell'agente di orchestrazione
 
-Le funzioni dell'agente di orchestrazione usano l'origine [eventi](/azure/architecture/patterns/event-sourcing) per garantire un'esecuzione affidabile e mantenere lo stato delle variabili locali. Il [comportamento di riproduzione](durable-functions-orchestrations.md#reliability) del codice dell'agente di orchestrazione crea vincoli sul tipo di codice che è possibile scrivere in una funzione dell'agente di orchestrazione. Ad esempio, le funzioni dell'agente di orchestrazione devono essere *deterministiche*: una funzione dell'agente di orchestrazione verrà riprodotta più volte e deve produrre lo stesso risultato ogni volta.
+Le funzioni dell'agente di orchestrazione usano l'origine [eventi](/azure/architecture/patterns/event-sourcing) per garantire un'esecuzione affidabile e mantenere lo stato delle variabili locali. Il [comportamento di riproduzione](durable-functions-orchestrations.md#reliability) del codice dell'agente di orchestrazione crea vincoli sul tipo di codice che è possibile scrivere in una funzione dell'agente di orchestrazione. Ad esempio, le funzioni dell'agente di orchestrazione devono essere *deterministiche* : una funzione dell'agente di orchestrazione verrà riprodotta più volte e deve produrre lo stesso risultato ogni volta.
 
 ### <a name="using-deterministic-apis"></a>Uso di API deterministiche
 
@@ -30,18 +30,19 @@ La tabella seguente illustra esempi di API da evitare perché *non* sono determi
 
 | Categoria API | Motivo | Soluzione alternativa |
 | ------------ | ------ | ---------- |
-| Date e ore  | Le API che restituiscono la data o l'ora corrente sono non deterministiche, perché il valore restituito è diverso per ogni riproduzione. | Usare l' `CurrentUtcDateTime` API in .NET o l' `currentUtcDateTime` API in JavaScript, che sono sicure per la riproduzione. |
+| Date e ore  | Le API che restituiscono la data o l'ora corrente sono non deterministiche, perché il valore restituito è diverso per ogni riproduzione. | Usare l' `CurrentUtcDateTime` API in .NET, l' `currentUtcDateTime` API in JavaScript o l'API `current_utc_datetime` in Python, che sono sicure per la riproduzione. |
 | GUID e UUID  | Le API che restituiscono un GUID o un UUID casuale sono non deterministiche, perché il valore generato è diverso per ogni riproduzione. | Usare `NewGuid` in .NET o `newGuid` in JavaScript per generare in modo sicuro GUID casuali. |
 | Numeri casuali | Le API che restituiscono numeri casuali sono non deterministiche, perché il valore generato è diverso per ogni riproduzione. | Utilizzare una funzione di attività per restituire numeri casuali a un'orchestrazione. I valori restituiti delle funzioni di attività sono sempre sicuri per la riproduzione. |
 | Associazioni | Le associazioni di input e output eseguono in genere operazioni di I/O e non deterministiche. Una funzione dell'agente di orchestrazione non deve usare direttamente anche le associazioni client di [orchestrazione](durable-functions-bindings.md#orchestration-client) e [client di entità](durable-functions-bindings.md#entity-client) . | Usare le associazioni di input e output all'interno di funzioni client o di attività. |
 | Rete | Le chiamate di rete coinvolgono sistemi esterni e sono non deterministiche. | Usare le funzioni di attività per effettuare chiamate di rete. Se è necessario effettuare una chiamata HTTP dalla funzione dell'agente di orchestrazione, è anche possibile usare le [API HTTP durevoli](durable-functions-http-features.md#consuming-http-apis). |
 | API di blocco | Il blocco di API come `Thread.Sleep` in .NET e API simili può causare problemi di prestazioni e scalabilità per le funzioni dell'agente di orchestrazione e deve essere evitato. Nel piano a consumo di funzioni di Azure possono anche verificarsi addebiti di runtime superflui. | Usare le alternative alle API di blocco quando sono disponibili. Utilizzare, ad esempio,  `CreateTimer` per introdurre ritardi nell'esecuzione dell'orchestrazione. I ritardi di [timer durevoli](durable-functions-timers.md) non vengono conteggiati per il tempo di esecuzione di una funzione di orchestrazione. |
-| API asincrone | Il codice dell'agente di orchestrazione non deve mai avviare alcuna operazione asincrona tranne tramite l'API `IDurableOrchestrationContext` o l' `context.df` API dell'oggetto. Ad esempio, non è possibile usare `Task.Run` , `Task.Delay` , e `HttpClient.SendAsync` in .NET o `setTimeout` e `setInterval` in JavaScript. Il Framework di attività permanenti esegue il codice dell'agente di orchestrazione su un singolo thread. Non può interagire con altri thread che potrebbero essere chiamati da altre API asincrone. | Una funzione dell'agente di orchestrazione deve effettuare solo chiamate asincrone durevoli. Le funzioni di attività devono effettuare qualsiasi altra chiamata API asincrona. |
-| Funzioni JavaScript asincrone | Non è possibile dichiarare funzioni dell'agente di orchestrazione JavaScript come `async` perché il runtime di node.js non garantisce che funzioni asincrone siano deterministiche. | Dichiarare funzioni dell'agente di orchestrazione JavaScript come funzioni generatore sincrone. |
+| API asincrone | Il codice dell'agente di orchestrazione non deve mai avviare alcuna operazione asincrona tranne che tramite l'API `IDurableOrchestrationContext` , l' `context.df` API in JavaScript o l' `context` API in Python. Ad esempio, non è possibile usare `Task.Run` , `Task.Delay` , e `HttpClient.SendAsync` in .NET o `setTimeout` e `setInterval` in JavaScript. Il Framework di attività permanenti esegue il codice dell'agente di orchestrazione su un singolo thread. Non può interagire con altri thread che potrebbero essere chiamati da altre API asincrone. | Una funzione dell'agente di orchestrazione deve effettuare solo chiamate asincrone durevoli. Le funzioni di attività devono effettuare qualsiasi altra chiamata API asincrona. |
+| Funzioni JavaScript asincrone | Non è possibile dichiarare funzioni dell'agente di orchestrazione JavaScript come `async` perché il runtime di node.js non garantisce che funzioni asincrone siano deterministiche. | Dichiarare funzioni dell'agente di orchestrazione JavaScript come funzioni generatore sincrone |
+| Coroutine Python | Non è possibile dichiarare le funzioni dell'agente di orchestrazione Python come coroutine, ad esempio dichiararli con la `async` parola chiave, perché la semantica di coroutine non è allineata al modello di riproduzione Durable Functions. | Dichiarare le funzioni dell'agente di orchestrazione Python come generatori, vale a dire che è necessario aspettarsi che l' `context` API usi `yield` anziché `await` .   |
 | API di threading | Il Framework di attività permanenti esegue il codice dell'agente di orchestrazione su un singolo thread e non può interagire con altri thread. L'introduzione di nuovi thread nell'esecuzione di un'orchestrazione può comportare un deadlock o un'esecuzione non deterministica. | Le funzioni dell'agente di orchestrazione non dovrebbero mai usare API di Threading. In .NET, ad esempio, evitare di usare `ConfigureAwait(continueOnCapturedContext: false)` ; questo garantisce che le continuazioni di attività vengano eseguite sull'originale della funzione dell'agente di orchestrazione `SynchronizationContext` . Se tali API sono necessarie, limitarne l'uso solo alle funzioni di attività. |
 | Variabili statiche | Evitare di usare variabili statiche non costanti nelle funzioni dell'agente di orchestrazione perché i relativi valori possono cambiare nel tempo, causando un comportamento di runtime non deterministico. | Utilizzare le costanti oppure limitare l'utilizzo di variabili statiche alle funzioni di attività. |
 | Variabili di ambiente | Non usare variabili di ambiente nelle funzioni dell'agente di orchestrazione. I valori possono cambiare nel tempo, ottenendo un comportamento di runtime non deterministico. | È necessario fare riferimento alle variabili di ambiente solo nelle funzioni client o nelle funzioni di attività. |
-| Cicli infiniti | Evitare i cicli infiniti nelle funzioni di orchestrazione. Poiché il Framework di attività permanenti salva la cronologia di esecuzione durante l'avanzamento della funzione di orchestrazione, un ciclo infinito può causare l'esaurimento della memoria di un'istanza dell'agente di orchestrazione. | Per gli scenari con ciclo infinito, usare API come `ContinueAsNew` in .NET o `continueAsNew` in JavaScript per riavviare l'esecuzione della funzione ed eliminare la cronologia di esecuzione precedente. |
+| Cicli infiniti | Evitare i cicli infiniti nelle funzioni di orchestrazione. Poiché il Framework di attività permanenti salva la cronologia di esecuzione durante l'avanzamento della funzione di orchestrazione, un ciclo infinito può causare l'esaurimento della memoria di un'istanza dell'agente di orchestrazione. | Per gli scenari con ciclo infinito, usare API come `ContinueAsNew` in .NET, `continueAsNew` in JavaScript o `continue_as_new` in Python per riavviare l'esecuzione della funzione ed eliminare la cronologia di esecuzione precedente. |
 
 Sebbene l'applicazione di questi vincoli potrebbe sembrare difficile in primo luogo, in pratica è facile da seguire.
 
@@ -56,7 +57,7 @@ Il Framework di attività permanenti tenta di rilevare le violazioni delle regol
 > [!NOTE]
 > Questa sezione descrive i dettagli di implementazione interna del framework di attività permanenti. È possibile utilizzare funzioni permanenti senza conoscere queste informazioni. che vengono date al solo scopo di comprendere il comportamento di riesecuzione.
 
-Le attività che possono attendere in modo sicuro nelle funzioni dell'agente di orchestrazione vengono talvolta definite *attività durevoli*. Il Framework di attività permanenti crea e gestisce queste attività. Gli esempi sono le attività restituite da **CallActivityAsync**, **WaitForExternalEvent**e **CreateTimer** nelle funzioni dell'agente di orchestrazione .NET.
+Le attività che possono attendere in modo sicuro nelle funzioni dell'agente di orchestrazione vengono talvolta definite *attività durevoli*. Il Framework di attività permanenti crea e gestisce queste attività. Gli esempi sono le attività restituite da **CallActivityAsync** , **WaitForExternalEvent** e **CreateTimer** nelle funzioni dell'agente di orchestrazione .NET.
 
 Queste attività durevoli sono gestite internamente da un elenco di `TaskCompletionSource` oggetti in .NET. Durante la riproduzione, queste attività vengono create come parte dell'esecuzione del codice dell'agente di orchestrazione. Sono finiti perché il dispatcher enumera gli eventi di cronologia corrispondenti.
 

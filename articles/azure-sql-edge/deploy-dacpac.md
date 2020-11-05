@@ -9,18 +9,18 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: e9c8c58c6be8d2c2a85e56690903e6b54f0e4a0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40bd0eda16f9f96dd356eef900369ab25854e9f9
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91293901"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392249"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>Pacchetti DACPAC e BACPAC del database SQL in SQL Edge
 
 SQL Edge di Azure un motore di database relazionale ottimizzato e progettato per distribuzioni IoT e perimetrali. Si basa sulle versioni più recenti di Microsoft SQL motore di database, che offre funzionalità leader del settore per le prestazioni, la sicurezza e l'elaborazione delle query. Oltre alle funzionalità leader del settore per la gestione dei database relazionali di SQL Server, SQL Edge di Azure offre funzionalità di streaming predefinite per l'analisi in tempo reale e l'elaborazione di eventi complessa.
 
-Azure SQL Edge fornisce un meccanismo nativo che consente di distribuire un pacchetto [dacpac e BACPAC del database SQL](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) durante o dopo la distribuzione di SQL Edge.
+Azure SQL Edge fornisce un meccanismo nativo che consente di distribuire un pacchetto [dacpac e BACPAC del database SQL](/sql/relational-databases/data-tier-applications/data-tier-applications) durante o dopo la distribuzione di SQL Edge.
 
 I pacchetti DACPAC e BACPAC del database SQL possono essere distribuiti in SQL Edge usando la `MSSQL_PACKAGE` variabile di ambiente. La variabile di ambiente può essere configurata con uno dei seguenti elementi.  
 - Percorso di una cartella locale all'interno del contenitore SQL contenente i file dacpac e BACPAC. È possibile eseguire il mapping di questa cartella a un volume host usando i punti di montaggio o i contenitori del volume di dati. 
@@ -35,7 +35,7 @@ Per distribuire o importare un pacchetto di applicazione livello dati del databa
 
 1. Creare/estrarre un pacchetto di applicazione livello dati o esportare un file BACPAC usando il meccanismo indicato di seguito. 
     - Creare o estrarre un pacchetto di applicazione livello dati del database SQL. Vedere [Estrazione di un'applicazione livello dati da un database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) per informazioni su come generare un pacchetto di applicazione livello dati per un database di SQL Server esistente.
-    - Esportazione di un pacchetto di applicazione livello dati distribuito o di un database. Vedere [esportare un'applicazione livello dati](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application/) per informazioni su come generare un file BACPAC per un database di SQL Server esistente.
+    - Esportazione di un pacchetto di applicazione livello dati distribuito o di un database. Vedere [esportare un'applicazione livello dati](/sql/relational-databases/data-tier-applications/export-a-data-tier-application/) per informazioni su come generare un file BACPAC per un database di SQL Server esistente.
 
 2. Eseguire il Zip `*.dacpac` o il `*.bacpac` file e caricarlo in un account di archiviazione BLOB di Azure. Per altre informazioni sul caricamento di file nell'archiviazione BLOB di Azure, vedere [Caricare, scaricare ed elencare BLOB con il portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 

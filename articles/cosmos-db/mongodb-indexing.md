@@ -9,12 +9,12 @@ ms.date: 10/21/2020
 author: timsander1
 ms.author: tisande
 ms.custom: devx-track-js
-ms.openlocfilehash: a1144560b8bd8638477828f1aeafcacbc8b77f1d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 23e9b45c47cdbdb671146b772d16354b1ee3c31b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93096479"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93392606"
 ---
 # <a name="manage-indexing-in-azure-cosmos-dbs-api-for-mongodb"></a>Gestire l'indicizzazione nell'API Azure Cosmos DB per MongoDB
 [!INCLUDE[appliesto-mongodb-api](includes/appliesto-mongodb-api.md)]
@@ -54,7 +54,7 @@ Il comando che segue crea un indice composto sui campi `name` e `age` :
 
 `db.coll.find().sort({name:1,age:1})`
 
-È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Ecco un esempio:
+È anche possibile usare l'indice composto precedente per ordinare in modo efficiente una query con il tipo di ordinamento opposto su tutti i campi. Ad esempio:
 
 `db.coll.find().sort({name:-1,age:-1})`
 
@@ -122,7 +122,7 @@ Il comando che segue crea un indice con caratteri jolly in qualsiasi proprietà 
 
 `db.coll.createIndex({"children.$**" : 1})`
 
-**Diversamente da MongoDB, gli indici con caratteri jolly possono supportare più campi nei predicati di query** . Non vi sarà alcuna differenza nelle prestazioni delle query se si usa un singolo indice con caratteri jolly anziché creare un indice separato per ogni proprietà.
+**Diversamente da MongoDB, gli indici con caratteri jolly possono supportare più campi nei predicati di query**. Non vi sarà alcuna differenza nelle prestazioni delle query se si usa un singolo indice con caratteri jolly anziché creare un indice separato per ogni proprietà.
 
 È possibile creare i tipi di indice seguenti utilizzando la sintassi con caratteri jolly:
 
@@ -211,7 +211,7 @@ globaldb:PRIMARY> db.runCommand({shardCollection: db.coll._fullName, key: { univ
         "ok" : 1,
         "collectionsharded" : "test.coll"
 }
-globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1, "university" : 1 }, {unique:true})
+globaldb:PRIMARY> db.coll.createIndex( { "university" : 1, "student_id" : 1 }, {unique:true});
 {
         "_t" : "CreateIndexesResponse",
         "ok" : 1,

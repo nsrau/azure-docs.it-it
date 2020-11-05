@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7651f84e14d6ea7dcb4e12d57e2bf494d5aeff1e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d12679e64d690614aaf788837a02af007448f83d
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93083185"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393677"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: gestire dispositivi non aggiornati in Azure AD
 
@@ -37,7 +37,7 @@ I dispositivi non aggiornati in Azure AD possono interferire con i criteri gener
 
 ## <a name="detect-stale-devices"></a>Rilevare i dispositivi non aggiornati
 
-Dal momento che un dispositivo non aggiornato è definito come dispositivo registrato che non è stato usato per accedere ad app cloud per uno specifico intervallo di tempo, il rilevamento dei dispositivi non aggiornati richiede una proprietà correlata al timestamp. In Azure AD questa proprietà è chiamata **ApproximateLastLogonTimestamp** o **timestamp dell'attività** . Se il delta tra il momento attuale e il valore del **timestamp dell'attività** supera l'intervallo di tempo definito per i dispositivi attivi, un dispositivo viene considerato non aggiornato. Il **timestamp dell'attività** è ora disponibile in anteprima pubblica.
+Dal momento che un dispositivo non aggiornato è definito come dispositivo registrato che non è stato usato per accedere ad app cloud per uno specifico intervallo di tempo, il rilevamento dei dispositivi non aggiornati richiede una proprietà correlata al timestamp. In Azure AD questa proprietà è chiamata **ApproximateLastLogonTimestamp** o **timestamp dell'attività**. Se il delta tra il momento attuale e il valore del **timestamp dell'attività** supera l'intervallo di tempo definito per i dispositivi attivi, un dispositivo viene considerato non aggiornato. Il **timestamp dell'attività** è ora disponibile in anteprima pubblica.
 
 ## <a name="how-is-the-value-of-the-activity-timestamp-managed"></a>Come viene gestito il valore del timestamp dell'attività?  
 
@@ -59,7 +59,7 @@ Sono disponibili due opzioni per recuperare il valore del timestamp dell'attivit
 
 - Cmdlet [Get-AzureADDevice](/powershell/module/azuread/Get-AzureADDevice)
 
-    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Screenshot di una pagina nel portale di Azure elencando il nome, il proprietario e altre informazioni sui dispositivi. Una colonna elenca il timestamp dell'attività." border="false":::
+    :::image type="content" source="./media/manage-stale-devices/02.png" alt-text="Screenshot che mostra l'output della riga di comando. Viene evidenziata una riga e viene elencato un timestamp per il valore ApproximateLastLogonTimeStamp." border="false":::
 
 ## <a name="plan-the-cleanup-of-your-stale-devices"></a>Pianificare la pulizia dei dispositivi non aggiornati
 
@@ -147,7 +147,7 @@ Se nella directory è presente un numero elevato di dispositivi, usare il filtro
 
 ```PowerShell
 $dt = [datetime]’2017/01/01’
-Get-AzureADDevice | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
+Get-AzureADDevice -All:$true | Where {$_.ApproximateLastLogonTimeStamp -le $dt} | select-object -Property Enabled, DeviceId, DisplayName, DeviceTrustType, ApproximateLastLogonTimestamp | export-csv devicelist-olderthan-Jan-1-2017-summary.csv
 ```
 
 ## <a name="what-you-should-know"></a>Informazioni importanti

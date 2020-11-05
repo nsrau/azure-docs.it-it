@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f2cc8901ee3952f7d258d768e175412254ec5d1a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 114be810ea50f984c3211291691b4c4dd45ac2c7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905953"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395241"
 ---
 # <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>Eseguire il backup e il ripristino di database in Azure SQL Edge 
 
@@ -75,9 +75,9 @@ Nell'esempio seguente viene usato il `BACKUP DATABASE` comando Transact-SQL per 
 
 ### <a name="back-up-to-url"></a>URL di Backup in
 
-SQL Edge di Azure supporta i backup sia sui BLOB di pagine che sui BLOB in blocchi. Per altre informazioni, vedere [backup di BLOB in blocchi e BLOB di pagine](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). Nell'esempio seguente viene eseguito il backup del database *IronOreSilicaPrediction* in un BLOB in blocchi. 
+SQL Edge di Azure supporta i backup sia sui BLOB di pagine che sui BLOB in blocchi. Per altre informazioni, vedere [backup di BLOB in blocchi e BLOB di pagine](/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). Nell'esempio seguente viene eseguito il backup del database *IronOreSilicaPrediction* in un BLOB in blocchi. 
 
-1. Per configurare i backup per i BLOB in blocchi, è necessario innanzitutto generare un token di firma di accesso condiviso che è possibile usare per creare una credenziale di SQL Server in Azure SQL Edge. Lo script crea una firma di accesso condiviso associata a un criterio di accesso archiviato. Per altre informazioni, vedere [firme di accesso condiviso, parte 1: informazioni sul modello SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/). Lo script scrive inoltre il comando T-SQL necessario per creare le credenziali in SQL Server. Lo script seguente presuppone che sia già presente una sottoscrizione di Azure con un account di archiviazione e un contenitore di archiviazione per i backup.
+1. Per configurare i backup per i BLOB in blocchi, è necessario innanzitutto generare un token di firma di accesso condiviso che è possibile usare per creare una credenziale di SQL Server in Azure SQL Edge. Lo script crea una firma di accesso condiviso associata a un criterio di accesso archiviato. Per altre informazioni, vedere [firme di accesso condiviso, parte 1: informazioni sul modello SAS](../storage/common/storage-sas-overview.md). Lo script scrive inoltre il comando T-SQL necessario per creare le credenziali in SQL Server. Lo script seguente presuppone che sia già presente una sottoscrizione di Azure con un account di archiviazione e un contenitore di archiviazione per i backup.
 
     ```PowerShell
     # Define global variables for the script  
@@ -133,7 +133,7 @@ SQL Edge di Azure supporta i backup sia sui BLOB di pagine che sui BLOB in blocc
 
 ## <a name="restore-a-database-in-azure-sql-edge"></a>Ripristinare un database in Azure SQL Edge
 
-In Azure SQL Edge è possibile eseguire il ripristino da un disco locale, da un percorso di rete o da un account di archiviazione BLOB di Azure. Per ulteriori informazioni sul ripristino e il ripristino in SQL Server, vedere Panoramica del ripristino [e del ripristino](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). Per una panoramica del modello di recupero con registrazione minima in SQL Server, vedere [ripristini di database completi (modello di recupero con registrazione minima)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
+In Azure SQL Edge è possibile eseguire il ripristino da un disco locale, da un percorso di rete o da un account di archiviazione BLOB di Azure. Per ulteriori informazioni sul ripristino e il ripristino in SQL Server, vedere Panoramica del ripristino [e del ripristino](/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). Per una panoramica del modello di recupero con registrazione minima in SQL Server, vedere [ripristini di database completi (modello di recupero con registrazione minima)](/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
 
 > [!IMPORTANT] 
 > Non è possibile ripristinare i database creati in Azure SQL Edge in un'istanza di Microsoft SQL Server o Azure SQL. Inoltre, è possibile ripristinare un database creato in Microsoft SQL Server o Azure SQL in Azure SQL Edge, purché il database non contenga le funzionalità non supportate da Azure SQL Edge. 
@@ -180,5 +180,3 @@ WITH MOVE 'IronOreSilicaPrediction' TO '/var/opt/mssql/data/IronOreSilicaPredict
 MOVE 'IronOreSilicaPrediction_log' TO '/var/opt/mssql/data/IronOreSilicaPrediction_Primary_3.ldf',
 STATS = 10;
 ```
-
-

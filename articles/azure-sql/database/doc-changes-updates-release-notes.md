@@ -11,12 +11,12 @@ ms.devlang: ''
 ms.topic: conceptual
 ms.date: 06/17/2020
 ms.author: sstein
-ms.openlocfilehash: 4fbd410a7d2a7374303e637ca81c34dbea90fcb7
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 36c12fa7dd37ce1ffebde16cf6ca856d9fcdca0a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92791036"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93391994"
 ---
 # <a name="whats-new-in-azure-sql-database--sql-managed-instance"></a>Novità del database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -25,7 +25,7 @@ Questo articolo elenca le funzionalità del database SQL di Azure e di Azure SQL
 
 ## <a name="whats-new"></a>Novità
 
-La documentazione per il database SQL di Azure e Istanza gestita SQL di Azure è stata suddivisa in sezioni separate. È stato anche aggiornato il modo in cui si fa riferimento a un'istanza gestita dall' *istanza gestita di database SQL di Azure* ad *Azure SQL istanza gestita* .
+La documentazione per il database SQL di Azure e Istanza gestita SQL di Azure è stata suddivisa in sezioni separate. È stato anche aggiornato il modo in cui si fa riferimento a un'istanza gestita dall' *istanza gestita di database SQL di Azure* ad *Azure SQL istanza gestita*.
 
 Questa operazione è stata eseguita perché alcune funzionalità e funzionalità variano molto tra un singolo database e un'istanza gestita e sono diventate sempre più complesse per spiegare le sfumature complesse tra il database SQL di Azure e Istanza gestita SQL di Azure in singoli articoli condivisi.
 
@@ -41,7 +41,7 @@ Questa tabella fornisce un confronto rapido per la modifica della terminologia:
 |**Istanza gestita di database SQL di Azure** | *Istanza gestita* di database SQL di Azure| Azure SQL Istanza gestita è il proprio prodotto all'interno della famiglia SQL di Azure, anziché semplicemente un'opzione di distribuzione nel database SQL di Azure. | 
 |**Database SQL di Azure**|Database *singolo* database SQL di Azure| Se non specificato diversamente in modo esplicito, il nome del prodotto database SQL di Azure include sia database singoli che database distribuiti in un pool elastico. |
 |**Database SQL di Azure**|*Pool elastico* del database SQL di Azure| Se non specificato diversamente in modo esplicito, il nome del prodotto database SQL di Azure include sia database singoli che database distribuiti in un pool elastico.  |
-|**Database SQL di Azure** |database SQL di Azure | Sebbene il termine rimanga invariato, ora si applica solo alle distribuzioni di database singolo e del pool elastico e non include l'istanza gestita. |
+|**Database SQL di Azure** |Database SQL di Azure | Sebbene il termine rimanga invariato, ora si applica solo alle distribuzioni di database singolo e del pool elastico e non include l'istanza gestita. |
 | **SQL di Azure**| N/D | Questo si riferisce alla famiglia di prodotti SQL Server motore di database disponibili in Azure: database SQL di Azure, Azure SQL Istanza gestita e SQL Server in macchine virtuali di Azure. | 
 
 ## <a name="features-in-public-preview"></a>Funzionalità disponibili in anteprima pubblica
@@ -104,7 +104,7 @@ Le funzionalità seguenti sono abilitate nel modello di distribuzione di SQL Ist
 |[L'entità servizio non può accedere a Azure AD e AKV](#service-principal-cannot-access-azure-ad-and-akv)|2020 agosto|Ha una soluzione alternativa||
 |[Il ripristino del backup manuale senza CHECKSUM potrebbe avere esito negativo](#restoring-manual-backup-without-checksum-might-fail)|Maggio 2020|Risolto|Giugno 2020|
 |[Agent smette di rispondere durante la modifica, la disabilitazione o l'abilitazione di processi esistenti](#agent-becomes-unresponsive-upon-modifying-disabling-or-enabling-existing-jobs)|Maggio 2020|Risolto|Giugno 2020|
-|[Autorizzazioni per il gruppo di risorse non applicate a SQL Istanza gestita](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Febbraio 2020|Ha una soluzione alternativa||
+|[Autorizzazioni per il gruppo di risorse non applicate a SQL Istanza gestita](#permissions-on-resource-group-not-applied-to-sql-managed-instance)|Febbraio 2020|Risolto|2020 novembre|
 |[Limitazione del failover manuale tramite il portale per i gruppi di failover](#limitation-of-manual-failover-via-portal-for-failover-groups)|Gennaio 2020|Ha una soluzione alternativa||
 |[Per i ruoli SQL Agent sono necessarie autorizzazioni EXECUTE esplicite per gli accessi diversi da sysadmin](#in-memory-oltp-memory-limits-are-not-applied)|Dicembre 2019|Ha una soluzione alternativa||
 |[I processi di SQL Agent possono essere interrotti dal riavvio del processo dell'agente](#sql-agent-jobs-can-be-interrupted-by-agent-process-restart)|Dicembre 2019|Risolto|Marzo 2020|

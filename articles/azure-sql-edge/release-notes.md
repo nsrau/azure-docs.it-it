@@ -10,12 +10,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 09/22/2020
-ms.openlocfilehash: afd78acadf133a9f128eec402eba9d0eed51b8e3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 543a71bc2a77f0a31f8ddaa0de13135b93db48ec
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91284483"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395037"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Note sulla versione di Azure SQL Edge 
 
@@ -37,9 +37,9 @@ Questo articolo descrive le novità e le modifiche apportate a ogni nuova build 
    - Abilita scenari di esecuzione parallela
 6. Miglioramenti al risparmio energetico per la modalità a basso consumo
 7. Supporto per la nuova funzionalità di streaming 
-   - [Snapshot Windows](https://docs.microsoft.com/stream-analytics-query/snapshot-window-azure-stream-analytics) : nuovo tipo di finestra che consente di raggruppare gli eventi che arrivano esattamente allo stesso tempo. 
-   - Abilitare [topone](https://docs.microsoft.com/stream-analytics-query/topone-azure-stream-analytics) e [CollectTop](https://docs.microsoft.com/stream-analytics-query/collecttop-azure-stream-analytics) come funzione analitica, in questo modo sarà possibile restituire i record ordinati in base alla colonna scelta, senza che sia necessario far parte di una finestra. 
-   - Miglioramenti apportati a [MATCH_RECOGNIZE](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics). 
+   - [Snapshot Windows](/stream-analytics-query/snapshot-window-azure-stream-analytics) : nuovo tipo di finestra che consente di raggruppare gli eventi che arrivano esattamente allo stesso tempo. 
+   - Abilitare [topone](/stream-analytics-query/topone-azure-stream-analytics) e [CollectTop](/stream-analytics-query/collecttop-azure-stream-analytics) come funzione analitica, in questo modo sarà possibile restituire i record ordinati in base alla colonna scelta, senza che sia necessario far parte di una finestra. 
+   - Miglioramenti apportati a [MATCH_RECOGNIZE](/stream-analytics-query/match-recognize-stream-analytics). 
 
 ### <a name="fixes"></a>Correzioni
 1. Messaggi di errore aggiuntivi e dettagli per la risoluzione dei problemi relativi alle operazioni di streaming TSQL. 

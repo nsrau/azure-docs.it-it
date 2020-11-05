@@ -4,12 +4,12 @@ description: Disponibilità delle risorse di calcolo e memoria per il servizio I
 ms.topic: article
 ms.date: 04/27/2020
 ms.custom: references_regions
-ms.openlocfilehash: 1ed3f50198c0410d9c893fe87523fa214ca03d88
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: e4fbf1023863f9f4c46e6bd2266f72ff2f7d7adc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521459"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395870"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Disponibilità di risorse per Istanze di Azure Container nelle aree di Azure
 
@@ -39,17 +39,18 @@ Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenito
 | Asia orientale | 4 | 16 | 4 | 16 | 50 | N/D |
 | Stati Uniti orientali | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 | Stati Uniti orientali 2 | 4 | 16 | 4 | 16 | 50 | N/D |
+| Francia centrale | 4 | 16 | 4 | 16 | 50 | N/D |
 | Giappone orientale | 2 | 8 | 4 | 16 | 50 | N/D |
 | Corea centrale | 4 | 16 | N/D | N/D | 50 | N/D |
-| Stati Uniti centro-settentrionali | 2 | 3,5 | 4 | 16 | 50 | N/D |
+| Stati Uniti centro-settentrionali | 2 | 3,5 | 4 | 16 | 50 | K80, P100, V100 |
 | Europa settentrionale | 4 | 16 | 4 | 16 | 50 | K80 |
 | Stati Uniti centro-meridionali | 4 | 16 | 4 | 16 | 50 | N/D |
 | Asia sud-orientale | 4 | 16 | 4 | 16 | 50 | P100, V100 |
 | India meridionale | 4 | 16 | N/D | N/D | 50 | N/D |
 | Regno Unito meridionale | 4 | 16 | 4 | 16 | 50 | N/D |
-| Stati Uniti centro-occidentali| 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
+| Stati Uniti centro-occidentali| 4 | 16 | 4 | 16 | 50 | N/D |
 | Europa occidentale | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
-| Stati Uniti occidentali | 4 | 16 | 2 | 4 | 16| N/D |
+| Stati Uniti occidentali | 4 | 16 | 4 | 16 | 50 | N/D |
 | West US 2 | 4 | 16 | 4 | 16 | 50 | K80, P100, V100 |
 
 Le risorse massime seguenti sono disponibili per un gruppo di contenitori distribuito con [risorse GPU](container-instances-gpu.md) (anteprima).
@@ -67,29 +68,63 @@ Le risorse massime seguenti sono disponibili per un gruppo di contenitori distri
 
 Le aree e le risorse massime seguenti sono disponibili per i gruppi di contenitori con i contenitori di Windows Server [supportati e di anteprima](container-instances-faq.md#what-windows-base-os-images-are-supported) .
 
-| Region | CPU Windows Server 2016 max | Memoria massima di Windows Server 2016 (GB) | CPU max LTSC di Windows Server 2019 | Memoria massima LTSC di Windows Server 2019 (GB) | Archiviazione (GB) |
+###  <a name="windows-server-2016"></a>Windows Server 2016
+
+> [!NOTE]
+> Per altre informazioni sugli host 1B, 2B e 3B, vedere [compatibilità delle versioni di host e contenitori](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) .
+
+| Region | CPU max 1B/2B | Memoria massima 1B/2B (GB) |Massimo 3B CPU | Memoria massima 3B (GB) | Archiviazione (GB) |
 | -------- | :---: | :---: | :----: | :-----: | :-------: |
-| Australia orientale | 2 | 3,5 | 4 | 16 | 20 |
+| Australia orientale | 2 | 8 | 2 | 3,5 | 20 |
 | Brasile meridionale | 4 | 16 | 4 | 16 | 20 |
-| Canada centrale | 2 | 3,5 | 4 | 16 | 20 |
-| India centrale | 2 | 3,5 | 4 | 16 | 20 |
-| Stati Uniti centrali | 2 | 3,5 | 4 | 16 | 20 |
-| Asia orientale | 2 | 3,5 | 4 | 16 | 20 |
-| Stati Uniti orientali | 2 | 8 | 4 | 16 | 20 |
-| Stati Uniti orientali 2 | 2 | 3,5 | 2 | 3,5 | 20 |
-| Francia centrale | 4 | 16 | 4 | 16 | 20 |
+| Canada centrale | 2 | 3,5 | 2 | 3,5 | 20 |
+| India centrale | 2 | 3,5 | 2 | 3,5 | 20 |
+| Stati Uniti centrali | 2 | 3,5 | 2 | 3,5 | 20 |
+| Asia orientale | 2 | 3,5 | 2 | 3,5 | 20 |
+| Stati Uniti orientali | 4 | 16 | 2 | 8 | 20 |
+| Stati Uniti orientali 2 | 2 | 3,5 | 4 | 16 | 20 |
 | Giappone orientale | 4 | 16 | 4 | 16 | 20 |
 | Corea centrale | 4 | 16 | 4 | 16 | 20 |
-| Stati Uniti centro-settentrionali | 2 | 3,5 | 4 | 16 | 20 |
-| Europa settentrionale | 2 | 3,5 | 4 | 16 | 20 |
-| Stati Uniti centro-meridionali | 2 | 3,5 | 4 | 16 | 20 |
-| India meridionale | 2 | 3,5 | 4 | 16 | 20 |
-| Asia sud-orientale | 2 | 3,5 | 4 | 16 | 20 |
-| Regno Unito meridionale | 2 | 3,5 | 4 | 16 | 20 |
+| Stati Uniti centro-settentrionali | 4 | 16 | 4 | 16 | 20 |
+| Europa settentrionale | 2 | 3,5 | 2 | 8 | 20 |
+| Stati Uniti centro-meridionali | 2 | 3,5 | 2 | 3,5 | 20 |
+| Asia sud-orientale | N/D | N/D | 2 | 3,5 | 20 |
+| India meridionale | 2 | 3,5 | 2 | 3,5 | 20 |
+| Regno Unito meridionale | 2 | 8 | 2 | 3,5 | 20 |
 | Stati Uniti centro-occidentali | 4 | 16 | 4 | 16 | 20 |
 | Europa occidentale | 4 | 16 | 4 | 16 | 20 |
-| Stati Uniti occidentali | 4 | 14 | N/D | N/D | 20 |
+| Stati Uniti occidentali | 4 | 16 | 2 | 8 | 20 |
 | West US 2 | 2 | 3,5 | 2 | 3,5 | 20 |
+
+
+### <a name="windows-server-2019-ltsc"></a>Windows Server 2019 LTSC
+
+> [!NOTE]
+> Per altre informazioni sugli host 1B, 2B e 3B, vedere [compatibilità delle versioni di host e contenitori](/virtualization/windowscontainers/deploy-containers/update-containers#host-and-container-version-compatibility) .
+
+| Region | CPU max 1B/2B | Memoria massima 1B/2B (GB) |Massimo 3B CPU | Memoria massima 3B (GB) | Archiviazione (GB) |
+| -------- | :---: | :---: | :----: | :-----: | :-------: |
+| Australia orientale | 4 | 16 | 4 | 16 | 20 |
+| Brasile meridionale | 4 | 16 | 4 | 16 | 20 |
+| Canada centrale | 4 | 16 | 4 | 16 | 20 |
+| India centrale | 4 | 16 | 4 | 16 | 20 |
+| Stati Uniti centrali | 4 | 16 | 4 | 16 | 20 |
+| Asia orientale | 4 | 16 | 4 | 16 | 20 |
+| Stati Uniti orientali | 4 | 16 | 4 | 16 | 20 |
+| Stati Uniti orientali 2 | 2 | 3,5 | 2 | 3,5 | 20 |
+| Francia centrale | 4 | 16 | 4 | 16 | 20 |
+| Giappone orientale | N/D | N/D | 4 | 16 | 20 |
+| Corea centrale | 4 | 16 | 4 | 16 | 20 |
+| Stati Uniti centro-settentrionali | 4 | 16 | 4 | 16 | 20 |
+| Europa settentrionale | 4 | 16 | 4 | 16 | 20 |
+| Stati Uniti centro-meridionali | 4 | 16 | 4 | 16 | 20 |
+| Asia sud-orientale | 4 | 16 | 4 | 16 | 20 |
+| India meridionale | 4 | 16 | 4 | 16 | 20 |
+| Regno Unito meridionale | 4 | 16 | 4 | 16 | 20 |
+| Stati Uniti centro-occidentali | 4 | 16 | 4 | 16 | 20 |
+| Europa occidentale | 4 | 16 | 4 | 16 | 20 |
+| Stati Uniti occidentali | 4 | 16 | 4 | 16 | 20 |
+| West US 2 | 2 | 8 | 4 | 16 | 20 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

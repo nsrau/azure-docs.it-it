@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.topic: how-to
 ms.workload: identity
-ms.date: 04/29/2020
+ms.date: 11/04/2020
 ms.author: curtand
-ms.reviewer: elkuzmen
+ms.reviewer: sumitp
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6a7dcb1d24f3c1ff848e3393687b04d79d28058
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 11708aeb434f3b258377c02f15214f1ac9ae4295
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92375668"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393626"
 ---
 # <a name="take-over-an-unmanaged-directory-as-administrator-in-azure-active-directory"></a>Acquisire la proprietà di una directory non gestita come amministratore in Azure Active Directory
 
@@ -63,7 +63,7 @@ Quando si completano i passaggi precedenti, si è ora l'amministratore globale d
   
    ![Rimuovere il nome di dominio da Microsoft 365](./media/domains-admin-takeover/remove-domain-from-o365.png)
   
-5. Se sono presenti utenti o gruppi in Microsoft 365 che fanno riferimento al nome di dominio rimosso, devono essere rinominati nel dominio. onmicrosoft.com. Se si forza l'eliminazione del nome di dominio, tutti gli utenti vengono automaticamente rinominati, in questo esempio, in * \@ fourthcoffeexyz.onmicrosoft.com utente*.
+5. Se sono presenti utenti o gruppi in Microsoft 365 che fanno riferimento al nome di dominio rimosso, devono essere rinominati nel dominio. onmicrosoft.com. Se si forza l'eliminazione del nome di dominio, tutti gli utenti vengono automaticamente rinominati, in questo esempio, in *\@ fourthcoffeexyz.onmicrosoft.com utente*.
   
 6. Accedere al centro di [amministrazione di Azure ad](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) con un account che sia l'amministratore globale dell'organizzazione Azure ad.
   
@@ -100,7 +100,7 @@ I piani di servizio supportati includono:
 
 L'acquisizione di un amministratore esterno non è supportata per alcun servizio con piani di servizio che includono SharePoint, OneDrive o Skype for business. ad esempio, tramite una sottoscrizione gratuita di Office. 
 
-Facoltativamente, è possibile usare l' [opzione **ForceTakeover** ](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) per rimuovere il nome di dominio dall'organizzazione non gestita e verificarlo nell'organizzazione desiderata. 
+Facoltativamente, è possibile usare l' [opzione **ForceTakeover**](#azure-ad-powershell-cmdlets-for-the-forcetakeover-option) per rimuovere il nome di dominio dall'organizzazione non gestita e verificarlo nell'organizzazione desiderata. 
 
 #### <a name="more-information-about-rms-for-individuals"></a>Altre informazioni su RMS per utenti singoli
 
@@ -120,7 +120,7 @@ Cmdlet | Utilizzo
 `new-msoldomain –name <domainname>` | Aggiunge il nome di dominio all'organizzazione come non verificato (non è stata ancora eseguita alcuna verifica DNS).
 `get-msoldomain` | Il nome di dominio è ora incluso nell'elenco dei nomi di dominio associati all'organizzazione gestita, ma è elencato come non **verificato**.
 `get-msoldomainverificationdns –Domainname <domainname> –Mode DnsTxtRecord` | Fornisce le informazioni da inserire nel nuovo record TXT DNS per il dominio (MS=xxxxx). La verifica potrebbe non essere eseguita immediatamente perché la propagazione del record TXT richiede tempo. Attendere quindi alcuni minuti prima di prendere in considerazione l'opzione **-ForceTakeover**. 
-`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se il nome di dominio continua a non essere verificato, è possibile procedere con l'opzione **-ForceTakeover**, che verifica che il record TXT sia stato creato e avvia il processo di acquisizione della proprietà.<li>L'opzione **-ForceTakeover** deve essere aggiunta al cmdlet solo quando si forza l'acquisizione di un amministratore esterno, ad esempio quando l'organizzazione non gestita ha Microsoft 365 servizi che bloccano l'acquisizione.
+`confirm-msoldomain –Domainname <domainname> –ForceTakeover Force` | <li>Se il nome di dominio continua a non essere verificato, è possibile procedere con l'opzione **-ForceTakeover** , che verifica che il record TXT sia stato creato e avvia il processo di acquisizione della proprietà.<li>L'opzione **-ForceTakeover** deve essere aggiunta al cmdlet solo quando si forza l'acquisizione di un amministratore esterno, ad esempio quando l'organizzazione non gestita ha Microsoft 365 servizi che bloccano l'acquisizione.
 `get-msoldomain` | Nell'elenco di domini il nome di dominio ora risulta **Verificato**.
 
 > [!NOTE]
@@ -144,12 +144,12 @@ Cmdlet | Utilizzo
    ```powershell
    Get-MsolDomainVerificationDns –DomainName *your_domain_name* –Mode DnsTxtRecord
    ```
-    Esempio:
+    Ad esempio:
    ```
    Get-MsolDomainVerificationDns –DomainName contoso.com –Mode DnsTxtRecord
    ```
 
-4. Copiare il valore (la richiesta di verifica) restituita da questo comando. Esempio:
+4. Copiare il valore (la richiesta di verifica) restituita da questo comando. Ad esempio:
    ```powershell
    MS=32DD01B82C05D27151EA9AE93C5890787F0E65D9
    ```
@@ -160,7 +160,7 @@ Cmdlet | Utilizzo
    Confirm-MsolDomain –DomainName *your_domain_name* –ForceTakeover Force
    ```
   
-   Esempio:
+   Ad esempio:
   
    ```powershell
    Confirm-MsolDomain –DomainName contoso.com –ForceTakeover Force
@@ -174,7 +174,7 @@ Una richiesta di verifica riporta al prompt senza errori.
 * [Come installare e configurare Azure PowerShell](/powershell/azure/)
 * [Azure PowerShell](/powershell/azure/)
 * [Informazioni di riferimento sui cmdlet di Azure](/powershell/azure/get-started-azureps)
-* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)
+* [Set-MsolCompanySettings](/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0&preserve-view=true)
 
 <!--Image references-->
 [1]: ./media/active-directory-self-service-signup/SelfServiceSignUpControls.png

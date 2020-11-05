@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9408aaa8fd5b677f012392ef4bd51c8826650eee
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90902503"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93395156"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Abilitare e disabilitare i criteri di conservazione dei dati
 
@@ -22,7 +22,7 @@ In questo argomento viene descritto come abilitare e disabilitare i criteri di c
 
 ## <a name="enable-data-retention-for-a-database"></a>Abilitare la conservazione dei dati per un database
 
-Nell'esempio seguente viene illustrato come abilitare la conservazione dei dati utilizzando [ALTER database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
+Nell'esempio seguente viene illustrato come abilitare la conservazione dei dati utilizzando [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options).
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -38,9 +38,9 @@ FROM sys.databases;
 
 ## <a name="enable-data-retention-for-a-table"></a>Abilitare la conservazione dei dati per una tabella
 
-La conservazione dei dati deve essere abilitata per ogni tabella per cui si desidera che i dati vengano eliminati automaticamente. Quando la conservazione dei dati è abilitata per il database e la tabella, un'attività di sistema in background analizzerà periodicamente la tabella per identificare ed eliminare eventuali righe obsolete (obsolete). La conservazione dei dati può essere abilitata in una tabella durante la creazione della tabella tramite [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql) o [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).
+La conservazione dei dati deve essere abilitata per ogni tabella per cui si desidera che i dati vengano eliminati automaticamente. Quando la conservazione dei dati è abilitata per il database e la tabella, un'attività di sistema in background analizzerà periodicamente la tabella per identificare ed eliminare eventuali righe obsolete (obsolete). La conservazione dei dati può essere abilitata in una tabella durante la creazione della tabella tramite [Create Table](/sql/t-sql/statements/create-table-transact-sql) o [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql).
 
-Nell'esempio seguente viene illustrato come abilitare la conservazione dei dati per una tabella tramite [Create Table](https://docs.microsoft.com/sql/t-sql/statements/create-table-transact-sql). 
+Nell'esempio seguente viene illustrato come abilitare la conservazione dei dati per una tabella tramite [Create Table](/sql/t-sql/statements/create-table-transact-sql). 
 
 ```sql
 CREATE TABLE [dbo].[data_retention_table] 
@@ -63,7 +63,7 @@ La `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD =
     - DateTimeOffset
 - RETENTION_PERIOD: valore integer seguito da un descrittore di unità. Le unità consentite sono DAY, DAYS, WEEK, WEEKs, MONTH, MONTHs, YEAR e YEARs.
 
-Nell'esempio seguente viene illustrato come abilitare la conservazione dei dati per la tabella utilizzando [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
+Nell'esempio seguente viene illustrato come abilitare la conservazione dei dati per la tabella utilizzando [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql).  
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -101,7 +101,7 @@ Le impostazioni di conservazione dei dati nel database e nella tabella vengono u
 
 ## <a name="disable-data-retention-on-a-table"></a>Disabilitare la conservazione dei dati in una tabella 
 
-La conservazione dei dati può essere disabilitata in una tabella tramite [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql). Il comando seguente può essere usato per disabilitare la conservazione dei dati in una tabella.
+La conservazione dei dati può essere disabilitata in una tabella tramite [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql). Il comando seguente può essere usato per disabilitare la conservazione dei dati in una tabella.
 
 ```sql
 Alter Table [dbo].[data_retention_table]
@@ -110,7 +110,7 @@ Set (DATA_DELETION = OFF)
 
 ## <a name="disable-data-retention-on-a-database"></a>Disabilitare la conservazione dei dati in un database
 
-La conservazione dei dati può essere disabilitata in una tabella tramite [ALTER database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options). Il comando seguente può essere usato per disabilitare la conservazione dei dati in un database.
+La conservazione dei dati può essere disabilitata in una tabella tramite [ALTER database](/sql/t-sql/statements/alter-database-transact-sql-set-options). Il comando seguente può essere usato per disabilitare la conservazione dei dati in un database.
 
 ```sql
 ALTER DATABASE <DatabaseName> SET DATA_RETENTION  OFF;

@@ -11,14 +11,14 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: joflore
-ms.openlocfilehash: 240b96a47c84ec3b15a356edc35549a4a197b219
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: 2dbc75ac4f143089db778b260bb2c4bee5b49f6a
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91967968"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93393167"
 ---
-# <a name="password-and-account-lockout-policies-on-active-directory-domain-services-managed-domains"></a>Criteri di blocco di password e account in Active Directory Domain Services domini gestiti
+# <a name="password-and-account-lockout-policies-on-azure-active-directory-domain-services-managed-domains"></a>Criteri di blocco di password e account in Azure Active Directory Domain Services domini gestiti
 
 Per gestire la sicurezza degli utenti in Azure Active Directory Domain Services (Azure AD DS), è possibile definire criteri specifici per le password che controllano le impostazioni di blocco degli account o la lunghezza e la complessità minime della password. Un criterio granulare per le password predefinito viene creato e applicato a tutti gli utenti in un dominio gestito Azure AD DS. Per fornire un controllo granulare e soddisfare specifiche esigenze aziendali o di conformità, è possibile creare criteri aggiuntivi e applicarli a gruppi di utenti specifici.
 
@@ -117,7 +117,7 @@ Per creare un criterio personalizzato per le password, usare gli strumenti di am
 
     ![Selezionare gli utenti e i gruppi ai quali applicare i criteri password](./media/password-policy/fgpp-applies-to.png)
 
-1. È possibile applicare i criteri password solo ai gruppi. Nella finestra di dialogo **locations (percorsi** ) espandere il nome di dominio, ad esempio *aaddscontoso.com*, quindi selezionare un'unità organizzativa, ad esempio **aaddc computers users**. Se si dispone di un'unità organizzativa personalizzata che contiene un gruppo di utenti che si desidera applicare, selezionare tale unità organizzativa.
+1. È possibile applicare i criteri password solo ai gruppi. Nella finestra di dialogo **locations (percorsi** ) espandere il nome di dominio, ad esempio *aaddscontoso.com* , quindi selezionare un'unità organizzativa, ad esempio **aaddc computers users**. Se si dispone di un'unità organizzativa personalizzata che contiene un gruppo di utenti che si desidera applicare, selezionare tale unità organizzativa.
 
     ![Selezionare l'unità organizzativa a cui appartiene il gruppo](./media/password-policy/fgpp-container.png)
 
