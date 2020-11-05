@@ -3,12 +3,12 @@ title: Impostare le password per le macchine virtuali in Azure Lab Services | Mi
 description: Informazioni su come impostare e reimpostare le password per le macchine virtuali (VM) in lab per le classi di Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 49615b37875b8340f46ed900a1e7144256c7cb7d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e24fee26670a664012ec5f0216b0638d6149453f
+ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91334073"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93379690"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>Configurare e gestire il pool di macchine virtuali 
 Questo articolo illustra come eseguire le attività seguenti:
@@ -53,6 +53,7 @@ Analogamente, è possibile arrestare una o più macchine virtuali attivando il p
 > Quando un docente accende una macchina virtuale per studenti, la quota per lo studente rimane invariata. La quota per un utente specifica il numero di ore lab disponibili per l'utente al di fuori dell'orario delle lezioni pianificato. Per altre informazioni sulle quote, vedere [Impostare quote per gli utenti](how-to-configure-student-usage.md?#set-quotas-for-users).
 
 ## <a name="reset-vms"></a>Reimpostare le macchine virtuali
+
 Per reimpostare una o più macchine virtuali, selezionarle nell'elenco e quindi selezionare **Reimposta** nella barra degli strumenti. 
 
 ![Reimpostare le macchine virtuali selezionate](./media/how-to-set-virtual-machine-passwords/reset-vm-button.png)
@@ -60,8 +61,6 @@ Per reimpostare una o più macchine virtuali, selezionarle nell'elenco e quindi 
 Nella finestra di dialogo **Reimposta macchine virtuali** selezionare **Reimposta**. 
 
 ![Finestra di dialogo Reimposta macchine virtuali](./media/how-to-set-virtual-machine-passwords/reset-vms-dialog.png)
-
-
 
 ## <a name="set-password-for-vms"></a>Impostare la password per le macchine virtuali
 Un proprietario del lab (docente) può impostare o reimpostare la password per le macchine virtuali al momento della creazione del lab (creazione guidata del lab) o dopo la creazione del lab nella pagina **Modello**. 
