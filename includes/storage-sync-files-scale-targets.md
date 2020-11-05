@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 47eae616ffc62e42448da23fb02152dae17aa548
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 29518fb971649087d8a5afa39d69c7fc2c014f98
+ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92116807"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93331156"
 ---
 | Risorsa | Destinazione | Limite rigido |
 |----------|--------------|------------|
@@ -21,7 +21,7 @@ ms.locfileid: "92116807"
 | Gruppi di sincronizzazione per servizio di sincronizzazione archiviazione | 200 gruppi di sincronizzazione | Sì |
 | Server registrati per servizio di sincronizzazione archiviazione | 99 server | Sì |
 | Endpoint cloud per gruppo di sincronizzazione | 1 endpoint cloud | Sì |
-| Endpoint server per gruppo di sincronizzazione | 50 endpoint server | No |
+| Endpoint server per gruppo di sincronizzazione | 100 endpoint server | Sì |
 | Endpoint server per server | 30 endpoint server | Sì |
 | Oggetti file system (directory e file) per gruppo di sincronizzazione | 100 milioni di oggetti | No |
 | Numero massimo di oggetti file system (directory e file) in una directory | 5 milioni di oggetti | Sì |
