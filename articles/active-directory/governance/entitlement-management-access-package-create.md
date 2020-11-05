@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9c1734af799ee473d6ba75fe2e8ab8429afa51d0
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: f6c30dffbc8f97273ee59ce33ae3fe75ed730763
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92318204"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356638"
 ---
 # <a name="create-a-new-access-package-in-azure-ad-entitlement-management"></a>Creare un nuovo pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -89,7 +89,7 @@ Nella scheda **nozioni di base** assegnare un nome al pacchetto di accesso e spe
 
 Nella scheda **ruoli risorsa** selezionare le risorse da includere nel pacchetto di accesso. Gli utenti che richiedono e ricevono il pacchetto di accesso riceveranno tutti i ruoli delle risorse nel pacchetto di accesso.
 
-1. Fare clic sul tipo di risorsa che si desidera aggiungere (**gruppi e team**, **applicazioni**o **siti di SharePoint**).
+1. Fare clic sul tipo di risorsa che si desidera aggiungere ( **gruppi e team** , **applicazioni** o **siti di SharePoint** ).
 
 1. Nel riquadro Seleziona visualizzato selezionare una o più risorse dall'elenco.
 
@@ -119,13 +119,13 @@ A seconda di chi desidera essere in grado di richiedere questo pacchetto di acce
 
 [!INCLUDE [Entitlement management lifecycle policy](../../../includes/active-directory-entitlement-management-lifecycle-policy.md)]
 
-## <a name="review--create"></a>Rivedere e creare
+## <a name="review--create"></a>Rivedi e crea
 
 Nella scheda **Verifica e crea** è possibile esaminare le impostazioni e verificare la presenza di eventuali errori di convalida.
 
 1. Esaminare le impostazioni del pacchetto di accesso
 
-    ![Pacchetto di accesso-criteri-Abilita impostazione dei criteri](./media/entitlement-management-access-package-create/review-create.png)
+    ![Accesso al pacchetto-Abilita impostazione dei criteri](./media/entitlement-management-access-package-create/review-create.png)
 
 1. Fare clic su **Crea** per creare il pacchetto di accesso.
 

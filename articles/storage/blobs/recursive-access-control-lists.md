@@ -9,19 +9,16 @@ ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c0323bed627fd622471724b20677914736c564d3
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 38699f94ae446295332deb9529a0da80d6df4301
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319915"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356864"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Impostare gli elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake Storage Gen2
 
 L'ereditarietà ACL è già disponibile per i nuovi elementi figlio creati in una directory padre. È anche possibile aggiungere, aggiornare e rimuovere gli ACL in modo ricorsivo per gli elementi figlio esistenti di una directory padre senza dover apportare queste modifiche singolarmente per ogni elemento figlio.
-
-> [!NOTE]
-> La possibilità di impostare elenchi di accesso in modo ricorsivo è in anteprima pubblica ed è disponibile in tutte le aree.  
 
 [Librerie](#libraries)  |  di [Esempi](#code-samples)  |  di [Procedure](#best-practice-guidelines)  |  consigliate [Invia commenti e suggerimenti](#provide-feedback)
 
@@ -614,7 +611,7 @@ az storage fs access update-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> Se si desidera aggiornare una voce ACL **predefinita** , aggiungere il prefisso `default:` a ogni voce. Ad esempio: `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`.
+> Se si desidera aggiornare una voce ACL **predefinita** , aggiungere il prefisso `default:` a ogni voce. Ad esempio, `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx:r-x`
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -749,7 +746,7 @@ az storage fs access remove-recursive --acl "user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxx
 ```
 
 > [!NOTE]
-> Se si desidera rimuovere una voce ACL **predefinita** , aggiungere il prefisso `default:` a ogni voce. Ad esempio: `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
+> Se si desidera rimuovere una voce ACL **predefinita** , aggiungere il prefisso `default:` a ogni voce. Ad esempio, `default:user:xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`
 
 ### <a name="net"></a>[.NET](#tab/dotnet)
 
@@ -847,40 +844,19 @@ Potrebbero verificarsi errori di runtime o di autorizzazione. Per gli errori di 
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-In questo esempio vengono impostati gli ACL in batch. Ogni chiamata a **set-AzDataLakeGen2AclRecursive** restituisce un token di continuazione finché non vengono impostati tutti gli ACL. In questo esempio viene impostata una variabile denominata `$ContinueOnFailure` su `$false` per indicare che il processo non deve continuare a impostare gli ACL in caso di errore di autorizzazione. Il token di continuazione viene archiviato nella `&token` variabile. In caso di errore, il token può essere usato per riprendere il processo dal punto in cui si è verificato l'errore.
+In questo esempio vengono restituiti i risultati alla variabile, quindi le voci non riuscite di pipe in una tabella formattata.
 
 ```powershell
-$ContinueOnFailure = $false
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl
+$result
+$result.FailedEntries | ft 
+```
 
-$token = $null
-$TotalDirectoriesSuccess = 0
-$TotalFilesSuccess = 0
-$totalFailure = 0
-$FailedEntries = New-Object System.Collections.Generic.List[System.Object]
-do
-{
-    if ($ContinueOnFailure)
-    {
-        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 -ContinueOnFailure
-    }
-    else
-    {
-        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 
-    }
-    echo $result
-    $TotalFilesSuccess += $result.TotalFilesSuccessfulCount
-    $TotalDirectoriesSuccess += $result.TotalDirectoriesSuccessfulCount
-    $totalFailure += $result.TotalFailureCount
-    $FailedEntries += $result.FailedEntries
-    $token = $result.ContinuationToken
-} while (($token -ne $null) -and (($ContinueOnFailure) -or ($result.TotalFailureCount -eq 0)))
-echo ""
-echo "[Result Summary]"
-echo "TotalDirectoriesSuccessfulCount: `t$($TotalDirectoriesSuccess)"
-echo "TotalFilesSuccessfulCount: `t`t`t$($TotalFilesSuccess)"
-echo "TotalFailureCount: `t`t`t`t`t$($totalFailure)"
-echo "FailedEntries:"$($FailedEntries | ft)
+In base all'output della tabella, è possibile correggere eventuali errori di autorizzazione e quindi riprendere l'esecuzione usando il token di continuazione.
 
+```powershell
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinuationToken $result.ContinuationToken
+$result
 
 ```
 
@@ -991,41 +967,22 @@ Se si desidera che il processo venga completato senza interruzioni da errori di 
 
 ### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-In questo esempio la `$ContinueOnFailure` variabile viene impostata su `$true` per indicare che il processo deve continuare a impostare gli ACL in caso di errore di autorizzazione. 
+In questo esempio viene usato il `ContinueOnFailure` parametro in modo che l'esecuzione continui anche se l'operazione rileva un errore di autorizzazione. 
 
 ```powershell
-$ContinueOnFailure = $true
 
-$token = $null
 $TotalDirectoriesSuccess = 0
 $TotalFilesSuccess = 0
 $totalFailure = 0
 $FailedEntries = New-Object System.Collections.Generic.List[System.Object]
-do
-{
-    if ($ContinueOnFailure)
-    {
-        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 -ContinueOnFailure
-    }
-    else
-    {
-        $result = Set-AzDataLakeGen2AclRecursive -Context $ctx2 -FileSystem $filesystemName -Path dir0 -Acl $acl1  -BatchSize 2  -ContinuationToken $token -MaxBatchCount 2 
-    }
-    echo $result
-    $TotalFilesSuccess += $result.TotalFilesSuccessfulCount
-    $TotalDirectoriesSuccess += $result.TotalDirectoriesSuccessfulCount
-    $totalFailure += $result.TotalFailureCount
-    $FailedEntries += $result.FailedEntries
-    $token = $result.ContinuationToken
-} while (($token -ne $null) -and (($ContinueOnFailure) -or ($result.TotalFailureCount -eq 0)))
-echo ""
+
+$result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $acl -ContinueOnFailure
+
 echo "[Result Summary]"
-echo "TotalDirectoriesSuccessfulCount: `t$($TotalDirectoriesSuccess)"
-echo "TotalFilesSuccessfulCount: `t`t`t$($TotalFilesSuccess)"
-echo "TotalFailureCount: `t`t`t`t`t$($totalFailure)"
-echo "FailedEntries:"$($FailedEntries | ft)
-
-
+echo "TotalDirectoriesSuccessfulCount: `t$($result.TotalFilesSuccessfulCount)"
+echo "TotalFilesSuccessfulCount: `t`t`t$($result.TotalDirectoriesSuccessfulCount)"
+echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
+echo "FailedEntries:"$($result.FailedEntries | ft) 
 ```
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)

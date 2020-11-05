@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/01/2017
+ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0769366ad56e1b7431dbfa7c95f1256c509d24fa
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89266290"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358168"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Come usare le identità gestite per risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso 
 
@@ -64,7 +64,7 @@ Un'applicazione client può richiedere un [token di accesso solo app](../develop
 
 L'interfaccia di base per l'acquisizione di un token di accesso è basata su REST, in modo che sia accessibile da qualsiasi applicazione client in esecuzione sulla macchina virtuale che può effettuare chiamate HTTP REST. Si tratta quindi di un meccanismo molto simile al modello di programmazione di Azure AD, tranne per il fatto che il client usa un endpoint nella macchina virtuale (e non un endpoint di Azure AD).
 
-Richiesta di esempio che usa l'endpoint del servizio metadati dell'istanza (IMDS) *(consigliato)*:
+Richiesta di esempio che usa l'endpoint del servizio metadati dell'istanza (IMDS) *(consigliato)* :
 
 ```
 GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' HTTP/1.1 Metadata: true
@@ -81,7 +81,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `client_id` | (Facoltativo) Un parametro di stringa di query che indichi il valore client_id dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente.|
 | `mi_res_id` | Opzionale Parametro della stringa di query, che indica il mi_res_id (ID risorsa di Azure) dell'identità gestita per cui si desidera il token. Obbligatorio, se la macchina virtuale dispone di più identità gestite assegnate dall'utente. |
 
-Richiesta di esempio che usa l'endpoint dell'estensione della macchina virtuale delle identità gestite per risorse di Azure *(la cui deprecazione è pianificata per il gennaio 2019)*:
+Richiesta di esempio che usa l'endpoint dell'estensione della macchina virtuale delle identità gestite per risorse di Azure *(la cui deprecazione è pianificata per il gennaio 2019)* :
 
 ```http
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1

@@ -5,14 +5,14 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: conceptual
-ms.date: 07/24/2020
+ms.date: 11/04/2020
 ms.author: tisande
-ms.openlocfilehash: 7a4b2a778fc3d520c0ce85bed5bec0b49fc14384
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 9176205b93519f0afac0c57f5da8593df6673c0f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93341910"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356621"
 ---
 # <a name="getting-started-with-sql-queries"></a>Introduzione alle query SQL
 [!INCLUDE[appliesto-sql-api](includes/appliesto-sql-api.md)]
@@ -21,26 +21,35 @@ In Azure Cosmos DB account API SQL sono disponibili due modi per leggere i dati:
 
 **Letture di punti** : è possibile eseguire una ricerca di chiave/valore su un *ID singolo elemento* e una chiave di partizione. La combinazione di *ID elemento* e chiave di partizione è la chiave e l'elemento stesso è il valore. Per un documento da 1 KB, le letture di punti in genere costano 1 [unità richiesta](request-units.md) con una latenza inferiore a 10 ms. Le letture Point restituiscono un singolo elemento.
 
-**Query SQL** : è possibile eseguire query sui dati scrivendo query usando il Structured Query Language (SQL) come linguaggio di query JSON. Le query costano sempre almeno 2,3 unità richiesta e, in generale, avranno una latenza più elevata e variabile rispetto alle letture del punto. Le query possono restituire molti elementi.
-
-Per la maggior parte dei carichi di lavoro con utilizzo intensivo di lettura su Azure Cosmos DB viene utilizzata una combinazione di letture di punti e query SQL. Se è sufficiente leggere un singolo elemento, le letture di punti sono più convenienti e più veloci rispetto alle query. Le letture di punti non devono usare il motore di query per accedere ai dati e possono leggere direttamente i dati. Naturalmente, non è possibile che tutti i carichi di lavoro leggano esclusivamente i dati usando le letture di punti, pertanto il supporto di SQL come linguaggio di query e [indicizzazione indipendente dallo schema](index-overview.md) fornisce un modo più flessibile per accedere ai dati.
-
-Di seguito sono riportati alcuni esempi di come eseguire le letture dei punti con ogni SDK:
+Di seguito sono riportati alcuni esempi di come eseguire le **letture dei punti** con ogni SDK:
 
 - [.NET SDK](/dotnet/api/microsoft.azure.cosmos.container.readitemasync?preserve-view=true&view=azure-dotnet)
 - [SDK per Java](/java/api/com.azure.cosmos.cosmoscontainer.readitem?preserve-view=true&view=azure-java-stable#com_azure_cosmos_CosmosContainer__T_readItem_java_lang_String_com_azure_cosmos_models_PartitionKey_com_azure_cosmos_models_CosmosItemRequestOptions_java_lang_Class_T__)
 - [Node.js SDK](/javascript/api/@azure/cosmos/item?preserve-view=true&view=azure-node-latest#read-requestoptions-)
 - [Python SDK](/python/api/azure-cosmos/azure.cosmos.containerproxy?preserve-view=true&view=azure-python#read-item-item--partition-key--populate-query-metrics-none--post-trigger-include-none----kwargs-)
 
+**Query SQL** : è possibile eseguire query sui dati scrivendo query usando il Structured Query Language (SQL) come linguaggio di query JSON. Le query costano sempre almeno 2,3 unità richiesta e, in generale, avranno una latenza più elevata e variabile rispetto alle letture del punto. Le query possono restituire molti elementi.
+
+Per la maggior parte dei carichi di lavoro con utilizzo intensivo di lettura su Azure Cosmos DB viene utilizzata una combinazione di letture di punti e query SQL. Se è sufficiente leggere un singolo elemento, le letture di punti sono più convenienti e più veloci rispetto alle query. Le letture di punti non devono usare il motore di query per accedere ai dati e possono leggere direttamente i dati. Naturalmente, non è possibile che tutti i carichi di lavoro leggano esclusivamente i dati usando le letture di punti, pertanto il supporto di SQL come linguaggio di query e [indicizzazione indipendente dallo schema](index-overview.md) fornisce un modo più flessibile per accedere ai dati.
+
+Di seguito sono riportati alcuni esempi di come eseguire **query SQL** con ogni SDK:
+
+- [.NET SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-dotnet-v3sdk-samples#query-examples)
+- [SDK per Java](https://docs.microsoft.com/azure/cosmos-db/sql-api-java-sdk-samples#query-examples)
+- [Node.js SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-nodejs-samples#item-examples)
+- [Python SDK](https://docs.microsoft.com/azure/cosmos-db/sql-api-python-samples#item-examples)
+
 Il resto di questo documento illustra come iniziare a scrivere query SQL in Azure Cosmos DB. Le query SQL possono essere eseguite tramite SDK o portale di Azure.
 
 ## <a name="upload-sample-data"></a>Carica dati di esempio
 
-Nell'account di Cosmos DB dell'API SQL creare un contenitore denominato `Families` . Creare due semplici elementi JSON nel contenitore. È possibile eseguire la maggior parte delle query di esempio nella documentazione di Azure Cosmos DB query utilizzando questo set di dati.
+Nell'account di Cosmos DB dell'API SQL aprire il [Esplora dati](https://docs.microsoft.com/azure/cosmos-db/data-explorer) per creare un contenitore denominato `Families` . Al termine della creazione, utilizzare il browser strutture di dati per trovarlo e aprirlo. Nel `Families` contenitore viene visualizzata l' `Items` opzione immediatamente sotto il nome del contenitore. Aprire questa opzione. verrà visualizzato un pulsante, sulla barra dei menu al centro della schermata, per creare un "nuovo elemento". Questa funzionalità verrà usata per creare gli elementi JSON seguenti.
 
 ### <a name="create-json-items"></a>Crea elementi JSON
 
-Il codice seguente crea due semplici elementi JSON sulle famiglie. Gli elementi JSON semplici per le famiglie Andersen e Wakefield includono i genitori, i figli e i relativi animali, l'indirizzo e le informazioni di registrazione. Il primo elemento contiene stringhe, numeri, valori booleani, matrici e proprietà annidate.
+I 2 elementi JSON seguenti sono documenti relativi alle famiglie Andersen e Wakefield. Sono inclusi genitori, figli e i relativi animali domestici, indirizzo e informazioni di registrazione. 
+
+Il primo elemento contiene stringhe, numeri, valori booleani, matrici e proprietà annidate:
 
 ```json
 {
@@ -64,7 +73,7 @@ Il codice seguente crea due semplici elementi JSON sulle famiglie. Gli elementi 
 }
 ```
 
-Il secondo elemento usa `givenName` e `familyName` invece di `firstName` e `lastName` .
+Il secondo elemento usa `givenName` e `familyName` invece di `firstName` e `lastName` :
 
 ```json
 {

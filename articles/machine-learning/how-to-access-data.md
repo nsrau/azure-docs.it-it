@@ -1,5 +1,5 @@
 ---
-title: Connettersi ai servizi di archiviazione di Azure
+title: Connettersi ai servizi di archiviazione in Azure
 titleSuffix: Azure Machine Learning
 description: Informazioni su come usare gli archivi dati per connettersi in modo sicuro ai servizi di archiviazione di Azure durante il training con Azure Machine Learning
 services: machine-learning
@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: sihhu
 author: MayMSFT
 ms.reviewer: nibaccam
-ms.date: 07/22/2020
-ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: db641eee13350f5a774e4ffd138e38c474af4981
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.date: 11/03/2020
+ms.custom: how-to, contperfq1, devx-track-python, data4ml
+ms.openlocfilehash: f60d864bd367b5f44869abc9ccac4e4cc266075a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320856"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358100"
 ---
-# <a name="connect-to-azure-storage-services"></a>Connettersi ai servizi di archiviazione di Azure
+# <a name="connect-to-storage-services-azure"></a>Connettersi ai servizi di archiviazione Azure
 
-Questo articolo illustra come **connettersi ai servizi di archiviazione di Azure tramite Azure Machine Learning archivi dati**. Gli archivi dati si connettono in modo sicuro al servizio di archiviazione di Azure senza inserire le credenziali di autenticazione e l'integrità dell'origine dati originale a rischio. Le informazioni di connessione vengono archiviate, ad esempio l'ID sottoscrizione e l'autorizzazione token nell' [Key Vault](https://azure.microsoft.com/services/key-vault/) associata all'area di lavoro, in modo da poter accedere in modo sicuro alla risorsa di archiviazione senza che sia necessario codificarli negli script. Per creare e registrare archivi dati, è possibile usare [Azure Machine Learning Python SDK](#python) o [Azure Machine Learning Studio](how-to-connect-data-ui.md) .
+Questo articolo illustra come **connettersi ai servizi di archiviazione in Azure tramite Azure Machine Learning archivi dati**. Gli archivi dati si connettono in modo sicuro al servizio di archiviazione di Azure senza inserire le credenziali di autenticazione e l'integrità dell'origine dati originale a rischio. Le informazioni di connessione vengono archiviate, ad esempio l'ID sottoscrizione e l'autorizzazione token nell' [Key Vault](https://azure.microsoft.com/services/key-vault/) associata all'area di lavoro, in modo da poter accedere in modo sicuro alla risorsa di archiviazione senza che sia necessario codificarli negli script. Per creare e registrare archivi dati, è possibile usare [Azure Machine Learning Python SDK](#python) o [Azure Machine Learning Studio](how-to-connect-data-ui.md) .
 
 Se si preferisce creare e gestire archivi dati utilizzando l'estensione Azure Machine Learning VS Code; per altre informazioni, vedere la Guida alle procedure per la [gestione delle risorse vs code](how-to-manage-resources-vscode.md#datastores) .
 
@@ -109,11 +109,13 @@ Per autenticare l'accesso al servizio di archiviazione sottostante, è possibile
     * La pagina di **Panoramica** corrispondente conterrà informazioni obbligatorie come ID tenant e ID client.
 
 > [!IMPORTANT]
-> Per motivi di sicurezza, potrebbe essere necessario modificare le chiavi di accesso per un account di archiviazione di Azure (chiave dell'account o token SAS). Quando si esegue questa operazione, assicurarsi di sincronizzare le nuove credenziali con l'area di lavoro e gli archivi dati connessi. Informazioni su come [sincronizzare le credenziali aggiornate](how-to-change-storage-access-key.md). 
-
+> * Se è necessario modificare le chiavi di accesso per un account di archiviazione di Azure (chiave dell'account o token SAS), assicurarsi di sincronizzare le nuove credenziali con l'area di lavoro e gli archivi dati connessi. Informazioni su come [sincronizzare le credenziali aggiornate](how-to-change-storage-access-key.md). 
 ### <a name="permissions"></a>Autorizzazioni
 
-Per il contenitore BLOB di Azure e l'archiviazione Azure Data Lake generazione 2, assicurarsi che le credenziali di autenticazione dispongano dell'accesso in **lettura dati BLOB di archiviazione** . Altre informazioni sul [lettore di dati BLOB di archiviazione](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). Per impostazione predefinita, un token di firma di accesso condiviso non dispone di alcuna autorizzazione. Per l'accesso in lettura ai dati, le credenziali di autenticazione devono avere almeno le autorizzazioni elenco e lettura per contenitori e oggetti. Per l'accesso in scrittura ai dati sono necessarie anche le autorizzazioni di scrittura e aggiunta.
+Per il contenitore BLOB di Azure e l'archiviazione Azure Data Lake generazione 2, assicurarsi che le credenziali di autenticazione dispongano dell'accesso in **lettura dati BLOB di archiviazione** . Altre informazioni sul [lettore di dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Per impostazione predefinita, un token di firma di accesso condiviso non dispone di alcuna autorizzazione. 
+* Per **l'accesso in lettura** ai dati, le credenziali di autenticazione devono avere almeno le autorizzazioni elenco e lettura per contenitori e oggetti. 
+
+* Per **l'accesso in scrittura ai** dati sono necessarie anche le autorizzazioni di scrittura e aggiunta.
 
 <a name="python"></a>
 
@@ -130,6 +132,8 @@ In questa sezione sono riportati alcuni esempi di come creare e registrare un ar
  Per creare archivi dati per altri servizi di archiviazione supportati, vedere la [documentazione di riferimento relativa ai `register_azure_*` metodi applicabili](/python/api/azureml-core/azureml.core.datastore.datastore?preserve-view=true&view=azure-ml-py#&preserve-view=truemethods).
 
 Se si preferisce un'esperienza di codice ridotta, vedere [connettersi ai dati con Azure Machine Learning Studio](how-to-connect-data-ui.md).
+>[!IMPORTANT]
+> Se si annulla la registrazione e si registra di nuovo un archivio dati con lo stesso nome e si verifica un errore, è possibile che la Azure Key Vault per l'area di lavoro non sia abilitata per l'eliminazione temporanea. Per impostazione predefinita, l'eliminazione temporanea è abilitata per l'istanza dell'insieme di credenziali delle chiavi creata dall'area di lavoro, ma potrebbe non essere abilitata se è stato usato un insieme di credenziali delle chiavi esistente o un'area di lavoro creata prima del 2020 ottobre. Per informazioni su come abilitare l'eliminazione temporanea, vedere [attivare l'eliminazione temporanea per un insieme di credenziali delle chiavi esistente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
 
 > [!NOTE]
 > Il nome dell'archivio dati deve essere costituito solo da lettere minuscole, cifre e caratteri di sottolineatura. 

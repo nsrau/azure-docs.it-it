@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 11/03/2020
+ms.date: 11/04/2020
 ms.author: kenwith
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: d6df94cca46d82c3e066779cd28584c84f12fbce
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 3b9f744e414e83c103f6b9249a0ccf5020588463
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93339436"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356349"
 ---
 # <a name="publish-your-app-to-the-azure-ad-app-gallery"></a>Pubblicare l'app nella raccolta di app Azure AD
 
@@ -97,6 +97,7 @@ La tabella seguente confronta gli standard principali: Open Authentication 2,0 (
 | Single Sign-out basato su dispositivi mobili| √| √* |
 | Criteri di accesso condizionale per le applicazioni per dispositivi mobili| √| X |
 | Esperienza multi-factor authentication per applicazioni per dispositivi mobili| √| X |
+| Provisioning SCIM| √| √ |
 | Microsoft Graph di accesso| √| X |
 
 * Possibile, ma Microsoft non fornisce esempi o indicazioni.
@@ -261,7 +262,7 @@ Per aggiungere l'applicazione all'elenco della raccolta usando l'accesso SSO bas
 
 ![Elenco di un'applicazione con password SSO nella raccolta](./media/howto-app-gallery-listing/passwordsso.png)
 
-Se si sta implementando un endpoint SCIM 2,0 per il provisioning dell'utente, selezionare l'opzione come illustrato. 
+Se si sta implementando un endpoint [SCIM](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups) 2,0 per il provisioning dell'utente, selezionare l'opzione come illustrato. 
 
    ![Richiesta di provisioning utenti](./media/howto-app-gallery-listing/user-provisioning.png)
 

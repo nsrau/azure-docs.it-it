@@ -10,12 +10,12 @@ ms.date: 10/26/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: b89112ab2384386d20b62f2510ec576d4a2075f1
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: f37fc8e19025b78475f706ff96c502cc6094d54f
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186757"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358423"
 ---
 # <a name="monitoring-azure-files"></a>File di Azure di monitoraggio
 
@@ -69,20 +69,20 @@ Per ottenere l'elenco delle operazioni SMB e REST registrate, vedere [operazioni
 
 Per istruzioni generali, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../../azure-monitor/platform/diagnostic-settings.md).
 
-### <a name="azure-portal"></a>[Portale di Azure](#tab/azure-portal)
+### <a name="azure-portal"></a>[Azure portal](#tab/azure-portal)
 
 1. Accedere al portale di Azure.
 
 2. Passare all'account di archiviazione.
 
-3. Nella sezione **monitoraggio** fare clic su **impostazioni di diagnostica (anteprima)** .
+3. Nella sezione **monitoraggio** fare clic su **impostazioni di diagnostica (anteprima)**.
 
    > [!div class="mx-imgBorder"]
    > ![portale - Log di diagnostica](media/storage-files-monitoring/diagnostic-logs-settings-pane.png)   
 
 4. Scegliere **file** come tipo di archiviazione per cui si vuole abilitare i log.
 
-5. Fare clic su **Aggiungi impostazione di diagnostica** .
+5. Fare clic su **Aggiungi impostazione di diagnostica**.
 
    > [!div class="mx-imgBorder"]
    > ![Portale-log delle risorse-Aggiungi impostazione di diagnostica](media/storage-files-monitoring/diagnostic-logs-settings-pane-2.png)
@@ -150,7 +150,7 @@ Sostituire il `<storage-service-resource--id>` segnaposto in questo frammento co
 
 È possibile utilizzare `StorageRead` , `StorageWrite` e `StorageDelete` per il valore del parametro **Category** .
 
-Ecco un esempio:
+Ad esempio:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -StorageAccountId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount -Enabled $true -Category StorageWrite,StorageDelete`
 
@@ -164,7 +164,7 @@ Abilitare i log usando il cmdlet di PowerShell [set-AzDiagnosticSetting](https:/
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -EventHubAuthorizationRuleId <event-hub-namespace-and-key-name> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Ecco un esempio:
+Ad esempio:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -EventHubAuthorizationRuleId /subscriptions/20884142-a14v3-4234-5450-08b10c09f4/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey -Enabled $true -Category StorageDelete`
 
@@ -178,7 +178,7 @@ Abilitare i log usando il cmdlet di PowerShell [set-AzDiagnosticSetting](https:/
 Set-AzDiagnosticSetting -ResourceId <storage-service-resource-id> -WorkspaceId <log-analytics-workspace-resource-id> -Enabled $true -Category <operatons-to-log> -RetentionEnabled <retention-bool> -RetentionInDays <number-of-days>
 ```
 
-Ecco un esempio:
+Ad esempio:
 
 `Set-AzDiagnosticSetting -ResourceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/fileServices/default -WorkspaceId /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace -Enabled $true -Category StorageDelete`
 
@@ -208,7 +208,7 @@ Sostituire il `<storage-service-resource--id>` segnaposto in questo frammento co
 
 È possibile utilizzare `StorageRead` , `StorageWrite` e `StorageDelete` per il valore del parametro **Category** .
 
-Ecco un esempio:
+Ad esempio:
 
 `az monitor diagnostic-settings create --name setting1 --storage-account mystorageaccount --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --resource-group myresourcegroup --logs '[{"category": StorageWrite, "enabled": true, "retentionPolicy": {"days": 90, "enabled": true}}]'`
 
@@ -222,7 +222,7 @@ Abilitare i log usando il comando [AZ monitor Diagnostic-Settings create](https:
 az monitor diagnostic-settings create --name <setting-name> --event-hub <event-hub-name> --event-hub-rule <event-hub-namespace-and-key-name> --resource <storage-account-resource-id> --logs '[{"category": <operations>, "enabled": true "retentionPolicy": {"days": <number-days>, "enabled": <retention-bool}}]'
 ```
 
-Ecco un esempio:
+Ad esempio:
 
 `az monitor diagnostic-settings create --name setting1 --event-hub myeventhub --event-hub-rule /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.EventHub/namespaces/myeventhubnamespace/authorizationrules/RootManageSharedAccessKey --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true }]'`
 
@@ -236,7 +236,7 @@ Abilitare i log usando il comando [AZ monitor Diagnostic-Settings create](https:
 az monitor diagnostic-settings create --name <setting-name> --workspace <log-analytics-workspace-resource-id> --resource <storage-account-resource-id> --logs '[{"category": <category name>, "enabled": true "retentionPolicy": {"days": <days>, "enabled": <retention-bool}}]'
 ```
 
-Ecco un esempio:
+Ad esempio:
 
 `az monitor diagnostic-settings create --name setting1 --workspace /subscriptions/208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.OperationalInsights/workspaces/my-analytic-workspace --resource /subscriptions/938841be-a40c-4bf4-9210-08bcf06c09f9/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myloggingstorageaccount/fileServices/default --logs '[{"category": StorageDelete, "enabled": true ]'`
 
@@ -250,7 +250,7 @@ Per visualizzare un modello di Azure Resource Manager che crea un'impostazione d
 
 ## <a name="analyzing-metrics"></a>Analisi delle metriche
 
-È possibile analizzare le metriche di Archiviazione di Azure con metriche di altri servizi di Azure usando Esplora metriche. Aprire Esplora metriche selezionando **Metrica** dal menu di **Monitoraggio di Azure** . Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md). 
+È possibile analizzare le metriche di Archiviazione di Azure con metriche di altri servizi di Azure usando Esplora metriche. Aprire Esplora metriche selezionando **Metrica** dal menu di **Monitoraggio di Azure**. Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md). 
 
 Per le metriche che supportano le dimensioni, è possibile applicare un filtro specificando il valore di dimensione desiderato.  Per un elenco completo delle dimensioni supportate da Archiviazione di Azure, vedere [Dimensioni delle metriche](storage-files-monitoring-reference.md#metrics-dimensions). Le metriche per File di Azure si trovano in questi spazi dei nomi: 
 
@@ -571,11 +571,11 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 
 ### <a name="how-to-create-alerts-for-azure-files"></a>Come creare avvisi per File di Azure
 
-1. Passare all' **account di archiviazione** nell' **portale di Azure** . 
+1. Passare all' **account di archiviazione** nell' **portale di Azure**. 
 
-2. Fare clic su **avvisi** e quindi su **+ nuova regola di avviso** .
+2. Fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
 
-3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** e quindi fare clic su **fine** . 
+3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** e quindi fare clic su **fine**. 
 
 4. Fare clic su **Seleziona condizione** e fornire le informazioni seguenti per l'avviso: 
 
@@ -585,7 +585,7 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 
 5. Fare clic su **Seleziona gruppo di azioni** e aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
 
-6. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso** .
+6. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
 
 7. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
@@ -594,74 +594,74 @@ Nella tabella seguente sono elencati alcuni scenari di esempio da monitorare e l
 
 ### <a name="how-to-create-an-alert-if-a-file-share-is-throttled"></a>Come creare un avviso se una condivisione file è limitata
 
-1. Passare all' **account di archiviazione** nell' **portale di Azure** .
-2. Nella sezione **monitoraggio** fare clic su **avvisi** e quindi su **+ nuova regola di avviso** .
-3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine** . Ad esempio, se il nome dell'account di archiviazione è `contoso` , selezionare la `contoso/file` risorsa.
+1. Passare all' **account di archiviazione** nell' **portale di Azure**.
+2. Nella sezione **monitoraggio** fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
+3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è `contoso` , selezionare la `contoso/file` risorsa.
 4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica **transazioni** .
-6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **tipo di risposta** .
+6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **tipo di risposta**.
 7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare **SUCCESSWITHTHROTTLING** (per SMB) o **ClientThrottlingError** (per REST).
 
    > [!NOTE]
    > Se il valore della dimensione SuccessWithThrottling o ClientThrottlingError non è elencato, significa che la risorsa non è stata limitata. Per aggiungere il valore della dimensione, fare clic su **Aggiungi valore personalizzato** accanto all'elenco a discesa **valori dimensione** , digitare **SuccessWithThrottling** o **ClientThrottlingError** , fare clic su **OK** , quindi ripetere il passaggio #7.
 
-8. Fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file** .
+8. Fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
 9. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
 
    > [!NOTE]
-   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri** . Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
+   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
 
-10. Definire i **parametri di avviso** (valore soglia, operatore, granularità aggregazione e frequenza di valutazione) e fare clic su **fine** .
+10. Definire i **parametri di avviso** (valore soglia, operatore, granularità aggregazione e frequenza di valutazione) e fare clic su **fine**.
 
     > [!TIP]
     > Se si utilizza una soglia statica, il grafico delle metriche consente di determinare un valore soglia ragionevole se la condivisione file è attualmente in fase di limitazione. Se si utilizza una soglia dinamica, nel grafico delle metriche verranno visualizzate le soglie calcolate in base ai dati recenti.
 
 11. Fare clic su **Seleziona gruppo di azioni** per aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-12. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso** , * * descrizione e **gravità** .
+12. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso** , * * descrizione e **gravità**.
 13. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-size-is-80-of-capacity"></a>Come creare un avviso se le dimensioni della condivisione file di Azure sono pari al 80% della capacità
 
-1. Passare all' **account di archiviazione** nell' **portale di Azure** .
-2. Nella sezione **monitoraggio** fare clic su **avvisi** e quindi su **+ nuova regola di avviso** .
-3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine** . Ad esempio, se il nome dell'account di archiviazione è `contoso` , selezionare la `contoso/file` risorsa.
+1. Passare all' **account di archiviazione** nell' **portale di Azure**.
+2. Nella sezione **monitoraggio** fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
+3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è `contoso` , selezionare la `contoso/file` risorsa.
 4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica della **capacità del file** .
-6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file** .
+6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
 7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
 
    > [!NOTE]
-   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri** . Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi per le condivisioni file standard sono basati su tutte le condivisioni file nell'account di archiviazione. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
+   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi per le condivisioni file standard sono basati su tutte le condivisioni file nell'account di archiviazione. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
 
 8. Immettere il **valore soglia** in byte. Se ad esempio la dimensione della condivisione file è 100 TiB e si desidera ricevere un avviso quando la dimensione della condivisione file è 80% di capacità, il valore soglia in byte è 87960930222080.
-9. Definire il resto dei **parametri di avviso** (granularità di aggregazione e frequenza di valutazione) e fare clic su **fine** .
+9. Definire il resto dei **parametri di avviso** (granularità di aggregazione e frequenza di valutazione) e fare clic su **fine**.
 10. Fare clic su Seleziona gruppo di azioni per aggiungere un gruppo di azioni (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-11. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso** , * * descrizione e **gravità** .
+11. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso** , * * descrizione e **gravità**.
 12. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
 ### <a name="how-to-create-an-alert-if-the-azure-file-share-egress-has-exceeded-500-gib-in-a-day"></a>Come creare un avviso se l'uscita dalla condivisione file di Azure ha superato 500 GiB in un giorno
 
-1. Passare all' **account di archiviazione** nell' **portale di Azure** .
-2. Nella sezione Monitoraggio fare clic su **avvisi** e quindi su **+ nuova regola di avviso** .
-3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine** . Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
+1. Passare all' **account di archiviazione** nell' **portale di Azure**.
+2. Nella sezione Monitoraggio fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
+3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
 4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica in **uscita** .
-6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file** .
+6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
 7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
 
    > [!NOTE]
-   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri** . Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi per le condivisioni file standard sono basati su tutte le condivisioni file nell'account di archiviazione. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
+   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi per le condivisioni file standard sono basati su tutte le condivisioni file nell'account di archiviazione. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
 
 8. Immettere **536870912000** byte per valore soglia. 
-9. Fare clic sull'elenco a discesa **granularità aggregazione** e selezionare **24 ore** .
-10. Selezionare la **frequenza di valutazione** e **fare clic su fine** .
+9. Fare clic sull'elenco a discesa **granularità aggregazione** e selezionare **24 ore**.
+10. Selezionare la **frequenza di valutazione** e **fare clic su fine**.
 11. Fare clic su **Seleziona gruppo di azioni** per aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-12. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso** , * * descrizione e **gravità** .
+12. Immettere i **Dettagli dell'avviso** , ad esempio nome della **regola di avviso** , * * descrizione e **gravità**.
 13. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Riferimento ai dati di monitoraggio File di Azure](storage-files-monitoring.md)
+- [Riferimento ai dati di monitoraggio File di Azure](storage-files-monitoring-reference.md)
 - [Monitorare le risorse di Azure con monitoraggio di Azure](../../azure-monitor/insights/monitor-azure-resource.md)
 - [Migrazione delle metriche di archiviazione di Azure](../common/storage-metrics-migration.md)
 - [Pianificazione per la distribuzione di File di Azure](https://docs.microsoft.com/azure/storage/files/storage-files-planning)

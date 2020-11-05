@@ -1,18 +1,18 @@
 ---
 title: Modellazione di dati del grafo per l'API Gremlin di Azure Cosmos DB
 description: Informazioni su come modellare un database a grafo con l'API Gremlin di Azure Cosmos DB. Questo articolo descrive quando usare un database a grafo e le procedure consigliate per modellare entità e relazioni.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 12/02/2019
-ms.author: jasonh
-ms.openlocfilehash: 70cbe3a7dae243105a659e1363a44f17f03758e2
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.author: chrande
+ms.openlocfilehash: d99e2e2ffd63b050e7373c98084fed3fb14727bf
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93129644"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357046"
 ---
 # <a name="graph-data-modeling-for-azure-cosmos-db-gremlin-api"></a>Modellazione di dati del grafo per l'API Gremlin di Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -31,30 +31,30 @@ Il processo descritto in questa guida è basato sui presupposti seguenti:
 Una soluzione di database a grafo può essere applicata in modo ottimale se le entità e le relazioni in un dominio di dati presentano una qualsiasi delle caratteristiche seguenti: 
 
 * Le entità sono **altamente connesse** tramite relazioni descrittive. Il vantaggio di questo scenario è dato dal fatto che le relazioni vengono mantenute nell'archivio.
-* Sono presenti **relazioni cicliche** o **entità che fanno riferimento a se stesse** . Questo criterio spesso costituisce un problema quando si usano database di documenti o relazionali.
+* Sono presenti **relazioni cicliche** o **entità che fanno riferimento a se stesse**. Questo criterio spesso costituisce un problema quando si usano database di documenti o relazionali.
 * Sono presenti **relazioni a evoluzione dinamica** tra le entità. Questo criterio è applicabile soprattutto a dati gerarchici o con struttura ad albero con numerosi livelli.
 * Sono presenti **relazioni molti-a-molti** tra le entità.
-* Sono presenti **requisiti di scrittura e lettura per entità e relazioni** . 
+* Sono presenti **requisiti di scrittura e lettura per entità e relazioni**. 
 
-Se i criteri precedenti vengono soddisfatti, è probabile che un approccio basato su database a grafo offrirà vantaggi in termini di **complessità delle query** , **scalabilità del modello di dati** , e **prestazioni delle query** .
+Se i criteri precedenti vengono soddisfatti, è probabile che un approccio basato su database a grafo offrirà vantaggi in termini di **complessità delle query** , **scalabilità del modello di dati** , e **prestazioni delle query**.
 
 Il passaggio successivo consiste nel determinare se il grafo verrà usato per scopi analitici o transazionali. Se il grafo deve essere usato per carichi di lavoro ingenti di calcolo ed elaborazione dati, è consigliabile considerare il [connettore Spark per Cosmos DB](./spark-connector.md) e valutare l'uso della [libreria GraphX](https://spark.apache.org/graphx/). 
 
 ## <a name="how-to-use-graph-objects"></a>Come usare gli oggetti del grafo
 
-Nello [standard per grafi di proprietà Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) sono definiti due tipi di oggetti, ovvero **vertici** e **archi** . 
+Nello [standard per grafi di proprietà Apache Tinkerpop](https://tinkerpop.apache.org/docs/current/reference/#graph-computing) sono definiti due tipi di oggetti, ovvero **vertici** e **archi**. 
 
 Di seguito sono riportate le procedure consigliate per le proprietà negli oggetti del grafo:
 
 | Oggetto | Proprietà | Type | Note |
 | --- | --- | --- |  --- |
-| Vertice | ID | string | Imposto in modo univoco per partizione. Se non viene fornito alcun valore durante l'inserimento, verrà archiviato un GUID generato automaticamente. |
-| Vertice | label | string | Questa proprietà viene usata per definire il tipo di entità rappresentata dal vertice. Se non viene specificato alcun valore, verrà usato il valore predefinito "vertex". |
+| Vertice | ID | Stringa | Imposto in modo univoco per partizione. Se non viene fornito alcun valore durante l'inserimento, verrà archiviato un GUID generato automaticamente. |
+| Vertice | label | Stringa | Questa proprietà viene usata per definire il tipo di entità rappresentata dal vertice. Se non viene specificato alcun valore, verrà usato il valore predefinito "vertex". |
 | Vertice | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni vertice. |
 | Vertice | chiave di partizione | Stringa, booleano, intero, binario | Questa proprietà consente di definire dove verranno archiviati il vertice e i relativi archi in uscita. Per altre informazioni, vedere l'articolo sul [partizionamento di grafi](graph-partitioning.md). |
-| Edge | ID | string | Imposto in modo univoco per partizione. Generato automaticamente per impostazione predefinita. Gli archi non devono in genere essere recuperati in modo univoco in base a un ID. |
-| Edge | label | string | Questa proprietà viene usata per definire il tipo di relazione tra due vertici. |
-| Edge | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni arco. |
+| Microsoft Edge | ID | Stringa | Imposto in modo univoco per partizione. Generato automaticamente per impostazione predefinita. Gli archi non devono in genere essere recuperati in modo univoco in base a un ID. |
+| Microsoft Edge | label | Stringa | Questa proprietà viene usata per definire il tipo di relazione tra due vertici. |
+| Microsoft Edge | properties | Stringa, booleano, intero, binario | Elenco di proprietà separate archiviate come coppie chiave-valore in ogni arco. |
 
 > [!NOTE]
 > Con gli archi non è richiesto un valore per la chiave di partizione, perché il relativo valore viene assegnato automaticamente in base al vertice di origine. Per altre informazioni, vedere l'articolo sul [partizionamento di grafi](graph-partitioning.md).
@@ -68,7 +68,7 @@ Di seguito sono elencate le linee guida per la modellazione dei dati per un data
 
 ### <a name="modeling-vertices-and-properties"></a>Modellazione di vertici e proprietà 
 
-Il primo passaggio per la creazione di un modello di dati del grafo consiste nell'eseguire il mapping di ogni entità identificata a un **oggetto vertice** . Il passaggio iniziale è costituito dal mapping uno-a-uno di tutte le entità ai vertici. Tale mapping è soggetto a modifica.
+Il primo passaggio per la creazione di un modello di dati del grafo consiste nell'eseguire il mapping di ogni entità identificata a un **oggetto vertice**. Il passaggio iniziale è costituito dal mapping uno-a-uno di tutte le entità ai vertici. Tale mapping è soggetto a modifica.
 
 Un errore comune consiste nell'eseguire il mapping delle proprietà di una singola entità come vertici separati. Considerare l'esempio seguente, in cui la stessa entità è rappresentata in due modi diversi:
 
@@ -78,7 +78,7 @@ Un errore comune consiste nell'eseguire il mapping delle proprietà di una singo
 
 * **Vertici incorporati proprietà** : questo approccio sfrutta l'elenco di coppie chiave-valore per rappresentare tutte le proprietà dell'entità all'interno di un vertice. Si tratta di un approccio che consente di ridurre la complessità del modello e implica query più semplici e attraversamenti più convenienti.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Modello di entità con vertici per le proprietà." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-2.png" alt-text="Il diagramma mostra il vertice Luis del diagramma precedente con le proprietà i d, Label e." border="false":::
 
 > [!NOTE]
 > Gli esempi precedenti mostrano un modello di grafo semplificato che illustra solo il confronto tra i due diversi modi di dividere le proprietà delle entità.
@@ -89,7 +89,7 @@ In alcuni scenari, però, fare riferimento a una proprietà può essere più van
 
 ### <a name="relationship-modeling-with-edge-directions"></a>Modellazione di relazioni con le direzioni degli archi
 
-Dopo aver modellato i vertici è possibile aggiungere gli archi per denotare le relazioni tra loro. Il primo aspetto da valutare è la **direzione della relazione** . 
+Dopo aver modellato i vertici è possibile aggiungere gli archi per denotare le relazioni tra loro. Il primo aspetto da valutare è la **direzione della relazione**. 
 
 Gli oggetti arco hanno una direzione predefinita che viene seguita da un attraversamento quando si usa la funzione `out()` o `outE()`. L'uso della direzione naturale contribuisce all'efficienza dell'operazione perché tutti i vertici vengono archiviati con gli archi in uscita. 
 
@@ -106,7 +106,7 @@ L'uso di etichette di relazione descrittive consente di migliorare l'efficienza 
 * Usare termini non generici per etichettare una relazione.
 * Associare l'etichetta del vertice di origine per l'etichetta del vertice di destinazione con il nome della relazione.
 
-:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Modello di entità con vertici per le proprietà." border="false":::
+:::image type="content" source="./media/graph-modeling/graph-modeling-3.png" alt-text="Esempi di assegnazione di etichette alle relazioni." border="false":::
 
 Più specifica è l'etichetta che il traverser userà per filtrare gli archi, meglio è. Questa decisione può avere un impatto significativo anche sul costo della query. Per valutare il costo della query in qualsiasi momento, è possibile [usare il passaggio executionProfile](graph-execution-profile.md).
 

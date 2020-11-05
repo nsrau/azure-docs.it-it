@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fd367b337a0f26323411111ea7eb1120bf6d75d
-ms.sourcegitcommit: d103a93e7ef2dde1298f04e307920378a87e982a
+ms.openlocfilehash: c4da1066166a3384ffb5f0f94599452829faed1b
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91965183"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93356587"
 ---
 # <a name="eliminate-bad-passwords-using-azure-active-directory-password-protection"></a>Eliminare le password non valide usando la protezione Azure Active Directory password
 
@@ -125,7 +125,7 @@ La normalizzazione presenta le due parti seguenti:
    | $               | s                  |
    | \@              | a                  |
 
-Si consideri l'esempio seguente:
+Prendere in considerazione gli esempi seguenti:
 
 * La password "blank" è vietata.
 * Un utente tenta di modificare la password in " Bl@nK ".
@@ -140,7 +140,7 @@ Viene quindi esaminata una password per altri comportamenti di corrispondenza e 
 
 Sulla password normalizzata viene applicata la corrispondenza fuzzy per verificare che non contenga una password presente nell'elenco globale o nell'elenco personalizzato di password escluse. Il processo di corrispondenza è basato su una distanza di edit di un (1) confronto.
 
-Si consideri l'esempio seguente:
+Prendere in considerazione gli esempi seguenti:
 
 * La password "abcdef" è vietata.
 * Un utente tenta di modificare la password in uno dei seguenti elementi:
@@ -161,7 +161,7 @@ La corrispondenza della sottostringa viene usata nella password normalizzata per
 > [!IMPORTANT]
 > La corrispondenza della sottostringa viene applicata solo ai nomi e ad altri termini, che hanno una lunghezza di almeno quattro caratteri.
 
-Si consideri l'esempio seguente:
+Prendere in considerazione gli esempi seguenti:
 
 * Un utente denominato poll che desidera reimpostare la password su "p0LL23fb".
 * Dopo la normalizzazione, questa password diventerebbe "poll23fb".
@@ -202,7 +202,7 @@ Si osservi un esempio leggermente diverso per mostrare come la complessità aggi
 > [!IMPORTANT]
 > L'algoritmo di password escluso, insieme all'elenco delle password Global Banned, può essere modificato in qualsiasi momento in Azure in base all'analisi e alla ricerca in corso sulla sicurezza.
 >
-> Per il servizio agente di controller di dominio locale in scenari ibridi, gli algoritmi aggiornati hanno effetto solo dopo la reinstallazione del software dell'agente DC.
+> Per il servizio agente di controller di dominio locale in scenari ibridi, gli algoritmi aggiornati hanno effetto solo dopo l'aggiornamento del software dell'agente DC.
 
 ## <a name="what-do-users-see"></a>Cosa vedono gli utenti
 

@@ -6,18 +6,18 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 88f1c88e721419bf944207b9c748b9250a25f428
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: aa4be5852b4f8af00346a3ea9a86b13a85f99824
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348067"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358457"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 
 Per elaborare una matrice nell'app per la logica, è possibile creare un [ciclo "Foreach"](#foreach-loop). Questo ciclo ripete una o più azioni su ogni elemento della matrice. Per il limite sul numero di elementi della matrice che un ciclo "foreach" può elaborare, vedere [limiti di concorrenza, ciclo e debatch](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, è possibile creare un [ciclo "Until"](#until-loop). L'app per la logica esegue prima tutte le azioni all'interno del ciclo e quindi controlla la condizione o lo stato. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto. Per il limite sul numero di cicli "until" che possono essere eseguiti da un'app per la logica, vedere [limiti di concorrenza, ciclo e debatch](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Per ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, è possibile creare un [ciclo "Until"](#until-loop). L'app per la logica esegue prima tutte le azioni all'interno del ciclo e quindi controlla la condizione o lo stato. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto. Per i limiti predefiniti e massimi relativi al numero di cicli "until" che possono essere eseguiti da un'app per la logica, vedere [limiti di concorrenza, ciclo e debatch](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 > [!TIP]
 > Se è presente un trigger che riceve una matrice e si vuole eseguire un flusso di lavoro per ogni elemento della matrice, è possibile *eseguire il debatch* di tale matrice con la [proprietà **SplitOn** per il trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch).
@@ -152,7 +152,7 @@ Se si usa la definizione JSON dell'app per la logica, è possibile usare l'opzio
 
 ## <a name="until-loop"></a>Ciclo "Until"
   
-Per eseguire e ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, inserire tali azioni in un ciclo "Until". L'app per la logica esegue prima tutte le azioni all'interno del ciclo e quindi controlla la condizione o lo stato. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto. Per il limite sul numero di cicli "until" che possono essere eseguiti da un'app per la logica, vedere [limiti di concorrenza, ciclo e debatch](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+Per eseguire e ripetere le azioni fino a quando una condizione non viene soddisfatta o non viene modificato uno stato, inserire tali azioni in un ciclo "Until". L'app per la logica esegue prima tutte le azioni all'interno del ciclo e quindi controlla la condizione o lo stato. Se la condizione viene soddisfatta, il ciclo si arresta. In caso contrario, il ciclo viene ripetuto. Per i limiti predefiniti e massimi relativi al numero di cicli "until" che possono essere eseguiti da un'app per la logica, vedere [limiti di concorrenza, ciclo e debatch](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
 Ecco alcuni scenari comuni in cui è possibile usare un ciclo "Until":
 
@@ -245,17 +245,19 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
       ![Messaggio di posta elettronica ricevuto](./media/logic-apps-control-flow-loops/do-until-loop-sent-email.png)
 
+<a name="prevent-endless-loops"></a>
+
 ## <a name="prevent-endless-loops"></a>Evitare i cicli infiniti
 
-Un ciclo "Until" ha limiti predefiniti che arrestano l'esecuzione se si verifica una di queste condizioni:
+Il ciclo "until" interrompe l'esecuzione in base a queste proprietà, quindi assicurarsi di impostare i rispettivi valori di conseguenza:
 
-| Proprietà | Valore predefinito | Descrizione | 
-| -------- | ------------- | ----------- | 
-| **Numero** | 60 | Numero massimo di cicli eseguiti prima della chiusura del ciclo. L'impostazione predefinita è 60 cicli. | 
-| **Timeout** | PT1H | Intervallo di tempo massimo per l'esecuzione di un ciclo prima della chiusura del ciclo. L'impostazione predefinita è un'ora ed è specificata in formato ISO 8601. <p>Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite. | 
-|||| 
+* **Count** : questo valore è il numero più elevato di cicli eseguiti prima della chiusura del ciclo. Per i limiti predefiniti e massimi relativi al numero di cicli "until" che possono essere eseguiti da un'app per la logica, vedere [limiti di concorrenza, ciclo e debatch](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
 
-Per modificare questi limiti predefiniti, scegliere **Mostra opzioni avanzate** nella forma dell'azione del ciclo.
+* **Timeout** : questo valore è la quantità di tempo che il ciclo viene eseguito prima di uscire e viene specificato nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Per i limiti predefiniti e massimi per il valore di **timeout** , vedere [limiti di concorrenza, ciclo e debatching](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits).
+
+  Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite.
+
+Per modificare questi limiti, nell'azione ciclo selezionare **Modifica limiti**.
 
 <a name="until-json"></a>
 

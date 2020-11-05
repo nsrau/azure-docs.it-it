@@ -5,14 +5,14 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/19/2020
+ms.date: 11/04/2020
 ms.reviewer: sngun
-ms.openlocfilehash: 7b26c88bcbd303f00dc6163dd0323b07cbb83dcf
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ac90b79053e59047dbe64598688e77b9df059d1
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93073826"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358712"
 ---
 # <a name="understand-your-azure-cosmos-db-bill"></a>Informazioni sulla fattura di Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -103,11 +103,11 @@ Se alle 9:30 si aumenta la velocità effettiva di cui è stato effettuato il pro
 
 * In un mese di 720 ore, se per 300 ore la velocità effettiva di cui è stato effettuato il provisioning è stata pari a 120 K UR/sec e per le restanti 420 ore è stata pari a 155 K UR/sec, la fattura mensile indicherà: 300 x 9,60 dollari/ora + 420 x 12,40 dollari/ora =  2.880 dollari + 5.208 dollari = 8.088 dollari/mese. 
 
-:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Esempio di fattura con velocità effettiva dedicata":::
+:::image type="content" source="./media/understand-your-bill/bill-example2.png" alt-text="Esempio di fattura con velocità effettiva condivisa":::
 
-## <a name="billing-examples-with-geo-replication-and-multi-region-writes"></a>Esempi di fatturazione con la replica geografica e le Scritture in più aree  
+## <a name="billing-examples-with-geo-replication"></a>Esempi di fatturazione con replica geografica  
 
-Nell'account di database di Azure Cosmos è possibile aggiungere o rimuovere in qualsiasi momento aree di Azure dislocate in qualsiasi parte del mondo. La velocità effettiva configurata per i vari database e contenitori di Azure Cosmos viene riservata in ogni area di Azure associata all'account di database di Azure Cosmos DB. Se la somma della velocità effettiva di cui è stato effettuato il provisioning (UR/sec) configurata in tutti i database e in tutti i contenitori all'interno dell'account del database di Azure Cosmos account (con provisioning all'ora) è T e il numero di aree di Azure associate all'account di database è N, la velocità effettiva di cui è stato effettuato il provisioning totale per un'ora specifica, (a) per un account di database di Azure Cosmos configurato con un'area di scrittura singola è uguale a T x N UR/sec e (b) per un account di database di Azure Cosmos configurato con tutte le aree in grado di elaborare operazioni di scrittura è uguale a T x (N + 1) UR/sec, rispettivamente. La velocità effettiva con provisioning (area di scrittura singola) costa $0.008/hour per 100 ur/sec e la velocità effettiva con provisioning con più aree scrivibili (configurazione per scritture in più aree) costa $0.016/all'ora per 100 ur/sec (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)). Indipendentemente dal numero di aree di scrittura, Azure Cosmos DB consente la lettura dei dati da qualsiasi area.
+Nell'account di database di Azure Cosmos è possibile aggiungere o rimuovere in qualsiasi momento aree di Azure dislocate in qualsiasi parte del mondo. La velocità effettiva configurata per i vari database e contenitori di Azure Cosmos viene riservata in ogni area di Azure associata all'account di database di Azure Cosmos DB. Se la somma della velocità effettiva con provisioning (UR/sec) configurata in tutti i database e i contenitori all'interno dell'account del database di Azure Cosmos (con provisioning all'ora) è T e il numero di aree di Azure associate all'account del database è N, la velocità effettiva totale con provisioning per un'ora specifica, per l'account del database di Azure Cosmos La velocità effettiva con provisioning (area di scrittura singola) costa $0.008/hour per 100 ur/sec e la velocità effettiva con provisioning con più aree scrivibili (configurazione per scritture in più aree) costa $0.016/all'ora per 100 ur/sec (vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/)). Indipendentemente dal numero di aree di scrittura, Azure Cosmos DB consente la lettura dei dati da qualsiasi area.
 
 ### <a name="billing-example-multi-region-azure-cosmos-account-single-region-writes"></a>Esempio di fatturazione: account di Azure Cosmos multiarea, operazioni di scrittura in un'area singola
 
@@ -193,7 +193,7 @@ Si consideri l'esempio seguente, in cui è presente un account Azure Cosmos a pi
 
 Le modifiche della velocità effettiva totale durante le 720 ore del mese sono illustrate nella figura seguente: 
 
-:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Esempio di fattura con velocità effettiva dedicata":::
+:::image type="content" source="./media/understand-your-bill/bill-example3.png" alt-text="Esempio reale":::
 
 La fattura mensile totale (presupponendo 30 giorni/720 ore al mese) verrà calcolata come segue:
 

@@ -11,12 +11,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 06/19/2020
-ms.openlocfilehash: f1da7149a41ec8dd08e307394cba3e7feabec42a
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 02772ff6279ee813b86f92984742ba8301bdf74e
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320714"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93357947"
 ---
 # <a name="regenerate-storage-account-access-keys"></a>Rigenera le chiavi di accesso dell'account di archiviazione
 
@@ -26,7 +26,8 @@ Informazioni su come modificare le chiavi di accesso per gli account di archivia
 Per motivi di sicurezza, potrebbe essere necessario modificare le chiavi di accesso per un account di archiviazione di Azure. Quando si rigenera la chiave di accesso, è necessario aggiornare Azure Machine Learning per l'uso della nuova chiave. Azure Machine Learning possibile che utilizzino l'account di archiviazione sia per l'archiviazione del modello sia come archivio dati.
 
 > [!IMPORTANT]
-> Le credenziali registrate con gli archivi dati vengono salvate nel Azure Key Vault associato all'area di lavoro. Se l' [eliminazione](../key-vault/general/soft-delete-overview.md) temporanea è abilitata per l'Key Vault, assicurarsi di seguire questo articolo per l'aggiornamento delle credenziali. L'annullamento della registrazione dell'archivio dati e la nuova registrazione con lo stesso nome avranno esito negativo.
+
+> Le credenziali registrate con gli archivi dati vengono salvate nel Azure Key Vault associato all'area di lavoro. Se è abilitata l' [eliminazione](https://docs.microsoft.com/azure/key-vault/general/soft-delete-overview) temporanea per la Key Vault, questo articolo fornisce istruzioni per l'aggiornamento delle credenziali. Se si annulla la registrazione dell'archivio dati e si tenta di registrarlo di nuovo con lo stesso nome, l'operazione avrà esito negativo. Per informazioni sull'abilitazione dell'eliminazione temporanea in questo scenario, vedere [attivare l'eliminazione temporanea per un]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault) insieme di credenziali delle chiavi esistente.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

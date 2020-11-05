@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
+ms.custom: how-to, devx-track-python, data4ml
 ms.author: iefedore
 author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: 8f229c52b62c740c9d955f745a6922e59163b907
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: fe2f35708f6a148f8db9ef6fd0a598e19e746fbd
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348560"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358627"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps per una pipeline di inserimento dati
 
@@ -211,18 +211,18 @@ I valori nel file JSON sono valori predefiniti configurati nella definizione del
 
 Il processo di recapito continuo acquisisce gli artefatti e li distribuisce nel primo ambiente di destinazione. Consente di verificare il funzionamento della soluzione eseguendo i test. Se ha esito positivo, continua con l'ambiente successivo. 
 
-La pipeline di Azure CD è costituita da più fasi che rappresentano gli ambienti. Ogni fase contiene le [distribuzioni](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) e i [processi](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) che eseguono i passaggi seguenti:
+La pipeline di Azure CD è costituita da più fasi che rappresentano gli ambienti. Ogni fase contiene le [distribuzioni](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) e i [processi](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) che eseguono i passaggi seguenti:
 
 _ Distribuire un notebook Python nell'area di lavoro Azure Databricks
 * Distribuire una pipeline Azure Data Factory 
 * Eseguire la pipeline
 * Verificare il risultato dell'inserimento dei dati
 
-Le fasi della pipeline possono essere configurate con [approvazioni](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops) [e attività di controllo](/azure/devops/pipelines/release/approvals/gates?view=azure-devops) che forniscono un maggiore controllo sul modo in cui il processo di distribuzione evolve attraverso la catena di ambienti.
+Le fasi della pipeline possono essere configurate con [approvazioni](/azure/devops/pipelines/process/approvals?tabs=check-pass&view=azure-devops&preserve-view=true) [e attività di controllo](/azure/devops/pipelines/release/approvals/gates?view=azure-devops&preserve-view=true) che forniscono un maggiore controllo sul modo in cui il processo di distribuzione evolve attraverso la catena di ambienti.
 
 ### <a name="deploy-a-python-notebook"></a>Distribuire un notebook Python
 
-Il frammento di codice seguente definisce una [distribuzione](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) di pipeline di Azure che copia un notebook di Python in un cluster databricks:
+Il frammento di codice seguente definisce una [distribuzione](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) di pipeline di Azure che copia un notebook di Python in un cluster databricks:
 
 ```yaml
 - stage: 'Deploy_to_QA'
@@ -258,7 +258,7 @@ Il frammento di codice seguente definisce una [distribuzione](/azure/devops/pipe
               displayName: 'Deploy (copy) data processing notebook to the Databricks cluster'       
 ```            
 
-Gli artefatti prodotti da CI vengono copiati automaticamente nell'agente di distribuzione e sono disponibili nella `$(Pipeline.Workspace)` cartella. In questo caso, l'attività di distribuzione fa riferimento all' `di-notebooks` artefatto che contiene il notebook di Python. Questa [distribuzione](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) usa l' [estensione databricks di Azure DevOps](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) per copiare i file del notebook nell'area di lavoro di databricks.
+Gli artefatti prodotti da CI vengono copiati automaticamente nell'agente di distribuzione e sono disponibili nella `$(Pipeline.Workspace)` cartella. In questo caso, l'attività di distribuzione fa riferimento all' `di-notebooks` artefatto che contiene il notebook di Python. Questa [distribuzione](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) usa l' [estensione databricks di Azure DevOps](https://marketplace.visualstudio.com/items?itemName=riserrad.azdo-databricks) per copiare i file del notebook nell'area di lavoro di databricks.
 
 La `Deploy_to_QA` fase contiene un riferimento al `devops-ds-qa-vg` gruppo di variabili definito nel progetto DevOps di Azure. I passaggi in questa fase si riferiscono alle variabili di questo gruppo di variabili (ad esempio `$(DATABRICKS_URL)` e `$(DATABRICKS_TOKEN)` ). Il concetto è che la fase successiva, ad esempio, funzionerà `Deploy_to_UAT` con gli stessi nomi di variabile definiti nel proprio gruppo di variabili con ambito UAT.
 
@@ -339,7 +339,7 @@ La pipeline completa di Azure CI/CD è costituita dalle fasi seguenti: _ CI
     * Distribuisci in databricks + Distribuisci in ADF
     * Test di integrazione
 
-Contiene diverse * **distribuzioni** _ fasi pari al numero di ambienti di destinazione disponibili. Ogni fase di _*_distribuzione_*_ contiene due [distribuzioni](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops) eseguite in parallelo e un [processo](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops) che viene eseguito dopo le distribuzioni per testare la soluzione nell'ambiente.
+Contiene diverse * **distribuzioni** _ fasi pari al numero di ambienti di destinazione disponibili. Ogni fase di _*_distribuzione_*_ contiene due [distribuzioni](/azure/devops/pipelines/process/deployment-jobs?view=azure-devops&preserve-view=true) eseguite in parallelo e un [processo](/azure/devops/pipelines/process/phases?tabs=yaml&view=azure-devops&preserve-view=true) che viene eseguito dopo le distribuzioni per testare la soluzione nell'ambiente.
 
 Un'implementazione di esempio della pipeline viene assemblata nel frammento di codice _*_YAML_*_ seguente:
 

@@ -8,23 +8,16 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: bf2531536796965f145a9ac3e6a23cbb6634852a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3882aae0fb1ecf330917f886555208c3937dd9a5
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88817672"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93358219"
 ---
 # <a name="use-the-azure-portal-to-enable-double-encryption-at-rest-for-managed-disks"></a>Usare il portale di Azure per abilitare la crittografia doppia per i dischi gestiti
 
-Archiviazione su disco di Azure supporta la crittografia doppia per i dischi gestiti. Per informazioni di carattere generale sulla crittografia a doppio inattivo, oltre ad altri tipi di crittografia del disco gestito, vedere la sezione relativa alla crittografia **a doppia indisponibilità** dell'articolo crittografia dischi:
-
-- Per Linux: [crittografia doppia](./linux/disk-encryption.md#double-encryption-at-rest) inattiva
-- Per Windows: [crittografia doppia](./windows/disk-encryption.md#double-encryption-at-rest) inattiva
-
-## <a name="supported-regions"></a>Aree supportate
-
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
+Archiviazione su disco di Azure supporta la crittografia doppia per i dischi gestiti. Per informazioni di carattere generale sulla crittografia dei dati inattivi, oltre ad altri tipi di crittografia del disco gestito, vedere la sezione relativa alla crittografia [a doppio](disk-encryption.md#double-encryption-at-rest) inattivo dell'articolo crittografia del disco.
 
 ## <a name="getting-started"></a>Introduzione
 
@@ -39,29 +32,29 @@ Archiviazione su disco di Azure supporta la crittografia doppia per i dischi ges
 
 1. Selezionare **+ Aggiungi**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Screenshot della portale di Azure principale, il set di crittografia del disco è evidenziato nella barra di ricerca.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-add-disk-encryption-set.png" alt-text="Screenshot del pannello del set di crittografia del disco + Aggiungi evidenziato.":::
 
 1. Selezionare una delle aree supportate.
-1. Per **tipo di crittografia**selezionare **crittografia doppia con chiavi gestite dalla piattaforma e gestite dal cliente**.
+1. Per **tipo di crittografia** selezionare **crittografia doppia con chiavi gestite dalla piattaforma e gestite dal cliente**.
 
     > [!NOTE]
     > Una volta creato un set di crittografia del disco con un tipo di crittografia particolare, non è possibile modificarlo. Se si desidera utilizzare un tipo di crittografia diverso, è necessario creare un nuovo set di crittografia del disco.
 
 1. Immettere le informazioni rimanenti.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-create-disk-encryption-set-blade.png" alt-text="Screenshot della portale di Azure principale, il set di crittografia del disco è evidenziato nella barra di ricerca.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-create-disk-encryption-set-blade.png" alt-text="Screenshot del pannello di creazione del set di crittografia del disco, delle aree e della crittografia doppia con chiavi gestite dalla piattaforma e gestite dal cliente.":::
 
 1. Selezionare un Azure Key Vault e una chiave o crearne uno nuovo, se necessario.
 
     > [!NOTE]
     > Se si crea un'istanza di Key Vault, è necessario abilitare la protezione eliminazione temporanea e ripulitura. Queste impostazioni sono obbligatorie quando si usa un Key Vault per la crittografia dei dischi gestiti e si protegge dalla perdita di dati a causa dell'eliminazione accidentale.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="Screenshot della portale di Azure principale, il set di crittografia del disco è evidenziato nella barra di ricerca.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-select-key-vault.png" alt-text="Screenshot del pannello di creazione della Key Vault.":::
 
 1. Selezionare **Crea**.
 1. Passare al set di crittografia del disco creato e selezionare l'errore visualizzato. Il set di crittografia del disco verrà configurato per funzionare.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-set-error.png" alt-text="Screenshot della portale di Azure principale, il set di crittografia del disco è evidenziato nella barra di ricerca.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-disk-set-error.png" alt-text="Screenshot del set di crittografia dei dischi errore visualizzato. il testo dell'errore è: per associare un disco, un'immagine o uno snapshot con questo set di crittografia del disco, è necessario concedere le autorizzazioni all'insieme di credenziali delle chiavi.":::
 
     Una notifica dovrebbe essere visualizzata e completata. Questa operazione consentirà di usare la crittografia del disco impostata con l'insieme di credenziali delle chiavi.
     
@@ -69,11 +62,11 @@ Archiviazione su disco di Azure supporta la crittografia doppia per i dischi ges
 
 1. Passare al disco.
 1. Selezionare **crittografia**.
-1. Per **tipo di crittografia**selezionare **crittografia doppia con chiavi gestite dalla piattaforma e gestite dal cliente**.
+1. Per **tipo di crittografia** selezionare **crittografia doppia con chiavi gestite dalla piattaforma e gestite dal cliente**.
 1. Selezionare il set di crittografia del disco.
 1. Selezionare **Salva**.
 
-    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Screenshot della portale di Azure principale, il set di crittografia del disco è evidenziato nella barra di ricerca.":::
+    :::image type="content" source="media/virtual-machines-disks-double-encryption-at-rest-portal/double-encryption-enable-disk-blade.png" alt-text="Screenshot del pannello di crittografia per il disco gestito, viene evidenziato il tipo di crittografia indicato sopra.":::
 
 A questo punto è stata abilitata la doppia crittografia dei computer inattivi nel disco gestito.
 
