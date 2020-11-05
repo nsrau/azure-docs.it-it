@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 10/21/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f8eae6381a438f6820f525a4d66cb5dc388eefb0
-ms.sourcegitcommit: 58f12c358a1358aa363ec1792f97dae4ac96cc4b
+ms.openlocfilehash: 929181f9a4d159892956274a7958b1daa95cbc10
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93280392"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360072"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -32,7 +32,7 @@ Questo articolo è incentrato sulla gestione di dispositivi gemelli digitali; pe
 Per creare un dispositivo gemello, usare il `CreateOrReplaceDigitalTwinAsync()` metodo nel client del servizio come segue:
 
 ```csharp
-await client.CreateOrReplaceDigitalTwinAsync("myTwinId", initData);
+await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>("myTwinId", initData);
 ```
 
 Per creare un dispositivo gemello digitale, è necessario fornire:
@@ -55,12 +55,7 @@ Il modello ed eventuali valori di proprietà iniziali vengono forniti tramite il
 
 L'API per la creazione di dispositivi gemelli accetta un oggetto che viene serializzato in una descrizione JSON valida delle proprietà dei dispositivi gemelli. Per una descrizione del formato JSON per un gemello, vedere [*concetti: dispositivi gemelli digitali e il grafico a gemelli*](concepts-twins-graph.md) . 
 
-In primo luogo, è possibile creare un oggetto dati per rappresentare il gemello e i relativi dati della proprietà, come segue:
-
-```csharp
-await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(srcId, twin);
-```
-È possibile creare un oggetto Parameter manualmente oppure usando una classe helper fornita. Di seguito è riportato un esempio di ogni.
+In primo luogo, è possibile creare un oggetto dati per rappresentare il gemello e i relativi dati della proprietà. È possibile creare un oggetto Parameter manualmente oppure usando una classe helper fornita. Di seguito è riportato un esempio di ogni.
 
 #### <a name="create-twins-using-manually-created-data"></a>Creare i dispositivi gemelli usando dati creati manualmente
 

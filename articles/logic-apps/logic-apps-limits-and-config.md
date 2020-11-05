@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 10/09/2020
-ms.openlocfilehash: f722345b5be91a09bc513064b476f0b94eda765d
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/04/2020
+ms.openlocfilehash: 7248c82882d32ae0eb225a9ec4c3b48dff3b9fcb
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094507"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360038"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -69,17 +69,17 @@ Si supponga, ad esempio, di ridurre il limite di conservazione da 90 a 30 giorni
 > [!IMPORTANT]
 > Se la durata di un'esecuzione supera il limite di conservazione della cronologia di esecuzione corrente, l'esecuzione viene rimossa dalla cronologia esecuzioni nell'archivio. Per evitare di perdere la cronologia di esecuzione, assicurarsi che il limite di conservazione sia *sempre* maggiore della durata più lunga possibile dell'esecuzione.
 
-1. Nella casella di ricerca [portale di Azure](https://portal.azure.com) trovare e selezionare app per la **logica** .
+1. Nella casella di ricerca [portale di Azure](https://portal.azure.com) trovare e selezionare app per la **logica**.
 
 1. Trovare e selezionare l'app per la logica. Aprire l'app per la logica nella finestra di progettazione dell'app per la logica.
 
-1. Nel menu dell'app per la logica selezionare **Impostazioni del flusso di lavoro** .
+1. Nel menu dell'app per la logica selezionare **Impostazioni del flusso di lavoro**.
 
-1. In **Opzioni di runtime** scegliere **Personalizzata** nell'elenco **Conservazione cronologia di esecuzione in giorni** .
+1. In **Opzioni di runtime** scegliere **Personalizzata** nell'elenco **Conservazione cronologia di esecuzione in giorni**.
 
 1. Trascinare il dispositivo di scorrimento per impostare il numero di giorni desiderato.
 
-1. Al termine, sulla barra degli strumenti di **Impostazioni del flusso di lavoro** selezionare **Salva** .
+1. Al termine, sulla barra degli strumenti di **Impostazioni del flusso di lavoro** selezionare **Salva**.
 
 Se si genera un modello di Azure Resource Manager per l'app per la logica, questa impostazione viene visualizzata come proprietà nella definizione di risorsa del flusso di lavoro, descritta nel [riferimento del modello dei flussi di lavoro Microsoft. logici](/azure/templates/microsoft.logic/workflows):
 
@@ -108,14 +108,23 @@ Se si genera un modello di Azure Resource Manager per l'app per la logica, quest
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
+### <a name="loops"></a>Loop
+
 | Nome | Limite | Note |
 | ---- | ----- | ----- |
-| Concorrenza di trigger | - Senza limiti quando il controllo della concorrenza è disattivato <p><p>- 25 è il limite predefinito quando il controllo della concorrenza è attivato e non può essere annullato dopo l'attivazione della concorrenza. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite descrive il numero più alto di istanze di app per la logica che è possibile eseguire contemporaneamente o in parallelo. <p><p>**Nota** : quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi per le [matrici di debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza dei trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) o [Attivare le istanze in sequenza](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
-| Numero massimo di esecuzioni in attesa | - Senza concorrenza, il numero minimo di esecuzioni in attesa è pari a 1, mentre il numero massimo è pari a 50. <p><p>- Con la concorrenza, il numero minimo di esecuzioni in attesa è pari a 10 sommato al numero di esecuzioni simultanee (trigger di concorrenza). È possibile modificare il numero massimo impostando un valore fino a 100 (incluso). | Questo limite descrive il numero più alto di istanze di app per la logica in attesa di esecuzione quando l'app per la logica esegue già il numero massimo di istanze simultanee. <p><p>Per modificare il limite predefinito, vedere [Modificare il limite delle esecuzioni in attesa](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
 | Elementi della matrice foreach | 100,000 | Questo limite descrive il numero più alto di elementi della matrice che un ciclo "for each" può elaborare. <p><p>Per filtrare matrici di dimensioni superiori, è possibile usare l'[azione di query](logic-apps-perform-data-operations.md#filter-array-action). |
-| Concorrenza foreach | 20 è il limite predefinito quando il controllo della concorrenza è disattivato. È possibile modificare il valore predefinito impostandolo su un valore compreso tra 1 e 50, estremi inclusi. | Questo limite indica il numero più alto di iterazioni "for each" che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare il limite predefinito e impostarlo su un valore compreso tra 1 e 50 inclusi, vedere [Modificare il limite della concorrenza "for each"](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [Eseguire i cicli "for each" in modo sequenziale](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
-| Elementi SplitOn | - 100.000 senza concorrenza dei trigger <p><p>- 100 con concorrenza dei trigger | Per i trigger che restituiscono una matrice, è possibile specificare un'espressione che usa una proprietà 'SplitOn' che [suddivide o esegue il debatch degli elementi della matrice in più istanze del flusso di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) per l'elaborazione, anziché usare un ciclo "Foreach". Questa espressione fa riferimento alla matrice da usare per la creazione e l'esecuzione di un'istanza del flusso di lavoro per ogni elemento della matrice. <p><p>**Nota** : quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi. |
-| Iterazioni Until | - Impostazione predefinita: 60 <p><p>- Numero massimo: 5.000 | |
+| Concorrenza foreach | Con concorrenza off: 20 <p><p>Con concorrenza su: <p><p>-Valore predefinito: 20 <br>-Min: 1 <br>-Max: 50 | Questo limite indica il numero più alto di iterazioni "for each" che è possibile eseguire contemporaneamente o in parallelo. <p><p>Per modificare questo limite, vedere [modificare "per ogni" limite di concorrenza](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) o [eseguire "per ogni" cicli sequenziali](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each). |
+| Iterazioni Until | - Impostazione predefinita: 60 <br>-Min: 1 <br>-Max: 5.000 | Il numero più elevato di cicli che un ciclo "until" può avere durante un'esecuzione dell'app per la logica. <p><p>Per modificare questo limite, nella forma ciclo "until" selezionare **Modifica limiti** e specificare il valore per la proprietà **count** . |
+| Fino al timeout | -Valore predefinito: PT1H (1 ora) | La quantità di tempo che il ciclo "until" può eseguire prima di uscire ed è specificato nel [formato ISO 8601](https://en.wikipedia.org/wiki/ISO_8601). Il valore di timeout viene valutato per ogni ciclo. Se un'azione del ciclo richiede più tempo di quello previsto dal limite di timeout, la sequenza corrente non viene arrestata. Il ciclo successivo non viene tuttavia avviato perché non viene soddisfatta la condizione limite. <p><p>Per modificare questo limite, nella forma ciclo "until" selezionare **Modifica limiti** e specificare il valore per la proprietà **timeout** . |
+||||
+
+### <a name="concurrency-and-debatching"></a>Concorrenza e debatching
+
+| Nome | Limite | Note |
+| ---- | ----- | ----- |
+| Concorrenza di trigger | Con concorrenza off: illimitato <p><p>Con la concorrenza on, che non è possibile annullare dopo l'abilitazione: <p><p>-Valore predefinito: 25 <br>-Min: 1 <br>-Max: 50 | Questo limite è il maggior numero di istanze dell'app per la logica che possono essere eseguite contemporaneamente o in parallelo. <p><p>**Nota** : quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi per le [matrici di debatching](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch). <p><p>Per modificare questo limite, vedere [modificare](../logic-apps/logic-apps-workflow-actions-triggers.md#change-trigger-concurrency) in sequenza il limite di concorrenza per il trigger di modifica o le [istanze del trigger](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-trigger). |
+| Numero massimo di esecuzioni in attesa | Con concorrenza off: <p><p>-Min: 1 <br>-Max: 50 <p><p>Con concorrenza su: <p><p>-Min: 10 più il numero di esecuzioni simultanee (concorrenza dei trigger) <br>-Max: 100 | Questo limite è il numero massimo di istanze di app per la logica che possono attendere l'esecuzione quando l'app per la logica sta già eseguendo il numero massimo di istanze simultanee. <p><p>Per modificare questo limite, vedere [limite di esecuzioni in attesa di modifiche](../logic-apps/logic-apps-workflow-actions-triggers.md#change-waiting-runs). |
+| Elementi SplitOn | Con concorrenza off: 100.000 <p><p>Con concorrenza in: 100 | Per i trigger che restituiscono una matrice, è possibile specificare un'espressione che usa una proprietà 'SplitOn' che [suddivide o esegue il debatch degli elementi della matrice in più istanze del flusso di lavoro](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) per l'elaborazione, anziché usare un ciclo "Foreach". Questa espressione fa riferimento alla matrice da usare per la creazione e l'esecuzione di un'istanza del flusso di lavoro per ogni elemento della matrice. <p><p>**Nota** : quando la concorrenza è attivata, il limite SplitOn viene ridotto a 100 elementi. |
 ||||
 
 <a name="throughput-limits"></a>
@@ -170,7 +179,7 @@ Alcune operazioni dei connettori effettuano chiamate asincrone o sono in ascolto
 
 | Nome | Limite multi-tenant | Limite dell'ambiente del servizio di integrazione | Note |
 |------|--------------------|---------------------------------------|-------|
-| Richiesta in uscita | 120 secondi <br>(2 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in uscita includono chiamate effettuate da trigger HTTP. <p><p>**Suggerimento** : Per operazioni di esecuzione più lunghe, usare un [modello di polling asincrono](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [ciclo until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Per ovviare ai limiti di timeout quando si chiama un'altra app per la logica che ha un [endpoint chiamabile](logic-apps-http-endpoint.md), è possibile usare l'azione App per la logica di Azure incorporata, disponibile nella selezione connettore in **Incorporato** . |
+| Richiesta in uscita | 120 secondi <br>(2 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in uscita includono chiamate effettuate da trigger HTTP. <p><p>**Suggerimento** : Per operazioni di esecuzione più lunghe, usare un [modello di polling asincrono](../logic-apps/logic-apps-create-api-app.md#async-pattern) o un [ciclo until](../logic-apps/logic-apps-workflow-actions-triggers.md#until-action). Per ovviare ai limiti di timeout quando si chiama un'altra app per la logica che ha un [endpoint chiamabile](logic-apps-http-endpoint.md), è possibile usare l'azione App per la logica di Azure incorporata, disponibile nella selezione connettore in **Incorporato**. |
 | Richiesta in ingresso | 120 secondi <br>(2 minuti) | 240 secondi <br>(4 minuti) | Esempi di richieste in ingresso includono le chiamate ricevute da trigger di richiesta e trigger di webhook. <p><p>**Nota** : affinché il chiamante originale ottenga la risposta, tutti i passaggi nella risposta devono terminare entro il limite, a meno che non venga chiamata un'altra app per la logica come flusso di lavoro annidato. Per altre informazioni, vedere [Chiamare, attivare o annidare app per la logica](../logic-apps/logic-apps-http-endpoint.md). |
 |||||
 

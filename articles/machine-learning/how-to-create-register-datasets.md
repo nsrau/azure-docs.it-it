@@ -6,18 +6,18 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.custom: how-to, contperfq1
+ms.custom: how-to, contperfq1, data4ml
 ms.author: sihhu
 author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 07/31/2020
-ms.openlocfilehash: 9f2f2386e37dd7dbfe4c41bb3a83fcc46232cf6d
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: f82c3b894a54dc08b0f6dd73108d6f4b2c17f8d6
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312724"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359834"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Creare set di dati di Azure Machine Learning
 
@@ -173,7 +173,7 @@ titanic_ds.take(3).to_pandas_dataframe()
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22,0|1|0|A/5 21171|7,2500||S
 1|2|True|1|Cumings, Mrs. John Bradley (Florence Briggs th...|female|38,0|1|0|PC 17599|71,2833|C85|C
-2|3|Vero|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
+2|3|True|3|Heikkinen, Miss. Laina|female|26,0|0|0|STON/O2. 3101282|7,9250||S
 
 Per riutilizzare e condividere set di dati tra gli esperimenti nell'area di lavoro, [registrare il set di dati](#register-datasets).
 

@@ -1,19 +1,19 @@
 ---
 title: Endpoint a livello di area per il database a grafo di Azure Cosmos DB
 description: Informazioni su come connettersi all'endpoint del database a grafo più vicino per l'applicazione
-author: jasonwhowell
-ms.author: jasonh
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/09/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9350682f7c636979df4dcde0c43a3b4941ad6ebb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3e30252d8f5e80538139f8100f1070385c1b6016
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085769"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361788"
 ---
 # <a name="regional-endpoints-for-azure-cosmos-db-graph-account"></a>Endpoint a livello di area per l'account del database a grafo di Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -30,7 +30,7 @@ Il requisito di **residenza dei dati** viene soddisfatto impostando criteri di A
 
 Il motore del database a grafo di Cosmos DB è in esecuzione in più aree, ognuna contenente più cluster. Ogni cluster dispone di centinaia di computer. Il record CNAME DNS *nomeaccount.gremlin.cosmos.azure.com* dell'account del database a grafo di Cosmos DB viene risolto in un record DNS A di un cluster. Un singolo indirizzo IP di un servizio di bilanciamento del carico nasconde la topologia cluster interna.
 
-A livello di area viene creato un record CNAME DNS per ogni area dell'account del database a grafo di Cosmos DB. Il formato dell'endpoint a livello di area è *nomeaccount-area.gremlin.cosmos.azure.com* . Il segmento relativo all'area dell'endpoint a livello di area viene ottenuto rimuovendo tutti gli spazi dal nome dell'[area di Azure](https://azure.microsoft.com/global-infrastructure/regions). Ad esempio, l'area `"East US 2"` per l'account di database globale `"contoso"` avrà *contoso-eastus2.gremlin.cosmos.azure.com* come record CNAME DNS.
+A livello di area viene creato un record CNAME DNS per ogni area dell'account del database a grafo di Cosmos DB. Il formato dell'endpoint a livello di area è *nomeaccount-area.gremlin.cosmos.azure.com*. Il segmento relativo all'area dell'endpoint a livello di area viene ottenuto rimuovendo tutti gli spazi dal nome dell'[area di Azure](https://azure.microsoft.com/global-infrastructure/regions). Ad esempio, l'area `"East US 2"` per l'account di database globale `"contoso"` avrà *contoso-eastus2.gremlin.cosmos.azure.com* come record CNAME DNS.
 
 Il client TinkerPop Gremlin è progettato per funzionare con un singolo server. L'applicazione può usare il record CNAME DNS scrivibile globale per il traffico di lettura e scrittura. Le applicazioni in grado di riconoscere l'area devono usare l'endpoint a livello di area per il traffico di lettura. Usare l'endpoint a livello di area per il traffico di scrittura solo se l'area specifica è configurata per accettare le operazioni di scrittura. 
 

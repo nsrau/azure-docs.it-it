@@ -2,28 +2,28 @@
 title: Proteggere un servizio collegato
 description: Informazioni su come eseguire il provisioning e proteggere un servizio collegato con VNet gestiti
 services: synapse-analytics
-author: acomet
+author: ArnoMicrosoft
 ms.service: synapse-analytics
 ms.topic: how-to
 ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: f5a3c73d60f038820de100f99c554eec27fd6f55
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: feabfe505601276269c2774e3b39dd5cbaa32087
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90033184"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359970"
 ---
-# <a name="secure-a-linked-service-with-private-links"></a>Proteggere un servizio collegato con collegamenti privati 
+# <a name="secure-a-linked-service-with-private-links"></a>Proteggere un servizio collegato con collegamenti privati
 
 Questo articolo illustra come proteggere un servizio collegato in sinapsi con un endpoint privato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Sottoscrizione di Azure**: se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Account di archiviazione di Azure**: usare Azure Data Lake Gen 2 come archivio dati di *origine*. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) per informazioni su come crearne uno. Verificare che l'account di archiviazione disponga del filtro IP di sinapsi Studio per accedervi e che si consentano solo le **reti selezionate** per accedere all'account di archiviazione. L'impostazione sotto il pannello **firewall e reti virtuali** dovrebbe essere simile all'immagine seguente.
+* **Sottoscrizione di Azure** : se non si ha una sottoscrizione di Azure, creare un [account Azure gratuito](https://azure.microsoft.com/free/) prima di iniziare.
+* **Account di archiviazione di Azure** : usare Azure Data Lake Gen 2 come archivio dati di *origine*. Se non si ha un account di archiviazione, vedere [Creare un account di archiviazione di Azure](../../storage/blobs/data-lake-storage-quickstart-create-account.md) per informazioni su come crearne uno. Verificare che l'account di archiviazione disponga del filtro IP di sinapsi Studio per accedervi e che si consentano solo le **reti selezionate** per accedere all'account di archiviazione. L'impostazione sotto il pannello **firewall e reti virtuali** dovrebbe essere simile all'immagine seguente.
 
 ![Account di archiviazione protetto](./media/secure-storage-account.png)
 
@@ -37,7 +37,7 @@ In Azure Synapse Analytics si usano i servizi collegati per definire le informaz
 1. Selezionare il riquadro Azure Data Lake Storage Gen2 dall'elenco e selezionare **continua**.
 1. Assicurarsi di abilitare **Interactive Authoring** (Creazione interattiva). L'abilitazione potrebbe richiedere circa 1 minuto. 
 1. Immettere le credenziali di autenticazione. I tipi di autenticazione attualmente supportati sono la chiave dell'account, l'entità servizio e l'identità gestita. Selezionare Test connessione per verificare che le credenziali siano corrette.
-1. Selezionare **Test connessione**perché l'account di archiviazione non consente l'accesso senza la creazione e l'approvazione di un endpoint privato. Nel messaggio di errore verrà visualizzato un collegamento per creare un **endpoint privato** che è possibile seguire per passare alla parte successiva. Se si segue tale collegamento, ignorare la parte successiva.
+1. Selezionare **Test connessione** perché l'account di archiviazione non consente l'accesso senza la creazione e l'approvazione di un endpoint privato. Nel messaggio di errore verrà visualizzato un collegamento per creare un **endpoint privato** che è possibile seguire per passare alla parte successiva. Se si segue tale collegamento, ignorare la parte successiva.
 1. Selezionare **Create** (Crea) al termine.
 
 ## <a name="create-a-managed-private-endpoint"></a>Creare un endpoint privato gestito
@@ -68,6 +68,8 @@ A questo punto è stata stabilita una connessione sicura e privata tra le sinaps
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per approfondire la conoscenza dell'endpoint privato gestito in sinapsi Analytics, vedere l'articolo relativo all' [endpoint privato gestito da sinapsi](data-integration-data-lake.md) .
+
+Per sviluppare altre informazioni sull'endpoint privato gestito in sinapsi Analytics, vedere [endpoint privati gestiti](../security/synapse-workspace-managed-private-endpoints.md).
+
 
 Per altre informazioni sull'integrazione dei dati per l'analisi delle sinapsi, vedere l'articolo inserimento di [dati in un data Lake](data-integration-data-lake.md) .

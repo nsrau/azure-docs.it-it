@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2018
 ms.author: juergent
 ms.reviewer: cynthn
-ms.openlocfilehash: caabaa6fbf65787f90c0033a06af26996c2388f2
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: b076045f6a106f77717159d3095ffd5973ab27aa
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91994098"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359885"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business One nelle macchine virtuali di Azure
 Questo documento contiene indicazioni per la distribuzione di SAP Business One nelle macchine virtuali di Azure, ma non sostituisce la documentazione relativa all'installazione di Business One per SAP. Presenta le linee guida di base per la pianificazione e la distribuzione per consentire l'esecuzione di applicazioni Business One nell'infrastruttura di Azure.
@@ -139,7 +139,7 @@ Per le strategie di backup e ripristino di SAP HANA, è consigliabile leggere [G
 
  
 ### <a name="business-one-client-server"></a>Client server Business One
-Per questi componenti, le considerazioni relative all'archiviazione non sono di primaria importanza. Tuttavia, per avere una piattaforma affidabile, è opportuno usare Archiviazione Premium di Azure per questa macchina virtuale, anche per il disco rigido virtuale di base. Per definire la dimensione della macchina virtuale, seguire le informazioni riportate in [SAP Business One Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf) (Guida ai requisiti hardware di SAP Business One). Per Azure, esaminare e calcolare con attenzione i requisiti indicati nel capitolo 2.4 del documento. Quando si calcolano i requisiti, per trovare la macchina virtuale ideale è necessario confrontarli con i dati riportati nei documenti seguenti:
+Per questi componenti, le considerazioni relative all'archiviazione non sono di primaria importanza. Tuttavia, per avere una piattaforma affidabile, è opportuno usare Archiviazione Premium di Azure per questa macchina virtuale, anche per il disco rigido virtuale di base. Per definire la dimensione della macchina virtuale, seguire le informazioni riportate in [SAP Business One Hardware Requirements Guide](https://help.sap.com/doc/bfa9770d12284cce8509956dcd4c5fcb/9.3/en-US/B1_Hardware_Requirements_Guide.pdf) (Guida ai requisiti hardware di SAP Business One). Per Azure, esaminare e calcolare con attenzione i requisiti indicati nel capitolo 2.4 del documento. Quando si calcolano i requisiti, per trovare la macchina virtuale ideale è necessario confrontarli con i dati riportati nei documenti seguenti:
 
 - [Dimensioni per le macchine virtuali Windows in Azure](../../sizes.md)
 - [Nota SAP #1928533](https://launchpad.support.sap.com/#/notes/1928533)

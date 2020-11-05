@@ -4,12 +4,12 @@ description: Informazioni su come applicare la scalabilità della risorsa app We
 ms.topic: conceptual
 ms.date: 07/07/2017
 ms.subservice: autoscale
-ms.openlocfilehash: e0c9770e2065002a4e2acc1198ed096dc588f8e5
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: d37a33ea575bbb8481d7d50dad8eab0f9ce0899d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93342216"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361203"
 ---
 # <a name="get-started-with-autoscale-in-azure"></a>Introduzione alla scalabilità automatica in Azure
 Questo articolo descrive come configurare l'impostazione di scalabilità automatica per la risorsa nel portale di Microsoft Azure.
@@ -57,7 +57,7 @@ Verrà ora illustrata una semplice procedura dettagliata per creare la prima imp
 
    A questo punto si avrà un'impostazione di scalabilità che aumenta/riduce il numero di istanze in base all'utilizzo della CPU.
    ![Scalabilità in base alla CPU][8]
-1. Fare clic su **Salva**.
+1. Fare clic su **Save**.
 
 Congratulazioni! A questo punto è stata creata la prima impostazione di scalabilità automatica per l'app Web in base all'utilizzo della CPU.
 
@@ -115,7 +115,7 @@ Fare clic sul pulsante **Disabilita scalabilità automatica** nella parte superi
 
 ## <a name="route-traffic-to-healthy-instances-app-service"></a>Instradare il traffico a istanze integre (servizio app)
 
-Quando si aumenta la scalabilità orizzontale a più istanze, il servizio app può eseguire controlli di integrità sulle istanze per instradare il traffico solo alle istanze integre. A tale scopo, aprire il portale per il servizio app, quindi selezionare **controllo integrità** in **monitoraggio**. Selezionare **Abilita** e specificare un percorso URL valido nell'applicazione, ad esempio `/health` o `/api/health` . Fare clic su **Salva**.
+Quando si aumenta la scalabilità orizzontale a più istanze, il servizio app può eseguire controlli di integrità sulle istanze per instradare il traffico solo alle istanze integre. A tale scopo, aprire il portale per il servizio app, quindi selezionare **controllo integrità** in **monitoraggio**. Selezionare **Abilita** e specificare un percorso URL valido nell'applicazione, ad esempio `/health` o `/api/health` . Fare clic su **Save**.
 
 Per abilitare la funzionalità con i modelli ARM, impostare la `healthcheckpath` proprietà della `Microsoft.Web/sites` risorsa sul percorso di controllo integrità nel sito, ad esempio: `"/api/health/"` . Per disabilitare la funzionalità, impostare nuovamente la proprietà sulla stringa vuota `""` .
 
@@ -125,7 +125,7 @@ Il percorso deve rispondere entro un minuto con un codice di stato compreso tra 
 
 Il percorso di controllo integrità deve controllare i componenti critici dell'applicazione. Se, ad esempio, l'applicazione dipende da un database e da un sistema di messaggistica, l'endpoint di controllo integrità deve connettersi a tali componenti. Se l'applicazione non è in grado di connettersi a un componente critico, il percorso deve restituire un codice di risposta a 500 per indicare che l'app non è integra.
 
-#### <a name="security"></a>Security 
+#### <a name="security"></a>Sicurezza 
 
 I team di sviluppo di grandi imprese spesso devono rispettare i requisiti di sicurezza per le API esposte. Per proteggere l'endpoint Healthcheck, è necessario prima usare funzionalità come [restrizioni IP](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules), [certificati client](../../app-service/app-service-ip-restrictions.md#adding-ip-address-rules)o una rete virtuale per limitare l'accesso all'applicazione. È possibile proteggere l'endpoint Healthcheck stesso richiedendo che la `User-Agent` della richiesta in ingresso corrisponda a `ReadyForRequest/1.0` . Non è possibile eseguire lo spoofing del User-Agent perché la richiesta è già stata protetta dalle funzionalità di sicurezza precedenti.
 
@@ -140,6 +140,20 @@ Se un'istanza rimane non integra per un'ora, verrà sostituita con una nuova ist
 ### <a name="monitoring"></a>Monitoraggio
 
 Dopo aver fornito il percorso di controllo integrità dell'applicazione, è possibile monitorare l'integrità del sito usando monitoraggio di Azure. Nel pannello **controllo integrità** nel portale fare clic sulle **metriche** nella barra degli strumenti superiore. Verrà aperto un nuovo pannello in cui è possibile visualizzare lo stato di integrità cronologico del sito e creare una nuova regola di avviso. Per ulteriori informazioni sul monitoraggio dei siti, [vedere la Guida di monitoraggio di Azure](../../app-service/web-sites-monitor.md).
+
+## <a name="moving-autoscale-to-a-different-region"></a>Trasferimento della scalabilità automatica in un'area diversa
+Questa sezione descrive come spostare la scalabilità automatica di Azure in un'altra area nella stessa sottoscrizione e nel gruppo di risorse. È possibile usare l'API REST per spostare le impostazioni di scalabilità automatica.
+### <a name="prerequisite"></a>Prerequisito
+1. Assicurarsi che la sottoscrizione e il gruppo di risorse siano disponibili e che i dettagli in entrambe le aree di origine e di destinazione siano identici.
+1. Verificare che la scalabilità automatica di Azure sia disponibile nell' [area di Azure in cui si vuole eseguire lo spostamento](https://azure.microsoft.com/global-infrastructure/services/?products=monitor&regions=all).
+
+### <a name="move"></a>Sposta
+Usare l' [API REST](https://docs.microsoft.com/rest/api/monitor/autoscalesettings/createorupdate) per creare un'impostazione di scalabilità automatica nel nuovo ambiente. L'impostazione di scalabilità automatica creata nell'area di destinazione sarà una copia dell'impostazione di scalabilità automatica nell'area di origine.
+
+Non è possibile spostare [le impostazioni di diagnostica](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) create in associazione all'impostazione di scalabilità automatica nell'area di origine. Sarà necessario ricreare le impostazioni di diagnostica nell'area di destinazione, dopo il completamento della creazione delle impostazioni di autoVendita. 
+
+### <a name="learn-more-about-moving-resources-across-azure-regions"></a>Altre informazioni sullo stato di trasferimento delle risorse tra le aree di Azure
+Per altre informazioni sullo spostamento di risorse tra aree e ripristino di emergenza in Azure, vedere [spostare le risorse in un nuovo gruppo di risorse o una nuova sottoscrizione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
 
 ## <a name="next-steps"></a>Passaggi successivi
 - [Creare un avviso di log attività per monitorare tutte le operazioni del motore di scalabilità automatica della sottoscrizione](https://github.com/Azure/azure-quickstart-templates/tree/master/monitor-autoscale-alert)

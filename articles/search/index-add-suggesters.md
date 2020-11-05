@@ -7,18 +7,18 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f8959bf84e2b5629e03c2571fa494b96cec4f8e9
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 8ae25c63e9c6e3bf6ad363cde9eb641703562811
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93347642"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360021"
 ---
 # <a name="create-a-suggester-to-enable-autocomplete-and-suggested-results-in-a-query"></a>Creare un suggerimento per abilitare il completamento automatico e i risultati suggeriti in una query
 
-In Azure ricerca cognitiva "Search-As-You-Type" viene abilitato tramite un costrutto del **Suggerimento** aggiunto a un [indice di ricerca](search-what-is-an-index.md). Un suggerimento supporta due esperienze: *completamento automatico* , che completa un input parziale per una query di termini interi, e *suggerimenti* che invita a fare clic su una corrispondenza specifica. Il completamento automatico genera una query. I suggerimenti producono un documento corrispondente.
+In Azure ricerca cognitiva "Search-As-You-Type" viene abilitato tramite un costrutto del **Suggerimento** aggiunto a un [indice di ricerca](search-what-is-an-index.md). Un suggerimento supporta due esperienze: *completamento automatico* , che completa un input parziale per una query di termini interi, e *suggerimenti* che invitano clic su una corrispondenza specifica. Il completamento automatico genera una query. I suggerimenti producono un documento corrispondente.
 
 La schermata seguente illustra come [creare la prima app in C#](tutorial-csharp-type-ahead-and-suggestions.md) . Il completamento automatico prevede un termine potenziale, terminando "TW" con "in". I suggerimenti sono i risultati della ricerca minima, dove un campo come il nome dell'hotel rappresenta un documento di ricerca di un hotel corrispondente dall'indice. Per i suggerimenti, è possibile esporre qualsiasi campo che fornisca informazioni descrittive.
 
@@ -44,6 +44,8 @@ Per creare un componente di suggerimento, aggiungerne uno a uno [schema dell'ind
 
 + Usare l'analizzatore Lucene standard predefinito ( `"analyzer": null` ) o un [analizzatore del linguaggio](index-add-language-analyzers.md) (ad esempio, `"analyzer": "en.Microsoft"` ) nel campo
 
+Se si tenta di creare un suggerimento usando i campi preesistenti, l'API non lo consentirà. I prefissi vengono generati durante l'indicizzazione, quando i termini parziali in due o più combinazioni di caratteri vengono suddivisi in token insieme a termini interi. Dato che i campi esistenti sono già in formato token, sarà necessario ricompilare l'indice se si desidera aggiungerli a un suggerimento. Per altre informazioni, vedere [How to rebuild an Azure ricerca cognitiva index](search-howto-reindex.md).
+
 ### <a name="choose-fields"></a>Selezionare i campi
 
 Sebbene un suggerimento includa diverse proprietà, è principalmente una raccolta di campi stringa per cui si Abilita un'esperienza di ricerca in modalità di tipo. È presente un suggerimento per ogni indice, pertanto l'elenco di suggerimenti deve includere tutti i campi che contribuiscono al contenuto per i suggerimenti e il completamento automatico.
@@ -64,12 +66,6 @@ I campi che usano [analizzatori personalizzati](index-add-custom-analyzers.md) o
 
 > [!NOTE]
 > Se è necessario aggirare il vincolo dell'analizzatore, ad esempio se è necessaria una parola chiave o Ngram Analyzer per determinati scenari di query, è necessario usare due campi distinti per lo stesso contenuto. Questo consentirà a uno dei campi di avere un suggerimento, mentre l'altro può essere configurato con una configurazione dell'analizzatore personalizzato.
-
-### <a name="when-to-create-a-suggester"></a>Quando creare un suggerimento
-
-Il momento migliore per creare un suggerimento è quando si crea anche la definizione di campo.
-
-Se si tenta di creare un suggerimento usando i campi preesistenti, l'API non lo consentirà. I prefissi vengono generati durante l'indicizzazione, quando i termini parziali in due o più combinazioni di caratteri vengono suddivisi in token insieme a termini interi. Dato che i campi esistenti sono già in formato token, sarà necessario ricompilare l'indice se si desidera aggiungerli a un suggerimento. Per altre informazioni, vedere [How to rebuild an Azure ricerca cognitiva index](search-howto-reindex.md).
 
 ## <a name="create-using-rest"></a>Crea con REST
 

@@ -8,20 +8,16 @@ ms.author: rogarana
 ms.service: virtual-machines-linux
 ms.subservice: disks
 ms.custom: references_regions, devx-track-azurecli
-ms.openlocfilehash: 1b2773b1d860126748e0dd05134d778073478d9f
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 55a49c5f8d066cd6893c46ef9942462bb7911307
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92741675"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360616"
 ---
 # <a name="use-the-azure-cli-to-enable-double-encryption-at-rest-for-managed-disks"></a>Usare l'interfaccia della riga di comando di Azure per abilitare la crittografia doppia per i dischi gestiti
 
-Archiviazione su disco di Azure supporta la crittografia doppia per i dischi gestiti. Per informazioni di carattere generale sulla crittografia dei dati inattivi, oltre ad altri tipi di crittografia del disco gestito, vedere la sezione relativa alla crittografia [a doppio](disk-encryption.md#double-encryption-at-rest) inattivo dell'articolo crittografia del disco.
-
-## <a name="supported-regions"></a>Aree supportate
-
-[!INCLUDE [virtual-machines-disks-double-encryption-at-rest-regions](../../../includes/virtual-machines-disks-double-encryption-at-rest-regions.md)]
+Archiviazione su disco di Azure supporta la crittografia doppia per i dischi gestiti. Per informazioni di carattere generale sulla crittografia dei dati inattivi, oltre ad altri tipi di crittografia del disco gestito, vedere la sezione relativa alla crittografia [a doppio](../disk-encryption.md#double-encryption-at-rest) inattivo dell'articolo crittografia del disco.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

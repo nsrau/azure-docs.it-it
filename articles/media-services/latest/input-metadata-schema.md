@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 9ddfe3ea0d26a9032922423e7f2c2a2b6c3e411a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1ca526b7ecbe20a54ec115521cdfbc93c713e0da
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89295549"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360055"
 ---
 # <a name="input-metadata"></a>Metadati di input
 
@@ -43,7 +43,7 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 > 
 > 
 
-| Nome  | Description |
+| Nome  | Descrizione |
 | --- | --- | 
 | **VideoTracks**|Ogni file di asset fisico può contenere da zero a più tracce video con interfoliazione in un formato contenitore appropriato. Per ulteriori informazioni, vedere [VideoTracks](#videotracks). |
 | **AudioTrack**|Ogni file di asset fisico può contenere da zero a più tracce audio con interfoliazione in un formato contenitore appropriato. Per ulteriori informazioni, vedere [AudioTracks](#audiotracks) |
@@ -53,57 +53,57 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 
 | Nome | Descrizione |
 | --- | --- |
-| **Nome**<br />Obbligatoria |Nome del file di asset <br /><br />Esempio: `"Name": "Ignite-short.mp4"` |
-| **Uri**<br />Obbligatoria |URL in cui si trova l'asset di input. Per identificare l'asset di input a cui appartiene l'asset di output, usare il `Uri` campo anziché ID.|
-| **Dimensione**<br />Obbligatoria |Dimensioni del file di asset in byte.  <br /><br />Esempio: `"Size": 75739259`|
-| **Duration**<br />Obbligatoria |Durata della riproduzione del contenuto. <br /><br />Esempio: `"Duration": "PT1M10.304S"`. |
-| **NumberOfStreams**<br />Obbligatoria |Numero di flussi nel file di asset.  <br /><br />Esempio: `"NumberOfStreams": 2`|
-| **FormatNames**<br />Obbligatoria |Nomi del formato.  <br /><br />Esempio: `"FormatNames": "mov,mp4,m4a,3gp,3g2,mj2"`|
-| **FormatVerboseName**<br /> Obbligatoria |Nomi dettagliati del formato. <br /><br />Esempio: `"FormatVerboseName": "QuickTime / MOV"` |
+| **Nome**<br />Necessario |Nome del file di asset <br /><br />Esempio: `"Name": "Ignite-short.mp4"` |
+| **Uri**<br />Necessario |URL in cui si trova l'asset di input. Per identificare l'asset di input a cui appartiene l'asset di output, usare il `Uri` campo anziché ID.|
+| **Size**<br />Necessario |Dimensioni del file di asset in byte.  <br /><br />Esempio: `"Size": 75739259`|
+| **Duration**<br />Necessario |Durata della riproduzione del contenuto. <br /><br />Esempio: `"Duration": "PT1M10.304S"`. |
+| **NumberOfStreams**<br />Necessario |Numero di flussi nel file di asset.  <br /><br />Esempio: `"NumberOfStreams": 2`|
+| **FormatNames**<br />Necessario |Nomi del formato.  <br /><br />Esempio: `"FormatNames": "mov,mp4,m4a,3gp,3g2,mj2"`|
+| **FormatVerboseName**<br /> Necessario |Nomi dettagliati del formato. <br /><br />Esempio: `"FormatVerboseName": "QuickTime / MOV"` |
 | **StartTime** |Ora di inizio del contenuto.  <br /><br />Esempio: `"StartTime": "PT0S"` |
 | **OverallBitRate** |Velocità in bit media del file di asset in bit al secondo.  <br /><br />Esempio: `"OverallBitRate": 8618539`|
 
 ## <a name="videotracks"></a>VideoTracks
 
-| Nome |  | Description |
+| Nome | Descrizione |
 | --- | --- |
-| **FourCC**<br />Obbligatoria |Codec video FourCC codice riportato da ffmpeg.<br /><br />Esempio: `"FourCC": "avc1"` |
+| **FourCC**<br />Necessario |Codec video FourCC codice riportato da ffmpeg.<br /><br />Esempio: `"FourCC": "avc1"` |
 | **Profilo** |Profilo della traccia video. <br /><br />Esempio: `"Profile": "Main"`|
 | **Level** |Livello della traccia video. <br /><br />Esempio: `"Level": "3.2"`|
 | **PixelFormat** |Formato pixel della traccia video. <br /><br />Esempio: `"PixelFormat": "yuv420p"`|
-| **Larghezza**<br />Obbligatoria |Larghezza del video codificata in pixel. <br /><br />Esempio: `"Width": "1280"`|
-| **Altezza**<br />Obbligatoria |Altezza del video codificata in pixel.<br /><br />Esempio: `"Height": "720"` |
-| **DisplayAspectRatioNumerator**<br />Obbligatoria |Numeratore delle proporzioni della visualizzazione video.<br /><br />Esempio: `"DisplayAspectRatioNumerator": 16.0` |
-| **DisplayAspectRatioDenominator**<br />Obbligatoria |Denominatore delle proporzioni della visualizzazione video. <br /><br />Esempio: `"DisplayAspectRatioDenominator": 9.0`|
+| **Larghezza**<br />Necessario |Larghezza del video codificata in pixel. <br /><br />Esempio: `"Width": "1280"`|
+| **Altezza**<br />Necessario |Altezza del video codificata in pixel.<br /><br />Esempio: `"Height": "720"` |
+| **DisplayAspectRatioNumerator**<br />Necessario |Numeratore delle proporzioni della visualizzazione video.<br /><br />Esempio: `"DisplayAspectRatioNumerator": 16.0` |
+| **DisplayAspectRatioDenominator**<br />Necessario |Denominatore delle proporzioni della visualizzazione video. <br /><br />Esempio: `"DisplayAspectRatioDenominator": 9.0`|
 | **SampleAspectRatioNumerator** |Numeratore delle proporzioni del campione video. <br /><br />Esempio: `"SampleAspectRatioNumerator": 1.0`|
 | **SampleAspectRatioDenominator**|Esempio: `"SampleAspectRatioDenominator": 1.0`|
-| **FrameRate**<br />Obbligatoria |Frequenza dei frame misurata in formato .3F. <br /><br />Esempio: `"FrameRate": 29.970`|
+| **FrameRate**<br />Necessario |Frequenza dei frame misurata in formato .3F. <br /><br />Esempio: `"FrameRate": 29.970`|
 | **Bitrate** |Velocità in bit video media in bit al secondo, calcolata dal file di asset. Viene contato solo il payload del flusso elementare, mentre l'overhead di creazione dei pacchetti è escluso. <br /><br />Esempio: `"Bitrate": 8421583`|
 | **HasBFrames** |Numero di traccia video dei fotogrammi B. <br /><br />Esempio: `"HasBFrames": 2`|
 | **Metadata** |Stringhe chiave-valore generiche che possono essere usate per contenere una varietà di informazioni. <br />Vedere l'esempio completo alla fine dell'articolo. |
-| **Id**<br />Obbligatoria |Indice in base zero della traccia audio o video.<br /><br /> Questo **Id** non corrisponde necessariamente al TrackID usato in un file MP4. <br /><br />Esempio: `"Id": 2`|
+| **Id**<br />Necessario |Indice in base zero della traccia audio o video.<br /><br /> Questo **Id** non corrisponde necessariamente al TrackID usato in un file MP4. <br /><br />Esempio: `"Id": 2`|
 | **Codec** |Stringa del codec della traccia video. <br /><br />Esempio: `"Codec": "h264"`|
 | **CodecLongName** |Nome lungo del codec della traccia audio o video. <br /><br />Esempio: `"CodecLongName": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10"`|
 | **Codec** |Stringa del codec della traccia video. <br /><br />Esempio: `"Codec": "h264"`|
-| **TimeBase**<br />Obbligatoria |Tempo base.<br /><br />Esempio: `"TimeBase": "1/30000"`|
+| **TimeBase**<br />Necessario |Tempo base.<br /><br />Esempio: `"TimeBase": "1/30000"`|
 | **NumberOfFrames** |Numero di frame (presenti per le tracce video). <br /><br />Esempio: `"NumberOfFrames": 2107`|
 | **StartTime** |Ora di inizio della traccia.<br /><br />Esempio: `"StartTime": "PT0.033S"` |
 | **Duration** |Durata della traccia. <br /><br />Esempio: `"Duration": "PT1M10.304S"`|
 
 ## <a name="audiotracks"></a>AudioTrack
 
-| Nome  | Description |
+| Nome  | Descrizione |
 | --- | --- | 
 | **SampleFormat** |Formato del campione. <br /><br />Esempio: `"SampleFormat": "fltp"`|
 | **ChannelLayout** |Layout del canale. <br /><br />Esempio: `"ChannelLayout": "stereo"`|
-| **Canali**<br />Obbligatoria |Numero di canali audio (da 0 in su). <br /><br />Esempio: `"Channels": 2`|
-| **SamplingRate**<br />Obbligatoria |Frequenza di campionamento dell'audio in campioni/sec o Hz. <br /><br />Esempio: `"SamplingRate": 48000`|
+| **Canali**<br />Necessario |Numero di canali audio (da 0 in su). <br /><br />Esempio: `"Channels": 2`|
+| **SamplingRate**<br />Necessario |Frequenza di campionamento dell'audio in campioni/sec o Hz. <br /><br />Esempio: `"SamplingRate": 48000`|
 | **Bitrate** |Velocità media in bit audio in bit al secondo, calcolata in base al file di asset. Viene contato solo il payload del flusso elementare, mentre l'overhead di creazione dei pacchetti è escluso dal conteggio. <br /><br />Esempio: `"Bitrate": 192080`|
 | **Metadata** |Stringhe chiave-valore generiche che possono essere usate per contenere una varietà di informazioni.  <br />Vedere l'esempio completo alla fine dell'articolo. |
-| **Id**<br />Obbligatoria |Indice in base zero della traccia audio o video.<br /><br /> Non corrisponde necessariamente al TrackID usato in un file MP4. <br /><br />Esempio: `"Id": 1`|
+| **Id**<br />Necessario |Indice in base zero della traccia audio o video.<br /><br /> Non corrisponde necessariamente al TrackID usato in un file MP4. <br /><br />Esempio: `"Id": 1`|
 | **Codec** |Stringa del codec della traccia video. <br /><br />Esempio: `"Codec": "aac"`|
 | **CodecLongName** |Nome lungo del codec della traccia audio o video. <br /><br />Esempio: `"CodecLongName": "AAC (Advanced Audio Coding)"`|
-| **TimeBase**<br />Obbligatoria |Tempo base.<br /><br />Esempio: `"TimeBase": "1/48000"` |
+| **TimeBase**<br />Necessario |Tempo base.<br /><br />Esempio: `"TimeBase": "1/48000"` |
 | **NumberOfFrames** |Numero di frame (presenti per le tracce video). <br /><br />Esempio: `"NumberOfFrames": 3294`|
 | **StartTime** |Ora di inizio della traccia. Per ulteriori informazioni, vedere [ISO8601](https://www.iso.org/iso-8601-date-and-time-format.html). <br /><br />Esempio: `"StartTime": "PT0S"` |
 | **Duration** |Durata della traccia. <br /><br />Esempio: `"Duration": "PT1M10.272S"` |
@@ -112,8 +112,8 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 
 | Nome | Descrizione |
 | --- | --- |
-| **key**<br />Obbligatoria |La chiave nella coppia chiave-valore. |
-| **value**<br /> Obbligatoria |Il valore nella coppia chiave-valore. |
+| **key**<br />Necessario |Chiave nella coppia chiave/valore. |
+| **value**<br /> Necessario |Valore nella coppia chiave/valore. |
 
 ## <a name="schema-example"></a>Esempio di schema
 

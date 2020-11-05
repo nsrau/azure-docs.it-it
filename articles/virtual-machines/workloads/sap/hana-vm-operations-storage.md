@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 10/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0861d1fd3ab2a378f0b9afc4e8b35b32badfc3db
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: 99c94528c13228e07327b529782f211ec92a08ea
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92670665"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359851"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>Configurazioni dell'archiviazione di macchine virtuali di Azure in SAP HANA
 
@@ -44,9 +44,9 @@ Le condizioni minime SAP HANA certificate per i diversi tipi di archiviazione so
 
 - Archiviazione Premium di Azure: è necessario che **/Hana/log** sia supportato da Azure [acceleratore di scrittura](../../how-to-enable-write-accelerator.md). Il volume **/Hana/data** può essere inserito in archiviazione premium senza acceleratore di scrittura di Azure o su disco Ultra
 - Azure ultra disk almeno per il volume **/Hana/log** . Il volume **/Hana/data** può essere inserito in una risorsa di archiviazione premium senza acceleratore di scrittura di Azure o per ottenere tempi di riavvio più rapidi.
-- I volumi **NFS v 4.1** sopra Azure NetApp files per **/Hana/log e/Hana/data** . Il volume di/Hana/Shared può utilizzare il protocollo NFS v3 o NFS v 4.1
+- I volumi **NFS v 4.1** sopra Azure NetApp files per **/Hana/log e/Hana/data**. Il volume di/Hana/Shared può utilizzare il protocollo NFS v3 o NFS v 4.1
 
-Alcuni tipi di risorsa di archiviazione possono essere combinati. Ad esempio, è possibile inserire **/Hana/data** nell'archiviazione Premium e **/Hana/log** può essere collocato in una risorsa di archiviazione su disco Ultra per ottenere la bassa latenza richiesta. Se si usa un volume basato su e per **/Hana/data** , il volume  **/Hana/log** deve essere basato su NFS anche in e. L'uso di NFS su e per uno dei volumi (ad esempio/Hana/Data) e l'archiviazione Premium di Azure o ultra disk per l'altro volume (come **/Hana/log** ) **non è supportato** .
+Alcuni tipi di risorsa di archiviazione possono essere combinati. Ad esempio, è possibile inserire **/Hana/data** nell'archiviazione Premium e **/Hana/log** può essere collocato in una risorsa di archiviazione su disco Ultra per ottenere la bassa latenza richiesta. Se si usa un volume basato su e per **/Hana/data** , il volume  **/Hana/log** deve essere basato su NFS anche in e. L'uso di NFS su e per uno dei volumi (ad esempio/Hana/Data) e l'archiviazione Premium di Azure o ultra disk per l'altro volume (come **/Hana/log** ) **non è supportato**.
 
 È raro che sia necessario preoccuparsi dei sottosistemi di I/O e delle relative funzionalità nei sistemi locali perché il fornitore dell'appliance deve assicurarsi che siano soddisfatti i requisiti di archiviazione minima per SAP HANA. Se si configura l'infrastruttura di Azure in autonomia, è necessario conoscere alcuni di questi requisiti per SAP. Di seguito sono riportate alcune delle caratteristiche di velocità effettiva minime consigliate da SAP:
 
@@ -72,7 +72,7 @@ Linux offre varie modalità di pianificazione I/O diverse. Una raccomandazione c
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Soluzioni con archiviazione Premium e Azure acceleratore di scrittura per macchine virtuali di Azure serie M
-L'acceleratore di scrittura di Azure è una funzionalità disponibile esclusivamente per le VM di Azure della serie M. Come indicato dal nome, lo scopo della funzionalità è migliorare la latenza di I/O delle Scritture per l'archiviazione Premium di Azure. Per SAP HANA, l'uso dell'acceleratore di scrittura è previsto solo sul volume **/hana/log** . Pertanto, **/hana/data** e **/hana/log** sono volumi separati con l'acceleratore di scrittura di Azure che supporta solo il volume **/hana/log** . 
+L'acceleratore di scrittura di Azure è una funzionalità disponibile esclusivamente per le VM di Azure della serie M. Come indicato dal nome, lo scopo della funzionalità è migliorare la latenza di I/O delle Scritture per l'archiviazione Premium di Azure. Per SAP HANA, l'uso dell'acceleratore di scrittura è previsto solo sul volume **/hana/log**. Pertanto, **/hana/data** e **/hana/log** sono volumi separati con l'acceleratore di scrittura di Azure che supporta solo il volume **/hana/log**. 
 
 > [!IMPORTANT]
 > Quando si usa archiviazione Premium di Azure, l'uso di [acceleratore di scrittura](../../how-to-enable-write-accelerator.md) di Azure per il volume **/Hana/log** è obbligatorio. Acceleratore di scrittura è disponibile solo per le macchine virtuali di archiviazione Premium e serie M e Mv2-Series. Acceleratore di scrittura non funziona in combinazione con altre famiglie di macchine virtuali di Azure, ad esempio Esv3 o Edsv4.
@@ -93,7 +93,7 @@ Le raccomandazioni relative alla memorizzazione nella cache per i dischi Premium
 - **Disco del sistema operativo** : non modificare la memorizzazione nella cache predefinita impostata da Azure al momento della creazione della macchina virtuale
 
 
-Se si usa LVM o mdadm per creare set di striping in diversi dischi Premium di Azure, è necessario definire le dimensioni dello striping. Queste dimensioni sono diverse tra **/Hana/data** e **/Hana/log** . **Raccomandazione: con le dimensioni di striping, è consigliabile usare:**
+Se si usa LVM o mdadm per creare set di striping in diversi dischi Premium di Azure, è necessario definire le dimensioni dello striping. Queste dimensioni sono diverse tra **/Hana/data** e **/Hana/log**. **Raccomandazione: con le dimensioni di striping, è consigliabile usare:**
 
 - 256 KB per **/hana/data**
 - 64 KB per **/Hana/log**
@@ -130,7 +130,7 @@ In particolare nei sistemi DBMS più piccoli, in cui il carico di lavoro gestisc
 ### <a name="production-recommended-storage-solution-based-on-azure-premium-storage"></a>Soluzione di archiviazione consigliata di produzione basata sull'archiviazione Premium di Azure
 
 > [!IMPORTANT]
-> La certificazione SAP HANA per le macchine virtuali di Azure della serie M è valida esclusivamente con l'acceleratore di scrittura di Azure per il volume **/hana/log** . Di conseguenza, per le distribuzioni di SAP HANA in scenari di produzione nelle macchine virtuali di Azure della serie M è prevista la configurazione con l'acceleratore di scrittura di Azure per il volume **/hana/log** .  
+> La certificazione SAP HANA per le macchine virtuali di Azure della serie M è valida esclusivamente con l'acceleratore di scrittura di Azure per il volume **/hana/log**. Di conseguenza, per le distribuzioni di SAP HANA in scenari di produzione nelle macchine virtuali di Azure della serie M è prevista la configurazione con l'acceleratore di scrittura di Azure per il volume **/hana/log**.  
 
 > [!NOTE]
 > Negli scenari che coinvolgono archiviazione Premium di Azure, stiamo implementando funzionalità di espansione nella configurazione. Man mano che si usano gli strumenti di test di archiviazione di qualsiasi forma o forma, tenere presente il modo in cui il [disco Premium di Azure](../../linux/disk-bursting.md) è in grado di funzionare. Eseguendo i test di archiviazione recapitati tramite lo strumento SAP HWCCT o HCMT, non è previsto che tutti i test superino i criteri poiché alcuni dei test supereranno i crediti di espansione che è possibile accumulare. Soprattutto quando tutti i test vengono eseguiti in modo sequenziale senza interruzioni.
@@ -179,8 +179,8 @@ Per gli altri volumi, la configurazione sarà simile alla seguente:
 
 | SKU di VM | RAM | Max. velocità effettiva<br /> Velocità effettiva | /hana/shared | volume /root | /usr/sap |
 | --- | --- | --- | --- | --- | --- | --- | --- | -- |
-| M32ts | 192 GiB | 500 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
-| M32ls | 256 GiB | 500 MBps |  1 x P20 | 1 x P6 | 1 x P6 |
+| M32ts | 192 GiB | 500 MBps | 1 x P15 | 1 x P6 | 1 x P6 |
+| M32ls | 256 GiB | 500 MBps |  1 x P15 | 1 x P6 | 1 x P6 |
 | M64ls | 512 GiB | 1000 MBps | 1 x P20 | 1 x P6 | 1 x P6 |
 | M64s | 1\.000 GiB | 1\.000 MBps | 1 x P30 | 1 x P6 | 1 x P6 |
 | M64ms | 1\.750 GiB | 1\.000 MBps | 1 x P30 | 1 x P6 | 1 x P6 | 
@@ -252,8 +252,8 @@ Le raccomandazioni spesso superano i requisiti minimi di SAP indicati in precede
 | M64ls | 512 GiB | 1\.000 MB/s | 620 GB | 400 MBps | 3\.500 | 256 GB | 250 MBps  | 1.800 |
 | M64s | 1\.000 GiB | 1\.000 MB/s |  1\.200 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2\.500 |
 | M64ms | 1\.750 GiB | 1\.000 MB/s | 2\.100 GB | 600 MBps | 5\.000 | 512 GB | 250 MBps  | 2\.500 |
-| M128s | 2\.000 GiB | 2\.000 MB/s |2\.400 GB | 750 MBps | 7.000 | 512 GB | 250 MBps  | 2,500 | 
-| M128ms | 3\.800 GiB | 2\.000 MB/s | 4\.800 GB | 750 MBps |9.600 | 512 GB | 250 MBps  | 2,500 | 
+| M128s | 2\.000 GiB | 2\.000 MB/s |2\.400 GB | 750 MBps | 7.000 | 512 GB | 250 MBps  | 2\.500 | 
+| M128ms | 3\.800 GiB | 2\.000 MB/s | 4\.800 GB | 750 MBps |9.600 | 512 GB | 250 MBps  | 2\.500 | 
 | M208s_v2 | 2\.850 GiB | 1\.000 MB/s | 3\.500 GB | 750 MBps | 7.000 | 512 GB | 250 MBps  | 2\.500 | 
 | M208ms_v2 | 5\.700 GiB | 1\.000 MB/s | 7\.200 GB | 750 MBps | 14.400 | 512 GB | 250 MBps  | 2\.500 | 
 | M416s_v2 | 5\.700 GiB | 2\.000 MB/s | 7\.200 GB | 1\.000 MBps | 14.400 | 512 GB | 400 MBps  | 4.000 | 

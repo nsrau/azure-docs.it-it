@@ -11,12 +11,12 @@ ms.reviewer: peterlu
 ms.date: 09/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: bbc532acf704128e2311f440aabe8f707fc03aea
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: b03395b9c615466a4d64d8760db8ac23a040d832
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307235"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360939"
 ---
 # <a name="train-pytorch-models-at-scale-with-azure-machine-learning"></a>Esegui il training dei modelli PyTorch su larga scala con Azure Machine Learning
 
@@ -56,6 +56,7 @@ import shutil
 
 from azureml.core.workspace import Workspace
 from azureml.core import Experiment
+from azureml.core import Environment
 
 from azureml.core.compute import ComputeTarget, AmlCompute
 from azureml.core.compute_target import ComputeTargetException
@@ -164,8 +165,6 @@ Creare un ambiente Azure ML da questa specifica dell'ambiente conda. L'ambiente 
 Per impostazione predefinita, se non viene specificata alcuna immagine di base, Azure ML userà un'immagine della CPU `azureml.core.environment.DEFAULT_CPU_IMAGE` come immagine di base. Poiché in questo esempio viene eseguito il training in un cluster GPU, è necessario specificare un'immagine di base GPU con le dipendenze e i driver GPU necessari. Azure ML mantiene un set di immagini di base pubblicate in Microsoft Container Registry (AzureML) che è possibile usare. per ulteriori informazioni, vedere il repository GitHub [Azure/-container](https://github.com/Azure/AzureML-Containers) .
 
 ```python
-from azureml.core import Environment
-
 pytorch_env = Environment.from_conda_specification(name='pytorch-1.6-gpu', file_path='./conda_dependencies.yml')
 
 # Specify a GPU base image

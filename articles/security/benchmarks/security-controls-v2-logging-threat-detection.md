@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/20/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9ada1956af2dabdb8e5deff33722af7a8691dd19
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b26979f424798bacf6b40d43e5ab603844f595c3
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91295465"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360854"
 ---
 # <a name="security-control-v2-logging-and-threat-detection"></a>Controllo di sicurezza V2: registrazione e rilevamento minacce
 
@@ -38,13 +38,13 @@ Inoltre, è possibile usare Sentinel di Azure per creare regole di analisi, che 
 
 - [Intelligence per le minacce informatiche con Azure Sentinel](/azure/architecture/example-scenario/data/sentinel-threat-intelligence)
 
-**Responsabilità**: Customer
+**Responsabilità** : Customer
 
-**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -75,13 +75,13 @@ Il Centro sicurezza di Azure può anche inviare avvisi su determinate attività 
 
 - [Protezione dalle minacce nel Centro sicurezza di Azure](../../security-center/threat-protection.md)
 
-**Responsabilità**: Customer
+**Responsabilità** : Customer
 
-**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -109,13 +109,13 @@ Abilitare e raccogliere i log delle risorse del gruppo di sicurezza di rete (NSG
 
 - [Raccogliere informazioni dettagliate sull'infrastruttura DNS con la soluzione Analisi DNS](../../azure-monitor/insights/dns-analytics.md)
 
-**Responsabilità**: Customer
+**Responsabilità** : Customer
 
-**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Sicurezza dell'infrastruttura e degli endpoint](/azure/cloud-adoption-framework/organize/cloud-security-infrastructure-endpoint)
 
-- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 - [Gestione della postura](/azure/cloud-adoption-framework/organize/cloud-security-posture-management)   
 
@@ -137,13 +137,11 @@ Abilitare la registrazione per le risorse di Azure in modo da soddisfare i requi
 
 - [Informazioni sulla raccolta dati del Centro sicurezza di Azure](../../security-center/security-center-enable-data-collection.md)
 
-- [Abilitare e configurare il monitoraggio antimalware](../fundamentals/antimalware.md#enable-and-configure-antimalware-monitoring-using-powershell-cmdlets)
+**Responsabilità** : Condiviso
 
-**Responsabilità**: Condiviso
+**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
-**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
-
-- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center)
 
 Sicurezza dell'infrastruttura e degli endpoint 
 
@@ -169,9 +167,9 @@ Molte organizzazioni scelgono di usare Sentinel di Azure per i dati "attivi" usa
 
 - [Come eseguire l'onboarding di Azure Sentinel](../../sentinel/quickstart-onboard.md)
 
-**Responsabilità**: Customer
+**Responsabilità** : Customer
 
-**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
@@ -195,15 +193,15 @@ In monitoraggio di Azure è possibile impostare il periodo di conservazione dell
 
 - [Esportazione avvisi e raccomandazioni del Centro sicurezza di Azure](../../security-center/continuous-export.md)
 
-**Responsabilità**: Customer
+**Responsabilità** : Customer
 
-**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Architettura di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-architecture)
 
 - [Sicurezza delle applicazioni e DevOps](/azure/cloud-adoption-framework/organize/cloud-security-application-security-devsecops) 
 
-- [Operazioni di sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
+- [Operazioni per la sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-operations-center) 
 
 - [Gestione della conformità alla sicurezza](/azure/cloud-adoption-framework/organize/cloud-security-compliance-management)
 
@@ -223,9 +221,9 @@ Tutti i log generati dalle risorse in Azure forniscono indicatori temporali con 
 
 - [Come disabilitare UDP in ingresso per i servizi di Azure](https://support.microsoft.com/help/4558520/how-to-disable-inbound-udp-for-azure-services)
 
-**Responsabilità**: Condiviso
+**Responsabilità** : Condiviso
 
-**Stakeholder** per la sicurezza dei clienti ([altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
+**Stakeholder** per la sicurezza dei clienti ( [altre informazioni](/azure/cloud-adoption-framework/organize/cloud-security#security-functions)):
 
 - [Criteri e standard](/azure/cloud-adoption-framework/organize/cloud-security-policy-standards)
 

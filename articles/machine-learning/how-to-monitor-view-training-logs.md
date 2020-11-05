@@ -1,7 +1,7 @@
 ---
 title: Monitorare e visualizzare i log di esecuzione di ML & le metriche
 titleSuffix: Azure Machine Learning
-description: Monitorare gli esperimenti di Azure ML e visualizzare le metriche di esecuzione per migliorare il processo di creazione del modello. Usare i widget e il portale di studio per esplorare lo stato di esecuzione e visualizzare i record di esecuzione.
+description: Monitora gli esperimenti di machine learning e visualizza le metriche di esecuzione con i widget Jupyter e il Azure Machine Learning Studio.
 services: machine-learning
 author: likebupt
 ms.author: keli19
@@ -11,16 +11,14 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 7929c80f4f90de82c516b746310b5e58819a16bc
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 845160d92100a27c32f16eddcd1f36e9e8624e80
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93316683"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360599"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorare e visualizzare i log e le metriche per l'esecuzione di ML
-
-
 
 Questo articolo illustra come monitorare le esecuzioni di Azure Machine Learning e visualizzare i log. Prima di poter visualizzare i log, è necessario abilitarli per primi. Per altre informazioni, vedere [abilitare la registrazione nelle esecuzioni di training di Azure ml](how-to-track-experiments.md).
 

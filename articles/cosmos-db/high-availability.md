@@ -4,15 +4,15 @@ description: In questo articolo viene descritto come Azure Cosmos DB garantisce 
 author: markjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 10/13/2020
+ms.date: 11/04/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 2fb8b24d5d44ced8f9e363008354acf5bc2fde40
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 58507703ca3440e73dbc41757e0bc70f56e886c3
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93081876"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360157"
 ---
 # <a name="how-does-azure-cosmos-db-provide-high-availability"></a>In che modo Azure Cosmos DB fornisce disponibilità elevata
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
@@ -74,7 +74,7 @@ Per i rari casi di interruzione a livello di area, Azure Cosmos DB garantisce ch
 * Una volta che viene ripristinata l'area di scrittura interessata in precedenza, diventa automaticamente disponibile come area di lettura. È possibile tornare all'area ripristinata come area di scrittura. È possibile cambiare le aree usando PowerShell, l'interfaccia della riga di comando di [Azure o portale di Azure](how-to-manage-database-account.md#manual-failover). Non sono presenti **dati o perdite di disponibilità** prima di, durante o dopo l'attivazione dell'area di scrittura e l'applicazione continua a essere a disponibilità elevata.
 
 > [!IMPORTANT]
-> Si consiglia vivamente di configurare gli account Azure Cosmos usati per i carichi di lavoro di produzione per **abilitare il failover automatico** . Il failover manuale richiede la connettività tra l'area di scrittura secondaria e quella primaria per completare una verifica della coerenza per assicurarsi che non si verifichino perdite di dati durante il failover. Se l'area primaria non è disponibile, la verifica di coerenza non è completa e il failover manuale non riesce, causando la perdita della disponibilità di scrittura per la durata dell'interruzione a livello di area.
+> Si consiglia vivamente di configurare gli account Azure Cosmos usati per i carichi di lavoro di produzione per **abilitare il failover automatico**. Il failover manuale richiede la connettività tra l'area di scrittura secondaria e quella primaria per completare una verifica della coerenza per assicurarsi che non si verifichino perdite di dati durante il failover. Se l'area primaria non è disponibile, la verifica di coerenza non è completa e il failover manuale non riesce, causando la perdita della disponibilità di scrittura per la durata dell'interruzione a livello di area.
 
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Account a più aree con un'area a scrittura singola (interruzione dell'area di lettura)
 
@@ -100,9 +100,7 @@ Con il supporto della zona di disponibilità, Azure Cosmos DB garantisce che le 
 
 La ridondanza della zona è una *funzionalità aggiuntiva* per la [replica nella funzionalità di scrittura in più aree](how-to-multi-master.md) . Non è possibile fare affidamento solo sulla ridondanza della zona per ottenere la resilienza a livello di area. Ad esempio, in caso di interruzioni a livello di area o di accesso a bassa latenza tra le aree, si consiglia di avere più aree di scrittura oltre alla ridondanza della zona.
 
-Quando si configurano le Scritture in più aree per l'account Azure Cosmos, è possibile acconsentire esplicitamente alla ridondanza della zona senza costi aggiuntivi. In caso contrario, vedere la nota riportata di seguito relativa ai prezzi per il supporto della ridondanza della zona. È possibile abilitare la ridondanza della zona in un'area esistente dell'account Azure Cosmos rimuovendo l'area e aggiungendola nuovamente con la ridondanza della zona abilitata.
-
-Questa funzionalità è disponibile in: *Regno Unito meridionale, Asia sudorientale, Stati Uniti orientali, Stati Uniti orientali 2, Stati Uniti centrali, Europa occidentale, Stati Uniti occidentali 2, Giappone orientale, Europa settentrionale, Francia centrale, Australia orientale, Stati Uniti orientali 2 EUAP* .
+Quando si configurano le Scritture in più aree per l'account Azure Cosmos, è possibile acconsentire esplicitamente alla ridondanza della zona senza costi aggiuntivi. In caso contrario, vedere la nota riportata di seguito relativa ai prezzi per il supporto della ridondanza della zona. È possibile abilitare la ridondanza della zona in un'area esistente dell'account Azure Cosmos rimuovendo l'area e aggiungendola nuovamente con la ridondanza della zona abilitata. Per un elenco delle aree in cui sono supportate le zone di disponibilità, vedere la documentazione relativa alle [zone di disponibilità](../availability-zones/az-region.md) .
 
 Nella tabella seguente sono riepilogate le funzionalità di disponibilità elevata di diverse configurazioni di account:
 

@@ -1,20 +1,20 @@
 ---
 title: Usare la libreria .NET BulkExecutor per i grafi con l'API Gremlin di Azure Cosmos DB
 description: Informazioni su come usare la libreria BulkExecutor per importare volumi elevati di dati dei grafi nel contenitore di API Gremlin di Azure Cosmos DB.
-author: jasonwhowell
+author: christopheranderson
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 05/28/2019
-ms.author: jasonh
+ms.author: chrande
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
-ms.openlocfilehash: eb611c77abe5bf9067bfdbabd1e2c5d2ee90ac23
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: b31cb33e09158de5912132d0fb7bd31a62131181
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100491"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360514"
 ---
 # <a name="using-the-graph-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db-gremlin-api"></a>Uso della libreria .NET BulkExecutor per i grafi per eseguire operazioni in blocco nell'API Gremlin di Azure Cosmos DB
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -118,7 +118,7 @@ e.AddProperty("customProperty", "value");
 ### <a name="prerequisites"></a>Prerequisiti
 * Visual Studio 2019 con il carico di lavoro di sviluppo di Azure. È possibile iniziare a usare [Visual Studio 2019 Community Edition](https://visualstudio.microsoft.com/downloads/) gratuitamente.
 * Una sottoscrizione di Azure. È possibile creare un [account Azure gratuito qui](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cosmos-db). In alternativa, è possibile creare un account di database Cosmos nella pagina [Prova gratuitamente Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure.
-* Database di API Gremlin di Azure Cosmos DB con una **raccolta illimitata** . Questa guida descrive come iniziare a usare l'[API Gremlin di Azure Cosmos DB in .NET](./create-graph-dotnet.md).
+* Database di API Gremlin di Azure Cosmos DB con una **raccolta illimitata**. Questa guida descrive come iniziare a usare l'[API Gremlin di Azure Cosmos DB in .NET](./create-graph-dotnet.md).
 * Git. Per altre informazioni, vedere la [pagina dei download di Git](https://git-scm.com/downloads).
 
 ### <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
@@ -142,7 +142,7 @@ Impostazione|Descrizione
 ---|---
 `EndPointUrl`|**Endpoint .NET SDK** che si trova nel pannello Panoramica dell'account di database di API Gremlin di Azure Cosmos DB. Ha questo formato: `https://your-graph-database-account.documents.azure.com:443/`
 `AuthorizationKey`|Chiave primaria o secondaria elencata nell'account Azure Cosmos DB. Per altre informazioni, vedere [Protezione dell'accesso ai dati di Azure Cosmos DB](./secure-access-to-data.md#primary-keys)
-`DatabaseName`, `CollectionName`|**Nomi della raccolta e del database di destinazione** . Quando `ShouldCleanupOnStart` è impostato su `true`, questi valori, insieme a `CollectionThroughput`, verranno usati per eliminare il database e la raccolta e per crearne di nuovi. Analogamente, se `ShouldCleanupOnFinish` è impostato su `true`, verranno usati per eliminare il database al termine dell'inserimento. La raccolta di destinazione deve essere una **raccolta illimitata** .
+`DatabaseName`, `CollectionName`|**Nomi della raccolta e del database di destinazione**. Quando `ShouldCleanupOnStart` è impostato su `true`, questi valori, insieme a `CollectionThroughput`, verranno usati per eliminare il database e la raccolta e per crearne di nuovi. Analogamente, se `ShouldCleanupOnFinish` è impostato su `true`, verranno usati per eliminare il database al termine dell'inserimento. La raccolta di destinazione deve essere una **raccolta illimitata**.
 `CollectionThroughput`|Impostazione usata per creare una nuova raccolta se l'opzione `ShouldCleanupOnStart` è impostata su `true`.
 `ShouldCleanupOnStart`|Elimina l'account di database e le raccolte prima dell'esecuzione del programma e quindi ne crea di nuovi con i valori `DatabaseName`, `CollectionName` e `CollectionThroughput`.
 `ShouldCleanupOnFinish`|Elimina l'account di database e le raccolte con i valori di `DatabaseName` e `CollectionName` specificati dopo l'esecuzione del programma.

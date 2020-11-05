@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: f995750c1e009febcb9872c230e22921ff9c50c4
-ms.sourcegitcommit: 7a7b6c7ac0aa9dac678c3dfd4b5bcbc45dc030ca
+ms.openlocfilehash: 87532876551cacbd4da03b95b10c41600989a947
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/02/2020
-ms.locfileid: "93186587"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359715"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -62,7 +62,7 @@ I dischi non gestiti delle macchine virtuali non sono supportati negli account c
 
 ## <a name="support-for-setting-access-control-lists-acls-recursively"></a>Supporto per l'impostazione in modo ricorsivo degli elenchi di controllo di accesso (ACL)
 
-La possibilità di applicare le modifiche ACL in modo ricorsivo dalla directory padre agli elementi figlio è in [anteprima pubblica](recursive-access-control-lists.md). Nella versione corrente di questa funzionalità è possibile applicare le modifiche ACL usando PowerShell, .NET SDK e Python SDK. Il supporto non è ancora disponibile per Java SDK, l'interfaccia della riga di comando di Azure, il portale di Azure o Azure Storage Explorer.
+La possibilità di applicare le modifiche ACL in modo ricorsivo dalla directory padre agli elementi figlio è disponibile a livello generale. Nella versione corrente di questa funzionalità è possibile applicare le modifiche ACL usando PowerShell, l'interfaccia della riga di comando di Azure e .NET, Java e Python SDK. Il supporto non è ancora disponibile per il portale di Azure o Azure Storage Explorer.
 
 <a id="known-issues-tools"></a>
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/09/2018
 ms.author: alkohli
-ms.openlocfilehash: 73373f788a4a87a36a800d69ffcdc646f4cd2084
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 66244bd8e24ff62be41df72f7a39c0ce0ed13135
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91249553"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360700"
 ---
 # <a name="deploy-the-storsimple-device-manager-service-for-storsimple-8000-series-devices"></a>Distribuire il servizio Gestione dispositivi StorSimple per i dispositivi StorSimple serie 8000
 
@@ -57,8 +57,8 @@ Per creare un servizio, attenersi alla procedura seguente.
 
 Per ogni servizio Gestione dispositivi StorSimple, sono disponibili gli attributi seguenti:
 
-* **Nome**: nome assegnato al servizio Gestione dispositivi StorSimple al momento della creazione. **Il nome del servizio non può essere modificato dopo la creazione del servizio. Questo vale anche per altre entità, ad esempio dispositivi, volumi, contenitori di volumi e criteri di backup che non possono essere rinominate nella portale di Azure.**
-* **Stato** - Stato del servizio, che può essere **Attivo**, **In fase di creazione** oppure **Online**.
+* **Nome** : nome assegnato al servizio Gestione dispositivi StorSimple al momento della creazione. **Il nome del servizio non può essere modificato dopo la creazione del servizio. Questo vale anche per altre entità, ad esempio dispositivi, volumi, contenitori di volumi e criteri di backup che non possono essere rinominate nella portale di Azure.**
+* **Stato** - Stato del servizio, che può essere **Attivo** , **In fase di creazione** oppure **Online**.
 * **Posizione** : posizione geografica in cui verrà distribuito il dispositivo StorSimple.
 * **Sottoscrizione** - Sottoscrizione di fatturazione associata al servizio.
 
@@ -105,7 +105,7 @@ Per rigenerare una chiave di registrazione del servizio, attenersi alla procedur
 ### <a name="to-regenerate-the-service-registration-key"></a>Per rigenerare la chiave di registrazione del servizio
 1. In **Gestione dispositivi StorSimple** passare a **Gestione&gt;** **Chiavi**.
     
-    ![Pannello Chiavi](./media/storsimple-8000-manage-service/regenregkey2.png)
+    ![Pannello Vai al pannello chiavi](./media/storsimple-8000-manage-service/regenregkey2.png)
 
 2. Nel pannello **Chiavi** fare clic su **Rigenera**.
 

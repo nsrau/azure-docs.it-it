@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
 ms.date: 09/22/2020
-ms.custom: how-to
-ms.openlocfilehash: a8868b930abe28ed205446df0c6c9b0f111213eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, data4ml
+ms.openlocfilehash: e97546e678b3b7bf7932600ea53d09557493685c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93312785"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359868"
 ---
 # <a name="connect-to-data-with-the-azure-machine-learning-studio"></a>Connettersi ai dati con Azure Machine Learning Studio
 
@@ -50,8 +50,6 @@ Per un'esperienza di Code First, vedere gli articoli seguenti per usare [Azure M
 
 È possibile creare archivi dati da [queste soluzioni di archiviazione di Azure](how-to-access-data.md#matrix). **Per le soluzioni di archiviazione non supportate** e per risparmiare i costi di uscita durante gli esperimenti ml, è necessario [spostare i dati](how-to-access-data.md#move) in una soluzione di archiviazione di Azure supportata. [Altre informazioni sugli archivi dati](how-to-access-data.md). 
 
-
-
 Creare un nuovo archivio dati in pochi passaggi con il Azure Machine Learning Studio.
 
 > [!IMPORTANT]
@@ -60,7 +58,7 @@ Creare un nuovo archivio dati in pochi passaggi con il Azure Machine Learning St
 1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com/).
 1. Selezionare **Archivi dati** nel riquadro sinistro in **Gestisci**.
 1. Selezionare **+ Nuovo archivio dati**.
-1. Completare il modulo per un nuovo archivio dati. Il modulo si aggiorna in modo intelligente in base alle selezioni effettuate per il tipo di archiviazione di Azure e il tipo di autenticazione. Vedere la [sezione accesso e autorizzazioni di archiviazione](#access-validation) per informazioni su dove trovare le credenziali di autenticazione necessarie per popolare il modulo.
+1. Completare il modulo per creare e registrare un nuovo archivio dati. Il modulo si aggiorna in modo intelligente in base alle selezioni effettuate per il tipo di archiviazione di Azure e il tipo di autenticazione. Vedere la [sezione accesso e autorizzazioni di archiviazione](#access-validation) per informazioni su dove trovare le credenziali di autenticazione necessarie per popolare il modulo.
 
 Nell'esempio seguente viene illustrato l'aspetto del form quando si crea un **archivio dati BLOB di Azure** :
 
@@ -157,11 +155,15 @@ Per autenticare l'accesso al servizio di archiviazione sottostante, è possibile
     * La pagina di **Panoramica** corrispondente conterrà informazioni obbligatorie come ID tenant e ID client.
 
 > [!IMPORTANT]
-> Per motivi di sicurezza, potrebbe essere necessario modificare le chiavi di accesso per un account di archiviazione di Azure (chiave dell'account o token SAS). Quando si esegue questa operazione, assicurarsi di sincronizzare le nuove credenziali con l'area di lavoro e gli archivi dati connessi. Informazioni su come [sincronizzare le credenziali aggiornate](how-to-change-storage-access-key.md).
+> * Se è necessario modificare le chiavi di accesso per un account di archiviazione di Azure (chiave dell'account o token SAS), assicurarsi di sincronizzare le nuove credenziali con l'area di lavoro e gli archivi dati connessi. Informazioni su come [sincronizzare le credenziali aggiornate](how-to-change-storage-access-key.md). <br> <br>
+> * Se si annulla la registrazione e si registra di nuovo un archivio dati con lo stesso nome e si verifica un errore, è possibile che la Azure Key Vault per l'area di lavoro non sia abilitata per l'eliminazione temporanea. Per impostazione predefinita, l'eliminazione temporanea è abilitata per l'istanza dell'insieme di credenziali delle chiavi creata dall'area di lavoro, ma potrebbe non essere abilitata se è stato usato un insieme di credenziali delle chiavi esistente o un'area di lavoro creata prima del 2020 ottobre. Per informazioni su come abilitare l'eliminazione temporanea, vedere [attivare l'eliminazione temporanea per un insieme di credenziali delle chiavi esistente]( https://docs.microsoft.com/azure/key-vault/general/soft-delete-change#turn-on-soft-delete-for-an-existing-key-vault).
 
 ### <a name="permissions"></a>Autorizzazioni
 
-Per il contenitore BLOB di Azure e l'archiviazione Azure Data Lake generazione 2, assicurarsi che le credenziali di autenticazione dispongano dell'accesso in **lettura dati BLOB di archiviazione** . Altre informazioni sul [lettore di dati BLOB di archiviazione](../role-based-access-control/built-in-roles.md#storage-blob-data-reader). 
+Per il contenitore BLOB di Azure e l'archiviazione Azure Data Lake generazione 2, assicurarsi che le credenziali di autenticazione dispongano dell'accesso in **lettura dati BLOB di archiviazione** . Altre informazioni sul [lettore di dati BLOB di archiviazione](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#storage-blob-data-reader). Per impostazione predefinita, un token di firma di accesso condiviso non dispone di alcuna autorizzazione. 
+* Per **l'accesso in lettura** ai dati, le credenziali di autenticazione devono avere almeno le autorizzazioni elenco e lettura per contenitori e oggetti. 
+
+* Per **l'accesso in scrittura ai** dati sono necessarie anche le autorizzazioni di scrittura e aggiunta.
 
 ## <a name="train-with-datasets"></a>Eseguire il training con set di dati
 

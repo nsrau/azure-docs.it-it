@@ -1,7 +1,7 @@
 ---
 title: Proteggere l'accesso ai dati nel cloud
 titleSuffix: Azure Machine Learning
-description: Informazioni su come connettersi in modo sicuro ai dati da Azure Machine Learning e come usare i set di dati e gli archivi dati per le attività ML. Gli archivi dati possono archiviare i dati da un BLOB di Azure, Azure Data Lake generazione 1 & 2, database SQL e Azure Databricks.
+description: Informazioni su come connettersi in modo sicuro all'archiviazione dei dati in Azure con Azure Machine Learning archivi dati e set di dati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,13 +10,13 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 08/31/2020
-ms.custom: devx-track-python
-ms.openlocfilehash: f46222740ad668b8bb6ec9eb85e78efb0f673528
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: devx-track-python, data4ml
+ms.openlocfilehash: 6d8c04e48a3d0009a152830a4ee332cd706c4b2c
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93322248"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360174"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
 

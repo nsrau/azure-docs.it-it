@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/30/2020
-ms.openlocfilehash: 8a9c022400f739276060c3d8a275d06bc5ea8579
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.date: 11/02/2020
+ms.openlocfilehash: 47aada0abe2520ba81689ca8fa17787fde847d83
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93147232"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360250"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Trasformazione sink nel flusso di dati di mapping
 
@@ -71,11 +71,13 @@ Il video seguente illustra alcune opzioni di sink diverse per i tipi di file del
 
 **USA tempdb:** Per impostazione predefinita, Data Factory utilizzerà una tabella temporanea globale per archiviare i dati come parte del processo di caricamento. In alternativa, è possibile deselezionare l'opzione "USA TempDB" e invece chiedere Data Factory di archiviare la tabella temporanea in un database utente che si trova nel database usato per il sink.
 
-![TempDB](media/data-flow/tempdb.png "TempDB")
+![Usa database temporaneo](media/data-flow/tempdb.png "Usa database temporaneo")
 
 ## <a name="cache-sink"></a>Sink della cache
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE4HKt1]
  
-Un *sink della cache* si verifica quando un flusso di dati scrive i dati nella cache Spark anziché in un archivio dati. Nei flussi di dati di mapping, è possibile fare riferimento a questi dati nello stesso flusso più volte usando una *ricerca nella cache* . Questa operazione è utile quando si desidera fare riferimento ai dati come parte di un'espressione, ma non si desidera aggiungervi esplicitamente le colonne. Esempi comuni in cui un sink della cache può essere utile per cercare un valore massimo in un archivio dati e i codici di errore corrispondenti a un database di messaggi di errore. 
+Un *sink della cache* si verifica quando un flusso di dati scrive i dati nella cache Spark anziché in un archivio dati. Nei flussi di dati di mapping, è possibile fare riferimento a questi dati nello stesso flusso più volte usando una *ricerca nella cache*. Questa operazione è utile quando si desidera fare riferimento ai dati come parte di un'espressione, ma non si desidera aggiungervi esplicitamente le colonne. Esempi comuni in cui un sink della cache può essere utile per cercare un valore massimo in un archivio dati e i codici di errore corrispondenti a un database di messaggi di errore. 
 
 Per scrivere in un sink della cache, aggiungere una trasformazione sink e selezionare **cache** come tipo di sink. A differenza di altri tipi di sink, non è necessario selezionare un set di dati o un servizio collegato perché non si sta scrivendo in un archivio esterno. 
 
@@ -92,7 +94,7 @@ Se, ad esempio, si specifica una singola colonna chiave di `column1` in un sink 
 
 ## <a name="field-mapping"></a>Mapping campi
 
-Analogamente a una trasformazione Select, nella scheda **mapping** del sink è possibile decidere quali colonne in entrata verranno scritte. Per impostazione predefinita, viene eseguito il mapping di tutte le colonne di input, incluse le colonne trascinate. Questo comportamento è noto come *mapping di automapping* .
+Analogamente a una trasformazione Select, nella scheda **mapping** del sink è possibile decidere quali colonne in entrata verranno scritte. Per impostazione predefinita, viene eseguito il mapping di tutte le colonne di input, incluse le colonne trascinate. Questo comportamento è noto come *mapping di automapping*.
 
 Quando si disattiva il mapping di autonomi, è possibile aggiungere mapping basati su colonne fisse o mapping basati su regole. Con i mapping basati su regole è possibile scrivere espressioni con criteri di ricerca. Il mapping fisso esegue il mapping dei nomi delle colonne logiche e fisiche. Per ulteriori informazioni sul mapping basato su regole, vedere la pagina relativa ai [modelli di colonna nel flusso di dati di mapping](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink).
 
@@ -101,6 +103,11 @@ Quando si disattiva il mapping di autonomi, è possibile aggiungere mapping basa
 Per impostazione predefinita, i dati vengono scritti in più sink in un ordine non deterministico. Il motore di esecuzione scrive i dati in parallelo quando la logica di trasformazione viene completata e l'ordinamento del sink può variare a seconda dell'esecuzione. Per specificare l'ordinamento di un sink esatto, abilitare l' **ordinamento del sink personalizzato** nella scheda **generale** del flusso di dati. Se abilitati, i sink vengono scritti in sequenza in ordine crescente.
 
 ![Screenshot che mostra l'ordinamento di sink personalizzato.](media/data-flow/custom-sink-ordering.png "Screenshot che mostra l'ordinamento di sink personalizzato.")
+
+> [!NOTE]
+> Quando si utilizzano le [ricerche memorizzate nella cache](https://docs.microsoft.com/azure/data-factory/concepts-data-flow-expression-builder#cached-lookup), assicurarsi che l'ordine dei sink includa i sink memorizzati nella cache impostati su 0.
+
+![Ordinamento di sink personalizzato](media/data-flow/cache-2.png "Ordinamento di sink personalizzato")
 
 ## <a name="data-preview-in-sink"></a>Anteprima dati in sink
 

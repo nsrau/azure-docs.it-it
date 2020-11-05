@@ -1,19 +1,19 @@
 ---
 title: Usare token di risorsa di Azure Cosmos DB con Gremlin SDK
 description: Informazioni su come creare token di risorsa e usarli per accedere al database a grafo.
-author: jasonwhowell
-ms.author: jasonh
+author: christopheranderson
+ms.author: chrande
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: how-to
 ms.date: 09/06/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74d851a28712beb80bf2a7aa196e471ef4f15074
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 22c048b748806404ccfa580e660552a1744f3781
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085735"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361694"
 ---
 # <a name="use-azure-cosmos-db-resource-tokens-with-the-gremlin-sdk"></a>Usare token di risorsa di Azure Cosmos DB con Gremlin SDK
 [!INCLUDE[appliesto-gremlin-api](includes/appliesto-gremlin-api.md)]
@@ -101,7 +101,7 @@ Con un singolo account Gremlin si può rilasciare un numero illimitato di token.
 
 ## <a name="permission"></a>Autorizzazione
 
-Un errore comune che si verifica nelle applicazioni durante l'uso dei token di risorsa è costituito da autorizzazioni insufficienti nell'intestazione dell'autorizzazione per la richiesta corrispondente. Viene quindi indicato di riprovare con un'altra intestazione dell'autorizzazione. Questo errore viene restituito quando un attraversamento di Gremlin tenta di scrivere un arco o un vertice ma il token di risorsa concede solo autorizzazioni *Read* . Controllare l'attraversamento per verificare se contiene uno dei passaggi seguenti: *.addV()* , *.addE()* , *.drop()* o *.property()* .
+Un errore comune che si verifica nelle applicazioni durante l'uso dei token di risorsa è costituito da autorizzazioni insufficienti nell'intestazione dell'autorizzazione per la richiesta corrispondente. Viene quindi indicato di riprovare con un'altra intestazione dell'autorizzazione. Questo errore viene restituito quando un attraversamento di Gremlin tenta di scrivere un arco o un vertice ma il token di risorsa concede solo autorizzazioni *Read*. Controllare l'attraversamento per verificare se contiene uno dei passaggi seguenti: *.addV()* , *.addE()* , *.drop()* o *.property()*.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](role-based-access-control.md) in Azure Cosmos DB

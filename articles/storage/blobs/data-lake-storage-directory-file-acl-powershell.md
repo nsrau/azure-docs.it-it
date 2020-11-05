@@ -10,12 +10,12 @@ ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 8083d42d9ce79bcf31e3875f2ff5d5f06970a7ff
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: e2138fc03fcdb614daef2051b7fc1a840e421658
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131514"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359732"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2
 
@@ -285,7 +285,7 @@ $filesystem = Get-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName
 $filesystem.ACL
 ```
 
-Questo esempio Mostra come ottenere l'ACL di una **directory**e quindi stampa l'ACL nella console.
+Questo esempio Mostra come ottenere l'ACL di una **directory** e quindi stampa l'ACL nella console.
 
 ```powershell
 $filesystemName = "my-file-system"
@@ -390,7 +390,7 @@ foreach ($a in $aclnew)
 Update-AzDataLakeGen2Item -Context $ctx -FileSystem $filesystemName -Path $dirname -Acl $aclnew
 ```
 
-### <a name="set-an-acl-recursively-preview"></a>Impostare un ACL in modo ricorsivo (anteprima)
+### <a name="set-an-acl-recursively"></a>Impostare un ACL in modo ricorsivo
 
 È possibile aggiungere, aggiornare e rimuovere gli ACL in modo ricorsivo negli elementi figlio esistenti di una directory padre senza dover apportare queste modifiche singolarmente per ogni elemento figlio. Per altre informazioni, vedere [impostare elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake storage Gen2](recursive-access-control-lists.md).
 

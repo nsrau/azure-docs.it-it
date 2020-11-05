@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: dd73dc69fc2d40a0b4c24739dca6ad8174ad1047
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 30c5c5be89f8a318de8690430d4d248817961fc2
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595854"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360310"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-azure-powershell"></a>Creare un gateway applicazione che ospita più siti Web tramite Azure PowerShell
 
@@ -127,7 +127,7 @@ Creare il primo listener usando [New-AzApplicationGatewayHttpListener](/powershe
 
 >[!NOTE]
 > Con il gateway applicazione o lo SKU WAF V2, è anche possibile configurare fino a 5 nomi host per listener ed è possibile usare caratteri jolly nel nome host. Per ulteriori informazioni, vedere [nomi host con caratteri jolly nel listener](multiple-site-overview.md#wildcard-host-names-in-listener-preview) .
->Per usare più nomi host e caratteri jolly in un listener usando Azure PowerShell, è necessario usare `-HostNames` anziché `-HostName` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole. Ad esempio: `-HostNames "*.contoso.com,*.fabrikam.com"`
+>Per usare più nomi host e caratteri jolly in un listener usando Azure PowerShell, è necessario usare `-HostNames` anziché `-HostName` . Con i nomi host, è possibile menzionare fino a 5 nomi host come valori delimitati da virgole. ad esempio, `-HostNames "*.contoso.com","*.fabrikam.com"`
 
 ```azurepowershell-interactive
 $contosolistener = New-AzApplicationGatewayHttpListener `

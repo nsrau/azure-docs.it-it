@@ -11,12 +11,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 10/23/2020
 ms.custom: contperfq4, tracking-python, contperfq1, devx-track-azurecli
-ms.openlocfilehash: 3f1e2e12b7ba0a47c20614065510ffd1ae8bf195
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6508db654cd27ca4b3844f6037f13fb504173e11
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93325336"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93361166"
 ---
 # <a name="secure-an-azure-machine-learning-inferencing-environment-with-virtual-networks"></a>Proteggere un ambiente di inferenza di Azure Machine Learning con reti virtuali
 
@@ -115,35 +115,10 @@ aks_target = ComputeTarget.create(workspace=ws,
 
 Al termine del processo di creazione, è possibile eseguire l'inferenza o il calcolo del modello in un cluster del servizio Azure Kubernetes in una rete virtuale. Per altre informazioni, vedere [Come eseguire la distribuzione nel servizio Azure Kubernetes](how-to-deploy-and-where.md).
 
-## <a name="secure-vnet-traffic"></a>Traffico VNet sicuro
-
-Esistono due approcci per isolare il traffico da e verso il cluster AKS alla rete virtuale:
-
-* __Cluster AKS privato__ : questo approccio usa il collegamento privato di Azure per proteggere le comunicazioni con il cluster per le operazioni di distribuzione e gestione.
-* Servizio di __bilanciamento del carico interno di AKS__ : questo approccio consente di configurare l'endpoint per le distribuzioni in AKS per usare un indirizzo IP privato all'interno della rete virtuale.
-
-> [!WARNING]
-> Il servizio di bilanciamento del carico interno non funziona con un cluster AKS che usa kubenet. Se si vuole usare un servizio di bilanciamento del carico interno e un cluster AKS privato allo stesso tempo, configurare il cluster AKS privato con l'interfaccia di rete del contenitore di Azure (CNI). Per altre informazioni, vedere [configurare la rete CNI di Azure nel servizio Kubernetes di Azure](../aks/configure-azure-cni.md).
-
-### <a name="private-aks-cluster"></a>Cluster AKS privato
-
-Per impostazione predefinita, i cluster AKS hanno un piano di controllo o un server API con indirizzi IP pubblici. È possibile configurare AKS per l'uso di un piano di controllo privato creando un cluster AKS privato. Per altre informazioni, vedere [creare un cluster di servizi Kubernetes di Azure privato](../aks/private-clusters.md).
-
-Dopo aver creato il cluster AKS privato, [associare il cluster alla rete virtuale](how-to-create-attach-kubernetes.md) da usare con Azure Machine Learning.
+## <a name="network-contributor-role"></a>Ruolo Collaboratore rete
 
 > [!IMPORTANT]
-> Prima di usare un cluster AKS abilitato per il collegamento privato con Azure Machine Learning, è necessario aprire un evento imprevisto di supporto per abilitare questa funzionalità. Per altre informazioni, vedere [gestire e aumentare le quote](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
-
-### <a name="internal-aks-load-balancer"></a>Servizio di bilanciamento del carico interno AKS
-
-Per impostazione predefinita, le distribuzioni AKS usano un servizio di [bilanciamento del carico pubblico](../aks/load-balancer-standard.md). In questa sezione viene illustrato come configurare AKS per l'uso di un servizio di bilanciamento del carico interno. Viene usato un servizio di bilanciamento del carico interno (o privato) in cui sono consentiti solo indirizzi IP privati come front-end. I bilanciamento del carico interno vengono usati per bilanciare il carico del traffico all'interno di una rete virtuale
-
-Un servizio di bilanciamento del carico privato viene abilitato configurando AKS per l'uso di un servizio di _bilanciamento del carico interno_. 
-
-#### <a name="network-contributor-role"></a>Ruolo Collaboratore rete
-
-> [!IMPORTANT]
-> Se si crea o si connette un cluster AKS fornendo una rete virtuale creata in precedenza, è necessario concedere all'entità servizio (SP) o all'identità gestita per il cluster AKS il ruolo _collaboratore rete_ per il gruppo di risorse che contiene la rete virtuale. Questa operazione deve essere eseguita prima di provare a modificare il servizio di bilanciamento del carico interno in un indirizzo IP privato.
+> Se si crea o si connette un cluster AKS fornendo una rete virtuale creata in precedenza, è necessario concedere all'entità servizio (SP) o all'identità gestita per il cluster AKS il ruolo _collaboratore rete_ per il gruppo di risorse che contiene la rete virtuale.
 >
 > Per aggiungere l'identità come collaboratore rete, attenersi alla procedura seguente:
 
@@ -171,6 +146,31 @@ Un servizio di bilanciamento del carico privato viene abilitato configurando AKS
     az role assignment create --assignee <SP-or-managed-identity> --role 'Network Contributor' --scope <resource-group-id>
     ```
 Per altre informazioni sull'uso del bilanciamento del carico interno con il servizio Azure Kubernetes, vedere l'articolo sull'[uso del bilanciamento del carico interno con il servizio Azure Kubernetes](../aks/internal-lb.md).
+
+## <a name="secure-vnet-traffic"></a>Traffico VNet sicuro
+
+Esistono due approcci per isolare il traffico da e verso il cluster AKS alla rete virtuale:
+
+* __Cluster AKS privato__ : questo approccio usa il collegamento privato di Azure per proteggere le comunicazioni con il cluster per le operazioni di distribuzione e gestione.
+* Servizio di __bilanciamento del carico interno di AKS__ : questo approccio consente di configurare l'endpoint per le distribuzioni in AKS per usare un indirizzo IP privato all'interno della rete virtuale.
+
+> [!WARNING]
+> Il servizio di bilanciamento del carico interno non funziona con un cluster AKS che usa kubenet. Se si vuole usare un servizio di bilanciamento del carico interno e un cluster AKS privato allo stesso tempo, configurare il cluster AKS privato con l'interfaccia di rete del contenitore di Azure (CNI). Per altre informazioni, vedere [configurare la rete CNI di Azure nel servizio Kubernetes di Azure](../aks/configure-azure-cni.md).
+
+### <a name="private-aks-cluster"></a>Cluster AKS privato
+
+Per impostazione predefinita, i cluster AKS hanno un piano di controllo o un server API con indirizzi IP pubblici. È possibile configurare AKS per l'uso di un piano di controllo privato creando un cluster AKS privato. Per altre informazioni, vedere [creare un cluster di servizi Kubernetes di Azure privato](../aks/private-clusters.md).
+
+Dopo aver creato il cluster AKS privato, [associare il cluster alla rete virtuale](how-to-create-attach-kubernetes.md) da usare con Azure Machine Learning.
+
+> [!IMPORTANT]
+> Prima di usare un cluster AKS abilitato per il collegamento privato con Azure Machine Learning, è necessario aprire un evento imprevisto di supporto per abilitare questa funzionalità. Per altre informazioni, vedere [gestire e aumentare le quote](how-to-manage-quotas.md#private-endpoint-and-private-dns-quota-increases).
+
+### <a name="internal-aks-load-balancer"></a>Servizio di bilanciamento del carico interno AKS
+
+Per impostazione predefinita, le distribuzioni AKS usano un servizio di [bilanciamento del carico pubblico](../aks/load-balancer-standard.md). In questa sezione viene illustrato come configurare AKS per l'uso di un servizio di bilanciamento del carico interno. Viene usato un servizio di bilanciamento del carico interno (o privato) in cui sono consentiti solo indirizzi IP privati come front-end. I bilanciamento del carico interno vengono usati per bilanciare il carico del traffico all'interno di una rete virtuale
+
+Un servizio di bilanciamento del carico privato viene abilitato configurando AKS per l'uso di un servizio di _bilanciamento del carico interno_. 
 
 #### <a name="enable-private-load-balancer"></a>Abilita bilanciamento del carico privato
 

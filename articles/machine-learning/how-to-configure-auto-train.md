@@ -1,7 +1,7 @@
 ---
 title: Creare esperimenti di Machine Learning automatizzato
 titleSuffix: Azure Machine Learning
-description: L'apprendimento automatico automatizzato seleziona un algoritmo per l'utente e genera un modello pronto per la distribuzione. Informazioni sulle opzioni che è possibile usare per configurare esperimenti di apprendimento automatico.
+description: Informazioni su come definire le origini dati, i calcoli e le impostazioni di configurazione per gli esperimenti automatici di machine learning.
 author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
@@ -10,13 +10,13 @@ ms.service: machine-learning
 ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python,contperfq1
-ms.openlocfilehash: 09fe93d4e3ba50ced6c8f07d6fe25ace2376c388
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python,contperfq1, automl
+ms.openlocfilehash: 009018335e57943392b83047702f24890bf714d5
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93320527"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359613"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 

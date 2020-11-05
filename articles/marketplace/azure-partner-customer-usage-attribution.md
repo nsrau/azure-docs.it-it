@@ -6,14 +6,14 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: vikrambmsft
 ms.author: vikramb
-ms.date: 10/30/2020
+ms.date: 11/4/2020
 ms.custom: devx-track-terraform
-ms.openlocfilehash: 0a97286564f7d2c04268034d6f70b1a178cbb5a5
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 3f3196e775ff9e7d8064559069414952f09a3016
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348339"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360225"
 ---
 # <a name="commercial-marketplace-partner-and-customer-usage-attribution"></a>Partner del Marketplace commerciale e attribuzione dell'utilizzo dei clienti
 
@@ -311,10 +311,6 @@ I clienti sono in grado di rilevare l'utilizzo di singole risorse o gruppi di ri
 **Questa metodologia di rilevamento è simile al DPOR (Digital Partner of Record)?**
 
 Questo nuovo metodo per collegare la distribuzione e l'utilizzo alla soluzione di un partner fornisce un meccanismo per collegare una soluzione partner all'utilizzo di Azure. DPOR intende associare un partner di consulenza (integratore di sistemi) o di gestione (provider di servizio gestito) all'abbonamento Azure di un cliente.
-
-**Quali vantaggi offre l'utilizzo del form per il generatore di GUID di Archiviazione di Azure?**
-
-Il form per il generatore di GUID di Archiviazione di Azure garantisce la generazione di un GUID del formato richiesto. Se si usa uno dei metodi di rilevamento del piano dati di Archiviazione di Azure, inoltre, è possibile usare lo stesso GUID per il rilevamento del piano di controllo del Marketplace. In questo modo, è possibile usare un GUID unificato per l'attribuzione dei partner, senza dover gestire GUID separati.
 
 **È possibile usare un disco rigido virtuale privato e personalizzato per un'offerta di modello di soluzione in Azure Marketplace?**
 

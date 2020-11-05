@@ -1,7 +1,7 @@
 ---
 title: Inserimento dati con Azure Data Factory
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare una pipeline di inserimento dati con Azure Data Factory.
+description: Informazioni sulle opzioni disponibili per la creazione di una pipeline di inserimento dati con Azure Data Factory e i vantaggi di ognuno di essi.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -11,17 +11,17 @@ manager: davete
 ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
-ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8cf0abdeaf3a7fe71213b6fa4f78f057bf2f92eb
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.custom: how-to, devx-track-python, data4ml
+ms.openlocfilehash: 73850d8022618dd6544d19564e425288aff09771
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307370"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93360633"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Inserimento dati con Azure Data Factory
 
-Questo articolo illustra come creare una pipeline di inserimento dati con Azure Data Factory (ADF). Questa pipeline viene utilizzata per inserire dati da utilizzare con Azure Machine Learning. Azure Data Factory consente di estrarre, trasformare e caricare facilmente dati (ETL). Una volta che i dati sono stati trasformati e caricati nella risorsa di archiviazione, possono essere usati per eseguire il training dei modelli di machine learning.
+In questo articolo vengono fornite informazioni sulle opzioni disponibili per la creazione di una pipeline di inserimento dati con Azure Data Factory (ADF). Questa pipeline viene utilizzata per inserire dati da utilizzare con Azure Machine Learning. Azure Data Factory consente di estrarre, trasformare e caricare facilmente dati (ETL). Una volta che i dati sono stati trasformati e caricati nella risorsa di archiviazione, possono essere usati per eseguire il training dei modelli di machine learning.
 
 Una semplice trasformazione dei dati può essere gestita con attività e strumenti ADF nativi come il [flusso di dati](../data-factory/control-flow-execute-data-flow-activity.md). Quando si tratta di scenari più complicati, i dati possono essere elaborati con codice personalizzato. Ad esempio, Python o codice R.
 

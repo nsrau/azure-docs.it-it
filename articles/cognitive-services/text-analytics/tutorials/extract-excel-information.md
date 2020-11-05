@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 02/27/2019
 ms.author: aahi
-ms.openlocfilehash: b67de07777fa3f4f2b6190d8b003eb0495e66d15
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 197d28b2ac3d94b6639a6611b2919bdeb2b182e2
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91400486"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93359902"
 ---
 # <a name="extract-information-in-excel-using-text-analytics-and-power-automate"></a>Estrarre informazioni in Excel usando Analisi del testo e Power Automate 
 
@@ -44,18 +44,16 @@ In questa esercitazione si apprenderà come:
 Scaricare il file di Excel di esempio da [GitHub](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/TextAnalytics/sample-data/ReportedIssues.xlsx). Questo file deve essere archiviato nell'account OneDrive for business.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Esempi dal file di Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/example-data.png" alt-text="Esempi dal file di Excel.":::
 
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing" nella descrizione per categorizzare i problemi. 
+I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola "plumbing" nella descrizione per categorizzare i problemi. 
 
 ## <a name="create-a-new-power-automate-workflow"></a>Creare un nuovo flusso di lavoro di Power automatici
 
 Passare al [sito Power automatizzate](https://preview.flow.microsoft.com/)e accedere a. Quindi fare clic su **Crea** e **Pianifica flusso**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/flow-creation.png" alt-text="Schermata di creazione del flusso.":::
 
 
 Nella pagina **Compila un flusso pianificato** inizializzare il flusso con i campi seguenti:
@@ -74,53 +72,41 @@ Nella pagina **Compila un flusso pianificato** inizializzare il flusso con i cam
 Creare variabili che rappresentano le informazioni che verranno aggiunte al file di Excel. Fare clic su **nuovo passaggio** e cercare **Inizializza variabile**. Eseguire questa operazione quattro volte per creare quattro variabili.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/initialize-variables.png" alt-text="Inizializzare le variabili.":::
 
 Aggiungere le informazioni seguenti alle variabili create. Rappresentano le colonne del file di Excel. Se sono presenti variabili compresse, è possibile fare clic su di esse per espanderle.
 
-| Azione |Nome   | Type | valore |
+| Action |Nome   | Type | valore |
 |---------|---------|---|---|
-| Inizializzare una variabile | var_person | string | Persona |
-| Inizializza variabile 2 | var_phone | string | Phone_Number |
-| Inizializza variabile 3 | var_plumbing | string | tubature |
-| Inizializza variabile 4 | var_other | string | altro | 
+| Inizializzare una variabile | var_person | Stringa | Persona |
+| Inizializza variabile 2 | var_phone | Stringa | Phone_Number |
+| Inizializza variabile 3 | var_plumbing | Stringa | tubature |
+| Inizializza variabile 4 | var_other | Stringa | altro | 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/flow-variables.png" alt-text="informazioni contenute nelle variabili di flusso":::
 
 ## <a name="read-the-excel-file"></a>Leggere il file di Excel
 
-Fare clic su **nuovo passaggio** e digitare **Excel**, quindi selezionare **Elenca righe presenti in una tabella** dall'elenco di azioni.
+Fare clic su **nuovo passaggio** e digitare **Excel** , quindi selezionare **Elenca righe presenti in una tabella** dall'elenco di azioni.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/list-excel-rows.png" alt-text="aggiungere righe di Excel.":::
 
 Aggiungere il file di Excel al flusso compilando i campi di questa azione. Per questa esercitazione è necessario che il file sia stato caricato in OneDrive for business.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/list-excel-rows-options.png" alt-text="Compila righe di Excel":::
 
 Fare clic su **nuovo passaggio** e aggiungere un'azione **applica a ogni** .
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action.png" alt-text="aggiungere un comando Apply.":::
 
 Fare clic su **selezionare un output nel passaggio precedente**. Nella casella contenuto dinamico visualizzata selezionare **valore**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/select-output.png" alt-text="Selezionare output dal file di Excel.":::
 
 ## <a name="send-a-request-to-the-text-analytics-api"></a>Inviare una richiesta al API Analisi del testo
 
@@ -128,7 +114,7 @@ Se non è già stato fatto, è necessario creare una [risorsa analisi del testo]
 
 ### <a name="create-a-text-analytics-connection"></a>Creare una connessione Analisi del testo
 
-In **applica a ogni**fare clic su **Aggiungi un'azione**. Passare alla pagina **chiave ed endpoint** della risorsa Analisi del testo nel portale di Azure e ottenere la chiave e l'endpoint per la risorsa analisi del testo.
+In **applica a ogni** fare clic su **Aggiungi un'azione**. Passare alla pagina **chiave ed endpoint** della risorsa Analisi del testo nel portale di Azure e ottenere la chiave e l'endpoint per la risorsa analisi del testo.
 
 Nel flusso immettere le informazioni seguenti per creare una nuova connessione Analisi del testo.
 
@@ -137,98 +123,74 @@ Nel flusso immettere le informazioni seguenti per creare una nuova connessione A
 
 | Campo           | Valore                                                                                                             |
 |-----------------|-------------------------------------------------------------------------------------------------------------------|
-| Connection Name (Nome connessione) | Nome della connessione alla risorsa Analisi del testo. Ad esempio: `TAforPowerAutomate`. |
+| Connection Name (Nome connessione) | Nome della connessione alla risorsa Analisi del testo. Ad esempio, `TAforPowerAutomate` |
 | Chiave account     | Chiave per la risorsa Analisi del testo.                                                                                   |
 | Site URL        | Endpoint per la risorsa Analisi del testo.                                                       |
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/add-credentials.png" alt-text="Aggiungere Analisi del testo credenziali al flusso.":::
 
 ## <a name="extract-the-excel-content"></a>Estrai il contenuto di Excel 
 
 Dopo aver creato la connessione, cercare **analisi del testo** e selezionare **entità**. Le informazioni vengono estratte dalla colonna Descrizione del problema.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/extract-info.png" alt-text="Aggiungere entità Analisi del testo.":::
 
 Fare clic nel campo di **testo** e selezionare **Descrizione** nelle finestre di contenuto dinamiche visualizzate. Immettere `en` per la lingua. (Fare clic su Mostra opzioni avanzate se la lingua non è visibile)
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/description-from-dynamic-content.png" alt-text="Aggiungere le impostazioni di Analisi del testo.":::
 
 
 ## <a name="extract-the-person-name"></a>Estrai nome persona
 
-Successivamente, il tipo di entità Person verrà trovato nell'output del Analisi del testo. All'interno **di applica a ogni**, fare clic su **Aggiungi un'azione**e crearne un'altra **applica a ogni** azione. Fare clic all'interno della casella di testo e selezionare **entità** nella finestra contenuto dinamico visualizzata.
+Successivamente, il tipo di entità Person verrà trovato nell'output del Analisi del testo. All'interno **di applica a ogni** , fare clic su **Aggiungi un'azione** e crearne un'altra **applica a ogni** azione. Fare clic all'interno della casella di testo e selezionare **entità** nella finestra contenuto dinamico visualizzata.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Esempi dal file di Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-2.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 2":::
 
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
-
-Nell'azione **applica a ogni 2** appena creata fare clic su **Aggiungi un'azione**e aggiungere un controllo **condizione** .
+Nell'azione **applica a ogni 2** appena creata fare clic su **Aggiungi un'azione** e aggiungere un controllo **condizione** .
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/create-condition.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 3":::
 
 Nella finestra condizione fare clic sulla prima casella di testo. Nella finestra contenuto dinamico cercare il tipo di **entità** e selezionarlo.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/choose-entities-value.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 4":::
 
 Assicurarsi che la seconda casella sia impostata su **è uguale a**. Selezionare quindi la terza casella e cercare `var_person` nella finestra contenuto dinamico. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/choose-variable-value.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 5":::
 
 Nella condizione **if sì** digitare Excel e quindi selezionare **Aggiorna una riga**.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Esempi dal file di Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/yes-column-action.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 6":::
 
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
-
-Immettere le informazioni di Excel e aggiornare i campi **colonna chiave**, **valore chiave** e **personaname** . Il nome rilevato dall'API verrà aggiunto al foglio di Excel. 
+Immettere le informazioni di Excel e aggiornare i campi **colonna chiave** , **valore chiave** e **personaname** . Il nome rilevato dall'API verrà aggiunto al foglio di Excel. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/yes-column-action-options.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 7":::
 
 ## <a name="get-the-phone-number"></a>Ottenere il numero di telefono
 
 Ridurre a icona l'azione **applica a ogni 2** facendo clic sul nome. Aggiungere quindi un altro **applica a ogni** azione, ad esempio before. il nome verrà **applicato a ogni 3**. Selezionare la casella di testo e aggiungere **entità** come output per questa azione. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Esempi dal file di Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-3.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 8":::
 
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
-
-In **applica a ogni 3**aggiungere un controllo **condizione** . Verrà denominato **condizione 2**. Nella prima casella di testo cercare e aggiungere il tipo di **entità** dalla finestra del contenuto dinamico. Assicurarsi che la casella centrale sia impostata su **è uguale a**. Quindi, nella casella di testo a destra, immettere `var_phone` . 
+In **applica a ogni 3** aggiungere un controllo **condizione** . Verrà denominato **condizione 2**. Nella prima casella di testo cercare e aggiungere il tipo di **entità** dalla finestra del contenuto dinamico. Assicurarsi che la casella centrale sia impostata su **è uguale a**. Quindi, nella casella di testo a destra, immettere `var_phone` . 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-options.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 9":::
 
 Nella condizione **se sì** , aggiungere un'azione **Aggiorna una riga** . Immettere quindi le informazioni riportate in precedenza per la colonna numeri di telefono del foglio di Excel. Il numero di telefono rilevato dall'API verrà aggiunto al foglio di Excel. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/condition-2-yes-column.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 10":::
 
 
 ## <a name="get-the-plumbing-issues"></a>Ottenere i problemi di plumbing
@@ -236,32 +198,32 @@ I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della
 Ridurre **a icona applica a ogni 3** facendo clic sul nome. Quindi creare un'altra **applicazione a ciascuna** nell'azione padre. Selezionare la casella di testo e aggiungere **entità** come output per questa azione dalla finestra contenuto dinamico. 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Esempi dal file di Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/add-apply-action-4.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 11":::
 
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing" nella colonna IssueType. In caso contrario, si immetterà "other".
+
+Successivamente, il flusso controllerà se la descrizione del problema dalla riga della tabella di Excel contiene la parola "plumbing". In caso affermativo, verrà aggiunto il "plumbing" nella colonna IssueType. In caso contrario, si immetterà "other".
 
 All'interno dell'azione **applica a ogni 4** aggiungere un controllo **condizione** . Verrà denominata **Condition 3**. Nella prima casella di testo cercare e aggiungere la **Descrizione** dal file di Excel usando la finestra contenuto dinamico. Assicurarsi che nella casella centrale sia **presente**. Quindi, nella casella di testo a destra trovare e selezionare `var_plumbing` . 
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Esempi dal file di Excel.&quot;:::
+> :::image type="content" source="../media/tutorials/excel/condition-3-options.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 12":::
 
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing" alla riga.
+
+Nella condizione **se sì** , fare clic su **Aggiungi un'azione** e selezionare **Aggiorna una riga**. Immettere quindi le informazioni come prima. Nella colonna IssueType selezionare `var_plumbing` . Verrà applicata un'etichetta "plumbing" alla riga.
+
+Nella condizione **se no** fare clic su **Aggiungi un'azione** e selezionare **Aggiorna una riga**. Immettere quindi le informazioni come prima. Nella colonna IssueType selezionare `var_other` . Verrà applicata un'etichetta "other" alla riga.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/plumbing-issue-condition.png" alt-text="Aggiungere Analisi del testo credenziali al flusso. 13":::
 
 ## <a name="test-the-workflow"></a>Testare il flusso di lavoro
 
-Nell'angolo in alto a destra della schermata fare clic su **Salva**, quindi su **test**. Selezionare  **eseguirò l'azione trigger**. Fare clic su **salva & test**, **Esegui flusso**, quindi **completato**.
+Nell'angolo in alto a destra della schermata fare clic su **Salva** , quindi su **test**. Selezionare  **eseguirò l'azione trigger**. Fare clic su **salva & test** , **Esegui flusso** , quindi **completato**.
 
 Il file di Excel verrà aggiornato nell'account OneDrive. L'aspetto sarà simile al seguente.
 
 > [!div class="mx-imgBorder"] 
-> :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="Esempi dal file di Excel.&quot;:::
-
-I problemi vengono segnalati nel testo non elaborato. Per estrarre il nome della persona e il numero di telefono, si userà il riconoscimento delle entità denominato API Analisi del testo. Il flusso cercherà quindi la parola &quot;plumbing":::
+> :::image type="content" source="../media/tutorials/excel/updated-excel-sheet.png" alt-text="Foglio di calcolo di Excel aggiornato.":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
