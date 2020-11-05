@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: c44effe0bde3c7e880e53706fcb59d91a8605e7b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 05719d9633429c4b8ee6fee79833f594c94ab23d
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180198"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93375935"
 ---
 #### <a name="to-complete-the-minimum-storsimple-device-setup"></a>Per completare la configurazione minima del dispositivo StorSimple
 
@@ -20,17 +20,17 @@ ms.locfileid: "67180198"
 
      ![Interfacce di rete della configurazione minima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig1.png)
 
-2. Nel pannello **Configurare il dispositivo**:
+2. Nel pannello **Configurare il dispositivo** :
    
    1. Fornire un **nome descrittivo** per il dispositivo. Il nome predefinito del dispositivo riflette informazioni quali il modello di dispositivo e il numero di serie. È possibile assegnare un nome descrittivo di un massimo di 64 caratteri per gestire il dispositivo.
    2. Impostare il **fuso orario** in base alla posizione geografica in cui viene distribuito il dispositivo. Il dispositivo usa questo fuso orario per tutte le operazioni pianificate.
-   3. In **IMPOSTAZIONI DI DATA 0**:
+   3. In **IMPOSTAZIONI DI DATA 0** :
 
        1. L'interfaccia di rete DATA 0 viene visualizzata come abilitata con le impostazioni di rete (IP, subnet, gateway) configurate tramite l'installazione guidata. DATA 0 viene abilitata automaticamente anche per il cloud e iSCSI.
 
        2. Specificare gli indirizzi IP fissi per Controller 0 e Controller 1. **Gli indirizzi IP fissi del controller devono essere IP disponibili all’interno della subnet accessibile mediante l’indirizzo IP del dispositivo.** Se l’interfaccia DATA 0 è stata configurata per IPv4, gli indirizzi IP fissi devono essere forniti nel formato IPv4. Se è stato specificato un prefisso per la configurazione IPv6, gli indirizzi IP fissi vengono popolati automaticamente in questi campi.
 
-            ![Interfacce di rete della configurazione minima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
+            ![Interfacce di rete della configurazione minima del dispositivo StorSimple 2](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig2.png)
 
             Gli indirizzi IP fissi per il controller vengono usati per gestire gli aggiornamenti al dispositivo e per Garbage Collection. Di conseguenza, gli indirizzi IP fissi devono essere instradabili e in grado di connettersi a Internet. È possibile verificare che gli indirizzi IP fissi per il controller siano instradabili usando il cmdlet [Test-HcsmConnection][Test]. Nell'esempio seguente viene illustrato come gli indirizzi IP fissi per il controller vengono instradati a Internet e possono accedere al server di Microsoft Update.
 
@@ -38,7 +38,7 @@ ms.locfileid: "67180198"
 
 1. Fare clic su **OK**. Viene avviata la configurazione del dispositivo. Al termine della configurazione del dispositivo si riceve una notifica. Nel pannello **Dispositivi** lo stato del dispositivo passa a **Online**.
 
-    ![Interfacce di rete della configurazione minima del dispositivo StorSimple](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
+    ![Interfacce di rete per la configurazione minima del dispositivo StorSimple 3](./media/storsimple-8000-complete-minimum-device-setup-u2/step4minconfig4.png)
 
 <!--Link reference-->
 [Test]: https://technet.microsoft.com/library/dn715782(v=wps.630).aspx

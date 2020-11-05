@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: a3ccf76b2722c04a9353fcc7020ff1387bc454c6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c3cfab78ab4bcc92b3e65b5e4fa04a29bf688de0
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180350"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376146"
 ---
 #### <a name="to-install-an-update-from-the-azure-portal"></a>Per installare un aggiornamento dal portale di Azure
 
@@ -23,11 +23,11 @@ ms.locfileid: "67180350"
 
 2. Se sono disponibili nuovi aggiornamenti, viene visualizzata una notifica. In alternativa, nel pannello **Aggiornamenti del dispositivo** fare clic su **Verifica la disponibilità di aggiornamenti**. Viene creato un processo per verificare la disponibilità di aggiornamenti. Al termine del processo si riceve una notifica.
 
-    ![Fare clic su Aggiornamenti del dispositivo](./media/storsimple-8000-install-update4-via-portal/update3.png)
+    ![Fare clic su aggiornamenti del dispositivo 2](./media/storsimple-8000-install-update4-via-portal/update3.png)
 
 3. Si consiglia di leggere le note sulla versione prima di installare un aggiornamento nel dispositivo. Per applicare gli aggiornamenti, fare clic su **Installa aggiornamenti**. Nel pannello **Confermare gli aggiornamenti regolari** rivedere i prerequisiti da completare prima di applicare gli aggiornamenti. Selezionare la casella di controllo per indicare che si è pronti per aggiornare il dispositivo e quindi fare clic su **Installa**.
 
-    ![Fare clic su Aggiornamenti del dispositivo](./media/storsimple-8000-install-update4-via-portal/update4.png)
+    ![Fare clic su aggiornamenti del dispositivo 3](./media/storsimple-8000-install-update4-via-portal/update4.png)
 
 6. Viene avviato un set di controlli dei prerequisiti. I controlli includono quanto segue:
    
@@ -45,13 +45,13 @@ ms.locfileid: "67180350"
 
 9. Per completare l'aggiornamento possono essere necessarie alcune ore. Selezionare il processo di aggiornamento e fare clic su **Dettagli** per visualizzare i dettagli del processo in qualsiasi momento.
 
-    ![Creazione del processo di aggiornamento](./media/storsimple-8000-install-update4-via-portal/update8.png)
+    ![Creazione di un processo di aggiornamento 2](./media/storsimple-8000-install-update4-via-portal/update8.png)
 
      È anche possibile monitorare lo stato del processo di aggiornamento da **Impostazioni del dispositivo > Processi**. Nel pannello **Processi** è possibile visualizzare lo stato dell'aggiornamento.
 
-     ![Creazione del processo di aggiornamento](./media/storsimple-8000-install-update4-via-portal/update7.png)
+     ![Creazione del processo di aggiornamento 3](./media/storsimple-8000-install-update4-via-portal/update7.png)
 
 10. Al termine del processo, passare a **Impostazioni del dispositivo > Aggiornamenti del dispositivo**. La versione del software ora risulterà aggiornata.
 
-   ![Creazione del processo di aggiornamento](./media/storsimple-8000-install-update4-via-portal/update9.png)
+   ![Creazione del processo di aggiornamento 4](./media/storsimple-8000-install-update4-via-portal/update9.png)
 

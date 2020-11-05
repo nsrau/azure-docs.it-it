@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 2ab3b089ce65c9f27457fd1cfb360d6776ed6244
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f423d30dd10930d593bb1d5d39b46ed8914146e7
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180336"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376164"
 ---
 #### <a name="to-add-or-modify-a-storsimple-backup-schedule"></a>Per aggiungere o modificare una pianificazione di backup StorSimple
 
@@ -21,9 +21,9 @@ ms.locfileid: "67180336"
 
 3. Nel pannello **Aggiungi pianificazione** modificare il tipo di snapshot, la frequenza di backup, la conservazione e la data e ora di inizio. Scegliere **Aggiungi**.
 
-    ![Gestisci pianificazioni](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
+    ![Gestisci pianificazioni 2](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule5.png)
 
 4. Dopo la creazione dei criteri di backup si riceve una notifica. Viene aggiornato anche l'elenco dei criteri di backup.
 
-    ![Gestisci pianificazioni](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
+    ![Gestisci pianificazioni 3](./media/storsimple-8000-add-modify-backup-schedule-u2/addschedule4.png)
 

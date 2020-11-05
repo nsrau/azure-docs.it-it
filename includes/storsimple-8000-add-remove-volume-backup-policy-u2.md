@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: 92036cebf0541f9e9928acf1a9c32db0037bde48
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b57c2ff2e53a5b836d9faeef7e18052d6e670cf6
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180338"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376139"
 ---
 #### <a name="to-add-or-remove-a-volume"></a>Per aggiungere o rimuovere un volume
 
@@ -21,15 +21,15 @@ ms.locfileid: "67180338"
 
 3. Nel pannello **Aggiungi/Rimuovi volume** selezionare o deselezionare le caselle di controllo per aggiungere o rimuovere il volume. In caso di più volumi, selezionare o deselezionare le caselle di controllo corrispondenti.
 
-    ![Gestisci pianificazioni](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
+    ![Gestisci pianificazioni 2](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol3.png)
 
     Se si assegnano volumi a un criterio di backup da contenitori di volumi diversi, il failover di tali contenitori di volumi deve essere effettuato insieme. Verrà visualizzato un avviso in tal senso.
 
-    ![Gestisci pianificazioni](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
+    ![Gestisci pianificazioni 3](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol2.png)
 
 4. Dopo la modifica dei criteri di backup si riceve una notifica. Viene aggiornato anche l'elenco dei criteri di backup.
 
-    ![Gestisci pianificazioni](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
+    ![Gestisci pianificazioni 4](./media/storsimple-8000-add-remove-volume-backup-policy-u2/addvolbupol6.png)
 
 
 

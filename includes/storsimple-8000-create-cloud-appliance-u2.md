@@ -4,12 +4,12 @@ ms.service: storsimple
 ms.topic: include
 ms.date: 10/26/2018
 ms.author: alkohli
-ms.openlocfilehash: d1ca6d37d6133786aff7ad3156fea2a0c22dfb97
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1522bb133c7d8f877a334e47bf7929c533ea3465
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67180211"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376008"
 ---
 #### <a name="to-create-a-cloud-appliance"></a>Per creare un'appliance cloud
 
@@ -18,14 +18,14 @@ ms.locfileid: "67180211"
     ![Creazione dell'appliance cloud di StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create1.png)
 3. Nel pannello **Creare l'appliance cloud** specificare i dettagli seguenti.
    
-    ![Creazione dell'appliance cloud di StorSimple](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
+    ![StorSimple creare un'appliance Cloud 2](./media/storsimple-8000-create-cloud-appliance-u2/sca-create2m.png)
    
-   1. **Nome**: nome univoco per l'appliance cloud.
-   2. **Modello**: scegliere il modello dell'appliance cloud. Un dispositivo 8010 offre 30 TB di spazio di archiviazione Standard mentre un dispositivo 8020 fornisce 64 TB di spazio di archiviazione Premium. Specificare 8010 per distribuire gli scenari di recupero a livello di elemento dai backup. Selezionare 8020 per distribuire carichi di lavoro ad alte prestazioni e a bassa latenza o per l'uso come un dispositivo secondario per il ripristino di emergenza.
-   3. **Versione**: scegliere la versione dell'appliance cloud. La versione corrisponde alla versione dell'immagine del disco virtuale usata per creare l'appliance cloud. La versione specificata per l'appliance cloud determina il dispositivo fisico da cui viene eseguito il failover o la clonazione. È importante quindi creare una versione appropriata dell'appliance cloud.
-   4. **Rete virtuale**: specificare una rete virtuale da usare con questa appliance cloud. Se si usa l'archiviazione Premium, è necessario selezionare una rete virtuale supportata con l'account di archiviazione Premium. Le reti virtuali non supportate sono disattivate nell'elenco a discesa. Viene visualizzato un avviso se si seleziona una rete virtuale non supportata.
-   5. **Subnet**: in base alla rete virtuale selezionata, l'elenco a discesa mostra le subnet associate. Assegnare una subnet all'appliance cloud.
-   6. **Account di archiviazione**: selezionare un account di archiviazione per la conservazione dell'immagine dell'appliance cloud durante il provisioning. Questo account di archiviazione deve trovarsi nella stessa area dell'appliance cloud e della rete virtuale. Non deve essere inoltre usato per l'archiviazione dei dati da parte del dispositivo fisico o dell'appliance cloud. Per impostazione predefinita, viene creato un nuovo account di archiviazione per questo scopo specifico. Tuttavia, se già si dispone di un account di archiviazione adatto a eseguire l'operazione, selezionarlo dall'elenco. Se si crea un'appliance cloud Premium, l'elenco a discesa mostra solo gli account di archiviazione Premium.
+   1. **Nome** : nome univoco per l'appliance cloud.
+   2. **Modello** : scegliere il modello dell'appliance cloud. Un dispositivo 8010 offre 30 TB di spazio di archiviazione Standard mentre un dispositivo 8020 fornisce 64 TB di spazio di archiviazione Premium. Specificare 8010 per distribuire gli scenari di recupero a livello di elemento dai backup. Selezionare 8020 per distribuire carichi di lavoro ad alte prestazioni e a bassa latenza o per l'uso come un dispositivo secondario per il ripristino di emergenza.
+   3. **Versione** : scegliere la versione dell'appliance cloud. La versione corrisponde alla versione dell'immagine del disco virtuale usata per creare l'appliance cloud. La versione specificata per l'appliance cloud determina il dispositivo fisico da cui viene eseguito il failover o la clonazione. È importante quindi creare una versione appropriata dell'appliance cloud.
+   4. **Rete virtuale** : specificare una rete virtuale da usare con questa appliance cloud. Se si usa l'archiviazione Premium, è necessario selezionare una rete virtuale supportata con l'account di archiviazione Premium. Le reti virtuali non supportate sono disattivate nell'elenco a discesa. Viene visualizzato un avviso se si seleziona una rete virtuale non supportata.
+   5. **Subnet** : in base alla rete virtuale selezionata, l'elenco a discesa mostra le subnet associate. Assegnare una subnet all'appliance cloud.
+   6. **Account di archiviazione** : selezionare un account di archiviazione per la conservazione dell'immagine dell'appliance cloud durante il provisioning. Questo account di archiviazione deve trovarsi nella stessa area dell'appliance cloud e della rete virtuale. Non deve essere inoltre usato per l'archiviazione dei dati da parte del dispositivo fisico o dell'appliance cloud. Per impostazione predefinita, viene creato un nuovo account di archiviazione per questo scopo specifico. Tuttavia, se già si dispone di un account di archiviazione adatto a eseguire l'operazione, selezionarlo dall'elenco. Se si crea un'appliance cloud Premium, l'elenco a discesa mostra solo gli account di archiviazione Premium.
       
       > [!NOTE]
       > L'appliance cloud può essere usata solo con gli account di archiviazione di Azure.

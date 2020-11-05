@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: storage
 author: alkohli
 ms.service: storage
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 09/15/2018
 ms.author: alkohli
 ms.custom: include file
-ms.openlocfilehash: b7bdeeedaac65f67a3224e824c19e8cad794682b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7bdbfd8ffd44f9515ae4df20c55b09c8a0adcaef
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87507663"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376252"
 ---
 #### <a name="to-create-a-new-service"></a>Per creare un nuovo servizio
 
@@ -45,7 +45,7 @@ ms.locfileid: "87507663"
 
     7.  Fare clic su **Crea** per creare il servizio Gestione dispositivi StorSimple.
 
-        ![Creare un nuovo servizio](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
+        ![Crea nuovo servizio 2](./media/storsimple-virtual-array-create-new-service/createnewservice4.png)  
 
 Si viene indirizzati alla pagina di destinazione **Servizio**. La creazione del servizio richiede alcuni minuti. Al termine della creazione del servizio, viene inviata una notifica all'utente e lo stato del servizio viene modificato in **Attivo**.
 
