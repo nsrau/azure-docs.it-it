@@ -7,7 +7,7 @@ ms.date: 10/29/2020
 ms.author: baanders
 ms.openlocfilehash: 0dd97e109ee907e8eec2d31c7d469e8fb1e70e7b
 ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
-ms.translationtype: HT
+ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 10/30/2020
 ms.locfileid: "93124857"

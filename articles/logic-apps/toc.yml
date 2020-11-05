@@ -147,6 +147,7 @@
       items:
         - name: Creare un account di integrazione
           href: logic-apps-enterprise-integration-create-integration-account.md
+          displayName: 'Azure CLI, az logic integration-account create, integration-account'
         - name: Partner commerciali
           href: logic-apps-enterprise-integration-partners.md
         - name: Contratti

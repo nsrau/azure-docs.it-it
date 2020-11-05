@@ -1,18 +1,18 @@
 ---
 title: Informazioni sullo sconto per la prenotazione - Database di Azure per MySQL
 description: Informazioni su come viene applicato uno sconto per la prenotazione a Database di Azure per i server MySQL.
-author: kummanish
-ms.author: manishku
+author: mksuni
+ms.author: sumuth
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 5cb4e3dd4145319361a2494ee346c0d2696edf45
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 85a8c59cce74787a7b1723850915ec133b34b3b0
+ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92148310"
+ms.lasthandoff: 11/03/2020
+ms.locfileid: "93240376"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>Come viene applicato uno sconto per la prenotazione a Database di Azure per MySQL
 
@@ -20,7 +20,7 @@ Dopo avere acquistato capacità riservata per Database di Azure per MySQL, lo sc
 
 ## <a name="how-reservation-discount-is-applied"></a>Come viene applicato lo sconto per la prenotazione
 
-Uno sconto per la prenotazione si basa sul principio ***use-it-or-lose-it***, ovvero se non viene usato va perso. Quindi, se non si hanno risorse corrispondenti per un'ora, si perderà la quantità di prenotazione per quell'ora. Non è possibile riportare le ore prenotate inutilizzate.</br>
+Uno sconto per la prenotazione si basa sul principio * **use-it-or-lose-it** _, ovvero se non viene usato va perso. Quindi, se non si hanno risorse corrispondenti per un'ora, si perderà la quantità di prenotazione per quell'ora. Non è possibile riportare le ore prenotate inutilizzate.</br>
 
 Quando si arresta una risorsa, lo sconto per la prenotazione si applica automaticamente a un'altra risorsa corrispondente nell'ambito specificato. Se non si trovano risorse corrispondenti nell'ambito specificato, le ore prenotate vanno perse.
 
@@ -30,15 +30,15 @@ Lo sconto per la capacità riservata di Database di Azure per MySQL viene applic
 
 Gli esempi seguenti mostrano come viene applicato lo sconto per la capacità riservata di Database di Azure per MySQL a seconda del numero di core acquistati e dei tempi di esecuzione.
 
-**Esempio 1**: si acquista una capacità riservata per Database di Azure per MySQL per 8 vCore. Se si esegue un server di Database di Azure per MySQL da 16 vCore che corrisponde al resto degli attributi della prenotazione, viene addebitato il prezzo a consumo per 8 vCore dell'utilizzo di risorse di calcolo del server MySQL e si ottiene lo sconto per la prenotazione per un'ora di utilizzo di risorse di calcolo del server MySQL da 8 vCore.</br>
+_ **Esempio 1** : si acquista una capacità riservata per Database di Azure per MySQL per 8 vCore. Se si esegue un server di Database di Azure per MySQL da 16 vCore che corrisponde al resto degli attributi della prenotazione, viene addebitato il prezzo a consumo per 8 vCore dell'utilizzo di risorse di calcolo del server MySQL e si ottiene lo sconto per la prenotazione per un'ora di utilizzo di risorse di calcolo del server MySQL da 8 vCore.</br>
 
 Per gli altri esempi, si presuppone che la capacità riservata di Database di Azure per MySQL acquistata sia per un'istanza di Database di Azure per MySQL da 16 vCore e che gli altri attributi della prenotazione corrispondano ai server MySQL in esecuzione.
 
 * **Esempio 2:** si eseguono due server di Database di Azure per MySQL ciascuno con 8 vCore per un'ora. Lo sconto per la prenotazione da 16 vCore viene applicato per l'utilizzo di risorse di calcolo per i due server di Database di Azure per MySQL da 8 vCore.
 
-* **Esempio 3**: si esegue un server di Database di Azure per MySQL da 16 vCore dalle 13 alle 13.30. Si esegue un altro server di Database di Azure per MySQL da 16 vCore dalle 13.30 alle 14. A entrambi i database viene applicato lo sconto sulla prenotazione.
+* **Esempio 3** : si esegue un server di Database di Azure per MySQL da 16 vCore dalle 13 alle 13.30. Si esegue un altro server di Database di Azure per MySQL da 16 vCore dalle 13.30 alle 14. A entrambi i database viene applicato lo sconto sulla prenotazione.
 
-* **Esempio 4**: si esegue un server di Database di Azure per MySQL da 16 vCore dalle 13 alle 13.45. Si esegue un altro server di Database di Azure per MySQL da 16 vCore dalle 13.30 alle 14. Viene addebitata la tariffa con pagamento in base al consumo per la sovrapposizione di 15 minuti. Lo sconto sulla prenotazione viene applicato all'utilizzo delle risorse di calcolo per il resto del tempo.
+* **Esempio 4** : si esegue un server di Database di Azure per MySQL da 16 vCore dalle 13 alle 13.45. Si esegue un altro server di Database di Azure per MySQL da 16 vCore dalle 13.30 alle 14. Viene addebitata la tariffa con pagamento in base al consumo per la sovrapposizione di 15 minuti. Lo sconto sulla prenotazione viene applicato all'utilizzo delle risorse di calcolo per il resto del tempo.
 
 Per informazioni sull'applicazione delle prenotazioni di Azure nei report sull'utilizzo per la fatturazione, vedere [Informazioni sull'utilizzo delle prenotazioni di Azure](./understand-reserved-instance-usage-ea.md).
 

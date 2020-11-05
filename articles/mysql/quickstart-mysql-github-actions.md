@@ -7,14 +7,14 @@ ms.topic: quickstart
 ms.author: jukullam
 ms.date: 10/12/2020
 ms.custom: github-actions-azure
-ms.openlocfilehash: ce045da7d21c2af0dfde5ee896b4f7f343ce6545
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 57e740e6c47d9518c12a49473e103d0abe772618
+ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92541265"
+ms.lasthandoff: 11/04/2020
+ms.locfileid: "93337014"
 ---
-# <a name="use-github-actions-to-connect-to-azure-mysql"></a>Usare GitHub Actions per connettersi ad Azure MySQL
+# <a name="quickstart-use-github-actions-to-connect-to-azure-mysql"></a>Avvio rapido: Usare GitHub Actions per connettersi ad Azure MySQL
 
 Usare un flusso di lavoro [GitHub Actions](https://docs.github.com/en/actions) per distribuire aggiornamenti di database a [Database di Azure per MySQL](https://azure.microsoft.com/services/mysql/). 
 
@@ -39,7 +39,7 @@ Il file è costituito da due sezioni:
 
 ## <a name="generate-deployment-credentials"></a>Generare le credenziali per la distribuzione
 
-È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova** .
+È possibile creare un'[entità servizio](../active-directory/develop/app-objects-and-service-principals.md) con il comando [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac&preserve-view=true) dell'[interfaccia della riga di comando di Azure](/cli/azure/). Eseguire questo comando con [Azure Cloud Shell](https://shell.azure.com/) nel portale di Azure oppure selezionando il pulsante **Prova**.
 
 Sostituire i segnaposto `server-name` con il nome del server MySQL ospitato in Azure. Sostituire `subscription-id` e `resource-group` con l'ID sottoscrizione e il gruppo di risorse connesso al server MySQL.  
 
@@ -66,7 +66,7 @@ L'output è un oggetto JSON con le credenziali di assegnazione di ruolo che forn
 
 ## <a name="copy-the-mysql-connection-string"></a>Copiare la stringa di connessione MySQL 
 
-Nel portale di Azure passare a Database di Azure per MySQL e aprire **Impostazioni** > **Stringhe di connessione** . Copiare la stringa di connessione per **ADO.NET** . Sostituire i valori segnaposto `your_database` e `your_password`. La stringa di connessione avrà un aspetto simile a questo. 
+Nel portale di Azure passare a Database di Azure per MySQL e aprire **Impostazioni** > **Stringhe di connessione**. Copiare la stringa di connessione per **ADO.NET**. Sostituire i valori segnaposto `your_database` e `your_password`. La stringa di connessione avrà un aspetto simile a questo. 
 
 ```output
    Server=my-mysql-server.mysql.database.azure.com; Port=3306; Database={your_database}; Uid=adminname@my-mysql-server; Pwd={your_password}; SslMode=Preferred;

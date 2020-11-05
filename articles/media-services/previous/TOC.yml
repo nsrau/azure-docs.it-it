@@ -3,8 +3,10 @@
 - name: Panoramica
   href: media-services-overview.md
   items:
-    - name: Scenari e disponibilità
+    - name: Scenari comuni
       href: scenarios-and-availability.md
+    - name: Disponibilità a livello di area
+      href: availability-regions-v-2.md
     - name: Concetti
       href: media-services-concepts.md
 - name: Introduzione

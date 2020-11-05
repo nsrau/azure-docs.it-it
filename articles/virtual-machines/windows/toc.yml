@@ -558,7 +558,7 @@
     - name: Proteggere le macchine virtuali
       items:
         - name: Consigli
-          href: security-recommendations.md
+          href: ../security-recommendations.md
         - name: Accesso just-in-time
           href: ../../security-center/security-center-just-in-time.md
         - name: Usare Bastion
@@ -666,7 +666,7 @@
         - name: Agente VM di Azure
           href: ../extensions/agent-windows.md
         - name: Attenuazione dell'esecuzione speculativa
-          href: mitigate-se.md
+          href: ../mitigate-se.md
         - name: Monitorare i metadati
           href: instance-metadata-service.md
         - name: Abilitare la virtualizzazione annidata
@@ -959,7 +959,7 @@
         - name: Usare la rete accelerata
           href: ../../virtual-network/create-vm-accelerated-networking-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
         - name: Assegnare un nome DNS pubblico
-          href: portal-create-fqdn.md
+          href: ../create-fqdn.md
         - name: Risoluzione DNS
           href: ../../dns/dns-for-azure-services.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Configurare le identità gestite
