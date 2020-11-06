@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 10/01/2020
 ms.author: glenga
-ms.openlocfilehash: 285c3bf37e9d6de042cb028745fc8b094d34c3a1
-ms.sourcegitcommit: 7863fcea618b0342b7c91ae345aa099114205b03
+ms.openlocfilehash: 39c0556350482e171234a3ff9dce0c16ed88d110
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93284388"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93406715"
 ---
 Gli errori generati in funzioni di Azure possono provenire da una qualsiasi delle origini seguenti:
 
@@ -23,15 +23,15 @@ Le procedure di gestione degli errori seguenti sono importanti per evitare la pe
 - [Abilita Application Insights](../articles/azure-functions/functions-monitoring.md)
 - [Usa la gestione degli errori strutturata](#use-structured-error-handling)
 - [Progettazione per idempotenza](../articles/azure-functions/functions-idempotent.md)
-- [Implementare i criteri di ripetizione dei tentativi](#retry-policies) (laddove appropriato)
+- [Implementare i criteri di ripetizione dei tentativi](#retry-policies-preview) (laddove appropriato)
 
 ### <a name="use-structured-error-handling"></a>Usa la gestione degli errori strutturata
 
 L'acquisizione e la registrazione degli errori è fondamentale per il monitoraggio dell'integrità dell'applicazione. Il livello superiore di qualsiasi codice di funzione deve includere un blocco try/catch. Nel blocco catch è possibile acquisire e registrare gli errori.
 
-## <a name="retry-policies"></a>Criteri di ripetizione dei tentativi
+## <a name="retry-policies-preview"></a>Criteri di ripetizione (anteprima)
 
-Un criterio di ripetizione dei tentativi può essere definito in qualsiasi funzione per qualsiasi tipo di trigger nell'app per le funzioni.  Il criterio di ripetizione dei tentativi esegue nuovamente una funzione fino a quando non viene eseguita correttamente o fino a quando non si verifica il numero massimo di tentativi.  I criteri di ripetizione dei tentativi possono essere definiti per tutte le funzioni in un'app o per le singole funzioni.  Per impostazione predefinita, un'app per le funzioni non ritenterà i messaggi (a parte i [trigger specifici che hanno un criterio di ripetizione nell'origine del trigger](#trigger-specific-retry-support)).  Un criterio di ripetizione viene valutato ogni volta che un'esecuzione genera un'eccezione non rilevata.  Come procedura consigliata, è consigliabile intercettare tutte le eccezioni nel codice e generare di nuovo gli eventuali errori che dovrebbero causare un nuovo tentativo.  Gli hub eventi e i checkpoint Azure Cosmos DB non verranno scritti fino al completamento del criterio di ripetizione dei tentativi per l'esecuzione, ovvero la progressione su tale partizione viene sospesa fino al completamento del batch corrente.
+Un criterio di ripetizione dei tentativi può essere definito in qualsiasi funzione per qualsiasi tipo di trigger nell'app per le funzioni.  Il criterio di ripetizione dei tentativi esegue nuovamente una funzione fino a quando non viene eseguita correttamente o fino a quando non si verifica il numero massimo di tentativi.  I criteri di ripetizione dei tentativi possono essere definiti per tutte le funzioni in un'app o per le singole funzioni.  Per impostazione predefinita, un'app per le funzioni non ritenterà i messaggi (a parte i [trigger specifici che hanno un criterio di ripetizione nell'origine del trigger](#using-retry-support-on-top-of-trigger-resilience)).  Un criterio di ripetizione viene valutato ogni volta che un'esecuzione genera un'eccezione non rilevata.  Come procedura consigliata, è consigliabile intercettare tutte le eccezioni nel codice e rigenerare gli eventuali errori che dovrebbero causare un nuovo tentativo.  Gli hub eventi e i checkpoint Azure Cosmos DB non verranno scritti fino al completamento del criterio di ripetizione dei tentativi per l'esecuzione, ovvero la progressione su tale partizione viene sospesa fino al completamento del batch corrente.
 
 ### <a name="retry-policy-options"></a>Opzioni dei criteri di ripetizione
 
@@ -41,7 +41,7 @@ Il numero massimo di **tentativi** è il numero massimo di volte in cui un'esecu
 
 La **strategia di ripetizione dei tentativi** controlla il comportamento dei tentativi.  Di seguito sono riportate due opzioni di ripetizione dei tentativi supportate:
 
-| Opzione | Descrizione|
+| Opzione | Description|
 |---|---|
 |**`fixedDelay`**| Una quantità di tempo specificata può trascorrere tra un tentativo e l'altro.|
 | **`exponentialBackoff`**| Il primo tentativo attende il ritardo minimo. Nei successivi tentativi, il tempo viene aggiunto in modo esponenziale alla durata iniziale per ogni ripetizione, fino a quando non viene raggiunto il ritardo massimo.  Il back-off esponenziale aggiunge una piccola sequenza casuale ai ritardi per scaglionare i tentativi negli scenari con velocità effettiva elevata.|
@@ -57,6 +57,8 @@ Un criterio di ripetizione dei tentativi può essere definito per una funzione s
 #### <a name="fixed-delay-retry"></a>Correzione di un nuovo tentativo di ritardo
 
 # <a name="c"></a>[C#](#tab/csharp)
+
+Per i tentativi è necessario il pacchetto NuGet [Microsoft. Azure. webjobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
 
 ```csharp
 [FunctionName("EventHubTrigger")]
@@ -153,6 +155,8 @@ Ecco i criteri di ripetizione dei tentativi nel *function.js* file:
 
 # <a name="c"></a>[C#](#tab/csharp)
 
+Per i tentativi è necessario il pacchetto NuGet [Microsoft. Azure. webjobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23
+
 ```csharp
 [FunctionName("EventHubTrigger")]
 [ExponentialBackoffRetry(5, "00:00:04", "00:15:00")]
@@ -247,7 +251,7 @@ Ecco i criteri di ripetizione dei tentativi nel *function.js* file:
 ```
 ---
 
-|Proprietà di function.json  |Proprietà Attribute | Descrizione |
+|Proprietà di function.json  |Proprietà Attribute | Description |
 |---------|---------|---------| 
 |strategia|n/d|Obbligatorio. La strategia di ripetizione dei tentativi da usare. I valori validi sono `fixedDelay` o `exponentialBackoff`.|
 |maxRetryCount|n/d|Obbligatorio. Numero massimo di tentativi consentiti per l'esecuzione di una funzione. `-1` indica di riprovare a tempo indefinito.|
@@ -255,12 +259,27 @@ Ecco i criteri di ripetizione dei tentativi nel *function.js* file:
 |minimumInterval|n/d|Ritardo minimo tra tentativi quando si usa la `exponentialBackoff` strategia.|
 |maximumInterval|n/d|Ritardo massimo tra i tentativi quando si usa la `exponentialBackoff` strategia.| 
 
-## <a name="trigger-specific-retry-support"></a>Supporto per tentativi specifici del trigger
+### <a name="retry-limitations-during-preview"></a>Limitazioni dei tentativi durante l'anteprima
 
-Alcuni trigger forniscono nuovi tentativi nell'origine del trigger.  Questi tentativi di trigger possono essere usati in aggiunta o come sostituzione per i criteri di ripetizione dei tentativi host dell'app per le funzioni.  Se si desidera un numero fisso di tentativi, è necessario usare i criteri di ripetizione dei tentativi specifici del trigger rispetto ai criteri di ripetizione dei tentativi host generici.  I trigger seguenti supportano i tentativi nell'origine del trigger:
+- Per i progetti .NET, potrebbe essere necessario eseguire manualmente il pull di una versione di [Microsoft. Azure. webjobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs) >= 3.0.23.
+- Nel piano a consumo, l'app può essere ridimensionata fino a zero mentre viene effettuato un nuovo tentativo dei messaggi finali in una coda.
+- Nel piano a consumo, l'app può essere ridimensionata durante l'esecuzione di nuovi tentativi.  Per ottenere risultati ottimali, scegliere un intervallo tra tentativi <= 00:01:00 e <= 5 tentativi.
+
+## <a name="using-retry-support-on-top-of-trigger-resilience"></a>Uso del supporto per tentativi sopra la resilienza del trigger
+
+I criteri di ripetizione delle app per le funzioni sono indipendenti da qualsiasi tentativo o resilienza fornito dal trigger.  Il criterio di ripetizione dei tentativi della funzione eseguirà il layer solo sopra un nuovo tentativo resiliente del trigger.  Ad esempio, se si usa il bus di servizio di Azure, per impostazione predefinita le code hanno un numero di recapito dei messaggi pari a 10.  Il numero di recapiti predefiniti significa che dopo 10 tentativi di recapito di un messaggio in coda, il bus di servizio non è in grado di inviare il messaggio.  È possibile definire un criterio di ripetizione dei tentativi per una funzione che dispone di un trigger del bus di servizio, ma i tentativi eseguiranno il livello al di sopra dei tentativi di recapito del bus di servizio.  
+
+Ad esempio, se è stato usato il numero di recapito del bus di servizio predefinito pari a 10 e sono stati definiti i criteri di ripetizione dei tentativi di funzione di 5.  Il messaggio verrà prima rimosso dalla coda, incrementando l'account di recapito del bus di servizio a 1.  Se ogni esecuzione ha esito negativo, dopo cinque tentativi di attivazione dello stesso messaggio, il messaggio verrebbe contrassegnato come abbandonato.  Il bus di servizio riaccoda immediatamente il messaggio, attiverà la funzione e incrementerà il numero di recapito a 2.  Infine, dopo 50 tentativi finali (10 recapiti del bus di servizio * cinque tentativi di funzione per recapito), il messaggio viene abbandonato e attiva un messaggio non recapitabile sul bus di servizio.
+
+> [!WARNING]
+> Non è consigliabile impostare il numero di recapiti per un trigger come le code del bus di servizio su 1, il che significa che il messaggio non è presente immediatamente dopo un singolo ciclo di ripetizione dei tentativi di funzione.  Ciò è dovuto al fatto che i trigger forniscono resilienza con nuovi tentativi, mentre i criteri di ripetizione dei tentativi della funzione sono il tentativo migliore e possono determinare un numero di tentativi inferiore al totale desiderato.
+
+### <a name="triggers-with-additional-resiliency-or-retries"></a>Trigger con resilienza o tentativi aggiuntivi
+
+I trigger seguenti supportano i tentativi nell'origine del trigger:
 
 * [Archivio BLOB di Azure](../articles/azure-functions/functions-bindings-storage-blob.md)
 * [Archiviazione code di Azure](../articles/azure-functions/functions-bindings-storage-queue.md)
 * [Bus di servizio Azure (coda/argomento)](../articles/azure-functions/functions-bindings-service-bus.md)
 
-Per impostazione predefinita, questi trigger ritentano le richieste fino a cinque volte. Dopo il quinto tentativo, sia l'archiviazione di Accodamento di Azure che il trigger del bus di servizio di Azure scrivono un messaggio in una [coda non elaborabile](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).
+Per impostazione predefinita, la maggior parte dei trigger ritenta le richieste fino a cinque volte. Dopo il quinto tentativo, l'archiviazione code di Azure scriverà un messaggio in una [coda non elaborabile](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#poison-messages).  I criteri predefiniti per coda e argomento del bus di servizio scriveranno un messaggio in una coda di messaggi non [recapitabili](../articles/service-bus-messaging/service-bus-dead-letter-queues.md) dopo 10 tentativi.
