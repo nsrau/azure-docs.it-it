@@ -9,12 +9,12 @@ ms.author: twright
 ms.reviewer: mikeray
 ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: bfdda75c0826ed12fbce1eb47680f91abbde4934
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 051a7f506d351a17764e38c760ffba06d224cc38
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91661058"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422570"
 ---
 # <a name="create-azure-arc-data-controller-using-kubernetes-tools"></a>Creare un controller di dati di Azure ARC usando gli strumenti di Kubernetes
 
@@ -102,7 +102,7 @@ containers:
       - env:
         - name: ACCEPT_EULA
           value: "Y"
-        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-sep-2020 <-- template value to change
+        #image: mcr.microsoft.com/arcdata/arc-bootstrapper:public-preview-oct-2020  <-- template value to change
         image: <your registry DNS name or IP address>/<your repo>/arc-bootstrapper:<your tag>
         imagePullPolicy: IfNotPresent
         name: bootstrapper
@@ -170,21 +170,21 @@ Per prima cosa, creare una copia del [file modello](https://raw.githubuserconten
 Modificare quanto segue in base alle esigenze:
 
 **Obbligatorio**
-- **località**: modificare il percorso in modo che sia il percorso di Azure in cui verranno archiviati i _metadati_ sul controller dati.  È possibile visualizzare l'elenco delle località di Azure disponibili nell'articolo [sulla panoramica della creazione](create-data-controller.md) di un controller di dati.
-- **resourceGroup**: il gruppo di risorse di Azure in cui si vuole creare la risorsa di Azure per il controller dati in Azure Resource Manager.  In genere questo gruppo di risorse deve esistere già, ma non è necessario fino al momento in cui si caricano i dati in Azure.
-- **Subscription (sottoscrizione**): GUID della sottoscrizione di Azure per la sottoscrizione in cui si vogliono creare le risorse di Azure.
+- **località** : modificare il percorso in modo che sia il percorso di Azure in cui verranno archiviati i _metadati_ sul controller dati.  È possibile visualizzare l'elenco delle località di Azure disponibili nell'articolo [sulla panoramica della creazione](create-data-controller.md) di un controller di dati.
+- **resourceGroup** : il gruppo di risorse di Azure in cui si vuole creare la risorsa di Azure per il controller dati in Azure Resource Manager.  In genere questo gruppo di risorse deve esistere già, ma non è necessario fino al momento in cui si caricano i dati in Azure.
+- **Subscription (sottoscrizione** ): GUID della sottoscrizione di Azure per la sottoscrizione in cui si vogliono creare le risorse di Azure.
 
 **CONSIGLIATO PER RIVEDERE ED EVENTUALMENTE MODIFICARE LE IMPOSTAZIONI PREDEFINITE**
-- **archiviazione.. NomeClasse**: classe di archiviazione da usare per i file di dati e di log del controller di dati.  Se non si è certi delle classi di archiviazione disponibili nel cluster Kubernetes, è possibile eseguire il comando seguente: `kubectl get storageclass` .  Il valore predefinito è `default` che presuppone la presenza di una classe di archiviazione esistente e con il nome di `default` una classe di archiviazione _is_ predefinita.  Nota: sono disponibili due impostazioni di NomeClasse da impostare sulla classe di archiviazione desiderata, una per i dati e una per i log.
-- **serviceType**: modificare il tipo di servizio in `NodePort` se non si usa un LoadBalancer.  Nota: sono disponibili due impostazioni serviceType che è necessario modificare.
+- **archiviazione.. NomeClasse** : classe di archiviazione da usare per i file di dati e di log del controller di dati.  Se non si è certi delle classi di archiviazione disponibili nel cluster Kubernetes, è possibile eseguire il comando seguente: `kubectl get storageclass` .  Il valore predefinito è `default` che presuppone la presenza di una classe di archiviazione esistente e con il nome di `default` una classe di archiviazione _is_ predefinita.  Nota: sono disponibili due impostazioni di NomeClasse da impostare sulla classe di archiviazione desiderata, una per i dati e una per i log.
+- **serviceType** : modificare il tipo di servizio in `NodePort` se non si usa un LoadBalancer.  Nota: sono disponibili due impostazioni serviceType che è necessario modificare.
 
 **OPZIONALE**
-- **nome**: il nome predefinito del controller dati è `arc` , ma è possibile modificarlo se lo si desidera.
-- **DisplayName**: impostare questa impostazione sullo stesso valore dell'attributo Name all'inizio del file.
-- **Registro di sistema**: il container Registry Microsoft è il valore predefinito.  Se si stanno estraendo le immagini dal Container Registry Microsoft e ne viene eseguito il [push in un registro contenitori privato](offline-deployment.md), immettere l'indirizzo IP o il nome DNS del registro di sistema.
-- **dockerRegistry**: il segreto di pull dell'immagine da usare per estrarre le immagini da un registro contenitori privato, se necessario.
-- **repository**: il repository predefinito in Microsoft container Registry è `arcdata` .  Se si usa un registro contenitori privato, immettere il percorso della cartella o del repository contenente le immagini del contenitore di servizi dati abilitati per Azure arr.
-- **imageTag**: il tag della versione più recente corrente viene impostato come valore predefinito nel modello, ma è possibile modificarlo se si vuole usare una versione precedente.
+- **nome** : il nome predefinito del controller dati è `arc` , ma è possibile modificarlo se lo si desidera.
+- **DisplayName** : impostare questa impostazione sullo stesso valore dell'attributo Name all'inizio del file.
+- **Registro di sistema** : il container Registry Microsoft è il valore predefinito.  Se si stanno estraendo le immagini dal Container Registry Microsoft e ne viene eseguito il [push in un registro contenitori privato](offline-deployment.md), immettere l'indirizzo IP o il nome DNS del registro di sistema.
+- **dockerRegistry** : il segreto di pull dell'immagine da usare per estrarre le immagini da un registro contenitori privato, se necessario.
+- **repository** : il repository predefinito in Microsoft container Registry è `arcdata` .  Se si usa un registro contenitori privato, immettere il percorso della cartella o del repository contenente le immagini del contenitore di servizi dati abilitati per Azure arr.
+- **imageTag** : il tag della versione più recente corrente viene impostato come valore predefinito nel modello, ma è possibile modificarlo se si vuole usare una versione precedente.
 
 Esempio di file YAML del controller di dati completato:
 ```yaml
@@ -200,7 +200,7 @@ spec:
     serviceAccount: sa-mssql-controller
   docker:
     imagePullPolicy: Always
-    imageTag: public-preview-sep-2020
+    imageTag: public-preview-oct-2020 
     registry: mcr.microsoft.com
     repository: arcdata
   security:

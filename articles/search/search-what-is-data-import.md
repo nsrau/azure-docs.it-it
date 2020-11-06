@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 148310419ad4f760219003514dbc078b7c675be6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: b57d55e91918ba612ad42acd5e6059ae0dbd0090
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538788"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422451"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Panoramica dell'importazione dati-Azure ricerca cognitiva
 
@@ -35,7 +35,7 @@ Questo approccio è più flessibile rispetto al modello pull, perché si possono
 Per caricare uno o più documenti in un indice, è possibile usare le API seguenti:
 
 + [Aggiungere, aggiornare o eliminare documenti (API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Classe indexAction](/dotnet/api/microsoft.azure.search.models.indexaction) o [classe indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch) 
++ [Classe IndexDocumentsAction](/dotnet/api/azure.search.documents.models.indexdocumentsaction) o [classe IndexDocumentsBatch](/dotnet/api/azure.search.documents.models.indexdocumentsbatch) 
 
 Non sono attualmente supportati strumenti per il push dei dati tramite il portale.
 
@@ -52,7 +52,7 @@ Nell'API REST inviare richieste HTTP POST con i corpi delle richieste JSON all'U
 In .NET SDK, assemblare i dati in un `IndexBatch` oggetto. Un oggetto `IndexBatch` incapsula una raccolta di `IndexAction` oggetti, ognuno dei quali contiene un documento e una proprietà che indica ad Azure ricerca cognitiva l'azione da eseguire su tale documento. Per un esempio di codice, vedere la [Guida introduttiva a C#](search-get-started-dotnet.md).
 
 
-| @search.action | Descrizione | Campi necessari per ogni documento | Note |
+| @search.action | Description | Campi necessari per ogni documento | Note |
 | -------------- | ----------- | ---------------------------------- | ----- |
 | `upload` |L'azione `upload` è simile a "upsert", in cui il documento viene inserito se è nuovo e aggiornato o sostituito se esiste già. |chiave, oltre a tutti gli altri campi da definire |Quando si aggiorna o si sostituisce un documento esistente, qualsiasi campo non specificato nella richiesta avrà il campo impostato su `null`. Ciò si verifica anche quando il campo è stato precedentemente impostato su un valore diverso da null. |
 | `merge` |Aggiorna un documento esistente con i campi specificati. Se il documento non esiste nell'indice, l'unione non riuscirà. |chiave, oltre a tutti gli altri campi da definire |I campi specificati in un'azione di unione sostituiscono i campi esistenti nel documento. In .NET SDK sono inclusi i campi di tipo `DataType.Collection(DataType.String)` . Nell'API REST sono inclusi i campi di tipo `Collection(Edm.String)` . Ad esempio, se il documento contiene un campo `tags` con valore `["budget"]` e si esegue un'unione con valore `["economy", "pool"]` per `tags`, il valore finale del campo `tags` sarà `["economy", "pool"]` e non `["budget", "economy", "pool"]`. |
@@ -63,7 +63,7 @@ In .NET SDK, assemblare i dati in un `IndexBatch` oggetto. Un oggetto `IndexBatc
 
 Esistono due modi per [eseguire una ricerca nell'indice usando l'API REST](/rest/api/searchservice/Search-Documents). Uno consiste nell'inviare una richiesta HTTP POST in cui i parametri di query vengono definiti in un oggetto JSON nel corpo della richiesta. L'altro consiste nell'inviare una richiesta HTTP GET in cui i parametri di query vengono definiti nell'URL della richiesta. POST ha [limiti più ridotti](/rest/api/searchservice/Search-Documents) per quanto riguarda le dimensioni dei parametri di query rispetto a GET. Per questo motivo, è consigliabile usare POST, a meno di non avere circostanze particolari in cui l'uso di GET potrebbe essere più conveniente.
 
-Sia per POST che per GET è necessario fornire il *nome del servizio*, il *nome dell'indice*e una versione dell' *API* nell'URL della richiesta. 
+Sia per POST che per GET è necessario fornire il *nome del servizio* , il *nome dell'indice* e una versione dell' *API* nell'URL della richiesta. 
 
 Per GET i parametri di query devono essere forniti nella *stringa di query* alla fine dell'URL. Per il formato dell'URL, vedere di seguito:
 
@@ -75,19 +75,18 @@ Il formato di POST è lo stesso, ma con `api-version` nei parametri della string
 
 ## <a name="pulling-data-into-an-index"></a>Pull dei dati in un indice
 
-Il modello pull effettua una ricerca per indicizzazione su un'origine dati supportata e carica automaticamente i dati nell'indice. In Azure ricerca cognitiva questa funzionalità viene implementata tramite gli *indicizzatori*, attualmente disponibili per queste piattaforme:
+Il modello pull effettua una ricerca per indicizzazione su un'origine dati supportata e carica automaticamente i dati nell'indice. In Azure ricerca cognitiva questa funzionalità viene implementata tramite gli *indicizzatori* , attualmente disponibili per queste piattaforme:
 
 + [Archiviazione BLOB](search-howto-indexing-azure-blob-storage.md)
 + [Archiviazione tabelle](search-howto-indexing-azure-tables.md)
 + [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 + [Database SQL di Azure, SQL Istanza gestita e SQL Server in macchine virtuali di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 
-Gli indicizzatori connettono un indice a un'origine dati, in genere una tabella, una vista o una struttura equivalente, e mappano i campi di origine ai campi equivalenti nell'indice. Durante l'esecuzione il set di righe viene automaticamente trasformato in JSON e caricato nell'indice specificato. Tutti gli indicizzatori supportano la pianificazione, in modo da consentire di specificare la frequenza dell'aggiornamento dei dati. La maggior parte degli indicizzatori fornisce il rilevamento delle modifiche se l'origine dati lo supporta. Tramite il rilevamento di modifiche ed eliminazioni nei documenti esistenti, oltre al riconoscimento di nuovi documenti, gli indicizzatori eliminano la necessità di gestire attivamente i dati nell'indice. 
-
+Gli indicizzatori connettono un indice a un'origine dati, in genere una tabella, una vista o una struttura equivalente, e mappano i campi di origine ai campi equivalenti nell'indice. Durante l'esecuzione il set di righe viene automaticamente trasformato in JSON e caricato nell'indice specificato. Tutti gli indicizzatori supportano la pianificazione, in modo da consentire di specificare la frequenza dell'aggiornamento dei dati. La maggior parte degli indicizzatori fornisce il rilevamento delle modifiche se l'origine dati lo supporta. Tramite il rilevamento di modifiche ed eliminazioni nei documenti esistenti, oltre al riconoscimento di nuovi documenti, gli indicizzatori eliminano la necessità di gestire attivamente i dati nell'indice.
 
 ### <a name="how-to-pull-data-into-an-azure-cognitive-search-index"></a>Come eseguire il pull dei dati in un indice di ricerca cognitiva di Azure
 
-La funzionalità di indicizzatore viene esposta nel [portale di Azure](search-import-data-portal.md), nell'[API REST](/rest/api/searchservice/Indexer-operations) e in [.NET SDK](/dotnet/api/microsoft.azure.search.indexersoperationsextensions). 
+La funzionalità di indicizzatore viene esposta nel [portale di Azure](search-import-data-portal.md), nell'[API REST](/rest/api/searchservice/Indexer-operations) e in [.NET SDK](/dotnet/api/azure.search.documents.indexes.searchindexerclient).
 
 Un vantaggio dell'uso del portale è che Azure ricerca cognitiva in genere può generare automaticamente uno schema di indice predefinito leggendo i metadati del set di dati di origine. È possibile modificare l'indice generato fino al termine dell'elaborazione dell'indice. In seguito, sono consentite solo le modifiche che non richiedono la reindicizzazione. Se le modifiche da apportare influiscono direttamente sullo schema, è necessario ricompilare l'indice. 
 

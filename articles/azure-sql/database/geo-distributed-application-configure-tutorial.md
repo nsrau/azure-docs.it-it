@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, sstein
 ms.date: 03/12/2019
-ms.openlocfilehash: 14031118a93f5760b302e4d2b76334205be6d087
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 98e3eb4927b8eb9e52fd974c1ef7c417aff2ad54
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92789625"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422791"
 ---
 # <a name="tutorial-implement-a-geo-distributed-database-azure-sql-database"></a>Esercitazione: implementare un database con distribuzione geografica (database SQL di Azure)
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -47,7 +47,7 @@ Per completare l'esercitazione, verificare di avere installato i componenti segu
   - [PowerShell](powershell-script-content-guide.md)
 
   > [!NOTE]
-  > In questa esercitazione viene usato il database di esempio *AdventureWorksLT* .
+  > In questa esercitazione viene usato il database di esempio *AdventureWorksLT*.
 
 - Java e Maven. Vedere [Build an app using SQL Server](https://www.microsoft.com/sql-server/developer-get-started/) (Creare un'app con SQL Server), evidenziare **Java** , selezionare l'ambiente in uso e quindi seguire i passaggi.
 
@@ -120,7 +120,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
 
 * * *
 
-È anche possibile modificare le impostazioni di replica geografica nella portale di Azure, selezionando il database, quindi **Impostazioni**  >  **replica geografica** .
+È anche possibile modificare le impostazioni di replica geografica nella portale di Azure, selezionando il database, quindi **Impostazioni**  >  **replica geografica**.
 
 ![Impostazioni di replica geografica](./media/geo-distributed-application-configure-tutorial/geo-replication.png)
 
@@ -132,7 +132,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
    mvn archetype:generate "-DgroupId=com.sqldbsamples" "-DartifactId=SqlDbSample" "-DarchetypeArtifactId=maven-archetype-quickstart" "-Dversion=1.0.0"
    ```
 
-1. Digitare **Y** e premere **INVIO** .
+1. Digitare **Y** e premere **INVIO**.
 
 1. Passare alla directory del nuovo progetto.
 
@@ -182,7 +182,7 @@ az sql failover-group create --name $failoverGroup --partner-server $drServer `
    </build>
    ```
 
-1. Salvare e chiudere il file *pom.xml* .
+1. Salvare e chiudere il file *pom.xml*.
 
 1. Aprire il file *App.java* in ..\SqlDbSample\src\main\java\com\sqldbsamples e sostituirne il contenuto con il codice seguente:
 
@@ -333,7 +333,7 @@ Per testare un failover:
 1. Avviare un failover manuale del gruppo di failover:
 
    ```powershell
-   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $myresourcegroupname `
+   Switch-AzSqlDatabaseFailoverGroup -ResourceGroupName $resourceGroup `
     -ServerName $drServer -FailoverGroupName $failoverGroup
    ```
 

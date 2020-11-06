@@ -3,12 +3,12 @@ title: Distribuire Horizon in una soluzione VMware di Azure
 description: Informazioni su come distribuire VMware Horizon in una soluzione VMware di Azure.
 ms.topic: how-to
 ms.date: 09/29/2020
-ms.openlocfilehash: babce512b896009c08165d2e3d9aec7c33724bf4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: fb5e5b4c5f5da4c140f8d3575b963545f3a57db8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93321348"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423104"
 ---
 # <a name="deploy-horizon-on-azure-vmware-solution"></a>Distribuire Horizon in una soluzione VMware di Azure 
 
@@ -127,6 +127,18 @@ Gli stessi principi si applicano se si distribuiscono due pod Horizon nella stes
 ## <a name="size-azure-vmware-solution-hosts-for-horizon-deployments"></a>Ridimensionare gli host della soluzione VMware di Azure per le distribuzioni Horizon 
 
 La metodologia di dimensionamento di Horizon in un host in esecuzione nella soluzione VMware di Azure è più semplice rispetto a Horizon in locale.  Questo perché l'host della soluzione VMware di Azure è standardizzato.  Il dimensionamento host esatto consente di determinare il numero di host necessari per supportare i requisiti VDI.  È fondamentale determinare il costo per desktop.
+
+### <a name="sizing-tables"></a>Ridimensionamento di tabelle
+
+Le tabelle mostrano i carichi di lavoro comuni per i carichi di lavoro del Knowledge Worker di login e i carichi di lavoro di Power Worker.
+
+#### <a name="knowledge-worker-workloads"></a>Carichi di lavoro Knowledge Worker
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" alt-text="Tabella dei profili VDI comuni per VMware Horizon per gli account di lavoro del Knowledge Worker VSI" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-knowledge.png" border="false":::
+
+#### <a name="power-worker-workloads"></a>Carichi di lavoro di Power Worker
+
+:::image type="content" source="media/horizon/common-vdi-profiles-vsi-workloads-power.png" alt-text="Tabella dei profili VDI comuni per VMware Horizon per i carichi di lavoro di Power Worker VSI di login" lightbox="media/horizon/common-vdi-profiles-vsi-workloads-power.png" border="false":::
 
 ### <a name="azure-vmware-solution-host-instance"></a>Istanza host della soluzione VMware di Azure
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 3412bfe95951a3fea035ffc6452719ede5e66d4d
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: 2a1744feedc3e0ffae6cf2cd45cd090a6c2f06d5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519606"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422094"
 ---
 # <a name="set-up-an-indexer-connection-to-a-cosmos-db-database-using-a-managed-identity"></a>Configurare una connessione dell'indicizzatore a un database Cosmos DB usando un'identità gestita
 
@@ -33,7 +33,7 @@ Quando un'identità gestita assegnata dal sistema è abilitata, Azure crea un'id
 
 ![Attivare l'identità gestita assegnata dal sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Attivare l'identità gestita assegnata dal sistema")
 
-Dopo aver selezionato **Salva**, viene visualizzato un ID oggetto che è stato assegnato al servizio di ricerca.
+Dopo aver selezionato **Salva** , viene visualizzato un ID oggetto che è stato assegnato al servizio di ricerca.
 
 ![ID oggetto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID dell'oggetto.")
  
@@ -55,7 +55,7 @@ In questo passaggio si autorizza il servizio Ricerca cognitiva di Azure a legger
 
 ### <a name="3---create-the-data-source"></a>3 - Creare l'origine dati
 
-L' [API REST](/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da Cosmos DB usando l' [API REST](/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
+L' [API REST](/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da Cosmos DB usando l' [API REST](/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
 
 Quando si usano identità gestite per l'autenticazione, le **credenziali** non includeranno una chiave dell'account.
 
@@ -84,8 +84,8 @@ Il corpo della richiesta contiene la definizione dell'origine dati, che deve inc
 |---------|-------------|
 | **nome** | Obbligatorio. Scegliere un nome qualsiasi per rappresentare l’oggetto origine dati. |
 |**type**| Obbligatorio. Deve essere `cosmosdb`. |
-|**credentials** | Obbligatorio. <br/><br/>Quando ci si connette usando un'identità gestita, il formato delle **credenziali** si presenta come segue: *Database=[nome-database];ResourceId=[stringa-id-risorsa];(ApiKind=[tipo-api];)*<br/> <br/>Il formato di ResourceId: *ResourceId=/subscriptions/**ID sottoscrizione**/resourceGroups/**nome gruppo risorse**/providers/Microsoft.DocumentDB/databaseAccounts/**nome account cosmos db**/;*<br/><br/>Per le raccolte SQL, la stringa di connessione non necessita di un ApiKind.<br/><br/>Per le raccolte MongoDB, aggiungere **ApiKind=MongoDb** alla stringa di connessione. <br/><br/>Per i grafici Gremlin e le tabelle Apache Cassandra, iscriversi all’[anteprima dell'indicizzatore gestito](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e le informazioni sul formato delle credenziali.<br/>|
-| **container** | Contiene gli elementi seguenti: <br/>**name**: Obbligatorio. Specificare l'ID della raccolta di database da indicizzare.<br/>**query**: Facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che possa essere indicizzato da Ricerca cognitiva di Azure.<br/>Per le API MongoDB, Gremlin e Apache Cassandra, le query non sono supportate. |
+|**credentials** | Obbligatorio. <br/><br/>Quando ci si connette usando un'identità gestita, il formato delle **credenziali** si presenta come segue: *Database=[nome-database];ResourceId=[stringa-id-risorsa];(ApiKind=[tipo-api];)*<br/> <br/>Il formato di ResourceId: *ResourceId=/subscriptions/ **ID sottoscrizione** /resourceGroups/ **nome gruppo risorse** /providers/Microsoft.DocumentDB/databaseAccounts/ **nome account cosmos db** /;*<br/><br/>Per le raccolte SQL, la stringa di connessione non necessita di un ApiKind.<br/><br/>Per le raccolte MongoDB, aggiungere **ApiKind=MongoDb** alla stringa di connessione. <br/><br/>Per i grafici Gremlin e le tabelle Apache Cassandra, iscriversi all’[anteprima dell'indicizzatore gestito](https://aka.ms/azure-cognitive-search/indexer-preview) per ottenere l'accesso all'anteprima e le informazioni sul formato delle credenziali.<br/>|
+| **container** | Contiene gli elementi seguenti: <br/>**name** : Obbligatorio. Specificare l'ID della raccolta di database da indicizzare.<br/>**query** : Facoltativa. È possibile specificare una query per rendere flat un documento JSON arbitrario in modo da ottenere uno schema flat che possa essere indicizzato da Ricerca cognitiva di Azure.<br/>Per le API MongoDB, Gremlin e Apache Cassandra, le query non sono supportate. |
 | **dataChangeDetectionPolicy** | Consigliato |
 |**dataDeletionDetectionPolicy** | Facoltativo |
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a668024db126c82f96756555aba513b77f7d7366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89177092"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422961"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Eseguire il debug di funzioni di Azure PowerShell in locale
 
@@ -38,7 +38,7 @@ PSFunctionApp
  | - profile.ps1
 ```
 
-Questa app per le funzioni è simile a quella che si ottiene quando si completa la [Guida introduttiva di PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
+Questa app per le funzioni è simile a quella che si ottiene quando si completa la [Guida introduttiva di PowerShell](./create-first-function-vs-code-powershell.md).
 
 Il codice della funzione si `run.ps1` presenta come lo script seguente:
 
@@ -95,10 +95,10 @@ Con `Wait-Debugger` sul posto, è ora possibile eseguire il debug delle funzioni
 Per eseguire il debug delle funzioni di PowerShell in Visual Studio Code, è necessario che siano installati gli elementi seguenti:
 
 * [Estensione PowerShell per Visual Studio Code](/powershell/scripting/components/vscode/using-vscode)
-* [Estensione Funzioni di Azure per Visual Studio Code](functions-create-first-function-vs-code.md)
+* [Estensione Funzioni di Azure per Visual Studio Code](./create-first-function-cli-powershell.md)
 * [PowerShell Core 6,2 o versione successiva](/powershell/scripting/install/installing-powershell-core-on-windows)
 
-Dopo l'installazione di queste dipendenze, caricare un progetto di funzioni di PowerShell esistente o [creare il primo progetto di funzioni di PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell).
+Dopo l'installazione di queste dipendenze, caricare un progetto di funzioni di PowerShell esistente o [creare il primo progetto di funzioni di PowerShell](./create-first-function-vs-code-powershell.md).
 
 >[!NOTE]
 > Se il progetto non dispone dei file di configurazione necessari, viene richiesto di aggiungerli.
@@ -111,7 +111,7 @@ PowerShell core viene installato side-by-side con Windows PowerShell. Impostare 
 
 1. Scegliere **PowerShell: Mostra menu sessione**.
 
-1. Se la **sessione corrente** non è **PowerShell Core 6**, scegliere **passa a: PowerShell Core 6**.
+1. Se la **sessione corrente** non è **PowerShell Core 6** , scegliere **passa a: PowerShell Core 6**.
 
 Quando si apre un file di PowerShell, viene visualizzata la versione in verde nella parte inferiore destra della finestra. Selezionando questo testo viene visualizzato anche il menu sessione. Per altre informazioni, vedere la pagina relativa alla [scelta di una versione di PowerShell da usare con l'estensione](/powershell/scripting/components/vscode/using-vscode#choosing-a-version-of-powershell-to-use-with-the-extension).
 
@@ -132,7 +132,7 @@ L'operazione Avvia debug esegue le attività seguenti:
 * Alleghi il debugger di PowerShell ai spazio di PowerShell nel runtime di funzioni.
 
 >[!NOTE]
-> È necessario assicurarsi che PSWorkerInProcConcurrencyUpperBound sia impostato su 1 per garantire la corretta esperienza di debug in Visual Studio Code. Questo è il valore predefinito.
+> È necessario assicurarsi che PSWorkerInProcConcurrencyUpperBound sia impostato su 1 per garantire la corretta esperienza di debug in Visual Studio Code. Questa è la modalità predefinita.
 
 Con l'app per le funzioni in esecuzione, è necessaria una console di PowerShell separata per chiamare la funzione attivata tramite HTTP.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 09/29/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python,contperfq1, automl
-ms.openlocfilehash: 009018335e57943392b83047702f24890bf714d5
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 825413421bc9025c2912bb790a3166c6e3d34a0f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359613"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421839"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Configurare esperimenti di ML automatizzato in Python
 
@@ -117,7 +117,7 @@ Successivamente, determinare dove verrà eseguito il training del modello. Un es
 
     Vedere [questo notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb) per un esempio in remoto con il calcolo gestito di Azure Machine Learning. 
 
-* Un **cluster Azure Databricks** nella sottoscrizione di Azure. Per informazioni dettagliate, vedere [Configurare un cluster Azure Databricks per Machine Learning automatizzato](how-to-configure-environment.md#aml-databricks). Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) per esempi di notebook con Azure Databricks.
+* Un **cluster Azure Databricks** nella sottoscrizione di Azure. Per altre informazioni, vedere [configurare un cluster di Azure Databricks per Machine Learning automatizzato](how-to-configure-databricks-automl-environment.md). Visitare il [sito GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/azure-databricks/automl) per esempi di notebook con Azure Databricks.
 
 <a name='configure-experiment'></a>
 

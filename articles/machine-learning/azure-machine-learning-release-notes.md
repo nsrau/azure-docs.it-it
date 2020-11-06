@@ -9,18 +9,27 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: a60ca64113bb3f2700e9f521f65780dc8ffbcc54
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 44afcf6883298eb36cd1219e6d60a8444a487412
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93307740"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93423012"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
 In questo articolo vengono fornite informazioni sulle versioni Azure Machine Learning.  Per il contenuto completo dell'SDK di riferimento, visitare la pagina di riferimento dell'SDK principale di Azure Machine Learning [**per Python**](/python/api/overview/azure/ml/intro?preserve-view=true&view=azure-ml-py) .
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
+
+## <a name="2020-11-05"></a>2020-11-05
+
+### <a name="data-labeling-for-image-instance-segmentation-polygon-annotation-preview"></a>Assegnazione di etichette ai dati per segmentazione dell'istanza di immagine (annotazione Polygon) (anteprima)
+
+Il tipo di progetto per la segmentazione dell'istanza di immagine (annotazioni Polygon) nell'etichetta dati è ora disponibile, in modo che gli utenti possano creare e annotare con i poligoni intorno al contorno degli oggetti nelle immagini. Gli utenti potranno assegnare una classe e un poligono a ogni oggetto di interesse all'interno di un'immagine.
+
+Altre informazioni sulle [etichette di segmentazione delle istanze di immagine](how-to-label-images.md).
+
 
 ## <a name="2020-10-26"></a>2020-10-26
 
@@ -181,7 +190,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Dipendenze di AutoML aggiornate: `scikit-learn` (ora 0.22.1), `pandas` (ora 0.25.1), `numpy` (ora 1.18.2).
   + **azureml-contrib-automl-DNN-Forecasting**
     + Dipendenze di AutoML aggiornate: `scikit-learn` (ora 0.22.1), `pandas` (ora 0.25.1), `numpy` (ora 1.18.2).
-  + **azureml-contrib-fairness**
+  + **azureml-contrib-Equity**
     + Fornire una breve descrizione per azureml-contrib-equity.
   + **azureml-contrib-pipeline-steps**
     + Aggiunto messaggio che indica che il pacchetto è deprecato e che l'utente deve usare azureml-pipeline-Steps.
@@ -733,7 +742,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 
 Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     
-| Strumento basato sul Web  |     Descrizione  |
+| Strumento basato sul Web  |     Description  |
 |---|---|
 | Notebook di Azure ML Studio   |     Prima creazione di classi per i file notebook e supporto per tutte le operazioni disponibili in Azure ML Python SDK. | 
 
@@ -1245,7 +1254,7 @@ Da studio è possibile eseguire il training, il test, la distribuzione e la gest
 
 Accedere ai seguenti strumenti di creazione basati sul Web da studio:
 
-| Strumento basato sul Web | Descrizione | 
+| Strumento basato sul Web | Description | 
 |-|-|-|
 | VM notebook (anteprima) | Workstation basata su cloud completamente gestita | 
 | [Machine Learning automatizzato](tutorial-first-experiment-automated-ml.md) (anteprima) | Nessuna esperienza di codice per l'automazione dello sviluppo di modelli di Machine Learning | 

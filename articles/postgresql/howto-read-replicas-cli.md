@@ -5,14 +5,14 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 11/05/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 9fd828baed5a03cbce5d5327248eb34045ffd6bc
-ms.sourcegitcommit: 3bcce2e26935f523226ea269f034e0d75aa6693a
+ms.openlocfilehash: 2fa8794066739302d2f32acb13c936c524dc89a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92489711"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422349"
 ---
 # <a name="create-and-manage-read-replicas-from-the-azure-cli-rest-api"></a>Creare e gestire le repliche di lettura dall'interfaccia della riga di comando di Azure, API REST
 
@@ -27,7 +27,9 @@ Per configurare il livello di registrazione corretto, usare il parametro di supp
 * **Replica** : più dettagliata di **off**. Questo è il livello minimo di registrazione necessario per il funzionamento delle [repliche di lettura](concepts-read-replicas.md) . Questa impostazione è quella predefinita nella maggior parte dei server.
 * **Logica** : più dettagliata rispetto alla **replica**. Questo è il livello minimo di registrazione per il funzionamento della decodifica logica. Le repliche di lettura funzionano anche con questa impostazione.
 
-Il server deve essere riavviato dopo una modifica di questo parametro. Internamente, questo parametro imposta i parametri Postgres `wal_level` , `max_replication_slots` e `max_wal_senders` .
+
+> [!NOTE]
+> Quando si distribuiscono le repliche di lettura per carichi di lavoro primari intensi a elevato utilizzo di scrittura, l'intervallo di replica può continuare ad aumentare e non può mai essere in grado di recuperare il database primario. Questo può anche aumentare l'utilizzo dell'archiviazione nel database primario perché i file WAL non vengono eliminati fino a quando non vengono ricevuti dalla replica.
 
 ## <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 È possibile creare e gestire le repliche di lettura usando l'interfaccia della riga di comando di Azure.

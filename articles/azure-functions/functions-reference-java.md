@@ -4,12 +4,12 @@ description: Informazioni sullo sviluppo di funzioni con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: b25e548fe56c22458fe625f617fb076be13525cd
-ms.sourcegitcommit: dd45ae4fc54f8267cda2ddf4a92ccd123464d411
+ms.openlocfilehash: 9679f6030ac889ac442a40cd852f5cc17f505756
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92927516"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422519"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -19,7 +19,7 @@ Gli sviluppatori Java, se non si ha familiarità con funzioni di Azure, si consi
 
 | Introduzione | Concetti| 
 | -- | -- |  
-| <ul><li>[Funzione Java con Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-java)</li><li>[Funzione Java/Maven con terminale/prompt dei comandi](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java)</li><li>[Funzione Java con Gradle](functions-create-first-java-gradle.md)</li><li>[Funzione Java con Eclipse](functions-create-maven-eclipse.md)</li><li>[Funzione Java con IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> |
+| <ul><li>[Funzione Java con Visual Studio Code](./create-first-function-vs-code-java.md)</li><li>[Funzione Java/Maven con terminale/prompt dei comandi](./create-first-function-cli-java.md)</li><li>[Funzione Java con Gradle](functions-create-first-java-gradle.md)</li><li>[Funzione Java con Eclipse](functions-create-maven-eclipse.md)</li><li>[Funzione Java con IntelliJ IDEA](functions-create-maven-intellij.md)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> |
 
 ## <a name="java-function-basics"></a>Nozioni fondamentali sulle funzioni Java
 
@@ -55,7 +55,7 @@ mvn archetype:generate \
     -DarchetypeArtifactId=azure-functions-archetype 
 ```
 
-Per iniziare a usare questo archetipo, vedere [Avvio rapido Java](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java). 
+Per iniziare a usare questo archetipo, vedere [Avvio rapido Java](./create-first-function-cli-java.md).
 
 ## <a name="folder-structure"></a>Struttura di cartelle
 
@@ -153,7 +153,7 @@ A meno che non si specifichi una versione Java per la distribuzione, l'archetipo
 
 L'archetipo Maven genera un pom.xml destinato alla versione Java specificata. Gli elementi seguenti in pom.xml indicano la versione di Java da usare:
 
-| Elemento |  Valore Java 8 | Valore Java 11 | Descrizione |
+| Elemento |  Valore Java 8 | Valore Java 11 | Description |
 | ---- | ---- | ---- | --- |
 | **`Java.version`** | 1.8 | 11 | Versione di Java usata dal plug-in del compilatore Maven. |
 | **`JavaVersion`** | 8 | 11 | Versione Java ospitata dall'app per le funzioni in Azure. |

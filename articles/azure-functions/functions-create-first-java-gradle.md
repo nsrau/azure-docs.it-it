@@ -6,19 +6,19 @@ ms.custom: devx-track-java
 ms.author: karler
 ms.topic: how-to
 ms.date: 04/08/2020
-ms.openlocfilehash: a9592d848398c71bc573c073f0b712898f666640
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: 48a732e3935d78bdbf8b81fe989b59be1fbe2203
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92104870"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422808"
 ---
 # <a name="use-java-and-gradle-to-create-and-publish-a-function-to-azure"></a>Usare Java e Gradle per creare e pubblicare una funzione in Azure
 
 Questo articolo illustra come creare e pubblicare un progetto di funzione Java in funzioni di Azure con lo strumento da riga di comando Gradle. Al termine, il codice della funzione viene eseguito in Azure in un [piano di hosting serverless](functions-scale.md#consumption-plan) e viene attivato da una richiesta HTTP. 
 
 > [!NOTE]
-> Se Gradle non è lo strumento di sviluppo preferito, vedere le esercitazioni simili per gli sviluppatori Java che usano [Maven](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-java), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [vs code](./functions-create-first-function-vs-code.md?pivots=programming-language-java).
+> Se Gradle non è lo strumento di sviluppo preferito, vedere le esercitazioni simili per gli sviluppatori Java che usano [Maven](./create-first-function-cli-java.md), [IntelliJ IDEA](/azure/developer/java/toolkit-for-intellij/quickstart-functions) e [vs code](./create-first-function-vs-code-java.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -126,8 +126,8 @@ In questo esempio vengono create le risorse seguenti in Azure, in base ai valori
 
 + Gruppo di risorse. Con il nome _resourceGroup_ specificato.
 + Account di archiviazione. Richiesto da Funzioni. Il nome viene generato in modo casuale in base ai requisiti di denominazione degli account di archiviazione.
-+ Piano di servizio app. Piano a consumo senza server che ospita l'app per le funzioni nel _appRegion_specificato. Il nome viene generato in modo casuale.
-+ App per le funzioni. Un'app per le funzioni è l'unità di distribuzione ed esecuzione per le funzioni. Il nome è _appName_, con l'aggiunta finale di un numero generato in modo casuale. 
++ Piano di servizio app. Piano a consumo senza server che ospita l'app per le funzioni nel _appRegion_ specificato. Il nome viene generato in modo casuale.
++ App per le funzioni. Un'app per le funzioni è l'unità di distribuzione ed esecuzione per le funzioni. Il nome è _appName_ , con l'aggiunta finale di un numero generato in modo casuale. 
 
 La distribuzione inserisce inoltre i file di progetto in un pacchetto e li distribuisce nella nuova app per le funzioni tramite [ZipDeploy](functions-deployment-technologies.md#zip-deploy), con la modalità run-from-package abilitata.
 
@@ -142,7 +142,7 @@ Il trigger authLevel per HTTP nel progetto di esempio è `ANONYMOUS` , che ignor
 
 1. Passare al [portale di Azure], accedere, digitare il nome _appName_ dell'app per le funzioni nella casella **Cerca** nella parte superiore della pagina, quindi premere INVIO.
  
-1. Nell'app per le funzioni selezionare **funzioni**, scegliere la funzione, quindi fare clic su **</> ottenere l'URL della funzione** in alto a destra. 
+1. Nell'app per le funzioni selezionare **funzioni** , scegliere la funzione, quindi fare clic su **</> ottenere l'URL della funzione** in alto a destra. 
 
     :::image type="content" source="./media/functions-create-first-java-gradle/get-function-url-portal.png" alt-text="Creare l'URL della funzione dal portale di Azure":::
 

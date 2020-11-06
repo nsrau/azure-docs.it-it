@@ -7,31 +7,33 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 11/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 842d43c82875a1a8e5e45ba14f47ceb6eac26727
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4b97b223ac180df7f8eb07ad8eaab66847f50776
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91538807"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422995"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Esempio: aggiungere sinonimi per ricerca cognitiva di Azure in C #
 
 I sinonimi espandono una query tramite la corrispondenza con termini considerati semanticamente uguali al termine di input. È ad esempio possibile che si voglia che il termine "auto" consenta di rilevare corrispondenze con documenti contenenti i termini "automobile" o "veicolo". 
 
-In ricerca cognitiva di Azure, i sinonimi vengono definiti in una *mappa di sinonimi*tramite *regole di mapping* che associano termini equivalenti. In questo esempio vengono illustrati i passaggi essenziali per l'aggiunta e l'utilizzo di sinonimi con un indice esistente. Si apprenderà come:
+In ricerca cognitiva di Azure, i sinonimi vengono definiti in una *mappa di sinonimi* tramite *regole di mapping* che associano termini equivalenti. In questo esempio vengono illustrati i passaggi essenziali per l'aggiunta e l'utilizzo di sinonimi con un indice esistente.
+
+In questo esempio si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare una mappa di sinonimi usando la classe  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap) . 
-> * Impostare la proprietà [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps) nei campi che devono supportare l'espansione delle query tramite sinonimi.
+> * Creare una mappa di sinonimi usando la [classe SynonymMap](/dotnet/api/azure.search.documents.indexes.models.synonymmap). 
+> * Impostare la [Proprietà SynonymMapsName](/dotnet/api/azure.search.documents.indexes.models.searchfield.synonymmapnames) nei campi che devono supportare l'espansione delle query tramite sinonimi.
 
 È possibile eseguire una query su un campo abilitato per sinonimi come in genere. Non è necessaria alcuna sintassi di query aggiuntiva per accedere ai sinonimi.
 
 È possibile creare più mappe di sinonimi, inserirle come risorse a livello di servizio disponibili per qualsiasi indice e quindi fare riferimento alla mappa da usare a livello di campo. In fase di query, oltre a eseguire ricerche in un indice, Azure ricerca cognitiva esegue una ricerca in una mappa di sinonimi, se ne viene specificata una nei campi utilizzati nella query.
 
 > [!NOTE]
-> I sinonimi possono essere creati a livello di codice, ma non nel portale. Se l'utente considera utile il supporto dei sinonimi del portale di Azure, può fornire un feedback tramite [UserVoice](https://feedback.azure.com/forums/263029-azure-search)
+> I sinonimi possono essere creati a livello di codice, ma non nel portale.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -39,109 +41,105 @@ I requisiti per l'esercitazione includono i seguenti:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Servizio ricerca cognitiva di Azure](search-create-service-portal.md)
-* [Libreria Microsoft.Azure.Search .NET](/dotnet/api/overview/azure/search)
-* [Come usare ricerca cognitiva di Azure da un'applicazione .NET](./search-howto-dotnet-sdk.md)
+* [Azure.Search.Docpacchetto uments](https://www.nuget.org/packages/Azure.Search.Documents/)
+
+Se non si ha familiarità con la libreria client .NET, vedere [come usare Azure ricerca cognitiva in .NET](search-howto-dotnet-sdk.md).
+
+## <a name="sample-code"></a>Codice di esempio
+
+È possibile trovare il codice sorgente completo dell'applicazione di esempio usata in questo esempio in [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="overview"></a>Panoramica
 
-Le query di tipo "prima e dopo" illustrano il valore dei sinonimi. In questo esempio, usare un'applicazione di esempio che esegue query e restituisce i risultati in un indice di esempio. L'applicazione di esempio crea un indice di dimensioni ridotte denominato "hotels", popolato con due documenti. L'applicazione esegue query di ricerca usando termini e frasi non visualizzati nell'indice, abilita la funzionalità relativa ai sinonimi e quindi esegue di nuovo le stesse ricerche. Il codice seguente illustra il flusso complessivo.
+Le query before-and-after vengono usate per illustrare il valore dei sinonimi. In questo esempio, un'applicazione di esempio esegue query e restituisce i risultati in un indice "Hotels" di esempio popolato con due documenti. In primo luogo, l'applicazione esegue query di ricerca usando termini e frasi che non sono presenti nell'indice. In secondo luogo, il codice Abilita la funzionalità sinonimi, quindi emette nuovamente le stesse query, restituendo i risultati in base alle corrispondenze nella mappa dei sinonimi. 
+
+Il codice seguente illustra il flusso complessivo.
 
 ```csharp
-  static void Main(string[] args)
-  {
-      SearchServiceClient serviceClient = CreateSearchServiceClient();
+static void Main(string[] args)
+{
+   SearchIndexClient indexClient = CreateSearchIndexClient();
 
-      Console.WriteLine("{0}", "Cleaning up resources...\n");
-      CleanupResources(serviceClient);
+   Console.WriteLine("Cleaning up resources...\n");
+   CleanupResources(indexClient);
 
-      Console.WriteLine("{0}", "Creating index...\n");
-      CreateHotelsIndex(serviceClient);
+   Console.WriteLine("Creating index...\n");
+   CreateHotelsIndex(indexClient);
 
-      ISearchIndexClient indexClient = serviceClient.Indexes.GetClient("hotels");
+   SearchClient searchClient = indexClient.GetSearchClient("hotels");
 
-      Console.WriteLine("{0}", "Uploading documents...\n");
-      UploadDocuments(indexClient);
+   Console.WriteLine("Uploading documents...\n");
+   UploadDocuments(searchClient);
 
-      ISearchIndexClient indexClientForQueries = CreateSearchIndexClient();
+   SearchClient searchClientForQueries = CreateSearchClientForQueries();
 
-      RunQueriesWithNonExistentTermsInIndex(indexClientForQueries);
+   RunQueriesWithNonExistentTermsInIndex(searchClientForQueries);
 
-      Console.WriteLine("{0}", "Adding synonyms...\n");
-      UploadSynonyms(serviceClient);
-      EnableSynonymsInHotelsIndex(serviceClient);
-      Thread.Sleep(10000); // Wait for the changes to propagate
+   Console.WriteLine("Adding synonyms...\n");
+   UploadSynonyms(indexClient);
 
-      RunQueriesWithNonExistentTermsInIndex(indexClientForQueries);
+   Console.WriteLine("Enabling synonyms in the test index...\n");
+   EnableSynonymsInHotelsIndexSafely(indexClient);
+   Thread.Sleep(10000); // Wait for the changes to propagate
 
-      Console.WriteLine("{0}", "Complete.  Press any key to end application...\n");
+   RunQueriesWithNonExistentTermsInIndex(searchClientForQueries);
 
-      Console.ReadKey();
-  }
+   Console.WriteLine("Complete.  Press any key to end application...\n");
+
+   Console.ReadKey();
+}
 ```
-I passaggi per creare e popolare l'indice di esempio sono illustrati in [come usare ricerca cognitiva di Azure da un'applicazione .NET](./search-howto-dotnet-sdk.md).
 
 ## <a name="before-queries"></a>Query di tipo "prima"
 
 In `RunQueriesWithNonExistentTermsInIndex` vengono eseguite query di ricerca con i termini "five star", "internet" ed "economy AND hotel".
+
 ```csharp
 Console.WriteLine("Search the entire index for the phrase \"five star\":\n");
-results = indexClient.Documents.Search<Hotel>("\"five star\"", parameters);
+results = searchClient.Search<Hotel>("\"five star\"", searchOptions);
 WriteDocuments(results);
 
 Console.WriteLine("Search the entire index for the term 'internet':\n");
-results = indexClient.Documents.Search<Hotel>("internet", parameters);
+results = searchClient.Search<Hotel>("internet", searchOptions);
 WriteDocuments(results);
 
 Console.WriteLine("Search the entire index for the terms 'economy' AND 'hotel':\n");
-results = indexClient.Documents.Search<Hotel>("economy AND hotel", parameters);
+results = searchClient.Search<Hotel>("economy AND hotel", searchOptions);
 WriteDocuments(results);
 ```
-Nessuno dei due documenti indicizzati contiene questi termini, quindi si ottiene l'output seguente dal primo comando `RunQueriesWithNonExistentTermsInIndex`.
-```
-Search the entire index for the phrase "five star":
 
-no document matched
-
-Search the entire index for the term 'internet':
-
-no document matched
-
-Search the entire index for the terms 'economy' AND 'hotel':
-
-no document matched
-```
+Nessuno dei due documenti indicizzati contiene i termini, quindi si ottiene l'output seguente dal primo `RunQueriesWithNonExistentTermsInIndex` :  **nessun documento corrispondente**.
 
 ## <a name="enable-synonyms"></a>Abilitare i sinonimi
 
-L'abilitazione dei sinonimi è un processo in due passaggi. Vengono prima di tutto definite e caricate le regole dei sinonimi e quindi vengono configurati i campi per usarle. Il processo viene illustrato in `UploadSynonyms` e `EnableSynonymsInHotelsIndex`.
+Dopo l'esecuzione delle query "before", il codice di esempio Abilita i sinonimi. L'abilitazione dei sinonimi è un processo in due passaggi. Prima di tutto, definire e caricare le regole di sinonimo. In secondo luogo, configurare i campi per usarli. Il processo viene illustrato in `UploadSynonyms` e `EnableSynonymsInHotelsIndex`.
 
 1. Aggiungere una mappa di sinonimi al servizio di ricerca. In `UploadSynonyms` vengono definite quattro regole nella mappa di sinonimi 'desc-synonymmap' e viene eseguito il caricamento nel servizio.
-   ```csharp
-    var synonymMap = new SynonymMap()
-    {
-        Name = "desc-synonymmap",
-        Format = "solr",
-        Synonyms = "hotel, motel\n
-                    internet,wifi\n
-                    five star=>luxury\n
-                    economy,inexpensive=>budget"
-    };
 
-    serviceClient.SynonymMaps.CreateOrUpdate(synonymMap);
+   ```csharp
+   private static void UploadSynonyms(SearchIndexClient indexClient)
+   {
+      var synonymMap = new SynonymMap("desc-synonymmap", "hotel, motel\ninternet,wifi\nfive star=>luxury\neconomy,inexpensive=>budget");
+
+      indexClient.CreateOrUpdateSynonymMap(synonymMap);
+   }
    ```
-   Una mappa di sinonimi deve essere conforme al formato `solr` dello standard open source. Il formato è illustrato in [sinonimi in Azure ricerca cognitiva](search-synonyms.md) nella sezione `Apache Solr synonym format` .
 
-2. Configurare i campi disponibili per la ricerca per l'uso della mappa di sinonimi nella definizione dell'indice. In `EnableSynonymsInHotelsIndex` vengono abilitati i sinonimi in due campi, `category` e `tags`, tramite l'impostazione della proprietà `synonymMaps` sul nome della mappa di sinonimi appena caricata.
+1. Configurare i campi disponibili per la ricerca per l'uso della mappa di sinonimi nella definizione dell'indice. In `AddSynonymMapsToFields` vengono abilitati i sinonimi in due campi, `category` e `tags`, tramite l'impostazione della proprietà `SynonymMapNames` sul nome della mappa di sinonimi appena caricata.
+
    ```csharp
-   Index index = serviceClient.Indexes.Get("hotels");
-   index.Fields.First(f => f.Name == "category").SynonymMaps = new[] { "desc-synonymmap" };
-   index.Fields.First(f => f.Name == "tags").SynonymMaps = new[] { "desc-synonymmap" };
-
-   serviceClient.Indexes.CreateOrUpdate(index);
+   private static SearchIndex AddSynonymMapsToFields(SearchIndex index)
+   {
+      index.Fields.First(f => f.Name == "category").SynonymMapNames.Add("desc-synonymmap");
+      index.Fields.First(f => f.Name == "tags").SynonymMapNames.Add("desc-synonymmap");
+      return index;
+   }
    ```
-   Quando si aggiunge una mappa di sinonimi, non è necessario ricompilare l'indice. È possibile aggiungere una mappa di sinonimi al servizio e quindi correggere le definizioni di campi esistenti in qualsiasi indice in modo da usare la nuova mappa di sinonimi. L'aggiunta di nuovi attributi non ha alcun impatto sulla disponibilità dell'indice. Ciò vale anche per la disabilitazione dei sinonimi per un campo. È possibile impostare semplicemente la proprietà `synonymMaps` su un elenco vuoto.
+
+   Quando si aggiunge una mappa di sinonimi, non è necessario ricompilare l'indice. È possibile aggiungere una mappa di sinonimi al servizio e quindi correggere le definizioni di campi esistenti in qualsiasi indice in modo da usare la nuova mappa di sinonimi. L'aggiunta di nuovi attributi non ha alcun impatto sulla disponibilità dell'indice. Ciò vale anche per la disabilitazione dei sinonimi per un campo. È possibile impostare semplicemente la proprietà `SynonymMapNames` su un elenco vuoto.
+
    ```csharp
-   index.Fields.First(f => f.Name == "category").SynonymMaps = new List<string>();
+   index.Fields.First(f => f.Name == "category").SynonymMapNames.Add("desc-synonymmap");
    ```
 
 ## <a name="after-queries"></a>Query di tipo "dopo"
@@ -161,12 +159,10 @@ Search the entire index for the terms 'economy' AND 'hotel':
 
 Name: Roach Motel       Category: Budget        Tags: [motel, budget]
 ```
+
 La prima query trova il documento dalla regola `five star=>luxury`. La seconda query espande la ricerca usando `internet,wifi` e la terza usando `hotel, motel` e `economy,inexpensive=>budget` nell'individuazione di documenti corrispondenti.
 
 L'aggiunta di sinonimi modifica completamente l'esperienza di ricerca. In questo esempio, le query originali non sono in grado di restituire risultati significativi anche se i documenti nell'indice sono rilevanti. Abilitando i sinonimi, è possibile espandere un indice in modo da includere termini di uso comune, senza modifiche ai dati sottostanti dell'indice.
-
-## <a name="sample-application-source-code"></a>Esempio di codice sorgente dell'applicazione
-Il codice sorgente completo dell'applicazione di esempio utilizzata è disponibile in questa procedura dettagliata su [GitHub](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToSynonyms).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -174,7 +170,7 @@ Il modo più rapido per eseguire la pulizia dopo un esempio consiste nell'elimin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo esempio è stata illustrata la funzionalità sinonimi del codice C# per creare e pubblicare regole di mapping e quindi chiamare la mappa dei sinonimi in una query. Altre informazioni sono disponibili nella documentazione di riferimento per [.NET SDK](/dotnet/api/microsoft.azure.search) e [API REST](/rest/api/searchservice/).
+In questo esempio è stata illustrata la funzionalità sinonimi del codice C# per creare e pubblicare regole di mapping e quindi chiamare la mappa dei sinonimi in una query. Altre informazioni sono disponibili nella documentazione di riferimento per [.NET SDK](/dotnet/api/overview/azure/search.documents-readme) e [API REST](/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Come usare i sinonimi in Azure ricerca cognitiva](search-synonyms.md)

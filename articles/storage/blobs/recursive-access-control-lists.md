@@ -9,12 +9,12 @@ ms.date: 11/03/2020
 ms.author: normesta
 ms.reviewer: prishet
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 38699f94ae446295332deb9529a0da80d6df4301
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: d61942155e46792f95091957925523381a5a9cda
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93356864"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422621"
 ---
 # <a name="set-access-control-lists-acls-recursively-for-azure-data-lake-storage-gen2"></a>Impostare gli elenchi di controllo di accesso (ACL) in modo ricorsivo per Azure Data Lake Storage Gen2
 
@@ -26,7 +26,7 @@ L'ereditarietà ACL è già disponibile per i nuovi elementi figlio creati in un
 
 - Una sottoscrizione di Azure. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 
-- Un account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico. Per crearne uno, seguire [queste](data-lake-storage-quickstart-create-account.md) istruzioni.
+- Un account di archiviazione in cui è abilitato lo spazio dei nomi gerarchico. Per crearne uno, seguire [queste](create-data-lake-storage-account.md) istruzioni.
 
 - Le autorizzazioni corrette per eseguire il processo ACL ricorsivo. L'autorizzazione corretta include uno degli elementi seguenti: 
 
@@ -413,6 +413,8 @@ Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Path $
 > [!NOTE]
 > Se si vuole impostare una voce ACL **predefinita** , usare il parametro **-DefaultScope** quando si esegue il comando **set-AzDataLakeGen2ItemAclObject** . Ad esempio: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -Permission rwx -DefaultScope`.
 
+Per vedere un esempio che imposta gli ACL in modo ricorsivo nei batch specificando una dimensione del batch, vedere l'articolo di riferimento [set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) .
+
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Impostare un ACL in modo ricorsivo usando il comando [AZ storage FS Access set-ricorsivo](https://docs.microsoft.com/cli/azure/storage/fs/access#az_storage_fs_access_set_recursive) .
@@ -467,6 +469,8 @@ public async void SetACLRecursively(DataLakeServiceClient serviceClient, bool is
 }
 
 ```
+
+Per un esempio che imposta gli ACL in modo ricorsivo nei batch specificando una dimensione del batch, vedere l' [esempio](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0).NET.
 
 ### <a name="java"></a>[Java](#tab/java)
 
@@ -570,6 +574,8 @@ def set_permission_recursively(is_default_scope):
      print(e)
 ```
 
+Per un esempio che elabora gli ACL in modo ricorsivo in batch specificando una dimensione del batch, vedere l' [esempio](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)Python.
+
 ---
 
 ## <a name="update-an-acl-recursively"></a>Aggiornare un ACL in modo ricorsivo
@@ -599,6 +605,8 @@ Update-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName -Pat
 
 > [!NOTE]
 > Se si desidera aggiornare una voce ACL **predefinita** , utilizzare il parametro **-DefaultScope** quando si esegue il comando **set-AzDataLakeGen2ItemAclObject** . Ad esempio: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission rwx -DefaultScope`.
+
+Per un esempio in cui gli ACL vengono aggiornati in modo ricorsivo in batch specificando una dimensione del batch, vedere l'articolo di riferimento [Update-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/update-azdatalakegen2aclrecursive) .
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -643,6 +651,8 @@ public async void UpdateACLsRecursively(DataLakeServiceClient serviceClient, boo
 
 }
 ```
+
+Per un esempio in cui gli ACL vengono aggiornati in modo ricorsivo in batch specificando una dimensione del batch, vedere l' [esempio](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0).NET.
 
 ### <a name="java"></a>[Java](#tab/java)
 
@@ -709,6 +719,8 @@ def update_permission_recursively(is_default_scope):
      print(e)
 ```
 
+Per un esempio che elabora gli ACL in modo ricorsivo in batch specificando una dimensione del batch, vedere l' [esempio](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)Python.
+
 ---
 
 ## <a name="remove-acl-entries-recursively"></a>Rimuovi le voci ACL in modo ricorsivo
@@ -734,6 +746,8 @@ Remove-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemName  -Ac
 
 > [!NOTE]
 > Se si vuole rimuovere una voce ACL **predefinita** , usare il parametro **-DefaultScope** quando si esegue il comando **set-AzDataLakeGen2ItemAclObject** . Ad esempio: `$acl = set-AzDataLakeGen2ItemAclObject -AccessControlType user -EntityId $userID -Permission "---" -DefaultScope`.
+
+Per un esempio in cui gli ACL vengono rimossi in modo ricorsivo in batch specificando una dimensione del batch, vedere l'articolo di riferimento [Remove-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/remove-azdatalakegen2aclrecursive) .
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -775,6 +789,8 @@ public async void RemoveACLsRecursively(DataLakeServiceClient serviceClient, isD
 
 }
 ```
+
+Per un esempio in cui gli ACL vengono rimossi in modo ricorsivo in batch specificando una dimensione del batch, vedere l' [esempio](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0).NET.
 
 ### <a name="java"></a>[Java](#tab/java)
 
@@ -836,6 +852,8 @@ def remove_permission_recursively(is_default_scope):
      print(e)
 ```
 
+Per un esempio che elabora gli ACL in modo ricorsivo in batch specificando una dimensione del batch, vedere l' [esempio](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)Python.
+
 ---
 
 ## <a name="recover-from-failures"></a>Ripristino da errori
@@ -859,6 +877,8 @@ $result = Set-AzDataLakeGen2AclRecursive -Context $ctx -FileSystem $filesystemNa
 $result
 
 ```
+
+Per vedere un esempio che imposta gli ACL in modo ricorsivo nei batch specificando una dimensione del batch, vedere l'articolo di riferimento [set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) .
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -900,6 +920,8 @@ public async Task<string> ResumeAsync(DataLakeServiceClient serviceClient,
 
 }
 ```
+
+Per un esempio che imposta gli ACL in modo ricorsivo nei batch specificando una dimensione del batch, vedere l' [esempio](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0).NET.
 
 ### <a name="java"></a>[Java](#tab/java)
 
@@ -961,6 +983,8 @@ def resume_set_acl_recursive(continuation_token):
      return continuation_token
 ```
 
+Per un esempio che elabora gli ACL in modo ricorsivo in batch specificando una dimensione del batch, vedere l' [esempio](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)Python.
+
 ---
 
 Se si desidera che il processo venga completato senza interruzioni da errori di autorizzazione, è possibile specificarlo.
@@ -984,6 +1008,8 @@ echo "TotalFilesSuccessfulCount: `t`t`t$($result.TotalDirectoriesSuccessfulCount
 echo "TotalFailureCount: `t`t`t`t`t$($result.TotalFailureCount)"
 echo "FailedEntries:"$($result.FailedEntries | ft) 
 ```
+
+Per vedere un esempio che imposta gli ACL in modo ricorsivo nei batch specificando una dimensione del batch, vedere l'articolo di riferimento [set-AzDataLakeGen2AclRecursive](https://docs.microsoft.com/powershell/module/az.storage/set-azdatalakegen2aclrecursive) .
 
 ### <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
@@ -1021,6 +1047,8 @@ public async Task ContinueOnFailureAsync(DataLakeServiceClient serviceClient,
         counters.FailedChangesCount.ToString());
 }
 ```
+
+Per un esempio che imposta gli ACL in modo ricorsivo nei batch specificando una dimensione del batch, vedere l' [esempio](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Frecursiveaclpr.blob.core.windows.net%2Fprivatedrop%2FRecursive-Acl-Sample-Net.zip%3Fsv%3D2019-02-02%26st%3D2020-08-24T07%253A45%253A28Z%26se%3D2021-09-25T07%253A45%253A00Z%26sr%3Db%26sp%3Dr%26sig%3D2GI3f0KaKMZbTi89AgtyGg%252BJePgNSsHKCL68V6I5W3s%253D&data=02%7C01%7Cnormesta%40microsoft.com%7C6eae76c57d224fb6de8908d848525330%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637338865714571853&sdata=%2FWom8iI3DSDMSw%2FfYvAaQ69zbAoqXNTQ39Q9yVMnASA%3D&reserved=0).NET.
 
 ### <a name="java"></a>[Java](#tab/java)
 
@@ -1079,6 +1107,8 @@ def continue_on_failure():
     except Exception as e:
      print(e)
 ```
+
+Per un esempio che elabora gli ACL in modo ricorsivo in batch specificando una dimensione del batch, vedere l' [esempio](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/storage/azure-storage-file-datalake/samples/datalake_samples_access_control_recursive.py)Python.
 
 ---
 

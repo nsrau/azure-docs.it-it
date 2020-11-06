@@ -1,7 +1,7 @@
 ---
 title: 'Converti in CSV: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Convert to CSV in Azure Machine Learning per convertire un set di dati in un formato CSV che può essere scaricato, esportato o condiviso con moduli di script R o Python.
+description: Informazioni su come usare il modulo Convert to CSV in Azure Machine Learning Designer per convertire un set di dati in un file CSV che può essere riutilizzato in un secondo momento.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 3b7c781717952765941acd4ea4aa47593d4b8a0f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cc58689e30e9b03e490c0871f3decd50372371fa
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898787"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421924"
 ---
 # <a name="convert-to-csv-module"></a>Converti in modulo CSV
 
@@ -46,11 +46,11 @@ Quando si converte un set di dati in formato CSV, il volume CSV viene salvato ne
 ### <a name="results"></a>Risultati
   
 
-Selezionare la scheda **output** nel riquadro di destra di **Converti in CSV**e selezionare una di queste icone sotto gli output della **porta**.  
+Selezionare la scheda **output** nel riquadro di destra di **Converti in CSV** e selezionare una di queste icone sotto gli output della **porta**.  
 
-+ **Registra set di dati**: selezionare l'icona e salvare di nuovo il file CSV nell'area di lavoro di Azure ml come set di dati separato. È possibile trovare il set di dati come modulo nell'albero del modulo nella sezione set di dati **personali** .
++ **Registra set di dati** : selezionare l'icona e salvare di nuovo il file CSV nell'area di lavoro di Azure ml come set di dati separato. È possibile trovare il set di dati come modulo nell'albero del modulo nella sezione set di dati **personali** .
 
- + **Visualizza output**: selezionare l'icona a forma di occhio e seguire le istruzioni per esplorare la cartella **Results_dataset** e scaricare il file di data.csv.
+ + **Visualizza output** : selezionare l'icona a forma di occhio e seguire le istruzioni per esplorare la cartella **Results_dataset** e scaricare il file di data.csv.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

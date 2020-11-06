@@ -17,12 +17,12 @@ ms.topic: how-to
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 78871441fe7f9b0f6d02cdf6f05b97933abfca54
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: 975933a97b089cb208ecd7ff4461a893364262ff
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92275643"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422366"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installazione dell'agente di Azure AD Connect Health
 
@@ -59,7 +59,7 @@ La tabella seguente è un elenco di requisiti per l'uso di Azure AD Connect Heal
 
 | Ambiente di dominio | Endpoint del servizio di Azure richiesti |
 | --- | --- |
-| Pubblico generale | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;.servicebus.windows.net - Porta: 5671 </li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com (questo endpoint viene usato solo per scopi di individuazione durante la registrazione).</li> |
+| Pubblico generale | <li>&#42;.blob.core.windows.net </li><li>&#42;.aadconnecthealth.azure.com </li><li>&#42;. servicebus.windows.net-porta: 5671 (non necessario nella versione più recente dell'agente)</li><li>&#42;.adhybridhealth.azure.com/</li><li>https:\//management.azure.com </li><li>https:\//policykeyservice.dc.ad.msft.net/</li><li>https:\//login.windows.net</li><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com (questo endpoint viene usato solo per scopi di individuazione durante la registrazione).</li> |
 | Azure Germania | <li>&#42;.blob.core.cloudapi.de </li><li>&#42;.servicebus.cloudapi.de </li> <li>&#42;.aadconnecthealth.microsoftazure.de </li><li>https:\//management.microsoftazure.de </li><li>https:\//policykeyservice.aadcdi.microsoftazure.de </li><li>https:\//login.microsoftonline.de </li><li>https:\//secure.aadcdn.microsoftonline-p.de </li><li>https:\//www.office.de (questo endpoint viene usato solo per scopi di individuazione durante la registrazione).</li> |
 | Azure Government | <li>&#42;.blob.core.usgovcloudapi.net </li> <li>&#42;.servicebus.usgovcloudapi.net </li> <li>&#42;.aadconnecthealth.microsoftazure.us </li> <li>https:\//management.usgovcloudapi.net </li><li>https:\//policykeyservice.aadcdi.azure.us </li><li>https:\//login.microsoftonline.us </li><li>https:\//secure.aadcdn.microsoftonline-p.com </li><li>https:\//www.office.com (questo endpoint viene usato solo per scopi di individuazione durante la registrazione).</li> |
 
@@ -122,7 +122,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2012-r2"></a>Per abilitare il controllo per ADFS in Windows Server 2012 R2
 
-1. Per passare a **Criteri di sicurezza locali**, aprire **Server Manager** nella schermata Start oppure Server Manager nella barra delle applicazioni sul desktop e quindi fare clic su **Strumenti/Criteri di sicurezza locali**.
+1. Per passare a **Criteri di sicurezza locali** , aprire **Server Manager** nella schermata Start oppure Server Manager nella barra delle applicazioni sul desktop e quindi fare clic su **Strumenti/Criteri di sicurezza locali**.
 2. Passare alla cartella **Impostazioni locali\Criteri locali\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di protezione**.
 3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** e aggiungerlo all'elenco, quindi fare clic su **OK**.
 4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire questo comando: ```auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable```
@@ -136,9 +136,9 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 
 #### <a name="to-enable-auditing-for-ad-fs-on-windows-server-2016"></a>Per abilitare il controllo per AD FS in Windows Server 2016
 
-1. Per passare a **Criteri di sicurezza locali**, aprire **Server Manager** nella schermata Start oppure Server Manager nella barra delle applicazioni sul desktop e quindi fare clic su **Strumenti/Criteri di sicurezza locali**.
+1. Per passare a **Criteri di sicurezza locali** , aprire **Server Manager** nella schermata Start oppure Server Manager nella barra delle applicazioni sul desktop e quindi fare clic su **Strumenti/Criteri di sicurezza locali**.
 2. Passare alla cartella **Impostazioni locali\Criteri locali\Assegnazione diritti utente** e quindi fare doppio clic su **Generazione di controlli di protezione**.
-3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo**, quindi aggiungere l'account del servizio AD FS all'elenco e fare clic su **OK**.
+3. Nella scheda **Impostazioni di protezione locali** verificare che sia elencato l'account del servizio ADFS. Se l'account non è presente, fare clic su **Aggiungi utente o gruppo** , quindi aggiungere l'account del servizio AD FS all'elenco e fare clic su **OK**.
 4. Per abilitare il controllo, aprire un prompt dei comandi con privilegi elevati ed eseguire questo comando: <code>auditpol.exe /set /subcategory:{0CCE9222-69AE-11D9-BED3-505054503030} /failure:enable /success:enable</code>
 5. Chiudere **Criteri di sicurezza locali**.
 <br />   -- **La procedura seguente è necessaria solo per i server AD FS primari.** -- <br />

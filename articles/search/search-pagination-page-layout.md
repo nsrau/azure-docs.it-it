@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e583cedc04113615c50cc9906cbd11a99ff48683
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934923"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421720"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Azure ricerca cognitiva
 
 Questo articolo illustra come ottenere una risposta alla query che restituisca un numero totale di documenti corrispondenti, risultati impaginati, risultati ordinati e termini evidenziati.
 
-La struttura di una risposta è determinata dai parametri nella query: il [documento di ricerca](/rest/api/searchservice/Search-Documents) nell'API REST o la [classe DOCUMENTSEARCHRESULT](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) in .NET SDK.
+La struttura di una risposta è determinata dai parametri nella query: il [documento di ricerca](/rest/api/searchservice/Search-Documents) nell'API REST o la [classe SEARCHRESULTS](/dotnet/api/azure.search.documents.models.searchresults-1) in .NET SDK.
 
 ## <a name="result-composition"></a>Composizione risultato
 
@@ -52,7 +52,7 @@ Per restituire un numero diverso di documenti corrispondenti, aggiungere `$top` 
 + Restituisce il secondo set, ignorando le prime 15 per ottenere i successivi 15: `$top=15&$skip=15` . Eseguire la stessa operazione per il terzo set di 15: `$top=15&$skip=30`
 
 I risultati delle query impaginate non sono necessariamente stabili se l'indice sottostante viene modificato. Il paging modifica il valore di `$skip` per ogni pagina, ma ogni query è indipendente e opera sulla visualizzazione corrente dei dati presenti nell'indice in fase di query (in altre parole, non è presente alcuna memorizzazione nella cache o snapshot dei risultati, ad esempio quelli presenti in un database per utilizzo generico).
- 
+ 
 Di seguito è riportato un esempio di come si potrebbero ottenere i duplicati. Si supponga che un indice con quattro documenti:
 
 ```text
@@ -61,21 +61,21 @@ Di seguito è riportato un esempio di come si potrebbero ottenere i duplicati. S
 { "id": "3", "rating": 2 }
 { "id": "4", "rating": 1 }
 ```
- 
+ 
 Si supponga ora di voler restituire i risultati due alla volta, ordinati in base alla classificazione. Eseguire questa query per ottenere la prima pagina di risultati: `$top=2&$skip=0&$orderby=rating desc` , producendo i risultati seguenti:
 
 ```text
 { "id": "1", "rating": 5 }
 { "id": "2", "rating": 3 }
 ```
- 
+ 
 Nel servizio, si supponga che un quinto documento venga aggiunto all'indice in tra le chiamate di query: `{ "id": "5", "rating": 4 }` .  Successivamente, si esegue una query per recuperare la seconda pagina: `$top=2&$skip=2&$orderby=rating desc` e ottenere i risultati seguenti:
 
 ```text
 { "id": "2", "rating": 3 }
 { "id": "3", "rating": 2 }
 ```
- 
+ 
 Si noti che il documento 2 viene recuperato due volte. Questo perché il nuovo documento 5 ha un valore maggiore per la classificazione, quindi Ordina prima del documento 2 e atterra nella prima pagina. Sebbene questo comportamento possa essere imprevisto, è tipico del comportamento di un motore di ricerca.
 
 ## <a name="ordering-results"></a>Ordinamento dei risultati

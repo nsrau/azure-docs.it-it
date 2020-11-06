@@ -7,17 +7,17 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: bda186f6bb45250763e439b77b4d3af988574401
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/05/2020
+ms.openlocfilehash: e763dbd15ea443ad3c8f6295b37999c748db7e6c
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88935883"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422332"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Aggiungere analizzatori di lingua ai campi stringa in un indice di ricerca cognitiva di Azure
 
-L'*analizzatore del linguaggio* è un tipo specifico di [analizzatore di testo](search-analyzers.md) che esegue l'analisi lessicale usando le regole linguistiche della lingua di destinazione. Ogni campo che consente la ricerca ha una proprietà **analyzer**. Se il contenuto è costituito da stringhe tradotte, ad esempio campi separati per testo in lingua inglese e cinese, è possibile specificare gli analizzatori di lingua in ogni campo per accedere alle funzionalità linguistiche avanzate degli analizzatori.
+L' *analizzatore del linguaggio* è un tipo specifico di [analizzatore di testo](search-analyzers.md) che esegue l'analisi lessicale usando le regole linguistiche della lingua di destinazione. Ogni campo che consente la ricerca ha una proprietà **analyzer**. Se il contenuto è costituito da stringhe tradotte, ad esempio campi separati per testo in lingua inglese e cinese, è possibile specificare gli analizzatori di lingua in ogni campo per accedere alle funzionalità linguistiche avanzate degli analizzatori.
 
 ## <a name="when-to-use-a-language-analyzer"></a>Quando usare un analizzatore del linguaggio
 
@@ -68,7 +68,7 @@ Per altre informazioni sulle proprietà degli indici, vedere [creare un indice &
 ## <a name="language-analyzer-list"></a>Elenco di analizzatori di lingua 
  Di seguito è riportato l'elenco delle lingue supportate con i nomi degli analizzatori Lucene e Microsoft.  
 
-|Linguaggio|Nome analizzatore Microsoft|Nome analizzatore Lucene|  
+|Lingua|Nome analizzatore Microsoft|Nome analizzatore Lucene|  
 |--------------|-----------------------------|--------------------------|  
 |Arabo|ar.microsoft|ar.lucene|  
 |Armeno||hy.lucene|  
@@ -133,4 +133,4 @@ Per altre informazioni sulle proprietà degli indici, vedere [creare un indice &
 
 + [Creare l'indice &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/create-index)  
 
-+ [Classe AnalyzerName](/dotnet/api/microsoft.azure.search.models.analyzername)
++ [Classe LexicalAnalyzerName](/dotnet/api/azure.search.documents.indexes.models.lexicalanalyzername)

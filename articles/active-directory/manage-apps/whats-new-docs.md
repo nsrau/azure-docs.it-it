@@ -1,7 +1,7 @@
 ---
 title: Novità della gestione delle applicazioni Azure Active Directory
 description: Documentazione nuova e aggiornata per la gestione delle applicazioni Azure Active Directory.
-ms.date: 10/21/2020
+ms.date: 11/05/2020
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -10,16 +10,34 @@ ms.author: kenwith
 author: kenwith
 manager: CelesteDG
 services: active-directory
-ms.openlocfilehash: 569c111c392e6bbaf9a54d17dc6e88bc8d851dc6
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 257057c4688fcf75651df4250c601eb1f1a2e8a3
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428031"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422604"
 ---
 # <a name="azure-active-directory-application-management-whats-new"></a>Gestione applicazioni Azure Active Directory: novità
 
 Ecco le novità della documentazione sulla gestione delle applicazioni Azure Active Directory. Questo articolo elenca i nuovi documenti che sono stati aggiunti e quelli con aggiornamenti significativi negli ultimi tre mesi. Per informazioni sulle novità relative al servizio di gestione delle applicazioni, vedere Novità [di Azure Active Directory](../fundamentals/whats-new.md).
+
+## <a name="october-2020"></a>Ottobre 2020
+
+### <a name="new-articles"></a>Nuovi articoli
+
+- [Gestione applicazioni Azure Active Directory: novità](whats-new-docs.md)
+- [Informazioni Single Sign-On basate su OIDC](configure-oidc-single-sign-on.md)
+- [Configurare le classificazioni delle autorizzazioni](configure-permission-classifications.md)
+- [Configurare il consenso del proprietario del gruppo per le app che accedono ai dati di gruppo](configure-user-consent-groups.md)
+- [Gestire i criteri di consenso delle app](manage-app-consent-policies.md)
+
+### <a name="updated-articles"></a>Articoli aggiornati
+
+- [Problemi di accesso alle app configurate Single Sign-On basate su SAML](application-sign-in-problem-federated-sso-gallery.md)
+- [Problemi di installazione del connettore dell'agente proxy dell'applicazione](application-proxy-connector-installation-problem.md)
+- [Trasferimento dell'autenticazione dell'applicazione da Active Directory Federation Services a Azure Active Directory](migrate-adfs-apps-to-azure.md)
+- [Configurare la modalità con cui gli utenti finali consentono le applicazioni](configure-user-consent.md)
+
 
 ## <a name="september-2020"></a>Settembre 2020
 

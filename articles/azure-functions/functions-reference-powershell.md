@@ -5,12 +5,12 @@ author: eamonoreilly
 ms.topic: conceptual
 ms.custom: devx-track-dotnet, devx-track-azurepowershell
 ms.date: 04/22/2019
-ms.openlocfilehash: 796aca02e6f70da8f5b94f6bbdbd2fd1d535bd77
-ms.sourcegitcommit: ae6e7057a00d95ed7b828fc8846e3a6281859d40
+ms.openlocfilehash: af9490433c344c712da55e9b29bf9df364380736
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92108474"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422536"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Guida per sviluppatori PowerShell per Funzioni di Azure
 
@@ -20,7 +20,7 @@ Una funzione di Azure di PowerShell (funzione) viene rappresentata come uno scri
 
 Analogamente ad altri tipi di funzioni, le funzioni di script di PowerShell accettano parametri che corrispondono ai nomi di tutte le associazioni di input definite nel `function.json` file. `TriggerMetadata`Viene inoltre passato un parametro che contiene informazioni aggiuntive sul trigger che ha avviato la funzione.
 
-Questo articolo presuppone che siano già state lette le [informazioni di riferimento per sviluppatori su Funzioni di Azure](functions-reference.md). È necessario avere completato anche la [Guida introduttiva di funzioni per PowerShell](./functions-create-first-function-vs-code.md?pivots=programming-language-powershell) per creare la prima funzione di PowerShell.
+Questo articolo presuppone che siano già state lette le [informazioni di riferimento per sviluppatori su Funzioni di Azure](functions-reference.md). È necessario avere completato anche la [Guida introduttiva di funzioni per PowerShell](./create-first-function-vs-code-powershell.md) per creare la prima funzione di PowerShell.
 
 ## <a name="folder-structure"></a>Struttura di cartelle
 
@@ -126,7 +126,7 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 Di seguito sono riportati i parametri validi per chiamare `Push-OutputBinding` :
 
-| Nome | Tipo | Posizione | Descrizione |
+| Nome | Type | Posizione | Descrizione |
 | ---- | ---- |  -------- | ----------- |
 | **`-Name`** | string | 1 | Nome dell'associazione di output che si desidera impostare. |
 | **`-Value`** | Oggetto | 2 | Valore dell'associazione di output che si vuole impostare, che viene accettato dalla pipeline ByValue. |
@@ -418,7 +418,7 @@ Usare la procedura seguente per modificare la versione di PowerShell usata dall'
 
 1. Nel [portale di Azure](https://portal.azure.com) passare all'app per le funzioni.
 
-1. In **Impostazioni**scegliere **configurazione**. Nella scheda **Impostazioni generali** individuare la versione di **PowerShell**. 
+1. In **Impostazioni** scegliere **configurazione**. Nella scheda **Impostazioni generali** individuare la versione di **PowerShell**. 
 
     :::image type="content" source="media/functions-reference-powershell/change-powershell-version-portal.png" alt-text="Scegliere la versione di PowerShell usata dall'app per le funzioni"::: 
 
@@ -525,7 +525,7 @@ Molti moduli sono comunemente usati dal ruolo di lavoro del linguaggio di PowerS
 L'elenco corrente dei moduli è il seguente:
 
 * [Microsoft. PowerShell. Archive](https://www.powershellgallery.com/packages/Microsoft.PowerShell.Archive): modulo usato per lavorare con gli archivi, ad esempio, `.zip` `.nupkg` e altri.
-* **ThreadJob**: implementazione basata su thread delle API del processo di PowerShell.
+* **ThreadJob** : implementazione basata su thread delle API del processo di PowerShell.
 
 Per impostazione predefinita, funzioni utilizza la versione più recente di questi moduli. Per usare una versione specifica del modulo, inserire la versione specifica nella `Modules` cartella dell'app per le funzioni.
 

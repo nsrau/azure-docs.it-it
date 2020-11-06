@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 10/15/2020
-ms.openlocfilehash: 4948d23af98e267e72e6f0e0efcc1a4037173576
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 3c6bee570312009af5fbdf42a018ad2b387662d9
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92547419"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93422298"
 ---
 # <a name="secure-and-isolate-azure-hdinsight-clusters-with-private-link-preview"></a>Proteggere e isolare i cluster HDInsight di Azure con collegamento privato (anteprima)
 
@@ -29,9 +29,9 @@ Per impostazione predefinita, HDInsight RP usa una connessione in *ingresso* al 
 
 I bilanciamenti del carico di base usati nell'architettura di rete virtuale predefinita forniscono automaticamente il NAT pubblico (Network Address Translation) per accedere alle dipendenze in uscita necessarie, ad esempio HDInsight RP. Se si vuole limitare la connettività in uscita alla rete Internet pubblica, è possibile [configurare un firewall](./hdinsight-restrict-outbound-traffic.md), ma non è un requisito.
 
-`resourceProviderConnection`La configurazione in uscita consente anche di accedere a risorse specifiche del cluster, ad esempio Azure Data Lake storage Gen2 o Metastore esterni, usando endpoint privati. Prima di creare il cluster HDInsight, è necessario configurare gli endpoint privati e le voci DNS. Si consiglia di creare e fornire tutti i database SQL esterni necessari, ad esempio Apache Ranger, Ambari, oozie e Metastore hive, durante la creazione del cluster.
+`resourceProviderConnection`La configurazione in uscita consente anche di accedere a risorse specifiche del cluster, ad esempio Azure Data Lake storage Gen2 o Metastore esterni, usando endpoint privati. L'uso di endpoint privati per queste risorse non è mandetory, ma se si prevede di avere endpoint privati per queste risorse, è necessario configurare gli endpoint privati e le voci DNS `before` che si crea il cluster HDInsight. Si consiglia di creare e fornire tutti i database SQL esterni necessari, ad esempio Apache Ranger, Ambari, oozie e Metastore hive, al momento della creazione del cluster. Il requisito è che tutte queste risorse devono essere accessibili dall'interno della subnet del cluster, tramite il proprio endpoint privato o in caso contrario.
 
-Gli endpoint privati per Azure Key Vault non sono supportati. Se si usa Azure Key Vault per la crittografia CMK, è necessario che l'endpoint Azure Key Vault sia accessibile dall'interno della subnet HDInsight senza endpoint privato.
+L'uso di endpoint privati per Azure Key Vault non è supportato. Se si usa Azure Key Vault per la crittografia CMK, è necessario che l'endpoint Azure Key Vault sia accessibile dall'interno della subnet HDInsight senza endpoint privato.
 
 Il diagramma seguente mostra il possibile aspetto di una potenziale architettura di rete virtuale HDInsight quando `resourceProviderConnection` è impostato su in uscita:
 
@@ -52,7 +52,7 @@ Per accedere al cluster usando FQDN del cluster, è possibile usare direttamente
 
 ## <a name="enable-private-link"></a>Abilita collegamento privato
 
-Il collegamento privato, disabilitato per impostazione predefinita, richiede una conoscenza di rete completa per configurare correttamente le route definite dall'utente (UDR) e le regole del firewall prima di creare un cluster. L'accesso al collegamento privato al cluster è disponibile solo quando la `resourceProviderConnection` proprietà di rete è impostata su in *uscita* , come descritto nella sezione precedente.
+Il collegamento privato, disabilitato per impostazione predefinita, richiede una conoscenza di rete completa per configurare correttamente le route definite dall'utente (UDR) e le regole del firewall prima di creare un cluster. L'uso di questa impostazione è facoltativo ma è disponibile solo quando la `resourceProviderConnection` proprietà di rete è impostata su in *uscita* , come descritto nella sezione precedente.
 
 Quando `privateLink` è impostato su *Abilita* , vengono creati i servizi di [bilanciamento del carico standard](../load-balancer/load-balancer-overview.md) interni (SLB) e viene eseguito il provisioning di un servizio di collegamento privato di Azure per ogni SLB. Il servizio di collegamento privato consente di accedere al cluster HDInsight da endpoint privati.
 
@@ -64,11 +64,11 @@ Per la creazione di successgfull di servizi di collegamento privato, è necessar
 
 Il diagramma seguente illustra un esempio della configurazione di rete necessaria prima di creare un cluster. In questo esempio, tutto il traffico in uscita è [forzato](../firewall/forced-tunneling.md) al firewall di Azure con UdR e le dipendenze in uscita obbligatorie devono essere "consentite" nel firewall prima di creare un cluster. Per i cluster Enterprise Security Package, la connettività di rete alle Azure Active Directory Domain Services può essere fornita dal peering VNet.
 
-:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagramma dell'architettura HDInsight con una connessione del provider di risorse in uscita":::
+:::image type="content" source="media/hdinsight-private-link/before-cluster-creation.png" alt-text="Diagramma dell'ambiente di collegamento privato prima della creazione del cluster":::
 
 Dopo aver configurato la rete, è possibile creare un cluster con connessione del provider di risorse in uscita e collegamento privato abilitato, come illustrato nella figura seguente. In questa configurazione non sono disponibili indirizzi IP pubblici e viene effettuato il provisioning del servizio di collegamento privato per ogni servizio di bilanciamento del carico standard.
 
-:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagramma dell'architettura HDInsight con una connessione del provider di risorse in uscita":::
+:::image type="content" source="media/hdinsight-private-link/after-cluster-creation.png" alt-text="Diagramma dell'ambiente di collegamento privato dopo la creazione del cluster":::
 
 ### <a name="access-a-private-cluster"></a>Accedere a un cluster privato
 
@@ -84,7 +84,7 @@ Le voci di collegamento privato create nella zona DNS pubblica gestita da Azure 
 
 La figura seguente mostra un esempio delle voci DNS private necessarie per accedere al cluster da una rete virtuale senza peering o che non ha una linea di visibilità diretta per i bilanciamenti del carico del cluster. È possibile usare la zona privata di Azure per eseguire l'override dei nomi `*.privatelink.azurehdinsight.net` FQDN e risolverli negli indirizzi IP degli endpoint privati.
 
-:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagramma dell'architettura HDInsight con una connessione del provider di risorse in uscita":::
+:::image type="content" source="media/hdinsight-private-link/access-private-clusters.png" alt-text="Diagramma dell'architettura di collegamento privato":::
 
 ## <a name="arm-template-properties"></a>Proprietà modello ARM
 
