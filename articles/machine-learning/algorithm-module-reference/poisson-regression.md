@@ -1,7 +1,7 @@
 ---
 title: 'Regressione di Poisson: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo di regressione di Poisson per creare un modello di regressione di Poisson.
+description: Informazioni su come usare il modulo di regressione di Poisson in progettazione Azure Machine Learning per creare un modello di regressione di Poisson.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 91d6d15fc8855b49bece3a7ed903074e716b7ac4
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 2dfd8b3d919f9eeb3e183135ef543f417c878977
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319420"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420700"
 ---
 # <a name="poisson-regression"></a>Regressione di Poisson
 

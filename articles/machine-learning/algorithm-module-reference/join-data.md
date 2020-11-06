@@ -1,7 +1,7 @@
 ---
 title: 'Join Data: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo join join data in Azure Machine Learning per unire i set di dati.
+description: Informazioni su come usare il modulo join data in Azure Machine Learning Designer per unire due set di dati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 0cde479e50c67006a9ef1668ba68b211c3a9af93
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c23dca40d50c5837bd9ff45bc3c3d7fb2581685b
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907903"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420751"
 ---
 # <a name="join-data"></a>Unire dati
 
@@ -47,17 +47,17 @@ Per eseguire un join su due set di impostazioni, questi devono essere correlati 
    
 1. Utilizzare l'elenco a discesa **tipo di join** per specificare la modalità di combinazione dei set di impostazioni.  
   
-    * **Inner join**: un *inner join* è l'operazione di join più comune. Restituisce le righe combinate solo quando i valori delle colonne chiave corrispondono.  
+    * **Inner join** : un *inner join* è l'operazione di join più comune. Restituisce le righe combinate solo quando i valori delle colonne chiave corrispondono.  
   
-    * **Left outer join**: un *Left outer join* restituisce righe unite in join per tutte le righe della tabella di sinistra. Quando una riga nella tabella di sinistra non ha righe corrispondenti nella tabella di destra, la riga restituita contiene i valori mancanti per tutte le colonne che provengono dalla tabella di destra. È anche possibile specificare un valore sostitutivo per i valori mancanti.  
+    * **Left outer join** : un *Left outer join* restituisce righe unite in join per tutte le righe della tabella di sinistra. Quando una riga nella tabella di sinistra non ha righe corrispondenti nella tabella di destra, la riga restituita contiene i valori mancanti per tutte le colonne che provengono dalla tabella di destra. È anche possibile specificare un valore sostitutivo per i valori mancanti.  
   
-    * **Full outer join**: un *full outer join* restituisce tutte le righe della tabella a sinistra (**Tabella1**) e dalla tabella di destra (**Table2**).  
+    * **Full outer join** : un *full outer join* restituisce tutte le righe della tabella a sinistra ( **Tabella1** ) e dalla tabella di destra ( **Table2** ).  
   
          Per ognuna delle righe di una tabella in cui non sono presenti righe corrispondenti, il risultato include una riga che contiene i valori mancanti.  
   
-    * **Left semi join**: un *semi join a sinistra* restituisce solo i valori della tabella di sinistra quando i valori delle colonne chiave corrispondono.  
+    * **Left semi join** : un *semi join a sinistra* restituisce solo i valori della tabella di sinistra quando i valori delle colonne chiave corrispondono.  
 
-1. Per l'opzione **Mantieni colonne chiave corrette nella tabella unita in join**:
+1. Per l'opzione **Mantieni colonne chiave corrette nella tabella unita in join** :
 
     * Selezionare questa opzione per visualizzare le chiavi da entrambe le tabelle di input.
     * Deseleziona per restituire solo le colonne chiave dall'input di sinistra.

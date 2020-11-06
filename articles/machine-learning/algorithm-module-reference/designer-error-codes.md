@@ -1,7 +1,7 @@
 ---
 title: Risolvere gli errori del modulo di progettazione
 titleSuffix: Azure Machine Learning
-description: Risolvere i problemi dei codici di errore del modulo in Azure Machine Learning Designer
+description: Informazioni su come leggere e risolvere i problemi relativi ai codici di errore dei moduli automatici in Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 05926f7ce25714fb76415802876db0640eb30aae
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 569cf130b464d97e0ac10904ffd86365b57610a5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323783"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420836"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer"></a>Eccezioni e codici di errore per la finestra di progettazione
 

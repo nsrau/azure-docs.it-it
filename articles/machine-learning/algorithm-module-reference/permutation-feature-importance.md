@@ -1,7 +1,7 @@
 ---
 title: 'Importanza della funzionalità di permutazione: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Permutation feature importance in Azure Machine Learning per calcolare i punteggi di importanza delle funzionalità di permutazione delle variabili di funzionalità, dati un modello sottoposto a training e un set di dati di
+description: Informazioni su come usare il modulo Permutation feature Importance nella finestra di progettazione per calcolare i punteggi di importanza delle funzionalità di permutazione delle variabili di funzionalità.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/24/2020
-ms.openlocfilehash: bddd9a6825899f646a86ae274c539b54156667c5
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 8ae1e79922cc0f34e8b2d1f253fce5078df286d2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93319409"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421244"
 ---
 # <a name="permutation-feature-importance"></a>Permutation Feature Importance
 

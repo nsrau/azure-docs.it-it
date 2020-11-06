@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.openlocfilehash: 754d693294235ff34c68f828235cca5bb2389a2b
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: c85624d9eced3130a1c7b99943095688beee62bd
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92544835"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93417589"
 ---
 # <a name="planned-maintenance-notification-in-azure-database-for-mysql---single-server"></a>Notifica di manutenzione pianificata nel database di Azure per MySQL-server singolo
 
@@ -46,14 +46,14 @@ Ogni tentativo di fornire **notifiche di manutenzione pianificate** 72 ore di pr
 
 ### <a name="check-planned-maintenance-notification-from-azure-portal"></a>Controllare la notifica di manutenzione pianificata da portale di Azure
 
-1. Nella [portale di Azure](https://portal.azure.com)selezionare integrità del **servizio** .
+1. Nella [portale di Azure](https://portal.azure.com)selezionare integrità del **servizio**.
 2. Selezionare la scheda **manutenzione pianificata**
-3. Selezionare **sottoscrizione** , * * area e **servizio** per cui si desidera controllare la notifica di manutenzione pianificata. 
+3. Selezionare **sottoscrizione** , **area** e **servizio** per cui si desidera controllare la notifica di manutenzione pianificata. 
    
 ### <a name="to-receive-planned-maintenance-notification"></a>Per ricevere la notifica di manutenzione pianificata
 
-1. Nel [portale](https://portal.azure.com) selezionare **Integrità del servizio** .
-2. Nella sezione **Avvisi** selezionare **Avvisi integrità** .
+1. Nel [portale](https://portal.azure.com) selezionare **Integrità del servizio**.
+2. Nella sezione **Avvisi** selezionare **Avvisi integrità**.
 3. Selezionare **+ Aggiungi avviso di integrità del servizio** e compilare i campi.
 4. Compilare i campi obbligatori. 
 5. Scegliere il **tipo di evento** , selezionare **manutenzione pianificata** o **selezionare tutto**

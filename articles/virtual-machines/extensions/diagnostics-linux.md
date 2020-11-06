@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 1faf4455a983e87ce4c702c09f8bf2d9fbe70047
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0ae6366acf270d762b1c15563bfec1b2eb2a1b8d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893404"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421074"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log
 
@@ -70,10 +70,33 @@ Distribuzioni e versioni supportate:
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-* **Agente Linux di Azure 2.2.0 o versione successiva** . La maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.2.7 o successive. Eseguire `/usr/sbin/waagent -version` per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente dell'agente guest, seguire [queste istruzioni](./update-linux-agent.md) per aggiornarla.
-* **Interfaccia della riga di comando di Azure** . [Configurare l'ambiente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nella macchina virtuale.
+* **Agente Linux di Azure 2.2.0 o versione successiva**. La maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.2.7 o successive. Eseguire `/usr/sbin/waagent -version` per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente dell'agente guest, seguire [queste istruzioni](./update-linux-agent.md) per aggiornarla.
+* **Interfaccia della riga di comando di Azure**. [Configurare l'ambiente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nella macchina virtuale.
 * Il comando wget, se non è già disponibile: Eseguire `sudo apt-get install wget`.
 * Una sottoscrizione di Azure esistente e un account di archiviazione per utilizzo generico esistente in cui archiviare i dati.  Gli account di archiviazione per utilizzo generico supportano l'archiviazione tabelle, richiesta.  Un account di archiviazione BLOB non funzionerà.
+* Python 2
+
+### <a name="python-requirement"></a>Requisito per Python
+
+L'estensione di diagnostica Linux richiede Python 2. Se la macchina virtuale usa una distribuzione che non include Python 2 per impostazione predefinita, è necessario installarla. I comandi di esempio seguenti installeranno Python 2 in distribuzioni diverse.    
+
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
+ - SUSE: `zypper install -y python2`
+
+L'eseguibile di python2 deve avere un alias per *Python*. Di seguito è riportato un metodo che è possibile utilizzare per impostare l'alias:
+
+1. Eseguire il comando seguente per rimuovere gli alias esistenti.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Eseguire il comando seguente per creare l'alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ### <a name="sample-installation"></a>Installazione di esempio
 
@@ -175,7 +198,7 @@ Dopo aver modificato le impostazioni pubbliche o protette, è necessario distrib
 
 ### <a name="migration-from-previous-versions-of-the-extension"></a>Migrazione dalle versioni precedenti dell'estensione
 
-La versione più recente dell'estensione è **3.0** . **Le versioni precedenti (2.x) sono deprecate e la loro pubblicazione potrebbe essere annullata a partire dal 31 luglio 2018** .
+La versione più recente dell'estensione è **3.0**. **Le versioni precedenti (2.x) sono deprecate e la loro pubblicazione potrebbe essere annullata a partire dal 31 luglio 2018**.
 
 > [!IMPORTANT]
 > Questa estensione introduce importanti modifiche alla configurazione dell'estensione. Tale modifica è stata apportata per migliorare la sicurezza dell'estensione. Di conseguenza, la compatibilità con versioni precedenti alla versione 2.x potrebbe non essere mantenuta. In aggiunta, il server di pubblicazione per questa estensione è diverso dal server di pubblicazione per le versioni 2.x.
@@ -213,7 +236,7 @@ storageAccountSasToken | Un [token SAS dell'account](https://azure.microsoft.com
 mdsdHttpProxy | (facoltativo) Informazioni sul proxy HTTP necessarie per abilitare l'estensione affinché si connetta all'account di archiviazione e all'endpoint specificati.
 sinksConfig | (facoltativo) Informazioni sulle destinazioni alternative a cui possono essere inviati le metriche e gli eventi. Nelle sezioni che seguono vengono illustrati i dettagli specifici di ogni sink di dati supportato dall'estensione.
 
-Per ottenere un token di firma di accesso condiviso in un modello di Resource Manager, usare la funzione **listAccountSas** . Per un modello di esempio, vedere l'[esempio di funzione list](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
+Per ottenere un token di firma di accesso condiviso in un modello di Resource Manager, usare la funzione **listAccountSas**. Per un modello di esempio, vedere l'[esempio di funzione list](../../azure-resource-manager/templates/template-functions-resource.md#list-example).
 
 È possibile costruire con facilità il token SAS richiesto tramite il portale di Azure.
 

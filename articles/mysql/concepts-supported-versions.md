@@ -6,18 +6,19 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/3/2020
-ms.openlocfilehash: 4d5b858e2384ffc7dd531444aaff17ca3739b408
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0c4836ad48426bc5f2c8c18b888f0c296a90f222
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84337700"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93417691"
 ---
 # <a name="supported-azure-database-for-mysql-server-versions"></a>Versioni supportate del Database di Azure per il server MySQL
 
 Database di Azure per MySQL è stato sviluppato da [MySQL Community Edition](https://www.mysql.com/products/community/) tramite il motore InnoDB.
 
 MySQL usa lo schema di denominazione X.Y.Z. X è la versione principale, Y è la versione secondaria Z è la versione di correzione di bug. Per altre informazioni sullo schema, vedere la [documentazione di MySQL](https://dev.mysql.com/doc/refman/5.7/en/which-version.html).
+
 
 > [!NOTE]
 > Nel servizio viene usato un gateway per reindirizzare le connessioni alle istanze del server. Dopo che è stata stabilita la connessione, il client MySQL visualizza la versione di MySQL impostata nel gateway e non la versione effettiva in esecuzione nell'istanza del server MySQL. Per determinare la versione dell'istanza del server MySQL, usare il comando `SELECT VERSION();` dal prompt di MySQL.
@@ -49,4 +50,5 @@ Attualmente, gli aggiornamenti di versioni principali e secondarie non sono supp
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sulle quote di risorse e sulle limitazioni specifiche in base al **livello di servizio**, vedere livelli di [servizio](./concepts-pricing-tiers.md)
+- Per informazioni dettagliate sui criteri di controllo delle versioni di database di Azure per MySQL, vedere [questo documento](concepts-version-policy.md).
+- Per informazioni sulle quote di risorse e sulle limitazioni specifiche in base al **livello di servizio** , vedere livelli di [servizio](./concepts-pricing-tiers.md)

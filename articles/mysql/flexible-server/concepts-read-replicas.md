@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 10/26/2020
-ms.openlocfilehash: 6f3482bdc608d97e4adba5f99393e74f2e6c7cde
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 9d683f96f31d3b34ac311251f45456551148ca26
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92795222"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420887"
 ---
 # <a name="read-replicas-in-azure-database-for-mysql---flexible-server"></a>Leggere le repliche nel database di Azure per MySQL-server flessibile
 
@@ -31,7 +31,7 @@ Per altre informazioni sulle funzionalità di replica di MySQL e sui relativi pr
 > [!NOTE]
 > Comunicazione senza distorsione
 >
-> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alla parola _slave_ . La [guida di stile Microsoft per la comunicazione senza pregiudizi](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) la riconosce come parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola usata nel software. Quando il software verrà aggiornato per rimuovere la parola, questo articolo verrà aggiornato di conseguenza.
+> Microsoft supporta un ambiente diversificato ed inclusivo. Questo articolo contiene riferimenti alla parola _slave_. La [guida di stile Microsoft per la comunicazione senza pregiudizi](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) la riconosce come parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola usata nel software. Quando il software verrà aggiornato per rimuovere la parola, questo articolo verrà aggiornato di conseguenza.
 >
 
 ## <a name="common-use-cases-for-read-replica"></a>Casi d'uso comuni per la replica di lettura
@@ -61,7 +61,7 @@ Informazioni su come [creare una replica di lettura nel portale di Azure](how-to
 
 ## <a name="connect-to-a-replica"></a>Connessione a una replica
 
-Al momento della creazione, una replica eredita il metodo di connettività del server di origine. Non è possibile modificare il metodo di connettività della replica. Se ad esempio il server di origine ha **accesso privato (integrazione VNet)** , la replica non può essere in **accesso pubblico (indirizzi IP consentiti)** .
+Al momento della creazione, una replica eredita il metodo di connettività del server di origine. Non è possibile modificare il metodo di connettività della replica. Se ad esempio il server di origine ha **accesso privato (integrazione VNet)** , la replica non può essere in **accesso pubblico (indirizzi IP consentiti)**.
 
 La replica eredita l'account amministratore dal server di origine. Tutti gli account utente nel server di origine vengono replicati nelle repliche di lettura. È possibile connettersi a una replica di lettura solo utilizzando gli account utente disponibili nel server di origine.
 
@@ -117,6 +117,7 @@ Una volta che l'applicazione ha elaborato correttamente le operazioni di lettura
 | Scenario | Limitazione/considerazione |
 |:-|:-|
 | Replica nel server con disponibilità elevata con ridondanza della zona abilitata | Non supportato |
+| Replica di lettura tra aree | Non supportato |
 | Prezzi | Il costo dell'esecuzione del server di replica è basato sull'area in cui è in esecuzione il server di replica |
 | Riavvio del server di origine | Quando si crea una replica per un'origine senza repliche, l'origine viene innanzitutto riavviata per prepararsi per la replica. Prendere in considerazione questo aspetto ed eseguire queste operazioni durante un periodo di minore attività |
 | Nuove repliche | Viene creata una replica di lettura come nuovo server flessibile di database di Azure per MySQL. Un server esistente non può essere impostato come replica. Non è possibile creare una replica di un'altra replica di lettura |

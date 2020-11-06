@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f757d8f59c06d573d71099941530dfc28174ac42
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89658344"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420487"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: Domande frequenti
 
@@ -107,6 +107,9 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
    >Se non si è un amministratore di dominio ed è stata assegnata l'autorizzazione all'amministratore di dominio, è necessario chiamare `Update-AzureADSSOForest -OnPremCredentials $creds -PreserveCustomPermissionsOnDesktopSsoAccount`
    
    3. Ripetere i passaggi precedenti per ogni foresta di Active Directory in cui è stata configurata la funzionalità.
+   
+  >[!NOTE]
+   >Se si sta aggiornando una foresta diversa da quella Azure AD Connect, verificare che sia disponibile la connettività al server di catalogo globale (TCP 3268 e TCP 3269).
 
    >[!IMPORTANT]
    >Assicurarsi di _non_ eseguire il comando `Update-AzureADSSOForest` più di una volta. In caso contrario, la funzionalità si interrompe fino alla scadenza dei ticket Kerberos degli utenti e fino a quando non vengono nuovamente inviati da Active Directory locale.

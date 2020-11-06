@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/25/2020
+ms.date: 11/05/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ca2190079cb97e37318bd1c6a32dfb2b9b309a8d
-ms.sourcegitcommit: b6f3ccaadf2f7eba4254a402e954adf430a90003
+ms.openlocfilehash: f337a66f50338692508ab2e5b4b7d489c735aa20
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/20/2020
-ms.locfileid: "92276953"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420488"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Prerequisiti di Azure AD Connect
 Questo articolo descrive i prerequisiti e i requisiti hardware per la connessione Azure Active Directory (Azure AD).
@@ -42,8 +42,8 @@ Prima di installare Azure AD Connect, sono necessari alcuni elementi.
 
 ### <a name="on-premises-active-directory"></a>Active Directory locale
 * La versione dello schema Active Directory e il livello di funzionalità della foresta devono essere Windows Server 2003 o versioni successive. I controller di dominio possono eseguire qualsiasi versione, purché siano soddisfatti i requisiti di versione dello schema e a livello di foresta.
-* Se si prevede di usare il *writeback delle password*della funzionalità, i controller di dominio devono essere in Windows Server 2008 R2 o versioni successive.
-* Il controller di dominio usato da Azure AD deve essere scrivibile. L'uso di un controller di dominio di sola lettura (RODC) *non è supportato*e Azure ad Connect non segue alcun reindirizzamento di scrittura.
+* Se si prevede di usare il *writeback delle password* della funzionalità, i controller di dominio devono essere in Windows Server 2012 o versioni successive.
+* Il controller di dominio usato da Azure AD deve essere scrivibile. L'uso di un controller di dominio di sola lettura (RODC) *non è supportato* e Azure ad Connect non segue alcun reindirizzamento di scrittura.
 * Uso di foreste o domini locali con "punteggiato" (il nome contiene un punto ".") I nomi NetBIOS *non sono supportati*.
 * Si consiglia di [abilitare il cestino Active Directory](how-to-connect-sync-recycle-bin.md).
 
@@ -106,7 +106,7 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
   * Se si usa Microsoft Cloud in Germania o nel cloud Microsoft Azure per enti pubblici, vedere Considerazioni sulle [istanze del servizio di sincronizzazione Azure ad Connect](reference-connect-instances.md) per gli URL.
 * Per impostazione predefinita Azure AD Connect (versione 1.1.614.0 e successive) usa TLS 1.2 per crittografare le comunicazioni tra il motore di sincronizzazione e Azure AD. Se TLS 1.2 non è disponibile nel sistema operativo sottostante, Azure AD Connect esegue il fallback in modo incrementale sui protocolli meno recenti (TLS 1.1 e TLS 1.0).
 * Prima della versione 1.1.614.0, per impostazione predefinita, Azure AD Connect usa TLS 1.0 per crittografare le comunicazioni tra il motore di sincronizzazione e Azure AD. Per passare a TLS 1.2 seguire i passaggi descritti in [Abilitare TLS 1.2 per Azure AD Connect](#enable-tls-12-for-azure-ad-connect).
-* Se si usa un proxy in uscita per la connessione a Internet, è necessario aggiungere l'impostazione seguente nel file di **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** per l'installazione guidata e Azure ad Connect sincronizzazione per potersi connettere a internet e Azure ad. Questo testo deve essere immesso alla fine del file. In questo codice * &lt; PROXYADDRESS &gt; * rappresenta l'indirizzo IP o il nome host effettivo del proxy.
+* Se si usa un proxy in uscita per la connessione a Internet, è necessario aggiungere l'impostazione seguente nel file di **C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\machine.config** per l'installazione guidata e Azure ad Connect sincronizzazione per potersi connettere a internet e Azure ad. Questo testo deve essere immesso alla fine del file. In questo codice *&lt; PROXYADDRESS &gt;* rappresenta l'indirizzo IP o il nome host effettivo del proxy.
 
     ```
         <system.net>
@@ -140,7 +140,7 @@ Per altre informazioni sulla protezione dell'ambiente di Active Directory, veder
 Per ulteriori informazioni, vedere MSDN sull' [elemento proxy predefinito](/dotnet/framework/configure-apps/file-schema/network/defaultproxy-element-network-settings).
 Per altre informazioni in caso di problemi di connettività, vedere [Risolvere i problemi di connettività](tshoot-connect-connectivity.md).
 
-### <a name="other"></a>Altri
+### <a name="other"></a>Altro
 Facoltativo: usare un account utente di test per verificare la sincronizzazione.
 
 ## <a name="component-prerequisites"></a>Prerequisiti dei componenti
@@ -180,7 +180,7 @@ Quando si usa Azure AD Connect per distribuire AD FS o il proxy dell'applicazion
   * Nel computer in cui è in esecuzione la procedura guidata (se il computer di destinazione non è aggiunto a un dominio o è un dominio non trusted):
     * In una finestra di comando di PowerShell con privilegi elevati usare il comando `Set-Item.WSMan:\localhost\Client\TrustedHosts –Value <DMZServerFQDN> -Force –Concatenate` .
     * In Server Manager:
-      * Aggiungere un host WAP DMZ a un pool di computer. In Server Manager selezionare **Gestisci**  >  **Aggiungi server**e quindi utilizzare la scheda **DNS** .
+      * Aggiungere un host WAP DMZ a un pool di computer. In Server Manager selezionare **Gestisci**  >  **Aggiungi server** e quindi utilizzare la scheda **DNS** .
       * Nella scheda **Server Manager tutti i server** fare clic con il pulsante destro del mouse sul server WAP e scegliere **Gestisci come**. Immettere le credenziali locali (non di dominio) per il computer WAP.
       * Per convalidare la connettività remota di PowerShell, nella scheda **Server Manager tutti i server** fare clic con il pulsante destro del mouse sul server WAP e scegliere **Windows PowerShell**. È necessario aprire una sessione di PowerShell remota per assicurarsi che sia possibile stabilire sessioni remote di PowerShell.
 

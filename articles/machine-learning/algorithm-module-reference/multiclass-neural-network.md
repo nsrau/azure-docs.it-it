@@ -1,7 +1,7 @@
 ---
 title: 'Rete neurale multiclasse: informazioni di riferimento sui moduli'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo di rete neurale multiclasse in Azure Machine Learning per creare un modello di rete neurale che può essere usato per stimare una destinazione con più valori.
+description: Informazioni su come usare il modulo multiCLASS Neural Network in Azure Machine Learning Designer per stimare una destinazione con valori multiclasse.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 1b5ccc9deb3c11d847cd194992d7972f82a5c160
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a4f7f8a7793f31ffbf2099cbfb314fc5097319f5
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90905290"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421261"
 ---
 # <a name="multiclass-neural-network-module"></a>Modulo di rete neurale multiclasse
 
@@ -40,17 +40,17 @@ Per calcolare l'output della rete per un input specifico, viene calcolato un val
 
 ## <a name="configure-multiclass-neural-network"></a>Configurare la rete neurale multiclasse
 
-1. Aggiungere il modulo di **rete neurale multiclasse** alla pipeline nella finestra di progettazione. È possibile trovare questo modulo in **Machine Learning**, **Initialize**, nella categoria **classificazione** .
+1. Aggiungere il modulo di **rete neurale multiclasse** alla pipeline nella finestra di progettazione. È possibile trovare questo modulo in **Machine Learning** , **Initialize** , nella categoria **classificazione** .
 
-2. **Crea modalità trainer**: usare questa opzione per specificare come si desidera eseguire il training del modello:
+2. **Crea modalità trainer** : usare questa opzione per specificare come si desidera eseguire il training del modello:
 
-    - **Singolo parametro**: scegliere questa opzione se si conosce già il modo in cui si vuole configurare il modello.
+    - **Singolo parametro** : scegliere questa opzione se si conosce già il modo in cui si vuole configurare il modello.
 
-    - **Intervallo parametri**: selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.  
+    - **Intervallo parametri** : selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.  
 
-3. **Specifica livello nascosto**: selezionare il tipo di architettura di rete da creare.
+3. **Specifica livello nascosto** : selezionare il tipo di architettura di rete da creare.
 
-    - **Caso di connessione completa**: selezionare questa opzione per creare un modello usando l'architettura di rete neurale predefinita. Per i modelli di rete neurale multiclasse, i valori predefiniti sono i seguenti:
+    - **Caso di connessione completa** : selezionare questa opzione per creare un modello usando l'architettura di rete neurale predefinita. Per i modelli di rete neurale multiclasse, i valori predefiniti sono i seguenti:
 
         - Un livello nascosto
         - Il livello di output è completamente connesso al livello nascosto.
@@ -61,27 +61,27 @@ Per calcolare l'output della rete per un input specifico, viene calcolato un val
   
    
 
-5. **Numero di nodi nascosti**: questa opzione consente di personalizzare il numero di nodi nascosti nell'architettura predefinita. Digitare il numero di nodi nascosti. Il valore predefinito è un livello nascosto con nodi 100.
+5. **Numero di nodi nascosti** : questa opzione consente di personalizzare il numero di nodi nascosti nell'architettura predefinita. Digitare il numero di nodi nascosti. Il valore predefinito è un livello nascosto con nodi 100.
 
-6. **Velocità di apprendimento**: definire le dimensioni del passaggio effettuato a ogni iterazione, prima della correzione. Un valore più grande per la velocità di apprendimento può comportare una maggiore velocità di convergenza del modello, ma è possibile che venga superata la minima locale.
+6. **Velocità di apprendimento** : definire le dimensioni del passaggio effettuato a ogni iterazione, prima della correzione. Un valore più grande per la velocità di apprendimento può comportare una maggiore velocità di convergenza del modello, ma è possibile che venga superata la minima locale.
 
-7. **Numero di iterazioni di apprendimento**: specificare il numero massimo di volte in cui l'algoritmo deve elaborare i case di training.
+7. **Numero di iterazioni di apprendimento** : specificare il numero massimo di volte in cui l'algoritmo deve elaborare i case di training.
 
-8. **Il diametro iniziale dei pesi di apprendimento**: specificare i pesi del nodo all'inizio del processo di apprendimento.
+8. **Il diametro iniziale dei pesi di apprendimento** : specificare i pesi del nodo all'inizio del processo di apprendimento.
 
-9. **Momentum**: specificare un peso da applicare durante l'apprendimento ai nodi dalle iterazioni precedenti.
+9. **Momentum** : specificare un peso da applicare durante l'apprendimento ai nodi dalle iterazioni precedenti.
   
-11. **Esempi di riproduzione casuale**: selezionare questa opzione per riprodurre in modo casuale i casi tra le iterazioni.
+11. **Esempi di riproduzione casuale** : selezionare questa opzione per riprodurre in modo casuale i casi tra le iterazioni.
 
     Se si deseleziona questa opzione, i case vengono elaborati esattamente nello stesso ordine ogni volta che si esegue la pipeline.
 
-12. Valore di **inizializzazione numero casuale**: digitare un valore da usare come valore di inizializzazione, se si vuole garantire la ripetibilità tra le esecuzioni della stessa pipeline.
+12. Valore di **inizializzazione numero casuale** : digitare un valore da usare come valore di inizializzazione, se si vuole garantire la ripetibilità tra le esecuzioni della stessa pipeline.
 
 14. Eseguire il training del modello:
 
-    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro** , connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
   
-    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri**, connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
+    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri** , connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

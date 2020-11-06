@@ -1,7 +1,7 @@
 ---
 title: 'Esegui script Python: informazioni di riferimento sui moduli'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Execute Python script (Esegui script Python) in Azure Machine Learning per eseguire il codice Python.
+description: Informazioni su come usare il modulo Execute Python script in Azure Machine Learning Designer per eseguire il codice Python.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,12 +10,12 @@ ms.custom: devx-track-python
 author: likebupt
 ms.author: keli19
 ms.date: 10/21/2020
-ms.openlocfilehash: e6a7eabec76cf27044b5d0e13acfc2431cb19b77
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: e0da478e221fe392135362cd74cbdd8baca101ef
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323757"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421363"
 ---
 # <a name="execute-python-script-module"></a>Eseguire il modulo di script Python
 

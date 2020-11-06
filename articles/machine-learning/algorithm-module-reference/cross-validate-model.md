@@ -1,7 +1,7 @@
 ---
 title: 'Modello Cross Validate: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Cross-Validate Model in Azure Machine Learning per convalidare in modo incrociato le stime dei parametri per i modelli di classificazione o di regressione partizionando i dati.
+description: Usare il modulo Cross-Validate Model in Azure Machine Learning Designer per convalidare in modo incrociato le stime dei parametri per i modelli di classificazione o di regressione.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 63c61b12ad68a3add2e7b40ab0bec38d3c2835e5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4099ecf6e6bcc6654391e54292878393fb22914
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898563"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421346"
 ---
 # <a name="cross-validate-model"></a>Cross Validate Model
 
 Questo articolo descrive come usare il modulo Cross Validate Model in Azure Machine Learning Designer. La *convalida incrociata* è una tecnica spesso usata nell'apprendimento automatico per valutare la variabilità di un set di dati e l'affidabilità di qualsiasi modello sottoposto a training tramite i dati.  
 
-Il modulo Cross Validate Model accetta come input un set di dati con etichetta, insieme a un modello di classificazione o regressione senza training. Divide il set di dati in un certo numero di subset (*riduzioni*), compila un modello a ogni riduzioni e quindi restituisce un set di statistiche di accuratezza per ogni sezione. Confrontando le statistiche di accuratezza per tutte le riduzioni, è possibile interpretare la qualità del set di dati. È quindi possibile capire se il modello è soggetto a variazioni nei dati.  
+Il modulo Cross Validate Model accetta come input un set di dati con etichetta, insieme a un modello di classificazione o regressione senza training. Divide il set di dati in un certo numero di subset ( *riduzioni* ), compila un modello a ogni riduzioni e quindi restituisce un set di statistiche di accuratezza per ogni sezione. Confrontando le statistiche di accuratezza per tutte le riduzioni, è possibile interpretare la qualità del set di dati. È quindi possibile capire se il modello è soggetto a variazioni nei dati.  
 
 Cross Validate Model restituisce inoltre risultati stimati e probabilità per il set di dati, in modo che sia possibile valutare l'affidabilità delle stime.  
 
@@ -86,7 +86,7 @@ Il primo output del modulo fornisce i dati di origine per ogni riga, insieme ad 
 
 Per visualizzare i risultati, nella pipeline fare clic con il pulsante destro del mouse sul modulo Cross Validate Model. Selezionare **Visualizza risultati con punteggio**.
 
-| Nome nuova colonna      | Descrizione                              |
+| Nome nuova colonna      | Description                              |
 | -------------------- | ---------------------------------------- |
 | Scored Labels        | Questa colonna viene aggiunta alla fine del set di dati. Contiene il valore stimato per ogni riga. |
 | Probabilità con Punteggio | Questa colonna viene aggiunta alla fine del set di dati. Indica la probabilità stimata del valore nelle **etichette con punteggio**. |
@@ -109,9 +109,9 @@ Per visualizzare i risultati, nella pipeline fare clic con il pulsante destro de
 
 Il modulo include anche le metriche seguenti per ogni riduzioni, a seconda del tipo di modello che si sta valutando: 
 
-+ **Modelli di classificazione**: precisione, richiamo, Punteggio F, AUC, accuratezza  
++ **Modelli di classificazione** : precisione, richiamo, Punteggio F, AUC, accuratezza  
 
-+ **Modelli di regressione**: errore assoluto medio, radice errore quadratico medio, errore assoluto relativo, errore quadratico relativo e coefficiente di determinazione
++ **Modelli di regressione** : errore assoluto medio, radice errore quadratico medio, errore assoluto relativo, errore quadratico relativo e coefficiente di determinazione
 
 
 ## <a name="technical-notes"></a>Note tecniche  

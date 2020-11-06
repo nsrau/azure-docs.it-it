@@ -1,7 +1,7 @@
 ---
 title: Usare il modulo Train Wide & Deep Recommender
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Train Wide & Deep Recommender per eseguire il training di un modello di raccomandazione.
+description: Informazioni su come usare il modulo Train Wide & profonder Recommender in Azure Machine Learning Designer per eseguire il training di un modello di raccomandazione.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ce713167272c9e97754fdf6f6d065519aaea3d15
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907790"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421176"
 ---
 # <a name="train-wide--deep-recommender"></a>Eseguire il training dell'ampia & raccomandazione profonda
 In questo articolo viene descritto come usare il modulo **Train Wide di & Deep Recommender** in Azure machine learning designer, per eseguire il training di un modello di raccomandazione. Questo modulo si basa su un'ampia gamma di & Deep Learning, proposta da Google.
@@ -28,7 +28,7 @@ L'obiettivo principale di un sistema di raccomandazione è quello di consigliare
 Esistono due approcci principali ai sistemi di raccomandazione. 
 
 + Il primo è l'approccio **basato sul contenuto** che si avvale sia di funzioni utente sia di funzioni elemento. Gli utenti possono essere descritti da proprietà quali età e sesso, mentre gli elementi possono essere descritti da proprietà quali autore e produttore. Esempi tipici di sistemi di raccomandazione basati sul contenuto sono disponibili nei siti di social matchmaking. 
-+ Il secondo approccio è il **filtro collaborativo**, che usa solo identificatori degli utenti e degli elementi e ottiene implicite informazioni su queste entità da una matrice di classificazioni (di tipo sparse) fornita dagli utenti agli elementi. È possibile apprendere informazioni su un utente dagli elementi che ha classificato e dagli altri utenti che hanno classificato gli stessi elementi.  
++ Il secondo approccio è il **filtro collaborativo** , che usa solo identificatori degli utenti e degli elementi e ottiene implicite informazioni su queste entità da una matrice di classificazioni (di tipo sparse) fornita dagli utenti agli elementi. È possibile apprendere informazioni su un utente dagli elementi che ha classificato e dagli altri utenti che hanno classificato gli stessi elementi.  
 
 L'ampia & raccomandazione profonda combina questi approcci, usando il filtro collaborativo con un approccio basato sul contenuto. Per questo motivo, viene considerato un **sistema di raccomandazione ibrido**. 
 
@@ -88,50 +88,50 @@ Per un esempio, un set tipico di funzionalità degli elementi potrebbe essere si
   
 2. Se si dispone di un set di dati separato per le funzionalità utente e/o le funzionalità degli elementi, connetterle al modulo **Train Wide e Deep Recommender** .  
   
-    - **Set di dati delle funzionalità utente**: connettere il set di dati che descrive gli utenti al secondo input.
-    - **Set di dati delle funzionalità elemento**: connettere il set di dati che descrive gli elementi al terzo input.  
+    - **Set di dati delle funzionalità utente** : connettere il set di dati che descrive gli utenti al secondo input.
+    - **Set di dati delle funzionalità elemento** : connettere il set di dati che descrive gli elementi al terzo input.  
     
-3.  **Epochs**: indica il numero di volte in cui l'algoritmo deve elaborare i dati di training completi. 
+3.  **Epochs** : indica il numero di volte in cui l'algoritmo deve elaborare i dati di training completi. 
 
     Maggiore è questo numero, più è appropriato il training; Tuttavia, il training costa più tempo e può causare l'overfitting.
 
-4. **Dimensioni batch**: digitare il numero di esempi di training usati in un solo passaggio di training. 
+4. **Dimensioni batch** : digitare il numero di esempi di training usati in un solo passaggio di training. 
 
      Questo iperparametro può influenzare la velocità di training. Una dimensione di batch più elevata comporta un'epoca di costo inferiore, ma può aumentare il tempo di convergenza. Se il batch è troppo grande per adattarsi alla GPU o alla CPU, è possibile che venga generato un errore di memoria.
 
-5.  **Ottimizzazione della parte ampia**: selezionare un ottimizzatore per applicare le sfumature alla parte ampia del modello.
+5.  **Ottimizzazione della parte ampia** : selezionare un ottimizzatore per applicare le sfumature alla parte ampia del modello.
 
-6.  **Velocità di apprendimento di Wide Optimizer**: immettere un numero compreso tra 0,0 e 2,0 che definisce la velocità di apprendimento di Wide part Optimizer.
+6.  **Velocità di apprendimento di Wide Optimizer** : immettere un numero compreso tra 0,0 e 2,0 che definisce la velocità di apprendimento di Wide part Optimizer.
 
     Questo iperparametro determina le dimensioni del passaggio a ogni passaggio di training, passando verso una funzione di perdita minima. Una velocità di apprendimento troppo grande può causare il passaggio alla formazione minima, mentre una velocità di apprendimento troppo piccola può causare un problema di convergenza.
 
-7.  **Dimensione funzionalità superata**: digitare la dimensione immettendo le funzionalità ID utente e ID elemento desiderate. 
+7.  **Dimensione funzionalità superata** : digitare la dimensione immettendo le funzionalità ID utente e ID elemento desiderate. 
 
     Per impostazione predefinita, l'ampia & raccomandazione profonda esegue la trasformazione tra prodotti rispetto alle funzionalità ID utente e ID elemento. Viene eseguito l'hashing del risultato incrociato in base a questo numero per garantire la dimensione.
 
-8.  **Ottimizzazione della parte completa**: selezionare un ottimizzatore per applicare le sfumature alla parte completa del modello.
+8.  **Ottimizzazione della parte completa** : selezionare un ottimizzatore per applicare le sfumature alla parte completa del modello.
 
-9.  Velocità di apprendimento per l'utilità di **ottimizzazione approfondita**: immettere un numero compreso tra 0,0 e 2,0 che definisce la velocità di apprendimento dell'utilità di ottimizzazione delle parti approfondite.
+9.  Velocità di apprendimento per l'utilità di **ottimizzazione approfondita** : immettere un numero compreso tra 0,0 e 2,0 che definisce la velocità di apprendimento dell'utilità di ottimizzazione delle parti approfondite.
 
-10.  **Dimensione di incorporamento utente**: digitare un Integer per specificare la dimensione dell'incorporamento dell'ID utente.
+10.  **Dimensione di incorporamento utente** : digitare un Integer per specificare la dimensione dell'incorporamento dell'ID utente.
 
      L'ampia & raccomandazione profonda crea gli incorporamenti dell'ID utente condiviso e gli incorporamenti di ID elemento sia per la parte ampia che per la parte profonda.
 
-11.  **Dimensione di incorporamento elementi**: digitare un Integer per specificare la dimensione dell'incorporamento dell'ID elemento.
+11.  **Dimensione di incorporamento elementi** : digitare un Integer per specificare la dimensione dell'incorporamento dell'ID elemento.
 
-12.  **Funzionalità categoriche che incorporano la dimensione**: immettere un numero intero per specificare le dimensioni degli incorporamenti di funzionalità categorici.
+12.  **Funzionalità categoriche che incorporano la dimensione** : immettere un numero intero per specificare le dimensioni degli incorporamenti di funzionalità categorici.
 
      In un componente approfondito della gamma & Deep Recommender, un vettore di incorporamento è learnt per ogni funzionalità categorica. E questi vettori di incorporamento condividono la stessa dimensione.
 
-13.  **Unità nascoste**: digitare il numero di nodi nascosti di un componente profondo. Il numero di nodi in ogni livello è separato da virgole. Per il tipo "1.000.500.100", ad esempio, si specifica che il componente Deep dispone di tre livelli, il primo livello e l'ultimo hanno rispettivamente i nodi 1000, 500 nodi e 100.
+13.  **Unità nascoste** : digitare il numero di nodi nascosti di un componente profondo. Il numero di nodi in ogni livello è separato da virgole. Per il tipo "1.000.500.100", ad esempio, si specifica che il componente Deep dispone di tre livelli, il primo livello e l'ultimo hanno rispettivamente i nodi 1000, 500 nodi e 100.
 
-14.  **Funzione di attivazione**: selezionare una funzione di attivazione applicata a ogni livello. l'impostazione predefinita è ReLU.
+14.  **Funzione di attivazione** : selezionare una funzione di attivazione applicata a ogni livello. l'impostazione predefinita è ReLU.
 
-15.  **Abbandono**: immettere un numero compreso tra 0,0 e 1,0 per determinare la probabilità che gli output vengano eliminati in ogni livello durante il training.
+15.  **Abbandono** : immettere un numero compreso tra 0,0 e 1,0 per determinare la probabilità che gli output vengano eliminati in ogni livello durante il training.
 
      L'abbandono è un metodo di regolarizzazione per impedire l'overfitting delle reti neurali. Una decisione comune per questo valore consiste nell'iniziare con 0,5, che sembra essere quasi ottimale per un'ampia gamma di reti e attività.
 
-16.  **Normalizzazione batch**: selezionare questa opzione per utilizzare la normalizzazione batch dopo ogni livello nascosto nel componente Deep.
+16.  **Normalizzazione batch** : selezionare questa opzione per utilizzare la normalizzazione batch dopo ogni livello nascosto nel componente Deep.
 
      La normalizzazione di batch è una tecnica per contrastare il problema di spostamento interno della covariante durante il training delle reti. In generale, può contribuire a migliorare la velocità, le prestazioni e la stabilità delle reti. 
 

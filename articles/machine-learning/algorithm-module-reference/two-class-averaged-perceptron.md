@@ -1,7 +1,7 @@
 ---
 title: 'Two-Class mediad perceptron: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Two-Class mediad perceptron in Azure Machine Learning per creare un modello di machine learning basato sull'algoritmo perceptron medio.
+description: Informazioni su come usare il modulo perceptron medio di Two-Class nella finestra di progettazione per creare un classificatore binario.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 3e5351ed2d400e0b1a10a913bb62391851030053
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f1161dc99b84026bcc830c08b63b95d0bf3b0994
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907749"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421142"
 ---
 # <a name="two-class-averaged-perceptron-module"></a>Two-Class modulo perceptron mediato
 
@@ -22,7 +22,7 @@ Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per creare un modello di machine learning basato sull'algoritmo perceptron medio.  
   
-Questo algoritmo di classificazione è un metodo di apprendimento supervisionato e richiede un *set di dati con tag*, che include una colonna di etichetta. Per eseguire il training del modello, è possibile fornire il modello e il set di dati con tag come input per il [training del modello](./train-model.md). Il modello con Training può quindi essere usato per stimare i valori per i nuovi esempi di input.  
+Questo algoritmo di classificazione è un metodo di apprendimento supervisionato e richiede un *set di dati con tag* , che include una colonna di etichetta. Per eseguire il training del modello, è possibile fornire il modello e il set di dati con tag come input per il [training del modello](./train-model.md). Il modello con Training può quindi essere usato per stimare i valori per i nuovi esempi di input.  
 
 ### <a name="about-averaged-perceptron-models"></a>Informazioni sui modelli perceptron medi
 
@@ -36,25 +36,25 @@ I modelli più semplici di percettrone sono adatti per l'apprendimento di modell
 
 2.  Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro**: se si sa come si desidera configurare il modello, fornire un set di valori specifico come argomenti.
+    -   **Singolo parametro** : se si sa come si desidera configurare il modello, fornire un set di valori specifico come argomenti.
 
-    -   **Intervallo parametri**: selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.  
+    -   **Intervallo parametri** : selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.  
   
-3.  Per la **velocità di apprendimento**specificare un valore per la velocità di *apprendimento*. I valori della velocità di apprendimento controllano le dimensioni del passaggio usato nella discesa della sfumatura stocastica ogni volta che il modello viene testato e corretto.
+3.  Per la **velocità di apprendimento** specificare un valore per la velocità di *apprendimento*. I valori della velocità di apprendimento controllano le dimensioni del passaggio usato nella discesa della sfumatura stocastica ogni volta che il modello viene testato e corretto.
   
      Rendendo la percentuale più piccola, si testa il modello più spesso, con il rischio che si possa rimanere bloccati in un plateau locale. Estendendo le dimensioni del passaggio, è possibile rendere più veloce la convergenza con il rischio di oltrepassare il valore minimo true.
   
-4.  Per il **numero massimo di iterazioni**, digitare il numero di volte in cui si desidera che l'algoritmo esamini i dati di training.  
+4.  Per il **numero massimo di iterazioni** , digitare il numero di volte in cui si desidera che l'algoritmo esamini i dati di training.  
   
      L'interruzione anticipata spesso fornisce una migliore generalizzazione. L'aumento del numero di iterazioni migliora l'adattamento, con il rischio di overfitting.
   
-5.  Per il valore di **inizializzazione numerico casuale**, digitare facoltativamente un valore intero da utilizzare come valore di inizializzazione. L'uso di un valore di inizializzazione è consigliato se si vuole garantire la riproducibilità della pipeline tra le esecuzioni.  
+5.  Per il valore di **inizializzazione numerico casuale** , digitare facoltativamente un valore intero da utilizzare come valore di inizializzazione. L'uso di un valore di inizializzazione è consigliato se si vuole garantire la riproducibilità della pipeline tra le esecuzioni.  
   
 1.  Connettere un set di dati di training ed eseguire il training del modello:
 
-    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro** , connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
   
-    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri**, connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
+    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri** , connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

@@ -1,7 +1,7 @@
 ---
 title: One-vs-All Multiclass
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo One-vs-All Multiclass in Azure Machine Learning per creare un modello di classificazione multiclasse da un insieme di modelli di classificazione binaria.
+description: Informazioni su come usare il modulo One-vs-All Multiclass in Azure Machine Learning Designer per creare un insieme di modelli di classificazione binaria.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/16/2019
-ms.openlocfilehash: dfe01e16b55325db03e4150a33ae5c4aa5822ae2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f09a77043a552d8d7f09c2a6abcb78f89cbf8ee2
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90898498"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420683"
 ---
 # <a name="one-vs-all-multiclass"></a>One-vs-All Multiclass
 
@@ -40,7 +40,7 @@ Connettere il modello binario al modulo One-vs-All Multiclass. Si esegue quindi 
 
 Quando si combinano i modelli, One-vs-All Multiclass crea più modelli di classificazione binaria, ottimizza l'algoritmo per ogni classe e quindi unisce i modelli. Il modulo esegue queste attività anche se il set di dati di training potrebbe avere più valori di classe.
 
-1. Aggiungere il modulo One-vs-All Multiclass alla pipeline nella finestra di progettazione. È possibile trovare questo modulo in **Machine Learning-Initialize**nella categoria **classificazione** .
+1. Aggiungere il modulo One-vs-All Multiclass alla pipeline nella finestra di progettazione. È possibile trovare questo modulo in **Machine Learning-Initialize** nella categoria **classificazione** .
 
    Il classificatore One-vs-All Multiclass non dispone di parametri configurabili. Tutte le personalizzazioni devono essere eseguite nel modello di classificazione binaria fornito come input.
 

@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 68251270b6273f5a07391138e5c7210f1c46ba5a
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89662254"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420530"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: quando si dispone di un tenant esistente
 La maggior parte degli argomenti che illustrano come usare Azure AD Connect presuppongono che si inizi con un nuovo tenant di Azure AD che non contiene utenti o altri oggetti. Questo argomento è utile se tuttavia si inizia con un tenant di Azure AD che contiene utenti e altri oggetti e si vuole usare Connect.
@@ -34,11 +34,11 @@ Un oggetto in Azure AD viene gestito nel cloud (Azure AD) o in locale. Per un si
 Se si iniziano a gestire in Azure AD utenti che si trovano anche nell'istanza di AD locale e successivamente si vuole usare Connect, è necessario prendere in considerazione altri aspetti.
 
 ## <a name="sync-with-existing-users-in-azure-ad"></a>Eseguire la sincronizzazione con gli utenti esistenti in Azure AD
-Quando si installa Azure AD Connect e si avvia la sincronizzazione, il servizio di sincronizzazione Azure AD (in Azure AD) esegue un controllo su ogni nuovo oggetto e tenta di trovare un oggetto esistente per la corrispondenza. Vengono usati tre attributi per questo processo: **userPrincipalName**, **proxyAddresses** e **sourceAnchor**/**immutableID**. Una corrispondenza per **userPrincipalName** e **proxyAddresses** è nota come **corrispondenza flessibile**. Una corrispondenza per **sourceAnchor** è nota come **corrispondenza rigida**. Per l'attributo **proxyAddresses** solo il valore con attributo **SMTP:**, ovvero l'indirizzo di posta elettronica principale, viene usato per la valutazione.
+Quando si installa Azure AD Connect e si avvia la sincronizzazione, il servizio di sincronizzazione Azure AD (in Azure AD) esegue un controllo su ogni nuovo oggetto e tenta di trovare un oggetto esistente per la corrispondenza. Vengono usati tre attributi per questo processo: **userPrincipalName** , **proxyAddresses** e **sourceAnchor**/**immutableID**. Una corrispondenza per **userPrincipalName** e **proxyAddresses** è nota come **corrispondenza flessibile**. Una corrispondenza per **sourceAnchor** è nota come **corrispondenza rigida**. Per l'attributo **proxyAddresses** solo il valore con attributo **SMTP:** , ovvero l'indirizzo di posta elettronica principale, viene usato per la valutazione.
 
 La corrispondenza viene valutata solo per i nuovi oggetti provenienti da Connect. Se si modifica un oggetto esistente in modo che corrisponda a uno di questi attributi, verrà visualizzato un errore.
 
-Se Azure AD rileva un oggetto in cui i valori di attributo sono gli stessi per un oggetto proveniente da Connect che è già presente in Azure AD, l'oggetto in Azure AD verrà acquisito da Connect. L'oggetto precedentemente gestito nel cloud viene contrassegnato come gestito in locale. Tutti gli attributi in Azure AD con un valore in AD locale vengono sovrascritti con il valore locale. L'eccezione si ha quando un attributo ha un valore **NULL** in locale. In questo caso, il valore in Azure AD viene conservato, ma può essere modificato solo in locale.
+Se Azure AD rileva un oggetto in cui i valori di attributo sono gli stessi per un oggetto proveniente da Connect che è già presente in Azure AD, l'oggetto in Azure AD verrà acquisito da Connect. L'oggetto precedentemente gestito nel cloud viene contrassegnato come gestito in locale. Tutti gli attributi in Azure AD con un valore in AD locale vengono sovrascritti con il valore locale.
 
 > [!WARNING]
 > Poiché tutti gli attributi in Azure AD verranno sovrascritti con il valore locale, accertarsi che i dati locali siano corretti. Se, ad esempio, si dispone solo di un indirizzo di posta elettronica gestito in Microsoft 365 e non è stato aggiornato in servizi di dominio Active Directory in locale, si perderanno tutti i valori Azure AD/Microsoft 365 non presenti in servizi di dominio Active Directory.

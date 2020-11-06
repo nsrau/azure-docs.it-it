@@ -1,7 +1,7 @@
 ---
 title: 'Macchina a vettori di supporto Two-Class: informazioni di riferimento sui moduli'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo **Two-Class Support Vector Machine** in Azure Machine Learning per creare un modello basato sull'algoritmo di macchina a vettori di supporto.
+description: Informazioni su come usare il modulo della macchina a vettori di supporto Two-Class in Azure Machine Learning per creare un classificatore binario.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 1dc2f8bdf6ed2823b44d25bdf65766b1f7ae060c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 46cfdd319fc89e569d165dc2e11303e67c6dd54e
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907670"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420564"
 ---
 # <a name="two-class-support-vector-machine-module"></a>Modulo della macchina a vettori di supporto Two-Class
 
@@ -42,33 +42,33 @@ Per questo tipo di modello, è consigliabile normalizzare il set di dati prima d
   
 2.  Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .  
   
-    -   **Singolo parametro**: se si sa come si desidera configurare il modello, è possibile fornire un set di valori specifico come argomenti.  
+    -   **Singolo parametro** : se si sa come si desidera configurare il modello, è possibile fornire un set di valori specifico come argomenti.  
 
-    -   **Intervallo**di parametri: se non si è certi dei parametri migliori, è possibile trovare i parametri ottimali usando il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) . Viene fornito un intervallo di valori e il trainer scorre più combinazioni di impostazioni per determinare la combinazione di valori che produce il risultato migliore.
+    -   **Intervallo** di parametri: se non si è certi dei parametri migliori, è possibile trovare i parametri ottimali usando il modulo [Tune Model iperparametri](tune-model-hyperparameters.md) . Viene fornito un intervallo di valori e il trainer scorre più combinazioni di impostazioni per determinare la combinazione di valori che produce il risultato migliore.
 
-3.  Per **numero di iterazioni**, digitare un numero che indica il numero di iterazioni utilizzate durante la compilazione del modello.  
+3.  Per **numero di iterazioni** , digitare un numero che indica il numero di iterazioni utilizzate durante la compilazione del modello.  
   
      Questo parametro può essere usato per controllare il compromesso tra velocità e precisione di training.  
   
-4.  Per **lambda**, digitare un valore da usare come peso per la regolarizzazione L1.  
+4.  Per **lambda** , digitare un valore da usare come peso per la regolarizzazione L1.  
   
      Questo coefficiente di regolarizzazione consente di ottimizzare il modello. I valori più elevati penalizzano i modelli più complessi.  
   
-5.  Selezionare l'opzione **normalizzare le funzionalità**se si vuole normalizzare le funzionalità prima del training.
+5.  Selezionare l'opzione **normalizzare le funzionalità** se si vuole normalizzare le funzionalità prima del training.
   
      Se si applica la normalizzazione, prima del training, i punti dati vengono centrati sul valore medio e ridimensionati in modo da avere un'unità di deviazione standard.
   
-6.  Selezionare l'opzione **progetto per la sfera di unità**per normalizzare i coefficienti.
+6.  Selezionare l'opzione **progetto per la sfera di unità** per normalizzare i coefficienti.
   
      La proiezione di valori nello spazio unità significa che prima del training, i punti dati vengono centrati su 0 e ridimensionati in modo da avere un'unità di deviazione standard.
   
-7.  In valore di **inizializzazione numeri casuali**Digitare un valore intero da utilizzare come valore di inizializzazione se si desidera garantire la riproducibilità tra le esecuzioni.  In caso contrario, viene usato un valore di clock di sistema come valore di inizializzazione, che può produrre risultati leggermente diversi tra le esecuzioni.
+7.  In valore di **inizializzazione numeri casuali** Digitare un valore intero da utilizzare come valore di inizializzazione se si desidera garantire la riproducibilità tra le esecuzioni.  In caso contrario, viene usato un valore di clock di sistema come valore di inizializzazione, che può produrre risultati leggermente diversi tra le esecuzioni.
   
 9. Connettere un set di dati con etichetta ed eseguire il training del modello:
 
-    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro** , connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
   
-    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri**, connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
+    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri** , connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

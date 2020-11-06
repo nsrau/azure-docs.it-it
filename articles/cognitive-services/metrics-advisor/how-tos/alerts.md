@@ -10,12 +10,12 @@ ms.subservice: metrics-advisor
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: mbullwin
-ms.openlocfilehash: ab1c07bd7814afb054bb20b77bbc84c1ee9df017
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 30d8fdf99da7a4854db0985bed6256ecd6f7a366
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92046792"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420921"
 ---
 # <a name="how-to-configure-alerts-and-get-notifications-using-a-hook"></a>Procedura: configurare gli avvisi e ricevere notifiche tramite un hook
 
@@ -28,20 +28,20 @@ Metrica Advisor supporta tre tipi diversi di hook: hook di posta elettronica, Ho
 ### <a name="email-hook"></a>Hook di posta elettronica
 
 > [!Note]
-> Gli amministratori di risorse Advisor di metrica devono configurare le impostazioni di posta elettronica e immettere le informazioni relative a SMTP in metrica Advisor prima di poter inviare avvisi di anomalie. L'amministratore del gruppo di risorse o l'amministratore della sottoscrizione deve assegnare almeno un ruolo di *amministratore di metrica di servizi cognitivi* nella scheda controllo di accesso della risorsa Advisor di metrica. 
+> Gli amministratori di risorse Advisor di metrica devono configurare le impostazioni di posta elettronica e immettere le informazioni relative a SMTP in metrica Advisor prima di poter inviare avvisi di anomalie. L'amministratore del gruppo di risorse o l'amministratore della sottoscrizione deve assegnare almeno un ruolo di *amministratore di metrica di servizi cognitivi* nella scheda controllo di accesso della risorsa Advisor di metrica. [Altre informazioni sulla configurazione delle impostazioni di posta elettronica](../faq.md#how-to-set-up-email-settings-and-enable-alerting-by-email).
 
 Per creare un hook di posta elettronica, sono disponibili i parametri seguenti: 
 
 Un hook di posta elettronica è il canale per gli avvisi di anomalie da inviare agli indirizzi di posta elettronica specificati nella sezione **posta elettronica** . Verranno inviati due tipi di messaggi di posta elettronica di avviso: *feed di dati non disponibili* e *report sugli eventi imprevisti* che contengono una o più anomalie. 
 
-|Parametro |Descrizione  |
+|Parametro |Description  |
 |---------|---------|
 | Nome | Nome dell'hook di posta elettronica |
 | Invia un messaggio di posta elettronica a| Indirizzi di posta elettronica che inviano avvisi a|
 | Collegamento esterno | Campo facoltativo che consente un reindirizzamento personalizzato, ad esempio per la risoluzione dei problemi relativi alle note. |
 | Titolo avviso anomalie personalizzato | Il modello di titolo supporta `${severity}` ,, `${alertSettingName}` `${datafeedName}` , `${metricName}` , `${detectConfigName}` , `${timestamp}` , `${topDimension}` , `${incidentCount}` , `${anomalyCount}`
 
-Dopo aver fatto clic su **OK**, verrà creato un hook di posta elettronica. È possibile usarlo in qualsiasi impostazione di avviso per ricevere avvisi di anomalie. 
+Dopo aver fatto clic su **OK** , verrà creato un hook di posta elettronica. È possibile usarlo in qualsiasi impostazione di avviso per ricevere avvisi di anomalie. 
 
 ### <a name="web-hook"></a>Hook Web
 
@@ -55,7 +55,7 @@ Un webhook è il punto di ingresso per tutte le informazioni disponibili nel ser
 
 Per creare un webhook, è necessario aggiungere le seguenti informazioni:
 
-|Parametro |Descrizione  |
+|Parametro |Description  |
 |---------|---------|
 |Endpoint     | Indirizzo API da chiamare quando viene generato un avviso.        |
 |Nome utente/password | Per l'autenticazione all'indirizzo dell'API. Lasciare questo nero se l'autenticazione non è necessaria.         |
@@ -73,10 +73,10 @@ Metrica Advisor supporta anche la creazione automatica di un elemento di lavoro 
 
 Per creare un hook di Azure DevOps, è necessario aggiungere le informazioni seguenti
 
-|Parametro |Descrizione  |
+|Parametro |Description  |
 |---------|---------|
 | Nome | Nome per l'hook |
-| Organizzazione | L'organizzazione a cui appartiene la DevOps |
+| Organization | L'organizzazione a cui appartiene la DevOps |
 | Project | Progetto specifico in DevOps. |
 | Token di accesso |  Token per l'autenticazione a DevOps. | 
 
@@ -86,17 +86,17 @@ Per creare un hook di Azure DevOps, è necessario aggiungere le informazioni seg
 ## <a name="add-or-edit-alert-settings"></a>Aggiungere o modificare le impostazioni degli avvisi
 
 Passare alla pagina dei dettagli delle metriche per trovare la sezione **Impostazioni avvisi** nell'angolo in basso a sinistra della pagina dei dettagli della metrica. Elenca tutte le impostazioni di avviso che si applicano alla configurazione di rilevamento selezionata. Quando viene creata una nuova configurazione di rilevamento, non viene impostata alcuna impostazione di avviso e non verrà inviato alcun avviso.  
-Per modificare le impostazioni degli avvisi, è possibile usare le icone **Aggiungi**, **modifica** ed **Elimina** .
+Per modificare le impostazioni degli avvisi, è possibile usare le icone **Aggiungi** , **modifica** ed **Elimina** .
 
-:::image type="content" source="../media/alerts/alert-setting.png" alt-text="finestra di creazione dell'hook Web.":::
+:::image type="content" source="../media/alerts/alert-setting.png" alt-text="Voce di menu impostazioni avvisi.":::
 
 Fare clic sui pulsanti **Aggiungi** o **modifica** per ottenere una finestra per aggiungere o modificare le impostazioni di avviso.
 
-:::image type="content" source="../media/alerts/edit-alert.png" alt-text="finestra di creazione dell'hook Web.":::
+:::image type="content" source="../media/alerts/edit-alert.png" alt-text="Aggiungere o modificare le impostazioni degli avvisi":::
 
-**Nome impostazione avviso**: il nome dell'impostazione di avviso. Verrà visualizzato nel titolo del messaggio di posta elettronica di avviso.
+**Nome impostazione avviso** : il nome dell'impostazione di avviso. Verrà visualizzato nel titolo del messaggio di posta elettronica di avviso.
 
-**Hook**: elenco di hook a cui inviare avvisi.
+**Hook** : elenco di hook a cui inviare avvisi.
 
 La sezione contrassegnata nella schermata precedente sono le impostazioni per una configurazione di rilevamento. È possibile impostare impostazioni di avviso diverse per configurazioni di rilevamento diverse. Scegliere la configurazione di destinazione usando il terzo elenco a discesa in questa finestra. 
 
@@ -106,16 +106,16 @@ Di seguito sono riportate le impostazioni di filtro per una configurazione di ri
 
 **Avviso per** dispone di 4 opzioni per filtrare le anomalie:
 
-* **Anomalie in tutte le serie**: tutte le anomalie verranno incluse nell'avviso.         
-* **Anomalie nel gruppo serie**: filtrare le serie in base ai valori delle dimensioni. Impostare valori specifici per alcune dimensioni. Le anomalie verranno incluse nell'avviso solo quando la serie corrisponde al valore specificato.       
-* **Anomalie nella serie preferiti**: solo le serie contrassegnate come Preferiti verranno incluse nell'avviso.        |
-* **Anomalie nelle prime n di tutte le serie**: questo filtro è per il caso in cui si è interessati solo alla serie il cui valore è nelle prime n. Verranno esaminati alcuni timestamp e verrà verificato se il valore della serie in questo timestamp si trova in primi N. Se il conteggio "in primi n" è maggiore del numero specificato, l'anomalia verrà inclusa in un avviso.        |
+* **Anomalie in tutte le serie** : tutte le anomalie verranno incluse nell'avviso.         
+* **Anomalie nel gruppo serie** : filtrare le serie in base ai valori delle dimensioni. Impostare valori specifici per alcune dimensioni. Le anomalie verranno incluse nell'avviso solo quando la serie corrisponde al valore specificato.       
+* **Anomalie nella serie preferiti** : solo le serie contrassegnate come Preferiti verranno incluse nell'avviso.        |
+* **Anomalie nelle prime n di tutte le serie** : questo filtro è per il caso in cui si è interessati solo alla serie il cui valore è nelle prime n. Verranno esaminati alcuni timestamp e verrà verificato se il valore della serie in questo timestamp si trova in primi N. Se il conteggio "in primi n" è maggiore del numero specificato, l'anomalia verrà inclusa in un avviso.        |
 
 Le **Opzioni di filtro anomalie** sono un filtro aggiuntivo con le opzioni seguenti:
 
 - **gravità** : l'anomalia verrà inclusa solo quando la gravità dell'anomalia rientra nell'intervallo specificato.
 - **Snooze** : interrompe temporaneamente gli avvisi per le anomalie nei successivi N punti (periodo), quando viene attivato in un avviso.
-    - **tipo Snooze** : se impostata su **serie**, un'anomalia attivata rileverà solo la serie. Per la **metrica**, un'anomalia attivata rileverà tutte le serie in questa metrica.
+    - **tipo Snooze** : se impostata su **serie** , un'anomalia attivata rileverà solo la serie. Per la **metrica** , un'anomalia attivata rileverà tutte le serie in questa metrica.
     - **numero di snooze** : numero di punti (punto) da posporre.
     - **Reimposta per non consecutivo** : quando selezionato, un'anomalia attivata rileverà solo le successive anomalie successive. Se uno dei punti dati seguenti non è un'anomalia, il Snooze verrà reimpostato da tale punto; Una volta deselezionata, un'anomalia attivata rileverà i successivi n punti (periodo), anche se i punti dati successivi non sono anomalie.
 - **valore** (facoltativo): filtrare in base al valore. Verranno inclusi solo i valori dei punti che soddisfano la condizione. Se si usa il valore corrispondente di un'altra metrica, i nomi delle dimensioni delle due metriche devono essere coerenti.
@@ -134,7 +134,7 @@ Il selettore dell' **operatore** è la relazione logica di ogni sezione per dete
 |AND     | Invia un avviso solo se una serie corrisponde a ogni sezione di avviso e tutti i punti dati sono anomalie. Se le metriche hanno nomi di dimensione diversi, un avviso non verrà mai attivato.         |
 |OR     | Inviare l'avviso se almeno una sezione contiene anomalie.         |
 
-:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="finestra di creazione dell'hook Web.":::
+:::image type="content" source="../media/alerts/alert-setting-operator.png" alt-text="Operatore per la sezione più impostazioni di avviso":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

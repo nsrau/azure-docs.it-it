@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: metrics-advisor
 ms.topic: conceptual
-ms.date: 10/15/2020
+ms.date: 11/05/2020
 ms.author: mbullwin
-ms.openlocfilehash: da4dc3579630d641fcbc1d4321b56de0cc09d555
-ms.sourcegitcommit: 4064234b1b4be79c411ef677569f29ae73e78731
+ms.openlocfilehash: 0c4c296cb1454ed89eef102732533589b1c8ca0d
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92893578"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420960"
 ---
 # <a name="metrics-advisor-frequently-asked-questions"></a>Domande frequenti su Metrics Advisor
 
@@ -88,7 +88,7 @@ Assicurarsi di usare la granularità corretta per la serie temporale. Per una me
 
 Si noti che queste query restituiscono solo i dati in un singolo timestamp e contengono tutte le combinazioni di dimensioni che devono essere inserite da metrica Advisor. 
 
-:::image type="content" source="media/query-result.png" alt-text="Messaggio quando esiste già una risorsa F0" lightbox="media/query-result.png":::
+:::image type="content" source="media/query-result.png" alt-text="Risultato di una query con un timestamp" lightbox="media/query-result.png":::
 
 
 ### <a name="how-do-i-detect-spikes--dips-as-anomalies"></a>Ricerca per categorie rilevare picchi & DIP come anomalie?
@@ -104,6 +104,19 @@ Se non sono presenti soglie, è possibile usare il "rilevamento intelligente", c
 
 Se i dati sono in genere piuttosto instabili e fluttuano molto e si vuole ricevere un avviso quando diventa troppo stabile o addirittura una linea piatta, è possibile configurare la "soglia di modifica" per rilevare questi punti dati quando la modifica è troppo piccola.
 Per informazioni dettagliate, vedere [configurazioni di rilevamento anomalie](how-tos/configure-metrics.md#anomaly-detection-methods) .
+
+### <a name="how-to-set-up-email-settings-and-enable-alerting-by-email"></a>Come configurare le impostazioni di posta elettronica e abilitare gli avvisi tramite posta elettronica?
+
+1.  Un utente con privilegi di amministratore della sottoscrizione o del gruppo di risorse deve passare alla risorsa Advisor di metrica creata nella portale di Azure e selezionare la scheda **controllo di accesso (IAM)** . 
+2.  Selezionare **Aggiungi assegnazioni di ruolo**
+3.  Selezionare un ruolo di **amministratore di Advisor metrica di servizi cognitivi** , selezionare l'account come nell'immagine seguente.
+4.  Fare clic sul pulsante **Save (Salva** ). l'operazione è stata aggiunta come amministratore della risorsa Advisor di metrica. Si noti che tutte le azioni precedenti devono essere eseguite dall'amministratore della sottoscrizione o dall'amministratore del gruppo di risorse. 
+
+:::image type="content" source="media/access-control.png" alt-text="Pagina di controllo di accesso (IAM) con aggiungere un'assegnazione di ruolo selezionata, seguita da una casella assegnando l'accesso all'utente selezionato visualizzato con un ruolo di accesso dell'amministratore di metrica di servizi cognitivi, seguito dal pulsante Salva dell'interfaccia utente selezionata per illustrare i passaggi per la ricerca di un utente e l'aggiunta di un particolare livello di autorizzazioni di accesso." lightbox="media/access-control.png":::
+
+
+5.  La propagazione delle autorizzazioni potrebbe richiedere fino a un minuto. Selezionare quindi l'area di lavoro di Advisor di metrica e selezionare l'opzione **impostazione posta elettronica** nel riquadro di spostamento a sinistra. Inserire gli elementi necessari, in particolare le informazioni relative a SMTP. 
+6.  Selezionare **Save (Salva** ) per impostare la configurazione della posta elettronica. È possibile creare nuovi hook e sottoscrivere le anomalie delle metriche per gli avvisi quasi in tempo reale. 
 
 ## <a name="advanced-concepts"></a>Concetti avanzati
 
@@ -127,7 +140,7 @@ A partire dal totale `Response latency` , è possibile eseguire il drill-down ne
 
 In metrica Advisor gli utenti possono specificare qualsiasi percorso di cui si desidera eseguire il drill-down o il rollup da un nodo della topologia gerarchica. Più precisamente, la topologia gerarchica è un grafo aciclici diretto anziché una struttura ad albero. Esiste una topologia gerarchica completa costituita da tutte le possibili combinazioni di dimensioni, come la seguente: 
 
-:::image type="content" source="media/dimension-combinations-view.png" alt-text="Messaggio quando esiste già una risorsa F0" lightbox="media/dimension-combinations-view.png":::
+:::image type="content" source="media/dimension-combinations-view.png" alt-text="diagramma della topologia gerarchica costituito da più vertici e bordi interconnessi con più dimensioni denominate S, DC e M con numeri corrispondenti compresi tra 1 e 6." lightbox="media/dimension-combinations-view.png":::
 
 In teoria, se la dimensione `Service` presenta `Ls` valori distinti, la dimensione `Data center` dispone di `Ldc` valori distinti e la dimensione `Machine` ha `Lm` valori distinti, è possibile che `(Ls + 1) * (Ldc + 1) * (Lm + 1)` nella topologia gerarchica siano presenti combinazioni di dimensioni. 
 

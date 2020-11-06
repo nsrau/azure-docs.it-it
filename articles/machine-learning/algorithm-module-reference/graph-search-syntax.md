@@ -1,7 +1,7 @@
 ---
 title: Sintassi della query di ricerca di grafi
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare la sintassi di query di ricerca per cercare i nodi in in Graph della pipeline.
+description: Informazioni su come usare la sintassi di query di ricerca in progettazione Azure Machine Learning per cercare i nodi in in Graph della pipeline.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 8/24/2020
-ms.openlocfilehash: 166b87159b5ac2434c3ce7a7c66529a4b61ee565
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 762581ea5b3183d62913e9ea6935bf7e4c4ae67f
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91290501"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420768"
 ---
 # <a name="graph-search-query-syntax"></a>Sintassi della query di ricerca di grafi
 
@@ -36,7 +36,7 @@ La ricerca Graph usa la query semplice Lucene come sintassi della ricerca full-t
 
  
 - AND/OR
-- Corrispondenza con caratteri jolly con **?** **\*** operatori e.
+- Corrispondenza con caratteri jolly con **?** e * *\** _ operatori.
 
 ### <a name="examples"></a>Esempi
 
@@ -49,7 +49,7 @@ La ricerca Graph usa la query semplice Lucene come sintassi della ricerca full-t
  
 - Corrispondenza con caratteri jolly: 
     - `machi?e learning`
-    - `mach*ing`
+    - `mach_ing`
  
 >[!NOTE]
 > Non è possibile avviare una query Lucene con un carattere "*".

@@ -1,7 +1,7 @@
 ---
 title: Riferimento al modulo feature hashing
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo feature hashing nel Azure Machine Learning per trasforma i dati di testo.
+description: Informazioni su come usare il modulo feature hashing nella finestra di progettazione Azure Machine Learning per trasforma i dati di testo.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: a9ef6ff81a2c9f3697f7c3ccf1cd8e91ad2fb683
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: cd48b32afee320aa3d252540d566317c374c73a8
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93323729"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420785"
 ---
 # <a name="feature-hashing-module-reference"></a>Riferimento al modulo feature hashing
 
@@ -22,7 +22,7 @@ Questo articolo descrive un modulo incluso in Azure Machine Learning Designer.
 
 Usare il modulo feature hashing per trasformare un flusso di testo in inglese in un set di funzionalità Integer. È quindi possibile passare questo set di funzionalità con hash a un algoritmo di machine learning per eseguire il training di un modello di analisi del testo.
 
-La funzionalità di hashing delle funzionalità fornita in questo modulo si basa su nimbusml Framework. Per ulteriori informazioni, vedere la [classe NgramHash](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest).
+La funzionalità di hashing delle funzionalità fornita in questo modulo si basa su nimbusml Framework. Per ulteriori informazioni, vedere la [classe NgramHash](/python/api/nimbusml/nimbusml.feature_extraction.text.extractor.ngramhash?view=nimbusml-py-latest&preserve-view=true).
 
 ## <a name="what-is-feature-hashing"></a>Che cos'è l'hashing delle funzionalità?
 

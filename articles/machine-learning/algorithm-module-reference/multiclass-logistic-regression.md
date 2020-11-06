@@ -1,7 +1,7 @@
 ---
 title: 'Regressione logistica multiclasse: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo di regressione logistica multiclasse in Azure Machine Learning per creare un modello di regressione logistica che può essere usato per stimare più valori.
+description: Informazioni su come usare il modulo di regressione logistica multiclasse in Azure Machine Learning Designer per stimare più valori.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/22/2020
-ms.openlocfilehash: 247a0bef8e166c72f185f2d384067fc5814a602e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e2bbc28735bcbfd952c4941453956acd0568ea67
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90893746"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420734"
 ---
 # <a name="multiclass-logistic-regression-module"></a>Modulo di regressione logistica multiclasse
 
@@ -38,13 +38,13 @@ Nella regressione logistica multiclasse è possibile usare il classificatore per
 
 2. Specificare il modo in cui si desidera eseguire il training del modello, impostando l'opzione **crea modalità trainer** .
 
-    + **Singolo parametro**: usare questa opzione se si è in grado di configurare il modello e fornire un set di valori specifico come argomenti.
+    + **Singolo parametro** : usare questa opzione se si è in grado di configurare il modello e fornire un set di valori specifico come argomenti.
 
-    + **Intervallo parametri**: selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.  
+    + **Intervallo parametri** : selezionare questa opzione se non si è certi dei parametri migliori e si vuole eseguire uno sweep di parametri. Selezionare un intervallo di valori di cui eseguire l'iterazione e l' [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md) esegue l'iterazione su tutte le combinazioni possibili delle impostazioni fornite per determinare gli iperparametri che producono i risultati ottimali.  
 
-3. **Tolleranza di ottimizzazione**, specificare il valore soglia per la convergenza dell'ottimizzatore. Se il miglioramento tra le iterazioni è inferiore alla soglia, l'algoritmo si interrompe e restituisce il modello corrente.
+3. **Tolleranza di ottimizzazione** , specificare il valore soglia per la convergenza dell'ottimizzatore. Se il miglioramento tra le iterazioni è inferiore alla soglia, l'algoritmo si interrompe e restituisce il modello corrente.
 
-4. **Peso regolarizzazione L1**, **peso regolarizzazione L2**: digitare un valore da usare per i parametri di regolarizzazione L1 e L2. È consigliabile usare per entrambi un valore diverso da zero.
+4. **Peso regolarizzazione L1** , **peso regolarizzazione L2** : digitare un valore da usare per i parametri di regolarizzazione L1 e L2. È consigliabile usare per entrambi un valore diverso da zero.
 
     La regolarizzazione è un metodo per evitare l'overfitting penalizzando i modelli con valori di coefficienti estremi. La regolarizzazione funziona aggiungendo la penalità associata ai valori coefficienti all'errore dell'ipotesi. Un modello accurato con valori di coefficienti estremi verrebbe penalizzato più, ma un modello meno accurato con valori più conservativi verrebbe penalizzato meno.
 
@@ -52,13 +52,13 @@ Nella regressione logistica multiclasse è possibile usare il classificatore per
 
      Sono state concepite diverse combinazioni lineari di termini L1 e L2 per i modelli di regressione logistica, ad esempio la [regolarizzazione di reti elastiche](https://wikipedia.org/wiki/Elastic_net_regularization).
 
-6. Valore di **inizializzazione numero casuale**: digitare un valore intero da utilizzare come valore di inizializzazione per l'algoritmo se si desidera che i risultati vengano ripetuti rispetto alle esecuzioni. In caso contrario, viene usato un valore clock di sistema come valore di inizializzazione, che può produrre risultati leggermente diversi in esecuzioni della stessa pipeline.
+6. Valore di **inizializzazione numero casuale** : digitare un valore intero da utilizzare come valore di inizializzazione per l'algoritmo se si desidera che i risultati vengano ripetuti rispetto alle esecuzioni. In caso contrario, viene usato un valore clock di sistema come valore di inizializzazione, che può produrre risultati leggermente diversi in esecuzioni della stessa pipeline.
 
 8. Connettere un set di dati con etichetta ed eseguire il training del modello:
 
-    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro**, connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
+    + Se si imposta la **modalità di creazione dell'allenatore** su un **singolo parametro** , connettere un set di dati con tag e il modulo [Train Model](train-model.md) .  
   
-    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri**, connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
+    + Se si imposta la **modalità di creazione dell'allenatore** sull'intervallo di **parametri** , connettere un set di dati con tag ed eseguire il training del modello usando gli [iperparametri del modello di ottimizzazione](tune-model-hyperparameters.md).  
   
     > [!NOTE]
     > 

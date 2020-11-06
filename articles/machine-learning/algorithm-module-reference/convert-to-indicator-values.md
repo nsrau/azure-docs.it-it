@@ -1,7 +1,7 @@
 ---
 title: Eseguire la conversione in valori di indicatori
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Convert to Indicator values in Azure Machine Learning per convertire le colonne contenenti valori categorici in una serie di colonne indicatore binario.
+description: Usare il modulo Convert to Indicator values in Azure Machine Learning Designer per convertire le colonne categoriche in una serie di colonne indicatore binario.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: f1b194f2c65f95ad4daff0353d05ca589db9ce51
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 81b3c113f46428327842c1555fdd1934e9ae8762
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "79477664"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420853"
 ---
 # <a name="convert-to-indicator-values"></a>Eseguire la conversione in valori di indicatori
 Questo articolo descrive un modulo di Azure Machine Learning Designer.
@@ -51,7 +51,7 @@ Si supponga di disporre di una colonna con punteggi che indichino se un server h
 | 10302     | Media        |
 | 10303     | Alta          |
 
-Quando si applica **Convert a valori indicatore**, la finestra di progettazione converte una singola colonna di etichette in più colonne contenenti valori booleani:  
+Quando si applica **Convert a valori indicatore** , la finestra di progettazione converte una singola colonna di etichette in più colonne contenenti valori booleani:  
 
 | ID del server | Punteggio errore-basso | Punteggio di errore-medio | Punteggio errore-alto |
 | --------- | ------------------- | ---------------------- | -------------------- |
@@ -71,8 +71,8 @@ Ecco come funziona la conversione:
 
 Il modulo restituisce due output:
 
-- **Set di dati results**: set di dati con colonne con valori di indicatore convertiti. Anche le colonne non selezionate per la pulizia sono "passate".
-- **Transformation values Transformation**: trasformazione dei dati usata per la conversione in valori indicatore, che possono essere salvati nell'area di lavoro e applicati ai nuovi dati in un secondo momento.
+- **Set di dati results** : set di dati con colonne con valori di indicatore convertiti. Anche le colonne non selezionate per la pulizia sono "passate".
+- **Transformation values Transformation** : trasformazione dei dati usata per la conversione in valori indicatore, che possono essere salvati nell'area di lavoro e applicati ai nuovi dati in un secondo momento.
 
 ## <a name="apply-a-saved-indicator-values-operation-to-new-data"></a>Applicare un'operazione di valore indicatore salvato ai nuovi dati
 
@@ -104,7 +104,7 @@ Questa sezione contiene informazioni dettagliate sull'implementazione, suggerime
 
 -   Non esiste alcun limite al numero di colonne che è possibile convertire in colonne indicatore. Tuttavia, poiché ogni colonna di valori può produrre più colonne indicatore, potrebbe essere necessario convertire ed esaminare solo alcune colonne alla volta.  
 
--   Se la colonna contiene valori mancanti, viene creata una colonna indicatore separata per la categoria mancante, con il nome seguente: * \<source column> -Missing*  
+-   Se la colonna contiene valori mancanti, viene creata una colonna indicatore separata per la categoria mancante, con il nome seguente: *\<source column> -Missing*  
 
 -   Se la colonna convertita in valori indicatore contiene numeri, questi devono essere contrassegnati come categorici come qualsiasi altra colonna di funzionalità. Al termine di questa operazione, i numeri vengono considerati come valori discreti. Se, ad esempio, è presente una colonna numerica con valori MPG compresi tra 25 e 30, viene creata una nuova colonna indicatore per ogni valore discreto:  
 

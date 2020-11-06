@@ -1,7 +1,7 @@
 ---
 title: DenseNet
 titleSuffix: Azure Machine Learning
-description: Informazioni su come creare un modello di classificazione delle immagini usando l'algoritmo DenseNet.
+description: Informazioni su come usare il modulo DenseNet in progettazione Azure Machine Learning per creare un modello di classificazione delle immagini usando l'algoritmo DenseNet.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/26/2020
-ms.openlocfilehash: 2351012738f4cf5697fb29891c9459e4cc86cd3a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d21c7443f6b30d0b7d6e8295c0c9b060a80d9a62
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91536631"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421329"
 ---
 # <a name="densenet"></a>DenseNet
 
@@ -35,11 +35,11 @@ Per altre informazioni su DenseNet, vedere il documento di ricerca relativo alle
 
 1.  Aggiungere il modulo **DenseNet** alla pipeline nella finestra di progettazione.  
 
-2.  Per **nome modello**specificare il nome di una determinata struttura DenseNet ed è possibile scegliere tra DenseNet supportati:' densenet121',' densenet161',' densenet169',' densenet201'.
+2.  Per **nome modello** specificare il nome di una determinata struttura DenseNet ed è possibile scegliere tra DenseNet supportati:' densenet121',' densenet161',' densenet169',' densenet201'.
 
-3.  Per il **Training**preliminare, specificare se si desidera utilizzare un modello con training preliminare in imagent. Se questa opzione è selezionata, è possibile ottimizzare il modello in base al modello pre-sottoposto a training selezionato; Se deselezionata, è possibile eseguire il training da zero.
+3.  Per il **Training** preliminare, specificare se si desidera utilizzare un modello con training preliminare in imagent. Se questa opzione è selezionata, è possibile ottimizzare il modello in base al modello pre-sottoposto a training selezionato; Se deselezionata, è possibile eseguire il training da zero.
 
-4.  Per l' **efficienza della memoria**, specificare se utilizzare il checkpoint, che è molto più efficiente, ma più lento. Per ulteriori informazioni, vedere il documento di ricerca relativo all' [implementazione efficiente della memoria di DenseNets](https://arxiv.org/pdf/1707.06990.pdf).
+4.  Per l' **efficienza della memoria** , specificare se utilizzare il checkpoint, che è molto più efficiente, ma più lento. Per ulteriori informazioni, vedere il documento di ricerca relativo all' [implementazione efficiente della memoria di DenseNets](https://arxiv.org/pdf/1707.06990.pdf).
 
 5.  Connettere l'output del modulo del set di dati del modulo **DenseNet** , del training e dell'immagine di convalida al [modello Train Pytorch](train-pytorch-model.md). 
 
@@ -54,9 +54,9 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 
 ###  <a name="module-parameters"></a>Parametri del modulo  
 
-| Nome             | Intervallo | Type    | Predefinito     | Descrizione                              |
+| Nome             | Range | Type    | Predefinito     | Descrizione                              |
 | ---------------- | ----- | ------- | ----------- | ---------------------------------------- |
-| Nome modello       | Qualsiasi   | Modalità    | densenet201 | Nome di una determinata struttura DenseNet     |
+| Nome modello       | Qualsiasi   | Mode    | densenet201 | Nome di una determinata struttura DenseNet     |
 | Training preliminare       | Qualsiasi   | Boolean | True        | Indica se utilizzare un modello pre-sottoposto a training in imagent |
 | Efficienza della memoria | Qualsiasi   | Boolean | Falso       | Indica se utilizzare il checkpoint, che è molto più efficiente della memoria ma più lento |
 

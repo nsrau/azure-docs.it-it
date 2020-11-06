@@ -1,7 +1,7 @@
 ---
 title: Tune Model Hyperparameters
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Tune Model iperparametris in Azure Machine Learning per eseguire uno sweep di parametri in un modello per determinare le impostazioni ottimali dei parametri.
+description: Usare il modulo Tune Model iperparametri nella finestra di progettazione per eseguire uno sweep di parametri per ottimizzare gli iperparametri.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,18 +9,18 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2020
-ms.openlocfilehash: 2ec1726056c7ab223f7d3de70a715a8254e95db4
-ms.sourcegitcommit: 541bb46e38ce21829a056da880c1619954678586
+ms.openlocfilehash: 2bbf75ba5de4ad20e11261bdcfd1204b1a0b0766
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/11/2020
-ms.locfileid: "91940210"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420632"
 ---
 # <a name="tune-model-hyperparameters"></a>Tune Model Hyperparameters
 
 Questo articolo descrive come usare il modulo Tune Model iperparametris in Azure Machine Learning Designer. L'obiettivo è determinare gli iperparametri ottimali per un modello di machine learning. Il modulo compila e testa più modelli usando diverse combinazioni di impostazioni. Viene confrontata la metrica su tutti i modelli per ottenere le combinazioni di impostazioni. 
 
-Il *parametro* dei termini e l' *iperparametro* possono essere confusi. I *parametri* del modello sono quelli impostati nel riquadro destro del modulo. Fondamentalmente, questo modulo esegue lo *sweep dei parametri* sulle impostazioni del parametro specificate. Viene illustrato un set ottimale di _iperparametri_, che potrebbe essere diverso per ogni particolare albero delle decisioni, set di dati o metodo di regressione. Il processo di individuazione della configurazione ottimale viene talvolta definito *ottimizzazione*. 
+Il *parametro* dei termini e l' *iperparametro* possono essere confusi. I *parametri* del modello sono quelli impostati nel riquadro destro del modulo. Fondamentalmente, questo modulo esegue lo *sweep dei parametri* sulle impostazioni del parametro specificate. Viene illustrato un set ottimale di _iperparametri_ , che potrebbe essere diverso per ogni particolare albero delle decisioni, set di dati o metodo di regressione. Il processo di individuazione della configurazione ottimale viene talvolta definito *ottimizzazione*. 
 
 Il modulo supporta il metodo seguente per trovare le impostazioni ottimali per un modello: *training integrato e ottimizzazione.* In questo metodo è possibile configurare un set di parametri da usare. Quindi si consente al modulo di scorrere più combinazioni. Il modulo misura l'accuratezza fino a trovare un modello "migliore". Con la maggior parte dei moduli di apprendimento è possibile scegliere quali parametri devono essere modificati durante il processo di training e quali devono rimanere corretti.
 
@@ -49,27 +49,27 @@ Questa sezione descrive come eseguire uno sweep di parametri di base, che esegue
 
 3.  Aggiungere il set di dati che si vuole usare per il training e connetterlo all'input centrale degli iperparametri del modello di ottimizzazione.  
 
-    Facoltativamente, se si dispone di un set di dati con tag, è possibile connetterlo alla porta di input più a destra (**set di dati di convalida facoltativo**). In questo modo è possibile misurare l'accuratezza durante il training e l'ottimizzazione.
+    Facoltativamente, se si dispone di un set di dati con tag, è possibile connetterlo alla porta di input più a destra ( **set di dati di convalida facoltativo** ). In questo modo è possibile misurare l'accuratezza durante il training e l'ottimizzazione.
 
 4.  Nel riquadro di destra di ottimizzare gli iperparametri del modello, scegliere un valore per la **modalità di sweep dei parametri**. Questa opzione consente di controllare la modalità di selezione dei parametri.
 
-    - **Griglia intera**: quando si seleziona questa opzione, il modulo esegue il ciclo su una griglia predefinita dal sistema, per provare combinazioni diverse e identificare il migliore discente. Questa opzione è utile quando non si conoscono le impostazioni dei parametri migliori e si desidera provare tutte le possibili combinazioni di valori.
+    - **Griglia intera** : quando si seleziona questa opzione, il modulo esegue il ciclo su una griglia predefinita dal sistema, per provare combinazioni diverse e identificare il migliore discente. Questa opzione è utile quando non si conoscono le impostazioni dei parametri migliori e si desidera provare tutte le possibili combinazioni di valori.
 
-    - **Sweep casuale**: quando si seleziona questa opzione, il modulo selezionerà i valori dei parametri in modo casuale su un intervallo definito dal sistema. È necessario specificare il numero massimo di esecuzioni che si desidera venga eseguito dal modulo. Questa opzione è utile quando si desidera migliorare le prestazioni del modello usando le metriche desiderate, conservando comunque le risorse di calcolo.    
+    - **Sweep casuale** : quando si seleziona questa opzione, il modulo selezionerà i valori dei parametri in modo casuale su un intervallo definito dal sistema. È necessario specificare il numero massimo di esecuzioni che si desidera venga eseguito dal modulo. Questa opzione è utile quando si desidera migliorare le prestazioni del modello usando le metriche desiderate, conservando comunque le risorse di calcolo.    
 
-5.  Per **colonna etichetta**, aprire il selettore di colonna per scegliere una singola colonna etichetta.
+5.  Per **colonna etichetta** , aprire il selettore di colonna per scegliere una singola colonna etichetta.
 
 6.  Scegliere il numero di esecuzioni:
 
-    - **Numero massimo di esecuzioni nello Sweep casuale**: se si sceglie una sweep casuale, è possibile specificare il numero di volte in cui il modello deve essere sottoposto a training, usando una combinazione casuale di valori di parametro.
+    - **Numero massimo di esecuzioni nello Sweep casuale** : se si sceglie una sweep casuale, è possibile specificare il numero di volte in cui il modello deve essere sottoposto a training, usando una combinazione casuale di valori di parametro.
 
-7.  Per la **classificazione**, scegliere una singola metrica da usare per classificare i modelli.
+7.  Per la **classificazione** , scegliere una singola metrica da usare per classificare i modelli.
 
     Quando si esegue uno sweep di parametri, il modulo calcola tutte le metriche applicabili per il tipo di modello e le restituisce nel rapporto **risultati Sweep** . Il modulo usa metriche separate per i modelli di regressione e classificazione.
 
     Tuttavia, la metrica scelta determina il modo in cui vengono classificati i modelli. Solo il modello superiore, classificato in base alla metrica scelta, viene restituito come modello sottoposto a training da usare per l'assegnazione dei punteggi.
 
-8.  Per il valore di **inizializzazione casuale**, immettere un numero da usare per avviare lo sweep dei parametri. 
+8.  Per il valore di **inizializzazione casuale** , immettere un numero da usare per avviare lo sweep dei parametri. 
 
 9. Inviare la pipeline.
 
@@ -77,7 +77,7 @@ Questa sezione descrive come eseguire uno sweep di parametri di base, che esegue
 
 Al termine del training:
 
-+ Per visualizzare i risultati dello sweep, è possibile fare clic con il pulsante destro del mouse sul modulo, quindi scegliere **Visualizza**oppure fare clic con il pulsante destro del mouse sulla porta di output sinistra del modulo da visualizzare.
++ Per visualizzare i risultati dello sweep, è possibile fare clic con il pulsante destro del mouse sul modulo, quindi scegliere **Visualizza** oppure fare clic con il pulsante destro del mouse sulla porta di output sinistra del modulo da visualizzare.
 
     I **risultati dello sweep** includono tutte le metriche di accuratezza e sweep dei parametri applicabili al tipo di modello e la metrica selezionata per la classificazione determina quale modello viene considerato "migliore".
 
@@ -92,11 +92,11 @@ Questa sezione contiene i suggerimenti e i dettagli di implementazione.
 
 Quando si configura uno sweep di parametri, si definisce l'ambito della ricerca. La ricerca potrebbe usare un numero finito di parametri selezionati in modo casuale. Oppure potrebbe trattarsi di una ricerca completa su uno spazio dei parametri definito dall'utente.
 
-+ **Sweep casuale**: questa opzione consente di il training di un modello usando un numero impostato di iterazioni. 
++ **Sweep casuale** : questa opzione consente di il training di un modello usando un numero impostato di iterazioni. 
 
   È possibile specificare un intervallo di valori di cui eseguire l'iterazione e il modulo usa un subset di tali valori scelto in modo casuale. I valori vengono scelti con la sostituzione, ovvero i numeri scelti in modo casuale non vengono rimossi dal pool di numeri disponibili. Quindi, la probabilità che qualsiasi valore selezionato rimanga invariata in tutti i passaggi.  
 
-+ **Griglia intera**: l'opzione per l'utilizzo dell'intera griglia indica che ogni combinazione viene testata. Questa opzione è la più completa, ma richiede la maggior parte del tempo. 
++ **Griglia intera** : l'opzione per l'utilizzo dell'intera griglia indica che ogni combinazione viene testata. Questa opzione è la più completa, ma richiede la maggior parte del tempo. 
 
 ### <a name="controlling-the-length-and-complexity-of-training"></a>Controllo della lunghezza e della complessità del training
 
@@ -142,7 +142,7 @@ Tuttavia, durante il training, è necessario scegliere una *singola* metrica da 
 
 -   L' **errore quadratico relativo** normalizza l'errore quadrato totale dividendo per l'errore quadrato totale dei valori stimati.  
 
--   Il **coefficiente di determinazione** è un numero singolo che indica il modo in cui i dati si adattano a un modello. Il valore 1 indica che il modello corrisponde esattamente ai dati. Un valore pari a zero indica che i dati sono casuali, altrimenti non possono essere adattati al modello. Spesso è chiamato *r<sup>2</sup>*, *r<sup>2</sup>* o *r-squared*.  
+-   Il **coefficiente di determinazione** è un numero singolo che indica il modo in cui i dati si adattano a un modello. Il valore 1 indica che il modello corrisponde esattamente ai dati. Un valore pari a zero indica che i dati sono casuali, altrimenti non possono essere adattati al modello. Spesso è chiamato *r <sup>2</sup>* , *r <sup>2</sup>* o *r-squared*.  
 
 ### <a name="modules-that-dont-support-a-parameter-sweep"></a>Moduli che non supportano lo sweep di parametri
 

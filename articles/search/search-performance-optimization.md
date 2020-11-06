@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 5fd949466978714fe1dc0c4ccc67a3cb8f993314
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 362d5f2046ff4e9ba52dd2e73433cc39e80f7a50
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88934957"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93420598"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Scalabilità per le prestazioni in Azure ricerca cognitiva
 
@@ -30,7 +30,7 @@ Prima di intraprendere un lavoro di distribuzione più ampio, assicurarsi di con
 
 1. Iniziare con un numero ridotto di query al secondo (query al secondo) e quindi aumentare gradualmente il numero eseguito nel test fino a quando la latenza della query scende sotto la destinazione predefinita. Si tratta di un benchmark importante per la pianificazione della scalabilità man mano che aumenta l'uso dell'applicazione.
 
-1. Se possibile, riusare le connessioni HTTP. Se si usa Azure ricerca cognitiva .NET SDK, questo significa che è necessario riutilizzare un'istanza di o un'istanza di [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) . Se si usa l'API REST, è necessario riusare un singolo HttpClient.
+1. Se possibile, riusare le connessioni HTTP. Se si usa Azure ricerca cognitiva .NET SDK, questo significa che è necessario riutilizzare un'istanza di o un'istanza di [SearchClient](/dotnet/api/azure.search.documents.searchclient) . Se si usa l'API REST, è necessario riusare un singolo HttpClient.
 
 1. Variare la sostanza delle richieste di query in modo che la ricerca venga eseguita su diverse parti dell'indice. La variazione è importante perché se si eseguono continuamente le stesse richieste di ricerca, la memorizzazione nella cache dei dati inizierà a migliorare le prestazioni rispetto a una serie di query più diverse.
 
@@ -43,7 +43,7 @@ Durante la creazione di questi carichi di lavoro di test, è necessario tenere p
 + Azure ricerca cognitiva non esegue attività di indicizzazione in background. Se il servizio gestisce contemporaneamente i carichi di lavoro di query e di indicizzazione, è necessario prendere in considerazione l'introduzione dei processi di indicizzazione nei test di query o l'esplorazione delle opzioni per l'esecuzione di processi di indicizzazione durante gli orari di minore attività.
 
 > [!Tip]
-> È possibile simulare un carico di query realistico usando gli strumenti di test di carico. Provare [a eseguire il test di carico con Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) o usare una di queste [alternative](/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+> È possibile simulare un carico di query realistico usando gli strumenti di test di carico. Provare [a eseguire il test di carico con Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test) o usare una di queste [alternative](/azure/devops/test/load-test/overview#alternatives).
 
 ## <a name="scale-for-high-query-volume"></a>Scalabilità per un volume di query elevato
 

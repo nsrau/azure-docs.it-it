@@ -1,7 +1,7 @@
 ---
 title: 'Esporta dati: riferimento al modulo'
 titleSuffix: Azure Machine Learning
-description: Informazioni su come usare il modulo Export Data (Esporta dati) in Azure Machine Learning per salvare i risultati, i dati intermedi e i dati di lavoro dalle pipeline in destinazioni di archiviazione cloud all'esterno di Azure Machine Learning.
+description: Usare il modulo Export data in Azure Machine Learning Designer per salvare i risultati e i dati intermedi al di fuori della Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/28/2020
-ms.openlocfilehash: 5964ed9773d45b809fc79252eabc754b1b04af84
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6e3d56958168cd279c98a4ba4c021c2362c2694
+ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90907982"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "93421312"
 ---
 # <a name="export-data-module"></a>Modulo Export Data
 
@@ -40,12 +40,12 @@ Prima di esportare i dati, è necessario prima registrare un archivio dati nell'
 
 1. Selezionare **Esporta dati** per aprire il riquadro **Proprietà** .
 
-1. Per **archivio dati**selezionare un archivio dati esistente dall'elenco a discesa. È anche possibile creare un nuovo archivio dati. Per informazioni, vedere [accesso ai dati nei servizi di archiviazione di Azure](../how-to-access-data.md).
+1. Per **archivio dati** selezionare un archivio dati esistente dall'elenco a discesa. È anche possibile creare un nuovo archivio dati. Per informazioni, vedere [accesso ai dati nei servizi di archiviazione di Azure](../how-to-access-data.md).
 
     > [!NOTE]
     > L'esportazione di dati di un determinato tipo di dati in una colonna del database SQL specificata come un altro tipo di dati non è supportata. Non è necessario che la tabella di destinazione esista per prima.
 
-1. La casella di controllo **Rigenera output**, decide se eseguire il modulo per rigenerare l'output in fase di esecuzione. 
+1. La casella di controllo **Rigenera output** , decide se eseguire il modulo per rigenerare l'output in fase di esecuzione. 
 
     Per impostazione predefinita, è deselezionata, ovvero se il modulo è stato eseguito con gli stessi parametri in precedenza, il sistema riutilizzerà l'output dell'ultima esecuzione per ridurre il tempo di esecuzione. 
 
@@ -54,7 +54,7 @@ Prima di esportare i dati, è necessario prima registrare un archivio dati nell'
 1. Definire il percorso nell'archivio dati in cui si trovano i dati. Il percorso è un percorso relativo. I percorsi vuoti o i percorsi URL non sono consentiti.
 
 
-1. Per **formato file**selezionare il formato in cui archiviare i dati.
+1. Per **formato file** selezionare il formato in cui archiviare i dati.
  
 1. Inviare la pipeline.
 
