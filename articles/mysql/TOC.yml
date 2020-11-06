@@ -29,6 +29,9 @@
     - name: Mitigare il danneggiamento dei dati
       href: how-to-fix-corrupt-database.md
       displayName: corrupt data
+    - name: Criteri di controllo delle versioni
+      href: concepts-version-policy.md
+      displayName: version policy
 - name: Server unico
   expanded: true
   items:

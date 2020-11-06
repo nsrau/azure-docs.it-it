@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/14/2019
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: f322803d3484b4ec2d5449e19d67d75b35d6d92f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5ef67580928a45609f50d3fe798eb9d054265c0a
+ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "75752055"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93376111"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
 
@@ -23,7 +23,7 @@ Deselezionare **"Verifica l'identità del server mediante convalida del certific
 
 Ignorare la convalida dell'identità del server non è consigliabile in generale, ma con l'autenticazione del certificato di Azure lo stesso certificato viene usato per la convalida del server nel protocollo di tunneling VPN (IKEv2/SSTP) e nel protocollo EAP. Poiché il certificato del server e il nome di dominio completo sono già convalidati dal protocollo di tunneling VPN, è ridondante convalidarli nuovamente in EAP.
 
-![Da punto a sito](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certificato server")
+![Autenticazione da punto a sito](./media/vpn-gateway-faq-p2s-all-include/servercert.png "Certificato server")
 
 ### <a name="can-i-use-my-own-internal-pki-root-ca-to-generate-certificates-for-point-to-site-connectivity"></a>È possibile usare la CA radice della PKI interna per generare i certificati per la connettività da punto a sito?
 

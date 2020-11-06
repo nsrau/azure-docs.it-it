@@ -662,6 +662,8 @@
               href: how-to-time-to-live.md
             - name: Definire chiavi univoche
               href: how-to-define-unique-keys.md
+            - name: Eseguire operazioni batch transazionali
+              href: transactional-batch.md
         - name: Prestazioni
           items:
             - name: Query
@@ -753,8 +755,6 @@
               href: create-sql-api-java-changefeed.md
         - name: Programmazione lato server
           items:
-            - name: Eseguire operazioni batch transazionali
-              href: transactional-batch.md
             - name: 'Scrivere stored procedure, trigger e funzioni definite dall''utente'
               href: how-to-write-stored-procedures-triggers-udfs.md
             - name: Scrivere stored procedure e trigger con l'API di query JavaScript

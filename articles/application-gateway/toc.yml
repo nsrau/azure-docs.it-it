@@ -80,7 +80,7 @@
           href: redirect-overview.md
         - name: Riscrivere l'URL e le intestazioni HTTP
           href: rewrite-http-headers-url.md
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Baseline di sicurezza
           href: security-baseline.md
@@ -287,7 +287,7 @@
       href: ../azure-resource-manager/management/overview.md
     - name: Modello di Resource Manager
       displayName: ARM
-      href: 'https://docs.microsoft.com/azure/templates/microsoft.network/applicationgateways'
+      href: /azure/templates/microsoft.network/applicationgateways
 - name: Risorse
   items:
     - name: Creare modelli

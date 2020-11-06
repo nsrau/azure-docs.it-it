@@ -14,6 +14,7 @@
     - name: Note sulla versione
       href: release-notes.md
 - name: Avvi rapidi
+  expanded: true
   items:
     - name: Introduzione
       href: get-started.md
@@ -170,7 +171,9 @@
           href: sql/overview-features.md
         - name: Modelli di consumo delle risorse
           href: sql/resource-consumption-models.md
-        - name: Procedure consigliate per i pool SQL serverless
+        - name: Dati elaborati
+          href: sql/data-processed.md
+        - name: Procedure consigliate per SQL su richiesta
           href: sql/best-practices-sql-on-demand.md
         - name: Procedure consigliate per i pool SQL dedicati
           href: sql/best-practices-sql-pool.md

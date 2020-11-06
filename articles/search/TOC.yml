@@ -34,7 +34,7 @@
       href: search-get-started-java.md
     - name: JavaScript
       href: search-get-started-javascript.md
-    - name: postman
+    - name: REST
       href: search-get-started-postman.md
     - name: PowerShell
       href: search-get-started-powershell.md
@@ -94,6 +94,8 @@
   items:
     - name: Ricerca full-text
       href: search-lucene-query-architecture.md
+    - name: Punteggio di pertinenza
+      href: index-similarity-and-scoring.md
     - name: Indicizzatori
       href: search-indexer-overview.md
     - name: Arricchimento con intelligenza artificiale
@@ -294,8 +296,6 @@
       items:
         - name: Usare i risultati
           href: search-pagination-page-layout.md
-        - name: Punteggio di pertinenza
-          href: index-similarity-and-scoring.md
         - name: Profili di punteggio
           href: index-add-scoring-profiles.md
         - name: Algoritmo di somiglianza
