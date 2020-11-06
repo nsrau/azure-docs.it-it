@@ -39,8 +39,6 @@
           href: how-to-automatic-language-detection.md
         - name: Usare l'API di trascrizione batch
           href: batch-transcription.md
-        - name: Valutare la pronuncia
-          href: how-to-pronunciation-assessment.md
     - name: Esercitazioni
       items:
         - name: Riconoscimento della voce archiviata in archivio BLOB
@@ -530,6 +528,8 @@
           href: deploy-speech-on-container-instances.md
         - name: Domande frequenti sui contenitori
           href: speech-container-faq.md
+        - name: Documentazione dei contenitori di Servizi cognitivi
+          href: ../containers/index.yml
 - name: Dispositivi
   items:
     - name: Documentazione dei dispositivi vocali

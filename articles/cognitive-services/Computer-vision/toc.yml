@@ -7,7 +7,7 @@
       href: overview.md
     - name: Novità
       href: whats-new.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Uso della libreria client
       href: quickstarts-sdk/client-library.md
@@ -161,6 +161,8 @@
           href: spatial-analysis-zone-line-placement.md
         - name: Posizionamento della fotocamera
           href: spatial-analysis-camera-placement.md
+    - name: Documentazione dei contenitori di Servizi cognitivi
+      href: ../containers/index.yml
 - name: Guide pratiche
   items:
     - name: Chiamare l'API Visione artificiale

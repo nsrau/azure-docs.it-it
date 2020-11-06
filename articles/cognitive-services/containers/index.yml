@@ -1,0 +1,90 @@
+### YamlMime:Landing
+title: Contenitori di Servizi cognitivi di Azure
+summary: I contenitori di Servizi cognitivi di Azure consentono di usare l'intelligenza artificiale in locale. Offrono la flessibilità per avvicinare Servizi cognitivi ai dati per motivi di conformità, sicurezza o altre operazioni.
+metadata:
+  title: Contenitori di Servizi cognitivi di Azure
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: aahill
+  manager: nitinme
+  ms.service: cognitive-services
+  ms.topic: landing-page
+  ms.date: 10/27/2020
+  ms.author: aahi
+  ms.openlocfilehash: 28eb8450201280e58e24dd5ad9b8826165b614c3
+  ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 11/04/2020
+  ms.locfileid: "93328077"
+landingContent:
+- title: Informazioni sui contenitori di Servizi cognitivi
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Che cosa sono i contenitori di Servizi cognitivi?
+      url: ../cognitive-services-container-support.md
+    - text: Domande frequenti
+      url: container-faq.md
+    - text: Tag di immagini di contenitori
+      url: container-image-tags.md
+- title: Configurazioni dei contenitori
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Procedura per il riutilizzo di contenitori
+      url: container-reuse-recipe.md
+    - text: Distribuire in Istanze di Azure Container
+      url: azure-container-instance-recipe.md
+    - text: Distribuire in Kubernetes
+      url: azure-kubernetes-recipe.md
+    - text: Distribuire con Docker Compose
+      url: azure-kubernetes-recipe.md
+- title: Contenitori per la visione
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - url: ../computer-vision/computer-vision-how-to-install-containers.md
+      text: Read OCR
+    - url: ../computer-vision/spatial-analysis-container.md
+      text: Analisi spaziale
+    - url: ../face/face-how-to-install-containers.md
+      text: Viso
+    - url: ../form-recognizer/form-recognizer-container-howto.md
+      text: Riconoscimento modulo
+- title: Contenitori per la lingua
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=sentiment
+      text: Analisi del sentiment
+    - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
+      text: Estrazione di frasi chiave
+    - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language
+      text: Rilevamento della lingua del testo
+    - url: ../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=healthcare
+      text: Analisi del testo per la sanità
+    - url: ../luis/luis-container-howto.md
+      text: Contenitore LUIS
+- title: Contenitori per la voce
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - url: ../speech-service/speech-container-howto.md?tabs=stt
+      text: Riconoscimento vocale
+    - url: ../speech-service/speech-container-howto.md?tabs=cstt
+      text: Riconoscimento vocale personalizzato
+    - url: ../speech-service/speech-container-howto.md?tabs=tts
+      text: Testo di cui eseguire il riconoscimento vocale
+    - url: ../speech-service/speech-container-howto.md?tabs=ctts
+      text: Sintesi vocale personalizzata
+    - url: ../speech-service/speech-container-howto.md?tabs=ntts
+      text: Sintesi vocale neurale
+    - url: ../speech-service/speech-container-howto.md?tabs=lid
+      text: Rilevamento della lingua parlata
+- title: Contenitore per le decisioni
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - url: ../anomaly-detector/anomaly-detector-container-howto.md
+      text: Rilevamento anomalie
