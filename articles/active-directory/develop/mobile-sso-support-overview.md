@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 10/14/2020
 ms.author: nichola
-ms.openlocfilehash: a3899d9fbf04f9629885ec38f6b0b2bde728561b
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: 09fc29b54951d2f33acc725c734e01e3d3364ff0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740155"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331607"
 ---
 # <a name="support-single-sign-on-and-app-protection-policies-in-mobile-apps-you-develop"></a>Supportare Single Sign-On e i criteri di protezione delle app nelle app per dispositivi mobili sviluppate
 
@@ -30,7 +30,7 @@ Questo articolo illustra il motivo per cui SSO e APP sono importanti e fornisce 
 
 Inoltre, l'abilitazione di Single Sign-On nell'app Sblocca i nuovi meccanismi di autenticazione disponibili con l'autenticazione moderna, ad esempio gli [account di accesso senza password](../authentication/concept-authentication-passwordless.md). I nomi utente e le password sono uno dei vettori di attacco più diffusi per le applicazioni e l'abilitazione di SSO consente di attenuare questo rischio imponendo l'accesso condizionale o gli account di accesso senza password che aggiungono ulteriore sicurezza oppure si basano su meccanismi di autenticazione più sicuri. Infine, l'abilitazione di Single Sign-On consente anche l' [accesso Single Sign-out](v2-protocols-oidc.md#single-sign-out). Questa operazione è utile in situazioni come le applicazioni di lavoro che verranno usate nei dispositivi condivisi.
 
-I [criteri di protezione delle app (app)](/mem/intune/apps/app-protection-policy) assicurano che i dati di un'organizzazione rimangano sicuri e contenuti. Consentono alle aziende di gestire e proteggere i dati all'interno di un'app e consentono di controllare chi può accedere all'app e ai relativi dati. L'implementazione dei criteri di protezione delle app consente all'app di connettere gli utenti alle risorse protette dai criteri di accesso condizionale e di trasferire in modo sicuro i dati da e verso altre app protette. Gli scenari sbloccati dai criteri di protezione delle app includono richiedere un PIN per aprire un'app, controllare la condivisione di dati tra le app e impedire il salvataggio dei dati delle app aziendali in un percorso di archiviazione personale nel dispositivo.
+I [criteri di protezione delle app (app)](/mem/intune/apps/app-protection-policy) assicurano che i dati di un'organizzazione rimangano sicuri e contenuti. Consentono alle aziende di gestire e proteggere i dati all'interno di un'app e consentono di controllare chi può accedere all'app e ai relativi dati. L'implementazione dei criteri di protezione delle app consente all'app di connettere gli utenti alle risorse protette dai criteri di accesso condizionale e di trasferire in modo sicuro i dati da e verso altre app protette. Gli scenari sbloccati dai criteri di protezione delle app includono richiedere un PIN per aprire un'app, controllare la condivisione di dati tra le app e impedire il salvataggio dei dati delle app aziendali nei percorsi di archiviazione personali.
 
 ## <a name="implementing-single-sign-on"></a>Implementazione di Single Sign-On
 

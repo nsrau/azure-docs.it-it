@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 2dc8773dc41493e30f64c0602b4345a9491cd7b7
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 80c837e640ef0d1739c329fb463e173e6c40be31
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93379707"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331725"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 
@@ -150,7 +150,7 @@ Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di 
 - Usare un runtime di integrazione self-hosted per supportare l'integrazione dei dati all'interno di una rete virtuale di Azure.
 - Considerare l'origine dati come un'origine dati locale protetta da firewall anche quando si usa Azure ExpressRoute. Usare il runtime di integrazione self-hosted per connettere il servizio all'origine dati.
 - Usare il runtime di integrazione self-hosted anche se l'archivio dati si trova nel cloud in una macchina virtuale di infrastruttura distribuita come servizio (IaaS) di Azure.
-- Le attività potrebbero non riuscire in un runtime di integrazione self-hosted installato in un server Windows per cui è abilitata la crittografia FIPS compatibile. Per risolvere questo problema, disabilitare la crittografia FIPS nel server. Per disabilitare la crittografia conforme a FIPS, modificare il valore della sottochiave del registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` .
+- Le attività potrebbero non riuscire in un runtime di integrazione self-hosted installato in un server Windows per cui è abilitata la crittografia FIPS compatibile. Per ovviare a questo problema, sono disponibili due opzioni: archiviare le credenziali/i valori del segreto in un Azure Key Vault o disabilitare la crittografia conforme a FIPS nel server. Per disabilitare la crittografia conforme a FIPS, modificare il valore della sottochiave del registro di sistema seguente da 1 (abilitato) a 0 (disabilitato): `HKLM\System\CurrentControlSet\Control\Lsa\FIPSAlgorithmPolicy\Enabled` .
 
 ## <a name="prerequisites"></a>Prerequisiti
 

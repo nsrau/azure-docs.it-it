@@ -3,12 +3,12 @@ title: Monitoraggio di Azure Application Insights Java
 description: Application Performance Monitoring per le applicazioni Java in esecuzione in qualsiasi ambiente senza richiedere la modifica del codice. Traccia distribuita e mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 07be6a4ff08700ee9407fbf39946b7c24abbc01a
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 31ee3c4a2dbf6f6832c0228e70aa079b5f028bc4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377038"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331924"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitoraggio di Azure per il monitoraggio di applicazioni Java non codificate Application Insights
 
@@ -22,7 +22,7 @@ L'aggiunta di Application Insights Java SDK all'applicazione non è più necessa
 
 L'agente 3,0 supporta Java 8 e versioni successive.
 
-## <a name="quickstart"></a>Guida introduttiva
+## <a name="quickstart"></a>Avvio rapido
 
 **1. scaricare l'agente**
 
@@ -48,7 +48,7 @@ Se non si ha già una risorsa Application Insights, è possibile crearne una nuo
 Puntare l'agente alla risorsa Application Insights impostando una variabile di ambiente:
 
 ```
-APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=00000000-0000-0000-0000-000000000000
+APPLICATIONINSIGHTS_CONNECTION_STRING=InstrumentationKey=...
 ```
 
 Oppure creando un file di configurazione denominato `applicationinsights.json` e inserendolo nella stessa directory di `applicationinsights-agent-3.0.0.jar` , con il contenuto seguente:
@@ -56,7 +56,7 @@ Oppure creando un file di configurazione denominato `applicationinsights.json` e
 ```json
 {
   "instrumentationSettings": {
-    "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+    "connectionString": "InstrumentationKey=..."
   }
 }
 ```
@@ -173,7 +173,7 @@ private static final TelemetryClient telemetryClient = new TelemetryClient();
 
 e usarlo per l'invio di dati di telemetria personalizzati.
 
-### <a name="events"></a>Eventi
+### <a name="events"></a>Events
 
   ```java
 telemetryClient.trackEvent("WinGame");

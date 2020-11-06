@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 04/08/2020
 ms.reviewer: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 6d0ae81177ca8488c410e40ca56642199694c08c
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 8c9007cf14b485c37b94e9f475e2ce890ea0ea2b
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93072663"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330802"
 ---
 # <a name="change-feed-in-azure-cosmos-db"></a>Feed di modifiche in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Il supporto del feed di modifiche in Azure Cosmos DB ascolta eventuali modifiche in un contenitore di Azure Cosmos. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Le modifiche sono persistenti, possono essere elaborate in modo asincrono e incrementale e l'output può essere distribuito a uno o più consumer per l'elaborazione parallela.
+Il feed delle modifiche nel Azure Cosmos DB è un record persistente delle modifiche apportate a un contenitore nell'ordine in cui si verificano. Il supporto del feed di modifiche in Azure Cosmos DB ascolta eventuali modifiche in un contenitore di Azure Cosmos. Restituisce quindi l'elenco di documenti cambiati nell'ordine in cui sono stati modificati. Le modifiche rese disponibili possono essere elaborate in modo asincrono e incrementale e l'output può essere distribuito in uno o più consumer per l'elaborazione parallela.
 
 Altre informazioni sui [modelli di progettazione del feed di modifiche](change-feed-design-patterns.md).
 

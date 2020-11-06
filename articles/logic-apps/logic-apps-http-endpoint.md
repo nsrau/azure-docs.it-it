@@ -6,12 +6,12 @@ ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/27/2020
-ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8a59b47dadd845f1a522854c503af11c8fff72fd
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89230807"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331975"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare app per la logica usando endpoint HTTPS in app per la logica di Azure
 
@@ -23,7 +23,8 @@ Per fare in modo che l'app per la logica richiamabile tramite un URL e in grado 
 
 Questo articolo illustra come creare un endpoint chiamabile nell'app per la logica usando il trigger di richiesta e chiamare tale endpoint da un'altra app per la logica. Tutti i principi si applicano in modo identico agli altri tipi di trigger che è possibile usare per ricevere le richieste in ingresso.
 
-Per informazioni su crittografia, sicurezza e autorizzazione per le chiamate in ingresso all'app per la logica, ad esempio [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), precedentemente noto come Secure Sockets Layer (SSL) o [Azure Active Directory Open Authentication (Azure ad OAuth)](../active-directory/develop/index.yml), vedere [accesso protetto e accesso ai dati per le chiamate in ingresso a trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
+Per ulteriori informazioni sulla sicurezza, autorizzazione e crittografia per le chiamate in ingresso all'app per la logica, ad esempio [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), precedentemente nota come Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure ad OAuth)](../active-directory/develop/index.yml), esposizione dell'app per la logica con gestione API di Azure o restrizione degli indirizzi IP che generano chiamate in ingresso, vedere [accesso protetto e accesso ai dati per le chiamate in ingresso a trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -109,7 +110,7 @@ Per informazioni su crittografia, sicurezza e autorizzazione per le chiamate in 
 
    * Copiare l'URL di callback dal riquadro di **Panoramica** dell'app per la logica.
 
-     1. Scegliere **Panoramica**dal menu dell'app per la logica.
+     1. Scegliere **Panoramica** dal menu dell'app per la logica.
 
      1. Nella sezione **Riepilogo** selezionare **Visualizza cronologia trigger**.
 
@@ -125,7 +126,7 @@ Per informazioni su crittografia, sicurezza e autorizzazione per le chiamate in 
 
 Per impostazione predefinita, il trigger di richiesta prevede una richiesta POST. È possibile specificare un metodo diverso da prevedere, ma solo un singolo metodo.
 
-1. Nel trigger request aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Metodo**, che aggiunge questa proprietà al trigger.
+1. Nel trigger request aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Metodo** , che aggiunge questa proprietà al trigger.
 
    ![Aggiungere la proprietà "Method" al trigger](./media/logic-apps-http-endpoint/select-add-new-parameter-for-method.png)
 
@@ -153,7 +154,7 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
 ### <a name="accept-values-through-get-parameters"></a>Accetta valori tramite parametri GET
 
-1. Nel trigger di richiesta aprire l' **elenco Aggiungi nuovo parametro**, aggiungere la proprietà del **Metodo** al trigger e selezionare il metodo **Get** .
+1. Nel trigger di richiesta aprire l' **elenco Aggiungi nuovo parametro** , aggiungere la proprietà del **Metodo** al trigger e selezionare il metodo **Get** .
 
    Per altre informazioni, vedere [selezionare il metodo di richiesta previsto](#select-method).
 
@@ -216,7 +217,7 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
 ### <a name="accept-values-through-a-relative-path"></a>Accetta valori tramite un percorso relativo
 
-1. Nel trigger request aprire l'elenco **Aggiungi nuovo parametro** e selezionare **percorso relativo**, che aggiunge questa proprietà al trigger.
+1. Nel trigger request aprire l'elenco **Aggiungi nuovo parametro** e selezionare **percorso relativo** , che aggiunge questa proprietà al trigger.
 
    ![Aggiungere la proprietà "percorso relativo" al trigger](./media/logic-apps-http-endpoint/select-add-new-parameter-for-relative-path.png)
 
@@ -301,7 +302,7 @@ Ad esempio, se si aggiungono altre proprietà, ad esempio `"suite"` , allo schem
 
 ## <a name="create-nested-logic-apps"></a>Creare app per la logica annidate
 
-È possibile nidificare i flussi di lavoro nell'app per la logica aggiungendo altre app per la logica che possono ricevere richieste. Per includere queste app per la logica, seguire questa procedura:
+È possibile annidare i flussi di lavoro nell'app per la logica aggiungendo altre app per la logica che possono ricevere richieste. Per includere queste app per la logica, seguire questa procedura:
 
 1. Nel passaggio in cui si vuole chiamare un'altra app per la logica, selezionare **nuovo passaggio**  >  **Aggiungi un'azione**.
 
@@ -383,7 +384,7 @@ Per visualizzare la definizione JSON per l'azione di risposta e la definizione J
 
 #### <a name="q-what-about-url-security"></a>D: Come viene garantita la sicurezza degli URL?
 
-**R**: Azure genera in modo sicuro gli URL di callback delle app per la logica usando la [firma di accesso condiviso (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Questa firma viene passata come parametro di query e deve essere convalidata prima di poter eseguire l'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
+**R** : Azure genera in modo sicuro gli URL di callback delle app per la logica usando la [firma di accesso condiviso (SAS)](/rest/api/storageservices/delegate-access-with-shared-access-signature). Questa firma viene passata come parametro di query e deve essere convalidata prima di poter eseguire l'app per la logica. Azure genera la firma con una combinazione univoca che include la chiave privata per ogni app per la logica, il nome del trigger e l'operazione in esecuzione. Pertanto, a meno che un utente non ottenga l'accesso alla chiave privata dell'app per la logica, non potrà generare una firma valida.
 
 > [!IMPORTANT]
 > Per i sistemi di produzione e di sicurezza più elevati, è consigliabile non chiamare l'app per la logica direttamente dal browser per i motivi seguenti:
@@ -391,9 +392,11 @@ Per visualizzare la definizione JSON per l'azione di risposta e la definizione J
 > * La chiave di accesso condiviso viene visualizzata nell'URL.
 > * Non è possibile gestire i criteri di contenuto di sicurezza a causa di domini condivisi in app per la logica di Azure.
 
+Per ulteriori informazioni sulla sicurezza, autorizzazione e crittografia per le chiamate in ingresso all'app per la logica, ad esempio [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), precedentemente nota come Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure ad OAuth)](../active-directory/develop/index.yml), esposizione dell'app per la logica con gestione API di Azure o restrizione degli indirizzi IP che generano chiamate in ingresso, vedere [accesso protetto e accesso ai dati per le chiamate in ingresso a trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
 #### <a name="q-can-i-configure-callable-endpoints-further"></a>D: è possibile configurare ulteriormente gli endpoint chiamabili?
 
-**R**: Sì, gli endpoint HTTPS supportano una configurazione più avanzata tramite [gestione API di Azure](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
+**R** : Sì, gli endpoint HTTPS supportano una configurazione più avanzata tramite [gestione API di Azure](../api-management/api-management-key-concepts.md). Questo servizio offre inoltre la possibilità di gestire tutte le API in modo coerente, incluse le app per la logica, di impostare i nomi di dominio personalizzato, usare più metodi di autenticazione e altro ancora, ad esempio:
 
 * [Impostare il metodo della richiesta](../api-management/api-management-advanced-policies.md#SetRequestMethod)
 * [Modificare i segmenti dell'URL della richiesta](../api-management/api-management-transformation-policies.md#RewriteURL)
@@ -403,4 +406,4 @@ Per visualizzare la definizione JSON per l'azione di risposta e la definizione J
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure](../connectors/connectors-native-reqres.md)
-* [Proteggere l'accesso e i dati in app per la logica di Azure-Access-Access per le chiamate in ingresso a trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Proteggere l'accesso e i dati nelle app per la logica di Azure-accesso per le chiamate in ingresso a trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

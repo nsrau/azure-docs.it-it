@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 3a195f9dd74353734ff65f0d5f210d861fa29a26
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 6f16e4b1f9728ae8d9cb36ab442603083e83eb92
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92632584"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331380"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Risoluzione dei problemi di Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -522,79 +522,30 @@ La tabella seguente si applica a Azure Batch.
  
 ## <a name="hdinsight"></a>HDInsight
 
-### <a name="error-code-200"></a>Codice errore: 200
-
-- **Messaggio** : `Unexpected error happened: '%error;'.`
-
-- **Causa** : si è verificato un problema interno del servizio.
-
-- **Raccomandazione** : contattare l'assistenza di Azure Data Factory per richiedere supporto.
-
-### <a name="error-code-201"></a>Codice errore: 201
-
-- **Messaggio** : `JobType %jobType; is not found.`
-
-- **Causa** : è disponibile un nuovo tipo di processo non supportato da Azure Data Factory.
-
-- **Raccomandazione** : contattare il team di supporto di Azure Data Factory per ricevere assistenza.
-
-### <a name="error-code-202"></a>Codice errore: 202
-
-- **Messaggio** : `Failed to create on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Causa** : il messaggio di errore include i dettagli relativi al problema.
-
-- **Raccomandazione** : con i dettagli del messaggio di errore dovrebbe essere possibile risolvere il problema. Se le informazioni disponibili non sono sufficienti, contattare l'assistenza Azure Data Factory per ulteriore supporto.
-
-### <a name="error-code-203"></a>Codice errore: 203
-
-- **Messaggio** : `Failed to delete on demand HDI cluster. Cluster name or linked service name: '%clusterName;', error: '%message;'`
-
-- **Causa** : il messaggio di errore include i dettagli relativi al problema.
-
-- **Raccomandazione** : con i dettagli del messaggio di errore dovrebbe essere possibile risolvere il problema. Se le informazioni disponibili non sono sufficienti, contattare l'assistenza Azure Data Factory per ulteriore supporto.
-
-### <a name="error-code-204"></a>Codice errore: 204
-
-- **Messaggio** : `The resumption token is missing for runId '%runId;'.`
-
-- **Causa** : si è verificato un problema interno del servizio.
-
-- **Raccomandazione** : contattare l'assistenza di Azure Data Factory per richiedere supporto.
-
-### <a name="error-code-205"></a>Codice errore: 205
-
-- **Messaggio** : `Failed to prepare cluster for LinkedService '%linkedServiceName;', the current resource status is '%status;'.`
-
-- **Causa** : errore durante la creazione del cluster HDI su richiesta.
-
-- **Raccomandazione** : contattare l'assistenza di Azure Data Factory per richiedere supporto.
-
 ### <a name="error-code-206"></a>Codice errore: 206
 
-- **Messaggio** : `The batch ID for Spark job is invalid. Please retry your job, and if the problem persists, contact the ADF support for further assistance.`
+- **Messaggio** : `The batch ID for Spark job is invalid. Please retry your job.`
 
 - **Causa** : l'errore è stato causato da un problema interno del servizio.
 
-- **Raccomandazione** : questo problema potrebbe essere temporaneo. Ripetere il processo e, se il problema persiste, contattare l'assistenza Azure Data Factory per ulteriore supporto.
+- **Raccomandazione** : questo problema potrebbe essere temporaneo. Ripetere il processo dopo qualche minuto.
 
 ### <a name="error-code-207"></a>Codice errore: 207
 
-- **Messaggio** : `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI or contact ADF support team and provide the activity run ID.`
+- **Messaggio** : `Could not determine the region from the provided storage account. Please try using another primary storage account for the on demand HDI.`
 
 - **Causa** : errore interno durante il tentativo di determinare l'area dall'account di archiviazione primario.
 
-- **Raccomandazione** : provare con un'altra risorsa di archiviazione. Se questa opzione non è accettabile, contattare il team di supporto di Azure Data Factory per ricevere assistenza.
+- **Raccomandazione** : provare con un'altra risorsa di archiviazione. 
 
 ### <a name="error-code-208"></a>Codice errore: 208
 
-- **Messaggio** : `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again. In case if this is not an acceptable solution, contact ADF support team for further assistance.`
+- **Messaggio** : `Service Principal or the MSI authenticator are not instantiated. Please consider providing a Service Principal in the HDI on demand linked service which has permissions to create an HDInsight cluster in the provided subscription and try again.`
 
 - **Causa** : si è verificato un errore interno durante il tentativo di leggere l'entità servizio o di creare un'istanza dell'autenticazione MSI.
 
 - **Raccomandazione** : fornire un'entità servizio con autorizzazioni per creare un cluster HDInsight nella sottoscrizione fornita e riprovare. Verificare che le [identità gestite siano configurate correttamente](../hdinsight/hdinsight-managed-identities.md).
 
-   Se questa opzione non è accettabile, contattare il team di supporto di Azure Data Factory per ricevere assistenza.
 
 ### <a name="error-code-2300"></a>Codice errore: 2300
 
@@ -612,7 +563,7 @@ La tabella seguente si applica a Azure Batch.
 
 - **Raccomandazione** : il problema potrebbe riguardare la connettività generale di HDInsight o la connettività di rete. Per prima cosa, verificare che l'interfaccia utente di HDInsight Ambari sia disponibile in qualsiasi browser. In seguito, controllare che le credenziali siano ancora valide.
    
-   Se si usa un runtime di integrazione self-hosted, procedere come segue usando la macchina virtuale o il computer in cui è installato il runtime. Provare quindi a inviare di nuovo il processo da Data Factory. Se il problema persiste, contattare il team Data Factory per assistenza.
+   Se si usa un runtime di integrazione self-hosted, procedere come segue usando la macchina virtuale o il computer in cui è installato il runtime. Provare quindi a inviare di nuovo il processo da Data Factory.
 
    Per altre informazioni, vedere [Interfaccia utente Web Ambari](../hdinsight/hdinsight-hadoop-manage-ambari.md#ambari-web-ui).
 
@@ -1009,7 +960,7 @@ La tabella seguente si applica a Azure Batch.
 
 - **Causa** : questo problema è causato dalla connettività di rete, da un errore DNS, da un errore di convalida del certificato del server o da un timeout.
 
-- **Raccomandazione** : assicurarsi che l'endpoint che si tenta di raggiungere risponda alle richieste. È possibile usare strumenti come **Fiddler/Postman** .
+- **Raccomandazione** : assicurarsi che l'endpoint che si tenta di raggiungere risponda alle richieste. È possibile usare strumenti come **Fiddler/Postman**.
 
 ### <a name="error-code-2108"></a>Codice errore: 2108
 
@@ -1024,7 +975,7 @@ Uso di **Fiddler** per creare una sessione HTTP dell'applicazione Web monitorata
 
 1. Scaricare, installare e aprire [Fiddler](https://www.telerik.com/download/fiddler).
 
-1. Se l'applicazione Web usa HTTPS, aprire **Tools** (Strumenti) > **Options** (Opzioni) > **HTTPS** .
+1. Se l'applicazione Web usa HTTPS, aprire **Tools** (Strumenti) > **Options** (Opzioni) > **HTTPS**.
 
    1. Nella scheda HTTPS, selezionare sia **Capture HTTPS CONNECTs** (Acquisisci connessioni HTTP) che **Decrypt HTTPS traffic** (Decrittografa traffico HTTPS).
 
@@ -1034,7 +985,7 @@ Uso di **Fiddler** per creare una sessione HTTP dell'applicazione Web monitorata
 
    Passare a: **Tools** (Strumenti) > **Options** (Opzioni) > **HTTPS** > **Actions** (Azioni) > **Export Root Certificate to Desktop** (Esporta certificato radice su desktop).
 
-1. Disattivare l'acquisizione in **File** > **Capture Traffic** (Acquisisci traffico). In alternativa, premere **F12** .
+1. Disattivare l'acquisizione in **File** > **Capture Traffic** (Acquisisci traffico). In alternativa, premere **F12**.
 
 1. Cancellare la cache del browser in modo che tutti gli elementi presenti vengano rimossi e debbano essere scaricati di nuovo.
 

@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 286a4f47d542a500fb49f022f3c647088ebad637
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 6f5eab8f53fb4c9e15606223707292261b4615e0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92784219"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330292"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>Modificare la modalità di replica di un account di archiviazione
 
@@ -123,26 +123,26 @@ Sebbene Microsoft gestisca tempestivamente la richiesta di migrazione in tempo r
 
 È possibile richiedere la migrazione in tempo reale tramite il [portale del supporto tecnico di Azure](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview). Nel portale selezionare l'account di archiviazione da convertire in archiviazione con ridondanza della zona.
 
-1. Selezionare **nuova richiesta di supporto** .
+1. Selezionare **nuova richiesta di supporto**.
 2. Completare le **nozioni** di base in base alle informazioni sull'account: 
-    - **Tipo di problema** : selezionare **tecnico** .
-    - **Servizio** : selezionare **servizi personali** e **Gestione account di archiviazione** .
+    - **Tipo di problema** : selezionare **tecnico**.
+    - **Servizio** : selezionare **servizi personali** e **Gestione account di archiviazione**.
     - **Risorsa** : selezionare la risorsa che si vuole convertire in ZRS.
-3. Selezionare **Avanti** .
+3. Selezionare **Avanti**.
 4. Specificare i valori seguenti nella sezione **Problema** :
     - **Gravità** : lasciare il valore predefinito.
-    - **Tipo di problema** : selezionare **Migrazione dei dati** .
-    - **Category** : selezionare **migrate to ZRS** .
-    - **Titolo** : digitare un titolo descrittivo, ad esempio **migrazione di account con archiviazione con ridondanza della zona** .
+    - **Tipo di problema** : selezionare **Migrazione dei dati**.
+    - **Category** : selezionare **migrate to ZRS**.
+    - **Titolo** : digitare un titolo descrittivo, ad esempio **migrazione di account con archiviazione con ridondanza della zona**.
     - **Dettagli** : digitare ulteriori dettagli nella casella **Dettagli** , ad esempio, si desidera eseguire la migrazione a ZRS da [con ridondanza locale, GRS] nell' \_ \_ area.
-5. Selezionare **Avanti** .
+5. Selezionare **Avanti**.
 6. Verificare che le informazioni di contatto nel pannello **Informazioni contatto** siano corrette.
-7. Selezionare **Crea** .
+7. Selezionare **Crea**.
 
 Un addetto del supporto tecnico contatterà l'utente e fornirà l'assistenza necessaria.
 
 > [!NOTE]
-> La migrazione in tempo reale non è attualmente supportata per le condivisioni file Premium. Attualmente sono supportati solo i dati copiati o spostati manualmente.
+> Le condivisioni file Premium (account filestorage) sono disponibili solo per con ridondanza locale e ZRS.
 >
 > Gli account di archiviazione GZRS attualmente non supportano il livello archivio. Per altri dettagli [, vedere Archiviazione BLOB di Azure: livelli di accesso ad accesso frequente, ad accesso sporadico e archivio](../blobs/storage-blob-storage-tiers.md) .
 >

@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: marsma, lenalepa, manrath
-ms.openlocfilehash: e7635aad85352887646a1319b4d0bfbf64924bf9
-ms.sourcegitcommit: 4f4a2b16ff3a76e5d39e3fcf295bca19cff43540
+ms.openlocfilehash: a2838e40844b83d1e90789439ce286f2738e22c4
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93042912"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331856"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitazioni e limitazioni dell'URI di reindirizzamento (URL di risposta)
 
@@ -62,7 +62,9 @@ Per le [sezioni RFC 8252 8,3](https://tools.ietf.org/html/rfc8252#section-8.3) e
 
 Dal punto di vista dello sviluppo, questo significa che:
 
-* Non registrare più URI di reindirizzamento in cui è diversa solo la porta. Il server di accesso ne sceglierà uno arbitrario e utilizzerà il comportamento associato a tale URI di reindirizzamento (ad esempio, se è `web` -, `native` -o `spa` -Type Reindirizzamento).
+* Non registrare più URI di reindirizzamento in cui è diversa solo la porta. Il server di accesso ne sceglierà uno arbitrario e utilizzerà il comportamento associato a tale URI di reindirizzamento (ad esempio, se si tratta di un `web` Reindirizzamento di tipo-, `native` -o `spa` ).
+
+    Questo è particolarmente importante quando si vogliono usare flussi di autenticazione diversi nella stessa registrazione dell'applicazione, ad esempio sia la concessione del codice di autorizzazione che il flusso implicito. Per associare il comportamento corretto della risposta a ogni URI di reindirizzamento, il server di accesso deve essere in grado di distinguere gli URI di reindirizzamento e non può farlo quando solo la porta è diversa.
 * Se è necessario registrare più URI di reindirizzamento in localhost per testare flussi diversi durante lo sviluppo, distinguerli usando il componente *path* dell'URI. Ad esempio, `http://127.0.0.1/MyWebApp` non corrisponde a `http://127.0.0.1/MyNativeApp` .
 * L'indirizzo di loopback IPv6 ( `[::1]` ) non è attualmente supportato.
 * Per impedire che l'app venga interruppe da firewall o interfacce di rete rinominate in modo errato, usare l'indirizzo di loopback del valore letterale IP `127.0.0.1` nell'URI di reindirizzamento anziché `localhost` .

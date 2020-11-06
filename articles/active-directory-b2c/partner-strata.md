@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 10/25/2020
 ms.author: gasinh
 ms.subservice: B2C
-ms.openlocfilehash: 0fd2312df31e61ae30f4c3fd04dc0991ac0f4675
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6276bd0db9bfb93897f7350b87d208ac2951c859
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93376856"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330326"
 ---
 # <a name="tutorial-for-extending-azure-ad-b2c-to-protect-on-premises-applications-using-strata"></a>Esercitazione per estendere Azure AD B2C per proteggere le applicazioni locali usando gli strati
 
@@ -69,7 +69,7 @@ Il diagramma dell'architettura seguente illustra l'implementazione di.
 | 8. | L'utente è ora autenticato e può accedere all'app.|
 
 ## <a name="get-maverics-identity-orchestrator"></a>Ottenere l'agente di orchestrazione delle identità Maverics
-
+Per ottenere il software da usare per integrare l'app locale legacy con Azure AD B2C, contattare [strati](https://www.strata.io/contact/). Dopo aver ottenuto il software, attenersi alla procedura seguente per determinare i prerequisiti specifici dell'agente di orchestrazione ed eseguire i passaggi necessari per l'installazione e la configurazione.
 
 ## <a name="configure-your-azure-ad-b2c-tenant"></a>Configurare il tenant di Azure AD B2C
 

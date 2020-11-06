@@ -4,12 +4,12 @@ description: Opzioni di configurazione per il monitoraggio di Azure Application 
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 710347061f072fe66987d88852045986c00812c8
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 7165afd77e3f60af5e00b92c1063247325897f9f
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93377684"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331907"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opzioni di configurazione per il monitoraggio di Azure Application Insights Java
 
@@ -24,7 +24,7 @@ La stringa di connessione e il nome del ruolo sono le impostazioni più comuni n
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000",
+  "connectionString": "InstrumentationKey=...",
   "role": {
     "name": "my cloud role name"
   }
@@ -55,7 +55,7 @@ Se si specifica un percorso relativo, questo verrà risolto in relazione alla di
 
 ```json
 {
-  "connectionString": "InstrumentationKey=00000000-0000-0000-0000-000000000000"
+  "connectionString": "InstrumentationKey=..."
 }
 ```
 
@@ -306,3 +306,47 @@ Per impostazione predefinita, Application Insights i registri Java 3,0 al livell
 `maxSizeMb` dimensioni massime del file di log prima del rollover.
 
 `maxHistory` numero di file di log di cui è stato eseguito il rollback, conservati (oltre al file di log corrente).
+
+## <a name="an-example"></a>un esempio
+
+Questo è solo un esempio per mostrare l'aspetto di un file di configurazione con più componenti.
+Configurare opzioni specifiche in base alle esigenze.
+
+```json
+{
+  "connectionString": "InstrumentationKey=...",
+  "role": {
+    "name": "my cloud role name"
+  },
+  "sampling": {
+    "percentage": 100
+  },
+  "jmxMetrics": [
+  ],
+  "customDimensions": {
+  },
+  "instrumentation": {
+    "logging": {
+      "level": "INFO"
+    },
+    "micrometer": {
+      "enabled": true
+    }
+  },
+  "httpProxy": {
+  },
+  "preview": {
+    "processors": [
+    ]
+  },
+  "selfDiagnostics": {
+    "destination": "file+console",
+    "level": "INFO",
+    "file": {
+      "path": "applicationinsights.log",
+      "maxSizeMb": 5,
+      "maxHistory": 1
+    }
+  }
+}
+```

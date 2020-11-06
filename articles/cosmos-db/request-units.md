@@ -6,19 +6,19 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/23/2020
-ms.openlocfilehash: 52d7bc9ed4068d6a2e697cece7ca6cd0b12876c3
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ddbfb08370b73ef8fa023816a7362f671b33d3a0
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93085446"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331006"
 ---
 # <a name="request-units-in-azure-cosmos-db"></a>Unità richiesta in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
 Azure Cosmos DB supporta un'ampia gamma di API, come SQL, MongoDB, Cassandra, Gremlin e Tabella. Ogni API ha il proprio set di operazioni di database, da semplici operazioni di lettura e scrittura puntuali a query complesse. Ogni operazione di database utilizza le risorse di sistema a seconda della complessità.
 
-Il costo di tutte le operazioni del database viene normalizzato da Azure Cosmos DB ed è espresso da *unità richiesta* (o ur, per brevità). È possibile considerare le UR come una valuta delle prestazioni astraendo le risorse di sistema, ad esempio CPU, IOPS e memoria, necessarie per eseguire le operazioni del database supportate da Azure Cosmos DB.
+Il costo di tutte le operazioni di database viene normalizzato da Azure Cosmos DB ed è espresso in termini di unità richiesta (o in breve UR). Unità richiesta è una valuta delle prestazioni che astrae le risorse di sistema, ad esempio CPU, IOPS e memoria necessari per eseguire le operazioni del database supportate da Azure Cosmos DB.
 
 Il costo per la lettura di un punto (ad esempio il recupero di un singolo elemento in base al relativo ID e valore della chiave di partizione) per un elemento di 1 KB è 1 unità richiesta (o 1 UR). In modo analogo, a tutte le altre operazioni di database viene assegnato un costo in termini di UR. I costi vengono sempre misurati in UR, indipendentemente dall'API usata per interagire con il contenitore Azure Cosmos. Il fatto che l'operazione di database sia una scrittura, un punto di lettura o una query, i costi vengono sempre misurati in ur.
 
@@ -75,7 +75,7 @@ Mentre si stima il numero di ur utilizzate dal carico di lavoro, considerare i f
 
 Se si esegue il provisioning delle UR ' *r '* in un contenitore Cosmos (o database), Cosmos DB garantisce che le UR *' r '* siano disponibili in *ogni* area associata all'account Cosmos. Non è possibile assegnare in modo selettivo le UR a un'area specifica. Il provisioning delle UR con provisioning in un contenitore Cosmos (o database) viene effettuato in tutte le aree associate all'account Cosmos.
 
-Supponendo che un contenitore Cosmos sia configurato con le UR *' R '* e che ci siano aree *' n'* associate all'account Cosmos, le UR totali disponibili a livello globale nel contenitore = *R* x *N* .
+Supponendo che un contenitore Cosmos sia configurato con le UR *' R '* e che ci siano aree *' n'* associate all'account Cosmos, le UR totali disponibili a livello globale nel contenitore = *R* x *N*.
 
 La scelta del [modello di coerenza](consistency-levels.md) influisca anche sulla velocità effettiva. È possibile ottenere circa 2x velocità effettiva di lettura per i livelli di coerenza più flessibili (ad esempio, *sessione* , *prefisso coerente* e coerenza *finale* ) rispetto ai livelli di coerenza più avanzati (ad *esempio,* decadimento ristretto *o coerenza* assoluta).
 

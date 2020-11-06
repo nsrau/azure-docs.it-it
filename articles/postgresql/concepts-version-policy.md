@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.topic: conceptual
 ms.date: 11/05/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f92864cea4332157b0bf8b171a9d88b34f79a5ac
-ms.sourcegitcommit: 7cc10b9c3c12c97a2903d01293e42e442f8ac751
+ms.openlocfilehash: f325a43895e1e9d73b11c06662851d7654d31ddb
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "93422111"
+ms.locfileid: "94331822"
 ---
 # <a name="azure-database-for-postgresql-versioning-policy"></a>Criteri di controllo delle versioni di database di Azure per PostgreSQL
 
@@ -50,12 +50,12 @@ La tabella seguente fornisce i dettagli relativi al ritiro per le versioni princ
 ## <a name="retired-postgresql-engine-versions-not-supported-in-azure-database-for-postgresql"></a>Versioni del motore PostgreSQL ritirate non supportate nel database di Azure per PostgreSQL
 
 Dopo la data di ritiro per ogni versione del database PostgreSQL, se si continua a eseguire la versione ritirata, tenere presenti le restrizioni seguenti:
-- Poiché la community non rilascerà ulteriori correzioni di bug o correzioni per la sicurezza, Azure per PostgreSQL non patcherà il motore di database ritirato per eventuali bug o problemi di sicurezza o per adottare misure di sicurezza in relazione al motore di database ritirato. È possibile che si verifichino vulnerabilità della sicurezza o altri problemi di conseguenza. Tuttavia, Azure continuerà a eseguire periodicamente interventi di manutenzione e applicazione di patch per l'host, il sistema operativo, i contenitori e tutti gli altri componenti correlati ai servizi.
+- Poiché la community non rilascerà ulteriori correzioni di bug o correzioni di sicurezza, il database di Azure per PostgreSQL non patcherà il motore di database ritirato per eventuali bug o problemi di sicurezza o per adottare misure di sicurezza in relazione al motore di database ritirato. È possibile che si verifichino vulnerabilità della sicurezza o altri problemi di conseguenza. Tuttavia, Azure continuerà a eseguire periodicamente interventi di manutenzione e applicazione di patch per l'host, il sistema operativo, i contenitori e tutti gli altri componenti correlati ai servizi.
 - Se è possibile che si verifichi un problema di supporto correlato al database PostgreSQL, è possibile che l'utente non sia in grado di fornire supporto. In questi casi, sarà necessario aggiornare il database in modo da fornire supporto.
 - Non sarà possibile creare nuovi server di database per la versione ritirata. Sarà tuttavia possibile eseguire recuperi temporizzati e creare repliche di lettura per i server esistenti.
 - Le nuove funzionalità del servizio sviluppate da database di Azure per PostgreSQL possono essere disponibili solo per le versioni del server di database supportate.
 - I contratti di servizio con tempo di attività verranno applicati esclusivamente ai problemi relativi al servizio del database di Azure per PostgreSQL e non ai tempi di inattività causati da bug correlati al motore di database.  
-- Nell'evento estremo di una grave minaccia per il servizio causato dalla vulnerabilità del motore di database PostgreSQL identificata nella versione del database ritirata, Azure può scegliere di arrestare il nodo di calcolo del server di database per proteggere il servizio. In tal caso, è possibile che venga inviata una notifica per aggiornare il server prima di portare online il server.
+- Nell'evento estremo di una grave minaccia per il servizio causato dalla vulnerabilità del motore di database PostgreSQL identificata nella versione del database ritirata, Azure può scegliere di arrestare il server di database per proteggere il servizio. In tal caso, si riceverà una notifica per aggiornare il server prima di portare online il server.
 
 ## <a name="postgresql-version-syntax"></a>Sintassi della versione PostgreSQL
 Prima di PostgreSQL versione 10, i [criteri di controllo delle versioni di PostgreSQL](https://www.postgresql.org/support/versioning/) consideravano un aggiornamento della _versione principale_ come un aumento del primo _o_ del secondo numero. Ad esempio, 9,5 a 9,6 è stato considerato un aggiornamento della versione _principale_ . A partire dalla versione 10, solo una modifica nel primo numero viene considerata un aggiornamento della versione principale. 10,0 a 10,1, ad esempio, è un aggiornamento della versione _secondaria_ . La versione da 10 a 11 è un aggiornamento della versione _principale_ .

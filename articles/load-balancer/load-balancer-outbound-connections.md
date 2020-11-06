@@ -1,6 +1,6 @@
 ---
-title: Azure Load Balancer proxy in uscita
-description: Descrive il modo in cui Azure Load Balancer viene usato come proxy per la connettività Internet in uscita
+title: SNAT per le connessioni in uscita
+description: Descrive il modo in cui viene usato Azure Load Balancer per eseguire SNAT per la connettività Internet in uscita
 services: load-balancer
 author: asudbring
 ms.service: load-balancer
@@ -8,28 +8,31 @@ ms.topic: conceptual
 ms.custom: contperfq1
 ms.date: 10/13/2020
 ms.author: allensu
-ms.openlocfilehash: 185bb47677e978a3098f39024995da6399f90658
-ms.sourcegitcommit: 80034a1819072f45c1772940953fef06d92fefc8
+ms.openlocfilehash: b3924a563d8266cfa38f24106dbb84102031a182
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93241770"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331873"
 ---
-# <a name="outbound-proxy-azure-load-balancer"></a>Azure Load Balancer proxy in uscita
+# <a name="using-snat-for-outbound-connections"></a>Uso di SNAT per le connessioni in uscita
 
-Un servizio di bilanciamento del carico di Azure può essere usato come proxy per la connettività Internet in uscita. Il servizio di bilanciamento del carico fornisce la connettività in uscita per le istanze back-end. 
+Gli indirizzi IP front-end di un servizio di bilanciamento del carico pubblico di Azure possono essere usati per fornire connettività in uscita a Internet per le istanze back-end. Questa configurazione utilizza la **Network Address Translation di origine (SNAT)**. SNAT riscrive l'indirizzo IP del back-end nell'indirizzo IP pubblico del servizio di bilanciamento del carico. 
 
-Questa configurazione utilizza la **Network Address Translation di origine (SNAT)** . SNAT riscrive l'indirizzo IP del back-end nell'indirizzo IP pubblico del servizio di bilanciamento del carico. 
+SNAT Abilita il **mascheramento IP** dell'istanza back-end. Questo mascheramento impedisce alle origini esterne di avere un indirizzo diretto per le istanze back-end. La condivisione di un indirizzo IP tra le istanze di back-end riduce il costo degli indirizzi IP pubblici statici e supporta scenari come la semplificazione degli elenchi di indirizzi IP consentiti con traffico da indirizzi IP pubblici noti. 
 
-SNAT Abilita il **mascheramento IP** dell'istanza back-end. Questo mascheramento impedisce alle origini esterne di avere un indirizzo diretto per le istanze back-end. 
+>[!Note]
+> Per le applicazioni con che richiedono un numero elevato di connessioni in uscita o clienti aziendali che richiedono un singolo set di indirizzi IP da usare da una determinata rete virtuale, la [rete virtuale NAT](https://docs.microsoft.com/azure/virtual-network/nat-overview) è la soluzione consigliata. L'allocazione dinamica consente una configurazione semplice e > l'utilizzo più efficiente delle porte SNAT da ogni indirizzo IP. Consente inoltre a tutte le risorse della rete virtuale di condividere un set di indirizzi IP senza che sia necessario condividere > un servizio di bilanciamento del carico.
 
-La condivisione di un indirizzo IP tra le istanze di back-end riduce il costo degli indirizzi IP pubblici statici e supporta scenari come la semplificazione degli elenchi di indirizzi IP consentiti con traffico da indirizzi IP pubblici noti. 
+>[!Important]
+> Anche senza la configurazione di SNAT in uscita, gli account di archiviazione di Azure all'interno della stessa area saranno ancora accessibili e le risorse back-end potranno comunque accedere ai servizi Microsoft, ad esempio gli aggiornamenti di Windows.
 
-## <a name="sharing-ports-across-resources"></a><a name ="snat"></a> Condivisione delle porte tra le risorse
+>[!NOTE] 
+>Questo articolo illustra solo le distribuzioni di Azure Resource Manager. Vedere [Connessioni in uscita (versione classica)](load-balancer-outbound-connections-classic.md) per tutti gli scenari di distribuzione classica in Azure.
 
-Se le risorse back-end di un servizio di bilanciamento del carico non hanno indirizzi IP pubblici a livello di istanza (ILPIP), stabiliscono connettività in uscita tramite l'IP front-end del servizio di bilanciamento del carico pubblico.
+## <a name="sharing-frontend-ip-address-across-backend-resources"></a><a name ="snat"></a> Condivisione dell'indirizzo IP front-end tra risorse back-end
 
-Le porte vengono usate per generare identificatori univoci usati per mantenere flussi distinti. Internet usa una tupla con cinque elementi per fornire questa distinzione.
+Se le risorse back-end di un servizio di bilanciamento del carico non hanno indirizzi IP pubblici a livello di istanza (ILPIP), stabiliscono connettività in uscita tramite l'IP front-end del servizio di bilanciamento del carico pubblico. Le porte vengono usate per generare identificatori univoci usati per mantenere flussi distinti. Internet usa una tupla con cinque elementi per fornire questa distinzione.
 
 La tupla con cinque elementi è costituita da:
 
@@ -38,21 +41,96 @@ La tupla con cinque elementi è costituita da:
 * IP di origine
 * Porta di origine e protocollo per fornire questa distinzione.
 
-Se per le connessioni in ingresso viene usata una porta, sarà presente un **listener** per le richieste di connessione in ingresso su tale porta e non potrà essere usata per le connessioni in uscita. 
+Se per le connessioni in ingresso viene usata una porta, sarà presente un **listener** per le richieste di connessione in ingresso su tale porta e non potrà essere usata per le connessioni in uscita. Per stabilire una connessione in uscita, è necessario usare una **porta temporanea** per fornire la destinazione con una porta per la comunicazione e la gestione di un flusso di traffico distinto. Quando queste porte temporanee vengono usate per eseguire SNAT, sono denominate **porte SNAT** 
 
-Per stabilire una connessione in uscita, è necessario usare una **porta temporanea** per fornire la destinazione con una porta per la comunicazione e la gestione di un flusso di traffico distinto. 
+Per definizione, ogni indirizzo IP dispone di 65.535 porte. Ogni porta può essere utilizzata per le connessioni in ingresso o in uscita per TCP (Transmission Control Protocol) e UDP (User Datagram Protocol). Quando un indirizzo IP pubblico viene aggiunto come IP front-end a un servizio di bilanciamento del carico, Azure fornisce 64.000 idoneo per l'uso come porte SNAT. 
 
-Ogni indirizzo IP dispone di 65.535 porte. Le prime 1024 porte sono riservate come **porte di sistema** . Ogni porta può essere utilizzata per le connessioni in ingresso o in uscita per TCP e UDP. 
+>[!NOTE]
+> Ogni porta usata per una regola di bilanciamento del carico o NAT in ingresso utilizzerà un intervallo di otto porte da queste porte 64.000, riducendo il numero di porte idonee per SNAT. Se una regola di bilanciamento del carico > o NAT è nello stesso intervallo di otto come altro, non utilizzerà porte aggiuntive. 
 
-Delle porte rimanenti, Azure fornisce 64.000 per l'uso come **porte** temporanee. Quando si aggiunge un indirizzo IP come configurazione IP front-end, è possibile usare queste porte temporanee per SNAT.
+Tramite le [regole in uscita](https://docs.microsoft.com/azure/load-balancer/outbound-rules) e le regole di bilanciamento del carico, queste porte SNAT possono essere distribuite alle istanze back-end per consentire loro di condividere gli indirizzi IP pubblici del servizio di bilanciamento del carico per le connessioni in uscita.
 
-Tramite le regole in uscita, queste porte SNAT possono essere distribuite alle istanze back-end per consentire loro di condividere gli IP pubblici del servizio di bilanciamento del carico per le connessioni in uscita.
+Quando viene configurato lo [scenario 2](#scenario2) seguente, l'host per ogni istanza di back-end eseguirà SNAT nei pacchetti che fanno parte di una connessione in uscita. Quando si esegue SNAT in una connessione in uscita da un'istanza di back-end, l'host riscrive l'indirizzo IP di origine in uno degli IP front-end. Per mantenere i flussi univoci, l'host riscrive la porta di origine di ogni pacchetto in uscita in una delle porte SNAT allocate per l'istanza back-end.
 
-La rete nell'host per ogni istanza di back-end eseguirà il SNAT dei pacchetti che fanno parte di una connessione in uscita. L'host riscrive l'indirizzo IP di origine in uno degli indirizzi IP pubblici. L'host riscrive la porta di origine di ogni pacchetto in uscita in una delle porte SNAT.
+## <a name="outbound-connection-behavior-for-different-scenarios"></a>Comportamento delle connessioni in uscita per diversi scenari
+  * Macchina virtuale con indirizzo IP pubblico.
+  * Macchina virtuale senza indirizzo IP pubblico.
+  * Macchina virtuale senza IP pubblico e senza Load Balancer standard.
+        
+
+ ### <a name="scenario-1-virtual-machine-with-public-ip"></a><a name="scenario1"></a> Scenario 1: macchina virtuale con IP pubblico
+
+
+ | Associazioni | Metodo | Protocolli IP |
+ | ---------- | ------ | ------------ |
+ | Servizio di bilanciamento del carico pubblico o autonomo | [SNAT (origine Network Address Translation)](#snat) </br> non viene usata. | TCP (Transmission Control Protocol) </br> UDP (User Datagram Protocol) </br> ICMP (Internet Control Message Protocol) </br> ESP (incapsulamento del payload di sicurezza) |
+
+
+ #### <a name="description"></a>Descrizione
+
+
+ Azure usa l'indirizzo IP pubblico assegnato alla configurazione IP della scheda di interfaccia di rete dell'istanza per tutti i flussi in uscita. L'istanza ha tutte le porte temporanee disponibili. Non importa se la macchina virtuale è con carico bilanciato o meno. Questo scenario ha la precedenza rispetto agli altri. 
+
+
+ Un indirizzo IP pubblico assegnato a una macchina virtuale è una relazione 1:1, anziché 1:molti, e viene implementato come NAT 1:1 senza stato.
+
+
+ ### <a name="scenario-2-virtual-machine-without-public-ip-and-behind-standard-public-load-balancer"></a><a name="scenario2"></a>Scenario 2: macchina virtuale senza IP pubblico e dietro Load Balancer pubblico standard
+
+
+ | Associazioni | Metodo | Protocolli IP |
+ | ------------ | ------ | ------------ |
+ | Bilanciamento del carico pubblico | Uso degli indirizzi IP front-end del servizio di bilanciamento del carico per [SNAT](#snat).| TCP </br> UDP |
+
+
+ #### <a name="description"></a>Descrizione
+
+
+ La risorsa del servizio di bilanciamento del carico è configurata con una regola in uscita o una regola di bilanciamento del carico che Abilita SNAT predefiniti. Questa regola viene usata per creare un collegamento tra il front-end IP pubblico e il pool back-end. 
+
+
+ Se non si completa questa configurazione della regola, il comportamento è come descritto nello scenario 3. 
+
+
+ Una regola con un listener non è necessaria affinché il probe di integrità abbia esito positivo.
+
+
+ Quando una macchina virtuale crea un flusso in uscita, Azure converte l'indirizzo IP di origine nell'indirizzo IP pubblico del front-end pubblico del servizio di bilanciamento del carico. Questa traduzione viene eseguita tramite [SNAT](#snat). 
+
+
+ Le porte temporanee dell'indirizzo IP pubblico front-end del servizio di bilanciamento del carico vengono usate per distinguere i singoli flussi originati dalla macchina virtuale. SNAT usa dinamicamente le [porte temporanee preallocate](#preallocatedports) quando vengono creati i flussi in uscita. 
+
+
+ In questo contesto le porte temporanee usate per SNAT sono dette porte SNAT. È consigliabile che una regola in [uscita](https://docs.microsoft.com/azure/load-balancer/outbound-rules) sia configurata in modo esplicito. Se si usa SNAT predefinito tramite una regola di bilanciamento del carico, le porte SNAT vengono pre-allocate come descritto nella [tabella di allocazione delle porte SNAT predefinite](#snatporttable).
+
+
+ ### <a name="scenario-3-virtual-machine-without-public-ip-and-behind-basic-load-balancer"></a><a name="scenario3"></a>Scenario 3: macchina virtuale senza IP pubblico e dietro Load Balancer Basic
+
+
+ | Associazioni | Metodo | Protocolli IP |
+ | ------------ | ------ | ------------ |
+ |nessuno </br> Servizio di bilanciamento del carico di base | [SNAT](#snat) con indirizzo IP dinamico a livello di istanza| TCP </br> UDP | 
+
+ #### <a name="description"></a>Descrizione
+
+
+ Quando la macchina virtuale crea un flusso in uscita, Azure converte l'indirizzo IP di origine in un indirizzo IP di origine pubblica allocato in modo dinamico. Questo indirizzo IP pubblico **non è configurabile** e non può essere riservato. Questo indirizzo non viene conteggiato rispetto al limite di risorse IP pubblico della sottoscrizione. 
+
+
+ L'indirizzo IP pubblico verrà rilasciato e verrà richiesto un nuovo indirizzo IP pubblico se si ridistribuisce: 
+
+
+ * Macchina virtuale
+ * Set di disponibilità
+ * Set di scalabilità di macchine virtuali 
+
+
+ Non usare questo scenario per aggiungere indirizzi IP a un elenco Consenti. Usare lo scenario 1 o 2 in cui si dichiara in modo esplicito il comportamento in uscita. Le porte [SNAT](#snat) vengono preallocate come descritto nella [tabella di allocazione delle porte SNAT predefinite](#snatporttable).
+
 
 ## <a name="exhausting-ports"></a><a name="scenarios"></a> Porte esaurite
 
-Ogni connessione allo stesso indirizzo IP di destinazione e alla stessa porta di destinazione userà una porta SNAT. Questa connessione mantiene un **flusso di traffico** distinto dall'istanza o dal **client** back-end a un **server** . Questo processo fornisce al server una porta distinta su cui indirizzare il traffico. Senza questo processo, il computer client non è a conoscenza del flusso di cui fa parte un pacchetto.
+Ogni connessione allo stesso indirizzo IP di destinazione e alla stessa porta di destinazione userà una porta SNAT. Questa connessione mantiene un **flusso di traffico** distinto dall'istanza o dal **client** back-end a un **server**. Questo processo fornisce al server una porta distinta su cui indirizzare il traffico. Senza questo processo, il computer client non è a conoscenza del flusso di cui fa parte un pacchetto.
 
 Si supponga di avere a che fare con più browser https://www.microsoft.com , ovvero:
 
@@ -72,7 +150,7 @@ Per le connessioni UDP, il servizio di bilanciamento del carico usa un algoritmo
 
 Una porta viene riutilizzata per un numero illimitato di connessioni. La porta viene riutilizzata solo se la porta o l'indirizzo IP di destinazione è diverso.
 
-## <a name="port-allocation"></a><a name="preallocatedports"></a> Allocazione porta
+## <a name="default-port-allocation"></a><a name="preallocatedports"></a> Allocazione porta predefinita
 
 A ogni indirizzo IP pubblico assegnato come IP front-end del servizio di bilanciamento del carico vengono concesse 64.000 porte SNAT per i membri del pool back-end. Non è possibile condividere le porte con i membri del pool back-end. Un intervallo di porte SNAT può essere usato solo da una singola istanza di back-end per garantire che i pacchetti restituiti vengano instradati correttamente. 
 

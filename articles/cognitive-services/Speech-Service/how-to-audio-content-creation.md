@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: trbye
-ms.openlocfilehash: a04088fc1074949a1228794c22c1fa65a0b736a7
-ms.sourcegitcommit: 28c5fdc3828316f45f7c20fc4de4b2c05a1c5548
+ms.openlocfilehash: 5685a2553b95308a1c18c3e490737338f609b594
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92370050"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330938"
 ---
 # <a name="improve-synthesis-with-the-audio-content-creation-tool"></a>Migliorare la sintesi con lo strumento di creazione del contenuto audio
 
@@ -118,7 +118,7 @@ Dopo aver esaminato l'output audio e aver soddisfatto l'ottimizzazione e la rego
 
 **Formati audio supportati**
 
-| Format | frequenza di campionamento di 16 kHz | frequenza di campionamento di 24 kHz |
+| Formato | frequenza di campionamento di 16 kHz | frequenza di campionamento di 24 kHz |
 |--------|--------------------|--------------------|
 | wav | riff-16kHz-16 bit-mono-PCM | riff-24kHz-16 bit-mono-PCM |
 | mp3 | audio-16kHz-128kbitrate-mono-MP3 | audio-24kHz-160kbitrate-mono-MP3 |
@@ -131,16 +131,16 @@ Se più utenti vogliono usare la creazione di contenuto audio, è possibile cond
 
 Seguire questi passaggi per aggiungere un utente a una risorsa vocale in modo da poter usare la creazione di contenuto audio.
 
-1. Cercare **Servizi cognitivi** nella portale di Azure selezionare la risorsa vocale a cui si vogliono aggiungere utenti.
+1. Cercare **Servizi cognitivi** nella [portale di Azure](https://portal.azure.com/)Selezionare la risorsa vocale a cui si vogliono aggiungere utenti.
 2. Fare clic su **Controllo di accesso (IAM)** . Fare clic sulla scheda **Assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo in questa sottoscrizione.
-    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Diagramma dei passaggi necessari per ottimizzare gli output di sintesi vocale":::
+    :::image source="media/audio-content-creation/access-control-roles.png" alt-text="Scheda assegnazione ruolo":::
 1. Fare clic su **Aggiungi** > **Aggiungi assegnazione di ruolo** per aprire il riquadro Aggiungi assegnazione di ruolo. Nell'elenco a discesa ruolo selezionare il ruolo **utente servizio cognitivo** . Se si vuole assegnare la proprietà dell'utente a questa risorsa vocale, è possibile selezionare il ruolo **proprietario** .
 1. Selezionare un utente dall'elenco. Se l'utente non è visualizzato nell'elenco, è possibile digitare nella casella Seleziona per cercare i nomi visualizzati e gli indirizzi di posta elettronica nella directory. Se l'utente non è presente in questa directory, è possibile immettere l' [account Microsoft](https://account.microsoft.com/account) dell'utente (ritenuto attendibile da Azure Active Directory).
 1. Fare clic su **Salva** per assegnare un ruolo. Dopo alcuni istanti, all'utente viene assegnato il ruolo utente servizio cognitivo nell'ambito della risorsa vocale.
 
-    :::image source="media/audio-content-creation/add-role-first.png" alt-text="Diagramma dei passaggi necessari per ottimizzare gli output di sintesi vocale":::
+    :::image source="media/audio-content-creation/add-role-first.png" alt-text="Finestra di dialogo Aggiungi ruolo":::
 
-1. Gli utenti aggiunti riceveranno un messaggio di posta elettronica di invito. Dopo aver fatto clic su **Accept invito**  >  **Accept per partecipare ad Azure**, è possibile usare la [creazione di contenuto audio](https://aka.ms/audiocontentcreation).
+1. Gli utenti aggiunti riceveranno un messaggio di posta elettronica di invito. Dopo aver fatto clic su **Accept invito**  >  **Accept per partecipare ad Azure** , è possibile usare la [creazione di contenuto audio](https://aka.ms/audiocontentcreation).
 
 Gli utenti che si trovano nella stessa risorsa di sintesi vocale vedranno il lavoro di tutti gli altri in audio Content Creation Studio. Se si vuole che ogni singolo utente disponga di un'area di lavoro univoca e privata nella creazione di contenuto audio, [creare una nuova risorsa vocale](#step-2---create-a-speech-resource) per ogni utente e concedere a ogni utente l'accesso univoco alla risorsa di sintesi vocale. 
 
@@ -148,17 +148,17 @@ Gli utenti che si trovano nella stessa risorsa di sintesi vocale vedranno il lav
 1. Cercare **Servizi cognitivi** nella portale di Azure selezionare la risorsa vocale da cui si vogliono rimuovere gli utenti.
 2. Fare clic su **Controllo di accesso (IAM)** . Fare clic sulla scheda **assegnazioni di ruolo** per visualizzare tutte le assegnazioni di ruolo per questa risorsa vocale.
 3. Selezionare gli utenti che si desidera rimuovere e fare clic su **Rimuovi**  >  **OK**.
-    :::image source="media/audio-content-creation/remove-user.png" alt-text="Diagramma dei passaggi necessari per ottimizzare gli output di sintesi vocale":::
+    :::image source="media/audio-content-creation/remove-user.png" alt-text="Pulsante Rimuovi":::
 
 ### <a name="enable-users-to-grant-access"></a>Consentire agli utenti di concedere l'accesso
 Per consentire a uno degli utenti di concedere l'accesso ad altri utenti, è necessario assegnare all'utente il ruolo di proprietario per la risorsa vocale e impostare l'utente come lettore di directory di Azure. 
 1. Aggiungere l'utente come proprietario della risorsa vocale. Vedere [come aggiungere utenti a una risorsa di sintesi vocale](#add-users-to-a-speech-resource).
-    :::image source="media/audio-content-creation/add-role.png" alt-text="Diagramma dei passaggi necessari per ottimizzare gli output di sintesi vocale":::
-1. Selezionare il menu compresso in alto a sinistra. Fare clic su **Azure Active Directory**e quindi su **utenti**.
+    :::image source="media/audio-content-creation/add-role.png" alt-text="Campo proprietario ruolo":::
+1. Selezionare il menu compresso in alto a sinistra. Fare clic su **Azure Active Directory** e quindi su **utenti**.
 1. Cercare l'account Microsoft dell'utente e passare alla pagina dei dettagli dell'utente. Fare clic su **ruoli assegnati**.
 1. Fare clic su **Add Assignment**  ->  **directory Readers**.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [API Long audio](https://aka.ms/long-audio-api)
 

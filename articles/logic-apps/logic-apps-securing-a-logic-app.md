@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 10/29/2020
-ms.openlocfilehash: dc03f2276af7c5f6121966a52d50e9c1b208d8cb
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.date: 11/05/2020
+ms.openlocfilehash: 331c55a9f7a489aa58f9d3add7303dc18917215d
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93094711"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94331941"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -91,7 +91,7 @@ Per altre informazioni sulla protezione dell'accesso con SAS, vedere le sezioni 
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica che contiene la chiave che si desidera rigenerare.
 
-1. Nel menu di app per la logica in **Impostazioni** , selezionare **Chiave di accesso** .
+1. Nel menu di app per la logica in **Impostazioni** , selezionare **Chiave di accesso**.
 
 1. Scegliere la chiave da rigenerare e completare il processo.
 
@@ -137,7 +137,7 @@ Prima di abilitare Azure AD OAuth, esaminare le considerazioni seguenti:
 
 * Un criterio di autorizzazione deve includere almeno l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth v2) come ID autorità di certificazione Azure ad.
 
-  Si supponga, ad esempio, che l'app per la logica disponga di un criterio di autorizzazione che richiede due tipi di attestazione, **audience** e **emittente** . Questa [sezione di payload](../active-directory/develop/access-tokens.md#payload-claims) di esempio per un token di accesso decodificato include entrambi i tipi di attestazione in cui `aud` è il valore **audience** e `iss` è il valore dell' **autorità emittente** :
+  Si supponga, ad esempio, che l'app per la logica disponga di un criterio di autorizzazione che richiede due tipi di attestazione, **audience** e **emittente**. Questa [sezione di payload](../active-directory/develop/access-tokens.md#payload-claims) di esempio per un token di accesso decodificato include entrambi i tipi di attestazione in cui `aud` è il valore **audience** e `iss` è il valore dell' **autorità emittente** :
 
   ```json
   {
@@ -188,7 +188,7 @@ Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, segui
 
 1. Nel [portale di Azure](https://portal.microsoft.com) individuare e aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Autorizzazione** . Dopo l'apertura del riquadro Autorizzazione, selezionare **Aggiungi criteri** .
+1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Autorizzazione**. Dopo l'apertura del riquadro Autorizzazione, selezionare **Aggiungi criteri**.
 
    ![Selezionare "Autorizzazione" > "Aggiungi criteri"](./media/logic-apps-securing-a-logic-app/add-azure-active-directory-authorization-policies.png)
 
@@ -208,9 +208,9 @@ Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, segui
 
    * Per aggiungere un'attestazione personalizzata, selezionare **Aggiungi attestazione personalizzata** , quindi specificare il valore dell'attestazione personalizzata.
 
-1. Per aggiungere un altro criterio di autorizzazione, selezionare **Aggiungi criteri** . Ripetere i passaggi precedenti per configurare i criteri.
+1. Per aggiungere un altro criterio di autorizzazione, selezionare **Aggiungi criteri**. Ripetere i passaggi precedenti per configurare i criteri.
 
-1. Al termine, selezionare **Salva** .
+1. Al termine, selezionare **Salva**.
 
 1. Per includere l' `Authorization` intestazione dal token di accesso negli output dei trigger basati su richiesta, vedere [includere l'intestazione ' Authorization ' negli output del trigger di richiesta](#include-auth-header).
 
@@ -308,28 +308,90 @@ Per aggiungere altri [protocolli di autenticazione](../active-directory/develop/
 
 Oltre alla firma di accesso condiviso (SAS) è possibile che l'utente voglia limitare client specifici che possono chiamare l'app per la logica. Ad esempio, se si gestisce l'endpoint di richiesta usando [gestione API di Azure](../api-management/api-management-key-concepts.md), è possibile limitare l'app per la logica ad accettare le richieste solo dall'indirizzo IP per l' [istanza del servizio gestione API creata](../api-management/get-started-create-service-instance.md).
 
+> [!NOTE]
+> Indipendentemente dagli indirizzi IP specificati, è comunque possibile eseguire un'app per la logica con un trigger basato su richiesta tramite l' [API REST di app per la logica: trigger del flusso di lavoro-eseguire](/rest/api/logic/workflowtriggers/run) la richiesta o usando gestione API. Tuttavia, in questo caso potrebbe essere richiesta [l'autenticazione](../active-directory/develop/authentication-vs-authorization.md) all'API REST di Azure. Tutti gli eventi vengono visualizzati nel log di controllo di Azure. Assicurarsi di impostare i criteri di controllo di accesso di conseguenza.
+
+<a name="restrict-inbound-ip-portal"></a>
+
 #### <a name="restrict-inbound-ip-ranges-in-azure-portal"></a>Limitare gli intervalli di indirizzi IP in ingresso in portale di Azure
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Impostazioni del flusso di lavoro** .
+1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Impostazioni del flusso di lavoro**.
 
-1. In **Configurazione del controllo di accesso** > **Indirizzi IP in ingresso consentiti** selezionare **Intervalli IP specifici** .
+1. Nella sezione **configurazione di controllo di accesso** , in **indirizzi IP in ingresso consentiti** , scegliere il percorso per lo scenario:
 
-1. Quando viene visualizzata la casella **intervalli IP per trigger** , specificare gli intervalli di indirizzi IP accettati dal trigger. Un intervallo IP valido usa questi formati: *x.x.x.x/x* o *x.x.x.x-x.x.x.x*
+   * Per rendere l'app per la logica richiamabile solo come app per la logica annidata usando l'azione predefinita app per la logica di [Azure](../logic-apps/logic-apps-http-endpoint.md), selezionare **solo altre app** per la logica, che funziona *solo* quando si usa l'azione app per la logica di **Azure** per chiamare l'app per la logica nidificata.
+   
+     Questa opzione scrive una matrice vuota nella risorsa dell'app per la logica e richiede che solo le chiamate da app per la logica padre che usano l'azione predefinita app per la logica di **Azure** possano attivare l'app per la logica nidificata.
 
-   Ad esempio, per fare in modo che l'app per la logica richiamabile solo come app per la logica annidata tramite l'azione HTTP, usare l'opzione **intervalli IP specifici** (non l' **unica opzione altre app** per la logica) e immettere gli [indirizzi IP in uscita](../logic-apps/logic-apps-limits-and-config.md#outbound)dell'app per la logica padre.
+   * Per fare in modo che l'app per la logica richiamabile solo come app annidata usando l'azione HTTP, selezionare **intervalli IP specifici** , *non* **solo altre app** per la logica. Quando viene visualizzata la casella **intervalli IP per trigger** , immettere gli [indirizzi IP in uscita](../logic-apps/logic-apps-limits-and-config.md#outbound)dell'app per la logica padre. Un intervallo IP valido usa i formati seguenti: x. x.x. x */x* o *x. x.* x. x-x. x. x. x.
+   
+     > [!NOTE]
+     > Se si usa l'opzione **solo altre app** per la logica e l'azione http per chiamare l'app per la logica nidificata, la chiamata viene bloccata e viene ricevuto un errore "401 non autorizzato".
+        
+   * Per gli scenari in cui si desidera limitare le chiamate in ingresso da altri IP, quando viene visualizzata la casella **intervalli IP per trigger** , specificare gli intervalli di indirizzi IP accettati dal trigger. Un intervallo IP valido usa i formati seguenti: x. x.x. x */x* o *x. x.* x. x-x. x. x. x.
 
-   Tuttavia, per fare in modo che l'app per la logica richiamabile solo come app per la logica annidata tramite l'azione predefinita app per la logica di [Azure](../logic-apps/logic-apps-http-endpoint.md), selezionare invece l'opzione **solo altre app** per la logica. Questa opzione scrive una matrice vuota nella risorsa dell'app per la logica e richiede che solo le chiamate da altre app per la logica "padre" possano attivare l'app per la logica annidata tramite l'azione predefinita app per la logica di **Azure** .
-
-   > [!NOTE]
-   > Indipendentemente dagli indirizzi IP specificati, è comunque possibile eseguire un'app per la logica con un trigger basato su richiesta tramite l' [API REST di app per la logica: trigger del flusso di lavoro-eseguire](/rest/api/logic/workflowtriggers/run) la richiesta o usando gestione API. Tuttavia, in questo caso potrebbe essere richiesta [l'autenticazione](../active-directory/develop/authentication-vs-authorization.md) all'API REST di Azure. Tutti gli eventi vengono visualizzati nel log di controllo di Azure. Assicurarsi di impostare i criteri di controllo di accesso di conseguenza.
+1. Facoltativamente, in **limitare le chiamate per ottenere i messaggi di input e di output dalla cronologia di esecuzione agli indirizzi IP forniti** , è possibile specificare gli intervalli di indirizzi IP per le chiamate in ingresso che possono accedere ai messaggi di input e di output nella cronologia di esecuzione.
 
 <a name="restrict-inbound-ip-template"></a>
 
 #### <a name="restrict-inbound-ip-ranges-in-azure-resource-manager-template"></a>Limitare gli intervalli di indirizzi IP in ingresso nel modello di Azure Resource Manager
 
-Se si [automatizza la distribuzione per le app per la logica usando i modelli di Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile specificare gli intervalli IP in formato *x.x.x.x/x* o *x.x.x.x-x.x.x.x* usando la sezione `accessControl` e includendo le sezioni `triggers` e `actions` nella definizione di risorsa dell'app per la logica, ad esempio:
+Se si [automatizza la distribuzione per le app per la logica usando modelli di gestione risorse](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md), è possibile specificare gli intervalli di indirizzi IP in ingresso consentiti nella definizione di risorsa dell'app per la logica usando la `accessControl` sezione. In questa sezione usare le `triggers` sezioni, `actions` e facoltative in `contents` base alle esigenze, includendo la `allowedCallerIpAddresses` sezione con la `addressRange` proprietà e impostando il valore della proprietà sull'intervallo di indirizzi IP consentiti nel formato x. x.x. x */x* o *x.* x. x. x-x. x.x. x.
+
+* Se l'app per la logica nidificata usa l' **unica opzione altre** app per la logica, che consente le chiamate in ingresso solo da altre app per la logica che usano l'azione app per la logica di Azure, impostare la `addressRange` proprietà su una matrice vuota ( **[]** ).
+
+* Se l'app per la logica nidificata usa l'opzione **intervalli IP specifici** per altre chiamate in ingresso, ad esempio altre app per la logica che usano l'azione http, impostare la `addressRange` proprietà sull'intervallo di indirizzi IP consentiti.
+
+Questo esempio illustra una definizione di risorsa per un'app per la logica annidata che consente chiamate in ingresso solo da app per la logica che usano l'azione predefinita app per la logica di Azure:
+
+```json
+{
+   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+   "contentVersion": "1.0.0.0",
+   "parameters": {},
+   "variables": {},
+   "resources": [
+      {
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {
+            "displayName": "LogicApp"
+         },
+         "apiVersion": "2016-06-01",
+         "properties": {
+            "definition": {
+               <workflow-definition>
+            },
+            "parameters": {
+            },
+            "accessControl": {
+               "triggers": {
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": []
+                     }
+                  ]
+               },
+               "actions": {
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": []
+                     }
+                  ]
+               }
+            },
+            "endpointsConfiguration": {}
+         }
+      }
+   ],
+   "outputs": {}
+}
+```
+
+Questo esempio illustra una definizione di risorsa per un'app per la logica annidata che consente chiamate in ingresso da app per la logica che usano l'azione HTTP:
 
 ```json
 {
@@ -361,7 +423,11 @@ Se si [automatizza la distribuzione per le app per la logica usando i modelli di
                   ]
                },
                "actions": {
-                  "allowedCallerIpAddresses": []
+                  "allowedCallerIpAddresses": [
+                     {
+                        "addressRange": "192.168.12.0/23"
+                     }
+                  ]
                }
             },
             "endpointsConfiguration": {}
@@ -412,9 +478,9 @@ Per controllare l'accesso agli input e agli output nella cronologia di esecuzion
 
 1. Nel portale di Azure aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Impostazioni del flusso di lavoro** .
+1. Nel menu dell'app per la logica, in **Impostazioni** , selezionare **Impostazioni del flusso di lavoro**.
 
-1. In **Configurazione del controllo di accesso** > **Indirizzi IP in ingresso consentiti** selezionare **Intervalli IP specifici** .
+1. In **Configurazione del controllo di accesso** > **Indirizzi IP in ingresso consentiti** selezionare **Intervalli IP specifici**.
 
 1. In **Intervalli IP per i contenuti** , specificare gli intervalli di indirizzi IP che possono accedere al contenuto da input e output.
 
@@ -477,7 +543,7 @@ Molti trigger e azioni hanno impostazioni per la protezione degli input, degli o
 
    ![Aprire impostazioni trigger o azione](./media/logic-apps-securing-a-logic-app/open-action-trigger-settings.png)
 
-1. Attivare **Input protetti** , **Output protetti** o entrambi. Al termine, fare clic su **Fine** .
+1. Attivare **Input protetti** , **Output protetti** o entrambi. Al termine, fare clic su **Fine**.
 
    ![Attivare "Input protetti" o "Output protetti"](./media/logic-apps-securing-a-logic-app/turn-on-secure-inputs-outputs.png)
 
@@ -546,7 +612,7 @@ Di seguito sono riportate alcune [considerazioni da esaminare](#obfuscation-cons
 
   ![Output protetti come input e effetto downstream sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow.png)
 
-  Le azioni Compose, Parse JSON e Response hanno solo l'impostazione degli **input protetti** . Se attivata, l'impostazione nasconde anche gli output di tali azioni. Se queste azioni usano in modo esplicito gli output protetti upstream come input, le app per la logica nascondono gli input e gli output di tali azioni, ma *non abilitano* l'impostazione degli **input protetti** delle azioni. Se un'azione downstream usa in modo esplicito gli output nascosti delle azioni Compose, Parse JSON o Response come input, le app per la logica *non nascondono gli input o gli output dell'azione downstream* .
+  Le azioni Compose, Parse JSON e Response hanno solo l'impostazione degli **input protetti**. Se attivata, l'impostazione nasconde anche gli output di tali azioni. Se queste azioni usano in modo esplicito gli output protetti upstream come input, le app per la logica nascondono gli input e gli output di tali azioni, ma *non abilitano* l'impostazione degli **input protetti** delle azioni. Se un'azione downstream usa in modo esplicito gli output nascosti delle azioni Compose, Parse JSON o Response come input, le app per la logica *non nascondono gli input o gli output dell'azione downstream*.
 
   ![Output protetti come input con effetto downstream su azioni specifiche](./media/logic-apps-securing-a-logic-app/secure-outputs-as-inputs-flow-special.png)
 
@@ -556,7 +622,7 @@ Di seguito sono riportate alcune [considerazioni da esaminare](#obfuscation-cons
 
   ![Input protetti e effetto downstream sulla maggior parte delle azioni](./media/logic-apps-securing-a-logic-app/secure-inputs-impact-on-downstream.png)
 
-  Se le azioni Compose, Parse JSON e Response usano in modo esplicito gli output visibili del trigger o dell'azione con gli input protetti, app per la logica nasconde gli input e gli output di queste azioni, ma *non abilita* l'impostazione degli **input protetti** dell'azione. Se un'azione downstream usa in modo esplicito gli output nascosti delle azioni Compose, Parse JSON o Response come input, le app per la logica *non nascondono gli input o gli output dell'azione downstream* .
+  Se le azioni Compose, Parse JSON e Response usano in modo esplicito gli output visibili del trigger o dell'azione con gli input protetti, app per la logica nasconde gli input e gli output di queste azioni, ma *non abilita* l'impostazione degli **input protetti** dell'azione. Se un'azione downstream usa in modo esplicito gli output nascosti delle azioni Compose, Parse JSON o Response come input, le app per la logica *non nascondono gli input o gli output dell'azione downstream*.
 
   ![Input protetti e effetto downstream su azioni specifiche](./media/logic-apps-securing-a-logic-app/secure-inputs-flow-special.png)
 
@@ -638,7 +704,7 @@ Un [modello di Resource Manager](../logic-apps/logic-apps-azure-resource-manager
 
 Ecco altre informazioni su queste sezioni `parameters`:
 
-* Al livello principale del modello, una sezione `parameters` definisce i parametri per i valori usati dal modello in fase di *distribuzione* . Questi valori, ad esempio, possono includere stringhe di connessione per un ambiente di distribuzione specifico. È quindi possibile archiviare questi valori in un [file di parametro](../azure-resource-manager/templates/parameter-files.md) separato, rendendo più semplice la modifica di questi valori.
+* Al livello principale del modello, una sezione `parameters` definisce i parametri per i valori usati dal modello in fase di *distribuzione*. Questi valori, ad esempio, possono includere stringhe di connessione per un ambiente di distribuzione specifico. È quindi possibile archiviare questi valori in un [file di parametro](../azure-resource-manager/templates/parameter-files.md) separato, rendendo più semplice la modifica di questi valori.
 
 * All'interno della definizione di risorsa dell'app per la logica, ma all'esterno della definizione del flusso di lavoro, una sezione `parameters` specifica i valori per i parametri della definizione del flusso di lavoro. In questa sezione è possibile assegnare questi valori usando espressioni di modello che fanno riferimento ai parametri del modello. Queste espressioni vengono valutate in fase di distribuzione.
 
@@ -818,9 +884,9 @@ Ecco altri modi per proteggere gli endpoint che gestiscono le chiamate inviate d
 
     1. Nella finestra di progettazione dell'app per la logica immettere `api management` nella casella di ricerca. Scegliere il passaggio a seconda che si stia aggiungendo un trigger o un'azione:<p>
 
-       * Se si aggiunge un trigger, che è sempre il primo passaggio del flusso di lavoro, selezionare **scegliere un trigger di gestione API di Azure** .
+       * Se si aggiunge un trigger, che è sempre il primo passaggio del flusso di lavoro, selezionare **scegliere un trigger di gestione API di Azure**.
 
-       * Se si sta aggiungendo un'azione, selezionare **scegliere un'azione di gestione API di Azure** .
+       * Se si sta aggiungendo un'azione, selezionare **scegliere un'azione di gestione API di Azure**.
 
        In questo esempio viene aggiunto un trigger:
 
@@ -838,7 +904,7 @@ Ecco altri modi per proteggere gli endpoint che gestiscono le chiamate inviate d
 
 ### <a name="add-authentication-to-outbound-calls"></a>Aggiunta dell'autenticazione alle chiamate in uscita
 
-Gli endpoint HTTP e HTTPS supportano vari tipi di autenticazione. In alcuni trigger e azioni usati per inviare chiamate in uscita o richieste a questi endpoint, è possibile specificare un tipo di autenticazione. Nella finestra di progettazione dell'app per la logica, i trigger e le azioni che supportano la scelta di un tipo di autenticazione hanno una proprietà di **autenticazione** . Questa proprietà, tuttavia, potrebbe non essere sempre visualizzata per impostazione predefinita. In questi casi, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **autenticazione** .
+Gli endpoint HTTP e HTTPS supportano vari tipi di autenticazione. In alcuni trigger e azioni usati per inviare chiamate in uscita o richieste a questi endpoint, è possibile specificare un tipo di autenticazione. Nella finestra di progettazione dell'app per la logica, i trigger e le azioni che supportano la scelta di un tipo di autenticazione hanno una proprietà di **autenticazione** . Questa proprietà, tuttavia, potrebbe non essere sempre visualizzata per impostazione predefinita. In questi casi, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **autenticazione**.
 
 > [!IMPORTANT]
 > Per proteggere le informazioni riservate gestite dall'app per la logica, usare i parametri protetti e codificare i dati in modo necessario.
@@ -1024,7 +1090,7 @@ Se l'opzione [identità gestita](../active-directory/managed-identities-azure-re
    |---------------------|-----------------|----------|-------|-------------|
    | **autenticazione** | `type` | Sì | **Identità gestita** <br>o <br>`ManagedServiceIdentity` | Tipo di autenticazione da usare |
    | **Identità gestita** | `identity` | Sì | * **Identità gestita assegnata dal sistema** <br>o <br>`SystemAssigned` <p><p>* < *user-assigned-identity-name*> | L'identità gestita da usare |
-   | **Destinatari** | `audience` | Sì | <*target-resource-ID*> | L'ID risorsa per la risorsa di destinazione a cui si vuole accedere. <p>Ad esempio, `https://storage.azure.com/` rende i [token di accesso](../active-directory/develop/access-tokens.md) per l'autenticazione validi per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare un URL del servizio radice, ad esempio `https://fabrikamstorageaccount.blob.core.windows.net` per un account di archiviazione specifico. <p>**Nota** : la proprietà **Destinatari** potrebbe essere nascosta in alcuni trigger o azioni. Per fare in modo che la proprietà venga visualizzata, nel trigger o nell'azione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Destinatari** . <p><p>**Importante** : assicurarsi che questo ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure AD, incluse le eventuali barre finali necessarie. Quindi, l'ID della risorsa `https://storage.azure.com/` per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID della risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID risorsa, vedere [Servizi di Azure che supportano Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
+   | **Destinatari** | `audience` | Sì | <*target-resource-ID*> | L'ID risorsa per la risorsa di destinazione a cui si vuole accedere. <p>Ad esempio, `https://storage.azure.com/` rende i [token di accesso](../active-directory/develop/access-tokens.md) per l'autenticazione validi per tutti gli account di archiviazione. Tuttavia, è anche possibile specificare un URL del servizio radice, ad esempio `https://fabrikamstorageaccount.blob.core.windows.net` per un account di archiviazione specifico. <p>**Nota** : la proprietà **Destinatari** potrebbe essere nascosta in alcuni trigger o azioni. Per fare in modo che la proprietà venga visualizzata, nel trigger o nell'azione, aprire l'elenco **Aggiungi nuovo parametro** e selezionare **Destinatari**. <p><p>**Importante** : assicurarsi che questo ID risorsa di destinazione *corrisponda esattamente* al valore previsto da Azure AD, incluse le eventuali barre finali necessarie. Quindi, l'ID della risorsa `https://storage.azure.com/` per tutti gli account di archiviazione BLOB di Azure richiede una barra finale. Tuttavia, l'ID della risorsa per un account di archiviazione specifico non richiede una barra finale. Per trovare questi ID risorsa, vedere [Servizi di Azure che supportano Azure AD](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication). |
    |||||
 
    Quando si usano i [parametri protetti](#secure-action-parameters) per gestire e proteggere le informazioni riservate, ad esempio in un [modello di Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md) per l'automazione della distribuzione, è possibile usare le espressioni per accedere a questi valori di parametro in fase di esecuzione. Questa definizione di azione HTTP di esempio specifica l'autenticazione `type` come `ManagedServiceIdentity` e usa la [funzione dei parametri()](../logic-apps/workflow-definition-language-functions-reference.md#parameters) per ottenere i valori dei parametri:

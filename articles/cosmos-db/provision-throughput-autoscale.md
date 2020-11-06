@@ -6,21 +6,19 @@ ms.author: kirillg
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 78fbdbb91925bbe9954cc7a17e194de9c78c6389
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 3ada16c98eef516056bd3c139bddc8187fb0fe38
+ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93097346"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94330615"
 ---
 # <a name="create-azure-cosmos-containers-and-databases-with-autoscale-throughput"></a>Creare contenitori e database di Azure Cosmos con velocità effettiva a scalabilità automatica
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Azure Cosmos DB consente di impostare la velocità effettiva standard (manuale) o a scalabilità automatica per il provisioning in database e contenitori. Questo articolo descrive i vantaggi e i casi d'uso della velocità effettiva con provisioning a scalabilità automatica. 
+In Azure Cosmos DB è possibile configurare la velocità effettiva con provisioning standard (manuale) o con scalabilità automatica nei database e nei contenitori. La velocità effettiva con provisioning con scalabilità automatica in Azure Cosmos DB ti permette di **ridimensionare la velocità effettiva (UR/sec) del database o del contenitore automaticamente e immediatamente**. La velocità effettiva viene ridimensionata in base all'utilizzo, senza alcun effetto sulla disponibilità, sulla latenza, sulla velocità effettiva o sulle prestazioni del carico di lavoro.
 
-La velocità effettiva con provisioning a scalabilità automatica è particolarmente adatta per carichi di lavoro cruciali con modelli di traffico variabili o imprevedibili e che richiedono contratti di servizio per prestazioni elevate e scalabilità. 
-
-Con la scalabilità automatica, Azure Cosmos DB **ridimensiona automaticamente e istantaneamente la velocità effettiva (UR/sec)** del database o del contenitore in base all'utilizzo, senza alcun impatto su disponibilità, latenza e velocità effettiva né sulle prestazioni del carico di lavoro. 
+La velocità effettiva con provisioning a scalabilità automatica è particolarmente adatta per carichi di lavoro cruciali con modelli di traffico variabili o imprevedibili e che richiedono contratti di servizio per prestazioni elevate e scalabilità. Questo articolo descrive i vantaggi e i casi d'uso della velocità effettiva con provisioning a scalabilità automatica.
 
 ## <a name="benefits-of-autoscale"></a>Vantaggi della scalabilità automatica
 
