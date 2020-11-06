@@ -8,12 +8,12 @@ ms.date: 10/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 30eb19e418292e74989be81d94ed684c917f6971
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: a78aec8c18f3b89629bbf696de3a097397ac59bc
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92088636"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337917"
 ---
 # <a name="use-distributed-tracing-with-azure-spring-cloud"></a>Usare la traccia distribuita con Azure Spring Cloud
 
@@ -28,14 +28,18 @@ Per seguire queste procedure, è necessaria un'app Steeltoe già [preparata per 
 
 ## <a name="dependencies"></a>Dependencies
 
-Installare i pacchetti NuGet seguenti
+Per Steeltoe 2.4.4, aggiungere i pacchetti NuGet seguenti:
 
 * [Steeltoe. Management. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
 * [Steeltoe. Management. ExporterCore](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/)
 
+Per Steeltoe 3.0.0, aggiungere il pacchetto NuGet seguente:
+
+* [Steeltoe. Management. TracingCore](https://www.nuget.org/packages/Steeltoe.Management.TracingCore/)
+
 ## <a name="update-startupcs"></a>Aggiornare Startup.cs
 
-1. Nel `ConfigureServices` metodo chiamare i `AddDistributedTracing` `AddZipkinExporter` metodi e.
+1. Per Steeltoe 2.4.4, chiamare `AddDistributedTracing` e `AddZipkinExporter` nel `ConfigureServices` metodo.
 
    ```csharp
    public void ConfigureServices(IServiceCollection services)
@@ -45,14 +49,29 @@ Installare i pacchetti NuGet seguenti
    }
    ```
 
-1. Nel `Configure` metodo chiamare il `UseTracingExporter` metodo.
+   Per Steeltoe 3.0.0, chiamare `AddDistributedTracing` nel `ConfigureServices` metodo.
+
+   ```csharp
+   public void ConfigureServices(IServiceCollection services)
+   {
+       services.AddDistributedTracing(Configuration, builder => builder.UseZipkinWithTraceOptions(services));
+   }
+   ```
+
+1. Per Steeltoe 2.4.4, chiamare `UseTracingExporter` nel `Configure` metodo.
 
    ```csharp
    public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
    {
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapControllers();
+        });
         app.UseTracingExporter();
    }
    ```
+
+   Per Steeltoe 3.0.0 non sono necessarie modifiche nel `Configure` metodo.
 
 ## <a name="update-configuration"></a>Aggiornare la configurazione
 
@@ -60,7 +79,7 @@ Aggiungere le impostazioni seguenti all'origine configurazione che verrà usata 
 
 1. Impostare `management.tracing.alwaysSample` su true.
 
-2. Se si desidera visualizzare gli intervalli di traccia inviati tra il server Eureka, il server di configurazione e le app utente: impostare `management.tracing.egressIgnorePattern` su "/API/v2/spans |/V2/Apps/.* /Permissions |/Eureka/.*| /oauth/.*".
+2. Se si desidera visualizzare gli intervalli di traccia inviati tra il server Eureka, il server di configurazione e le app utente: impostare `management.tracing.egressIgnorePattern` su "/API/v2/spans |/V2/Apps/. */Permissions |/Eureka/.* | /oauth/.*".
 
 Ad esempio, *appsettings.jsin* include le proprietà seguenti:
  

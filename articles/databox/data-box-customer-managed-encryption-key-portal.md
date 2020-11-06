@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 05/07/2020
 ms.author: alkohli
 ms.subservice: pod
-ms.openlocfilehash: 31147d534109e0d74d33d102075c69eeb703496e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 40b777342c2c565efc5b40d361a259c98eae693c
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91739936"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337705"
 ---
 # <a name="use-customer-managed-keys-in-azure-key-vault-for-azure-data-box"></a>Usare chiavi gestite dal cliente in Azure Key Vault per Azure Data Box
 
@@ -47,7 +47,7 @@ La configurazione della chiave gestita dal cliente per la Azure Data Box è faco
 
     ![Pannello di panoramica dell'ordine di Data Box](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-1.png)
 
-2. Passare a **impostazioni > crittografia**. In **tipo di crittografia**è possibile scegliere come si vuole proteggere la chiave di sblocco del dispositivo. Per impostazione predefinita, viene usata una chiave gestita da Microsoft per proteggere la password di sblocco del dispositivo. 
+2. Passare a **impostazioni > crittografia**. In **tipo di crittografia** è possibile scegliere come si vuole proteggere la chiave di sblocco del dispositivo. Per impostazione predefinita, viene usata una chiave gestita da Microsoft per proteggere la password di sblocco del dispositivo. 
 
     ![Scegliere l'opzione di crittografia](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-2.png)
 
@@ -55,40 +55,40 @@ La configurazione della chiave gestita dal cliente per la Azure Data Box è faco
 
     ![Selezionare la chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3.png)
 
-5. Nel pannello **Seleziona chiave da Azure Key Vault** la sottoscrizione viene popolata automaticamente. Per **Key Vault**è possibile selezionare un insieme di credenziali delle chiavi esistente dall'elenco a discesa.
+4. Nel pannello **Seleziona chiave da Azure Key Vault** la sottoscrizione viene popolata automaticamente. Per **Key Vault** è possibile selezionare un insieme di credenziali delle chiavi esistente dall'elenco a discesa.
 
-    ![Crea nuovo Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-31.png)
+    ![Seleziona Azure Key Vault esistente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-3-a.png)
 
-    È anche possibile selezionare **Crea nuovo** per creare un nuovo insieme di credenziali delle chiavi. Nel pannello **Create Key Vault**immettere il gruppo di risorse e il nome dell'insieme di credenziali delle chiavi. Assicurarsi che la protezione **eliminazione** temporanea e **ripulitura** sia abilitata. Accettare tutte le altre impostazioni predefinite. Selezionare **Rivedi e crea**.
+    È anche possibile selezionare **Crea nuovo** per creare un nuovo insieme di credenziali delle chiavi. Nel pannello **Create Key Vault** immettere il gruppo di risorse e il nome dell'insieme di credenziali delle chiavi. Assicurarsi che la protezione **eliminazione** temporanea e **ripulitura** sia abilitata. Accettare tutte le altre impostazioni predefinite. Selezionare **Rivedi e crea**.
 
-    ![Crea nuovo Azure Key Vault 2](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
+    ![Esaminare e creare Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-4.png)
 
-7. Esaminare le informazioni associate all'insieme di credenziali delle chiavi e selezionare **Crea**. Attendere un paio di minuti per il completamento della creazione dell'insieme di credenziali delle chiavi.
+5. Esaminare le informazioni associate all'insieme di credenziali delle chiavi e selezionare **Crea**. Attendere un paio di minuti per il completamento della creazione dell'insieme di credenziali delle chiavi.
 
-    ![Creare un Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
+    ![Creare Azure Key Vault con le impostazioni](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-5.png)
 
-8. Nella **chiave SELECT da Azure Key Vault**è possibile selezionare una chiave nell'insieme di credenziali delle chiavi esistente.
+6. Nella **chiave SELECT da Azure Key Vault** è possibile selezionare una chiave nell'insieme di credenziali delle chiavi esistente.
 
-    ![Crea nuova chiave in Azure Key Vault 3](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
+    ![Selezionare la chiave da Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6.png)
 
-9. Se si vuole creare una nuova chiave, selezionare **Crea nuovo** per creare una chiave. La dimensione della chiave RSA può essere 2048 o successiva.
+7. Se si vuole creare una nuova chiave, selezionare **Crea nuovo** per creare una chiave. La dimensione della chiave RSA può essere 2048 o successiva.
 
-    ![Crea nuova chiave in Azure Key Vault 4](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-61.png)
+    ![Crea nuova chiave in Azure Key Vault](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-6-a.png)
 
-10. Specificare il nome della chiave, accettare le altre impostazioni predefinite e selezionare **Crea**. 
+8. Specificare il nome della chiave, accettare le altre impostazioni predefinite e selezionare **Crea**.
 
-    ![Crea nuova chiave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
+    ![Nome nuova chiave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-7.png)
 
 
-11. Si riceve una notifica che indica che è stata creata una chiave nell'insieme di credenziali delle chiavi. Selezionare la **versione** e quindi scegliere **Seleziona**.
+9. Si riceve una notifica che indica che è stata creata una chiave nell'insieme di credenziali delle chiavi. Selezionare la **versione** e quindi scegliere **Seleziona**.
 
-    ![Nuova chiave creata nell'insieme di credenziali delle chiavi](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
+    ![Selezionare la versione per la nuova chiave](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-8.png)
 
-12. Nel riquadro **tipo di crittografia** è possibile visualizzare l'insieme di credenziali delle chiavi e la chiave selezionata per la chiave gestita dal cliente.
+10. Nel riquadro **tipo di crittografia** è possibile visualizzare l'insieme di credenziali delle chiavi e la chiave selezionata per la chiave gestita dal cliente.
 
     ![Chiave e Key Vault per la chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-9.png)
 
-13. Salvare la chiave. 
+11. Salvare la chiave. 
 
     ![Salva chiave gestita dal cliente](./media/data-box-customer-managed-encryption-key-portal/customer-managed-key-10.png)
 

@@ -8,12 +8,12 @@ ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-ms.openlocfilehash: 31e25fb8c67e3d271bc37eb4b0d28c67d94a664f
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: 9e613331760a1715c3821bdc7dbbf0469e8bfd97
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92092801"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337611"
 ---
 # <a name="prepare-an-application-for-deployment-in-azure-spring-cloud"></a>Preparare un'applicazione per la distribuzione nel cloud Spring di Azure
 
@@ -30,15 +30,38 @@ Questo articolo illustra le dipendenze, la configurazione e il codice necessari 
 Il cloud Spring di Azure supporta:
 
 * .NET Core 3.1
-* Steeltoe 2,4
+* Steeltoe 2,4 e 3,0
 
 ## <a name="dependencies"></a>Dependencies
 
-Installare il pacchetto [Microsoft. Azure. SpringCloud. client](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) .
+Per Steeltoe 2,4, aggiungere il pacchetto [Microsoft. Azure. SpringCloud. client 1. x](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) . x più recente al file di progetto:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="1.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="2.4.4" />
+  <PackageReference Include="Steeltoe.Management.ExporterCore" Version="2.4.4" />
+</ItemGroup>
+```
+
+Per Steeltoe 3,0, aggiungere il pacchetto [Microsoft. Azure. SpringCloud. client 2](https://www.nuget.org/packages/Microsoft.Azure.SpringCloud.Client/) . x. x più recente al file di progetto:
+
+```xml
+<ItemGroup>
+  <PackageReference Include="Microsoft.Azure.SpringCloud.Client" Version="2.0.0-preview.1" />
+  <PackageReference Include="Steeltoe.Discovery.ClientCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Extensions.Configuration.ConfigServerCore" Version="3.0.0" />
+  <PackageReference Include="Steeltoe.Management.TracingCore" Version="3.0.0" />
+</ItemGroup>
+```
 
 ## <a name="update-programcs"></a>Aggiornare Program.cs.
 
-Nel `Program.Main` metodo chiamare il `UseAzureSpringCloudService` Metodo:
+Nel `Program.Main` metodo chiamare il `UseAzureSpringCloudService` metodo.
+
+Per Steeltoe 2.4.4, chiamare `UseAzureSpringCloudService` after `ConfigureWebHostDefaults` e After `AddConfigServer` se viene chiamato:
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -47,7 +70,21 @@ public static IHostBuilder CreateHostBuilder(string[] args) =>
         {
             webBuilder.UseStartup<Startup>();
         })
+        .AddConfigServer()
         .UseAzureSpringCloudService();
+```
+
+Per Steeltoe 3.0.0, chiamare `UseAzureSpringCloudService` prima `ConfigureWebHostDefaults` e prima di qualsiasi codice di configurazione Steeltoe:
+
+```csharp
+public static IHostBuilder CreateHostBuilder(string[] args) =>
+    Host.CreateDefaultBuilder(args)
+        .UseAzureSpringCloudService()
+        .ConfigureWebHostDefaults(webBuilder =>
+        {
+            webBuilder.UseStartup<Startup>();
+        })
+        .AddConfigServer();
 ```
 
 ## <a name="enable-eureka-server-service-discovery"></a>Abilita individuazione del servizio Server Eureka
@@ -91,7 +128,7 @@ Prima di eseguire questo esempio, è possibile provare la [guida di avvio rapido
 
 Altri esempi illustrano come distribuire un'applicazione in Azure Spring Cloud quando viene configurato il file POM. 
 * [Avviare la prima app](spring-cloud-quickstart.md)
-* [Compilare ed eseguire microservizi](spring-cloud-quickstart-sample-app-introduction.md)
+* [Compilazione ed esecuzione di microservizi](spring-cloud-quickstart-sample-app-introduction.md)
 
 Questo articolo descrive le dipendenze necessarie e spiega come aggiungerle al file POM.
 
@@ -198,8 +235,8 @@ La tabella seguente elenca le versioni di Azure Spring Cloud corrette per l'app 
 Versione di Spring Boot | Versione di Spring Cloud | Versione iniziale del client Azure Spring cloud
 ---|---|---
 2.1.x | Greenwich.RELEASE | 2.1.2
-2.2. x | Hoxton. SR8 | Non necessario
-2.3. x | Hoxton. SR8 | Non necessario
+2.2. x | Hoxton. SR8 | Non necessaria
+2.3. x | Hoxton. SR8 | Non necessaria
 
 Se si usa Spring Boot 2,1, includere il dependenciy seguente nel file di pom.xml.
 

@@ -3,12 +3,12 @@ title: Informazioni sui repository & immagini
 description: Introduzione ai concetti chiave di registri contenitori di Azure, repository e immagini del contenitore.
 ms.topic: article
 ms.date: 06/16/2020
-ms.openlocfilehash: f3a3e2a00b4fb35f9e9dd1415d5c197aef0d39b0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cd2f93c119817c722401f7290064894f3d39dac9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85390449"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335895"
 ---
 # <a name="about-registries-repositories-and-images"></a>Informazioni sui registri, i repository e le immagini
 
@@ -26,7 +26,7 @@ L'indirizzo di un artefatto in un registro contenitori di Azure include gli elem
 
 `[loginUrl]/[repository:][tag]`
 
-* **loginUrl** : nome completo dell'host del registro di sistema. L'host del registro di sistema in un registro contenitori di Azure è nel formato *Registro*di sistema. azurecr.io (tutti minuscole). È necessario specificare loginUrl quando si usa Docker o altri strumenti client per eseguire il pull o il push di elementi in un registro contenitori di Azure. 
+* **loginUrl** : nome completo dell'host del registro di sistema. L'host del registro di sistema in un registro contenitori di Azure è nel formato *Registro* di sistema. azurecr.io (tutti minuscole). È necessario specificare loginUrl quando si usa Docker o altri strumenti client per eseguire il pull o il push di elementi in un registro contenitori di Azure. 
 * **repository** -nome di un raggruppamento logico di una o più immagini o artefatti correlati, ad esempio le immagini per un'applicazione o un sistema operativo di base. Può includere il percorso *dello spazio dei nomi* . 
 * identificatore di **tag** di una versione specifica di un'immagine o di un artefatto archiviato in un repository.
 
@@ -73,7 +73,7 @@ Per le regole di denominazione dei tag, vedere la [documentazione di Docker](htt
 
 ### <a name="layer"></a>Livello
 
-Le immagini del contenitore sono costituite da uno o più *livelli*, ognuno corrispondente a una riga nel Dockerfile che definisce l'immagine. Le immagini in un registro condividono i livelli comuni, aumentando così l'efficienza di archiviazione. Ad esempio, numerose immagini in repository diversi potrebbero condividere lo stesso livello di base Alpine Linux, ma ne verrà archiviata una sola copia nel registro.
+Le immagini del contenitore sono costituite da uno o più *livelli* , ognuno corrispondente a una riga nel Dockerfile che definisce l'immagine. Le immagini in un registro condividono i livelli comuni, aumentando così l'efficienza di archiviazione. Ad esempio, numerose immagini in repository diversi potrebbero condividere lo stesso livello di base Alpine Linux, ma ne verrà archiviata una sola copia nel registro.
 
 La condivisione dei livelli ne ottimizza anche la distribuzione ai nodi, in quanto più immagini condivideranno i livelli comuni. Ad esempio, se un'immagine già presente in un nodo include il livello Alpine Linux come base, il pull successivo di un'immagine diversa che fa riferimento al medesimo livello non trasferirà nuovamente il livello al nodo, ma farà invece riferimento a quello già presente.
 
@@ -122,7 +122,7 @@ az acr repository show-manifests --name myregistry --repository acr-helloworld
 
 ### <a name="manifest-digest"></a>Hash di manifesto
 
-I manifesti sono identificati da un hash SHA-256 univoco, l'*hash di manifesto*. Ogni immagine o artefatto, indipendentemente dal fatto che sia contrassegnato o meno, viene identificato dal digest. Il valore dell'hash è univoco anche se i dati dei livelli dell'immagine sono identici a quelli di un'altra. Questo meccanismo consente quindi di eseguire ripetutamente il push di immagini con tag identici in un registro. Ad esempio, è possibile eseguire più volte il push di `myimage:latest` nel registro senza errori poiché ogni immagine viene identificata dal relativo hash univoco.
+I manifesti sono identificati da un hash SHA-256 univoco, l' *hash di manifesto*. Ogni immagine o artefatto, indipendentemente dal fatto che sia contrassegnato o meno, viene identificato dal digest. Il valore dell'hash è univoco anche se i dati dei livelli dell'immagine sono identici a quelli di un'altra. Questo meccanismo consente quindi di eseguire ripetutamente il push di immagini con tag identici in un registro. Ad esempio, è possibile eseguire più volte il push di `myimage:latest` nel registro senza errori poiché ogni immagine viene identificata dal relativo hash univoco.
 
 È possibile eseguire il pull di un'immagine da un registro specificandone l'hash nell'operazione. Alcuni sistemi sono configurati per eseguire il pull tramite hash perché in questo modo viene garantita la versione dell'immagine in questione, anche se in seguito viene eseguito il push nel registro di un'immagine con gli stessi tag.
 

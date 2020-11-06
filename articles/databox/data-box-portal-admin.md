@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 978d1de158f93b06d08ff93605405573000b6b6e
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: 7d2734d386f1e49e2227058b148ee6b591d14a42
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92123716"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94336423"
 ---
 # <a name="use-the-azure-portal-to-administer-your-azure-data-box-and-azure-data-box-heavy"></a>Usare il portale di Azure per amministrare i Azure Data Box e Azure Data Box Heavy
 
@@ -34,11 +34,11 @@ Seguire questa procedura per annullare un ordine.
 
 1.  Passare a **Panoramica > Annulla**.
 
-    ![Annullamento ordine 1](media/data-box-portal-admin/cancel-order1.png)
+    ![Annulla comando nella scheda Panoramica per un ordine](media/data-box-portal-admin/portal-admin-cancel-command.png)
 
 2.  Immettere un motivo per l'annullamento dell'ordine.  
 
-    ![Annullamento ordine 2](media/data-box-portal-admin/cancel-order2.png)
+    ![Finestra di dialogo Annulla ordine](media/data-box-portal-admin/portal-admin-cancel-order-dbox.png)
 
 3.  Dopo l'annullamento dell'ordine il portale ne aggiorna lo stato e lo visualizza come **Annullato**.
 
@@ -53,9 +53,9 @@ Per clonare un ordine di importazione, seguire questa procedura.
 
 1.  Passare a **Panoramica > Clona**. 
 
-    ![Clonazione ordine 1](media/data-box-portal-admin/clone-order1.png)
+    ![Comando clone nella scheda Panoramica per un ordine](media/data-box-portal-admin/portal-admin-clone-command.png)
 
-2.  Tutti i dettagli dell'ordine rimangono invariati. Il nome dell'ordine è quello dell'ordine originale con l'aggiunta di *-Clone*. Selezionare la casella di controllo per confermare di avere esaminato le informazioni sulla privacy. Scegliere **Crea**.
+2.  Tutti i dettagli dell'ordine rimangono invariati. Il nome dell'ordine è quello dell'ordine originale con l'aggiunta di *-Clone*. Selezionare la casella di controllo per confermare di avere esaminato le informazioni sulla privacy. Fare clic su **Crea**.
 
 Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare il nuovo ordine.
 
@@ -70,7 +70,7 @@ Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare
 
 2. Fare clic sull'ordine da eliminare e passare a **Panoramica**. Nella barra dei comandi fare clic su **Elimina**.
 
-    ![Eliminazione ordine 1 in Data Box](media/data-box-portal-admin/delete-order1.png)
+    ![Comando DELETE nella scheda Panoramica per un ordine](media/data-box-portal-admin/portal-admin-delete-command.png)
 
 3. Immettere il nome dell'ordine quando viene richiesto di confermare l'eliminazione dell'ordine. Fare clic su **Elimina**.
 
@@ -82,11 +82,11 @@ Eseguire la procedura seguente per scaricare un'etichetta di spedizione.
 
 1.  Passare a **Panoramica > Scarica etichetta di spedizione**. Questa opzione è disponibile solo dopo la spedizione del dispositivo. 
 
-    ![Scaricare l'etichetta di spedizione](media/data-box-portal-admin/download-shipping-label.png)
+    ![Scaricare l'etichetta di spedizione](media/data-box-portal-admin/portal-admin-download-shipping-label.png)
 
 2.  Questa azione scarica la seguente etichetta per la spedizione di ritorno. Salvare l'etichetta e stamparla. Ripiegare e inserire l'etichetta nel manicotto chiaro del dispositivo. Assicurarsi che l'etichetta sia visibile. Rimuovere tutti gli adesivi sul dispositivo relativi alla spedizione precedente.
 
-    ![Esempio di etichetta di spedizione](media/data-box-portal-admin/example-shipping-label.png)
+    ![Esempio di etichetta di spedizione](media/data-box-portal-admin/portal-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Modificare l'indirizzo di spedizione
 
@@ -96,11 +96,11 @@ Eseguire la procedura seguente per modificare l'ordine.
 
 1. Passare a **Dettagli ordine > Modifica indirizzo di spedizione**.
 
-    ![Modifica indirizzo di spedizione 1](media/data-box-portal-admin/edit-shipping-address1.png)
+    ![Comando modifica indirizzo di spedizione nei dettagli dell'ordine](media/data-box-portal-admin/portal-admin-edit-shipping-address-command.png)
 
 2. Modificare e convalidare l'indirizzo di spedizione e quindi salvare le modifiche.
 
-    ![Modifica indirizzo di spedizione 2](media/data-box-portal-admin/edit-shipping-address2.png)
+    ![Finestra di dialogo Modifica indirizzo di spedizione](media/data-box-portal-admin/portal-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Modificare i dettagli della notifica
 
@@ -110,11 +110,11 @@ Eseguire la procedura seguente per modificare i dettagli di notifica.
 
 1. Passare a **Dettagli ordine > Modifica dettagli notifica**.
 
-    ![Modifica dettagli notifica 1](media/data-box-portal-admin/edit-notification-details1.png)
+    ![Comando modifica dettagli notifica nei dettagli dell'ordine](media/data-box-portal-admin/portal-admin-edit-notification-details-command.png)
 
 2. È possibile ora modificare i dettagli di notifica e quindi salvare le modifiche.
  
-    ![Modifica dettagli notifica 2](media/data-box-portal-admin/edit-notification-details2.png)
+    ![Finestra di dialogo Modifica dettagli notifica](media/data-box-portal-admin/portal-admin-edit-notification-details-dbox.png)
 
 
 ## <a name="download-order-history"></a>Scaricare la cronologia ordini
@@ -125,7 +125,7 @@ Eseguire i passaggi seguenti per scaricare la cronologia ordini.
 
 1. Nell'ordine per Data Box passare a **Panoramica**. Assicurarsi che l'ordine sia completo. Se l'ordine è completo e la pulizia del dispositivo è stata completata, passare a **Dettagli ordine**. L'opzione **Scarica cronologia ordini** è disponibile.
 
-    ![Scaricare la cronologia ordini](media/data-box-portal-admin/download-order-history-1.png)
+    ![Scaricare la cronologia ordini](media/data-box-portal-admin/portal-admin-download-order-history.png)
 
 2. Fare clic su **Scarica cronologia ordini**. Nella cronologia scaricata sono registrati i documenti di accompagnamento del corriere. Sono presenti due set di log corrispondenti ai due nodi in una Data Box Heavy. Se si scorre fino alla fine di questo log, sono visualizzati i collegamenti a:
     
@@ -198,11 +198,11 @@ Eseguire i passaggi seguenti per scaricare la cronologia ordini.
 
     È quindi possibile passare all'account di archiviazione e visualizzare i log di copia.
 
-![Log negli account di archiviazione](media/data-box-portal-admin/logs-in-storage-acct-2.png)
+   ![Log di copia per un account di archiviazione](media/data-box-portal-admin/portal-admin-storage-account-copy-logs.png)
 
-È anche possibile visualizzare la catena di log di custodia che includono i log di controllo e i file della distinta base.
+   È anche possibile visualizzare la catena dei log di custodia, che includono i log di controllo e i file DBA.
 
-![Log negli account di archiviazione 2](media/data-box-portal-admin/logs-in-storage-acct-1.png)
+   ![Catena di log di custodia per un account di archiviazione](media/data-box-portal-admin/portal-admin-storage-account-chain-of-custody-logs.png)
 
 ## <a name="view-order-status"></a>Visualizzare lo stato dell'ordine
 

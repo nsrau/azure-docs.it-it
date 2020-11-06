@@ -419,8 +419,6 @@
                   href: 'http://aka.ms/speech/va-samples'
                 - name: Domande frequenti sugli assistenti vocali
                   href: faq-voice-assistants.md
-                - name: Speech SDK
-                  href: speech-sdk.md
                 - name: Crittografia dei dati inattivi per i comandi personalizzati
                   href: custom-commands-encryption-of-data-at-rest.md
         - name: Direct Line Speech
@@ -554,7 +552,7 @@
       items:
         - name: Come configurare un array di microfoni
           href: how-to-devices-microphone-array-configuration.md
-    - name: Avvio rapido
+    - name: Guida introduttiva
       items:
         - name: Usare Speech Devices SDK
           href: speech-devices-sdk-quickstart.md

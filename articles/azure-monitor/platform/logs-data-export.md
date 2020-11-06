@@ -7,12 +7,12 @@ ms.custom: references_regions
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2020
-ms.openlocfilehash: 6c0908d2656d9d6464ae1f94d5b0cd68f759530a
-ms.sourcegitcommit: fb3c846de147cc2e3515cd8219d8c84790e3a442
+ms.openlocfilehash: 972c32b5403a7e6f614161271b7cb7e88693e032
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92637344"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335095"
 ---
 # <a name="log-analytics-workspace-data-export-in-azure-monitor-preview"></a>Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure (anteprima)
 Log Analytics l'esportazione dei dati dell'area di lavoro in monitoraggio di Azure consente di esportare in modo continuativo i dati dalle tabelle selezionate nell'area di lavoro Log Analytics a un account di archiviazione di Azure o a hub eventi di Azure al momento della raccolta. Questo articolo fornisce informazioni dettagliate su questa funzionalità e i passaggi per configurare l'esportazione dei dati nelle aree di lavoro.
@@ -58,15 +58,15 @@ Log Analytics esportazione dei dati dell'area di lavoro Esporta continuamente i 
 ## <a name="data-completeness"></a>Completezza dei dati
 L'esportazione dei dati continuerà a ritentare l'invio dei dati per un massimo di 30 minuti nel caso in cui la destinazione non sia disponibile. Se non è ancora disponibile dopo 30 minuti, i dati verranno rimossi finché la destinazione non sarà disponibile.
 
-## <a name="cost"></a>Costi
+## <a name="cost"></a>Cost
 Non sono attualmente previsti addebiti aggiuntivi per la funzionalità di esportazione dei dati. I prezzi per l'esportazione dei dati verranno annunciati in futuro e un avviso fornito prima dell'avvio della fatturazione. Se si sceglie di continuare a usare l'esportazione dei dati dopo il periodo di preavviso, l'addebito sarà addebitato alla tariffa applicabile.
 
 ## <a name="export-destinations"></a>Esporta destinazioni
 
 ### <a name="storage-account"></a>Account di archiviazione
-I dati vengono inviati ogni ora agli account di archiviazione. La configurazione di esportazione dei dati consente di creare un contenitore per ogni tabella nell'account di archiviazione con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un contenitore denominato *am-SecurityEvent* .
+I dati vengono inviati ogni ora agli account di archiviazione. La configurazione di esportazione dei dati consente di creare un contenitore per ogni tabella nell'account di archiviazione con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un contenitore denominato *am-SecurityEvent*.
 
-Il percorso del BLOB dell'account di archiviazione è *WorkspaceResourceId =/subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.json* . Poiché i BLOB di Accodamento sono limitati a 50.000 scritture nell'archivio, il numero di BLOB esportati può estendersi se il numero di Append è elevato. Il modello di denominazione per i BLOB in tal caso verrebbe PT1H_ #. JSON, dove # è il numero di BLOB incrementali.
+Il percorso del BLOB dell'account di archiviazione è *WorkspaceResourceId =/subscriptions/Subscription-ID/ResourceGroups/ \<resource-group\> /providers/Microsoft.operationalinsights/Workspaces/ \<workspace\> /y = \<four-digit numeric year\> /m = \<two-digit numeric month\> /d = \<two-digit numeric day\> /h = \<two-digit 24-hour clock hour\> /m = 00/PT1H.json*. Poiché i BLOB di Accodamento sono limitati a 50.000 scritture nell'archivio, il numero di BLOB esportati può estendersi se il numero di Append è elevato. Il modello di denominazione per i BLOB in tal caso verrebbe PT1H_ #. JSON, dove # è il numero di BLOB incrementali.
 
 Il formato dei dati dell'account di archiviazione è di [righe JSON](diagnostic-logs-append-blobs.md). Questo significa che ogni record è delimitato da una nuova riga, senza matrice di record esterni e senza virgole tra record JSON. 
 
@@ -75,7 +75,7 @@ Il formato dei dati dell'account di archiviazione è di [righe JSON](diagnostic-
 Log Analytics esportazione dei dati può scrivere BLOB di Accodamento in account di archiviazione non modificabili quando i criteri di conservazione basati sul tempo hanno l'impostazione *allowProtectedAppendWrites* abilitata. In questo modo è possibile scrivere nuovi blocchi in un BLOB di Accodamento, mantenendo al tempo stesso la protezione e la conformità. Vedere [Consenti scritture di BLOB di Accodamento protette](../../storage/blobs/storage-blob-immutable-storage.md#allow-protected-append-blobs-writes).
 
 ### <a name="event-hub"></a>Hub eventi
-I dati vengono inviati all'hub eventi in tempo quasi reale mentre raggiunge monitoraggio di Azure. Viene creato un hub eventi per ogni tipo di dati esportato con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un hub eventi denominato *am-SecurityEvent* . Se si vuole che i dati esportati raggiungano un hub eventi specifico o se si dispone di una tabella con un nome che supera il limite di 47 caratteri, è possibile specificare il nome dell'hub eventi ed esportare tutti i dati per le tabelle definite.
+I dati vengono inviati all'hub eventi in tempo quasi reale mentre raggiunge monitoraggio di Azure. Viene creato un hub eventi per ogni tipo di dati esportato con il nome *am,* seguito dal nome della tabella. Ad esempio, la tabella *SecurityEvent* viene inviata a un hub eventi denominato *am-SecurityEvent*. Se si vuole che i dati esportati raggiungano un hub eventi specifico o se si dispone di una tabella con un nome che supera il limite di 47 caratteri, è possibile specificare il nome dell'hub eventi ed esportare tutti i dati per le tabelle definite.
 
 Il volume dei dati esportati aumenta spesso nel tempo e la scalabilità dell'hub eventi deve essere aumentata per gestire velocità di trasferimento maggiori ed evitare la limitazione degli scenari e la latenza dei dati. È consigliabile usare la funzionalità di aumento automatico degli hub eventi per aumentare automaticamente le prestazioni e aumentare il numero di unità di velocità effettiva e soddisfare le esigenze di utilizzo. Per informazioni dettagliate, vedere [ridimensionare automaticamente le unità di velocità effettiva di hub eventi di Azure](../../event-hubs/event-hubs-auto-inflate.md) .
 
@@ -99,7 +99,7 @@ Per abilitare l'esportazione dei dati Log Analytics, è necessario registrare il
 
 - Microsoft.Insights
 
-Questo provider di risorse probabilmente sarà già registrato per la maggior parte degli utenti di monitoraggio di Azure. Per verificare, passare a **sottoscrizioni** nella portale di Azure. Selezionare la sottoscrizione e quindi fare clic su **provider di risorse** nella sezione **Impostazioni** del menu. Individuare **Microsoft. Insights** . Se lo stato è **registrato** , è già registrato. In caso contrario, fare clic su **registra** per registrarlo.
+Questo provider di risorse probabilmente sarà già registrato per la maggior parte degli utenti di monitoraggio di Azure. Per verificare, passare a **sottoscrizioni** nella portale di Azure. Selezionare la sottoscrizione e quindi fare clic su **provider di risorse** nella sezione **Impostazioni** del menu. Individuare **Microsoft. Insights**. Se lo stato è **registrato** , è già registrato. In caso contrario, fare clic su **registra** per registrarlo.
 
 È anche possibile usare uno dei metodi disponibili per registrare un provider di risorse, come descritto in [tipi e provider di risorse di Azure](../../azure-resource-manager/management/resource-providers-and-types.md). Di seguito è riportato un comando di esempio con PowerShell:
 
@@ -108,7 +108,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.insights
 ```
 
 ### <a name="allow-trusted-microsoft-services"></a>Consenti servizi Microsoft attendibili
-Se l'account di archiviazione è stato configurato per consentire l'accesso da reti selezionate, è necessario aggiungere un'eccezione per consentire a monitoraggio di Azure di scrivere nell'account. Da **firewall e reti virtuali** per l'account di archiviazione selezionare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione** .
+Se l'account di archiviazione è stato configurato per consentire l'accesso da reti selezionate, è necessario aggiungere un'eccezione per consentire a monitoraggio di Azure di scrivere nell'account. Da **firewall e reti virtuali** per l'account di archiviazione selezionare **Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione**.
 
 [![Firewall e reti virtuali dell'account di archiviazione](media/logs-data-export/storage-account-vnet.png)](media/logs-data-export/storage-account-vnet.png#lightbox)
 
@@ -189,6 +189,7 @@ Di seguito è riportato un corpo di esempio per la richiesta REST per un hub eve
         ],
         "enable": true
     }
+  }
 }
 ```
 
@@ -270,7 +271,7 @@ Le tabelle supportate sono attualmente limitate a quelle specificate di seguito.
 
 
 | Tabella | Limitazioni |
-|:---|:---|:---|
+|:---|:---|
 | AADDomainServicesAccountLogon | |
 | AADDomainServicesAccountManagement | |
 | AADDomainServicesDirectoryServiceAccess | |
@@ -341,7 +342,7 @@ Le tabelle supportate sono attualmente limitate a quelle specificate di seguito.
 | DnsEvents | |
 | : Inventario DNS | |
 | Dynamics365Activity | |
-| Event | Supporto parziale. Alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questi dati non sono attualmente esportati. |
+| Evento | Supporto parziale. Alcuni dati di questa tabella vengono inseriti tramite un account di archiviazione. Questi dati non sono attualmente esportati. |
 | ExchangeAssessmentRecommendation | |
 | ExchangeAssessmentRecommendation | |
 | FailedIngestion | |
@@ -429,14 +430,13 @@ Le tabelle supportate sono attualmente limitate a quelle specificate di seguito.
 | Aggiornamento | Supporto parziale. Alcuni dati vengono inseriti tramite servizi interni non supportati per l'esportazione. Questi dati non sono attualmente esportati. |
 | UpdateRunProgress | |
 | UpdateSummary | |
-| Usage | |
+| Utilizzo | |
 | UserAccessAnalytics | |
 | UserPeerAnalytics | |
 | Watchlist | |
 | WindowsEvent | |
 | WindowsFirewall | |
 | WireData | Supporto parziale. Alcuni dati vengono inseriti tramite servizi interni non supportati per l'esportazione. Questi dati non sono attualmente esportati. |
-| WorkloadMonitoringPerf | |
 | WorkloadMonitoringPerf | |
 | WVDAgentHealthStatus | |
 | WVDCheckpoints | |

@@ -8,12 +8,12 @@ ms.subservice: disk
 ms.topic: how-to
 ms.date: 01/09/2019
 ms.author: alkohli
-ms.openlocfilehash: a4ac56a4d588071f599f62e6de94d9ec7367a1ae
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 538a650c6063422f89c8ed3d1753981a293693b7
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87924754"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94338087"
 ---
 # <a name="use-azure-portal-to-administer-your-data-box-disk"></a>Usare il portale di Azure per amministrare Azure Data Box
 
@@ -29,15 +29,15 @@ Seguire questa procedura per annullare un ordine.
 
 1.  Passare a **Panoramica > Annulla**. 
 
-    ![Annullamento ordine 1](media/data-box-portal-ui-admin/cancel-order1.png)
+    ![Annulla comando nella scheda Panoramica per un ordine](media/data-box-portal-ui-admin/portal-ui-admin-cancel-command.png)
 
 2.  Immettere un motivo per l'annullamento dell'ordine.  
 
-    ![Annullamento ordine 2](media/data-box-portal-ui-admin/cancel-order2.png)
+    ![Motivo per l'annullamento di un ordine](media/data-box-portal-ui-admin/portal-ui-admin-cancel-order-reason.png)
 
 3.  Dopo l'annullamento dell'ordine il portale ne aggiorna lo stato e lo visualizza come **Annullato**.
 
-    ![Annullamento ordine 3](media/data-box-portal-ui-admin/cancel-order3.png)
+    ![Ordine annullato](media/data-box-portal-ui-admin/portal-ui-admin-canceled-order.png)
 
 Non si riceve una notifica di posta elettronica quando l'ordine viene annullato.
 
@@ -49,13 +49,13 @@ Eseguire la procedura seguente per clonare un ordine.
 
 1.  Passare a **Panoramica > Clona**. 
 
-    ![Clonazione ordine 1](media/data-box-portal-ui-admin/clone-order1.png)
+    ![Comando clone nella scheda Panoramica per un ordine](media/data-box-portal-ui-admin/portal-ui-admin-clone-command.png)
 
 2.  Tutti i dettagli dell'ordine rimangono invariati. Il nome dell'ordine è quello dell'ordine originale con l'aggiunta di *-Clone*. Selezionare la casella di controllo per confermare di avere esaminato le informazioni sulla privacy. Fare clic su **Crea**.    
 
 Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare il nuovo ordine.
 
-[![Ordine di clonazione 3](media/data-box-portal-ui-admin/clone-order3.png)](media/data-box-portal-ui-admin/clone-order3.png#lightbox) 
+[![Ordine clonato](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png)](media/data-box-portal-ui-admin/portal-ui-admin-cloned-order.png#lightbox) 
 
 ## <a name="delete-order"></a>Eliminare un ordine
 
@@ -65,15 +65,15 @@ Il clone viene creato in pochi minuti e il portale viene aggiornato per mostrare
 
 1. Passare a **tutte le risorse**. Cercare l'ordine.
 
-    ![Ricerca degli ordini in Data Box Disk](media/data-box-portal-ui-admin/search-data-box-disk-orders.png)
+    ![Ordini di ricerca](media/data-box-portal-ui-admin/portal-ui-admin-search-data-box-disk-orders.png)
 
 2. Fare clic sull'ordine da eliminare e passare a **Panoramica**. Nella barra dei comandi fare clic su **Elimina**.
 
-    ![Eliminazione ordine 1 in Data Box Disk](media/data-box-portal-ui-admin/delete-order1.png)
+    ![Eliminare un ordine](media/data-box-portal-ui-admin/portal-ui-admin-delete-command.png)
 
 3. Immettere il nome dell'ordine quando viene richiesto di confermare l'eliminazione dell'ordine. Fare clic su **Elimina**.
 
-     ![Eliminazione ordine 2 in Data Box Disk](media/data-box-portal-ui-admin/delete-order2.png)
+     ![Confermare l'eliminazione dell'ordine](media/data-box-portal-ui-admin/portal-ui-admin-confirm-deletion.png)
 
 
 ## <a name="download-shipping-label"></a>Scaricare l'etichetta di spedizione
@@ -83,11 +83,11 @@ Potrebbe essere necessario scaricare l'etichetta indirizzo se l'etichetta indiri
 Eseguire la procedura seguente per scaricare un'etichetta di spedizione.
 1.  Passare a **Panoramica > Scarica etichetta di spedizione**. Questa opzione è disponibile solo dopo la spedizione del disco. 
 
-    ![Scaricare l'etichetta di spedizione](media/data-box-portal-ui-admin/download-shipping-label.png)
+    ![Scaricare l'etichetta di spedizione](media/data-box-portal-ui-admin/portal-ui-admin-download-shipping-label.png)
 
 2.  Questa azione scarica la seguente etichetta per la spedizione di ritorno. Salvare l'etichetta, stamparla e apporla sulla spedizione di ritorno.
 
-    ![Esempio di etichetta di spedizione](media/data-box-portal-ui-admin/example-shipping-label.png)
+    ![Esempio di etichetta di spedizione](media/data-box-portal-ui-admin/portal-ui-admin-example-shipping-label.png)
 
 ## <a name="edit-shipping-address"></a>Modificare l'indirizzo di spedizione
 
@@ -97,11 +97,11 @@ Eseguire la procedura seguente per modificare l'ordine.
 
 1. Passare a **Dettagli ordine > Modifica indirizzo di spedizione**.
 
-    ![Modifica indirizzo di spedizione 1](media/data-box-portal-ui-admin/edit-shipping-address1.png)
+    ![Comando modifica indirizzo di spedizione nei dettagli dell'ordine](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-command.png)
 
 2. È ora possibile modificare l'indirizzo di spedizione e quindi salvare le modifiche.
 
-    ![Modifica indirizzo di spedizione 2](media/data-box-portal-ui-admin/edit-shipping-address2.png)
+    ![Finestra di dialogo Modifica indirizzo di spedizione](media/data-box-portal-ui-admin/portal-ui-admin-edit-shipping-address-dbox.png)
 
 ## <a name="edit-notification-details"></a>Modificare i dettagli della notifica
 
@@ -111,11 +111,11 @@ Eseguire la procedura seguente per modificare i dettagli di notifica.
 
 1. Passare a **Dettagli ordine > Modifica dettagli notifica**.
 
-    ![Modifica dettagli notifica 1](media/data-box-portal-ui-admin/edit-notification-details1.png)
+    ![Comando modifica dettagli notifica nei dettagli dell'ordine](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-command.png)
 
 2. È possibile ora modificare i dettagli di notifica e quindi salvare le modifiche.
  
-    ![Modifica dettagli notifica 2](media/data-box-portal-ui-admin/edit-notification-details2.png)
+    ![Finestra di dialogo Modifica dettagli notifica](media/data-box-portal-ui-admin/portal-ui-admin-edit-notification-details-dbox.png)
 
 ## <a name="view-order-status"></a>Visualizzare lo stato dell'ordine
 

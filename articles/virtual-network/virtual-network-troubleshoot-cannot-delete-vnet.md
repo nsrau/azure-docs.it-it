@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 83afdf7e9dc50e50d747db99cd8439d75e6f7804
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 27372207df66b4198bd9c785ecc099fa88cbe548
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92167815"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335695"
 ---
 # <a name="troubleshooting-failed-to-delete-a-virtual-network-in-azure"></a>Risoluzione dei problemi: non è possibile eliminare una rete virtuale in Azure
 
@@ -31,10 +31,11 @@ Quando si tenta di eliminare una rete virtuale in Microsoft Azure, è possibile 
 
 1. [Verificare se nella rete virtuale è in esecuzione un gateway di rete virtuale](#check-whether-a-virtual-network-gateway-is-running-in-the-virtual-network).
 2. [Verificare se nella rete virtuale è in esecuzione un gateway applicazione](#check-whether-an-application-gateway-is-running-in-the-virtual-network).
-3. [Verificare se nella rete virtuale è abilitato il servizio Azure Active Directory Domain Service](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
-4. [Verificare se la rete virtuale è connessa ad altre risorse](#check-whether-the-virtual-network-is-connected-to-other-resource).
-5. [Verificare se nella rete virtuale è ancora in esecuzione una macchina virtuale](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
-6. [Verificare se la rete virtuale è bloccata in fase di migrazione](#check-whether-the-virtual-network-is-stuck-in-migration).
+3. [Controllare se le istanze di contenitore di Azure sono ancora presenti nella rete virtuale](#check-whether-azure-container-instances-still-exist-in-the-virtual-network).
+4. [Verificare se nella rete virtuale è abilitato il servizio Azure Active Directory Domain Service](#check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network).
+5. [Verificare se la rete virtuale è connessa ad altre risorse](#check-whether-the-virtual-network-is-connected-to-other-resource).
+6. [Verificare se nella rete virtuale è ancora in esecuzione una macchina virtuale](#check-whether-a-virtual-machine-is-still-running-in-the-virtual-network).
+7. [Verificare se la rete virtuale è bloccata in fase di migrazione](#check-whether-the-virtual-network-is-stuck-in-migration).
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 
@@ -59,6 +60,19 @@ Accedere alla pagina **Panoramica** della rete virtuale. Controllare i **disposi
 ![Screenshot dell'elenco dei dispositivi connessi per una rete virtuale in portale di Azure. Il gateway applicazione è evidenziato nell'elenco.](media/virtual-network-troubleshoot-cannot-delete-vnet/app-gateway.png)
 
 Se è presente un gateway applicazione, è necessario rimuoverlo prima di poter eliminare la rete virtuale.
+
+### <a name="check-whether-azure-container-instances-still-exist-in-the-virtual-network"></a>Controllare se le istanze di contenitore di Azure sono ancora presenti nella rete virtuale
+
+1. Nella portale di Azure passare alla pagina **Panoramica** del gruppo di risorse.
+1. Nell'intestazione per l'elenco delle risorse del gruppo di risorse selezionare **Mostra tipi nascosti**. Il tipo di profilo di rete è nascosto nel portale di Azure per impostazione predefinita.
+1. Selezionare il profilo di rete correlato ai gruppi di contenitori.
+1. Selezionare **Elimina**.
+
+   ![Screenshot dell'elenco di profili di rete nascosti.](media/virtual-network-troubleshoot-cannot-delete-vnet/container-instances.png)
+
+1. Eliminare di nuovo la subnet o la rete virtuale.
+
+Se questi passaggi non consentono di risolvere il problema, usare i comandi dell'interfaccia della riga di [comando di Azure](https://docs.microsoft.com/azure/container-instances/container-instances-vnet#clean-up-resources) per pulire le risorse. 
 
 ### <a name="check-whether-azure-active-directory-domain-service-is-enabled-in-the-virtual-network"></a>Verificare se nella rete virtuale è abilitato il servizio Azure Active Directory Domain Service
 

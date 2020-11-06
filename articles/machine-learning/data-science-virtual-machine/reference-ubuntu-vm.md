@@ -9,12 +9,12 @@ ms.custom: devx-track-python
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 9da757e47308fe0fe1a96958e464b440d99f0984
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 6fb7b7c2e9022b6b629a039a48bb559b36393f79
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324735"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94334993"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>Informazioni di riferimento: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -253,7 +253,7 @@ Dopo aver effettuato l'accesso a Azure Machine Learning Studio, è possibile usa
 
 ## <a name="machine-learning-tools"></a>Strumenti di Machine Learning
 
-La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. Sono inclusi:
+La VM include alcuni strumenti e algoritmi di Machine Learning precompilati e preinstallati localmente. incluse le seguenti:
 
 * **Vowpal Wabbit** : algoritmo di apprendimento rapido online.
 * **xgboost** : strumento che fornisce algoritmi di albero con boosting ottimizzati.
@@ -310,7 +310,7 @@ cd xgboostdemo
 xgboost mushroom.conf
 ```
 
-Nella directory specificata viene scritto un file con estensione model. Altre informazioni su questa demo sono disponibili in [GitHub](https://github.com/dmlc/xgboost/tree/master/demo/binary_classification).
+Nella directory specificata viene scritto un file con estensione model. Altre informazioni su questa demo sono disponibili in [GitHub](https://github.com/dmlc/xgboost/tree/master/demo/CLI/binary_classification).
 
 Per altre informazioni su xgboost, vedere la [pagina della documentazione di xgboost](https://xgboost.readthedocs.org/en/latest/) e il relativo [repository GitHub](https://github.com/dmlc/xgboost).
 

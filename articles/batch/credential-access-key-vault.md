@@ -4,12 +4,12 @@ description: Informazioni su come accedere a livello di codice alle proprie cred
 ms.topic: how-to
 ms.date: 10/28/2020
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 71e647c05a84c70fe61a66458801bf7390dcb653
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 25cb05374fc0667306e2b1004b3cd237413b4409
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92913212"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337492"
 ---
 # <a name="securely-access-key-vault-with-batch"></a>Accedere in modo sicuro a Key Vault con Batch
 
@@ -46,7 +46,7 @@ pvk2pfx -pvk batchcertificate.pvk -spc batchcertificate.cer -pfx batchcertificat
 
 ## <a name="create-a-service-principal"></a>Creare un'entità servizio
 
-L'accesso a Key Vault può essere concesso a un **utente** o a un' **entità servizio** . Per accedere a Key Vault a livello di codice, usare un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il certificato creato nel passaggio precedente. L'entità servizio deve trovarsi nello stesso tenant Azure AD di Key Vault.
+L'accesso a Key Vault può essere concesso a un **utente** o a un' **entità servizio**. Per accedere a Key Vault a livello di codice, usare un' [entità servizio](../active-directory/develop/app-objects-and-service-principals.md#service-principal-object) con il certificato creato nel passaggio precedente. L'entità servizio deve trovarsi nello stesso tenant Azure AD di Key Vault.
 
 ```powershell
 $now = [System.DateTime]::Parse("2020-02-10")
@@ -67,7 +67,7 @@ Gli URL per l'applicazione non sono importanti, perché vengono utilizzati solo 
 
 ## <a name="grant-rights-to-key-vault"></a>Concedere i diritti per Key Vault
 
-Per recuperare i segreti da Key Vault, l'entità servizio creata in precedenza deve essere autorizzata. L'autorizzazione può essere concessa tramite il [portale di Azure](/key-vault/general/assign-access-policy-portal.md) o con il comando di PowerShell riportato di seguito.
+Per recuperare i segreti da Key Vault, l'entità servizio creata in precedenza deve essere autorizzata. L'autorizzazione può essere concessa tramite il [portale di Azure](/azure/key-vault/general/assign-access-policy-portal) o con il comando di PowerShell riportato di seguito.
 
 ```powershell
 Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"https://batch.mydomain.com' -PermissionsToSecrets 'Get'
@@ -77,7 +77,7 @@ Set-AzureRmKeyVaultAccessPolicy -VaultName 'BatchVault' -ServicePrincipalName '"
 
 Creare un pool di Batch, quindi passare alla scheda del certificato nel pool e assegnare il certificato creato. Il certificato si troverà in tutti i nodi di Batch.
 
-Assegnare quindi il certificato all'account batch. L'assegnazione del certificato all'account consente a batch di assegnarla ai pool e quindi ai nodi. Il modo più semplice per farlo è accedere al proprio account Batch sul portale, selezionare **Certificati** e quindi **Aggiungi** . Caricare il `.pfx` file generato in precedenza e fornire la password. Al termine, il certificato viene aggiunto all'elenco ed è possibile verificare l'identificazione personale.
+Assegnare quindi il certificato all'account batch. L'assegnazione del certificato all'account consente a batch di assegnarla ai pool e quindi ai nodi. Il modo più semplice per farlo è accedere al proprio account Batch sul portale, selezionare **Certificati** e quindi **Aggiungi**. Caricare il `.pfx` file generato in precedenza e fornire la password. Al termine, il certificato viene aggiunto all'elenco ed è possibile verificare l'identificazione personale.
 
 A questo punto, quando si crea un pool di batch, è possibile passare ai **certificati** all'interno del pool e assegnare il certificato creato al pool. Quando si esegue questa operazione, assicurarsi di selezionare **LocalMachine** come percorso di archiviazione. Il certificato verrà caricato in tutti i nodi di Batch del pool.
 

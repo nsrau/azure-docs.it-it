@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 09/23/2020
 ms.author: alkohli
-ms.openlocfilehash: 9f4f9f65b562b01466aec69cd541ea77f443f803
-ms.sourcegitcommit: 7dacbf3b9ae0652931762bd5c8192a1a3989e701
+ms.openlocfilehash: f5bcb5c42661c375372d4d0b17571d784152dd5f
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92127525"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337288"
 ---
 # <a name="use-the-local-web-ui-to-administer-your-data-box-and-data-box-heavy"></a>Usare l'interfaccia utente Web locale per amministrare il Data Box e Data Box Heavy
 
@@ -35,7 +35,7 @@ L'articolo include le esercitazioni seguenti:
 
 Se si verificano problemi al dispositivo, è possibile creare un pacchetto di supporto dai log di sistema. Il supporto tecnico Microsoft usa questo pacchetto per risolvere il problema. Per generare un pacchetto per il supporto, seguire questa procedura:
 
-1. Nell'interfaccia utente Web locale passare a **Contatta il supporto tecnico** e selezionare **Crea pacchetto**per il supporto.
+1. Nell'interfaccia utente Web locale passare a **Contatta il supporto tecnico** e selezionare **Crea pacchetto** per il supporto.
 
     ![Creare un pacchetto per il supporto 1](media/data-box-local-web-ui-admin/create-support-package-1.png)
 
@@ -43,7 +43,7 @@ Se si verificano problemi al dispositivo, è possibile creare un pacchetto di su
 
     ![Creare un pacchetto per il supporto 2](media/data-box-local-web-ui-admin/create-support-package-2.png)
 
-3. Al termine della creazione del pacchetto di supporto, selezionare **Scarica pacchetto**per il supporto.
+3. Al termine della creazione del pacchetto di supporto, selezionare **Scarica pacchetto** per il supporto.
 
     ![Creare un pacchetto per il supporto 4](media/data-box-local-web-ui-admin/create-support-package-4.png)
 
@@ -212,7 +212,7 @@ Per abilitare i privilegi dell'operatore di backup nel dispositivo Azure:
 
 1. Nell'angolo in alto a destra dell'interfaccia utente Web locale del dispositivo selezionare **Impostazioni**.
 
-   ![Apri impostazioni Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+   ![Apri impostazioni Data Box-1](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Abilita** Privilegi dell'operatore di backup.
 
@@ -235,7 +235,7 @@ Per abilitare il trasferimento degli ACL per file di Azure:
 
 1. Nell'angolo in alto a destra dell'interfaccia utente Web locale del dispositivo selezionare **Impostazioni**.
 
-    ![Apri impostazioni Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Apri impostazioni Data Box-2](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Abilita** ACL per file di Azure.
 
@@ -255,7 +255,7 @@ Per abilitare TLS 1,1 nel dispositivo Azure:
 
 1. Nell'angolo in alto a destra dell'interfaccia utente Web locale del dispositivo selezionare **Impostazioni**.
 
-    ![Apri impostazioni Data Box](media/data-box-local-web-ui-admin/data-box-settings-1.png)
+    ![Apri impostazioni Data Box-3](media/data-box-local-web-ui-admin/data-box-settings-1.png)
 
 2. **Abilita** TLS 1,1.
 

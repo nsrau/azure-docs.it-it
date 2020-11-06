@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 132c072ad4cbee5cc3ac49695aa34480dc827400
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 00b6fab2aeebeeb0f39e07a0751e02cefd195b28
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89565759"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337345"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Sicurezza e protezione dei dati di Azure Data Box
 
@@ -25,18 +25,18 @@ Data Box offre una soluzione sicura per la protezione dei dati, garantendo che s
 
 La soluzione Microsoft Azure Data Box è costituita da quattro componenti principali che interagiscono tra loro:
 
-- **Servizio Azure Data Box ospitato in Azure**: il servizio di gestione usato per creare l'ordine del dispositivo, configurare il dispositivo e quindi monitorare l'ordine fino al completamento.
-- **Dispositivo di Data Box**: il dispositivo di trasferimento spedito all'utente per l'importazione dei dati locali Azure. 
-- **Client/host connessi al dispositivo**: i client nell'infrastruttura che si connettono al dispositivo Data Box tramite USB e che contengono i dati da proteggere.
+- **Servizio Azure Data Box ospitato in Azure** : il servizio di gestione usato per creare l'ordine del dispositivo, configurare il dispositivo e quindi monitorare l'ordine fino al completamento.
+- **Dispositivo di Data Box** : il dispositivo di trasferimento spedito all'utente per l'importazione dei dati locali Azure. 
+- **Client/host connessi al dispositivo** : i client nell'infrastruttura che si connettono al dispositivo Data Box tramite USB e che contengono i dati da proteggere.
 - **Archiviazione cloud** Posizione nel cloud Azure in cui vengono archiviati i dati. In genere si tratta dell'account di archiviazione collegato alla risorsa di Azure Data Box creata.
 
 Il diagramma seguente indica il flusso di dati tramite la soluzione Azure Data Box dall'ambiente locale ad Azure e le varie funzionalità di sicurezza sul posto mentre i dati passano attraverso la soluzione. Questo flusso è per un ordine di importazione per il Data Box.
 
-![Sicurezza importazione Data Box](media/data-box-security/data-box-security-2.png)
+![Sicurezza importazione Data Box](media/data-box-security/data-box-security-import.png)
 
 Il diagramma seguente è per l'ordine di esportazione per la Data Box.
 
-![Sicurezza esportazione Data Box](media/data-box-security/data-box-security-3.png)
+![Sicurezza esportazione Data Box](media/data-box-security/data-box-security-export.png)
 
 Con il passaggio dei dati attraverso questa soluzione, vengono registrati eventi e vengono generati log. Per altre informazioni, vedere:
 
@@ -86,7 +86,7 @@ Azure Data Box raccoglie e visualizza informazioni personali nei principali casi
 
   - Nome contatto
   - Numero di telefono
-  - E-mail
+  - Posta elettronica
   - Indirizzo
   - City
   - CAP
@@ -97,7 +97,7 @@ Azure Data Box raccoglie e visualizza informazioni personali nei principali casi
 
     Al termine del processo o quando si elimina l'ordine, i dettagli dell'ordine vengono eliminati dal servizio Data Box.
 
-- **Indirizzo di spedizione**: dopo l'inserimento dell'ordine, il servizio Data Box fornisce l'indirizzo di spedizione ai vettori di terze parti, ad esempio UPS o DHL. 
+- **Indirizzo di spedizione** : dopo l'inserimento dell'ordine, il servizio Data Box fornisce l'indirizzo di spedizione ai vettori di terze parti, ad esempio UPS o DHL. 
 
 Per altre informazioni, consultare l'Informativa sulla privacy Microsoft nel [Centro protezione](https://www.microsoft.com/trustcenter).
 

@@ -3,12 +3,12 @@ title: Supporto per lo spostamento per tipo di risorsa
 description: Elenca i tipi di risorse di Azure che possono essere spostati in un nuovo gruppo di risorse o una sottoscrizione.
 ms.topic: conceptual
 ms.date: 09/23/2020
-ms.openlocfilehash: 675f7bb11ed98dd17e8f4ee4a0197d05128af851
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7d5875287c7af905579397164029ef0504d6b9dc
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91627109"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337951"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 
@@ -1433,7 +1433,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | privatednszones/virtualnetworklinks | Sì | Sì |
 > | privatednszonesinternal | No | No |
 > | privateendpointredirectmaps | No | No |
-> | privateendpoints | Sì | Sì |
+> | privateendpoints | No | No |
 > | privatelinkservices | No | No |
 > | publicipaddresses | Sì - SKU di base<br>Sì, SKU standard | Sì - SKU di base<br>No - SKU standard |
 > | publicipprefixes | Sì | Sì |

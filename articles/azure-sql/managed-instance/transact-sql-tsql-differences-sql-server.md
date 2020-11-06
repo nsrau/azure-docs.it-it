@@ -11,12 +11,12 @@ ms.author: jovanpop
 ms.reviewer: sstein, bonova, danil
 ms.date: 06/02/2020
 ms.custom: seoapril2019, sqldbrb=1
-ms.openlocfilehash: 1b42e9ea06d13271c277ff254b41f10a1ff07e14
-ms.sourcegitcommit: 400f473e8aa6301539179d4b320ffbe7dfae42fe
+ms.openlocfilehash: 2e07a54e20e6e60214b2905cf9321120484503eb
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92790611"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337645"
 ---
 # <a name="t-sql-differences-between-sql-server--azure-sql-managed-instance"></a>Differenze di T-SQL tra SQL Server & SQL di Azure Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -153,11 +153,13 @@ Il Istanza gestita SQL non può accedere ai file, pertanto non è possibile crea
 - L'impostazione di un account di accesso di Azure AD mappato a un gruppo di Azure AD come proprietario del database non è supportata.
 - È supportata la rappresentazione di entità Azure AD a livello di server utilizzando altre entità Azure AD, ad esempio la clausola [Execute As](/sql/t-sql/statements/execute-as-transact-sql) . Le limitazioni EXECUTE AS sono:
 
-  - L'opzione EXECUTE AS USER non è supportata per gli utenti di Azure AD quando il nome è diverso dal nome dell'account di accesso. Un esempio è quando l'utente viene creato tramite la sintassi CREATE USER [myAadUser] FROM LOGIN [ john@contoso.com ] e la rappresentazione viene tentata tramite exec come user = _myAadUser_ . Quando si crea un **utente** da un'entità di Azure ad server (account di accesso), specificare il user_name come lo stesso Login_name da **login** .
+  - L'opzione EXECUTE AS USER non è supportata per gli utenti di Azure AD quando il nome è diverso dal nome dell'account di accesso. Un esempio è quando l'utente viene creato tramite la sintassi CREATE USER [myAadUser] FROM LOGIN [ john@contoso.com ] e la rappresentazione viene tentata tramite exec come user = _myAadUser_. Quando si crea un **utente** da un'entità di Azure ad server (account di accesso), specificare il user_name come lo stesso Login_name da **login**.
   - Solo le entità a livello di SQL Server (account di accesso) che fanno parte del `sysadmin` ruolo possono eseguire le operazioni seguenti destinate a Azure ad entità:
 
     - EXECUTE AS USER
     - EXECUTE AS LOGIN
+
+  - Per rappresentare un utente con l'istruzione EXECUTE AS, l'utente deve essere mappato direttamente a Azure AD entità server (account di accesso). Gli utenti che sono membri dei gruppi di Azure AD di cui è stato eseguito il mapping in Azure AD entità server non possono essere rappresentati in modo efficace con l'istruzione EXECUTE AS, anche se il chiamante dispone delle autorizzazioni IMPERSONATE per il nome utente specificato.
 
 - L'esportazione/importazione di database con i file BACPAC è supportata per gli utenti Azure AD in SQL Istanza gestita con [SSMS v 18,4 o versioni successive](/sql/ssms/download-sql-server-management-studio-ssms)oppure [SQLPackage.exe](/sql/tools/sqlpackage-download).
   - Le configurazioni seguenti sono supportate tramite il file BACPAC del database: 
@@ -300,6 +302,7 @@ Per altre informazioni, vedere [ALTER DATABASE](/sql/t-sql/statements/alter-data
   - Gli avvisi non sono ancora supportati.
   - I proxy non sono supportati.
 - EventLog non è supportato.
+- Per creare, modificare o eseguire processi di SQL Agent, è necessario che l'utente sia mappato direttamente a Azure AD entità server (account di accesso). Utenti che non sono mappati direttamente, ad esempio gli utenti che appartengono a un gruppo di Azure AD che dispone dei diritti per creare, modificare o eseguire i processi di SQL Agent, non saranno in grado di eseguire tali azioni. Ciò è dovuto a Istanza gestita rappresentazione ed [esecuzione come limitazioni](#logins-and-users).
 
 Attualmente non sono supportate le funzionalità di SQL Agent seguenti:
 

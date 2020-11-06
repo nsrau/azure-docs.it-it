@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/10/2020
 ms.author: alkohli
-ms.openlocfilehash: 01eb35a60a6d51b5742d8fedd2ee0631aa86c924
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: 3a915ac8de83a5e183660ec4a3d05044eafff4a9
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92147955"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337509"
 ---
 # <a name="tracking-and-event-logging-for-your-azure-data-box-and-azure-data-box-heavy-export-orders"></a>Rilevamento e registrazione degli eventi per il Azure Data Box e Azure Data Box Heavy gli ordini di esportazione
 
@@ -50,11 +50,11 @@ Per altre informazioni sull'uso di RBAC di Azure, vedere [procedure consigliate 
 
 ## <a name="enable-verbose-log-in-the-order"></a>Abilita log dettagliato nell'ordine
 
-Quando si inserisce un ordine di esportazione per Data Box, è possibile abilitare la raccolta di log dettagliato. Ecco la schermata dell'ordine in cui è possibile abilitare il log dettagliato:
+Quando si inserisce un ordine di esportazione per Data Box, è possibile abilitare la raccolta di un log dettagliato. Ecco la schermata dell'ordine in cui è possibile abilitare il log dettagliato:
 
-![Seleziona l'opzione di esportazione](media/data-box-deploy-export-ordered/azure-data-box-export-04b.png)
+![Seleziona l'opzione di esportazione](media/data-box-deploy-export-ordered/azure-data-box-export-order-export-option.png)
 
-Quando si seleziona l'opzione **Includi log dettagliato** , viene generato un file di log dettagliato durante la copia dei dati dall'account di archiviazione di Azure. Questo log contiene un elenco di tutti i file che sono stati esportati correttamente.      
+Quando si seleziona l'opzione **Includi log dettagliato** , viene generato un file di log dettagliato durante la copia dei dati dall'account di archiviazione di Azure. Questo log contiene un elenco di tutti i file che sono stati esportati correttamente.
 
 Per ulteriori informazioni sull'ordine di esportazione, vedere [creare un ordine di esportazione per data box](data-box-deploy-export-ordered.md)
 
@@ -252,7 +252,7 @@ Scorrendo la cronologia degli ordini, viene visualizzato quanto segue:
 
 - Informazioni di rilevamento del vettore per il dispositivo.
 - Eventi con attività *SecureErase* . Questi eventi corrispondono alla cancellazione dei dati sul disco.
-- Collegamenti di log Data Box. Vengono presentati i percorsi per i *log di controllo*, i *log di copia*e i file *DBA* .
+- Collegamenti di log Data Box. Vengono presentati i percorsi per i *log di controllo* , i *log di copia* e i file *DBA* .
 
 Di seguito è riportato un esempio di log della cronologia degli ordini da portale di Azure:
 

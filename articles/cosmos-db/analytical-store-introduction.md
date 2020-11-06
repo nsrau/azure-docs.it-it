@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: 60326b0ba06e1642e2831814dd931c69f6a04f3b
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.custom: seo-nov-2020
+ms.openlocfilehash: 9cde9586d453632ceaa61de7c095a5f95d1ea2e4
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/06/2020
-ms.locfileid: "94330904"
+ms.locfileid: "94337407"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è Azure Cosmos DB archivio analitico (anteprima)?
 [!INCLUDE[appliesto-sql-mongodb-api](includes/appliesto-sql-mongodb-api.md)]
@@ -19,7 +20,9 @@ ms.locfileid: "94330904"
 > [!IMPORTANT]
 > L'archivio analitico di Azure Cosmos DB attualmente è disponibile in anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Azure Cosmos DB archivio analitico è un archivio colonne completamente isolato per l'abilitazione di analisi su larga scala rispetto ai dati operativi nel Azure Cosmos DB, senza alcun effetto sui carichi di lavoro transazionali. L'archivio transazionale di Azure Cosmos DB è senza schema e consente di eseguire l'iterazione sulle applicazioni transazionali senza dover gestire schemi o indici. Al contrario, l'archivio analitico di Azure Cosmos DB è schematizzato per ottimizzare le prestazioni delle query analitiche. Questo articolo descrive in dettaglio l'archiviazione analitica.
+Azure Cosmos DB archivio analitico è un archivio colonne completamente isolato per l'abilitazione di analisi su larga scala rispetto ai dati operativi nel Azure Cosmos DB, senza alcun effetto sui carichi di lavoro transazionali. 
+
+L'archivio transazionale di Azure Cosmos DB è senza schema e consente di eseguire l'iterazione sulle applicazioni transazionali senza dover gestire schemi o indici. Al contrario, l'archivio analitico di Azure Cosmos DB è schematizzato per ottimizzare le prestazioni delle query analitiche. Questo articolo descrive in dettaglio l'archiviazione analitica.
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>Problemi con l'analisi su larga scala dei dati operativi
 

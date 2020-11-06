@@ -12,16 +12,16 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 10/13/2020
+ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: 54e6f4abd5ca6d15a4cc5a7bc9015abb005296a0
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: ff1899fbc89ab4a78bf793a133a7aa9a8f03dd2a
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92013645"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337560"
 ---
-# <a name="troubleshoot-capacity-pool-issues"></a>Risolvere i problemi del pool di capacità
+# <a name="troubleshoot-capacity-pool-issues"></a>Risolvere i problemi relativi ai pool di capacità
 
 Questo articolo descrive le soluzioni ai problemi che potrebbero verificarsi durante la gestione dei pool di capacità, inclusa l'operazione di modifica del pool. 
 
@@ -38,7 +38,6 @@ Questo articolo descrive le soluzioni ai problemi che potrebbero verificarsi dur
 |-|-|
 | La modifica del pool di capacità per un volume non è consentita. | L'utente potrebbe non essere ancora autorizzato a usare questa funzionalità. <br> La funzionalità per spostare un volume in un altro pool di capacità è attualmente in fase di anteprima. Se si utilizza questa funzionalità per la prima volta, è necessario prima registrare la funzionalità e impostare `-FeatureName ANFTierChange` . Vedere la procedura di registrazione in [modificare dinamicamente il livello di servizio di un volume](dynamic-change-volume-service-level.md). |
 | Dimensioni del pool di capacità troppo ridotte per le dimensioni totali del volume. |  L'errore è dovuto al fatto che il pool di capacità di destinazione non dispone della capacità disponibile per il volume spostato.  <br> Aumentare le dimensioni del pool di destinazione o scegliere un altro pool più grande.  Vedere [ridimensionare un pool di capacità o un volume](azure-netapp-files-resize-capacity-pools-or-volumes.md).   |
-| Non è possibile spostare un volume quando il pool di capacità di destinazione ha un tipo di crittografia diverso rispetto al pool di capacità originale.  Si consiglia, ad esempio, di eseguire il passaggio dalla crittografia doppia alla crittografia singola o viceversa.  | Selezionare un pool di capacità di destinazione con lo stesso tipo di crittografia del pool di capacità di origine.   |
 |  Non è possibile completare la modifica del pool perché un volume denominato `'{source pool name}'` esiste già nel pool di destinazione `'{target pool name}'` | Questo errore si verifica perché il volume con lo stesso nome esiste già nel pool di capacità di destinazione.  Selezionare un altro pool di capacità che non disponga di un volume con lo stesso nome.   | 
 
 ## <a name="next-steps"></a>Passaggi successivi  

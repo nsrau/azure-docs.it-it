@@ -4,12 +4,12 @@ description: Informazioni sulle novità del servizio Azure blockchain, ad esempi
 ms.date: 06/30/2020
 ms.topic: conceptual
 ms.reviewer: ravastra
-ms.openlocfilehash: 47e0da5a729519f2af3c5b2a2fd3e0f7485624cf
-ms.sourcegitcommit: a2d8acc1b0bf4fba90bfed9241b299dc35753ee6
+ms.openlocfilehash: 6a3113a2d28e704b188d701da13493ecd8263cab
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/12/2020
-ms.locfileid: "91948460"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335027"
 ---
 # <a name="whats-new-in-azure-blockchain-service"></a>Novità del servizio Azure blockchain
 
@@ -27,7 +27,7 @@ Il servizio Azure blockchain riceve i miglioramenti su base continuativa. Per st
 
 ### <a name="version-upgrades"></a>Aggiornamenti della versione
 
-- Aggiornamento della versione quorum a 2.6.0. Con la versione 2.6.0, è possibile inviare transazioni private firmate. Per ulteriori informazioni sull'invio di transazioni private, vedere la [documentazione dell'API quorum](https://docs.goquorum.com/en/latest/Getting%20Started/api/).
+- Aggiornamento della versione quorum a 2.6.0. Con la versione 2.6.0, è possibile inviare transazioni private firmate. Per ulteriori informazioni sull'invio di transazioni private, vedere la [documentazione dell'API quorum](https://docs.goquorum.consensys.net/en/latest/Reference/APIs/ContractExtensionAPIs/#apis).
 - Aggiornamento della versione tessera a 0.10.5.
 
 ### <a name="contract-size-and-transaction-size-increased-to-128-kb"></a>Dimensioni del contratto e dimensioni delle transazioni aumentate a 128 KB
@@ -69,7 +69,7 @@ Due fasi consentono di ottimizzare gli scenari in cui un membro viene creato in 
 In quorum v 2.6.0, le chiamate alla funzione *ETH. estimateGas* senza fornire il parametro del *valore* aggiuntivo provocano l' *arresto anomalo* di un gestore di metodo. Il team del quorum è stato notificato ed è prevista una correzione per la fine del 2020 luglio. È possibile utilizzare le soluzioni alternative seguenti fino a quando non è disponibile una correzione:
 
 - Evitare di usare *ETH. estimateGas* poiché può influire sulle prestazioni. Per ulteriori informazioni sui problemi di prestazioni ETH. estimateGas, vedere [chiamata della funzione ETH. estimateGas per ridurre le prestazioni](#calling-ethestimategas-function-reduces-performance). Includere un valore di gas per ogni transazione. La maggior parte delle librerie chiamerà ETH. estimateGas se non viene specificato un valore di gas che causa l'arresto anomalo del 2.6.0 quorum v.
-- Se è necessario chiamare *ETH. estimateGas*, il team del quorum suggerisce di passare il *valore* del parametro aggiuntivo come *0* come soluzione alternativa.
+- Se è necessario chiamare *ETH. estimateGas* , il team del quorum suggerisce di passare il *valore* del parametro aggiuntivo come *0* come soluzione alternativa.
 
 ### <a name="mining-stops-if-fewer-than-four-validator-nodes"></a>Il data mining si interrompe se meno di quattro nodi validator
 
@@ -123,9 +123,9 @@ Se possibile, usare un valore di gas conservativo per inviare le transazioni e r
 
 ### <a name="unbounded-loops-in-smart-contracts-reduces-performance"></a>Cicli senza limiti nei contratti intelligenti riduce le prestazioni
 
-Evitare i cicli non associati nei contratti intelligenti poiché possono ridurre le prestazioni. Per altre informazioni, vedere le seguenti risorse:
+Evitare i cicli non associati nei contratti intelligenti poiché possono ridurre le prestazioni. Per altre informazioni, vedere le risorse seguenti:
 
 - [Evitare cicli non vincolati](https://blog.b9lab.com/getting-loopy-with-solidity-1d51794622ad )
 - [Procedure consigliate per la sicurezza con Smart Contract](https://github.com/ConsenSys/smart-contract-best-practices)
-- [Linee guida per Smart Contract fornite dal quorum](http://docs.goquorum.com/en/latest/Security/Framework/Decentralized%20Application/Smart%20Contracts%20Security/)
+- [Linee guida per Smart Contract fornite dal quorum](https://docs.goquorum.consensys.net/en/stable/Concepts/Security/Framework/DecentralizedApplication/SmartContractsSecurity/)
 - [Linee guida sui limiti e i cicli di gas forniti dalla solidità](https://solidity.readthedocs.io/en/develop/security-considerations.html#gas-limit-and-loops)

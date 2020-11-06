@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 09/30/2020
 ms.author: duau
-ms.openlocfilehash: dbce9019e33c07dd4faa91ffd490eba4d313c675
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8e810a31fab4457e47329e37f54b16e6f488c9da
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91630611"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94337628"
 ---
 # <a name="troubleshooting-common-routing-issues"></a>Risoluzione dei più frequenti problemi di routing
 
@@ -95,7 +95,7 @@ Le cause del problema possono essere diverse:
 
     * Controllare le porte HTTP e HTTPS. Nella maggior parte dei casi, 80 e 443 (rispettivamente) sono corretti e non saranno necessarie modifiche. Tuttavia, esiste la possibilità che il back-end non sia configurato in questo modo ed è in ascolto su una porta diversa.
 
-        * Verificare l'_intestazione host di back-end_ configurata per il back-end a cui l'host di front-end deve essere indirizzato. Nella maggior parte dei casi, questa intestazione deve essere la stessa del *nome host di back-end*. Tuttavia, un valore non corretto può causare diversi codici di stato HTTP 4xx se il back-end prevede un elemento diverso. Se si immette l'indirizzo IP del back-end, potrebbe essere necessario impostare l'*intestazione host di back-end* sul nome host di back-end.
+        * Verificare l' _intestazione host di back-end_ configurata per il back-end a cui l'host di front-end deve essere indirizzato. Nella maggior parte dei casi, questa intestazione deve essere la stessa del *nome host di back-end*. Tuttavia, un valore non corretto può causare diversi codici di stato HTTP 4xx se il back-end prevede un elemento diverso. Se si immette l'indirizzo IP del back-end, potrebbe essere necessario impostare l' *intestazione host di back-end* sul nome host di back-end.
 
 3. Controllare le impostazioni della regola di routing:
     * Passare alla regola di gestione che deve indirizzare a un pool di back-end dal nome host front-end in questione. Verificare che i protocolli accettati siano configurati correttamente quando si invia la richiesta. Il campo *protocolli accettati* determina quali richieste devono essere accettate dalla porta anteriore. Il *protocollo di trasmissione* determina il protocollo da usare per l'invio della richiesta al back-end.
@@ -103,5 +103,26 @@ Le cause del problema possono essere diverse:
             * *I protocolli accettati* sono HTTP e HTTPS. *Il protocollo di trasmissione* è HTTP. La richiesta di corrispondenza non funzionerà, poiché HTTPS è un protocollo consentito e se una richiesta è stata ricevuta come HTTPS, la porta anteriore tenterà di inviarla usando HTTPS.
 
             * *I protocolli accettati* sono HTTP. Il *protocollo di invio* è una richiesta di corrispondenza o http.
-
     - Per impostazione predefinita, la *riscrittura dell'URL* è disabilitata. Questo campo viene usato solo se si vuole limitare l'ambito delle risorse ospitate da back-end che si desidera rendere disponibili. Se disabilitato, Frontdoor inoltrerà lo stesso percorso di richiesta che riceve. È possibile configurare correttamente questo campo. Quindi, quando lo sportello anteriore richiede una risorsa dal back-end che non è disponibile, restituirà un codice di stato HTTP 404.
+
+## <a name="request-to-frontend-host-name-returns-411-status-code"></a>La richiesta al nome host front-end restituisce il codice di stato 411
+
+### <a name="symptom"></a>Sintomo
+
+È stato creato un Frontdoor e configurato un host di front-end, un pool di back-end con almeno un back-end in esso e una regola di gestione che connette l'host di front-end al pool back-end. Il contenuto non sembra essere disponibile quando si invia una richiesta all'host front-end configurato perché viene restituito un codice di stato HTTP 411.
+
+Le risposte a queste richieste possono anche contenere una pagina di errore HTML nel corpo della risposta che include un'istruzione esplicativa. ad esempio `HTTP Error 411. The request must be chunked or have a content length`
+
+### <a name="cause"></a>Causa
+
+Esistono diverse cause possibili di questo sintomo. Tuttavia, il motivo generale è che la richiesta HTTP non è completamente conforme a RFC. 
+
+Un esempio di non conformità è una `POST` richiesta inviata senza un' `Content-Length` `Transfer-Encoding` intestazione o (ad esempio, usando `curl -X POST https://example-front-door.domain.com` ). Questa richiesta non soddisfa i requisiti definiti nella [specifica RFC 7230](https://tools.ietf.org/html/rfc7230#section-3.3.2) e verrà bloccata dalla porta anteriore con una risposta http 411.
+
+Questo comportamento è separato dalla funzionalità WAF di front door. Attualmente, non è possibile disabilitare questo comportamento. Tutte le richieste HTTP devono soddisfare i requisiti, anche se la funzionalità WAF non è in uso.
+
+### <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
+
+- Verificare che le richieste siano conformi ai requisiti impostati nelle RFC necessarie.
+
+- Prendere nota di qualsiasi corpo del messaggio HTML restituito in risposta alla richiesta, perché spesso spiegano esattamente il *modo* in cui la richiesta non è conforme.

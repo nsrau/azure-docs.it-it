@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/13/2019
-ms.openlocfilehash: 09485d3279e4ca4fff5b6492bab432d8034d7e42
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e426962310417fdca56ea2f7d45a6ea820d41981
+ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91449417"
+ms.lasthandoff: 11/06/2020
+ms.locfileid: "94335877"
 ---
 # <a name="application-insights-connector-management-solution-deprecated"></a>Soluzione di gestione Connettore di Application Insights (deprecata)
 
@@ -57,10 +57,10 @@ A differenza della maggior parte delle altre soluzioni Log Analytics, i dati per
 
 ## <a name="configuration"></a>Configurazione
 
-1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AppInsights?tab=Overview) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../insights/solutions.md).
+1. Abilitare la soluzione Analisi app Web di Azure da [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps) o seguendo la procedura illustrata in [Aggiungere soluzioni di Log Analytics dalla Raccolta soluzioni](../insights/solutions.md).
 2. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Tutti i servizi** per aprire Application Insights. Cercare quindi Application Insights. 
 3. In **Sottoscrizioni** selezionare una sottoscrizione che contenga risorse di Application Insights e quindi in **Nome** selezionare una o più applicazioni.
-4. Fare clic su **Save**.
+4. Fare clic su **Salva**.
 
 Dopo circa 30 minuti, i dati diverranno disponibili e il riquadro Application Insights verrà aggiornato con alcuni dati, come nell'immagine seguente:
 
@@ -121,7 +121,7 @@ Quando si fa clic su un punto qualsiasi nel pannello **Exceptions** (Eccezioni),
 
 ![Pannello Exceptions (Eccezioni) di Application Insights](./media/app-insights-connector/exceptions-blade-drill-search.png)
 
-Indipendentemente dal fatto che si faccia clic su un elemento del dashboard **Connettore di Application Insights**, all'interno della pagina **Search** (Cerca), qualsiasi query che restituisce dati di Application Insights mostra la prospettiva di Application Insights. Se ad esempio vengono visualizzati i dati di Application Insights, una query **&#42;** mostra anche la scheda della prospettiva, come nell'immagine seguente:
+Indipendentemente dal fatto che si faccia clic su un elemento del dashboard **Connettore di Application Insights** , all'interno della pagina **Search** (Cerca), qualsiasi query che restituisce dati di Application Insights mostra la prospettiva di Application Insights. Se ad esempio vengono visualizzati i dati di Application Insights, una query **&#42;** mostra anche la scheda della prospettiva, come nell'immagine seguente:
 
 ![Application Insights](./media/app-insights-connector/app-insights-search.png)
 
@@ -135,7 +135,7 @@ I componenti della prospettiva vengono aggiornati a seconda della query di ricer
 
 I pannelli di Connettore di Application Insights sono progettati per consentire di passare all'app Application Insights selezionata *quando si usa il portale di Azure*. È possibile usare la soluzione come piattaforma di monitoraggio ad alto livello che contribuisce alla risoluzione dei problemi di un'app. Quando viene riscontrato un potenziale problema in una delle applicazioni connesse, è possibile analizzarlo nella ricerca di Log Analytics oppure passare direttamente all'app di Application Insights.
 
-A tale scopo, fare clic sui puntini di sospensione (**...**) visualizzati alla fine di ogni riga e selezionare **Apri in Application Insights**.
+A tale scopo, fare clic sui puntini di sospensione ( **...** ) visualizzati alla fine di ogni riga e selezionare **Apri in Application Insights**.
 
 >[!NOTE]
 >**Apri in Application Insights** non è disponibile nel portale di Azure.
@@ -154,7 +154,7 @@ ApplicationInsights | summarize AggregatedValue = sum(SampledCount) by Telemetry
 
 Il campo **SampledCount** è presente in tutte le voci e mostra il numero di punti dati rappresentati dalla voce. Se si attiva il campionamento per l'app di Application Insights, **SampledCount** è maggiore di 1. Per calcolare il numero effettivo di voci generati dall'applicazione, sommare i campi **SampledCount**.
 
-Il campionamento interessa solo il numero totale di voci generate dall'applicazione. Non è necessario correggere il campionamento per campi di metrica quali **RequestDuration** o **AvailabilityDuration**, poiché tali campi mostrano la media per le voci rappresentate.
+Il campionamento interessa solo il numero totale di voci generate dall'applicazione. Non è necessario correggere il campionamento per campi di metrica quali **RequestDuration** o **AvailabilityDuration** , poiché tali campi mostrano la media per le voci rappresentate.
 
 ## <a name="input-data"></a>Dati di input
 
