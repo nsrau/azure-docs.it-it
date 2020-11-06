@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/18/2020
 ms.author: caya
-ms.openlocfilehash: cbb62509472d6f86ba30e13c95ce2c2bfd343765
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: d6bcb9125cdfc07eb249353cb85b40a22d3e468c
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92168189"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397366"
 ---
 # <a name="troubleshoot-common-questions-or-issues-with-ingress-controller"></a>Risolvere problemi comuni o problemi con il controller di ingresso
 
@@ -132,7 +132,7 @@ Il controller di ingresso del gateway applicazione (AGIC) monitora continuamente
 
 
 Per il corretto funzionamento di AGIC è necessario quanto segue:
-  1. AKS deve avere uno o più **Pod**integri.
+  1. AKS deve avere uno o più **Pod** integri.
      Verificare questa operazione [Cloud Shell](https://shell.azure.com/) da cloud shell `kubectl get pods -o wide --show-labels` se si dispone di un pod con un `apsnetapp` , l'output potrebbe essere simile al seguente:
      ```bash
      delyan@Azure:~$ kubectl get pods -o wide --show-labels
@@ -141,7 +141,7 @@ Per il corretto funzionamento di AGIC è necessario quanto segue:
      aspnetapp              1/1     Running   0          17h   10.0.0.6    aks-agentpool-35064155-1   <none>           <none>            app=aspnetapp
      ```
 
-  2. Uno o più **Servizi**, che fanno riferimento ai pod sopra indicati tramite le `selector` etichette corrispondenti.
+  2. Uno o più **Servizi** , che fanno riferimento ai pod sopra indicati tramite le `selector` etichette corrispondenti.
      Verificare questa operazione da [cloud Shell](https://shell.azure.com/) con `kubectl get services -o wide`
      ```bash
      delyan@Azure:~$ kubectl get services -o wide --show-labels
@@ -150,7 +150,7 @@ Per il corretto funzionamento di AGIC è necessario quanto segue:
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>     
      ```
 
-  3. Il traffico in **ingresso**, annotato con, che fa `kubernetes.io/ingress.class: azure/application-gateway` riferimento al servizio precedente, verifica questa operazione da [cloud Shell](https://shell.azure.com/) con`kubectl get ingress -o wide --show-labels`
+  3. Il traffico in **ingresso** , annotato con, che fa `kubernetes.io/ingress.class: azure/application-gateway` riferimento al servizio precedente, verifica questa operazione da [cloud Shell](https://shell.azure.com/) con`kubectl get ingress -o wide --show-labels`
      ```bash
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
 
@@ -243,7 +243,7 @@ La community di Kubernetes ha stabilito 9 livelli di registrazione per lo strume
 |  5        | Registra gli oggetti sottoposti a marshalling; Mostra la configurazione JSON purificata applicata a ARM |
 
 
-I livelli di dettaglio sono regolabili tramite la `verbosityLevel` variabile nel file [Helm-config. YAML](#sample-helm-config-file) . Aumentare il livello di dettaglio a `5` per ottenere la configurazione JSON inviata a [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview):
+I livelli di dettaglio sono regolabili tramite la `verbosityLevel` variabile nel file [Helm-config. YAML](#sample-helm-config-file) . Aumentare il livello di dettaglio a `5` per ottenere la configurazione JSON inviata a [ARM](../azure-resource-manager/management/overview.md):
   - aggiungere `verbosityLevel: 5` su una riga in [Helm-config. YAML](#sample-helm-config-file) e reinstallare
   - ottenere i log con `kubectl logs <pod-name>`
 
@@ -300,4 +300,3 @@ rbac:
 aksClusterConfiguration:
     apiServerAddress: <aks-api-server-address>
 ```
-

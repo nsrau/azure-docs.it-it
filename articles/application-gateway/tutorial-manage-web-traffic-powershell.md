@@ -8,16 +8,16 @@ ms.topic: how-to
 ms.date: 07/19/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: f29b31b09c2532c336ef2a2d574fab5e000b3e4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e410218117aa0d21167b6d615a3835aeec470e7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595883"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397111"
 ---
 # <a name="manage-web-traffic-with-an-application-gateway-using-azure-powershell"></a>Gestire il traffico Web con un gateway applicazione tramite Azure PowerShell
 
-Il gateway applicazione viene usato per gestire e proteggere il traffico Web verso i server gestiti. È possibile usare Azure PowerShell per creare un [gateway applicazione](overview.md) che usa un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) per permettere ai server back-end di gestire il traffico Web. In questo esempio il set di scalabilità contiene due istanze di macchine virtuali che vengono aggiunte al pool back-end predefinito del gateway applicazione.
+Il gateway applicazione viene usato per gestire e proteggere il traffico Web verso i server gestiti. È possibile usare Azure PowerShell per creare un [gateway applicazione](overview.md) che usa un [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/overview.md) per permettere ai server back-end di gestire il traffico Web. In questo esempio il set di scalabilità contiene due istanze di macchine virtuali che vengono aggiunte al pool back-end predefinito del gateway applicazione.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -75,9 +75,9 @@ $pip = New-AzPublicIpAddress `
 
 In questa sezione verranno create risorse che supportano il gateway applicazione e infine verrà creato quest'ultimo. Le risorse create includono:
 
-- *Configurazioni IP e porta front-end*:per associare la subnet creata in precedenza al gateway applicazione e assegnare una porta da usare per accedervi.
-- *Pool predefinito*: tutti i gateway applicazione devono avere almeno un pool back-end di server.
-- *Listener e regola predefiniti*: il listener predefinito è in ascolto del traffico sulla porta assegnata e la regola predefinita invia il traffico al pool predefinito.
+- *Configurazioni IP e porta front-end* :per associare la subnet creata in precedenza al gateway applicazione e assegnare una porta da usare per accedervi.
+- *Pool predefinito* : tutti i gateway applicazione devono avere almeno un pool back-end di server.
+- *Listener e regola predefiniti* : il listener predefinito è in ascolto del traffico sulla porta assegnata e la regola predefinita invia il traffico al pool predefinito.
 
 ### <a name="create-the-ip-configurations-and-frontend-port"></a>Creare le configurazioni IP e la porta front-end
 
@@ -257,4 +257,4 @@ Remove-AzResourceGroup -Name myResourceGroupAG
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Limitare il traffico Web con un web application firewall](./tutorial-restrict-web-traffic-powershell.md)
+[Limitare il traffico Web con un web application firewall](../web-application-firewall/ag/tutorial-restrict-web-traffic-powershell.md)

@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: 02d1d78dae4f02ac53d535f6c404b15f8d98f008
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 548bda36ed2b167c159d32a575b63ecbf10b16dd
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90563744"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397570"
 ---
 # <a name="troubleshoot-azure-application-gateway-session-affinity-issues"></a>Risolvere i problemi di affinità di sessione del gateway applicazione Azure
 
@@ -52,9 +52,9 @@ Talvolta è possibile che si verifichino problemi di affinità di sessione quand
 
 
 
-È inoltre possibile verificare che il valore di "**CookieBasedAffinity**" sia impostato su *abilitato*in "**backendHttpSettingsCollection**" utilizzando uno dei metodi seguenti:
+È inoltre possibile verificare che il valore di " **CookieBasedAffinity** " sia impostato su *abilitato* in " **backendHttpSettingsCollection** " utilizzando uno dei metodi seguenti:
 
-- Eseguire [Get-AzApplicationGatewayBackendHttpSetting](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) in PowerShell
+- Eseguire [Get-AzApplicationGatewayBackendHttpSetting](/powershell/module/az.network/get-azapplicationgatewaybackendhttpsetting) in PowerShell
 - Esaminare il file JSON usando il modello di Azure Resource Manager
 
 ```
@@ -80,9 +80,9 @@ Se l'applicazione non è in grado di gestire l'affinità basata su cookie, è ne
 Per identificare questo problema, seguire le istruzioni:
 
 1. Eseguire una traccia del debugger Web sul "client", che si connette all'applicazione dietro il gateway applicazione (in questo esempio si usa Fiddler).
-    **Suggerimento** Se non si sa come usare Fiddler, selezionare l'opzione "**desidero raccogliere il traffico di rete e analizzarlo usando il debugger Web**" nella parte inferiore.
+    **Suggerimento** Se non si sa come usare Fiddler, selezionare l'opzione " **desidero raccogliere il traffico di rete e analizzarlo usando il debugger Web** " nella parte inferiore.
 
-2. Controllare e analizzare i log di sessione per determinare se i cookie forniti dal client dispongono dei dettagli ARRAffinity. Se non si trovano i dettagli di ARRAffinity, ad esempio "**ARRAffinity =** *ARRAffinityValue*" all'interno del set di cookie, significa che il client non sta rispondendo con il cookie ARRA, fornito dal gateway applicazione.
+2. Controllare e analizzare i log di sessione per determinare se i cookie forniti dal client dispongono dei dettagli ARRAffinity. Se non si trovano i dettagli di ARRAffinity, ad esempio " **ARRAffinity =** *ARRAffinityValue* " all'interno del set di cookie, significa che il client non sta rispondendo con il cookie ARRA, fornito dal gateway applicazione.
     Ad esempio:
 
     ![Screenshot mostra un log di sessione con una singola voce evidenziata.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-3.png)
@@ -131,7 +131,7 @@ Abilitare la registrazione tramite il portale di Azure
 
    ![Screenshot che mostra il monitoraggio con i log di diagnostica selezionati.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-8.png)
 
-2. Sul lato destro selezionare "**ApplicationGatewayAccessLog**" nell'elenco a discesa in **categorie di log.**  
+2. Sul lato destro selezionare " **ApplicationGatewayAccessLog** " nell'elenco a discesa in **categorie di log.**  
 
    ![Screenshot mostra l'elenco a discesa categorie di log con ApplicationGatewayAccessLog selezionato.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-9.png)
 
@@ -141,19 +141,19 @@ Abilitare la registrazione tramite il portale di Azure
 
 5. Controllare i dati seguenti:
 
-- **CLIENTIP**: si tratta dell'indirizzo IP client del client che si connette.
+- **CLIENTIP** : si tratta dell'indirizzo IP client del client che si connette.
 - **ClientPort** : porta di origine dal client di connessione per la richiesta.
 - **RequestQuery** : indica il server di destinazione in cui viene ricevuta la richiesta.
-- **Server-routing**: istanza del pool back-end che la richiesta riceve.
-- **X-AzureApplicationGateway-LOG-ID**: ID correlazione usato per la richiesta. Può essere usato per risolvere i problemi di traffico nei server back-end. Ad esempio: X-AzureApplicationGateway-CACHE-HIT = 0&SERVER-ROUTINGd = 10.0.2.4.
+- **Server-routing** : istanza del pool back-end che la richiesta riceve.
+- **X-AzureApplicationGateway-LOG-ID** : ID correlazione usato per la richiesta. Può essere usato per risolvere i problemi di traffico nei server back-end. Ad esempio: X-AzureApplicationGateway-CACHE-HIT = 0&SERVER-ROUTINGd = 10.0.2.4.
 
-  - **SERVER-STATUS**: codice di risposta HTTP ricevuto dal gateway applicazione dal back-end.
+  - **SERVER-STATUS** : codice di risposta HTTP ricevuto dal gateway applicazione dal back-end.
 
   ![Screenshot mostra lo stato del server in testo normale, principalmente nascosto, con clientPort e INDIRIZZAto al SERVER evidenziato.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-11.png)
 
 Se vengono visualizzati due elementi provenienti dalla stessa porta di ClientIP e client e vengono inviati allo stesso server back-end, significa che il gateway applicazione è stato configurato correttamente.
 
-Se vengono visualizzati due elementi provenienti dalla stessa porta di ClientIP e client e vengono inviati ai server back-end diversi, ovvero la richiesta sta rimbalzando tra i server back-end, selezionare "l'**applicazione usa l'affinità basata su cookie, ma le richieste ancora che passano tra i server back-end**" nella parte inferiore per risolvere il problema.
+Se vengono visualizzati due elementi provenienti dalla stessa porta di ClientIP e client e vengono inviati ai server back-end diversi, ovvero la richiesta sta rimbalzando tra i server back-end, selezionare "l' **applicazione usa l'affinità basata su cookie, ma le richieste ancora che passano tra i server back-end** " nella parte inferiore per risolvere il problema.
 
 ### <a name="use-web-debugger-to-capture-and-analyze-the-http-or-https-traffics"></a>Usare il debugger Web per acquisire e analizzare i traffici HTTP o HTTPS
 
@@ -174,7 +174,7 @@ Usare il debugger Web di propria scelta. In questo esempio verrà usato Fiddler 
 
     ![Screenshot mostra il debugger Web Fiddler con l'indicatore di acquisizione evidenziato.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-13.png)
 
-4. È probabile che si sia interessati al traffico HTTPS decrittografato ed è possibile abilitare la decrittografia HTTPS selezionando **strumenti**  >  **Opzioni Fiddler**e selezionando la casella " **decrittografare il traffico HTTPS**".
+4. È probabile che si sia interessati al traffico HTTPS decrittografato ed è possibile abilitare la decrittografia HTTPS selezionando **strumenti**  >  **Opzioni Fiddler** e selezionando la casella " **decrittografare il traffico HTTPS** ".
 
     ![Screenshot mostra le opzioni in Fiddler con H T T P selezionato e decrittografare il traffico HTTPS selezionato.](./media/how-to-troubleshoot-application-gateway-session-affinity-issues/troubleshoot-session-affinity-issues-14.png)
 
@@ -190,7 +190,7 @@ Usare il debugger Web di propria scelta. In questo esempio verrà usato Fiddler 
 
     Ad esempio:
 
-- **Esempio A:** Si trova un log di sessione che la richiesta viene inviata dal client e passa all'indirizzo IP pubblico del gateway applicazione e si fa clic su questo log per visualizzare i dettagli.  Sul lato destro, i dati nella casella inferiore corrispondono a quelli restituiti dal gateway applicazione al client. Selezionare la scheda "RAW" e determinare se il client riceve un "**set-cookie: ARRAffinity =** *ARRAffinityValue*". Se non è presente alcun cookie, l'affinità di sessione non è impostata o il gateway applicazione non applica al client il cookie.
+- **Esempio A:** Si trova un log di sessione che la richiesta viene inviata dal client e passa all'indirizzo IP pubblico del gateway applicazione e si fa clic su questo log per visualizzare i dettagli.  Sul lato destro, i dati nella casella inferiore corrispondono a quelli restituiti dal gateway applicazione al client. Selezionare la scheda "RAW" e determinare se il client riceve un " **set-cookie: ARRAffinity =** *ARRAffinityValue* ". Se non è presente alcun cookie, l'affinità di sessione non è impostata o il gateway applicazione non applica al client il cookie.
 
    > [!NOTE]
    > Questo valore ARRAffinity è l'ID cookie, che il gateway applicazione imposta per il client da inviare a un server back-end specifico.

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: cd1dc953c35233010250bf7f959c94d1de50fe4a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f214b0b0751f44ea1357f569fd814a7621af61ab
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91319793"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397621"
 ---
 # <a name="application-gateway-infrastructure-configuration"></a>Configurazione dell'infrastruttura del gateway applicazione
 
@@ -55,15 +55,15 @@ I gruppi di sicurezza di rete (gruppi) sono supportati nel gateway applicazione.
 Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserire le restrizioni seguenti sulla subnet in questo ordine di priorità:
 
 1. Consentire il traffico in ingresso da un IP di origine o un intervallo IP con la destinazione come l'intero intervallo di indirizzi della subnet del gateway applicazione e la porta di destinazione come porta di accesso in ingresso, ad esempio la porta 80 per l'accesso HTTP.
-2. Consente le richieste in ingresso dall'origine come tag del servizio **GatewayManager** e la destinazione come **qualsiasi** porta di destinazione e come 65503-65534 per lo SKU del gateway applicazione v1 e le porte 65200-65535 per lo SKU V2 per la [comunicazione dello stato di integrità back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics). Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) dai certificati di Azure. Senza i certificati appropriati, le entità esterne non possono avviare le modifiche in tali endpoint.
-3. Consentire i probe di Azure Load Balancer in ingresso (tag*AzureLoadBalancer* ) e il traffico di rete virtuale in ingresso (tag*virtualnetwork* ) nel [gruppo di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview).
+2. Consente le richieste in ingresso dall'origine come tag del servizio **GatewayManager** e la destinazione come **qualsiasi** porta di destinazione e come 65503-65534 per lo SKU del gateway applicazione v1 e le porte 65200-65535 per lo SKU V2 per la [comunicazione dello stato di integrità back-end](./application-gateway-diagnostics.md). Questo intervallo di porte è necessario per la comunicazione di infrastruttura di Azure. Queste porte sono protette (bloccate) dai certificati di Azure. Senza i certificati appropriati, le entità esterne non possono avviare le modifiche in tali endpoint.
+3. Consentire i probe di Azure Load Balancer in ingresso (tag *AzureLoadBalancer* ) e il traffico di rete virtuale in ingresso (tag *virtualnetwork* ) nel [gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md).
 4. Bloccare tutto il traffico in ingresso usando una regola Deny-all.
 5. Consentire il traffico in uscita verso Internet per tutte le destinazioni.
 
 ## <a name="supported-user-defined-routes"></a>Route definite dall'utente supportate 
 
 > [!IMPORTANT]
-> L'uso di UdR nella subnet del gateway applicazione può causare lo stato di integrità nella [visualizzazione integrità back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health) in modo che venga visualizzato come **sconosciuto**. Potrebbe anche causare un errore di generazione dei log e delle metriche del gateway applicazione. Si consiglia di non usare UdR nella subnet del gateway applicazione per poter visualizzare l'integrità, i log e le metriche del back-end.
+> L'uso di UdR nella subnet del gateway applicazione può causare lo stato di integrità nella [visualizzazione integrità back-end](./application-gateway-diagnostics.md#back-end-health) in modo che venga visualizzato come **sconosciuto**. Potrebbe anche causare un errore di generazione dei log e delle metriche del gateway applicazione. Si consiglia di non usare UdR nella subnet del gateway applicazione per poter visualizzare l'integrità, i log e le metriche del back-end.
 
 - **v1**
 
@@ -78,7 +78,7 @@ Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserir
    > Una configurazione non corretta della tabella di route può causare il routing asimmetrico nel gateway applicazione V2. Assicurarsi che tutto il traffico del piano di gestione/controllo venga inviato direttamente a Internet e non tramite un appliance virtuale. Potrebbero essere interessate anche la registrazione e le metriche.
 
 
-  **Scenario 1**: UdR per disabilitare la propagazione della route BGP (Border Gateway Protocol) alla subnet del gateway applicazione
+  **Scenario 1** : UdR per disabilitare la propagazione della route BGP (Border Gateway Protocol) alla subnet del gateway applicazione
 
    In alcuni casi la route del gateway predefinita (0.0.0.0/0) viene annunciata tramite il ExpressRoute o i gateway VPN associati alla rete virtuale del gateway applicazione. Questo problema interrompe il traffico del piano di gestione, che richiede un percorso diretto a Internet. In questi scenari, è possibile usare un UDR per disabilitare la propagazione di route BGP. 
 
@@ -90,11 +90,11 @@ Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserir
 
    L'abilitazione di UDR per questo scenario non dovrebbe interrompere le configurazioni esistenti.
 
-  **Scenario 2**: UdR per indirizzare 0.0.0.0/0 a Internet
+  **Scenario 2** : UdR per indirizzare 0.0.0.0/0 a Internet
 
    È possibile creare un UDR per inviare il traffico 0.0.0.0/0 direttamente a Internet. 
 
-  **Scenario 3**: UdR per il servizio Kubernetes di Azure con kubenet
+  **Scenario 3** : UdR per il servizio Kubernetes di Azure con kubenet
 
   Se si usa kubenet con Azure Kubernetes Service (AKS) e il controller di ingresso del gateway applicazione (AGIC), è necessaria una tabella di route per consentire il routing del traffico ai pod dal gateway applicazione al nodo corretto. Questa operazione non è necessaria se si usa Azure CNI. 
 
@@ -109,7 +109,7 @@ Per questo scenario, usare gruppi nella subnet del gateway applicazione. Inserir
     
   **V2 scenari non supportati**
 
-  **Scenario 1**: UdR per appliance virtuali
+  **Scenario 1** : UdR per appliance virtuali
 
   Qualsiasi scenario in cui 0.0.0.0/0 deve essere reindirizzato tramite qualsiasi appliance virtuale, rete virtuale hub/spoke o locale (tunneling forzato) non è supportato per V2.
 

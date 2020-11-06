@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 7/9/2019
 ms.author: victorh
-ms.openlocfilehash: db29551a8150b70e797d45fe659482470c8aca2a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7e30a93f8270cfaf8910130cc1e2633bb80c2b8e
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "67659502"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397173"
 ---
 # <a name="azure-application-gateway-resource-health-overview"></a>Panoramica Integrità risorse del gateway applicazione Azure
 
@@ -61,4 +61,4 @@ Lo stato di integrità **danneggiato** indica che il gateway ha rilevato una per
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni sulla risoluzione dei problemi relativi al Web Application Firewall (WAF) del gateway applicazione, vedere [risolvere i problemi relativi a Web Application Firewall (WAF) per applicazione Azure gateway](web-application-firewall-troubleshoot.md).
+Per informazioni sulla risoluzione dei problemi relativi al Web Application Firewall (WAF) del gateway applicazione, vedere [risolvere i problemi relativi a Web Application Firewall (WAF) per applicazione Azure gateway](../web-application-firewall/ag/web-application-firewall-troubleshoot.md).

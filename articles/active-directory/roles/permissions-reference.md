@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d55e7f29c9ecefa7cfcf98ef890d9982b044ef30
-ms.sourcegitcommit: 0d171fe7fc0893dcc5f6202e73038a91be58da03
+ms.openlocfilehash: 6dd88f6e8eb2ce95c1aa68c63f3d14a14e079d19
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 11/05/2020
-ms.locfileid: "93378823"
+ms.locfileid: "93396516"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -90,7 +90,7 @@ Il ruolo [Amministratore dell'autenticazione con privilegi](#privileged-authenti
 
 ### <a name="azure-devops-administrator"></a>[Amministratore di Azure DevOps](#azure-devops-administrator-permissions)
 
-Gli utenti con questo ruolo possono gestire i criteri di Azure DevOps per limitare la creazione di nuove organizzazioni Azure DevOps a un set di utenti o gruppi configurabili. Gli utenti con questo ruolo possono gestire questi criteri tramite qualsiasi organizzazione Azure DevOps supportata dall'organizzazione Azure AD della società.
+Gli utenti con questo ruolo possono gestire i criteri di Azure DevOps per limitare la creazione di nuove organizzazioni Azure DevOps a un set di utenti o gruppi configurabili. Gli utenti con questo ruolo possono gestire questo criterio tramite qualsiasi organizzazione DevOps di Azure supportata dall'organizzazione Azure AD della società. Questo ruolo non concede altre autorizzazioni specifiche di Azure DevOps (ad esempio, Project Collection Administrators) all'interno di una delle organizzazioni DevOps di Azure supportate dall'organizzazione Azure AD della società.
 
 Tutti i criteri aziendali di Azure DevOps possono essere gestiti dagli utenti in questo ruolo.
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: f54381ddcd11a2e4a24d30d812468da85b5403de
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 4f570f9f18f9c9d484a9bc9c1a5c64d42dbdc714
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "80335815"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397451"
 ---
 # <a name="annotations-for-application-gateway-ingress-controller"></a>Annotazioni per il controller di ingresso del gateway applicazione 
 
@@ -39,7 +39,7 @@ Affinché una risorsa in ingresso venga osservata da AGIC, è **necessario annot
 
 Questa annotazione consente la riscrittura del percorso back-end specificato in una risorsa in ingresso con il prefisso specificato in questa annotazione. Ciò consente agli utenti di esporre i servizi i cui endpoint sono diversi dai nomi degli endpoint usati per esporre un servizio in una risorsa di ingresso.
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 ```yaml
 appgw.ingress.kubernetes.io/backend-path-prefix: <path prefix>
@@ -72,9 +72,9 @@ Nell'esempio precedente è stata definita una risorsa di ingresso denominata `go
 
 ## <a name="tls-redirect"></a>Reindirizzamento TLS
 
-Il gateway applicazione [può essere configurato](https://docs.microsoft.com/azure/application-gateway/application-gateway-redirect-overview) in modo da reindirizzare automaticamente gli URL http alle relative controparti HTTPS. Quando questa annotazione è presente e TLS è configurato correttamente, il controller di ingresso di Kubernetes creerà una [regola di routing con una configurazione di reindirizzamento](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal#add-a-routing-rule-with-a-redirection-configuration) e applicherà le modifiche al gateway applicazione. Il reindirizzamento creato sarà HTTP `301 Moved Permanently` .
+Il gateway applicazione [può essere configurato](./redirect-overview.md) in modo da reindirizzare automaticamente gli URL http alle relative controparti HTTPS. Quando questa annotazione è presente e TLS è configurato correttamente, il controller di ingresso di Kubernetes creerà una [regola di routing con una configurazione di reindirizzamento](./redirect-http-to-https-portal.md#add-a-routing-rule-with-a-redirection-configuration) e applicherà le modifiche al gateway applicazione. Il reindirizzamento creato sarà HTTP `301 Moved Permanently` .
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 ```yaml
 appgw.ingress.kubernetes.io/ssl-redirect: "true"
@@ -110,7 +110,7 @@ spec:
 `connection-draining`: Questa annotazione consente agli utenti di specificare se abilitare lo svuotamento della connessione.
 `connection-draining-timeout`: Questa annotazione consente agli utenti di specificare un timeout dopo il quale il gateway applicazione terminerà le richieste all'endpoint back-end di svuotamento.
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 ```yaml
 appgw.ingress.kubernetes.io/connection-draining: "true"
@@ -143,7 +143,7 @@ spec:
 
 Questa annotazione consente di specificare se abilitare l'affinità basata su cookie.
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 ```yaml
 appgw.ingress.kubernetes.io/cookie-based-affinity: "true"
@@ -174,7 +174,7 @@ spec:
 
 Questa annotazione consente di specificare il timeout della richiesta in secondi dopo il quale il gateway applicazione non riuscirà a eseguire la richiesta se la risposta non viene ricevuta.
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 
 ```yaml
 appgw.ingress.kubernetes.io/request-timeout: "20"
@@ -210,7 +210,7 @@ Questa annotazione consente di specificare se esporre questo endpoint nell'indir
 > * Per il gateway applicazione che non dispone di un indirizzo IP privato, il traffico in ingresso con `appgw.ingress.kubernetes.io/use-private-ip: "true"` verrà ignorato. Questa operazione si riflette nei log del controller e negli eventi in ingresso per tali ingreses con `NoPrivateIP` avviso.
 
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 ```yaml
 appgw.ingress.kubernetes.io/use-private-ip: "true"
 ```
@@ -243,7 +243,7 @@ Questa annotazione consente di specificare il protocollo che il gateway applicaz
 > * Sebbene i certificati autofirmati siano supportati nel gateway applicazione, attualmente AGIC supporta solo `https` quando i pod usano un certificato firmato da un'autorità di certificazione ben nota.
 > * Assicurarsi di non usare la porta 80 con HTTPS e la porta 443 con HTTP nei pod.
 
-### <a name="usage"></a>Uso
+### <a name="usage"></a>Utilizzo
 ```yaml
 appgw.ingress.kubernetes.io/backend-protocol: "https"
 ```

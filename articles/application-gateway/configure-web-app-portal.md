@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 09/23/2020
 ms.author: victorh
-ms.openlocfilehash: df92e08e91761d77c606ccb5389eee7dc219c101
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a72f0106088d26eb2ff53456840c598c3d9619a7
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91323379"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397553"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurare il servizio app con il gateway applicazione
 
@@ -30,15 +30,15 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 - Gateway applicazione: creare un gateway applicazione senza una destinazione del pool back-end. Per altre informazioni, vedere [Guida introduttiva: indirizzare il traffico Web con applicazione Azure gateway-portale di Azure](quick-create-portal.md)
 
-- Servizio app: se non si ha un servizio app esistente, vedere la [documentazione del servizio app](https://docs.microsoft.com/azure/app-service/).
+- Servizio app: se non si ha un servizio app esistente, vedere la [documentazione del servizio app](../app-service/index.yml).
 
 ## <a name="add-app-service-as-backend-pool"></a>Aggiungere il servizio app come pool back-end
 
 1. Nella portale di Azure selezionare il gateway applicazione.
 
-2. In **pool back-end**selezionare il pool back-end.
+2. In **pool back-end** selezionare il pool back-end.
 
-4. In **tipo di destinazione**selezionare **Servizi app**.
+4. In **tipo di destinazione** selezionare **Servizi app**.
 
 5. In **destinazione** selezionare il servizio app.
 
@@ -50,19 +50,19 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 ## <a name="edit-http-settings-for-app-service"></a>Modificare le impostazioni HTTP per il servizio app
 
-1. In **impostazioni http**selezionare l'impostazione HTTP esistente.
+1. In **impostazioni http** selezionare l'impostazione HTTP esistente.
 
-2. In **Sostituisci con nuovo nome host**selezionare **Sì**.
-3. In **nome host Sostituisci**selezionare Seleziona **nome host dalla destinazione back-end**.
+2. In **Sostituisci con nuovo nome host** selezionare **Sì**.
+3. In **nome host Sostituisci** selezionare Seleziona **nome host dalla destinazione back-end**.
 4. Selezionare **Salva**.
 
-   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Back-end del servizio app":::
+   :::image type="content" source="./media/configure-web-app-portal/http-settings.png" alt-text="Selezionare il nome host da impostazioni http back-end":::
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configurazione aggiuntiva in caso di reindirizzamento al percorso relativo del servizio app
 
 Quando il servizio app invia una risposta di reindirizzamento al client per il reindirizzamento al percorso relativo (ad esempio, un Reindirizzamento da `contoso.azurewebsites.net/path1` a `contoso.azurewebsites.net/path2` ), USA lo stesso nome host nell'intestazione Location della risposta come quello nella richiesta ricevuta dal gateway applicazione. Quindi, il client effettuerà la richiesta direttamente a `contoso.azurewebsites.net/path2` invece di passare attraverso il gateway applicazione ( `contoso.com/path2` ). Non è consigliabile ignorare il gateway applicazione.
 
-Se nel caso d'uso si verificano scenari in cui il servizio app deve inviare una risposta di reindirizzamento al client, eseguire i [passaggi aggiuntivi per riscrivere l'intestazione del percorso](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url#sample-configuration).
+Se nel caso d'uso si verificano scenari in cui il servizio app deve inviare una risposta di reindirizzamento al client, eseguire i [passaggi aggiuntivi per riscrivere l'intestazione del percorso](./troubleshoot-app-service-redirection-app-service-url.md#sample-configuration).
 
 ## <a name="restrict-access"></a>Limitare l'accesso
 
@@ -72,4 +72,4 @@ Un modo per limitare l'accesso alle app Web è usare le [Restrizioni IP statico 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul servizio app e su altro supporto multi-tenant con il gateway applicazione, vedere [supporto del servizio multi-tenant con il gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-web-app-overview).
+Per altre informazioni sul servizio app e su altro supporto multi-tenant con il gateway applicazione, vedere [supporto del servizio multi-tenant con il gateway applicazione](./application-gateway-web-app-overview.md).

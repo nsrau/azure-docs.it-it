@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/14/2019
 ms.author: absha
-ms.openlocfilehash: f3a3ba3ee908204668ad9d7201ddfddec0a26f28
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 676d7c2ad18327471c6e95f3cef26185fa49b78b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89595945"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396890"
 ---
 # <a name="troubleshoot-app-service-issues-in-application-gateway"></a>Risolvere i problemi del servizio app nel gateway applicazione
 
@@ -80,10 +80,10 @@ Nell'esempio precedente, si noti che l'intestazione della risposta ha un codice 
 
 ## <a name="solution-rewrite-the-location-header"></a>Soluzione: riscrivere l'intestazione Location
 
-Impostare il nome host nell'intestazione Location sul nome di dominio del gateway applicazione. A tale scopo, creare una [regola di riscrittura](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers) con una condizione che valuti se l'intestazione Location nella risposta contiene azurewebsites.NET. Deve anche eseguire un'azione per riscrivere l'intestazione location in modo da avere il nome host del gateway applicazione. Per ulteriori informazioni, vedere le istruzioni su [come riscrivere l'intestazione Location](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#modify-a-redirection-url).
+Impostare il nome host nell'intestazione Location sul nome di dominio del gateway applicazione. A tale scopo, creare una [regola di riscrittura](./rewrite-http-headers.md) con una condizione che valuti se l'intestazione Location nella risposta contiene azurewebsites.NET. Deve anche eseguire un'azione per riscrivere l'intestazione location in modo da avere il nome host del gateway applicazione. Per ulteriori informazioni, vedere le istruzioni su [come riscrivere l'intestazione Location](./rewrite-http-headers.md#modify-a-redirection-url).
 
 > [!NOTE]
-> Il supporto per la riscrittura dell'intestazione HTTP è disponibile solo per le [Standard_v2 e WAF_V2 SKU](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) del gateway applicazione. Se si usa lo SKU V1, è consigliabile [eseguire la migrazione da V1 a V2](https://docs.microsoft.com/azure/application-gateway/migrate-v1-v2). Si desidera utilizzare riscrittura e altre [funzionalità avanzate](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant#feature-comparison-between-v1-sku-and-v2-sku) disponibili con lo SKU V2.
+> Il supporto per la riscrittura dell'intestazione HTTP è disponibile solo per le [Standard_v2 e WAF_V2 SKU](./application-gateway-autoscaling-zone-redundant.md) del gateway applicazione. Se si usa lo SKU V1, è consigliabile [eseguire la migrazione da V1 a V2](./migrate-v1-v2.md). Si desidera utilizzare riscrittura e altre [funzionalità avanzate](./application-gateway-autoscaling-zone-redundant.md#feature-comparison-between-v1-sku-and-v2-sku) disponibili con lo SKU V2.
 
 ## <a name="alternate-solution-use-a-custom-domain-name"></a>Soluzione alternativa: usare un nome di dominio personalizzato
 
@@ -93,7 +93,7 @@ Il servizio app ora esegue il reindirizzamento, se presente, sulla stessa intest
 
 È necessario essere proprietari di un dominio personalizzato e seguire questa procedura:
 
-- Registrare il dominio nell'elenco di domini personalizzati del servizio app. È necessario avere un record CNAME nel dominio personalizzato che punti al nome di dominio completo del servizio app. Per altre informazioni, vedere [eseguire il mapping di un nome DNS personalizzato esistente al servizio app Azure](https://docs.microsoft.com//azure/app-service/app-service-web-tutorial-custom-domain).
+- Registrare il dominio nell'elenco di domini personalizzati del servizio app. È necessario avere un record CNAME nel dominio personalizzato che punti al nome di dominio completo del servizio app. Per altre informazioni, vedere [eseguire il mapping di un nome DNS personalizzato esistente al servizio app Azure](//azure/app-service/app-service-web-tutorial-custom-domain).
 
     ![Elenco di domini personalizzati del servizio app](./media/troubleshoot-app-service-redirection-app-service-url/appservice-2.png)
 

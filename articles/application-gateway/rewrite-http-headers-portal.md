@@ -8,22 +8,22 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 4626d40acc9ae84e7fcc5da16add0de7ffe6ffcc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79314db13531f1fcf518c7931d4a1aa9158a172b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807906"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397196"
 ---
 # <a name="rewrite-http-request-and-response-headers-with-azure-application-gateway---azure-portal"></a>Riscrivere le intestazioni di richiesta e risposta HTTP con applicazione Azure gateway-portale di Azure
 
-Questo articolo descrive come usare la portale di Azure per configurare un'istanza di [SKU del gateway applicazione V2](<https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant>) per riscrivere le intestazioni HTTP in richieste e risposte.
+Questo articolo descrive come usare la portale di Azure per configurare un'istanza di [SKU del gateway applicazione V2](./application-gateway-autoscaling-zone-redundant.md) per riscrivere le intestazioni HTTP in richieste e risposte.
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare i passaggi di questo articolo, è necessario disporre di un'istanza di SKU del gateway applicazione V2. La riscrittura delle intestazioni non è supportata nello SKU V1. Se non si ha lo SKU V2, creare un'istanza di [SKU del gateway applicazione V2](https://docs.microsoft.com/azure/application-gateway/tutorial-autoscale-ps) prima di iniziare.
+Per completare i passaggi di questo articolo, è necessario disporre di un'istanza di SKU del gateway applicazione V2. La riscrittura delle intestazioni non è supportata nello SKU V1. Se non si ha lo SKU V2, creare un'istanza di [SKU del gateway applicazione V2](./tutorial-autoscale-ps.md) prima di iniziare.
 
 ## <a name="create-required-objects"></a>Creazione di oggetti necessari
 
@@ -31,17 +31,17 @@ Per configurare la riscrittura dell'intestazione HTTP, è necessario completare 
 
 1. Creare gli oggetti necessari per la riscrittura dell'intestazione HTTP:
 
-   - **Azione di riscrittura**: utilizzata per specificare i campi di richiesta e di intestazione della richiesta che si desidera riscrivere e il nuovo valore per le intestazioni. È possibile associare una o più condizioni di riscrittura con un'azione di riscrittura.
+   - **Azione di riscrittura** : utilizzata per specificare i campi di richiesta e di intestazione della richiesta che si desidera riscrivere e il nuovo valore per le intestazioni. È possibile associare una o più condizioni di riscrittura con un'azione di riscrittura.
 
-   - **Condizione di riscrittura**: una configurazione facoltativa. Le condizioni di riscrittura valutano il contenuto delle richieste e delle risposte HTTP (S). L'azione di riscrittura si verificherà se la richiesta o la risposta HTTP (S) corrisponde alla condizione di riscrittura.
+   - **Condizione di riscrittura** : una configurazione facoltativa. Le condizioni di riscrittura valutano il contenuto delle richieste e delle risposte HTTP (S). L'azione di riscrittura si verificherà se la richiesta o la risposta HTTP (S) corrisponde alla condizione di riscrittura.
 
      Se si associa più di una condizione a un'azione, l'azione si verifica solo quando vengono soddisfatte tutte le condizioni. In altre parole, l'operazione è un'operazione AND logica.
 
-   - **Regola di riscrittura**: contiene più combinazioni di operazioni di riscrittura/riscrittura delle condizioni.
+   - **Regola di riscrittura** : contiene più combinazioni di operazioni di riscrittura/riscrittura delle condizioni.
 
-   - **Sequenza di regole**: consente di determinare l'ordine in cui vengono eseguite le regole di riscrittura. Questa configurazione è utile quando si dispone di più regole di riscrittura in un set di riscrittura. Viene eseguita prima una regola di riscrittura con un valore di sequenza di regole inferiore. Se si assegna lo stesso valore di sequenza della regola a due regole di riscrittura, l'ordine di esecuzione è non deterministico.
+   - **Sequenza di regole** : consente di determinare l'ordine in cui vengono eseguite le regole di riscrittura. Questa configurazione è utile quando si dispone di più regole di riscrittura in un set di riscrittura. Viene eseguita prima una regola di riscrittura con un valore di sequenza di regole inferiore. Se si assegna lo stesso valore di sequenza della regola a due regole di riscrittura, l'ordine di esecuzione è non deterministico.
 
-   - **Rewrite set**: contiene più regole di riscrittura che saranno associate a una regola di routing delle richieste.
+   - **Rewrite set** : contiene più regole di riscrittura che saranno associate a una regola di routing delle richieste.
 
 2. Alleghi il set di riscrittura a una regola di routing. La configurazione di riscrittura è collegata al listener di origine tramite la regola di routing. Quando si usa una regola di routing di base, la configurazione dell'intestazione di riscrittura è associata a un listener di origine ed è una riscrittura dell'intestazione globale. Quando si usa una regola di routing basata sul percorso, la configurazione dell'intestazione di riscrittura è definita nella mappa del percorso URL. In tal caso, si applica solo all'area del percorso specifica di un sito.
 
@@ -55,11 +55,11 @@ Accedere al [portale di Azure](https://portal.azure.com/) con il proprio account
 
 In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'intestazione Location nella risposta HTTP inviata da un'applicazione back-end.
 
-1. Selezionare **tutte le risorse**e quindi selezionare il gateway applicazione.
+1. Selezionare **tutte le risorse** e quindi selezionare il gateway applicazione.
 
 2. Selezionare **riscritture** nel riquadro sinistro.
 
-3. Selezionare il **set di riscrittura**:
+3. Selezionare il **set di riscrittura** :
 
    ![Aggiungi riscrittura set](media/rewrite-http-headers-portal/add-rewrite-set.png)
 
@@ -95,7 +95,7 @@ In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'int
 
    - Nell'elenco di **intestazioni comuni** selezionare **location**.
 
-   - In **distinzione tra maiuscole**e minuscole selezionare **No**.
+   - In **distinzione tra maiuscole** e minuscole selezionare **No**.
 
    - Nell'elenco **operatore** selezionare uguale a **(=)**.
 
@@ -111,7 +111,7 @@ In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'int
 
    - Nell'elenco **tipo di intestazione** selezionare **risposta**.
 
-   - In **nome intestazione**selezionare **intestazione comune**.
+   - In **nome intestazione** selezionare **intestazione comune**.
 
    - Nell'elenco di **intestazioni comuni** selezionare **location**.
 
@@ -131,4 +131,4 @@ In questo esempio verrà modificato un URL di reindirizzamento riscrivendo l'int
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su come configurare alcuni casi d'uso comuni, vedere [scenari comuni di riscrittura dell'intestazione](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers).
+Per altre informazioni su come configurare alcuni casi d'uso comuni, vedere [scenari comuni di riscrittura dell'intestazione](./rewrite-http-headers.md).

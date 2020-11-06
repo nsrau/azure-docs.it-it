@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 08/21/2020
 ms.author: victorh
-ms.openlocfilehash: 3d714b579bebb096745a47410da3f8f458e27161
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c39401289ffc6f27c292168adaa15c5163a3967b
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88723300"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396924"
 ---
 # <a name="overview-of-tls-termination-and-end-to-end-tls-with-application-gateway"></a>Panoramica della terminazione TLS e di TLS end-to-end con il gateway applicazione
 
@@ -51,10 +51,10 @@ Il gateway applicazione supporta i tipi di certificati seguenti:
 - Certificato con caratteri jolly: questo certificato supporta un numero qualsiasi di sottodomini basati su *.sito.com, in cui il sottodominio sostituirà *. Tuttavia, non supporta sito.com, quindi, nel caso in cui gli utenti accedano al sito Web senza digitare "www", il certificato con caratteri jolly non lo coprirà.
 - Certificati autofirmati: i browser client non considerano attendibili questi certificati e avvisano l'utente che il certificato del servizio virtuale non fa parte di una catena di certificati. I certificati autofirmati sono utili per i test o gli ambienti in cui gli amministratori controllano i client e possono ignorare in modo sicuro gli avvisi di sicurezza del browser. I carichi di lavoro di produzione non devono mai usare certificati autofirmati.
 
-Per altre informazioni, vedere [Configurare la terminazione TLS con il gateway applicazione](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Per altre informazioni, vedere [Configurare la terminazione TLS con il gateway applicazione](./create-ssl-portal.md).
 
 ### <a name="size-of-the-certificate"></a>Dimensioni del certificato
-Per informazioni sulle dimensioni massime supportate per i certificati TLS/SSL, vedere la sezione [Limiti del gateway applicazione](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#application-gateway-limits).
+Per informazioni sulle dimensioni massime supportate per i certificati TLS/SSL, vedere la sezione [Limiti del gateway applicazione](../azure-resource-manager/management/azure-subscription-service-limits.md#application-gateway-limits).
 
 ## <a name="end-to-end-tls-encryption"></a>Crittografia TLS end-to-end
 
@@ -62,7 +62,7 @@ Per informazioni sulle dimensioni massime supportate per i certificati TLS/SSL, 
 
 TLS end-to-end consente di crittografare e trasmettere in modo sicuro i dati sensibili al back-end mentre si usano le funzionalità di bilanciamento del carico di livello 7 del gateway applicazione. Queste funzionalità includono l'affinità di sessione basata su cookie, il routing basato su URL, il supporto per il routing basato su siti, la possibilità di riscrivere o inserire intestazioni X-Forwarded-* e così via.
 
-Se configurato con la modalità di comunicazione TLS end-to-end, il gateway applicazione termina le sessioni TLS nel gateway ed esegue la decrittografia del traffico utente. Applica quindi le regole configurate per selezionare un'istanza del pool di back-end adeguata su cui instradare il traffico. Il gateway applicazione avvia a questo punto una nuova connessione TLS al server back-end e crittografa nuovamente i dati usando il certificato di chiave pubblica del server back-end prima di trasmettere la richiesta al back-end. Eventuali risposte dal server Web subiscono lo stesso processo in ritorno verso l'utente finale. Per abilitare TLS end-to-end si imposta la configurazione del protocollo nell'[impostazione HTTP di back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) su HTTPS. Questa impostazione viene quindi applicata a un pool back-end.
+Se configurato con la modalità di comunicazione TLS end-to-end, il gateway applicazione termina le sessioni TLS nel gateway ed esegue la decrittografia del traffico utente. Applica quindi le regole configurate per selezionare un'istanza del pool di back-end adeguata su cui instradare il traffico. Il gateway applicazione avvia a questo punto una nuova connessione TLS al server back-end e crittografa nuovamente i dati usando il certificato di chiave pubblica del server back-end prima di trasmettere la richiesta al back-end. Eventuali risposte dal server Web subiscono lo stesso processo in ritorno verso l'utente finale. Per abilitare TLS end-to-end si imposta la configurazione del protocollo nell'[impostazione HTTP di back-end](./configuration-overview.md#http-settings) su HTTPS. Questa impostazione viene quindi applicata a un pool back-end.
 
 Per il gateway applicazione e lo SKU WAF v1, i criteri TLS si applicano sia al traffico front-end che al traffico back-end. Nel front-end il gateway applicazione funge da server e impone i criteri. Nel back-end il gateway applicazione funge da client e invia le informazioni di protocollo/crittografia come preferenza durante l'handshake TLS.
 
@@ -74,7 +74,7 @@ Se i certificati dei membri nel pool back-end non sono firmati da autorità di c
 
 > [!NOTE] 
 >
-> Il certificato aggiunto all'**impostazione HTTP di back-end** per autenticare i server back-end può essere lo stesso del certificato aggiunto al **listener** per la terminazione TLS nel gateway applicazione o diverso per maggiore sicurezza.
+> Il certificato aggiunto all' **impostazione HTTP di back-end** per autenticare i server back-end può essere lo stesso del certificato aggiunto al **listener** per la terminazione TLS nel gateway applicazione o diverso per maggiore sicurezza.
 
 ![Scenario di TLS end-to-end][1]
 

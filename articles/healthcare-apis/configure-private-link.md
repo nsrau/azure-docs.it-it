@@ -8,12 +8,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 10/12/2020
 ms.author: matjazl
-ms.openlocfilehash: 121ddcc013fbeef29c6d22cfbd273cfd3b8d3d98
-ms.sourcegitcommit: d3c3f2ded72bfcf2f552e635dc4eb4010491eb75
+ms.openlocfilehash: bfbdb98e691312db5665261743f8ce698541d4cc
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92558945"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398216"
 ---
 # <a name="configure-private-link"></a>Configura collegamento privato
 
@@ -30,7 +30,7 @@ Prima di creare un endpoint privato, è necessario creare prima alcune risorse d
 - API di Azure per FHIR: la risorsa FHIR che si vuole inserire dietro un endpoint privato.
 - Rete virtuale: VNet a cui verranno connessi i servizi client e l'endpoint privato.
 
-Per ulteriori informazioni, consultare la [documentazione del collegamento privato](https://docs.microsoft.com/azure/private-link/).
+Per ulteriori informazioni, consultare la [documentazione del collegamento privato](../private-link/index.yml).
 
 ## <a name="disable-public-network-access"></a>Disabilitare l'accesso alla rete pubblica
 
@@ -38,9 +38,9 @@ La creazione di un endpoint privato per la risorsa FHIR non disabilita automatic
 
 ![Disabilitare l'accesso alla rete pubblica](media/private-link/private-link-disable.png)
 
-## <a name="create-private-endpoint"></a>Crea endpoint privato
+## <a name="create-private-endpoint"></a>Creare un endpoint privato
 
-Per creare un endpoint privato, uno sviluppatore con autorizzazioni RBAC sulla risorsa FHIR può usare portale di Azure, [Azure PowerShell](https://docs.microsoft.com/azure/private-link/create-private-endpoint-powershell)o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/private-link/create-private-endpoint-cli). Questo articolo illustra i passaggi per l'uso di portale di Azure. Per automatizzare la creazione e la configurazione della zona di DNS privato, è consigliabile usare portale di Azure. Per ulteriori informazioni, è possibile fare riferimento al [collegamento privato avvio rapido guide](https://docs.microsoft.com/azure/private-link/create-private-endpoint-portal) .
+Per creare un endpoint privato, uno sviluppatore con autorizzazioni RBAC sulla risorsa FHIR può usare portale di Azure, [Azure PowerShell](../private-link/create-private-endpoint-powershell.md)o l'interfaccia della riga di comando di [Azure](../private-link/create-private-endpoint-cli.md). Questo articolo illustra i passaggi per l'uso di portale di Azure. Per automatizzare la creazione e la configurazione della zona di DNS privato, è consigliabile usare portale di Azure. Per ulteriori informazioni, è possibile fare riferimento al [collegamento privato avvio rapido guide](../private-link/create-private-endpoint-portal.md) .
 
 Esistono due modi per creare un endpoint privato. Il flusso di approvazione automatica consente a un utente che dispone di autorizzazioni RBAC sulla risorsa FHIR di creare un endpoint privato senza dover approvare. Il flusso di approvazione manuale consente a un utente senza autorizzazioni sulla risorsa FHIR di richiedere l'approvazione di un endpoint privato da parte dei proprietari della risorsa FHIR.
 
@@ -88,7 +88,7 @@ Gli endpoint privati e la scheda di interfaccia di rete associata sono visibili 
 
 ![Visualizza nelle risorse](media/private-link/private-link-view.png)
 
-### <a name="delete"></a>Elimina
+### <a name="delete"></a>Delete
 
 Gli endpoint privati possono essere eliminati solo da portale di Azure tramite il pannello panoramica (come indicato di seguito) o tramite l'opzione Elimina in rete (anteprima) la scheda "connessioni a endpoint privati". Se si fa clic sul pulsante Elimina, l'endpoint privato e la scheda di interfaccia di rete associata vengono eliminati. Se si eliminano tutti gli endpoint privati nella risorsa FHIR e l'accesso alla rete pubblica è disabilitato, nessuna richiesta lo farà al server FHIR. Tutti gli endpoint privati devono essere eliminati dalla risorsa FHIR prima che la risorsa FHIR possa essere eliminata o spostata.
 

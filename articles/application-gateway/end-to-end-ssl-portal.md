@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: absha
 ms.custom: mvc
-ms.openlocfilehash: 33240d1f44d2f26569791f72a3d5fc3a6656a757
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6e2d1828acefacb03cc2f42193b8cd8897578b6f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808026"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397502"
 ---
 # <a name="configure-end-to-end-tls-by-using-application-gateway-with-the-portal"></a>Configurare TLS end-to-end usando il gateway applicazione con il portale
 
@@ -31,7 +31,7 @@ Per configurare TLS end-to-end con un gateway applicazione, è necessario un cer
 
 Per la crittografia TLS end-to-end, i server back-end corretti devono essere consentiti nel gateway applicazione. Per consentire l'accesso, caricare il certificato pubblico dei server back-end, noti anche come certificati di autenticazione (V1) o certificati radice attendibili (v2), nel gateway applicazione. L'aggiunta del certificato garantisce che il gateway applicazione comunichi solo con istanze di back-end note. Questa configurazione protegge ulteriormente la comunicazione end-to-end.
 
-Per altre informazioni, vedere [Panoramica della terminazione TLS e della TLS end-to-end con il gateway applicazione](https://docs.microsoft.com/azure/application-gateway/ssl-overview).
+Per altre informazioni, vedere [Panoramica della terminazione TLS e della TLS end-to-end con il gateway applicazione](./ssl-overview.md).
 
 ## <a name="create-a-new-application-gateway-with-end-to-end-tls"></a>Creare un nuovo gateway applicazione con TLS end-to-end
 
@@ -39,17 +39,17 @@ Per creare un nuovo gateway applicazione con la crittografia TLS end-to-end, è 
 
 ### <a name="enable-tls-termination-while-creating-a-new-application-gateway"></a>Abilitare la terminazione TLS durante la creazione di un nuovo gateway applicazione
 
-Per altre informazioni, vedere [abilitare la terminazione TLS durante la creazione di un nuovo gateway applicazione](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal).
+Per altre informazioni, vedere [abilitare la terminazione TLS durante la creazione di un nuovo gateway applicazione](./create-ssl-portal.md).
 
 ### <a name="add-authenticationroot-certificates-of-back-end-servers"></a>Aggiungere l'autenticazione/certificati radice dei server back-end
 
 1. Fare clic su **Tutte le risorse** e quindi selezionare **myAppGateway**.
 
-2. Selezionare **impostazioni http** dal menu a sinistra. Azure ha creato automaticamente un'impostazione HTTP predefinita, **appGatewayBackendHttpSettings**, quando è stato creato il gateway applicazione. 
+2. Selezionare **impostazioni http** dal menu a sinistra. Azure ha creato automaticamente un'impostazione HTTP predefinita, **appGatewayBackendHttpSettings** , quando è stato creato il gateway applicazione. 
 
 3. Selezionare **appGatewayBackendHttpSettings**.
 
-4. In **protocollo**selezionare **https**. Viene visualizzato un riquadro per i **certificati di autenticazione back-end o i certificati radice attendibili** .
+4. In **protocollo** selezionare **https**. Viene visualizzato un riquadro per i **certificati di autenticazione back-end o i certificati radice attendibili** .
 
 5. Selezionare **Crea nuovo**.
 
@@ -84,14 +84,14 @@ Se si sceglie la seconda opzione, applicare i passaggi descritti nella procedura
 
 3. Selezionare listener di **base** o **multisito** a seconda dei requisiti.
 
-4. In **protocollo**selezionare **https**. Viene visualizzato un riquadro per il **certificato** .
+4. In **protocollo** selezionare **https**. Viene visualizzato un riquadro per il **certificato** .
 
 5. Caricare il certificato PFX che si intende usare per la terminazione TLS tra il client e il gateway applicazione.
 
    > [!NOTE]
-   > A scopo di test, è possibile usare un certificato autofirmato. Tuttavia, questa operazione non è consigliata per i carichi di lavoro di produzione, perché sono più difficili da gestire e non sono completamente protetti. Per altre informazioni, vedere [creare un certificato autofirmato](https://docs.microsoft.com/azure/application-gateway/create-ssl-portal#create-a-self-signed-certificate).
+   > A scopo di test, è possibile usare un certificato autofirmato. Tuttavia, questa operazione non è consigliata per i carichi di lavoro di produzione, perché sono più difficili da gestire e non sono completamente protetti. Per altre informazioni, vedere [creare un certificato autofirmato](./create-ssl-portal.md#create-a-self-signed-certificate).
 
-6. Aggiungere altre impostazioni necessarie per il **listener**, a seconda dei requisiti.
+6. Aggiungere altre impostazioni necessarie per il **listener** , a seconda dei requisiti.
 
 7. Selezionare **OK** per salvare.
 
@@ -99,11 +99,11 @@ Se si sceglie la seconda opzione, applicare i passaggi descritti nella procedura
 
 1. Fare clic su **Tutte le risorse** e quindi selezionare **myAppGateway**.
 
-2. Selezionare **impostazioni http** dal menu a sinistra. È possibile inserire i certificati in un'impostazione HTTP back-end esistente nell'elenco dei destinatari sicuri oppure creare una nuova impostazione HTTP. Nel passaggio successivo, il certificato per l'impostazione HTTP predefinita, **appGatewayBackendHttpSettings**, viene aggiunto all'elenco dei destinatari sicuri.
+2. Selezionare **impostazioni http** dal menu a sinistra. È possibile inserire i certificati in un'impostazione HTTP back-end esistente nell'elenco dei destinatari sicuri oppure creare una nuova impostazione HTTP. Nel passaggio successivo, il certificato per l'impostazione HTTP predefinita, **appGatewayBackendHttpSettings** , viene aggiunto all'elenco dei destinatari sicuri.
 
 3. Selezionare **appGatewayBackendHttpSettings**.
 
-4. In **protocollo**selezionare **https**. Viene visualizzato un riquadro per i **certificati di autenticazione back-end o i certificati radice attendibili** . 
+4. In **protocollo** selezionare **https**. Viene visualizzato un riquadro per i **certificati di autenticazione back-end o i certificati radice attendibili** . 
 
 5. Selezionare **Crea nuovo**.
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 09/22/2020
 ms.author: allensu
 ms.custom: references_regions
-ms.openlocfilehash: d55f52b5e99a7a617e2bec8bea4d6e6ef687730a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 898b0d00fcad99a1059e01ad54ce13d192f1227f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91336531"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398012"
 ---
 # <a name="cross-region-load-balancer-preview"></a>Bilanciamento del carico tra aree (anteprima)
 
@@ -45,7 +45,7 @@ La configurazione IP front-end del servizio di bilanciamento del carico tra aree
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagramma del servizio di bilanciamento del carico tra aree." border="true":::
 
 > [!NOTE]
-> La porta back-end della regola di bilanciamento del carico in un servizio di bilanciamento del carico tra aree deve corrispondere alla porta front-end della regola di bilanciamento del carico o della regola NAT in ingresso nel servizio di bilanciamento del carico standard regionale. 
+> La porta back-end della regola di bilanciamento del carico nel servizio di bilanciamento del carico tra aree deve corrispondere alla porta front-end della regola di bilanciamento del carico/regola NAT in ingresso nel servizio di bilanciamento del carico standard regionale. 
 
 ### <a name="regional-redundancy"></a>Ridondanza a livello di area
 
@@ -55,7 +55,7 @@ Se si verifica un errore in un'area, il traffico viene indirizzato al servizio d
 
 Il probe di integrità del servizio di bilanciamento del carico tra aree raccoglie informazioni sulla disponibilità ogni 20 secondi. Se un servizio di bilanciamento del carico a livello di area ne rilascia la disponibilità a 0, il servizio di bilanciamento del carico tra aree rileverà l'errore. Il servizio di bilanciamento del carico a livello di area viene quindi tolto dalla rotazione. 
 
-:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagramma del servizio di bilanciamento del carico tra aree." border="true":::
+:::image type="content" source="./media/cross-region-overview/global-region-view.png" alt-text="Diagramma della visualizzazione traffico dell'area globale." border="true":::
 
 ### <a name="ultra-low-latency"></a>Latenza ultra-bassa
 
@@ -65,7 +65,7 @@ Il traffico avviato da un client raggiungerà l'area di partecipazione più vici
 
 Ad esempio, si dispone di un servizio di bilanciamento del carico tra aree con bilanciamento del carico standard nelle aree di Azure:
 
-* Stati Uniti Occidentali
+* Stati Uniti occidentali
 * Europa settentrionale
 
 Se un flusso viene avviato da Seattle, il traffico entra negli Stati Uniti occidentali. Questa area rappresenta l'area di partecipazione più vicina a Seattle. Il traffico viene indirizzato al servizio di bilanciamento del carico dell'area più vicino, che è Stati Uniti occidentali.
@@ -98,7 +98,7 @@ L' **area principale** è la posizione in cui viene distribuito il servizio di b
 
 ### <a name="home-regions"></a>Aree domestiche
 * Stati Uniti orientali 2
-* Stati Uniti Occidentali
+* Stati Uniti occidentali
 * Europa occidentale
 * Asia sud-orientale
 * Stati Uniti centrali
@@ -119,7 +119,7 @@ Il servizio di bilanciamento del carico tra aree instrada il traffico al servizi
 * Europa occidentale 
 * Stati Uniti centrali 
 * Stati Uniti orientali 2 
-* Stati Uniti Occidentali 
+* Stati Uniti occidentali 
 * Europa settentrionale 
 * Stati Uniti centro-meridionali 
 * Stati Uniti occidentali 2 
@@ -131,7 +131,7 @@ Il servizio di bilanciamento del carico tra aree instrada il traffico al servizi
 * Stati Uniti centro-occidentali 
 * Australia sud-orientale 
 * Australia orientale 
-* Central India 
+* India centrale 
 
 ## <a name="limitations"></a>Limitazioni
 
@@ -149,6 +149,6 @@ Il servizio di bilanciamento del carico tra aree, condivide il [contratto](https
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [creare un servizio di bilanciamento del carico standard pubblico](quickstart-load-balancer-standard-public-portal.md) per iniziare a usare un servizio di bilanciamento del carico.
+- Per iniziare a usare un servizio di bilanciamento del carico, vedere [Creare un servizio di bilanciamento del carico Standard pubblico](quickstart-load-balancer-standard-public-portal.md).
 - Altre informazioni su [Azure Load Balancer](load-balancer-overview.md).
 - [Domande frequenti](load-balancer-faqs.md) sul servizio di bilanciamento del carico

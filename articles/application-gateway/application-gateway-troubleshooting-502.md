@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 11/16/2019
 ms.author: amsriva
-ms.openlocfilehash: 1b0abe998540c4fcc0a9b83f6d1175e18a560871
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fd1ca218d9c079e26f8424a36b90b9b657690b41
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84808149"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397706"
 ---
 # <a name="troubleshooting-bad-gateway-errors-in-application-gateway"></a>Risoluzione degli errori del gateway non valido nel gateway applicazione
 
@@ -95,8 +95,8 @@ Nella tabella seguente sono elencati i valori associati al Probe di integrità p
 * Se BackendHttpSetting specifica una porta diversa da 80, il sito predefinito deve essere configurato per ascoltare tale porta.
 * La chiamata a `http://127.0.0.1:port` deve restituire un codice risultato HTTP di 200. Questa operazione deve essere restituita entro il periodo di timeout di 30 secondi.
 * Verificare che la porta configurata sia aperta e che non siano presenti regole firewall o gruppi di sicurezza di rete di Azure, che bloccano il traffico in ingresso o in uscita sulla porta configurata.
-* Se le macchine virtuali classiche di Azure o il servizio cloud viene usato con un nome di dominio completo o un indirizzo IP pubblico, assicurarsi che venga aperto l' [endpoint](../virtual-machines/windows/classic/setup-endpoints.md?toc=%2fazure%2fapplication-gateway%2ftoc.json) corrispondente.
-* Se la macchina virtuale viene configurata tramite Azure Resource Manager ed è all'esterno della VNet in cui viene distribuito il gateway applicazione, è necessario configurare un [gruppo di sicurezza di rete](../virtual-network/security-overview.md) per consentire l'accesso alla porta desiderata.
+* Se le macchine virtuali classiche di Azure o il servizio cloud viene usato con un nome di dominio completo o un indirizzo IP pubblico, assicurarsi che venga aperto l' [endpoint](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints?toc=%252fazure%252fapplication-gateway%252ftoc.json) corrispondente.
+* Se la macchina virtuale viene configurata tramite Azure Resource Manager ed è all'esterno della VNet in cui viene distribuito il gateway applicazione, è necessario configurare un [gruppo di sicurezza di rete](../virtual-network/network-security-groups-overview.md) per consentire l'accesso alla porta desiderata.
 
 ## <a name="problems-with-custom-health-probe"></a>Problemi con il probe di integrità personalizzato
 
@@ -195,4 +195,3 @@ Verificare che le istanze siano integre e che l'applicazione sia configurata cor
 ## <a name="next-steps"></a>Passaggi successivi
 
 Se i passaggi precedenti non risolvono il problema, aprire un [ticket di supporto](https://azure.microsoft.com/support/options/).
-

@@ -7,20 +7,20 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 09/09/2020
 ms.author: surmb
-ms.openlocfilehash: 20a665eefbb73f062f1f036e17b16da891a43eef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 047ce9b33836e2c23a37b1383942323d7c382485
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89653214"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397536"
 ---
 # <a name="application-gateway-request-routing-rules"></a>Regole di routing delle richieste del gateway applicazione
 
-Quando si crea un gateway applicazione usando il portale di Azure, si crea una regola predefinita (*Rule1*). Questa regola associa il listener predefinito (*appGatewayHttpListener*) con il pool back-end predefinito (*appGatewayBackendPool*) e le impostazioni http back-end predefinite (*appGatewayBackendHttpSettings*). Dopo aver creato il gateway, è possibile modificare le impostazioni della regola predefinita o creare nuove regole.
+Quando si crea un gateway applicazione usando il portale di Azure, si crea una regola predefinita ( *Rule1* ). Questa regola associa il listener predefinito ( *appGatewayHttpListener* ) con il pool back-end predefinito ( *appGatewayBackendPool* ) e le impostazioni http back-end predefinite ( *appGatewayBackendHttpSettings* ). Dopo aver creato il gateway, è possibile modificare le impostazioni della regola predefinita o creare nuove regole.
 
 ## <a name="rule-type"></a>Tipo regola
 
-Quando si crea una regola, è possibile scegliere tra [ *base* e *basata sul percorso*](https://docs.microsoft.com/azure/application-gateway/application-gateway-components#request-routing-rules).
+Quando si crea una regola, è possibile scegliere tra [ *base* e *basata sul percorso*](./application-gateway-components.md#request-routing-rules).
 
 - Scegliere di base se si desidera inviare tutte le richieste sul listener associato (ad esempio, *Blog <i></i> . contoso.com/ \* )* a un singolo pool back-end.
 - Scegliere basato sul percorso se si desidera instradare le richieste da percorsi URL specifici a pool back-end specifici. Il modello di percorso viene applicato solo al percorso dell'URL, non ai parametri della query.
@@ -51,13 +51,13 @@ Per una regola basata sul percorso, aggiungere più impostazioni HTTP back-end c
 
 ## <a name="redirection-setting"></a>Impostazione del reindirizzamento
 
-Se il reindirizzamento è configurato per una regola di base, tutte le richieste sul listener associato vengono reindirizzate alla destinazione. Si tratta di un reindirizzamento *globale* . Se il reindirizzamento è configurato per una regola basata sul percorso, vengono reindirizzate solo le richieste in un'area specifica del sito. Un esempio è un'area del carrello acquisti indicata da */cart/ \* *. Si tratta del reindirizzamento *basato sul percorso* .
+Se il reindirizzamento è configurato per una regola di base, tutte le richieste sul listener associato vengono reindirizzate alla destinazione. Si tratta di un reindirizzamento *globale* . Se il reindirizzamento è configurato per una regola basata sul percorso, vengono reindirizzate solo le richieste in un'area specifica del sito. Un esempio è un'area del carrello acquisti indicata da */cart/ \**. Si tratta del reindirizzamento *basato sul percorso* .
 
 Per altre informazioni sui reindirizzamenti, vedere [Panoramica del reindirizzamento del gateway applicazione](redirect-overview.md).
 
 ### <a name="redirection-type"></a>Tipo di Reindirizzamento
 
-Scegliere il tipo di reindirizzamento necessario: *permanente (301*), *temporaneo (307)*, *trovato (302)* o *vedere altro (303)*.
+Scegliere il tipo di reindirizzamento necessario: *permanente (301* ), *temporaneo (307)* , *trovato (302)* o *vedere altro (303)*.
 
 ### <a name="redirection-target"></a>Destinazione di Reindirizzamento
 

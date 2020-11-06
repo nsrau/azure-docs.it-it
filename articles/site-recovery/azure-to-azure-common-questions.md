@@ -3,317 +3,323 @@ title: Domande comuni sul ripristino di emergenza delle macchine virtuali di Azu
 description: Questo articolo risponde a domande comuni sul ripristino di emergenza delle macchine virtuali di Azure quando si usa Azure Site Recovery.
 author: sideeksh
 manager: rochakm
-ms.date: 04/29/2019
+ms.date: 11/03/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7bc8427a51a9931ca82155232569767f12a8e266
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d4fa7348df647cf699ebd55dd6415a79454ab5f1
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87534023"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397951"
 ---
 # <a name="common-questions-azure-to-azure-disaster-recovery"></a>Domande frequenti: Ripristino di emergenza da Azure ad Azure
 
-Questo articolo risponde a domande comuni sul ripristino di emergenza di macchine virtuali di Azure in un'altra area di Azure per l'uso di [Azure Site Recovery](site-recovery-overview.md).
+Questo articolo risponde a domande comuni sul ripristino di emergenza di macchine virtuali di Azure in un'altra area di Azure, usando il servizio [Azure Site Recovery](site-recovery-overview.md) .
 
 ## <a name="general"></a>Generale
 
 ### <a name="how-is-site-recovery-priced"></a>Come viene stabilito il prezzo di Site Recovery?
 
-Vedere [Prezzi di Azure Site Recovery per macchine virtuali](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
+Informazioni sui [costi](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/) per il ripristino di emergenza delle macchine virtuali di Azure.
 
-### <a name="how-does-the-free-tier-for-azure-site-recovery-work"></a>Come funziona il livello gratuito di Azure Site Recovery?
+### <a name="how-does-the-free-tier-work"></a>Come funziona il livello gratuito?
 
-Ogni istanza protetta con Azure Site Recovery è gratuita per i primi 31 giorni di protezione. Dopo tale periodo, la protezione per ogni istanza è addebitata ai costi indicati in [Prezzi di Azure Site Recovery per le macchine virtuali di Azure](https://azure.microsoft.com/blog/know-exactly-how-much-it-will-cost-for-enabling-dr-to-your-azure-vm/).
+Ogni istanza protetta con Site Recovery è gratuita per i primi 31 giorni di protezione. Dopo tale periodo, la protezione per ogni istanza è alle tariffe riepilogate in [Dettagli prezzi](https://azure.microsoft.com/pricing/details/site-recovery/). Puoi stimare i costi usando il [calcolatore dei prezzi di Azure](https://azure.microsoft.com/pricing/calculator/?service=site-recovery).
 
-### <a name="during-the-first-31-days-will-i-incur-any-other-azure-charges"></a>Durante i primi 31 giorni, sono previsti altri addebiti per Azure?
+### <a name="do-i-incur-other-azure-charges-in-the-first-31-days"></a>Sono presenti altri addebiti per Azure nei primi 31 giorni?
 
-Sì. Anche se Azure Site Recovery è gratuito durante i primi 31 giorni di un'istanza protetta, possono venire addebitati i costi per Archiviazione di Azure, transazioni di archiviazione e trasferimento dei dati. Per una macchina virtuale ripristinata possono venire addebitati anche i costi di calcolo di Azure. Per informazioni dettagliate sui prezzi, vedere [Prezzi di Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery).
+Sì. Anche se Azure Site Recovery è gratuito durante i primi 31 giorni di un'istanza protetta, possono venire addebitati i costi per Archiviazione di Azure, transazioni di archiviazione e trasferimento dei dati. Una macchina virtuale ripristinata potrebbe anche richiedere addebiti di calcolo di Azure. G
 
-### <a name="what-are-the-best-practices-for-azure-virtual-machines-disaster-recovery"></a>Quali sono le procedure consigliate per il ripristino di emergenza di macchine virtuali di Azure?
+### <a name="how-do-i-get-started-with-azure-vm-disaster-recovery"></a>Ricerca per categorie iniziare a usare il ripristino di emergenza delle macchine virtuali di Azure?
 
-1. [Informazioni sull'architettura da Azure ad Azure](azure-to-azure-architecture.md)
-1. [Esaminare le configurazioni supportate e non supportate](azure-to-azure-support-matrix.md)
-1. [Configurare il ripristino di emergenza per le macchine virtuali di Azure](azure-to-azure-how-to-enable-replication.md)
-1. [Eseguire un failover di test](azure-to-azure-tutorial-dr-drill.md)
-1. [Eseguire il failover e il failback nell'area primaria](azure-to-azure-tutorial-failover-failback.md)
+1. [Informazioni](azure-to-azure-architecture.md) sull'architettura di ripristino di emergenza per macchine virtuali di Azure.
+2. [Esaminare](azure-to-azure-support-matrix.md) i requisiti di supporto.
+3. [Configurare il](azure-to-azure-how-to-enable-replication.md) ripristino di emergenza per le macchine virtuali di Azure.
+4. [Eseguire un'esercitazione sul ripristino di emergenza](azure-to-azure-tutorial-dr-drill.md) con un failover di test.
+5. [Eseguire un failover completo](azure-to-azure-tutorial-failover-failback.md) in un'area di Azure secondaria.
+6. [Eseguire il failback](azure-to-azure-tutorial-failback.md) dall'area secondaria all'area primaria.
 
-### <a name="how-is-capacity-ensured-in-the-target-region"></a>Come viene garantita la capacità nell'area di destinazione?
+### <a name="how-do-we-ensure-capacity-in-the-target-region"></a>Come è possibile garantire la capacità nell'area di destinazione?
 
-Il team di Site Recovery e il team di gestione della capacità di Azure pianificano una capacità dell'infrastruttura sufficiente. Quando si avvia un failover, i team contribuiscono anche a garantire che le istanze di VM protette da Site Recovery verranno distribuite nell'area di destinazione.
+Il team di Site Recovery e il team di gestione della capacità di Azure pianificano una capacità di infrastruttura sufficiente. Quando si avvia un failover, i team contribuiscono anche a garantire che le istanze di VM protette da Site Recovery vengano distribuite nell'area di destinazione.
 
 ## <a name="replication"></a>Replica
 
-### <a name="can-i-replicate-vms-enabled-through-azure-disk-encryption"></a>È possibile replicare le macchine virtuali abilitate con Crittografia dischi di Azure?
+### <a name="can-i-replicate-vms-with-disk-encryption"></a>È possibile replicare le VM con la crittografia del disco?
 
-Sì. Site Recovery supporta il ripristino di emergenza di macchine virtuali in cui è abilitata Crittografia dischi di Azure. Quando si abilita la replica, Azure copia tutte le chiavi e i segreti di crittografia del disco necessari dall'area di origine all'area di destinazione nel contesto utente. Se non si dispone delle autorizzazioni appropriate, l'amministratore della sicurezza può usare uno script per copiare le chiavi e i segreti.
+Sì. Site Recovery supporta il ripristino di emergenza di macchine virtuali in cui è abilitato crittografia dischi di Azure (ADE). Quando si Abilita la replica, Azure copia tutte le chiavi e i segreti di crittografia del disco necessari dall'area di origine all'area di destinazione, nel contesto utente. Se non si dispone delle autorizzazioni necessarie, l'amministratore della sicurezza può utilizzare uno script per copiare le chiavi e i segreti.
 
-- Site Recovery supporta Crittografia dischi di Azure per macchine virtuali di Azure che eseguono Windows.
-- Site Recovery supporta Crittografia dischi di Azure versione 0.1, che dispone di uno schema che richiede Azure Active Directory (Azure AD). Site Recovery supporta anche la versione 1.1, che non richiede Azure AD. [Altre informazioni sullo schema di estensione per Crittografia dischi di Azure](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema).
-  - Per Crittografia dischi di Azure versione 1.1, è necessario usare le macchine virtuali Windows con dischi gestiti.
-  - [Altre informazioni](azure-to-azure-how-to-enable-replication-ade-vms.md) per abilitare la replica di macchine virtuali crittografate.
+- Site Recovery supporta ADE per le macchine virtuali di Azure che eseguono Windows.
+- Site Recovery supporta:
+    - ADE versione 0,1, che ha uno schema che richiede Azure Active Directory (Azure AD).
+    - ADE versione 1,1, che non richiede Azure AD. Per la versione 1,1, le macchine virtuali di Windows Azure devono avere dischi gestiti.
+    - [Altre informazioni](../virtual-machines/extensions/azure-disk-enc-windows.md#extension-schema) informazioni sugli schemi di estensione.
+
+[Altre informazioni](azure-to-azure-how-to-enable-replication-ade-vms.md) per abilitare la replica di macchine virtuali crittografate.
 
 ### <a name="can-i-select-an-automation-account-from-a-different-resource-group"></a>È possibile selezionare un account di automazione da un gruppo di risorse diverso?
 
-Questa operazione non è attualmente supportata tramite il portale, ma è possibile scegliere un account di automazione da un gruppo di risorse diverso tramite PowerShell.
+Quando si consente Site Recovery di gestire gli aggiornamenti per l'estensione del servizio Mobility in esecuzione su macchine virtuali di Azure replicate, distribuisce un Runbook globale (usato dai servizi di Azure) tramite un account di automazione di Azure. È possibile usare l'account di automazione creato da Site Recovery oppure selezionare per usare un account di automazione esistente. 
 
-### <a name="after-specifying-an-automation-account-that-is-in-a-different-resource-group-than-the-vault-am-i-permitted-to-delete-the-runbook-if-there-is-no-other-vault-to-specify"></a>Dopo aver specificato un account di automazione che si trova in un gruppo di risorse diverso da quello dell'insieme di credenziali, è possibile eliminare il Runbook se non sono presenti altri insiemi di credenziali da specificare?
+Attualmente, nel portale, è possibile selezionare solo un account di automazione nello stesso gruppo di risorse dell'insieme di credenziali. È possibile selezionare un account di automazione da un gruppo di risorse diverso usando PowerShell. [Altre informazioni](azure-to-azure-autoupdate.md#enable-automatic-updates)
 
-Il Runbook personalizzato creato è uno strumento ed è sicuro da eliminare se lo stesso non è più necessario.
+### <a name="if-i-use-a-customer-automation-account-thats-not-in-the-vault-resource-group-can-i-delete-the-default-runbook"></a>Se si usa un account di automazione del cliente che non si trova nel gruppo di risorse dell'insieme di credenziali, è possibile eliminare il valore predefinito di Runbook?
+
+Sì, è possibile eliminarlo se non è necessario. 
 
 ### <a name="can-i-replicate-vms-to-another-subscription"></a>È possibile replicare le macchine virtuali in un'altra sottoscrizione?
 
-Sì, è possibile replicare macchine virtuali di Azure in una sottoscrizione diversa nello stesso tenant di Azure AD.
+Sì, è possibile replicare le macchine virtuali di Azure in qualsiasi sottoscrizione all'interno dello stesso tenant Azure AD. Quando si Abilita il ripristino di emergenza per le VM, per impostazione predefinita la sottoscrizione di destinazione visualizzata corrisponde a quella della VM di origine. È possibile modificare la sottoscrizione di destinazione e altre impostazioni, ad esempio il gruppo di risorse e la rete virtuale, vengono popolate automaticamente dalla sottoscrizione selezionata.
 
-Configurare il ripristino di emergenza [tra sottoscrizioni](https://azure.microsoft.com/blog/cross-subscription-dr) selezionando un'altra sottoscrizione al momento della replica.
+### <a name="can-i-replicate-vms-in-an-availability-zone-to-another-region"></a>È possibile replicare le macchine virtuali in una zona di disponibilità in un'altra area?
 
-### <a name="can-i-replicate-zone-pinned-azure-vms-to-another-region"></a>È possibile replicare in un'altra area le macchine virtuali di Azure aggiunte a una certa zona?
+Sì, è possibile replicare le macchine virtuali nelle zone di disponibilità in un'altra area di Azure. La macchina virtuale di destinazione può essere distribuita come una singola istanza, in un set di disponibilità o in una zona di disponibilità, se supportata nell'area di destinazione. 
 
-Sì, è possibile [replicare le macchine virtuali aggiunte a una certa zona](https://azure.microsoft.com/blog/disaster-recovery-of-zone-pinned-azure-virtual-machines-to-another-region) in un'altra area.
+### <a name="can-i-replicate-non-zone-vms-to-a-zone-within-the-same-region"></a>È possibile replicare macchine virtuali non di zona in una zona all'interno della stessa area? 
 
-### <a name="can-i-replicate-vms-in-a-region-that-has-zones-from-non-zone-to-zonal-configuration"></a>È possibile replicare le macchine virtuali in un'area con zone da una configurazione non di zona a una di zona?
+Questa operazione non è supportata nel portale. Per eseguire questa operazione, è possibile usare l'API REST o PowerShell.
 
-No, questa operazione non è attualmente supportata. Come soluzione alternativa, è possibile replicare la macchina virtuale usando ASR in una configurazione di zona in un'altra area, quindi disabilitare la replica. Successivamente, abilitare nuovamente la replica da tale area all'area originale e scegliere una configurazione di zona per il failover.
+### <a name="can-i-replicate-zoned-vms-to-a-different-zone-in-the-same-region"></a>È possibile replicare le macchine virtuali in zone in un'area diversa nella stessa area?
 
-### <a name="can-i-exclude-disks"></a>È possibile escludere dei dischi?
+Il supporto per questa operazione è limitato a un paio di aree. [Altre informazioni](azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)
 
-Sì, è possibile escludere dischi al momento della protezione tramite PowerShell. Per altre informazioni, vedere [come escludere dischi dalla replica](azure-to-azure-exclude-disks.md).
+### <a name="can-i-exclude-disks-from-replication"></a>È possibile escludere I dischi dalla replica?
 
-### <a name="can-i-add-new-disks-to-replicated-vms-and-enable-replication-for-them"></a>È possibile aggiungere nuovi dischi alle macchine virtuali replicate e abilitarne la replica?
+Sì, è possibile escludere i dischi quando si configura la replica usando PowerShell. [Altre informazioni](azure-to-azure-exclude-disks.md)
 
-Sì, l'aggiunta di nuovi dischi alle macchine virtuali replicate e l'abilitazione della loro replica è supportata per le macchine virtuali di Azure con dischi gestiti. Quando si aggiunge un nuovo disco a una macchina virtuale di Azure abilitata per la replica, l'integrità della replica per la VM visualizza un avviso. Questo avviso indica che uno o più dischi nella macchina virtuale sono disponibili per la protezione. È possibile abilitare la replica per i dischi aggiunti.
+### <a name="can-i-replicate-new-disks-added-to-replicated-vms"></a>È possibile replicare nuovi dischi aggiunti alle macchine virtuali replicate?
 
-- Se si abilita la protezione per i dischi aggiunti, l'avviso scomparirà dopo la replica iniziale.
-- Se non si abilita la replica per il disco, è possibile ignorare l'avviso.
-- Se si esegue il failover di una macchina virtuale con un disco aggiunto e la replica abilitata, sono presenti punti di replica. I punti di replica visualizzeranno i dischi disponibili per il ripristino.
+Per le macchine virtuali replicate con Managed disks, è possibile aggiungere nuovi dischi e abilitarne la replica. Quando si aggiunge un nuovo disco, la macchina virtuale replicata Mostra un messaggio di avviso che indica che uno o più dischi nella macchina virtuale sono disponibili per la protezione. 
 
-Si immagini, ad esempio, che una macchina virtuale disponga di un solo disco e che ne venga aggiunto uno nuovo. È possibile che sia stato creato un punto di replica prima di aggiungere il disco. Questo punto di replica indicherà che è costituito da "1 di 2 dischi".
+- Se si Abilita la replica per i dischi aggiunti, l'avviso scompare dopo la replica iniziale.
+- Se non si vuole abilitare la replica per il disco, è possibile ignorare l'avviso.
+- Se si esegue il failover di una macchina virtuale con dischi aggiunti, i punti di replica mostrano i dischi disponibili per il ripristino. Ad esempio, se si aggiunge un secondo disco a una macchina virtuale con un disco, un punto di replica creato prima dell'aggiunta viene visualizzato come "1 di 2 dischi".
 
-Site Recovery non supporta la "rimozione a caldo" di un disco da una macchina virtuale replicata. Se si rimuove un disco della macchina virtuale, è necessario disabilitare e quindi riabilitare la replica per la macchina virtuale.
+Site Recovery non supporta la rimozione a caldo dei dischi da una macchina virtuale replicata. Se si rimuove un disco della macchina virtuale, è necessario disabilitare e quindi riabilitare la replica per la macchina virtuale.
 
 ### <a name="how-often-can-i-replicate-to-azure"></a>Con quale frequenza è possibile eseguire la replica in Azure?
 
-La replica di macchine virtuali di Azure in un'altra area di Azure è continua. Per altre informazioni, vedere [Architettura di replica da Azure ad Azure](./azure-to-azure-architecture.md#replication-process).
+La replica di macchine virtuali di Azure in un'altra area di Azure è continua. [Altre](./azure-to-azure-architecture.md#replication-process) informazioni sul funzionamento della replica.
 
-### <a name="can-i-replicate-virtual-machines-within-a-region-i-need-this-functionality-to-migrate-vms"></a>È possibile eseguire la replica delle macchine virtuali all'interno di un'area? Questa funzionalità è necessaria per eseguire la migrazione delle macchine virtuali.
+### <a name="can-i-replicate-virtual-machines-within-a-region"></a>È possibile eseguire la replica delle macchine virtuali all'interno di un'area? 
 
-Non è possibile usare una soluzione di ripristino di emergenza da Azure ad Azure per replicare le macchine virtuali all'interno di un'area.
+Non è possibile usare Site Recovery per replicare i dischi all'interno di un'area.
 
 ### <a name="can-i-replicate-vm-instances-to-any-azure-region"></a>È possibile replicare istanze di macchine virtuali in qualunque area di Azure?
 
-Con Site Recovery è possibile eseguire la replica e il ripristino di macchine virtuali tra due aree qualsiasi all'interno dello stesso cluster geografico. I cluster geografici vengono definiti con la latenza e la sovranità dei dati. Per altre informazioni, vedere la [matrice di supporto dell'area](./azure-to-azure-support-matrix.md#region-support) di Site Recovery.
+È possibile eseguire la replica e il ripristino di macchine virtuali tra due aree qualsiasi all'interno dello stesso cluster geografico. I cluster geografici vengono definiti con la latenza e la sovranità dei dati. [Altre](./azure-to-azure-support-matrix.md#region-support) informazioni sul supporto per le aree.
 
-### <a name="does-site-recovery-require-internet-connectivity"></a>Site Recovery richiede la connettività Internet?
+### <a name="does-site-recovery-need-internet-connectivity"></a>Site Recovery necessaria la connettività Internet?
 
-No, Site Recovery non richiede la connettività Internet. È tuttavia necessario l'accesso agli intervalli IP e agli URL di Site Recovery, come indicato in [Gestione delle reti nel ripristino di emergenza delle VM di Azure](./azure-to-azure-about-networking.md#outbound-connectivity-for-urls).
+No, ma le macchine virtuali devono accedere a Site Recovery URL e intervalli di indirizzi IP. [Altre informazioni](./azure-to-azure-about-networking.md#outbound-connectivity-for-urls)
 
-### <a name="can-i-replicate-an-application-that-has-a-separate-resource-group-for-separate-tiers"></a>È possibile eseguire la replica di un'applicazione con un gruppo di risorse separato per livelli diversi?
+### <a name="can-i-replicate-an-application-tiered-across-resource-groups"></a>È possibile replicare un'applicazione a livelli tra gruppi di risorse?
 
-Sì, è possibile eseguire la replica dell'applicazione e mantenere la configurazione di ripristino di emergenza in un gruppo di risorse separato.
+Sì, è possibile replicare l'app e mantengono la configurazione del ripristino di emergenza in un gruppo di risorse distinto.
 
-Se ad esempio si ha un'applicazione con app, database e Web di ogni livello in un gruppo di risorse separato, è necessario fare clic tre volte sulla [procedura guidata di replica](./azure-to-azure-how-to-enable-replication.md#enable-replication) per proteggere tutti i livelli. Site Recovery eseguirà la replica dei tre livelli in tre gruppi di risorse distinti.
+Se, ad esempio, le app hanno tre livelli (applicazione/database/Web) in gruppi di risorse diversi, è necessario abilitare la replica tre volte per proteggere tutti i livelli. Site Recovery replica i tre livelli in tre gruppi di risorse diversi.
 
 ### <a name="can-i-move-storage-accounts-across-resource-groups"></a>È possibile spostare gli account di archiviazione tra gruppi di risorse?
 
-No, questo scenario non è supportato. Tuttavia, se si spostano accidentalmente gli account di archiviazione in un gruppo di risorse diverso e si elimina il gruppo di risorse originale, è possibile creare un nuovo gruppo di risorse con lo stesso nome del gruppo di risorse precedente, quindi spostare l'account di archiviazione in questo gruppo di risorse.
+No, questa operazione non è supportata. Se si spostano accidentalmente gli account di archiviazione in un gruppo di risorse diverso ed eliminare il gruppo di risorse originale, è possibile creare un nuovo gruppo di risorse con lo stesso nome del gruppo di risorse precedente, quindi spostare l'account di archiviazione in questo gruppo di risorse.
 
 ## <a name="replication-policy"></a>Criteri di replica
 
 ### <a name="what-is-a-replication-policy"></a>Cosa sono i criteri di replica?
 
-I criteri di replica definiscono le impostazioni per la cronologia di conservazione dei punti di recupero. Definiscono inoltre la frequenza degli snapshot coerenti con l'app. Per impostazione predefinita, Azure Site Recovery crea nuovi criteri di replica con le impostazioni predefinite seguenti:
+Un criterio di replica definisce la cronologia di conservazione dei punti di ripristino e la frequenza degli snapshot coerenti con l'app.  Site Recovery crea un criterio di replica predefinito come segue:
 
-- 24 ore per la cronologia della conservazione dei punti di recupero.
-- 4 ore per la frequenza degli snapshot coerenti con l'app.
+- Mantenere i punti di ripristino per 24 ore.
+- Eseguire snapshot coerenti con l'app ogni quattro ore.
 
-[Altre informazioni sulle impostazioni di replica](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
+[Altre](azure-to-azure-how-to-enable-replication.md#customize-target-resources) informazioni sulle impostazioni di replica.
 
-### <a name="what-is-a-crash-consistent-recovery-point"></a>Che cos'è il punto di recupero coerente con l'arresto anomalo del sistema?
+### <a name="whats-a-crash-consistent-recovery-point"></a>Che cos'è un punto di ripristino coerente con l'arresto anomalo del sistema?
 
-Un punto di recupero coerente con l'arresto anomalo del sistema dispone dei dati su disco come se fosse stato rimosso il cavo di alimentazione dal server durante lo snapshot. Non include tutto ciò che era contenuto in memoria quando è stato creato lo snapshot.
+Un punto di ripristino coerente con l'arresto anomalo del sistema contiene dati su disco, come se fosse stato eseguito il pull del cavo di alimentazione dal server durante lo snapshot. Non include tutto ciò che si trovava in memoria quando lo snapshot è stato utilizzato.
 
-La maggior parte delle applicazioni esegue ora correttamente il ripristino da snapshot coerenti con l'arresto anomalo del sistema. Un punto di recupero coerente con l'arresto anomalo del sistema è in genere sufficiente per sistemi operativi senza database e per applicazioni quali file server, server DHCP e server di stampa.
+Attualmente, la maggior parte delle app è in grado di recuperare bene da snapshot coerenti con l'arresto anomalo. Un punto di ripristino coerente con l'arresto anomalo del sistema è in genere sufficiente per i sistemi operativi non di database e per le app quali file server, server DHCP e server di stampa.
 
-### <a name="what-is-the-frequency-of-crash-consistent-recovery-point-generation"></a>Qual è la frequenza di generazione di punti di recupero coerenti nell'arresto anomalo del sistema?
+Site Recovery crea automaticamente un punto di ripristino coerente con l'arresto anomalo del sistema ogni cinque minuti.
 
-Site Recovery crea un punto di recupero coerente con l'arresto anomalo del sistema ogni 5 minuti.
+### <a name="whats-an-application-consistent-recovery-point"></a>Che cos'è un punto di ripristino coerente con l'applicazione?
 
-### <a name="what-is-an-application-consistent-recovery-point"></a>Che cos'è un punto di recupero coerente con l'applicazione?
+I punti di ripristino coerenti con l'app vengono creati dagli snapshot coerenti con l'app. Acquisiscono gli stessi dati degli snapshot coerenti con l'arresto anomalo del sistema, oltre a acquisire i dati in memoria e tutte le transazioni in corso.
 
-I punti di recupero coerenti con l'applicazione vengono creati dagli snapshot coerenti con l'applicazione. I punti di recupero coerenti con l'applicazione acquisiscono gli stessi dati di snapshot coerenti con l'arresto anomalo del sistema, oltre a tutti i dati in memoria e a tutte le transazioni in corso.
+A causa del contenuto aggiuntivo, gli snapshot coerenti con l'app sono i più interessati e hanno più tempo. Si consigliano punti di ripristino coerenti con l'app per i sistemi operativi del database e app come SQL Server. Per Windows, gli snapshot coerenti con l'app usano il Servizio Copia Shadow del volume (VSS).
 
-Per via del loro contenuto aggiuntivo, gli snapshot coerenti con l'applicazione impiegano più tempo di esecuzione e sono i più usati. È consigliabile usare i punti di recupero coerenti con l'applicazione per sistemi operativi e applicazioni di database come SQL Server.
+### <a name="do-app-consistent-recovery-points-impact-performance"></a>I punti di ripristino coerenti con l'app hanno un effetto sulle prestazioni?
 
-### <a name="what-is-the-impact-of-application-consistent-recovery-points-on-application-performance"></a>Qual è l'impatto dei punti di recupero coerenti con l'applicazione sulle prestazioni dell'applicazione?
+ Poiché i punti di ripristino coerenti con l'app acquisiscono tutti i dati in memoria ed elaborati, se acquisiscono di frequente, possono influire sulle prestazioni quando il carico di lavoro è già occupato. Non è consigliabile acquisire troppo spesso per i carichi di lavoro non di database. Anche per i carichi di lavoro del database, un'ora dovrebbe essere sufficiente.
 
-I punti di recupero coerenti con l'applicazione acquisiscono tutti i dati in memoria e in corso. Poiché i punti di recupero acquisiscono tali dati, richiedono framework come Servizio Copia Shadow del volume in Windows per disattivare l'applicazione. Se il processo di acquisizione è frequente, può influire sulle prestazioni quando il carico di lavoro è già elevato. Non è consigliabile usare una frequenza bassa per i punti di recupero coerenti con l'applicazione per carichi di lavoro non di database. Anche per il carico di lavoro del database, 1 ora è sufficiente.
+### <a name="whats-the-minimum-frequency-for-generating-app-consistent-recovery-points"></a>Qual è la frequenza minima per la generazione di punti di ripristino coerenti con l'app?
 
-### <a name="what-is-the-minimum-frequency-of-application-consistent-recovery-point-generation"></a>Qual è la frequenza minima di generazione di punti di recupero coerenti nell'arresto anomalo del sistema?
+Site Recovery possibile creare punti di ripristino coerenti con l'app con una frequenza minima di un'ora.
 
-Site Recovery può creare un punto di recupero coerente con l'applicazione con una frequenza minima di 1 ora.
+### <a name="can-i-enable-app-consistent-replication-for-linux-vms"></a>È possibile abilitare la replica coerente con l'app per le VM Linux?
+
+Sì. L'agente di mobilità per Linux supporta gli script personalizzati per la coerenza delle app. L'agente usa uno script personalizzato con pre e post-Options. [Scopri di più](site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
 
 ### <a name="how-are-recovery-points-generated-and-saved"></a>Come vengono generati e salvati i punti di ripristino?
 
-Per comprendere il modo in cui Site Recovery genera i punti di recupero, è possibile esaminare un esempio di criteri di replica. Questo criterio di replica dispone di un punto di recupero con un intervallo di conservazione di 24 ore e uno snapshot di frequenza coerente con l'applicazione di 1 ora.
+Per comprendere il modo in cui Site Recovery genera i punti di ripristino, si userà un esempio. 
 
-Site Recovery crea un punto di recupero coerente con l'arresto anomalo del sistema ogni 5 minuti. L'utente non può modificare questa frequenza. Nell'ultima ora è possibile scegliere tra 12 punti coerenti con l'arresto anomalo del sistema e 1 punto coerente con l'applicazione. Col passare del tempo, Site Recovery elimina tutti i punti di recupero oltre l'ultima ora e salva solo 1 punto di recupero per ogni ora.
+- Un criterio di replica mantiene i punti di ripristino per 24 ore e accetta ogni ora uno snapshot di frequenza coerente con l'app.
+- Site Recovery crea un punto di ripristino coerente con l'arresto anomalo del sistema ogni cinque minuti. L'utente non può modificare questa frequenza.
+- Site Recovery pota i punti di ripristino dopo un'ora, salvando un punto all'ora.
 
-Lo screenshot seguente illustra l'esempio. Nello screenshot:
+Nell'ultima ora è possibile scegliere tra 12 punti coerenti con l'arresto anomalo del sistema e un punto coerente con l'app, come illustrato nell'immagine.
 
-- Nell'ultima ora, sono disponibili punti di recupero con una frequenza di 5 minuti.
-- Oltre l'ultima ora, Site Recovery conserva un solo punto di recupero.
-
-   ![Elenco dei punti di recupero generati](./media/azure-to-azure-troubleshoot-errors/recoverypoints.png)
+   ![Elenco dei punti di recupero generati](./media/azure-to-azure-common-questions/recovery-points.png)
 
 ### <a name="how-far-back-can-i-recover"></a>Fino a quando può risalire il recupero?
 
 Il punto di recupero meno recente che è possibile usare è di 72 ore.
 
-### <a name="i-have-a-replication-policy-of-24-hours-what-will-happen-if-a-problem-prevents-site-recovery-from-generating-recovery-points-for-more-than-24-hours-will-my-previous-recovery-points-be-lost"></a>Ho un criterio di replica di 24 ore. Cosa accade se un problema impedisce a Site Recovery di generare punti di recupero per più di 24 ore? I precedenti punti di recupero verranno persi?
+### <a name="what-happens-if-site-recovery-cant-generate-recovery-points-for-more-than-24-hours"></a>Cosa accade se Site Recovery non è in grado di generare punti di ripristino per più di 24 ore? 
 
-No, Site Recovery manterrà tutti i punti di recupero precedenti. A seconda dell'intervallo di conservazione dei punti di recupero, Site Recovery sostituisce il punto meno recente solo se genera nuovi punti. A causa del problema, Site Recovery non è in grado di generare nuovi punti di recupero. Fino a quando non saranno presenti nuovi punti di recupero, tutti i punti precedenti verranno conservati dopo aver raggiunto l'intervallo di conservazione.
+Se si dispone di un criterio di replica di 24 ore e Site Recovery non è in grado di generare punti di ripristino per più di 24 ore, i punti di ripristino precedenti rimangono. Site Recovery sostituisce solo il punto meno recente se genera nuovi punti. Fino a quando non sono presenti nuovi punti di ripristino, tutti i vecchi punti rimangono dopo aver raggiunto l'intervallo di conservazione.
 
-### <a name="after-replication-is-enabled-on-a-vm-how-do-i-change-the-replication-policy"></a>Dopo aver abilitato la replica in una macchina virtuale, come si modifica il criterio di replica?
+### <a name="can-i-change-the-replication-policy-after-replication-is-enabled"></a>È possibile modificare i criteri di replica dopo l'abilitazione della replica?
 
-Passare a **Insieme di credenziali di Site Recovery** > **Infrastruttura di Site Recovery** > **Criteri di replica**. Selezionare i criteri da modificare e salvare le modifiche. Qualsiasi modifica verrà applicata anche a tutte le repliche esistenti.
+Sì. Nell'insieme di credenziali > **Site Recovery**  >  **criteri di replica** dell'infrastruttura, selezionare e modificare i criteri. Le modifiche si applicano anche ai criteri esistenti.
 
-### <a name="are-all-the-recovery-points-a-complete-copy-of-the-vm-or-a-differential"></a>Tutti i punti di recupero includono una copia completa della macchina virtuale o solo una copia differenziale?
+### <a name="are-all-recovery-points-a-complete-vm-copy"></a>Tutti i punti di ripristino sono copiati da una macchina virtuale completa?
 
-Il primo punto di recupero che viene generato include la copia completa. I punti di recupero successivi includono le modifiche delta.
+Il primo punto di recupero che viene generato include la copia completa. I punti di ripristino successivi includono modifiche delta.
 
-### <a name="does-increasing-the-retention-period-of-recovery-points-increase-the-storage-cost"></a>L'aumento del periodo di conservazione dei punti di recupero comporta l'aumento dei costi di archiviazione?
+### <a name="do-increases-in-recovery-point-retention-increase-storage-costs"></a>Aumenta la conservazione dei punti di ripristino aumenta i costi di archiviazione?
 
-Sì, se si aumenta il periodo di conservazione da 24 a 72 ore, Site Recovery salverà i punti di recupero per altre 48 ore. Il tempo aggiuntivo comporterà dei costi di archiviazione. Ad esempio, un singolo punto di recupero potrebbe avere variazioni delta di 10 GB con un costo per GB di $0,16 al mese. Gli addebiti aggiuntivi saranno $1,60 × 48 al mese.
-
-### <a name="can-i-enable-replication-with-app-consistency-in-linux-servers"></a>È possibile abilitare la replica con la coerenza delle app nei server Linux?
-
-Sì. Azure Site Recovery per il sistema operativo Linux supporta gli script personalizzati dell'applicazione per la coerenza delle app. Lo script personalizzato con pre e post-Options verrà usato dall'agente di Azure Site Recovery Mobility durante la coerenza dell'app. [Scopri di più](./site-recovery-faq.md#can-i-enable-replication-with-app-consistency-in-linux-servers)
+Sì. Se, ad esempio, si aumenta il periodo di conservazione da 24 ore a 72, Site Recovery Salva i punti di ripristino per altre 48 ore. L'ora aggiuntiva comporta modifiche all'archiviazione. Se, ad esempio, un singolo punto di ripristino presenta variazioni Delta di 10 GB, con un costo per GB di $0,16 al mese, gli addebiti aggiuntivi saranno $1,60 × 48 al mese.
 
 ## <a name="multi-vm-consistency"></a>Coerenza tra più macchine virtuali
 
 ### <a name="what-is-multi-vm-consistency"></a>Che cos'è la coerenza tra più macchine virtuali?
 
-La coerenza tra più macchine virtuali garantisce che il punto di recupero sia coerente in tutte le macchine virtuali replicate.
+La coerenza tra più VM garantisce che i punti di ripristino siano coerenti tra le macchine virtuali replicate.
 
-Site Recovery offre un'opzione di **coerenza tra più macchine virtuali**, che consente di creare un gruppo di replica di tutti i computer.
+- Quando si Abilita la coerenza tra più macchine virtuali, Site Recovery crea un gruppo di replica di tutti i computer con l'opzione abilitata. 
+- Quando si esegue il failover delle macchine virtuali nel gruppo di replica, i punti di ripristino coerenti con l'arresto anomalo e coerenti con l'app sono stati condivisi.
 
-Quando saranno sottoposte a failover, le macchine virtuali condivideranno punti di recupero coerenti con l'arresto anomalo del sistema e con l'applicazione.
+[Informazioni](azure-to-azure-tutorial-enable-replication.md#enable-replication) su come abilitare la coerenza tra più macchine virtuali.
 
-Per [abilitare la coerenza tra più macchine virtuali](./azure-to-azure-tutorial-enable-replication.md#enable-replication-for-a-vm), seguire i passaggi nell'esercitazione.
+### <a name="can-i-fail-over-a-single-vm-in-a-replication-group"></a>È possibile eseguire il failover di una singola macchina virtuale in un gruppo di replica?
 
-### <a name="can-i-fail-over-a-single-virtual-machine-within-a-multi-vm-consistency-replication-group"></a>È possibile eseguire il failover di una singola macchina virtuale all'interno di un gruppo di replica per la coerenza tra più macchine virtuali?
+No. Quando si Abilita la coerenza tra più VM, viene dedotto che un'app presenta una dipendenza da tutte le macchine virtuali nel gruppo di replica e il failover di una singola macchina virtuale non è consentito.
 
-Quando si seleziona l'opzione **Coerenza tra più macchine virtuali**, si dichiara che l'applicazione ha una dipendenza su tutte le macchine virtuali all'interno di un gruppo. Il failover di una singola macchina virtuale non è consentito.
+### <a name="how-many-vm-can-i-replicate-together-in-a-group"></a>Quante VM è possibile replicare insieme in un gruppo?
 
-### <a name="how-many-virtual-machines-can-i-replicate-as-a-part-of-a-multi-vm-consistency-replication-group"></a>Quante macchine virtuali è possibile replicare come parte di un gruppo di replica per la coerenza tra più macchine virtuali?
-
-È possibile replicare 16 macchine virtuali all'interno di uno stesso gruppo di replica.
+È possibile replicare 16 macchine virtuali insieme in un gruppo di replica.
 
 ### <a name="when-should-i-enable-multi-vm-consistency"></a>Quando è necessario abilitare la coerenza tra più macchine virtuali?
 
-Poiché comporta un uso intensivo della CPU, l'abilitazione della coerenza tra più macchine virtuali può avere un impatto sulle prestazioni del carico di lavoro. Usare la coerenza tra più macchine virtuali solo se i computer eseguono lo stesso carico di lavoro ed è necessaria la coerenza tra più macchine virtuali. Se ad esempio sono presenti due istanze di SQL Server e due server Web in un'applicazione, è necessaria la coerenza tra più macchine virtuali solo per le istanze di SQL Server.
+La coerenza tra più macchine virtuali è a elevato utilizzo di CPU e abilitarla può influire sulle prestazioni del carico di lavoro Abilitare solo se le macchine virtuali eseguono lo stesso carico di lavoro ed è necessaria la coerenza tra più computer. Se, ad esempio, si dispone di due istanze di SQL Server e di due server Web in un'applicazione, abilitare la coerenza tra più macchine virtuali solo per le istanze di SQL Server.
 
-### <a name="can-you-add-an-already-replicating-vm-to-a-replication-group"></a>È possibile aggiungere una macchina virtuale già replicata a un gruppo di replica?
-È possibile aggiungere una macchina virtuale a un nuovo gruppo di replica abilitando la replica. È anche possibile aggiungere una macchina virtuale a un gruppo di replica esistente abilitando la replica. Tuttavia, non è possibile aggiungere una macchina virtuale già replicata a un nuovo gruppo di replica o a un gruppo di replica esistente.
+### <a name="can-i-add-a-replicating-vm-to-a-replication-group"></a>È possibile aggiungere una macchina virtuale di replica a un gruppo di replica?
+
+Quando si Abilita la replica per una macchina virtuale, è possibile aggiungerla a un nuovo gruppo di replica o a un gruppo esistente. Non è possibile aggiungere una macchina virtuale che sta già eseguendo la replica in un gruppo. 
  
 ## <a name="failover"></a>Failover
 
+### <a name="how-do-we-ensure-capacity-in-the-target-region"></a>Come è possibile garantire la capacità nell'area di destinazione?
 
-### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Come viene garantita la capacità nell'area di destinazione per le VM di Azure?
-
-Il team di Site Recovery e il team di gestione della capacità di Azure pianificano una capacità dell'infrastruttura sufficiente. Quando si avvia un failover, i team contribuiscono anche a garantire che le istanze di VM protette da Site Recovery verranno distribuite nell'area di destinazione.
+Il team di Site Recovery e il team di gestione della capacità di Azure pianificano una capacità di infrastruttura sufficiente. Quando si avvia un failover, i team contribuiscono anche a garantire che le istanze di VM protette da Site Recovery possano essere distribuite nell'area di destinazione.
 
 ### <a name="is-failover-automatic"></a>Il failover è automatico?
 
-Il failover non è automatico. Può essere avviato con un singolo clic nel portale oppure è possibile usare [PowerShell](azure-to-azure-powershell.md) per attivare un failover.
+Il failover non è automatico. È possibile avviare un failover con un singolo clic nel portale oppure usare  [PowerShell](azure-to-azure-powershell.md) per attivare un failover.
 
-### <a name="can-i-keep-a-public-ip-address-after-a-failover"></a>È possibile mantenere l'indirizzo IP pubblico in seguito a un failover?
+### <a name="can-i-keep-a-public-ip-address-after--failover"></a>È possibile gestire un indirizzo IP pubblico dopo il failover?
 
-Non è possibile mantenere l'indirizzo IP pubblico dell'applicazione di produzione dopo un failover.
+Non è possibile gestire l'indirizzo IP pubblico per un'app di produzione dopo un failover.
 
-Quando si apre un carico di lavoro come parte del processo di failover, è necessario assegnare una risorsa IP pubblico di Azure al carico di lavoro. La risorsa IP pubblico di Azure deve essere disponibile nell'area di destinazione. È possibile assegnare la risorsa IP pubblico di Azure manualmente oppure è possibile automatizzarla con un piano di ripristino. Informazioni su come [configurare indirizzi IP pubblici dopo il failover](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan).
+Quando si apre un carico di lavoro come parte del processo di failover, è necessario assegnare una risorsa indirizzo IP pubblico di Azure. La risorsa deve essere disponibile nell'area di destinazione. La risorsa indirizzo IP pubblico di Azure può essere assegnata manualmente oppure è possibile automatizzarla con un piano di ripristino. [Informazioni](concepts-public-ip-address-with-site-recovery.md#public-ip-address-assignment-using-recovery-plan) su come configurare gli indirizzi IP pubblici dopo il failover.
 
-### <a name="can-i-keep-a-private-ip-address-during-a-failover"></a>È possibile mantenere un indirizzo IP privato durante un failover?
+### <a name="can-i-keep-a-private-ip-address-after-failover"></a>È possibile gestire un indirizzo IP privato dopo il failover?
 
-Sì, è possibile mantenere un indirizzo IP privato. Per impostazione predefinita, quando si abilita il ripristino di emergenza per macchine virtuali di Azure, Site Recovery crea le risorse di destinazione in base alle impostazioni di quelle di origine. Per le macchine virtuali di Azure configurate con indirizzi IP statici, Site Recovery tenta di effettuare il provisioning dello stesso indirizzo IP per le macchine virtuali di destinazione, se non è in uso.
-Informazioni su come [mantenere indirizzi IP durante il failover](site-recovery-retain-ip-azure-vm-failover.md).
+Sì. Per impostazione predefinita, quando si Abilita il ripristino di emergenza per le macchine virtuali di Azure, Site Recovery crea le risorse di destinazione in base alle impostazioni delle risorse di origine. Per le macchine virtuali di Azure con indirizzi IP statici, Site Recovery tenta di effettuare il provisioning dello stesso indirizzo IP per le macchine virtuali di destinazione, se non è in uso.
+[Altre informazioni su](site-recovery-retain-ip-azure-vm-failover.md) come mantenere gli indirizzi IP dopo il failover.
 
-### <a name="after-a-failover-why-is-the-server-assigned-a-new-ip-address"></a>Dopo un failover, per quale motivo viene assegnato un nuovo indirizzo IP al server?
+### <a name="why-is-a-vm-assigned-a-new-ip-address-after-failover"></a>Perché una macchina virtuale ha assegnato un nuovo indirizzo IP dopo il failover?
 
-Site Recovery tenta di fornire l'indirizzo IP al momento del failover. Se un'altra macchina virtuale richiede tale indirizzo, Site Recovery imposta il successivo indirizzo IP disponibile come destinazione.
+Site Recovery tenta di fornire l'indirizzo IP al momento del failover. Se un'altra macchina virtuale usa tale indirizzo, Site Recovery imposta il successivo indirizzo IP disponibile come destinazione.
 
-Altre informazioni su come [configurare il mapping di rete e impostare gli indirizzi IP per le reti virtuali](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms).
+[Altre informazioni sulla](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms) configurazione del mapping di rete e degli indirizzi IP per le reti virtuali.
 
-### <a name="what-are-latest-lowest-rpo-recovery-points"></a>Che cosa sono i punti di recupero **più recenti (valore RPO più basso)** ?
+### <a name="whats-the-latest-recovery-point"></a>Qual è il punto di ripristino *più recente* ?
 
-L'opzione **Più recente (RPO più basso)** elabora prima tutti i dati inviati a Site Recovery. Dopo che il servizio ha elaborato i dati, viene creato un punto di recupero per ogni macchina virtuale prima del failover sulla macchina virtuale. Questa opzione assicura l'obiettivo del punto di ripristino (RPO) più basso. Per la macchina virtuale creata dopo il failover, tutti i dati vengono replicati in Site Recovery da quando è stato attivato il failover.
+L'opzione del punto di ripristino *più recente (RPO più basso)* esegue le operazioni seguenti:
 
-### <a name="do-latest-lowest-rpo-recovery-points-have-an-impact-on-failover-rto"></a>I punti di recupero **più recenti (RPO più basso)** hanno un impatto sul failover RTO (Recovery Time Objective)?
+1. Elabora innanzitutto tutti i dati inviati a Site Recovery.
+2. Dopo che il servizio ha elaborato i dati, viene creato un punto di ripristino per ogni macchina virtuale, prima del failover alla macchina virtuale. Questa opzione assicura l'obiettivo del punto di ripristino (RPO) più basso.
+3. La macchina virtuale creata dopo il failover ha tutti i dati replicati in Site Recovery, da quando è stato attivato il failover.
 
-Sì. Site Recovery elabora tutti i dati in sospeso prima dell'esecuzione del failover, pertanto questa opzione ha un obiettivo del tempo di ripristino (RTO) maggiore rispetto ad altre opzioni.
+### <a name="do-latest-recovery-points-impact-failover-rto"></a>I punti di ripristino *più recenti* influiscano sul failover RTO?
 
-### <a name="what-does-the-latest-processed-option-in-recovery-points-mean"></a>Che cosa significa l'opzione **Elaborato più recente** nei punti di recupero?
+Sì. Site Recovery elabora tutti i dati in sospeso prima del failover, pertanto questa opzione ha un obiettivo del tempo di ripristino (RTO) superiore rispetto alle altre opzioni.
 
-L'opzione **Elaborato più recente** consente di eseguire il failover di tutte le macchine virtuali del piano nel punto di recupero più recente elaborato da Site Recovery. Per vedere il punto di ripristino più recente per una macchina virtuale specifica, selezionare **Punti di ripristino più recenti** nelle impostazioni della macchina virtuale. Questa opzione offre un RTO basso poiché non viene impiegato tempo per la gestione di dati non elaborati.
+### <a name="whats-the-latest-processed-recovery-option"></a>Qual è l'opzione di ripristino *elaborata più recente* ?
 
-### <a name="what-happens-if-my-primary-region-experiences-an-unexpected-outage"></a>Cosa accade se si verifica un'interruzione imprevista dell'area primaria?
+L'opzione *elaborata più recente* esegue le operazioni seguenti:
 
-Dopo l'interruzione è possibile attivare un failover. Per eseguire il failover, in Site Recovery non è necessaria la connettività dall'area primaria.
+1. Esegue il failover di tutte le macchine virtuali nel punto di ripristino più recente elaborato da Site Recovery. Questa opzione offre un RTO basso poiché non viene impiegato tempo per la gestione di dati non elaborati.
 
-### <a name="what-is-an-rto-of-a-vm-failover"></a>Qual è l'RTO del failover di una macchina virtuale?
+### <a name="what-if-theres-an-unexpected-outage-in-the-primary-region"></a>Che cosa accade se si verifica un'interruzione imprevista nell'area primaria?
 
-Site Recovery prevede un [RTO del contratto di servizio di 2 ore](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Tuttavia, nella maggior parte dei casi, Site Recovery esegue il failover delle macchine virtuali in pochi minuti. È possibile calcolare l'RTO esaminando i processi di failover, che mostrano il tempo impiegato per aprire la macchina virtuale. Per l'RTO del piano di ripristino, fare riferimento alla sezione successiva.
+È possibile avviare il failover. Per eseguire il failover, in Site Recovery non è necessaria la connettività dall'area primaria.
+
+### <a name="what-is-the-rto-of-a-vm-failover"></a>Qual è il RTO di un failover della macchina virtuale?
+
+Site Recovery dispone di un contratto di RTO di [due ore](https://azure.microsoft.com/support/legal/sla/site-recovery/v1_2/). Nella maggior parte dei casi, Site Recovery esegue il failover delle macchine virtuali in pochi minuti. Per calcolare il RTO, esaminare il processo di failover, che mostra il tempo impiegato per visualizzare una macchina virtuale. 
 
 ## <a name="recovery-plans"></a>Piani di ripristino
 
-### <a name="what-is-a-recovery-plan"></a>Che cos'è un piano di ripristino?
+### <a name="whats-a-recovery-plan"></a>Che cos'è un piano di ripristino?
 
-I piani di ripristino in Site Recovery gestiscono il ripristino del failover delle macchine virtuali. Consentono anche di ottenere un ripristino costantemente accurato, ripetibile e automatizzato. Un piano di ripristino soddisfa le esigenze seguenti:
+Un [piano di ripristino](site-recovery-create-recovery-plans.md) in Site Recovery orchestra il failover e il ripristino delle macchine virtuali. Consente di eseguire il ripristino in modo accurato, ripetibile e automatizzato. Esegue le operazioni seguenti:
 
-- Definizione di un gruppo di macchine virtuali che eseguono il failover contemporaneamente.
-- Definizione di dipendenze tra macchine virtuali, affinché l'applicazione venga visualizzata in modo accurato.
-- Automatizzazione del ripristino con azioni manuali personalizzate, in modo che si possano effettuare attività diverse dal failover delle macchine virtuali.
+- Definisce un gruppo di macchine virtuali di cui viene eseguito il failover
+- Definisce le dipendenze tra le macchine virtuali, in modo che l'applicazione venga visualizzata in modo accurato.
+- Automatizza il ripristino, con l'opzione di azioni manuali personalizzate per attività diverse dal failover della macchina virtuale. 
 
-Altre informazioni sulla [creazione di un piano di ripristino](site-recovery-create-recovery-plans.md).
 
-### <a name="how-is-sequencing-achieved-in-a-recovery-plan"></a>Come si esegue la sequenziazione in un piano di ripristino?
+### <a name="how-does-sequencing-work"></a>Come funziona la sequenziazione?
 
-In un piano di ripristino è possibile creare più gruppi per ottenere la sequenziazione. Ogni gruppo esegue il failover contemporaneamente. Le macchine virtuali che fanno parte dello stesso gruppo eseguono il failover nello stesso momento, seguite da un altro gruppo. Per informazioni su come modellare un'applicazione usando un piano di ripristino, vedere [Informazioni sui piani di ripristino](recovery-plan-overview.md#model-apps).
+In un piano di ripristino è possibile creare più gruppi di macchine virtuali per la sequenziazione. Il failover dei gruppi viene eseguito una sola volta, in modo che le macchine virtuali che fanno parte dello stesso gruppo vengano sottoutilizzate insieme. [Altre informazioni](recovery-plan-overview.md#model-apps)
 
 ### <a name="how-can-i-find-the-rto-of-a-recovery-plan"></a>Come trovo l'RTO di un piano di ripristino?
 
-Per controllare l'RTO di un piano di ripristino, eseguire un failover di test del piano di ripristino e passare a **Processi di Site Recovery**.
-Nell'esempio seguente, esaminare il processo **SAPTestRecoveryPlan**. Il processo ha impiegato 8 minuti e 59 secondi per eseguire il failover di tutte le macchine virtuali ed eseguire le azioni specificate.
+Per controllare il RTO di un piano di ripristino, eseguire un failover di test per il piano di ripristino. In **Site Recovery processi** controllare la durata del failover di test. Nello screenshot di esempio, il processo di failover di test di **SAPTestRecoveryPlan** ha richiesto 8 minuti e 59 secondi.
 
-![Elenco dei processi di Site Recovery](./media/azure-to-azure-troubleshoot-errors/recoveryplanrto.PNG)
+![Elencare i processi che mostrano la durata del failover di test per RTO](./media/azure-to-azure-common-questions/recovery-plan-rto.png)
 
-### <a name="can-i-add-automation-runbooks-to-the-recovery-plan"></a>È possibile aggiungere runbook di Automazione al piano di ripristino?
+### <a name="can-i-add-automation-runbooks-to-recovery-plans"></a>È possibile aggiungere manuali operativi di automazione ai piani di ripristino?
 
-Sì, è possibile integrare i runbook di Automazione di Azure nel piano di ripristino. Altre informazioni sull'[aggiunta di runbook di Automazione di Azure](site-recovery-runbook-automation.md).
+Sì. [Altre informazioni](site-recovery-runbook-automation.md)
 
 ## <a name="reprotection-and-failback"></a>Riprotezione e failback
 
-### <a name="i-failed-over-from-the-primary-region-to-a-disaster-recovery-region-are-vms-in-a-dr-region-protected-automatically"></a>È stato eseguito il failover dall'area primaria a un'area di ripristino di emergenza. Le macchine virtuali in un'area di ripristino di emergenza sono protette automaticamente?
+### <a name="after-failover-are-vms-in-the-secondary-region-protected-automatically"></a>Dopo il failover, le macchine virtuali nell'area secondaria vengono protette automaticamente? 
 
-No. Quando si [esegue il failover](./azure-to-azure-tutorial-failover-failback.md) di macchine virtuali di Azure da un'area a un'altra, le macchine virtuali si avviano nell'area di ripristino di emergenza in uno stato non protetto. Per eseguire il failback delle macchine virtuali nell'area primaria, è necessario [riproteggere](./azure-to-azure-how-to-reprotect.md) le macchine virtuali nell'area secondaria.
+No. Quando si esegue il failover delle macchine virtuali da un'area a un'altra, le macchine virtuali vengono avviate nell'area di ripristino di emergenza di destinazione in uno stato non protetto. Per [riproteggere](./azure-to-azure-how-to-reprotect.md) le macchine virtuali nell'area secondaria, è possibile abilitare la replica nell'area primaria.
 
-### <a name="at-the-time-of-reprotection-does-site-recovery-replicate-complete-data-from-the-secondary-region-to-the-primary-region"></a>Al momento della riprotezione, Site Recovery esegue una replica completa dei dati dall'area secondaria all'area primaria?
+### <a name="when-i-reprotect-is-all-data-replicated-from-the-secondary-region-to-primary"></a>Quando si esegue la riprotezione, tutti i dati vengono replicati dall'area secondaria a quella primaria? 
 
-Dipende dalla situazione. Se la macchina virtuale dell'area di origine esiste, verranno sincronizzate solo le modifiche tra il disco di origine e il disco di destinazione. Site Recovery calcola i backup differenziali, confrontando i dischi e quindi trasferisce i dati. Questo processo richiede in genere alcune ore. Per altre informazioni su cosa accade durante la riprotezione, vedere [Riproteggere istanze di macchine virtuali di Azure sottoposte a failover nell'area primaria](./azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection).
+Dipende da. Se la macchina virtuale dell'area di origine esiste, verranno sincronizzate solo le modifiche tra il disco di origine e il disco di destinazione. Site Recovery Confronta i dischi con quelli diversi e quindi trasferisce i dati. Questo processo richiede in genere alcune ore. [Altre informazioni](azure-to-azure-how-to-reprotect.md#what-happens-during-reprotection)
 
-### <a name="how-much-time-does-it-take-to-fail-back"></a>Quanto tempo richiede l'esecuzione di un failback?
+### <a name="how-long-does-it-take-fail-back"></a>Quanto tempo è opportuno eseguire il failback?
 
-Dopo la riprotezione, il failback richiede circa la stessa quantità di tempo necessaria per eseguire il failover dall'area primaria a un'area secondaria.
+Dopo la riprotezione, il failback richiede circa la stessa quantità di tempo impiegato per eseguire il failover dall'area primaria a un'area secondaria.
 
 ## <a name="capacity"></a><a name="capacity"></a>Capacità
 
-### <a name="how-is-capacity-ensured-in-the-target-region-for-azure-vms"></a>Come viene garantita la capacità nell'area di destinazione per le VM di Azure?
+### <a name="how-do-we-ensure-capacity-in-the-target-region"></a>Come è possibile garantire la capacità nell'area di destinazione?
 
-Il team di Site Recovery e il team di gestione della capacità di Azure pianificano una capacità dell'infrastruttura sufficiente. Quando si avvia un failover, i team contribuiscono anche a garantire che le istanze di VM protette da Site Recovery verranno distribuite nell'area di destinazione.
+Il team di Site Recovery e il team di gestione della capacità di Azure pianificano una capacità dell'infrastruttura sufficiente. Quando si avvia un failover, i team contribuiscono anche a garantire che le istanze di VM protette da Site Recovery possano essere distribuite nell'area di destinazione.
 
 ### <a name="does-site-recovery-work-with-reserved-instances"></a>Site Recovery funzionano con le istanze riservate?
 
-Sì, è possibile acquistare [macchine virtuali di Azure riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/) nell'area di ripristino di emergenza e le operazioni di failover di Site Recovery le useranno. Non è necessaria alcuna configurazione aggiuntiva.
+Sì, è possibile acquistare [macchine virtuali di Azure riservate](https://azure.microsoft.com/pricing/reserved-vm-instances/) nell'area di ripristino di emergenza e Site Recovery le operazioni di failover le usano. Non è necessaria alcuna configurazione aggiuntiva.
 
 ## <a name="security"></a>Sicurezza
 

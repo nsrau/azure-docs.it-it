@@ -7,19 +7,19 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 33b70ba8ab7ffef90c42f53e58a2d27e619862f0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 8be37ed1da0da4da3db43ef4c1cd01ed962f24ed
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84806790"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397309"
 ---
 # <a name="use-private-ip-for-internal-routing-for-an-ingress-endpoint"></a>Usare IP privato per il routing interno per un endpoint in ingresso 
 
 Questa funzionalità consente di esporre l'endpoint in ingresso all'interno di `Virtual Network` usando un indirizzo IP privato.
 
 ## <a name="pre-requisites"></a>Prerequisiti  
-Gateway applicazione con una [configurazione IP privata](https://docs.microsoft.com/azure/application-gateway/configure-application-gateway-with-private-frontend-ip)
+Gateway applicazione con una [configurazione IP privata](./configure-application-gateway-with-private-frontend-ip.md)
 
 Esistono due modi per configurare il controller per l'uso dell'indirizzo IP privato per il traffico in ingresso,
 
@@ -66,4 +66,4 @@ In questo modo il controller di ingresso filtra le configurazioni degli indirizz
 AGIC si agita e si arresta in modo anomalo se `usePrivateIP: true` non viene assegnato un indirizzo IP privato.
 
 > [!NOTE]
-> Lo SKU del gateway applicazione V2 richiede un indirizzo IP pubblico. Se è necessario che il gateway applicazione sia privato, alleghi un [`Network Security Group`](https://docs.microsoft.com/azure/virtual-network/security-overview) alla subnet del gateway applicazione per limitare il traffico.
+> Lo SKU del gateway applicazione V2 richiede un indirizzo IP pubblico. Se è necessario che il gateway applicazione sia privato, alleghi un [`Network Security Group`](../virtual-network/network-security-groups-overview.md) alla subnet del gateway applicazione per limitare il traffico.

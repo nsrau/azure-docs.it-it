@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 0652c49acf58a52244cc27ae3e59120ac7f03858
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c11de2f1bc4143281d2859de7a38268932b13fba
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84807096"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397400"
 ---
 # <a name="install-an-application-gateway-ingress-controller-agic-using-an-existing-application-gateway"></a>Installare un controller di ingresso del gateway applicazione (AGIC) usando un gateway applicazione esistente
 
@@ -29,8 +29,8 @@ AGIC monitora le risorse di [ingresso](https://kubernetes.io/docs/concepts/servi
 
 ## <a name="prerequisites"></a>Prerequisiti
 In questo documento si presuppone che siano già installati gli strumenti e l'infrastruttura seguenti:
-- [AKS](https://azure.microsoft.com/services/kubernetes-service/) con [rete avanzata](https://docs.microsoft.com/azure/aks/configure-azure-cni) abilitata
-- [Gateway applicazione V2](https://docs.microsoft.com/azure/application-gateway/create-zone-redundant) nella stessa rete virtuale di AKS
+- [AKS](https://azure.microsoft.com/services/kubernetes-service/) con [rete avanzata](../aks/configure-azure-cni.md) abilitata
+- [Gateway applicazione V2](./tutorial-autoscale-ps.md) nella stessa rete virtuale di AKS
 - [Identità Pod AAD](https://github.com/Azure/aad-pod-identity) installata nel cluster AKS
 - [Cloud Shell](https://shell.azure.com/) è l'ambiente di Azure Shell, in cui è installata l'interfaccia della riga di comando `az` , `kubectl` e `helm` . Questi strumenti sono necessari per i comandi seguenti.
 
@@ -41,10 +41,10 @@ __Eseguire il backup della configurazione del gateway applicazione prima di__ in
 Il file zip scaricato avrà i modelli JSON, bash e gli script di PowerShell che è possibile usare per ripristinare il gateway app che diventa necessario
 
 ## <a name="install-helm"></a>Installare Helm
-[Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) è una gestione pacchetti per Kubernetes. Verrà usato per installare il `application-gateway-kubernetes-ingress` pacchetto.
+[Helm](../aks/kubernetes-helm.md) è una gestione pacchetti per Kubernetes. Verrà usato per installare il `application-gateway-kubernetes-ingress` pacchetto.
 Usare [cloud Shell](https://shell.azure.com/) per installare Helm:
 
-1. Installare [Helm](https://docs.microsoft.com/azure/aks/kubernetes-helm) ed eseguire il comando seguente per aggiungere il `application-gateway-kubernetes-ingress` pacchetto Helm:
+1. Installare [Helm](../aks/kubernetes-helm.md) ed eseguire il comando seguente per aggiungere il `application-gateway-kubernetes-ingress` pacchetto Helm:
 
     - *RBAC abilitato* Cluster AKS
 
@@ -72,7 +72,7 @@ AGIC comunica con il server API Kubernetes e il Azure Resource Manager. Per acce
 
 ## <a name="set-up-aad-pod-identity"></a>Configurare l'identità di AAD Pod
 
-L' [identità del Pod AAD](https://github.com/Azure/aad-pod-identity) è un controller, simile a AGIC, che viene eseguito anche nel servizio contenitore di Azure. Associa Azure Active Directory identità ai pod Kubernetes. L'identità è necessaria per consentire a un'applicazione in un pod Kubernetes di comunicare con altri componenti di Azure. Nel caso specifico, è necessario disporre dell'autorizzazione per il Pod AGIC per eseguire richieste HTTP a [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+L' [identità del Pod AAD](https://github.com/Azure/aad-pod-identity) è un controller, simile a AGIC, che viene eseguito anche nel servizio contenitore di Azure. Associa Azure Active Directory identità ai pod Kubernetes. L'identità è necessaria per consentire a un'applicazione in un pod Kubernetes di comunicare con altri componenti di Azure. Nel caso specifico, è necessario disporre dell'autorizzazione per il Pod AGIC per eseguire richieste HTTP a [ARM](../azure-resource-manager/management/overview.md).
 
 Seguire le [istruzioni di installazione di AAD Pod Identity](https://github.com/Azure/aad-pod-identity#deploy-the-azure-aad-identity-infra) per aggiungere questo componente al AKS.
 
@@ -323,7 +323,7 @@ Ampliare le autorizzazioni di AGIC con:
     ```
 
 ### <a name="enable-for-an-existing-agic-installation"></a>Abilita per un'installazione di AGIC esistente
-Si supponga di avere già un AKS funzionante, un gateway applicazione e un AGIC configurato nel cluster. Si dispone di un ingresso per `prod.contosor.com` e il traffico per esso viene servito da AKS. Si vuole aggiungere `staging.contoso.com` al gateway applicazione esistente, ma è necessario ospitarlo in una [macchina virtuale](https://azure.microsoft.com/services/virtual-machines/). Verrà riutilizzato il gateway applicazione esistente e verranno configurati manualmente un listener e i pool back-end per `staging.contoso.com` . Tuttavia, la modifica manuale della configurazione del gateway applicazione (tramite il [portale](https://portal.azure.com), le [API ARM](https://docs.microsoft.com/rest/api/resources/) o la [bonifica](https://www.terraform.io/)) potrebbe essere in conflitto con i presupposti di AGIC di proprietà completa. Subito dopo l'applicazione delle modifiche, AGIC li sovrascriverà o li eliminerà.
+Si supponga di avere già un AKS funzionante, un gateway applicazione e un AGIC configurato nel cluster. Si dispone di un ingresso per `prod.contosor.com` e il traffico per esso viene servito da AKS. Si vuole aggiungere `staging.contoso.com` al gateway applicazione esistente, ma è necessario ospitarlo in una [macchina virtuale](https://azure.microsoft.com/services/virtual-machines/). Verrà riutilizzato il gateway applicazione esistente e verranno configurati manualmente un listener e i pool back-end per `staging.contoso.com` . Tuttavia, la modifica manuale della configurazione del gateway applicazione (tramite il [portale](https://portal.azure.com), le [API ARM](/rest/api/resources/) o la [bonifica](https://www.terraform.io/)) potrebbe essere in conflitto con i presupposti di AGIC di proprietà completa. Subito dopo l'applicazione delle modifiche, AGIC li sovrascriverà o li eliminerà.
 
 È possibile impedire a AGIC di apportare modifiche a un subset di configurazione.
 

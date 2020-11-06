@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 06/09/2020
 ms.author: victorh
-ms.openlocfilehash: 308098bd1ac49510afccf0a7964face726906332
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: fe6ea6f348d796962141bd39ff858d891a29a2f6
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84628685"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397689"
 ---
 # <a name="application-gateway-support-for-multi-tenant-back-ends-such-as-app-service"></a>Supporto del gateway applicazione per back-end multi-tenant, ad esempio il servizio app
 
@@ -28,11 +28,11 @@ Il gateway applicazione offre una funzionalità che consente agli utenti di eseg
 
 ## <a name="override-host-header-in-the-request"></a>Esegui override dell'intestazione host nella richiesta
 
-La possibilità di specificare un override dell'host è definita nelle [impostazioni http](https://docs.microsoft.com/azure/application-gateway/configuration-overview#http-settings) e può essere applicata a qualsiasi pool back-end durante la creazione della regola. Sono supportate le seguenti due modalità di override dell'intestazione host e dell'estensione SNI per i back-end multi-tenant:
+La possibilità di specificare un override dell'host è definita nelle [impostazioni http](./configuration-overview.md#http-settings) e può essere applicata a qualsiasi pool back-end durante la creazione della regola. Sono supportate le seguenti due modalità di override dell'intestazione host e dell'estensione SNI per i back-end multi-tenant:
 
 - Possibilità di impostare il nome host su un valore fisso immesso in modo esplicito nelle impostazioni HTTP. Questa funzionalità garantisce che l'intestazione host venga sottoposta a override in questo valore per tutto il traffico verso il pool back-end in cui vengono applicate le impostazioni HTTP specifiche. Quando si usa TLS end-to-end, questo nome host sottoposto a override viene usato nell'estensione SNI. Questa funzionalità supporta gli scenari in cui la farm di un pool back-end prevede un'intestazione host diversa dall'intestazione host in ingresso del cliente.
 
-- È possibile derivare il nome host dall'indirizzo IP o dal nome di dominio completo dei membri del pool back-end. Le impostazioni HTTP forniscono anche un'opzione per scegliere dinamicamente il nome host da un FQDN del membro del pool back-end se configurato con l'opzione per derivare il nome host da un singolo membro del pool back-end. Quando si usa TLS end-to-end, il nome host è derivato dall'FQDN e viene usato nell'estensione SNI. Questa funzionalità supporta gli scenari in cui un pool back-end può avere due o più servizi PaaS multi-tenant, come App Web di Azure e l'intestazione host della richiesta per ogni membro contiene il nome host derivato dal rispettivo nome di dominio completo. Per l'implementazione di questo scenario, viene usata un'opzione nelle impostazioni HTTP denominata [pick hostname from back-end](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address) , che eseguirà l'override dinamico dell'intestazione host nella richiesta originale con quella indicata nel pool back-end.  Se, ad esempio, il nome di dominio completo del pool back-end contiene "contoso11.azurewebsites.net" e "contoso22.azurewebsites.net", l'intestazione host della richiesta originale, contoso.com, verrà sottoposta a override in contoso11.azurewebsites.net o contoso22.azurewebsites.net quando la richiesta viene inviata al server back-end appropriato. 
+- È possibile derivare il nome host dall'indirizzo IP o dal nome di dominio completo dei membri del pool back-end. Le impostazioni HTTP forniscono anche un'opzione per scegliere dinamicamente il nome host da un FQDN del membro del pool back-end se configurato con l'opzione per derivare il nome host da un singolo membro del pool back-end. Quando si usa TLS end-to-end, il nome host è derivato dall'FQDN e viene usato nell'estensione SNI. Questa funzionalità supporta gli scenari in cui un pool back-end può avere due o più servizi PaaS multi-tenant, come App Web di Azure e l'intestazione host della richiesta per ogni membro contiene il nome host derivato dal rispettivo nome di dominio completo. Per l'implementazione di questo scenario, viene usata un'opzione nelle impostazioni HTTP denominata [pick hostname from back-end](./configuration-http-settings.md#pick-host-name-from-back-end-address) , che eseguirà l'override dinamico dell'intestazione host nella richiesta originale con quella indicata nel pool back-end.  Se, ad esempio, il nome di dominio completo del pool back-end contiene "contoso11.azurewebsites.net" e "contoso22.azurewebsites.net", l'intestazione host della richiesta originale, contoso.com, verrà sottoposta a override in contoso11.azurewebsites.net o contoso22.azurewebsites.net quando la richiesta viene inviata al server back-end appropriato. 
 
   ![Scenario con app Web](./media/application-gateway-web-app-overview/scenario.png)
 
@@ -59,8 +59,8 @@ Possono verificarsi scenari in cui il nome host nella risposta dal servizio app 
 - È stato configurato il reindirizzamento nel servizio app. Il reindirizzamento può essere semplice quanto aggiungere una barra finale alla richiesta.
 - Si dispone di Azure AD autenticazione che causa il reindirizzamento.
 
-Per risolvere questi casi, vedere [risolvere i problemi relativi al reindirizzamento al problema di URL del servizio app](https://docs.microsoft.com/azure/application-gateway/troubleshoot-app-service-redirection-app-service-url).
+Per risolvere questi casi, vedere [risolvere i problemi relativi al reindirizzamento al problema di URL del servizio app](./troubleshoot-app-service-redirection-app-service-url.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come configurare un gateway applicazione con un'app multi-tenant, ad esempio app Azure app Web del servizio come membro del pool back-end, visitando [configurare app Web del servizio app con il gateway applicazione](https://docs.microsoft.com/azure/application-gateway/configure-web-app-portal)
+Informazioni su come configurare un gateway applicazione con un'app multi-tenant, ad esempio app Azure app Web del servizio come membro del pool back-end, visitando [configurare app Web del servizio app con il gateway applicazione](./configure-web-app-portal.md)

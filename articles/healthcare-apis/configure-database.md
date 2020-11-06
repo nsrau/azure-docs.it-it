@@ -7,18 +7,18 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 11/15/2019
 ms.author: matjazl
-ms.openlocfilehash: 2850f831100533908d55c4aab372338e07b3807f
-ms.sourcegitcommit: 2e72661f4853cd42bb4f0b2ded4271b22dc10a52
+ms.openlocfilehash: 3fe4118a8ecf4479732ba4073b342d3ec9f941b8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92042491"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398199"
 ---
 # <a name="configure-database-settings"></a>Configurare le impostazioni del database 
 
 API di Azure per FHIR usa il database per archiviare i dati. Le prestazioni del database sottostante dipendono dal numero di unità richiesta (UR) selezionate durante il provisioning del servizio o nelle impostazioni del database dopo il provisioning del servizio.
 
-L'API di Azure per FHIR prende in prestito il concetto di ur da Cosmos DB (vedere [unità richiesta in Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/request-units)) quando si configurano le prestazioni del database sottostante. 
+L'API di Azure per FHIR prende in prestito il concetto di ur da Cosmos DB (vedere [unità richiesta in Azure Cosmos DB](../cosmos-db/request-units.md)) quando si configurano le prestazioni del database sottostante. 
 
 È necessario effettuare il provisioning della velocità effettiva per garantire che le risorse di sistema sufficienti siano sempre disponibili per il database. Il numero di ur necessarie per l'applicazione dipende dalle operazioni eseguite. Le operazioni possono variare da semplici letture e scritture a query più complesse. 
 

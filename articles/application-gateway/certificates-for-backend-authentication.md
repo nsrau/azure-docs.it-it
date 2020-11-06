@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/17/2020
 ms.author: absha
-ms.openlocfilehash: 69d388b12e564b307cd117c3a86ae960dabaa937
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 874e554063f64ddefce99a223678d64b2e0774c3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91362713"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397723"
 ---
 # <a name="create-certificates-to-allow-the-backend-with-azure-application-gateway"></a>Creare certificati per consentire il back-end con applicazione Azure gateway
 
@@ -51,7 +51,7 @@ Dal certificato TLS/SSL esportare il file con estensione cer della chiave pubbli
 
    ![Codifica Base 64](./media/certificates-for-backend-authentication/base64.png)
 
-5. In **File da esportare** fare clic su **Sfoglia** e passare alla posizione in cui si vuole esportare il certificato. Per **Nome file**, assegnare un nome al file del certificato. Quindi fare clic su **Next**.
+5. In **File da esportare** fare clic su **Sfoglia** e passare alla posizione in cui si vuole esportare il certificato. Per **Nome file** , assegnare un nome al file del certificato. Quindi fare clic su **Next**.
 
    ![Screenshot che mostra l'esportazione guidata certificati in cui si specifica un file da esportare.](./media/certificates-for-backend-authentication/browse.png)
 
@@ -105,5 +105,4 @@ La procedura seguente consente di esportare il file con estensione CER per il ce
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto è disponibile il certificato di autenticazione/certificato radice attendibile in base 64 con codifica X. 509 (. Formato CER). È possibile aggiungerlo al gateway applicazione per consentire ai server back-end la crittografia TLS end-to-end. Vedere [configurare TLS end-to-end usando il gateway applicazione con PowerShell](https://docs.microsoft.com/azure/application-gateway/application-gateway-end-to-end-ssl-powershell).
-
+A questo punto è disponibile il certificato di autenticazione/certificato radice attendibile in base 64 con codifica X. 509 (. Formato CER). È possibile aggiungerlo al gateway applicazione per consentire ai server back-end la crittografia TLS end-to-end. Vedere [configurare TLS end-to-end usando il gateway applicazione con PowerShell](./application-gateway-end-to-end-ssl-powershell.md).

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 5e0533a44db269229b2f26fa8d2f2b4f84f4d0b4
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8f015085baa8fffa6f208e9d8dd749e397c76c3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85125464"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397434"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Ridimensionare automaticamente i pod AKS usando le metriche del gateway applicazione (beta)
 
@@ -23,7 +23,7 @@ Nell'esercitazione seguente viene illustrato come è possibile usare la metrica 
 Verranno usati i due componenti seguenti:
 
 * [`Azure Kubernetes Metric Adapter`](https://github.com/Azure/azure-k8s-metrics-adapter) -Si userà la metrica Adapter per esporre le metriche del gateway applicazione tramite il server della metrica. Azure Kubernetes Metric Adapter è un progetto open source in Azure, simile al controller di ingresso del gateway applicazione. 
-* [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) -Si userà HPA per usare le metriche del gateway applicazione e come destinazione una distribuzione per la scalabilità.
+* [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) -Si userà HPA per usare le metriche del gateway applicazione e come destinazione una distribuzione per la scalabilità.
 
 ## <a name="setting-up-azure-kubernetes-metric-adapter"></a>Impostazione della scheda metrica di Azure Kubernetes
 
@@ -92,7 +92,7 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 ## <a name="using-the-new-metric-to-scale-up-the-deployment"></a>Uso della nuova metrica per la scalabilità verticale della distribuzione
 
-Una volta che è possibile esporre `appgw-request-count-metric` tramite il server delle metriche, è possibile usare [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) per aumentare il livello di distribuzione della destinazione.
+Una volta che è possibile esporre `appgw-request-count-metric` tramite il server delle metriche, è possibile usare [`Horizontal Pod Autoscaler`](../aks/concepts-scale.md#horizontal-pod-autoscaler) per aumentare il livello di distribuzione della destinazione.
 
 Nell'esempio seguente viene scelta la destinazione di una distribuzione di esempio `aspnet` . Si aumenteranno i pod quando `appgw-request-count-metric` > 200 per ogni pod fino a un massimo di `10` pod.
 

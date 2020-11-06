@@ -9,16 +9,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 06/07/2017
-ms.openlocfilehash: 2c6797a0f0f2d4d655bcdabe732f6b14c8f0f562
-ms.sourcegitcommit: 33368ca1684106cb0e215e3280b828b54f7e73e8
+ms.openlocfilehash: 1464c0c0b0d573711ed07332a76bb67e73dc0484
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/16/2020
-ms.locfileid: "92131208"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397774"
 ---
 # <a name="overview-of-integration-between-application-gateway-and-azure-security-center"></a>Panoramica dell'integrazione tra il gateway applicazione e il Centro sicurezza di Azure
 
-Informazioni sulla protezione delle risorse dell'applicazione Web tramite il gateway applicazione e il Centro sicurezza di Azure. Il web application firewall (WAF) del gateway applicazione è integrato nel [Centro sicurezza](../security-center/security-center-intro.md) per offrire alle applicazioni Web non protette dell'ambiente una visualizzazione semplice per prevenire, rilevare e rispondere alle minacce.
+Informazioni sulla protezione delle risorse dell'applicazione Web tramite il gateway applicazione e il Centro sicurezza di Azure. Il web application firewall (WAF) del gateway applicazione è integrato nel [Centro sicurezza](../security-center/security-center-introduction.md) per offrire alle applicazioni Web non protette dell'ambiente una visualizzazione semplice per prevenire, rilevare e rispondere alle minacce.
 
 ## <a name="overview"></a>Panoramica
 
@@ -30,7 +30,7 @@ Se si fa clic su una raccomandazione relativa a web application firewall, viene 
 
 ## <a name="add-a-web-application-firewall-to-an-existing-resource"></a>Aggiungere un web application firewall a una risorsa esistente
 
-Passare a **tutti i servizi**  >  **sicurezza e identità**  >  **Centro sicurezza** e nel **Centro sicurezza-Panoramica**, fare clic su **applicazioni**. La tabella in **Centro sicurezza PC - Applicazioni** contiene un elenco delle applicazioni rilevate dal Centro sicurezza nella sottoscrizione.
+Passare a **tutti i servizi**  >  **sicurezza e identità**  >  **Centro sicurezza** e nel **Centro sicurezza-Panoramica** , fare clic su **applicazioni**. La tabella in **Centro sicurezza PC - Applicazioni** contiene un elenco delle applicazioni rilevate dal Centro sicurezza nella sottoscrizione.
 
 ![applicazioni Web][3]
 
@@ -50,7 +50,7 @@ L'aggiunta di un'applicazione Web a un gateway applicazione tramite il Centro si
 
 ## <a name="add-a-resource-to-an-existing-web-application-firewall"></a>Aggiungere una risorsa a un web application firewall esistente
 
-Passare a **tutti i servizi**  >  **sicurezza e identità**  >  **Centro sicurezza** e nel **Centro sicurezza-Panoramica**fare clic su **soluzioni partner**. I gateway applicazione compatibili con il Centro sicurezza esistenti sono visualizzati nella pagina **Soluzioni partner**.
+Passare a **tutti i servizi**  >  **sicurezza e identità**  >  **Centro sicurezza** e nel **Centro sicurezza-Panoramica** fare clic su **soluzioni partner**. I gateway applicazione compatibili con il Centro sicurezza esistenti sono visualizzati nella pagina **Soluzioni partner**.
 
 ![soluzioni partner][7]
 
@@ -76,7 +76,7 @@ La selezione di una regola fornirà un elenco di avvisi per la regola WAF specif
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come abilitare il web application firewall in un gateway applicazione esistente, vedere [Creare o aggiornare un gateway applicazione di Azure con web application firewall](application-gateway-web-application-firewall-portal.md).
+Per informazioni su come abilitare il web application firewall in un gateway applicazione esistente, vedere [Creare o aggiornare un gateway applicazione di Azure con web application firewall](../web-application-firewall/ag/application-gateway-web-application-firewall-portal.md).
 
 [1]: ./media/application-gateway-integration-security-center/figure1.png
 [2]: ./media/application-gateway-integration-security-center/figure2.png

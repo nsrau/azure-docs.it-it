@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: ff3e9db4dcfe0bedc348323dbbddd1e66124fc5d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5b34c559c8320961a2e96a663d88001400c572d3
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91360158"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397519"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Creare pagine di errore personalizzate del gateway applicazione
 
@@ -22,16 +22,16 @@ Il gateway applicazione consente di creare pagine di errore personalizzate da vi
 
 Le pagine di errore personalizzate sono supportate per i due scenari seguenti:
 
-- **Pagina Manutenzione**: questa pagina di errore personalizzata viene inviata al posto di una pagina 502 - Gateway non valido. Viene visualizzata quando il gateway applicazione non dispone di back-end a cui indirizzare il traffico. Quando, ad esempio, è pianificata la manutenzione oppure quando un problema imprevisto influisce sull'accesso al pool back-end.
-- **Pagina Accesso non autorizzato**: questa pagina di errore personalizzata viene inviata al posto di una pagina 403 - Accesso non autorizzato. Viene visualizzata quando il WAF del gateway applicazione rileva traffico dannoso e lo blocca.
+- **Pagina Manutenzione** : questa pagina di errore personalizzata viene inviata al posto di una pagina 502 - Gateway non valido. Viene visualizzata quando il gateway applicazione non dispone di back-end a cui indirizzare il traffico. Quando, ad esempio, è pianificata la manutenzione oppure quando un problema imprevisto influisce sull'accesso al pool back-end.
+- **Pagina Accesso non autorizzato** : questa pagina di errore personalizzata viene inviata al posto di una pagina 403 - Accesso non autorizzato. Viene visualizzata quando il WAF del gateway applicazione rileva traffico dannoso e lo blocca.
 
 Se un errore proviene dai server back-end, viene reinviato senza modifiche al chiamante. Non viene visualizzata una pagina di errore personalizzata. Il gateway applicazione può visualizzare una pagina di errore personalizzata quando una richiesta non riesce a raggiungere il back-end.
 
 Le pagine di errore personalizzate possono essere definite a livello globale e a livello di listener:
 
-- **Livello globale**: la pagina di errore è applicabile al traffico di tutte le applicazioni Web distribuite nel gateway applicazione specifico.
-- **Livello di listener**: la pagina di errore è applicabile al traffico ricevuto nel listener specifico.
-- **Entrambi i livelli**: la pagina di errore personalizzata definita a livello di listener sostituisce quella impostata a livello globale.
+- **Livello globale** : la pagina di errore è applicabile al traffico di tutte le applicazioni Web distribuite nel gateway applicazione specifico.
+- **Livello di listener** : la pagina di errore è applicabile al traffico ricevuto nel listener specifico.
+- **Entrambi i livelli** : la pagina di errore personalizzata definita a livello di listener sostituisce quella impostata a livello globale.
 
 Per creare una pagina di errore personalizzata è necessario disporre di:
 
@@ -81,7 +81,7 @@ $listener01 = Get-AzApplicationGatewayHttpListener -Name <listener-name> -Applic
 $updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl "http://<website-url>"
 ```
 
-Per altre informazioni, vedere [Add-AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) e [Add-AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
+Per altre informazioni, vedere [Add-AzApplicationGatewayCustomError](/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) e [Add-AzApplicationGatewayHttpListenerCustomError](/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 953430421bd30aaa1df352451b549994aeaa1a70
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: cffc15974bf5a016a4584f5c5f3dcc8a185c9824
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85556158"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397332"
 ---
 # <a name="enable-multiple-namespace-support-in-an-aks-cluster-with-application-gateway-ingress-controller"></a>Abilitare più supporto dello spazio dei nomi in un cluster AKS con il controller di ingresso del gateway applicazione
 
@@ -35,7 +35,7 @@ Una volta distribuita con la possibilità di osservare più spazi dei nomi, AGIC
   - elencare le risorse in ingresso da tutti gli spazi dei nomi accessibili
   - filtrare per le risorse in ingresso annotate con `kubernetes.io/ingress.class: azure/application-gateway`
   - comporre la [configurazione del gateway applicazione](https://github.com/Azure/azure-sdk-for-go/blob/37f3f4162dfce955ef5225ead57216cf8c1b2c70/services/network/mgmt/2016-06-01/network/models.go#L1710-L1744) combinato
-  - applicare la configurazione al gateway applicazione associato tramite [ARM](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)
+  - applicare la configurazione al gateway applicazione associato tramite [ARM](../azure-resource-manager/management/overview.md)
 
 ## <a name="conflicting-configurations"></a>Configurazioni in conflitto
 Più risorse di [ingresso](https://kubernetes.io/docs/concepts/services-networking/ingress/#the-ingress-resource) con spazio dei nomi possono indicare a AGIC di creare configurazioni in conflitto per un singolo gateway applicazione. (Due ingress che rivendicano lo stesso dominio per l'istanza).
@@ -90,7 +90,7 @@ Nonostante le due risorse in ingresso che richiedono che il traffico `www.contos
   - Impostazioni HTTP: `bp-production-contoso-web-service-80-80-websocket-ingress`
   - Probe di integrità: `pb-production-contoso-web-service-80-websocket-ingress`
 
-Si noti che, ad eccezione del *listener* e della *regola di routing*, le risorse del gateway applicazione create includono il nome dello spazio dei nomi ( `production` ) per il quale sono state create.
+Si noti che, ad eccezione del *listener* e della *regola di routing* , le risorse del gateway applicazione create includono il nome dello spazio dei nomi ( `production` ) per il quale sono state create.
 
 Se le due risorse in ingresso vengono introdotte nel cluster AKS in momenti diversi, è probabile che AGIC si trovi in uno scenario in cui riconfigura il gateway applicazione e reindirizza il traffico da `namespace-B` a `namespace-A` .
 
@@ -99,7 +99,7 @@ Se ad esempio è stato aggiunto per `staging` primo, AGIC configurerà il gatewa
 ## <a name="restrict-access-to-namespaces"></a>Limitare l'accesso agli spazi dei nomi
 Per impostazione predefinita, AGIC configurerà il gateway applicazione in base all'ingresso con annotazioni all'interno di qualsiasi spazio dei nomi. Se si desidera limitare questo comportamento, sono disponibili le opzioni seguenti:
   - limitare gli spazi dei nomi, definendo in modo esplicito gli spazi dei nomi AGIC dovrebbe osservare tramite la `watchNamespace` chiave YAML in [Helm-config. YAML](#sample-helm-config-file)
-  - utilizzare [Role/Role](https://docs.microsoft.com/azure/aks/azure-ad-rbac) per limitare AGIC a spazi dei nomi specifici
+  - utilizzare [Role/Role](../aks/azure-ad-rbac.md) per limitare AGIC a spazi dei nomi specifici
 
 ## <a name="sample-helm-config-file"></a>File di configurazione Helm di esempio
 
@@ -155,4 +155,3 @@ Per impostazione predefinita, AGIC configurerà il gateway applicazione in base 
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
 ```
-

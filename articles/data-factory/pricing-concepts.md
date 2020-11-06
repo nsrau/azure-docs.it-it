@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 13a05089ae6365bb5d279105f8c010278bd0adb8
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90983617"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93396006"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Determinazione dei prezzi di Data Factory ed esempi
 
@@ -48,7 +48,7 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 | Ottenere la pipeline | 1 Entità di lettura/scrittura |
 | Eseguire la pipeline | 2 Esecuzioni di attività (1 per l'esecuzione di trigger, 1 per le esecuzioni di attività) |
 | Presupposto di copia dei dati: tempo di esecuzione = 10 min | 10 \* 4 Azure Integration Runtime (impostazione DIU predefinita = 4) Per altre informazioni sulle unità di integrazione dati e l'ottimizzazione delle prestazioni di copia, vedere [questo articolo](copy-activity-performance.md) |
-| Presupposto di monitoraggio della pipeline: solo 1 esecuzione effettuata | 2 Record di esecuzione monitoraggio ritentata (1 per l'esecuzione di pipeline, 1 per l'esecuzione di attività) |
+| Presupposto di monitoraggio della pipeline: solo 1 esecuzione effettuata | 2 monitoraggio dei record eseguiti recuperati (1 per l'esecuzione della pipeline, 1 per l'esecuzione dell'attività) |
 
 **Prezzo totale scenario: $ 0,16811**
 
@@ -79,7 +79,7 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 | Ottenere la pipeline | 1 Entità di lettura/scrittura |
 | Eseguire la pipeline | 3 Esecuzioni di attività (1 per l'esecuzione di trigger, 2 per le esecuzioni di attività) |
 | Presupposto di copia dei dati: tempo di esecuzione = 10 min | 10 \* 4 Azure Integration Runtime (impostazione DIU predefinita = 4) Per altre informazioni sulle unità di integrazione dati e l'ottimizzazione delle prestazioni di copia, vedere [questo articolo](copy-activity-performance.md) |
-| Presupposto di monitoraggio della pipeline: solo 1 esecuzione effettuata | 3 Record di esecuzione monitoraggio ritentata (1 per l'esecuzione di pipeline, 2 per l'esecuzione di attività) |
+| Presupposto di monitoraggio della pipeline: solo 1 esecuzione effettuata | 3 record di esecuzione del monitoraggio recuperati (1 per l'esecuzione della pipeline, 2 per l'esecuzione dell'attività) |
 | Presupposto di esecuzione di attività Databricks: tempo di esecuzione = 10 min | 10 min Esecuzione di attività di pipeline esterna |
 
 **Prezzo totale scenario: $ 0,16916**
@@ -113,7 +113,7 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 | Ottenere la pipeline | 1 Entità di lettura/scrittura |
 | Eseguire la pipeline | 4 Esecuzioni di attività (1 per l'esecuzione di trigger, 3 per le esecuzioni di attività) |
 | Presupposto di copia dei dati: tempo di esecuzione = 10 min | 10 \* 4 Azure Integration Runtime (impostazione DIU predefinita = 4) Per altre informazioni sulle unità di integrazione dati e l'ottimizzazione delle prestazioni di copia, vedere [questo articolo](copy-activity-performance.md) |
-| Presupposto di monitoraggio della pipeline: solo 1 esecuzione effettuata | 4 Record di esecuzione monitoraggio ritentata (1 per l'esecuzione di pipeline, 3 per l'esecuzione di attività) |
+| Presupposto di monitoraggio della pipeline: solo 1 esecuzione effettuata | 4 record di esecuzione del monitoraggio recuperati (1 per l'esecuzione della pipeline, 3 per l'esecuzione dell'attività) |
 | Presupposto di esecuzione di attività di ricerca: tempo di esecuzione = 1 min | 1 min Esecuzione di attività di pipeline |
 | Presupposto di esecuzione di attività Databricks: tempo di esecuzione = 10 min | 10 min Esecuzione di attività di pipeline esterna |
 
@@ -160,7 +160,7 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 | Ottenere la pipeline | 1 Entità di lettura/scrittura |
 | Eseguire la pipeline | 2 Esecuzioni di attività (1 per l'esecuzione di trigger, 1 per le esecuzioni di attività) |
 | Presupposti del flusso di dati: tempo di esecuzione = 10 min + 10 min TTL | 10 \* 16 core di calcolo generale con TTL di 10 |
-| Presupposto di monitoraggio della pipeline: solo 1 esecuzione effettuata | 2 Record di esecuzione monitoraggio ritentata (1 per l'esecuzione di pipeline, 1 per l'esecuzione di attività) |
+| Presupposto di monitoraggio della pipeline: solo 1 esecuzione effettuata | 2 monitoraggio dei record eseguiti recuperati (1 per l'esecuzione della pipeline, 1 per l'esecuzione dell'attività) |
 
 **Prezzi dello scenario totale: $1,4631**
 
@@ -189,7 +189,7 @@ In questo scenario si vogliono eliminare i file originali nell'archivio BLOB di 
 | Eseguire la pipeline | 6 esecuzioni attività (2 per l'esecuzione del trigger, 4 per le esecuzioni di attività) |
 | Esegui attività di eliminazione: ogni tempo di esecuzione = 5 min. L'esecuzione dell'attività Delete nella prima pipeline è da 10:00 UTC a 10:05 AM UTC. L'esecuzione dell'attività Delete nella seconda pipeline è da 10:02 UTC a 10:07 AM UTC.|Totale di 7 minuti di esecuzione dell'attività pipeline in VNET gestiti. L'attività della pipeline supporta fino a 50 di concorrenza nei VNET gestiti. |
 | Copia dati presupposto: ogni tempo di esecuzione = 10 min. L'esecuzione della copia nella prima pipeline è da 10:06 UTC a 10:15 AM UTC. L'esecuzione dell'attività Delete nella seconda pipeline è da 10:08 UTC a 10:17 AM UTC. | 10 * 4 Azure Integration Runtime (impostazione predefinita DIU = 4) per ulteriori informazioni sulle unità di integrazione dei dati e sull'ottimizzazione delle prestazioni di copia, vedere [questo articolo](copy-activity-performance.md) . |
-| Presupposto della pipeline di monitoraggio: sono state eseguite solo 2 esecuzioni | 6 monitoraggio delle esecuzioni dei record eseguiti (2 per l'esecuzione della pipeline, 4 per l'esecuzione dell'attività) |
+| Presupposto della pipeline di monitoraggio: sono state eseguite solo 2 esecuzioni | 6 monitoraggio dei record eseguiti recuperati (2 per l'esecuzione della pipeline, 4 per l'esecuzione dell'attività) |
 
 
 **Prezzi dello scenario totale: $0,45523**

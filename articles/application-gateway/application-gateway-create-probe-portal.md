@@ -8,17 +8,17 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: 5dc8bf670e14d8a44b10b8093d786091791ae793
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 5d2760415e4f4ef3b181f2fb69802659fec3ef66
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86186792"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397876"
 ---
 # <a name="create-a-custom-probe-for-application-gateway-by-using-the-portal"></a>Creare un probe personalizzato per un gateway applicazione con il portale
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](application-gateway-create-probe-portal.md)
+> * [Azure portal](application-gateway-create-probe-portal.md)
 > * [PowerShell per Azure Resource Manager](application-gateway-create-probe-ps.md)
 > * [PowerShell per Azure classico](application-gateway-create-probe-classic-ps.md)
 
@@ -26,7 +26,7 @@ In questo articolo viene aggiunto un probe di integrità personalizzato a un gat
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Se non si dispone già di un gateway applicazione, vedere [Creare un gateway applicazione con il portale](application-gateway-create-gateway-portal.md) per creare un gateway applicazione da usare.
+Se non si dispone già di un gateway applicazione, vedere [Creare un gateway applicazione con il portale](./quick-create-portal.md) per creare un gateway applicazione da usare.
 
 ## <a name="create-probe-for-application-gateway-v2-sku"></a>Creazione del probe per lo SKU del gateway applicazione V2
 
@@ -49,14 +49,14 @@ I probe vengono configurati con un processo in due passaggi nel portale. Il prim
    |**Nome**|customProbe|Questo valore è un nome descrittivo assegnato al Probe accessibile nel portale.|
    |**Protocollo**|HTTP o HTTPS | Protocollo usato per il probe di integrità. |
    |**Host**|vale a dire contoso.com|Questo valore è il nome dell'host virtuale, diverso dal nome host della macchina virtuale, in esecuzione nel server applicazioni. Il probe viene inviato a \<protocol\> :// \<host name\> :\<port\>/\<urlPath\>|
-   |**Selezionare il nome host da impostazioni HTTP back-end**|Sì o No|Imposta l'intestazione *host* nel Probe sul nome host dalle impostazioni http a cui è associato il probe. Requisito speciale in caso di backend multi-tenant, ad esempio servizio app di Azure. [Scopri di più](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Selezionare il nome host da impostazioni HTTP back-end**|Sì o No|Imposta l'intestazione *host* nel Probe sul nome host dalle impostazioni http a cui è associato il probe. Requisito speciale in caso di backend multi-tenant, ad esempio servizio app di Azure. [Scopri di più](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
    |**Selezionare la porta dalle impostazioni HTTP back-end**| Sì o No|Imposta la *porta* del probe di integrità sulla porta dalle impostazioni http a cui è associato il probe. Se si sceglie No, è possibile immettere una porta di destinazione personalizzata da usare |
    |**Porta**| 1-65535 | Porta personalizzata da usare per i probe di integrità | 
    |**Percorso**|/o qualsiasi percorso valido|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito http: \/ /contoso.com è sufficiente usare '/' |
    |**Intervallo (sec)**|30|Frequenza con cui viene eseguito il probe per controllare l'integrità. Non è consigliabile impostare un valore inferiore a 30 secondi.|
    |**Timeout (secondi)**|30|Quantità di tempo di attesa del probe prima del timeout. Se non viene ricevuta una risposta valida entro questo periodo di timeout, il probe viene contrassegnato come non riuscito. L'intervallo di timeout deve essere abbastanza elevato da poter effettuare una chiamata http per assicurarsi che la pagina relativa all'integrità del back-end sia disponibile. Si noti che il valore di timeout non deve essere superiore al valore ' intervallo ' usato in questa impostazione di probe o al valore ' timeout richiesta ' nell'impostazione HTTP che verrà associato a questo Probe.|
    |**Soglia non integra**|3|Numero di tentativi consecutivi non riusciti da considerare non integri. La soglia può essere impostata su 1 o più.|
-   |**USA condizioni di corrispondenza Probe**|Sì o No|Per impostazione predefinita, una risposta HTTP(S) con codice di stato compreso tra 200 e 399 viene considerata integra. È possibile modificare l'intervallo accettabile del codice di risposta back-end o del corpo della risposta back-end. [Scopri di più](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**USA condizioni di corrispondenza Probe**|Sì o No|Per impostazione predefinita, una risposta HTTP(S) con codice di stato compreso tra 200 e 399 viene considerata integra. È possibile modificare l'intervallo accettabile del codice di risposta back-end o del corpo della risposta back-end. [Scopri di più](./application-gateway-probe-overview.md#probe-matching)|
    |**Impostazioni HTTP**|selezione dall'elenco a discesa|Il probe verrà associato alle impostazioni HTTP selezionate qui e, di conseguenza, eseguirà il monitoraggio dello stato del pool back-end associato all'impostazione HTTP selezionata. Utilizzerà la stessa porta per la richiesta di probe come quella usata nell'impostazione HTTP selezionata. È possibile scegliere solo le impostazioni HTTP che non sono associate ad altri Probe personalizzati. <br>Si noti che per l'associazione sono disponibili solo le impostazioni HTTP che hanno lo stesso protocollo scelto in questa configurazione di probe e hanno lo stesso stato per il *nome host pick dall'opzione di impostazione http back-end* .|
    
    > [!IMPORTANT]
@@ -100,12 +100,12 @@ I probe vengono configurati con un processo in due passaggi nel portale. Il prim
    |**Nome**|customProbe|Questo valore è un nome descrittivo assegnato al Probe accessibile nel portale.|
    |**Protocollo**|HTTP o HTTPS | Protocollo usato per il probe di integrità. |
    |**Host**|vale a dire contoso.com|Questo valore è il nome dell'host virtuale, diverso dal nome host della macchina virtuale, in esecuzione nel server applicazioni. Il probe viene inviato a (protocollo)://(nome host):(porta da impostazioni)/urlPath.  Questa operazione è applicabile quando si configura multisito nel gateway applicazione. Se il gateway applicazione è configurato per un singolo sito, immettere "127.0.0.1".|
-   |**Selezionare il nome host da impostazioni HTTP back-end**|Sì o No|Imposta l'intestazione *host* nel Probe sul nome host della risorsa back-end nel pool back-end associato all'impostazione http a cui è associato il probe. Requisito speciale in caso di backend multi-tenant, ad esempio servizio app di Azure. [Scopri di più](https://docs.microsoft.com/azure/application-gateway/configuration-overview#pick-host-name-from-back-end-address)|
+   |**Selezionare il nome host da impostazioni HTTP back-end**|Sì o No|Imposta l'intestazione *host* nel Probe sul nome host della risorsa back-end nel pool back-end associato all'impostazione http a cui è associato il probe. Requisito speciale in caso di backend multi-tenant, ad esempio servizio app di Azure. [Scopri di più](./configuration-http-settings.md#pick-host-name-from-back-end-address)|
    |**Percorso**|/o qualsiasi percorso valido|Parte restante dell'URL completo per il probe personalizzato. Un percorso valido inizia con "/". Per il percorso predefinito http: \/ /contoso.com è sufficiente usare '/' |
    |**Intervallo (sec)**|30|Frequenza con cui viene eseguito il probe per controllare l'integrità. Non è consigliabile impostare un valore inferiore a 30 secondi.|
    |**Timeout (secondi)**|30|Quantità di tempo di attesa del probe prima del timeout. Se non viene ricevuta una risposta valida entro questo periodo di timeout, il probe viene contrassegnato come non riuscito. L'intervallo di timeout deve essere abbastanza elevato da poter effettuare una chiamata http per assicurarsi che la pagina relativa all'integrità del back-end sia disponibile. Si noti che il valore di timeout non deve essere superiore al valore ' intervallo ' usato in questa impostazione di probe o al valore ' timeout richiesta ' nell'impostazione HTTP che verrà associato a questo Probe.|
    |**Soglia non integra**|3|Numero di tentativi consecutivi non riusciti da considerare non integri. La soglia può essere impostata su 1 o più.|
-   |**USA condizioni di corrispondenza Probe**|Sì o No|Per impostazione predefinita, una risposta HTTP(S) con codice di stato compreso tra 200 e 399 viene considerata integra. È possibile modificare l'intervallo accettabile del codice di risposta back-end o del corpo della risposta back-end. [Scopri di più](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching)|
+   |**USA condizioni di corrispondenza Probe**|Sì o No|Per impostazione predefinita, una risposta HTTP(S) con codice di stato compreso tra 200 e 399 viene considerata integra. È possibile modificare l'intervallo accettabile del codice di risposta back-end o del corpo della risposta back-end. [Scopri di più](./application-gateway-probe-overview.md#probe-matching)|
 
    > [!IMPORTANT]
    > Il nome host non è uguale al nome del server. Questo valore è il nome dell'host virtuale in esecuzione nel server applicazioni. Il probe viene inviato a \<protocol\> :// \<hostName\> :\<port from http settings\>/\<urlPath\>
@@ -123,7 +123,7 @@ Ora che il probe è stato creato, deve essere aggiunto al gateway. Le impostazio
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Visualizzare l'integrità delle risorse back-end come determinato dal Probe usando la [visualizzazione integrità back-end](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics#back-end-health).
+Visualizzare l'integrità delle risorse back-end come determinato dal Probe usando la [visualizzazione integrità back-end](./application-gateway-diagnostics.md#back-end-health).
 
 [1]: ./media/application-gateway-create-probe-portal/figure1.png
 [2]: ./media/application-gateway-create-probe-portal/figure2.png

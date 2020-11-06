@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: troubleshooting
 ms.date: 06/09/2020
 ms.author: surmb
-ms.openlocfilehash: 531a7fd8547130b4897f3dad0900e1c27fb7fe9a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b8acf1b025a5943773821c8ab78de6288eb6bec2
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132042"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397899"
 ---
 <a name="troubleshoot-backend-health-issues-in-application-gateway"></a>Risolvere i problemi di integrità del back-end nel gateway applicazione
 ==================================================
@@ -24,7 +24,7 @@ Per impostazione predefinita, il gateway applicazione di Azure verifica tramite 
 
 ### <a name="how-to-check-backend-health"></a>Come controllare l'integrità del back-end
 
-Per controllare l'integrità del pool back-end, è possibile usare la pagina **Integrità back-end** nel portale di Azure. In alternativa, è possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0) l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health) o l'[API REST](https://docs.microsoft.com/rest/api/application-gateway/applicationgateways/backendhealth).
+Per controllare l'integrità del pool back-end, è possibile usare la pagina **Integrità back-end** nel portale di Azure. In alternativa, è possibile usare [Azure PowerShell](/powershell/module/az.network/get-azapplicationgatewaybackendhealth?view=azps-2.6.0) l'[interfaccia della riga di comando di Azure](/cli/azure/network/application-gateway?view=azure-cli-latest#az-network-application-gateway-show-backend-health) o l'[API REST](/rest/api/application-gateway/applicationgateways/backendhealth).
 
 Lo stato recuperato da questi diversi metodi può essere uno dei seguenti:
 
@@ -91,7 +91,7 @@ Il messaggio visualizzato nella colonna **Dettagli** fornisce informazioni più 
 
 **Causa:** dopo che il gateway applicazione ha inviato una richiesta di probe HTTP(S) al server back-end, attende una risposta dal server back-end per un periodo di tempo configurato. Se il server back-end non risponde entro il periodo di tempo configurato (valore di timeout), viene contrassegnato come Non integro fino a quando non inizia di nuovo a rispondere entro il periodo di timeout configurato.
 
-**Risoluzione:** verificare il motivo per cui l'applicazione o il server back-end non risponde entro il periodo di timeout configurato e controllare anche le dipendenze dell'applicazione. Verificare, ad esempio, se nel database sono presenti problemi che possono causare un ritardo nella risposta. Se si conosce il comportamento dell'applicazione e questa risponde solo dopo il valore di timeout, aumentare questo valore dalle impostazioni del probe personalizzato. Per modificare il valore di timeout, deve essere disponibile un probe personalizzato. Per informazioni su come configurare un probe personalizzato, [vedere la pagina della documentazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+**Risoluzione:** verificare il motivo per cui l'applicazione o il server back-end non risponde entro il periodo di timeout configurato e controllare anche le dipendenze dell'applicazione. Verificare, ad esempio, se nel database sono presenti problemi che possono causare un ritardo nella risposta. Se si conosce il comportamento dell'applicazione e questa risponde solo dopo il valore di timeout, aumentare questo valore dalle impostazioni del probe personalizzato. Per modificare il valore di timeout, deve essere disponibile un probe personalizzato. Per informazioni su come configurare un probe personalizzato, [vedere la pagina della documentazione](./application-gateway-create-probe-portal.md).
 
 Per aumentare il valore di timeout, seguire questa procedura:
 
@@ -105,7 +105,7 @@ Per aumentare il valore di timeout, seguire questa procedura:
 
 #### <a name="dns-resolution-error"></a>Errore di risoluzione DNS
 
-**Messaggio:** Application Gateway could not create a probe for this backend. This usually happens when the FQDN of the backend has not been entered correctly (Il gateway applicazione non è riuscito a creare un probe per il back-end. Questo problema si verifica in genere quando l'FQDN del back-end non è stato immesso correttamente). 
+**Messaggio:** Application Gateway could not create a probe for this backend. This usually happens when the FQDN of the backend has not been entered correctly (Il gateway applicazione non è riuscito a creare un probe per il back-end. Questo problema si verifica in genere quando l'FQDN del back-end non è stato immesso correttamente). 
 
 **Causa:** se il pool back-end è di tipo indirizzo IP/FQDN o servizio app, il gateway applicazione viene risolto nell'indirizzo IP dell'FQDN immesso tramite Domain Name System (DNS), personalizzato o predefinito di Azure, e tenta di connettersi al server sulla porta TCP indicata nelle impostazioni HTTP. Tuttavia, se viene visualizzato questo messaggio, è possibile che il gateway applicazione non sia riuscito a risolvere l'indirizzo IP dell'FQDN immesso.
 
@@ -119,7 +119,7 @@ Per aumentare il valore di timeout, seguire questa procedura:
 
 1.  Se si usa il server DNS predefinito di Azure, contattare il registrar per verificare che sia stato completato il mapping di un record A o CNAME appropriato.
 
-1.  Se il dominio è privato o interno, provare a risolverlo da una macchina virtuale nella stessa rete virtuale. Se è possibile risolverlo, riavviare il gateway applicazione e verificare di nuovo. Per riavviare il gateway applicazione, è necessario [arrestarlo](https://docs.microsoft.com/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) e [avviarlo](https://docs.microsoft.com/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) usando i comandi di PowerShell descritti in queste risorse collegate.
+1.  Se il dominio è privato o interno, provare a risolverlo da una macchina virtuale nella stessa rete virtuale. Se è possibile risolverlo, riavviare il gateway applicazione e verificare di nuovo. Per riavviare il gateway applicazione, è necessario [arrestarlo](/powershell/module/azurerm.network/stop-azurermapplicationgateway?view=azurermps-6.13.0) e [avviarlo](/powershell/module/azurerm.network/start-azurermapplicationgateway?view=azurermps-6.13.0) usando i comandi di PowerShell descritti in queste risorse collegate.
 
 #### <a name="tcp-connect-error"></a>Errore di connessione TCP
 
@@ -138,7 +138,7 @@ Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of
 
 1.  Se non è possibile connettersi sulla porta neanche dal computer locale, eseguire le operazioni seguenti:
 
-    a.  Controllare le impostazioni del gruppo di sicurezza di rete (NSG) della scheda di rete e della subnet del server back-end e se sono consentite le connessioni in ingresso alla porta configurata. In caso negativo, creare una nuova regola per consentire le connessioni. Per informazioni su come creare regole dei gruppi di sicurezza di rete, [vedere la pagina della documentazione](https://docs.microsoft.com/azure/virtual-network/tutorial-filter-network-traffic#create-security-rules).
+    a.  Controllare le impostazioni del gruppo di sicurezza di rete (NSG) della scheda di rete e della subnet del server back-end e se sono consentite le connessioni in ingresso alla porta configurata. In caso negativo, creare una nuova regola per consentire le connessioni. Per informazioni su come creare regole dei gruppi di sicurezza di rete, [vedere la pagina della documentazione](../virtual-network/tutorial-filter-network-traffic.md#create-security-rules).
 
     b.  Verificare se le impostazioni dell'NSG della subnet del gateway applicazione consentono il traffico pubblico e privato in uscita, in modo che sia possibile stabilire una connessione. Vedere la pagina della documentazione indicata nel passaggio 3a per altre informazioni su come creare regole per i gruppi di sicurezza di rete.
     ```azurepowershell
@@ -185,13 +185,13 @@ Also check whether any NSG/UDR/Firewall is blocking access to the Ip and port of
 
 In alternativa, se si ritiene che la risposta sia legittima e si vuole che il gateway applicazione accetti altri codici di stato come integri, è possibile creare un probe personalizzato. Questo approccio è utile in situazioni in cui il sito Web back-end richiede l'autenticazione. Poiché le richieste di probe non contengono credenziali utente, non riusciranno e verrà restituito un codice di stato HTTP 401 dal server back-end.
 
-Per creare un probe personalizzato, seguire [questa procedura](https://docs.microsoft.com/azure/application-gateway/application-gateway-create-probe-portal).
+Per creare un probe personalizzato, seguire [questa procedura](./application-gateway-create-probe-portal.md).
 
 #### <a name="http-response-body-mismatch"></a>Mancata corrispondenza del corpo della risposta HTTP
 
 **Messaggio:** Body of the backend\'s HTTP response did not match the probe setting. Received response body does not contain {string} (Il corpo della risposta HTTP del back-end non corrisponde all'impostazione del probe. Il corpo della risposta ricevuta non contiene {string}).
 
-**Causa:** quando si crea un probe personalizzato, è possibile contrassegnare un server back-end come integro attraverso la corrispondenza a una stringa del corpo della risposta. Ad esempio, è possibile configurare il gateway applicazione in modo da accettare "non autorizzato" come stringa per la corrispondenza. Se la risposta del server back-end per la richiesta di probe contiene la stringa **non autorizzato**, il server verrà contrassegnato come integro. In caso contrario, verrà contrassegnato come non integro con questo messaggio.
+**Causa:** quando si crea un probe personalizzato, è possibile contrassegnare un server back-end come integro attraverso la corrispondenza a una stringa del corpo della risposta. Ad esempio, è possibile configurare il gateway applicazione in modo da accettare "non autorizzato" come stringa per la corrispondenza. Se la risposta del server back-end per la richiesta di probe contiene la stringa **non autorizzato** , il server verrà contrassegnato come integro. In caso contrario, verrà contrassegnato come non integro con questo messaggio.
 
 **Soluzione:** Per risolvere il problema, seguire questa procedura:
 
@@ -201,7 +201,7 @@ Per creare un probe personalizzato, seguire [questa procedura](https://docs.micr
 
 1.  In caso di mancata corrispondenza, modificare la configurazione del probe in modo che includa il corretto valore della stringa da accettare.
 
-Per altre informazioni, vedere [Corrispondenza del probe del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#probe-matching).
+Per altre informazioni, vedere [Corrispondenza del probe del gateway applicazione](./application-gateway-probe-overview.md#probe-matching).
 
 >[!NOTE]
 > Per tutti i messaggi di errore correlati a TLS e per altre informazioni sul comportamento dell'indicazione nome server e sulle differenze tra lo SKU V1 e V2, vedere la pagina [Panoramica di TLS](ssl-overview.md).
@@ -238,7 +238,7 @@ Affinché un certificato TLS/SSL venga considerato attendibile, tale certificato
 
 In alternativa, è possibile esportare il certificato radice da un computer client accedendo direttamente al server (ignorando il gateway applicazione) tramite il browser ed esportando il certificato radice dal browser.
 
-Per altre informazioni su come estrarre e caricare certificati radice attendibili nel gateway applicazione, vedere [Esportare un certificato radice attendibile (per lo SKU V2)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+Per altre informazioni su come estrarre e caricare certificati radice attendibili nel gateway applicazione, vedere [Esportare un certificato radice attendibile (per lo SKU V2)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 
 #### <a name="trusted-root-certificate-mismatch"></a>Mancata corrispondenza del certificato radice attendibile
 
@@ -253,7 +253,7 @@ Il certificato caricato nelle impostazioni HTTP del gateway applicazione deve co
 
 Seguire i passaggi da 1 a 11 della procedura precedente per caricare il certificato radice attendibile corretto nel gateway applicazione.
 
-Per altre informazioni su come estrarre e caricare certificati radice attendibili nel gateway applicazione, vedere [Esportare un certificato radice attendibile (per lo SKU V2)](https://docs.microsoft.com/azure/application-gateway/certificates-for-backend-authentication#export-trusted-root-certificate-for-v2-sku).
+Per altre informazioni su come estrarre e caricare certificati radice attendibili nel gateway applicazione, vedere [Esportare un certificato radice attendibile (per lo SKU V2)](./certificates-for-backend-authentication.md#export-trusted-root-certificate-for-v2-sku).
 > [!NOTE]
 > Questo errore può verificarsi anche se il server back-end non scambia la catena completa del certificato, tra cui radice > livello intermedio (se applicabile) > foglia, durante l'handshake TLS. Per verificare, è possibile usare comandi OpenSSL da qualsiasi client e connettersi al server back-end con le impostazioni configurate nel probe del gateway applicazione.
 
@@ -288,11 +288,11 @@ Se l'output non mostra la catena completa del certificato restituito, esportare 
 
 Se nello SKU V2 è presente un probe predefinito (non è stato configurato e associato alcun probe personalizzato), L'indicazione nome server verrà impostata dal nome host indicato nelle impostazioni HTTP. In alternativa, se nelle impostazioni HTTP è indicato "Nome host di selezione dall'indirizzo back-end", in cui il pool di indirizzi back-end contiene un FQDN valido, verrà applicata questa impostazione.
 
-Se è presente un probe predefinito associato alle impostazioni HTTP, l'indicazione nome server verrà impostata dal nome host indicato nella configurazione del probe personalizzato. In alternativa, se nel probe personalizzato è selezionato **Nome host di selezione dall'indirizzo back-end**, l'indicazione nome server verrà impostata dal nome host indicato nelle impostazioni HTTP.
+Se è presente un probe predefinito associato alle impostazioni HTTP, l'indicazione nome server verrà impostata dal nome host indicato nella configurazione del probe personalizzato. In alternativa, se nel probe personalizzato è selezionato **Nome host di selezione dall'indirizzo back-end** , l'indicazione nome server verrà impostata dal nome host indicato nelle impostazioni HTTP.
 
-Se nelle impostazioni HTTP è impostato **Nome host di selezione dall'indirizzo back-end**, il pool di indirizzi back-end deve contenere un FQDN valido.
+Se nelle impostazioni HTTP è impostato **Nome host di selezione dall'indirizzo back-end** , il pool di indirizzi back-end deve contenere un FQDN valido.
 
-Se si riceve questo messaggio di errore, il nome comune del certificato del back-end non corrisponde al nome host configurato nel probe personalizzato o nelle impostazioni HTTP (se è selezionato **Nome host di selezione dalle impostazioni HTTP back-end**). Se si usa un probe predefinito, il nome host verrà impostato come **127.0.0.1**. Se non si tratta di un valore desiderato, è necessario creare un probe personalizzato e associarlo alle impostazioni HTTP.
+Se si riceve questo messaggio di errore, il nome comune del certificato del back-end non corrisponde al nome host configurato nel probe personalizzato o nelle impostazioni HTTP (se è selezionato **Nome host di selezione dalle impostazioni HTTP back-end** ). Se si usa un probe predefinito, il nome host verrà impostato come **127.0.0.1**. Se non si tratta di un valore desiderato, è necessario creare un probe personalizzato e associarlo alle impostazioni HTTP.
 
 **Soluzione:**
 
@@ -310,7 +310,7 @@ Per Windows:
 
 1.  Nella scheda **Dettagli** verificare il valore di **Oggetto** del certificato.
 
-1.  Verificare il nome comune del certificato nei dettagli e immettere lo stesso nel campo del nome host del probe personalizzato o nelle impostazioni HTTP (se è selezionato**Nome host di selezione dalle impostazioni HTTP back-end**). Se questo non è il nome host desiderato per il sito Web, è necessario ottenere un certificato per il dominio o immettere il nome host corretto nella configurazione del probe personalizzato o delle impostazioni HTTP.
+1.  Verificare il nome comune del certificato nei dettagli e immettere lo stesso nel campo del nome host del probe personalizzato o nelle impostazioni HTTP (se è selezionato **Nome host di selezione dalle impostazioni HTTP back-end** ). Se questo non è il nome host desiderato per il sito Web, è necessario ottenere un certificato per il dominio o immettere il nome host corretto nella configurazione del probe personalizzato o delle impostazioni HTTP.
 
 Per Linux con OpenSSL:
 
@@ -359,7 +359,7 @@ Questo comportamento può verificarsi per uno o più dei motivi seguenti:
 
 **Soluzione:**
 
-1.  controllare se l'NSG blocca l'accesso alle porte 65503-65534 (SKU V1) o 65200-65535 (SKU V2) da **Internet**:
+1.  controllare se l'NSG blocca l'accesso alle porte 65503-65534 (SKU V1) o 65200-65535 (SKU V2) da **Internet** :
 
     a.  Nella scheda **Panoramica** del gateway applicazione selezionare il collegamento **Rete virtuale/subnet**.
 
@@ -371,17 +371,17 @@ Questo comportamento può verificarsi per uno o più dei motivi seguenti:
 
     e.  Nella sezione **Regole in ingresso** aggiungere una regola in ingresso per consentire l'intervallo di porte di destinazione 65503-65534 per lo SKU V1 o 65200-65535 per lo SKU V2 con **Origine** impostato su **Any** o **Internet**.
 
-    f.  Selezionare **Salva** e verificare che sia possibile visualizzare il back-end come integro. In alternativa, è possibile usare [PowerShell o l'interfaccia della riga di comando](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group) a questo scopo.
+    f.  Selezionare **Salva** e verificare che sia possibile visualizzare il back-end come integro. In alternativa, è possibile usare [PowerShell o l'interfaccia della riga di comando](../virtual-network/manage-network-security-group.md) a questo scopo.
 
-1.  Controllare se la route definita dall'utente include una route predefinita (0.0.0.0/0) con l'hop successivo non impostato come **Internet**:
+1.  Controllare se la route definita dall'utente include una route predefinita (0.0.0.0/0) con l'hop successivo non impostato come **Internet** :
     
     a.  Seguire i passaggi 1a e 1b per determinare la subnet.
 
     b.  Controllare se è configurata una route definita dall'utente. Se sì, cercare la risorsa sulla barra di ricerca o in **Tutte le risorse**.
 
-    c.  Controllare se sono presenti route predefinite (0.0.0.0/0) con l'hop successivo non impostato come **Internet**. Se l'impostazione è **Appliance virtuale** o **Gateway di rete virtuale**, è necessario assicurarsi che l'appliance virtuale o il dispositivo locale sia in grado di reinstradare correttamente il pacchetto alla destinazione Internet senza modificarlo.
+    c.  Controllare se sono presenti route predefinite (0.0.0.0/0) con l'hop successivo non impostato come **Internet**. Se l'impostazione è **Appliance virtuale** o **Gateway di rete virtuale** , è necessario assicurarsi che l'appliance virtuale o il dispositivo locale sia in grado di reinstradare correttamente il pacchetto alla destinazione Internet senza modificarlo.
 
-    d.  In caso contrario, modificare l'hop successivo in **Internet**, selezionare **Salva**e verificare l'integrità del back-end.
+    d.  In caso contrario, modificare l'hop successivo in **Internet** , selezionare **Salva** e verificare l'integrità del back-end.
 
 1.  La route predefinita viene annunciata da una connessione ExpressRoute/VPN alla rete virtuale tramite BGP:
 
@@ -393,9 +393,9 @@ Questo comportamento può verificarsi per uno o più dei motivi seguenti:
 
 1.  Se nella rete virtuale è configurato un server DNS personalizzato, verificare che il server (o i server) sia in grado di risolvere i domini pubblici. La risoluzione dei nomi di dominio pubblici può essere necessaria in scenari in cui il gateway applicazione deve raggiungere domini esterni come server OCSP o per controllare lo stato di revoca del certificato.
 
-1.  Per verificare che il gateway applicazione sia integro e in esecuzione, passare all'opzione **Integrità risorse** nel portale e verificare che lo stato sia **Integro**. Se viene visualizzato lo stato **Non integro** o **Danneggiato**, [contattare il supporto tecnico](https://azure.microsoft.com/support/options/).
+1.  Per verificare che il gateway applicazione sia integro e in esecuzione, passare all'opzione **Integrità risorse** nel portale e verificare che lo stato sia **Integro**. Se viene visualizzato lo stato **Non integro** o **Danneggiato** , [contattare il supporto tecnico](https://azure.microsoft.com/support/options/).
 
 <a name="next-steps"></a>Passaggi successivi
 ----------
 
-Per altre informazioni, vedere [Diagnostica e registrazione del gateway applicazione](https://docs.microsoft.com/azure/application-gateway/application-gateway-diagnostics).
+Per altre informazioni, vedere [Diagnostica e registrazione del gateway applicazione](./application-gateway-diagnostics.md).

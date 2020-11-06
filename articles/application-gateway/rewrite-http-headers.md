@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/27/2020
 ms.author: absha
-ms.openlocfilehash: fb5196f9612cb4ce1f0a49be8b5a76f6703fdab6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3e8eb79d519e2f7bfbf006b852f0c5294976b727
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85248684"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93397151"
 ---
 # <a name="rewrite-http-headers-with-application-gateway"></a>Riscrivere le intestazioni HTTP con il gateway applicazione
 
@@ -22,7 +22,7 @@ Le intestazioni HTTP consentono a un client e a un server di passare informazion
 
 Il gateway applicazione permette di aggiungere, rimuovere o aggiornare le intestazioni di richieste e risposte HTTP durante lo spostamento dei pacchetti di richiesta e risposta tra il client e i pool back-end. Consente anche di aggiungere le condizioni necessarie per garantire che le intestazioni specificate vengano riscritte solo in presenza di determinate condizioni.
 
-Il gateway applicazione supporta inoltre diverse [variabili server](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers#server-variables) che consentono di archiviare informazioni aggiuntive su richieste e risposte. In questo modo è più semplice creare regole di riscrittura avanzate.
+Il gateway applicazione supporta inoltre diverse [variabili server](#server-variables) che consentono di archiviare informazioni aggiuntive su richieste e risposte. In questo modo è più semplice creare regole di riscrittura avanzate.
 
 > [!NOTE]
 >
@@ -49,14 +49,14 @@ Il gateway applicazione supporta inoltre diverse [variabili server](https://docs
 È possibile utilizzare le azioni di riscrittura per specificare le intestazioni di richiesta e risposta che si desidera riscrivere e il nuovo valore per le intestazioni. È possibile creare una nuova intestazione, modificare il valore di un'intestazione esistente o eliminare un'intestazione esistente. Il valore di una nuova intestazione o di un'intestazione esistente può essere impostato su questi tipi di valori:
 
 - Text.
-- Intestazione della richiesta. Per specificare un'intestazione di richiesta, è necessario usare la sintassi {http_req_*headerName*}.
-- Intestazione della risposta. Per specificare un'intestazione della risposta, è necessario usare la sintassi {http_resp_*headerName*}.
-- Variabile server. Per specificare una variabile del server, è necessario usare la sintassi {var_*serverVariable*}.
+- Intestazione della richiesta. Per specificare un'intestazione di richiesta, è necessario usare la sintassi {http_req_ *headerName* }.
+- Intestazione della risposta. Per specificare un'intestazione della risposta, è necessario usare la sintassi {http_resp_ *headerName* }.
+- Variabile server. Per specificare una variabile del server, è necessario usare la sintassi {var_ *serverVariable* }.
 - Una combinazione di testo, un'intestazione di richiesta, un'intestazione di risposta e una variabile server.
 
 ## <a name="server-variables"></a>Variabili del server
 
-Il gateway applicazione usa variabili server per archiviare informazioni utili sul server, sulla connessione con il client e sulla richiesta corrente sulla connessione. Esempi di informazioni archiviate includono l'indirizzo IP del client e il tipo di Web browser. Le variabili del server cambiano in modo dinamico, ad esempio quando viene caricata una nuova pagina o quando viene pubblicato un modulo. È possibile utilizzare queste variabili per valutare le condizioni di riscrittura e riscrivere le intestazioni. Per usare il valore delle variabili server per riscrivere le intestazioni, è necessario specificare queste variabili nella sintassi {var_*serverVariable*}
+Il gateway applicazione usa variabili server per archiviare informazioni utili sul server, sulla connessione con il client e sulla richiesta corrente sulla connessione. Esempi di informazioni archiviate includono l'indirizzo IP del client e il tipo di Web browser. Le variabili del server cambiano in modo dinamico, ad esempio quando viene caricata una nuova pagina o quando viene pubblicato un modulo. È possibile utilizzare queste variabili per valutare le condizioni di riscrittura e riscrivere le intestazioni. Per usare il valore delle variabili server per riscrivere le intestazioni, è necessario specificare queste variabili nella sintassi {var_ *serverVariable* }
 
 Il gateway applicazione supporta queste variabili server:
 
@@ -91,19 +91,19 @@ Per configurare la riscrittura dell'intestazione HTTP, è necessario completare 
 
 1. Creare gli oggetti necessari per la riscrittura dell'intestazione HTTP:
 
-   - **Azione di riscrittura**: utilizzata per specificare i campi di richiesta e di intestazione della richiesta che si desidera riscrivere e il nuovo valore per le intestazioni. È possibile associare una o più condizioni di riscrittura con un'azione di riscrittura.
+   - **Azione di riscrittura** : utilizzata per specificare i campi di richiesta e di intestazione della richiesta che si desidera riscrivere e il nuovo valore per le intestazioni. È possibile associare una o più condizioni di riscrittura con un'azione di riscrittura.
 
-   - **Condizione di riscrittura**: una configurazione facoltativa. Le condizioni di riscrittura valutano il contenuto delle richieste e delle risposte HTTP (S). L'azione di riscrittura si verificherà se la richiesta o la risposta HTTP (S) corrisponde alla condizione di riscrittura.
+   - **Condizione di riscrittura** : una configurazione facoltativa. Le condizioni di riscrittura valutano il contenuto delle richieste e delle risposte HTTP (S). L'azione di riscrittura si verificherà se la richiesta o la risposta HTTP (S) corrisponde alla condizione di riscrittura.
 
      Se si associa più di una condizione a un'azione, l'azione si verifica solo quando vengono soddisfatte tutte le condizioni. In altre parole, l'operazione è un'operazione AND logica.
 
-   - **Regola di riscrittura**: contiene più combinazioni di operazioni di riscrittura/riscrittura delle condizioni.
+   - **Regola di riscrittura** : contiene più combinazioni di operazioni di riscrittura/riscrittura delle condizioni.
 
-   - **Sequenza di regole**: consente di determinare l'ordine in cui vengono eseguite le regole di riscrittura. Questa configurazione è utile quando si dispone di più regole di riscrittura in un set di riscrittura. Viene eseguita prima una regola di riscrittura con un valore di sequenza di regole inferiore. Se si assegna la stessa sequenza di regole a due regole di riscrittura, l'ordine di esecuzione è non deterministico.
+   - **Sequenza di regole** : consente di determinare l'ordine in cui vengono eseguite le regole di riscrittura. Questa configurazione è utile quando si dispone di più regole di riscrittura in un set di riscrittura. Viene eseguita prima una regola di riscrittura con un valore di sequenza di regole inferiore. Se si assegna la stessa sequenza di regole a due regole di riscrittura, l'ordine di esecuzione è non deterministico.
 
-   - **Rewrite set**: contiene più regole di riscrittura che saranno associate a una regola di routing delle richieste.
+   - **Rewrite set** : contiene più regole di riscrittura che saranno associate a una regola di routing delle richieste.
 
-2. Alleghi il set di riscrittura (*rewriteRuleSet*) a una regola di routing. La configurazione di riscrittura è collegata al listener di origine tramite la regola di routing. Quando si usa una regola di routing di base, la configurazione dell'intestazione di riscrittura è associata a un listener di origine ed è una riscrittura dell'intestazione globale. Quando si usa una regola di routing basata sul percorso, la configurazione dell'intestazione di riscrittura è definita nella mappa del percorso URL. In tal caso, si applica solo all'area del percorso specifica di un sito.
+2. Alleghi il set di riscrittura ( *rewriteRuleSet* ) a una regola di routing. La configurazione di riscrittura è collegata al listener di origine tramite la regola di routing. Quando si usa una regola di routing di base, la configurazione dell'intestazione di riscrittura è associata a un listener di origine ed è una riscrittura dell'intestazione globale. Quando si usa una regola di routing basata sul percorso, la configurazione dell'intestazione di riscrittura è definita nella mappa del percorso URL. In tal caso, si applica solo all'area del percorso specifica di un sito.
    > [!NOTE]
    > La riscrittura URL modifica le intestazioni; non modifica l'URL per il percorso.
 
@@ -168,5 +168,5 @@ Potrebbe essere necessario rimuovere le intestazioni che consentono di rivelare 
 
 Per informazioni su come riscrivere le intestazioni HTTP, vedere:
 
-- [Riscrivere le intestazioni HTTP con il portale di Azure](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+- [Riscrivere le intestazioni HTTP con il portale di Azure](./rewrite-http-headers-portal.md)
 - [Riscrivere le intestazioni HTTP usando Azure PowerShell](add-http-header-rewrite-rule-powershell.md)

@@ -9,16 +9,16 @@ ms.reviewer: dseven
 ms.author: cavoeg
 author: CaitlinV39
 ms.date: 11/01/2019
-ms.openlocfilehash: 948ca03b5bf503c884df5df56c61951b381874a9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 262509df98b93c7902d83f90756872a16d84198f
+ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84870871"
+ms.lasthandoff: 11/05/2020
+ms.locfileid: "93398131"
 ---
 # <a name="enable-diagnostic-logging-in-azure-api-for-fhir"></a>Abilitare la registrazione diagnostica nell'API di Azure per FHIR®
 
-In questo articolo si apprenderà come abilitare la registrazione diagnostica nell'API di Azure per FHIR® ed essere in grado di esaminare alcune query di esempio per questi log. L'accesso ai log di diagnostica è essenziale per qualsiasi servizio sanitario in cui la conformità ai requisiti normativi (ad esempio HIPAA) è una necessità. La funzionalità dell'API di Azure per FHIR® che Abilita i log di diagnostica sono le [**impostazioni di diagnostica**](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings) nel portale di Azure. 
+In questo articolo si apprenderà come abilitare la registrazione diagnostica nell'API di Azure per FHIR® ed essere in grado di esaminare alcune query di esempio per questi log. L'accesso ai log di diagnostica è essenziale per qualsiasi servizio sanitario in cui la conformità ai requisiti normativi (ad esempio HIPAA) è una necessità. La funzionalità dell'API di Azure per FHIR® che Abilita i log di diagnostica sono le [**impostazioni di diagnostica**](../azure-monitor/platform/diagnostic-settings.md) nel portale di Azure. 
 
 ## <a name="enable-audit-logs"></a>Abilitare i log di controllo
 1. Per abilitare la registrazione diagnostica nell'API di Azure per FHIR®, selezionare l'API di Azure per FHIR servizio® nel portale di Azure 
@@ -42,7 +42,7 @@ In questo articolo si apprenderà come abilitare la registrazione diagnostica ne
 > [!Note] 
 > Potrebbero essere necessari fino a 15 minuti prima che il primo log venga visualizzato in Log Analytics.  
  
-Per altre informazioni su come usare i log di diagnostica, vedere la [documentazione relativa al log delle risorse di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-overview)
+Per altre informazioni su come usare i log di diagnostica, vedere la [documentazione relativa al log delle risorse di Azure](../azure-monitor/platform/platform-logs-overview.md)
 
 ## <a name="audit-log-details"></a>Dettagli log di controllo
 Al momento, il servizio® API di Azure per FHIR restituisce i campi seguenti nel log di controllo: 
@@ -60,7 +60,7 @@ Al momento, il servizio® API di Azure per FHIR restituisce i campi seguenti nel
 |OperationDuration|Int|Tempo richiesto per completare la richiesta in pochi secondi
 |OperationName|string| Descrive il tipo di operazione (ad esempio, Update, Search-Type)
 |RequestUri|string|L'URI della richiesta 
-|ResultType|string|I valori disponibili attualmente sono **Started**, **succeeded**o **failed**
+|ResultType|string|I valori disponibili attualmente sono **Started** , **succeeded** o **failed**
 |StatusCode|Int|Codice di stato HTTP. (ad esempio, 200) 
 |TimeGenerated|Datetime|Data e ora dell'evento|
 |Proprietà|string| Descrive le proprietà di fhirResourceType
@@ -80,7 +80,7 @@ MicrosoftHealthcareApisAuditLogs
 | limit 100
 ```
 
-Eseguire questa query per raggruppare le operazioni per **tipo di risorsa FHIR**:
+Eseguire questa query per raggruppare le operazioni per **tipo di risorsa FHIR** :
 
 ```Application Insights
 MicrosoftHealthcareApisAuditLogs 
@@ -94,7 +94,7 @@ MicrosoftHealthcareApisAuditLogs
 | where ResultType == "Failed" 
 ```
 
-## <a name="conclusion"></a>Conclusioni 
+## <a name="conclusion"></a>Conclusione 
 L'accesso ai log di diagnostica è essenziale per il monitoraggio di un servizio e per la fornitura di report di conformità. API di Azure per FHIR® consente di eseguire queste azioni tramite i log di diagnostica. 
  
 FHIR® è il marchio registrato di HL7 e viene usato con l'autorizzazione di HL7.
