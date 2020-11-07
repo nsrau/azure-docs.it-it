@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: eaf54b7f7336619d03ce0fb6ea7fa032d0fcdff7
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
-ms.translationtype: MT
+ms.openlocfilehash: 528ab93d1cf47d64338ef186a120695681f48e55
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92319163"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357216"
 ---
 # <a name="tutorial-configure-15five-for-automatic-user-provisioning"></a>Esercitazione: configurare 15Five per il provisioning utenti automatico
 
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e 15Five](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-15five-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare 15Five per supportare il provisioning con Azure AD
+## <a name="step-2-configure-15five-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare 15Five per supportare il provisioning con Azure AD
 
 Prima di configurare 15Five per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in 15Five.
 
@@ -58,15 +58,15 @@ Prima di configurare 15Five per il provisioning utenti automatico con Azure AD, 
 
 2.  Fare clic su **SCIM 2,0**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Screenshot della console di amministrazione di 15Five. L'integrazione viene visualizzata in funzionalità in un menu e le funzionalità e le integrazioni sono evidenziate." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image00.png" alt-text="Screenshot della pagina integrazioni nella console di amministrazione di 15Five. In strumento, S C I M 2,0 è evidenziato." border="false":::
 
 3.  Passare a **scim integration > generate OAuth Token**.
 
-    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Screenshot della console di amministrazione di 15Five. L'integrazione viene visualizzata in funzionalità in un menu e le funzionalità e le integrazioni sono evidenziate." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image02.png" alt-text="Screenshot della pagina di integrazione S C i M nella console di amministrazione di 15Five. Il token OAuth di generazione è evidenziato." border="false":::
 
 4.  Copiare i valori per l' **URL di base SCIM 2,0** e il **token di accesso**. Questo valore verrà immesso nel campo **URL tenant** e **token segreto** nella scheda provisioning dell'applicazione 15Five nel portale di Azure.
     
-    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Screenshot della console di amministrazione di 15Five. L'integrazione viene visualizzata in funzionalità in un menu e le funzionalità e le integrazioni sono evidenziate." border="false":::
+    :::image type="content" source="media/15five-provisioning-tutorial/image03.png" alt-text="Screenshot della pagina di integrazione di S C I M. Nella tabella token i valori accanto a S C I M 2,0 base U R L e token di accesso sono evidenziati." border="false":::
 
 ## <a name="step-3-add-15five-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere 15Five dalla raccolta di applicazioni Azure AD
 

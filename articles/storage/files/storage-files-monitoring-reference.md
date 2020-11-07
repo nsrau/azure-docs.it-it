@@ -9,12 +9,12 @@ ms.date: 10/02/2020
 ms.author: normesta
 ms.subservice: logs
 ms.custom: monitoring
-ms.openlocfilehash: 11f89a0a42a42fd84d1dc0c8606128f5af9e751e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c6f4b932bb8f16af3c0368ab219bd8a12bf2face
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91711567"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357981"
 ---
 # <a name="azure-files-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio File di Azure
 
@@ -24,9 +24,9 @@ Per informazioni dettagliate sulla raccolta e l'analisi dei dati di monitoraggio
 
 Le tabelle seguenti elencano le metriche della piattaforma raccolte per File di Azure. 
 
-### <a name="capacity-metrics"></a>Metriche della capacità
+### <a name="capacity-metrics"></a>Metriche relative alla capacità
 
-I valori delle metriche relative alla capacità vengono inviati a Monitoraggio di Azure ogni ora. I valori vengono aggiornati ogni giorno. L'intervallo di tempo definisce l'intervallo di tempo per cui vengono presentati i valori delle metriche. L'intervallo di tempo supportato per tutte le metriche relative alla capacità è un'ora (PT1H).
+I valori delle metriche di capacità vengono aggiornati quotidianamente (fino a 24 ore). L'intervallo di tempo definisce l'intervallo di tempo per cui vengono presentati i valori delle metriche. L'intervallo di tempo supportato per tutte le metriche relative alla capacità è un'ora (PT1H).
 
 File di Azure fornisce le metriche di capacità seguenti in monitoraggio di Azure.
 

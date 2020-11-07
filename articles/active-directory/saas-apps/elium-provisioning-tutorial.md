@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: d9bb21ab4b5610c8318fe4ee869f1140faf55367
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: e8f027ccc577df79e561fca7194c20b6cc7ef2c6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88544231"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356756"
 ---
 # <a name="tutorial-configure-elium-for-automatic-user-provisioning"></a>Esercitazione: configurare Elium per il provisioning utenti automatico
 
@@ -55,7 +55,7 @@ Prima di configurare Elium per il provisioning utenti automatico con Azure AD, �
 
     ![Voce di menu impostazioni in Elium](media/Elium-provisioning-tutorial/setting.png)
 
-1. Nell'angolo in basso a sinistra, in **Avanzate**, selezionare **sicurezza**.
+1. Nell'angolo in basso a sinistra, in **Avanzate** , selezionare **sicurezza**.
 
     ![Collegamento di sicurezza in Elium](media/Elium-provisioning-tutorial/security.png)
 
@@ -79,7 +79,7 @@ Per configurare Elium per il provisioning utenti automatico con Azure AD, è anc
 
     ![Collegamento nuova applicazione](common/add-new-app.png)
 
-1. Nella casella di ricerca digitare **Elium**, selezionare **Elium** nell'elenco dei risultati e quindi selezionare **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca digitare **Elium** , selezionare **Elium** nell'elenco dei risultati e quindi selezionare **Aggiungi** per aggiungere l'applicazione.
 
     ![Casella di ricerca della raccolta](common/search-new-app.png)
 
@@ -92,7 +92,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 Per configurare il provisioning utenti automatico per Elium in Azure AD, seguire questa procedura:
 
-1. Accedere al [portale di Azure](https://portal.azure.com), selezionare **applicazioni aziendali**e quindi selezionare **tutte le applicazioni**.
+1. Accedere al [portale di Azure](https://portal.azure.com), selezionare **applicazioni aziendali** e quindi selezionare **tutte le applicazioni**.
 
     ![Pannello applicazioni aziendali Azure AD](common/enterprise-applications.png)
 
@@ -108,7 +108,7 @@ Per configurare il provisioning utenti automatico per Elium in Azure AD, seguire
 
     ![Impostazione automatica per la modalità di provisioning](common/provisioning-automatic.png)
 
-1. Nella sezione **credenziali amministratore** Digitare ** \<tenantURL\> /scim/v2** nel campo **URL tenant** . ( **Urltenant** è il valore recuperato in precedenza dalla console di amministrazione di Elium). Digitare anche il valore del **token segreto** Elium nel campo **token segreto** . Infine, selezionare **Test connessione** per verificare che Azure ad possa connettersi a Elium. Se la connessione non riesce, verificare che l'account Elium disponga delle autorizzazioni di amministratore e riprovare.
+1. Nella sezione **credenziali amministratore** Digitare **\<tenantURL\> /scim/v2** nel campo **URL tenant** . ( **Urltenant** è il valore recuperato in precedenza dalla console di amministrazione di Elium). Digitare anche il valore del **token segreto** Elium nel campo **token segreto** . Infine, selezionare **Test connessione** per verificare che Azure ad possa connettersi a Elium. Se la connessione non riesce, verificare che l'account Elium disponga delle autorizzazioni di amministratore e riprovare.
 
     ![Campi URL tenant e token segreto nelle credenziali di amministratore](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -116,7 +116,7 @@ Per configurare il provisioning utenti automatico per Elium in Azure AD, seguire
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-1. Fare clic su **Save**.
+1. Fare clic su **Salva**.
 
 1. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Elium**.
 

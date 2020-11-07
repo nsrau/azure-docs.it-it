@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 10/16/2020
 ms.author: aahi
-ms.openlocfilehash: 94f863bd4f016ed1117fa236323b43515fd53797
-ms.sourcegitcommit: 419c8c8061c0ff6dc12c66ad6eda1b266d2f40bd
+ms.openlocfilehash: 0ca0c4eacce88bfb53582f7969ed7acbfd75bb8a
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/18/2020
-ms.locfileid: "92165604"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358712"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Come usare il riconoscimento delle entità denominate in Analisi del testo
 
@@ -70,7 +70,7 @@ Creare una richiesta POST. È possibile usare la **console di testing API** o di
 
 #### <a name="version-31-preview2"></a>[Versione 3,1-Preview. 2](#tab/version-3-preview)
 
-Il riconoscimento delle entità denominate `v3.1-preview.2` Usa endpoint distinti per le richieste ner e il collegamento di entità. Usare un formato URL seguente in base alla richiesta:
+Il riconoscimento delle entità denominate `v3.1-preview.2` utilizza endpoint distinti per le richieste ner, pii ed Entity linking. Usare un formato URL seguente in base alla richiesta:
 
 Collegamento di entità
 * `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/linking`
@@ -82,6 +82,7 @@ NER
 
 [Informazioni di riferimento sul riconoscimento entità denominato versione 3,1-Preview per `General`](https://westus2.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-1-Preview-2/operations/EntitiesRecognitionGeneral)
 
+Informazioni personali
 * Informazioni personali ( `PII` )- `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.2/entities/recognition/pii`
 
 È anche possibile usare il `domain=phi` parametro facoltativo per rilevare `PHI` le informazioni sull'integrità () nel testo. 

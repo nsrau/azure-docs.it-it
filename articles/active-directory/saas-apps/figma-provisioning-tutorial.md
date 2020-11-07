@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: f5b14ecf061e8f0c53dc1387d1581bc780d190b9
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 789dafc61c89515f4b2ef64933262252d1232f16
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850900"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357029"
 ---
 # <a name="tutorial-configure-figma-for-automatic-user-provisioning"></a>Esercitazione: configurare Figma per il provisioning utenti automatico
 
@@ -36,7 +36,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 * Un account utente in Figma con autorizzazioni di amministratore.
 
 ## <a name="assign-users-to-figma"></a>Assegnare gli utenti a Figma.
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle assegnazioni. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Azure Active Directory usa un concetto denominato assegnazioni per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a Figma. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a Figma seguendo le istruzioni riportate qui:
  
@@ -57,19 +57,19 @@ Prima di configurare Figma per il provisioning utenti automatico con Azure AD, s
 
 2. Passare a **generale > aggiornare le impostazioni di accesso**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Screenshot della console di amministrazione di Figma. Un tenant denominato a D scim test è visibile. Accanto al tenant viene evidenziata un'icona a forma di ingranaggio." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma03.png" alt-text="Screenshot della scheda generale della console di amministrazione di Figma. In log in e provisioning, l'aggiornamento delle impostazioni di accesso è evidenziato." border="false":::
 
 3. Copiare l' **ID tenant**. Questo valore verrà usato per costruire l'URL dell'endpoint SCIM da immettere nel campo **URL tenant** nella scheda provisioning dell'applicazione Figma nel portale di Azure.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Screenshot della console di amministrazione di Figma. Un tenant denominato a D scim test è visibile. Accanto al tenant viene evidenziata un'icona a forma di ingranaggio." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma-tenantid.png" alt-text="Screenshot della sezione S a M L s O nella console di amministrazione di Figma. Vengono evidenziate un'etichetta dell'ID tenant e un collegamento adiacente che indica copia." border="false":::
 
 4. Scorrere verso il basso e fare clic su **genera token API**.
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Screenshot della console di amministrazione di Figma. Un tenant denominato a D scim test è visibile. Accanto al tenant viene evidenziata un'icona a forma di ingranaggio." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/token.png" alt-text="Screenshot della sezione provisioning di S C i M nella console di amministrazione di Figma. Un collegamento con etichetta genera un token P I è evidenziato." border="false":::
 
 5. Copiare il valore del  **token dell'API** . Questo valore verrà immesso nel campo **token segreto** nella scheda provisioning dell'applicazione Figma nel portale di Azure. 
 
-    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Screenshot della console di amministrazione di Figma. Un tenant denominato a D scim test è visibile. Accanto al tenant viene evidenziata un'icona a forma di ingranaggio." border="false":::
+    :::image type="content" source="media/Figma-provisioning-tutorial/figma04.png" alt-text="Screenshot di una pagina nella console di amministrazione di Figma. Sotto il provisioning di un token P I, viene evidenziato un segnaposto per il token." border="false":::
 
 ## <a name="add-figma-from-the-gallery"></a>Aggiungere Figma dalla raccolta
 
@@ -87,7 +87,7 @@ Per configurare Figma per il provisioning utenti automatico con Azure AD, è nec
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **Figma**, selezionare **Figma** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **Figma** , selezionare **Figma** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Figma nell'elenco risultati](common/search-new-app.png)
 
@@ -124,7 +124,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a Figma**.
 

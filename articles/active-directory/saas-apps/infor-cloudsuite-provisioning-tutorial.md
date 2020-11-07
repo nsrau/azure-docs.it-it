@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 171a96f37d4c1e740e23cc766566d3c1756b6d08
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: a62afa9469caa886d86814036017427c0cc0d193
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92460186"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357437"
 ---
 # <a name="tutorial-configure-infor-cloudsuite-for-automatic-user-provisioning"></a>Esercitazione: configurare infor CloudSuite per il provisioning utenti automatico
 
@@ -72,7 +72,7 @@ Prima di configurare e abilitare il provisioning utenti automatico, è necessari
 
 5. Per generare la bearer token, copiare l' **identificatore utente** e la **password scim**. Incollarli nel blocco note + + separati da due punti. Per codificare il valore della stringa, passare a plug-in **> strumenti MIME > codifica Basic64**. 
 
-    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Screenshot della console di amministrazione di infor CloudSuite che mostra una riga di tabella evidenziata. Tale riga contiene un identificatore utente, le password e un timestamp." border="false":::
+    :::image type="content" source="media/infor-cloudsuite-provisioning-tutorial/token.png" alt-text="Screenshot di un documento di blocco note + +. Nel menu plug-in gli strumenti MIME sono evidenziati. Nel menu strumenti MIME viene evidenziata la codifica Base64." border="false":::
 
 3.  Copiare il bearer token. Questo valore verrà immesso nel campo token segreto nella scheda provisioning dell'applicazione infor CloudSuite nel portale di Azure.
 
@@ -94,7 +94,7 @@ Prima di configurare infor CloudSuite per il provisioning utenti automatico con 
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **infor CloudSuite**, selezionare **infor CloudSuite** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **infor CloudSuite** , selezionare **infor CloudSuite** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Infor CloudSuite nell'elenco risultati](common/search-new-app.png)
 

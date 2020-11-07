@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: apimpm
-ms.openlocfilehash: 3886f82180728bc6f454b1a49b5551bc4831869e
-ms.sourcegitcommit: a92fbc09b859941ed64128db6ff72b7a7bcec6ab
+ms.openlocfilehash: 37ac6369790ed526fd923819558863ae84432aed
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92070895"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358117"
 ---
 # <a name="policies-in-azure-api-management"></a>Criteri in Gestione API di Azure
 
@@ -38,7 +38,7 @@ Facendo clic su un'istruzione abilitata, il codice XML appropriato verrà aggiun
 > 
 > 
 
-La configurazione è divisa in `inbound`, `backend`, `outbound` e `on-error`. La serie di istruzioni dei criteri viene eseguita in un determinato ordine in relazione a una richiesta e una risposta.
+La configurazione è divisa in `inbound`, `backend`, `outbound` e `on-error`. La serie di istruzioni dei criteri specificate viene eseguita in ordine per una richiesta e una risposta.
 
 ```xml
 <policies>
@@ -60,7 +60,7 @@ La configurazione è divisa in `inbound`, `backend`, `outbound` e `on-error`. La
 
 Se si verifica un errore durante l'elaborazione di una richiesta, tutti i rimanenti passaggi nelle sezioni `inbound`, `backend`, o `outbound` vengono ignorate e l'esecuzione prosegue con le istruzioni nella sezione`on-error`. Inserendo istruzioni di criteri nella sezione `on-error` è possibile rivedere l'errore utilizzando la proprietà `context.LastError`, esaminare e personalizzare la risposta di errore tramite il criterio `set-body` e configurare che cosa accade se si verifica un errore. Sono disponibili codici di errore per i passaggi incorporati e per gli errori che possono verificarsi durante l'elaborazione delle istruzioni dei criteri. Per altre informazioni, vedere [Gestione degli errori nei criteri di Gestione API](./api-management-error-handling-policies.md).
 
-## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Come configurare criteri
+## <a name="how-to-configure-policies"></a><a name="scopes"> </a>Come configurare i criteri
 
 Per informazioni su come configurare i criteri, vedere [Impostare o modificare criteri](set-edit-policies.md).
 

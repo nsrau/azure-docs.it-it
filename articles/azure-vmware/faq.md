@@ -4,12 +4,12 @@ description: Fornisce le risposte ad alcune domande comuni sulla soluzione VMwar
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.author: dikamath
-ms.openlocfilehash: a1ca50e1e1374b5e819c9355be1a48e2b7c3e536
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 9f0eb1ec7c979e6f35c21f49cad9ab9975a221fc
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93349087"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357292"
 ---
 # <a name="frequently-asked-questions-about-azure-vmware-solution"></a>Domande frequenti sulla soluzione VMware di Azure
 
@@ -74,7 +74,7 @@ No, a causa dei requisiti di larghezza di banda e latenza.
 Azure Bastion è il servizio consigliato per connettersi alla casella di salto per impedire l'esposizione della soluzione VMware di Azure a Internet. Non è possibile usare Azure Bastion per connettersi alle macchine virtuali della soluzione VMware di Azure perché non sono oggetti IaaS di Azure.
 
 #### <a name="can-azure-load-balancer-internal-be-used-for-azure-vmware-solution-vms"></a>Può Azure Load Balancer essere usato internamente per le macchine virtuali della soluzione VMware di Azure?
-No. Azure Load Balancer Internal supporta solo le macchine virtuali IaaS di Azure. Azure Load Balancer non supporta i pool back-end basati su IP; solo le VM di Azure o gli oggetti del set di scalabilità di macchine virtuali (VMSS) in cui le macchine virtuali della soluzione VMware di Azure non sono oggetti
+No. Azure Load Balancer Internal supporta solo le macchine virtuali IaaS di Azure. Azure Load Balancer non supporta i pool back-end basati su IP; solo le macchine virtuali di Azure o gli oggetti del set di scalabilità di macchine virtuali in cui le macchine virtuali di Azure VMware
 
 #### <a name="can-an-existing-expressroute-gateway-be-used-to-connect-to-azure-vmware-solution"></a>È possibile usare un gateway ExpressRoute esistente per connettersi alla soluzione VMware di Azure?
 Sì, è possibile usare un gateway ExpressRoute esistente per connettersi alla soluzione VMware di Azure, purché non superi il limite di quattro circuiti ExpressRoute per ogni rete virtuale.  Tuttavia, per accedere alla soluzione Azure VMware dall'ambiente locale tramite ExpressRoute è necessario avere Copertura globale ExpressRoute, in quanto il gateway ExpressRoute non fornisce il routing transitivo tra i circuiti connessi.
@@ -280,6 +280,17 @@ Prima di creare la risorsa della soluzione VMware di Azure, è necessario inviar
    `"
 
    For additional ways to register the resource provider, see [Azure resource providers and types](../azure-resource-manager/management/resource-providers-and-types.md).
+
+
+## Customer communication
+
+#### How can I receive an alert when Azure sends service health notifications to my Azure subscription?
+
+Service issues, planned maintenance, health advisories, security advisories notifications are published through **Service Health** in the Azure portal.  You can take timely actions when you set up activity log alerts for these notifications. For more information, see [Create service health alerts using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md#create-service-health-alert-using-azure-portal).
+
+:::image type="content" source="media/service-health.png" alt-text="Screenshot of Service Health notifications":::
+
+
 
 <!-- LINKS - external -->
 [kb2106952]: https://kb.vmware.com/s/article/2106952?lang=en_US&queryTerm=21069522

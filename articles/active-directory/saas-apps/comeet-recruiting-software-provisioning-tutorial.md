@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 05/07/2019
 ms.author: jeedes
-ms.openlocfilehash: 37a446d721b7353c647d7d7e26de79e7038d1a3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 288d1e6cec8ddcf7d4afe5a35f28a022c2a7be10
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91299985"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357063"
 ---
 # <a name="tutorial-configure-comeet-recruiting-software-for-automatic-user-provisioning"></a>Esercitazione: configurare il software di reclutamento per il provisioning utenti automatico
 
@@ -53,7 +53,7 @@ Prima di configurare il software di reclutamento per il provisioning utenti auto
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere il **software di assunzione**del gruppo, selezionare il software per il **reclutamento** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere il **software di assunzione** del gruppo, selezionare il software per il **reclutamento** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Comeet Recruiting Software nell'elenco dei risultati](common/search-new-app.png)
 
@@ -98,7 +98,7 @@ In questa sezione vengono illustrati i passaggi per configurare il servizio di p
 
 5. Nella sezione **credenziali amministratore** immettere l'URL del **tenant** e il **token segreto** dell'account del software di reclutamento del tenant, come descritto nel passaggio 6.
 
-6. Nella [console di amministrazione del software di selezione](https://app.comeet.co/), passare a  **> impostazioni > autenticazione > Microsoft Azure**e copiare il **token segreto per il** valore della società nel campo **token segreto** in Azure ad.
+6. Nella [console di amministrazione del software di selezione](https://app.comeet.co/), passare a  **> impostazioni > autenticazione > Microsoft Azure** e copiare il **token segreto per il** valore della società nel campo **token segreto** in Azure ad.
 
     ![Provisioning del software di recruiting](./media/comeet-recruiting-software-provisioning-tutorial/secret-token-1.png)
 
@@ -110,7 +110,7 @@ In questa sezione vengono illustrati i passaggi per configurare il servizio di p
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a**.
 

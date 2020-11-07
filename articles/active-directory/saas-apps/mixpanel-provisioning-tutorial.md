@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/24/2020
 ms.author: Zhchia
-ms.openlocfilehash: c51fd947167834e79882e4efcee150f030e6f5e9
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: e70ee06d696539f0b41c0a070f6f5b43391fda52
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92521187"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357155"
 ---
 # <a name="tutorial-configure-mixpanel-for-automatic-user-provisioning"></a>Esercitazione: configurare mixpanel per il provisioning utenti automatico
 
@@ -45,7 +45,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e mixpanel](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-mixpanel-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare mixpanel per supportare il provisioning con Azure AD
+## <a name="step-2-configure-mixpanel-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare mixpanel per supportare il provisioning con Azure AD
 1. Per la configurazione di SSO e la richiesta di un dominio, fare riferimento a [questo](https://help.mixpanel.com/hc/articles/360036428871-Single-Sign-On).
 2. Successivamente, sarà necessario generare un token SCIM nella scheda SCIM della sezione sicurezza dell'accesso delle impostazioni dell'organizzazione.
 ![Token mixpanel](./media/mixpanel-provisioning-tutorial/mixpanelscim.png)

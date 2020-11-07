@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/14/2019
 ms.author: Zhchia
-ms.openlocfilehash: 6ab23183fa42b87dad68da1d7ef9b1a2f6145750
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 1b992150f6013fd597a3e56b243bd6236289b710
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514793"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357998"
 ---
 # <a name="tutorial-configure-soloinsight-cloudgate-sso-for-automatic-user-provisioning"></a>Esercitazione: configurare Soloinsight-CloudGate SSO per il provisioning utenti automatico
 
@@ -80,7 +80,7 @@ Prima di configurare Soloinsight-CloudGate SSO per il provisioning utenti automa
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **Soloinsight-CLOUDGATE SSO**, selezionare **SOLOINSIGHT-CloudGate SSO** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **Soloinsight-CLOUDGATE SSO** , selezionare **SOLOINSIGHT-CloudGate SSO** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Soloinsight-CloudGate SSO nell'elenco risultati](common/search-new-app.png)
 

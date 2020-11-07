@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/01/2019
 ms.author: Zhchia
-ms.openlocfilehash: dd5a0e05b303d6fc7a5cfa012f49fab99828e8a2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 4f230a70ae87c7c0ec9db347e7cf975c0252bb18
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91300072"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357811"
 ---
 # <a name="tutorial-configure-brivo-onair-identity-connector-for-automatic-user-provisioning"></a>Esercitazione: configurare brivo OnAir Identity Connector per il provisioning utenti automatico
 
@@ -80,7 +80,7 @@ Prima di configurare brivo OnAir Identity Connector per il provisioning utenti a
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **brivo OnAir Identity Connector**, selezionare **brivo OnAir Identity Connector** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **brivo OnAir Identity Connector** , selezionare **brivo OnAir Identity Connector** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Connettore identità OnAir brivo nell'elenco risultati](common/search-new-app.png)
 
@@ -114,7 +114,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a brivo OnAir Identity Connector**.
 

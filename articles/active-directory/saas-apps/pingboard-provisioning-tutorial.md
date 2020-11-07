@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: arvinh
-ms.openlocfilehash: 29e28e20bd9b471604a450ddb36ef867f0608e06
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: ac36f5d6d1f57fd8453c54bcc8cf19dd964f47f6
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88553763"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357896"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>Esercitazione: Configurare Pingboard per il provisioning utenti automatico
 
@@ -65,11 +65,11 @@ Questa sezione descrive la connessione di Azure AD all'API di provisioning degli
 
 1. Nella sezione **Credenziali amministratore** seguire questa procedura:
 
-    a. In **URL tenant**, immettere `https://your_domain.pingboard.com/scim/v2` e sostituire "your_domain" con il dominio effettivo.
+    a. In **URL tenant** , immettere `https://your_domain.pingboard.com/scim/v2` e sostituire "your_domain" con il dominio effettivo.
 
     b. Accedere a [Pingboard](https://pingboard.com/) usando l'account amministratore.
 
-    c. Selezionare **Add-Ons**  >  **integrazioni**componenti aggiuntivi  >  **Azure Active Directory**.
+    c. Selezionare **Add-Ons**  >  **integrazioni** componenti aggiuntivi  >  **Azure Active Directory**.
 
     d. Passare alla scheda **Configure** (Configura) e selezionare **Enable user provisioning from Azure** (Abilita provisioning utenti da Azure).
 

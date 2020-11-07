@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7f6be959bf09cbe20bb37dfa3d17d64467758bd6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 305682812896bb74474b5065cfd56a071a73ed15
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91397896"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358780"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indicizzatori in Ricerca cognitiva di Azure
 
@@ -32,7 +32,7 @@ Gli indicizzatori sono basati su piattaforme o tipi di origini dati, con singoli
 
 * [Importazione guidata dati > portale](search-import-data-portal.md)
 * [API REST del servizio](/rest/api/searchservice/Indexer-operations)
-* [.NET SDK](/dotnet/api/microsoft.azure.search.iindexersoperations)
+* [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 Un nuovo indicizzatore viene inizialmente annunciato come funzionalità di anteprima. Le funzionalità di anteprima vengono introdotte nelle API (REST e .NET) e quindi integrate nel portale dopo il passaggio alla disponibilità generale. Se si sta valutando un nuovo indicizzatore, è consigliabile prevedere la scrittura di codice.
 
@@ -52,7 +52,7 @@ Gli indicizzatori eseguono ricerche per indicizzazione negli archivi dati in Azu
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
 * [Database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Istanza gestita di SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
-* [SQL Server in macchine virtuali di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+* [SQL Server in Macchine virtuali di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
 ## <a name="indexer-stages"></a>Fasi dell'indicizzatore
 
@@ -88,19 +88,19 @@ Proprio come i mapping dei campi che associano i valori Verbatim dai campi di or
 
 L'immagine successiva mostra una rappresentazione della [sessione di debug](cognitive-search-debug-session.md) dell'indicizzatore di esempio delle fasi dell'indicizzatore: cracking del documento, mapping dei campi, esecuzione di competenze e mapping dei campi di output.
 
-:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="Fasi dell'indicizzatore" lightbox="media/search-indexer-overview/sample-debug-session.png":::
+:::image type="content" source="media/search-indexer-overview/sample-debug-session.png" alt-text="sessione di debug di esempio" lightbox="media/search-indexer-overview/sample-debug-session.png":::
 
 ## <a name="basic-configuration-steps"></a>Procedura di configurazione di base
 
 Gli indicizzatori possono offrire funzionalità univoche per l'origine dati. In questo senso, alcuni aspetti della configurazione dell'indicizzatore o dell'origine dati possono variare a seconda del tipo di indicizzatore. Tutti gli indicizzatori, tuttavia, condividono la stessa composizione e gli stessi requisiti di base. Le procedure comuni a tutti gli indicizzatori sono descritte sotto.
 
 ### <a name="step-1-create-a-data-source"></a>Passaggio 1: Creare un'origine dati
-Un indicizzatore ottiene una connessione all'origine dati da un oggetto *origine dati* . La definizione dell'origine dati fornisce una stringa di connessione e possibilmente le credenziali. Chiamare l'API REST [Create Datasource](/rest/api/searchservice/create-data-source) o la [classe DataSource](/dotnet/api/microsoft.azure.search.models.datasource) per creare la risorsa.
+Un indicizzatore ottiene una connessione all'origine dati da un oggetto *origine dati* . La definizione dell'origine dati fornisce una stringa di connessione e possibilmente le credenziali. Chiamare l'API REST [create DataSource](/rest/api/searchservice/create-data-source) o la [classe SearchIndexerDataSourceConnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) per creare la risorsa.
 
 Le origini dati vengono configurate e gestite indipendentemente dagli indicizzatori che le usano. Ciò significa che un'origine dati può essere usata da più indicizzatori per caricare più di un indice alla volta.
 
 ### <a name="step-2-create-an-index"></a>Passaggio 2: Creare un indice
-Un indicizzatore consente di automatizzare alcune attività relative all'inserimento dei dati, ma la creazione di un indice in genere non fa parte di esse. Uno dei prerequisiti prevede che sia disponibile un indice predefinito con campi corrispondenti a quelli dell'origine dati esterna. I campi devono corrispondere per nome e tipo di dati. Per altre informazioni sulla strutturazione di un indice, vedere [creare un indice (API REST di Azure ricerca cognitiva) o una](/rest/api/searchservice/Create-Index) [classe di indice](/dotnet/api/microsoft.azure.search.models.index). Per informazioni sulle associazioni di campi, vedere [mapping dei campi in Azure ricerca cognitiva Indexers](search-indexer-field-mappings.md).
+Un indicizzatore consente di automatizzare alcune attività relative all'inserimento dei dati, ma la creazione di un indice in genere non fa parte di esse. Uno dei prerequisiti prevede che sia disponibile un indice predefinito con campi corrispondenti a quelli dell'origine dati esterna. I campi devono corrispondere per nome e tipo di dati. Per altre informazioni sulla strutturazione di un indice, vedere [creare un indice (API REST di Azure ricerca cognitiva)](/rest/api/searchservice/Create-Index) o una [classe SearchIndex](/dotnet/api/azure.search.documents.indexes.models.searchindex). Per informazioni sulle associazioni di campi, vedere [mapping dei campi in Azure ricerca cognitiva Indexers](search-indexer-field-mappings.md).
 
 > [!Tip]
 > Anche se gli indicizzatori non possono generare automaticamente un indice, la procedura guidata **Importa dati** nel portale può risultare utile. Nella maggior parte dei casi, la procedura guidata può dedurre uno schema di indice dai metadati esistenti nell'origine, presentando uno schema dell'indice preliminare che è possibile modificare inline mentre la procedura guidata è attiva. Dopo la creazione dell'indice nel servizio, le ulteriori modifiche nel portale sono per lo più limitate all'aggiunta di nuovi campi. Prendere in considerazione la procedura guidata per la creazione, ma non per la revisione di un indice. Per un'esperienza di apprendimento pratico, seguire le indicazioni della [procedura dettagliata per il portale](search-get-started-portal.md).

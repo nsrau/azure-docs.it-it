@@ -6,17 +6,17 @@ manager: briz
 ms.service: iot-hub
 services: iot-hub
 ms.topic: troubleshooting
-ms.date: 01/30/2020
+ms.date: 11/06/2020
 ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: af057750e81086bf691b87057da97af3de19cd3b
-ms.sourcegitcommit: d76108b476259fe3f5f20a91ed2c237c1577df14
+ms.openlocfilehash: 8fb891d5a47203c9905a7def9d04199d24327f70
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/29/2020
-ms.locfileid: "92909642"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357250"
 ---
 # <a name="401003-iothubunauthorized"></a>401003 IoTHubUnauthorized
 
@@ -42,7 +42,7 @@ Le richieste all'hub Internet non riescono con uno dei messaggi di errore seguen
 
 ### <a name="cause-1"></a>Causa 1
 
-Per MQTT, alcuni SDK si basano sull'hub degli oggetti Internet per emettere la disconnessione quando il token di firma di accesso condiviso scade per stabilire quando aggiornarlo. Quindi 
+Per MQTT, alcuni SDK si basano sull'hub degli oggetti Internet per emettere la disconnessione quando il token di firma di accesso condiviso scade per stabilire quando aggiornarlo. Quindi
 
 1. Il token SAS scade
 1. L'hub Internet rileva la scadenza e disconnette il dispositivo con **401003 IoTHubUnauthorized**
@@ -58,9 +58,11 @@ L'hub Internet delle cose non è riuscito ad autenticare l'intestazione, la rego
 
 ### <a name="solution-1"></a>Soluzione 1
 
-Non è necessaria alcuna azione se si usa l'SDK per la connessione usando la stringa di connessione del dispositivo. Per la riconnessione alla scadenza del token SAS, il nuovo token SDK viene rigenerato da Internet. 
+Non è necessaria alcuna azione se si usa l'SDK per la connessione usando la stringa di connessione del dispositivo. Per la riconnessione alla scadenza del token SAS, il nuovo token SDK viene rigenerato da Internet.
 
-Se il volume degli errori rappresenta un problema, passare a C SDK, che rinnova il token di firma di accesso condiviso prima della scadenza. Per AMQP, inoltre, il token SAS può essere aggiornato senza disconnessione.
+La durata del token predefinita è di 60 minuti negli SDK. Tuttavia, per alcuni SDK è possibile configurare la durata dei token e la soglia di rinnovo del token. Inoltre, gli errori generati quando un dispositivo si disconnette e si riconnette in caso di rinnovo del token è diverso per ogni SDK. Per altre informazioni e per informazioni su come determinare l'SDK usato dal dispositivo nei log, vedere [comportamento di disconnessione del dispositivo MQTT con gli SDK di Azure](iot-hub-troubleshoot-connectivity.md#mqtt-device-disconnect-behavior-with-azure-iot-sdks).
+
+Per gli sviluppatori di dispositivi, se il volume degli errori rappresenta un problema, passare a C SDK, che rinnova il token di firma di accesso condiviso prima della scadenza. Per AMQP, il token SAS può essere aggiornato senza disconnessione.
 
 ### <a name="solution-2"></a>Soluzione 2
 

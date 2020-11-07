@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2f3657feb5a68600e4eb2d7bcaa4891a398c2682
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 889972f7d94ab960354982275d45bdc5d5726d6e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850694"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356825"
 ---
 # <a name="tutorial-configure-looop-for-automatic-user-provisioning"></a>Esercitazione: configurare looop per il provisioning utenti automatico
 
@@ -37,7 +37,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assign-users-to-looop"></a>Assegnare gli utenti a looop
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle assegnazioni. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Azure Active Directory usa un concetto denominato assegnazioni per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere a looop. Dopo aver stabilito questo, è possibile assegnare gli utenti e/o i gruppi a looop seguendo le istruzioni riportate qui:
 
@@ -59,7 +59,7 @@ Prima di configurare looop per il provisioning utenti automatico con Azure AD, s
 
 2. Per generare un nuovo token, fare clic su **Reimposta token** in **integrazione scim**.
 
-    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Screenshot della console di amministrazione di looop. La scheda account è evidenziata e aperta. In Impostazioni account viene evidenziata l'autenticazione di." border="false":::
+    :::image type="content" source="media/looop-provisioning-tutorial/resettoken.png" alt-text="Screenshot della sezione di integrazione S C I M di una pagina nella console di amministrazione di looop. Il pulsante Reimposta token è evidenziato." border="false":::
 
 3. Copiare l' **endpoint scim** e il **token**. Questi valori verranno immessi nei campi **URL tenant** e **token segreto** nella scheda provisioning dell'applicazione looop nel portale di Azure. 
 
@@ -81,7 +81,7 @@ Per configurare looop per il provisioning utenti automatico con Azure AD, è nec
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **looop**, selezionare **looop** nel pannello dei risultati. 
+4. Nella casella di ricerca immettere **looop** , selezionare **looop** nel pannello dei risultati. 
 
     ![Looop nell'elenco risultati](common/search-new-app.png)
 
@@ -127,7 +127,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a looop**.
 

@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/11/2020
 ms.author: Zhchia
-ms.openlocfilehash: fa187d9f7ee2b4b91c8559a185f55f0015f0b441
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 69a9b9401f25893ec94b282f52730d92d372268d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455630"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355703"
 ---
 # <a name="tutorial-configure-cofense-recipient-sync-for-automatic-user-provisioning"></a>Esercitazione: configurare la sincronizzazione del destinatario Cofense per il provisioning utenti automatico
 
@@ -46,7 +46,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e la sincronizzazione del destinatario Cofense](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare la sincronizzazione del destinatario Cofense per supportare il provisioning con Azure AD
+## <a name="step-2-configure-cofense-recipient-sync-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare la sincronizzazione del destinatario Cofense per supportare il provisioning con Azure AD
 
 1. Accedere a Cofense PhishMe. Passare a **destinatari > sincronizzazione del destinatario**. 
 2. Accettare i termini e le condizioni e quindi **fare clic su inizia.**

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/28/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 87532876551cacbd4da03b95b10c41600989a947
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.openlocfilehash: 909d64d3d32e8b9a314f7afb06b9c0121f624cec
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93359715"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358484"
 ---
 # <a name="known-issues-with-azure-data-lake-storage-gen2"></a>Problemi noti con Azure Data Lake Storage Gen2
 
@@ -54,7 +54,9 @@ Le API REST per i BLOB seguenti non sono supportate:
 * [Get Page Ranges](https://docs.microsoft.com/rest/api/storageservices/get-page-ranges)
 * [Incremental Copy Blob](https://docs.microsoft.com/rest/api/storageservices/incremental-copy-blob)
 * [Put Page from URL](https://docs.microsoft.com/rest/api/storageservices/put-page-from-url)
+* [Append Block](https://docs.microsoft.com/rest/api/storageservices/append-block)
 * [Append Block from URL](https://docs.microsoft.com/rest/api/storageservices/append-block-from-url)
+
 
 I dischi non gestiti delle macchine virtuali non sono supportati negli account che hanno uno spazio dei nomi gerarchico. Se si intende abilitare uno spazio dei nomi gerarchico in un account di archiviazione, inserire i dischi non gestiti delle macchine virtuali in un account di archiviazione in cui non è abilitata la funzionalità dello spazio dei nomi gerarchico.
 

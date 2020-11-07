@@ -7,13 +7,13 @@ manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: dffa8393dcfebf1cb73e3ab72890999cfa633b80
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 80c3f9aa02680097276f966ce6aea02acf1e40fb
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532568"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358797"
 ---
 # <a name="how-to-schedule-indexers-in-azure-cognitive-search"></a>Come pianificare gli indicizzatori in Azure ricerca cognitiva
 
@@ -30,8 +30,8 @@ L'utilità di pianificazione è una funzionalità predefinita di Azure ricerca c
 ## <a name="define-schedule-properties"></a>Definire le proprietà della pianificazione
 
 Una pianificazione dell'indicizzatore ha due proprietà:
-* **Intervallo**, che definisce la quantità di tempo tra le esecuzioni pianificate dell'indicizzatore. L'intervallo minimo consentito è 5 minuti e il massimo è 24 ore.
-* **Ora di inizio (UTC)**, che indica la prima volta in cui deve essere eseguito l'indicizzatore.
+* **Intervallo** , che definisce la quantità di tempo tra le esecuzioni pianificate dell'indicizzatore. L'intervallo minimo consentito è 5 minuti e il massimo è 24 ore.
+* **Ora di inizio (UTC)** , che indica la prima volta in cui deve essere eseguito l'indicizzatore.
 
 È possibile specificare una pianificazione quando si crea prima l'indicizzatore oppure aggiornando le proprietà dell'indicizzatore in un secondo momento. Le pianificazioni dell'indicizzatore possono essere impostate tramite il [portale](#portal), l' [API REST](#restApi)o [.NET SDK](#dotNetSdk).
 
@@ -50,11 +50,11 @@ Ecco un esempio per rendere il discorso più concreto. Si supponga di configurar
 
 ## <a name="schedule-in-the-portal"></a>Pianificare nel portale
 
-La procedura guidata Importa dati nel portale consente di definire la pianificazione per un indicizzatore al momento della creazione. L'impostazione predefinita della pianificazione è ogni **ora**, ovvero l'indicizzatore viene eseguito una volta dopo la creazione e viene eseguito di nuovo ogni ora in seguito.
+La procedura guidata Importa dati nel portale consente di definire la pianificazione per un indicizzatore al momento della creazione. L'impostazione predefinita della pianificazione è ogni **ora** , ovvero l'indicizzatore viene eseguito una volta dopo la creazione e viene eseguito di nuovo ogni ora in seguito.
 
 È possibile modificare l'impostazione di pianificazione su **una volta** se non si vuole che l'indicizzatore venga eseguito di nuovo automaticamente o su **ogni** giorno per eseguirlo una volta al giorno. Impostarla su **personalizzata** se si vuole specificare un intervallo diverso o un'ora di avvio futura specifica.
 
-Quando si imposta la pianificazione su **personalizzata**, vengono visualizzati i campi che consentono di specificare l' **intervallo** e l' **ora di inizio (UTC)**. L'intervallo di tempo più breve consentito è 5 minuti e il più lungo è 1440 minuti (24 ore).
+Quando si imposta la pianificazione su **personalizzata** , vengono visualizzati i campi che consentono di specificare l' **intervallo** e l' **ora di inizio (UTC)**. L'intervallo di tempo più breve consentito è 5 minuti e il più lungo è 1440 minuti (24 ore).
 
    ![Impostazione della pianificazione dell'indicizzatore nell'importazione guidata dati](media/search-howto-schedule-indexers/schedule-import-data.png "Impostazione della pianificazione dell'indicizzatore nell'importazione guidata dati")
 
@@ -82,7 +82,7 @@ Dopo aver creato un indicizzatore, è possibile modificare le impostazioni di pi
 
 È richiesto il parametro **interval** . L'intervallo fa riferimento al tempo tra l'inizio di due esecuzioni consecutive dell'indicizzatore. L'intervallo minimo consentito è di 5 minuti, quello massimo di un giorno. Il valore deve essere formattato come valore XSD "dayTimeDuration" (un subset limitato di un valore [duration ISO 8601](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) ). Il modello è: `P(nD)(T(nH)(nM))`. Esempi: `PT15M` ogni 15 minuti, `PT2H` ogni due ore.
 
-Il **StartTime** facoltativo indica quando devono iniziare le esecuzioni pianificate. Se viene omesso, verrà usata l'ora UTC corrente. Questa volta può essere nel passato, nel qual caso la prima esecuzione è pianificata come se l'indicizzatore venisse eseguito in modo continuativo rispetto al **StartTime**originale.
+Il **StartTime** facoltativo indica quando devono iniziare le esecuzioni pianificate. Se viene omesso, verrà usata l'ora UTC corrente. Questa volta può essere nel passato, nel qual caso la prima esecuzione è pianificata come se l'indicizzatore venisse eseguito in modo continuativo rispetto al **StartTime** originale.
 
 È anche possibile eseguire un indicizzatore su richiesta in qualsiasi momento usando la chiamata a Esegui indicizzatore. Per altre informazioni sull'esecuzione degli indicizzatori e sull'impostazione delle pianificazioni degli indicizzatori, vedere [eseguire l'indicizzatore](/rest/api/searchservice/run-indexer), [ottenere un indicizzatore](/rest/api/searchservice/get-indexer)e [aggiornare l'indicizzatore](/rest/api/searchservice/update-indexer) nelle informazioni di riferimento sull'API REST.
 
@@ -92,28 +92,32 @@ Il **StartTime** facoltativo indica quando devono iniziare le esecuzioni pianifi
 
 È possibile definire la pianificazione per un indicizzatore usando Azure ricerca cognitiva .NET SDK. A tale scopo, includere la proprietà **Schedule** durante la creazione o l'aggiornamento di un indicizzatore.
 
-Nell'esempio C# seguente viene creato un indicizzatore, utilizzando un'origine dati e un indice predefiniti e viene impostata la pianificazione per l'esecuzione una volta al giorno a partire da 30 minuti da ora:
+Nell'esempio C# seguente viene creato un indicizzatore del database SQL di Azure usando un'origine dati e un indice predefiniti e viene impostata la pianificazione per l'esecuzione una volta al giorno a partire da ora:
 
+```csharp
+var schedule = new IndexingSchedule(TimeSpan.FromDays(1))
+{
+    StartTime = DateTimeOffset.Now
+};
+
+var indexer = new SearchIndexer("hotels-sql-idxr", dataSource.Name, searchIndex.Name)
+{
+    Description = "Data indexer",
+    Schedule = schedule
+};
+
+await indexerClient.CreateOrUpdateIndexerAsync(indexer);
 ```
-    Indexer indexer = new Indexer(
-        name: "azure-sql-indexer",
-        dataSourceName: dataSource.Name,
-        targetIndexName: index.Name,
-        schedule: new IndexingSchedule(
-                        TimeSpan.FromDays(1), 
-                        new DateTimeOffset(DateTime.UtcNow.AddMinutes(30))
-                    )
-        );
-    await searchService.Indexers.CreateOrUpdateAsync(indexer);
-```
-Se il parametro **Schedule** viene omesso, l'indicizzatore verrà eseguito una sola volta immediatamente dopo la creazione.
 
-Il parametro **StartTime** può essere impostato su un'ora nel passato. In tal caso, la prima esecuzione viene pianificata come se l'indicizzatore venisse eseguito in modo continuativo dopo il **StartTime**specificato.
 
-La pianificazione viene definita utilizzando la classe [IndexingSchedule](/dotnet/api/microsoft.azure.search.models.indexingschedule) . Il costruttore **IndexingSchedule** richiede un parametro **Interval** specificato utilizzando un oggetto **TimeSpan** . Il valore di intervallo minimo consentito è 5 minuti e il massimo è 24 ore. Il secondo parametro **StartTime** , specificato come oggetto **DateTimeOffset** , è facoltativo.
+Se la proprietà **Schedule** viene omessa, l'indicizzatore verrà eseguito una sola volta immediatamente dopo la creazione.
 
-.NET SDK consente di controllare le operazioni dell'indicizzatore usando la classe [SearchServiceClient](/dotnet/api/microsoft.azure.search.searchserviceclient) e la relativa proprietà [Indexers](/dotnet/api/microsoft.azure.search.searchserviceclient.indexers) , che implementa i metodi dell'interfaccia **IIndexersOperations** . 
+Il parametro **StartTime** può essere impostato su un'ora nel passato. In tal caso, la prima esecuzione viene pianificata come se l'indicizzatore venisse eseguito in modo continuativo dopo il **StartTime** specificato.
 
-È possibile eseguire un indicizzatore su richiesta in qualsiasi momento usando uno dei metodi [Run](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.run), [RunAsync](/dotnet/api/microsoft.azure.search.indexersoperationsextensions.runasync)o [RunWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.iindexersoperations.runwithhttpmessagesasync) .
+La pianificazione viene definita utilizzando la classe [IndexingSchedule](/dotnet/api/azure.search.documents.indexes.models.indexingschedule) . Il costruttore **IndexingSchedule** richiede un parametro **Interval** specificato utilizzando un oggetto **TimeSpan** . Il valore di intervallo minimo consentito è 5 minuti e il massimo è 24 ore. Il secondo parametro **StartTime** , specificato come oggetto **DateTimeOffset** , è facoltativo.
 
-Per ulteriori informazioni sulla creazione, l'aggiornamento e l'esecuzione degli indicizzatori, vedere [IIindexersOperations](/dotnet/api/microsoft.azure.search.iindexersoperations).
+.NET SDK consente di controllare le operazioni dell'indicizzatore usando [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient). 
+
+È possibile eseguire un indicizzatore su richiesta in qualsiasi momento usando uno dei metodi [RunIndexer](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexer) o [RunIndexerAsync](/dotnet/api/azure.search.documents.indexes.searchindexerclient.runindexerasync) .
+
+Per ulteriori informazioni sulla creazione, l'aggiornamento e l'esecuzione degli indicizzatori, vedere [SearchIndexerClient](/dotnet/api/azure.search.documents.indexes.searchindexerclient).

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 5858e785b2105d8357ebd478699e2d17768fc25f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 2c7f4aebc70ff831459fe111bcc30f5385088028
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519725"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357675"
 ---
 # <a name="tutorial-configure-zscaler-for-automatic-user-provisioning"></a>Esercitazione: configurare zScaler per il provisioning utenti automatico
 
@@ -55,7 +55,7 @@ Prima di configurare zScaler per il provisioning utenti automatico con Azure AD,
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Zscaler**, selezionare **Zscaler** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Zscaler** , selezionare **Zscaler** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Zscaler nell'elenco risultati](common/search-new-app.png)
 
@@ -82,7 +82,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-in-azure-ad"></a>Per configurare il provisioning utenti automatico per zScaler in Azure AD:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **applicazioni aziendali**, selezionare **tutte le applicazioni**, quindi selezionare **zScaler**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **applicazioni aziendali** , selezionare **tutte le applicazioni** , quindi selezionare **zScaler**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -100,7 +100,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 5. Nella sezione **credenziali amministratore** immettere l'URL del **tenant** e il **token segreto** dell'account zScaler, come descritto nel passaggio 6.
 
-6. Per ottenere l' **URL del tenant** e il **token del segreto**, passare ad **Amministrazione > impostazioni di autenticazione** nell'interfaccia utente del portale di zScaler e fare clic su **SAML** in **tipo di autenticazione**.
+6. Per ottenere l' **URL del tenant** e il **token del segreto** , passare ad **Amministrazione > impostazioni di autenticazione** nell'interfaccia utente del portale di zScaler e fare clic su **SAML** in **tipo di autenticazione**.
 
     ![Screenshot della pagina delle impostazioni di autenticazione.](./media/zscaler-provisioning-tutorial/secret-token-1.png)
 
@@ -108,7 +108,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Screenshot della finestra di dialogo Configura S A M L con le caselle di testo di base U R L e del token di porta richiamate.](./media/zscaler-provisioning-tutorial/secret-token-2.png)
 
-    Selezionare **Abilita provisioning SCIM-Based** per recuperare l' **URL di base** e il token di **porta**, quindi salvare le impostazioni. Copiare l' **URL di base** nell' **URL del tenant**e il token di **porta**  nel token di **segreto** nel portale di Azure.
+    Selezionare **Abilita provisioning SCIM-Based** per recuperare l' **URL di base** e il token di **porta** , quindi salvare le impostazioni. Copiare l' **URL di base** nell' **URL del tenant** e il token di **porta**  nel token di **segreto** nel portale di Azure.
 
 7. Quando si popolano i campi indicati nel passaggio 5, fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a zScaler. Se la connessione non riesce, verificare che l'account zScaler disponga delle autorizzazioni di amministratore e riprovare.
 
@@ -118,7 +118,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Screenshot della casella di testo della posta elettronica di notifica.](./media/zscaler-provisioning-tutorial/notification.png)
 
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 10. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a zScaler**.
 

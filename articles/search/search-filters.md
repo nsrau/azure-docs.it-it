@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6c46dfb3f36c3ef7f67ce2f3b52c2ffe4c805a61
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 6d83e5c39f97db49e2cc9b77cc806cff0a1fa6de
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91534795"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355985"
 ---
 # <a name="filters-in-azure-cognitive-search"></a>Filtri in ricerca cognitiva di Azure 
 
@@ -104,7 +104,7 @@ Negli esempi seguenti vengono illustrati diversi modelli di utilizzo per gli sce
    search=*&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Honolulu'
    ```
 
-+ Combinazione di stringa di query e **$filter**, dove il filtro crea il subset e la stringa di query fornisce gli input dei termini per la ricerca full-text nel subset filtrato. L'aggiunta di termini (teatri a distanza) introduce i punteggi di ricerca nei risultati, in cui i documenti che soddisfano al meglio i termini sono classificati in un livello superiore. L'uso di un filtro con una stringa di query è il modello di utilizzo più comune.
++ Combinazione di stringa di query e **$filter** , dove il filtro crea il subset e la stringa di query fornisce gli input dei termini per la ricerca full-text nel subset filtrato. L'aggiunta di termini (teatri a distanza) introduce i punteggi di ricerca nei risultati, in cui i documenti che soddisfano al meglio i termini sono classificati in un livello superiore. L'uso di un filtro con una stringa di query è il modello di utilizzo più comune.
 
    ```
   search=walking distance theaters&$filter=Rooms/any(room: room/BaseRate ge 60 and room/BaseRate lt 300) and Address/City eq 'Seattle'&$count=true
@@ -138,11 +138,11 @@ Leggere gli articoli seguenti per indicazioni complete sui casi d'uso specifici:
 
 Nell'API REST *, il filtro è attivo* per impostazione predefinita per i campi semplici. I campi filtrabili causano un aumento delle dimensioni dell'indice. Assicurarsi di impostare `"filterable": false` per i campi che non si prevede di usare in un filtro. Per altre informazioni sulle impostazioni delle definizioni di campo, vedere l'articolo relativo all'operazione [Create Index](/rest/api/searchservice/create-index).
 
-In .NET SDK la proprietà filterable è *disattivata* per impostazione predefinita. È possibile rendere un campo filtrabile impostando la [proprietà di filtro](/dotnet/api/microsoft.azure.search.models.field.isfilterable) dell'oggetto [campo](/dotnet/api/microsoft.azure.search.models.field) corrispondente su `true` . È anche possibile eseguire questa operazione in modo dichiarativo usando l' [attributo di filtro](/dotnet/api/microsoft.azure.search.isfilterableattribute). Nell'esempio seguente l'attributo viene impostato sulla `BaseRate` proprietà di una classe di modello che esegue il mapping alla definizione dell'indice.
+In .NET SDK la proprietà filterable è *disattivata* per impostazione predefinita. È possibile rendere un campo filtrabile impostando la [proprietà di filtro](/dotnet/api/azure.search.documents.indexes.models.searchfield.isfilterable) dell'oggetto [SearchField](/dotnet/api/azure.search.documents.indexes.models.searchfield) corrispondente su `true` . Nell'esempio seguente l'attributo viene impostato sulla `BaseRate` proprietà di una classe di modello che esegue il mapping alla definizione dell'indice.
 
 ```csharp
-    [IsFilterable, IsSortable, IsFacetable]
-    public double? BaseRate { get; set; }
+[IsFilterable, IsSortable, IsFacetable]
+public double? BaseRate { get; set; }
 ```
 
 ### <a name="making-an-existing-field-filterable"></a>Creazione di un campo filtrabile esistente
@@ -160,7 +160,7 @@ Per le stringhe di testo viene fatta distinzione tra maiuscole e minuscole. Non 
 | Approccio | Descrizione | Utilizzo |
 |----------|-------------|-------------|
 | [`search.in`](search-query-odata-search-in-function.md) | Funzione che corrisponde a un campo rispetto a un elenco di stringhe delimitato. | Consigliato per i [filtri di sicurezza](search-security-trimming-for-azure-search.md) e per tutti i filtri in cui è necessario trovare una corrispondenza per molti valori di testo non elaborati con un campo stringa. La funzione **search.in** è progettata per la velocità ed è molto più veloce rispetto a confrontare in modo esplicito il campo con ogni stringa utilizzando `eq` e `or` . | 
-| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Funzione che consente di combinare le operazioni di ricerca full-text con operazioni di filtro esclusivamente booleane nella stessa espressione filtro. | Usare **search. IsMatch** (o l'equivalente di assegnazione dei punteggi, **search. ismatchscoring**) quando si desiderano più combinazioni di filtri di ricerca in un'unica richiesta. Può essere usata anche con un filtro *contains* per applicare un filtro su una stringa parziale all'interno di una stringa più grande. |
+| [`search.ismatch`](search-query-odata-full-text-search-functions.md) | Funzione che consente di combinare le operazioni di ricerca full-text con operazioni di filtro esclusivamente booleane nella stessa espressione filtro. | Usare **search. IsMatch** (o l'equivalente di assegnazione dei punteggi, **search. ismatchscoring** ) quando si desiderano più combinazioni di filtri di ricerca in un'unica richiesta. Può essere usata anche con un filtro *contains* per applicare un filtro su una stringa parziale all'interno di una stringa più grande. |
 | [`$filter=field operator string`](search-query-odata-comparison-operators.md) | Espressione definita dall'utente composta da campi, operatori e valori. | Utilizzare questo valore quando si desidera trovare corrispondenze esatte tra un campo stringa e un valore stringa. |
 
 ## <a name="numeric-filter-fundamentals"></a>Concetti fondamentali sui filtri numerici

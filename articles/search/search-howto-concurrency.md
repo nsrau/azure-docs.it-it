@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 85f14329359eaf051b992f657ac0e4e634d504cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1cb8d578c05166f88ed7e91681dd6b5f15b1e3e5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89020831"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358644"
 ---
 # <a name="how-to-manage-concurrency-in-azure-cognitive-search"></a>Come gestire la concorrenza in Azure ricerca cognitiva
 
@@ -30,7 +30,7 @@ La concorrenza ottimistica viene implementata tramite i controlli delle condizio
 Tutte le risorse hanno un [*tag di entità (ETag)*](https://en.wikipedia.org/wiki/HTTP_ETag) che fornisce informazioni sulla versione dell'oggetto. Controllando prima l'ETag, è possibile evitare aggiornamenti simultanei in un flusso di lavoro tipico (acquisizione, modifica locale, aggiornamento) assicurandosi che l'ETag della risorsa corrisponda alla copia locale.
 
 + L'API REST usa un [ETag](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) nell'intestazione della richiesta.
-+ .NET SDK imposta l'ETag tramite un oggetto accessCondition, impostando l'[intestazione If-Match | If-Match-None](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) per la risorsa. Tutti gli oggetti che ereditano da [IResourceWithETag (.NET SDK)](/dotnet/api/microsoft.azure.search.models.iresourcewithetag) hanno un oggetto accessCondition.
++ .NET SDK imposta l'ETag tramite un oggetto accessCondition, impostando l'[intestazione If-Match | If-Match-None](/rest/api/searchservice/common-http-request-and-response-headers-used-in-azure-search) per la risorsa. Gli oggetti che usano ETag, ad esempio [SynonymMap. ETag](/dotnet/api/azure.search.documents.indexes.models.synonymmap.etag) e [SearchIndex. ETag](/dotnet/api/azure.search.documents.indexes.models.searchindex.etag), hanno un oggetto accessCondition.
 
 Ogni volta che si aggiorna una risorsa, l'ETag cambia automaticamente. Quando si implementa la gestione della concorrenza, si inserisce semplicemente una precondizione nella richiesta di aggiornamento, che obbliga la risorsa remota ad avere lo stesso ETag della copia della risorsa modificata nel client. Se un processo simultaneo ha già modificato la risorsa remota, l'ETag non soddisferà la precondizione e la richiesta genererà l'errore HTTP 412. Se si usa .NET SDK, viene generata una `CloudException` in cui il metodo di estensione `IsAccessConditionFailed()` restituisce true.
 

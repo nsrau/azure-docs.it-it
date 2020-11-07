@@ -6,12 +6,12 @@ ms.author: lufittl
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 30c2da4ac750375c66b92cdca552e1a51a8dbc40
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d1405bce6761b6702146418296cb7b47bb9124ee
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90940398"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357182"
 ---
 # <a name="limits-in-azure-database-for-postgresql---flexible-server"></a>Limiti nel database di Azure per PostgreSQL-server flessibile
 
@@ -73,10 +73,12 @@ Una connessione PostgreSQL, anche inattiva, può occupare circa 10 MB di memoria
 - Le regole del firewall non sono supportate in VNET. in alternativa, è possibile usare i gruppi di sicurezza di rete.
 - I server di database di accesso pubblico possono connettersi a Internet pubblico, ad esempio tramite `postgres_fdw` , e questo accesso non può essere limitato. I server basati su VNET possono avere un accesso in uscita limitato usando gruppi di sicurezza di rete.
 
-### <a name="high-availability"></a>Disponibilità elevata
+### <a name="high-availability-ha"></a>Disponibilità elevata (HA)
 
 - Zone-Redundant disponibilità elevata non è attualmente supportata per i server con estensione.
 - L'indirizzo IP del server di database cambia quando il server esegue il failover in standby a disponibilità elevata. Assicurarsi di usare il record DNS anziché l'indirizzo IP del server.
+- Se la replica logica è configurata con un server flessibile configurato per la disponibilità elevata, in caso di failover al server di standby, gli slot di replica logici non vengono copiati nel server di standby. 
+- Per altre limitazioni a disponibilità elevata, vedere la pagina [relativa alla documentazione relativa ai concetti a disponibilità elevata](concepts-high-availability.md) .
 
 ### <a name="availability-zones"></a>Zone di disponibilità
 

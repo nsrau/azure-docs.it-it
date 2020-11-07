@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: b1ad4ead83c9e07966f921a5b192f2791838e6ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 04e4801c26b0ac8ef91af0b028d9dc2bb9a3cd1c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91530562"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358627"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Connettersi e indicizzare il contenuto SQL di Azure usando un indicizzatore di Azure ricerca cognitiva
 
@@ -26,7 +26,7 @@ Oltre al database SQL di Azure e a SQL Istanza gestita, Azure ricerca cognitiva 
 
 ## <a name="indexers-and-data-sources"></a>Indicizzatori e origini dati
 
-Un'**origine dati** specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono di identificare in modo efficace le modifiche apportate ai dati, ovvero righe nuove, modificate o eliminate. L'origine dati è definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
+Un' **origine dati** specifica i dati da indicizzare, le credenziali necessarie per accedere ai dati e i criteri che consentono di identificare in modo efficace le modifiche apportate ai dati, ovvero righe nuove, modificate o eliminate. L'origine dati è definita come risorsa indipendente affinché possa essere usata da più indicizzatori.
 
 Un **indicizzatore** è una risorsa che connette una singola origine dati agli indici di ricerca di destinazione. Un indicizzatore viene usato nei modi seguenti:
 
@@ -39,7 +39,7 @@ Un singolo indicizzatore può usare solo una tabella o una vista, ma è possibil
 È possibile impostare e configurare un indicizzatore SQL di Azure usando:
 
 * Importazione guidata dati nel [portale di Azure](https://portal.azure.com)
-* Azure ricerca cognitiva [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer)
+* Azure ricerca cognitiva [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 * [API REST](/rest/api/searchservice/indexer-operations) di Azure ricerca cognitiva
 
 In questo articolo si userà l'API REST per creare gli **indicizzatori** e le **origini dati**.

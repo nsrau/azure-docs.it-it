@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: 081f073fa4933d67604173d2169a7abdc3ac7c3f
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b4f54aff78526ba52e56ed9f4cf1feddf40fa69b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403569"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358393"
 ---
 # <a name="how-to-index-large-data-sets-in-azure-cognitive-search"></a>Come indicizzare set di dati di grandi dimensioni in ricerca cognitiva di Azure
 
@@ -27,7 +27,7 @@ Le sezioni seguenti illustrano le tecniche per l'indicizzazione di grandi quanti
 
 ## <a name="use-the-push-api"></a>Usare l'API push
 
-Quando si esegue il push dei dati in un indice usando l' [API REST di Add Documents](/rest/api/searchservice/addupdate-or-delete-documents) o il [metodo index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index), esistono diverse considerazioni chiave che incidono sulla velocità di indicizzazione. Questi fattori sono descritti nella sezione seguente e variano dall'impostazione della capacità del servizio alle ottimizzazioni del codice.
+Quando si esegue il push dei dati in un indice usando l' [API REST di aggiunta documenti](/rest/api/searchservice/addupdate-or-delete-documents) o il [Metodo IndexDocuments](/dotnet/api/azure.search.documents.searchclient.indexdocuments), esistono diverse considerazioni chiave che influiscano sulla velocità di indicizzazione. Questi fattori sono descritti nella sezione seguente e variano dall'impostazione della capacità del servizio alle ottimizzazioni del codice.
 
 Per altre informazioni ed esempi di codice che illustrano l'indicizzazione del modello push, vedere [esercitazione: ottimizzare le velocità di indicizzazione](tutorial-optimize-indexing-push-api.md).
 
@@ -45,14 +45,14 @@ Quando si è soddisfatti del livello, il passaggio successivo potrebbe consister
 
 ### <a name="review-index-schema"></a>Esaminare lo schema dell'indice
 
-Lo schema dell'indice svolge un ruolo importante nell'indicizzazione dei dati. Maggiore è il numero di campi disponibili e il numero di proprietà impostate, ad esempio *ricercabile*, con *facet*o *filtrabile*, contribuisce a un aumento del tempo di indicizzazione. In generale, è consigliabile creare e specificare solo i campi effettivamente necessari in un indice di ricerca.
+Lo schema dell'indice svolge un ruolo importante nell'indicizzazione dei dati. Maggiore è il numero di campi disponibili e il numero di proprietà impostate, ad esempio *ricercabile* , con *facet* o *filtrabile* , contribuisce a un aumento del tempo di indicizzazione. In generale, è consigliabile creare e specificare solo i campi effettivamente necessari in un indice di ricerca.
 
 > [!NOTE]
 > Per ridurre le dimensioni del documento, evitare di aggiungere dati non Queryable a un indice. Le immagini e altri dati binari non sono direttamente disponibili per la ricerca e non devono quindi essere archiviati nell'indice. Per integrare i dati non disponibili per query nei risultati della ricerca, occorre definire un campo non disponibile per la ricerca che archivia un riferimento URL alla risorsa.
 
 ### <a name="check-the-batch-size"></a>Controllare le dimensioni del batch
 
-Uno dei meccanismi più semplici per l'indicizzazione di set di dati di grandi dimensioni consiste nell'inviare più documenti o record in un'unica richiesta. Se le dimensioni dell'intero payload sono inferiori a 16 MB, una richiesta può gestire fino a 1000 documenti in un'operazione di caricamento in blocco. Questi limiti si applicano se si usa l' [API REST di Add Documents](/rest/api/searchservice/addupdate-or-delete-documents) o il [metodo index](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.index) in .NET SDK. Per entrambe le API, è necessario creare il pacchetto di 1000 documenti nel corpo di ogni richiesta.
+Uno dei meccanismi più semplici per l'indicizzazione di set di dati di grandi dimensioni consiste nell'inviare più documenti o record in un'unica richiesta. Se le dimensioni dell'intero payload sono inferiori a 16 MB, una richiesta può gestire fino a 1000 documenti in un'operazione di caricamento in blocco. Questi limiti si applicano se si usa l' [API REST di aggiunta documenti](/rest/api/searchservice/addupdate-or-delete-documents) o il [Metodo INDEXDOCUMENTS](/dotnet/api/azure.search.documents.searchclient.indexdocuments) in .NET SDK. Per entrambe le API, è necessario creare il pacchetto di 1000 documenti nel corpo di ogni richiesta.
 
 L'utilizzo di batch per indicizzare i documenti consente di migliorare significativamente le prestazioni di indicizzazione. Determinare le dimensioni ottimali dei batch per i dati è fondamentale per ottimizzare la velocità di indicizzazione. I due fattori principali che influiscono sulle dimensioni ottimali dei batch sono i seguenti:
 

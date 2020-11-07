@@ -5,13 +5,13 @@ author: robinsh
 ms.author: robinsh
 ms.topic: conceptual
 ms.service: iot-hub
-ms.date: 10/22/2020
-ms.openlocfilehash: 71a7041ec02da9a85de411f1113814311c21cd4f
-ms.sourcegitcommit: 857859267e0820d0c555f5438dc415fc861d9a6b
+ms.date: 11/06/2020
+ms.openlocfilehash: dc239843c4ed597949b4ba00c44ec84fc70741a8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93128880"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357607"
 ---
 # <a name="monitoring-azure-iot-hub"></a>Monitoraggio dell'hub Azure
 
@@ -65,13 +65,13 @@ In portale di Azure, è possibile selezionare **le impostazioni di diagnostica**
 
 Lo screenshot seguente mostra un'impostazione di diagnostica per il routing delle *operazioni di connessione* del tipo di log delle risorse e di tutte le metriche della piattaforma a un'area di lavoro log Analytics.
 
-:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Grafici metrici predefiniti nella pagina Panoramica dell'hub Internet.":::
+:::image type="content" source="media/monitor-iot-hub/diagnostic-setting-portal.png" alt-text="Riquadro impostazioni di diagnostica per un hub Internet.":::
 
 Vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](/azure/azure-monitor/platform/diagnostic-settings) per il processo dettagliato per la creazione di un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando o PowerShell. Quando si crea un'impostazione di diagnostica, è necessario specificare le categorie di log da raccogliere. Le categorie per l'hub Azure Internet sono elencate in [log delle risorse nel riferimento ai dati dell'hub Azure Internet Monitoring](monitor-iot-hub-reference.md#resource-logs).
 
 Quando si indirizzano le metriche della piattaforma dell'hub Internet ad altre località, tenere presente quanto segue:
 
-- Le metriche della piattaforma seguenti non possono essere esportate tramite le impostazioni di diagnostica: *dispositivi connessi (anteprima)* e *totale dispositivi (anteprima)* .
+- Le metriche della piattaforma seguenti non possono essere esportate tramite le impostazioni di diagnostica: *dispositivi connessi (anteprima)* e *totale dispositivi (anteprima)*.
 
 - Le metriche multidimensionali, ad esempio alcune metriche di [routing](monitor-iot-hub-reference.md#routing-metrics), vengono attualmente esportate come metriche unidimensionali bidimensionali aggregate tra i valori delle dimensioni. Per informazioni dettagliate, vedere [esportazione di metriche della piattaforma in altre posizioni](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
 
@@ -81,7 +81,7 @@ Quando si indirizzano le metriche della piattaforma dell'hub Internet ad altre l
 
 In portale di Azure è possibile selezionare le **metriche** in **monitoraggio** nel riquadro a sinistra dell'hub Internet per aprire Esplora metriche con ambito, per impostazione predefinita, sulle metriche della piattaforma emesse dall'hub Internet delle cose:
 
-:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Grafici metrici predefiniti nella pagina Panoramica dell'hub Internet.":::
+:::image type="content" source="media/monitor-iot-hub/metrics-portal.png" alt-text="Pagina di Esplora metriche per un hub Internet.":::
 
 Per un elenco delle metriche della piattaforma raccolte per l'hub Azure, vedere [metriche nel monitoraggio informazioni di riferimento sui dati dell'hub Azure](monitor-iot-hub-reference.md#metrics). Per un elenco delle metriche della piattaforma raccolte per tutti i servizi di Azure, vedere [metriche supportate con monitoraggio di Azure](/azure/azure-monitor/platform/metrics-supported).
 
@@ -97,7 +97,7 @@ Per indirizzare i dati ai log di monitoraggio di Azure, è necessario creare un'
 
 In portale di Azure è possibile selezionare i **log** sotto il **monitoraggio** nel riquadro sinistro dell'hub Internet per eseguire log Analytics query con ambito, per impostazione predefinita, sui log e sulle metriche raccolti nei log di monitoraggio di Azure per l'hub Internet.
 
-:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="Grafici metrici predefiniti nella pagina Panoramica dell'hub Internet.":::
+:::image type="content" source="media/monitor-iot-hub/logs-portal.png" alt-text="Pagina log per un hub Internet.":::
 
 Per un elenco delle tabelle usate dai log di monitoraggio di Azure e di cui è necessario eseguire query per Log Analytics, vedere log di monitoraggio di Azure [tabelle nel monitoraggio informazioni di riferimento sui dati dell'hub Azure](monitor-iot-hub-reference.md#azure-monitor-logs-tables).
 
@@ -107,7 +107,7 @@ Il [log attività](/azure/azure-monitor/platform/activity-log) è un log di piat
 
 Quando si indirizzano le metriche della piattaforma dell'hub Internet ai log di monitoraggio di Azure, tenere presente quanto segue:
 
-- Le metriche della piattaforma seguenti non possono essere esportate tramite le impostazioni di diagnostica: *dispositivi connessi (anteprima)* e *totale dispositivi (anteprima)* .
+- Le metriche della piattaforma seguenti non possono essere esportate tramite le impostazioni di diagnostica: *dispositivi connessi (anteprima)* e *totale dispositivi (anteprima)*.
 
 - Le metriche multidimensionali, ad esempio alcune metriche di [routing](monitor-iot-hub-reference.md#routing-metrics), vengono attualmente esportate come metriche unidimensionali bidimensionali aggregate tra i valori delle dimensioni. Per informazioni dettagliate, vedere [esportazione di metriche della piattaforma in altre posizioni](/azure/azure-monitor/platform/metrics-supported#exporting-platform-metrics-to-other-locations).
 
@@ -291,6 +291,14 @@ class Program
 Gli avvisi di monitoraggio di Azure notificano in modo proattivo quando vengono rilevate condizioni importanti nei dati di monitoraggio. Consentono di identificare e risolvere i problemi nel sistema prima che i clienti li notino. È possibile impostare avvisi su [metriche](/azure/azure-monitor/platform/alerts-metric-overview), [log](/azure/azure-monitor/platform/alerts-unified-log)e [log attività](/azure/azure-monitor/platform/activity-log-alerts). Tipi diversi di avvisi presentano vantaggi e svantaggi.
 
 Quando si crea una regola di avviso in base alle metriche della piattaforma, tenere presente che per le metriche della piattaforma dell'hub tutto raccolte in unità di conteggio, alcune aggregazioni potrebbero non essere disponibili o utilizzabili. Per altre informazioni, vedere [le aggregazioni supportate nel monitoraggio riferimento ai dati dell'hub Azure](monitor-iot-hub-reference.md#supported-aggregations).
+
+## <a name="monitor-per-device-disconnects-with-event-grid"></a>Eseguire il monitoraggio della disconnessione per ogni dispositivo con griglia di eventi
+
+Monitoraggio di Azure fornisce una metrica, *dispositivi connessi* , che è possibile usare per monitorare il numero di dispositivi connessi all'hub Internet e attivare un avviso quando il numero di dispositivi connessi scende al di sotto di un valore soglia. Sebbene questo possa essere sufficiente per alcuni scenari, [griglia di eventi di Azure](/azure/event-grid/) offre una soluzione di monitoraggio per dispositivo a bassa latenza che è possibile usare per tenere traccia delle connessioni dei dispositivi e dell'infrastruttura critiche.
+
+Con griglia di eventi è possibile sottoscrivere gli [eventi **DeviceConnected** e **DeviceDisconnected**](iot-hub-event-grid.md#event-types) dell'hub Internet per attivare gli avvisi e monitorare lo stato di connessione del dispositivo. Griglia di eventi offre una latenza di eventi molto inferiore rispetto a monitoraggio di Azure ed è possibile monitorarli in base ai singoli dispositivi, anziché per il numero totale di dispositivi connessi. Questi fattori rendono griglia di eventi il metodo preferito per il monitoraggio delle connessioni per i dispositivi e l'infrastruttura critici. Si consiglia vivamente di usare griglia di eventi per monitorare le connessioni dei dispositivi negli ambienti di produzione.
+
+Per informazioni più dettagliate sul monitoraggio delle connessioni dei dispositivi con griglia di eventi e monitoraggio di Azure, vedere [monitorare, diagnosticare e risolvere i problemi di disconnessione con l'hub Azure](iot-hub-troubleshoot-connectivity.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

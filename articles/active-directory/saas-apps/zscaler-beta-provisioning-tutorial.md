@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: 001d139e7fc140f41fa94ea0c6f32d0b08036a9a
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: de42230639351c0dc1e7986156a33b178386d1a4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519777"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357743"
 ---
 # <a name="tutorial-configure-zscaler-beta-for-automatic-user-provisioning"></a>Esercitazione: configurare zScaler beta per il provisioning utenti automatico
 
@@ -56,7 +56,7 @@ Prima di configurare zScaler beta per il provisioning utenti automatico con Azur
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca digitare **Zscaler Beta**, selezionare **Zscaler Beta** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca digitare **Zscaler Beta** , selezionare **Zscaler Beta** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Zscaler Beta nell'elenco risultati](common/search-new-app.png)
 
@@ -83,7 +83,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 ### <a name="to-configure-automatic-user-provisioning-for-zscaler-beta-in-azure-ad"></a>Per configurare il provisioning utenti automatico per zScaler beta nel Azure AD:
 
-1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **applicazioni aziendali**, selezionare **tutte le applicazioni**, quindi selezionare **zScaler beta**.
+1. Accedere al [portale di Azure](https://portal.azure.com) e selezionare **applicazioni aziendali** , selezionare **tutte le applicazioni** , quindi selezionare **zScaler beta**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
@@ -101,7 +101,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 5. Nella sezione **credenziali amministratore** immettere l'URL del **tenant** e il **token segreto** dell'account zScaler beta come descritto nel passaggio 6.
 
-6. Per ottenere l' **URL del tenant** e il **token segreto**, passare ad **Amministrazione > impostazioni di autenticazione** nell'interfaccia utente del portale zScaler beta e fare clic su **SAML** in **tipo di autenticazione**.
+6. Per ottenere l' **URL del tenant** e il **token segreto** , passare ad **Amministrazione > impostazioni di autenticazione** nell'interfaccia utente del portale zScaler beta e fare clic su **SAML** in **tipo di autenticazione**.
 
     ![Provisioning di zScaler beta](./media/zscaler-beta-provisioning-tutorial/secret-token-1.png)
 
@@ -109,7 +109,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Provisioning di zScaler beta](./media/zscaler-beta-provisioning-tutorial/secret-token-2.png)
 
-    Selezionare **Abilita provisioning SCIM-Based** per recuperare l' **URL di base** e il token di **porta**, quindi salvare le impostazioni. Copiare l' **URL di base** nell' **URL del tenant**e il token di **porta**  nel token di **segreto** nel portale di Azure.
+    Selezionare **Abilita provisioning SCIM-Based** per recuperare l' **URL di base** e il token di **porta** , quindi salvare le impostazioni. Copiare l' **URL di base** nell' **URL del tenant** e il token di **porta**  nel token di **segreto** nel portale di Azure.
 
 7. Quando si popolano i campi indicati nel passaggio 5, fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi a zScaler beta. Se la connessione non riesce, verificare che l'account zScaler beta disponga delle autorizzazioni di amministratore e riprovare.
 
@@ -119,7 +119,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Provisioning di zScaler beta](./media/zscaler-beta-provisioning-tutorial/notification.png)
 
-9. Fare clic su **Save**.
+9. Fare clic su **Salva**.
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to zScaler beta**.
 

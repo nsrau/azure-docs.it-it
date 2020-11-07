@@ -12,12 +12,12 @@ ms.date: 02/18/2019
 ms.author: kenwith
 ms.reviewer: luleon, asteen
 ms.custom: contperfq2
-ms.openlocfilehash: ec39a6d106973808e26b7c06dce8b3054af490ff
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 12b11d6283bbed4e43daf52a65c0c259c476e73f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92427379"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357913"
 ---
 # <a name="problems-signing-in-to-saml-based-single-sign-on-configured-apps"></a>Problemi di accesso alle app configurate Single Sign-On basate su SAML
 Per risolvere i problemi di accesso indicati di seguito, è consigliabile eseguire una diagnosi migliore e automatizzare i passaggi di risoluzione:
@@ -145,7 +145,24 @@ Quando l'applicazione è stata aggiunta come un'app non inclusa nella raccolta, 
 
 Eliminare gli URL di risposta non utilizzati configurati per l'applicazione.
 
-Nella pagina configurazione SSO basato su SAML, nella sezione **URL di risposta (URL del servizio consumer di asserzione)** , eliminare gli URL di risposta non utilizzati o predefiniti creati dal sistema. Ad esempio `https://127.0.0.1:444/applications/default.aspx`.
+Nella pagina configurazione SSO basato su SAML, nella sezione **URL di risposta (URL del servizio consumer di asserzione)** , eliminare gli URL di risposta non utilizzati o predefiniti creati dal sistema. Ad esempio, `https://127.0.0.1:444/applications/default.aspx`
+
+
+## <a name="authentication-method-by-which-the-user-authenticated-with-the-service-doesnt-match-requested-authentication-method"></a>Metodo di autenticazione in base al quale l'utente autenticato con il servizio non corrisponde al metodo di autenticazione richiesto
+`Error: AADSTS75011 Authentication method by which the user authenticated with the service doesn't match requested authentication method 'AuthnContextClassRef'. `
+
+**Possibile causa**
+
+`RequestedAuthnContext`Si trova nella richiesta SAML. Ciò significa che l'app prevede l' `AuthnContext` oggetto specificato da `AuthnContextClassRef` . Tuttavia, l'utente ha già eseguito l'autenticazione prima di accedere all'applicazione e il `AuthnContext` (metodo di autenticazione) usato per l'autenticazione precedente è diverso da quello richiesto. Ad esempio, si è verificato un accesso utente federato a app e WIA. Il `AuthnContextClassRef` sarà `urn:federation:authentication:windows` . AAD non esegue una nuova richiesta di autenticazione. utilizzerà il contesto di autenticazione che è stato passato da IdP (ADFS o qualsiasi altro servizio federativo in questo caso). Pertanto, si verifica una mancata corrispondenza se le richieste dell'app sono diverse da `urn:federation:authentication:windows` . Un altro scenario è quello in cui è stato usato il Multifactor: `'X509, MultiFactor` .
+
+**Risoluzione**
+
+
+`RequestedAuthnContext` è un valore facoltativo. Quindi, se possibile, richiedere all'applicazione se potrebbe essere rimossa.
+
+Un'altra opzione consiste nel verificare che venga `RequestedAuthnContext` rispettato. Questa operazione verrà eseguita richiedendo una nuova autenticazione. In questo caso, quando viene elaborata la richiesta SAML, viene eseguita una nuova autenticazione e il `AuthnContext` verrà rispettato. Per richiedere una nuova autenticazione, la richiesta SAML contiene la maggior parte del valore `forceAuthn="true"` . 
+
+
 
 ## <a name="problem-when-customizing-the-saml-claims-sent-to-an-application"></a>Problema di personalizzazione delle attestazioni SAML inviate a un'applicazione
 Per informazioni su come personalizzare le attestazioni degli attributi SAML inviate all'applicazione, vedere [mapping delle attestazioni in Azure Active Directory](../develop/active-directory-claims-mapping.md).

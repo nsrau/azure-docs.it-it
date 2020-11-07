@@ -7,16 +7,16 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: risoluzione dei problemi, aggiornamento, bug, Kinect, feedback, ripristino, registrazione, suggerimenti
-ms.openlocfilehash: 2db7b17ffc8b6595107dbc52fae719aa9f2d15db
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9711968de061956a945fca183444dd6ebde4ca9c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85276797"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94356383"
 ---
 # <a name="azure-kinect-known-issues-and-troubleshooting"></a>Problemi noti e risoluzione dei problemi relativi a Kinect di Azure
 
-Questa pagina contiene i problemi noti e i suggerimenti per la risoluzione dei problemi quando si usa Sensor SDK con Azure Kinect DK. Vedere anche [pagine del supporto tecnico](https://aka.ms/kinectsupport) per problemi specifici dell'hardware del prodotto.
+Questa pagina contiene i problemi noti e i suggerimenti per la risoluzione dei problemi quando si usa Sensor SDK con Azure Kinect DK. Vedere anche [pagine del supporto tecnico](./index.yml) per problemi specifici dell'hardware del prodotto.
 
 ## <a name="known-issues"></a>Problemi noti
 
@@ -144,7 +144,7 @@ La chiamata a ```k4a_device_set_color_control``` può indurre temporaneamente le
 
 Se il dispositivo non viene enumerato in gestione dispositivi, è possibile che sia collegato a un controller USB3 non supportato. 
 
-Per Azure Kinect DK in **Windows, Intel**, **Texas Instruments (ti)** e **Renesas** sono gli *unici controller host supportati*. Azure Kinect SDK sulle piattaforme Windows si basa su un ID contenitore unificato e deve estendersi ai dispositivi USB 2,0 e 3,0 in modo che l'SDK possa trovare i dispositivi di profondità, colore e audio che si trovano fisicamente nello stesso dispositivo. In Linux è possibile che siano supportati più controller host perché questa piattaforma si basa su un numero minore di ID del contenitore e su numeri di serie del dispositivo. 
+Per Azure Kinect DK in **Windows, Intel** , **Texas Instruments (ti)** e **Renesas** sono gli *unici controller host supportati*. Azure Kinect SDK sulle piattaforme Windows si basa su un ID contenitore unificato e deve estendersi ai dispositivi USB 2,0 e 3,0 in modo che l'SDK possa trovare i dispositivi di profondità, colore e audio che si trovano fisicamente nello stesso dispositivo. In Linux è possibile che siano supportati più controller host perché questa piattaforma si basa su un numero minore di ID del contenitore e su numeri di serie del dispositivo. 
 
 L'argomento dei controller host USB diventa ancora più complicato quando in un PC è installato più di un controller host. Quando i controller host sono combinati, è possibile che si verifichino problemi nel caso in cui alcune porte funzionino correttamente e altre non funzionino affatto. A seconda del modo in cui le porte vengono cablate, è possibile che vengano visualizzate tutte le porte anteriori con il Kinect di Azure
 

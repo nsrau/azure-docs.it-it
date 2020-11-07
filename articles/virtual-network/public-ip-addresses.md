@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/28/2020
 ms.author: allensu
-ms.openlocfilehash: fbd4c4ecfa2be9815e5d301a02460dc28171716a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3f2dfb113f4c82dfea422a7c2be1c5fb07ffd60e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91329262"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358168"
 ---
 # <a name="public-ip-addresses"></a>Indirizzi IP pubblici
 
@@ -38,6 +38,8 @@ In Gestione risorse di Azure un [indirizzo IP pubblico](virtual-network-public-i
 Gli indirizzi IP pubblici vengono creati con un indirizzo IPv4 o IPv6. 
 
 ## <a name="sku"></a>SKU
+
+Per informazioni sull'aggiornamento dello SKU, vedere [aggiornamento dell'indirizzo IP pubblico](../virtual-network/virtual-network-public-ip-address-upgrade.md).
 
 Gli indirizzi IP pubblici vengono creati con uno degli SKU seguenti:
 
@@ -96,7 +98,7 @@ Ad esempio, una risorsa IP pubblico viene rilasciata da una risorsa denominata *
 L'indirizzo IP viene rilasciato quando il metodo di allocazione viene modificato da **statico** a **dinamico**. Per assicurarsi che l'indirizzo IP per la risorsa associata rimanga invariato, impostare il metodo di allocazione in modo esplicito su **statico**. Un indirizzo IP statico viene assegnato immediatamente.
 
 > [!NOTE]
-> Anche quando si imposta il metodo di allocazione su **statico**, non è possibile specificare l'indirizzo IP effettivo assegnato alla risorsa indirizzo IP pubblico. Azure assegna l'indirizzo IP da un pool di indirizzi IP disponibili nella località di Azure in cui viene creata la risorsa.
+> Anche quando si imposta il metodo di allocazione su **statico** , non è possibile specificare l'indirizzo IP effettivo assegnato alla risorsa indirizzo IP pubblico. Azure assegna l'indirizzo IP da un pool di indirizzi IP disponibili nella località di Azure in cui viene creata la risorsa.
 >
 
 Gli indirizzi IP pubblici statici sono comunemente usati negli scenari seguenti:

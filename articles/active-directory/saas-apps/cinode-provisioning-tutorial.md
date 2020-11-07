@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 09/28/2020
 ms.author: Zhchia
-ms.openlocfilehash: f60d73766d2f992faddd7d944436d9179ef18e19
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 43b20f2b286bdadbee33555abc1a19845092c64b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92456138"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357505"
 ---
 # <a name="tutorial-configure-cinode-for-automatic-user-provisioning"></a>Esercitazione: configurare Cinode per il provisioning utenti automatico
 
@@ -47,11 +47,11 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e Cinode](../app-provisioning/customize-application-attributes.md).
 
-## <a name="step-2-configure-cinode-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Cinode per supportare il provisioning con Azure AD
+## <a name="step-2-configure-cinode-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Cinode per supportare il provisioning con Azure AD
 
 1. Accedere a Cinode con un account utente con diritti di amministratore. Passare ad **Amministrazione**.
 
-2. Passare a **Integrations (integrazioni**).
+2. Passare a **Integrations (integrazioni** ).
 
 3. Passare a **token** e creare un nuovo token.
 

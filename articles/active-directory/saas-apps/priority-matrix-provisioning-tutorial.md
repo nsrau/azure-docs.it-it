@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/08/2019
 ms.author: Zhchia
-ms.openlocfilehash: 43f5b96c7029da6b49bc9df40d92fbd250145715
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: e79f21300325c6b451dd564bf2c69830f003f55c
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91326015"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357862"
 ---
 # <a name="tutorial-configure-priority-matrix-for-automatic-user-provisioning"></a>Esercitazione: configurare la matrice di priorità per il provisioning utenti automatico
 
@@ -37,7 +37,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 
 ## <a name="assign-users-to-priority-matrix"></a>Assegnare utenti a una matrice di priorità
 
-Per determinare gli utenti che dovranno ricevere l'accesso alle app selezionate, Azure Active Directory usa il concetto delle assegnazioni. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
+Azure Active Directory usa un concetto denominato assegnazioni per determinare gli utenti che devono ricevere l'accesso alle app selezionate. Nel contesto del provisioning utenti automatico, vengono sincronizzati solo gli utenti e/o i gruppi che sono stati assegnati a un'applicazione in Azure AD.
 
 Prima di configurare e abilitare il provisioning utenti automatico, è necessario stabilire quali utenti e/o gruppi in Azure AD necessario accedere alla matrice di priorità. Dopo aver stabilito questo, è possibile assegnare questi utenti e/o gruppi a una matrice di priorità seguendo le istruzioni riportate qui:
 
@@ -79,7 +79,7 @@ Per configurare la matrice di priorità per il provisioning utenti automatico co
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **Priority Matrix**e selezionare **Priority Matrix** nel pannello dei risultati. 
+4. Nella casella di ricerca immettere **Priority Matrix** e selezionare **Priority Matrix** nel pannello dei risultati. 
 
     ![Matrice di priorità nell'elenco dei risultati](common/search-new-app.png)
 
@@ -128,7 +128,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to Priority Matrix**.
 

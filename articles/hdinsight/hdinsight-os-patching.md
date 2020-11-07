@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: 005bfd4b7e7d062640a79896ccd3d7f76e3d6fb3
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 7b789bf01a043b167d6740f09df935d9b683c48f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91447211"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357760"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurare la pianificazione dell'applicazione di patch del sistema operativo per i cluster HDInsight basati su Linux
 
@@ -64,7 +64,7 @@ Lo `install-updates-schedule-reboots` script accetta due parametri numerici, com
 
 | Parametro | Valori accettati | Definizione |
 | --- | --- | --- |
-| Tipo di aggiornamenti da installare | 0, 1 o 2 | Il valore 0 installa solo gli aggiornamenti del kernel. Il valore 1 installa tutti gli aggiornamenti e 2 installa solo gli aggiornamenti kernel + Security. Se non viene specificato alcun parametro, il valore predefinito è 0. |
+| Tipo di aggiornamenti da installare | 0, 1 o 2 | Il valore 0 installa solo gli aggiornamenti del kernel. Il valore 1 installa gli aggiornamenti per la sicurezza e il kernel e 2 installa tutti gli aggiornamenti. Se non viene specificato alcun parametro, il valore predefinito è 0. |
 | Tipo di riavvio da eseguire | 0, 1 o 2 | Il valore 0 Disabilita il riavvio. Il valore 1 consente il riavvio della pianificazione e 2 Abilita il riavvio immediato. Se non viene specificato alcun parametro, il valore predefinito è 0. L'utente deve modificare il parametro di input 1 nel parametro di input 2. |
 
 > [!NOTE]

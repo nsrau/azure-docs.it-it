@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 11/06/2020
 ms.author: aahi
-ms.openlocfilehash: d84867dbe51b9c6689ecdac2bc80585a88da66b4
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 6ebc1831b990b540bcb9a3856c380c28142af536
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92496117"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94357114"
 ---
 # <a name="install-and-run-the-spatial-analysis-container-preview"></a>Installare ed eseguire il contenitore di analisi spaziale (anteprima)
 
@@ -105,7 +105,7 @@ L'analisi spaziale USA le funzionalità di calcolo di Azure Stack Edge per esegu
 
 ### <a name="set-up-an-edge-compute-role-and-create-an-iot-hub-resource"></a>Configurare un ruolo di calcolo Edge e creare una risorsa dell'hub Internet delle cose
 
-Nella [portale di Azure](https://portal.azure.com/)passare alla risorsa di Azure stack Edge. Nella pagina **Overview** o nell'elenco di navigazione fare clic **sul pulsante calcolo Edge per iniziare.** Nel riquadro **Configura calcolo Edge**   fare clic su **Configura**. 
+Nella [portale di Azure](https://portal.azure.com/)passare alla risorsa di Azure stack Edge. Nella pagina **Overview** o nell'elenco di navigazione fare clic **sul pulsante calcolo Edge per iniziare.** Nel riquadro  **Configura calcolo Edge**   fare clic su **Configura**. 
 
 ![Collegamento](media/spatial-analysis/configure-edge-compute-tile.png)
 
@@ -178,7 +178,7 @@ Riavviare il computer ed eseguire il comando seguente.
 nvidia-smi
 ```
 
-Verrà visualizzato l'output seguente.
+Viene visualizzato l'output seguente.
 
 ![Output driver NVIDIA](media/spatial-analysis/nvidia-driver-output.png)
 
@@ -289,7 +289,7 @@ sudo apt-get update
 Installare la versione di 1.0.9:
 
 ```bash
-sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.8*
+sudo apt-get install iotedge=1.0.9* libiothsm-std=1.0.9*
 ```
 
 Registrare quindi il computer host come dispositivo IoT Edge nell'istanza dell'hub Internet, usando una stringa di [connessione](https://docs.microsoft.com/azure/iot-edge/how-to-register-device#register-in-the-azure-portal).
@@ -318,7 +318,7 @@ Per semplificare la distribuzione di contenitori in più computer host, è possi
 
 La tabella seguente illustra le diverse variabili di ambiente usate dal modulo IoT Edge. È anche possibile impostarli nel manifesto di distribuzione collegato in precedenza, usando l' `env` attributo in `spatialanalysis` :
 
-| Nome dell'impostazione | valore | Descrizione|
+| Nome dell'impostazione | Valore | Descrizione|
 |---------|---------|---------|
 | ARCHON_LOG_LEVEL | Informazioni Dettagliato | Livello di registrazione, selezionare uno dei due valori|
 | ARCHON_SHARED_BUFFER_LIMIT | 377487360 | Non modificare|
@@ -381,7 +381,7 @@ Se si desidera iniziare a utilizzare l'output generato dal contenitore, vedere g
     1. Modificare il **trasferimento sicuro necessario** per **disabilitarlo**
     2. Modifica **Consenti accesso pubblico BLOB** su **abilitato**
 
-Passare alla sezione del **contenitore** e creare un nuovo contenitore o utilizzarne uno esistente. Caricare quindi il file video nel contenitore. Espandere le impostazioni del file caricato e selezionare **genera**firma di accesso condiviso. Assicurarsi di impostare la **Data di scadenza** abbastanza lunga per coprire il periodo di test. Impostare i **protocolli consentiti** su *http* (*https* non è supportato).
+Passare alla sezione del **contenitore** e creare un nuovo contenitore o utilizzarne uno esistente. Caricare quindi il file video nel contenitore. Espandere le impostazioni del file caricato e selezionare **genera** firma di accesso condiviso. Assicurarsi di impostare la **Data di scadenza** abbastanza lunga per coprire il periodo di test. Impostare i **protocolli consentiti** su *http* ( *https* non è supportato).
 
 Fare clic su **genera token SAS e URL** e copiare l'URL SAS BLOB. Sostituire l'oggetto iniziando `https` con `http` e testare l'URL in un browser che supporta la riproduzione video.
 
@@ -418,7 +418,7 @@ Il contenitore di analisi spaziale Invia le informazioni di fatturazione ad Azur
 I contenitori di servizi cognitivi di Azure non sono concessi in licenza per l'esecuzione senza essere connessi all'endpoint di misurazione/fatturazione. È necessario consentire ai contenitori di comunicare sempre le informazioni di fatturazione all'endpoint di fatturazione. I contenitori di servizi cognitivi non inviano dati del cliente, ad esempio il video o l'immagine da analizzare, a Microsoft.
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 In questo articolo sono stati appresi concetti e flussi di lavoro per il download, l'installazione e l'esecuzione del contenitore di analisi spaziale. In sintesi:
 

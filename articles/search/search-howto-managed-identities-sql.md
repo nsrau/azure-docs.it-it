@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 49493f47c7178a15e37a54a70dd066690057caba
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
+ms.openlocfilehash: b940da2cf754e7e1cac91df6b517ecebe55e8c40
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92519572"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358423"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configurare una connessione dell'indicizzatore al database SQL di Azure usando un'identità gestita
 
@@ -33,7 +33,7 @@ Quando un'identità gestita assegnata dal sistema è abilitata, Azure crea un'id
 
 ![Attivare l'identità gestita assegnata dal sistema](./media/search-managed-identities/turn-on-system-assigned-identity.png "Attivare l'identità gestita assegnata dal sistema")
 
-Dopo aver selezionato **Salva**, viene visualizzato un ID oggetto che è stato assegnato al servizio di ricerca.
+Dopo aver selezionato **Salva** , viene visualizzato un ID oggetto che è stato assegnato al servizio di ricerca.
 
 ![ID oggetto](./media/search-managed-identities/system-assigned-identity-object-id.png "ID dell'oggetto.")
 
@@ -94,7 +94,7 @@ In questo passaggio si autorizza il servizio Ricerca cognitiva di Azure a legger
 
 ### <a name="5---create-the-data-source"></a>5 - Creare l'origine dati
 
-L' [API REST](/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da un database SQL di Azure usando l' [API REST](/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
+L' [API REST](/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da un database SQL di Azure usando l' [API REST](/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
 
 Quando si crea un'origine dati usando l' [API REST](/rest/api/searchservice/create-data-source), l'origine dati deve avere le proprietà obbligatorie seguenti:
 
@@ -103,7 +103,7 @@ Quando si crea un'origine dati usando l' [API REST](/rest/api/searchservice/crea
 * **credentials**
     * Quando si usa un'identità gestita per l'autenticazione, il formato delle **credenziali** è diverso rispetto alla situazione in cui non viene usata un'identità gestita. In questo caso, si fornirà un nome di database o di catalogo iniziale e un valore ResourceId senza chiave o password dell'account. Il ResourceId deve includere l'ID sottoscrizione del database SQL di Azure, il gruppo di risorse del database SQL e il nome del database SQL. 
     * Formato della stringa di connessione con identità gestita:
-        * *Initial Catalog|Database=**nome del database**;ResourceId=/subscriptions/**ID sottoscrizione**/resourceGroups/**nome del gruppo di risorse**/providers/Microsoft.Sql/servers/**nome del server SQL**/;Connection Timeout=**durata del timeout per la connessione**;*
+        * *Initial Catalog|Database= **nome del database** ;ResourceId=/subscriptions/ **ID sottoscrizione** /resourceGroups/ **nome del gruppo di risorse** /providers/Microsoft.Sql/servers/ **nome del server SQL** /;Connection Timeout= **durata del timeout per la connessione** ;*
 * **container** specifica il nome della tabella o della vista da indicizzare.
 
 Esempio di creazione di un oggetto origine dati di Azure SQL usando l'[API REST ](/rest/api/searchservice/create-data-source):
