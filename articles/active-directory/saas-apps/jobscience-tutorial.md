@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/12/2017
 ms.author: jeedes
-ms.openlocfilehash: 8dc4087d1a10b4c4af7477a02f397c5a2bc547c2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 5a104dcd6ccf500c115359a1b72c67b85359a802
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459391"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355159"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-jobscience"></a>Esercitazione: Integrazione di Azure Active Directory con Jobscience
 
@@ -86,8 +86,8 @@ Per configurare e testare l'accesso Single Sign-On di Azure AD con Jobscience, �
 
 1. **[Configurazione di Azure ad Single Sign-on](#configuring-azure-ad-single-sign-on)** : per abilitare gli utenti all'uso di questa funzionalità.
 1. **[Creazione di un utente test di Azure AD](#creating-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente Britta Simon.
-1. **[Creazione di un utente test di Jobscience](#creating-a-jobscience-test-user)**: per avere una controparte di Britta Simon in Jobscience collegata alla rappresentazione dell'utente in Azure AD.
-1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)**: per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Creazione di un utente test di Jobscience](#creating-a-jobscience-test-user)** : per avere una controparte di Britta Simon in Jobscience collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Assegnazione dell'utente test di Azure AD](#assigning-the-azure-ad-test-user)** : per abilitare Britta Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Test di Single Sign-on](#testing-single-sign-on)** : per verificare se la configurazione funziona.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Configurazione dell'accesso Single Sign-On di Azure AD
@@ -135,7 +135,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
    
    ![My Domain](./media/jobscience-tutorial/ic767825.png "My Domain")
 
-1. Per verificare che il dominio sia stato configurato correttamente, assicurarsi che sia presente nel**passaggio 4 distribuito agli utenti**ed esaminare le**impostazioni del dominio**.
+1. Per verificare che il dominio sia stato configurato correttamente, assicurarsi che sia presente nel **passaggio 4 distribuito agli utenti** ed esaminare le **impostazioni del dominio**.
 
     ![Dominio distribuito all'utente](./media/jobscience-tutorial/ic784377.png "Dominio distribuito all'utente")
 
@@ -143,11 +143,11 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     ![Screenshot che mostra le singole impostazioni di Sign-On selezionate dai controlli di sicurezza.](./media/jobscience-tutorial/ic784364.png "Security Controls")
 
-1. Nella sezione **Single Sign-On Settings** eseguire la procedura seguente:
+1. Nella sezione **Single Sign-On Settings** , eseguire la procedura seguente:
     
     ![Impostazioni per l'accesso Single Sign-On](./media/jobscience-tutorial/ic781026.png "Single Sign-On Settings")
     
-    a. Selezionare **SAML Enabled**.
+    a. Selezionare **SAML Enabled** (Abilitato per SAML).
 
     b. Fare clic su **Nuovo**.
 
@@ -157,19 +157,19 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     a. Nella casella di testo **Name** digitare un nome per la configurazione.
 
-    b. Nella casella di testo **Issuer** (Autorità emittente) incollare il valore dell'**ID entità SAML** copiato dal portale di Azure.
+    b. Nella casella di testo **Issuer** (Autorità emittente) incollare il valore dell' **ID entità SAML** copiato dal portale di Azure.
 
     c. Nella casella di testo **Entity Id** (ID entità) digitare `https://salesforce-jobscience.com`
 
     d. Fare clic su **Browse** per caricare il certificato di Azure AD.
 
-    e. In **SAML Identity Type**, selezionare **Assertion contains the Federation ID from the User object**.
+    e. In **SAML Identity Type** (Tipo di identità SAML) selezionare **Assertion contains the Federation ID from the User object** (L'asserzione contiene l'ID federazione dell'oggetto utente).
 
-    f. In **SAML Identity Location** selezionare **Identity is in the NameIdentfier element of the Subject statement**.
+    f. In **SAML Identity Location** (Percorso identità SAML) selezionare **Identity is in the NameIdentfier element of the Subject statement** (L'identità è nell'elemento NameIdentfier dell'istruzione Subject).
 
-    g. Nella casella di testo **Identity Provider Login URL** (URL accesso provider di identità) incollare il valore dell'**URL del servizio Single Sign-On SAML** copiato dal portale di Azure.
+    g. Nella casella di testo **Identity Provider Login URL** (URL accesso provider di identità) incollare il valore dell' **URL del servizio Single Sign-On SAML** copiato dal portale di Azure.
 
-    h. Nella casella di testo **Identity Provider Logout URL** (URL disconnessione provider di identità) incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure.
+    h. Nella casella di testo **Identity Provider Logout URL** (URL disconnessione provider di identità) incollare il valore dell' **URL di disconnessione** copiato dal portale di Azure.
 
     i. Fare clic su **Salva**.
 
@@ -181,7 +181,7 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
     
     ![Screenshot mostra la sezione relativa alla personalizzazione della pagina di accesso con il pulsante modifica.](./media/jobscience-tutorial/ic767826.png "Login Page Branding")
 
-1. Nella sezione**Authentication Service** (Servizio autenticazione) della pagina **Login Page Branding** (Personalizzazione pagina di accesso) viene visualizzato il nome delle **impostazioni SAML SSO**. Selezionarlo e quindi fare clic su **Save**.
+1. Nella sezione **Authentication Service** (Servizio autenticazione) della pagina **Login Page Branding** (Personalizzazione pagina di accesso) viene visualizzato il nome delle **impostazioni SAML SSO**. Selezionarlo e quindi fare clic su **Save**.
     
     ![Screenshot mostra la sezione relativa alla personalizzazione delle pagine di accesso con dpi e Salva selezionato.](./media/jobscience-tutorial/ic784366.png "Login Page Branding")
 
@@ -196,13 +196,13 @@ In questa sezione viene abilitato l'accesso Single Sign-On di Azure AD nel porta
 > 
 
 ### <a name="creating-an-azure-ad-test-user"></a>Creazione di un utente di test di Azure AD
-Questa sezione descrive come creare un utente test denominato Britta Simon nel portale di Azure.
+Questa sezione descrive come creare un utente di test di nome Britta Simon nel portale di Azure.
 
 ![Creare un utente di Azure AD][100]
 
 **Per creare un utente test in Azure AD, eseguire la procedura seguente:**
 
-1. Nel **portale di Azure**, nel riquadro di spostamento a sinistra, fare clic su **Azure Active Directory** icona.
+1. Nel **portale di Azure** , nel riquadro di spostamento a sinistra, fare clic su **Azure Active Directory** icona.
 
     ![Screenshot mostra l'icona Azure a D nella portale di Azure.](./media/jobscience-tutorial/create_aaduser_01.png) 
 
@@ -220,7 +220,7 @@ Questa sezione descrive come creare un utente test denominato Britta Simon nel p
 
     a. Nella casella di testo **Nome** digitare **BrittaSimon**.
 
-    b. Nella casella di testo **Nome utente** digitare l'**indirizzo di posta elettronica** di BrittaSimon.
+    b. Nella casella di testo **Nome utente** digitare l' **indirizzo di posta elettronica** di BrittaSimon.
 
     c. Selezionare **Mostra password** e annotare il valore della **password**.
 
@@ -241,15 +241,15 @@ Per consentire agli utenti di Azure AD di accedere a Jobscience, è necessario e
 1. Passare a Setup (Installazione).
    
    ![Screenshot che mostra l'elemento di installazione.](./media/jobscience-tutorial/ic784358.png "Configurazione")
-1. Passare a **Manage Users (Gestisci utenti) \> Users (Utenti)**.
+1. Passare a **Manage Users (Gestisci utenti) \> Users (Utenti)** .
    
    ![Utenti](./media/jobscience-tutorial/ic784369.png "Utenti")
-1. Fare clic su **New User**.
+1. Fare clic su **Nuovo utente**.
    
-   ![Tutti gli utenti](./media/jobscience-tutorial/ic784370.png "Tutti gli utenti")
+   ![Tutti gli utenti](./media/jobscience-tutorial/ic784370.png "All Users")
 1. Nella finestra di dialogo **Edit user** eseguire la procedura seguente:
    
-   ![User Edit](./media/jobscience-tutorial/ic784371.png "User Edit")
+   ![Modifica dell'utente](./media/jobscience-tutorial/ic784371.png "User Edit")
    
    a. Nella casella di testo **First Name** (Nome) digitare il nome dell'utente, ad esempio Britta.
    

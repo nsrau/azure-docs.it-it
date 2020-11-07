@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 881b1df00f8a962087f1e57b7141ac50f5cfa18b
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: fcbfd3eb805e046647a2c28cef8c378b44026bd0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92514827"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355442"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>Esercitazione: configurare fiocco di neve per il provisioning utenti automatico
 
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e fiocco di neve](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-snowflake-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare fiocco di neve per supportare il provisioning con Azure AD
+## <a name="step-2-configure-snowflake-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare fiocco di neve per supportare il provisioning con Azure AD
 
 Prima di configurare il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in fiocco di neve.
 
@@ -121,8 +121,8 @@ Questa sezione illustra i passaggi necessari per configurare il servizio di prov
    |userName|string|
    |name.givenName|string|
    |name.familyName|string|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultRole|Stringa|
-   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultWarehouse|Stringa|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultRole|string|
+   |urn: IETF: params: SCIM: schemas: Extension: Enterprise: 2.0: User: defaultWarehouse|string|
 
 11. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory gruppi a fiocco di neve**.
 

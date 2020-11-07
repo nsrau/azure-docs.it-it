@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: Zhchia
-ms.openlocfilehash: 4a7b6ffc04fea3c7e09bae365a9c148e0ae5a232
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 54dc9d7357e4315c7878ccdacfd3f90809751858
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517940"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353408"
 ---
 # <a name="tutorial-configure-myday-for-automatic-user-provisioning"></a>Esercitazione: configurare MyDay per il provisioning utenti automatico
 
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e MyDay](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-myday-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare MyDay per supportare il provisioning con Azure AD
+## <a name="step-2-configure-myday-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare MyDay per supportare il provisioning con Azure AD
 
 Contattare il rappresentante MyDay o il team di supporto per ricevere l' **URL del tenant** e il **token segreto**.
 
@@ -123,7 +123,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |phoneNumbers[type eq "fax"].value|string|
    |phoneNumbers[type eq "mobile"].value|string|
    |phoneNumbers[type eq "work"].value|string|
-   |ruoli [Primary EQ "true"]. display|Stringa|
+   |ruoli [Primary EQ "true"]. display|string|
    |ruoli [Primary EQ "true"]. Type|string|
    |roles[primary eq "True"].value|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|

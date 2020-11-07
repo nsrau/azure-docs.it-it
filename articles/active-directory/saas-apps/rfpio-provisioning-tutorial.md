@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 98f92a6b0169c573b97788c7ffaf76255796cfa6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 2792d5cc65e08a23a333deebdb24c0fd869446c3
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91278941"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352899"
 ---
 # <a name="tutorial-configure-rfpio-for-automatic-user-provisioning"></a>Esercitazione: configurare RFPIO per il provisioning utenti automatico
 
@@ -60,7 +60,7 @@ Prima di configurare RFPIO per il provisioning utenti automatico con Azure AD, s
     
     ![Amministratore di RFPIO](media/rfpio-provisioning-tutorial/aadtest.png)
 
-3.  Passare a **Gestione utenti**  >  **SECURITY**  >  **scim**sicurezza.
+3.  Passare a **Gestione utenti**  >  **SECURITY**  >  **scim** sicurezza.
 
     ![RFPIO aggiungere SCIM](media/rfpio-provisioning-tutorial/scim.png)
 
@@ -90,7 +90,7 @@ Per configurare RFPIO per il provisioning utenti automatico con Azure AD, è nec
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **RFPIO**, selezionare **RFPIO** nel pannello dei risultati e quindi fare clic sul pulsante    **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **RFPIO** , selezionare **RFPIO** nel pannello dei risultati e quindi fare clic sul pulsante    **Aggiungi** per aggiungere l'applicazione.
 
     ![RFPIO nell'elenco risultati](common/search-new-app.png)
 
@@ -127,7 +127,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a RFPIO**.
 

@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/17/2019
 ms.author: Zhchia
-ms.openlocfilehash: 3c2fba1cba2c06e07b262e37eac651afb5c102cf
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: f465438a6be80a1b487a4df7d3ee8bd38be9c102
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91317522"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354208"
 ---
 # <a name="tutorial-configure-workteam--for-automatic-user-provisioning"></a>Esercitazione: configurare workteam per il provisioning utenti automatico
 
@@ -60,7 +60,7 @@ Prima di configurare workteam per il provisioning utenti automatico con Azure AD
 
     ![Screenshot della parte inferiore della sezione SETTINGS con l'icona a forma di ingranaggio del provisioning utenti S C I M denominata.](media/workteam-provisioning-tutorial/icon.png)
 
-3. Copiare l' **URL di base** e il **token di porta**. Questi valori verranno immessi nel campo **URL tenant**e **token segreto** nella scheda provisioning dell'applicazione workteam nel portale di Azure.
+3. Copiare l' **URL di base** e il **token di porta**. Questi valori verranno immessi nel campo **URL tenant** e **token segreto** nella scheda provisioning dell'applicazione workteam nel portale di Azure.
 
     ![Screenshot della finestra di dialogo delle impostazioni di C i M con le caselle di testo di BASE U R L e del TOKEN di porta.](media/workteam-provisioning-tutorial/scim.png)
 
@@ -83,7 +83,7 @@ Per configurare workteam per il provisioning utenti automatico con Azure AD, è 
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere **workteam**, selezionare **workteam** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere **workteam** , selezionare **workteam** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Workteam nell'elenco risultati](common/search-new-app.png)
 
@@ -120,7 +120,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Fare clic su **Save**.
+7. Fare clic su **Salva**.
 
 8. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti a workteam**.
 

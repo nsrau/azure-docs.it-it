@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 976bc7f8e36200250f230f7e543dcb181f370663
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 544e01ef96165cd6c96a97761a3e758b93b1b15b
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92516478"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94352694"
 ---
 # <a name="tutorial-configure-rollbar-for-automatic-user-provisioning"></a>Esercitazione: configurare Rollbar per il provisioning utenti automatico
 
@@ -45,7 +45,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e rollbar](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-rollbar-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare Rollbar per supportare il provisioning con Azure AD
+## <a name="step-2-configure-rollbar-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare Rollbar per supportare il provisioning con Azure AD
 
 Prima di configurare Rollbar per il provisioning utenti automatico con Azure AD, sarà necessario abilitare il provisioning di SCIM in rollbar.
 
@@ -118,7 +118,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |active|Boolean|
    |name.familyName|string|
    |name.givenName|string|
-   |messaggi di posta elettronica [digitare EQ "Work"]|Stringa|
+   |messaggi di posta elettronica [digitare EQ "Work"]|string|
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to rollbar**.
 

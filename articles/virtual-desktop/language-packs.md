@@ -3,15 +3,15 @@ title: Installare i Language Pack in VM Windows 10 in desktop virtuale di Window
 description: Come installare i Language Pack per le macchine virtuali con più sessioni di Windows 10 nel desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/21/2020
+ms.date: 11/06/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: fbc2aba21212a83bd73d5664f4fe288017954c0d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 10d79d08e3f6ed422f0354074ebc6e0acc125553
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90084210"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354037"
 ---
 # <a name="add-language-packs-to-a-windows-10-multi-session-image"></a>Aggiungere i Language Pack a un'immagine con più sessioni di Windows 10
 
@@ -43,6 +43,11 @@ Per personalizzare le immagini multisessione di Windows 10 Enterprise per aggiun
      - ISO app della posta in arrivo:
         - [Windows 10, versione 1903 o 1909 app della posta in arrivo ISO](https://software-download.microsoft.com/download/pr/18362.1.190318-1202.19h1_release_amd64fre_InboxApps.iso)
         - [Windows 10, versione 2004 app della posta in arrivo ISO](https://software-download.microsoft.com/download/pr/19041.1.191206-1406.vb_release_amd64fre_InboxApps.iso)
+        - [Windows 10, versione 20H2 app della posta in arrivo ISO](https://software-download.microsoft.com/download/pr/19041.508.200905-1327.vb_release_svc_prod1_amd64fre_InboxApps.iso)
+     
+     - Se si usa Windows 10, versione 2004 o 20H2, è possibile usare le immagini ISO LXP (local Experience Pack) per scaricare nuove lingue. Usare le informazioni in [aggiunta di lingue in Windows 10: problemi noti](/windows-hardware/manufacture/desktop/language-packs-known-issue) per scoprire se scaricare la versione 9B o 9C:
+        - [Windows 10, versione 2004 o 20H2 **9B** LxP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_64_ARM64_MultiLang_LangPckAll_LIP_LXP_ONLY)
+        - [Windows 10, versione 2004 o 20H2 **9C** LxP ISO](https://software-download.microsoft.com/download/pr/Win_10_2004_32_64_ARM64_MultiLng_LngPkAll_LIP_9C_LXP_ONLY) 
 
 - Una condivisione File di Azure o una condivisione file in una macchina virtuale file server Windows
 
@@ -59,7 +64,7 @@ Per creare il repository di contenuto per i pacchetti della lingua e FODs e un r
 
 3. Passare al Language Pack ISO e copiare il contenuto dalle cartelle **LocalExperiencePacks** e **x64 \\ Langpacks** , quindi incollare il contenuto nella condivisione file.
 
-4. Passare al **file ISO Dom**, copiare tutto il contenuto e incollarlo nella condivisione file.
+4. Passare al **file ISO Dom** , copiare tutto il contenuto e incollarlo nella condivisione file.
 5. Passare alla cartella **amd64fre** nelle app della posta in arrivo ISO e copiare il contenuto nel repository per le app in arrivo preparate.
 
      >[!NOTE]
@@ -164,7 +169,7 @@ Set-WinUserLanguageList $LanguageList -force
 
 Lo script potrebbe richiedere un po' di tempo a seconda del numero di lingue che è necessario installare.
 
-Al termine dell'esecuzione dello script, verificare che i Language Pack siano installati correttamente **passando a**  >  **Impostazioni**  >  **ora &**  >  **lingua**della lingua. Se i file della lingua sono presenti, l'utente è tutto pronto.
+Al termine dell'esecuzione dello script, verificare che i Language Pack siano installati correttamente **passando a**  >  **Impostazioni**  >  **ora &**  >  **lingua** della lingua. Se i file della lingua sono presenti, l'utente è tutto pronto.
 
 Dopo aver aggiunto altre lingue all'immagine di Windows, è necessario aggiornare anche le app della posta in arrivo per supportare le lingue aggiunte. Questa operazione può essere eseguita aggiornando le app preinstallate con il contenuto delle app della posta in arrivo ISO. Per eseguire l'aggiornamento in un ambiente disconnesso (nessun accesso a Internet dalla VM possibile), è possibile usare l'esempio di script di PowerShell seguente per automatizzare il processo.
 

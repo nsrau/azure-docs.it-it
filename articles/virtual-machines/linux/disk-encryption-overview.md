@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: a6f5526b01588649d1e094036241d616a8392949
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: f95d7ae38ece2a2ad939d2b3c829aed2c676d0f7
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91996485"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94354003"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Crittografia dischi di Azure per macchine virtuali Linux 
 
@@ -47,6 +47,8 @@ Al termine del processo di crittografia del disco del sistema operativo nelle ma
 Crittografia dischi di Azure è disponibile anche per le macchine virtuali con Archiviazione Premium.
 
 Crittografia dischi di Azure non è disponibile nelle macchine virtuali di [generazione 2](../generation-2.md#generation-1-vs-generation-2-capabilities) e [VM della serie Lsv2](../lsv2-series.md). Per altre eccezioni, vedere [Crittografia dischi di Azure: Scenari non supportati](disk-encryption-linux.md#unsupported-scenarios).
+
+Crittografia dischi di Azure non è disponibile per le immagini di macchina virtuale senza dischi temporanei (dv4, Dsv4, Ev4 e Esv4).  Vedere [dimensioni delle macchine virtuali di Azure senza dischi temporanei locali](../azure-vms-no-temp-disk.md).
 
 ### <a name="supported-operating-systems"></a>Sistemi operativi supportati
 

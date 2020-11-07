@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/31/2020
 ms.author: Zhchia
-ms.openlocfilehash: aa377dae5d80da39faf6ac2e70926301004024e8
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: dd625d082d15ce4a6ec59972483b06a84ea6d080
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92455681"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355040"
 ---
 # <a name="tutorial-configure-coda-for-automatic-user-provisioning"></a>Esercitazione: configurare la coda per il provisioning utenti automatico
 
@@ -47,7 +47,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e coda](../app-provisioning/customize-application-attributes.md).
 
-## <a name="step-2-configure-coda-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare coda per supportare il provisioning con Azure AD
+## <a name="step-2-configure-coda-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare coda per supportare il provisioning con Azure AD
 
 1. Aprire la console di amministrazione dell'organizzazione selezionando Impostazioni organizzazione in... menu sotto l'area di lavoro.
 

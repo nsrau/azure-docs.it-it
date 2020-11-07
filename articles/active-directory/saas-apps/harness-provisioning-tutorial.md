@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 2f8cafc0ec94e9254d42bf6718e796a256d128d4
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 13ae960f5d259314f00f8f09b2999a36c0919bc5
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92445697"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353714"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>Esercitazione: configurare l'harness per il provisioning utenti automatico
 
@@ -90,7 +90,7 @@ Prima di configurare l'harness per il provisioning utenti automatico con Azure A
 
     ![Pulsante "Nuova applicazione"](common/add-new-app.png)
 
-1. Nella casella di ricerca immettere **harness**, selezionare **harness** nell'elenco dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+1. Nella casella di ricerca immettere **harness** , selezionare **harness** nell'elenco dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![Harness nell'elenco dei risultati](common/search-new-app.png)
 
@@ -122,7 +122,7 @@ Per configurare il provisioning utenti automatico per harness in Azure AD, proce
 
     ![Elenco a discesa "modalità di provisioning"](common/provisioning-automatic.png)
 
-1. In **credenziali amministratore**eseguire le operazioni seguenti:
+1. In **credenziali amministratore** eseguire le operazioni seguenti:
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
  
@@ -136,29 +136,29 @@ Per configurare il provisioning utenti automatico per harness in Azure AD, proce
 
 1. Selezionare **Salva**.
 
-1. In **mapping**selezionare **Sincronizza Azure Active Directory utenti per l'harness**.
+1. In **mapping** selezionare **Sincronizza Azure Active Directory utenti per l'harness**.
 
     ![Collegamento "Sincronizza utenti Azure Active Directory al cablaggio"](media/harness-provisioning-tutorial/usermappings.png)
 
-1. In **mapping degli attributi**esaminare gli attributi utente che vengono sincronizzati da Azure ad a harness. Gli attributi selezionati come *corrispondenti* vengono usati per trovare le corrispondenze con gli account utente in harness per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche.
+1. In **mapping degli attributi** esaminare gli attributi utente che vengono sincronizzati da Azure ad a harness. Gli attributi selezionati come *corrispondenti* vengono usati per trovare le corrispondenze con gli account utente in harness per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche.
 
     ![Riquadro "mapping degli attributi" dell'utente harness](media/harness-provisioning-tutorial/userattributes.png)
 
-1. In **mapping**selezionare **Sincronizza Azure Active Directory gruppi da sfruttare**.
+1. In **mapping** selezionare **Sincronizza Azure Active Directory gruppi da sfruttare**.
 
     ![Collegamento "Sincronizza i gruppi di Azure Active Directory al cablaggio"](media/harness-provisioning-tutorial/groupmappings.png)
 
-1. In **mapping degli attributi**esaminare gli attributi di gruppo sincronizzati da Azure ad a harness. Gli attributi selezionati come proprietà *corrispondenti* vengono usati per trovare le corrispondenze con i gruppi in harness per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche.
+1. In **mapping degli attributi** esaminare gli attributi di gruppo sincronizzati da Azure ad a harness. Gli attributi selezionati come proprietà *corrispondenti* vengono usati per trovare le corrispondenze con i gruppi in harness per le operazioni di aggiornamento. Selezionare **Salva** per eseguire il commit delle modifiche.
 
     ![Riquadro "mapping degli attributi" del gruppo di harness](media/harness-provisioning-tutorial/groupattributes.png)
 
 1. Per configurare i filtri di ambito, vedere [provisioning di applicazioni basate su attributi con filtri di ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
-1. In **Impostazioni**, per abilitare il servizio di provisioning Azure ad per harness, impostare lo **stato del provisioning** **su**attivato.
+1. In **Impostazioni** , per abilitare il servizio di provisioning Azure ad per harness, impostare lo **stato del provisioning** **su** attivato.
 
     ![Opzione stato provisioning impostata su "attivato"](common/provisioning-toggle-on.png)
 
-1. In **Impostazioni**, nell'elenco a discesa **ambito** , selezionare come si desidera sincronizzare gli utenti o i gruppi di cui si sta eseguendo il provisioning.
+1. In **Impostazioni** , nell'elenco a discesa **ambito** , selezionare come si desidera sincronizzare gli utenti o i gruppi di cui si sta eseguendo il provisioning.
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 

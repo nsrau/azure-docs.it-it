@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 56aad5ce9045ca205221ba0c56d1ea75f8f3610a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
-ms.translationtype: MT
+ms.openlocfilehash: 55f7b64c9ade91bb2923161d60568e3ea14ee034
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91850497"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353484"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Esercitazione: configurare i criteri per il provisioning utenti automatico
 
@@ -74,7 +74,7 @@ Per configurare i criteri per il provisioning utenti automatico con Azure AD, è
 
     ![Pulsante Nuova applicazione](common/add-new-app.png)
 
-4. Nella casella di ricerca immettere i **criteri**, selezionare **criteri** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
+4. Nella casella di ricerca immettere i **criteri** , selezionare **criteri** nel pannello dei risultati e quindi fare clic sul pulsante **Aggiungi** per aggiungere l'applicazione.
 
     ![myPolicies nell'elenco risultati](common/search-new-app.png)
 
@@ -106,7 +106,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 5. Nella sezione **credenziali amministratore** immettere l' `https://<myPoliciesCustomDomain>.mypolicies.com/scim` URL del **tenant** in cui `<myPoliciesCustomDomain>` è il dominio personalizzato dei criteri. Dall'URL è possibile recuperare il dominio Customer dei criteri.
 Esempio: `<demo0-qa>` . mypolicies.com.
 
-6. In **token segreto**immettere il valore del token recuperato in precedenza. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi ai criteri. Se la connessione ha esito negativo, verificare che l'account di criteri di gruppo disponga delle autorizzazioni di amministratore e riprovare.
+6. In **token segreto** immettere il valore del token recuperato in precedenza. Fare clic su **Test connessione** per verificare che Azure ad possibile connettersi ai criteri. Se la connessione ha esito negativo, verificare che l'account di criteri di gruppo disponga delle autorizzazioni di amministratore e riprovare.
 
     ![URL del tenant e token](common/provisioning-testconnection-tenanturltoken.png)
 
@@ -114,7 +114,7 @@ Esempio: `<demo0-qa>` . mypolicies.com.
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-8. Fare clic su **Save**.
+8. Fare clic su **Salva**.
 
 9. Nella sezione **mapping** selezionare **Sincronizza Azure Active Directory utenti ai criteri**.
 
@@ -155,7 +155,7 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 ## <a name="connector-limitations"></a>Limitazioni dei connettori
 
-* i criteri per i criteri richiedono sempre **nome utente**, **indirizzo di posta elettronica** e **externalID**.
+* i criteri per i criteri richiedono sempre **nome utente** , **indirizzo di posta elettronica** e **externalID**.
 * i criteri non supportano le eliminazioni hardware per gli attributi utente.
 
 ## <a name="change-log"></a>Registro delle modifiche

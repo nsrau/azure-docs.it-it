@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 1163f4b0992afe03f5bbdc38cad4e3cbca060dd2
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
-ms.translationtype: MT
+ms.openlocfilehash: 3fe13d2fad2382e0e9fa8b93b79c5f27695ad898
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92459778"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94355193"
 ---
 # <a name="tutorial-configure-iprova-for-automatic-user-provisioning"></a>Esercitazione: configurare iProva per il provisioning utenti automatico
 
@@ -48,7 +48,7 @@ Per lo scenario descritto in questa esercitazione si presuppone che l'utente dis
 2. Determinare gli utenti che verranno inclusi nell'[ambito per il provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 3. Determinare quali dati eseguire il [mapping tra Azure ad e iProva](../app-provisioning/customize-application-attributes.md). 
 
-## <a name="step-2-configure-iprova-to-support-provisioning-with-azure-ad"></a>Passaggio 2. Configurare iProva per supportare il provisioning con Azure AD
+## <a name="step-2-configure-iprova-to-support-provisioning-with-azure-ad"></a>Passaggio 2: Configurare iProva per supportare il provisioning con Azure AD
 
 1. Accedere a [IProva Admin Console](https://www.iProva.com/). Passare a **> gestione applicazioni**.
 

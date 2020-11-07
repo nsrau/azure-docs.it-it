@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/13/2020
 ms.author: Zhchia
-ms.openlocfilehash: 2f694c5a089245a29aaf0e493542fc7f4fce46f7
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: MT
+ms.openlocfilehash: 5cdc36c20cbba148bb68bda700f5fdccbc593caf
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92675447"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353000"
 ---
 # <a name="tutorial-configure-solarwinds-service-desk-previously-samanage-for-automatic-user-provisioning"></a>Esercitazione: configurare SolarWinds Service Desk (in precedenza samanage) per il provisioning utenti automatico
 
@@ -24,16 +24,16 @@ Questa esercitazione descrive i passaggi da eseguire sia in SolarWinds Service D
 
 ## <a name="migrate-to-the-new-solarwinds-service-desk-application"></a>Eseguire la migrazione alla nuova applicazione SolarWinds Service Desk
 
-Se si dispone di un'integrazione esistente con SolarWinds Service Desk, vedere la sezione seguente sulle modifiche imminenti. Se si sta configurando il servizio SolarWinds Service Desk per la prima volta, è possibile ignorare questa sezione e passare a **funzionalità supportate** .
+Se si dispone di un'integrazione esistente con SolarWinds Service Desk, vedere la sezione seguente sulle modifiche imminenti. Se si sta configurando il servizio SolarWinds Service Desk per la prima volta, è possibile ignorare questa sezione e passare a **funzionalità supportate**.
 
 #### <a name="whats-changing"></a>Modifiche introdotte
 
-* Modifiche al lato Azure AD: il metodo di autorizzazione per il provisioning degli utenti in Samange è stato in passato l' **autenticazione di base** . Si noterà presto che il metodo di autorizzazione è stato modificato in **token segreto di lunga durata** .
+* Modifiche al lato Azure AD: il metodo di autorizzazione per il provisioning degli utenti in Samange è stato in passato l' **autenticazione di base**. Si noterà presto che il metodo di autorizzazione è stato modificato in **token segreto di lunga durata**.
 
 
 #### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>Cosa è necessario fare per eseguire la migrazione dell'integrazione personalizzata esistente alla nuova applicazione?
 
-Se si dispone di un'integrazione di SolarWinds Service Desk con credenziali di amministratore valide, **non è necessaria alcuna azione** . I clienti vengono migrati automaticamente alla nuova applicazione. Questo processo viene eseguito completamente dietro le quinte. Se le credenziali esistenti scadono o se è necessario autorizzare di nuovo l'accesso all'applicazione, è necessario generare un token segreto di lunga durata. Per generare un nuovo token, fare riferimento al passaggio 2 di questo articolo.
+Se si dispone di un'integrazione di SolarWinds Service Desk con credenziali di amministratore valide, **non è necessaria alcuna azione**. I clienti vengono migrati automaticamente alla nuova applicazione. Questo processo viene eseguito completamente dietro le quinte. Se le credenziali esistenti scadono o se è necessario autorizzare di nuovo l'accesso all'applicazione, è necessario generare un token segreto di lunga durata. Per generare un nuovo token, fare riferimento al passaggio 2 di questo articolo.
 
 
 #### <a name="how-can-i-tell-if-my-application-has-been-migrated"></a>Come è possibile stabilire se è stata eseguita la migrazione dell'applicazione? 
@@ -75,7 +75,7 @@ Aggiungere il servizio SolarWinds Service Desk dalla raccolta di applicazioni Az
 
 Il servizio di provisioning di Azure AD consente di definire l'ambito per gli utenti di cui verrà eseguito il provisioning in base all'assegnazione all'applicazione e/o in base agli attributi dell'utente o del gruppo. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning per l'app in base all'assegnazione, è possibile seguire questa [procedura](../manage-apps/assign-user-or-group-access-portal.md) per assegnare utenti e gruppi all'applicazione. Se si sceglie di definire l'ambito degli utenti di cui verrà eseguito il provisioning esclusivamente in base agli attributi dell'utente o del gruppo, è possibile usare un filtro di ambito come descritto [qui](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
-* Quando si assegnano utenti e gruppi al servizio SolarWinds Service Desk, è necessario selezionare un ruolo diverso dall' **accesso predefinito** . Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
+* Quando si assegnano utenti e gruppi al servizio SolarWinds Service Desk, è necessario selezionare un ruolo diverso dall' **accesso predefinito**. Gli utenti con il ruolo Accesso predefinito vengono esclusi dal provisioning e verranno contrassegnati come non autorizzati nei log di provisioning. Se l'unico ruolo disponibile nell'applicazione è il ruolo di accesso predefinito, è possibile [aggiornare il manifesto dell'applicazione](../develop/howto-add-app-roles-in-azure-ad-apps.md) per aggiungere altri ruoli. 
 
 * Iniziare con pochi elementi. Eseguire il test con un piccolo set di utenti e gruppi prima di eseguire la distribuzione a tutti. Quando l'ambito per il provisioning è impostato su utenti e gruppi assegnati, è possibile controllarlo assegnando uno o due utenti o gruppi all'app. Quando l'ambito è impostato su tutti gli utenti e i gruppi, è possibile specificare un [filtro di ambito basato su attributi](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
@@ -86,37 +86,37 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
 ### <a name="to-configure-automatic-user-provisioning-for-solarwinds-service-desk-in-azure-ad"></a>Per configurare il provisioning utenti automatico per SolarWinds Service Desk in Azure AD:
 
-1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni** .
+1. Accedere al [portale di Azure](https://portal.azure.com). Selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
 
     ![Pannello delle applicazioni aziendali](common/enterprise-applications.png)
 
-2. Nell'elenco delle applicazioni selezionare **SolarWinds Service Desk** .
+2. Nell'elenco delle applicazioni selezionare **SolarWinds Service Desk**.
 
-3. Selezionare la scheda **Provisioning** .
+3. Selezionare la scheda **Provisioning**.
 
     ![Screenshot che mostra la scheda Provisioning selezionata.](common/provisioning.png)
 
-4. Impostare **Modalità di provisioning** su **Automatico** .
+4. Impostare **Modalità di provisioning** su **Automatico**.
 
     ![Screenshot che mostra la modalità di provisioning impostata su automatico.](common/provisioning-automatic.png)
 
-5. Nella sezione **credenziali amministratore** immettere `https://api.samanage.com` in **URL tenant** .  Immettere il valore del token segreto recuperato in precedenza in **Token segreto** . Selezionare **Test connessione** per assicurarsi che Azure ad possa connettersi al servizio SolarWinds Service Desk. Se la connessione ha esito negativo, verificare che l'account del Service Desk di SolarWinds disponga di autorizzazioni di amministratore e riprovare.
+5. Nella sezione **credenziali amministratore** immettere `https://api.samanage.com` in **URL tenant**.  Immettere il valore del token segreto recuperato in precedenza in **Token segreto**. Selezionare **Test connessione** per assicurarsi che Azure ad possa connettersi al servizio SolarWinds Service Desk. Se la connessione ha esito negativo, verificare che l'account del Service Desk di SolarWinds disponga di autorizzazioni di amministratore e riprovare.
 
     ![Screenshot che mostra il pulsante Test connessione selezionato.](./media/samanage-provisioning-tutorial/provisioning.png)
 
-6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore** .
+6. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo **Invia una notifica di posta elettronica in caso di errore**.
 
     ![Messaggio di posta elettronica di notifica](common/provisioning-notification-email.png)
 
-7. Selezionare **Salva** .
+7. Selezionare **Salva**.
 
-8. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to SolarWinds Service Desk** .
+8. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory Users to SolarWinds Service Desk**.
 
 9. Esaminare gli attributi utente che vengono sincronizzati da Azure AD al Service Desk SolarWinds nella sezione **mapping** degli attributi. Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in SolarWinds Service Desk per le operazioni di aggiornamento. Se si sceglie di modificare l' [attributo di destinazione corrispondente](../app-provisioning/customize-application-attributes.md), è necessario assicurarsi che l'API del Service Desk di SolarWinds supporti il filtraggio degli utenti in base a tale attributo. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
       ![Mapping utente Samange](./media/samanage-provisioning-tutorial/user-attributes.png)
 
-10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to SolarWinds Service Desk** .
+10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to SolarWinds Service Desk**.
 
 11. Esaminare gli attributi di gruppo sincronizzati da Azure AD al Service Desk di SolarWinds nella sezione **attribute-mapping** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con i gruppi in SolarWinds Service Desk per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
@@ -132,11 +132,11 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Ambito di provisioning](common/provisioning-scope.png)
 
-15. Quando si è pronti per il provisioning, selezionare **Salva** .
+15. Quando si è pronti per il provisioning, selezionare **Salva**.
 
     ![Salvataggio della configurazione del provisioning](common/provisioning-configuration-save.png)
 
-L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i gruppi definiti in **Ambito** nella sezione **Impostazioni** . Il ciclo di sincronizzazione iniziale richiede più tempo dei cicli successivi, che verranno eseguiti ogni 40 minuti circa quando il servizio di provisioning di Azure AD è in esecuzione. 
+L'operazione avvia il ciclo di sincronizzazione iniziale di tutti gli utenti e i gruppi definiti in **Ambito** nella sezione **Impostazioni**. Il ciclo di sincronizzazione iniziale richiede più tempo dei cicli successivi, che verranno eseguiti ogni 40 minuti circa quando il servizio di provisioning di Azure AD è in esecuzione. 
 
 ## <a name="step-6-monitor-your-deployment"></a>Passaggio 6. Monitorare la distribuzione
 Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare la distribuzione:

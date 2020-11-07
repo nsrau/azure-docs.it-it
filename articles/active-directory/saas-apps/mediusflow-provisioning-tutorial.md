@@ -8,15 +8,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 04/30/2020
 ms.author: Zhchia
-ms.openlocfilehash: e5b008dd3d3a9d2422cca1fe00329543ed6d362f
-ms.sourcegitcommit: 59f506857abb1ed3328fda34d37800b55159c91d
-ms.translationtype: MT
+ms.openlocfilehash: 1b603dc4c31cb608a0840da78a2e987b3edd3c1e
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92517146"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353595"
 ---
 # <a name="tutorial-configure-mediusflow-for-automatic-user-provisioning"></a>Esercitazione: Configurare MediusFlow per il provisioning utenti automatico
 
@@ -76,35 +76,35 @@ https://success.mediusflow.com/documentation/administration_guide/user_login_and
 
 4. Salvare la configurazione.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/4-save-config.png" alt-text="Screenshot della console di amministrazione di MediusFlow che illustra il quarto passaggio di integrazione. Il pulsante Salva configurazione è evidenziato." border="false":::
 
 5. Selezionare il provisioning utenti e fare clic su **OK**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/5-select-user-provisioning.png" alt-text="Screenshot della console di amministrazione di MediusFlow che illustra il quinto passaggio di integrazione. I pulsanti USA provisioning utenti e OK sono evidenziati." border="false":::
 
 6. Fare clic su **Generate Secret Key** (Genera chiave privata). Copiare e salvare il valore che verrà immesso nel campo **Token segreto** nella scheda **Provisioning** dell'applicazione MediusFLow nel portale di Azure.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/6-create-secret-1.png" alt-text="Screenshot della scheda configurazione provisioning utenti nella console di amministrazione di MediusFlow. Vengono evidenziati i pulsanti Genera chiave privata e copia." border="false":::
 
 7. Fare clic su **OK**.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/7-confirm-secret.png" alt-text="Screenshot della console di amministrazione di MediusFlow con una notifica che informa gli utenti di fare clic su OK per generare una nuova chiave privata. Il pulsante OK è evidenziato." border="false":::
 
 8. Per fare in modo che gli utenti importati con un set predefinito di ruoli, aziende e altre configurazioni generali in MediusFlow, è necessario configurarlo per primo. Per iniziare, aggiungere la configurazione facendo clic su **Add new configuration** (Aggiungi nuova configurazione).
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/8-configure-user-configuration-1.png" alt-text="Screenshot della scheda configurazione provisioning utenti nella console di amministrazione di MediusFlow. Il pulsante Aggiungi nuova configurazione è evidenziato." border="false":::
 
 9. Usare le impostazioni seguenti per gli utenti. In questa visualizzazione è possibile impostare l'attributo predefinito. Se le impostazioni standard sono corrette, è sufficiente immettere un nome aziendale valido. Poiché queste impostazioni di configurazione vengono recuperate da Mediusflow, devono essere configurate per prime. Per altre informazioni, vedere la sezione **Prerequisiti** di questo articolo.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/9-configure-user-config-detail-1.png" alt-text="Screenshot della finestra Aggiungi nuova configurazione di MediusFlow. Sono visibili molte impostazioni, incluse le impostazioni locali, un filtro e i ruoli utente." border="false":::
 
 10. Fare clic sul pulsante **Salva** per salvare la configurazione utente.
 
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/10-done-1.png" alt-text="Screenshot della scheda configurazione provisioning utenti nella console di amministrazione di MediusFlow. Il pulsante Salva è evidenziato." border="false":::
 
 11. Per ottenere il collegamento del provisioning utenti, fare clic su **Copy SCIM Link** (Copia collegamento SCIM). Copiare e salvare questo valore che verrà immesso nel campo **URL tenant** nella scheda **Provisioning** dell'applicazione MediusFLow nel portale di Azure.
  
-    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Screenshot della console di amministrazione di MediusFlow. La casella nome tenant MediusFlow e il pulsante Authenticate sono evidenziati nel primo passaggio di integrazione." border="false":::
+    :::image type="content" source="./media/mediusflow-provisioning-tutorial/11-get-scim-link.png" alt-text="Screenshot della scheda configurazione provisioning utenti nella console di amministrazione di MediusFlow. Il pulsante di collegamento copia S C I M è evidenziato." border="false":::
 
 ## <a name="step-3-add-mediusflow-from-the-azure-ad-application-gallery"></a>Passaggio 3. Aggiungere MediusFlow dalla raccolta di applicazioni di Azure AD
 

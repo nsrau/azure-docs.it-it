@@ -7,15 +7,15 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.topic: article
+ms.topic: tutorial
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: a18984c441f5fe47f6ffd54cccff8c37cb57a038
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
-ms.translationtype: MT
+ms.openlocfilehash: 2a4d3f3f9465b8813cdf6ee26760d819d73a08c1
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92676729"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94353105"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Esercitazione: Configurare Salesforce per il provisioning utenti automatico
 
@@ -59,13 +59,13 @@ Questa sezione illustra la connessione tra il Azure AD e l' [API di provisioning
 
 In questa sezione viene descritto come abilitare il provisioning utenti degli account utente di Active Directory in Salesforce.
 
-1. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory > App aziendali > Tutte le applicazioni** .
+1. Nel [portale di Azure](https://portal.azure.com) passare alla sezione **Azure Active Directory > App aziendali > Tutte le applicazioni**.
 
 2. Se è già stato configurato Salesforce per l'accesso Single Sign-On, cercare l'istanza di Salesforce usando il campo di ricerca. In caso contrario, selezionare **Aggiungi** e cercare **Salesforce** nella raccolta di applicazioni. Selezionare Salesforce nei risultati della ricerca e aggiungerlo all'elenco delle applicazioni.
 
-3. Selezionare l'istanza di Salesforce e quindi la scheda **Provisioning** .
+3. Selezionare l'istanza di Salesforce e quindi la scheda **Provisioning**.
 
-4. Impostare **Modalità di provisioning** su **Automatico** .
+4. Impostare **Modalità di provisioning** su **Automatico**.
 
     ![Screenshot mostra la pagina di provisioning di Salesforce, con la modalità di provisioning impostata su automatico e altri valori che è possibile impostare.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
@@ -75,7 +75,7 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
     b. Nella casella di testo **Password amministratore** digitare la password per questo account.
 
-6. Per ottenere il token di sicurezza di Salesforce, aprire una nuova scheda e accedere allo stesso account di amministratore di Salesforce. Nell'angolo superiore destro della pagina fare clic sul proprio nome e quindi su **Impostazioni** .
+6. Per ottenere il token di sicurezza di Salesforce, aprire una nuova scheda e accedere allo stesso account di amministratore di Salesforce. Nell'angolo superiore destro della pagina fare clic sul proprio nome e quindi su **Impostazioni**.
 
     ![Screenshot Visualizza il collegamento impostazioni selezionato.](./media/salesforce-provisioning-tutorial/sf-my-settings.png "Abilita provisioning utenti automatico")
 
@@ -89,7 +89,7 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 9. Controllare la casella di posta elettronica associata a questo account di amministratore. Cercare un messaggio di posta elettronica da Salesforce.com contenente il nuovo token di sicurezza.
 
-10. Copiare il token, passare alla finestra di Azure AD e incollarlo nel campo **Token segreto** .
+10. Copiare il token, passare alla finestra di Azure AD e incollarlo nel campo **Token segreto**.
 
 11. L' **URL del tenant** deve essere immesso se l'istanza di Salesforce si trova in Salesforce Government Cloud. In caso contrario, è facoltativo. Immettere l'URL del tenant usando il formato "https:// \<your-instance\> . My.salesforce.com", sostituendo \<your-instance\> con il nome dell'istanza di Salesforce.
 
@@ -97,7 +97,7 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 13. Nel campo **Messaggio di posta elettronica di notifica** immettere l'indirizzo di posta elettronica di una persona o un gruppo che riceverà le notifiche di errore relative al provisioning e selezionare la casella di controllo qui di seguito.
 
-14. Fare clic su **Salva** .  
+14. Fare clic su **Salva**.  
 
 15. Nella sezione Mapping selezionare **Synchronize Azure Active Directory Users to Salesforce** (Sincronizza utenti di Azure Active Directory in Salesforce).
 
@@ -105,7 +105,7 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 17. Per abilitare il servizio di provisioning di Azure AD per Salesforce, impostare **Stato del provisioning** su **Attivato** nella sezione Impostazioni
 
-18. Fare clic su **Salva** .
+18. Fare clic su **Salva**.
 
 > [!NOTE]
 > Una volta eseguito il provisioning degli utenti nell'applicazione Salesforce, è necessario che l'amministratore configuri le impostazioni specifiche del linguaggio. Per ulteriori informazioni sulla configurazione della lingua, vedere [questo](https://help.salesforce.com/articleView?id=setting_your_language.htm&type=5) articolo.
