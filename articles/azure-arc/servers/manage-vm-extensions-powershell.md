@@ -1,14 +1,14 @@
 ---
 title: Abilitare l'estensione della macchina virtuale usando Azure PowerShell
 description: Questo articolo descrive come distribuire le estensioni delle macchine virtuali nei server abilitati per Azure Arc in esecuzione in ambienti cloud ibridi usando Azure PowerShell.
-ms.date: 10/23/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: d2408f75c7b6d81ba297de6dcdb85a712cd8908f
-ms.sourcegitcommit: d6a739ff99b2ba9f7705993cf23d4c668235719f
+ms.openlocfilehash: 5ed9db23cd19814ff05c2f142f51cea869f2c2d4
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/24/2020
-ms.locfileid: "92495445"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359069"
 ---
 # <a name="enable-azure-vm-extensions-using-azure-powershell"></a>Abilitare le estensioni VM di Azure usando Azure PowerShell
 
@@ -43,6 +43,37 @@ Nell'esempio seguente viene abilitata l'estensione di script personalizzato in u
 ```powershell
 PS C:\> $Setting = @{ "commandToExecute" = "powershell.exe -c Get-Process" }
 PS C:\> New-AzConnectedMachineExtension -Name custom -ResourceGroupName myResourceGroup -MachineName myMachineName -Location eastus -Publisher "Microsoft.Compute" -TypeHandlerVersion 1.10 -Settings $Setting -ExtensionType CustomScriptExtension
+```
+
+### <a name="key-vault-vm-extension-preview"></a>Estensione della macchina virtuale Key Vault (anteprima)
+
+> [!WARNING]
+> I client PowerShell spesso aggiungono `\` a `"` nel settings.jssu cui causerà akvvm_service avrà esito negativo con errore: `[CertificateManagementConfiguration] Failed to parse the configuration settings with:not an object.`
+
+Nell'esempio seguente viene abilitata l'estensione della macchina virtuale Key Vault (anteprima) in un server abilitato per Arc:
+
+```powershell
+# Build settings
+    $settings = @{
+      secretsManagementSettings = @{
+       observedCertificates = @{
+        "observedCert1"
+       }
+      certificateStoreLocation = "myMachineName" # For Linux use "/var/lib/waagent/Microsoft.Azure.KeyVault.Store/"
+      certificateStore = "myCertificateStoreName"
+      pollingIntervalInS = "pollingInterval"
+      }
+    authenticationLocationSettings = @{
+     msiEndpoint = "http://localhost:40342/metadata/identity"
+     }
+    }
+
+    $resourceGroup = "resourceGroupName"
+    $machineName = "myMachineName"
+    $location = "regionName"
+
+    # Start the deployment
+    New-AzConnectedMachineExtension -ResourceGroupName $resourceGRoup -Location $location -MachineName $machineName -Name "KeyVaultForWindows or KeyVaultforLinux" -Publisher "Microsoft.Azure.KeyVault" -ExtensionType "KeyVaultforWindows or KeyVaultforLinux" -Setting (ConvertTo-Json $settings)
 ```
 
 ## <a name="list-extensions-installed"></a>Elenca estensioni installate

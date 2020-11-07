@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: 7db9ac0eb624c2732295639d65e0311fcf459f71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "90937050"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359545"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Concetti relativi alla disponibilità elevata in database di Azure per PostgreSQL-server flessibile
 
@@ -43,7 +43,7 @@ L'integrità della configurazione della disponibilità elevata viene monitorata 
 
 Le applicazioni client PostgreSQL sono connesse al server primario utilizzando il nome del server di database. Le letture dell'applicazione vengono gestite direttamente dal server primario, mentre i commit e le scritture vengono confermati nell'applicazione solo dopo che i dati sono stati salvati nel server primario e nella replica di standby. A causa di questo requisito di round trip aggiuntivo, le applicazioni possono prevedere una latenza elevata per scritture e commit. È possibile monitorare l'integrità della disponibilità elevata nel portale.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="disponibilità elevata con ridondanza della zona"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-steady-state.png" alt-text="disponibilità elevata con ridondanza della zona-stato stabile"::: 
 
 1. I client si connettono al server flessibile ed eseguono operazioni di scrittura.
 2. Le modifiche vengono replicate nel sito di standby.
@@ -64,7 +64,7 @@ Per le altre operazioni avviate dall'utente, ad esempio l'archiviazione con scal
 
 Interruzioni non pianificate includono bug software o errori dei componenti dell'infrastruttura che incidono sulla disponibilità del database. Se il sistema di monitoraggio rileva la mancata disponibilità del server, la replica per la replica standby viene interrotta e la replica standby viene attivata come server di database primario. I client possono riconnettersi al server di database usando la stessa stringa di connessione e riprendere le operazioni. Si prevede che il tempo di failover complessivo imprenda 60-120S. Tuttavia, a seconda dell'attività nel server di database primario al momento del failover, ad esempio transazioni di grandi dimensioni e tempi di ripristino, il failover potrebbe richiedere più tempo.
 
-:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="disponibilità elevata con ridondanza della zona"::: 
+:::image type="content" source="./media/business-continuity/concepts-high-availability-failover-state.png" alt-text="disponibilità elevata con ridondanza della zona-failover"::: 
 
 1. Il server di database primario non è attivo e i client perdono la connettività del database. 
 2. Il server di standby viene attivato per diventare il nuovo server primario. Il client si connette al nuovo server primario utilizzando la stessa stringa di connessione. L'applicazione client nella stessa zona del server di database primario riduce la latenza e migliora le prestazioni.
@@ -112,6 +112,8 @@ Server flessibili configurati con disponibilità elevata, replicare i dati in te
 -   La configurazione delle attività di gestione avviate dal cliente non può essere pianificata durante la finestra di manutenzione gestita.
 
 -   Gli eventi pianificati, ad esempio il calcolo e l'archiviazione della scalabilità, si verificano prima in standby e quindi nel server primario. Il servizio non viene sottoposto a failover. 
+
+-  Se la decodifica logica o la replica logica è configurata con un server flessibile configurato per la disponibilità elevata, in caso di failover al server di standby, gli slot di replica logica non vengono copiati nel server di standby.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

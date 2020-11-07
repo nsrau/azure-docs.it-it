@@ -1,18 +1,21 @@
 ---
 title: Abilitare l'estensione della macchina virtuale da portale di Azure
 description: Questo articolo descrive come distribuire le estensioni delle macchine virtuali nei server abilitati per Azure Arc in esecuzione in ambienti cloud ibridi dal portale di Azure.
-ms.date: 10/19/2020
+ms.date: 11/06/2020
 ms.topic: conceptual
-ms.openlocfilehash: dcab7cb441c329a60b2c6fa3256aeedb2bb5b33d
-ms.sourcegitcommit: 9b8425300745ffe8d9b7fbe3c04199550d30e003
+ms.openlocfilehash: 48d7d4085dce893d94436fe0c6be32cfeea9cda3
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/23/2020
-ms.locfileid: "92462941"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359086"
 ---
 # <a name="enable-azure-vm-extensions-from-the-azure-portal"></a>Abilitare le estensioni di VM di Azure dalla portale di Azure
 
 Questo articolo illustra come distribuire e disinstallare le estensioni delle macchine virtuali di Azure, supportate da server abilitati per Azure Arc, in un computer ibrido Linux o Windows tramite il portale di Azure.
+
+> [!NOTE]
+> L'estensione della macchina virtuale Key Vault (anteprima) non supporta la distribuzione dal portale di Azure, solo usando l'interfaccia della riga di comando di Azure, il Azure PowerShell o usando un modello Azure Resource Manager.
 
 ## <a name="enable-extensions-from-the-portal"></a>Abilitare le estensioni dal portale
 
@@ -22,7 +25,7 @@ Le estensioni della macchina virtuale possono essere applicate all'arco per il c
 
 2. Nel portale passare a **Server-Azure Arc** e selezionare il computer ibrido nell'elenco.
 
-3. Scegliere **estensioni**, quindi selezionare **Aggiungi**. Scegliere l'estensione desiderata dall'elenco di quelle disponibili e quindi seguire le istruzioni della procedura guidata. In questo esempio verrà distribuita l'estensione della macchina virtuale Log Analytics.
+3. Scegliere **estensioni** , quindi selezionare **Aggiungi**. Scegliere l'estensione desiderata dall'elenco di quelle disponibili e quindi seguire le istruzioni della procedura guidata. In questo esempio verrà distribuita l'estensione della macchina virtuale Log Analytics.
 
     ![Selezionare l'estensione della macchina virtuale per il computer selezionato](./media/manage-vm-extensions/add-vm-extensions.png)
 
@@ -45,7 +48,7 @@ Le estensioni della macchina virtuale possono essere applicate all'arco per il c
 
 2. Nel portale passare a **Server-Azure Arc** e selezionare il computer ibrido nell'elenco.
 
-3. Scegliere **estensioni**, quindi selezionare un'estensione nell'elenco delle estensioni installate.
+3. Scegliere **estensioni** , quindi selezionare un'estensione nell'elenco delle estensioni installate.
 
 4. Selezionare **Disinstalla** e quando viene richiesto di verificare, selezionare **Sì** per continuare.
 

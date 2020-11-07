@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18, devx-track-azurecli
-ms.openlocfilehash: d3e856256e02e2c1914aeec493a87ffe992bbf13
-ms.sourcegitcommit: 8c7f47cc301ca07e7901d95b5fb81f08e6577550
+ms.openlocfilehash: e8f71b277a4f4b538d501b1fa825bc6ec43428c8
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92740322"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359392"
 ---
 # <a name="azure-disk-encryption-scenarios-on-linux-vms"></a>Scenari di Crittografia dischi di Azure in macchine virtuali Linux
 
@@ -200,8 +200,8 @@ La tabella seguente elenca i parametri del modello di Resource Manager per macch
 | vmName | Nome della macchina virtuale per eseguire l'operazione di crittografia. |
 | keyVaultName | Nome dell'insieme di credenziali delle chiavi in cui dovrà essere caricata la chiave di crittografia. È possibile ottenerlo usando il cmdlet `(Get-AzKeyVault -ResourceGroupName <MyKeyVaultResourceGroupName>). Vaultname` o il comando dell'interfaccia della riga di comando di Azure `az keyvault list --resource-group "MyKeyVaultResourceGroupName"`.|
 | keyVaultResourceGroup | Nome del gruppo di risorse contenente l'insieme di credenziali delle chiavi. |
-|  keyEncryptionKeyURL | URL della chiave di crittografia della chiave usata per crittografare la chiave di crittografia. Questo parametro è facoltativo se si seleziona **nokek** dall'elenco a discesa UseExistingKek. Se si seleziona **kek** dall'elenco a discesa UseExistingKek, è necessario immettere il valore _keyEncryptionKeyURL_ . |
-| volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori validi sono _OS_ , _Data_ e _All_ . 
+|  keyEncryptionKeyURL | URL della chiave di crittografia della chiave usata per crittografare la chiave di crittografia. Questo parametro è facoltativo se si seleziona **nokek** dall'elenco a discesa UseExistingKek. Se si seleziona **kek** dall'elenco a discesa UseExistingKek, è necessario immettere il valore _keyEncryptionKeyURL_. |
+| volumeType | Tipo del volume in cui viene eseguita l'operazione di crittografia. I valori validi sono _OS_ , _Data_ e _All_. 
 | forceUpdateTag | Ogni volta che è necessario forzare l'esecuzione dell'operazione, passare un valore univoco, ad esempio un GUID. |
 | posizione | Posizione per tutte le risorse. |
 
@@ -415,6 +415,7 @@ Crittografia dischi di Azure non funziona per gli scenari, le funzionalità e la
 - VM serie M con dischi acceleratore di scrittura.
 - Applicazione di ADE a una macchina virtuale con dischi crittografati con la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md) (SSE + CMK). Applicare anche SSE + CMK a un disco dati in una macchina virtuale crittografata con ADE è uno scenario non supportato.
 - Migrazione di una macchina virtuale crittografata con ADE oppure crittografata con ADE, per la [crittografia lato server con chiavi gestite dal cliente](disk-encryption.md). **ever**
+- [Dimensioni delle macchine virtuali di Azure senza disco temporaneo locale](../azure-vms-no-temp-disk.md); in particolare, dv4, Dsv4, Ev4 e Esv4.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

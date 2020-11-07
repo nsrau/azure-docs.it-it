@@ -5,29 +5,31 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 4/13/2020
-ms.openlocfilehash: f834ba3355d362e59e2e44f37eca0560b9bf4d7a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/6/2020
+ms.openlocfilehash: 1e967c77bc41f0f91674fe55bc622adaf5046f6d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "81271982"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359001"
 ---
 # <a name="slow-query-logs-in-azure-database-for-mysql"></a>Log di query lente in Database di Azure per MySQL
 Nel Database di Azure per MySQL, il log delle query lente è disponibile per gli utenti. L'accesso al log delle transazioni non è supportato. Il log delle query lente può essere usato per identificare eventuali colli di bottiglia delle prestazioni e procedere alla risoluzione dei problemi.
 
 Per altre informazioni sul log delle query lente MySQL, vedere la [sezione relativa ai log di query lente](https://dev.mysql.com/doc/refman/5.7/en/slow-query-log.html) del manuale di riferimento per MySQL.
 
+Quando [query Store](concepts-query-store.md) è abilitato nel server, è possibile che vengano visualizzate le query come " `CALL mysql.az_procedure_collect_wait_stats (900, 30);` " registrate nei log di query lente. Questo comportamento è previsto perché la funzionalità Query Store raccoglie le statistiche sulle query. 
+
 ## <a name="configure-slow-query-logging"></a>Configurare la registrazione lenta delle query 
 Per impostazione predefinita il log delle query lente è disabilitato. Per abilitarla, impostare `slow_query_log` su on. Questa operazione può essere abilitata usando l'interfaccia della riga di comando portale di Azure o Azure. 
 
 Altri parametri che è possibile modificare includono:
 
-- **long_query_time**: se una query richiede più tempo del valore di long_query_time (in secondi), la query viene registrata. Il valore predefinito è 10 secondi.
-- **log_slow_admin_statements**: se è ON include le istruzioni a livello amministrativo come ALTER_TABLE e ANALYZE_TABLE nelle istruzioni scritte in slow_query_log.
-- **log_queries_not_using_indexes**: determina se le query che non usano gli indici vengono registrate in slow_query_log
-- **log_throttle_queries_not_using_indexes**: questo parametro limita il numero di query non di indice che possono essere scritte nel log di query lente. Questo parametro ha effetto quando log_queries_not_using_indexes è impostato su ON.
-- **log_output**: se "file", consente la scrittura del log di query lente sia nella risorsa di archiviazione del server locale che nei log di diagnostica di monitoraggio di Azure. Se è "Nessuna", il log di query lente verrà scritto solo nei log di diagnostica di Monitoraggio di Azure. 
+- **long_query_time** : se una query richiede più tempo del valore di long_query_time (in secondi), la query viene registrata. Il valore predefinito è 10 secondi.
+- **log_slow_admin_statements** : se è ON include le istruzioni a livello amministrativo come ALTER_TABLE e ANALYZE_TABLE nelle istruzioni scritte in slow_query_log.
+- **log_queries_not_using_indexes** : determina se le query che non usano gli indici vengono registrate in slow_query_log
+- **log_throttle_queries_not_using_indexes** : questo parametro limita il numero di query non di indice che possono essere scritte nel log di query lente. Questo parametro ha effetto quando log_queries_not_using_indexes è impostato su ON.
+- **log_output** : se "file", consente la scrittura del log di query lente sia nella risorsa di archiviazione del server locale che nei log di diagnostica di monitoraggio di Azure. Se è "Nessuna", il log di query lente verrà scritto solo nei log di diagnostica di Monitoraggio di Azure. 
 
 > [!IMPORTANT]
 > Se le tabelle non sono indicizzate, l'impostazione `log_queries_not_using_indexes` dei `log_throttle_queries_not_using_indexes` parametri e su on può influire sulle prestazioni di MySQL perché tutte le query in esecuzione in queste tabelle non indicizzate verranno scritte nel log di query lente.<br><br>
@@ -143,4 +145,4 @@ Quando i log di query lente vengono inviati tramite pipe ai log di monitoraggio 
     
 ## <a name="next-steps"></a>Passaggi successivi
 - [Come configurare i log di query lente dal portale di Azure](howto-configure-server-logs-in-portal.md)
-- [Come configurare i log di query lente dall'interfaccia della riga di comando di Azure](howto-configure-server-logs-in-cli.md).
+- [Come configurare i log di query lente dall'interfaccia della riga di comando di Azure](howto-configure-server-logs-in-cli.md)

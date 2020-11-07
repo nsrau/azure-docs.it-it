@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 11/04/2020
 ms.author: victorh
-ms.openlocfilehash: 2899121db4b6a3f202be4860e2e4f43027cdef7c
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 2dd1b51c6bcdbc531661d9ecf45d3d0282eb5b45
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348767"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358848"
 ---
 # <a name="monitor-azure-firewall-logs-and-metrics"></a>Monitorare i log e le metriche di Firewall di Azure
 
@@ -50,74 +50,55 @@ Dopo aver completato questa procedura per abilitare la registrazione diagnostica
 8. Selezionare la propria sottoscrizione.
 9. Selezionare **Salva**.
 
-## <a name="enable-logging-with-powershell"></a>Abilitare la registrazione con PowerShell
+## <a name="enable-diagnostic-logging-by-using-powershell"></a>Abilitare la registrazione diagnostica tramite PowerShell
 
 Registrazione attività viene abilitata automaticamente per tutte le risorse di Resource Manager. È necessario abilitare la registrazione diagnostica per iniziare a raccogliere i dati disponibili in tali log.
 
-Per abilitare la registrazione diagnostica, eseguire la procedura seguente:
+Per abilitare la registrazione diagnostica con PowerShell, seguire questa procedura:
 
-1. Prendere nota dell'ID risorsa dell'account di archiviazione in cui vengono archiviati i dati dei log. Il valore è nel formato seguente: */Subscriptions/ \<subscriptionId\> /resourceGroups/ \<resource group name\> /providers/Microsoft.storage/storageAccounts/ \<storage account name\>*.
+1. Prendere nota dell'ID di risorsa dell'area di lavoro Log Analytics, in cui sono archiviati i dati di log. Il valore è nel formato: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>` .
 
-   È possibile usare qualsiasi account di archiviazione della sottoscrizione. Per trovare queste informazioni è possibile usare il portale di Azure. Le informazioni si trovano nella pagina **Proprietà** della risorsa.
+   È possibile usare qualsiasi area di lavoro nella sottoscrizione. Per trovare queste informazioni è possibile usare il portale di Azure. Le informazioni si trovano nella pagina delle **Proprietà** della risorsa.
 
-2. Prendere nota dell'ID risorsa del firewall per cui è abilitata la registrazione. Il valore è nel formato seguente: */Subscriptions/ \<subscriptionId\> /resourceGroups/ \<resource group name\> /providers/Microsoft.Network/azureFirewalls/ \<Firewall name\>*.
+2. Prendere nota dell'ID risorsa del firewall per cui è abilitata la registrazione. Il valore è nel formato: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` .
 
    Per trovare queste informazioni è possibile usare il portale.
 
-3. Abilitare la registrazione diagnostica usando il cmdlet di PowerShell seguente:
+3. Abilitare la registrazione diagnostica per tutti i log e le metriche usando il cmdlet di PowerShell seguente:
 
-    ```powershell
-    Set-AzDiagnosticSetting  -ResourceId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name> `
-   -StorageAccountId /subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Storage/storageAccounts/<storage account name> `
-   -Enabled $true     
-    ```
+   ```powershell
+   $diagSettings = @{
+      Name = 'toLogAnalytics'
+      ResourceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
+      WorkspaceId = '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+      Enabled = $true
+   }
+   Set-AzDiagnosticSetting  @diagSettings 
+   ```
 
-> [!TIP]
->I log di diagnostica non richiedono un account di archiviazione separato. Per l'uso del servizio di archiviazione per la registrazione degli accessi e delle prestazioni è previsto un addebito.
-
-## <a name="enable-diagnostic-logging-by-using-azure-cli"></a>Abilitare la registrazione diagnostica usando l'interfaccia della riga di comando
+## <a name="enable-diagnostic-logging-by-using-the-azure-cli"></a>Abilitare la registrazione diagnostica usando l'interfaccia della riga di comando di Azure
 
 Registrazione attività viene abilitata automaticamente per tutte le risorse di Resource Manager. È necessario abilitare la registrazione diagnostica per iniziare a raccogliere i dati disponibili in tali log.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](../../includes/azure-cli-prepare-your-environment-h3.md)]
+Per abilitare la registrazione diagnostica con l'interfaccia della riga di comando di Azure, seguire questa procedura:
 
-### <a name="enable-diagnostic-logging"></a>Abilitare la registrazione diagnostica
+1. Prendere nota dell'ID di risorsa dell'area di lavoro Log Analytics, in cui sono archiviati i dati di log. Il valore è nel formato: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` .
 
-Usare i comandi seguenti per abilitare la registrazione diagnostica.
+   È possibile usare qualsiasi area di lavoro nella sottoscrizione. Per trovare queste informazioni è possibile usare il portale di Azure. Le informazioni si trovano nella pagina delle **Proprietà** della risorsa.
 
-1. Eseguire il comando [AZ monitor Diagnostic-Settings create](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_create) per abilitare la registrazione diagnostica:
+2. Prendere nota dell'ID risorsa del firewall per cui è abilitata la registrazione. Il valore è nel formato: `/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>` .
 
-   ```azurecli
-   az monitor diagnostic-settings create –name AzureFirewallApplicationRule \
-     --resource Firewall07 --storage-account MyStorageAccount
+   Per trovare queste informazioni è possibile usare il portale.
+
+3. Abilitare la registrazione diagnostica per tutti i log e le metriche usando il comando dell'interfaccia della riga di comando di Azure seguente:
+
+   ```azurecli-interactive
+   az monitor diagnostic-settings create -n 'toLogAnalytics'
+      --resource '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/Microsoft.Network/azureFirewalls/<Firewall name>'
+      --workspace '/subscriptions/<subscriptionId>/resourceGroups/<resource group name>/providers/microsoft.operationalinsights/workspaces/<workspace name>'
+      --logs '[{\"category\":\"AzureFirewallApplicationRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallNetworkRule\",\"Enabled\":true}, {\"category\":\"AzureFirewallDnsProxy\",\"Enabled\":true}]' 
+      --metrics '[{\"category\": \"AllMetrics\",\"enabled\": true}]'
    ```
-
-   Eseguire il comando [AZ monitor Diagnostic-Settings list](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_list) per visualizzare le impostazioni di diagnostica per una risorsa:
-
-   ```azurecli
-   az monitor diagnostic-settings list --resource Firewall07
-   ```
-
-   Usare [AZ monitor Diagnostic-Settings Show](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_show) per visualizzare le impostazioni di diagnostica attive per una risorsa:
-
-   ```azurecli
-   az monitor diagnostic-settings show --name AzureFirewallApplicationRule --resource Firewall07
-   ```
-
-1. Eseguire il comando [AZ monitor Diagnostic-Settings Update](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_update) per aggiornare le impostazioni.
-
-   ```azurecli
-   az monitor diagnostic-settings update --name AzureFirewallApplicationRule --resource Firewall07 --set retentionPolicy.days=365
-   ```
-
-   Usare il comando [AZ monitor Diagnostic-Settings Delete](/cli/azure/monitor/diagnostic-settings#az_monitor_diagnostic_settings_delete) per eliminare un'impostazione di diagnostica.
-
-   ```azurecli
-   az monitor diagnostic-settings delete --name AzureFirewallApplicationRule --resource Firewall07
-   ```
-
-> [!TIP]
->I log di diagnostica non richiedono un account di archiviazione separato. Per l'uso del servizio di archiviazione per la registrazione degli accessi e delle prestazioni è previsto un addebito.
 
 ## <a name="view-and-analyze-the-activity-log"></a>Visualizzare e analizzare Log attività
 
@@ -133,6 +114,8 @@ I [log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-anal
 
 Per query di esempio di Log Analytics di Firewall di Azure, vedere [Esempi di Log Analytics per Firewall di Azure](log-analytics-samples.md).
 
+La [cartella di lavoro del firewall di Azure](firewall-workbook.md) offre un'area di disegno flessibile per l'analisi dei dati del firewall È possibile usarlo per creare report visivi avanzati all'interno del portale di Azure. Puoi accedere a più firewall distribuiti in Azure e combinarli in esperienze interattive unificate.
+
 È anche possibile connettersi all'account di archiviazione e recuperare le voci del log JSON per i log di accesso e delle prestazioni. Dopo avere scaricato i file JSON, è possibile convertirli in CSV e visualizzarli in Excel, PowerBI o un altro strumento di visualizzazione dei dati.
 
 > [!TIP]
@@ -144,5 +127,7 @@ Passare a un firewall di Azure, in **monitoraggio** selezionare **metriche**. Pe
 ## <a name="next-steps"></a>Passaggi successivi
 
 Dopo aver configurato il firewall per raccogliere i log, è possibile esplorare i log di Monitoraggio di Azure per visualizzare i dati.
+
+[Monitorare i log con la cartella di lavoro del firewall di Azure](firewall-workbook.md)
 
 [Soluzioni di monitoraggio di rete nei log di Monitoraggio di Azure](../azure-monitor/insights/azure-networking-analytics.md)

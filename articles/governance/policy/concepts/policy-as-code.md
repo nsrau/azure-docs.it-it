@@ -1,16 +1,16 @@
 ---
-title: Progettare criteri di Azure come flussi di lavoro di codice
+title: Progettare flussi di lavoro di Criteri di Azure come codice
 description: Informazioni su come progettare i flussi di lavoro per distribuire le definizioni di Criteri di Azure come codice e convalidare automaticamente le risorse.
 ms.date: 10/20/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2be6c0770098d50abbb9695e04b3f53c073de9ae
-ms.sourcegitcommit: ce8eecb3e966c08ae368fafb69eaeb00e76da57e
+ms.openlocfilehash: 74d2097e4db4442e6e65f30541864fb554f7379d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92320602"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359681"
 ---
-# <a name="design-azure-policy-as-code-workflows"></a>Progettare criteri di Azure come flussi di lavoro di codice
+# <a name="design-azure-policy-as-code-workflows"></a>Progettare flussi di lavoro di Criteri di Azure come codice
 
 Lungo il percorso di implementazione dei processi di governance del cloud, arriva il momento in cui si è pronti a passare dalla gestione manuale di ogni definizione di criteri, tramite il portale di Azure o i vari SDK, a qualcosa di più gestibile e ripetibile su scala aziendale. Due degli approcci principali alla gestione dei sistemi su larga scala nel cloud sono:
 
@@ -38,8 +38,6 @@ Esempi di questi formati di file sono disponibili nel [repository GitHub di crit
 
 - Definizione dei criteri: [aggiungere un tag alle risorse](https://github.com/Azure/azure-policy/tree/master/samples/Tags/add-tag)
 - Definizione di iniziativa: [tag di fatturazione](https://github.com/Azure/azure-policy/tree/master/samples/PolicyInitiatives/multiple-billing-tags)
-
-Vedere anche [esportare le risorse di criteri di Azure](../how-to/export-resources.md) per ottenere le definizioni e le assegnazioni esistenti nell'ambiente di gestione del codice sorgente [GitHub](https://www.github.com).
 
 ## <a name="workflow-overview"></a>Panoramica del flusso di lavoro
 
@@ -73,6 +71,8 @@ Le definizioni dei criteri vengono create tramite JSON e archiviate nel controll
 ```
 
 Quando viene aggiunto un nuovo criterio o ne viene aggiornato uno esistente, il flusso di lavoro deve aggiornare automaticamente la definizione dei criteri in Azure. Il test della definizione del criterio nuovo o aggiornato avviene in una seconda fase.
+
+Vedere anche [esportare le risorse di criteri di Azure](../how-to/export-resources.md) per ottenere le definizioni e le assegnazioni esistenti nell'ambiente di gestione del codice sorgente [GitHub](https://www.github.com).
 
 ### <a name="create-and-update-initiative-definitions"></a>Creare e aggiornare le definizioni di iniziative
 
@@ -135,7 +135,7 @@ Una volta completati tutti i controlli di convalida, aggiornare l'assegnazione i
 
 Il flusso di lavoro generale per i criteri di Azure come codice è per lo sviluppo e la distribuzione di criteri e iniziative in un ambiente su larga scala. La valutazione dei criteri, tuttavia, deve far parte del processo di distribuzione per tutti i flussi di lavoro che distribuiscono o creano risorse in Azure, ad esempio la distribuzione di applicazioni o l'esecuzione di modelli ARM per la creazione dell'infrastruttura.
 
-In questi casi, dopo aver eseguito la distribuzione dell'applicazione o dell'infrastruttura in una sottoscrizione o un gruppo di risorse di test, è necessario eseguire la valutazione dei criteri per tale ambito convalidando tutti i criteri e le iniziative esistenti. Anche se in un ambiente di questo tipo potrebbero essere configurati con la proprietà **enforcementMode** _disabilitata_, è utile sapere in anticipo se la distribuzione di un'applicazione o di un'infrastruttura viola le definizioni dei criteri. La valutazione dei criteri deve quindi essere un passaggio di questi flussi di lavoro e contrassegnare come non riuscite le distribuzioni che creano risorse non conformi.
+In questi casi, dopo aver eseguito la distribuzione dell'applicazione o dell'infrastruttura in una sottoscrizione o un gruppo di risorse di test, è necessario eseguire la valutazione dei criteri per tale ambito convalidando tutti i criteri e le iniziative esistenti. Anche se in un ambiente di questo tipo potrebbero essere configurati con la proprietà **enforcementMode** _disabilitata_ , è utile sapere in anticipo se la distribuzione di un'applicazione o di un'infrastruttura viola le definizioni dei criteri. La valutazione dei criteri deve quindi essere un passaggio di questi flussi di lavoro e contrassegnare come non riuscite le distribuzioni che creano risorse non conformi.
 
 ## <a name="review"></a>Verifica
 

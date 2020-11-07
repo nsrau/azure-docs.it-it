@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 06a31e61583ac28218b34195dd6e5b7f92776dce
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b10cf314bc9394f3297839d45d3497f9f5d3b0e0
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91541238"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358831"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Come monitorare lo stato e i risultati dell'indicizzatore ricerca cognitiva di Azure
 
@@ -51,9 +51,9 @@ Gli indicizzatori che elaborano volumi elevati di dati possono richiedere molto 
 
    ![Elenco di indicizzatori](media/search-monitor-indexers/indexers-list.png "Elenco di indicizzatori")
 
-Quando un indicizzatore è in esecuzione, lo stato nell'elenco viene visualizzato **in corso**e il valore **docs succeeded** indica il numero di documenti elaborati fino a questo momento. Potrebbero essere necessari alcuni minuti prima che il portale aggiorni i valori di stato e i conteggi dei documenti dell'indicizzatore.
+Quando un indicizzatore è in esecuzione, lo stato nell'elenco viene visualizzato **in corso** e il valore **docs succeeded** indica il numero di documenti elaborati fino a questo momento. Potrebbero essere necessari alcuni minuti prima che il portale aggiorni i valori di stato e i conteggi dei documenti dell'indicizzatore.
 
-Un indicizzatore la cui esecuzione più recente ha avuto esito positivo indica l' **esito**positivo. Un'esecuzione dell'indicizzatore può avere esito positivo anche se i singoli documenti contengono errori, se il numero di errori è inferiore all'impostazione **massima degli elementi non riusciti** dell'indicizzatore.
+Un indicizzatore la cui esecuzione più recente ha avuto esito positivo indica l' **esito** positivo. Un'esecuzione dell'indicizzatore può avere esito positivo anche se i singoli documenti contengono errori, se il numero di errori è inferiore all'impostazione **massima degli elementi non riusciti** dell'indicizzatore.
 
 Se l'esecuzione più recente è terminata con un errore, lo stato viene visualizzato come **non riuscito**. Lo stato **Reset** indica che lo stato di rilevamento delle modifiche dell'indicizzatore è stato reimpostato.
 
@@ -122,7 +122,7 @@ La cronologia di esecuzione contiene fino alle 50 esecuzioni più recenti, che s
 
 Si noti che sono presenti due valori di stato diversi. Lo stato di primo livello è per l'indicizzatore stesso. Lo stato dell'indicizzatore **in esecuzione** indica che l'indicizzatore è configurato correttamente e disponibile per l'esecuzione, ma non è attualmente in esecuzione.
 
-Ogni esecuzione dell'indicizzatore ha anche il proprio stato che indica se l'esecuzione specifica è in corso (**in esecuzione**) o è già stata completata con uno stato di **esito positivo**, **transientFailure**o **persistentFailure** . 
+Ogni esecuzione dell'indicizzatore ha anche il proprio stato che indica se l'esecuzione specifica è in corso ( **in esecuzione** ) o è già stata completata con uno stato di **esito positivo** , **transientFailure** o **persistentFailure** . 
 
 Quando un indicizzatore viene reimpostato per aggiornare lo stato di rilevamento delle modifiche, viene aggiunta una voce della cronologia di esecuzione separata con uno stato di **reimpostazione** .
 
@@ -181,7 +181,7 @@ Latest run
 
 Si noti che sono presenti due valori di stato diversi. Lo stato di primo livello è lo stato dell'indicizzatore stesso. Lo stato dell'indicizzatore **in esecuzione** indica che l'indicizzatore è configurato correttamente e disponibile per l'esecuzione, ma non è attualmente in esecuzione.
 
-Ogni esecuzione dell'indicizzatore ha anche il proprio stato per determinare se l'esecuzione specifica è in corso (**in esecuzione**) o se è già stata completata con uno stato di **esito positivo** o **TransientError** . 
+Ogni esecuzione dell'indicizzatore ha anche il proprio stato per determinare se l'esecuzione specifica è in corso ( **in esecuzione** ) o se è già stata completata con uno stato di **esito positivo** o **TransientError** . 
 
 Quando un indicizzatore viene reimpostato per aggiornare lo stato di rilevamento delle modifiche, viene aggiunta una voce di cronologia separata con uno stato di **reimpostazione** .
 

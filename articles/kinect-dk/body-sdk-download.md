@@ -7,12 +7,12 @@ ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual
 keywords: Azure, Kinect, SDK, download aggiornamento, più recente, disponibile, installazione, corpo, monitoraggio
-ms.openlocfilehash: e3f8233d208e2a45c1af9a52a76b6064b15bfe4b
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 0ac0598d893617f341b9e1fd4d45c0c3e3f3c619
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "85276779"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94359596"
 ---
 # <a name="download-azure-kinect-body-tracking-sdk"></a>Scaricare Azure Kinect Body Tracking SDK
 
@@ -26,7 +26,7 @@ Questo documento contiene i collegamenti per installare ogni versione di Azure K
 
 ## <a name="windows-download-links"></a>Collegamenti per il download di Windows
 
-Versione       | Download
+Versione       | Scarica
 --------------|----------
 1.0.1 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100942) [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.1) MSI
 1.0.0 | [msi](https://www.microsoft.com/en-us/download/details.aspx?id=100848) [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Kinect.BodyTracking/1.0.0) MSI
@@ -41,7 +41,7 @@ Versione       | Download
 
 Attualmente, l'unica distribuzione supportata è Ubuntu 18.04. Per richiedere il supporto per altre distribuzioni, vedere [questa pagina](https://aka.ms/azurekinectfeedback).
 
-Prima di tutto, è necessario configurare il [repository pacchetti di Microsoft](https://packages.microsoft.com/), seguendo le istruzioni disponibili [qui](https://docs.microsoft.com/windows-server/administration/linux-package-repository-for-microsoft-software).
+Prima di tutto, è necessario configurare il [repository pacchetti di Microsoft](https://packages.microsoft.com/), seguendo le istruzioni disponibili [qui](/windows-server/administration/linux-package-repository-for-microsoft-software).
 
 Il pacchetto `libk4abt<major>.<minor>-dev` contiene le intestazioni e i file CMake da compilare con `libk4abt`.
 Il `libk4abt<major>.<minor>` pacchetto contiene gli oggetti condivisi necessari per eseguire i file eseguibili che dipendono da e `libk4abt` il Visualizzatore di esempio.

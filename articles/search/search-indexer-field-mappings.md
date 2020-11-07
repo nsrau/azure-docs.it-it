@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a20b6509973c7dc7e54d2e4f702175ad61e88da8
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 579d0e334b4e60815b3a5efc877833ab75a3375d
+ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532501"
+ms.lasthandoff: 11/07/2020
+ms.locfileid: "94358933"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapping dei campi e trasformazioni usando gli indicizzatori di Azure ricerca cognitiva
 
@@ -28,7 +28,7 @@ Alcune situazioni in cui i mapping dei campi sono utili:
 * L'origine dati include un campo denominato `_id` , ma Azure ricerca cognitiva non consente i nomi di campo che iniziano con un carattere di sottolineatura. Un mapping dei campi consente di rinominare in modo efficace un campo.
 * Si desidera popolare più campi nell'indice dagli stessi dati dell'origine dati. Ad esempio, potrebbe essere necessario applicare diversi analizzatori a tali campi.
 * Si desidera popolare un campo di indice con dati da più di un'origine dati e le origini dati utilizzano nomi di campo diversi.
-* È necessaria la codifica o decodifica Base64 dei dati. I mapping dei campi supportano diverse **funzioni di mapping**, incluse quelle per la codifica e decodifica Base64.
+* È necessaria la codifica o decodifica Base64 dei dati. I mapping dei campi supportano diverse **funzioni di mapping** , incluse quelle per la codifica e decodifica Base64.
 
 > [!NOTE]
 > I mapping dei campi negli indicizzatori sono un modo semplice per eseguire il mapping dei campi dati ai campi dell'indice, con una certa capacità di conversione dei dati leggeri. I dati più complessi potrebbero richiedere la pre-elaborazione per riformarli in un modulo che favorisce l'indicizzazione. Una delle opzioni che è possibile prendere in considerazione è [Azure Data Factory](../data-factory/index.yml).
@@ -81,7 +81,7 @@ api-key: [admin key]
 
 ## <a name="map-fields-using-the-net-sdk"></a>Eseguire il mapping di campi con .NET SDK
 
-I mapping dei campi vengono definiti in .NET SDK usando la classe [FieldMapping](/dotnet/api/microsoft.azure.search.models.fieldmapping) , che include le proprietà `SourceFieldName` e e `TargetFieldName` un riferimento facoltativo `MappingFunction` .
+I mapping dei campi vengono definiti in .NET SDK usando la classe [FieldMapping](/dotnet/api/azure.search.documents.indexes.models.fieldmapping) , che include le proprietà `SourceFieldName` e e `TargetFieldName` un riferimento facoltativo `MappingFunction` .
 
 È possibile specificare i mapping dei campi quando si costruisce l'indicizzatore o in un secondo momento impostando direttamente la `Indexer.FieldMappings` Proprietà.
 
