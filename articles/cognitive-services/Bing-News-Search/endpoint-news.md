@@ -10,21 +10,21 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: 8c724925a12535c561b035296e374691f3fb2689
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 9c095a46b3a0526b23645c9cbb5e99eb8eda9067
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098349"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366401"
 ---
 # <a name="bing-news-search-api-endpoints"></a>Endpoint di API Ricerca notizie Bing
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
+> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 > API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-L' **API Ricerca notizie** restituisce articoli, pagine Web, immagini, video ed [entità](https://docs.microsoft.com/azure/cognitive-services/bing-entities-search/search-the-web). Le entità contengono informazioni di riepilogo su una persona, un luogo o un argomento.
+L' **API Ricerca notizie** restituisce articoli, pagine Web, immagini, video ed [entità](../bing-entities-search/overview.md). Le entità contengono informazioni di riepilogo su una persona, un luogo o un argomento.
 
 ## <a name="endpoints"></a>Endpoint
 
@@ -44,7 +44,7 @@ Restituisce gli elementi di notizie basati su una query di ricerca. Se la query 
 GET https://api.cognitive.microsoft.com/bing/v7.0/news  
 ```
 
-Restituisce le notizie principali per categoria. È possibile richiedere in modo specifico gli articoli principali di affari, sport o intrattenimento usando `category=business`, `category=sports` o `category=entertainment`.  Il parametro `category` può essere usato solo con l'URL `/news`. Esistono alcuni requisiti formali per specificare le categorie. Fare riferimento a `category` nella documentazione relativa al [parametro di query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters). Inviare una query per url codificando il termine di ricerca e aggiungerlo al parametro `q=""`. Per la disponibilità, vedere [paesi/aree e mercati supportati](language-support.md#supported-markets-for-news-endpoint).
+Restituisce le notizie principali per categoria. È possibile richiedere in modo specifico gli articoli principali di affari, sport o intrattenimento usando `category=business`, `category=sports` o `category=entertainment`.  Il parametro `category` può essere usato solo con l'URL `/news`. Esistono alcuni requisiti formali per specificare le categorie. Fare riferimento a `category` nella documentazione relativa al [parametro di query](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#query-parameters). Inviare una query per url codificando il termine di ricerca e aggiungerlo al parametro `q=""`. Per la disponibilità, vedere [paesi/aree e mercati supportati](language-support.md#supported-markets-for-news-endpoint).
 
 ### <a name="trending-news-topics"></a>Argomenti delle notizie di tendenza 
 
@@ -56,7 +56,7 @@ Restituisce argomenti delle notizie di tendenza nei social network. Quando viene
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per maggiori dettagli su intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere il riferimento per l'[API Ricerca notizie Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
+Per maggiori dettagli su intestazioni, parametri, codici di mercato, oggetti di risposta, errori e altro ancora, vedere il riferimento per l'[API Ricerca notizie Bing v7](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference).
 
 Per informazioni complete sui parametri supportati da ogni endpoint, vedere le pagine di riferimento per ogni tipo.
-Per esempi di richieste di base effettuate con l'API Ricerca notizie, vedere le [guide introduttive per Ricerca notizie di Bing](https://docs.microsoft.com/azure/cognitive-services/bing-news-search).
+Per esempi di richieste di base effettuate con l'API Ricerca notizie, vedere le [guide introduttive per Ricerca notizie di Bing](/azure/cognitive-services/bing-news-search).

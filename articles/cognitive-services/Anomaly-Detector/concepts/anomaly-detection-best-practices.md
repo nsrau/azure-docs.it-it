@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 03/26/2019
 ms.author: mbullwin
-ms.openlocfilehash: 6bf00d8b5327ddd539190b6e990c7edb35c876f7
-ms.sourcegitcommit: 2c586a0fbec6968205f3dc2af20e89e01f1b74b5
+ms.openlocfilehash: b02ccea396fc65f9ecfe1d59e953da7440e87951
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92018390"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363644"
 ---
 # <a name="best-practices-for-using-the-anomaly-detector-api"></a>Procedure consigliate per l'uso dell'API del rilevamento anomalie
 
@@ -52,7 +52,7 @@ Di seguito è riportato lo stesso set di dati con rilevamento anomalie batch. Il
 
 ## <a name="data-preparation"></a>Preparazione dei dati
 
-L'API rilevatore di anomalie accetta dati di serie temporali formattati in un oggetto richiesta JSON. Una serie temporale può essere costituita da qualsiasi dato numerico registrato nel tempo in ordine sequenziale. È possibile inviare Windows dei dati della serie temporale all'endpoint API del rilevatore di anomalie per migliorare le prestazioni dell'API. Il numero minimo di punti dati che è possibile inviare è 12 e il valore massimo è 8640 punti. La [granularità](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) è definita come la frequenza con cui vengono campionati i dati. 
+L'API rilevatore di anomalie accetta dati di serie temporali formattati in un oggetto richiesta JSON. Una serie temporale può essere costituita da qualsiasi dato numerico registrato nel tempo in ordine sequenziale. È possibile inviare Windows dei dati della serie temporale all'endpoint API del rilevatore di anomalie per migliorare le prestazioni dell'API. Il numero minimo di punti dati che è possibile inviare è 12 e il valore massimo è 8640 punti. La [granularità](/dotnet/api/microsoft.azure.cognitiveservices.anomalydetector.models.granularity?view=azure-dotnet-preview) è definita come la frequenza con cui vengono campionati i dati. 
 
 I punti dati inviati all'API del rilevatore di anomalie devono avere un timestamp UTC (Coordinated Universal Time) valido e un valore numerico. 
 

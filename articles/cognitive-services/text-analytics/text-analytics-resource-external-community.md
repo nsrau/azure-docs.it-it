@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 03/02/2019
 ms.author: aahi
-ms.openlocfilehash: 79bbdd109d005b7c6de293aebf50433fb7ea1d91
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9c3908c81e7d89efe3da90f9707023cb7c184795
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87291651"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365008"
 ---
 # <a name="external--community-content-for-the-text-analytics-cognitive-service"></a>Contenuto esterno e della community per il servizio cognitivo Analisi del testo
 
@@ -31,11 +31,11 @@ ms.locfileid: "87291651"
 
 + [Sentiment analysis in Logic App using SQL Server data](https://social.technet.microsoft.com/wiki/contents/articles/36074.logic-apps-with-azure-cognitive-service.aspx) (Analisi del sentiment nelle app per la logica che usano dati SQL Server) (blog di TechNet)
 
-+ [Sentiment analysis with Dynamics 365 CRM Online](https://blogs.msdn.microsoft.com/geoffreyinnis/2016/07/11/sentiment-analysis-in-usd-with-cognitive-services-text-analytics/) (Analisi del sentiment con Dynamics 365 CRM Online) (blog di MSDN) 
++ [Sentiment analysis with Dynamics 365 CRM Online](/archive/blogs/geoffreyinnis/sentiment-analysis-in-usd-with-cognitive-services-text-analytics) (Analisi del sentiment con Dynamics 365 CRM Online) (blog di MSDN) 
 
 + Blog Power BI: estrazione di frasi chiave da messaggi di Facebook: [parte 1](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88483) e [parte 2](https://community.powerbi.com/t5/Community-Blog/Text-Analytics-in-Power-BI-Extraction-of-key-phrases-from/ba-p/88487)
 
-+ [Identificare il sentimento dei commenti in un gruppo di Yammer con MS Flow (Microsoft Tech Community)](https://docs.microsoft.com/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
++ [Identificare il sentimento dei commenti in un gruppo di Yammer con MS Flow (Microsoft Tech Community)](/Yammer/integrate-yammer-with-other-apps/sentiment-analysis-flow-azure)
 
 
 

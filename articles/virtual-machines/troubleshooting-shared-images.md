@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 10/27/2020
 ms.author: olayemio
 ms.reviewer: cynthn
-ms.openlocfilehash: 18b980a868173b1fa721f9fc0986d7e1efb203af
-ms.sourcegitcommit: 99955130348f9d2db7d4fb5032fad89dad3185e7
+ms.openlocfilehash: 89bbb16f96d06d1861dabdf89cf690e69c10735c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93348917"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364480"
 ---
 # <a name="troubleshooting-shared-image-galleries-in-azure"></a>Risoluzione dei problemi relativi alle raccolte di immagini condivise in Azure
 
@@ -153,7 +153,7 @@ Se si verificano problemi durante l'esecuzione di operazioni su raccolte di imma
 
 *Non è consentito modificare la proprietà' galleryImageVersion. Properties. storageProfile. <devariante \> . Source.ID '.*  
 **Causa** : non è possibile modificare l'ID di origine di una versione dell'immagine della raccolta dopo la creazione.  
-**Soluzione alternativa** : verificare che l'ID di origine corrisponda all'ID di origine già esistente o modificare il numero di versione della versione dell'immagine.
+**Soluzione alternativa** : verificare che l'ID di origine corrisponda all'ID di origine già esistente, modificare il numero di versione della versione dell'immagine oppure eliminare la versione dell'immagine corrente e riprovare.
 
 *I numeri LUN duplicati sono stati rilevati nei dischi dati di input. Il numero LUN deve essere univoco per ogni disco dati.*  
 **Motivo** : quando si crea una versione dell'immagine usando un elenco di dischi e/o snapshot del disco, due o più dischi o snapshot del disco hanno gli stessi numeri LUN.  

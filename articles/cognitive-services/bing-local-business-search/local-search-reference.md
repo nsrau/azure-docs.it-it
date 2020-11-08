@@ -10,12 +10,12 @@ ms.subservice: bing-local-business
 ms.topic: conceptual
 ms.date: 11/01/2018
 ms.author: rosh
-ms.openlocfilehash: dbd4f32e77dc8d386067987a0ab0436a7875c15e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2a9c6b924f564c96c6018fbc395ad226a383280f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095391"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364650"
 ---
 # <a name="bing-local-business-search-api-v7-reference"></a>Informazioni di riferimento per l'API Bing Local Business Search v7
 
@@ -34,7 +34,7 @@ Per informazioni sui parametri di query che devono essere inclusi nelle richiest
   
 Per informazioni sugli oggetti JSON inclusi nella risposta, vedere [Oggetti risposta](#response-objects).
 
-Per informazioni sull'utilizzo consentito e la visualizzazione dei risultati, vedere [Requisiti per l'uso e la visualizzazione](use-display-requirements.md).
+Per informazioni sull'utilizzo consentito e la visualizzazione dei risultati, vedere [Requisiti per l'uso e la visualizzazione](../bing-web-search/use-display-requirements.md).
 
 
   
@@ -172,10 +172,10 @@ Definisce il contesto di query usato da Bing per la richiesta.
   
 |Elemento|Descrizione|Type|  
 |-------------|-----------------|----------|  
-|adultIntent|Valore booleano che indica se la query specificata ha finalità per adulti. Il valore è **true** se la query ha finalità per adulti; in caso contrario, è **false** .|Boolean|  
-|alterationOverrideQuery|Stringa di query da usare per forzare l'utilizzo della stringa originale in Bing. Ad esempio, se la stringa di query è *saling downwind* , questa stringa di query sarà *+saling downwind* . Ricordarsi di codificare la stringa di query che risulta in *%2Bsaling+downwind* .<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|string|  
+|adultIntent|Valore booleano che indica se la query specificata ha finalità per adulti. Il valore è **true** se la query ha finalità per adulti; in caso contrario, è **false**.|Boolean|  
+|alterationOverrideQuery|Stringa di query da usare per forzare l'utilizzo della stringa originale in Bing. Ad esempio, se la stringa di query è *saling downwind* , questa stringa di query sarà *+saling downwind*. Ricordarsi di codificare la stringa di query che risulta in *%2Bsaling+downwind*.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|string|  
 |alteredQuery|La stringa di query usata da Bing per eseguire la query. Bing usa la stringa di query modificata se la stringa di query originale conteneva errori di ortografia. Ad esempio, se la stringa di query è `saling downwind`, la stringa di query modificata sarà `sailing downwind`.<br /><br /> Questo campo viene incluso solo se la stringa di query originale contiene un errore di ortografia.|string|  
-|askUserForLocation|Valore booleano che indica se Bing richiede la posizione dell'utente per fornire risultati accurati. Se è stata specificata la posizione dell'utente usando le intestazioni [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), è possibile ignorare questo campo.<br /><br /> Per le query in grado di riconoscere la posizione, ad esempio "meteo di oggi " o "ristoranti vicino a me" che richiedono la posizione dell'utente per fornire risultati accurati, questo campo è impostato su **true** .<br /><br /> Per le query in grado di riconoscere la posizione che includono la posizione, ad esempio "meteo di Seattle", questo campo è impostato su **false** . Questo campo viene impostato su **false** anche per le query che non riconoscono la posizione, ad esempio "best seller".|Boolean|  
+|askUserForLocation|Valore booleano che indica se Bing richiede la posizione dell'utente per fornire risultati accurati. Se è stata specificata la posizione dell'utente usando le intestazioni [X-MSEdge-ClientIP](#clientip) e [X-Search-Location](#location), è possibile ignorare questo campo.<br /><br /> Per le query in grado di riconoscere la posizione, ad esempio "meteo di oggi " o "ristoranti vicino a me" che richiedono la posizione dell'utente per fornire risultati accurati, questo campo è impostato su **true**.<br /><br /> Per le query in grado di riconoscere la posizione che includono la posizione, ad esempio "meteo di Seattle", questo campo è impostato su **false**. Questo campo viene impostato su **false** anche per le query che non riconoscono la posizione, ad esempio "best seller".|Boolean|  
 |originalQuery|La stringa di query come è stata specificata nella richiesta.|string|  
 
 ### <a name="identifiable"></a>Identifiable
@@ -199,7 +199,7 @@ Definisce un elemento dei risultati della ricerca da visualizzare.
 |resultIndex|Indice in base zero dell'elemento nella risposta da visualizzare. Se l'elemento non include questo campo, visualizzare tutti gli elementi nella risposta. Ad esempio, visualizzare tutti gli articoli sulle notizie nella risposta di Ricerca notizie.|Integer|
 |answerType|Risposta che contiene l'elemento da visualizzare, ad esempio, Ricerca notizie.<br /><br />Usare il tipo per trovare la risposta nell'oggetto SearchResponse. Il tipo è il nome di un campo SearchResponse.<br /><br /> Tuttavia, usare il tipo di risposta solo se questo oggetto include il campo del valore; in caso contrario, ignorarlo.|string|
 |textualIndex|Indice della risposta in textualAnswers da visualizzare.| Unsigned Integer|
-|Valore|ID che identifica una risposta o un elemento di una risposta da visualizzare. Se l'ID identifica una risposta, visualizzare tutti gli elementi della risposta.|Identifiable|
+|value|ID che identifica una risposta o un elemento di una risposta da visualizzare. Se l'ID identifica una risposta, visualizzare tutti gli elementi della risposta.|Identifiable|
 
 ### <a name="rankingresponse"></a>RankingResponse  
 Definisce il punto in cui il contenuto della pagina dei risultati della ricerca deve essere posizionato e in quale ordine.  

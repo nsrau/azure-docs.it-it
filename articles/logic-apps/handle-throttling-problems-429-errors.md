@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: deli, logicappspm
 ms.topic: conceptual
 ms.date: 04/13/2020
-ms.openlocfilehash: 495847d31682aff64fed3c81b1d5d68cf67dfd38
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ea153b1927a337be29c2eb69e2417cc250abf5e8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87086440"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366052"
 ---
 # <a name="handle-throttling-problems-429---too-many-requests-errors-in-azure-logic-apps"></a>Gestire i problemi di limitazione (429-"numero eccessivo di richieste") nelle app per la logica di Azure
 
@@ -35,11 +35,11 @@ Per trovare gli eventi di limitazione a questo livello, controllare il riquadro 
 
 1. Nel [portale di Azure](https://portal.azure.com) aprire l'app per la logica in Progettazione app per la logica.
 
-1. Nel menu dell'app per la logica, in **monitoraggio**, selezionare **metriche**.
+1. Nel menu dell'app per la logica, in **monitoraggio** , selezionare **metriche**.
 
-1. In **titolo grafico**selezionare **Aggiungi metrica** per aggiungere un'altra metrica alla esistente.
+1. In **titolo grafico** selezionare **Aggiungi metrica** per aggiungere un'altra metrica alla esistente.
 
-1. Nella prima barra metrica, dall'elenco **metrica** , selezionare **azione limitazione eventi**. Nell'elenco **metrica** della seconda barra metrica selezionare **attiva eventi**limitati.
+1. Nella prima barra metrica, dall'elenco **metrica** , selezionare **azione limitazione eventi**. Nell'elenco **metrica** della seconda barra metrica selezionare **attiva eventi** limitati.
 
 Per gestire la limitazione a questo livello, sono disponibili le opzioni seguenti:
 
@@ -51,15 +51,15 @@ Per gestire la limitazione a questo livello, sono disponibili le opzioni seguent
 
 * Abilitare la modalità velocità effettiva elevata.
 
-  Un'app per la logica ha un [limite predefinito per il numero di azioni che possono essere eseguite in un intervallo di 5 minuti in sequenza](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Per aumentare questo limite al numero massimo di azioni, attivare la [modalità di velocità effettiva elevata](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) nell'app per la logica.
+  Un'app per la logica ha un [limite predefinito per il numero di azioni che possono essere eseguite in un intervallo di 5 minuti in sequenza](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Per aumentare questo limite al numero massimo di azioni, attivare la [modalità di velocità effettiva elevata](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode) nell'app per la logica.
 
 * Disabilitare il comportamento di debatch di matrici ("Split on") nei trigger.
 
-  Se un trigger restituisce una matrice per le azioni del flusso di lavoro rimanenti da elaborare, l' [impostazione **Split on** ](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) del trigger suddivide gli elementi della matrice e avvia un'istanza del flusso di lavoro per ogni elemento della matrice, attivando in modo efficace più esecuzioni simultanee fino alla [ **divisione al** limite](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Per controllare la limitazione delle richieste, disattivare il comportamento di **suddivisione** e fare in modo che l'app per la logica elabori l'intera matrice con una singola chiamata, anziché gestire un singolo elemento per chiamata.
+  Se un trigger restituisce una matrice per le azioni del flusso di lavoro rimanenti da elaborare, l' [impostazione **Split on**](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch) del trigger suddivide gli elementi della matrice e avvia un'istanza del flusso di lavoro per ogni elemento della matrice, attivando in modo efficace più esecuzioni simultanee fino alla [ **divisione al** limite](../logic-apps/logic-apps-limits-and-config.md#concurrency-looping-and-debatching-limits). Per controllare la limitazione delle richieste, disattivare il comportamento di **suddivisione** e fare in modo che l'app per la logica elabori l'intera matrice con una singola chiamata, anziché gestire un singolo elemento per chiamata.
 
 * Effettuare il refactoring delle azioni in app per la logica più piccole.
 
-  Come indicato in precedenza, un'app per la logica è limitata a un [numero predefinito di azioni che possono essere eseguite in un periodo di 5 minuti](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Sebbene sia possibile aumentare questo limite abilitando la [modalità di velocità effettiva elevata](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode), è anche possibile considerare se si vuole suddividere le azioni dell'app per la logica in app per la logica più piccole, in modo che il numero di azioni eseguite in ogni app per la logica rimanga inferiore al limite. In questo modo, si riduce il carico di una singola risorsa app per la logica e si distribuisce il carico tra più app per la logica. Questa soluzione funziona meglio per le azioni che gestiscono set di dati di grandi dimensioni o attivano numerose azioni simultanee, iterazioni del ciclo o azioni all'interno di ogni iterazione del ciclo che superano il limite di esecuzione delle azioni.
+  Come indicato in precedenza, un'app per la logica è limitata a un [numero predefinito di azioni che possono essere eseguite in un periodo di 5 minuti](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Sebbene sia possibile aumentare questo limite abilitando la [modalità di velocità effettiva elevata](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode), è anche possibile considerare se si vuole suddividere le azioni dell'app per la logica in app per la logica più piccole, in modo che il numero di azioni eseguite in ogni app per la logica rimanga inferiore al limite. In questo modo, si riduce il carico di una singola risorsa app per la logica e si distribuisce il carico tra più app per la logica. Questa soluzione funziona meglio per le azioni che gestiscono set di dati di grandi dimensioni o attivano numerose azioni simultanee, iterazioni del ciclo o azioni all'interno di ogni iterazione del ciclo che superano il limite di esecuzione delle azioni.
 
   Ad esempio, questa app per la logica esegue tutte le operazioni per recuperare le tabelle da un database di SQL Server e ottiene le righe da ogni tabella. Il ciclo **for each** scorre simultaneamente ogni tabella in modo che l'azione **Ottieni righe** restituisca le righe per ogni tabella. In base alle quantità di dati presenti in tali tabelle, queste azioni potrebbero superare il limite per le esecuzioni di azioni.
 

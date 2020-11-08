@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 03/09/2020
 ms.author: aahi
 ms.reviewer: jdesousa
-ms.openlocfilehash: 14fd7c2b034077d818d1a1224d3c4c12a7fc07bc
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: c587bb042601b947b71658bf790e9acdfbdbf742
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88855636"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363783"
 ---
 # <a name="text-offsets-in-the-text-analytics-api-output"></a>Offset di testo nell'output API Analisi del testo
 
@@ -34,9 +34,9 @@ Ogni volta che viene restituita la risposta dell'API, ad esempio il [riconoscime
 
 ## <a name="extracting-substrings-from-text-with-offsets"></a>Estrazione di sottostringhe da testo con offset
 
-Gli offset possono causare problemi quando si usano metodi di sottostringa basate su caratteri, ad esempio il metodo [substring ()](https://docs.microsoft.com/dotnet/api/system.string.substring?view=netframework-4.8) .NET. Un problema è che un offset può causare la fine di un metodo di sottostringa al centro di una codifica grafema multicarattere anziché alla fine.
+Gli offset possono causare problemi quando si usano metodi di sottostringa basate su caratteri, ad esempio il metodo [substring ()](/dotnet/api/system.string.substring?view=netframework-4.8) .NET. Un problema è che un offset può causare la fine di un metodo di sottostringa al centro di una codifica grafema multicarattere anziché alla fine.
 
-In .NET è consigliabile utilizzare la classe [StringInfo](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) , che consente di utilizzare una stringa come una serie di elementi testuali, anziché singoli oggetti character. È anche possibile cercare librerie Splitter grafema nell'ambiente software preferito. 
+In .NET è consigliabile utilizzare la classe [StringInfo](/dotnet/api/system.globalization.stringinfo?view=netframework-4.8) , che consente di utilizzare una stringa come una serie di elementi testuali, anziché singoli oggetti character. È anche possibile cercare librerie Splitter grafema nell'ambiente software preferito. 
 
 Il API Analisi del testo restituisce anche questi elementi testuali per praticità.
 

@@ -6,12 +6,12 @@ ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/22/2020
-ms.openlocfilehash: b23c95ef0005c8246feb8dc32e4a07a0ae19b72f
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: c0d9b6042ae695caa73d926653f237b756bf4971
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94359545"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366724"
 ---
 # <a name="high-availability-concepts-in-azure-database-for-postgresql---flexible-server"></a>Concetti relativi alla disponibilità elevata in database di Azure per PostgreSQL-server flessibile
 
@@ -101,17 +101,17 @@ Server flessibili configurati con disponibilità elevata, replicare i dati in te
 -   La disponibilità elevata è supportata solo nelle aree in cui sono disponibili più zone.
 -   A causa della replica sincrona in un'altra zona di disponibilità, le applicazioni possono riscontrare una latenza di scrittura e commit elevata.
 
--   Non è possibile usare la replica standby per le query di sola lettura.
+-   Non è possibile usare la replica standby per le query di lettura.
 
--   A seconda dell'attività del server primario al momento del failover, il completamento del failover potrebbe richiedere fino a due minuti o più.
+-   A seconda del carico di lavoro e dell'attività sul server primario, il processo di failover potrebbe richiedere più di 120 secondi.
 
--   Il riavvio del server di database primario per la selezione delle modifiche dei parametri statici consente inoltre di riavviare la replica standby.
+-   Il riavvio del server di database primario riavvia anche la replica standby. 
 
 -   La configurazione di repliche di lettura aggiuntive non è supportata.
 
 -   La configurazione delle attività di gestione avviate dal cliente non può essere pianificata durante la finestra di manutenzione gestita.
 
--   Gli eventi pianificati, ad esempio il calcolo e l'archiviazione della scalabilità, si verificano prima in standby e quindi nel server primario. Il servizio non viene sottoposto a failover. 
+-   Gli eventi pianificati, ad esempio il calcolo e l'archiviazione della scalabilità, si verificano prima in standby e quindi nel server primario. Per queste operazioni pianificate non è stato eseguito il failover del server. 
 
 -  Se la decodifica logica o la replica logica è configurata con un server flessibile configurato per la disponibilità elevata, in caso di failover al server di standby, gli slot di replica logica non vengono copiati nel server di standby.  
 

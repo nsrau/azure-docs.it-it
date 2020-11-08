@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 07/06/2020
 ms.author: marhamil
 ms.custom: devx-track-python
-ms.openlocfilehash: aa650fe9cb7df64a6a7a948224be225ecfad9057
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: d2995f39bc61ae5bb87abafd674f411271e57ca2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93324621"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366282"
 ---
 # <a name="recipe-predictive-maintenance-with-the-cognitive-services-for-big-data"></a>Ricetta: manutenzione predittiva con servizi cognitivi per Big Data
 
@@ -31,13 +31,13 @@ Potrebbero essere presenti outlier nei dati in frequenza casuale. In questi casi
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure: [creare un account gratuitamente](https://azure.microsoft.com/free/cognitive-services)
-* [Area di lavoro sinapsi di Azure](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-workspace) configurata con un [pool di Apache Spark senza server](https://docs.microsoft.com/azure/synapse-analytics/quickstart-create-apache-spark-pool)
+* [Area di lavoro sinapsi di Azure](../../../synapse-analytics/quickstart-create-workspace.md) configurata con un [pool di Apache Spark senza server](../../../synapse-analytics/quickstart-create-apache-spark-pool-portal.md)
 
 ## <a name="setup"></a>Configurazione
 
 ### <a name="create-an-anomaly-detector-resource"></a>Creare una risorsa di Rilevamento anomalie
 
-I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Translator usando il [portale di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli). È anche possibile:
+I Servizi cognitivi di Azure sono rappresentati dalle risorse di Azure a cui si effettua la sottoscrizione. Creare una risorsa per Translator usando il [portale di Azure](../../cognitive-services-apis-create-account.md) o l'interfaccia della riga di comando di [Azure](../../cognitive-services-apis-create-account-cli.md). È anche possibile:
 
 - Visualizzare una risorsa esistente nell'  [portale di Azure](https://portal.azure.com/).
 
@@ -98,11 +98,11 @@ df_anomaly.select("timestamp","value","deviceId","anomalies.isAnomaly").show(3)
 
 Questa cella deve restituire un risultato simile al seguente:
 
-| timestamp           |   Valore | deviceId   | isAnomaly   |
+| timestamp           |   value | deviceId   | isAnomaly   |
 |:--------------------|--------:|:-----------|:------------|
-| 2020-05-01 18:33:51 |    3174 | dev-7      | False       |
-| 2020-05-01 18:33:52 |    2976 | dev-7      | False       |
-| 2020-05-01 18:33:53 |    2714 | dev-7      | False       |
+| 2020-05-01 18:33:51 |    3174 | dev-7      | Falso       |
+| 2020-05-01 18:33:52 |    2976 | dev-7      | Falso       |
+| 2020-05-01 18:33:53 |    2714 | dev-7      | Falso       |
 
 
  ## <a name="visualize-anomalies-for-one-of-the-devices"></a>Visualizzare le anomalie per uno dei dispositivi

@@ -10,12 +10,12 @@ ms.subservice: ink-recognizer
 ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: aahi
-ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 9ecf3ad43b46d491d5f15270790251a0bc4e882e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89051101"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365364"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Inviare dati input penna all'API di Riconoscimento input penna 
 
@@ -64,7 +64,7 @@ L'API Riconoscimento input penna restituisce una risposta di analisi sugli ogget
 
 ## <a name="shapes-recognized-by-the-ink-recognizer-api"></a>Forme riconosciute dall'API Riconoscimento input penna
 
-L'API Riconoscimento input penna può identificare le forme più comunemente usate per prendere appunti. L'immagine seguente mostra alcuni esempi di base. Per un elenco completo di forme e altri contenuti di input penna riconosciuti dall'API, vedere l'[articolo Informazioni di riferimento sulle API](https://go.microsoft.com/fwlink/?linkid=2089907). 
+L'API Riconoscimento input penna può identificare le forme più comunemente usate per prendere appunti. L'immagine seguente mostra alcuni esempi di base. Per un elenco completo di forme e altri contenuti di input penna riconosciuti dall'API, vedere l'[articolo Informazioni di riferimento sulle API](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer). 
 
 ![Elenco di forme riconosciute dall'API Riconoscimento input penna](../media/shapes.png)
 
@@ -84,12 +84,12 @@ Ottenendo i risultati di riconoscimento in anticipo si hanno informazioni sulle 
 
 ## <a name="integrate-the-ink-recognizer-api-with-windows-ink"></a>Integrare l'API Riconoscimento input penna con Windows Ink
 
-[Windows Ink](https://docs.microsoft.com/windows/uwp/design/input/pen-and-stylus-interactions) fornisce strumenti e tecnologie per abilitare esperienze di input penna digitale su una vasta gamma di dispositivi. È possibile combinare la piattaforma Windows Ink con l'API riconoscimento input penna per creare applicazioni che visualizzano e interpretano tratti di input penna digitali.
+[Windows Ink](/windows/uwp/design/input/pen-and-stylus-interactions) fornisce strumenti e tecnologie per abilitare esperienze di input penna digitale su una vasta gamma di dispositivi. È possibile combinare la piattaforma Windows Ink con l'API riconoscimento input penna per creare applicazioni che visualizzano e interpretano tratti di input penna digitali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni sull'API di Riconoscimento input penna](../overview.md)
-* [Informazioni di riferimento sull'API Riconoscimento input penna](https://go.microsoft.com/fwlink/?linkid=2089907)
+* [Informazioni di riferimento sull'API Riconoscimento input penna](/rest/api/cognitiveservices/inkrecognizer/inkrecognizer)
 
 * Iniziare a inviare dati del tratto input penna digitale usando:
     * [C#](../quickstarts/csharp.md)

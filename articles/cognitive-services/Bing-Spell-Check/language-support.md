@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: 2b4e4eb84cecf2f68c50f0a40630cc2e6f34554f
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 38bf38f47e4430c847e54bd89f6bf3cd7be50527
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084207"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367081"
 ---
 # <a name="language-and-region-support-for-bing-spell-check-api"></a>Supporto lingua e area geografica di API Controllo ortografico Bing
 
@@ -26,7 +26,7 @@ ms.locfileid: "93084207"
 
 Queste lingue sono supportate dall'API Controllo ortografico Bing (solo in modalità `spell`).
 
-Si noti che per lavorare con lingue diverse da `en-US` è necessario impostare `mkt` e `Accept-Language` o `setLang` deve essere impostato come illustrato in [Spell Check API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) (Informazioni di riferimento sull'API Controllo ortografico v7)
+Si noti che per lavorare con lingue diverse da `en-US` è necessario impostare `mkt` e `Accept-Language` o `setLang` deve essere impostato come illustrato in [Spell Check API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference) (Informazioni di riferimento sull'API Controllo ortografico v7)
 
 | Linguaggio    | Codice lingua |
 |:----------- |:-------------:|
@@ -73,5 +73,5 @@ Si noti che per lavorare con lingue diverse da `en-US` è necessario impostare `
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Documentazione dei servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/)
+- [Documentazione dei servizi cognitivi](../index.yml)
 - [Pagina del prodotto Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/)

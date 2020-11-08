@@ -10,22 +10,27 @@ tags: top-support-issue,azure-resource-manager,azure-service-management
 ms.assetid: 1ef41144-6dd6-4a56-b180-9d8b3d05eae7
 ms.service: virtual-machines
 ms.topic: troubleshooting
-ms.date: 04/13/2018
+ms.date: 11/06/2020
 ms.author: daberry
-ms.openlocfilehash: 3766c31add02799c62bca7e9063e723e0a5b498e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 79bc043a991404a3ee9da954b9639bf1a41f2c51
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86509359"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365874"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Risolvere i problemi relativi a errori di allocazione quando si crea, riavvia o ridimensiona una VM in Azure
 
 Quando si crea una macchina virtuale (VM), si riavviano VM arrestate (deallocate) o si ridimensiona una VM, Microsoft Azure alloca risorse di calcolo alla sottoscrizione. Microsoft continua a investire in funzionalità e infrastrutture aggiuntive per garantire che tutti i tipi di VM supportino le richieste dei clienti. In alcuni casi possono, tuttavia, verificarsi errori di allocazione delle risorse a causa di un aumento senza precedenti delle richieste di servizi di Azure in aree specifiche. Questo problema può verificarsi quando si tenta di creare o avviare le VM in un'area e le VM visualizzano il codice di errore e il messaggio seguenti:
 
-**Codice di errore**: AllocationFailed o ZonalAllocationFailed
+**Codice di errore** : AllocationFailed o ZonalAllocationFailed
 
-**Messaggio di errore**: "Allocazione non riuscita. Non è disponibile una capacità sufficiente per la dimensione di VM richiesta in quest'area. Altre informazioni sul miglioramento della probabilità di esito positivo dell'allocazione in https: \/ /aka.ms/allocation-guidance "
+**Messaggio di errore** : "Allocazione non riuscita. Non è disponibile una capacità sufficiente per la dimensione di VM richiesta in quest'area. Altre informazioni sul miglioramento della probabilità di esito positivo dell'allocazione in https: \/ /aka.ms/allocation-guidance "
+
+> [!NOTE]
+> Per la risoluzione dei problemi relativi a un set di scalabilità di macchine virtuali (VMSS), il processo è uguale a quello di una VM standard. Per risolvere il problema, seguire le istruzioni riportate in questo articolo.
+> 
+>**Messaggio di errore** : "Allocazione non riuscita. Se si sta tentando di aggiungere una nuova VM a un set di scalabilità di macchine virtuali con un singolo gruppo di posizionamento o di aggiornare/ridimensionare una VM esistente in un set di scalabilità di macchine virtuali con un singolo gruppo di posizionamento, si noti che tale allocazione ha come ambito un singolo cluster ed è possibile che il cluster abbia esaurito la capacità. Per ulteriori informazioni sul miglioramento della probabilità di esito positivo dell'allocazione, vedere http: \/ /aka.ms/allocation-Guidance.
 
 Questo articolo illustra le cause di alcuni dei più comuni errori di allocazione e suggerisce possibili soluzioni alternative.
 
@@ -85,7 +90,7 @@ Provare a [ridistribuire la macchina virtuale](./redeploy-to-new-node-windows.md
 
 Con l'espansione dell'infrastruttura di Azure, viene distribuito hardware di nuova generazione progettato per supportare i tipi di macchina virtuale più recenti. Alcune delle serie di VM precedenti non vengono eseguite nell'infrastruttura di generazione più recente. Per questo motivo, è possibile che i clienti riscontrino occasionalmente errori di allocazione per queste SKU legacy. Per evitare questo problema, si consiglia ai clienti che usano le macchine virtuali serie legacy di provare a passare alle VM più recenti equivalenti in base alle indicazioni seguenti: queste VM sono ottimizzate per l'hardware più recente e consentiranno di sfruttare i vantaggi offerti da prezzi e prestazioni migliori. 
 
-|Dimensioni/Serie VM legacy|Dimensioni/Serie VM più recenti consigliate|Ulteriori informazioni|
+|Dimensioni/Serie VM legacy|Dimensioni/Serie VM più recenti consigliate|Altre informazioni|
 |----------------------|----------------------------|--------------------|
 |Serie Av1|[Serie Av2](../av2-series.md)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
 |Serie Dv1 o DSv1 (da D1 a D5)|[Serie Dv3 o DSv3](../dv3-dsv3-series.md)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/

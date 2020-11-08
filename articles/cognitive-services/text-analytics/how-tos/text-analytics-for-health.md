@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: d9517eef8976e79db21fbe552861d0d59923e8ba
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: e3e0ae444e2b3b6ac195a83653baf4b71bac6644
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173961"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363868"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procedura: usare Analisi del testo per l'integrità (anteprima)
 
@@ -84,7 +84,7 @@ Compilare e inviare il [modulo di richiesta di contenitori di servizi cognitivi]
 È possibile installare ed eseguire il contenitore in diversi modi. 
 
 - Usare il [portale di Azure](text-analytics-how-to-install-containers.md?tabs=healthcare) per creare una risorsa analisi del testo e usare Docker per ottenere il contenitore.
-- Usare i seguenti script di PowerShell e dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest) per automatizzare la configurazione del contenitore di distribuzione
+- Usare i seguenti script di PowerShell e dell'interfaccia della riga di comando di [Azure](/cli/azure/?view=azure-cli-latest) per automatizzare la configurazione del contenitore di distribuzione
 
 ### <a name="install-the-container-using-azure-web-app-for-containers"></a>Installare il contenitore con Azure app Web per contenitori
 
@@ -124,7 +124,7 @@ az webapp config appsettings set -g $resource_group_name -n $appservice_name --s
 È anche possibile usare un'istanza di contenitore di Azure (ACI) per semplificare la distribuzione. ACI è una risorsa che consente di eseguire i contenitori Docker su richiesta in un ambiente Azure gestito senza server. 
 
 Vedere [come usare istanze di contenitore di Azure](text-analytics-how-to-use-container-instances.md) per i passaggi per la distribuzione di una risorsa ACI usando il portale di Azure. È anche possibile usare lo script di PowerShell seguente usando l'interfaccia della riga di comando di Azure, che creerà un ACI nella sottoscrizione usando l'immagine del contenitore.  Attendere il completamento dello script (circa 25-30 minuti) prima di inviare la prima richiesta.  A causa del limite per il numero massimo di CPU per ogni risorsa ACI, non selezionare questa opzione se si prevede di inviare più di 5 documenti di grandi dimensioni (circa 5000 caratteri ciascuno) per ogni richiesta.
-Per informazioni sulla disponibilità, vedere l'articolo del [supporto tecnico regionale di ACI](https://docs.microsoft.com/azure/container-instances/container-instances-region-availability) . 
+Per informazioni sulla disponibilità, vedere l'articolo del [supporto tecnico regionale di ACI](../../../container-instances/container-instances-region-availability.md) . 
 
 > [!NOTE] 
 > Le istanze di contenitore di Azure non includono il supporto HTTPS per i domini predefiniti. Se è necessario HTTPS, sarà necessario configurarlo manualmente, inclusa la creazione di un certificato e la registrazione di un dominio. È possibile trovare le istruzioni per eseguire questa operazione con NGINX sotto.

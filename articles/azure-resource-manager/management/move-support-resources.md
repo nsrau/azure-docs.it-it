@@ -2,13 +2,13 @@
 title: Supporto per lo spostamento per tipo di risorsa
 description: Elenca i tipi di risorse di Azure che possono essere spostati in un nuovo gruppo di risorse o una sottoscrizione.
 ms.topic: conceptual
-ms.date: 09/23/2020
-ms.openlocfilehash: 7d5875287c7af905579397164029ef0504d6b9dc
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.date: 11/06/2020
+ms.openlocfilehash: 5b71c991136533096604c8a35af7989a227b6d2a
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337951"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364230"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 
@@ -792,7 +792,6 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Resource group | Subscription |
 > | ------------- | ----------- | ---------- |
 > | datafactories | Sì | Sì |
-> | datafactoryschema | No | No |
 > | factories | Sì | Sì |
 
 ## <a name="microsoftdatalake"></a>Microsoft.DataLake

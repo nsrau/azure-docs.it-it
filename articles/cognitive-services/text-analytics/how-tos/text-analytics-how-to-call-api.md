@@ -10,16 +10,16 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: e17f2015ed4428cfd3c1a6c8a7bc4f92854a6b71
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43ee7272066dbd89e7c0053d51ba039b83fb494f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91710601"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363817"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
-Le chiamate dell'**API Analisi del testo** sono chiamate HTTP POST/GET che è possibile formulare in qualsiasi linguaggio. In questo articolo si usa REST e [Postman](https://www.postman.com/downloads/) per illustrare i concetti chiave.
+Le chiamate dell' **API Analisi del testo** sono chiamate HTTP POST/GET che è possibile formulare in qualsiasi linguaggio. In questo articolo si usa REST e [Postman](https://www.postman.com/downloads/) per illustrare i concetti chiave.
 
 Ogni richiesta deve includere la chiave di accesso e un endpoint HTTP. L'endpoint specifica l'area scelta durante la registrazione, l'URL del servizio e una risorsa utilizzata nella richiesta: `sentiment`, `keyphrases`, `languages` e `entities`. 
 
@@ -43,9 +43,9 @@ Attualmente è possibile inviare gli stessi documenti per tutte le operazioni di
 
 | Elemento | Valori validi | Necessaria? | Utilizzo |
 |---------|--------------|-----------|-------|
-|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatoria | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
-|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Obbligatoria | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../text-analytics-supported-languages.md). |
-|`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../text-analytics-supported-languages.md) | Varia | Richiesto per l'analisi del sentiment, l'estrazione delle frasi chiave e il collegamento delle entità; facoltativo per il rilevamento della lingua. Se lo si omette non si verifica nessun errore ma l'analisi risulta più debole. Il codice della lingua deve corrispondere al `text` fornito. |
+|`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Necessario | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
+|`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Necessario | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../language-support.md). |
+|`language` | Codice [ISO 639-1](https://en.wikipedia.org/wiki/List_of_ISO_639-1_codes) di 2 caratteri per una [lingua supportata](../language-support.md) | Varia | Richiesto per l'analisi del sentiment, l'estrazione delle frasi chiave e il collegamento delle entità; facoltativo per il rilevamento della lingua. Se lo si omette non si verifica nessun errore ma l'analisi risulta più debole. Il codice della lingua deve corrispondere al `text` fornito. |
 
 Per altre informazioni sui limiti, vedere [Panoramica di Analisi del testo > Limiti relativi ai dati](../overview.md#data-limits). 
 

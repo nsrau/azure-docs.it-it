@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 10/26/2020
 ms.author: kenwith
-ms.openlocfilehash: cac7b169232bb43ba1b1893b59dac81ce4c39c49
-ms.sourcegitcommit: bbd66b477d0c8cb9adf967606a2df97176f6460b
+ms.openlocfilehash: 2f21e4f41814b47d8e630df72c255886ac2af53b
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/03/2020
-ms.locfileid: "93233884"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364293"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Personalizzazione dei mapping degli attributi del provisioning utenti per le applicazioni SaaS in Azure Active Directory
 
@@ -110,7 +110,7 @@ Alcuni sistemi e applicazioni che supportano la personalizzazione dell'elenco di
 - Giorni lavorativi Active Directory/giorni lavorativi per Azure Active Directory
 - Da SuccessFactors a Active Directory/SuccessFactors Azure Active Directory
 - Azure Active Directory (sono supportati gli [attributi predefiniti dell'API Graph di Azure AD](/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#user-entity) e le estensione della directory personalizzate)
-- App che supportano [SCIM 2.0](https://tools.ietf.org/html/rfc7643), in cui devono essere aggiunti gli attributi definiti nello [schema di base](https://tools.ietf.org/html/rfc7643)
+- App che supportano [SCIM 2,0](https://tools.ietf.org/html/rfc7643)
 - Per Azure Active Directory writeback per la giornata lavorativa o SuccessFactors, è supportato l'aggiornamento dei metadati rilevanti per gli attributi supportati (XPATH e JSONPath), ma non è supportata l'aggiunta di nuovi attributi di giorno lavorativo o SuccessFactors oltre a quelli inclusi nello schema predefinito
 
 
@@ -146,7 +146,7 @@ Per le applicazioni SCIM, il nome dell'attributo deve seguire il modello illustr
 
 Queste istruzioni sono valide solo per le applicazioni abilitate per SCIM. Applicazioni come ServiceNow e Salesforce non vengono integrate con Azure AD usando SCIM e quindi non richiedono questo spazio dei nomi specifico quando si aggiunge un attributo personalizzato.
 
-Gli attributi personalizzati non possono essere attributi referenziali o attributi multivalore. Gli attributi di estensione multivalore personalizzati sono attualmente supportati solo per le applicazioni nella raccolta.  
+Gli attributi personalizzati non possono essere attributi referenziali, attributi multivalore o tipi complessi. Gli attributi personalizzati di estensione multivalore e con tipi complessi sono attualmente supportati solo per le applicazioni nella raccolta.  
  
 **Rappresentazione di esempio di un utente con un attributo di estensione:**
 

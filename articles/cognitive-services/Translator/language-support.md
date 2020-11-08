@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: 426445342263ad10f174ecf7cca926805eb601e6
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: bdd12b5c866ee723547513e35a5adcfabb59dab9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92669632"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364421"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
 
@@ -166,7 +166,7 @@ Translator rileva le seguenti lingue per la conversione e la traslitterazione.
 |Persiano|   `fa`    |
 |Polacco|    `pl`    |
 |Portoghese|    `pt`    |
-|Rumeno|  `ro`    |
+|Romeno|  `ro`    |
 |Russo|   `ru`    |
 |Serbo (alfabeto cirillico)|    `sr-Cyrl`|
 |Serbo (alfabeto latino)|   `sr-Latn`       |
@@ -328,7 +328,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Polacco      | `pl`          |
 | Portoghese (Brasile) | `pt-br` |
 | Punjabi|`pa`|
-| Rumeno      | `ro`          |
+| Romeno      | `ro`          |
 | Russo      | `ru`          |
 | Samoano|   `sm`    |
 | Serbo (alfabeto latino)      | `sr-Latn`          |
@@ -347,7 +347,7 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Gallese | `cy` |
 
 ## <a name="speech-translation"></a>Traduzione vocale
-La traduzione vocale è disponibile tramite Translator con il servizio di riconoscimento vocale di servizi cognitivi. Per ulteriori informazioni sull'utilizzo della traduzione vocale e per visualizzare tutte le [Opzioni di lingua disponibili](https://docs.microsoft.com/azure/cognitive-services/speech-service/language-support), vedere la [documentazione relativa al servizio di sintesi vocale](https://docs.microsoft.com/azure/cognitive-services/speech-service/) .
+La traduzione vocale è disponibile tramite Translator con il servizio di riconoscimento vocale di servizi cognitivi. Per ulteriori informazioni sull'utilizzo della traduzione vocale e per visualizzare tutte le [Opzioni di lingua disponibili](../speech-service/language-support.md), vedere la [documentazione relativa al servizio di sintesi vocale](../speech-service/index.yml) .
 
 ### <a name="speech-to-text"></a>Riconoscimento vocale
 Converte la voce in testo in modo da tradurla nella lingua del testo desiderata. Il riconoscimento vocale viene usato per la traduzione di testo vocale o per la traduzione vocale quando viene usato in combinazione con la sintesi vocale.
@@ -417,7 +417,7 @@ Converte il testo in sintesi vocale. Il riconoscimento vocale viene usato per ag
 |Polacco|
 |Portoghese (Brasile)|
 |Portoghese (Portogallo)|
-|Rumeno|
+|Romeno|
 |Russo|
 |Slovacco|
 |Sloveno|

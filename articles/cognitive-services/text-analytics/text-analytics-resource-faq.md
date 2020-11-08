@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 02/13/2019
 ms.author: aahi
-ms.openlocfilehash: aca3b0bea65923cee1bae25020058666c973922c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: ffa70afa0edf29181bc622cbef6ff8716134b1f7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "73837134"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364939"
 ---
 # <a name="frequently-asked-questions-faq-about-the-text-analytics-cognitive-service"></a>Domande frequenti sul servizio cognitivo Analisi del testo
 
@@ -29,11 +29,11 @@ Esiste sempre un certo grado di imprecisione nell'analisi del sentiment, ma il m
 
 ## <a name="can-i-add-my-own-training-data-or-models"></a>È possibile aggiungere i propri modelli o dati di training?
 
-No, i modelli sono sottoposti a training preliminare. Le sole operazioni disponibili per i dati caricati sono punteggio, estrazione di frasi chiave e rilevamento della lingua. Non vengono ospitati modelli personalizzati. Per creare e ospitare modelli di apprendimento automatico personalizzato, considerare le [funzionalità di apprendimento automatico in Microsoft R Server](https://docs.microsoft.com/r-server/r/concept-what-is-the-microsoftml-package).
+No, i modelli sono sottoposti a training preliminare. Le sole operazioni disponibili per i dati caricati sono punteggio, estrazione di frasi chiave e rilevamento della lingua. Non vengono ospitati modelli personalizzati. Per creare e ospitare modelli di apprendimento automatico personalizzato, considerare le [funzionalità di apprendimento automatico in Microsoft R Server](/r-server/r/concept-what-is-the-microsoftml-package).
 
 ## <a name="can-i-request-additional-languages"></a>È possibile richiedere altre lingue?
 
-L'analisi del sentiment e l'estrazione di frasi chiave sono disponibili per un [numero selezionato di lingue](text-analytics-supported-languages.md). L'elaborazione del linguaggio naturale è complessa ed è necessario effettuare test sostanziali prima di poter rilasciare una nuova funzionalità. Microsoft evita quindi di preannunciare il supporto per evitare che qualcuno stabilisca una dipendenza da funzionalità non ancora mature. 
+L'analisi del sentiment e l'estrazione di frasi chiave sono disponibili per un [numero selezionato di lingue](./language-support.md). L'elaborazione del linguaggio naturale è complessa ed è necessario effettuare test sostanziali prima di poter rilasciare una nuova funzionalità. Microsoft evita quindi di preannunciare il supporto per evitare che qualcuno stabilisca una dipendenza da funzionalità non ancora mature. 
 
 Per contribuire a classificare in ordine di priorità le lingue su cui lavorare per prime, votare le lingue specifiche in [User Voice](https://cognitive.uservoice.com/forums/555922-text-analytics). 
 

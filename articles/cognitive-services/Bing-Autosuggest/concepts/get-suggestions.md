@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: cb507df53778e1b432370daa050041625a45e06e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: cdbbd6afeedc1c8808e02aefa268be4fe0de5f9f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101970"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363375"
 ---
 # <a name="suggesting-query-terms"></a>Termini della query suggeriti
 
@@ -28,7 +28,7 @@ L'API Suggerimenti automatici Bing viene generalmente chiamata ogni volta che un
 
 ## <a name="example-request"></a>Richiesta di esempio
 
-L'esempio seguente illustra una richiesta che restituisce le stringhe di query suggerite per *sail* . Ricordarsi di codificare nell'URL il termine della query parziale dell'utente quando si imposta il parametro della query [q](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query). Se ad esempio l'utente ha immesso *sailing les* , impostare `q` su `sailing+les` o `sailing%20les`.
+L'esempio seguente illustra una richiesta che restituisce le stringhe di query suggerite per *sail*. Ricordarsi di codificare nell'URL il termine della query parziale dell'utente quando si imposta il parametro della query [q](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#query). Se ad esempio l'utente ha immesso *sailing les* , impostare `q` su `sailing+les` o `sailing%20les`.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
@@ -39,7 +39,7 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com
 ```
 
-La risposta seguente contiene un elenco di oggetti [SearchAction](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction) contenenti i termini della query suggerita.
+La risposta seguente contiene un elenco di oggetti [SearchAction](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference#searchaction) contenenti i termini della query suggerita.
 
 ```json
 {
@@ -58,7 +58,7 @@ L'esempio seguente mostra una casella di ricerca a discesa con i termini di quer
 
 ![Elenco di casella di ricerca con elenco a discesa di suggerimenti automatici](../media/cognitive-services-bing-autosuggest-api/bing-autosuggest-drop-down-list.PNG)
 
-Se l'utente seleziona una query suggerita dall'elenco a discesa, è possibile usare il termine di query nel campo `query` per chiamare l'[API Ricerca Web Bing](../../bing-web-search/search-the-web.md) e visualizzare i risultati. Oppure è possibile usare l'URL nel campo `url` per inviare l'utente alla pagina dei risultati della ricerca di Bing.
+Se l'utente seleziona una query suggerita dall'elenco a discesa, è possibile usare il termine di query nel campo `query` per chiamare l'[API Ricerca Web Bing](../../bing-web-search/overview.md) e visualizzare i risultati. Oppure è possibile usare l'URL nel campo `url` per inviare l'utente alla pagina dei risultati della ricerca di Bing.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
-ms.date: 08/17/2020
-ms.openlocfilehash: a3d7386e976551d70fbbc08930b2ab5603aa5d50
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 4070f373175f3497156ced011a57e2ed7bd6e770
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91269047"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364259"
 ---
 # <a name="overview-automate-deployment-for-azure-logic-apps-by-using-azure-resource-manager-templates"></a>Panoramica: automatizzare la distribuzione per le app per la logica di Azure usando modelli di Azure Resource Manager
 
-Quando si è pronti per automatizzare la creazione e la distribuzione dell'app per la logica, è possibile espandere la definizione del flusso di lavoro sottostante dell'app per la logica in un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md). Questo modello definisce l'infrastruttura, le risorse, i parametri e altre informazioni per il provisioning e la distribuzione dell'app per la logica. Definendo i parametri per i valori che variano in base alla distribuzione, nota anche come *parametrizzazione*, è possibile distribuire ripetutamente e in modo coerente le app per la logica in base alle diverse esigenze di distribuzione.
+Quando si è pronti per automatizzare la creazione e la distribuzione dell'app per la logica, è possibile espandere la definizione del flusso di lavoro sottostante dell'app per la logica in un [modello di Azure Resource Manager](../azure-resource-manager/management/overview.md). Questo modello definisce l'infrastruttura, le risorse, i parametri e altre informazioni per il provisioning e la distribuzione dell'app per la logica. Definendo i parametri per i valori che variano in base alla distribuzione, nota anche come *parametrizzazione* , è possibile distribuire ripetutamente e in modo coerente le app per la logica in base alle diverse esigenze di distribuzione.
 
 Se ad esempio si esegue la distribuzione in ambienti per sviluppo, test e produzione, è probabile che si usino stringhe di connessione diverse per ogni ambiente. È possibile dichiarare parametri di modello che accettano stringhe di connessione diverse e quindi archiviare tali stringhe in un [file di parametri](../azure-resource-manager/templates/parameter-files.md)separato. In questo modo, è possibile modificare tali valori senza dover aggiornare e ridistribuire il modello. Per gli scenari in cui sono presenti valori di parametro sensibili o che devono essere protetti, ad esempio password e segreti, è possibile archiviare tali valori in [Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md) e fare in modo che il file di parametri recuperi tali valori. Tuttavia, in questi scenari è necessario eseguire nuovamente la distribuzione per recuperare i valori correnti.
 
@@ -187,8 +187,8 @@ Per altre procedure consigliate sui modelli, vedere procedure consigliate [per i
 
 Per specificare i valori per i parametri del modello, archiviare i valori in un [file di parametri](../azure-resource-manager/templates/parameter-files.md). In questo modo, è possibile usare file di parametri diversi in base alle esigenze di distribuzione. Di seguito è riportato il formato del nome file da utilizzare:
 
-* Nome file modello app per la logica: nome ** < *-app-logica* # C0.json**
-* Nome file dei parametri: ** < *Logic-app-name* # C0.parameters.json**
+* Nome file modello app per la logica: nome **< *-app-logica* # C0.json**
+* Nome file dei parametri: **< *Logic-app-name* # C0.parameters.json**
 
 Di seguito è illustrata la struttura all'interno del file dei parametri, che include un riferimento a Key Vault per [passare un valore di parametro protetto con Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md):
 
@@ -288,7 +288,7 @@ La [definizione di risorsa del flusso di lavoro dell'app per la logica in un mod
 * ID per qualsiasi account di integrazione usato dall'app per la logica
 * Definizione del flusso di lavoro dell'app per la logica
 * `parameters`Oggetto che imposta i valori da utilizzare in fase di esecuzione
-* Altre informazioni sulle risorse sull'app per la logica, ad esempio nome, tipo, posizione e così via
+* Altre informazioni sulle risorse sull'app per la logica, ad esempio nome, tipo, posizione, qualsiasi impostazione di configurazione di runtime e così via
 
 ```json
 {
@@ -307,7 +307,8 @@ La [definizione di risorsa del flusso di lavoro dell'app per la logica in un mod
             },
             "definition": {<workflow-definition>},
             "parameters": {<workflow-definition-parameter-values>},
-            "accessControl": {}
+            "accessControl": {},
+            "runtimeConfiguration": {}
          },
          "name": "[parameters('LogicAppName')]", // Template parameter reference
          "type": "Microsoft.Logic/workflows",
@@ -334,7 +335,8 @@ Ecco gli attributi specifici della definizione di risorsa dell'app per la logica
 | `definition` | Sì | Oggetto | La definizione del flusso di lavoro sottostante dell'app per la logica, che è lo stesso oggetto visualizzato nella visualizzazione codice ed è descritta completamente nell'argomento [riferimento allo schema per il linguaggio di definizione del flusso di lavoro](../logic-apps/logic-apps-workflow-definition-language.md) . In questa definizione del flusso di lavoro, l' `parameters` oggetto dichiara i parametri per i valori da usare in fase di esecuzione dell'app per la logica. Per altre informazioni, vedere [definizione del flusso di lavoro e parametri](#workflow-definition-parameters). <p><p>Per visualizzare gli attributi nella definizione del flusso di lavoro dell'app per la logica, passare dalla "visualizzazione progettazione" alla "visualizzazione codice" nel portale di Azure o in Visual Studio oppure usando uno strumento come [Azure Resource Explorer](https://resources.azure.com). |
 | `parameters` | No | Oggetto | [Valori dei parametri di definizione del flusso di lavoro](#workflow-definition-parameters) da usare in fase di esecuzione Le definizioni dei parametri per questi valori vengono visualizzate all'interno dell' [oggetto parametri della definizione del flusso di lavoro](#workflow-definition-parameters). Inoltre, se l'app per la logica USA [connettori gestiti](../connectors/apis-list.md) per accedere ad altri servizi e sistemi, questo oggetto include un `$connections` oggetto che imposta i valori di connessione da usare in fase di esecuzione. |
 | `accessControl` | No | Oggetto | Per specificare gli attributi di sicurezza per l'app per la logica, ad esempio per limitare l'accesso IP ai trigger di richiesta o gli input e gli output della cronologia di esecuzione. Per altre informazioni, vedere [proteggere l'accesso alle app per la logica](../logic-apps/logic-apps-securing-a-logic-app.md). |
-||||
+| `runtimeConfiguration` | No | Oggetto | Per specificare le `operationOptions` proprietà che controllano il comportamento dell'app per la logica in fase di esecuzione. Ad esempio, è possibile eseguire l'app per la logica in [modalità a velocità effettiva elevata](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode). |
+|||||
 
 Per altre informazioni sulle definizioni di risorse per questi oggetti app per la logica, vedere [tipi di risorse Microsoft. Logic](/azure/templates/microsoft.logic/allversions):
 
@@ -437,7 +439,7 @@ Questa sintassi Mostra la posizione in cui è possibile dichiarare parametri sia
 }
 ```
 
-<a name="secure-workflow-definition-parmameters"></a>
+<a name="secure-workflow-definition-parameters"></a>
 
 ### <a name="secure-workflow-definition-parameters"></a>Parametri di definizione del flusso di lavoro sicuro
 
@@ -1045,7 +1047,7 @@ Per ulteriori informazioni sull'utilizzo delle entità servizio, vedere gli argo
 
 ## <a name="references-to-parameters"></a>Riferimenti a parametri
 
-Per fare riferimento ai parametri di modello, è possibile usare espressioni di modello con [funzioni modello](../azure-resource-manager/templates/template-functions.md), che vengono valutate in fase di distribuzione. Le espressioni modello utilizzano le parentesi quadre (**[]**):
+Per fare riferimento ai parametri di modello, è possibile usare espressioni di modello con [funzioni modello](../azure-resource-manager/templates/template-functions.md), che vengono valutate in fase di distribuzione. Le espressioni modello utilizzano le parentesi quadre ( **[]** ):
 
 `"<attribute-name>": "[parameters('<template-parameter-name>')]"`
 

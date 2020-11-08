@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: article
 ms.date: 05/13/2020
 ms.author: aahi
-ms.openlocfilehash: e4a652b146286965c68154bd362525861158ecb2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 44e81286ffa5930b802df3b3bfe657091175f391
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91704379"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363634"
 ---
 # <a name="example-how-to-extract-key-phrases-using-text-analytics"></a>Esempio: come estrarre frasi chiave usando Analisi del testo
 
@@ -23,7 +23,7 @@ L'API [Estrazione frasi chiave](https://westus2.dev.cognitive.microsoft.com/docs
 
 Questa funzionalità è utile se è necessario identificare rapidamente i punti rilevanti in una raccolta di documenti. Ad esempio, dato il testo di input "Il cibo era delizioso e il personale era meraviglioso", il servizio restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso".
 
-Per altre informazioni, vedere [Linguaggi supportati](../text-analytics-supported-languages.md).
+Per altre informazioni, vedere [Linguaggi supportati](../language-support.md).
 
 > [!TIP]
 > Analisi del testo offre anche un'immagine del contenitore Docker basata su Linux per l'estrazione delle frasi chiave, di conseguenza è possibile [installare ed eseguire il contenitore di Analisi del testo](text-analytics-how-to-install-containers.md) vicino ai dati.

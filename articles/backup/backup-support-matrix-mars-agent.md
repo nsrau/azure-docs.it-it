@@ -3,12 +3,12 @@ title: Matrice di supporto per l'agente MARS
 description: Questo articolo riepiloga il supporto di backup di Azure quando si esegue il backup dei computer che eseguono l'agente di Servizi di ripristino di Microsoft Azure (MARS).
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 53034d058e0cd2e1623acc6629da0a694b35e60b
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: 26a47c2648d1307d2e7da2b25455f3f036cbf32d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92173526"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363239"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>Matrice di supporto per il backup con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -27,7 +27,7 @@ Backup di Azure usa l'agente MARS per eseguire il backup dei dati da computer lo
 
 Le opzioni di backup variano a seconda della posizione in cui è installato l'agente. Per altre informazioni, vedere [architettura di backup di Azure con l'agente Mars](backup-architecture.md#architecture-direct-backup-of-on-premises-windows-server-machines-or-azure-vm-files-or-folders). Per informazioni su MAB e sull'architettura di backup di DPM, vedere backup [in DPM o MAB](backup-architecture.md#architecture-back-up-to-dpmmabs). Vedere anche [requisiti](backup-support-matrix-mabs-dpm.md) per l'architettura di backup.
 
-**Installazione** | **Dettagli**
+**Installazione** | **Informazioni dettagliate**
 --- | ---
 Scaricare la versione più recente dell'agente MARS | È possibile scaricare la versione più recente dell'agente dall'insieme di credenziali oppure [scaricarla direttamente](https://aka.ms/azurebackup_agent).
 Installazione diretta in un computer | È possibile installare l'agente MARS direttamente in un server Windows locale o in una VM Windows in cui è in esecuzione uno dei [sistemi operativi supportati](./backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems).
@@ -44,9 +44,9 @@ Quando si usa l'agente MARS per eseguire il backup dei dati, l'agente acquisisce
 **Cache** | **Dettagli**
 --- | ---
 Dimensione |  Lo spazio disponibile nella cartella della cache deve essere almeno compreso tra 5 e 10% delle dimensioni complessive dei dati di backup.
-Località | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
+Location | La cartella della cache deve essere archiviata localmente nel computer di cui viene eseguito il backup e deve essere online. La cartella della cache non deve trovarsi in una condivisione di rete, in un supporto rimovibile o in un volume offline.
 Cartella | La cartella della cache non deve essere crittografata in un volume deduplicato o in una cartella compressa, di tipo sparse o con un punto di analisi.
-Modifiche alla posizione | È possibile modificare il percorso della cache arrestando il motore di backup ( `net stop bengine` ) e copiando la cartella della cache in una nuova unità. Assicurarsi che la nuova unità disponga di spazio sufficiente. Aggiornare quindi due voci del registro di sistema in **HKLM\Software\Microsoft\Windows Azure Backup** (**config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation**) al nuovo percorso e riavviare il motore.
+Modifiche alla posizione | È possibile modificare il percorso della cache arrestando il motore di backup ( `net stop bengine` ) e copiando la cartella della cache in una nuova unità. Assicurarsi che la nuova unità disponga di spazio sufficiente. Aggiornare quindi due voci del registro di sistema in **HKLM\Software\Microsoft\Windows Azure Backup** ( **config/ScratchLocation** e **config/CloudBackupProvider/ScratchLocation** ) al nuovo percorso e riavviare il motore.
 
 ## <a name="networking-and-access-support"></a>Supporto delle funzionalità di rete e dell'accesso
 
@@ -67,9 +67,9 @@ E a questi indirizzi IP:
 
 L'accesso a tutti gli URL e gli indirizzi IP elencati in precedenza usa il protocollo HTTPS sulla porta 443.
 
-Quando si esegue il backup di file e cartelle da macchine virtuali di Azure usando l'agente MARS, è necessario configurare anche la rete virtuale di Azure per consentire l'accesso. Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di Backup di Azure, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](../virtual-network/network-security-groups-overview.md#service-tags) simili per Azure AD (*AzureActiveDirectory*) e Archiviazione di Azure (*Storage*). I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
+Quando si esegue il backup di file e cartelle da macchine virtuali di Azure usando l'agente MARS, è necessario configurare anche la rete virtuale di Azure per consentire l'accesso. Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureBackup* per consentire l'accesso in uscita a Backup di Azure. Oltre al tag di Backup di Azure, è necessario consentire la connettività per l'autenticazione e il trasferimento dei dati creando [regole NSG](../virtual-network/network-security-groups-overview.md#service-tags) simili per Azure AD ( *AzureActiveDirectory* ) e Archiviazione di Azure ( *Storage* ). I passaggi seguenti descrivono il processo di creazione di una regola per il tag di Backup di Azure:
 
-1. In **Tutti i servizi**, passare a **Gruppi di sicurezza di rete** e selezionare il gruppo di sicurezza di rete.
+1. In **Tutti i servizi** , passare a **Gruppi di sicurezza di rete** e selezionare il gruppo di sicurezza di rete.
 2. In **Impostazioni** selezionare **Regole di sicurezza in uscita**.
 3. Selezionare **Aggiungi**. Immettere tutti i dettagli necessari per la creazione di una nuova regola, come descritto nelle [impostazioni delle regole di sicurezza](../virtual-network/manage-network-security-group.md#security-rule-settings). Assicurarsi che l'opzione **Destinazione** sia impostata su *Tag del servizio* e che l'opzione **Tag del servizio di destinazione** sia impostata su *AzureBackup*.
 4. Selezionare **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
@@ -168,6 +168,17 @@ Windows Server 2008 R2 SP1 |1\.700 GB
 Windows Server 2008 SP2| 1\.700 GB
 Windows 8 o versione successiva| 54400 GB
 Windows 7| 1\.700 GB
+
+### <a name="minimum-retention-limits"></a>Limiti di conservazione minimi
+
+Di seguito sono riportate le durate minime di conservazione che è possibile impostare per i diversi punti di ripristino:
+
+|Punto di ripristino |Durata  |
+|---------|---------|
+|Punto di ripristino giornaliero    |   7 giorni      |
+|Punto di ripristino settimanale     |    4 settimane     |
+|Punto di ripristino mensile    |   3 mesi      |
+|Punto di ripristino annuale  |      1 anno   |
 
 ### <a name="other-limitations"></a>Altre limitazioni
 

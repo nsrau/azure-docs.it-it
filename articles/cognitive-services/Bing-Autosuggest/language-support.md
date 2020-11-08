@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: scottwhi
-ms.openlocfilehash: d6971dafc7e3157b3de62284b400ebdc6ddc19c0
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 6156dbe4d189800172250f56ad3ab095bea17bb8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101902"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364514"
 ---
 # <a name="language-and-region-support-for-the-bing-autosuggest-api"></a>Lingua e regioni supportate dall'API Suggerimenti automatici Bing
 
@@ -71,5 +71,5 @@ Di seguito sono elencate le lingue supportate dall'API Suggerimenti automatici B
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Pagina della documentazione di Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/)
+- [Pagina della documentazione di Servizi cognitivi di Azure](../index.yml)
 - [Pagina del prodotto Servizi cognitivi di Azure](https://azure.microsoft.com/services/cognitive-services/)

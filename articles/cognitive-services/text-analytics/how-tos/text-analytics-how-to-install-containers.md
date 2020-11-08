@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 09/28/2020
 ms.author: aahi
 keywords: locale, Docker, contenitore, analisi dei sentimenti, elaborazione del linguaggio naturale
-ms.openlocfilehash: 42b22c94f8f2eed0514906422fe9f1d5e7cd12e2
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 43684e814dd0049a08eacdce50ca6eef17fb7f97
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91461496"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94363936"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
@@ -32,7 +32,7 @@ I contenitori consentono di eseguire le API di analisi del testo nell'ambiente i
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 
 > [!IMPORTANT]
-> L'account gratuito è limitato a 5.000 transazioni al mese e solo i <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">piani <span class="docon docon-navigate-external x-hidden-focus"></span> tariffari</a> **gratuiti** e **standard** sono validi per i contenitori. Per ulteriori informazioni sulle frequenze delle richieste di transazioni, vedere [limiti dei dati](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview#data-limits).
+> L'account gratuito è limitato a 5.000 transazioni al mese e solo i <a href="https://azure.microsoft.com/pricing/details/cognitive-services/text-analytics" target="_blank">piani <span class="docon docon-navigate-external x-hidden-focus"></span> tariffari</a> **gratuiti** e **standard** sono validi per i contenitori. Per ulteriori informazioni sulle frequenze delle richieste di transazioni, vedere [limiti dei dati](../overview.md#data-limits).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -42,11 +42,11 @@ Per eseguire uno dei contenitori di Analisi del testo, è necessario disporre de
 
 Per usare i contenitori di Analisi del testo, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatoria|Scopo|
+|Necessario|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 
-|Risorsa Analisi del testo |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa di Azure [analisi del testo](../../cognitive-services-apis-create-account.md) per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nelle pagine delle chiavi e della panoramica di Analisi del testo nel portale di Azure e sono necessarie per avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica**|
+|Risorsa Analisi del testo |Per usare il contenitore, è necessario disporre di:<br><br>Una risorsa di Azure [analisi del testo](../../cognitive-services-apis-create-account.md) per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nelle pagine delle chiavi e della panoramica di Analisi del testo nel portale di Azure e sono necessarie per avviare il contenitore.<br><br>**{API_KEY}** : una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}** : endpoint fornito nella pagina **Panoramica**|
 
 [!INCLUDE [Gathering required parameters](../../containers/includes/container-gathering-required-parameters.md)]
 
@@ -89,7 +89,7 @@ Le immagini del contenitore per Analisi del testo sono disponibili in Microsoft 
 
 [!INCLUDE [docker-pull-health-container](../includes/docker-pull-health-container.md)]
 
-***
+**_
 
 ## <a name="how-to-use-the-container"></a>Come usare il contenitore
 
@@ -103,7 +103,7 @@ Dopo aver aggiunto il contenitore nel [computer host](#the-host-computer), segui
 Usare il comando [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) per eseguire i contenitori. Il contenitore continuerà a essere eseguito fino a quando non lo si arresta.
 
 > [!IMPORTANT]
-> * I comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\`, come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
+> _ I comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\` , come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host. 
 > * È necessario specificare le opzioni `Eula`, `Billing` e `ApiKey` per eseguire il contenitore. In caso contrario, il contenitore non si avvia.  Per altre informazioni, vedere[Fatturazione](#billing).
 > * Il contenitore analisi del sentimento V3 è ora disponibile a livello generale, che restituisce le [etichette dei sentimenti](../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) nella risposta. I contenitori di estrazione di frasi chiave e rilevamento della lingua usano V2 dell'API e sono in anteprima.
 

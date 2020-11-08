@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 1/10/2019
 ms.author: aahi
-ms.openlocfilehash: bc28cdbca7d2566318a3158399c1d44fd8d2ccd9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: ef3f7cde226d7246b1de3ae23cd9b4340b012b33
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101722"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366367"
 ---
 # <a name="language-and-region-support-for-the-bing-news-search-api"></a>Lingua e regioni supportate dall'API Ricerca notizie Bing
 
@@ -28,7 +28,7 @@ L'API Ricerca notizie Bing supporta numerosi paesi/aree, molti dei quali con pi�
 
 È possibile specificare un paese/un'area usando il parametro di query `cc`. Se si specifica un paese/un'area, è necessario specificare anche uno o più codici di lingua usando l'intestazione HTTP `Accept-Language`. Le lingue supportate variano in base al paese/all'area e sono indicate per ogni paese nella tabella Mercati.
 
-In alternativa, è possibile specificare il mercato usando il parametro di query `mkt` e un codice della tabella **Mercati** . Specificando un mercato, vengono contemporaneamente specificati un paese/un'area e una lingua preferita. Il parametro di query `setLang` in questo caso può essere impostato su un codice della lingua, che corrisponde in genere alla lingua specificata da `mkt` a meno che l'utente non preferisca visualizzare Bing in un'altra lingua.
+In alternativa, è possibile specificare il mercato usando il parametro di query `mkt` e un codice della tabella **Mercati**. Specificando un mercato, vengono contemporaneamente specificati un paese/un'area e una lingua preferita. Il parametro di query `setLang` in questo caso può essere impostato su un codice della lingua, che corrisponde in genere alla lingua specificata da `mkt` a meno che l'utente non preferisca visualizzare Bing in un'altra lingua.
 
 ## <a name="supported-markets-for-news-search-endpoint"></a>Mercati supportati per l'endpoint di Ricerca notizie
 
@@ -167,4 +167,4 @@ I seguenti sono i codici di paese/area che è possibile specificare nel parametr
 |Stati Uniti|Stati Uniti|
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sugli endpoint dell'API Ricerca notizie Bing, vedere [News Search API v7 reference](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) (Informazioni di riferimento sull'API Ricerca notizie v7).
+Per altre informazioni sugli endpoint dell'API Ricerca notizie Bing, vedere [News Search API v7 reference](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) (Informazioni di riferimento sull'API Ricerca notizie v7).

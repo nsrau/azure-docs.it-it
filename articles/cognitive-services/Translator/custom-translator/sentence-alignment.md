@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 97327517b40e715294393a97e8a26c078173e762
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: a8a662bf94e958d9e96a454ced9c44058b178a8c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510845"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366843"
 ---
 # <a name="sentence-pairing-and-alignment-in-parallel-documents"></a>Abbinamento e allineamento di frasi in documenti paralleli
 
@@ -28,7 +28,7 @@ Custom Translator apprende le traduzioni delle frasi una frase alla volta. Legge
 
 Se si è certi di disporre di documenti paralleli, è possibile saltare il processo di allineamento delle frasi fornendo file di testo preallineati. È possibile estrarre tutte le frasi di entrambi i documenti in un file di testo, organizzato con una frase per riga, e caricarlo con l'estensione `.align`. L'estensione `.align` segnala a Custom Translator di saltare il processo di allineamento delle frasi.
 
-Per ottenere risultati ottimali, verificare che i file di testo contengano una frase per riga.La presenza di caratteri di nuova riga in una frase comprometterebbe l'allineamento.
+Per ottenere risultati ottimali, verificare che i file di testo contengano una frase per riga. La presenza di caratteri di nuova riga in una frase comprometterebbe l'allineamento.
 
 ## <a name="suggested-minimum-number-of-sentences"></a>Numero minimo suggerito di frasi
 
@@ -44,7 +44,7 @@ Per la riuscita della formazione, la tabella seguente mostra il numero minimo di
 > [!NOTE]
 > - Il training non verrà avviato e avrà esito negativo se il numero minimo di 10.000 di frasi per il training non è stato soddisfatto. 
 > - L'ottimizzazione e il test sono facoltativi. Se non vengono forniti, il sistema eliminerà una percentuale appropriata dal training da usare per la convalida e il test. 
-> - È possibile eseguire il training su un modello utilizzando solo i dati del dizionario. Per informazioni, vedere informazioni sul [dizionario](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/what-is-dictionary).
+> - È possibile eseguire il training su un modello utilizzando solo i dati del dizionario. Per informazioni, vedere informazioni sul [dizionario](./what-is-dictionary.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

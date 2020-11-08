@@ -10,12 +10,12 @@ ms.subservice: bing-autosuggest
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: scottwhi
-ms.openlocfilehash: aad00d60c5a1b75e200b49b0cdcf0d396012a5f9
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a42b282ac2c42480473186f90a542e33781c8a68
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93101953"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94364038"
 ---
 # <a name="sending-requests-to-the-bing-autosuggest-api"></a>Invio di richieste all'API Suggerimenti automatici Bing.
 
@@ -38,13 +38,13 @@ Per ottenere query suggerite tramite l'API Bing, inviare una richiesta `GET` all
 GET https://api.cognitive.microsoft.com/bing/v7.0/Suggestions 
 ```
 
-Per maggiori dettagli su intestazioni, parametri, codici di mercato, oggetti risposta, errori e altro ancora, vedere il riferimento per l'[API Suggerimenti automatici Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference).
+Per maggiori dettagli su intestazioni, parametri, codici di mercato, oggetti risposta, errori e altro ancora, vedere il riferimento per l'[API Suggerimenti automatici Bing v7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference).
 
 Le API **Bing** supportano azioni di ricerca che restituiscono risultati in base al tipo. Tutti gli endpoint di ricerca restituiscono risultati come oggetti della risposta JSON.
 Tutti gli endpoint supportano query che restituiscono una posizione e/o una lingua specifica in base a longitudine, latitudine e raggio di ricerca.
 
 Per informazioni complete sui parametri supportati da ogni endpoint, vedere le pagine di riferimento per ogni tipo.
-Per esempi di richieste di base con l'API Suggerimenti automatici, vedere [Guide introduttive a Suggerimenti automatici](https://docs.microsoft.com/azure/cognitive-services/Bing-Autosuggest).
+Per esempi di richieste di base con l'API Suggerimenti automatici, vedere [Guide introduttive a Suggerimenti automatici](/azure/cognitive-services/Bing-Autosuggest).
 
 ## <a name="bing-autosuggest-api-requests"></a>Richieste all'API Suggerimenti automatici Bing
 
@@ -53,18 +53,18 @@ Per esempi di richieste di base con l'API Suggerimenti automatici, vedere [Guide
 
 È consigliabile che tutte le richieste abbiano origine da un server. La distribuzione della chiave come parte di un'applicazione client consente a terze parti dannose di accedervi più facilmente. Inoltre, l'esecuzione delle chiamate da un server consente di usare un solo punto di aggiornamento per i futuri aggiornamenti.
 
-La richiesta deve specificare il parametro di query [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query), contenente il termine di ricerca parziale dell'utente. Nonostante sia facoltativo, la richiesta dovrebbe anche specificare il parametro di query [mkt](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt), che identifica il mercato da cui devono provenire i risultati. Per un elenco di parametri di query facoltativi, vedere [parametri di query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Tutti i valori dei parametri di query devono essere codificati in URL.
+La richiesta deve specificare il parametro di query [q](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query), contenente il termine di ricerca parziale dell'utente. Nonostante sia facoltativo, la richiesta dovrebbe anche specificare il parametro di query [mkt](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#mkt), che identifica il mercato da cui devono provenire i risultati. Per un elenco di parametri di query facoltativi, vedere [parametri di query](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#query-parameters). Tutti i valori dei parametri di query devono essere codificati in URL.
 
-La richiesta deve specificare l'intestazione [Ocp-Apim-Subscription-Key](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey). Nonostante sia facoltativo, è consigliabile specificare anche le intestazioni seguenti:
+La richiesta deve specificare l'intestazione [Ocp-Apim-Subscription-Key](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#subscriptionkey). Nonostante sia facoltativo, è consigliabile specificare anche le intestazioni seguenti:
 
-- [User-Agent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
-- [X-MSEdge-ClientID](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
-- [X-Search-ClientIP](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
-- [X-ricerca-percorso](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
+- [User-Agent](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#useragent)
+- [X-MSEdge-ClientID](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientid)
+- [X-Search-ClientIP](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#clientip)
+- [X-ricerca-percorso](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#location)
 
 Le intestazioni relative a IP client e posizione sono importanti per la restituzione di contenuto con riconoscimento della posizione.
 
-Per un elenco di tutte le intestazioni di richiesta e risposta, vedere [Headers](https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers) (Intestazioni).
+Per un elenco di tutte le intestazioni di richiesta e risposta, vedere [Headers](/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference#headers) (Intestazioni).
 
 > [!NOTE]
 > Quando si chiama l'API Suggerimenti automatici Bing da JavaScript, le funzionalità di sicurezza predefinite del browser possono impedire l'accesso ai valori di queste intestazioni.
@@ -93,7 +93,7 @@ Lasciare aperta la finestra di comando mentre si usa l'app dell'esercitazione. L
 
 Le richieste devono includere tutte le intestazioni e tutti i parametri di query suggeriti. 
 
-L'esempio seguente illustra una richiesta che restituisce le stringhe di query suggerite per *sail* .
+L'esempio seguente illustra una richiesta che restituisce le stringhe di query suggerite per *sail*.
 
 > ```http
 > GET https://api.cognitive.microsoft.com/bing/v7.0/suggestions?q=sail&mkt=en-us HTTP/1.1
@@ -110,7 +110,7 @@ Il gruppo di suggerimento Web seguente è una risposta alla richiesta precedente
 
 Il campo `displayText` contiene la query suggerita che si userebbe per popolare l'elenco a discesa della casella di ricerca. È necessario visualizzare tutti i suggerimenti inclusi nella risposta, nell'ordine indicato.  
 
-Se l'utente seleziona una query dall'elenco a discesa, è possibile usarla per chiamare una delle [API di ricerca Bing](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/bing-api-comparison?toc=%2Fen-us%2Fazure%2Fcognitive-services%2Fbing-autosuggest%2Ftoc.json&bc=%2Fen-us%2Fazure%2Fbread%2Ftoc.json) e visualizzare autonomamente i risultati. In alternativa, è possibile indirizzare l'utente alla pagina dei risultati di Bing tramite il campo `url` restituito.
+Se l'utente seleziona una query dall'elenco a discesa, è possibile usarla per chiamare una delle [API di ricerca Bing](../../bing-web-search/bing-api-comparison.md?bc=%252fen-us%252fazure%252fbread%252ftoc.json&toc=%252fen-us%252fazure%252fcognitive-services%252fbing-autosuggest%252ftoc.json) e visualizzare autonomamente i risultati. In alternativa, è possibile indirizzare l'utente alla pagina dei risultati di Bing tramite il campo `url` restituito.
 
 [!INCLUDE [cognitive-services-bing-url-note](../../../../includes/cognitive-services-bing-url-note.md)]
 
@@ -181,5 +181,5 @@ BingAPIs-Market: en-US
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni su Suggerimenti automatici Bing](../get-suggested-search-terms.md)
-- [Riferimento sull'API Suggerimenti automatici Bing versione 7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
+- [Riferimento sull'API Suggerimenti automatici Bing versione 7](/rest/api/cognitiveservices-bingsearch/bing-autosuggest-api-v7-reference)
 - [Ottenere termini di ricerca suggeriti dall'API Suggerimenti automatici Bing](get-suggestions.md)

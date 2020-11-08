@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 10/06/2020
-ms.openlocfilehash: 0d22e10a71c3eee2026f55a73074ba02c68c2b78
-ms.sourcegitcommit: 4b76c284eb3d2b81b103430371a10abb912a83f4
+ms.openlocfilehash: a2b41ac32f8c887d7a8ffd33d51baebaa0e2482e
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/01/2020
-ms.locfileid: "93146178"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366486"
 ---
 # <a name="publishing-guide-by-offer-type"></a>Guida alla pubblicazione per tipo di offerta
 
@@ -30,9 +30,8 @@ La tabella seguente illustra i tipi di offerta del Marketplace commerciale nel c
 
 | **Tipo di offerta**    | **Descrizione**  |
 | :------------------- | :-------------------|
-| [Applicazione Azure: **applicazione gestita**](marketplace-managed-apps.md) | Usare il tipo di offerta applicazione Azure: applicazione gestita quando sono necessarie le condizioni seguenti: <br> <ul> <li>Si distribuisce una soluzione basata su sottoscrizione per i clienti che usano una macchina virtuale o un'intera soluzione basata su IaaS. </li> <li>L'utente o il cliente richiedono che la soluzione venga gestita da un partner. </li> <ul> |
-| [Applicazione Azure: **modello di soluzione**](marketplace-solution-templates.md) | Usare il tipo di offerta applicazione Azure: modello di soluzione quando la soluzione richiede un'automazione aggiuntiva per la distribuzione e la configurazione oltre una singola macchina virtuale. I modelli di soluzione possono usare molti tipi diversi di risorse di Azure, tra cui, tra le altre, le macchine virtuali.  |
-  | [**Contenitore di Azure**](marketplace-containers.md) | Usare il tipo di offerta contenitore di Azure quando la soluzione è un'immagine del contenitore Docker di cui è stato effettuato il provisioning come servizio contenitore di Azure basato su Kubernetes. |
+| [**applicazione Azure**](plan-azure-application-offer.md) | Esistono due tipi di piani per le applicazioni di Azure: il _modello di soluzione_ e l' _applicazione gestita_. Entrambi i tipi di piano supportano l'automazione della distribuzione e della configurazione di una soluzione oltre a una singola macchina virtuale (VM). È possibile automatizzare il processo di fornitura di più risorse, tra cui macchine virtuali, rete e risorse di archiviazione, per offrire soluzioni complesse, ad esempio soluzioni IaaS. Entrambi i tipi di piano possono impiegare molti tipi diversi di risorse di Azure, tra cui, ma non limitati alle macchine virtuali.<ul><li>I piani di **modelli di soluzione** sono uno dei modi principali per pubblicare una soluzione nel Marketplace commerciale. I piani di modelli di soluzione non sono transazionali nel Marketplace commerciale, ma possono essere usati per distribuire le offerte di macchine virtuali a pagamento fatturate tramite il Marketplace commerciale. Utilizzare il tipo di piano modello soluzione quando il cliente gestirà la soluzione e le transazioni vengono fatturate in base a un altro piano.</li><br><li>I piani di **applicazioni gestite** consentono di creare e distribuire in modo semplice applicazioni chiavi in mano completamente gestite per i clienti. Hanno le stesse funzionalità dei piani di modelli di soluzione, con alcune differenze principali:</li><ul><li> Le risorse vengono distribuite in un gruppo di risorse e sono gestite dall'autore dell'app. Il gruppo di risorse è presente nella sottoscrizione del consumer, ma un'identità nel tenant dell'entità di pubblicazione dell'app ha accesso al gruppo di risorse.</li><li>In qualità di editore, è possibile specificare il costo per il supporto continuo della soluzione e le transazioni sono supportate tramite il Marketplace commerciale.</li></ul>Usare il tipo di piano di applicazione gestita quando l'utente o il cliente richiede che la soluzione sia gestita da un partner o si distribuirà una soluzione basata sulla sottoscrizione.</ul> |
+| [**Contenitore di Azure**](marketplace-containers.md) | Usare il tipo di offerta contenitore di Azure quando la soluzione è un'immagine del contenitore Docker di cui è stato effettuato il provisioning come servizio contenitore di Azure basato su Kubernetes. |
 | [**Macchina virtuale di Azure**](marketplace-virtual-machines.md) | Usare il tipo di offerta per le macchine virtuali quando si distribuisce un'appliance virtuale all'abbonamento associato al cliente. |
 | [**Servizio di consulenza**](consulting-services.md) | I servizi di consulenza consentono di connettere i clienti con servizi per supportare ed estendere l'uso dei servizi di Azure, Dynamics 365 o Power Suite.|
 | [**Dynamics 365**](appsource-offer-publishing-guide.md) | Puoi pubblicare offerte AppSource che sviluppano o estendono le app Dynamics 365 business Central, Dynamics 365 Customer Engagement, Power Apps e Finance e Operations.|

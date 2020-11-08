@@ -10,12 +10,12 @@ ms.subservice: bing-entity-search
 ms.topic: conceptual
 ms.date: 02/01/2019
 ms.author: aahi
-ms.openlocfilehash: 5d6b0a6be0d99815c4d14bb04e56241d011812b5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 1d9b7c79919569830834915fc609b849e717dce8
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93084953"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94365840"
 ---
 # <a name="bing-entity-search-api-endpoint"></a>Endpoint dell'API Ricerca entità Bing
 
@@ -29,7 +29,7 @@ L'API Ricerca entità Bing include un endpoint che restituisce le entità dal We
 
 ## <a name="get-entity-results-from-the-endpoint"></a>Ottenere risultati dell'entità dall'endpoint
 
-Per ottenere i risultati dell'entità tramite l' **API Bing** , inviare una richiesta `GET` all'endpoint seguente. Usare [intestazioni](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers) e [parametri di query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters) per personalizzare la richiesta di ricerca. Le richieste di ricerca possono essere inviate usando il parametro `?q=`.
+Per ottenere i risultati dell'entità tramite l' **API Bing** , inviare una richiesta `GET` all'endpoint seguente. Usare [intestazioni](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#headers) e [parametri di query](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference#query-parameters) per personalizzare la richiesta di ricerca. Le richieste di ricerca possono essere inviate usando il parametro `?q=`.
 
 ```cURL
  GET https://api.cognitive.microsoft.com/bing/v7.0/entities
@@ -42,4 +42,4 @@ Per ottenere i risultati dell'entità tramite l' **API Bing** , inviare una rich
 
 ## <a name="see-also"></a>Vedere anche 
 
-Per altre informazioni su intestazioni, parametri, codici di mercato, oggetti risposta, errori e altro ancora, vedere l'articolo di riferimento [API Ricerca entità Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).
+Per altre informazioni su intestazioni, parametri, codici di mercato, oggetti risposta, errori e altro ancora, vedere l'articolo di riferimento [API Ricerca entità Bing v7](/rest/api/cognitiveservices-bingsearch/bing-entities-api-v7-reference).

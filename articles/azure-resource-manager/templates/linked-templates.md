@@ -2,13 +2,13 @@
 title: Collegare i modelli per la distribuzione
 description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
-ms.date: 09/08/2020
-ms.openlocfilehash: fb742ed4fabd6630d2d27f5876719e2e2b1a9a4d
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.date: 11/06/2020
+ms.openlocfilehash: 603445fdd96cc72a2d64bae21a47cfeabd6dd167
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91369315"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366338"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -96,7 +96,7 @@ Nell'esempio seguente viene distribuito un account di archiviazione tramite un m
 
 ### <a name="expression-evaluation-scope-in-nested-templates"></a>Ambito di valutazione delle espressioni nei modelli annidati
 
-Quando si utilizza un modello annidato, è possibile specificare se le espressioni modello vengono valutate nell'ambito del modello padre o del modello annidato. L'ambito determina il modo in cui vengono risolti i parametri, le variabili e le funzioni come [resourceGroup](template-functions-resource.md#resourcegroup) e la [sottoscrizione](template-functions-resource.md#subscription) .
+Quando si usa un modello annidato, è possibile specificare se le espressioni del modello vengono valutate nell'ambito del modello padre o del modello annidato. L'ambito determina il modo in cui vengono risolti i parametri, le variabili e le funzioni come [resourceGroup](template-functions-resource.md#resourcegroup) e la [sottoscrizione](template-functions-resource.md#subscription) .
 
 L'ambito viene impostato tramite la `expressionEvaluationOptions` Proprietà. Per impostazione predefinita, la `expressionEvaluationOptions` proprietà è impostata su `outer` , il che significa che usa l'ambito del modello padre. Impostare il valore su `inner` per determinare la valutazione delle espressioni nell'ambito del modello annidato.
 
@@ -283,7 +283,7 @@ Nell'esempio seguente viene distribuito un server SQL e viene recuperato un segr
 
 ## <a name="linked-template"></a>Modello collegato
 
-Per collegare un modello, aggiungere una [risorsa distribuzioni](/azure/templates/microsoft.resources/deployments) al modello principale. Nella proprietà **templateLink** specificare l'URI del modello da includere. Nell'esempio seguente viene collegato a un modello che distribuisce un nuovo account di archiviazione.
+Per collegare un modello, aggiungere una [risorsa distribuzioni](/azure/templates/microsoft.resources/deployments) al modello principale. Nella proprietà **templateLink** specificare l'URI del modello da includere. Nell'esempio seguente viene collegato a un modello che si trova in un account di archiviazione.
 
 ```json
 {
@@ -310,13 +310,17 @@ Per collegare un modello, aggiungere una [risorsa distribuzioni](/azure/template
 }
 ```
 
-Quando si fa riferimento a un modello collegato, il valore di `uri` non deve essere un file locale o un file disponibile solo nella rete locale. È necessario specificare un valore URI scaricabile come **http** o **https**.
+Quando si fa riferimento a un modello collegato, il valore di `uri` non può essere un file locale o un file disponibile solo nella rete locale. Azure Resource Manager deve essere in grado di accedere al modello. Fornire un valore URI scaricabile come **http** o **https**. 
 
-> [!NOTE]
->
-> È possibile fare riferimento a modelli usando parametri che in definitiva si risolvono in un elemento che usa **http** o **https**, ad esempio, usando il `_artifactsLocation` parametro come segue: `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+È possibile fare riferimento ai modelli utilizzando parametri che includono **http** o **https**. Ad esempio, un modello comune consiste nell'usare il `_artifactsLocation` parametro. È possibile impostare il modello collegato con un'espressione simile alla seguente:
 
-Il servizio Resource Manager deve poter accedere al modello. È possibile inserire il modello collegato in un account di archiviazione e usare l'URI per tale elemento.
+```json
+"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]"
+```
+
+Se si sta eseguendo il collegamento a un modello in GitHub, usare l'URL non elaborato. Il formato del collegamento è: `https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/get-started-with-templates/quickstart-template/azuredeploy.json` . Per ottenere il collegamento non elaborato, selezionare **RAW**.
+
+:::image type="content" source="./media/linked-templates/select-raw.png" alt-text="Seleziona URL non elaborato":::
 
 ### <a name="parameters-for-linked-template"></a>Parametri per il modello collegato
 
@@ -384,7 +388,7 @@ Non è necessario specificare la `contentVersion` proprietà per la `templateLin
 
 Negli esempi precedenti sono illustrati i valori di URL hard-coded per i collegamenti del modello. Questo approccio potrebbe funzionare per un modello semplice, ma non è adatto per un set di modelli modulari di grandi dimensioni. In alternativa, è possibile creare una variabile statica contenente un URL di base per il modello principale e quindi creare dinamicamente gli URL per i modelli collegati da tale URL di base. Il vantaggio di questo approccio consiste nel fatto che è possibile spostare o creare un fork del modello in modo semplice perché è necessario modificare solo la variabile statica nel modello principale. Il modello principale passa gli URI corretti a tutto il modello scomposto.
 
-Nell'esempio seguente viene illustrato come usare un URL di base per creare due URL per i modelli collegati (**sharedTemplateUrl** e **vmTemplate**).
+Nell'esempio seguente viene illustrato come usare un URL di base per creare due URL per i modelli collegati ( **sharedTemplateUrl** e **vmTemplate** ).
 
 ```json
 "variables": {
@@ -799,7 +803,7 @@ az deployment group create --resource-group ExampleGroup --template-uri $url?$to
 
 Gli esempi seguenti mostrano gli usi più frequenti dei modelli collegati.
 
-|Modello principale  |Modello collegato |Description  |
+|Modello principale  |Modello collegato |Descrizione  |
 |---------|---------| ---------|
 |[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Restituisce una stringa dal modello collegato. |
 |[Load Balancer con indirizzo IP pubblico](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[modello collegato](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Restituisce l'indirizzo IP pubblico dal modello collegato e imposta tale valore nel servizio di bilanciamento del carico. |

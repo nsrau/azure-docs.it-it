@@ -10,12 +10,12 @@ ms.subservice: bing-news-search
 ms.topic: conceptual
 ms.date: 01/10/2019
 ms.author: scottwhi
-ms.openlocfilehash: 564af32b724c8b4883cd27d01813e246e5fa4901
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: fe9511df5fb290853dbd6cb8d39fed4e289fca4d
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100202"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94366418"
 ---
 # <a name="news-search-api-upgrade-guide"></a>Guida all'aggiornamento dell'API Ricerca notizie
 
@@ -30,7 +30,7 @@ Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versi
 
 ### <a name="endpoints"></a>Endpoint
 
-- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio `https://api.cognitive.microsoft.com/bing/v7.0/news/search`.
+- Il numero di versione dell'endpoint è stato modificato da v5 a v7. Ad esempio, `https://api.cognitive.microsoft.com/bing/v7.0/news/search`
 
 ### <a name="error-response-objects-and-error-codes"></a>Oggetti di risposta di errore e codici di errore
 
@@ -75,24 +75,24 @@ Bloccato|InvalidRequest.Blocked
 
 ### <a name="object-changes"></a>Modifiche agli oggetti
 
-- Il campo `contractualRules` è stato aggiunto all'oggetto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Il campo `contractualRules` contiene un elenco di regole che è necessario seguire (ad esempio sull'attribuzione di articoli). È necessario applicare l'attribuzione specificata in `contractualRules` invece di usare `provider`. L'articolo include `contractualRules` solo quando la risposta dell'[API Ricerca Web](../bing-web-search/search-the-web.md) contiene un riscontro relativo a notizie.
+- Il campo `contractualRules` è stato aggiunto all'oggetto [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Il campo `contractualRules` contiene un elenco di regole che è necessario seguire (ad esempio sull'attribuzione di articoli). È necessario applicare l'attribuzione specificata in `contractualRules` invece di usare `provider`. L'articolo include `contractualRules` solo quando la risposta dell'[API Ricerca Web](../bing-web-search/overview.md) contiene un riscontro relativo a notizie.
 
 ## <a name="non-breaking-changes"></a>Modifiche che non causano un'interruzione
 
 ### <a name="query-parameters"></a>Parametri di query
 
-- Il valore Products è stato aggiunto come possibile valore su cui può essere impostato il parametro di query [category](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category). Vedere [Categories By Markets](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) (Categorie per mercato).
+- Il valore Products è stato aggiunto come possibile valore su cui può essere impostato il parametro di query [category](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#category). Vedere [Categories By Markets](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference) (Categorie per mercato).
 
-- È stato aggiunto il parametro di query [SortBy](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby), che restituisce gli argomenti di tendenza ordinati per data con il più recente all'inizio.
+- È stato aggiunto il parametro di query [SortBy](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortby), che restituisce gli argomenti di tendenza ordinati per data con il più recente all'inizio.
 
-- È stato aggiunto il parametro di query [Since](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since), che restituisce gli argomenti di tendenza individuati da Bing in corrispondenza o dopo il timestamp del periodo Unix specificato.
+- È stato aggiunto il parametro di query [Since](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#since), che restituisce gli argomenti di tendenza individuati da Bing in corrispondenza o dopo il timestamp del periodo Unix specificato.
 
 ### <a name="object-changes"></a>Modifiche agli oggetti
 
-- Il campo `mentions` è stato aggiunto all'oggetto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Il campo `mentions` contiene un elenco di entità (persone o luoghi) trovate nell'articolo.
+- Il campo `mentions` è stato aggiunto all'oggetto [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Il campo `mentions` contiene un elenco di entità (persone o luoghi) trovate nell'articolo.
 
-- Il campo `video` è stato aggiunto all'oggetto [NewsArticle](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Il campo `video` contiene un video correlato all'articolo di notizie. Il video è un oggetto \<iframe\> che è possibile incorporare o un'anteprima di movimento.
+- Il campo `video` è stato aggiunto all'oggetto [NewsArticle](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#newsarticle). Il campo `video` contiene un video correlato all'articolo di notizie. Il video è un oggetto \<iframe\> che è possibile incorporare o un'anteprima di movimento.
 
-- Il campo `sort` è stato aggiunto all'oggetto [News](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news). Il campo `sort` mostra l'ordinamento degli articoli. Ad esempio, gli articoli sono ordinati per pertinenza (impostazione predefinita) o per data.
+- Il campo `sort` è stato aggiunto all'oggetto [News](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#news). Il campo `sort` mostra l'ordinamento degli articoli. Ad esempio, gli articoli sono ordinati per pertinenza (impostazione predefinita) o per data.
 
-- È stato aggiunto l'oggetto [SortValue](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue), che definisce un ordinamento. Il campo `isSelected` indica se la risposta ha usato l'ordinamento. Se **true** , la risposta ha usato l'ordinamento. Se `isSelected` è **false** , è possibile usare l'URL nel campo `url` per richiedere un ordinamento diverso.
+- È stato aggiunto l'oggetto [SortValue](/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference#sortvalue), che definisce un ordinamento. Il campo `isSelected` indica se la risposta ha usato l'ordinamento. Se **true** , la risposta ha usato l'ordinamento. Se `isSelected` è **false** , è possibile usare l'URL nel campo `url` per richiedere un ordinamento diverso.
