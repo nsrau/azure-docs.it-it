@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 11/04/2020
-ms.openlocfilehash: 7248c82882d32ae0eb225a9ec4c3b48dff3b9fcb
-ms.sourcegitcommit: 6a902230296a78da21fbc68c365698709c579093
+ms.date: 11/06/2020
+ms.openlocfilehash: 7532366d533aa957525235511a1f29649d6f8828
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93360038"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369211"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -108,7 +108,7 @@ Se si genera un modello di Azure Resource Manager per l'app per la logica, quest
 
 Ecco i limiti per una singola esecuzione di app per la logica:
 
-### <a name="loops"></a>Loop
+### <a name="loops"></a>Cicli
 
 | Nome | Limite | Note |
 | ---- | ----- | ----- |
@@ -137,13 +137,57 @@ Ecco i limiti per una singola definizione di app per la logica:
 
 | Nome | Limite | Note |
 | ---- | ----- | ----- |
-| Azione: esecuzioni per 5 minuti | 100.000 è il limite predefinito, ma 300.000 è il limite massimo. | Per modificare il limite predefinito, vedere [Run your logic app in "high throughput" mode](../logic-apps/logic-apps-workflow-actions-triggers.md#run-high-throughput-mode) (Eseguire l'app per la logica in modalità di velocità effettiva elevata), attualmente in anteprima. In alternativa, è possibile distribuire il carico di lavoro tra più app per la logica in base alle esigenze. |
+| Azione: esecuzioni per 5 minuti | 100.000 è il limite predefinito, ma 300.000 è il limite massimo. | Per aumentare il limite predefinito al valore massimo per l'app per la logica, vedere [eseguire in modalità a velocità effettiva elevata](#run-high-throughput-mode), disponibile in anteprima. In alternativa, è possibile [distribuire il carico di lavoro tra più app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) per la logica, se necessario. |
 | Azione: chiamate in uscita simultanee | ~2.500 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. |
 | Endpoint di runtime: chiamate in ingresso simultanee | ~1,000 | È possibile diminuire il numero di richieste simultanee o ridurre la durata in base alle esigenze. |
 | Endpoint di runtime: leggere le chiamate per 5 minuti  | 60.000 | Questo limite si applica alle chiamate che ottengono gli input e gli output non elaborati dalla cronologia di esecuzione di un'app per la logica. È possibile distribuire il carico di lavoro tra più app, se necessario. |
 | Endpoint di runtime: richiamare le chiamate per 5 minuti | 45,000 | È possibile distribuire un carico di lavoro tra più app in base alle esigenze. |
 | Velocità effettiva del contenuto per 5 minuti | 600 MB | È possibile distribuire un carico di lavoro tra più app in base alle esigenze. |
 ||||
+
+<a name="run-high-throughput-mode"></a>
+
+#### <a name="run-in-high-throughput-mode"></a>Esecuzione in modalità velocità effettiva elevata
+
+Per una singola definizione di app per la logica, il numero di azioni eseguite ogni 5 minuti ha un [limite predefinito](../logic-apps/logic-apps-limits-and-config.md#throughput-limits). Per aumentare il limite predefinito al massimo per l'app per la logica, è possibile abilitare la modalità a velocità effettiva elevata, disponibile in anteprima. In alternativa, è possibile [distribuire il carico di lavoro tra più app](../logic-apps/handle-throttling-problems-429-errors.md#logic-app-throttling) per la logica, se necessario.
+
+1. Nel menu dell'app per la logica del portale di Azure scegliere **Impostazioni flusso di lavoro** in **Impostazioni**.
+
+1. In **Opzioni di runtime**  >  **alta velocità effettiva** modificare l'impostazione impostandola **su on**.
+
+   ![Screenshot che mostra il menu dell'app per la logica in portale di Azure con "impostazioni del flusso di lavoro" e "velocità effettiva elevata" impostata su "on".](./media/logic-apps-limits-and-config/run-high-throughput-mode.png)
+
+Per abilitare questa impostazione in un modello ARM per la distribuzione dell'app per la logica, nell' `properties` oggetto per la definizione di risorsa dell'app per la logica aggiungere l' `runtimeConfiguration` oggetto con la `operationOptions` proprietà impostata su `OptimizedForHighThroughput` :
+
+```json
+{
+   <template-properties>
+   "resources": [
+      // Start logic app resource definition
+      {
+         "properties": {
+            <logic-app-resource-definition-properties>,
+            <logic-app-workflow-definition>,
+            <more-logic-app-resource-definition-properties>,
+            "runtimeConfiguration": {
+               "operationOptions": "OptimizedForHighThroughput"
+            }
+         },
+         "name": "[parameters('LogicAppName')]",
+         "type": "Microsoft.Logic/workflows",
+         "location": "[parameters('LogicAppLocation')]",
+         "tags": {},
+         "apiVersion": "2016-06-01",
+         "dependsOn": [
+         ]
+      }
+      // End logic app resource definition
+   ],
+   "outputs": {}
+}
+```
+
+Per altre informazioni sulla definizione delle risorse dell'app per la logica, vedere [Panoramica: automatizzare la distribuzione per app per la logica di Azure usando modelli di Azure Resource Manager](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition).
 
 ### <a name="integration-service-environment-ise"></a>Ambiente del servizio di integrazione
 

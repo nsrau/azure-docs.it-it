@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 ms.date: 09/02/2020
-ms.openlocfilehash: 6884b0c5d351d5cca160a1e00e409397f21311ef
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b6b3cac51ffd4ccd138994ac65b4f96b07816970
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "89381069"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368696"
 ---
 # <a name="how-to-configure-your-saas-offer-listing-details"></a>Come configurare i dettagli dell'elenco di offerte SaaS
 
@@ -24,24 +24,26 @@ Le informazioni fornite nella pagina di presentazione dell' **offerta** per l'of
 
 ## <a name="marketplace-details"></a>Dettagli del marketplace
 
-Nella pagina di presentazione dell' **offerta** , in **Dettagli Marketplace**, completare i passaggi seguenti. Per ulteriori informazioni su questi dettagli necessari, vedere l'articolo relativo ai [Dettagli dell'offerta](plan-saas-offer.md#offer-listing-details).
+Nella pagina di presentazione dell' **offerta** , in **Dettagli Marketplace** , completare i passaggi seguenti. Per ulteriori informazioni su questi dettagli necessari, vedere l'articolo relativo ai [Dettagli dell'offerta](plan-azure-application-offer.md#offer-listing-details).
 
 1. La casella **nome** viene precompilata con il nome immesso in precedenza nella finestra di dialogo  **nuova offerta** . È possibile modificare il nome in qualsiasi momento.
 1. Nella casella **Riepilogo risultati ricerca** immettere fino a 50 caratteri di testo. Questo riepilogo viene usato nei risultati della ricerca nell'elenco del Marketplace.
 1. Nella casella **Descrizione** immettere una descrizione per l'offerta. Questa casella di testo contiene controlli avanzati dell'editor di testo che è possibile usare per rendere più accattivante la descrizione. È anche possibile usare i tag HTML per formattare la descrizione. In questa casella è possibile immettere fino a 3.000 caratteri di testo, inclusi markup HTML e spazi. Per informazioni sulla formattazione HTML, vedere [tag HTML supportati nelle descrizioni delle offerte del Marketplace commerciale](supported-html-tags.md).
 1. Nella casella **istruzioni introduttive** fornire istruzioni per aiutare i clienti a connettersi all'offerta SaaS. È possibile aggiungere fino a 3.000 caratteri di testo e collegamenti a documentazione online più dettagliata.
-1. Opzionale Nelle caselle **parole chiave di ricerca** immettere fino a tre parole chiave di ricerca che i clienti possono usare per trovare l'offerta nel Marketplace commerciale. Non è necessario includere il **nome** e la **Descrizione**dell'offerta: il testo viene automaticamente incluso nella ricerca.
+1. Opzionale Nelle caselle **parole chiave di ricerca** immettere fino a tre parole chiave di ricerca che i clienti possono usare per trovare l'offerta nel Marketplace commerciale. Non è necessario includere il **nome** e la **Descrizione** dell'offerta: il testo viene automaticamente incluso nella ricerca.
 1. Nella casella di **collegamento informativa sulla privacy** immettere un collegamento (a partire da https) per l'informativa sulla privacy dell'organizzazione. L'utente è responsabile di garantire che l'applicazione sia conforme alle leggi e alle normative sulla privacy e per fornire un'informativa sulla privacy valida.
 
-## <a name="add-links-to-supplemental-online-documentation-optional"></a>Aggiungere collegamenti alla documentazione online supplementare (facoltativo)
+## <a name="add-supplemental-links-optional"></a>Aggiungi collegamenti supplementari (facoltativo)
 
-1. Per aggiungere documenti online supplementari facoltativi sull'app o sui servizi correlati, fare clic su **Aggiungi un collegamento**in **collegamenti utili**.
+Completare questi passaggi per aggiungere collegamenti alla documentazione online supplementare.
+
+1. Per aggiungere documenti online supplementari facoltativi sull'app o sui servizi correlati, fare clic su **Aggiungi un collegamento** in **collegamenti utili**.
 1. Nei campi visualizzati immettere un titolo (fino a 255 caratteri) e il collegamento (a partire da https) al documento online.
 1. Per immettere un altro collegamento, ripetere i passaggi da 1 a 2.
 
 ## <a name="enter-your-contact-information"></a>Immettere le informazioni di contatto
 
-In **informazioni contatto**specificare le informazioni per i contatti seguenti:
+In **informazioni contatto** specificare le informazioni per i contatti seguenti:
 
 - **Contatto del supporto tecnico**  (obbligatorio): per domande di supporto generale.
 - **Contatto**  tecnico (obbligatorio): per domande tecniche. Queste informazioni verranno usate per contattare l'utente in caso di problemi con l'offerta, inclusi i problemi di certificazione.
@@ -61,7 +63,7 @@ Per ogni contatto, verranno forniti un nome, un numero di telefono e un indirizz
 
 È necessario aggiungere almeno uno e un massimo di tre documenti di marketing per l'offerta. Questi documenti devono essere presenti in. Formato PDF.
 
-1. In **documenti di supporto**trascinare e rilasciare il file PDF nella casella grigio.
+1. In **documenti di supporto** trascinare e rilasciare il file PDF nella casella grigio.
 1. Nella casella **nome** che viene visualizzata immettere un nome per il documento. I clienti visualizzeranno questo nome nella scheda Dettagli dell'offerta.
 1. Ripetere questi passaggi per aggiungere un ulteriore documento di supporto.
 
@@ -69,20 +71,20 @@ Per ogni contatto, verranno forniti un nome, un numero di telefono e un indirizz
 
 ### <a name="add-logos"></a>Aggiungi logo
 
-In **logo**caricare un logo di **grandi dimensioni** in formato png compreso tra 216 x 216 e 350 x 350 pixel. Il centro per i partner creerà automaticamente i loghi **small** (48 x 48) e **medium** (90 x 90), che possono essere sostituiti in un secondo momento, se necessario.
+In **logo** caricare un logo di **grandi dimensioni** in formato png compreso tra 216 x 216 e 350 x 350 pixel. Il centro per i partner creerà automaticamente i loghi **small** (48 x 48) e **medium** (90 x 90), che possono essere sostituiti in un secondo momento, se necessario.
 
 Tutte e tre le dimensioni del logo vengono usate in posizioni diverse negli archivi online.
 
 - Il logo **medio** viene visualizzato quando si crea una nuova risorsa in Microsoft Azure.
 - Il logo di **grandi dimensioni** viene visualizzato nella pagina di inserzione dell'offerta in Azure Marketplace e Microsoft AppSource.
 - Il logo **piccolo** viene visualizzato nei risultati della ricerca di Azure Marketplace e nella pagina principale Microsoft AppSource e nei risultati della ricerca.
-   
+
 ### <a name="add-screenshots"></a>Aggiungere schermate
 
 È necessario aggiungere almeno uno e un massimo di cinque screenshot che dimostrano l'offerta. Tutte le immagini devono avere una dimensione di 1280 x 720 pixel e in. Formato PNG.
 
-1. In **screenshot**trascinare e rilasciare il. File PNG nella casella **screenshot** .
-2. Accanto a **Aggiungi didascalia immagine**fare clic sull'icona modifica.
+1. In **screenshot** trascinare e rilasciare il. File PNG nella casella **screenshot** .
+2. Accanto a **Aggiungi didascalia immagine** fare clic sull'icona modifica.
 3. Immettere una didascalia nella finestra di dialogo visualizzata.
 4. Ripetere i passaggi da 1 a 3 per aggiungere altre schermate.
 

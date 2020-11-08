@@ -10,18 +10,18 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 05/26/2020
 ms.author: swmachan
-ms.openlocfilehash: 8d49d9b9d29116d95173c1daf5133622c3694de6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95cb4aa5827190abf125669f2423c808cf8c92a5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "86523996"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368934"
 ---
 # <a name="customize-your-text-translations"></a>Personalizzare le traduzioni di testo
 
 Il convertitore personalizzato è una funzionalità del servizio di conversione, che consente agli utenti di personalizzare la traduzione avanzata dei computer neurali di Microsoft Translator durante la conversione del testo tramite Translator (solo versione 3).
 
-La funzionalità può anche essere usata per personalizzare la traduzione vocale quando usata con i [servizi Voce di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/speech-service/).
+La funzionalità può anche essere usata per personalizzare la traduzione vocale quando usata con i [servizi Voce di Servizi cognitivi](../speech-service/index.yml).
 
 ## <a name="custom-translator"></a>Custom Translator
 
@@ -37,7 +37,7 @@ Il sistema personalizzato è quindi disponibile tramite una normale chiamata a T
 
 Usando Custom Translator, con il tipo e la quantità appropriati di dati di training, non è insolito prevedere guadagni compresi tra 5 e 10 o anche di più punti BLEU nella qualità della traduzione.
 
-Altre informazioni sui vari livelli di personalizzazione in base ai dati disponibili sono reperibili nel [manuale dell'utente di Custom Translator](https://aka.ms/CustomTranslatorDocs).
+Altre informazioni sui vari livelli di personalizzazione in base ai dati disponibili sono reperibili nel [manuale dell'utente di Custom Translator](./custom-translator/overview.md).
 
 
 ## <a name="microsoft-translator-hub"></a>Hub di Microsoft Translator
@@ -64,4 +64,4 @@ Altre informazioni sui vari livelli di personalizzazione in base ai dati disponi
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Configurare un sistema di lingua personalizzato usando Custom Translator](https://aka.ms/CustomTranslatorDocs)
+> [Configurare un sistema di lingua personalizzato usando Custom Translator](./custom-translator/overview.md)

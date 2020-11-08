@@ -8,14 +8,14 @@ ms.author: erhopf
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.openlocfilehash: 05d3ca7cf532b739b943e2a87d5ab29ae66cabd7
-ms.sourcegitcommit: d767156543e16e816fc8a0c3777f033d649ffd3c
+ms.openlocfilehash: 4eaa33778287bfcda45547c24e6abe0606b6baa7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/26/2020
-ms.locfileid: "92548573"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368798"
 ---
-# <a name="cognitive-services-development-options"></a>Opzioni di sviluppo di servizi cognitivi
+# <a name="cognitive-services-development-options"></a>Opzioni di sviluppo per Servizi cognitivi
 
 Questo documento fornisce una panoramica generale delle opzioni di sviluppo e distribuzione che consentono di iniziare a usare i servizi cognitivi di Azure.
 
@@ -23,10 +23,10 @@ I servizi cognitivi di Azure sono servizi di intelligenza artificiale basati sul
 
 I servizi cognitivi sono organizzati in quattro categorie: decisione, linguaggio, riconoscimento vocale e visione. In genere si accede a questi servizi tramite le API REST, le librerie client e gli strumenti personalizzati, ad esempio le interfacce della riga di comando, forniti da Microsoft. Tuttavia, questo è solo un percorso di successo. Tramite Azure è inoltre possibile accedere a diverse opzioni di sviluppo, ad esempio:
 
-* Strumenti di automazione e integrazione, ad esempio app per la logica e automazione dell'alimentazione.
-* Opzioni di distribuzione come funzioni di Azure e il servizio app. 
-* Contenitori Docker di servizi cognitivi per l'accesso sicuro.
-* Strumenti come Apache Spark, Azure Databricks, Azure sinapsi Analytics e Azure Kubernetes Service per scenari di Big Data. 
+* Strumenti di automazione e integrazione, ad esempio App per la logica e Power Automate.
+* Opzioni di distribuzione come Funzioni di Azure e il Servizio app. 
+* Contenitori Docker per Servizi cognitivi per l'accesso sicuro.
+* Strumenti come Apache Spark, Azure Databricks, Azure Synapse Analytics e il servizio Azure Kubernetes per gli scenari Big Data. 
 
 Prima di passare alla pagina, è importante tenere presente che i servizi cognitivi vengono usati principalmente per due attività distinte. In base all'attività che si desidera eseguire, è possibile scegliere tra diverse opzioni di sviluppo e distribuzione. 
 
@@ -69,7 +69,7 @@ Per ulteriori informazioni sui Big data per servizi cognitivi, è consigliabile 
 
 ### <a name="azure-functions-and-azure-service-web-jobs"></a>Funzioni di Azure e processi Web dei servizi di Azure
 
-[Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/) e [processi Web del servizio app Azure](https://docs.microsoft.com/azure/app-service/) offrono servizi di integrazione Code-First progettati per gli sviluppatori e basati su [app Azure Services](https://docs.microsoft.com/azure/app-service/). Questi prodotti offrono un'infrastruttura senza server per la scrittura di codice. All'interno del codice è possibile effettuare chiamate ai servizi usando le librerie client e le API REST. 
+[Funzioni di Azure](../azure-functions/index.yml) e [processi Web del servizio app Azure](../app-service/index.yml) offrono servizi di integrazione Code-First progettati per gli sviluppatori e basati su [app Azure Services](../app-service/index.yml). Questi prodotti offrono un'infrastruttura senza server per la scrittura di codice. All'interno del codice è possibile effettuare chiamate ai servizi usando le librerie client e le API REST. 
 
 * **Utenti di destinazione** : sviluppatori e data scientist
 * **Vantaggi** : servizio di calcolo senza server che consente di eseguire codice attivato da eventi. 
@@ -78,7 +78,7 @@ Per ulteriori informazioni sui Big data per servizi cognitivi, è consigliabile 
 
 ### <a name="azure-logic-apps"></a>App per la logica di Azure 
 
-Le app per la [logica di Azure](https://docs.microsoft.com/azure/logic-apps/) condividono la stessa finestra di progettazione dei flussi di lavoro e i connettori di Power Automate, ma offre funzionalità più avanzate e di controllo, incluse le integrazioni con Visual Studio Power automatizzate rende più semplice l'integrazione con le risorse di servizi cognitivi tramite connettori specifici del servizio che forniscono un proxy o un wrapper per le API. Si tratta degli stessi connettori di quelli disponibili in Power automatizzate. 
+Le app per la [logica di Azure](../logic-apps/index.yml) condividono la stessa finestra di progettazione dei flussi di lavoro e i connettori di Power Automate, ma offre funzionalità più avanzate e di controllo, incluse le integrazioni con Visual Studio Power automatizzate rende più semplice l'integrazione con le risorse di servizi cognitivi tramite connettori specifici del servizio che forniscono un proxy o un wrapper per le API. Si tratta degli stessi connettori di quelli disponibili in Power automatizzate. 
 
 * **Utente/i di destinazione** : sviluppatori, integratori, professionisti IT, DevOps
 * **Vantaggi** : modello di sviluppo di progettazione-primo (dichiarativo) che fornisce opzioni avanzate e integrazione in una soluzione con basso codice
@@ -87,7 +87,7 @@ Le app per la [logica di Azure](https://docs.microsoft.com/azure/logic-apps/) co
 
 ### <a name="power-automate"></a>Power Automate 
 
-Power automatizzate è un servizio della [piattaforma Power](https://docs.microsoft.com/power-platform/) che consente di creare flussi di lavoro automatizzati tra le app e i servizi senza scrivere codice. Sono disponibili diversi connettori che semplificano l'interazione con la risorsa Servizi cognitivi in una soluzione di automazione del risparmio energia. Power Automate si basa su App per la logica 
+Power automatizzate è un servizio della [piattaforma Power](/power-platform/) che consente di creare flussi di lavoro automatizzati tra le app e i servizi senza scrivere codice. Sono disponibili diversi connettori che semplificano l'interazione con la risorsa Servizi cognitivi in una soluzione di automazione del risparmio energia. Power Automate si basa su App per la logica 
 
 * **Utente/i di destinazione** : utenti aziendali (analisti) e amministratori di SharePoint
 * **Vantaggi** : automatizzare le attività manuali ripetitive semplicemente registrando i clic del mouse, le sequenze di tasti e i passaggi di copia incolla dal desktop.
@@ -96,7 +96,7 @@ Power automatizzate è un servizio della [piattaforma Power](https://docs.micros
 
 ### <a name="ai-builder"></a>AI Builder 
 
-[Ai Builder](https://docs.microsoft.com/ai-builder/overview) è una funzionalità di Microsoft Power Platform che è possibile usare per migliorare le prestazioni aziendali mediante l'automazione dei processi e la stima dei risultati. Il generatore di intelligenza artificiale offre la potenza di intelligenza artificiale alle tue soluzioni grazie a un'esperienza con un clic. Molti servizi cognitivi come il riconoscitore di moduli, Analisi del testo e Visione artificiale sono stati integrati direttamente e non è necessario creare servizi cognitivi personalizzati. 
+[Ai Builder](/ai-builder/overview) è una funzionalità di Microsoft Power Platform che è possibile usare per migliorare le prestazioni aziendali mediante l'automazione dei processi e la stima dei risultati. Il generatore di intelligenza artificiale offre la potenza di intelligenza artificiale alle tue soluzioni grazie a un'esperienza con un clic. Molti servizi cognitivi come il riconoscitore di moduli, Analisi del testo e Visione artificiale sono stati integrati direttamente e non è necessario creare servizi cognitivi personalizzati. 
 
 * **Utente/i di destinazione** : utenti aziendali (analisti) e amministratori di SharePoint
 * **Vantaggi** : una soluzione chiavi in mano che offre la potenza di intelligenza artificiale attraverso un'esperienza con un clic. Non sono necessarie competenze di codifica o data science.
@@ -124,24 +124,24 @@ Gli strumenti usati per il training e la configurazione dei modelli sono diversi
 
 | Concetto fondamentale | Servizio | Interfaccia utente di personalizzazione | Guida introduttiva |
 |--------|---------|------------------|------------|
-| Visione | Servizio visione artificiale personalizzato | https://www.customvision.ai/ | [Guida introduttiva](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/quickstarts/image-classification?pivots=programming-language-csharp) | 
-| Visione | Riconoscimento modulo | Strumento di etichettatura campioni | [Guida introduttiva](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/label-tool?tabs=v2-0) |
-| Decisione | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Guida introduttiva](https://docs.microsoft.com/azure/cognitive-services/content-moderator/review-tool-user-guide/human-in-the-loop) |
-| Decisione | Advisor metriche | https://metricsadvisor.azurewebsites.net/  | [Guida introduttiva](https://docs.microsoft.com/azure/cognitive-services/metrics-advisor/quickstarts/web-portal) |
-| Decisione | Personalizza esperienze | L'interfaccia utente è disponibile nella portale di Azure nella risorsa di personalizzazione. | [Guida introduttiva](https://docs.microsoft.com/azure/cognitive-services/personalizer/quickstart-personalizer-sdk) |
+| Visione | Visione personalizzata | https://www.customvision.ai/ | [Guida introduttiva](./custom-vision-service/quickstarts/image-classification.md?pivots=programming-language-csharp) | 
+| Visione | Riconoscimento modulo | Strumento di etichettatura campioni | [Guida introduttiva](./form-recognizer/quickstarts/label-tool.md?tabs=v2-0) |
+| Decisione | Content Moderator | https://contentmoderator.cognitive.microsoft.com/dashboard | [Guida introduttiva](./content-moderator/review-tool-user-guide/human-in-the-loop.md) |
+| Decisione | Advisor metriche | https://metricsadvisor.azurewebsites.net/  | [Guida introduttiva](./metrics-advisor/quickstarts/web-portal.md) |
+| Decisione | Personalizza esperienze | L'interfaccia utente è disponibile nella portale di Azure nella risorsa di personalizzazione. | [Guida introduttiva](./personalizer/quickstart-personalizer-sdk.md) |
 | Linguaggio | Language Understanding (LUIS) | https://www.luis.ai/ | |
-| Linguaggio | QnA Maker | https://www.qnamaker.ai/ | [Guida introduttiva](https://docs.microsoft.com/azure/cognitive-services/qnamaker/quickstarts/create-publish-knowledge-base) |
-| Linguaggio | Traduttore/convertitore personalizzato | https://portal.customtranslator.azure.ai/ | [Guida introduttiva](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/quickstart-build-deploy-custom-model) |
-| Voce | Comandi personalizzati | https://speech.microsoft.com/ | [Guida introduttiva](https://docs.microsoft.com/azure/cognitive-services/speech-service/custom-commands) |
-| Voce | Riconoscimento vocale personalizzato | https://speech.microsoft.com/ | [Guida introduttiva](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech) |
-| Voce | Voce personalizzata | https://speech.microsoft.com/ | [Guida introduttiva](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-voice) |  
+| Linguaggio | QnA Maker | https://www.qnamaker.ai/ | [Guida introduttiva](./qnamaker/quickstarts/create-publish-knowledge-base.md) |
+| Linguaggio | Traduttore/convertitore personalizzato | https://portal.customtranslator.azure.ai/ | [Guida introduttiva](./translator/custom-translator/quickstart-build-deploy-custom-model.md) |
+| Sintesi vocale | Comandi personalizzati | https://speech.microsoft.com/ | [Guida introduttiva](./speech-service/custom-commands.md) |
+| Sintesi vocale | Riconoscimento vocale personalizzato | https://speech.microsoft.com/ | [Guida introduttiva](./speech-service/how-to-custom-speech.md) |
+| Sintesi vocale | Voce personalizzata | https://speech.microsoft.com/ | [Guida introduttiva](./speech-service/how-to-custom-voice.md) |  
 
 ### <a name="continuous-integration-and-delivery-with-devops-and-github-actions"></a>Integrazione e distribuzione continue con azioni DevOps e GitHub
 
 Language Understanding e il servizio riconoscimento vocale offrono soluzioni di integrazione continua e di distribuzione continua basate sulle azioni di Azure DevOps e GitHub. Questi strumenti vengono usati per il training, il test e la gestione del rilascio automatici dei modelli personalizzati. 
 
-* [CI/CD per Riconoscimento vocale personalizzato](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-custom-speech-continuous-integration-continuous-deployment)
-* [CI/CD per LUIS](https://docs.microsoft.com/azure/cognitive-services/luis/luis-concept-devops-automation)
+* [CI/CD per Riconoscimento vocale personalizzato](./speech-service/how-to-custom-speech-continuous-integration-continuous-deployment.md)
+* [CI/CD per LUIS](./luis/luis-concept-devops-automation.md)
 
 ## <a name="on-prem-containers"></a>Contenitori locali 
 
@@ -150,4 +150,4 @@ Molti servizi cognitivi possono essere distribuiti in contenitori per l'accesso 
 ## <a name="next-steps"></a>Passaggi successivi
 <!--
 * Learn more about low code development options for Cognitive Services -->
-* [Creare una risorsa Servizi cognitivi e iniziare a compilare](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Clinux)
+* [Creare una risorsa Servizi cognitivi e iniziare a compilare](./cognitive-services-apis-create-account.md?tabs=multiservice%252clinux)

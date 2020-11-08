@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: maheshb
-ms.openlocfilehash: 02baea817f2647f056131aa654afb129549a1e4e
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: aba990914ea193a7246a24b1502522f6144a0a9c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93080975"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367591"
 ---
 # <a name="configure-your-custom-autosuggest-experience"></a>Configurare l'esperienza di Suggerimenti automatici personalizzati
 
@@ -28,7 +28,7 @@ I suggerimenti automatici personalizzati restituiscono un elenco di stringhe di 
 
 È possibile specificare di restituire solo i suggerimenti personalizzati o di includere anche i suggerimenti di Bing. Se si includono i suggerimenti di Bing, questi vengono visualizzati dopo i suggerimenti personalizzati. Se si specifica un numero sufficiente di suggerimenti rilevanti, è possibile che l'elenco di suggerimenti restituito non includa i suggerimenti di Bing. I suggerimenti di Bing sono sempre nel contesto dell'istanza di Ricerca personalizzata. 
 
-Per configurare i suggerimenti per le query di ricerca per l'istanza, fare clic sulla scheda **Suggerimenti automatici** .  
+Per configurare i suggerimenti per le query di ricerca per l'istanza, fare clic sulla scheda **Suggerimenti automatici**.  
 
 > [!NOTE]
 > Per usare questa funzionalità, è necessaria la sottoscrizione di Ricerca personalizzata al livello appropriato (vedere [Prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/)).
@@ -93,6 +93,6 @@ Se l'utente seleziona una stringa di query suggerita nell'elenco a discesa, usar
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ottenere suggerimenti personalizzati](./get-custom-suggestions.md)
+- [Ottenere suggerimenti personalizzati]()
 - [Effettuare ricerche mediante l'istanza personalizzata](./search-your-custom-view.md)
 - [Configurare e utilizzare l'interfaccia utente ospitata personalizzata](./hosted-ui.md)

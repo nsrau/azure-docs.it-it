@@ -9,17 +9,17 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/17/2020
 ms.author: swmachan
-ms.openlocfilehash: d8713d20503dc788175a408f5ec652505090396e
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 1765aaed3c0562da13c539845bfe19f6f85ed4ef
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510828"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369019"
 ---
 # <a name="what-are-trainings-and-models"></a>Cosa sono i training e i modelli?
 
 Un modello è il sistema, che fornisce una traduzione per una coppia di lingue specifiche.
-Il risultato di un training riuscito è un modello. Quando si esegue il training di un modello, sono necessari tre tipi di documento che si escludono a vicenda: training, ottimizzazione e test. È anche possibile specificare il tipo di documento del dizionario. Vedere allineamento delle [frasi](https://docs.microsoft.com/azure/cognitive-services/translator/custom-translator/sentence-alignment#suggested-minimum-number-of-sentences).
+Il risultato di un training riuscito è un modello. Quando si esegue il training di un modello, sono necessari tre tipi di documento che si escludono a vicenda: training, ottimizzazione e test. È anche possibile specificare il tipo di documento del dizionario. Vedere allineamento delle [frasi](./sentence-alignment.md#suggested-minimum-number-of-sentences).
 
 Se vengono forniti solo i dati di training durante l'accodamento di un training, il convertitore personalizzato assembla automaticamente i dati di ottimizzazione e test. Utilizzerà un subset casuale di frasi dei documenti di training ed escluderà tali frasi dai dati di training.
 

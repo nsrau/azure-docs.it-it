@@ -7,18 +7,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 08/22/2019
-ms.openlocfilehash: 0b034d0135c66852b07e0a2ed2fd69e8c3fdc4a6
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 96cca89b1206aaa7890648def694074a18b2aa17
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "87132841"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368866"
 ---
 # <a name="cognitive-services-and-machine-learning"></a>Servizi cognitivi e Machine Learning
 
 Servizi cognitivi fornisce funzionalità di machine learning per risolvere i problemi generali, ad esempio l'analisi del testo per i sentimenti emotivi o l'analisi delle immagini per riconoscere oggetti o visi. Per usare questi servizi, non è necessario avere conoscenze specifiche di Machine Learning o data science. 
 
-[Servizi cognitivi](welcome.md) è un gruppo di servizi, ognuno dei quali supporta funzionalità di stima generalizzate diverse. I servizi sono divisi in categorie diverse che consentono di trovare il servizio corretto. 
+[Servizi cognitivi](./what-are-cognitive-services.md) è un gruppo di servizi, ognuno dei quali supporta funzionalità di stima generalizzate diverse. I servizi sono divisi in categorie diverse che consentono di trovare il servizio corretto. 
 
 |Categoria servizio|Scopo|
 |--|--|
@@ -38,13 +38,13 @@ Usare un'altra soluzione di apprendimento automatico quando si:
 
 * È necessario scegliere l'algoritmo ed è necessario eseguire il training su dati molto specifici.
 
-## <a name="what-is-machine-learning"></a>Che cos'è Machine Learning?
+## <a name="what-is-machine-learning"></a>Che cos'è l'apprendimento automatico?
 
 Machine Learning è un concetto in cui è possibile riunire i dati e un algoritmo per risolvere una necessità specifica. Una volta sottoposto a training i dati e l'algoritmo, l'output è un modello che è possibile utilizzare di nuovo con dati diversi. Il modello con training fornisce informazioni dettagliate in base ai nuovi dati. 
 
 Il processo di creazione di un sistema di apprendimento automatico richiede una certa conoscenza di Machine Learning o data science.
 
-Machine Learning viene fornito usando i [prodotti e i servizi Azure Machine Learning (AML)](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context).
+Machine Learning viene fornito usando i [prodotti e i servizi Azure Machine Learning (AML)](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure%252fmachine-learning%252fstudio%252fcontext%252fml-context).
 
 ## <a name="what-is-a-cognitive-service"></a>Che cos'è un servizio cognitivo?
 
@@ -91,9 +91,9 @@ I dati seguenti categorizzano ogni servizio in base al tipo di dati che consente
 |--|--|--|--|
 |[Rilevamento anomalie](./Anomaly-Detector/overview.md)|x|x|x|
 |Ricerca Bing |x|||
-|[Visione artificiale](./Computer-vision/Home.md)|x|||
+|[Visione artificiale](./computer-vision/overview.md)|x|||
 |[Content Moderator](./Content-Moderator/overview.md)|x||x|
-|[Visione personalizzata](./Custom-Vision-Service/home.md)||x||
+|[Visione personalizzata](./custom-vision-service/overview.md)||x||
 |[Viso](./Face/Overview.md)|x|x||
 |[Riconoscimento modulo](./form-recognizer/overview.md)||x||
 |[Strumento di lettura immersiva](./immersive-reader/overview.md)|x|||
@@ -101,7 +101,7 @@ I dati seguenti categorizzano ogni servizio in base al tipo di dati che consente
 |[Language Understanding (LUIS)](./LUIS/what-is-luis.md)||x||
 |[Personalizza esperienze](./personalizer/what-is-personalizer.md)|x*|x*|x|
 |[QnA Maker](./QnAMaker/Overview/overview.md)||x||
-|[Riconoscimento voce](./speaker-recognition/home.md)||x||
+|[Riconoscimento voce](./speech-service/speaker-recognition-overview.md)||x||
 |[Sintesi vocale (TTS)](speech-service/text-to-speech.md)|x|x||
 |[Riconoscimento vocale vocale (STT)](speech-service/speech-to-text.md)|x|x||
 |[Traduzione vocale](speech-service/speech-translation.md)|x|||
@@ -127,16 +127,16 @@ Servizi cognitivi che forniscono modelli esportati per altri strumenti di Machin
 
 |Servizio cognitivo|Informazioni sul modello|
 |--|--|
-|[Visione personalizzata](./custom-vision-service/home.md)|[Esportazione](./Custom-Vision-Service/export-model-python.md) per Tensorflow per Android, CoreML per IOS11, ONNX per Windows ml|
+|[Visione personalizzata](./custom-vision-service/overview.md)|[Esportazione](./Custom-Vision-Service/export-model-python.md) per Tensorflow per Android, CoreML per IOS11, ONNX per Windows ml|
 
 ## <a name="learn-more"></a>Altre informazioni
 
-* [Guida all'architettura: quali sono i prodotti di Machine Learning in Microsoft?](https://docs.microsoft.com/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
+* [Guida all'architettura: quali sono i prodotti di Machine Learning in Microsoft?](/azure/architecture/data-guide/technology-choices/data-science-and-machine-learning)
 * [Machine Learning: Introduzione a Deep Learning e Machine Learning](../machine-learning/concept-deep-learning-vs-machine-learning.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Creare l'account del servizio cognitivo nell' [portale di Azure](cognitive-services-apis-create-account.md) o con l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli).
+* Creare l'account del servizio cognitivo nell' [portale di Azure](cognitive-services-apis-create-account.md) o con l'interfaccia della riga di comando di [Azure](./cognitive-services-apis-create-account-cli.md).
 * Informazioni su come eseguire l' [autenticazione](authentication.md) a un servizio cognitivo.
 * Usare la [registrazione diagnostica](diagnostic-logging.md) per l'identificazione e il debug dei problemi. 
 * Distribuire un servizio cognitivo in un [contenitore](cognitive-services-container-support.md)docker.

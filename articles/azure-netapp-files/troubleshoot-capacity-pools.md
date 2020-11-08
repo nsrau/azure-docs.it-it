@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 11/06/2020
 ms.author: b-juche
-ms.openlocfilehash: ff1899fbc89ab4a78bf793a133a7aa9a8f03dd2a
-ms.sourcegitcommit: 2a8a53e5438596f99537f7279619258e9ecb357a
+ms.openlocfilehash: c6194469837997108964feda82d406c9108641b9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94337560"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369240"
 ---
 # <a name="troubleshoot-capacity-pool-issues"></a>Risolvere i problemi relativi ai pool di capacità
 
@@ -34,6 +34,10 @@ Questo articolo descrive le soluzioni ai problemi che potrebbero verificarsi dur
 | Creazione o modifica del volume non riuscita con `Requested throughput not available` errore | La velocità effettiva disponibile per un volume è determinata dalle dimensioni del pool di capacità e dal livello di servizio. Se la velocità effettiva non è sufficiente, è necessario aumentare le dimensioni del pool o regolare la velocità effettiva del volume esistente. | 
 
 ## <a name="issues-moving-a-capacity-pool"></a>Problemi di trasferimento di un pool di capacità 
+
+> [!IMPORTANT] 
+> Il [modificare dinamicamente il livello di servizio di una registrazione di](dynamic-change-volume-service-level.md) anteprima pubblica del volume è in attesa fino a un ulteriore avviso.
+
 |     Condizione di errore    |     Soluzione    |
 |-|-|
 | La modifica del pool di capacità per un volume non è consentita. | L'utente potrebbe non essere ancora autorizzato a usare questa funzionalità. <br> La funzionalità per spostare un volume in un altro pool di capacità è attualmente in fase di anteprima. Se si utilizza questa funzionalità per la prima volta, è necessario prima registrare la funzionalità e impostare `-FeatureName ANFTierChange` . Vedere la procedura di registrazione in [modificare dinamicamente il livello di servizio di un volume](dynamic-change-volume-service-level.md). |

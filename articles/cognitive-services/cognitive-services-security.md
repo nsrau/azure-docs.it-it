@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: erhopf
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
-ms.openlocfilehash: ceaa04fdf8776d4fab1db4cfb1b3df4298f28de9
-ms.sourcegitcommit: dbe434f45f9d0f9d298076bf8c08672ceca416c6
+ms.openlocfilehash: f14ac72443dedc8e33e607a82b2145c7ebf95ad2
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/17/2020
-ms.locfileid: "92152285"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368781"
 ---
 # <a name="azure-cognitive-services-security"></a>Sicurezza dei servizi cognitivi di Azure
 
@@ -60,7 +60,7 @@ Creare e assegnare la variabile di ambiente permanente, dato il valore.
 setx ENVIRONMENT_VARIABLE_KEY="value"
 ```
 
-In una nuova istanza del **prompt dei comandi**leggere la variabile di ambiente.
+In una nuova istanza del **prompt dei comandi** leggere la variabile di ambiente.
 
 ```CMD
 :: Prints the env var value
@@ -76,7 +76,7 @@ Creare e assegnare la variabile di ambiente permanente, dato il valore.
 [System.Environment]::SetEnvironmentVariable('ENVIRONMENT_VARIABLE_KEY', 'value', 'User')
 ```
 
-In una nuova istanza di **Windows PowerShell**, leggere la variabile di ambiente.
+In una nuova istanza di **Windows PowerShell** , leggere la variabile di ambiente.
 
 ```powershell
 # Prints the env var value
@@ -92,7 +92,7 @@ Creare e assegnare la variabile di ambiente permanente, dato il valore.
 echo export ENVIRONMENT_VARIABLE_KEY="value" >> /etc/environment && source /etc/environment
 ```
 
-In una nuova istanza di **bash**leggere la variabile di ambiente.
+In una nuova istanza di **bash** leggere la variabile di ambiente.
 
 ```Bash
 # Prints the env var value
@@ -113,7 +113,7 @@ Per ottenere una variabile di ambiente, è necessario leggerla in memoria. A sec
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank"> `Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://docs.microsoft.com/dotnet/api/system.environment.getenvironmentvariable" target="_blank">`Environment.GetEnvironmentVariable` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```csharp
 using static System.Environment;
@@ -132,7 +132,7 @@ class Program
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank"> `getenv` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://docs.microsoft.com/cpp/c-runtime-library/reference/getenv-wgetenv" target="_blank">`getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```cpp
 #include <stdlib.h>
@@ -147,7 +147,7 @@ int main()
 
 # <a name="java"></a>[Java](#tab/java)
 
-Per ulteriori informazioni, vedere <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank"> `System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/System.html#getenv(java.lang.String)" target="_blank">`System.getenv` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```java
 import java.lang.*;
@@ -164,7 +164,7 @@ public class Program {
 
 # <a name="nodejs"></a>[Node.js](#tab/node-js)
 
-Per ulteriori informazioni, vedere <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank"> `process.env` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://nodejs.org/api/process.html#process_process_env" target="_blank">`process.env` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```javascript
 // Get the named env var, and assign it to the value variable
@@ -174,7 +174,7 @@ const value =
 
 # <a name="python"></a>[Python](#tab/python)
 
-Per ulteriori informazioni, vedere <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank"> `os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://docs.python.org/2/library/os.html#os.environ" target="_blank">`os.environ` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```python
 import os
@@ -185,7 +185,7 @@ value = os.environ['ENVIRONMENT_VARIABLE_KEY']
 
 # <a name="objective-c"></a>[Objective-C](#tab/objective-c)
 
-Per ulteriori informazioni, vedere <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank"> `environment` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://developer.apple.com/documentation/foundation/nsprocessinfo/1417911-environment?language=objc" target="_blank">`environment` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```objectivec
 // Get the named env var, and assign it to the value variable
@@ -201,7 +201,7 @@ NSString* value =
 
 Customer Lockbox è disponibile per questo servizio cognitivo:
 
-* Traduttore
+* Funzione di conversione
 
 Per i servizi seguenti, i tecnici Microsoft non accederanno ai dati dei clienti nel livello E0: 
 
@@ -211,7 +211,7 @@ Per i servizi seguenti, i tecnici Microsoft non accederanno ai dati dei clienti 
 * Personalizza esperienze
 
 > [!IMPORTANT]
-> Per il **riconoscimento dei moduli**, i tecnici Microsoft non accederanno ai dati dei clienti nelle risorse create dopo il 10 luglio 2020.
+> Per il **riconoscimento dei moduli** , i tecnici Microsoft non accederanno ai dati dei clienti nelle risorse create dopo il 10 luglio 2020.
 
 Per richiedere la possibilità di usare lo SKU E0, compilare e inviare il [modulo di richiesta](https://aka.ms/cogsvc-cmk). Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvata l'uso dello SKU di E0 con LUIS, sarà necessario creare una nuova risorsa dal portale di Azure e selezionare E0 come piano tariffario. Gli utenti non saranno in grado di eseguire l'aggiornamento da F0 al nuovo SKU di E0.
 
@@ -222,5 +222,5 @@ Il servizio di riconoscimento vocale attualmente non supporta Customer Lockbox. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esplora i vari [Servizi cognitivi](welcome.md)
+* Esplora i vari [Servizi cognitivi](./what-are-cognitive-services.md)
 * Altre informazioni sulle [reti virtuali di servizi cognitivi](cognitive-services-virtual-networks.md)

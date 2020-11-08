@@ -10,12 +10,12 @@ ms.subservice: immersive-reader
 ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: rwaller
-ms.openlocfilehash: 9dcbfa8234aea2c558df107fc919dc74f7b4f39a
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b012da0b2aea4a50002e9adbc0876396ddd4b5e7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91324502"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368730"
 ---
 # <a name="create-an-immersive-reader-resource-and-configure-azure-active-directory-authentication"></a>Creare una risorsa Reader immersiva e configurare l'autenticazione Azure Active Directory
 
@@ -29,7 +29,7 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
 
 ## <a name="set-up-powershell-environment"></a>Configurare l'ambiente PowerShell
 
-1. Per iniziare, aprire il [Azure cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview). Assicurarsi che Cloud Shell sia impostato su PowerShell nell'elenco a discesa in alto a sinistra o digitando `pwsh` .
+1. Per iniziare, aprire il [Azure cloud Shell](../../cloud-shell/overview.md). Assicurarsi che Cloud Shell sia impostato su PowerShell nell'elenco a discesa in alto a sinistra o digitando `pwsh` .
 
 1. Copiare e incollare il frammento di codice seguente nella shell.
 
@@ -170,7 +170,7 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
     | ResourceGroupName |Le risorse vengono create in gruppi di risorse all'interno delle sottoscrizioni. Specificare il nome di un gruppo di risorse esistente. Se il gruppo di risorse non esiste già, ne verrà creato uno nuovo con questo nome. |
     | ResourceGroupLocation |Se il gruppo di risorse non esiste, è necessario specificare un percorso in cui creare il gruppo. Per trovare un elenco di percorsi, eseguire `az account list-locations` . Usare la proprietà *Name* (senza spazi) del risultato restituito. Questo parametro è facoltativo se il gruppo di risorse esiste già. |
     | AADAppDisplayName |Nome visualizzato dell'applicazione Azure Active Directory. Se non viene trovata un'applicazione Azure AD esistente, ne verrà creato uno nuovo con questo nome. Questo parametro è facoltativo se l'applicazione Azure AD esiste già. |
-    | AADAppIdentifierUri |URI per l'app Azure AD. Se non viene trovata alcuna app Azure AD esistente, ne verrà creata una nuova con questo URI. Ad esempio: `https://immersivereaderaad-mycompany`. |
+    | AADAppIdentifierUri |URI per l'app Azure AD. Se non viene trovata alcuna app Azure AD esistente, ne verrà creata una nuova con questo URI. Ad esempio, `https://immersivereaderaad-mycompany` |
     | AADAppClientSecret |Password creata che verrà usata in seguito per eseguire l'autenticazione quando si acquisisce un token per avviare il lettore immersivo. La password deve avere una lunghezza di almeno 16 caratteri, contenere almeno un carattere speciale e contenere almeno un carattere numerico. Per gestire i segreti del client dell'applicazione Azure AD dopo la creazione di questa risorsa https://portal.azure.com , visitare il sito e passare a Home-> Azure Active Directory-> registrazioni per l'app-> `[AADAppDisplayName]` -> i certificati e i segreti > sezione dei segreti client (come illustrato nella schermata "gestire i segreti dell'applicazione Azure ad" di seguito). |
     | AADAppClientSecretExpiration |Data o data/ora dopo la quale `[AADAppClientSecret]` scadrà (ad esempio,' 2020-12-31T11:59:59 + 00:00' o ' 2020-12-31'). |
 
@@ -196,7 +196,3 @@ Lo script è progettato per essere flessibile. In questo modo, si cercherà prim
 * Visualizzare l'[esercitazione per iOS](./tutorial-ios.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Swift per iOS
 * Visualizzare l'[esercitazione per Python](./tutorial-python.md) per scoprire quali altre attività è possibile eseguire con Immersive Reader SDK usando Python
 * Esplorare [Immersive Reader SDK](https://github.com/microsoft/immersive-reader-sdk) e le [informazioni di riferimento su Immersive Reader SDK](./reference.md)
-
-
-
-

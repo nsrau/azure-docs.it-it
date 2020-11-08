@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/07/2020
 ms.author: aahi
-ms.openlocfilehash: d320fcd0b7f9666da39dd1208efd9cdec04ad6b5
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: f79cfce514b81c5829ee7791c18e24d3bc6563b5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91843142"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369376"
 ---
 # <a name="configure-azure-cognitive-services-virtual-networks"></a>Configurare reti virtuali di Servizi cognitivi di Azure
 
@@ -75,7 +75,7 @@ Per impostazione predefinita, le risorse di servizi cognitivi accettano connessi
 
 È possibile gestire le regole di accesso alla rete predefinite per le risorse di servizi cognitivi tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Passare alla risorsa Servizi cognitivi che si vuole proteggere.
 
@@ -154,7 +154,7 @@ Per impostazione predefinita, le risorse di servizi cognitivi accettano connessi
         --default-action Allow
     ```
 
-***
+**_
 
 ## <a name="grant-access-from-a-virtual-network"></a>Concedere l'accesso da una rete virtuale
 
@@ -166,7 +166,7 @@ Ogni risorsa di servizi cognitivi supporta fino a 100 regole della rete virtuale
 
 ### <a name="required-permissions"></a>Autorizzazioni necessarie
 
-Per applicare una regola della rete virtuale a una risorsa di servizi cognitivi, l'utente deve disporre delle autorizzazioni appropriate per le subnet da aggiungere. L'autorizzazione necessaria è il ruolo predefinito *collaboratore* o il ruolo *collaboratore Servizi cognitivi* . Le autorizzazioni necessarie possono essere aggiunte anche a definizioni di ruolo personalizzate.
+Per applicare una regola della rete virtuale a una risorsa di servizi cognitivi, l'utente deve disporre delle autorizzazioni appropriate per le subnet da aggiungere. L'autorizzazione necessaria è il ruolo predefinito _Contributor * o il ruolo *collaboratore Servizi cognitivi* . Le autorizzazioni necessarie possono essere aggiunte anche a definizioni di ruolo personalizzate.
 
 La risorsa Servizi cognitivi e le reti virtuali a cui è stato concesso l'accesso possono trovarsi in sottoscrizioni diverse, incluse le sottoscrizioni che fanno parte di un tenant di Azure AD diverso.
 
@@ -177,7 +177,7 @@ La risorsa Servizi cognitivi e le reti virtuali a cui è stato concesso l'access
 
 È possibile gestire le regole della rete virtuale per le risorse di servizi cognitivi tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Passare alla risorsa Servizi cognitivi che si vuole proteggere.
 
@@ -185,7 +185,7 @@ La risorsa Servizi cognitivi e le reti virtuali a cui è stato concesso l'access
 
 1. Verificare di aver scelto di consentire l'accesso da **Reti selezionate**.
 
-1. Per concedere l'accesso a una rete virtuale con una regola di rete esistente, in **reti virtuali**selezionare **Aggiungi rete virtuale esistente**.
+1. Per concedere l'accesso a una rete virtuale con una regola di rete esistente, in **reti virtuali** selezionare **Aggiungi rete virtuale esistente**.
 
    ![Aggiungi vNet esistente](media/vnet/virtual-network-add-existing.png)
 
@@ -322,10 +322,10 @@ La risorsa Servizi cognitivi e le reti virtuali a cui è stato concesso l'access
         --subnet $subnetid
     ```
 
-***
+**_
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su _ * Deny * * o che le regole di rete non abbiano effetto.
 
 ## <a name="grant-access-from-an-internet-ip-range"></a>Concedere l'accesso da un intervallo IP di Internet
 
@@ -353,7 +353,7 @@ Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md) in locale
 
 È possibile gestire le regole di rete IP per le risorse di servizi cognitivi tramite il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 1. Passare alla risorsa Servizi cognitivi che si vuole proteggere.
 
@@ -472,10 +472,10 @@ Se si usa [ExpressRoute](../expressroute/expressroute-introduction.md) in locale
         --ip-address "16.17.18.0/24"
     ```
 
-***
+**_
 
 > [!IMPORTANT]
-> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su **Nega**. In caso contrario le regole di rete non hanno alcun effetto.
+> Assicurarsi di [impostare la regola predefinita](#change-the-default-network-access-rule) su _ * Deny * * o che le regole di rete non abbiano effetto.
 
 ## <a name="use-private-endpoints"></a>Usare endpoint privati
 
@@ -497,7 +497,7 @@ Gli endpoint privati possono essere creati in subnet che usano gli [endpoint del
 
 Quando si crea un endpoint privato per una risorsa di servizi cognitivi in VNet, viene inviata una richiesta di consenso per l'approvazione al proprietario della risorsa Servizi cognitivi. Se l'utente che richiede la creazione dell'endpoint privato è anche un proprietario della risorsa, questa richiesta di consenso viene approvata automaticamente.
 
-I proprietari delle risorse di servizi cognitivi possono gestire le richieste di consenso e gli endpoint privati, tramite la scheda "*endpoint privati*" per la risorsa Servizi cognitivi nella [portale di Azure](https://portal.azure.com).
+I proprietari delle risorse di servizi cognitivi possono gestire le richieste di consenso e gli endpoint privati, tramite la scheda " *endpoint privati* " per la risorsa Servizi cognitivi nella [portale di Azure](https://portal.azure.com).
 
 ### <a name="private-endpoints"></a>Endpoint privati
 
@@ -519,7 +519,7 @@ Quando si usano endpoint privati con il servizio riconoscimento vocale, è neces
 
 ### <a name="dns-changes-for-private-endpoints"></a>Modifiche DNS per gli endpoint privati
 
-Quando si crea un endpoint privato, il record di risorse DNS CNAME per la risorsa Servizi cognitivi viene aggiornato a un alias in un sottodominio con il prefisso '*privatelink*'. Per impostazione predefinita, si crea anche una [zona DNS privata](../dns/private-dns-overview.md), che corrisponde al sottodominio "*privatelink*", con i record di risorse DNS a per gli endpoint privati.
+Quando si crea un endpoint privato, il record di risorse DNS CNAME per la risorsa Servizi cognitivi viene aggiornato a un alias in un sottodominio con il prefisso ' *privatelink* '. Per impostazione predefinita, si crea anche una [zona DNS privata](../dns/private-dns-overview.md), che corrisponde al sottodominio " *privatelink* ", con i record di risorse DNS a per gli endpoint privati.
 
 Quando si risolve l'URL dell'endpoint dall'esterno del VNet con l'endpoint privato, questo viene risolto nell'endpoint pubblico della risorsa Servizi cognitivi. Quando viene risolto da VNet che ospita l'endpoint privato, l'URL dell'endpoint viene risolto nell'indirizzo IP dell'endpoint privato.
 
@@ -532,8 +532,8 @@ Se si usa un server DNS personalizzato nella rete, i client devono essere in gra
 
 Per ulteriori informazioni sulla configurazione del server DNS per supportare endpoint privati, fare riferimento agli articoli seguenti:
 
-* [Risoluzione dei nomi per le risorse in reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances#name-resolution-that-uses-your-own-dns-server)
-* [Configurazione DNS per endpoint privati](https://docs.microsoft.com/azure/private-link/private-endpoint-overview#dns-configuration)
+* [Risoluzione dei nomi per le risorse in reti virtuali di Azure](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)
+* [Configurazione DNS per endpoint privati](../private-link/private-endpoint-overview.md#dns-configuration)
 
 ### <a name="pricing"></a>Prezzi
 
@@ -541,5 +541,5 @@ Per informazioni dettagliate sui prezzi, vedere [Prezzi di Collegamento privato 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Esplorare i vari [Servizi cognitivi di Azure](welcome.md)
+* Esplorare i vari [Servizi cognitivi di Azure](./what-are-cognitive-services.md)
 * Altre informazioni sugli [endpoint del servizio rete virtuale di Azure](../virtual-network/virtual-network-service-endpoints-overview.md)

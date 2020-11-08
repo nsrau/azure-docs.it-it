@@ -9,12 +9,12 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: 184073ef3ee1b6a67c844754f7da81f88bbbdf62
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: e556ca2051fd75eb9bf6411c5479e63554606d48
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91757028"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368339"
 ---
 # <a name="how-to-manage-settings"></a>Come gestire le impostazioni
 
@@ -33,7 +33,7 @@ Per eseguire il training o la distribuzione di modelli, è necessario disporre d
 
 Se non è disponibile una sottoscrizione, seguire questa procedura:
 
-1. Sottoscrizione per la creazione di una risorsa di conversione. Seguire le [indicazioni per iscriversi a Translator](https://docs.microsoft.com/azure/cognitive-services/translator/translator-how-to-signup) per sottoscrivere e acquisire una chiave di conversione.
+1. Sottoscrizione per la creazione di una risorsa di conversione. Seguire le [indicazioni per iscriversi a Translator](../translator-how-to-signup.md) per sottoscrivere e acquisire una chiave di conversione.
 2. Prendere nota della chiave per la sottoscrizione di Translator. Sono accettabili sia Key1 che Key2.
 3. Tornare al portale di Custom Translator.
 
@@ -52,7 +52,7 @@ Se non è disponibile una sottoscrizione, seguire questa procedura:
     ![Finestra di dialogo per creare una nuova area di lavoro](media/how-to/create-new-workspace-dialog.png)
 
 >[!Note]
->Il convertitore personalizzato non supporta la creazione di un'area di lavoro per API Traduzione testuale risorsa (noto anche come Chiave della sottoscrizione di Azure creata all'interno di [VNET abilitato](https://docs.microsoft.com/azure/api-management/api-management-using-with-vnet).
+>Il convertitore personalizzato non supporta la creazione di un'area di lavoro per API Traduzione testuale risorsa (noto anche come Chiave della sottoscrizione di Azure creata all'interno di [VNET abilitato](../../../api-management/api-management-using-with-vnet.md).
 
 ### <a name="modify-existing-key"></a>Modifica chiave esistente
 

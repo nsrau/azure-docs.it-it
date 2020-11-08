@@ -9,16 +9,16 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 07/24/2019
 ms.author: erhopf
-ms.openlocfilehash: c7dd916b27cd8005162c09f7e6a090293e336719
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 95f3de0fe26678f6b4bcd97a78c06e92b72a7135
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "83590639"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368815"
 ---
 # <a name="custom-subdomain-names-for-cognitive-services"></a>Nomi di sottodominio personalizzati per servizi cognitivi
 
-I servizi cognitivi di Azure usano nomi di sottodominio personalizzati per ogni risorsa creata tramite l'interfaccia della riga di comando di [portale di Azure](https://portal.azure.com), [Azure cloud Shell](https://azure.microsoft.com/features/cloud-shell/)o [Azure](https://docs.microsoft.com/cli/azure/install-azure-cli). Diversamente dagli endpoint internazionali, che erano comuni per tutti i clienti in una specifica area di Azure, i nomi di sottodominio personalizzati sono univoci per la risorsa. I nomi di sottodominio personalizzati sono necessari per abilitare funzionalità come Azure Active Directory (Azure AD) per l'autenticazione.
+I servizi cognitivi di Azure usano nomi di sottodominio personalizzati per ogni risorsa creata tramite l'interfaccia della riga di comando di [portale di Azure](https://portal.azure.com), [Azure cloud Shell](https://azure.microsoft.com/features/cloud-shell/)o [Azure](/cli/azure/install-azure-cli). Diversamente dagli endpoint internazionali, che erano comuni per tutti i clienti in una specifica area di Azure, i nomi di sottodominio personalizzati sono univoci per la risorsa. I nomi di sottodominio personalizzati sono necessari per abilitare funzionalità come Azure Active Directory (Azure AD) per l'autenticazione.
 
 ## <a name="how-does-this-impact-existing-resources"></a>In che modo questo influisca sulle risorse esistenti?
 
@@ -98,5 +98,5 @@ Sì. Questo è un elenco di endpoint internazionali che è possibile usare con l
 
 ## <a name="see-also"></a>Vedere anche
 
-* [Che cosa sono i servizi cognitivi?](Welcome.md)
+* [Che cosa sono i servizi cognitivi?](./what-are-cognitive-services.md)
 * [autenticazione](authentication.md)

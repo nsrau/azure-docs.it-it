@@ -9,18 +9,18 @@ ms.subservice: translator-text
 ms.date: 08/17/2020
 ms.author: swmachan
 ms.topic: conceptual
-ms.openlocfilehash: f4c3d23f6abbdc20d210e5ddda6c527d27654bb0
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 14ff76e090e628a880290bb0e9f90026260de0c7
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "88510760"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368985"
 ---
 # <a name="what-is-a-dictionary"></a>Cos’è un dizionario?
 
 Un dizionario è una coppia allineata di documenti che specifica un elenco di espressioni o frasi e le traduzioni corrispondenti. Utilizzare un dizionario per il training se si desidera che Microsoft Translator traduca sempre tutte le istanze delle espressioni o delle frasi con la traduzione indicata nel dizionario. I dizionari sono detti talvolta glossari o termbase. È possibile considerare il dizionario come un copia e incolla deciso di tutti i termini indicati. Inoltre, il servizio Microsoft Translator personalizzato consente di compilare e utilizzare i propri dizionari per scopi generici per migliorare la qualità della traduzione. Tuttavia, un dizionario fornito dal cliente assume la precedenza e verrà cercato prima di cercare parole o frasi.
 
-I dizionari funzionano solo per i progetti in coppie di linguaggi che hanno un modello di rete neurale Microsoft generale completamente supportato. [Visualizzare l'elenco completo delle lingue](https://docs.microsoft.com/azure/cognitive-services/translator/language-support#customization).
+I dizionari funzionano solo per i progetti in coppie di linguaggi che hanno un modello di rete neurale Microsoft generale completamente supportato. [Visualizzare l'elenco completo delle lingue](../language-support.md#customization).
 
 ## <a name="phrase-dictionary"></a>Dizionario di espressioni
 Il dizionario delle frasi distingue tra maiuscole e minuscole. Si tratta di un'operazione di ricerca e sostituzione esatta. Quando si include un dizionario di espressioni per il training sul modello, qualsiasi parola o epressione elencata viene tradotta nel modo specificato. Il resto della frase viene tradotto normalmente. È possibile utilizzare un dizionario di espressioni per specificare le espressioni che non devono essere tradotte, inserendo la stessa espressione non tradotta nel file con origine e destinazione del dizionario.

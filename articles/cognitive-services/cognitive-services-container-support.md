@@ -11,14 +11,14 @@ ms.topic: article
 ms.date: 10/22/2020
 ms.author: aahi
 keywords: locale, Docker, container, Kubernetes
-ms.openlocfilehash: e6a01192068617dcdb52e6160ffcf633d099bdf1
-ms.sourcegitcommit: 4cb89d880be26a2a4531fedcc59317471fe729cd
+ms.openlocfilehash: a59d9fb4fb15b361259a705a024b9bea975e8072
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92677453"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368849"
 ---
-# <a name="azure-cognitive-services-containers"></a>Contenitori dei servizi cognitivi di Azure
+# <a name="azure-cognitive-services-containers"></a>Contenitori di Servizi cognitivi di Azure
 
 > [!WARNING]
 > L'11 giugno 2020 Microsoft ha annunciato che non venderà la tecnologia di riconoscimento facciale ai dipartimenti di polizia degli Stati Uniti fino a quando non verranno adottate norme rigorose, che tengano conto dei diritti umani. Di conseguenza, i clienti non possono usare le funzionalità di riconoscimento facciale o le funzionalità incluse in Servizi di Azure, ad esempio Viso o Video Indexer, se il cliente è un dipartimento di polizia degli Stati Uniti o consente l'uso di tali servizi a tale dipartimento.
@@ -71,11 +71,11 @@ I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenito
 | [Analisi del testo][ta-containers-keyphrase] | F0, S | **Estrazione frasi chiave** ( [immagine](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Estrae le frasi chiave per identificare i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". |
 | [Analisi del testo][ta-containers-language] | F0, S | **Rilevamento lingua** ( [immagine](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Per un massimo di 120 lingue, rileva la lingua in cui è scritto il testo di input e crea un report relativo a un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. |
 | [Analisi del testo][ta-containers-sentiment] | F0, S | **Analisi del sentiment V3** ( [immagine](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analizza testo non elaborato per indicazioni su una valutazione positiva o negativa. Questa versione dell'analisi dei sentimenti restituisce le etichette del sentimento, ad esempio *positivo* o *negativo* , per ogni documento e frase al suo interno. |
-| [Analisi del testo][ta-containers-health] | F0, S | **Analisi del testo per l'integrità** | Estrarre ed etichettare le informazioni mediche da testo clinico non strutturato. |
+| [Analisi del testo][ta-containers-health] | F0, S | **Analisi del testo per la sanità** | Estrarre ed etichettare le informazioni mediche da testo clinico non strutturato. |
 | [Analisi spaziale][spa-containers] | S0 | **Analisi spaziale** | Analizza i video di streaming in tempo reale per comprendere le relazioni spaziali tra persone, lo spostamento e le interazioni con gli oggetti in ambienti fisici. |
 
 <!--
-|[Personalizer](https://go.microsoft.com/fwlink/?linkid=2083923&clcid=0x409) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
+|[Personalizer](./personalizer/what-is-personalizer.md) |F0, S0|**Personalizer** ([image](https://go.microsoft.com/fwlink/?linkid=2083928&clcid=0x409))|Azure Personalizer is a cloud-based API service that allows you to choose the best experience to show to your users, learning from their real-time behavior.|
 -->
 
 Inoltre, alcuni contenitori sono supportati in Servizi cognitivi [**All-in-One che offrono**](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) chiavi di risorsa. È possibile creare una sola risorsa all-in-One di servizi cognitivi e usare la stessa chiave di fatturazione tra i servizi supportati per i servizi seguenti:
@@ -132,7 +132,7 @@ Installare ed esplorare le funzionalità fornite dai contenitori in Servizi cogn
 [fr-containers]: form-recognizer/form-recognizer-container-howto.md
 [lu-containers]: luis/luis-container-howto.md
 [sp-containers]: speech-service/speech-container-howto.md
-[spa-containers]: https://docs.microsoft.com/azure/cognitive-services/computer-vision/spatial-analysis-container
+[spa-containers]: ./computer-vision/spatial-analysis-container.md
 [sp-containers-stt]: speech-service/speech-container-howto.md?tabs=stt
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts

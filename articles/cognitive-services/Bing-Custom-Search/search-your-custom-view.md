@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/03/2020
 ms.author: aahi
-ms.openlocfilehash: 38191c55afb87151b238069a75a6c86acd8904df
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a27f252f401d0fcf863391a0d45538b01b1141e9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93100542"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367285"
 ---
 # <a name="call-your-bing-custom-search-instance-from-the-portal"></a>Chiamare l'istanza di Ricerca personalizzata Bing dal portale
 
@@ -31,7 +31,7 @@ Dopo aver configurato l'esperienza di ricerca personalizzata, è possibile testa
 
 Dopo aver effettuato l'accesso al [portale](https://customsearch.ai)di ricerca personalizzata Bing, selezionare l'istanza di ricerca e fare clic sulla scheda **produzione** . In **endpoint** selezionare un endpoint API, ad esempio API Web. La sottoscrizione determina quali endpoint vengono visualizzati.
 
-Per creare una query di ricerca, immettere i valori dei parametri per l'endpoint. Si noti che i parametri visualizzati nel portale possono cambiare a seconda dell'endpoint scelto. Per ulteriori informazioni, vedere il [riferimento API ricerca personalizzata](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) . Per modificare la sottoscrizione utilizzata dall'istanza di ricerca, aggiungere la chiave di sottoscrizione appropriata e aggiornare i parametri di mercato e/o lingua appropriati.
+Per creare una query di ricerca, immettere i valori dei parametri per l'endpoint. Si noti che i parametri visualizzati nel portale possono cambiare a seconda dell'endpoint scelto. Per ulteriori informazioni, vedere il [riferimento API ricerca personalizzata](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) . Per modificare la sottoscrizione utilizzata dall'istanza di ricerca, aggiungere la chiave di sottoscrizione appropriata e aggiornare i parametri di mercato e/o lingua appropriati.
 
 Alcuni parametri importanti sono i seguenti:
 
@@ -65,4 +65,4 @@ Dopo aver specificato tutte le opzioni necessarie, fare clic su **Call** per vis
 - [Richiamare la visualizzazione personalizzata con NodeJs](./call-endpoint-nodejs.md)
 - [Richiamare la visualizzazione personalizzata con Python](./call-endpoint-python.md)
 
-- [Richiamare la visualizzazione personalizzata con C#](./sdk-csharp-quick-start.md)
+- [Richiamare la visualizzazione personalizzata con C#](./quickstarts/client-libraries.md?pivots=programming-language-csharp%253fpivots%253dprogramming-language-csharp)

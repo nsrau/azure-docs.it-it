@@ -10,12 +10,12 @@ ms.subservice: bing-custom-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
-ms.openlocfilehash: 57edc16f4396e0fe71380d4f51fa9e0dcca1ef03
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 52819caeb833eb475c8ea2c476ef5ba27681a50c
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090818"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367557"
 ---
 # <a name="configure-your-bing-custom-search-experience"></a>Configurare un'esperienza API Ricerca personalizzata Bing
 
@@ -32,8 +32,8 @@ Quando si definiscono le sezioni Web, usare il comando seguente:
 
 | Nome della sezione | Descrizione                                                                                                                                                                                                                                                                                                |
 |------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Dominio     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio `www.microsoft.com`. Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Se, ad esempio, si specifica `microsoft.com` , Bing restituisce anche i risultati da `support.microsoft.com` o `technet.microsoft.com` . |
-| Pagina secondaria    | La sezione di una pagina secondaria include tutto il contenuto disponibile nella pagina secondaria e i relativi percorsi. È possibile specificare un massimo di due pagine secondarie nel percorso. Ad esempio, usare `www.microsoft.com/en-us/windows/`                                                                                                                       |
+| Dominio     | La sezione di un dominio include tutto il contenuto presente all'interno di un dominio Internet. Ad esempio, `www.microsoft.com` Se si omette `www.`, Bing eseguirà la ricerca anche all'interno dei sottodomini del dominio. Se, ad esempio, si specifica `microsoft.com` , Bing restituisce anche i risultati da `support.microsoft.com` o `technet.microsoft.com` . |
+| Pagina secondaria    | La sezione di una pagina secondaria include tutto il contenuto disponibile nella pagina secondaria e i relativi percorsi. È possibile specificare un massimo di due pagine secondarie nel percorso. Ad esempio: `www.microsoft.com/en-us/windows/`                                                                                                                       |
 | Pagina Web    | La sezione di una pagina Web può includere solo la pagina Web in una ricerca personalizzata. Facoltativamente, è possibile specificare se includere pagine secondarie.                                                                                                                                                                                  |
 
 > [!IMPORTANT]
@@ -79,16 +79,16 @@ Dopo l'aggiunta di Web Slice all'elenco **attivo** , il portale ricerca personal
 
 ## <a name="search-for-images-and-videos"></a>Eseguire la ricerca di immagini e video
 
-È possibile cercare immagini e video in modo analogo al contenuto Web usando l'[API Ricerca immagini personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) o l'[API Ricerca video personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). È possibile visualizzare questi risultati con [Interfaccia utente ospitata](hosted-ui.md), o con le API. 
+È possibile cercare immagini e video in modo analogo al contenuto Web usando l'[API Ricerca immagini personalizzata Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-images-api-v7-reference) o l'[API Ricerca video personalizzata Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-videos-api-v7-reference). È possibile visualizzare questi risultati con [Interfaccia utente ospitata](hosted-ui.md), o con le API. 
 
-Queste API sono simili alle API non-personalizzate [Ricerca immagini Bing](../Bing-Image-Search/overview.md) e [Ricerca video Bing](../Bing-Video-Search/search-the-web.md), ma effettuano la ricerca nell'intero Web e non richiedono il parametro di query `customConfig`. Consultare questi set di documentazione per altre informazioni sull'uso di immagini e video. 
+Queste API sono simili alle API non-personalizzate [Ricerca immagini Bing](../Bing-Image-Search/overview.md) e [Ricerca video Bing](../bing-video-search/overview.md), ma effettuano la ricerca nell'intero Web e non richiedono il parametro di query `customConfig`. Consultare questi set di documentazione per altre informazioni sull'uso di immagini e video. 
 
 ## <a name="test-your-search-instance-with-the-preview-pane"></a>Testare l'istanza di ricerca del riquadro di anteprima
 
 È possibile testare l'istanza di ricerca usando il riquadro di anteprima sul lato destro del portale per inviare le query di ricerca e visualizzare i risultati. 
 
-1. Sotto la casella di ricerca, selezionare **My Instance** (Istanza personale). È possibile confrontare i risultati della propria esperienza di ricerca con Bing, selezionando **Bing** . 
-2. Selezionare un filtro di ricerca sicura e il mercato in cui eseguire la ricerca. Vedere [Query Parameters](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) (Parametri di query).
+1. Sotto la casella di ricerca, selezionare **My Instance** (Istanza personale). È possibile confrontare i risultati della propria esperienza di ricerca con Bing, selezionando **Bing**. 
+2. Selezionare un filtro di ricerca sicura e il mercato in cui eseguire la ricerca. Vedere [Query Parameters](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters) (Parametri di query).
 3. Immettere una query e premere INVIO o fare clic sull'icona di ricerca per visualizzare i risultati dalla configurazione corrente. È possibile modificare il tipo di ricerca da eseguire facendo clic su **Web** , **Image** (Immagine), o **Video** per ottenere i risultati corrispondenti. 
 
 <a name="adjustrank"></a>
@@ -125,7 +125,7 @@ Il portale consente inoltre di aggiungere URL alla parte superiore dei risultati
 
 * Nella scheda **bloccata** immettere l'URL della pagina Web da aggiungere alla parte superiore e la query corrispondente.
 
-* Nel riquadro **Preview** (Anteprima) immettere un termine di query e fare clic sull'opzione di ricerca. Trovare la pagina Web che si vuole aggiungere per la query e fare clic su **Aggiungi alla parte superiore** . La pagina Web e la query verranno aggiunte all'elenco **Pinned** (Elementi aggiunti in alto).
+* Nel riquadro **Preview** (Anteprima) immettere un termine di query e fare clic sull'opzione di ricerca. Trovare la pagina Web che si vuole aggiungere per la query e fare clic su **Aggiungi alla parte superiore**. La pagina Web e la query verranno aggiunte all'elenco **Pinned** (Elementi aggiunti in alto).
 
 ### <a name="specify-the-pins-match-condition"></a>Indicare la condizione di corrispondenza dell'elemento aggiunto in alto
 
@@ -165,4 +165,4 @@ Se si è sottoscritto il livello appropriato di Ricerca personalizzata (vedere l
 - [Chiamare la ricerca personalizzata](./search-your-custom-view.md)
 - [Configurare l'esperienza dell'interfaccia utente ospitata](./hosted-ui.md)
 - [Usare indicatori di effetto per evidenziare il testo](../bing-web-search/hit-highlighting.md)
-- [Sfogliare le pagine Web](./page-webpages.md)
+- [Sfogliare le pagine Web](../bing-web-search/paging-search-results.md)

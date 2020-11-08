@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.author: erhopf
 ms.service: cognitive-services
 ms.date: 11/03/2020
-ms.openlocfilehash: 715b02eec7b499afdcffa5e1f31d388e8bc930e7
-ms.sourcegitcommit: 96918333d87f4029d4d6af7ac44635c833abb3da
+ms.openlocfilehash: 239a93c58edd1f02e5e34d974fdc864f3e1cf90f
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93305232"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369427"
 ---
 # <a name="cognitive-services-whats-new-in-docs-for-october-1-2020---october-31-2020"></a>Servizi cognitivi: novità di docs per il 1 ° ottobre 2020-31 ottobre 2020
 
-Benvenuti alle novità dei documenti di servizi cognitivi dal 1 ° ottobre 2020 al 31 ottobre 2020. Questo articolo elenca alcune delle principali modifiche apportate a docs durante questo periodo.
+Benvenuti alle novità dei documenti di servizi cognitivi dal 1 ° ottobre 2020 al 31 ottobre 2020. Questo articolo elenca alcune delle principali modifiche apportate alla documentazione durante questo periodo.
 
 ## <a name="cognitive-services"></a>Servizi cognitivi
 
@@ -34,39 +34,39 @@ Benvenuti alle novità dei documenti di servizi cognitivi dal 1 ° ottobre 2020 
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
-- [Usare Docker Compose per distribuire più contenitori](/azure/cognitive-services/containers/docker-compose-recipe.md)
+- [Usare Docker Compose per distribuire più contenitori](./containers/docker-compose-recipe.md)
 
 ## <a name="form-recognizer"></a>Riconoscimento modulo
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
-- [Novità di Riconoscimento modulo](/azure/cognitive-services/form-recognizer/whats-new.md)
+- [Novità di Riconoscimento modulo](./form-recognizer/whats-new.md)
 
 ## <a name="immersive-reader"></a>Strumento di lettura immersiva
 
 ### <a name="new-articles"></a>Nuovi articoli
 
-- [Note sulla versione di Reader immersive per JavaScript SDK](/azure/cognitive-services/immersive-reader/release-notes.md)
+- [Note sulla versione di Reader immersive per JavaScript SDK](./immersive-reader/release-notes.md)
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
-- [Come archiviare le preferenze utente](/azure/cognitive-services/immersive-reader/how-to-store-user-preferences.md)
-- [Guida di riferimento all'SDK per JavaScript immersive (v 1.1)](/azure/cognitive-services/immersive-reader/reference.md)
+- [Come archiviare le preferenze utente](./immersive-reader/how-to-store-user-preferences.md)
+- [Guida di riferimento all'SDK per JavaScript immersive (v 1.1)](./immersive-reader/reference.md)
 
 ## <a name="metrics-advisor"></a>Advisor metriche
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
-- [Aggiungere feed di dati da origini dati diverse a metrica Advisor](/azure/cognitive-services/metrics-advisor/data-feeds-from-different-sources.md)
-- [Domande frequenti su Metrics Advisor](/azure/cognitive-services/metrics-advisor/faq.md)
+- [Aggiungere feed di dati da origini dati diverse a metrica Advisor](./metrics-advisor/data-feeds-from-different-sources.md)
+- [Domande frequenti su Metrics Advisor](./metrics-advisor/faq.md)
 
-## <a name="text-analytics"></a>Analisi del testo
+## <a name="text-analytics"></a>Text Analytics
 
 ### <a name="updated-articles"></a>Articoli aggiornati
 
-- [Eseguire la migrazione alla versione 3. x del API Analisi del testo](/azure/cognitive-services/text-analytics/migration-guide.md)
-- [Come usare il riconoscimento delle entità denominate in Analisi del testo](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
-- [Procedura: Rilevare il sentiment con l'API REST Analisi del testo](/azure/cognitive-services/text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
+- [Eseguire la migrazione alla versione 3. x del API Analisi del testo](./text-analytics/migration-guide.md)
+- [Come usare il riconoscimento delle entità denominate in Analisi del testo](./text-analytics/how-tos/text-analytics-how-to-entity-linking.md)
+- [Procedura: Rilevare il sentiment con l'API REST Analisi del testo](./text-analytics/how-tos/text-analytics-how-to-sentiment-analysis.md)
 
 ## <a name="community-contributors"></a>Collaboratori della community
 

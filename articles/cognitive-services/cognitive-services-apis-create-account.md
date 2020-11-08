@@ -10,18 +10,18 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: aahi
-ms.openlocfilehash: cad20f589bb5a6d3e73481081d9fe532381ab647
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 3fd1d9e708a5f1a500440f20c2947ddfe4bc7460
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91827390"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94368917"
 ---
 # <a name="quickstart-create-a-cognitive-services-resource-using-the-azure-portal"></a>Guida introduttiva: creare una risorsa di servizi cognitivi usando il portale di Azure
 
 Usare questa Guida introduttiva per iniziare a usare servizi cognitivi di Azure. Dopo aver creato una risorsa di servizio cognitivo nella portale di Azure, si otterranno un endpoint e una chiave per autenticare le applicazioni.
 
-I servizi cognitivi di Azure sono servizi basati su cloud con le API REST e gli SDK della libreria client disponibili per aiutare gli sviluppatori a creare informazioni cognitive nelle applicazioni senza l'intelligenza artificiale diretta (AI) o data science competenze o conoscenze. I Servizi cognitivi di Azure consentono agli sviluppatori di aggiungere facilmente funzionalità cognitive alle applicazioni con soluzioni cognitive in grado di vedere, ascoltare, parlare, comprendere e persino di iniziare a ragionare.
+I Servizi cognitivi di Azure sono servizi basati sul cloud con API REST ed SDK delle librerie client che consentono agli sviluppatori di integrare l'intelligenza cognitiva nelle applicazioni senza la necessità di competenze o conoscenze dirette di intelligenza artificiale e data science. I Servizi cognitivi di Azure consentono agli sviluppatori di aggiungere facilmente funzionalità cognitive alle applicazioni con soluzioni cognitive in grado di vedere, ascoltare, parlare, comprendere e persino di iniziare a ragionare.
 
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
@@ -64,9 +64,9 @@ I servizi cognitivi di Azure sono servizi basati su cloud con le API REST e gli 
     | [Riconoscimento input penna](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesInkRecognizer)        |                         | [Analisi del testo](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics)                |  [Advisor metriche](https://go.microsoft.com/fwlink/?linkid=2142156)                    | [Controllo ortografico Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingSpellCheck-v7)   |
     |           |                         | [Translator](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextTranslation)               |                      | [Suggerimenti automatici Bing](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesBingAutosuggest-v7)                       |
 
-    ***
+    **_
 
-3. Nella pagina **Crea** specificare le informazioni seguenti:
+3. Nella pagina _ *Crea* * specificare le informazioni seguenti:
 
     #### <a name="multi-service-resource"></a>[Risorsa multi-servizio](#tab/multiservice)
 
@@ -96,13 +96,13 @@ I servizi cognitivi di Azure sono servizi basati su cloud con le API REST e gli 
 
     Fare clic su **Crea**.
 
-    ***
+    **_
 
 [!INCLUDE [Register Azure resource for subscription](./includes/register-resource-subscription.md)]
 
 ## <a name="get-the-keys-for-your-resource"></a>Ottenere le chiavi per la risorsa
 
-1. Dopo che la risorsa è stata distribuita correttamente, fare clic su **Vai alla risorsa** in **passaggi successivi**.
+1. Dopo che la risorsa è stata distribuita correttamente, fare clic su _ *Vai a risorsa* * in **passaggi successivi**.
 
     ![Cercare Servizi cognitivi](media/cognitive-services-apis-create-account/resource-next-steps.png)
 
@@ -123,7 +123,7 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 ## <a name="see-also"></a>Vedere anche
 
 * [Autenticare le richieste a Servizi cognitivi di Azure](authentication.md)
-* [Che cos'è la ricerca cognitiva di Azure?](Welcome.md)
+* [Che cos'è la ricerca cognitiva di Azure?](./what-are-cognitive-services.md)
 * [Creare una nuova risorsa usando la libreria client di gestione di Azure](.\cognitive-services-apis-create-account-client-library.md)
 * [Supporto del linguaggio naturale](language-support.md)
 * [Supporto di contenitori Docker](cognitive-services-container-support.md)

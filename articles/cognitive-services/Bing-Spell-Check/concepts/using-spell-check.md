@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 02/20/2019
 ms.author: aahi
-ms.openlocfilehash: ece9d191460323a917579c5a32cff429f52139fa
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: a02d5217cb051516e11d17730f31869618a2cfb0
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93098230"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369393"
 ---
 # <a name="using-the-bing-spell-check-api"></a>Uso dell'API Controllo ortografico Bing
 
@@ -49,14 +49,14 @@ L'opzione `Spell` è più aggressiva, in modo da restituire risultati della rice
 
 ## <a name="market-setting"></a>Impostazione relativa al mercato
 
-È necessario specificare un [codice di mercato](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#market-codes) con il parametro di query `mkt` nella richiesta, altrimenti l'API userà un mercato predefinito basato sull'indirizzo IP della richiesta.
+È necessario specificare un [codice di mercato](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#market-codes) con il parametro di query `mkt` nella richiesta, altrimenti l'API userà un mercato predefinito basato sull'indirizzo IP della richiesta.
 
 
 ## <a name="http-post-and-get-support"></a>Supporto di HTTP POST e HTTP GET
 
 L'API supporta HTTP POST o HTTP GET. L'opzione usata dipende dalla lunghezza del testo da sottoporre a controllo ortografico. Se le stringhe hanno lunghezza sempre inferiore a 1.500 caratteri, è consigliabile usare GET. Per supportare stringhe con lunghezza massina di 10.000 caratteri, è necessario usare POST. La stringa di testo può includere qualsiasi carattere UTF-8 valido.
 
-L'esempio seguente mostra una richiesta POST per il controllo dell'ortografia e della grammatica di una stringa di testo. L'esempio include il parametro di query [mode](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#mode) per motivi di completezza. È anche possibile non usarlo in questo caso, perché per `mode` viene usata per impostazione predefinita la modalità Proof. Il parametro di query [text](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text) contiene la stringa da sottoporre a controllo ortografico.
+L'esempio seguente mostra una richiesta POST per il controllo dell'ortografia e della grammatica di una stringa di testo. L'esempio include il parametro di query [mode](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#mode) per motivi di completezza. È anche possibile non usarlo in questo caso, perché per `mode` viene usata per impostazione predefinita la modalità Proof. Il parametro di query [text](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text) contiene la stringa da sottoporre a controllo ortografico.
   
 ```  
 POST https://api.cognitive.microsoft.com/bing/v7.0/spellcheck?mode=proof&mkt=en-us HTTP/1.1  
@@ -73,7 +73,7 @@ text=when+its+your+turn+turn,+john,+come+runing
 
 Se si usa HTTP GET, è necessario includere il parametro di query `text` nella stringa di query dell'URL
   
-Di seguito è riportata la risposta alla richiesta precedente. La risposta contiene un oggetto [SpellCheck](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#spellcheck). 
+Di seguito è riportata la risposta alla richiesta precedente. La risposta contiene un oggetto [SpellCheck](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#spellcheck). 
   
 ```json
 {  
@@ -117,7 +117,7 @@ Di seguito è riportata la risposta alla richiesta precedente. La risposta conti
 }  
 ```  
   
-Il campo [flaggedTokens](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#flaggedtokens) elenca gli errori di ortografia e di grammatica rilevati dall'API nella stringa [text](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text). Il campo `token` contiene la parola da sostituire. È necessario usare l'offset in base zero nel campo `offset` per trovare il token nella stringa `text`. Sostituire quindi la parola in tale posizione con la parola specificata nel campo `suggestion`. 
+Il campo [flaggedTokens](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#flaggedtokens) elenca gli errori di ortografia e di grammatica rilevati dall'API nella stringa [text](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference#text). Il campo `token` contiene la parola da sostituire. È necessario usare l'offset in base zero nel campo `offset` per trovare il token nella stringa `text`. Sostituire quindi la parola in tale posizione con la parola specificata nel campo `suggestion`. 
 
 Se il campo `type` è RepeatedToken, il token verrà comunque sostituito con `suggestion` ma è probabile che sia anche necessario rimuovere lo spazio finale.
 
@@ -128,4 +128,4 @@ Se il campo `type` è RepeatedToken, il token verrà comunque sostituito con `su
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Informazioni sull'API Controllo ortografico Bing](../overview.md)
-- [Informazioni di riferimento per l'API Controllo ortografico Bing v7](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)
+- [Informazioni di riferimento per l'API Controllo ortografico Bing v7](/rest/api/cognitiveservices-bingsearch/bing-spell-check-api-v7-reference)

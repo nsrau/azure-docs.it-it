@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: aahi
 ms.custom: devx-track-js
-ms.openlocfilehash: 0033f4919e4e4e5e56e4057e00c393ae7be1ca44
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: d5caa9b4168307bb27022b59415e43b37f30bf67
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93090563"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94367387"
 ---
 # <a name="configure-your-hosted-ui-experience"></a>Configurare l'esperienza dell'interfaccia utente ospitata
 
@@ -54,7 +54,7 @@ Per configurare un'interfaccia utente ospitata per le applicazioni Web, completa
 
 6. In **Additional Configurations** (Configurazioni aggiuntive) fornire i valori appropriati per l'app. Questa impostazioni sono facoltative. Per visualizzare l'effetto prodotto dalla selezione o deselezione di queste impostazioni, vedere il riquadro di anteprima a destra. Le opzioni di configurazione disponibili sono:  
 
-7. Immettere la chiave di sottoscrizione della ricerca o sceglierne una nell'elenco a discesa. L'elenco a discesa viene popolato con le chiavi presenti nelle sottoscrizioni degli account Azure. Vedere [Account API Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account).  
+7. Immettere la chiave di sottoscrizione della ricerca o sceglierne una nell'elenco a discesa. L'elenco a discesa viene popolato con le chiavi presenti nelle sottoscrizioni degli account Azure. Vedere [Account API Servizi cognitivi](../cognitive-services-apis-create-account.md).  
 
 8. Se sono stati abilitati i suggerimenti automatici, immettere la chiave di sottoscrizione dei suggerimenti automatici oppure sceglierne una nell'elenco a discesa. L'elenco a discesa viene popolato con le chiavi presenti nelle sottoscrizioni degli account Azure. I suggerimenti automatici personalizzati richiedono un livello di sottoscrizione specifico. Vedere la pagina dei [prezzi](https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/).
 
@@ -82,7 +82,7 @@ Per utilizzare l'interfaccia utente ospitata, eseguire una delle due operazioni 
   `https://ui.customsearch.ai/hosted?customConfig=YOUR-CUSTOM-CONFIG-ID`  
   
   > [!NOTE]
-  > Aggiungere i parametri di query seguenti all'URL nel modo necessario. Per altre informazioni su questi parametri, vedere [API Ricerca personalizzata Bing](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters).
+  > Aggiungere i parametri di query seguenti all'URL nel modo necessario. Per altre informazioni su questi parametri, vedere [API Ricerca personalizzata Bing](/rest/api/cognitiveservices-bingsearch/bing-custom-search-api-v7-reference#query-parameters).
   >
   > - q
   > - mkt
@@ -153,4 +153,4 @@ Le configurazioni seguenti si applicano solo se si usa l'interfaccia utente ospi
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Usare indicatori di effetto per evidenziare il testo](../bing-web-search/hit-highlighting.md)
-- [Sfogliare le pagine Web](./page-webpages.md)
+- [Sfogliare le pagine Web](../bing-web-search/paging-search-results.md)

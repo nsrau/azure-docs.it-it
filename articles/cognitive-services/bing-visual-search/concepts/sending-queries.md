@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: conceptual
 ms.date: 01/08/2019
 ms.author: aahi
-ms.openlocfilehash: 331b2ffde8d034ba94f5b1adcae5efa223f57594
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: e8a8b843345d21d38c11789b09003a4b82f768f5
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93095119"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94369495"
 ---
 # <a name="sending-search-queries-to-the-bing-visual-search-api"></a>Invio di query di ricerca all'API Ricerca visiva Bing
 
@@ -28,7 +28,7 @@ Questo articolo descrive i parametri e gli attributi delle richieste inviate all
 
 È possibile ottenere informazioni dettagliate su un'immagine in tre modi:
 
-- Uso di un token Insights ottenuto da un'immagine in una chiamata precedente a uno degli endpoint [API ricerca immagini Bing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference) .
+- Uso di un token Insights ottenuto da un'immagine in una chiamata precedente a uno degli endpoint [API ricerca immagini Bing](/rest/api/cognitiveservices/bing-images-api-v7-reference) .
 - Inviando l'URL di un'immagine
 - Caricamento di un'immagine (in formato binario).
 
@@ -109,7 +109,7 @@ Di seguito vengono indicate le intestazioni che la richiesta deve specificare. L
 
 ### <a name="content-form-types"></a>Tipi di formato per il contenuto
 
-Ogni richiesta deve includere l' `Content-Type` intestazione. L'intestazione deve essere impostata su: `multipart/form-data; boundary=\<boundary string\>` , dove \<boundary string\> è una stringa opaca univoca che identifica il limite dei dati del form. Ad esempio `boundary=boundary_1234-abcd`.
+Ogni richiesta deve includere l' `Content-Type` intestazione. L'intestazione deve essere impostata su: `multipart/form-data; boundary=\<boundary string\>` , dove \<boundary string\> è una stringa opaca univoca che identifica il limite dei dati del form. Ad esempio, `boundary=boundary_1234-abcd`
 
 Se si invia Ricerca visiva un token di immagine o un URL, il frammento di codice seguente mostra i dati del modulo che è necessario includere nel corpo del POST. I dati del modulo devono includere l' `Content-Disposition` intestazione ed è necessario impostare il relativo `name` parametro su "knowledgeRequest". Per informazioni dettagliate sull' `imageInfo` oggetto, vedere la richiesta.
 
