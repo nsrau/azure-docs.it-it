@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/12/2020
 ms.author: memildin
-ms.openlocfilehash: 38c5df6a05d327e0b057501846e70d1f3c6c4896
-ms.sourcegitcommit: 30505c01d43ef71dac08138a960903c2b53f2499
+ms.openlocfilehash: ed9c3c86336a7b0a2fe989cbe9bd0dd825c5575b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/15/2020
-ms.locfileid: "92091152"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372626"
 ---
 # <a name="protect-your-kubernetes-workloads"></a>Proteggere i carichi di lavoro Kubernetes
 
@@ -35,7 +35,7 @@ Il Centro sicurezza offre altre funzionalità di sicurezza del contenitore se si
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Anteprima|
+|Stato della versione:|Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prezzi:|Livello gratuito|
 |Autorizzazioni e ruoli obbligatori:|**Proprietario** o **amministratore della sicurezza** per modificare un'assegnazione<br>**Lettore** per visualizzare le raccomandazioni|
 |Cluster supportati:|Kubernetes v 1.14 (o versione successiva) è obbligatorio<br>Nessuna risorsa PodSecurityPolicy (modello PSP precedente) nei cluster<br>I nodi di Windows non sono supportati|
@@ -56,31 +56,31 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
         > [!TIP]
         > La raccomandazione è inclusa in cinque diversi controlli di sicurezza e non è importante selezionare il passaggio successivo.
 
-    1. Da uno dei controlli di sicurezza **, selezionare la**raccomandazione per visualizzare le risorse in cui è possibile installare il componente aggiuntivo e selezionare Correggi. 
+    1. Da uno dei controlli di sicurezza **, selezionare la** raccomandazione per visualizzare le risorse in cui è possibile installare il componente aggiuntivo e selezionare Correggi. 
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Raccomandazione * * il componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/recommendation-to-install-policy-add-on-for-kubernetes-details.png" alt-text="Pagina dei dettagli delle raccomandazioni per * * il componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster * *":::
 
 1. Circa 30 minuti dopo che l'installazione del componente aggiuntivo è stata completata, il Centro sicurezza Mostra lo stato di integrità dei cluster per le seguenti raccomandazioni, ciascuna nel controllo di sicurezza pertinente, come illustrato:
 
     > [!TIP]
-    > Alcune raccomandazioni includono parametri che devono essere personalizzati tramite criteri di Azure per usarli in modo efficace. Ad esempio, per trarre vantaggio dalla raccomandazione le **Immagini del contenitore devono essere distribuite solo da registri attendibili**, sarà necessario definire i registri attendibili.
+    > Alcune raccomandazioni includono parametri che devono essere personalizzati tramite criteri di Azure per usarli in modo efficace. Ad esempio, per trarre vantaggio dalla raccomandazione le **Immagini del contenitore devono essere distribuite solo da registri attendibili** , sarà necessario definire i registri attendibili.
     > 
     > Se non si immettono i parametri necessari per le raccomandazioni che richiedono la configurazione, i carichi di lavoro verranno visualizzati come non integri.
 
     | Nome raccomandazione                                                         | Controllo di sicurezza                         | Configurazione necessaria |
     |-----------------------------------------------------------------------------|------------------------------------------|------------------------|
-    | I limiti della CPU e della memoria del contenitore devono essere applicati                          | Proteggi le applicazioni da attacchi DDoS | No                     |
+    | È consigliabile applicare limiti per la CPU e la memoria dei contenitori                          | Proteggi le applicazioni da attacchi DDoS | No                     |
     | I contenitori con privilegi devono essere evitati                                     | Gestire l'accesso e le autorizzazioni            | No                     |
-    | È necessario applicare il file system radice non modificabile (di sola lettura) per i contenitori     | Gestire l'accesso e le autorizzazioni            | No                     |
-    | Evitare il contenitore con escalation dei privilegi                       | Gestire l'accesso e le autorizzazioni            | No                     |
-    | Evitare l'esecuzione di contenitori come utente root                           | Gestire l'accesso e le autorizzazioni            | No                     |
-    | È consigliabile evitare i contenitori che condividono spazi dei nomi host sensibili              | Gestire l'accesso e le autorizzazioni            | No                     |
+    | Per i contenitori deve essere imposto il file system radice non modificabile (di sola lettura)     | Gestire l'accesso e le autorizzazioni            | No                     |
+    | È consigliabile evitare i contenitori con escalation dei privilegi                       | Gestire l'accesso e le autorizzazioni            | No                     |
+    | È consigliabile evitare l'esecuzione di contenitori come utente radice                           | Gestire l'accesso e le autorizzazioni            | No                     |
+    | I contenitori che condividono spazi dei nomi host sensibili devono essere evitati              | Gestire l'accesso e le autorizzazioni            | No                     |
     | Per i contenitori è necessario applicare le funzionalità di Linux con privilegi minimi       | Gestire l'accesso e le autorizzazioni            | **Sì**                |
-    | L'utilizzo dei montaggi del volume Pod HostPath deve essere limitato a un elenco noto    | Gestire l'accesso e le autorizzazioni            | **Sì**                |
-    | I contenitori devono restare in ascolto solo sulle porte consentite                              | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
-    | I servizi devono restare in ascolto solo sulle porte consentite                                | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
-    | L'utilizzo della rete e delle porte dell'host deve essere limitato                     | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
-    | L'override o la disabilitazione del profilo AppArmor dei contenitori deve essere limitata | Correggere le configurazioni di sicurezza        | **Sì**                |
+    | L'utilizzo dei montaggi dei volumi HostPath dei pod deve essere limitato a un elenco noto    | Gestire l'accesso e le autorizzazioni            | **Sì**                |
+    | I contenitori devono essere in ascolto solo sulle porte consentite                              | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
+    | I servizi devono essere in ascolto solo sulle porte consentite                                | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
+    | L'utilizzo della rete host e delle porte deve essere limitato                     | Limitare l'accesso alla rete non autorizzato     | **Sì**                |
+    | La sovrascrittura o la disabilitazione del profilo AppArmor dei contenitori deve essere limitata | Correggere le configurazioni di sicurezza        | **Sì**                |
     | Le immagini del contenitore devono essere distribuite solo da registri attendibili            | Correggere le vulnerabilità                | **Sì**                |
 
 
@@ -97,9 +97,9 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
 
 1. Per applicare una qualsiasi delle raccomandazioni, 
 
-    1. Aprire la pagina dei dettagli delle raccomandazioni e selezionare **Nega**:
+    1. Aprire la pagina dei dettagli delle raccomandazioni e selezionare **Nega** :
 
-        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Raccomandazione * * il componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster * *":::
+        :::image type="content" source="./media/defender-for-kubernetes-usage/enforce-workload-protection-example.png" alt-text="Opzione Deny per il parametro di criteri di Azure":::
 
         Verrà aperto il riquadro in cui è stato impostato l'ambito. 
 
@@ -113,7 +113,7 @@ Il Centro sicurezza di Azure include un bundle di raccomandazioni disponibili qu
 
 1. Quando si visualizza una raccomandazione dal set di protezione del carico di lavoro, verrà visualizzato il numero di Pod interessati ("componenti Kubernetes") elencati insieme al cluster. Per un elenco di Pod specifici, selezionare il cluster e quindi fare clic su **azione**.
 
-    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Raccomandazione * * il componente aggiuntivo criteri di Azure per Kubernetes deve essere installato e abilitato nei cluster * *"::: 
+    :::image type="content" source="./media/defender-for-kubernetes-usage/view-affected-pods-for-recommendation.gif" alt-text="Visualizzazione dei Pod interessati per una raccomandazione K8s"::: 
 
 1. Per testare l'applicazione, usare le due distribuzioni di Kubernetes seguenti:
 

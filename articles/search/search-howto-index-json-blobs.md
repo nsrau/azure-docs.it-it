@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 09/25/2020
-ms.openlocfilehash: fd9117af49de9fe59ed614a9dfa730644f02cd8c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: d41146b01b6b81804cdba31fbbf2541ba7ae0f03
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91403637"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372377"
 ---
 # <a name="how-to-index-json-blobs-using-a-blob-indexer-in-azure-cognitive-search"></a>Come indicizzare i BLOB JSON usando un indicizzatore BLOB in Azure ricerca cognitiva
 
@@ -49,21 +49,21 @@ Nella pagina Panoramica del servizio di ricerca è possibile [avviare la procedu
 
 ### <a name="3---set-the-data-source"></a>3 - Impostare l'origine dati
 
-Nella pagina **Nuova origine dati** l'origine deve essere **Archivio BLOB di Azure**, con le specifiche seguenti:
+Nella pagina **Nuova origine dati** l'origine deve essere **Archivio BLOB di Azure** , con le specifiche seguenti:
 
 + **Dati da estrarre** deve essere impostato su *Contenuto e metadati*. La selezione di questa opzione consente alla procedura guidata di dedurre uno schema di indice e di eseguire il mapping dei campi per l'importazione.
    
-+ La **modalità di analisi** deve essere impostata su *JSON*, *matrici JSON* o *righe JSON*. 
++ La **modalità di analisi** deve essere impostata su *JSON* , *matrici JSON* o *righe JSON*. 
 
   *JSON* articola ogni BLOB come singolo documento di ricerca, che viene visualizzato come elemento indipendente nei risultati della ricerca. 
 
-  La *matrice JSON* è per i BLOB che contengono dati JSON ben formati, il JSON ben formato corrisponde a una matrice di oggetti o ha una proprietà che è una matrice di oggetti e si vuole che ogni elemento venga articolato come documento di ricerca autonomo e indipendente. Se in presenza di BLOB complessi non si seleziona *Matrice JSON*, l'intero BLOB viene inserito come un solo documento.
+  La *matrice JSON* è per i BLOB che contengono dati JSON ben formati, il JSON ben formato corrisponde a una matrice di oggetti o ha una proprietà che è una matrice di oggetti e si vuole che ogni elemento venga articolato come documento di ricerca autonomo e indipendente. Se in presenza di BLOB complessi non si seleziona *Matrice JSON* , l'intero BLOB viene inserito come un solo documento.
 
   Le *righe JSON* sono per i BLOB composti da più entità JSON separate da una nuova riga, in cui si vuole che ogni entità venga articolata come documento di ricerca indipendente autonomo. Se i BLOB sono complessi e non si sceglie la modalità di analisi delle *righe JSON* , l'intero BLOB viene inserito come singolo documento.
    
 + In **Contenitore di archiviazione** occorre specificare l'account di archiviazione e il contenitore oppure una stringa di connessione che si risolve nel contenitore. È possibile ottenere le stringhe di connessione nella pagina del portale del servizio BLOB.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Comando Importa dati nel portale" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-data-source.png" alt-text="Definizione dell'origine dati BLOB" border="false":::
 
 ### <a name="4---skip-the-enrich-content-page-in-the-wizard"></a>4-ignorare la pagina "arricchisci contenuto" della procedura guidata
 
@@ -81,7 +81,7 @@ Per ulteriori informazioni, vedere la descrizione degli [attributi degli indici]
 
 Dedicare qualche momento alla revisione delle selezioni. Con l'esecuzione della procedura guidata vengono create strutture dei dati fisiche e non è possibile eliminare questi campi senza eliminare e ricreare tutti gli oggetti.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Comando Importa dati nel portale" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-index.png" alt-text="Definizione di indice BLOB" border="false":::
 
 ### <a name="6---create-indexer"></a>6 - Creare l'indicizzatore
 
@@ -89,7 +89,7 @@ Nella sua specifica completa, la procedura guidata crea tre oggetti distinti nel
 
 Se non si ha familiarità con gli indicizzatori, un *indicizzatore* è una risorsa in Azure ricerca cognitiva che esegue la ricerca per indicizzazione di un'origine dati esterna per il contenuto ricercabile. L'output della procedura guidata **Importa dati** è un indicizzatore che esegue la ricerca per indicizzazione dell'origine dati JSON, estrae contenuto ricercabile e lo importa in un indice in ricerca cognitiva di Azure.
 
-   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Comando Importa dati nel portale" border="false":::
+   :::image type="content" source="media/search-howto-index-json/import-wizard-json-indexer.png" alt-text="Definizione di indicizzatore BLOB" border="false":::
 
 Fare clic su **OK** per eseguire la procedura guidata e creare tutti gli oggetti. L'indicizzazione inizia immediatamente.
 
@@ -120,9 +120,9 @@ I BLOB JSON nell'archivio BLOB di Azure sono in genere un singolo documento JSON
 
 | Documento JSON | parsingMode | Descrizione | Disponibilità |
 |--------------|-------------|--------------|--------------|
-| Un solo documento per BLOB | `json` | Analizza i BLOB JSON come un singolo blocco di testo. Ogni BLOB JSON diventa un singolo documento di ricerca cognitiva di Azure. | Disponibile a livello generale nell'API [Rest](/rest/api/searchservice/indexer-operations) e in [.NET](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Più documenti per BLOB | `jsonArray` | Analizza una matrice JSON nel BLOB, in cui ogni elemento della matrice diventa un documento di ricerca cognitiva di Azure separato.  | Disponibile a livello generale nell'API [Rest](/rest/api/searchservice/indexer-operations) e in [.NET](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
-| Più documenti per BLOB | `jsonLines` | Analizza un BLOB che contiene più entità JSON (una "matrice") separate da una nuova riga, in cui ogni entità diventa un documento di ricerca cognitiva di Azure separato. | Disponibile a livello generale nell'API [Rest](/rest/api/searchservice/indexer-operations) e in [.NET](/dotnet/api/microsoft.azure.search.models.indexer) SDK. |
+| Un solo documento per BLOB | `json` | Analizza i BLOB JSON come un singolo blocco di testo. Ogni BLOB JSON diventa un singolo documento di ricerca cognitiva di Azure. | Disponibile a livello generale nell'API [Rest](/rest/api/searchservice/indexer-operations) e in [.NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) SDK. |
+| Più documenti per BLOB | `jsonArray` | Analizza una matrice JSON nel BLOB, in cui ogni elemento della matrice diventa un documento di ricerca cognitiva di Azure separato.  | Disponibile a livello generale nell'API [Rest](/rest/api/searchservice/indexer-operations) e in [.NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) SDK. |
+| Più documenti per BLOB | `jsonLines` | Analizza un BLOB che contiene più entità JSON (una "matrice") separate da una nuova riga, in cui ogni entità diventa un documento di ricerca cognitiva di Azure separato. | Disponibile a livello generale nell'API [Rest](/rest/api/searchservice/indexer-operations) e in [.NET](/dotnet/api/azure.search.documents.indexes.models.searchindexer) SDK. |
 
 ### <a name="1---assemble-inputs-for-the-request"></a>1-assemblare gli input per la richiesta
 
@@ -141,7 +141,7 @@ Copiare i quattro valori seguenti nel blocco note in modo che sia possibile inco
 
 2. Nel riquadro di spostamento a sinistra fare clic su **chiavi** e quindi copiare la chiave primaria o secondaria (sono equivalenti).
 
-3. Passare alle pagine del portale per l'account di archiviazione. Nel riquadro di spostamento a sinistra, in **Impostazioni**, fare clic su **chiavi di accesso**. In questa pagina vengono forniti il nome e la chiave dell'account. Copiare il nome dell'account di archiviazione e una delle chiavi nel blocco note.
+3. Passare alle pagine del portale per l'account di archiviazione. Nel riquadro di spostamento a sinistra, in **Impostazioni** , fare clic su **chiavi di accesso**. In questa pagina vengono forniti il nome e la chiave dell'account. Copiare il nome dell'account di archiviazione e una delle chiavi nel blocco note.
 
 ### <a name="2---create-a-data-source"></a>2-creare un'origine dati
 
@@ -280,10 +280,10 @@ La creazione dell'indicizzatore in Azure ricerca cognitiva attiva l'importazione
 
 .NET SDK ha una parità completa con l'API REST. È consigliabile rivedere la sezione relativa dall'API REST per apprenderne i concetti, il flusso di lavoro e i requisiti. Consultare quindi la seguente documentazione di riferimento sull'API .NET per implementare un indicizzatore JSON nel codice gestito.
 
-+ [microsoft.azure.search.models.datasource](/dotnet/api/microsoft.azure.search.models.datasource)
-+ [microsoft.azure.search.models.datasourcetype](/dotnet/api/microsoft.azure.search.models.datasourcetype) 
-+ [microsoft.azure.search.models.index](/dotnet/api/microsoft.azure.search.models.index) 
-+ [microsoft.azure.search.models.indexer](/dotnet/api/microsoft.azure.search.models.indexer)
++ [azure.search.documents. indexes. Models. searchindexerdatasourceconnection](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourceconnection)
++ [azure.search.documents. indexes. Models. searchindexerdatasourcetype](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype) 
++ [azure.search.documents. indexes. Models. Searchindex](/dotnet/api/azure.search.documents.indexes.models.searchindex) 
++ [azure.search.documents. indexes. Models. searchindexer](/dotnet/api/azure.search.documents.indexes.models.searchindexer)
 
 <a name="parsing-modes"></a>
 
@@ -291,9 +291,9 @@ La creazione dell'indicizzatore in Azure ricerca cognitiva attiva l'importazione
 
 I BLOB JSON possono assumere più forme. Il parametro **parsingMode** nell'indicizzatore JSON determina il modo in cui il contenuto BLOB JSON viene analizzato e strutturato in un indice ricerca cognitiva di Azure:
 
-| parsingMode | Description |
+| parsingMode | Descrizione |
 |-------------|-------------|
-| `json`  | Indicizzare ogni BLOB come un singolo documento. Questo è il valore predefinito. |
+| `json`  | Indicizzare ogni BLOB come un singolo documento. Questa è la modalità predefinita. |
 | `jsonArray` | Scegliere questa modalità se i BLOB sono costituiti da matrici JSON ed è necessario che ogni elemento della matrice diventi un documento separato in Azure ricerca cognitiva. |
 |`jsonLines` | Scegliere questa modalità se i BLOB sono costituiti da più entità JSON, separate da una nuova riga, ed è necessario che ogni entità diventi un documento separato in Azure ricerca cognitiva. |
 
@@ -329,7 +329,7 @@ Come già indicato, i mapping dei campi non sono obbligatori. Dato un indice con
 
 ## <a name="parse-json-arrays"></a>Analizza matrici JSON
 
-In alternativa, è possibile usare l'opzione di matrice JSON. Questa opzione è utile quando i BLOB contengono una *matrice di oggetti JSON ben formati*e si vuole che ogni elemento diventi un documento di Azure ricerca cognitiva separato. Dato il BLOB JSON seguente, ad esempio, è possibile popolare l'indice di Azure ricerca cognitiva con tre documenti distinti, ognuno con i campi "ID" e "Text".  
+In alternativa, è possibile usare l'opzione di matrice JSON. Questa opzione è utile quando i BLOB contengono una *matrice di oggetti JSON ben formati* e si vuole che ogni elemento diventi un documento di Azure ricerca cognitiva separato. Dato il BLOB JSON seguente, ad esempio, è possibile popolare l'indice di Azure ricerca cognitiva con tre documenti distinti, ognuno con i campi "ID" e "Text".  
 
 ```text
     [

@@ -7,14 +7,14 @@ ms.date: 9/22/2020
 ms.topic: how-to
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: 87c16207f312479dcfe083ad9494d75b3538e18c
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: 347d5ac9de164f2e96340df71fd3b1b908e607c1
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "91532551"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372745"
 ---
-# <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Esentare una risorsa dalle raccomandazioni e dal punteggio sicuro
+# <a name="exempt-a-resource-from-recommendations-and-secure-score"></a>Esentare una risorsa dai consigli e dal punteggio di sicurezza
 
 Una priorità di base di ogni team di sicurezza consiste nel provare a garantire che gli analisti possano concentrarsi sulle attività e gli eventi imprevisti che interessano l'organizzazione. Il Centro sicurezza dispone di molte funzionalità per la personalizzazione delle informazioni a cui si attribuisce più priorità e per assicurarsi che il Punteggio sicuro sia un riflesso valido delle decisioni di sicurezza dell'organizzazione. L'esenzione delle risorse è una funzionalità di questo tipo.
 
@@ -30,7 +30,7 @@ La risorsa sarà elencata come non applicabile e il motivo verrà visualizzato c
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Anteprima|
+|Stato della versione:|Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prezzi:|Si tratta di una funzionalità di criteri di Azure Premium offerta per i clienti di Azure Defender senza costi aggiuntivi. Per gli altri utenti potrebbero essere applicati addebiti in futuro.|
 |Autorizzazioni e ruoli obbligatori:|**Proprietario della sottoscrizione** o **collaboratore dei criteri** per creare un'esenzione<br>Per creare una regola, è necessario disporre delle autorizzazioni per modificare i criteri in criteri di Azure.<br>Per altre informazioni, vedere [autorizzazioni RBAC di Azure in criteri di Azure](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
@@ -45,7 +45,7 @@ La risorsa sarà elencata come non applicabile e il motivo verrà visualizzato c
 
     Verrà visualizzato il riquadro crea esenzione.
 
-    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Opzione Crea esenzione dal menu di scelta rapida":::
+    :::image type="content" source="./media/exempt-resource/exemption-rule-options.png" alt-text="Crea riquadro esenzione":::
 
 1. Immettere i criteri e selezionare i criteri per il motivo per cui la risorsa deve essere esentata:
     - **Attenuato** : questo problema non è pertinente per la risorsa perché è stato gestito da uno strumento o un processo diverso rispetto a quello suggerito
@@ -56,11 +56,11 @@ La risorsa sarà elencata come non applicabile e il motivo verrà visualizzato c
     - La risorsa è elencata nella scheda **non applicabile** della pagina dei dettagli della raccomandazione
     - L'elenco di informazioni nella parte superiore della pagina dei dettagli della raccomandazione elenca il numero di risorse esentate:
         
-        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Opzione Crea esenzione dal menu di scelta rapida":::
+        :::image type="content" source="./media/exempt-resource/info-banner.png" alt-text="Numero di risorse esentate":::
 
 1. Per esaminare le risorse esentate, aprire la scheda **non applicabile** .
 
-    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Opzione Crea esenzione dal menu di scelta rapida":::
+    :::image type="content" source="./media/exempt-resource/modifying-exemption.png" alt-text="Modifica di un'esenzione":::
 
     Il motivo di ogni esenzione è incluso nella tabella (1).
 
@@ -73,7 +73,7 @@ Le regole di esenzione usano criteri di Azure per creare un'esenzione per la ris
 
 È possibile usare i criteri di Azure per tenere traccia di tutte le esenzioni nella pagina di **esenzione** :
 
-:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Opzione Crea esenzione dal menu di scelta rapida":::
+:::image type="content" source="./media/exempt-resource/policy-page-exemption.png" alt-text="Pagina di esenzione di criteri di Azure":::
 
 
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 11/08/2020
 ms.custom: azure-synapse, sqldbrb=1
-ms.openlocfilehash: 9339ac86595a1edbbd996e410d416074680695ed
-ms.sourcegitcommit: fa90cd55e341c8201e3789df4cd8bd6fe7c809a3
+ms.openlocfilehash: 8cf0652148ad54eeacdec874823ea680f39f670c
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/04/2020
-ms.locfileid: "93340037"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372728"
 ---
 # <a name="auditing-for-azure-sql-database-and-azure-synapse-analytics"></a>Controllo per il database SQL di Azure e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -40,7 +40,7 @@ Inoltre, il servizio di controllo:
 - **Analizzare** i report. È possibile individuare eventi sospetti, attività insolite e tendenze.
 
 > [!IMPORTANT]
-> Il controllo del database SQL di Azure è ottimizzato per la disponibilità e le prestazioni. Durante un'attività molto elevata, il database SQL di Azure o la sinapsi di Azure consente di continuare le operazioni e non può registrare alcuni eventi controllati.
+> Il controllo per il database SQL di Azure e la sinapsi di Azure è ottimizzato per la disponibilità e le prestazioni. Durante un'attività molto elevata, o un carico di rete elevato, il database SQL di Azure e la sinapsi di Azure consentono di continuare le operazioni e non possono registrare alcuni eventi controllati.
 
 ### <a name="auditing-limitations"></a>Limitazioni di controllo
 

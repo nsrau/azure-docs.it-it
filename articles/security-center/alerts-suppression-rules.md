@@ -8,12 +8,12 @@ ms.author: memildin
 ms.date: 09/10/2020
 ms.service: security-center
 ms.topic: how-to
-ms.openlocfilehash: 50426e0b0920e89cf83dc5a81c515b06c06c09c5
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: b954d6ed29074aa9261611f0d1bb79b5917d03f2
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342094"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372660"
 ---
 # <a name="suppress-alerts-from-azure-defender"></a>Eliminare gli avvisi di Azure Defender
 
@@ -23,7 +23,7 @@ Questa pagina illustra come è possibile usare le regole di eliminazione degli a
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Anteprima|
+|Stato della versione:|Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prezzi:|Livello gratuito<br>(La maggior parte degli avvisi di sicurezza è disponibile solo con Azure Defender)|
 |Autorizzazioni e ruoli obbligatori:|Il **proprietario** e l' **amministratore della sicurezza** possono creare o eliminare regole.<br>**amministratore che legge i dati di sicurezza** e **lettore** possono visualizzare le regole.|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
@@ -64,23 +64,23 @@ Per creare una regola direttamente nel portale di Azure:
 
         [![Opzione **Crea regola di eliminazione**](media/alerts-suppression-rules/auto-dismiss-future-option.png)](media/alerts-suppression-rules/auto-dismiss-future-option.png#lightbox)
 
-    - In alternativa, selezionare il collegamento **Regole di eliminazione** nella parte superiore della pagina e nella pagina delle regole di eliminazione selezionare **Crea una nuova regola di eliminazione**:
+    - In alternativa, selezionare il collegamento **Regole di eliminazione** nella parte superiore della pagina e nella pagina delle regole di eliminazione selezionare **Crea una nuova regola di eliminazione** :
 
         ![Pulsante Crea una nuova regola di eliminazione**](media/alerts-suppression-rules/create-new-suppression-rule.png)
 
 1. Nel riquadro della nuova regola di eliminazione immettere i dettagli della nuova regola.
     - La regola può far sì che l'avviso venga ignorato per **tutte le risorse** in modo da non ricevere avvisi come questo in futuro.     
-    - La regola può far sì che l'avviso venga ignorato **in base a criteri specifici**, quando si riferisce a un indirizzo IP, a un nome di processo, a un account utente, a una risorsa di Azure o a una località specifici.
+    - La regola può far sì che l'avviso venga ignorato **in base a criteri specifici** , quando si riferisce a un indirizzo IP, a un nome di processo, a un account utente, a una risorsa di Azure o a una località specifici.
 
     > [!TIP]
-    > Se la pagina della nuova regola è stata aperta da un avviso specifico, l'avviso e la sottoscrizione verranno configurati automaticamente con la nuova regola. Se è stato usato il collegamento **Crea una nuova regola di eliminazione**, le sottoscrizioni selezionate corrisponderanno al filtro corrente nel portale.
+    > Se la pagina della nuova regola è stata aperta da un avviso specifico, l'avviso e la sottoscrizione verranno configurati automaticamente con la nuova regola. Se è stato usato il collegamento **Crea una nuova regola di eliminazione** , le sottoscrizioni selezionate corrisponderanno al filtro corrente nel portale.
 
     [![Riquadro di creazione regola di eliminazione](media/alerts-suppression-rules/new-suppression-rule-pane.png)](media/alerts-suppression-rules/new-suppression-rule-pane.png#lightbox)
 1. Immettere i dettagli della regola:
-    - **Nome**: nome della regola. I nomi delle regole devono iniziare con una lettera o un numero, avere una lunghezza compresa tra 2 e 50 caratteri e non possono contenere simboli ad eccezione di trattini ( - ) o caratteri di sottolineatura (_). 
-    - **Stato**: può essere Abilitato o Disabilitato.
-    - **Motivo**: selezionare uno dei motivi predefiniti o "altro" se questi non soddisfano le proprie esigenze.
-    - **Data scadenza**: data e ora di fine della regola. Le regole possono essere eseguite per un massimo di sei mesi.
+    - **Nome** : nome della regola. I nomi delle regole devono iniziare con una lettera o un numero, avere una lunghezza compresa tra 2 e 50 caratteri e non possono contenere simboli ad eccezione di trattini ( - ) o caratteri di sottolineatura (_). 
+    - **Stato** : può essere Abilitato o Disabilitato.
+    - **Motivo** : selezionare uno dei motivi predefiniti o "altro" se questi non soddisfano le proprie esigenze.
+    - **Data scadenza** : data e ora di fine della regola. Le regole possono essere eseguite per un massimo di sei mesi.
 1. Facoltativamente, testare la regola usando il pulsante **Simula** per visualizzare il numero di avvisi che verrebbero ignorati se la regola fosse attiva.
 1. Salvare la regola. 
 
@@ -127,9 +127,9 @@ Usare il filtro del Centro sicurezza per visualizzare gli avvisi che sono stati 
 
 I metodi HTTP pertinenti per le regole di eliminazione nell'API REST sono:
 
-- **PUT**: per creare o aggiornare una regola di eliminazione in una sottoscrizione specificata.
+- **PUT** : per creare o aggiornare una regola di eliminazione in una sottoscrizione specificata.
 
-- **GET**:
+- **GET** :
 
     - Per elencare tutte le regole configurate per una sottoscrizione specificata. Questo metodo restituisce una matrice delle regole applicabili.
 
@@ -137,7 +137,7 @@ I metodi HTTP pertinenti per le regole di eliminazione nell'API REST sono:
 
     - Per simulare l'impatto di una regola di eliminazione ancora nella fase di progettazione. Questa chiamata identifica gli avvisi esistenti che verrebbero ignorati se la regola fosse attiva.
 
-- **DELETE**: elimina una regola esistente ma non modifica lo stato degli avvisi già ignorati in base alla regola.
+- **DELETE** : elimina una regola esistente ma non modifica lo stato degli avvisi già ignorati in base alla regola.
 
 Per informazioni complete ed esempi di utilizzo, vedere la [documentazione dell'API](/rest/api/securitycenter/). 
 

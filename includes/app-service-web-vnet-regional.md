@@ -4,12 +4,12 @@ ms.service: app-service-web
 ms.topic: include
 ms.date: 06/08/2020
 ms.author: ccompy
-ms.openlocfilehash: 54f80310f274b757d118f34542c1aa2e838ca7b9
-ms.sourcegitcommit: 1b47921ae4298e7992c856b82cb8263470e9e6f9
+ms.openlocfilehash: 14b9d9fe0eb9dfe2f25373c2d87d9b4af15dd0d9
+ms.sourcegitcommit: 22da82c32accf97a82919bf50b9901668dc55c97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/14/2020
-ms.locfileid: "92082110"
+ms.lasthandoff: 11/08/2020
+ms.locfileid: "94371712"
 ---
 L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
@@ -23,8 +23,8 @@ L'uso dell'integrazione VNet a livello di area consente all'app di accedere a:
 
 Quando si usa l'integrazione di VNet con reti virtuali nella stessa area, è possibile usare le funzionalità di rete di Azure seguenti:
 
-* **Gruppi di sicurezza di rete (gruppi)**: è possibile bloccare il traffico in uscita con una NSG posizionata nella subnet di integrazione. Le regole in ingresso non si applicano perché non è possibile usare l'integrazione VNet per fornire l'accesso in ingresso all'app.
-* **Tabelle di route (UDR)**: è possibile inserire una tabella di route nella subnet di integrazione per inviare il traffico in uscita laddove si vuole.
+* **Gruppi di sicurezza di rete (gruppi)** : è possibile bloccare il traffico in uscita con una NSG posizionata nella subnet di integrazione. Le regole in ingresso non si applicano perché non è possibile usare l'integrazione VNet per fornire l'accesso in ingresso all'app.
+* **Tabelle di route (UDR)** : è possibile inserire una tabella di route nella subnet di integrazione per inviare il traffico in uscita laddove si vuole.
 
 Per impostazione predefinita, l'app instrada solo il traffico RFC1918 in VNet. Se si vuole instradare tutto il traffico in uscita nella VNet, applicare l'impostazione dell'app WEBSITE_VNET_ROUTE_ALL all'app. Per configurare l'impostazione dell'app:
 
@@ -42,7 +42,7 @@ Per impostazione predefinita, l'app instrada solo il traffico RFC1918 in VNet. S
 Esistono alcune limitazioni all'uso dell'integrazione di VNet con reti virtuali nella stessa area:
 
 * Non è possibile raggiungere risorse tra connessioni di peering globali.
-* La funzionalità è disponibile solo dalle più recenti app Azure unità di scala del servizio che supportano i piani di servizio app PremiumV2. Si noti che *questo non significa che l'app deve essere eseguita in un piano tariffario PremiumV2*, ma solo che deve essere eseguita in un piano di servizio app in cui è disponibile l'opzione PremiumV2 (che indica che si tratta di un'unità di scala più recente in cui è disponibile anche questa funzionalità di integrazione VNet).
+* La funzionalità è disponibile solo dalle più recenti app Azure unità di scala del servizio che supportano i piani di servizio app PremiumV2. Si noti che *questo non significa che l'app deve essere eseguita in un piano tariffario PremiumV2* , ma solo che deve essere eseguita in un piano di servizio app in cui è disponibile l'opzione PremiumV2 (che indica che si tratta di un'unità di scala più recente in cui è disponibile anche questa funzionalità di integrazione VNet).
 * La subnet di integrazione può essere usata da un solo piano di servizio app.
 * La funzionalità non può essere usata da app del piano isolato che si trovano in un ambiente del servizio app.
 * La funzionalità richiede una subnet inutilizzata a/27 con indirizzi 32 o più grandi in un Azure Resource Manager VNet.
@@ -82,12 +82,17 @@ Le route Border Gateway Protocol (BGP) influiscono anche sul traffico dell'app. 
 
 ### <a name="azure-dns-private-zones"></a>Zone private di DNS di Azure 
 
-Quando l'app si integra con la VNet, USA lo stesso server DNS con cui è configurata la VNet. Per impostazione predefinita, l'app non funzionerà con Zone private di DNS di Azure. Per lavorare con Zone private di DNS di Azure è necessario aggiungere le impostazioni dell'app seguenti:
+Quando l'app si integra con la VNet, USA lo stesso server DNS con cui è configurata la VNet. Per impostazione predefinita, l'app non funzionerà con Zone private di DNS di Azure. Per usare Zone private di DNS di Azure, è necessario aggiungere le impostazioni dell'app seguenti:
 
-1. WEBSITE_DNS_SERVER con valore 168.63.129.16 
+1. WEBSITE_DNS_SERVER con valore 168.63.129.16
 1. WEBSITE_VNET_ROUTE_ALL con valore 1
 
-Queste impostazioni invieranno tutte le chiamate in uscita dall'app in VNet, oltre a consentire all'app di usare le zone private di DNS di Azure.
+Queste impostazioni invieranno tutte le chiamate in uscita dall'app in VNet. Consente inoltre all'app di usare il servizio DNS di Azure eseguendo una query sulla zona DNS privato a livello di lavoro. Questa funzionalità deve essere usata quando un'app in esecuzione accede a una zona DNS privato.
+
+> [!NOTE]
+>Il tentativo di aggiungere un dominio personalizzato a un'app Web con DNS privato zona non è possibile con l'integrazione rete virtuale. La convalida del dominio personalizzato viene eseguita a livello di controller, non a livello di ruolo di lavoro, che impedisce la visualizzazione dei record DNS. Per usare un dominio personalizzato da un'area di DNS privato, è necessario ignorare la convalida usando un gateway applicazione o un ambiente del servizio app ILB.
+
+
 
 ### <a name="private-endpoints"></a>Endpoint privati
 

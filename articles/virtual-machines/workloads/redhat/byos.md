@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/10/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 8896ed3eed291e6ec18c45df60e6079ada769b28
-ms.sourcegitcommit: 83610f637914f09d2a87b98ae7a6ae92122a02f1
+ms.openlocfilehash: 3a597b6454b3fb738ca192fa7750ca94fdb873ab
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/13/2020
-ms.locfileid: "91993334"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372796"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Red Hat Enterprise Linux le immagini Gold Bring your own Subscription in Azure
 
@@ -21,14 +21,14 @@ Le immagini di Red Hat Enterprise Linux (RHEL) sono disponibili in Azure tramite
 >[!NOTE]
 > Le immagini RHEL BYOS Gold sono disponibili nel cloud pubblico (commerciale) di Azure e in Azure per enti pubblici. Non sono disponibili nei Cloud Azure Cina o Azure Blackforest.
 
-## <a name="important-points-to-consider"></a>Punti importanti da considerare
+## <a name="important-points-to-consider"></a>Elementi importanti da considerare
 
 - Le immagini Red Hat Gold fornite in questo programma sono immagini RHEL pronte per l'ambiente di produzione simili alle immagini con pagamento in base al consumo di RHEL in Azure Marketplace.
 - Le immagini seguono i criteri correnti descritti in [Red Hat Enterprise Linux immagini in Azure](./redhat-images.md).
 - I criteri di supporto standard si applicano alle macchine virtuali create da queste immagini.
 - Le macchine virtuali di cui è stato effettuato il provisioning da immagini Red Hat Gold non contengono tariffe RHEL associate alle immagini RHEL con pagamento in base al consumo.
 - Le immagini non sono autorizzate. È necessario usare Red Hat Subscription-Manager per registrare e sottoscrivere le VM per ottenere gli aggiornamenti direttamente da Red Hat.
-- Attualmente non è possibile passare dinamicamente tra i modelli di fatturazione BYOS e con pagamento in base al consumo per le immagini Linux. Per cambiare il modello di fatturazione, è necessario ridistribuire la macchina virtuale dalla rispettiva immagine.
+- È possibile passare dalle immagini con pagamento in base al consumo a BYOS usando il [vantaggio Azure Hybrid](../../linux/azure-hybrid-benefit-linux.md). Tuttavia, non è possibile passare da un BYOS distribuito inizialmente a modelli di fatturazione con pagamento in base al consumo per le immagini Linux. Per cambiare il modello di fatturazione da BYOS a pagamento in base al consumo, è necessario ridistribuire la macchina virtuale dalla rispettiva immagine.
 
 >[!NOTE]
 > Le immagini RHEL BYOS di seconda generazione non sono attualmente disponibili tramite l'offerta Marketplace. Se è necessaria un'immagine di generazione 2 RHEL BYOS, visitare il dashboard di accesso al cloud in Red Hat Subscription Management. Per ulteriori informazioni, vedere la [documentazione di Red Hat](https://access.redhat.com/articles/4847681).

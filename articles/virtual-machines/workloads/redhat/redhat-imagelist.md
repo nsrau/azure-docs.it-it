@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/16/2020
 ms.author: alsin
 ms.reviewer: cynthn
-ms.openlocfilehash: 4d98323ebe973f13e654324f463ae01a8f1268c9
-ms.sourcegitcommit: 3e8058f0c075f8ce34a6da8db92ae006cc64151a
+ms.openlocfilehash: 66e2f70a5d55d263f7da343c0987e77a9f60c3b0
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/27/2020
-ms.locfileid: "92629222"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372677"
 ---
 # <a name="red-hat-enterprise-linux-rhel-images-available-in-azure"></a>Immagini Red Hat Enterprise Linux (RHEL) disponibili in Azure
 Azure offre un'ampia gamma di immagini RHEL per diversi casi d'uso.
@@ -28,10 +28,10 @@ Questo è un elenco di immagini RHEL disponibili in Azure. Se non diversamente s
 
 Offerta| SKU | Partizionamento | Provisioning | Note
 :----|:----|:-------------|:-------------|:-----
-RHEL          | 6.7      | RAW    | Agente Linux | 
-|             | 6.8      | RAW    | Agente Linux | 
-|             | 6.9      | RAW    | Agente Linux | 
-|             | 6.10     | RAW    | Agente Linux | 
+RHEL          | 6.7      | RAW    | Agente Linux | Supporto del ciclo di vita esteso disponibile dal 1 ° dicembre. [Per altri dettagli, vedere qui.](redhat-extended-lifecycle-support.md)
+|             | 6.8      | RAW    | Agente Linux | Supporto del ciclo di vita esteso disponibile dal 1 ° dicembre. [Per altri dettagli, vedere qui.](redhat-extended-lifecycle-support.md)
+|             | 6.9      | RAW    | Agente Linux | Supporto del ciclo di vita esteso disponibile dal 1 ° dicembre. [Per altri dettagli, vedere qui.](redhat-extended-lifecycle-support.md)
+|             | 6.10     | RAW    | Agente Linux | Supporto del ciclo di vita esteso disponibile dal 1 ° dicembre. [Per altri dettagli, vedere qui.](redhat-extended-lifecycle-support.md)
 |             | 7-RAW    | RAW    | Agente Linux | Famiglia di immagini RHEL 7. x. <br> Collegato a repository regolari per impostazione predefinita (non EUS).
 |             | 7-LVM    | LVM    | Agente Linux | Famiglia di immagini RHEL 7. x. <br> Collegato a repository regolari per impostazione predefinita (non EUS). Se si sta cercando un'immagine RHEL standard da distribuire, usare questo set di immagini e/o la relativa controparte di seconda generazione.
 |             | 7lvm-gen2| LVM    | Agente Linux | Famiglia di immagini di generazione 2, RHEL 7. x. <br> Collegato a repository regolari per impostazione predefinita (non EUS). Se si sta cercando un'immagine RHEL standard da distribuire, usare questo set di immagini e/o la relativa controparte di generazione 1.
@@ -67,9 +67,9 @@ RHEL-SAP      | 7.4      | LVM    | Agente Linux | RHEL 7,4 per app aziendali e 
 |             | 7.6       | LVM    | Agente Linux | RHEL 7,6 per app aziendali e SAP HANA. Collegato ai repository E4S, addebiterà un Premium per SAP e RHEL, oltre alla tariffa di calcolo di base.
 |             | 76sap-Gen2| LVM    | Agente Linux | RHEL 7,6 per app aziendali e SAP HANA. Immagine di generazione 2. Collegato ai repository E4S, addebiterà un Premium per SAP e RHEL, oltre alla tariffa di calcolo di base.
 |             | 7.7       | LVM    | Agente Linux | RHEL 7,7 per app aziendali e SAP HANA. Collegato ai repository E4S, addebiterà un Premium per SAP e RHEL, oltre alla tariffa di calcolo di base.
-RHEL-SAP-HANA (da rimuovere dal Marketplace nel 2020 ottobre) | 6.7       | RAW    | Agente Linux | RHEL 6,7 per SAP HANA. Obsoleto a favore delle immagini RHEL-SAP. Questa immagine verrà rimossa da Azure MartketPlace nel 2020 ottobre. Altre informazioni sulle offerte cloud SAP di Red Hat sono disponibili [qui](https://access.redhat.com/articles/3751271).
-|             | 7.2       | LVM    | Agente Linux | RHEL 7,2 per SAP HANA. Obsoleto a favore delle immagini RHEL-SAP. Questa immagine verrà rimossa da Azure MartketPlace nel 2020 ottobre. Altre informazioni sulle offerte cloud SAP di Red Hat sono disponibili [qui](https://access.redhat.com/articles/3751271).
-|             | 7.3       | LVM    | Agente Linux | RHEL 7,3 per SAP HANA. Obsoleto a favore delle immagini RHEL-SAP. Questa immagine verrà rimossa da Azure MartketPlace nel 2020 ottobre. Altre informazioni sulle offerte cloud SAP di Red Hat sono disponibili [qui](https://access.redhat.com/articles/3751271).
+RHEL-SAP-HANA (da rimuovere nel 2020 novembre) | 6.7       | RAW    | Agente Linux | RHEL 6,7 per SAP HANA. Obsoleto a favore delle immagini RHEL-SAP. Questa immagine verrà rimossa nel 2020 novembre. Altre informazioni sulle offerte cloud SAP di Red Hat sono disponibili [qui](https://access.redhat.com/articles/3751271).
+|             | 7.2       | LVM    | Agente Linux | RHEL 7,2 per SAP HANA. Obsoleto a favore delle immagini RHEL-SAP. Questa immagine verrà rimossa nel 2020 novembre. Altre informazioni sulle offerte cloud SAP di Red Hat sono disponibili [qui](https://access.redhat.com/articles/3751271).
+|             | 7.3       | LVM    | Agente Linux | RHEL 7,3 per SAP HANA. Obsoleto a favore delle immagini RHEL-SAP. Questa immagine verrà rimossa nel 2020 novembre. Altre informazioni sulle offerte cloud SAP di Red Hat sono disponibili [qui](https://access.redhat.com/articles/3751271).
 RHEL-SAP-APPS | 6.8       | RAW    | Agente Linux | RHEL 6,8 per SAP Business Applications. Obsoleto a favore delle immagini RHEL-SAP.
 |             | 7.3       | LVM    | Agente Linux | RHEL 7,3 per SAP Business Applications. Obsoleto a favore delle immagini RHEL-SAP.
 |             | 7.4       | LVM    | Agente Linux | RHEL 7,4 per SAP Business Applications.

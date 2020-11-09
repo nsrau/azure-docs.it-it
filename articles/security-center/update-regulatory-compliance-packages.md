@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2020
 ms.author: memildin
-ms.openlocfilehash: 4ec75931a335170a8262cc480f43a0f22db0b79b
-ms.sourcegitcommit: f88074c00f13bcb52eaa5416c61adc1259826ce7
+ms.openlocfilehash: e7e1567a487dc6cadc94a42f02c597ff0e02665b
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/21/2020
-ms.locfileid: "92342196"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372762"
 ---
 # <a name="customizing-the-set-of-standards-in-your-regulatory-compliance-dashboard"></a>Personalizzazione del set di standard nel dashboard di conformità alle normative
 
@@ -41,7 +41,7 @@ Microsoft tiene inoltre traccia degli standard normativi e migliora automaticame
 
 È possibile aggiungere standard come NIST SP 800-53 R4, SWIFT CSP CSCF-v2020, UK Official e UK NHS, Canada Federal PBMM e Azure CIS 1.1.0 (nuova versione), una rappresentazione più completa di Azure CIS 1.1.0. 
 
-Inoltre, è possibile aggiungere **Azure Security Benchmark**, le linee guida specifiche di Azure, create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. [Leggere altre informazioni su Azure Security Benchmark](../security/benchmarks/introduction.md).
+Inoltre, è possibile aggiungere **Azure Security Benchmark** , le linee guida specifiche di Azure, create da Microsoft per le procedure consigliate per la sicurezza e la conformità basate su framework di conformità comuni. [Leggere altre informazioni su Azure Security Benchmark](../security/benchmarks/introduction.md).
 
 Nel dashboard verranno supportati altri standard non appena saranno disponibili. 
 
@@ -68,6 +68,7 @@ La procedura seguente illustra come aggiungere un pacchetto per monitorare la co
 
     - **Azure Security Benchmark**
     - **NIST SP 800-53 R4**
+    - **NIST SP 800 171 R2**
     - **SWIFT CSP CSCF-v2020**
     - **UKO e UK NHS**
     - **Canada PBMM**
@@ -105,7 +106,7 @@ Per rimuovere uno standard:
 
 1. Per lo standard che si desidera rimuovere, selezionare **Disabilita**. Viene visualizzata una finestra di conferma.
 
-    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Rimozione di uno standard normativo dal dashboard di conformità normativa nel centro sicurezza di Azure":::
+    :::image type="content" source="./media/update-regulatory-compliance-packages/remove-standard-confirm.png" alt-text="Confermare che si desidera effettivamente rimuovere lo standard normativo selezionato":::
 
 1. Selezionare **Sì**. Lo standard verrà rimosso. 
 

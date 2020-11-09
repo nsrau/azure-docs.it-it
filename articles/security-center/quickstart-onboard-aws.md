@@ -7,12 +7,12 @@ ms.date: 9/22/2020
 ms.topic: quickstart
 ms.service: security-center
 manager: rkarlin
-ms.openlocfilehash: bfb1c0180b50ca95cb2f1fbff62469e63ab5f19d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 3a2de9b167fcbe9dc603d33fd816e70d5c3705e5
+ms.sourcegitcommit: 65d518d1ccdbb7b7e1b1de1c387c382edf037850
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92428110"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94372779"
 ---
 #  <a name="connect-your-aws-accounts-to-azure-security-center"></a>Connettere gli account AWS a Centro sicurezza di Azure
 
@@ -39,7 +39,7 @@ Lo screenshot seguente mostra gli account AWS visualizzati nel dashboard di pano
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato della versione:|Anteprima|
+|Stato della versione:|Anteprima<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)] |
 |Prezzi:|Richiede [Azure Defender per server](defender-for-servers-introduction.md)|
 |Autorizzazioni e ruoli obbligatori:|**Proprietario** o **Collaboratore** nella sottoscrizione di Azure rilevante|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Cloud nazionali/sovrani (US Gov, governo cinese, altri governi)|
@@ -70,8 +70,8 @@ Lo screenshot seguente mostra gli account AWS visualizzati nel dashboard di pano
 - **Utente di AWS per il Centro sicurezza** : opzione meno sicura nel caso in cui la gestione delle identità e degli accessi non sia abilitata
 
 #### <a name="create-an-iam-role-for-security-center"></a>Creare un ruolo di gestione delle identità e degli accessi per il Centro sicurezza
-1. In **Security, Identity & Compliance** (Sicurezza, identità e conformità) nella console di Amazon Web Services selezionare **IAM** .
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="3 progetti GCP elencati nel dashboard di panoramica del Centro sicurezza":::
+1. In **Security, Identity & Compliance** (Sicurezza, identità e conformità) nella console di Amazon Web Services selezionare **IAM**.
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-identity-and-compliance.png" alt-text="Servizi di AWS":::
 
 1. Selezionare **Roles** (Ruoli) e **Create role** (Crea ruolo).
 1. Selezionare **Another AWS account** (Un altro account AWS).
@@ -81,7 +81,7 @@ Lo screenshot seguente mostra gli account AWS visualizzati nel dashboard di pano
     - **Require External ID** (Richiedi ID esterno): questa opzione deve essere selezionata.
     - **External ID** (ID esterno): immettere l'ID della sottoscrizione indicato nella pagina del connettore AWS nel Centro sicurezza. 
 
-1. Selezionare **Avanti** .
+1. Selezionare **Avanti**.
 1. Nella sezione **Attach permission policies** (Allega criteri di autorizzazione) selezionare i criteri seguenti:
 
     - SecurityAudit
@@ -89,7 +89,7 @@ Lo screenshot seguente mostra gli account AWS visualizzati nel dashboard di pano
     - AWSSecurityHubReadOnlyAccess
 
 1. Aggiungere tag, se necessario. L'aggiunta di tag all'utente non influisce sulla connessione.
-1. Selezionare **Avanti** .
+1. Selezionare **Avanti**.
 
 1. Nell'elenco di ruoli scegliere il ruolo creato
 
@@ -104,7 +104,7 @@ Lo screenshot seguente mostra gli account AWS visualizzati nel dashboard di pano
     - AmazonSSMAutomationRole
     - AWSSecurityHubReadOnlyAccess
     
-1. Selezionare **Avanti: Tag** . Aggiungere tag, se necessario. L'aggiunta di tag all'utente non influisce sulla connessione.
+1. Selezionare **Avanti: Tag**. Aggiungere tag, se necessario. L'aggiunta di tag all'utente non influisce sulla connessione.
 1. Selezionare **Review** (Verifica).
 1. Salvare il file CSV generato con **Access key ID** (ID chiave di accesso) e **Secret access key** (Chiave di accesso segreta) per un momento successivo.
 1. Controllare il riepilogo e fare clic su **Create user** (Crea utente).
@@ -128,20 +128,20 @@ AWS Systems Manager è necessario per l'automazione di attività nelle risorse d
 
 ### <a name="step-5-connect-aws-to-security-center"></a>Passaggio 5. Connettere AWS al Centro sicurezza
 
-1. Dal menu del Centro sicurezza selezionare **Connettori per più cloud** .
-1. Selezionare **Aggiungi un account AWS** .
-    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="3 progetti GCP elencati nel dashboard di panoramica del Centro sicurezza":::
+1. Dal menu del Centro sicurezza selezionare **Connettori per più cloud**.
+1. Selezionare **Aggiungi un account AWS**.
+    :::image type="content" source="./media/quickstart-onboard-aws/add-aws-account.png" alt-text="Pulsante Aggiungi un account AWS nella pagina Connettori per più cloud del Centro sicurezza":::
 1. Configurare le opzioni disponibili nella scheda **Autenticazione AWS** :
     1. Immettere un **Nome visualizzato** per il connettore.
     1. Verificare che la sottoscrizione sia corretta. Si tratta della sottoscrizione che includerà il connettore e le raccomandazioni di AWS Security Hub.
     1. In base all'opzione di autenticazione scelta in [Passaggio 2. Configurare l'autenticazione per il Centro sicurezza in AWS](#step-2-set-up-authentication-for-security-center-in-aws):
         - Selezionare **Assumi il ruolo** e incollare il file ARN come descritto in [Creare un ruolo di IAM per il Centro sicurezza](#create-an-iam-role-for-security-center).
-            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="3 progetti GCP elencati nel dashboard di panoramica del Centro sicurezza":::
+            :::image type="content" source="./media/quickstart-onboard-aws/paste-arn-in-portal.png" alt-text="Incollare il file ARN nel campo appropriato della connessione guidata AWS nel portale di Azure":::
 
             OR
 
         - Selezionare **Credenziali** e incollare la **chiave di accesso** e la **chiave privata** dal file CSV salvato in [Creare un utente AWS per il Centro sicurezza](#create-an-aws-user-for-security-center).
-1. Selezionare **Avanti** .
+1. Selezionare **Avanti**.
 1. Configurare le opzioni disponibili nella scheda **Configurazione di Azure Arc** :
 
     Il Centro sicurezza individua le istanze di EC2 nell'account AWS connesso e usa SSM per eseguirne l'onboarding in Azure Arc. 
@@ -152,7 +152,7 @@ AWS Systems Manager è necessario per l'automazione di attività nelle risorse d
     1. Selezionare il **Gruppo di risorse** e l' **Area di Azure** in cui verrà eseguito l'onboarding delle istanze individuate di AWS EC2 nella sottoscrizione selezionata.
     1. Immettere l' **ID entità servizio** e il **Segreto client entità servizio** per Azure Arc come illustrato in [Creare un'entità servizio per l'onboarding su larga scala](../azure-arc/servers/onboard-service-principal.md#create-a-service-principal-for-onboarding-at-scale)
     1. Se il computer si connette a Internet tramite un server proxy, specificare l'indirizzo IP del server proxy o il nome e il numero di porta usati dal computer per comunicare con il server proxy. Immettere il valore nel formato ```http://<proxyURL>:<proxyport>```
-    1. Selezionare **Rivedi e crea** .
+    1. Selezionare **Rivedi e crea**.
 
         Verificare le informazioni di riepilogo
 
@@ -168,7 +168,7 @@ Quando il connettore è stato creato e la configurazione di AWS Security Hub è 
 - Il servizio Centro sicurezza di Azure esegue ogni 6 ore l'analisi per individuare nuove istanze di AWS EC2 e ne esegue l'onboarding in base alla configurazione.
 - Gli standard CIS per AWS verranno visualizzati nel dashboard di conformità alle normative del Centro sicurezza.
 - Se è abilitato il criterio di Security Hub, le raccomandazioni verranno visualizzate nel portale del Centro sicurezza e nel dashboard di conformità alle normative 5-10 minuti dopo il completamento dell'onboarding.
-    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="3 progetti GCP elencati nel dashboard di panoramica del Centro sicurezza":::
+    :::image type="content" source="./media/quickstart-onboard-aws/aws-resources-in-recommendations.png" alt-text="Risorse e raccomandazioni di AWS nella pagina delle raccomandazioni del Centro sicurezza":::
 
 
 
@@ -178,7 +178,7 @@ Come illustrato sopra, la pagina delle raccomandazioni sulla sicurezza del Centr
 
 Per visualizzare tutte le raccomandazioni attive per le risorse in base al tipo di risorsa, usare la pagina di inventario delle risorse del Centro sicurezza per applicare un filtro basato sul tipo di risorsa di AWS a cui si è interessati:
 
-:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="3 progetti GCP elencati nel dashboard di panoramica del Centro sicurezza"::: 
+:::image type="content" source="./media/quickstart-onboard-aws/aws-resource-types-in-inventory.png" alt-text="Filtro basato sul tipo di risorsa della pagina di inventario delle risorse che mostra le opzioni di AWS"::: 
 
 
 ## <a name="aws-in-security-center-faq"></a>Domande frequenti su AWS nel Centro sicurezza
