@@ -7,12 +7,12 @@ author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
 ms.custom: references_regions
-ms.openlocfilehash: ecafc0c81a6614a914d8cad3d2c35fd04544b8f2
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: c34cd8e399a005f5eadb3751fb0575f6ecfc27ed
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102021"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380879"
 ---
 # <a name="connect-azure-to-itsm-tools-by-using-it-service-management-connector"></a>Connettere Azure agli strumenti ITSM usando IT Service Management Connector
 
@@ -57,7 +57,7 @@ Prima di poter creare una connessione, è necessario aggiungere connettore.
 
 3. Nella sezione **area di lavoro di OMS** selezionare l'area di lavoro log Analytics di Azure in cui si vuole installare connettore.
    >[!NOTE]
-   > * Nell'ambito della transizione continua da Microsoft Operations Management Suite (OMS) a monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate *log Analytics aree di lavoro* .
+   > * Nell'ambito della transizione continua da Microsoft Operations Management Suite (OMS) a monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate *log Analytics aree di lavoro*.
    > * CONNETTORE può essere installato solo nelle aree di lavoro Log Analytics nelle aree seguenti: Stati Uniti orientali, Stati Uniti occidentali 2, Stati Uniti centro-meridionali, Stati Uniti centro-occidentali, US Gov Arizona, US Gov Virginia, Canada centrale, Europa occidentale, Regno Unito meridionale, Asia sudorientale, Giappone orientale, India centrale e Australia sudorientale.
 
 
@@ -65,9 +65,9 @@ Prima di poter creare una connessione, è necessario aggiungere connettore.
 
    ![Screenshot che mostra la sezione area di lavoro Log Analytics.](media/itsmc-overview/itsmc-solution-workspace.png)
    >[!NOTE]
-   >Nell'ambito della transizione continua da Microsoft Operations Management Suite (OMS) a monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate *log Analytics aree di lavoro* .
+   >Nell'ambito della transizione continua da Microsoft Operations Management Suite (OMS) a monitoraggio di Azure, le aree di lavoro di OMS sono ora denominate *log Analytics aree di lavoro*.
 
-5. Selezionare **OK** .
+5. Selezionare **OK**.
 
 Quando viene distribuita la risorsa connettore, viene visualizzata una notifica nell'angolo superiore destro della finestra.
 
@@ -95,7 +95,7 @@ Dopo aver preparato gli strumenti ITSM, completare la procedura seguente per cre
 
    ![Screenshot che mostra la voce di menu connessioni ITSM.](media/itsmc-overview/add-new-itsm-connection.png)
    Questa pagina mostra l'elenco di connessioni.
-1. Selezionare **Aggiungi connessione** .
+1. Selezionare **Aggiungi connessione**.
 
 4. Specificare le impostazioni di connessione come descritto in [configurazione della connessione connettore con i prodotti/servizi di ITSM](./itsmc-connections.md).
 
@@ -111,7 +111,7 @@ Dopo aver preparato gli strumenti ITSM, completare la procedura seguente per cre
 
 ## <a name="template-definitions"></a>Definizioni di modello
    Sono disponibili tipi di elemento di lavoro che possono usare i modelli definiti dallo strumento ITSM.
-Utilizzando i modelli, è possibile definire i campi che verranno popolati automaticamente in base ai valori fissi definiti come parte del gruppo di azioni. I modelli vengono definiti nello strumento ITSM.
+Utilizzando i modelli, è possibile definire i campi che verranno popolati automaticamente in base ai valori fissi definiti come parte del gruppo di azioni. I modelli vengono definiti nello strumento ITSM. È possibile definire in quale modello si vuole usare come parte della definizione del gruppo di azioni.
       
 ## <a name="create-itsm-work-items-from-azure-alerts"></a>Creare elementi di lavoro di Gestione dei servizi IT dagli avvisi di Azure
 
@@ -125,32 +125,34 @@ I gruppi di azioni forniscono un metodo modulare e riutilizzabile per attivare l
 
 Usare la procedura seguente per creare elementi di lavoro:
 
-1. Nella portale di Azure selezionare  **avvisi** .
+1. Nella portale di Azure selezionare  **avvisi**.
 2. Nel menu nella parte superiore della schermata selezionare **Gestisci azioni** :
 
     ![Screenshot che mostra la voce di menu Gestisci azioni.](media/itsmc-overview/action-groups-selection-big.png)
 
    Viene visualizzata la finestra **Crea gruppo di azioni** .
 
-3. Selezionare la **sottoscrizione** e il **gruppo di risorse** in cui si vuole creare il gruppo di azioni. Specificare il **nome del gruppo di azioni** e il **nome visualizzato** per il gruppo di azioni. Selezionare **Avanti: notifiche** .
+3. Selezionare la **sottoscrizione** e il **gruppo di risorse** in cui si vuole creare il gruppo di azioni. Specificare il **nome del gruppo di azioni** e il **nome visualizzato** per il gruppo di azioni. Selezionare **Avanti: notifiche**.
 
     ![Screenshot che mostra la finestra Crea gruppo di azioni.](media/itsmc-overview/action-groups-details.png)
 
-4. Nell'elenco delle notifiche selezionare **Avanti: azioni** .
-5. Nell'elenco azioni selezionare **ITSM** nell'elenco tipo di **azione** . Consente di specificare un **nome** per l'azione. Selezionare il pulsante penna che rappresenta **i dettagli di modifica** .
+4. Nell'elenco delle notifiche selezionare **Avanti: azioni**.
+5. Nell'elenco azioni selezionare **ITSM** nell'elenco tipo di **azione** . Consente di specificare un **nome** per l'azione. Selezionare il pulsante penna che rappresenta **i dettagli di modifica**.
 6. Nell'elenco **sottoscrizione** selezionare la sottoscrizione in cui si trova l'area di lavoro log Analytics. Nell'elenco **connessione** selezionare il nome del connettore ITSM. Sarà seguito dal nome dell'area di lavoro. Ad esempio, MyITSMConnector (area di lavoro).
 
 7. Selezionare un tipo di **elemento di lavoro** .
 
-8. Se si desidera compilare i campi predefiniti con valori fissi, selezionare **Usa modello personalizzato** . In caso contrario, scegliere un [modello](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) esistente nell'elenco dei **modelli** e immettere i valori fissi nei campi del modello.
+8. Se si desidera compilare i campi predefiniti con valori fissi, selezionare **Usa modello personalizzato**. In caso contrario, scegliere un [modello](https://docs.microsoft.com/azure/azure-monitor/platform/itsmc-overview#template-definitions) esistente nell'elenco dei **modelli** e immettere i valori fissi nei campi del modello.
 
 9. Se si seleziona **Crea elementi di lavoro singoli per ogni elemento di configurazione** , ogni elemento di configurazione disporrà di un proprio elemento di lavoro. È presente un elemento di lavoro per ogni elemento di configurazione. Verrà aggiornato in base agli avvisi che verranno creati.
 
-   Se si deseleziona la casella **di controllo Crea elementi di lavoro singoli per ogni elemento di configurazione** , ogni avviso creerà un nuovo elemento di lavoro. Per ogni elemento di configurazione possono essere presenti più avvisi.
+   * In caso di selezione nell'elenco a discesa dell'elemento di lavoro "evento imprevisto" o "avviso": se si deseleziona la casella di controllo **Crea elementi di lavoro singoli per ogni elemento di configurazione** , ogni avviso creerà un nuovo elemento di lavoro. Per ogni elemento di configurazione possono essere presenti più avvisi.
 
    ![Screenshot che mostra la finestra del ticket ITSM.](media/itsmc-overview/itsm-action-configuration.png)
+   
+   * Se si seleziona nell'elenco a discesa dell'elemento di lavoro "evento": se si seleziona **Crea elementi di lavoro singoli per ogni voce di log** nella selezione dei pulsanti di opzione, ogni avviso creerà un nuovo elemento di lavoro. Se si seleziona **Crea elementi di lavoro singoli per ogni elemento di configurazione** nella selezione dei pulsanti di opzione, ogni elemento di configurazione avrà un proprio elemento di lavoro. 
 
-10. Selezionare **OK** .
+10. Selezionare **OK**.
 
 Quando si crea o si modifica una regola di avviso di Azure, usare un gruppo di azioni con un'azione ITSM. Quando l'avviso viene attivato, l'elemento di lavoro viene creato o aggiornato nello strumento ITSM.
 

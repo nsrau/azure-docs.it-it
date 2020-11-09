@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/15/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 52615a968ce831a9a5a487f7422ad13bc58ecf6d
-ms.sourcegitcommit: 6906980890a8321dec78dd174e6a7eb5f5fcc029
+ms.openlocfilehash: 9dfdbbd982503acc063ff88c74dfccde8677eaac
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/22/2020
-ms.locfileid: "92426475"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380233"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni File di Azure
 
@@ -26,15 +26,11 @@ Le richieste vengono limitate quando vengono raggiunti i limiti di IOPS, in ingr
 
 Per verificare se la condivisione è stata limitata, è possibile sfruttare le metriche di Azure nel portale.
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Nel portale di Azure passare all'account di archiviazione.
 
-1. Selezionare **tutti i servizi** e quindi cercare **metrica**.
+1. Nel menu a sinistra, in **monitoraggio** , selezionare **metriche**.
 
-1. Selezionare **Metriche**.
-
-1. Selezionare l'account di archiviazione come risorsa.
-
-1. Selezionare **file** come spazio dei nomi della metrica.
+1. Selezionare **file** come spazio dei nomi della metrica per l'ambito dell'account di archiviazione.
 
 1. Selezionare **transazioni** come metrica.
 
@@ -54,7 +50,7 @@ Per verificare se la condivisione è stata limitata, è possibile sfruttare le m
 
 Se la maggior parte delle richieste è incentrata sui metadati, ad esempio CreateFile/OpenFile/CloseFile/QueryInfo/querydirectory, la latenza sarà peggiore rispetto alle operazioni di lettura/scrittura.
 
-Per verificare se la maggior parte delle richieste sono incentrate sui metadati, è possibile usare gli stessi passaggi descritti in precedenza. Eccetto anziché aggiungere un filtro per **responseType**, aggiungere un filtro per **nome API**.
+Per verificare se la maggior parte delle richieste sono incentrate sui metadati, è possibile usare gli stessi passaggi descritti in precedenza. Eccetto anziché aggiungere un filtro per **responseType** , aggiungere un filtro per **nome API**.
 
 ![Filtrare il nome API nelle metriche](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
@@ -103,7 +99,7 @@ Si tratta di un problema noto relativo all'implementazione del client SMB in Lin
 
 - Distribuire il carico tra più macchine virtuali.
 - Nella stessa VM usare più punti di montaggio con l'opzione **nosharesock** e distribuire il carico tra questi punti di montaggio.
-- In Linux provare a montare con l'opzione **nostrictsync** per evitare di forzare lo SCARICAmento SMB per ogni chiamata **fsync** . Per File di Azure, questa opzione non interferisce con la coerenza dei dati, ma può comportare metadati di file non aggiornati nell'elenco di directory (comando**ls-l** ). L'esecuzione di query direttamente sui metadati del file (comando**Stat** ) restituirà i metadati del file più aggiornati.
+- In Linux provare a montare con l'opzione **nostrictsync** per evitare di forzare lo SCARICAmento SMB per ogni chiamata **fsync** . Per File di Azure, questa opzione non interferisce con la coerenza dei dati, ma può comportare metadati di file non aggiornati nell'elenco di directory (comando **ls-l** ). L'esecuzione di query direttamente sui metadati del file (comando **Stat** ) restituirà i metadati del file più aggiornati.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>Latenze elevate per carichi di lavoro intensivi dei metadati che coinvolgono numerose operazioni di apertura/chiusura.
 
@@ -114,7 +110,7 @@ Mancanza di supporto per i lease di directory.
 ### <a name="workaround"></a>Soluzione alternativa
 
 - Se possibile, evitare un handle di apertura/chiusura eccessivo nella stessa directory entro un breve periodo di tempo.
-- Per le macchine virtuali Linux, aumentare il timeout della cache voce di directory specificando **actimeo = \<sec> ** come opzione di montaggio. Per impostazione predefinita, si tratta di un secondo, quindi un valore maggiore, ad esempio tre o cinque, potrebbe essere utile.
+- Per le macchine virtuali Linux, aumentare il timeout della cache voce di directory specificando **actimeo = \<sec>** come opzione di montaggio. Per impostazione predefinita, si tratta di un secondo, quindi un valore maggiore, ad esempio tre o cinque, potrebbe essere utile.
 - Per le macchine virtuali Linux, aggiornare il kernel a 4,20 o versione successiva.
 
 ## <a name="low-iops-on-centosrhel"></a>IOPS Bassi su CentOS/RHEL
@@ -177,28 +173,28 @@ Maggiore della latenza prevista per l'accesso File di Azure per carichi di lavor
 
 1. Passare all' **account di archiviazione** nell' **portale di Azure**.
 2. Nella sezione Monitoraggio fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
-3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
+3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
 4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica **transazioni** .
 6. Nel pannello **Configura logica** per i segnali fare clic sull'elenco a discesa **nome dimensione** e selezionare **tipo di risposta**.
 7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare **SUCCESSWITHTHROTTLING** (per SMB) o **ClientThrottlingError** (per REST).
 
-  > [!NOTE]
-  > Se il valore della dimensione SuccessWithThrottling o ClientThrottlingError non è elencato, significa che la risorsa non è stata limitata. Per aggiungere il valore della dimensione, fare clic su **Aggiungi valore personalizzato** accanto all'elenco a discesa **valori dimensione** , digitare **SuccessWithThrottling** o **ClientThrottlingError**, fare clic su **OK** , quindi ripetere il passaggio #7.
+   > [!NOTE]
+   > Se il valore della dimensione SuccessWithThrottling o ClientThrottlingError non è elencato, significa che la risorsa non è stata limitata. Per aggiungere il valore della dimensione, fare clic su **Aggiungi valore personalizzato** accanto all'elenco a discesa **valori dimensione** , digitare **SuccessWithThrottling** o **ClientThrottlingError** , fare clic su **OK** , quindi ripetere il passaggio #7.
 
 8. Fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
 9. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
 
-  > [!NOTE]
-  > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
+   > [!NOTE]
+   > Se la condivisione file è una condivisione file standard, selezionare **tutti i valori correnti e futuri**. Nell'elenco a discesa valori dimensione non verranno elencate le condivisioni file perché le metriche per condivisione non sono disponibili per le condivisioni file standard. Gli avvisi di limitazione per le condivisioni file standard verranno attivati se una condivisione file all'interno dell'account di archiviazione è limitata e l'avviso non identificherà quale condivisione file è stata limitata. Poiché le metriche per condivisione non sono disponibili per le condivisioni file standard, è consigliabile disporre di una condivisione file per ogni account di archiviazione.
 
 10. Definire i **parametri di avviso** (valore soglia, operatore, granularità aggregazione e frequenza di valutazione) e fare clic su **fine**.
 
-  > [!TIP]
-  > Se si utilizza una soglia statica, il grafico delle metriche consente di determinare un valore soglia ragionevole se la condivisione file è attualmente in fase di limitazione. Se si utilizza una soglia dinamica, nel grafico delle metriche verranno visualizzate le soglie calcolate in base ai dati recenti.
+    > [!TIP]
+    > Se si utilizza una soglia statica, il grafico delle metriche consente di determinare un valore soglia ragionevole se la condivisione file è attualmente in fase di limitazione. Se si utilizza una soglia dinamica, nel grafico delle metriche verranno visualizzate le soglie calcolate in base ai dati recenti.
 
 11. Fare clic su **Seleziona gruppo di azioni** per aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-12. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
+12. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
 13. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
 Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
@@ -207,29 +203,29 @@ Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azur
 
 1. Passare all' **account di archiviazione** nell' **portale di Azure**.
 2. Nella sezione Monitoraggio fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
-3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
+3. Fare clic su **Modifica risorsa** , selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
 4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
 5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica in **uscita** .
 
-  > [!NOTE]
-  > È necessario creare 3 avvisi distinti da avvisare quando il traffico in ingresso, in uscita o nelle transazioni supera la soglia impostata. Questo perché un avviso viene generato solo quando vengono soddisfatte tutte le condizioni. Quindi, se si inseriscono tutte le condizioni in un avviso, viene generato un avviso solo se il traffico in ingresso, in uscita e nelle transazioni supera i rispettivi importi di soglia.
+   > [!NOTE]
+   > È necessario creare 3 avvisi distinti da avvisare quando il traffico in ingresso, in uscita o nelle transazioni supera la soglia impostata. Questo perché un avviso viene generato solo quando vengono soddisfatte tutte le condizioni. Quindi, se si inseriscono tutte le condizioni in un avviso, viene generato un avviso solo se il traffico in ingresso, in uscita e nelle transazioni supera i rispettivi importi di soglia.
 
 6. Scorrere verso il basso. Fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
 7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
 8. Definire i **parametri di avviso** (valore soglia, operatore, granularità aggregazione e frequenza di valutazione) e fare clic su **fine**.
 
-  > [!NOTE]
-  > Le metriche in uscita, in ingresso e nelle transazioni sono al minuto anche se è stato effettuato il provisioning in uscita, in ingresso e IOPS al secondo. (per informazioni sulla granularità di aggregazione, > al minuto = più rumoroso, scegliere diff uno) Se, ad esempio, l'uscita di cui è stato effettuato il provisioning è 90 MiB/secondo e si vuole che la soglia sia pari al 80% dell'uscita sottoposta a provisioning, è necessario selezionare i seguenti parametri di avviso: 75497472 per **valore soglia**, maggiore o uguale a per **operatore**e media per **tipo di aggregazione**. A seconda della rumorosità dell'avviso, è possibile scegliere i valori da selezionare per la granularità di aggregazione e la frequenza di valutazione. Se, ad esempio, si desidera che l'avviso esamini il traffico in ingresso medio nel periodo di tempo di un'ora e desidero che la regola di avviso venga eseguita ogni ora, selezionare 1 ora per la **granularità di aggregazione** e un'ora per la **frequenza di valutazione**.
+   > [!NOTE]
+   > Le metriche in uscita, in ingresso e nelle transazioni sono al minuto anche se è stato effettuato il provisioning in uscita, in ingresso e IOPS al secondo. (per informazioni sulla granularità di aggregazione, > al minuto = più rumoroso, scegliere diff uno) Se, ad esempio, l'uscita di cui è stato effettuato il provisioning è 90 MiB/secondo e si vuole che la soglia sia pari al 80% dell'uscita sottoposta a provisioning, è necessario selezionare i seguenti parametri di avviso: 75497472 per **valore soglia** , maggiore o uguale a per **operatore** e media per **tipo di aggregazione**. A seconda della rumorosità dell'avviso, è possibile scegliere i valori da selezionare per la granularità di aggregazione e la frequenza di valutazione. Se, ad esempio, si desidera che l'avviso esamini il traffico in ingresso medio nel periodo di tempo di un'ora e desidero che la regola di avviso venga eseguita ogni ora, selezionare 1 ora per la **granularità di aggregazione** e un'ora per la **frequenza di valutazione**.
 
 9. Fare clic su **Seleziona gruppo di azioni** per aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
-10. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
+10. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità** della **regola di avviso**.
 11. Fare clic su **Crea regola di avviso** per creare l'avviso.
 
-  > [!NOTE]
-  > Per ricevere una notifica se la condivisione file Premium è prossima a essere limitata a causa del provisioning in ingresso, seguire la stessa procedura, ad eccezione del passaggio 5, selezionare invece la metrica di **ingresso** .
+    > [!NOTE]
+    > Per ricevere una notifica se la condivisione file Premium è prossima a essere limitata a causa del provisioning in ingresso, seguire la stessa procedura, ad eccezione del passaggio 5, selezionare invece la metrica di **ingresso** .
 
-  > [!NOTE]
-  > Per ricevere una notifica se la condivisione file Premium è vicina a essere limitata a causa di operazioni di i/o al secondo con provisioning, sarà necessario apportare alcune modifiche. Nel passaggio 5 Selezionare invece la metrica **transazioni** . Inoltre, per il passaggio 10, l'unica opzione per il **tipo di aggregazione** è Total. Il valore soglia dipende pertanto dalla granularità di aggregazione selezionata. Se, ad esempio, si desidera che la soglia sia pari al 80% di IOPS di base di cui è stato effettuato il provisioning ed è stata selezionata un'ora per la **granularità di aggregazione**, il **valore soglia** corrisponderà al valore di IOPS di base (in byte) x 0,8 x 3600. Oltre a queste modifiche, attenersi alla stessa procedura riportata sopra. 
+    > [!NOTE]
+    > Per ricevere una notifica se la condivisione file Premium è vicina a essere limitata a causa di operazioni di i/o al secondo con provisioning, sarà necessario apportare alcune modifiche. Nel passaggio 5 Selezionare invece la metrica **transazioni** . Inoltre, per il passaggio 10, l'unica opzione per il **tipo di aggregazione** è Total. Il valore soglia dipende pertanto dalla granularità di aggregazione selezionata. Se, ad esempio, si desidera che la soglia sia pari al 80% di IOPS di base di cui è stato effettuato il provisioning ed è stata selezionata un'ora per la **granularità di aggregazione** , il **valore soglia** corrisponderà al valore di IOPS di base (in byte) x 0,8 x 3600. Oltre a queste modifiche, attenersi alla stessa procedura riportata sopra. 
 
 Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

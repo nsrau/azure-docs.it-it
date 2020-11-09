@@ -8,12 +8,12 @@ ms.date: 08/26/2020
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.service: digital-twins
-ms.openlocfilehash: cb532098cda290654d6bdebe9cec2edab8ccbf99
-ms.sourcegitcommit: 0b9fe9e23dfebf60faa9b451498951b970758103
+ms.openlocfilehash: 6393b0b8d794345fded95718a2581ae9b929ad49
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/07/2020
-ms.locfileid: "94355788"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381151"
 ---
 # <a name="move-an-azure-digital-twins-instance-to-a-different-azure-region"></a>Spostare un'istanza di Azure Digital Twins in un'altra area di Azure
 
@@ -120,7 +120,7 @@ Successivamente, si completerà lo "spostamento" dell'istanza creando una nuova 
 
 ### <a name="create-a-new-instance"></a>Crea una nuova istanza
 
-Per prima cosa, creare una nuova istanza di Azure Digital gemelli nell'area di destinazione. Eseguire la procedura descritta in [configurare un'istanza di e l'autenticazione](how-to-set-up-instance-portal.md)di. Tenere presente questi indicatori:
+Per prima cosa, creare una nuova istanza di Azure Digital gemelli nell'area di destinazione. Attenersi alla procedura descritta in [procedura: configurare un'istanza di e l'autenticazione](how-to-set-up-instance-portal.md)di. Tenere presente questi indicatori:
 
 * *Se* si trova in un gruppo di risorse diverso, è possibile usare lo stesso nome per la nuova istanza. Se è necessario usare lo stesso gruppo di risorse che contiene l'istanza originale, la nuova istanza dovrà avere un proprio nome distinto.
 * Quando viene richiesta una località, immettere la nuova area di destinazione.

@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: d34505b1f36d6de77e2bb1df9aa98b7a14b5f44d
-ms.sourcegitcommit: 2989396c328c70832dcadc8f435270522c113229
+ms.openlocfilehash: fdbef15bb7831fedd7c375d565e0cde10f9b9a9e
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92171944"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380433"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integrazione Azure Active Directory gestita da AKS
 
@@ -21,13 +21,6 @@ L'integrazione di Azure AD gestita da AKS è progettata per semplificare l'esper
 Gli amministratori del cluster possono configurare il controllo degli accessi in base al ruolo Kubernetes (RBAC) in base all'identità dell'utente o al gruppo di directory. L'autenticazione di Azure AD è disponibile per i cluster di servizio Azure Kubernetes con OpenID Connect. OpenID Connect è un livello di gestione delle identità basato sul protocollo OAuth 2.0. Per ulteriori informazioni su OpenID Connect, vedere la [documentazione relativa a Open ID Connect][open-id-connect].
 
 Per altre informazioni sul flusso di integrazione di Azure AD, vedere la [documentazione relativa ai concetti di integrazione di Azure Active Directory](concepts-identity.md#azure-active-directory-integration).
-
-## <a name="region-availability"></a>Aree di disponibilità
-
-L'integrazione Azure Active Directory gestita da AKS è disponibile nelle aree pubbliche in cui [è supportato AKS](https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service).
-
-* Azure Government attualmente non è supportato.
-* Azure Cina 21Vianet attualmente non è supportato.
 
 ## <a name="limitations"></a>Limitazioni 
 

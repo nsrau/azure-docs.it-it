@@ -11,23 +11,23 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 03/17/2019
 ms.author: scottwhi
-ms.openlocfilehash: 6c328c681874ba171eab1341a16cf059e359feea
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 20501d0993cc4566a79d6e916d801911606bea35
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93076279"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380450"
 ---
 # <a name="how-to-use-ranking-to-display-bing-web-search-api-results"></a>Come usare la classificazione per visualizzare i risultati dell'API Ricerca Web Bing  
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](/bing/search-apis/bing-web-search/create-bing-search-service-resource).
 
-La risposta di ogni ricerca include un riscontro [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse), che specifica come devono essere visualizzati i risultati della ricerca. La risposta di classificazione raggruppa i risultati per contenuto principale e contenuto della barra laterale per una pagina di risultati della ricerca tradizionale. Se i risultati non vengono visualizzati in un formato di contenuto principale e della barra laterale tradizionale, è necessario dare al contenuto principale una maggiore visibilità rispetto al contenuto della barra laterale.  
+La risposta di ogni ricerca include un riscontro [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse), che specifica come devono essere visualizzati i risultati della ricerca. La risposta di classificazione raggruppa i risultati per contenuto principale e contenuto della barra laterale per una pagina di risultati della ricerca tradizionale. Se i risultati non vengono visualizzati in un formato di contenuto principale e della barra laterale tradizionale, è necessario dare al contenuto principale una maggiore visibilità rispetto al contenuto della barra laterale.  
 
-All'interno di ogni gruppo (principale o barra laterale) la matrice [Items](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) identifica l'ordine in cui deve essere visualizzato il contenuto. Ogni elemento offre i due modi seguenti per identificare il risultato all'interno di un riscontro.  
+All'interno di ogni gruppo (principale o barra laterale) la matrice [Items](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankinggroup-items) identifica l'ordine in cui deve essere visualizzato il contenuto. Ogni elemento offre i due modi seguenti per identificare il risultato all'interno di un riscontro.  
 
 -   `answerType` e `resultIndex`: il campo `answerType` identifica il riscontro (ad esempio, Webpage o News) e `resultIndex` identifica un risultato all'interno del riscontro (ad esempio, un articolo di notizie). L'indice è in base zero.  
 
@@ -35,11 +35,11 @@ All'interno di ogni gruppo (principale o barra laterale) la matrice [Items](http
 
 L'ID è più semplice da usare perché è necessario solo che l'ID di classificazione corrisponda all'ID di un riscontro o a uno dei risultati. Se un oggetto riscontro include un campo `id`, tutti i risultati del riscontro vengono visualizzati insieme. Ad esempio, se l'oggetto `News` include il campo `id`, tutti gli articoli di notizie vengono visualizzati insieme. Se l'oggetto `News` non include il campo `id`, ogni articolo di notizie conterrà un campo `id` e la risposta di classificazione combinerà gli articoli di notizie con i risultati degli altri riscontri.  
 
-L'uso di `answerType` e `resultIndex` è un po' più complesso. Usare `answerType` per identificare il riscontro contenente i risultati da visualizzare. Usare quindi `resultIndex` per indicizzare i risultati del riscontro e ottenere il risultato da visualizzare. Il `answerType` valore è il nome del campo nell'oggetto [SearchResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) . Se si suppone che tutti i risultati della risposta vengano visualizzati insieme, l'elemento di risposta di rango non include il `resultIndex` campo.  
+L'uso di `answerType` e `resultIndex` è un po' più complesso. Usare `answerType` per identificare il riscontro contenente i risultati da visualizzare. Usare quindi `resultIndex` per indicizzare i risultati del riscontro e ottenere il risultato da visualizzare. Il `answerType` valore è il nome del campo nell'oggetto [SearchResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#searchresponse) . Se si suppone che tutti i risultati della risposta vengano visualizzati insieme, l'elemento di risposta di rango non include il `resultIndex` campo.  
 
 ## <a name="ranking-response-example"></a>Esempio di risposta di classificazione
 
-Di seguito viene illustrato un esempio di [RankingResponse](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Poiché il riscontro Web non include un campo `id`, ogni singola pagina Web verrà visualizzata a seconda della classificazione. Ogni pagina Web include un campo `id`. Poiché invece i riscontri relativi a immagini, video e ricerche correlate includono il campo `id`, i risultati di ognuno di tali riscontri vengono visualizzati insieme in base alla classificazione.
+Di seguito viene illustrato un esempio di [RankingResponse](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#rankingresponse). Poiché il riscontro Web non include un campo `id`, ogni singola pagina Web verrà visualizzata a seconda della classificazione. Ogni pagina Web include un campo `id`. Poiché invece i riscontri relativi a immagini, video e ricerche correlate includono il campo `id`, i risultati di ognuno di tali riscontri vengono visualizzati insieme in base alla classificazione.
 
 ```json
 {  

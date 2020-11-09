@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: scottwhi
-ms.openlocfilehash: 95e80907220a58243844b80d81dc187f8dc4c8bc
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 39848bcaded1669c6a6efd5b649ecf8e8343a596
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078697"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381117"
 ---
 # <a name="upgrade-from-bing-web-search-api-v5-to-v7"></a>Aggiornare l'API Ricerca Web Bing dalla versione 5 alla versione 7
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Questa guida all'aggiornamento indica le differenze tra la versione 5 e la versione 7 dell'API Ricerca Web Bing. Usare questa guida per identificare le parti dell'applicazione da aggiornare per usare la versione 7.
 
@@ -80,14 +80,14 @@ Bloccato|InvalidRequest.Blocked
 
 ### <a name="headers"></a>Intestazioni
 
-- È stata aggiunta l'intestazione di richiesta facoltativa [Pragma](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma). Per impostazione predefinita, Bing restituisce il contenuto memorizzato nella cache, se disponibile. Per impedire a Bing di restituire il contenuto memorizzato nella cache, impostare l'intestazione Pragma su no-cache, ad esempio, Pragma: no-cache.
+- È stata aggiunta l'intestazione di richiesta facoltativa [Pragma](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#pragma). Per impostazione predefinita, Bing restituisce il contenuto memorizzato nella cache, se disponibile. Per impedire a Bing di restituire il contenuto memorizzato nella cache, impostare l'intestazione Pragma su no-cache, ad esempio, Pragma: no-cache.
 
 ### <a name="query-parameters"></a>Parametri di query
 
-- È stato aggiunto il parametro di query [answerCount](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount). Usare questo parametro per specificare il numero di riscontri che devono essere inclusi nella risposta. I riscontri vengono scelti in base alla classificazione. Ad esempio, se si imposta questo parametro su tre (3), la risposta include i primi tre riscontri classificati.  
+- È stato aggiunto il parametro di query [answerCount](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#answercount). Usare questo parametro per specificare il numero di riscontri che devono essere inclusi nella risposta. I riscontri vengono scelti in base alla classificazione. Ad esempio, se si imposta questo parametro su tre (3), la risposta include i primi tre riscontri classificati.  
 
-- È stato aggiunto il parametro di query [promote](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Usare questo parametro insieme a `answerCount` per includere in modo esplicito uno o più tipi di riscontri, indipendentemente dalla classificazione. Ad esempio, per innalzare di livello video e immagini nella risposta, è necessario impostare Promuovi a *video, immagini* . L'elenco dei riscontri che si vuole promuovere non viene incluso nel calcolo del limite di `answerCount`. Ad esempio, se `answerCount` è 2 e `promote` è impostato su *video, immagini* , la risposta potrebbe includere pagine Web, notizie, video e immagini.
+- È stato aggiunto il parametro di query [promote](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#promote). Usare questo parametro insieme a `answerCount` per includere in modo esplicito uno o più tipi di riscontri, indipendentemente dalla classificazione. Ad esempio, per innalzare di livello video e immagini nella risposta, è necessario impostare Promuovi a *video, immagini*. L'elenco dei riscontri che si vuole promuovere non viene incluso nel calcolo del limite di `answerCount`. Ad esempio, se `answerCount` è 2 e `promote` è impostato su *video, immagini* , la risposta potrebbe includere pagine Web, notizie, video e immagini.
 
 ### <a name="object-changes"></a>Modifiche agli oggetti
 
-- Il campo `someResultsRemoved` è stato aggiunto all'oggetto [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer). Il campo contiene un valore booleano che indica se la risposta ha escluso alcuni risultati dal riscontro Web.  
+- Il campo `someResultsRemoved` è stato aggiunto all'oggetto [WebAnswer](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#webanswer). Il campo contiene un valore booleano che indica se la risposta ha escluso alcuni risultati dal riscontro Web.

@@ -10,19 +10,19 @@ ms.subservice: bing-video-search
 ms.topic: conceptual
 ms.date: 06/24/2019
 ms.author: aahi
-ms.openlocfilehash: 8074b2411a053c8b55457f9ace716481f6b107a5
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 2fab4a57a939f9516140562cb8b8508b2ba69dc0
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93102225"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379889"
 ---
 # <a name="search-for-videos-with-the-bing-video-search-api"></a>Cercare video con l'API Ricerca video Bing
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 L'API Ricerca video Bing facilita l'integrazione delle funzionalità di ricerca notizie cognitive di Bing nelle applicazioni. Oltre a trovare e restituire principalmente i video pertinenti dal Web, l'API offre diverse funzionalità per il recupero intelligente e mirato dei video sul Web.
 
@@ -44,13 +44,13 @@ Tutte le richieste devono essere eseguite da un server.
 
 Se è la prima volta che si chiama un'API Bing, non includere l'intestazione dell'ID client. Includere l'ID client solo se in precedenza è già stata chiamata un'API Bing e Bing ha restituito un ID client per la combinazione utente e dispositivo.
 
-Per ottenere video da un dominio specifico, usare il [sito:](https://msdn.microsoft.com/library/ff795613.aspx) operatore query.
+Per ottenere video da un dominio specifico, usare il [sito:](/previous-versions/bing/search/ff795613(v=msdn.10)) operatore query.
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/videos/search?q=sailing+dinghies+site:contososailing.com&mkt=en-us HTTP/1.1
 ```
 
-Il risultato contiene una risposta [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) che riporta un elenco di video che Bing ha ritenuto pertinenti alla query. Ogni oggetto [video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video) nell'elenco include l'URL, la durata, le dimensioni e il formato di codifica del video, tra gli altri attributi. L'oggetto video include anche l'URL di un'anteprima del video e le dimensioni dell'anteprima.
+Il risultato contiene una risposta [Video](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) che riporta un elenco di video che Bing ha ritenuto pertinenti alla query. Ogni oggetto [video](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video) nell'elenco include l'URL, la durata, le dimensioni e il formato di codifica del video, tra gli altri attributi. L'oggetto video include anche l'URL di un'anteprima del video e le dimensioni dell'anteprima.
 
 ```json
 {
@@ -103,9 +103,9 @@ Il risultato contiene una risposta [Video](https://docs.microsoft.com/rest/api/c
 
 ## <a name="video-thumbnails"></a>Anteprime video
 
-È possibile visualizzare tutte le anteprime video restituite dall'API Ricerca video Bing oppure solo un sottoinsieme. Se l'utente visualizza un subset, avrà la possibilità di vedere i video rimanenti. Come parte dei [requisiti per l'uso e la visualizzazione](../UseAndDisplayRequirements.md) delle API Bing, è necessario visualizzare i video nell'ordine indicato nella risposta. Per informazioni sul ridimensionamento dell'anteprima, vedere [Resizing and Cropping Thumbnails](../../bing-web-search/resize-and-crop-thumbnails.md) (Ridimensionamento e ritaglio di anteprime). 
+È possibile visualizzare tutte le anteprime video restituite dall'API Ricerca video Bing oppure solo un sottoinsieme. Se l'utente visualizza un subset, avrà la possibilità di vedere i video rimanenti. Come parte dei [requisiti per l'uso e la visualizzazione](../../bing-web-search/use-display-requirements.md) delle API Bing, è necessario visualizzare i video nell'ordine indicato nella risposta. Per informazioni sul ridimensionamento dell'anteprima, vedere [Resizing and Cropping Thumbnails](../../bing-web-search/resize-and-crop-thumbnails.md) (Ridimensionamento e ritaglio di anteprime). 
 
-L'utente, passando con il mouse sull'anteprima, potrà usare [motionThumbnailUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) per riprodurre una versione di anteprima del video. Assicurarsi di assegnare un attributo all'anteprima animata quando la si visualizza.
+L'utente, passando con il mouse sull'anteprima, potrà usare [motionThumbnailUrl](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-motionthumbnailurl) per riprodurre una versione di anteprima del video. Assicurarsi di assegnare un attributo all'anteprima animata quando la si visualizza.
 
 <!-- Removing until the images can be sanitized.
 ![Motion thumbnail of a video](../bing-web-search/media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
@@ -113,27 +113,27 @@ L'utente, passando con il mouse sull'anteprima, potrà usare [motionThumbnailUrl
 
 Quando si fa clic su un'anteprima, sono disponibili tre opzioni per la visualizzazione del video:
 
-- Usare [hostPageUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-hostpageurl) per visualizzare il video sul sito Web host (ad esempio YouTube)
-- Usare [webSearchUrl](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-websearchurl) per visualizzare il video nel browser video di Bing
-- Usare [embdedHtml](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-embedhtml) per incorporare il video nell'esperienza dell'utente 
+- Usare [hostPageUrl](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-hostpageurl) per visualizzare il video sul sito Web host (ad esempio YouTube)
+- Usare [webSearchUrl](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-websearchurl) per visualizzare il video nel browser video di Bing
+- Usare [embdedHtml](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-embedhtml) per incorporare il video nell'esperienza dell'utente 
 
 Assicurarsi di usare l'editore e l'autore per attribuire il video durante la riproduzione.
 
-Per informazioni dettagliate sull'uso di [videoId](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid), consultare la sezione [Informazioni dettagliate sui video](../video-insights.md).
+Per informazioni dettagliate sull'uso di [videoId](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#video-videoid), consultare la sezione [Informazioni dettagliate sui video](../video-insights.md).
 
 ## <a name="filtering-videos"></a>Come filtrare i video
 
 Per impostazione predefinita, l'API Ricerca video riporta tutti i video pertinenti alla query. Se si ricercano solo video gratuiti o video di lunghezza inferiore a cinque minuti, è possibile utilizzare i seguenti parametri di filtro per la query:
 
-- [prezzi](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing) &mdash; di Filtrare i video in base ai prezzi (ad esempio, video gratuiti o per i quali è necessario pagare)
-- [risoluzione](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution) &mdash; dei problemi Filtra i video per risoluzione (ad esempio, video con una risoluzione 720p o superiore)
-- [videoLength](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength) &mdash; Filtrare i video in base alla lunghezza del video (ad esempio, video di lunghezza inferiore a cinque minuti)
-- [aggiornamento](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness) &mdash; Filtra i video per età (ad esempio, video rilevati da Bing nell'ultima settimana)
+- [prezzi](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#pricing) &mdash; di Filtrare i video in base ai prezzi (ad esempio, video gratuiti o per i quali è necessario pagare)
+- [risoluzione](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#resolution) &mdash; dei problemi Filtra i video per risoluzione (ad esempio, video con una risoluzione 720p o superiore)
+- [videoLength](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videolength) &mdash; Filtrare i video in base alla lunghezza del video (ad esempio, video di lunghezza inferiore a cinque minuti)
+- [aggiornamento](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#freshness) &mdash; Filtra i video per età (ad esempio, video rilevati da Bing nell'ultima settimana)
 
-Per ottenere risultati di ricerca da un dominio specifico, includere il [sito:](https://msdn.microsoft.com/library/ff795613.aspx) dell'operatore query, nella stringa di query.
+Per ottenere risultati di ricerca da un dominio specifico, includere il [sito:](/previous-versions/bing/search/ff795613(v=msdn.10)) dell'operatore query, nella stringa di query.
 
 > [!NOTE]
-> A seconda della query, se si usa `site:`l'operatore query è possibile che i risultati contengano contenuti per adulti, indipendentemente dall'impostazione [Ricerca sicura](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#safesearch). È consigliabile usare `site:` solo se si conosce il contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti.
+> A seconda della query, se si usa `site:`l'operatore query è possibile che i risultati contengano contenuti per adulti, indipendentemente dall'impostazione [Ricerca sicura](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#safesearch). È consigliabile usare `site:` solo se si conosce il contenuto del sito e lo scenario prevede la possibilità di contenuto per adulti.
 
 Nel seguente esempio viene illustrato come ottenere video gratuiti da ContosoSailing.com, con una risoluzione pari a 720p o superiore e che sono stati individuati da Bing nell'ultimo mese.
 
@@ -149,9 +149,9 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="expanding-the-query"></a>Espansione della query
 
-Se Bing può espandere la query per circoscrivere la ricerca originale, significa che l'oggetto [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `queryExpansions`. Ad esempio, se la query fosse *Pulizia dei margini* , le query espanse potrebbero essere: **Strumenti** di pulizia dei margini, pulizia dei margini **dal suolo** , **Computer** di pulizia dei margini e pulizia dei margini **facile** .
+Se Bing può espandere la query per circoscrivere la ricerca originale, significa che l'oggetto [Video](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `queryExpansions`. Ad esempio, se la query fosse *Pulizia dei margini* , le query espanse potrebbero essere: **Strumenti** di pulizia dei margini, pulizia dei margini **dal suolo** , **Computer** di pulizia dei margini e pulizia dei margini **facile**.
 
-Il seguente esempio mostra le query espanse per *Pulizia dei margini* .
+Il seguente esempio mostra le query espanse per *Pulizia dei margini*.
 
 ```json
 {
@@ -176,13 +176,13 @@ Il seguente esempio mostra le query espanse per *Pulizia dei margini* .
 }
 ```
 
-Il campo `queryExpansions` contiene un elenco di oggetto [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj). Il campo `text` contiene la query espansa e il campo `displayText` contiene il termine di espansione. È possibile usare i campi testo e anteprima per mostrare all'utente le stringhe di query espanse, qualora la stringa di query espansa sia effettivamente ciò che si sta cercando. Rendere selezionabile l'anteprima e il testo con l'URL `webSearchUrl` o con l'URL `searchLink`. Usare `webSearchUrl` per inviare l'utente ai risultati della ricerca di Bing o `searchLink` se si fornisce la propria pagina di risultati.
+Il campo `queryExpansions` contiene un elenco di oggetto [Query](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj). Il campo `text` contiene la query espansa e il campo `displayText` contiene il termine di espansione. È possibile usare i campi testo e anteprima per mostrare all'utente le stringhe di query espanse, qualora la stringa di query espansa sia effettivamente ciò che si sta cercando. Rendere selezionabile l'anteprima e il testo con l'URL `webSearchUrl` o con l'URL `searchLink`. Usare `webSearchUrl` per inviare l'utente ai risultati della ricerca di Bing o `searchLink` se si fornisce la propria pagina di risultati.
 
 ## <a name="pivoting-the-query"></a>Trasformazione tramite Pivot della query
 
-Se Bing può segmentare la query di ricerca originale, significa che l'oggetto [Video](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `pivotSuggestions`. Se ad esempio la query originale fosse *Pulizia dei margini* , Bing potrebbe segmentare la query in *Pulizia* e *Margini* .
+Se Bing può segmentare la query di ricerca originale, significa che l'oggetto [Video](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#videos) contiene il campo `pivotSuggestions`. Se ad esempio la query originale fosse *Pulizia dei margini* , Bing potrebbe segmentare la query in *Pulizia* e *Margini*.
 
-Il seguente esempio mostra i suggerimenti di pivot per *Pulizia dei margini* .
+Il seguente esempio mostra i suggerimenti di pivot per *Pulizia dei margini*.
 
 ```json
 {
@@ -227,7 +227,7 @@ Il seguente esempio mostra i suggerimenti di pivot per *Pulizia dei margini* .
 }
 ```
 
-Per ogni pivot, la risposta contiene un elenco di oggetti [Query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj) contenenti le query suggerite. Il campo `text` contiene la query suggerita e il campo `displayText` contiene il termine che sostituisce il pivot nella query originale, Ad esempio, pulizia delle finestre.
+Per ogni pivot, la risposta contiene un elenco di oggetti [Query](/rest/api/cognitiveservices-bingsearch/bing-video-api-v7-reference#query_obj) contenenti le query suggerite. Il campo `text` contiene la query suggerita e il campo `displayText` contiene il termine che sostituisce il pivot nella query originale, Ad esempio, pulizia delle finestre.
 
 È possibile usare i campi `text` e `thumbnail` per mostrare all'utente le stringhe di query espanse qualora la stringa di query espansa sia effettivamente ciò che sta cercando. Rendere selezionabile l'anteprima e il testo con l'URL `webSearchUrl` o con l'URL `searchLink`. Usare `webSearchUrl` per inviare l'utente ai risultati della ricerca di Bing o `searchLink` se si fornisce la propria pagina di risultati.
 

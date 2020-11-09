@@ -4,15 +4,14 @@ description: Informazioni sulle porte e sugli indirizzi necessari per controllar
 services: container-service
 ms.topic: article
 ms.author: jpalma
-ms.date: 06/29/2020
-ms.custom: fasttrack-edit, devx-track-azurecli
+ms.date: 11/09/2020
 author: palma21
-ms.openlocfilehash: dcc015b9ff4cb9b980c7163f526eafbe5cd36119
-ms.sourcegitcommit: 693df7d78dfd5393a28bf1508e3e7487e2132293
+ms.openlocfilehash: e3b755ca3ca5338acfc1918bd2085d9fba18b8ac
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/28/2020
-ms.locfileid: "92900486"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380212"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster nel servizio Azure Kubernetes
 
@@ -39,7 +38,7 @@ _ Le dipendenze degli indirizzi IP sono per il traffico non HTTP/S (traffico TCP
 * Gli endpoint HTTP/HTTPS con nome di dominio completo possono essere posizionati nel dispositivo firewall.
 * Gli endpoint HTTP/HTTPS con caratteri jolly sono dipendenze che possono variare con il cluster AKS in base a un numero di qualificatori.
 * AKS usa un controller di ammissione per inserire il nome FQDN come variabile di ambiente per tutte le distribuzioni in Kube-System e Gatekeeper-System, che garantisce che tutte le comunicazioni di sistema tra i nodi e il server API utilizzino il nome di dominio completo dell'API del server e non l'indirizzo IP del server API. 
-* Se si dispone di un'app o di una soluzione che deve comunicare con il server API, è necessario aggiungere una regola di rete **aggiuntiva** per consentire la *comunicazione TCP alla porta 443 dell'IP del server API* .
+* Se si dispone di un'app o di una soluzione che deve comunicare con il server API, è necessario aggiungere una regola di rete **aggiuntiva** per consentire la *comunicazione TCP alla porta 443 dell'IP del server API*.
 * In rari casi, se è presente un'operazione di manutenzione, l'indirizzo IP del server API potrebbe cambiare. Le operazioni di manutenzione pianificate che possono modificare l'IP del server API vengono sempre comunicate in anticipo.
 
 
@@ -63,7 +62,6 @@ Le regole delle applicazioni e FQDN seguenti sono obbligatorie:
 |----------------------------------|-----------------|----------|
 | **`*.hcp.<location>.azmk8s.io`** | **`HTTPS:443`** | Obbligatorio per la comunicazione del server di < di nodo > API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
 | **`mcr.microsoft.com`**          | **`HTTPS:443`** | Obbligatorio per accedere alle immagini in Microsoft Container Registry (e). Questo registro contiene immagini o grafici di terze parti, ad esempio coreDNS e così via. Queste immagini sono necessarie per la creazione e il funzionamento corrette del cluster, incluse le operazioni di scalabilità e aggiornamento.  |
-| **`*.cdn.mscr.io`**              | **`HTTPS:443`** | Obbligatorio per l'archiviazione del sistema di archiviazione di Azure supportata dalla rete per la distribuzione di contenuti (CDN) di Azure. |
 | **`*.data.mcr.microsoft.com`**   | **`HTTPS:443`** | Obbligatorio per l'archiviazione del sistema di archiviazione di Azure supportata dalla rete per la distribuzione di contenuti (CDN) di Azure. |
 | **`management.azure.com`**       | **`HTTPS:443`** | Obbligatorio per le operazioni Kubernetes nell'API di Azure. |
 | **`login.microsoftonline.com`**  | **`HTTPS:443`** | Obbligatorio per l'autenticazione Azure Active Directory. |
@@ -92,7 +90,6 @@ Le regole delle applicazioni e FQDN seguenti sono obbligatorie:
 | **`*.hcp.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Obbligatorio per la comunicazione del server di < di nodo > API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
 | **`*.tun.<location>.cx.prod.service.azk8s.cn`**| **`HTTPS:443`** | Obbligatorio per la comunicazione del server di < di nodo > API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS. |
 | **`mcr.microsoft.com`**                        | **`HTTPS:443`** | Obbligatorio per accedere alle immagini in Microsoft Container Registry (e). Questo registro contiene immagini o grafici di terze parti, ad esempio coreDNS e così via. Queste immagini sono necessarie per la creazione e il funzionamento corrette del cluster, incluse le operazioni di scalabilità e aggiornamento. |
-| **`*.cdn.mscr.io`**                            | **`HTTPS:443`** | Obbligatorio per l'archiviazione del sistema di archiviazione di Azure supportata dalla rete per la distribuzione di contenuti (CDN) di Azure. |
 | **`.data.mcr.microsoft.com`**                  | **`HTTPS:443`** | Obbligatorio per l'archiviazione del sistema di archiviazione di Azure supportata dalla rete per la distribuzione di contenuti (CDN) di Azure. |
 | **`management.chinacloudapi.cn`**              | **`HTTPS:443`** | Obbligatorio per le operazioni Kubernetes nell'API di Azure. |
 | **`login.chinacloudapi.cn`**                   | **`HTTPS:443`** | Obbligatorio per l'autenticazione Azure Active Directory. |
@@ -119,7 +116,6 @@ Le regole delle applicazioni e FQDN seguenti sono obbligatorie:
 |---------------------------------------------------------|-----------------|----------|
 | **`*.hcp.<location>.cx.aks.containerservice.azure.us`** | **`HTTPS:443`** | Obbligatorio per la comunicazione del server di < di nodo > API. Sostituire *\<location\>* con l'area in cui è distribuito il cluster AKS.|
 | **`mcr.microsoft.com`**                                 | **`HTTPS:443`** | Obbligatorio per accedere alle immagini in Microsoft Container Registry (e). Questo registro contiene immagini o grafici di terze parti, ad esempio coreDNS e così via. Queste immagini sono necessarie per la creazione e il funzionamento corrette del cluster, incluse le operazioni di scalabilità e aggiornamento. |
-| **`*.cdn.mscr.io`**                                     | **`HTTPS:443`** | Obbligatorio per l'archiviazione del sistema di archiviazione di Azure supportata dalla rete per la distribuzione di contenuti (CDN) di Azure. |
 | **`*.data.mcr.microsoft.com`**                          | **`HTTPS:443`** | Obbligatorio per l'archiviazione del sistema di archiviazione di Azure supportata dalla rete per la distribuzione di contenuti (CDN) di Azure. |
 | **`management.usgovcloudapi.net`**                      | **`HTTPS:443`** | Obbligatorio per le operazioni Kubernetes nell'API di Azure. |
 | **`login.microsoftonline.us`**                          | **`HTTPS:443`** | Obbligatorio per l'autenticazione Azure Active Directory. |

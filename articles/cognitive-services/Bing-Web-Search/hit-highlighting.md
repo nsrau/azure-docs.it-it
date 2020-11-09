@@ -11,19 +11,19 @@ ms.subservice: bing-web-search
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: scottwhi
-ms.openlocfilehash: ea9cd9cf064b9c07016bc5e166cc4ec4c041b146
-ms.sourcegitcommit: 3bdeb546890a740384a8ef383cf915e84bd7e91e
+ms.openlocfilehash: 5c0bed04fccfba1ac06a54d5ddba9033ef05761b
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/30/2020
-ms.locfileid: "93078544"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94380709"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Uso degli indicatori di effetto per evidenziare il testo
 
 > [!WARNING]
-> API di ricerca Bing passano da servizi cognitivi a Ricerca Bing Services. A partire dal **30 ottobre 2020** , le nuove istanze di ricerca Bing devono essere sottoposte a provisioning in base al processo documentato [qui](https://aka.ms/cogsvcs/bingmove).
-> API di ricerca Bing provisioning con servizi cognitivi sarà supportato per i prossimi tre anni o fino alla fine del Enterprise Agreement, a seconda di quale evento si verifichi per primo.
-> Per istruzioni sulla migrazione, vedere [ricerca Bing Services](https://aka.ms/cogsvcs/bingmigration).
+> Le API Ricerca Bing sono state trasferite da Servizi cognitivi ai servizi di Ricerca Bing. A partire dal **30 ottobre 2020** , è necessario effettuare il provisioning di tutte le nuove istanze di Ricerca Bing seguendo la procedura documentata [qui](https://aka.ms/cogsvcs/bingmove).
+> Le API Ricerca Bing di cui viene effettuato il provisioning con Servizi cognitivi saranno supportate per i prossimi tre anni oppure fino alla data di fine del contratto Enterprise, se precedente.
+> Per le istruzioni sulla migrazione, vedere [Servizi di Ricerca Bing](https://aka.ms/cogsvcs/bingmigration).
 
 Bing supporta l'evidenziazione dei riscontri, che contrassegna i termini di query (o altri termini ritenuti rilevanti da Bing) nelle stringhe di visualizzazione di alcune risposte. Ad esempio, i campi, e del risultato della pagina Web `name` `displayUrl` `snippet` possono contenere termini di query contrassegnati. 
 
@@ -39,7 +39,7 @@ Prima di visualizzare il risultato nell'interfaccia utente, sostituire i caratte
 
 ## <a name="marker-formatting"></a>Formattazione marcatore
 
-Bing fornisce la possibilità di usare i caratteri Unicode o i tag HTML come marcatori. Per specificare i marcatori da usare, includere il [parametro di query](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) TextFormat: 
+Bing fornisce la possibilità di usare i caratteri Unicode o i tag HTML come marcatori. Per specificare i marcatori da usare, includere il [parametro di query](/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference#textformat) TextFormat: 
 
 | Valore             | Marcatore                       |
 |-------------------|------------------------------|

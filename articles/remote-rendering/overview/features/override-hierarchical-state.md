@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: bb120a533e4d11b34bb9712bf0164cec5a7728ce
-ms.sourcegitcommit: 957c916118f87ea3d67a60e1d72a30f48bad0db6
+ms.openlocfilehash: 29c89d8d3d2ae194ff48b762bc686feefdd3a528
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/19/2020
-ms.locfileid: "92207734"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381003"
 ---
 # <a name="hierarchical-state-override"></a>Override dello stato gerarchico
 
@@ -28,26 +28,26 @@ Nel caso del modello di un'automobile, ad esempio, è possibile rendere l’inte
 
 Il set fisso di stati di cui è possibile eseguire l'override sono:
 
-* **`Hidden`**: Le maglie corrispondenti nel grafico della scena sono nascoste o visualizzate.
-* **`Tint color`**: Un oggetto di cui è stato eseguito il rendering può essere colorato con il colore della tinta e il peso della tinta singoli. L'immagine seguente mostra la colorazione del cerchione di una ruota.
+* **`Hidden`** : Le maglie corrispondenti nel grafico della scena sono nascoste o visualizzate.
+* **`Tint color`** : Un oggetto di cui è stato eseguito il rendering può essere colorato con il colore della tinta e il peso della tinta singoli. L'immagine seguente mostra la colorazione del cerchione di una ruota.
   
   ![Colore tinta utilizzato per trasformare un oggetto in verde](./media/color-tint.png)
 
-* **`See-through`**: La geometria viene sottoposta a rendering in modo semi trasparente, ad esempio per rivelare le parti interne di un oggetto. Nell'immagine seguente viene mostrata l'intera automobile sottoposta a rendering in modalità trasparente, ad eccezione della pinza del freno rossa:
+* **`See-through`** : La geometria viene sottoposta a rendering in modo semi trasparente, ad esempio per rivelare le parti interne di un oggetto. Nell'immagine seguente viene mostrata l'intera automobile sottoposta a rendering in modalità trasparente, ad eccezione della pinza del freno rossa:
 
   ![Modalità See-through utilizzata per rendere trasparente gli oggetti selezionati](./media/see-through.png)
 
   > [!IMPORTANT]
   > L'effetto trasparente funziona solo quando viene usata la [modalità di rendering](../../concepts/rendering-modes.md) *TileBasedComposition*.
 
-* **`Selected`**: La geometria viene sottoposta a rendering con una [struttura di selezione](outlines.md).
+* **`Selected`** : La geometria viene sottoposta a rendering con una [struttura di selezione](outlines.md).
 
   ![Opzione di struttura utilizzata per evidenziare una parte selezionata](./media/selection-outline.png)
 
-* **`DisableCollision`**: La geometria è esentata dalle [query spaziali](spatial-queries.md). Il **`Hidden`** flag non influisce sul flag di stato di collisione, quindi questi due flag vengono spesso impostati insieme.
+* **`DisableCollision`** : La geometria è esentata dalle [query spaziali](spatial-queries.md). Il **`Hidden`** flag non influisce sul flag di stato di collisione, quindi questi due flag vengono spesso impostati insieme.
 
-* **`UseCutPlaneFilterMask`**: Usare una maschera di bit filtro singola per controllare la selezione del piano di taglio. Questo flag determina se la singola maschera di filtro deve essere utilizzata o ereditata dal relativo elemento padre. La maschera di bit del filtro viene impostata tramite la `CutPlaneFilterMask` Proprietà. Per informazioni dettagliate sul funzionamento del filtro, vedere il [paragrafo selettivo dei piani di taglio](cut-planes.md#selective-cut-planes).
-![Piani tagliati selettivi](./media/selective-cut-planes.png)
+* **`UseCutPlaneFilterMask`** : Usare una maschera di bit filtro singola per controllare la selezione del piano di taglio. Questo flag determina se la singola maschera di filtro deve essere utilizzata o ereditata dal relativo elemento padre. La maschera di bit del filtro viene impostata tramite la `CutPlaneFilterMask` Proprietà. Per informazioni dettagliate sul funzionamento del filtro, vedere il [paragrafo selettivo dei piani di taglio](cut-planes.md#selective-cut-planes). Vedere l'esempio seguente in cui viene tagliato solo il pneumatico e il cerchio mentre il resto della scena rimane inalterato.
+![Piani tagliati selettivi](./media/selective-cut-planes-hierarchical-override.png)
 
 
 > [!TIP]
@@ -101,7 +101,7 @@ L' `tint color` override è leggermente speciale in quanto è disponibile uno st
 
 Un'istanza di `HierarchicalStateOverrideComponent` non aggiunge molto sovraccarico in fase di esecuzione. Tuttavia, è sempre consigliabile fare in modo che il numero di componenti attivi sia basso. Ad esempio, quando si implementa un sistema di selezione che evidenzia l'oggetto selezionato, è consigliabile eliminare il componente quando l'evidenziazione viene rimossa. Il mantenimento di componenti con funzionalità neutre può aggiungere rapidamente sovraccarico.
 
-Il rendering trasparente aggiunge un carico di lavoro maggiore sulle GPU del server rispetto al rendering standard. Se parti di grandi dimensioni del grafo della scena sono impostate come *see-through*, con molti livelli di geometria visibili, si potrebbe verificare un collo di bottiglia nelle prestazioni. Lo stesso vale per gli oggetti con [strutture di selezione](../../overview/features/outlines.md#performance).
+Il rendering trasparente aggiunge un carico di lavoro maggiore sulle GPU del server rispetto al rendering standard. Se parti di grandi dimensioni del grafo della scena sono impostate come *see-through* , con molti livelli di geometria visibili, si potrebbe verificare un collo di bottiglia nelle prestazioni. Lo stesso vale per gli oggetti con [strutture di selezione](../../overview/features/outlines.md#performance).
 
 ## <a name="api-documentation"></a>Documentazione dell'API
 

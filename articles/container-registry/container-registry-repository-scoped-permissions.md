@@ -3,12 +3,12 @@ title: Autorizzazioni per i repository in Registro Azure Container
 description: Creare un token con autorizzazioni con ambito in repository specifici in un registro di sistema Premium per eseguire il pull o il push di immagini oppure eseguire altre azioni
 ms.topic: article
 ms.date: 05/27/2020
-ms.openlocfilehash: 8661ff2e320788d3899ae16dd3bee7d3ff662caa
-ms.sourcegitcommit: 829d951d5c90442a38012daaf77e86046018e5b9
+ms.openlocfilehash: b65b1bf69337cb172a17043490a5d13c7bd7afc2
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 10/09/2020
-ms.locfileid: "84509407"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381236"
 ---
 # <a name="create-a-token-with-repository-scoped-permissions"></a>Creare un token con autorizzazioni con ambito repository
 
@@ -61,9 +61,9 @@ L'immagine seguente illustra la relazione tra token e mapping di ambito.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* **Interfaccia della riga di comando di Azure**: i comandi dell'interfaccia della riga di comando di Azure per creare e gestire i token sono disponibili nella versione 2.0.76 o successiva dell'interfaccia. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
-* **Docker**: per eseguire l'autenticazione con il registro per effettuare il pull o il push di immagini, è necessaria un'installazione locale di Docker. Docker offre istruzioni di installazione per sistemi [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
-* **Registro contenitori**: se non è già presente, creare un registro contenitori Premium nella sottoscrizione di Azure o aggiornare un registro esistente. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md). 
+* **Interfaccia della riga di comando di Azure** : i comandi dell'interfaccia della riga di comando di Azure per creare e gestire i token sono disponibili nella versione 2.0.76 o successiva dell'interfaccia. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+* **Docker** : per eseguire l'autenticazione con il registro per effettuare il pull o il push di immagini, è necessaria un'installazione locale di Docker. Docker offre istruzioni di installazione per sistemi [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms).
+* **Registro contenitori** : se non è già presente, creare un registro contenitori Premium nella sottoscrizione di Azure o aggiornare un registro esistente. Ad esempio usare il [portale di Azure](container-registry-get-started-portal.md) oppure l'[interfaccia della riga di comando di Azure](container-registry-get-started-azure-cli.md). 
 
 ## <a name="create-token---cli"></a>Creare il token - interfaccia della riga di comando
 
@@ -150,7 +150,7 @@ L'output Mostra i dettagli sul token. Per impostazione predefinita, vengono gene
 Nell'esempio seguente vengono creati un token e un mapping di ambito con le seguenti autorizzazioni per il repository `samples/hello-world`: `content/write` e `content/read`.
 
 1. Passare al registro contenitori nel portale.
-1. In **autorizzazioni repository**selezionare **token (anteprima) > + Aggiungi**.
+1. In **autorizzazioni repository** selezionare **token (anteprima) > + Aggiungi**.
 
       :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-add.png" alt-text="Creare il token nel portale":::
 1. Immettere un nome di token.
@@ -159,7 +159,7 @@ Nell'esempio seguente vengono creati un token e un mapping di ambito con le segu
     1. Immettere un nome e una descrizione per il mapping di ambito. 
     1. In **Repository** immettere `samples/hello-world` e in **Autorizzazioni** selezionare `content/read` e `content/write`. Quindi selezionare **+Aggiungi**.  
 
-        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Creare il token nel portale":::
+        :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-scope-map-add.png" alt-text="Creare un mapping di ambito nel portale":::
 
     1. Dopo l'aggiunta di repository e autorizzazioni, selezionare **Aggiungi** per aggiungere il mapping di ambito.
 1. Accettare lo **stato** predefinito del token **Abilitato** e quindi selezionare **Crea**.
@@ -171,12 +171,12 @@ Dopo che il token è stato convalidato e creato, i dettagli del token vengono vi
 Per usare un token creato nel portale, è necessario generare una password. È possibile generare una o due password e impostare una data di scadenza per ciascuna di esse. 
 
 1. Passare al registro contenitori nel portale.
-1. In **autorizzazioni repository**selezionare **token (anteprima)** e selezionare un token.
+1. In **autorizzazioni repository** selezionare **token (anteprima)** e selezionare un token.
 1. Nei dettagli del token selezionare **password1** o **password2** e selezionare l'icona Genera.
 1. Nella schermata della password, se necessario impostare una data di scadenza per la password e selezionare **Genera**. È consigliabile impostare una data di scadenza.
 1. Dopo aver generato una password, copiarla e salvarla in una posizione sicura. Non è possibile recuperare una password generata dopo aver chiuso la schermata, ma è possibile generarne una nuova.
 
-    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Creare il token nel portale":::
+    :::image type="content" source="media/container-registry-repository-scoped-permissions/portal-token-password.png" alt-text="Creare la password del token nel portale":::
 
 ## <a name="authenticate-with-token"></a>Eseguire l'autenticazione con un token
 
@@ -204,7 +204,7 @@ Per gli esempi seguenti, eseguire il pull delle immagini `hello-world` e `alpine
 docker pull hello-world
 docker pull alpine
 docker tag hello-world myregistry.azurecr.io/samples/hello-world:v1
-docker tag hello-world myregistry.azurecr.io/samples/alpine:v1
+docker tag alpine myregistry.azurecr.io/samples/alpine:v1
 ```
 
 ### <a name="authenticate-using-token"></a>Eseguire l'autenticazione con il token
@@ -259,7 +259,7 @@ az acr scope-map update \
 Nel portale di Azure:
 
 1. Passare al registro contenitori.
-1. In **autorizzazioni repository**selezionare **mappe ambito (anteprima)** e selezionare la mappa dell'ambito da aggiornare.
+1. In **autorizzazioni repository** selezionare **mappe ambito (anteprima)** e selezionare la mappa dell'ambito da aggiornare.
 1. In **Repository** immettere `samples/alpine` e in **Autorizzazioni** selezionare `content/read` e `content/write`. Quindi selezionare **+Aggiungi**.
 1. In **Repository** selezionare `samples/hello-world` e in **Autorizzazioni** deselezionare `content/write`. Selezionare quindi **Salva**.
 
@@ -341,7 +341,7 @@ Output di esempio:
 
 ### <a name="list-scope-maps"></a>Elenco dei mapping di ambito
 
-Per elencare tutti i mapping di ambito configurati in un registro, usare il comando [az acr scope-map list][az-acr-scope-map-list] o la schermata **Mapping di ambito (anteprima**) nel portale. Ad esempio:
+Per elencare tutti i mapping di ambito configurati in un registro, usare il comando [az acr scope-map list][az-acr-scope-map-list] o la schermata **Mapping di ambito (anteprima** ) nel portale. Ad esempio:
 
 ```azurecli
 az acr scope-map list \
@@ -378,7 +378,7 @@ az acr token list --registry myregistry --output table
 
 Se non è stata generata una password per il token o si vogliono generare nuove password, eseguire il comando [AZ ACR token Credential generate][az-acr-token-credential-generate] . 
 
-Nell'esempio seguente viene generato un nuovo valore per password1 per il token *MyToken*, con un periodo di scadenza di 30 giorni. La password viene archiviata nella variabile di ambiente `TOKEN_PWD`. Questo esempio è formattato per la shell Bash.
+Nell'esempio seguente viene generato un nuovo valore per password1 per il token *MyToken* , con un periodo di scadenza di 30 giorni. La password viene archiviata nella variabile di ambiente `TOKEN_PWD`. Questo esempio è formattato per la shell Bash.
 
 ```azurecli
 TOKEN_PWD=$(az acr token credential generate \

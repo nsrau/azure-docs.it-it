@@ -2,14 +2,14 @@
 title: Opzioni di configurazione-monitoraggio di Azure Application Insights Java
 description: Opzioni di configurazione per il monitoraggio di Azure Application Insights Java
 ms.topic: conceptual
-ms.date: 04/16/2020
+ms.date: 11/04/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 7165afd77e3f60af5e00b92c1063247325897f9f
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 6edb77ec21b4f82f8398312fdff24aa5ea207771
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331907"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381032"
 ---
 # <a name="configuration-options-for-azure-monitor-application-insights-java"></a>Opzioni di configurazione per il monitoraggio di Azure Application Insights Java
 
@@ -48,7 +48,7 @@ Se si specifica un percorso relativo, questo verrà risolto in relazione alla di
 
 ## <a name="connection-string"></a>Stringa di connessione
 
-È un'operazione obbligatoria. È possibile trovare la stringa di connessione nella risorsa Application Insights:
+La stringa di connessione è obbligatoria. È possibile trovare la stringa di connessione nella risorsa Application Insights:
 
 :::image type="content" source="media/java-ipa/connection-string.png" alt-text="Stringa di connessione Application Insights":::
 
@@ -169,16 +169,16 @@ Se si vuole aggiungere dimensioni personalizzate a tutti i dati di telemetria:
 
 ## <a name="telemetry-processors-preview"></a>Processori di telemetria (anteprima)
 
-Questa è una funzionalità in anteprima.
+Questa funzionalità è in anteprima.
 
-Consente di configurare le regole che verranno applicate ai dati di telemetria relativi a richieste, dipendenze e tracce, ad esempio
+Consente di configurare le regole che verranno applicate ai dati di telemetria relativi a richieste, dipendenze e tracce, ad esempio:
  * Maschera dati sensibili
  * Aggiungere dimensioni personalizzate in modo condizionale
  * Aggiornare il nome della telemetria usato per l'aggregazione e la visualizzazione
 
 Per altre informazioni, vedere la documentazione del [processore di telemetria](./java-standalone-telemetry-processors.md) .
 
-## <a name="auto-collected-logging"></a>Registrazione automatica
+## <a name="autocollected-logging"></a>Registrazione autoraccolta
 
 Log4j, Logback e Java. util. Logging sono instrumentati automaticamente e la registrazione eseguita tramite questi framework di registrazione viene raccolta automaticamente.
 
@@ -213,13 +213,16 @@ Questi sono i `level` valori validi che è possibile specificare nel `applicatio
 | TRACE (o FINEST) | TRACE  | TRACE   | FINEST  |
 | ALL               | ALL    | ALL     | ALL     |
 
-## <a name="auto-collected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Metriche del micrometro raccolte automaticamente (incluse le metriche dell'attuatore Spring boot)
+## <a name="autocollected-micrometer-metrics-including-spring-boot-actuator-metrics"></a>Metriche di micrometrico autocollect (incluse le metriche dell'attuatore Spring boot)
 
-Se l'applicazione usa il [micrometro](https://micrometer.io), le metriche inviate al registro globale del micrometro vengono raccolte automaticamente.
+Se l'applicazione usa il [micrometro](https://micrometer.io), le metriche inviate al registro globale del micrometro vengono raccolte in modo autoraccolto.
 
-Inoltre, se l'applicazione usa l' [attuatore Spring boot](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), verranno raccolte automaticamente anche le metriche configurate dall'attuatore Spring boot.
+Inoltre, se l'applicazione usa l' [attuatore Spring boot](https://docs.spring.io/spring-boot/docs/current/reference/html/production-ready-features.html), vengono raccolte anche le metriche configurate dall'attuatore Spring boot.
 
-Per disabilitare la raccolta automatica di metriche del micrometro (incluse le metriche dell'attuatore Spring boot):
+Per disabilitare la raccolta di metriche del micrometro (incluse le metriche dell'attuatore Spring boot):
+
+> [!NOTE]
+> Le metriche personalizzate vengono fatturate separatamente e possono generare costi aggiuntivi. Assicurarsi di controllare le informazioni dettagliate [sui prezzi](https://azure.microsoft.com/pricing/details/monitor/). Per disabilitare le metriche dell'attuatore micrometrico e Spring, aggiungere la configurazione seguente al file di configurazione.
 
 ```json
 {
@@ -244,7 +247,7 @@ Per impostazione predefinita, Application Insights Java 3,0 invia una metrica He
 ```
 
 > [!NOTE]
-> Non è possibile ridurre la frequenza di questo heartbeat, perché i dati di heartbeat vengono usati anche per tenere traccia dell'utilizzo del Application Insights.
+> Non è possibile ridurre la frequenza dell'heartbeat, perché i dati di heartbeat vengono usati anche per tenere traccia dell'utilizzo del Application Insights.
 
 ## <a name="http-proxy"></a>Proxy HTTP
 
@@ -279,7 +282,7 @@ Se l'applicazione è dietro un firewall e non è in grado di connettersi diretta
 
 "Self-Diagnostics" si riferisce alla registrazione interna da Application Insights Java 3,0.
 
-Questo può essere utile per individuare e diagnosticare i problemi con Application Insights stesso.
+Questa funzionalità può essere utile per individuare e diagnosticare i problemi con Application Insights stesso.
 
 Per impostazione predefinita, Application Insights i registri Java 3,0 al livello `INFO` del file `applicationinsights.log` e della console, corrispondenti a questa configurazione:
 

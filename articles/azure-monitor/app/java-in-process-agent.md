@@ -3,12 +3,12 @@ title: Monitoraggio di Azure Application Insights Java
 description: Application Performance Monitoring per le applicazioni Java in esecuzione in qualsiasi ambiente senza richiedere la modifica del codice. Traccia distribuita e mappa delle applicazioni.
 ms.topic: conceptual
 ms.date: 03/29/2020
-ms.openlocfilehash: 31ee3c4a2dbf6f6832c0228e70aa079b5f028bc4
-ms.sourcegitcommit: 46c5ffd69fa7bc71102737d1fab4338ca782b6f1
+ms.openlocfilehash: 2459f80746d95234701319bbb5142c8e540890d3
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/06/2020
-ms.locfileid: "94331924"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94379770"
 ---
 # <a name="java-codeless-application-monitoring-azure-monitor-application-insights"></a>Monitoraggio di Azure per il monitoraggio di applicazioni Java non codificate Application Insights
 
@@ -133,7 +133,7 @@ Per i dettagli completi, vedere [Opzioni di configurazione](./java-standalone-co
 
 L'obiettivo di 3.0 + è quello di consentire l'invio di dati di telemetria personalizzati usando le API standard.
 
-Sono supportati il micrometro, l'API OpenTelemetry e i Framework di registrazione più diffusi. Application Insights Java 3,0 acquisisce automaticamente i dati di telemetria e li correla insieme a tutti i dati di telemetria autoraccolti.
+Sono supportati il micrometro, l'API OpenTelemetry e i Framework di registrazione più diffusi. Application Insights Java 3,0 acquisisce automaticamente i dati di telemetria e li correla insieme a tutti i dati di telemetria raccolti automaticamente.
 
 ### <a name="supported-custom-telemetry"></a>Telemetria personalizzata supportata
 

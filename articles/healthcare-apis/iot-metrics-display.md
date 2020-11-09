@@ -1,6 +1,6 @@
 ---
-title: Visualizzare e configurare le metriche del connettore Azure IoT per FHIR (anteprima)
-description: Questo articolo illustra la visualizzazione e la configurazione del connettore Azure per le metriche di FHIR (anteprima)
+title: Visualizzare e configurare il connettore Azure per la metrica FHIR (anteprima)
+description: Questo articolo illustra come visualizzare e configurare il connettore Azure per la metrica FHIR (anteprima).
 services: healthcare-apis
 author: msjasteppe
 ms.service: healthcare-apis
@@ -8,73 +8,71 @@ ms.subservice: iomt
 ms.topic: how-to
 ms.date: 10/29/2020
 ms.author: jasteppe
-ms.openlocfilehash: 1cdae789b8286be408735fff92e2de46e28ce514
-ms.sourcegitcommit: 0ce1ccdb34ad60321a647c691b0cff3b9d7a39c8
+ms.openlocfilehash: 9a4e2c4dfe8a9de28688afe0dd036cecb7ce2b39
+ms.sourcegitcommit: 8a1ba1ebc76635b643b6634cc64e137f74a1e4da
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 11/05/2020
-ms.locfileid: "93394289"
+ms.lasthandoff: 11/09/2020
+ms.locfileid: "94381219"
 ---
-# <a name="view-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Visualizzare e configurare le metriche del connettore Azure IoT per FHIR (anteprima) 
+# <a name="display-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Visualizzare e configurare il connettore Azure per la metrica FHIR (anteprima) 
 
-Questo articolo illustra come visualizzare e configurare il connettore Azure per la metrica FHIR *. 
+Questo articolo illustra come visualizzare e configurare il connettore Azure per le risorse di interoperabilità sanitaria veloce (FHIR&#174;) *.
 
 > [!TIP]
-> Per informazioni su come configurare l'esportazione dei dati di metrica, seguire le istruzioni [riportate nella pagina relativa all'esportazione del connettore Azure per le metriche FHIR (anteprima) tramite le impostazioni di diagnostica](./iot-metrics-diagnostics-export.md) .
+> Per informazioni su come configurare l'esportazione dei dati di metrica, seguire le istruzioni [riportate in esportare il connettore Azure per le metriche di FHIR (anteprima) tramite le impostazioni di diagnostica](./iot-metrics-diagnostics-export.md).
 
-## <a name="view-metrics-for-azure-iot-connector-for-fhir-preview"></a>Visualizzare le metriche per il connettore Azure per FHIR (anteprima)
-1. Per visualizzare le metriche per i connettori Internet, selezionare l'API di Azure per il servizio FHIR nel portale di Azure. 
+## <a name="display-metrics-for-azure-iot-connector-for-fhir-preview"></a>Visualizzare le metriche per il connettore Azure per FHIR (anteprima)
 
-2. Passa a **metriche** 
+1. Accedere al portale di Azure, quindi selezionare l'API di Azure per il servizio FHIR. 
+
+2. Nel riquadro sinistro selezionare **metriche**. 
 
 3. Selezionare la scheda **connettore** Internet.
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-main.png" alt-text="Connector1" lightbox="media/iot-metrics-display/iot-metrics-main.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-main.png" alt-text="Screenshot del riquadro ' Internet del connettore ', con grafici a linee che visualizzano il numero di messaggi in ingresso e normalizzati." lightbox="media/iot-metrics-display/iot-metrics-main.png"::: 
 
-4. Selezionare un connettore Internet per visualizzare le relative metriche. ad esempio, sono presenti (4) connettori per l'Internet delle cose associate a questa API di Azure per il servizio FHIR.
+4. Selezionare un connettore Internet per visualizzare le relative metriche. Ad esempio, ci sono quattro connettori Internet ( *connettore 1* , *connettore 2* e così via) associati a questa API di Azure per il servizio FHIR.
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="Connector2" lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-connector.png" alt-text="Screenshot del riquadro ' il connettore ', che visualizza le schede del connettore Internet 1, 2, 3 e 4." lightbox="media/iot-metrics-display/iot-metrics-select-connector.png"::: 
 
-> [!NOTE]
-> La scheda **personalizzata** consente di creare combinazioni di data/ora specifiche per la visualizzazione delle metriche del connettore Internet.
+5. Selezionare il periodo di tempo (ad esempio, **1 ora** , **24 ore** , **7 giorni** o **personalizzato** ) delle metriche del connettore per le cose che si desidera visualizzare. Selezionando la scheda **personalizzata** , è possibile creare combinazioni di data/ora specifiche per la visualizzazione delle metriche del connettore Internet.
 
-5. Selezionare il periodo di tempo per la visualizzazione delle metriche del connettore Internet (ad esempio: 1 ora, 24 ore, 7 giorni o personalizzato).
-
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="Connector3" lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-select-time.png" alt-text="Screenshot del riquadro ' sacco connettore ', che visualizza un grafico a linee del periodo di tempo di 1 ora per ' Connector 1'." lightbox="media/iot-metrics-display/iot-metrics-select-time.png"::: 
  
-## <a name="metrics-types-for-azure-iot-connector-for-fhir-preview"></a>Tipi di metriche per il connettore Azure Internet per FHIR (anteprima) 
-Di seguito sono riportate le metriche del connettore Internet.
+## <a name="metric-types-for-azure-iot-connector-for-fhir-preview"></a>Tipi di metrica per il connettore Azure Internet per FHIR (anteprima) 
+
+Le metriche del connettore Internet delle cose che è possibile visualizzare sono elencate nella tabella seguente:
 
 |Tipo di metrica|Scopo della metrica| 
 |-----------|--------------|
-|Numero di messaggi in ingresso|Numero di messaggi in ingresso non elaborati ricevuti (ad esempio, gli eventi del dispositivo).|
-|Numero di messaggi normalizzati|Numero di messaggi normalizzati.|
-|Numero di gruppi di messaggi|Numero di gruppi con messaggi aggregati nell'intervallo di tempo designato.|
-|Latenza media della fase normalizzata|Latenza media della fase di normalizzazione. La fase di normalizzazione consiste nell'eseguire la normalizzazione dei messaggi in ingresso non elaborati.|
-|Latenza media delle fasi del gruppo|Latenza media della fase del gruppo. La fase di raggruppamento prevede l'esecuzione del buffering, l'aggregazione e il raggruppamento dei messaggi normalizzati.| 
-|Numero totale errori|Numero totale di errori.| 
+|Numero di messaggi in ingresso|Visualizza il numero di messaggi in ingresso non elaborati ricevuti, ad esempio gli eventi del dispositivo.|
+|Numero di messaggi normalizzati|Visualizza il numero di messaggi normalizzati.|
+|Numero di gruppi di messaggi|Consente di visualizzare il numero di gruppi con messaggi aggregati nell'intervallo di tempo designato.|
+|Latenza media della fase normalizzata|Visualizza la latenza media della fase normalizzata. La fase normalizzata esegue la normalizzazione su messaggi in ingresso non elaborati.|
+|Latenza media delle fasi del gruppo|Visualizza la latenza media della fase del gruppo. La fase di raggruppamento esegue il buffering, l'aggregazione e il raggruppamento su messaggi normalizzati.| 
+|Numero totale errori|Visualizza il numero totale di errori.| 
 
-## <a name="focusing-and-configuring-azure-iot-connector-for-fhir-preview-metrics"></a>Messa a fuoco e configurazione del connettore Azure per la metrica FHIR (anteprima)
-In questo esempio, si concentrerà sul **numero di** metriche dei messaggi in ingresso.
+## <a name="focus-on-and-configure-azure-iot-connector-for-fhir-preview-metrics"></a>Concentrarsi e configurare il connettore Azure per la metrica FHIR (anteprima)
+
+In questo esempio, concentriamoci sul **numero di** metriche dei messaggi in ingresso.
 
 1. Selezionare un punto nel tempo in cui si desidera concentrarsi.
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-focus.png" alt-text="Connector4" lightbox="media/iot-metrics-display/iot-metrics-focus.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-focus.png" alt-text="Screenshot del riquadro della metrica &quot;numero di messaggi in ingresso&quot;, evidenziando un singolo punto nel tempo sul grafico a linee." lightbox="media/iot-metrics-display/iot-metrics-focus.png"::: 
 
-2. Da questa schermata è possibile **aggiungere la metrica** , **aggiungere filtro** e **applicare la suddivisione** per ulteriori personalizzazioni. 
+2. Nel riquadro **numero di messaggi in ingresso** è possibile personalizzare ulteriormente la metrica selezionando **Aggiungi metrica** , **Aggiungi filtro** o **applica suddivisione**. 
 
-   :::image type="content" source="media/iot-metrics-display/iot-metrics-add-options.png" alt-text="Connector5" lightbox="media/iot-metrics-display/iot-metrics-add-options.png"::: 
+   :::image type="content" source="media/iot-metrics-display/iot-metrics-add-options.png" alt-text="Screenshot del riquadro metrica ' numero di messaggi in ingresso ', che evidenzia i pulsanti ' Aggiungi metrica,' Aggiungi filtro ' è applica suddivisione '." lightbox="media/iot-metrics-display/iot-metrics-add-options.png"::: 
 
 ## <a name="conclusion"></a>Conclusione 
-L'accesso alle metriche del piano dati è essenziale per il monitoraggio e la risoluzione dei problemi.  Il connettore Azure per FHIR ti aiuta a eseguire queste azioni attraverso le metriche. 
+L'accesso alle metriche del piano dati è essenziale per il monitoraggio e la risoluzione dei problemi. Il connettore Azure per FHIR ti aiuta a eseguire queste operazioni attraverso le metriche. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere le domande frequenti sul connettore Azure per FHIR.
+Risposte alle domande frequenti sul connettore Azure per FHIR.
 
 >[!div class="nextstepaction"]
->[Connettore Azure per le domande frequenti su FHIR](fhir-faq.md)
+>[Domande frequenti sul connettore Azure Internet per FHIR](fhir-faq.md)
 
-*Nel portale di Azure si fa riferimento al Connettore Azure IoT per FHIR come Connettore IoT (anteprima).
-
-FHIR è il marchio registrato di HL7, usato con l'autorizzazione di HL7.
+* Nel portale di Azure, il connettore Azure Internet per FHIR viene indicato come connettore Internet (anteprima). FHIR è un marchio registrato di HL7 e viene usato con l'autorizzazione di HL7. 
