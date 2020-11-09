@@ -1,9 +1,9 @@
 - name: Documentazione del Riconoscimento del parlante
-  href: Home.md
+  href: ../speech-service/speaker-recognition-overview.md
 - name: Panoramica
   items:
     - name: Informazioni su Riconoscimento del parlante
-      href: Home.md
+      href: ../speech-service/speaker-recognition-overview.md
 - name: Informazioni di riferimento
   items:
     - name: Informazioni di riferimento sulle API

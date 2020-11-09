@@ -9,10 +9,10 @@
     - name: Novità
       href: whats-new.md
       displayName: 'release notes, service updates, videos'
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Uso dell'SDK
-      href: sdk-learning-loop.md
+      href: ./quickstart-personalizer-sdk.md
 - name: Esercitazioni
   items:
     - name: Usare l'app Web
@@ -88,7 +88,7 @@
         - name: .NET
           items:
             - name: Informazioni di riferimento
-              href: 'https://docs.microsoft.com/dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet'
+              href: /dotnet/api/overview/azure/cognitiveservices/client/personalizer?view=azure-dotnet
             - name: Pacchetto NuGet
               href: 'https://go.microsoft.com/fwlink/?linkid=2092272'
         - name: Go
@@ -98,13 +98,13 @@
         - name: Node.js
           items:
             - name: Informazioni di riferimento
-              href: 'https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest'
+              href: /javascript/api/@azure/cognitiveservices-personalizer/?view=azure-node-latest
             - name: NPM
               href: 'https://www.npmjs.com/package/@azure/cognitiveservices-personalizer/v/1.0.0'
         - name: Python
           items:
             - name: Informazioni di riferimento
-              href: 'https://docs.microsoft.com/python/api/overview/azure/cognitiveservices/personalizer?view=azure-python'
+              href: /python/api/overview/azure/cognitiveservices/personalizer?view=azure-python
             - name: Pacchetto Pypi
               href: 'https://pypi.org/project/azure-cognitiveservices-personalizer/'
 - name: Risorse
